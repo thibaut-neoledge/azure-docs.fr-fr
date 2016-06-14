@@ -14,20 +14,20 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="06/08/2016"
 	ms.author="heidist"/>
 
 # Importer des données dans Azure Search à l’aide du portail
 
-Le portail Azure comprend, sur le tableau de bord Azure Search, une commande **Importer des données** qui vous guide tout au long du processus d’ingestion des données dans Azure Search. La commande s’appuie sur une fonctionnalité d’indexeurs intégrée qui analyse une source de données et utilise l’ensemble de lignes contenues dans cette source de données pour créer et charger des documents.
+Le portail Azure comprend, sur le tableau de bord Azure Search, une commande **Importer des données** qui vous permet de charger des données dans un index. La commande s’appuie sur les fonctionnalités d’indexeur intégrées qui analysent une source de données et utilisent l’ensemble de lignes extraites de cette source de données pour créer et charger des documents.
 
-L’Assistant d’importation des données propose une construction en trois phases :
+L’importation des données dans l’Assistant propose une construction en trois phases :
 
 - une connexion à la source de données
 - un index cible dans lequel les données sont chargées (l’Assistant peut généralement le générer automatiquement)
 - une planification qui s’exécute immédiatement ou à intervalles réguliers
 
-Pour utiliser un indexeur ou la commande **Importer des données**, votre source de données principale doit compter parmi les sources prises en charge : base de données SQL Azure, bases de données relationnelles SQL Server sur une machine virtuelle Azure ou Azure DocumentDB.
+Pour utiliser un indexeur ou la commande **Importer des données**, votre source de données principale doit compter parmi les sources prises en charge : base de données SQL Azure, bases de données relationnelles SQL Server sur une machine virtuelle Azure ou Azure DocumentDB.
 
 Vous pouvez uniquement importer à partir d’une seule table, d’une vue ou d’une structure de données équivalente. Vous devrez peut-être commencer par créer cette structure de données dans votre source de données d’application pour obtenir les métadonnées et les entrées de données pertinentes dans votre index de recherche.
 
@@ -37,28 +37,28 @@ Vous pouvez tester ce workflow à l’aide d’exemples de données. Pour commen
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur le tableau de bord des services de votre service Azure Search. Voici quelques façons d'afficher le tableau de bord.
+2. Cliquez sur le tableau de bord des services de votre service Azure Search. Voici quelques façons d'afficher le tableau de bord.
 	- Dans la barre de lancement, cliquez sur **Accueil**. La page d'accueil comporte des vignettes pour chaque service de votre abonnement. Cliquez sur la vignette pour ouvrir le tableau de bord des services.
 	- Dans la barre de lancement, cliquez sur **Parcourir tout** >**Filtrer par** > **Rechercher des services** pour trouver votre service de recherche dans la liste.
 
 3. Une barre de commande apparaît en haut du tableau de bord des services, avec notamment l’option **Importer des données**. Cliquez sur **Importer des données** pour ouvrir le panneau d’importation des données.
 
-4. Cliquez sur **Se connecter à vos données** pour spécifier une définition de source de données utilisée par un indexeur. Les options incluent :
+4. Cliquez sur **Se connecter à vos données** pour spécifier une définition de source de données utilisée par un indexeur. Les options incluent :
 	- 	La source de données existante fait référence à une définition de source de données précédemment créée pour un indexeur. Si des indexeurs sont déjà définis dans votre service de recherche, vous pouvez réaffecter une définition de source de données à une importation.
 	- 	SQL Azure permet de spécifier une connexion de source de données vers une base de données SQL Azure ou une base de données SQL Server sur une machine virtuelle Azure.
 	- 	DocumentDB est utilisé pour spécifier une connexion de source de données pour ce type de source de données.
 
-   Pour SQL Azure et DocumentDB, la base de données doit être liée à votre abonnement. Si vous la connaissez, vous pouvez coller une chaîne de connexion ; sinon, vous pouvez choisir une source de données créée précédemment par une personne disposant d’autorisations d’écriture pour votre abonnement.
+   Pour SQL Azure et DocumentDB, la base de données doit être liée à votre abonnement. Si vous la connaissez, vous pouvez coller une chaîne de connexion ; sinon, vous pouvez choisir une source de données créée précédemment par une personne disposant d’autorisations d’écriture pour votre abonnement.
 
 5. Cliquez sur **Personnaliser l’index cible** pour terminer l’index par défaut.
 	- Le champ **Clé** est obligatoire. Le champ que vous sélectionnez pour la clé doit être un champ de chaîne contenant des valeurs uniques.
 	- Le nom et le type de champ sont généralement renseignés automatiquement. Vous pouvez cependant modifier le type de données.
-	- Sélectionnez les attributs de chaque champ :
-		- « Récupérable » renvoie le champ dans les résultats de la recherche.
-		- « Filtrable » permet de référencer le champ dans les expressions de filtre.
-		- « Triable » permet d’utiliser le champ dans un tri.
-		- « À choix multiples » active le champ pour la navigation à choix multiples.
-		- « Possibilité de recherche » permet une recherche en texte intégral.
+	- Sélectionnez les attributs de chaque champ :
+		- « Récupérable » renvoie le champ dans les résultats de la recherche.
+		- « Filtrable » permet de référencer le champ dans les expressions de filtre.
+		- « Triable » permet d’utiliser le champ dans un tri.
+		- « À choix multiples » active le champ pour la navigation à choix multiples.
+		- « Possibilité de recherche » permet une recherche en texte intégral.
 	- Cliquez sur l’onglet **Analyseur** si vous souhaitez spécifier un analyseur de langue au niveau du champ. Voir [Création d’une définition d’index de document dans plusieurs langues dans Azure Search](search-language-support.md) pour plus d’informations.
 	- Cliquez sur le **Générateur de suggestions** si vous souhaitez activer les suggestions de requête en saisie automatique ou semi-automatique.
 
@@ -68,6 +68,12 @@ L’opération d’importation des données que vous venez de terminer crée un 
 
 ##Modification d’un indexeur existant
 
-Dans le tableau de bord des services, double-cliquez sur la vignette Indexeur pour extraire une liste de tous les indexeurs créés pour votre abonnement. Double-cliquez sur l’un des indexeurs pour l’exécuter, le modifier ou le supprimer.
+Dans le tableau de bord des services, double-cliquez sur la vignette Indexeur pour extraire une liste de tous les indexeurs créés pour votre abonnement. Double-cliquez sur l’un des indexeurs pour l’exécuter, le modifier ou le supprimer. Vous pouvez remplacer l’index existant par un autre, modifier la source de données et définir les options de seuils d’erreur lors de l’indexation.
 
-<!---HONumber=AcomDC_0316_2016-->
+##Modification d’un index existant
+
+Dans Azure Search, les mises à jour structurelles d’un index nécessitent une reconstruction de cet index. Cette opération consiste à supprimer l’index, à le recréer et à recharger les données. Les mises à jour structurelles incluent la modification d’un type de données et le renommage ou la suppression d’un champ.
+
+L’ajout d’un nouveau champ, la modification des profils de score, la modification des générateurs de suggestions ou la modification des analyseurs de langue ne nécessitent pas de reconstruction. Consultez [Mettre à jour l’index](https://msdn.microsoft.com/library/azure/dn800964.aspx) pour plus de détails.
+
+<!---HONumber=AcomDC_0608_2016-->

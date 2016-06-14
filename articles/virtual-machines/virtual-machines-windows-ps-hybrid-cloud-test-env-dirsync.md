@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
  
 Cette rubrique vous guide lors de la création d'un environnement de cloud hybride pour le test de la synchronisation d'annuaires (DirSync) Office 365 avec la synchronisation de mot de passe hébergée dans Microsoft Azure. Voici la configuration obtenue.
 
@@ -44,7 +42,7 @@ Il existe trois principales étapes pour configurer cet environnement de test de
 2.	Configurer la version d'évaluation d'Office 365 FastTrack.
 3.	Configurer le serveur de synchronisation d'annuaires (DS1).
 
-Si vous n’avez pas encore d’abonnement Azure, vous pouvez obtenir un compte gratuit sur la page [Essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous n’avez pas encore d’abonnement Azure, vous pouvez obtenir un compte gratuit sur la page [Version d’essai d’Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Phase 1 : configuration de l’environnement de cloud hybride
 
@@ -181,4 +179,4 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
 - Déployez cette charge de travail [en production](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

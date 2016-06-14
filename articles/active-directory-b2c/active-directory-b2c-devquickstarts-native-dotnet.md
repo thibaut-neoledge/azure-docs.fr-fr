@@ -18,9 +18,6 @@
 
 # Version préliminaire d’Azure AD B2C : création d’une application de bureau Windows
 
-
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-native-switcher](../../includes/active-directory-b2c-devquickstarts-native-switcher.md)]-->
-
 Avec Azure Active Directory (Azure AD) B2C, vous pouvez ajouter de puissantes fonctionnalités de gestion des identités en libre-service à vos applications de bureau, en seulement quelques étapes. Cet article explique comment créer une application WPF (Windows Presentation Foundation) .NET de type « liste des tâches », qui inclut l’inscription d’utilisateur, la connexion et la gestion de profil. L’application prendra en charge l’inscription et la connexion à l’aide d’un nom d’utilisateur ou d’une adresse e-mail. Elle prendra également en charge l’inscription et la connexion à l’aide d’un compte de réseau social comme Facebook et Google.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -34,14 +31,14 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
 - Incluez un **client natif** dans l’application.
-- Copiez l’**URI de redirection** `urn:ietf:wg:oauth:2.0:oob`. Il s’agit de l’URL par défaut pour cet exemple de code.
-- Copiez l’**ID d’application** affecté à votre application. Vous en aurez besoin ultérieurement.
+- Copiez **l’URI de redirection** `urn:ietf:wg:oauth:2.0:oob`. Il s’agit de l’URL par défaut pour cet exemple de code.
+- Copiez **l’ID d’application** affecté à votre application. Vous en aurez besoin ultérieurement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Création de vos stratégies
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie pour chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création des trois stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie pour chaque type, comme décrit dans [l’article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création des trois stratégies, assurez-vous de :
 
 - Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse e-mail** dans le panneau des fournisseurs d’identité.
 - Choisir **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
@@ -66,7 +63,7 @@ Une fois l’exemple de code téléchargé, ouvrez le fichier .sln Visual Studi
 
 ## Configuration du service de tâches
 
-Quand `TaskService` reçoit une demande de `TaskClient`, il recherche un jeton d’accès valide pour authentifier la demande. Pour valider le jeton d’accès, vous devez fournir à `TaskService` des informations relatives à votre application. Dans le projet `TaskService`, ouvrez le fichier `web.config` qui se trouve à la racine du projet et remplacez les valeurs de la section `<appSettings>` :
+Quand `TaskService` reçoit une demande de `TaskClient`, il recherche un jeton d’accès valide pour authentifier la demande. Pour valider le jeton d’accès, vous devez fournir à `TaskService` des informations relatives à votre application. Dans le projet `TaskService`, ouvrez le fichier `web.config` qui se trouve à la racine du projet et remplacez les valeurs de la section `<appSettings>` :
 
 ```
 <appSettings>
@@ -83,7 +80,7 @@ Quand `TaskService` reçoit une demande de `TaskClient`, il recherche un jeton d
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Pour apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez l’[article sur la prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Pour apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, consultez l’[article sur la prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## Exécuter des stratégies
 Quand `TaskService` est prêt à authentifier les demandes, vous pouvez implémenter `TaskClient`. Votre application communique avec Azure AD B2C en envoyant des demandes d’authentification HTTP. Celles-ci spécifient la stratégie qu’elles souhaitent exécuter dans le cadre de la demande. Pour les applications de bureau .NET, vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour envoyer des messages d’authentification OAuth 2.0, exécuter des stratégies et obtenir des jetons qui appellent des API web.
@@ -223,7 +220,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 Dans tous ces cas, la bibliothèque ADAL retourne un jeton dans `AuthenticationResult` ou lève une exception. Chaque fois que vous obtenez un jeton de la bibliothèque ADAL, vous pouvez utiliser l’objet `AuthenticationResult.UserInfo` pour mettre à jour les données utilisateur dans l’application, telles que l’interface utilisateur. La bibliothèque ADAL met également en cache le jeton, pour une utilisation dans d’autres parties de l’application.
 
 ## Appel d’API
-Vous avez maintenant utilisé la bibliothèque ADAL pour exécuter des stratégies et obtenir des jetons. Dans de nombreux cas, cependant, vous souhaitez vérifier si un jeton mis en cache existe déjà, sans exécuter de stratégie. Ce genre de cas se produit quand l’application tente d’extraire la liste des tâches d’une utilisateur à partir de `TaskService`. Vous pouvez utiliser la même méthode `authContext.AcquireTokenAsync(...)` pour ce faire, de nouveau à l’aide de `clientId` en tant que paramètre d’étendue, mais cette fois en utilisant également `PromptBehavior.Never` :
+Vous avez maintenant utilisé la bibliothèque ADAL pour exécuter des stratégies et obtenir des jetons. Dans de nombreux cas, cependant, vous souhaitez vérifier si un jeton mis en cache existe déjà, sans exécuter de stratégie. Ce genre de cas se produit quand l’application tente d’extraire la liste des tâches d’un utilisateur à partir de `TaskService`. Vous pouvez utiliser la même méthode `authContext.AcquireTokenAsync(...)` pour ce faire, de nouveau à l’aide de `clientId` en tant que paramètre d’étendue, mais cette fois en utilisant également `PromptBehavior.Never` :
 
 ```C#
 private async void GetTodoList()
@@ -273,7 +270,7 @@ private async void GetTodoList()
 	...
 ```
 
-Quand l’appel à `AcquireTokenAsync(...)` réussit et qu’un jeton est trouvé dans le cache, vous pouvez ajouter le jeton à l’en-tête `Authorization` de la requête HTTP. Ainsi, `TaskService` peut authentifier la demande de lecture de la liste des tâches de l’utilisateur :
+Quand l’appel à `AcquireTokenAsync(...)` réussit et qu’un jeton est trouvé dans le cache, vous pouvez ajouter le jeton à l’en-tête `Authorization` de la requête HTTP. Ainsi, `TaskService` peut authentifier la demande de lecture de la liste des tâches de l’utilisateur :
 
 ```C#
 	...
@@ -311,7 +308,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 ## Exécution de l'exemple d'application
 
-Pour terminer, générez et exécutez `TaskClient` et `TaskService`. Inscrivez-vous à l’application à l’aide d’une adresse de messagerie ou d’un nom d’utilisateur. Déconnectez-vous, puis reconnectez-vous en tant que même utilisateur. Modifiez le profil de cet utilisateur. Déconnectez-vous et connectez-vous en utilisant un utilisateur différent.
+Pour finir, générez et exécutez `TaskClient` et `TaskService`. Inscrivez-vous à l’application à l’aide d’une adresse de messagerie ou d’un nom d’utilisateur. Déconnectez-vous, puis reconnectez-vous en tant que même utilisateur. Modifiez le profil de cet utilisateur. Déconnectez-vous et connectez-vous en utilisant un utilisateur différent.
 
 ## Ajout d’IDP sociaux
 
@@ -324,11 +321,11 @@ Pour ajouter des fournisseurs d’identité sociaux à votre application, commen
 - [Définir Amazon en tant qu’IDP](active-directory-b2c-setup-amzn-app.md)
 - [Définir LinkedIn en tant qu’IDP](active-directory-b2c-setup-li-app.md)
 
-Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, vous devez modifier chacune de vos trois stratégies pour inclure ces nouveaux fournisseurs, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, exécutez à nouveau l’application. Les nouveaux fournisseurs d’identité doivent être ajoutés comme options d’inscription et de connexion dans chacune de vos expériences relatives à l’identité.
+Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, vous devez modifier chacune de vos trois stratégies pour inclure ces nouveaux fournisseurs, comme décrit dans [l’article de référence de stratégie](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, exécutez à nouveau l’application. Les nouveaux fournisseurs d’identité doivent être ajoutés comme options d’inscription et de connexion dans chacune de vos expériences relatives à l’identité.
 
 Vous pouvez tester vos stratégies et observer les résultats sur votre exemple d’application. Ajoutez ou supprimez des fournisseurs d’identité, manipulez des revendications d’application ou modifiez des attributs d’inscription. Faites des essais jusqu’à ce que vous compreniez la façon dont les stratégies, les requêtes d’authentification et la bibliothèque ADAL sont liées.
 
-Pour référence, l’exemple terminé [est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple complet [est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
@@ -344,4 +341,4 @@ You can now move on to more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

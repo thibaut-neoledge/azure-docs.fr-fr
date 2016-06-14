@@ -21,7 +21,7 @@ Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP
 >[AZURE.NOTE] Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
 
 ## Vérification de la disponibilité d'une adresse IP particulière
-Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
+Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
 
 	Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 
@@ -45,7 +45,7 @@ Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, ext
 	| New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
 ## Récupération des informations d’adresse IP interne statique pour une machine virtuelle
-Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
+Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
 
 	Get-AzureVM -Name TestVM -ServiceName TestService
 

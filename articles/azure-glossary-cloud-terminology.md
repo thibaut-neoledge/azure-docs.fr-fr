@@ -57,7 +57,7 @@ Une [interface de ligne de commande](powershell-install-configure.md) pour gére
 l’un des deux [modèles de déploiement](resource-manager-deployment-model.md) utilisés pour déployer des ressources dans Microsoft Azure (l’autre est le modèle de déploiement classique). Certaines ressources Azure peuvent être déployées dans un modèle ou l’autre, tandis que d’autres ressources peuvent être déployées dans les deux modèles. Les conseils pour des ressources Azure individuelles indiquent les modèles dans lesquels une ressource peut être déployée.
 
 
-### <a name="faultdomain"></a>Domaine d’erreur  
+### <a name="fault-domain"></a>Domaine d’erreur  
 Une collection de machines virtuelles dans un groupe à haute disponibilité pouvant échouer en même temps. Exemple : un groupe de machines dans un rack partageant une source d’alimentation et un commutateur réseau communs. Dans Azure, les machines virtuelles d’un groupe à haute disponibilité sont automatiquement réparties entre plusieurs domaines d’erreur. Voir aussi [Gestion de la disponibilité des machines virtuelles Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) ou [Gestion de la disponibilité des machines virtuelles Linux](./virtual-machines/virtual-machines-linux-manage-availability.md)
 
 
@@ -142,7 +142,7 @@ Une ressource qui implémente des comportements ou des fonctionnalités facilita
 
 
 ### <a name="vnet"></a>Réseau virtuel  
-Un réseau qui assure la connectivité entre vos ressources Azure, isolé de tous les autres locataires Azure. Il peut être connecté à d’autres réseaux virtuels Azure par le biais d’une [passerelle VPN Azure](vpn-gateway-about-vpngateways/) et à votre réseau local en utilisant [plusieurs options](vpn-gateway-cross-premises-options/). Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage de ce réseau. Voir aussi [Présentation du réseau virtuel](./virtual-network/virtual-networks-overview.md)
+Un réseau qui assure la connectivité entre vos ressources Azure, isolé de tous les autres locataires Azure. Il peut être connecté à d’autres réseaux virtuels Azure par le biais d’une [passerelle VPN Azure](./vpn-gateway/vpn-gateway-about-vpngateways.md) et à votre réseau local en utilisant [plusieurs options](./vpn-gateway/vpn-gateway-cross-premises-options.md). Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage de ce réseau. Voir aussi [Présentation du réseau virtuel](./virtual-network/virtual-networks-overview.md)
 
 ###**Voir aussi**  
 - [Prise en main d’Azure](https://azure.microsoft.com/get-started/)
@@ -150,4 +150,4 @@ Un réseau qui assure la connectivité entre vos ressources Azure, isolé de tou
 - [Azure pour vos applications métier](https://azure.microsoft.com/overview/business-apps-on-azure/)
 - [Azure dans votre centre de données](https://azure.microsoft.com/overview/business-apps-on-azure/) 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

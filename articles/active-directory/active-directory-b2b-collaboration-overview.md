@@ -18,7 +18,7 @@
 
 # Collaboration B2B Azure Active Directory
 
-La collaboration B2B Azure Active Directory (Azure AD) vous permet d’activer l’accès à vos applications d’entreprise à partir des identités gérées par les partenaires. Vous pouvez créer des relations intersociétés en invitant et en autorisant des utilisateurs de sociétés partenaires à accéder à vos ressources. La complexité est réduite, car chaque entreprise se fédère une seule fois avec Azure Active Directory et chaque utilisateur est représenté par un seul compte Azure AD. La sécurité est renforcée car l’accès est refusé lorsque des utilisateurs du partenaire sont résiliés de leurs organisations et que l’accès involontaire via l’appartenance dans les répertoires internes est empêché. Pour les partenaires professionnels qui ne disposent pas déjà d’Azure AD, la collaboration B2B offre une expérience d’inscription rationalisée afin de fournir des comptes Azure AD à vos partenaires professionnels.
+La collaboration B2B Azure Active Directory (Azure AD) vous permet d’activer l’accès à vos applications d’entreprise à partir des identités gérées par les partenaires. Vous pouvez créer des relations intersociétés en invitant et en autorisant des utilisateurs de sociétés partenaires à accéder à vos ressources. La complexité est réduite, car chaque entreprise se fédère une seule fois avec Azure Active Directory et chaque utilisateur est représenté par un seul compte Azure AD. Si vos partenaires commerciaux gèrent leurs comptes dans Azure AD, la sécurité est renforcée car l’accès est refusé lorsque des utilisateurs du partenaire sont résiliés de leurs organisations et que l’accès involontaire via l’appartenance dans les répertoires internes est empêché. Pour les partenaires professionnels qui ne disposent pas déjà d’Azure AD, la collaboration B2B offre une expérience d’inscription rationalisée afin de fournir des comptes Azure AD à vos partenaires professionnels.
 
 -   Vos partenaires professionnels utilisent leurs propres informations de connexion, ce qui vous libère de la gestion d’un répertoire de partenaires externes et de la nécessité de supprimer l’accès lorsque des utilisateurs quittent l’organisation partenaire.
 
@@ -58,4 +58,4 @@ Consultez les autres articles sur la collaboration B2B d’Azure AD.
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

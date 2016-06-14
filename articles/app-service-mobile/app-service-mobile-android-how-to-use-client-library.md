@@ -47,7 +47,7 @@ Après ces étapes, vous devez suivre la procédure décrite dans la section de 
 
 Modifiez les deux fichiers **build.gradle** :
 
-1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
+1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
 
 		buildscript {
 		    repositories {
@@ -55,7 +55,7 @@ Modifiez les deux fichiers **build.gradle** :
 		    }
 		}
 
-2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
+2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
 
 		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
@@ -194,7 +194,7 @@ Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque 
 
 Comme la source de données de notre vue est un tableau de *ToDoItem*, nous créons une sous-classe de notre adaptateur à partir de la classe *ArrayAdapter&lt;ToDoItem&gt;*. Cette sous-classe produit une vue pour chaque élément *ToDoItem* utilisant la mise en page *row\_list\_to\_do*.
 
-Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
+Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 

@@ -19,9 +19,6 @@
 
 # Charge de travail des applications métier, phase 2 : configurer des contrôleurs de domaine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
- 
-
 Dans cette phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous configurez deux contrôleurs de domaine réplica dans le réseau virtuel Azure afin que les requêtes Web des clients pour les ressources Web puissent être authentifiées localement dans le réseau virtuel Azure, au lieu d'envoyer ce trafic d'authentification à travers la connexion à votre réseau local.
 
 Vous devez terminer cette opération avant de passer à la [Phase 3](virtual-machines-windows-ps-lob-ph3.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md) pour toutes les phases.
@@ -197,4 +194,4 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 3](virtual-machines-windows-ps-lob-ph3.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

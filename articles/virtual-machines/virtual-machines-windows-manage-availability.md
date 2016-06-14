@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser plusieurs machines virtuelles afin de garantir la haute disponibilité de votre application Windows dans Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="kenazk"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="05/25/2016"
+	ms.author="cynthn"/>
 
 # Gestion de la disponibilité des machines virtuelles
 
@@ -23,6 +23,12 @@ Découvrez comment configurer et gérer plusieurs machines virtuelles pour garan
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+Pour obtenir des instructions sur la création et l’utilisation de groupes à haute disponibilité lorsque vous utilisez le modèle de déploiement classique, consultez la rubrique [Configuration d’un groupe à haute disponibilité](virtual-machines-windows-classic-configure-availability.md).
+
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+## Étapes suivantes
+
+Pour en savoir plus sur l’équilibrage de charge de vos machines virtuelles, consultez la rubrique concernant [l’équilibrage de charge des machines virtuelles](virtual-machines-windows-load-balance.md).
+
+<!---HONumber=AcomDC_0601_2016-->

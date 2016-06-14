@@ -19,8 +19,6 @@
 
 # Déployer une application métier à haute disponibilité dans Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 Cet article contient des liens vers des instructions détaillées permettant de déployer une application métier web, à haute disponibilité, spécialement conçue pour l’Intranet, avec des groupes de disponibilité Always On SQL Server dans des services d’infrastructure Azure. L'application est hébergée sur ces ordinateurs :
 
 - Deux serveurs Web
@@ -93,4 +91,4 @@ Pour plus d’informations sur la conception des charges de travail informatique
 
 - Commencez la configuration de cette charge de travail avec la [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

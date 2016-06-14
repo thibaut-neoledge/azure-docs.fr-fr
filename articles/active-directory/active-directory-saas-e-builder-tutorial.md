@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à e-Builder
@@ -64,11 +64,11 @@ Cette section décrit l'activation de l'intégration de l'application pour e-Bui
     ![e-Builder](./media/active-directory-saas-e-builder-tutorial/IC777380.png "e-Builder")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s'authentifier sur e-Builder avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur e-Builder avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD puis dans la page d’intégration d’applications **E-Builder**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure AD puis dans la page d’intégration d’applications **e-Builder**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configurer l’authentification unique")
 
@@ -76,11 +76,11 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à e-Builder**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.e-Builder.com* », puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à e-Builder**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.e-Builder.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configurer l’URL de l’application")
 
-4.  Dans la page **Configurer l’authentification unique sur E-Builder**, pour télécharger vos métadonnées, cliquez sur **Télécharger les métadonnées** puis le fichier de données localement en tant que **c:\\E-BuilderMetaData.xml**.
+4.  Dans la page **Configurer l’authentification unique sur e-Builder**, pour télécharger vos métadonnées, cliquez sur **Télécharger les métadonnées** puis le fichier de données localement en tant que **c:\\e-BuilderMetaData.xml**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Configurer l’authentification unique")
 
@@ -110,4 +110,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

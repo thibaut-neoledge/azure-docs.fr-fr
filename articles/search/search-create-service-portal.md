@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer un service Azure Search à l’aide du portail Azure | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Découvrez comment configurer un service Azure Search à l’aide du portail Azure."
+	description="Découvrez comment configurer un service Azure Search à l’aide du portail Azure."
 	services="search"
 	authors="ashmaka"
 	documentationCenter=""/>
@@ -11,10 +11,10 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
-# Créer un service Azure Search à l’aide du portail Azure
+# Créer un service Azure Search à l’aide du portail Azure
 
 Ce guide vous explique comment créer (ou approvisionner) un service Azure Search à l’aide du [portail Azure](https://portal.azure.com/).
 
@@ -30,7 +30,7 @@ Ce guide suppose que vous disposez d’un abonnement Azure et que vous êtes en 
 
 ## II. Choisir un nom de service et un point de terminaison d’URL pour le service
 1. Le nom de votre service fait partie de l’URL de point de terminaison de votre service Azure Search que vous utilisez pour effectuer vos appels d’API afin de gérer et d’utiliser le service de recherche.
-2. Tapez le nom de votre service dans le champ « URL ». Le nom du service :
+2. Tapez le nom de votre service dans le champ « URL ». Le nom du service :
   * doit contenir uniquement des lettres minuscules, des chiffres ou des tirets (« - ») ;
   * ne pas utiliser de tiret (« - ») pour les 2 premiers caractères ni pour le dernier ;
   * ne peut pas contenir de tirets consécutifs (« -- ») ;
@@ -74,4 +74,4 @@ Les *__réplicas__* permettent à votre service de traiter plus de requêtes de 
 ## Suivant
 Après avoir approvisionné un service Azure Search, vous pouvez [définir un index Azure Search](search-what-is-an-index.md) afin de pouvoir télécharger vos données et effectuer des recherches dans vos données.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

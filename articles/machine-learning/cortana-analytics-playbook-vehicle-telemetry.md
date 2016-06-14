@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -49,4 +49,4 @@ Cette solution utilise deux **sources de données** différentes :
 - **Simulation des signaux et diagnostics d’un véhicule** : un simulateur télématique de véhicule émet des informations de diagnostic et des signaux correspondant à l’état du véhicule et au schéma de conduite à un moment donné. 
 - **Catalogue de véhicules** : jeu de données de référence associé à un mappage VIN/modèle.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -248,4 +248,4 @@ Envoie un nouveau message à un numéro de mobile. ```POST: /Messages.json```
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!------HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="06/03/2016"
    ms.author="yurid"/>
 
 # Obtenir des informations à partir des données du Centre de sécurité Azure à l’aide de Power BI
@@ -21,30 +21,36 @@ Le [tableau de bord Power BI](http://aka.ms/azure-security-center-power-bi) du 
 
 > [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
 
-## Explorer les données du Centre de sécurité Azure à l’aide des services Power BI
-Dans Power BI, connectez-vous au [pack de contenu du Centre de sécurité Azure](https://app.powerbi.com/groups/me/getdata/services/azure-security-center) et suivez les étapes ci-dessous :
 
-1\. Cliquez sur **Connexion** dans la mosaïque du Centre de sécurité Azure pour continuer.
+##Accéder à Power BI à l’aide du tableau de bord du Centre de sécurité Azure
+Vous pouvez également utiliser le tableau de bord du Centre de sécurité Azure pour accéder aux rapports Power BI. Pour ce faire, procédez comme suit :
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig1.png)
+1. Dans le tableau de bord du **Centre de sécurité Azure**, cliquez sur le bouton **Explorer dans Power BI**.
 
-2\. La fenêtre **Se connecter au Centre de sécurité Azure** s’ouvre. Dans le champ **ID d’abonnement Azure**, indiquez votre abonnement Azure, puis cliquez sur **Suivant**.
+	![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig9-new.png)
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig2.png)
+2. Le volet **Explorer dans Power BI** s’ouvre à droite de l’écran, comme indiqué ci-dessous :
 
-3\. Dans la liste déroulante **Méthode d’authentification**, sélectionnez **oAuth2** et cliquez sur **Se connecter**.
+	![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig2-new.png)
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig3.png)
+3. Si vous créez le tableau de bord Power BI pour la première fois, vous pouvez choisir l’une des options ci-dessous dans le panneau Explorer dans Power BI :
 
-4\. Vous êtes redirigé vers une page d’authentification dans laquelle vous devez saisir les informations d’identification que vous utilisez pour vous connecter au Centre de sécurité Azure. Une fois le processus d’authentification effectué, Power BI commence à importer les données qui serviront de base à la génération de vos rapports. Il est possible que le message suivant s’affiche entre-temps à droite de votre navigateur :
+	- **Security insights dashboard** (Tableau de bord des informations de sécurité) : choisissez cette option si vous voulez créer un tableau de bord qui inclut l’état de la sécurité, les threads et les détections. Il s’agit d’une option plus courante pour le rôle DevOps responsable de l’analyse de l’état de protection et de la détection des alertes sur les différents abonnements.
+	- **Policy management dashboard** (Tableau de bord de gestion des stratégies) : choisissez cette option si vous voulez explorer les stratégies de gestion et d’application. Il s’agit d’une option plus courante pour l’équipe informatique centrale qui est davantage axée sur la gouvernance. L’équipe peut utiliser ce tableau de bord pour améliorer la visibilité et obtenir des informations sur l’adhésion aux stratégies de sécurité au sein de leur organisation.
+	- Si vous disposez déjà d’un tableau de bord Power BI, cliquez sur **Go to your current Power BI dashboard** (Accéder au tableau de bord Power BI en cours).
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig4.png)
+4. Pour les besoins de cet exemple, cliquez sur **Tableau de bord des informations de sécurité**. La fenêtre ci-dessous s’affiche :
 
-5\. Une fois le processus terminé, les rapports suivants sont chargés dans votre tableau de bord Power BI du Centre de sécurité Azure :
+	![Tableau de bord des informations de sécurité du centre de sécurité Azure](./media/security-center-powerbi/security-center-powerbi-fig3-new.png)
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig5.png)
+5. Assurez-vous que **Méthode d’authentification** vaut **oAuth2** et cliquez sur **Se connecter**.
+6. La fenêtre **Power BI** s’ouvre et un rapport ayant une structure similaire à celle ci-dessous apparaît :
+	
+	![Tableau de bord des informations de sécurité](./media/security-center-powerbi/security-center-powerbi-fig5.png)
 
-Vous pouvez voir instantanément le nombre d’alertes et de recommandations de sécurité, ainsi que le nombre de machines virtuelles, de bases de données SQL Azure et de ressources réseau surveillés par le Centre de sécurité Azure.
+> [AZURE.NOTE] Une actualisation quotidienne du rapport est planifiée. Si vous rencontrez des problèmes liés à cette actualisation, lisez l’article [Problèmes potentiels d’actualisation avec Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/) pour plus d’informations sur la manière de les résoudre.
+
+Vous pouvez voir ici le nombre d’alertes et de recommandations de sécurité, ainsi que le nombre de machines virtuelles, de bases de données SQL Azure et de ressources réseau surveillées par le Centre de sécurité Azure.
 
 Un lien vers le Centre de sécurité Azure vous redirige vers le portail Azure. Les graphiques vous permettent de visualiser facilement les informations relatives aux recommandations et alertes de sécurité, notamment :
 
@@ -55,54 +61,52 @@ Un lien vers le Centre de sécurité Azure vous redirige vers le portail Azure. 
 - Ressources ciblées par des attaques
 - Adresses IP ciblées par des attaques
 
-Chaque graphique recèle des informations supplémentaires. Il vous suffit de sélectionner une mosaïque pour afficher d’autres informations. Par exemple, la mosaïque Intégrité de la sécurité des ressources affiche des détails supplémentaires sur les recommandations en attente selon les ressources, comme indiqué ci-dessous :
+Chaque graphique recèle des informations supplémentaires. Sélectionnez une mosaïque pour afficher d’autres informations. Par exemple, la mosaïque Intégrité de la sécurité des ressources affiche des détails supplémentaires sur les recommandations en attente selon les ressources, comme indiqué ci-dessous :
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig6.png)
+![Recommandations](./media/security-center-powerbi/security-center-powerbi-fig6.png)
 
 Si vous cliquez sur une ligne de ce graphique, les autres lignes apparaissent en grisé afin que vous puissiez vous concentrer uniquement sur celle que vous avez sélectionnée. Pour revenir au tableau de bord, cliquez sur **Centre de sécurité Azure** sous l’option **Tableaux de bord** dans le volet gauche de cette page.
 
 > [AZURE.NOTE] Si vous souhaitez personnaliser vos rapports, vous avez la possibilité de les modifier en y ajoutant des champs supplémentaires ou en adaptant les éléments visuels existants. Pour plus d’informations, consultez la page [Interagir avec un rapport en mode Édition dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/).
 
-Les mosaïques **Nombre d’alertes dans le temps**, **Ressources ciblées par des attaques** et **Adresses IP ciblées par des attaques** affichent des informations similaires lorsque vous les sélectionnez. Le rapport regroupe en effet toutes les informations relatives à ces trois variables sur une même page intitulée **Ressources visées** comme indiqué ci-dessous :
+Les mosaïques **Nombre d’alertes dans le temps, Ressources ciblées par des attaques** et **Adresses IP ciblées par des attaques** affichent des informations similaires lorsque vous les sélectionnez. Le rapport regroupe en effet toutes les informations relatives à ces trois variables sur une même page intitulée **Ressources visées** comme indiqué ci-dessous :
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig7.png)
+![Ressources visées](./media/security-center-powerbi/security-center-powerbi-fig7.png)
 
 À ce stade, vous pouvez également enregistrer une copie de ce rapport, l’imprimer ou encore le publier sur le web à l’aide des options disponibles dans le menu **Fichier**.
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig8.png)
+![Menu Fichier](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
+## Explorer les données du Centre de sécurité Azure à l’aide des services Power BI
 
-##Accéder à Power BI à l’aide du tableau de bord du Centre de sécurité Azure
-Vous pouvez également utiliser le tableau de bord du Centre de sécurité Azure pour accéder aux rapports Power BI. Pour ce faire, procédez comme suit :
+Dans Power BI, connectez-vous au [Power BI Content Pack Services](https://msit.powerbi.com/groups/me/getdata/services) (Services du pack de contenu Power BI) et suivez les étapes ci-dessous :
 
-1\. Dans le tableau de bord du **Centre de sécurité Azure**, cliquez sur le bouton **Explorer dans Power BI**.
+1. Dans la fenêtre **Content Pack for Power BI** (Pack de contenu pour Power BI), les deux options illustrées ci-dessous s’affichent.
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig9-new.png)
+	![Pack de contenu pour Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new.png)
 
-2\. Le volet **Explorer dans Power BI** s’ouvre à droite de l’écran, comme indiqué ci-dessous :
+2. Pour les besoins de cet exemple, cliquez sur **Get** (Obtenir) dans la mosaïque **Azure Security Center Policy Management** (Gestion des stratégies du centre de sécurité Azure).
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig10-1.png)
+3. Dans la fenêtre **Connect to Azure Security Center Policy Management** (Se connecter à la gestion des stratégies du centre de sécurité Azure), veillez à sélectionner **oAuth2** sous la liste déroulante **Authentication Method** comme illustré ci-dessous et cliquez sur le bouton **Sign in** (Se connecter).
 
-3\. Dans la liste déroulante, **Choisir un abonnement à explorer dans Power BI**, sélectionnez l’abonnement que vous souhaitez utiliser.
+	![Fenêtre Gestion des stratégies](./media/security-center-powerbi/security-center-powerbi-fig4-new.png)
 
-4\. Dans le champ **Copier l’ID d’abonnement**, cliquez sur le bouton de copie. 5. Cliquez sur le bouton **Accéder à Power BI**. 6. La fenêtre **Se connecter au Centre de sécurité Azure** s’ouvre. Dans le champ **ID d’abonnement Azure**, indiquez votre abonnement Azure, puis cliquez sur **Suivant**.
+4. Vous êtes redirigé vers une page d’authentification dans laquelle vous devez saisir les informations d’identification que vous utilisez pour vous connecter au Centre de sécurité Azure. Une fois le processus d’authentification terminé, Power BI commence à importer les données qui serviront de base à la génération de vos rapports. Il est possible que le message suivant s’affiche entre-temps à droite de votre navigateur :
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig2.png)
+	![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig4.png)
 
-7\. Dans la liste déroulante **Méthode d’authentification**, sélectionnez **oAuth2** et cliquez sur **Se connecter**.
+	>[AZURE.NOTE] Lorsque le tableau de bord est créé pour la première fois, cela peut prendre plus de temps, surtout dans les scénarios à abonnements multiples.
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig3.png)
+5. Une fois le processus terminé, le tableau de bord Power BI du Centre de sécurité Azure est chargé avec le rapport **Gestion des stratégies**.
 
-8\. Vous êtes redirigé vers une page d’authentification dans laquelle vous devez saisir les informations d’identification que vous utilisez pour vous connecter au Centre de sécurité Azure. Une fois le processus d’authentification effectué, Power BI commence à importer les données qui serviront de base à la génération de vos rapports.
-
-> [AZURE.NOTE] Une actualisation quotidienne du rapport est planifiée. Si vous rencontrez des problèmes liés à cette actualisation, lisez l’article [Problèmes potentiels d’actualisation avec Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/) pour plus d’informations sur la manière de les résoudre.
 
 ## Étapes suivantes
 Dans ce document, vous avez vu comment utiliser le service Power BI depuis le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
+- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md) - Découvrez comment planifier l’adoption du Centre de sécurité Azure.
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) – Découvrez comment configurer des paramètres de sécurité dans le Centre de sécurité Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/26/2016" 
 	ms.author="tomfitz"/>
 
 # Verrouiller des ressources avec Azure Resource Manager
 
-En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur **CanNotDelete** ou **ReadOnly**. **CanNotDelete** signifie que les utilisateurs autorisés peuvent toujours lire et modifier une ressource, mais ils ne peuvent pas la supprimer. **ReadOnly** signifie que les utilisateurs autorisés peuvent uniquement lire à partir d’une ressource, mais ils ne peuvent la modifier ou supprimer.
+En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur **CanNotDelete** ou **ReadOnly**.
+
+- **CanNotDelete** signifie que les utilisateurs autorisés peuvent toujours lire et modifier une ressource, mais qu’ils ne peuvent pas la supprimer. 
+- **ReadOnly** signifie que les utilisateurs autorisés peuvent lire une ressource, mais qu’ils ne peuvent ni la supprimer ni y effectuer des actions. L’autorisation sur la ressource est limitée au rôle **Lecteur**. L’application de **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui ressemblent à des opérations de lecture nécessitent en fait des actions supplémentaires. Par exemple, le placement d’un verrou **ReadOnly** sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture. Autre exemple : le placement d’un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 
 Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès basé sur un rôle Azure](./active-directory/role-based-access-control-configure.md).
 
@@ -42,7 +45,7 @@ Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux act
 
       ![définir verrou](./media/resource-group-lock-resources/set-lock.png)
 
-4. Pour supprimer le verrou, sélectionnez les points de suspension, puis sélectionnez **Supprimer** parmi les options disponibles.
+4. Pour supprimer le verrou, sélectionnez les points de suspension, puis **Supprimer** parmi les options disponibles.
 
       ![supprimer verrou](./media/resource-group-lock-resources/delete-lock.png)
 
@@ -108,4 +111,4 @@ Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **S
 - Pour changer le groupe de ressources où se trouve une ressource, consultez [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 - Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

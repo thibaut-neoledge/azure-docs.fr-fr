@@ -47,9 +47,7 @@ Le déclencheur de minuteur gère automatiquement l’augmentation de la taille 
 
 ## Format de l’expression schedule
 
-L’expression schedule peut correspondre à une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) comportant 6 champs : {seconde} {minute} {heure} {jour} {mois} {jour de la semaine}. De nombreux documents d’expression cron disponibles en ligne omettent le champ {seconde} ; par conséquent, si vous copiez une expression de l’un de ces documents, vous devrez adapter votre code pour y inclure ce champ supplémentaire.
-
-L’expression schedule peut également être au format *hh:mm:ss* afin de spécifier le délai entre chaque déclenchement de la fonction.
+L’expression schedule correspond à une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) comportant 6 champs : {seconde} {minute} {heure} {jour} {mois} {jour de la semaine}. De nombreux documents d’expression cron disponibles en ligne omettent le champ {seconde} ; par conséquent, si vous copiez une expression de l’un de ces documents, vous devrez adapter votre code pour y inclure ce champ supplémentaire.
 
 Voici quelques exemples d’expressions schedule.
 
@@ -67,13 +65,6 @@ Pour déclencher la fonction immédiatement, puis toutes les deux heures par la 
 "runOnStartup": true,
 ```
 
-Pour déclencher la fonction toutes les 15 secondes :
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
-```
-
 ## Exemple de code C# de déclencheur de minuteur
 
 Cet exemple de code C# écrit un journal spécifique chaque fois que la fonction est déclenchée.
@@ -89,4 +80,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

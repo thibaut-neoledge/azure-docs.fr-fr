@@ -12,7 +12,7 @@
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="performance"
+   ms.tgt_pltfrm="sqldb-performance"
    ms.workload="data-management"
    ms.date="05/25/2016"
    ms.author="carlrab"/>
@@ -34,10 +34,10 @@ Le fonctionnement du magasin de requêtes dans la base de données SQL Azure se 
 
 L’impact sur la charge de travail du client possède deux dimensions :
 
-- ***Disponibilité*** : le contrat de niveau de service pour la base de données SQL n’est pas réduit lorsque le magasin de requêtes est en cours d’exécution.
+- ***Disponibilité*** : le [contrat de niveau de service pour la base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/) n’est pas réduit lorsque le magasin de requêtes est en cours d’exécution.
 - ***Performances*** : la surcharge moyenne créée par le magasin de requêtes se situe généralement entre 1 et 2 %.
 
-Dans Azure, le magasin de requêtes fonctionne avec une quantité limitée de ressources (processeur, mémoire, disque d’E/S, volume sur le disque, etc.). Il se conforme à diverses restrictions du système afin d’affecter au minimum la charge de travail régulière. En général, le magasin de requêtes respecte les restrictions de ressources sous deux aspects :
+Dans Azure, le magasin de requêtes fonctionne avec une quantité limitée de ressources (processeur, mémoire, disque d’E/S, volume sur le disque, etc.). Il se conforme à diverses restrictions du système afin d’affecter au minimum la charge de travail régulière :
 
 - ***Restrictions statiques :*** restrictions imposées par la capacité en ressources d’un niveau de service donné (De base, Standard, Premium, pool élastique).
 - ***Restrictions dynamiques :*** restrictions imposées par la consommation actuelle de la charge de travail (par exemple, les ressources disponibles).
@@ -46,16 +46,17 @@ Pour garantir un fonctionnement continu et fiable, la base de données SQL Azure
 
 - Nombre d’exceptions et atténuations automatiques
 - Nombre de bases de données à l’état READ\_ONLY et durée de l’état READ\_ONLY
+- Les meilleures bases de données avec consommation de mémoire du magasin de requêtes au-delà de la limite.
 - Meilleures bases de données en matière de fréquence et de durée du nettoyage automatique
-- Meilleures bases de données en matière de durée de chargement des données sur la mémoire (lors de l’initialisation)
+- Meilleures bases de données en matière de durée de chargement des données sur la mémoire (initialisation du magasin de requêtes)
 - Meilleures bases de données en matière de durée du vidage des données sur le disque
 
 La base de données SQL Azure utilise les données recueillies pour :
 
-- ***Résoudre ou limiter les problèmes causés par le magasin de requêtes :*** la base de données SQL Azure peut détecter et limiter les problèmes ayant un impact important sur la charge de travail du client, avec une latence faible (inférieure à une heure). Généralement, les problèmes sont traités en ***désactivant*** temporairement le magasin de requêtes.
 - ***Découvrir des modèles d’utilisation sur un grand nombre de bases de données afin d’améliorer la qualité et la fiabilité de la fonctionnalité :*** le magasin de requêtes s’améliore avec chaque mise à jour de la base de données SQL Azure. 
+- ***Résoudre ou limiter les problèmes causés par le magasin de requêtes :*** la base de données SQL Azure peut détecter et limiter les problèmes ayant un impact important sur la charge de travail du client, avec une latence faible (inférieure à une heure). Généralement, les problèmes sont traités en ***désactivant*** temporairement le magasin de requêtes.
 
-De temps à autre, les mises à jour du magasin de requêtes intègrent des modifications des valeurs par défaut appliquées à des configurations internes et, plus rarement, externes (destinées aux clients). Par conséquent, l’expérience client liée au magasin de requêtes sur la base de données SQL Azure peut être différente de celle des utilisateurs dans un environnement local en raison des actions automatiques effectuées par la plateforme du magasin de requêtes :
+De temps à autre, les mises à jour du magasin de requêtes intègrent des modifications des valeurs par défaut appliquées à des configurations internes et, plus rarement, externes (destinées aux clients). Par conséquent, l’expérience client liée au magasin de requêtes sur la base de données SQL Azure peut être différente de celle des utilisateurs dans un environnement local en raison des actions automatiques effectuées par la plateforme Azure :
 
 - Le magasin de requêtes peut être ***désactivé*** pour limiter les problèmes, puis ***réactivé*** une fois le problème résolu.
 - La configuration du magasin de requêtes peut être modifiée afin de garantir un travail fiable. Cette action peut être effectuée comme suit :
@@ -80,7 +81,7 @@ Cette section décrit les paramètres optimaux de configuration par défaut, con
 | FLUSH\_INTERVAL\_SECONDS | Indique la durée maximale pendant laquelle les statistiques d’exécution capturées seront conservées dans la mémoire, avant le vidage sur disque | 900 | Appliqué aux nouvelles bases de données |
 ||||||
 
-Les paramètres par défaut ci-dessus seront automatiquement appliqués à l’étape finale de l’activation du magasin de requêtes dans toutes les bases de données SQL Azure. Après cela, la base de données SQL Azure ne modifiera pas les valeurs de configuration définies par les clients, à moins qu’elles aient un impact négatif sur les charges de travail principales ou sur la fiabilité des opérations du magasin de requêtes.
+> [AZURE.IMPORTANT] Ces paramètres par défaut ci-dessus seront automatiquement appliqués à l’étape finale de l’activation du magasin de requêtes dans toutes les bases de données SQL Azure (voir la remarque importante ci-dessus). Après cela, la base de données SQL Azure ne modifiera pas les valeurs de configuration définies par les clients, à moins qu’elles aient un impact négatif sur les charges de travail principales ou sur la fiabilité des opérations du magasin de requêtes.
 
 Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATABASE avec les options du magasin de requêtes](https://msdn.microsoft.com/library/bb522682.aspx) pour rétablir la configuration à l’état précédent. Découvrez les [meilleures pratiques liées au magasin de requêtes](https://msdn.microsoft.com/library/mt604821.aspx) pour savoir comment choisir des paramètres de configuration optimaux.
 
@@ -94,8 +95,10 @@ Pour plus d’informations, consultez les articles suivants :
 
 - [Un enregistreur de données pour votre base de données](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 
+- [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
+
 - [Scénarios d’utilisation du magasin de requêtes](https://msdn.microsoft.com/library/mt614796.aspx)
 
 - [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

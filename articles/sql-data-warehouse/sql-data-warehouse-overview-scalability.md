@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="05/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Évolutivité des performances pour l’Azure SQL Data Warehouse
@@ -56,7 +56,7 @@ Pour obtenir une liste des unités DWU, consultez les objectifs de niveau de ser
 
 ### Comment mettre les performances à l’échelle ?
 
-Pour mettre augmenter ou diminuer votre puissance de calcul de manière élastique, modifiez simplement le paramètre Data Warehouse Units (DWU) pour votre base de données. En arrière-plan, SQL Data Warehouse modifie les allocations des ressources de processeur et de mémoire à l’aide des fonctionnalités de déploiement rapide et simple de la base de données SQL.
+Pour mettre augmenter ou diminuer votre puissance de calcul de manière élastique, modifiez simplement le paramètre Data Warehouse Units (DWU) pour votre base de données. En arrière-plan, SQL Data Warehouse interrompt votre instance, modifie les affectations de processeur et de mémoire, puis redémarre votre instance.
 
 Les unités DWU sont allouées par blocs de 100, mais tous les blocs ne sont pas disponibles. Les performances augmentent proportionnellement à mesure que le nombre d’unités DWU augmente. Dans des niveaux de DWU plus élevés, vous devez ajouter plus de 100 DWU pour détecter une amélioration significative des performances. Pour vous permettre de sélectionner des sauts significatifs dans le nombre d’unités DWU, nous proposons les niveaux DWU qui donnent les meilleurs résultats.
  
@@ -142,13 +142,11 @@ Consultez les articles suivants afin de mieux comprendre certains concepts suppl
 [Reprise du calcul avec PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
 [Reprise du calcul avec des API REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
 
-[modèle concurrentiel]: sql-data-warehouse-develop-concurrency.md
-[tables de conception]: sql-data-warehouse-develop-table-design.md
-[associer une clé de distribution par hachage à votre table]: sql-data-warehouse-develop-hash-distribution-key.md
-[statistiques pour améliorer les performances]: sql-data-warehouse-develop-statistics.md
-[development overview]: sql-data-warehouse-overview-develop.md
-
-
+[modèle concurrentiel]: ./sql-data-warehouse-develop-concurrency.md
+[tables de conception]: ./sql-data-warehouse-develop-table-design.md
+[associer une clé de distribution par hachage à votre table]: ./sql-data-warehouse-develop-hash-distribution-key.md
+[statistiques pour améliorer les performances]: ./sql-data-warehouse-develop-statistics.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
@@ -157,4 +155,4 @@ Consultez les articles suivants afin de mieux comprendre certains concepts suppl
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

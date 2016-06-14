@@ -19,8 +19,6 @@
 
 # Charge de travail des applications métier, phase 3 : configurer l'infrastructure SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 Au cours de la phase de déploiement d’une application métier à haute disponibilité dans des services d’infrastructure Azure, vous configurez les deux ordinateurs exécutant SQL Server et l’ordinateur du nœud majoritaire du cluster, puis vous les combinez dans un cluster Windows Server.
 
 Vous devez procéder à cette opération avant de passer à la [Phase 4](virtual-machines-windows-ps-lob-ph4.md). Pour découvrir toutes les phases, voir [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md).
@@ -259,4 +257,4 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 4](virtual-machines-windows-ps-lob-ph4.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

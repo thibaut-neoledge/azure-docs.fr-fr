@@ -230,4 +230,4 @@ Met à jour un fichier dans Azure Blob Storage. ```PUT: /datasets/default/files/
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!-----HONumber=AcomDC_0525_2016-->

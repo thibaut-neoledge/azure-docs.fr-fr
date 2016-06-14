@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Vue d’ensemble des fonctionnalités de sécurité d’Azure Storage
@@ -28,7 +28,7 @@ Azure Storage est la solution de stockage cloud pour les applications récentes 
 
 Cet article fournit une vue d’ensemble de chacune de ces fonctionnalités de sécurité pouvant être utilisées avec Azure Storage. Les liens renvoient à des articles qui fournissent des informations détaillées complémentaires sur chaque fonctionnalité.
 
-Pour une étude plus détaillée de la sécurité dans Azure Storage, consultez le [Guide de sécurité Azure Storage](https://azure.microsoft.com/documentation/articles../storage/storage-security-guide.md).
+Pour une étude plus détaillée de la sécurité dans Azure Storage, consultez le [Guide de sécurité Azure Storage](../storage/storage-security-guide.md).
 
 Voici les principales fonctionnalités abordées dans cet article :
 
@@ -160,4 +160,4 @@ En savoir plus :
 - [Surveiller un compte de stockage dans le portail Azure](../storage/storage-monitor-storage-account.md)
 - [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage/storage-e2e-troubleshooting.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

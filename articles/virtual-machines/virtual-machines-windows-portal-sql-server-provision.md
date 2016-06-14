@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/24/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth" />
 
 # Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure
@@ -53,7 +53,9 @@ Ce didacticiel présente les procédures suivantes :
 
 1. Chaque modèle identifie une version de SQL Server et un système d’exploitation. Sélectionnez une de ces images à partir de la liste. Visualisez ensuite le panneau Détails, qui fournit une description de l’image de machine virtuelle.
 
-1. Sous **Sélectionner un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné et cliquez sur **Créer**.
+	>[AZURE.NOTE] Les images de machines virtuelles SQL incluent les coûts de licence pour SQL Server dans la tarification par minute de la machine virtuelle que vous créez. Vous avez également la possibilité d’utiliser votre solution BYOL (apportez votre propre licence) et de payer seulement pour la machine virtuelle. Ces noms d’images sont préfixés avec {BYOL}. Pour plus d’informations sur cette option, consultez [Premiers pas avec SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+
+1. Sous **Sélectionner un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné. Resource Manager est le modèle de déploiement recommandé pour les nouvelles machines virtuelles. Cliquez sur **Create**.
 
 	![Créer une machine virtuelle avec Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -104,9 +106,9 @@ Dans le panneau **Paramètres**, configurez le stockage Azure, la mise en résea
 
 - Sous **Compte de stockage**, vous pouvez accepter le nom de compte de stockage automatiquement approvisionné. Vous pouvez également cliquer sur **Compte de stockage** pour choisir un compte existant et configurer le type de compte de stockage. Par défaut, Azure crée un compte de stockage avec un stockage localement redondant. Pour plus d’informations sur les options de stockage, consultez [Réplication Azure Storage](../storage/storage-redundancy.md).
 
-- Sous **Réseau**, vous pouvez accepter les valeurs remplies automatiquement. Vous pouvez également cliquer sur chaque fonctionnalité pour configurer manuellement le **Réseau virtuel**, **Sous-réseau**, **Adresse IP publique**, et **Groupe de sécurité réseau**. Dans le cadre de ce didacticiel, vous pouvez conserver les valeurs par défaut.
+- Sous **Réseau**, vous pouvez accepter les valeurs remplies automatiquement. Vous pouvez également cliquer sur chaque fonctionnalité pour configurer manuellement le **Réseau virtuel**, **Sous-réseau**, **Adresse IP publique** et **Groupe de sécurité réseau**. Dans le cadre de ce didacticiel, vous pouvez conserver les valeurs par défaut.
 
-- Azure permet l’**analyse** par défaut avec le même compte de stockage désigné pour la machine virtuelle. Vous pouvez modifier ces paramètres ici.
+- Azure permet **l’analyse** par défaut avec le même compte de stockage désigné pour la machine virtuelle. Vous pouvez modifier ces paramètres ici.
 
 - Dans **Groupe à haute disponibilité**, spécifiez un groupe à haute disponibilité. Dans le cadre de ce didacticiel, vous pouvez sélectionner **aucun**. Si vous envisagez de configurer des groupes de disponibilité SQL AlwaysOn, configurez la disponibilité pour éviter de recréer la machine virtuelle. Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](virtual-machines-windows-manage-availability.md).
 
@@ -166,7 +168,7 @@ Par défaut, Azure optimise le stockage pour 5 000 E/S par seconde, 200 Mbit/
 
 - **Général** est le paramètre par défaut et prend en charge la plupart des charges de travail.
 - Le traitement **transactionnel** optimise le stockage pour les charges de travail OLTP de base de données traditionnelles.
-- L’**entreposage de données** optimise le stockage pour les charges de travail d’analyse et de création de rapports.
+- **L’entreposage de données** optimise le stockage pour les charges de travail d’analyse et de création de rapports.
 
 >[AZURE.NOTE] Les limites supérieures sur les curseurs varient selon la taille de la machine virtuelle sélectionnée.
 
@@ -236,7 +238,7 @@ L’accès à la machine permet de modifier directement les paramètres SQL Serv
 
 ## Se connecter à SQL Server à distance
 
-Dans ce didacticiel, nous avons sélectionné l’accès **Public** pour la machine virtuelle et l’**authentification SQL Server**. Ces paramètres ont configuré automatiquement la machine virtuelle pour autoriser les connexions SQL Server à partir de n’importe quel client sur internet (en supposant qu’il dispose de la connexion SQL qui convient).
+Dans ce didacticiel, nous avons sélectionné l’accès **Public** pour la machine virtuelle et **l’authentification SQL Server**. Ces paramètres ont configuré automatiquement la machine virtuelle pour autoriser les connexions SQL Server à partir de n’importe quel client sur internet (en supposant qu’il dispose de la connexion SQL qui convient).
 
 >[AZURE.NOTE] Si vous n’avez pas sélectionné Public lors de l’approvisionnement, des étapes supplémentaires sont nécessaires pour accéder à votre instance SQL Server via Internet. Pour plus d’informations, consultez [Se connecter à une machine virtuelle SQL Server](virtual-machines-windows-sql-connect.md).
 
@@ -249,4 +251,4 @@ Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL
 
 Pour obtenir une vue d’ensemble de SQL Server sur Azure Virtual Machines, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure est la plate-forme la mieux adaptée à SQL Server 2016).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

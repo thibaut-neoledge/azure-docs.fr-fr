@@ -69,26 +69,50 @@ Une fois que vous avez créé votre zone DNS dans Azure DNS, vous devez configur
 
 Par exemple, supposons que vous achetez le domaine « contoso.com » et que vous créez une zone avec le nom « contoso.com » dans Azure DNS. En tant que propriétaire du domaine, votre bureau d’enregistrement vous permet de configurer les adresses de serveur de noms (par exemple, les enregistrements NS) pour votre domaine. Le bureau d’enregistrement stocke ces enregistrements NS dans le domaine parent, dans ce cas « .com ». Les clients du monde entier sont ensuite redirigés vers votre domaine dans la zone Azure DNS lors de la tentative de résolution des enregistrements DNS dans « contoso.com ».
 
-### Configuration de la délégation
+### Recherche de noms de serveur de noms
 
-Pour configurer la délégation, vous devez connaître les noms de serveur de noms de votre zone. Azure DNS alloue des serveurs de noms à partir d’un pool chaque fois qu’une zone est créée, puis stocke les enregistrements NS faisant autorité qui sont automatiquement créés dans votre zone. Pour afficher les noms de serveur de noms, vous devez simplement récupérer ces enregistrements.
+Avant de pouvoir déléguer votre zone DNS à Azure DNS, vous devez d’abord connaître les noms de serveur de noms correspondant à votre zone. Azure DNS alloue des serveurs de noms à partir d’un pool chaque fois qu’une zone est créée.
 
-À l’aide d’Azure PowerShell, les enregistrements NS faisant autorité peuvent être récupérés comme suit. Notez que le nom de l’enregistrement « @ » est utilisé pour faire référence à des enregistrements au sommet de la zone. Dans cet exemple, la zone « contoso.com » a été attribuée aux serveurs de noms « ns1-04.azure-dns.com », « ns2-04.azure-dns .net », « ns3-04.azure-dns.org » et « ns4-04.azure-dns.info ».
+Le moyen le plus simple d’afficher les serveurs de noms attribués à votre zone consiste à utiliser le portail Azure. Dans cet exemple, la zone « contoso.net » a été attribuée aux serveurs de noms « ns1-01.azure-dns.com », « ns2-01.azure-dns.net », « ns3-01.azure-dns.org » et « ns4-01.azure-dns.info » :
 
+ ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-	$zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+Azure DNS crée automatiquement des enregistrements NS faisant autorité dans une zone qui contient les serveurs de noms attribués. Pour afficher les noms de serveur de noms via Azure PowerShell ou l’interface de ligne de commande Azure, vous devez simplement récupérer ces enregistrements.
+
+À l’aide d’Azure PowerShell, les enregistrements NS faisant autorité peuvent être récupérés comme suit. Notez que le nom de l’enregistrement « @ » est utilisé pour faire référence à des enregistrements au sommet de la zone.
+
+	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
+	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
-	ZoneName          : contoso.com
+	ZoneName          : contoso.net
 	ResourceGroupName : MyResourceGroup
 	Ttl               : 3600
 	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
 	RecordType        : NS
-	Records           : {ns1-04.azure-dns.com, ns2-04.azure-dns.net, ns3-04.azure-dns.org,
-                     ns4-04.azure-dns.info}
+	Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+                        ns4-01.azure-dns.info}
 	Tags              : {}
 
+Vous pouvez également utiliser cette interface de ligne de commande Azure multiplateforme pour récupérer les enregistrements NS faisant autorité et découvrir ainsi les serveurs de noms attribués à votre zone :
+
+	C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
+	info:    Executing command network dns record-set show
+		+ Looking up the DNS Record Set "@" of type "NS"
+	data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+	data:    Name                            : @
+	data:    Type                            : Microsoft.Network/dnszones/NS
+	data:    Location                        : global
+	data:    TTL                             : 172800
+	data:    NS records
+	data:        Name server domain name     : ns1-01.azure-dns.com.
+	data:        Name server domain name     : ns2-01.azure-dns.net.
+	data:        Name server domain name     : ns3-01.azure-dns.org.
+	data:        Name server domain name     : ns4-01.azure-dns.info.
+	data:
+	info:    network dns record-set show command OK
+
+### Configuration de la délégation
 
 Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifier les enregistrements de serveur de noms pour un domaine. Dans la page de gestion du bureau d’enregistrement DNS, modifiez les enregistrements NS et remplacez-les par ceux créés par Azure DNS.
 
@@ -126,10 +150,9 @@ La configuration d’un sous-domaine suit un processus similaire à celui d’un
 3. Déléguez la zone enfant en configurant les enregistrements NS de la zone parent pour qu'ils pointent vers la zone enfant.
 
 
-
 ### Délégation d’un sous-domaine
 
-L’exemple PowerShell suivant illustre cette procédure.
+L’exemple PowerShell suivant illustre cette procédure. Vous pouvez exécuter les mêmes étapes à l’aide du portail Azure ou de l’interface de ligne de commande interplateforme.
 
 #### Étape 1. Création des zones parent et enfant
 
@@ -140,7 +163,7 @@ Commencez par créer les zones parent et enfant. Ces zones peuvent se trouver da
 
 #### Étape 2. Récupération des enregistrements NS
 
-Ensuite, nous récupérons les enregistrements NS faisant autorité dans la zone enfant, comme indiqué dans le prochain exemple.
+Ensuite, nous récupérons les enregistrements NS faisant autorité dans la zone enfant, comme indiqué dans le prochain exemple. Ces enregistrements contiennent les serveurs de noms attribués à la zone enfant.
 
 	$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -176,4 +199,4 @@ Vous pouvez vérifier que tout est correctement configuré en recherchant l’en
 
 [Gestion des enregistrements DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

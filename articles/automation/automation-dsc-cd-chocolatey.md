@@ -58,16 +58,16 @@ Si vous ne commencez pas par un modèle ARM, il n’y a aucun problème. Il exis
 
 ## Étape 1 : configuration du serveur Pull et du compte Automation
 
-Ouvrez une ligne de commande PowerShell (Add-AzureAccount) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
+Ouvrez une ligne de commande PowerShell (Add-AzureRmAccount) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
+    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 Vous pouvez installer votre compte Automation dans l’une des régions suivantes (également appelées « emplacement ») : est du Japon, est des États-Unis, Europe de l’ouest, Asie du Sud-est, Amérique du Sud.
 
 ## Étape 2 : ajustement de l’extension de machine virtuelle au modèle ARM
 
-Voir les détails de l’enregistrement d’une machine virtuelle (à l’aide de l’extension PowerShell DSC VM) fournis dans ce [modèle de démarrage rapide d’Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). Cette étape consiste à enregistrer votre nouvelle machine virtuelle auprès du serveur d’extraction dans la liste des nœuds DSC. Une partie de cette inscription consiste à spécifier la configuration du nœud à appliquer au nœud. Comme cette configuration de nœud n’a pas encore besoin d’exister déjà sur le serveur d’extraction, cette opération peut être effectuée pour la première fois à l'étape 4. Mais ici, à l'étape 2, vous devez avoir choisi le nom du nœud et celui de la configuration. Dans cet exemple d'utilisation, le nœud est ’isvbox’ et la configuration est ’ISVBoxConfig’. Le nom de la configuration de nœud (à préciser dans DeploymentTemplate.json) est donc ’ISVBoxConfig.isvbox’.
+Voir les détails de l’enregistrement d’une machine virtuelle (à l’aide de l’extension PowerShell DSC VM) fournis dans ce [modèle de démarrage rapide d’Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). Cette étape consiste à enregistrer votre nouvelle machine virtuelle auprès du serveur d’extraction dans la liste des nœuds DSC. Une partie de cette inscription consiste à spécifier la configuration du nœud à appliquer au nœud. Comme cette configuration de nœud n’a pas encore besoin d’exister déjà sur le serveur d’extraction, cette opération peut être effectuée pour la première fois à l’étape 4. Mais ici, à l'étape 2, vous devez avoir choisi le nom du nœud et celui de la configuration. Dans cet exemple d'utilisation, le nœud est ’isvbox’ et la configuration est ’ISVBoxConfig’. Le nom de la configuration de nœud (à préciser dans DeploymentTemplate.json) est donc ’ISVBoxConfig.isvbox’.
 
 ## Étape 3 : ajout des ressources DSC requises au serveur Pull
 
@@ -78,16 +78,16 @@ La PowerShell Gallery est conçue pour installer les ressources DSC dans votre c
 Il existe aussi une approche manuelle. La structure de dossier d’un module d’intégration PowerShell pour un ordinateur Windows est un peu différente de celle à laquelle s’attend Azure Automation. Cette différence nécessite une légère modification de votre part. Mais il n’y a là rien de compliqué, et vous n’avez à effectuer cette opération qu’une seule fois par ressource (sauf si vous souhaitez effectuer une mise à niveau ultérieurement). Pour plus d’informations sur la création de modules d’intégration PowerShell, consultez cet article : [Création de modules d’intégration pour Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Installez le module dont vous avez besoin sur votre station de travail, comme suit :
-    -   Installez [Windows Management Framework v5](http://aka.ms/wmf5latest) (inutile pour Windows 10)
-    -   `Install-Module  –ModuleName MODULENAME` < — récupère le module dans la PowerShell Gallery 
+    -   Installez [Windows Management Framework v5](http://aka.ms/wmf5latest) (inutile pour Windows 10)
+    -   `Install-Module –Name MODULE-NAME` < — récupère le module dans la PowerShell Gallery 
 -   Copiez le dossier de module situé dans le répertoire `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` dans un dossier temporaire 
 -   Supprimez les modèles et la documentation dans le dossier principal 
--   Compressez le dossier principal en attribuant au fichier zip exactement le même nom que celui du dossier 
--   Placez le fichier zip dans un emplacement http accessible, par exemple un stockage d’objets blob dans un compte de stockage Azure.
+-   Compressez le dossier principal en attribuant au fichier ZIP exactement le même nom que celui du dossier 
+-   Placez le fichier ZIP dans un emplacement HTTP accessible, par exemple un stockage d’objets blob dans un compte de stockage Azure.
 -   Exécutez cette commande PowerShell :
 
-        New-AzureAutomationModule ``
-            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
+        New-AzureRmAutomationModule `
+            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
@@ -171,7 +171,7 @@ Chaque fois qu'une version passe l'assurance qualité et est approuvée pour le 
 
 ## Remarques
 
-Dans cet exemple d’utilisation, nous partons d’une machine virtuelle provenant d’une image Windows 2012 R2 générique de la galerie Azure. Vous pouvez la démarrer à partir de n’importe quelle image stockée, puis la modifier avec la configuration DSC. Toutefois, la modification d’une configuration intégrée à une image est beaucoup plus difficile que la mise à jour dynamique de la configuration à l’aide de DSC.
+Dans cet exemple d’utilisation, nous partons d’une machine virtuelle provenant d’une image Windows Server 2012 R2 générique de la galerie Azure. Vous pouvez démarrer à partir de n’importe quelle image stockée, puis la modifier avec la configuration DSC. Toutefois, la modification d’une configuration intégrée à une image est beaucoup plus difficile que la mise à jour dynamique de la configuration à l’aide de DSC.
 
 Vous n’êtes pas obligé d’utiliser un modèle ARM ou l’extension de machine virtuelle pour utiliser cette technique avec vos machines virtuelles. De même, il n’est pas nécessaire que vos machines virtuelles se trouvent sur Azure au niveau de la gestion des CD. Vous devez simplement faire en sorte d’installer Chocolatey et de configurer LCM sur la machine virtuelle afin qu’elle parvienne à localiser le serveur d’extraction.
 
@@ -185,4 +185,4 @@ La source complète de cet exemple se trouve dans ce [projet Visual Studio](http
 - [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -39,8 +39,8 @@ Pour configurer les propriétés d’un objet blob, indiquez la valeur de propri
 L’exemple de code suivant crée un conteneur et un objet blob, et écrit certaines des valeurs des propriétés dans une fenêtre de console :
 
     //Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 	
 	//Create the service client object for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -62,7 +62,7 @@ L’exemple de code suivant crée un conteneur et un objet blob, et écrit certa
 
 Vous pouvez indiquer des métadonnées sous la forme de paires nom-valeur sur une ressource d’objet blob ou de conteneur. Pour configurer des métadonnées, ajoutez des paires nom-valeur à la collection **Metadata** de la ressource, puis appelez la méthode **SetMetadata** pour enregistrer les valeurs sur le service.
 
-> [AZURE.NOTE]\: le nom de vos métadonnées doit respecter la convention d’affectation de noms pour les identificateurs C#.
+> [AZURE.NOTE] Le nom de vos métadonnées doit respecter la convention d’affectation de noms pour les identificateurs C#.
  
 L’exemple de code suivant définit les métadonnées d’un conteneur. Une valeur est définie à l’aide de la méthode **Add** de la collection. L’autre valeur est définie à l’aide d’une syntaxe implicite clé/valeur. Les deux sont valides.
 
@@ -97,4 +97,4 @@ Pour récupérer des métadonnées, appelez la méthode **FetchAttributes** sur 
 - [Références sur la bibliothèque cliente Azure Storage pour .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Package de la bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

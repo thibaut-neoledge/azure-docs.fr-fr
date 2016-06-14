@@ -165,7 +165,7 @@ Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été
 
 **Exemple** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Les deux exemples renvoient « *Hello world!* »
+Les deux exemples renvoient « *Hello world!* »
 
 ----------
 ### ConvertFromUTF8Hex

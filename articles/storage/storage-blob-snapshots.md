@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/27/2016"
 	ms.author="tamram"/>
 
 # Création d’un instantané d’objet blob
@@ -22,7 +22,7 @@
 
 Un instantané est une version en lecture seule d'un objet blob capturé à un instant donné. Les captures instantanées sont utiles pour la sauvegarde des objets blob. Une fois créé, un instantané peut être lu, copié ou supprimé, mais pas modifié.
 
-Un instantané d’objet blob porte le même nom que l’objet blob de base à partir duquel il a été créé, avec une valeur **DateTime** ajoutée qui indique l’heure à laquelle il a été créé. Par exemple, si l’URI de l’objet blob de pages est `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l’URI de l’instantané ressemblera à `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Tous les instantanés d’un objet blob partagent son URI et se distinguent uniquement par cette valeur **DateTime ** ajoutée.
+Un instantané d’objet blob porte le même nom que l’objet blob de base à partir duquel il a été créé, avec une valeur **DateTime** ajoutée qui indique l’heure à laquelle il a été créé. Par exemple, si l’URI de l’objet blob de pages est `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l’URI de l’instantané ressemblera à `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Tous les instantanés d’un objet blob partagent son URI et se distinguent uniquement par cette valeur **DateTime** ajoutée.
 
 Un objet blob peut avoir plusieurs instantanés. Les instantanés sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un instantané ne peut toutefois pas être conservé plus longtemps que son objet blob source. Vous pouvez énumérer les instantanés associés à votre objet blob pour effectuer le suivi de vos instantanés actuels.
 
@@ -32,7 +32,7 @@ Aucun bail associé à l’objet blob de base n’a d’incidence sur l’instan
 
 ## Copie d'instantanés
 
-Les opérations de copie impliquant des objets blob et des instantanés respectent les règles suivantes :
+Les opérations de copie impliquant des objets blob et des instantanés respectent les règles suivantes :
 
 - Vous pouvez copier un instantané sur son objet blob de base. En plaçant un instantané à la place d'un objet blob de base, vous pouvez restaurer une version antérieure de l’objet blob. L’instantané est conservé, mais l’objet blob de base est remplacé par une copie accessible en écriture de l’instantané.
 
@@ -51,22 +51,24 @@ Vous pouvez spécifier une condition d’accès pour que l’instantané ne soit
 Un objet blob auquel sont associés des instantanés ne peut pas être supprimé, à moins de supprimer aussi les instantanés. Vous pouvez supprimer un instantané individuellement ou faire en sorte que le service de stockage supprime tous les instantanés en même temps que l'objet blob source. Si vous essayez de supprimer un objet blob auquel des instantanés sont encore associés, vous obtiendrez une erreur.
 
 ## Instantanés avec Azure Premium Storage
-Si vous utilisez des instantanés avec le stockage Premium, vous devez respecter ces règles :
+Si vous utilisez des instantanés avec le stockage Premium, vous devez respecter ces règles :
 
-- Le nombre d'instantanés par objet blob de pages dans un compte de stockage premium est limité à 100. Si vous dépassez cette limite, l'opération de capture instantanée d'objet blob retourne le code d'erreur 409 (**SnapshotCountExceeded**).
+- Le nombre d'instantanés par objet blob de pages dans un compte de stockage premium est limité à 100. Si vous dépassez cette limite, l'opération de capture instantanée d'objet blob retourne le code d'erreur 409 (**SnapshotCountExceeded**).
 
-- Un instantané d'un objet blob de pages dans un compte de stockage premium peut être capturé toutes les dix minutes. Si vous dépassez ce taux, l'opération de capture instantanée d'objet blob retourne le code d'erreur 409 (**SnaphotOperationRateExceeded**).
+- Un instantané d'un objet blob de pages dans un compte de stockage premium peut être capturé toutes les dix minutes. Si vous dépassez ce taux, l'opération de capture instantanée d'objet blob retourne le code d'erreur 409 (**SnaphotOperationRateExceeded**).
 
-- La lecture d'un instantané d'un objet blob de pages dans un compte de stockage premium via Get Blob n'est pas prise en charge. L'appel de Get Blob sur un instantané dans un compte de stockage premium retourne le code d'erreur 400 (**InvalidOperation**). Toutefois, l’appel de Get Blob Properties et Get Blob Metadata sur un instantané est pris en charge.
+- La lecture d'un instantané d'un objet blob de pages dans un compte de stockage premium via Get Blob n'est pas prise en charge. L'appel de Get Blob sur un instantané dans un compte de stockage premium retourne le code d'erreur 400 (**InvalidOperation**). Toutefois, l’appel de Get Blob Properties et Get Blob Metadata sur un instantané est pris en charge.
 
-- Pour lire un instantané, vous pouvez utiliser l’opération Copy Blob pour copier un instantané vers un autre objet blob de pages dans le compte. L’objet blob de destination pour l'opération de copie ne doit pas avoir d'instantanés. Si l'objet blob de destination a des instantanés, l'opération Copy Blob retourne le code d'erreur 409 (**SnapshotsPresent**).
+- Pour lire un instantané, vous pouvez utiliser l’opération Copy Blob pour copier un instantané vers un autre objet blob de pages dans le compte. L’objet blob de destination pour l'opération de copie ne doit pas avoir d'instantanés. Si l'objet blob de destination a des instantanés, l'opération Copy Blob retourne le code d'erreur 409 (**SnapshotsPresent**).
 
 ## Renvoi de l'URI absolu d'un instantané
 
 Cet exemple de code C# crée un nouvel instantané et écrit l’URI absolu de l’emplacement principal.
 
     //Create the blob service client object.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
     //Get a reference to a container.
@@ -80,6 +82,8 @@ Cet exemple de code C# crée un nouvel instantané et écrit l’URI absolu de l
     //Create a snapshot of the blob and write out its primary URI.
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+
+
 
 ## Présentation des frais liés aux instantanés
 
@@ -97,7 +101,7 @@ La liste suivante contient des points clés à prendre en compte lors de la cré
 
 - Le service blob Azure ne dispose d'aucun moyen pour déterminer si deux blocs contiennent des données identiques. Chaque bloc qui est téléchargé et validé est traité comme étant unique, même s’il a les mêmes données et le même ID de bloc. Comme des frais sont applicables aux blocs uniques, il est important de savoir que la mise à jour d'un objet blob qui a un instantané entraîne la création de blocs uniques supplémentaires et donc des frais supplémentaires.
 
-> [AZURE.NOTE] Un conseil : gérez les instantanés avec attention afin d’éviter des frais supplémentaires. Nous vous recommandons de gérer les instantanés de la manière suivante :
+> [AZURE.NOTE] Un conseil : gérez les instantanés avec attention afin d’éviter des frais supplémentaires. Nous vous recommandons de gérer les instantanés de la manière suivante :
 
 > - Supprimez et recréez les instantanés associés à un objet blob chaque fois que vous mettez à jour l'objet blob, même si vous le mettez à jour avec des données identiques, sauf si la conception de votre application exige de tenir à jour des instantanés. En supprimant et en recréant les instantanés de l’objet blob, vous pouvez vous assurer que l’objet blob et les instantanés ne diffèrent pas.
 
@@ -113,11 +117,11 @@ Dans le scénario 1, l'objet blob de base n'a pas été mis à jour depuis la ca
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
-Dans le scénario 2, l'objet blob de base a été mis à jour, mais pas l'instantané. Le bloc 3 a été mis à jour, et bien qu’il contienne les mêmes données et le même ID, il est différent du bloc 3 de l’instantané. Par conséquent, des frais pour quatre blocs sont facturés au compte.
+Dans le scénario 2, l'objet blob de base a été mis à jour, mais pas l'instantané. Le bloc 3 a été mis à jour, et bien qu’il contienne les mêmes données et le même ID, il est différent du bloc 3 de l’instantané. Par conséquent, des frais pour quatre blocs sont facturés au compte.
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
-Dans le scénario 3, l'objet blob de base a été mis à jour, mais pas l'instantané. Le bloc 3 a été remplacé par le bloc 4 dans l’objet blob de base, mais l’instantané reflète toujours le bloc 3. Par conséquent, des frais pour quatre blocs sont facturés au compte.
+Dans le scénario 3, l'objet blob de base a été mis à jour, mais pas l'instantané. Le bloc 3 a été remplacé par le bloc 4 dans l’objet blob de base, mais l’instantané reflète toujours le bloc 3. Par conséquent, des frais pour quatre blocs sont facturés au compte.
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
@@ -125,4 +129,4 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

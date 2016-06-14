@@ -373,7 +373,7 @@ En d’autres termes, vous pouvez vous attendre à ce que ce code soit identique
 
 {"Temperature":75, "Humidity":45}
 
-Cela peut sembler étrange, étant donné que notre modèle définit **Temperature** et **Humidity** comme deux événements *distincts* :
+Cela peut sembler étrange, étant donné que notre modèle définit **Temperature** et **Humidity** comme deux événements *distincts* :
 
 ```
 DECLARE_MODEL(Thermostat,

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -23,11 +23,11 @@ Cet article décrit les fonctionnalités de SQL Data Warehouse preview et nos ob
 
 Nos objectifs pour SQL Data Warehouse :
 
-- Performances prévisibles et évolutivité linéaire jusqu’à plusieurs pétaoctets de données.
+- Performances prévisibles et évolutivité linéaire jusqu’à plusieurs pétaoctets de données
 - Fiabilité élevée pour toutes les opérations effectuées dans l'entrepôt de données
 - Intervalle raccourci entre le chargement des données et les analyses des données sur des données relationnelles et non relationnelles
 
-Nous tendrons en permanence vers ces objectifs avant la promotion de SQL Data Warehouse en disponibilité générale.
+Nous tendrons en permanence vers ces objectifs dans la version préliminaire de SQL Data Warehouse.
 
 ## Performances prévisibles et évolutives
 
@@ -40,29 +40,22 @@ Tout entrepôt de données possède 2 mesures fondamentales des performances :
 
 Nous mesurons certaines améliorations importantes des performances et partagerons bientôt les taux attendus. Durant la phase préliminaire, nous apporterons des améliorations continues (par exemple, l’augmentation de la compression et la mise en cache) afin d’augmenter ces taux et de garantir leur mise à l’échelle de façon prévisible.
 
+## Protection des données
 
-## Fiabilité élevée
+SQL Data Warehouse stocke l’ensemble des données dans Azure Storage à l’aide du stockage localement redondant. Plusieurs copies synchrones des données sont conservées dans le centre de données local afin de garantir la protection transparente des données en cas de défaillance localisée.
 
-### Protection des données
-
-SQL Data Warehouse stocke l’ensemble des données dans Microsoft Azure Storage à l’aide d’objets blob géo-redondants. Trois copies synchrones des données sont conservées dans la région locale Microsoft Azure afin de garantir la protection transparente des données en cas de défaillance localisée (comme un dysfonctionnement de disque de stockage). Par ailleurs, trois autres copies asynchrones sont conservées dans une région Microsoft Azure distante, ceci pour garantir la protection des données en cas de défaillance régionale (récupération d’urgence). Les régions locales et distantes sont associées, ce qui permet de maintenir des latences de synchronisation acceptables (par exemple entre les côtes Est et Ouest des États-Unis).
-
-
-### Sauvegardes
+## Sauvegardes
 
 SQL Data Warehouse d’azure sauvegarde toutes les données au moins toutes les 8 heures à l’aide des captures instantanées d’Azure Storage. Ces instantanés sont conservés pendant 7 jours. Ce système permet de restaurer les données suivant 21 points différents dans le temps au cours des 7 derniers jours, jusqu’au moment de la prise du dernier instantané. Les données peuvent être restaurées à partir d’un instantané à l’aide de PowerShell ou des API REST.
 
-Les instantanés sont copiés de manière asynchrone vers une région distante Microsoft Azure afin d’optimiser la récupération en cas de défaillance régionale (récupération d’urgence).
+## Fiabilité des requêtes
+
+SQL Data Warehouse repose sur une architecture MPP (Massively Parallel Processing). SQL Data Warehouse détecte automatiquement les défaillances de nœud de calcul et de contrôle, et les migre. Toutefois, une opération (par exemple, un chargement de données ou une requête) peut échouer suite à une défaillance ou une migration de nœud. Lors de la phase préliminaire, nous apportons des améliorations continues pour terminer avec succès les opérations en dépit des défaillances de nœud.
 
 
-### Achèvement de requête
+## Mises à niveau et temps d'arrêt
 
-SQL Data Warehouse stocke les données sur un ou plusieurs nœuds de calcul qui, chacun, contient certaines des données utilisateur et contrôle l’exécution des requêtes sur ces données. Dans le cadre de l’architecture de traitement parallèle massif, les requêtes s’exécutent en parallèle sur les nœuds de calcul. SQL Data Warehouse détecte automatiquement les défaillances de nœud de calcul et les atténue. Toutefois, lors de la phase préliminaire, une opération (chargement de données ou requête, par exemple) peut échouer en raison d’échecs de nœud individuel. Lors de la phase préliminaire, nous apportons des améliorations continues pour terminer avec succès les opérations en dépit des défaillances de nœud.
-
-
-### Mises à niveau et temps d'arrêt
-
-Durant la phase préliminaire, SQL Data Warehouse sera mis à niveau périodiquement afin d’ajouter de nouvelles fonctionnalités et installer des correctifs critiques. Ces mises à niveau peuvent entraîner des perturbations et ne sont pas effectuées selon un calendrier prévisible pour l’instant. Si vous trouvez que ce processus provoque trop de perturbations, nous vous encourageons à [créer un ticket de support][]. Nous pourrons ainsi vous aider à contourner ce processus.
+SQL Data Warehouse sera mis à niveau périodiquement afin d’ajouter de nouvelles fonctionnalités et installer des correctifs critiques. Ces mises à niveau peuvent entraîner des perturbations et ne sont pas effectuées selon un calendrier prévisible pour l’instant. Si vous trouvez que ce processus provoque trop de perturbations, nous vous encourageons à [créer un ticket de support][]. Nous pourrons ainsi vous aider à contourner ce processus.
 
 
 ## Étapes suivantes
@@ -79,4 +72,4 @@ Durant la phase préliminaire, SQL Data Warehouse sera mis à niveau périodiq
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -160,7 +160,10 @@ Pour utiliser des packages NuGet dans une fonction C#, chargez un fichier *proje
 }
 ```
 
+Seul le .NET Framework 4.6 est pris en charge. Par conséquent, assurez-vous que votre fichier *project.json* spécifie `net46` comme indiqué ici.
+
 Lorsque vous chargez un fichier *project.json*, le runtime obtient les packages et ajoute automatiquement des références aux assemblys de packages. Vous n’êtes pas obligé d’ajouter de directives `#r "AssemblyName"`. Il suffit d’ajouter les instructions `using` requises à votre fichier *run.csx* pour utiliser les types définis dans les packages NuGet.
+
 
 ### Comment charger un fichier project.json
 
@@ -168,7 +171,7 @@ Lorsque vous chargez un fichier *project.json*, le runtime obtient les packages 
 
 	Il donne également accès aux journaux de diffusion en continu où le résultat de l’installation du package s’affiche.
 
-2. Pour télécharger un fichier project.json, utilisez une des méthodes décrites dans la section **Comment mettre à jour les fichiers du conteneur de fonctions** de la rubrique [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md#fileupdate).
+2. Pour charger un fichier project.json, utilisez une des méthodes décrites dans la section **Comment mettre à jour les fichiers du conteneur de fonctions** de la rubrique [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md#fileupdate).
 
 3. Une fois le fichier *project.json* chargé, un résultat ressemblant à l’exemple suivant s’affiche dans le journal de diffusion en continu de votre fonction :
 
@@ -191,7 +194,7 @@ Lorsque vous chargez un fichier *project.json*, le runtime obtient les packages 
 
 ## Variables d’environnement
 
-Pour obtenir une variable d’environnement ou valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme illustré dans l’exemple de code suivant :
+Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme illustré dans l’exemple de code suivant :
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -251,4 +254,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs NodeJS sur Azure Functions](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -24,11 +24,7 @@
 
 <br/>
 
-
-
 Ce didacticiel complet vous montre comment implémenter des groupes de disponibilité en utilisant SQL Server AlwaysOn sur des machines virtuelles Azure Resource Manager.
-
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle Resource Manager
 
 À la fin du didacticiel, votre solution SQL Server AlwaysOn dans Azure comprendra les éléments suivants :
 
@@ -137,7 +133,7 @@ Vous revenez au tableau de bord du portail Azure. Azure vous avertit lorsque le 
 
 ### Créer le deuxième sous-réseau
 
-À ce stade, votre réseau virtuel contient un sous-réseau, nommé Subnet-1. Les contrôleurs de domaine utiliseront ce sous-réseau. Les serveurs SQL Server utiliseront un deuxième sous-réseau nommé **Subnet-2**. Pour configurer Subnet-2
+À ce stade, votre réseau virtuel contient un sous-réseau, nommé Subnet-1. Les contrôleurs de domaine utiliseront ce sous-réseau. Les serveurs SQL utiliseront un deuxième sous-réseau nommé **Subnet-2**. Pour configurer Subnet-2
 
 1. Dans votre tableau de bord, cliquez sur le groupe de ressources que vous avez créé, **SQL-HA-RG**. Recherchez le réseau dans le groupe de ressources, sous **Ressources**.
 
@@ -318,7 +314,7 @@ Une fois le contrôleur de domaine principal redémarré, vous pouvez configurer
 
 1. Sélectionnez Utiliser l’adresse de serveur DNS suivante et spécifiez l’adresse du contrôleur de domaine principal sous **Serveur DNS préféré**.
 
-1. L’adresse est celle affectée à une machine virtuelle dans le sous-réseau subnet-1 du réseau virtuel Azure, et cette machine virtuelle est **ad-primary-dc**. Pour vérifier l’adresse IP d’**ad-primary-dc**, exécutez **nslookup ad-primary-dc** dans l’invite de commandes, comme indiqué ci-dessous.
+1. L’adresse est celle affectée à une machine virtuelle dans le sous-réseau subnet-1 du réseau virtuel Azure, et cette machine virtuelle est **ad-primary-dc**. Pour vérifier l’adresse IP **d’ad-primary-dc**, exécutez **nslookup ad-primary-dc** dans l’invite de commandes, comme indiqué ci-dessous.
 
 	![Utilisation de NSLOOKUP pour trouver l'adresse IP du contrôleur de domaine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
@@ -392,7 +388,7 @@ Créez ensuite trois machines virtuelles, dont deux machines virtuelles SQL Serv
 | Configuration de la machine virtuelle - **De base** | **Nom** = cluster-fsw<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure | **Nom** = sqlserver-0<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure | **Nom** = sqlserver-1<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |
 |Configuration de la machine virtuelle - **Taille** |DS1 (1 cœur, 3,5 Go de mémoire)|**TAILLE** = DS 2 (2 cœurs, 7 Go de mémoire)|**TAILLE** = DS 2 (2 cœurs, 7 Go de mémoire)|
 |Configuration de la machine virtuelle - **Paramètres**|**Stockage** = Premium (SSD)<br/>**SOUS-RÉSEAUX DU RÉSEAU** = autoHAVNET<br/>**COMPTE DE STOCKAGE** = Utiliser un compte de stockage généré automatiquement<br/>**Sous-réseau** = subnet-2(10.1.1.0/24)<br/>**Adresse IP publique** = Aucune<br/>**Groupe de sécurité réseau** = Aucun<br/>**Surveillance + diagnostics** = Activé<br/>**Compte de stockage de diagnostics** = Utiliser un compte de stockage généré automatiquement<br/>**GROUPE À HAUTE DISPONIBILITÉ** = sqlAvailabilitySet<br/>|**Stockage** = Premium (SSD)<br/>**SOUS-RÉSEAUX DU RÉSEAU** = autoHAVNET<br/>**COMPTE DE STOCKAGE** = Utiliser un compte de stockage généré automatiquement<br/>**Sous-réseau** = subnet-2(10.1.1.0/24)<br/>**Adresse IP publique** = Aucune<br/>**Groupe de sécurité réseau** = Aucun<br/>**Surveillance + diagnostics** = Activé<br/>**Compte de stockage de diagnostics** = Utiliser un compte de stockage généré automatiquement<br/>**GROUPE À HAUTE DISPONIBILITÉ** = sqlAvailabilitySet<br/>|**Stockage** = Premium (SSD)<br/>**SOUS-RÉSEAUX DU RÉSEAU** = autoHAVNET<br/>**COMPTE DE STOCKAGE** = Utiliser un compte de stockage généré automatiquement<br/>**Sous-réseau** = subnet-2(10.1.1.0/24)<br/>**Adresse IP publique** = Aucune<br/>**Groupe de sécurité réseau** = Aucun<br/>**Surveillance + diagnostics** = Activé<br/>**Compte de stockage de diagnostics** = Utiliser un compte de stockage généré automatiquement<br/>**GROUPE À HAUTE DISPONIBILITÉ** = sqlAvailabilitySet<br/>
-|Configuration de la machine virtuelle **Paramètres SQL Server**|Non applicable|**Connectivité SQL** = Privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = Désactivée<br/>**Configuration du stockage** = Générale<br/>**Mise à jour corrective automatique** = Dimanche à 2 h 00<br/>**Sauvegarde automatisée** = Désactivée</br>**Intégration Azure Key Vault** = Désactivée|**Connectivité SQL** = Privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = Désactivée<br/>**Configuration du stockage** = Générale<br/>**Mise à jour corrective automatique** = Dimanche à 2 h 00<br/>**Sauvegarde automatisée** = Désactivée</br>**Intégration Azure Key Vault** = Désactivée|
+|Configuration de la machine virtuelle - **Paramètres SQL Server**|Non applicable|**Connectivité SQL** = Privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = Désactivée<br/>**Configuration du stockage** = Générale<br/>**Mise à jour corrective automatique** = Dimanche à 2 h 00<br/>**Sauvegarde automatisée** = Désactivée</br>**Intégration Azure Key Vault** = Désactivée|**Connectivité SQL** = Privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = Désactivée<br/>**Configuration du stockage** = Générale<br/>**Mise à jour corrective automatique** = Dimanche à 2 h 00<br/>**Sauvegarde automatisée** = Désactivée</br>**Intégration Azure Key Vault** = Désactivée|
 
 <br/>
 
@@ -419,7 +415,7 @@ Vous utiliserez ces adresses pour configurer le service DNS pour chaque machine 
 
 1. Lancez le fichier RDP sur le contrôleur de domaine principal (**ad-primary-dc**) et connectez-vous à la machine virtuelle à l’aide de votre compte d’administrateur configuré (**BUILTIN\\DomainAdmin**) et de votre mot de passe (**Contoso!000**).
 
-1. À partir du contrôleur de domaine principal, lancez une session Bureau à distance sur **sqlserver-0** à l’aide de l’adresse IP. Utilisez le même compte et le même mot de passe.
+1. À partir du contrôleur de domaine principal, lancez une session Bureau à distance sur **sqlserver-0** avec l’adresse IP. Utilisez le même compte et le même mot de passe.
 
 1. Une fois connecté, vous devez voir le tableau de bord **Gestionnaire de serveur**. Dans le volet gauche, cliquez sur **Serveur local**.
 
@@ -435,7 +431,7 @@ Vous utiliserez ces adresses pour configurer le service DNS pour chaque machine 
 
 1. Sélectionnez Utiliser l’adresse de serveur DNS suivante et spécifiez l’adresse du contrôleur de domaine principal sous **Serveur DNS préféré**.
 
-1. L’adresse est celle affectée à une machine virtuelle dans le sous-réseau subnet-1 du réseau virtuel Azure, et cette machine virtuelle est **ad-primary-dc**. Pour vérifier l’adresse IP d’**ad-primary-dc**, exécutez **nslookup ad-primary-dc** dans l’invite de commandes, comme indiqué ci-dessous.
+1. L’adresse est celle affectée à une machine virtuelle dans le sous-réseau subnet-1 du réseau virtuel Azure, et cette machine virtuelle est **ad-primary-dc**. Pour vérifier l’adresse IP **d’ad-primary-dc**, exécutez **nslookup ad-primary-dc** dans l’invite de commandes, comme indiqué ci-dessous.
 
 	![Utilisation de NSLOOKUP pour trouver l'adresse IP du contrôleur de domaine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
@@ -586,7 +582,7 @@ Dans cette section, vous effectuerez les opérations suivantes sur **sqlserver-0
 
 - Modifier le compte de service SQL Server pour **CORP\\SQLSvc1** et **CORP\\SQLSvc2**, respectivement
 
-Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **sqlserver-0** et **sqlserver-1** :
+Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez ces étapes pour **sqlserver-0** et **sqlserver-1** :
 
 ### Ajouter un compte d’installation en tant que rôle serveur fixe sysadmin sur chaque serveur SQL Server
 
@@ -638,7 +634,7 @@ Effectuez ces étapes pour les deux serveurs SQL Server.
 
 Effectuez ces étapes pour les deux serveurs SQL Server.
 
-1. Ensuite, modifiez le compte de service SQL Server. Cliquez sur l’onglet **Se connecter**, puis tapez **CORP\\SQLSvc1** (pour **sqlserver-0**) ou **CORP\\SQLSvc2** (pour **sqlserver-1**) dans **Nom de compte**, saisissez et confirmez le mot de passe, puis cliquez sur **OK**.
+1. Ensuite, modifiez le compte de service SQL Server. Cliquez sur l’onglet **Se connecter**, puis tapez **CORP\\SQLSvc1** (pour **sqlserver-0**) ou **CORP\\SQLSvc2** (pour **sqlserver-1**) dans **Nom du compte**, saisissez et confirmez le mot de passe, puis cliquez sur **OK**.
 
 1. Dans la fenêtre contextuelle, cliquez sur **Oui** pour redémarrer le service SQL Server. Une fois que le service SQL Server est redémarré, les modifications apportées dans la fenêtre Propriétés sont actives.
 
@@ -736,7 +732,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665529.png)
 
-1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Vous créerez l’écouteur ultérieurement dans le cadre de ce didacticiel. Pour plus d’informations sur la configuration d’un écouteur, voir [Configurer un équilibreur de charge interne pour un groupe de disponibilité AlwaysOn dans Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md) (en anglais).
+1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Vous créerez l’écouteur ultérieurement dans le cadre de ce didacticiel. Pour plus d’informations sur la configuration d’un écouteur, voir [Configurer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn dans Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 	![Assistant Nouveau groupe de disponibilité, validation](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
 
@@ -762,13 +758,13 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 ## Configurer un équilibreur de charge interne dans Azure et un écouteur de groupe de disponibilité dans le cluster
 
-Pour vous connecter directement au groupe de disponibilité, vous devez configurer un équilibreur de charge interne dans Azure, puis créer l’écouteur sur le cluster. Cette section fournit une vue d’ensemble détaillée de ces étapes. Pour obtenir des instructions détaillées, voir [Configurer un équilibreur de charge interne pour un groupe de disponibilité AlwaysOn dans Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md) (en anglais).
+Pour vous connecter directement au groupe de disponibilité, vous devez configurer un équilibreur de charge interne dans Azure, puis créer l’écouteur sur le cluster. Cette section fournit une vue d’ensemble détaillée de ces étapes. Pour obtenir des instructions détaillées, voir [Configurer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn dans Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ### Créer l’équilibreur de charge dans Azure
 
 1. Dans le Portail Azure, accédez à **SQL-HA-RG**, puis cliquez sur **+ Ajouter**.
 
-1. Recherchez **Équilibrage de charge**. Choisissez l’équilibreur de charge publié par Microsoft, puis cliquez sur **Créer**.
+1. Recherchez **l’équilibrage de charge**. Choisissez l’équilibreur de charge publié par Microsoft, puis cliquez sur **Créer**.
 
 1. Configurez les paramètres suivants pour l’équilibreur de charge.
 
@@ -789,17 +785,17 @@ Définissez les paramètres suivants sur l’équilibreur de charge :
 
 | Paramètre | Champ |
 | --- | ---|
-| **Pool principal** - Nom | sqlLBBE 
+| Nom du **Pool principal** | sqlLBBE 
 | **Groupe à haute disponibilité SQLLBBE** | sqlAvailabilitySet
 | **Machines virtuelles SQLLBBE** | sqlserver-0, sqlserver-1
 | **SQLLBBE utilisé par** | SQLAlwaysOnEndPointListener
-| **Sonde** - Nom | SQLAlwaysOnEndPointProbe
+| Nom de la **Sonde** | SQLAlwaysOnEndPointProbe
 | **Protocole de la sonde** | TCP
 | **Port de la sonde** | 59999 - Notez que vous pouvez utiliser n’importe quel port inutilisé.
 | **Intervalle d’analyse** | 5
 | **Seuil de défaillance de la sonde** | 2
 | **Sonde utilisée par** | SQLAlwaysOnEndPointListener
-| **Règles d’équilibrage de charge** - Nom | SQLAlwaysOnEndPointListener
+| Nom de **Règles d’équilibrage de charge** | SQLAlwaysOnEndPointListener
 | **Règles d’équilibrage de charge - Protocole** | TCP
 | **Règles d’équilibrage de charge - Port** | 1433 (parce qu’il s’agit du port SQL Server par défaut)
 | **Règles d’équilibrage de charge - Port** | 1433 (parce qu’il s’agit du port SQL Server par défaut)
@@ -865,4 +861,4 @@ Pour tester la connexion :
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

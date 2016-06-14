@@ -19,8 +19,6 @@
 
 # Environnements de test de cloud hybride Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 Pour le développement, le test ou une validation technique, les environnements de test de cloud hybride utilisent votre connexion Internet locale ainsi que l’une de vos adresses IP publiques et vous guident pour configurer un réseau virtuel Azure (VNet) opérationnel entre différents locaux. Lorsque vous avez terminé, vous pouvez développer et tester des applications, faire des essais avec des charges de travail informatique simplifiées et évaluer les performances d’une connexion de réseau privé virtuel (VPN) de site à site relative à votre emplacement sur Internet.
 
 ## Configuration de base de cloud hybride
@@ -50,6 +48,6 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 ## Étape suivante
 
-- Passez en revue les [instructions d’implémentation](virtual-machines-linux-infrastructure-service-guidelines.md) pour concevoir un déploiement de production ou de développement/test personnalisé dans les services d’infrastructure Azure.
+- Passez en revue les [instructions d’implémentation](virtual-machines-linux-infrastructure-service-guidelines.md) pour concevoir un déploiement de production ou de développement/test personnalisé dans des services d’infrastructure Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

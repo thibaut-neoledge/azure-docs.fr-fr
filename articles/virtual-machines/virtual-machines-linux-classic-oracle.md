@@ -3,7 +3,7 @@
 	description="Recherchez les articles qui décrivent la procédure de configuration du logiciel Oracle sur des machines virtuelles Linux."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="bbenz"
+	authors="rickstercdn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,15 +14,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="01/12/2016"
-	ms.author="bbenz"/>
+	ms.date="05/17/2016"
+	ms.author="rclaus"/>
 
 # Logiciel Oracle hébergé sur des machines virtuelles Linux dans Azure
 
-Configurez votre première ou votre prochaine base de données Oracle de développement/test ou de production en vue de son exécution sur une machine virtuelle Linux dans les services d’infrastructure Azure. Tirez parti de la facilité de configuration et de la possibilité d’étendre rapidement la charge de travail de la base de données Oracle pour inclure de nouvelles capacités. Vous pouvez également configurer le logiciel Oracle sur des [machines virtuelles Windows](virtual-machines-windows-classic-oracle.md).
+[AZURE.INCLUDE [virtual-machines-common-oracle-support](../../includes/virtual-machines-common-oracle-support.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+Configurez votre première ou votre prochaine base de données Oracle de développement/test ou de production en vue de son exécution sur une machine virtuelle Linux dans les services d’infrastructure Azure. Tirez parti de la facilité de configuration et de la possibilité d’étendre rapidement la charge de travail de la base de données Oracle pour inclure de nouvelles capacités.
+
 
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle](../../includes/virtual-machines-common-classic-oracle.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

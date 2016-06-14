@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/27/2016"
 	ms.author="roalexan" />
 
 
@@ -24,7 +24,7 @@
 
 Ce guide décrit la prise en main rapide de la gestion de vos services web AzureML grâce à Gestion des API.
 
-##Qu’est-ce que Gestion des API Azure ?
+##Qu’est-ce que Gestion des API Azure ?
 
 Gestion des API Azure est un service Azure qui vous permet de gérer vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord. Cliquez [ici](https://azure.microsoft.com/services/api-management/) pour plus d’informations sur Gestion des API Azure. Cliquez [ici](../api-management/api-management-get-started.md) pour débuter avec Gestion des API Azure. Cet autre guide, sur lequel ce guide est basé, couvre plus de rubriques, notamment les configurations de notification, la tarification, la gestion des réponses, l’authentification des utilisateurs, la création de produits, les abonnements pour développeur et le tableau de bord d’utilisation.
 
@@ -38,7 +38,7 @@ Pour utiliser ce guide, il vous faut :
 
 * Un compte Azure. Si vous n’avez pas de compte Azure, cliquez [ici](https://azure.microsoft.com/pricing/free-trial/) pour plus d’informations sur la création d’un compte d’essai gratuit.
 * Un compte AzureML. Si vous n’avez pas de compte AzureML, cliquez [ici](https://studio.azureml.net/) pour plus d’informations sur la création d’un compte d’essai gratuit.
-* L’espace de travail, le service et l’api\_key pour l’expérience AzureML déployés sous forme de service web. Cliquez [ici](machine-learning-create-experiment.md) pour plus d’informations sur la création d’une expérience AzureML. Cliquez [ici](machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur le déploiement d’une expérience AzureML comme service web. L’annexe A contient également des instructions sur la façon de créer et de tester une expérience AzureML simple et de la déployer en tant que service web.
+* L’espace de travail, le service et l’api\_key pour l’expérience AzureML déployés sous forme de service web. Cliquez [ici](machine-learning-create-experiment.md) pour plus d’informations sur la création d’une expérience AzureML. Cliquez [ici](machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur le déploiement d’une expérience AzureML comme service web. L’annexe A contient également des instructions sur la façon de créer et de tester une expérience AzureML simple et de la déployer en tant que service web.
 
 ##Création d'une instance du service API Management
 
@@ -72,7 +72,7 @@ Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Ajout
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Tapez **API de démonstration AzureML** comme **nom de l’API web**. Tapez ****https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API web**. Cochez **HTTPS** comme schéma d’**URL de l’API Web**. Sélectionnez **Starter** comme **produit**. Quand vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
+Tapez **API de démonstration AzureML** comme **nom de l’API web**. Tapez **https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API web**. Cochez **HTTPS** comme schéma d’**URL de l’API Web**. Sélectionnez **Starter** comme **produit**. Quand vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -148,7 +148,7 @@ Après l'appel d'une opération, le portail des développeurs affiche l'**URL re
 
 ###Création de l’expérience
 
-Vous trouverez ci-dessous les étapes de création d’une expérience AzureML simple et de son déploiement comme service web. Le service web prend comme entrée une colonne de texte arbitraire et retourne un ensemble de fonctionnalités représentées sous forme d’entiers. Par exemple :
+Vous trouverez ci-dessous les étapes de création d’une expérience AzureML simple et de son déploiement comme service web. Le service web prend comme entrée une colonne de texte arbitraire et retourne un ensemble de fonctionnalités représentées sous forme d’entiers. Par exemple :
 
 Texte | Texte haché
 --- | ---
@@ -182,7 +182,7 @@ Saisissez **3** pour la **Taille de bits de hachage**. Cela crée 8 (23) colonne
 
 ![run](./media/machine-learning-manage-web-service-endpoints-using-api-management/run.png)
 
-###Création d’un service web
+###Création d’un service web
 
 Maintenant, créez un service web. Développez **Service Web** et faites glisser **Entrée** sur votre expérience. Connectez **Entrée** à **Fonction de hachage**. Faites également glisser **Sortie** sur votre expérience. Connectez **Sortie** à **Fonction de hachage**.
 
@@ -220,7 +220,7 @@ Saisissez **C’est une belle journée** en **col2**. Cliquez sur la coche.
 
 ![enter-data](./media/machine-learning-manage-web-service-endpoints-using-api-management/enter-data.png)
 
-Le résultat suivant doit s’afficher :
+Le résultat suivant doit s’afficher :
 
 ![sample-output](./media/machine-learning-manage-web-service-endpoints-using-api-management/sample-output.png)
 
@@ -384,4 +384,4 @@ Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec le
 	return
 	invokeBatchExecutionService()
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

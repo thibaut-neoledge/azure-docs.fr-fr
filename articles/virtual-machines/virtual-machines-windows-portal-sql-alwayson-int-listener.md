@@ -20,8 +20,6 @@
 
 Cette rubrique explique comment créer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn SQL Server dans des machines virtuelles Azure en cours d’exécution dans le modèle Resource Manager. Un groupe de disponibilité AlwaysOn requiert un équilibrage de charge lorsque les instances SQL Server se trouvent sur des machines virtuelles Azure. Cet équilibrage de charge stocke l’adresse IP de l’écouteur de groupe de disponibilité. Si un groupe de disponibilité englobe plusieurs régions, chacune d’elles a besoin d’un équilibrage de charge.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle classique.
-
 Pour effectuer cette tâche, vous devez disposer d’un groupe de disponibilité AlwaysOn SQL Server déployé sur des machines virtuelles Azure dans le modèle Resource Manager. Les deux machines virtuelles SQL Server doivent appartenir au même groupe à haute disponibilité. Vous pouvez utiliser le [modèle Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) pour créer automatiquement le groupe de disponibilité AlwaysOn dans Azure Resource Manager. Ce modèle crée automatiquement l’équilibrage de charge interne.
 
 Si vous préférez, vous pouvez [configurer manuellement un groupe de disponibilité AlwaysOn](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
@@ -56,7 +54,7 @@ Dans cette partie de la tâche, vous allez exécuter les étapes suivantes dans 
 
 La première étape consiste à créer l’équilibrage de charge. Dans le portail Azure, ouvrez le groupe de ressources contenant les machines virtuelles SQL Server. Dans le groupe de ressources, cliquez sur **Ajouter**.
 
-- Recherchez **Équilibrage de charge**. Dans les résultats de la recherche, sélectionnez l’élément **Équilibreur de charge** publié par **Microsoft**.
+- Recherchez **l’équilibrage de charge**. Dans les résultats de la recherche, sélectionnez l’élément **Équilibrage de charge** publié par **Microsoft**.
 
 - Dans le panneau **Équilibrage de charge**, cliquez sur **Créer**.
 
@@ -72,7 +70,7 @@ La première étape consiste à créer l’équilibrage de charge. Dans le porta
 | **Groupe de ressources** | Sélectionnez le groupe de ressources réseau contenant les serveurs SQL. | 
 | **Emplacement** | Sélectionnez l’emplacement Azure contenant les serveurs SQL. |
 
-- Cliquez sur **Create**. 
+- Cliquez sur **Créer**. 
 
 Azure crée l’équilibrage de charge que vous avez configuré précédemment. Cet équilibrage de charge appartient à un réseau, un sous-réseau, un groupe de ressources et un emplacement spécifiques. Une fois l’opération terminée, vérifiez les paramètres de l’équilibrage de charge dans Azure.
 
@@ -90,7 +88,7 @@ Maintenant, configurez l’adresse IP de l’équilibrage de charge.
 
 - Enregistrez les paramètres.
 
-Maintenant, l’équilibrage de charge a une adresse IP. Notez-la. Vous allez l’utiliser pour créer un écouteur sur le cluster. Dans un script PowerShell plus loin dans cet article, utilisez cette adresse pour la variable `$ILBIP`.
+Maintenant, l’équilibrage de charge a une adresse IP. Notez-la. Vous allez l’utiliser pour créer un écouteur sur le cluster. Utilisez cette adresse pour la variable `$ILBIP` dans un script PowerShell plus loin dans cet article.
 
 
 
@@ -155,10 +153,10 @@ Configurez les règles d’équilibrage de charge. Les règles d’équilibrage 
 | **Nom** | Nom de la règle d’équilibrage de charge. Par exemple, **SQLAlwaysOnEndPointListener**. |
 | **Protocole** | **TCP** |
 | **Port** | *1433* |
-| **Port principal** | *1433*. Notez que ce paramètre va être désactivé, car cette règle utilise le paramètre **Adresse IP flottante (retour serveur direct)**. |
+| **Port principal** | *1433*. Notez que ce paramètre sera désactivé, car cette règle utilise le paramètre **Adresse IP flottante (retour serveur direct)**. |
 | **Sonde** | Utilisez le nom de la sonde que vous avez créée pour cet équilibrage de charge. |
 | **Persistance de session** | **Aucun** | 
-| **Délai d’inactivité (minutes)**. | *4* | 
+| **Délai d’inactivité (minutes).** | *4* | 
 | **Adresse IP flottante (retour serveur direct)** | **Activé** | 
 
  >[AZURE.NOTE] Vous devrez peut-être faire défiler le panneau vers le bas pour afficher tous les paramètres.
@@ -252,7 +250,7 @@ Pour tester la connexion :
 
 1. Envoyez une requête RDP à un serveur SQL qui se trouve dans le même réseau virtuel, mais qui ne possède pas le réplica. Il peut s’agir de l’autre serveur SQL du cluster.
 
-1. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** au réplica principal via l’écouteur avec une authentification Windows :
+1. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** au réplica principal par le biais de l’écouteur avec une authentification Windows :
 
         sqlmd -S <listenerName> -E
 
@@ -267,4 +265,4 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
 - Avec un équilibrage de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

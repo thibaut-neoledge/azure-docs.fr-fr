@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="stefsch"/>
 
 # Contrôle du trafic entrant vers un environnement App Service
@@ -41,7 +41,7 @@ La liste suivante présente les ports utilisés par un environnement App Service
 - 80 : Port par défaut pour le trafic HTTP entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.
 - 443 : Port par défaut pour le trafic SSL entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.
 - 21 : Canal de contrôle pour FTP. Ce port peut être bloqué en toute sécurité si FTP n'est pas utilisé.
-- 10001-10020 : Canaux de données pour FTP. Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n’est pas utilisé (**Remarque :** les canaux de données FTP peuvent changer dans la version préliminaire.).
+- 10001-10020 : Canaux de données pour FTP. Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n’est pas utilisé.   
 - 4016 : Utilisé pour le débogage à distance avec Visual Studio 2012. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
 - 4018 : Utilisé pour le débogage à distance avec Visual Studio 2013. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
 - 4020 : Utilisé pour le débogage à distance avec Visual Studio 2015. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
@@ -49,12 +49,12 @@ La liste suivante présente les ports utilisés par un environnement App Service
 ## Connectivité sortante et configuration DNS requise ##
 Pour qu’un environnement App Service fonctionne correctement, il requiert un accès sortant à Azure Storage dans le monde entier, ainsi que la base de données SQL dans la même région Azure. Si l'accès Internet sortant est bloqué sur le réseau virtuel, les environnements App Service ne pourront pas accéder à ces points de terminaison Azure.
 
-Les environnements App Service nécessitent également une infrastructure DNS valide configurée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d'un redémarrage d'un environnement propagé à l'aide de l'icône « Redémarrer » située en haut du panneau de gestion de l'environnement App Service du [portail Azure][NewPortal] force l'environnement à récupérer la nouvelle configuration DNS.
+Les environnements App Service nécessitent également une infrastructure DNS valide configurée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d’un redémarrage d’un environnement propagé à l’aide de l’icône « Redémarrer » située en haut du panneau de gestion de l’environnement App Service du [portail Azure][NewPortal] force l’environnement à récupérer la nouvelle configuration DNS.
 
 La liste suivante détaille les exigences de connectivité et la configuration DNS requise pour un environnement App Service :
 
 -  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier. Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
--  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*.
+-  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*.
 -  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*. 
 -  Connectivité réseau sortante à *ocsp.msocsp.com*, *mscrl.microsoft.com* et *crl.microsoft.com*. Cela est nécessaire pour prendre en charge la fonctionnalité SSL.
 -  La configuration DNS pour le réseau virtuel doit être capable de résoudre tous les points de terminaison et les domaines mentionnés dans les points précédents. Si ces points de terminaison ne peuvent pas être résolus, les tentatives de création d'environnement App Service échoueront et les environnements App Service existants seront marqués comme non intègres.
@@ -149,4 +149,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

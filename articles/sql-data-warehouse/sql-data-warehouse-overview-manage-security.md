@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure][]. Pour plus d’informations sur l’utilisation de la version préliminaire d’Azure AD pour SQL Data Warehouse, consultez la page [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][].
+Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure][]. Pour plus de détails sur l’utilisation de la version préléminaire d’Azure AD pour SQL Data Warehouse, consultez [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][].
 
 
 ## Autorisation
@@ -101,7 +101,7 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 [Se connecter à SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
 [Prise en main de l’audit de base de données SQL]: ./sql-data-warehouse-overview-auditing.md
 [Prise en main du chiffrement transparent des données (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-aad-authentication.md
+[Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Pare-feu de base de données SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +115,4 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -49,16 +49,17 @@ Dans le panneau **Cloner l’application**, le client pourra choisir un pool d�
 
 ## Restrictions actuelles ##
 
-Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous efforçons d’ajouter de nouvelles fonctionnalités au fil du temps. La liste suivante répertorie les restrictions connues de la prise en charge actuelle du clonage d’application dans le portail Azure :
+Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous efforçons d’ajouter de nouvelles fonctionnalités au fil du temps. La liste suivante répertorie les restrictions connues de la prise en charge actuelle du clonage d’application dans le portail Azure :
 
 - Les paramètres d’Azure Traffic Manager ne sont pas clonés.
 - Les paramètres de mise à l’échelle automatique ne sont pas clonés.
 - Les paramètres de planification de sauvegarde ne sont pas clonés.
 - Les paramètres de réseau virtuel ne sont pas clonés.
-- Application Insights n’est pas automatiquement configuré dans l’application web de destination
+- Application Insights n’est pas automatiquement configuré dans l’application web de destination
 - Les paramètres d’authentification simple ne sont pas clonés.
 - Les paramètres d’extension Kudu ne sont pas clonés.
 - Les règles TiP ne sont pas clonées.
+- Les contenus de la base de données ne sont pas clonés.
 
 
 ### Références ###
@@ -72,4 +73,4 @@ Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png
 [2]: ./media/app-service-web-app-cloning-portal/CloneSettings.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

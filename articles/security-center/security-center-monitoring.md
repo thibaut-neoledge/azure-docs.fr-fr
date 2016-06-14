@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/06/2016"
    ms.author="yurid"/>
 
 #Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
@@ -34,7 +34,7 @@ Pour plus d’informations sur la façon d’appliquer des recommandations, cons
 
 La mosaïque **Intégrité des ressources** vous permet de surveiller l’état de sécurité de vos ressources. L’exemple ci-dessous représente des problèmes associés à un niveau de gravité élevé ou moyen, qui nécessitent une attention particulière. Les stratégies de sécurité qui sont activées ont un impact sur les types de contrôles surveillés.
 
-![Intégrité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
+![Intégrité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new3.png)
 
 Si le Centre de sécurité identifie une vulnérabilité qui doit être corrigée (par exemple, une machine virtuelle à laquelle il manque des mises à jour de sécurité ou un sous-réseau sans [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)), cette vulnérabilité est identifiée dans ce panneau.
 
@@ -66,17 +66,17 @@ Chaque recommandation dispose d'un ensemble d'actions qui peuvent être effectu�
 
 Le panneau **Mises à jour système manquantes** affiche un tableau incluant les informations suivantes :
 
-- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
-- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
-- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
-- **ÉTAT** : état actuel de la recommandation :
-	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
-	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
-- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
-	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
-	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
-	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
+- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
+- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
+- **ÉTAT** : état actuel de la recommandation :
+	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
+	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
+- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
+	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
+	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
+	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Pour afficher des informations détaillées sur les recommandations, cliquez sur le nom de la machine virtuelle concernée. Un nouveau panneau s’ouvre pour cette machine virtuelle et affiche la liste des mises à jour manquantes, comme indiqué ci-dessous.
 
@@ -100,20 +100,19 @@ Ce panneau comporte les détails de la sécurité pour la machine virtuelle. L�
 ###Surveillance des réseaux virtuels
 Lorsque vous cliquez sur **Réseaux** dans la mosaïque **Intégrité des ressources**, le panneau **Réseaux** s’ouvre et affiche des informations détaillées, comme le montre l’illustration ci-dessous :
 
-![Mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
+![Mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 ####Recommandations pour la mise en réseau
 
 En haut du panneau se trouve un récapitulatif des problèmes et au bas du panneau, la liste des réseaux surveillés. Ces informations sont similaires à celles qui figurent dans le panneau Intégrité des ressources.
 
-![Panneau Mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
-
 La section de répartition des états du réseau répertorie les problèmes de sécurité potentiels et propose des recommandations pour leur résolution. Voici des exemples de problèmes potentiels :
 
+- Absence d’installation d’un pare-feu de nouvelle génération (NGFW)
 - Non-activation des groupes de sécurité réseau (NSG)
 - Non-activation des groupes de sécurité réseau sur les machines virtuelles
 - Restriction de l’accès externe via le point de terminaison externe public
-- Intégrité des sous-réseaux
+- Intégrité des points de terminaison exposés à Internet
 
 Lorsque vous cliquez sur l’une de ces recommandations, un nouveau panneau incluant plus de détails concernant la recommandation s’ouvre, comme illustré dans l’exemple ci-dessous.
 
@@ -123,18 +122,29 @@ Dans cet exemple, le panneau **Configure Missing Network Security Groups for Sub
 
 Dans le panneau **Choisir un groupe de sécurité réseau**, vous devez sélectionner le groupe de sécurité réseau le mieux adapté à votre sous-réseau, mais vous pouvez également créer un nouveau groupe de sécurité réseau.
 
-####Section Mise en réseau
+####Section des points de terminaison accessibles sur Internet
 
-La section **Mise en réseau** contient une vue hiérarchique des ressources, comme indiqué ci-dessous :
+La section **Internet facing endpoints** (Points de terminaison accessibles sur Internet) affiche les machines virtuelles qui sont actuellement configurées via un point de terminaison exposé à Internet ainsi que leur état actuel.
 
-![Arborescence réseau](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
+![Points de terminaison accessibles sur Internet](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
+
+Ce tableau indique le nom du point de terminaison qui représente la machine virtuelle, l’adresse IP Internet et l’état de gravité actuel du groupe de sécurité réseau et du pare-feu de nouvelle génération. Ce tableau est trié par niveau de gravité, comme indiqué ci-dessous :
+- Rouge (en haut) : priorité élevée ; doivent être traités immédiatement 
+- Orange : priorité moyenne ; doivent être traités dès que possible
+- Vert (le dernier) : état d’intégrité
+
+####Section de topologie de mise en réseau
+
+La section **Networking topology** (Topologie de mise en réseau) contient une vue hiérarchique des ressources, comme indiqué ci-dessous :
+
+![Topologie de mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 Ce tableau est trié (machines virtuelles et sous-réseaux) par niveau de gravité, comme indiqué ci-dessous :
 - Rouge (en haut) : priorité élevée ; doivent être traités immédiatement 
 - Orange : priorité moyenne ; doivent être traités dès que possible
 - Vert (le dernier) : état d’intégrité
 
-Dans cette hiérarchie, le premier niveau se décompose comme suit : [Réseaux virtuels](../virtual-network/virtual-networks-overview.md), [Passerelles de réseau virtuel](../vpn-gateway/vpn-gateway-site-to-site-create.md) et [Réseau virtuel (classique)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Le deuxième niveau comprend des sous-réseaux et le troisième niveau regroupe les machines virtuelles appartenant à ces sous-réseaux. La colonne de droite présente l’état actuel du groupe de sécurité réseau (NSG) pour ces ressources. L’exemple suivant illustre le résultat de la sélection de la machine virtuelle VM-CL-W1 :
+Dans cette topologie, le premier niveau se décompose comme suit : [Réseaux virtuels](../virtual-network/virtual-networks-overview.md), [Passerelles de réseau virtuel](../vpn-gateway/vpn-gateway-site-to-site-create.md) et [Réseau virtuel (classique)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Le deuxième niveau comprend des sous-réseaux et le troisième niveau regroupe les machines virtuelles appartenant à ces sous-réseaux. La colonne de droite présente l’état actuel du groupe de sécurité réseau (NSG) pour ces ressources. L’exemple suivant illustre le résultat de la sélection de la machine virtuelle VM-CL-W1 :
 
 ![Arborescence réseau](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
@@ -185,4 +195,4 @@ Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveill
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

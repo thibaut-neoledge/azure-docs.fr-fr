@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="Didacticiel REST sur la messagerie répartie Service Bus | Microsoft Azure"
-   description="Didacticiel REST sur la messagerie répartie."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Didacticiel REST sur la messagerie répartie Service Bus | Microsoft Azure"
+    description="Didacticiel REST sur la messagerie répartie."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/15/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/03/2016"
+    ms.author="sethm" />
 
 # Didacticiel REST sur la messagerie répartie Service Bus
 
 Ce didacticiel montre comment créer un service de file d’attente et une rubrique/un abonnement Azure Service Bus de base REST.
 
-## Étape 1 : Créer un espace de noms
+## Étape 1 : Créer un espace de noms
 
-La première étape consiste à créer l’espace de noms de service et à obtenir une clé de [signature d’accès partagé](service-bus-sas-overview.md) (SAP). Un espace de noms de service fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
+La première étape consiste à créer l’espace de noms de service et à obtenir une clé de [signature d’accès partagé](service-bus-sas-overview.md) (SAP). Un espace de noms de service fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
 
-### Créer un espace de noms et obtenir une clé secrète partagée
+### Créer un espace de noms et obtenir une clé SAP
 
 1. Pour créer un espace de noms de service, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Tapez un nom pour votre espace de noms, puis cochez la case.
 
@@ -59,7 +59,7 @@ Après avoir obtenu l’espace de noms de service et les informations d’identi
 
 1. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sur **Nouveau**, puis sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez sous **Autres langages**), sélectionnez le modèle **Application console** et nommez-le **Microsoft.ServiceBus.Samples**. Utilisez l’emplacement par défaut. Cliquez sur **OK** pour créer le projet.
 
-1. Dans Program.cs, vérifiez que vos instructions `using` s’affichent comme suit :
+1. Dans Program.cs, vérifiez que vos instructions `using` s’affichent comme suit :
 
 	```
 	using System;
@@ -73,7 +73,7 @@ Après avoir obtenu l’espace de noms de service et les informations d’identi
 
 1. Si nécessaire, renommez `Microsoft.ServiceBus.Samples` la valeur par défaut Visual Studio pour l’espace de noms du programme.
 
-1. Dans la classe `Program`, ajoutez les variables globales suivantes :
+1. Dans la classe `Program`, ajoutez les variables globales suivantes :
 	
 	```
 	static string serviceNamespace;
@@ -82,7 +82,7 @@ Après avoir obtenu l’espace de noms de service et les informations d’identi
 	const string sbHostName = "servicebus.windows.net";
 	```
 
-1. Dans `Main()`, collez le code suivant :
+1. Dans `Main()`, collez le code suivant :
 
 	```
 	Console.Write("Enter your service namespace: ");
@@ -160,7 +160,7 @@ L’étape suivante consiste à écrire une méthode qui traite l’espace de no
 
 ### Créer une méthode GetSASToken()
 
-Collez le code suivant après la méthode `Main()`, dans la classe `Program` :
+Collez le code suivant après la méthode `Main()`, dans la classe `Program` :
 
 ```
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
@@ -180,23 +180,25 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 L’étape suivante consiste à écrire une méthode qui utilise la commande HTTP PUT de type REST pour créer une file d’attente.
 
-Collez le code suivant directement après le code `GetSASToken()` que vous avez ajouté à l’étape précédente :
+Collez le code suivant directement après le code `GetSASToken()` que vous avez ajouté à l’étape précédente :
 
 ```
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
-    // Create the URI of the new queue, note that this uses the HTTPS schemestring queueAddress = baseAddress + queueName;
+    // Create the URI of the new queue, note that this uses the HTTPS scheme
+    string queueAddress = baseAddress + queueName;
     WebClient webClient = new WebClient();
     webClient.Headers[HttpRequestHeader.Authorization] = token;
 
     Console.WriteLine("\nCreating queue {0}", queueAddress);
-    // Prepare the body of the create queue requestvar putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
-                                  <title type=""text"">" + queueName + @"</title>
-                                  <content type=""application/xml"">
-                                    <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
-                                  </content>
-                                </entry>";
+    // Prepare the body of the create queue request
+    var putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
+                          <title type=""text"">" + queueName + @"</title>
+                          <content type=""application/xml"">
+                            <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
+                          </content>
+                        </entry>";
 
     byte[] response = webClient.UploadData(queueAddress, "PUT", Encoding.UTF8.GetBytes(putData));
     return Encoding.UTF8.GetString(response);
@@ -207,7 +209,7 @@ private static string CreateQueue(string queueName, string token)
 
 Dans cette étape, vous ajoutez une méthode qui utilise la commande de type REST HTTP POST pour envoyer un message à la file d’attente que vous avez créée à l’étape précédente.
 
-1. Collez le code suivant directement après le code `CreateQueue()` que vous avez ajouté à l’étape précédente :
+1. Collez le code suivant directement après le code `CreateQueue()` que vous avez ajouté à l’étape précédente :
 
 	```
 	// Sends a message to the "queueName" queue, given the name and the value to enqueue
@@ -223,7 +225,7 @@ Dans cette étape, vous ajoutez une méthode qui utilise la commande de type RES
 	}
 	```
 
-1. Les propriétés du message réparti standard sont placées dans un en-tête HTTP `BrokerProperties`. Les propriétés du service broker doivent être sérialisées au format JSON. Pour spécifier une valeur **TimeToLive** de 30 secondes et ajouter une étiquette de message « M1 » au message, ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
+1. Les propriétés du message réparti standard sont placées dans un en-tête HTTP `BrokerProperties`. Les propriétés du service broker doivent être sérialisées au format JSON. Pour spécifier une valeur **TimeToLive** de 30 secondes et ajouter une étiquette de message « M1 » au message, ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
 
 	```
 	// Add brokered message properties "TimeToLive" and "Label"
@@ -232,7 +234,7 @@ Dans cette étape, vous ajoutez une méthode qui utilise la commande de type RES
 
 	Notez que les propriétés du message réparti ont été et seront ajoutées. Par conséquent, la demande d’envoi doit spécifier une version d’API qui prend en charge toutes les propriétés de message réparti faisant partie de la demande. Si la version d’API spécifiée ne prend pas en charge une propriété de message réparti, cette propriété est ignorée.
 
-1. Les propriétés de message personnalisées sont définies comme un ensemble de paires clé-valeur. Chaque propriété personnalisée est stockée dans son propre en-tête TPPT. Pour ajouter les propriétés personnalisées « Priority » et « Customer », ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
+1. Les propriétés de message personnalisées sont définies comme un ensemble de paires clé-valeur. Chaque propriété personnalisée est stockée dans son propre en-tête TPPT. Pour ajouter les propriétés personnalisées « Priority » et « Customer », ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
 
 	```
 	// Add custom properties "Priority" and "Customer".
@@ -244,7 +246,7 @@ Dans cette étape, vous ajoutez une méthode qui utilise la commande de type RES
 
 L’étape suivante consiste à ajouter une méthode qui utilise la commande HTTP DELETE de type REST pour recevoir et supprimer un message de la file d’attente.
 
-Collez le code suivant directement après le code `SendMessage()` que vous avez ajouté à l’étape précédente :
+Collez le code suivant directement après le code `SendMessage()` que vous avez ajouté à l’étape précédente :
 
 ```
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
@@ -296,7 +298,7 @@ private static string CreateTopic(string topicName)
 
 ### Création d’un abonnement
 
-Le code suivant crée un abonnement à la rubrique que vous avez créée à l’étape précédente. Ajoutez le code suivant directement après la définition `CreateTopic()` :
+Le code suivant crée un abonnement à la rubrique que vous avez créée à l’étape précédente. Ajoutez le code suivant directement après la définition `CreateTopic()` :
 
 ```
 private static string CreateSubscription(string topicName, string subscriptionName)
@@ -325,7 +327,7 @@ Dans cette étape, vous ajoutez le code qui récupère les propriétés du messa
 
 ### Récupérer un flux Atom avec les ressources spécifiées
 
-Ajoutez le code suivant directement après la méthode `CreateSubscription()` que vous avez ajoutée à l’étape précédente :
+Ajoutez le code suivant directement après la méthode `CreateSubscription()` que vous avez ajoutée à l’étape précédente :
 
 ```
 private static string GetResources(string resourceAddress)
@@ -357,7 +359,7 @@ private static string DeleteResource(string resourceName)
 
 ### Mettre en forme le flux Atom
 
-La méthode `GetResources()` contient un appel à une méthode `FormatXml()` qui reformate le flux Atom récupéré pour le rendre plus lisible. Voici la définition de `FormatXml()`. Ajoutez ce code directement après le code `DeleteResource()` que vous avez ajouté à la section précédente :
+La méthode `GetResources()` contient un appel à une méthode `FormatXml()` qui reformate le flux Atom récupéré pour le rendre plus lisible. Voici la définition de `FormatXml()`. Ajoutez ce code directement après le code `DeleteResource()` que vous avez ajouté à la section précédente :
 
 ```
 // Formats the XML string to be more human-readable; intended for display purposes
@@ -628,9 +630,9 @@ namespace Microsoft.ServiceBus.Samples
 Pour en savoir plus, voir les articles suivants :
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-- [Concepts de base d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Concepts de base d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Didacticiel REST sur Service Bus Relay](service-bus-relay-rest-tutorial.md)
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

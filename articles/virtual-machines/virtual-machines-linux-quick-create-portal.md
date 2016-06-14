@@ -23,8 +23,10 @@
 
 Cet article explique comment utiliser le [portail Azure](https://portal.azure.com/) pour créer rapidement une machine virtuelle Linux. Les seules conditions requises sont [un compte Azure](https://azure.microsoft.com/pricing/free-trial/) et des [fichiers de clés publiques et privées SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
+[AZURE.NOTE] Si vous choisissez d’utiliser un mot de passe pour sécuriser l’accès à votre machine virtuelle, le mot de passe doit comporter plus de 12 caractères, et au moins un caractère en majuscule, un caractère en minuscule, un caractère spécial et un chiffre.
 
-1. Connectez-vous au portail Azure avec les informations d’identification de votre compte Azure, puis cliquez sur **+ nouveau** dans l’angle supérieur gauche :
+
+1. Connectez-vous au portail Azure avec les informations d’identification de votre compte Azure, puis cliquez sur **+ nouveau** dans l’angle supérieur gauche :
 
     ![écran1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
@@ -79,4 +81,4 @@ Vous venez de créer rapidement une machine virtuelle Linux à des fins de test 
 
 Ces articles vous aideront à démarrer la création d'une infrastructure Azure ainsi que n’importe quelle quantité de déploiements d’infrastructure open source et propriétaires, de configuration et d’outils d’orchestration.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

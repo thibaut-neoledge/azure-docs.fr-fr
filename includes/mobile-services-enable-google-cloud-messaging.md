@@ -12,9 +12,13 @@
    	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
 
-4. Dans le tableau de bord du projet, cliquez sur **API Mobile**, sur **Google Cloud Messaging**, puis, à la page suivante, cliquez sur **Activer**.
+4. Dans le tableau de bord du projet, cliquez sur **API Mobile**, sur **Google Cloud Messaging**, puis, à la page suivante, cliquez sur **Activer** et acceptez les conditions du service.
 
-5. Dans le tableau de bord du projet, cliquez sur **Informations d'identification** > **Créer des informations d'identification** > **Clé API**.
+	![Activation de GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+
+	![Activation de GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png)
+
+5. Dans le tableau de bord du projet, cliquez sur **Informations d’identification** > **Créer des informations d’identification** > **Clé API**.
 
    	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 
@@ -24,4 +28,4 @@
 
 	Cette valeur de clé API vous servira à activer Azure pour l’authentification avec GCM et l’envoi des notifications Push au nom de votre application.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

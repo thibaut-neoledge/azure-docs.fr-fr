@@ -3,7 +3,7 @@
 	description="Recherchez les articles qui décrivent la procédure de configuration du logiciel Oracle sur des machines virtuelles Windows."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="bbenz"
+	authors="rickstercdn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,11 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="01/12/2016"
-	ms.author="bbenz"/>
+	ms.date="05/17/2016"
+	ms.author="rclaus"/>
 
 # Logiciel Oracle hébergé sur des machines virtuelles Windows dans Azure
 
+[AZURE.INCLUDE [virtual-machines-common-oracle-support](../../includes/virtual-machines-common-oracle-support.md)]
 
 Configurez votre première ou votre prochaine base de données Oracle de développement/test ou de production en vue de son exécution sur une machine virtuelle Windows dans les services d’infrastructure Azure. Tirez parti de la facilité de configuration et de la possibilité d’étendre rapidement la charge de travail de la base de données Oracle pour inclure de nouvelles capacités. Vous pouvez également configurer le logiciel Oracle sur des [machines virtuelles Linux](virtual-machines-linux-classic-oracle.md).
 
@@ -26,4 +27,4 @@ Configurez votre première ou votre prochaine base de données Oracle de dévelo
 
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle](../../includes/virtual-machines-common-classic-oracle.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

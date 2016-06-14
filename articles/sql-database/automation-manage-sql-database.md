@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/26/2016"
 	ms.author="jolevy"/>
 
 
@@ -34,7 +34,7 @@ Réduisez les coûts opérationnels et dégagez du temps pour votre personnel in
 
 ## Comment Azure Automation peut-il aider à gérer des bases de données SQL Azure ?
 
-La base de données SQL Azure peut être gérée dans Azure Automation à l’aide des applets de commande [PowerShell pour la base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn546726.aspx) disponibles dans les outils [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation dispose dès le départ de ces applets de commande PowerShell pour Azure SQL Database, de sorte que vous pouvez effectuer toutes vos tâches de gestion de bases de données SQL au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
+La base de données SQL Azure peut être gérée dans Azure Automation à l’aide des applets de commande [PowerShell pour la base de données SQL Azure](https://msdn.microsoft.com/library/dn546723.aspx) disponibles dans les outils [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation dispose dès le départ de ces applets de commande PowerShell pour Azure SQL Database, de sorte que vous pouvez effectuer toutes vos tâches de gestion de bases de données SQL au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 Azure Automation a également la possibilité de communiquer directement avec les serveurs SQL en exécutant des commandes SQL à l'aide de PowerShell.
 
@@ -55,4 +55,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de l
 - [Azure Automation : votre agent SQL dans le cloud](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

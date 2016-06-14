@@ -1,4 +1,6 @@
-Resource|Maximum Limit
+Ressource|Limite maximale
 ---|---
-Maximum number of VMs in a scale set|100
-Maximum number of scale sets in a region|50
+Nombre maximal de machines virtuelles dans un jeu de mise à l’échelle|100
+Nombre maximal de jeux de mise à l’échelle dans une région|50
+
+<!---HONumber=AcomDC_0601_2016-->
