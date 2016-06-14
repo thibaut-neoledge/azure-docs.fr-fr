@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation d’Azure App Service | Microsoft Azure" 
+	pageTitle="Azure App Service pour les applications web et mobiles | Microsoft Azure" 
 	description="Découvrez comment Azure App Service vous permet de développer, déployer et gérer des applications web et mobiles." 
 	keywords="app service, azure app service, coût de l’app service, mise à l’échelle, évolutif, déploiement d’applications, déploiement d’applications azure, paas, platform-as-a-service"
 	services="app-service" 
@@ -19,13 +19,35 @@
 
 # Qu'est-ce qu'Azure App Service ?
 
-*App Service* est une solution [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) de Microsoft Azure, qui permet de créer des applications web et mobiles pour n’importe quelle plateforme ou appareil. Vous pouvez facilement intégrer des solutions SaaS à vos applications (par exemple, Office 365, Dynamics CRM, Salesforce, Twilio), vous connecter facilement à des applications locales (telles que SAP, Oracle, Siebel) et automatiser facilement des processus d’entreprise tout en répondant à des besoins stricts en termes de sécurité, fiabilité et évolutivité.
+*App Service* est une offre PaaS ([platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service)) de Microsoft Azure. Créez des applications web et mobiles adaptées à toutes les plateformes et appareils. Intégrez vos applications avec des solutions SaaS, connectez-vous à des applications locales et automatisez vos processus d’entreprise. Azure exécute vos applications sur des machines virtuelles entièrement gérées, avec les ressources de machines virtuelles partagées ou les machines virtuelles dédiées de votre choix.
 
-App Service inclut les fonctionnalités web et mobiles que nous avons précédemment fournies séparément en tant que sites web Azure et services mobiles Azure. Il inclut également de nouvelles fonctionnalités d’automatisation des processus d’entreprise et d’hébergement d’API cloud.
+App Service inclut les fonctionnalités web et mobiles que nous avons précédemment fournies séparément en tant que sites web Azure et services mobiles Azure. Il inclut également de nouvelles fonctionnalités d’automatisation des processus d’entreprise et d’hébergement d’API cloud. En tant que service intégré unique, App Service vous permet d’assembler différents éléments (sites web, serveurs principaux d’application mobile, API RESTful et processus d’entreprise) au sein d’une solution unique.
+
+La vidéo de 4 minutes suivante explique brièvement la manière dont App Service se rapporte aux offres Azure précédentes, ainsi que ses nouvelles fonctionnalités.
+
+\+[AZURE.VIDEO app-service-history-lesson] 
+
+## Pourquoi utiliser App Service ?
+
+Voici quelques fonctionnalités et capacités clés d’App Service :
+
+- **Plusieurs langages et infrastructures** : App Service offre une excellente prise en charge d’ASP.NET, Node.js, Java, PHP et Python. Vous pouvez également exécuter [Windows PowerShell et d’autres scripts ou exécutables](../app-service-web/web-sites-create-web-jobs.md) sur les machines virtuelles App Service.
+
+- **Optimisation DevOps** : configurez [l’intégration et le déploiement continus](../app-service-web/app-service-continous-deployment.md) avec Visual Studio Team Services, GitHub ou BitBucket. Assurez la promotion des mises à jour par le biais des [environnements de test et intermédiaires](../app-service-web/web-sites-staged-publishing.md). Effectuez des [tests A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Gérez vos applications dans App Service à l’aide [d’Azure PowerShell](../powershell-install-configure.md) ou de [l’interface de ligne de commande interplateforme](../xplat-cli-install.md).
+ 
+- **Mise à l’échelle globale avec une haute disponibilité** : effectuez des [montées en puissance](../app-service/app-service-scale.md) ou [augmentez la taille des instances](../azure-portal/insights-how-to-scale.md) manuellement ou automatiquement. Hébergez vos applications n’importe où dans l’infrastructure mondiale des centres de données de Microsoft, et bénéficiez des garanties du [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) App Service en matière de haute disponibilité.
+
+- **Connexion aux plateformes SaaS et données locales** : choisissez parmi plus de 50 [connecteurs](../connectors/apis-list.md) pour des systèmes d’entreprise tels que SAP, Siebel et Oracle, des services SaaS tels que Salesforce et Office 365 et des services Internet tels que Facebook et Twitter. Accédez aux données locales à l’aide de [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et de [réseaux virtuels Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+
+- **Sécurité et conformité** : App Service est [conforme aux normes ISO, SOC et PCI](https://www.microsoft.com/TrustCenter/).
+
+- **Modèles d’application** : faites votre choix parmi une liste complète de modèles d’application dans [Azure Marketplace](https://azure.microsoft.com/marketplace/), qui vous permettent d’utiliser un Assistant pour installer des logiciels open source populaires tels que WordPress, Joomla et Drupal.
+
+- **Intégration Visual Studio** : les outils dédiés de Visual Studio rationalisent le travail de création, de déploiement et de débogage.
 
 ## Types d’applications dans App Service
 
-App Service offre les types d’applications suivants pour l’exécution de votre code d’application ou de vos processus de flux de travail.
+App Service offre plusieurs *types d’application*, chacun d’eux étant destiné à héberger un type spécifique de charge de travail :
 
 - [**Web Apps**](../app-service-web/app-service-web-overview.md) : pour l’hébergement de sites et d’applications web.
 
@@ -35,43 +57,17 @@ App Service offre les types d’applications suivants pour l’exécution de vot
  
 - [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) : pour automatiser l’accès et l’utilisation des données entre des clouds sans écrire de code.
 
-En tant que service intégré unique, App Service facilite la composition de plusieurs types d’applications dans une solution unique.
+Ici, le mot *application* fait référence aux ressources d’hébergements dédiées à l’exécution d’une charge de travail. Par exemple, vous avez certainement l’habitude de considérer qu’une « application web » constitue les ressources de calcul et le code d’application fournissant, ensemble, des fonctionnalités à un navigateur. Cependant, dans App Service, une *application web* constitue les ressources de calcul fournies par Azure pour l’hébergement de votre code d’application. Si votre application est composée d’un serveur web frontal et d’une API RESTful principale, vous pouvez les déployer sur une application web, ou vous pouvez déployer votre code frontal sur une application web et votre code principal sur une application API. Votre application peut être composée d’applications App Service de différents types.
 
-## Environnements et plans App Service
+## Plans App Service
 
-[Plans App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) représente les ressources de calcul sur lesquelles vos applications s’exécutent. À des niveaux tarifaires inférieurs, vos applications s’exécutent sur des machines virtuelles partagées. À des niveaux plus élevés, vos applications s’exécutent sur des machines virtuelles dédiées. Vous avez le choix entre plusieurs tailles de machines virtuelles, et pouvez modifier votre niveau tarifaire sans interruption de service. Si vous avez besoin de plus d’évolutivité et d’isolement réseau, vous pouvez exécuter vos applications dans un [environnement App Service](../app-service-web/app-service-app-service-environment-intro.md).
+Les [plans App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) spécifient le type des ressources de calcul sur lesquelles vos applications s’exécutent. Si vous envisagez de faibles charges de trafic, vous pouvez utiliser des machines virtuelles partagées. Pour les charges plus élevées, vous pouvez choisir des machines virtuelles dédiées de différentes tailles. Plusieurs applications App Service peuvent partager le même plan. Elles montent et descendent en puissance avec le plan.
 
-## Pourquoi utiliser App Service ?
+Si vous avez besoin de plus d’évolutivité et d’isolement réseau, vous pouvez exécuter vos applications dans un [environnement App Service](../app-service-web/app-service-app-service-environment-intro.md).
 
-Voici quelques fonctionnalités et capacités clés d’App Service :
+## Tarification
 
-- **Plateforme entièrement gérée** : mise à jour corrective automatique de l’infrastructure et du système d’exploitation, prise en charge intégrée pour la sauvegarde et récupération d’urgence. 
-
-- **Utilisation de vos compétences existantes** :écrivez du code dans votre langage, votre infrastructure et votre environnement de développement. App Service prend en charge .NET, Node.js, Java, PHP et Python.
-
-- **Déploiement rapide** : approvisionnez de nouvelles applications et déployez du code vers celles-ci en quelques secondes.
-
-- **Intégration continue** : configurez l’[intégration et le déploiement continus](../app-service-web/app-service-continous-deployment.md) avec Visual Studio Team Services, GitHub ou BitBucket.
-
-- **Environnements intermédiaires et de test** : mettez en place un [déploiement intermédiaire](../app-service-web/web-sites-staged-publishing.md) pour vérifier votre code dans un environnement de préproduction identique à votre environnement de production. Quand vous êtes prêt, publiez une nouvelle version de votre application sans interruption de service en effectuant une opération d’échange.
-
-- **Tests dans un environnement de production** : allez au-delà du déploiement intermédiaire [en effectuant des tests A/B](../app-service-web/app-service-web-test-in-production-get-start.md) pour vérifier votre nouveau code avec une fraction configurable de votre trafic.
-
-- **Authentification et autorisation** : protégez une application API de tout accès non authentifié sans apporter de modifications à votre code. Des services d’authentification intégrés sécurisent vos applications contre tout accès par des utilisateurs, des clients représentant des utilisateurs ou des services. Les fournisseurs d’identité pris en charge incluent Azure Active Directory, Facebook, Twitter, Google et Microsoft Account. Pour plus d’informations, consultez la page [Authentification et autorisation dans Azure App Service](app-service-authentication-overview.md).
-
-- **Connexion à n’importe quel service** : connectez votre application aux systèmes d’entreprise ou aux plateformes SaaS en quelques minutes à l’aide de [connecteurs](../connectors/apis-list.md) intégrés. Choisissez parmi plus de 50 connecteurs pour des systèmes d’entreprise tels que SAP, Siebel et Oracle, des services SaaS d’entreprise populaires tels que Salesforce et Office 365, et des services Internet populaires tels que Facebook, Twitter et Dropbox.
-
-- **Portée mondiale** : effectuez une montée [en puissance](../app-service/app-service-scale.md) ou une [montée en charge](../azure-portal/insights-how-to-scale.md) pour gérer la charge entrante des clients. Sélectionnez manuellement le nombre et la taille des machines virtuelles ou configurez la mise à l’échelle automatique en fonction de la charge ou la planification. L’infrastructure de centre de données mondiale de Microsoft héberge vos applications et facilite la réplication des données et l’hébergement des services dans plusieurs zones.
-
-- **Professionnel** : App Service est conçu pour la création et l’hébergement d’applications stratégiques sécurisées. Créez des applications d’entreprise Active Directory intégrées qui se connectent en toute sécurité aux ressources locales, puis hébergez-les sur une plateforme cloud sécurisée conforme aux normes [ISO, SOC et PCI](https://www.microsoft.com/TrustCenter/). Le tout fourni avec un [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/app-service/) professionnel.
-
-- **Azure Marketplace** : sélectionnez parmi la [liste des modèles d’applications](https://azure.microsoft.com/marketplace/) qui est alimentée en permanence. Profitez du meilleur de la communauté des applications OSS grâce à une installation en un clic de packages tels que Wordpress, Joomla et Drupal.
-
-- **WebJobs** : [ exécutez n’importe quel programme ou script](../app-service-web/web-sites-create-web-jobs.md) sur des machines virtuelles App Service. Exécutez des tâches en continu, selon une planification, ou déclenchées par des événements. Le [Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md) Azure simplifie le code que vous écrivez pour l’intégration à d’autres services Azure et tiers.
-
-- **Connexions hybrides** : accédez aux données locales à l’aide de [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et de [réseaux virtuels Azure](../app-service-web/web-sites-integrate-with-vnet.md).
-
-- **Intégration Visual Studio** : les outils dédiés de Visual Studio rationalisent le travail de création, de déploiement, de consommation, de débogage et de gestion des applications web, mobiles et API.
+Pour plus d’informations sur le coût d’App Service, consultez la page [Tarification de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Prise en main d'App Service
 
@@ -79,9 +75,9 @@ Voici quelques fonctionnalités et capacités clés d’App Service :
 
 Ou ouvrez un [compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/), puis essayez l’un de nos didacticiels dédiés à la prise en main :
 
-* [Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
-* [Mobile Apps](https://azure.microsoft.com/documentation/services/app-service/mobile/)
-* [API Apps](https://azure.microsoft.com/documentation/services/app-service/api/)
-* [Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)
+* [Didacticiel : Créer une application web](../app-service-web/app-service-web-get-started.md)
+* [Didacticiel : Créer une application mobile](../app-service-mobile/app-service-mobile-android-get-started.md)
+* [Didacticiel : Créer une application API](../app-service-api/app-service-api-dotnet-get-started.md)
+* [Didacticiel : Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -59,4 +59,4 @@ Maintenant que vous avez lu l’introduction à la base de données SQL et répo
 - Créez votre première application en C#, Java, Node.js, PHP, Python ou Ruby : [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 - Voir l’index des titres et descriptions de l’article [Toutes les rubriques pour le service de base de données SQL Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

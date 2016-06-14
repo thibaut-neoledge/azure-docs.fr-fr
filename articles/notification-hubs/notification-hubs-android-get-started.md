@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/05/2016"
+	ms.date="05/27/2016"
 	ms.author="wesmc"/>
 
 # Envoi de notifications Push vers Android avec Azure Notification Hubs
@@ -74,13 +74,13 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 
 ###Ajout de bibliothèques de concentrateurs de notification Azure
 
-1. Téléchargez le fichier `notification-hubs-0.4.jar` à partir de l’onglet **Fichiers** du [SDK Notification-Hubs-Android sur Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Faites glisser le fichier dans le dossier **libs** du répertoire de votre projet.
 
-2. Dans le fichier `Build.Gradle` de l’**application**, dans la section **dépendances**, ajoutez la ligne qui suit.
+1. Dans le fichier `Build.Gradle` de l’**application**, dans la section **dépendances**, ajoutez les lignes suivantes.
 
-	    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+		compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+		compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
 
-	Ajoutez le référentiel suivant après la section **dépendances**.
+2. Ajoutez le référentiel suivant après la section **dépendances**.
 
 		repositories {
 		    maven {
@@ -91,7 +91,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 ### Mise à jour du fichier AndroidManifest.xml.
 
 
-1. Pour prendre en charge GCM, nous devons implémenter un service d'écoute d'ID d'instance dans notre code afin d'[obtenir des jetons d'inscription](https://developers.google.com/cloud-messaging/android/client#sample-register) à l'aide de l'[API d'ID d'instance Google](https://developers.google.com/instance-id/). Dans ce didacticiel, nous nommerons la classe `MyInstanceIDService`. 
+1. Pour prendre en charge GCM, nous devons implémenter un service d’écoute d’ID d’instance dans notre code afin d’[obtenir des jetons d’inscription](https://developers.google.com/cloud-messaging/android/client#sample-register) à l’aide de l’[API d’ID d’instance Google](https://developers.google.com/instance-id/). Dans ce didacticiel, nous nommerons la classe `MyInstanceIDService`. 
  
 	Ajoutez la définition de service suivante au fichier AndroidManifest.xml, dans la balise `<application>`. Remplacez l’espace réservé `<your package>` par le nom de votre package, qui apparaît en haut du fichier `AndroidManifest.xml`.
 
@@ -229,7 +229,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 		                regID = hub.register(token).getRegistrationId();
 
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/fr-FR/documentation/articles/notification-hubs-routing-tag-expressions/
+						// Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
@@ -619,7 +619,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/fr-FR/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	
@@ -724,4 +724,4 @@ Pour obtenir des informations générales sur Notification Hubs, consultez nos [
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Version préliminaire d’Azure Active Directory B2C : types d’applications
@@ -130,4 +130,4 @@ De nombreuses architectures incluent une API web qui doit appeler une autre API 
 
 Ce scénario d’API web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas actuellement implémenté dans la version préliminaire d’Azure AD B2C.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

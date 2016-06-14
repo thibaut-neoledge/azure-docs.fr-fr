@@ -43,14 +43,12 @@ En fournissant des API ouvertes et des Kits de développement logiciel (SDK) qui
 
 Depuis longtemps, Microsoft fait preuve d'un engagement réel vis-à-vis de la confidentialité, partie intégrante du cycle de vie des produits et des services. Nous nous efforçons de rendre nos pratiques de confidentialité transparentes, de proposer aux clients des choix pertinents en termes de confidentialité et de gérer de façon responsable les données que nous stockons. Comme pour tous les services Azure, Mobile Engagement ne partage pas ou ne vend pas les informations dérivées de la propriété des clients. Mobile Engagement est disponible dans le monde entier, permettant ainsi d'appliquer les lois relatives à la confidentialité des données spécifiques à une région ou un pays.
 
-###Étapes suivantes :
-
-[Création d'une application Azure Mobile Engagement](mobile-engagement-create.md)
+###Étapes suivantes :
 
 [Meilleurs pratiques et processus pour créer votre Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Prise en main (mercaticiens)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[Prise en main](/documentation/services/mobile-engagement/)
 
-[Prise en main (développeurs)](/documentation/services/mobile-engagement/)
+[Télécharger des applications de démonstration avec le code source](https://aka.ms/azmedemoapps)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->
