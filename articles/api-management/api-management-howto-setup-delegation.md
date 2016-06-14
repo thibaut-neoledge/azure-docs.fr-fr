@@ -131,7 +131,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail de publication, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
 
-****Code C# pour générer le hachage de returnUrl****
+**Code C# pour générer le hachage de returnUrl**
 
     using System.Security.Cryptography;
 
@@ -147,7 +147,7 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
     }
 
 
-****Code NodeJS pour générer le hachage de returnUrl****
+**Code NodeJS pour générer le hachage de returnUrl**
 
 	var crypto = require('crypto');
 	

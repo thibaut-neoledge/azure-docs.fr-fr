@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/27/2016"
    ms.author="terrylan"/>
 
 # Ajouter un pare-feu d'applications web dans le Centre de sécurité Azure
@@ -35,31 +35,31 @@ Le Centre de sécurité Azure peut vous recommander d'ajouter un pare-feu d'appl
 6. Le panneau **Nouveau pare-feu d’applications web** s’ouvre. Vous pouvez y **configurer des machines virtuelles** et fournir des **informations sur le pare-feu d’applications web**. Sélectionnez **Configuration de machine virtuelle**.
 
 7. Dans le panneau **Configuration de machine virtuelle**, entrez les informations nécessaires pour créer la machine virtuelle qui doit exécuter le pare-feu d’applications web. ![][4]
-8. Retournez au panneau **Nouveau pare-feu d’applications web**, puis sélectionnez **Informations sur le pare-feu d’applications web**. Dans le panneau **Informations sur le pare-feu d’applications web**, vous pouvez configurer le pare-feu d’applications web. L’étape 7 vous permet de configurer la machine virtuelle sur laquelle le pare-feu d’applications web doit être exécuté, et l’étape 8 vous permet d’approvisionner le pare-feu d’applications web.
+8. Retournez au panneau **Nouveau pare-feu d’applications web**, puis sélectionnez **Informations sur le pare-feu d’applications web**. Dans le panneau **Informations sur le pare-feu d’applications web**, vous pouvez configurer le pare-feu d’applications web. L’étape 7 vous permet de configurer la machine virtuelle sur laquelle le pare-feu d’applications web doit être exécuté, et l’étape 8 vous permet d’approvisionner le pare-feu d’applications web.
 
-9. Retournons au panneau **Recommandations**. Une entrée a été créée après la génération du pare-feu d’applications web : **Finaliser la configuration du pare-feu d’applications web**. Cela vous indique que vous devez terminer le processus de configuration du pare-feu d’applications web dans le réseau virtuel Azure pour qu’il puisse protéger l’application. ![][5]
+9. Retournons au panneau **Recommandations**. Une entrée a été créée après la génération du pare-feu d’applications web : **Finaliser la configuration du pare-feu d’applications web**. Cela vous indique que vous devez terminer le processus de configuration du pare-feu d’applications web dans le réseau virtuel Azure pour qu’il puisse protéger l’application. ![][5]
 
-10. Sélectionnez **Finaliser la configuration du pare-feu d’applications web**. Un nouveau panneau s'ouvre. Vous voyez que le trafic d’une application web doit être redirigé.
-11. Sélectionnez l’application web. Un panneau s’ouvre et affiche des instructions pour finaliser la configuration du pare-feu d’applications web. Suivez les étapes, puis sélectionnez **Restreindre le trafic**. Le Centre de sécurité effectue ensuite la configuration à votre place. ![][6]
+10. Sélectionnez **Finaliser la configuration du pare-feu d’applications web**. Un nouveau panneau s'ouvre. Vous voyez que le trafic d’une application web doit être redirigé.
+11. Sélectionnez l’application web. Un panneau s’ouvre et affiche des instructions pour finaliser la configuration du pare-feu d’applications web. Suivez les étapes, puis sélectionnez **Restreindre le trafic**. Le Centre de sécurité effectue ensuite la configuration à votre place. ![][6]
 
-> [AZURE.NOTE] Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l'aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l'aide du modèle de déploiement classique) sont limités à l'utilisation d'un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique). En savoir plus sur les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) pour les ressources Azure.
+> [AZURE.NOTE] Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l’aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l’aide du modèle de déploiement classique) sont limités à l’utilisation d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique). En savoir plus sur les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) pour les ressources Azure.
 
 Les journaux du pare-feu d’applications web sont maintenant entièrement intégrés. Le Centre de sécurité peut commencer automatiquement à collecter et à analyser les journaux afin de vous informer des alertes de sécurité les plus importantes.
 
 ## Étapes suivantes
 
-Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Add a web application » (Ajouter une application web). Pour en savoir plus sur la configuration d'un pare-feu d'applications web, consultez les rubriques suivantes :
+Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Add a web application » (Ajouter une application web). Pour en savoir plus sur la configuration d'un pare-feu d'applications web, consultez les rubriques suivantes :
 
-- [Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+- [Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
-Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) -- Découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) -- Découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) -- Découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) -- Découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) -- Découvrez comment gérer et résoudre les alertes de sécurité
-- [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) -- Découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
-- [FAQ Centre de sécurité Azure](security-center-faq.md) -- Forum Aux Questions concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) -- Découvrez des billets de blog sur la sécurité et la conformité Azure.
+- [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) -- Découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
+- [FAQ Centre de sécurité Azure](security-center-faq.md) -- Forum Aux Questions concernant l’utilisation de ce service.
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) -- Découvrez des billets de blog sur la sécurité et la conformité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-add-web-application-firewall/secure-web-application.png
@@ -69,4 +69,4 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

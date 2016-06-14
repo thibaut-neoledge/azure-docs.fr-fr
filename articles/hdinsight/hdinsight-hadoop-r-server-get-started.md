@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="05/27/2016"
    ms.author="jeffstok"
 />
 
@@ -110,13 +110,13 @@ L’offre de niveau Premium pour HDInsight inclut R Server dans votre cluster HD
 
 Connectez-vous au nœud de périmètre R Server du cluster HDInsight à l’aide de SSH :
 
-    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
     
-> [AZURE.NOTE] Vous pouvez également trouver l’adresse `RServer.CLUSTERNAME.ssh.azurehdinsight.net` dans le portail Azure en sélectionnant votre cluster, puis __Tous les paramètres__, __Applications__ et __RServer__. Cela a pour effet d’afficher les informations relatives au point de terminaison SSH pour le nœud de périmètre.
+> [AZURE.NOTE] Vous pouvez également trouver l’adresse `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` dans le Portail Azure en sélectionnant votre cluster, puis __Tous les paramètres__, __Applications__ et __RServer__. Cela a pour effet d’afficher les informations relatives au point de terminaison SSH pour le nœud de périmètre.
 >
 > ![Image du point de terminaison SSH pour le nœud de périmètre](./media/hdinsight-getting-started-with-r/sshendpoint.png)
     
-Si vous utilisez un mot de passe pour sécuriser votre compte utilisateur SSH, vous serez invité à le saisir. Si vous utilisez une clé publique, vous devrez peut-être utiliser le paramètre `-i` pour spécifier la clé privée correspondante. Par exemple : `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`.
+Si vous utilisez un mot de passe pour sécuriser votre compte utilisateur SSH, vous serez invité à le saisir. Si vous utilisez une clé publique, vous devrez peut-être utiliser le paramètre `-i` pour spécifier la clé privée correspondante. Par exemple : `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`.
     
 Pour plus d’informations sur l’utilisation de SSH avec HDInsight sous Linux, consultez les articles suivants :
 
@@ -353,4 +353,4 @@ Les deux modèles créent un cluster HDInsight et un compte de stockage associé
 
 Pour des informations générales sur l’utilisation des modèles ARM, consultez [Créer des clusters Hadoop sous Linux dans HDInsight à l’aide de modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

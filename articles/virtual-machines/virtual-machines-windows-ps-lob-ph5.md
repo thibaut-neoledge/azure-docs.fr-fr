@@ -19,8 +19,6 @@
 
 # Charge de travail des applications métier, phase 5 : création du groupe de disponibilité et ajout des bases de données d'application
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 Au cours de cette dernière phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez un groupe de disponibilité SQL Server AlwaysOn et ajoutez les bases de données de l'application.
 
 Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md) pour toutes les phases.
@@ -119,4 +117,4 @@ Une fois l'écouteur configuré, vous devez configurer toutes les machines virtu
 
 - Consultez ces [recommandations](virtual-machines-linux-infrastructure-service-guidelines.md) si vous déployez votre propre charge de travail informatique dans Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

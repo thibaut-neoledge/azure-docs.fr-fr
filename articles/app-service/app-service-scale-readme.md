@@ -22,9 +22,9 @@
 Les applications hébergées dans Azure App Service peuvent [être mises à l’échelle massivement](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/). Toutefois, la mise à l’échelle d’une application est un problème complexe pour lequel il n’existe pas de solution universelle. Pour mettre à l’échelle correctement votre application, il convient de prendre en compte 3 domaines clés :
 
 1. Comprendre l’architecture de votre application et ses faiblesses.
-	* Votre application est-elle avec état ? Sans état ?
+	* Votre application est-elle avec état ? Sans état ?
 	* Quels sont les composants de votre application ?
-		* Où se trouvent les goulots d’étranglement dans l’application ?
+		* Où se trouvent les goulots d’étranglement dans l’application ?
 	* Lors de l’application de la charge à votre application, qu’est-ce qui s’arrête en premier ?
 2. Comprendre les exigences de performances et de charge attendues.
 	* L’application doit-elle répondre à 1 000 ou à un million d’utilisateurs ?
@@ -38,4 +38,4 @@ Cette section vous aidera à comprendre tous les facteurs et à concevoir une st
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

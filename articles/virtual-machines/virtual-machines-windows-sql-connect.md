@@ -30,8 +30,6 @@ Cependant, certains aspects de la connectivité à SQL Server sont propres aux m
 
 Cet article est consacré à la connexion à une machine virtuelle SQL Server à l’aide du modèle de Resource Manager. Pour une procédure pas-à-pas complète d’approvisionnement et de connectivité, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 ## Scénarios de connexion
 
 La méthode utilisée par un client pour se connecter à un serveur SQL Server exécuté sur une machine virtuelle diffère selon l’emplacement du client et la configuration de la machine ou du réseau. Ces scénarios sont les suivants :
@@ -43,11 +41,11 @@ La méthode utilisée par un client pour se connecter à un serveur SQL Server e
 
 Si vous souhaitez vous connecter à votre moteur de base de données SQL Server à partir d’Internet, plusieurs étapes sont requises, telles que la configuration du pare-feu, l’activation de l’authentification SQL et la configuration de votre groupe de sécurité réseau que vous devez avoir comme règle de groupe de sécurité réseau pour autoriser le trafic TCP sur le port 1433.
 
-Si vous utilisez le portail pour approvisionner une image de machine virtuelle SQL Server avec Resource Manager, ces étapes sont effectuées automatiquement lorsque vous sélectionnez **Public** pour l’option de connectivité SQL :
+Si vous utilisez le portail pour approvisionner une image de machine virtuelle SQL Server avec Resource Manager, ces étapes sont effectuées automatiquement lorsque vous sélectionnez **Public** comme option de connectivité SQL :
 
 ![](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
-Si cela n’a pas été effectué lors de l’approvisionnement, vous pouvez configurer manuellement SQL Server et vos machines virtuelles en suivant les [étapes de cet article pour configurer manuellement la connectivité](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
+Si cela n’a pas été effectué lors de l’approvisionnement, vous pouvez configurer manuellement SQL Server et vos machines virtuelles en suivant les [étapes de configuration manuelle de la connectivité de cet article](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
 Une fois cette opération effectuée, tout client disposant d’un accès à Internet peut se connecter à l’instance SQL Server en spécifiant l’adresse IP publique de la machine virtuelle ou le nom DNS attribué à cette adresse IP. Si le port SQL Server est le port 1433, il est inutile de le spécifier dans la chaîne de connexion.
 
@@ -65,7 +63,7 @@ Un [réseau virtuel](../virtual-network/virtual-networks-overview.md) offre des 
 
 Les réseaux virtuels vous permettent également d’associer vos machines virtuelles Azure à un domaine. Il s’agit de la seule façon d’utiliser l’authentification Windows pour SQL Server. Les autres scénarios de connexion requièrent l’authentification SQL avec des noms d’utilisateur et mots de passe.
 
-Si vous utilisez le portail pour approvisionner une image de machine virtuelle SQL Server avec Resource Manager, les règles de pare-feu appropriées pour la communication sur le réseau virtuel sont configurées lorsque vous sélectionnez **Privé** pour l’option de connectivité SQL. Si cela n’a pas été effectué lors de l’approvisionnement, vous pouvez configurer manuellement SQL Server et vos machines virtuelles en suivant les [étapes de cet article pour configurer manuellement la connectivité](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Néanmoins, si vous envisagez de configurer un environnement de domaine et l’authentification Windows, il est inutile d’effectuer la procédure de configuration de l’authentification SQL et des connexions décrite dans cet article. Il est également inutile de configurer des règles du groupe de sécurité réseau pour l’accès via internet.
+Si vous utilisez le portail pour approvisionner une image de machine virtuelle SQL Server avec Resource Manager, les règles de pare-feu appropriées pour la communication sur le réseau virtuel sont configurées lorsque vous sélectionnez **Privé** comme option de connectivité SQL. Si cela n’a pas été effectué lors de l’approvisionnement, vous pouvez configurer manuellement SQL Server et vos machines virtuelles en suivant les [étapes de configuration manuelle de la connectivité de cet article](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Néanmoins, si vous envisagez de configurer un environnement de domaine et l’authentification Windows, il est inutile d’effectuer la procédure de configuration de l’authentification SQL et des connexions décrite dans cet article. Il est également inutile de configurer des règles du groupe de sécurité réseau pour l’accès via internet.
 
 En supposant que vous ayez configuré le DNS sur votre réseau virtuel, vous pouvez vous connecter à votre instance SQL Server en spécifiant le nom d’ordinateur de la machine virtuelle SQL Server dans la chaîne de connexion. L’exemple suivant part également du principe que l’authentification Windows a également été configurée et que l’utilisateur a accès à l’instance SQL Server.
 
@@ -100,4 +98,4 @@ Il est important d’examiner toutes les recommandations de sécurité pour SQL 
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

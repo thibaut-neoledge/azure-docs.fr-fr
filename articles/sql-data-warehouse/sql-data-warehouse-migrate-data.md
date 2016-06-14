@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migration de vos données
-L’objectif principal de la migration des données est de remplir votre base de données SQLDW. Ce processus peut être accompli de diverses manières. Les solutions ADF Copy, SSIS et bcp peuvent toutes être utilisées à cette fin. Toutefois, à mesure de l’augmentation du volume des données, vous avez tout intérêt à réfléchir à un moyen de diviser le processus de migration des données en étapes. Ce faisant, vous vous donnez les moyens d’optimiser chacune des phases en matière de performance et de résilience afin de garantir une migration sans heurts des données.
+Les données peuvent être déplacées à partir de différentes sources dans SQL Data Warehouse avec divers outils. Les solutions ADF Copy, SSIS et bcp peuvent toutes être utilisées à cette fin. Toutefois, à mesure de l’augmentation du volume des données, vous avez tout intérêt à réfléchir à un moyen de diviser le processus de migration des données en étapes. Ce faisant, vous vous donnez les moyens d’optimiser chacune des phases en matière de performance et de résilience afin de garantir une migration sans heurts des données.
 
 Cet article s’intéresse tout d’abord aux scénarios simples de migration d’ADF Copy, de SSIS et de bcp. Nous évoquons ensuite de manière plus approfondie les différents moyens d’optimiser la migration.
 
@@ -30,7 +30,7 @@ PolyBase propose également une option à très hautes performances dédiée au 
 
 > [AZURE.NOTE] PolyBase nécessite d’utiliser des fichiers de données au format UTF-8. Il s’agit du codage par défaut d’ADF Copy ; aucune modification n’est à apporter. Il s’agit d’un simple rappel vous signalant que le comportement par défaut d’ADF Copy n’est pas à modifier.
 
-Consultez l’article suivant afin de découvrir de formidables [exemples d’utilisation d’ADF Copy].
+Consultez l’article suivant afin de découvrir de formidables [exemples d’utilisation d’ADF Copy][].
 
 ## Integration Services ##
 Integration Services (SSIS) est un outil puissant et flexible d’extraction, de transformation et de chargement (ETL, Extract Transform and Load) qui prend en charge des workflows complexes, la transformation des données et diverses options de chargement des données. Utilisez SSIS afin de procéder à un transfert simple de données vers Microsoft Azure, ou dans le cadre d’une migration plus importante.
@@ -104,7 +104,7 @@ Le transfert des données vers Microsoft Azure est l’une des phases les plus 
 Fort heureusement, vous disposez de plusieurs options permettant d’améliorer la rapidité et la résilience de ce processus :
 
 ### [ExpressRoute][]
-Vous pouvez éventuellement vous tourner vers [ExpressRoute][] afin d’accélérer la vitesse de transfert. [ExpressRoute][] vous procure une connexion exclusivement privée avec Microsoft Azure. Vous n’êtes aucunement obligé de recourir à cette option. Toutefois, sachez qu’elle améliore le débit de transfert des données à partir d’une installation sur site ou d’un emplacement de colocalisation vers Microsoft Azure.
+Vous pouvez éventuellement vous tourner vers [ExpressRoute][] afin d’accélérer la vitesse de transfert. [ExpressRoute][] vous procure une connexion exclusivement privée avec Azure, pour que la connexion ne passe pas par l’Internet public. Vous n’êtes aucunement obligé de recourir à cette option. Toutefois, sachez qu’elle améliore le débit de transfert des données à partir d’une installation sur site ou d’un emplacement de colocalisation vers Microsoft Azure.
 
 Les avantages procurés par [ExpressRoute][] sont les suivants :
 
@@ -194,4 +194,4 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 [Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentation relative à SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

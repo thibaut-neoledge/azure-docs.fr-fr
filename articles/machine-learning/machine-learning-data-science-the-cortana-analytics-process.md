@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/31/2016" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -87,8 +87,13 @@ Le [processus d'analyse Cortana](https://azure.microsoft.com/documentation/learn
 
 CAP n'impose pas de types d'artefacts de **documentation** spécifiques. Cependant, il est recommandé de documenter les résultats de l'examen, de la modélisation et de l'évaluation des données et d'enregistrer le code pertinent afin que l'analyse puisse être itérée le cas échéant. Ceci permet également de réutiliser le travail d’analyse lorsque vous travaillez sur d’autres applications impliquant des données et tâches de prévision similaires.
 
-Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Voir [Processus d'analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md) et [Processus d'analyse Cortana en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Consultez, par exemple :
+
+- [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Le processus Cortana Analytics en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+- [Science des données avec Spark sur Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
+- [Science des données évolutive dans Azure Data Lake : une procédure de bout en bout](machine-learning-data-science-process-data-lake-walkthrough.md)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

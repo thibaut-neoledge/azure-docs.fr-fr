@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/09/2016"
+   ms.date="05/27/2016"
    ms.author="nitinme"/>
 
 # Scénarios de données impliquant Azure Data Lake Store
@@ -50,16 +50,16 @@ Ceci représente les données qui peuvent être générées par diverses sources
 
 Voici les outils que vous pouvez utiliser :
  
-* [Azure Stream Analytics](../stream-analytics-data-lake-output) : les événements reçus dans Event Hubs peuvent être écrits dans Azure Data Lake à l’aide d’une sortie Azure Data Lake Store.
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) : vous pouvez écrire des données directement dans Data Lake Store à partir du cluster Storm.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) : vous pouvez recevoir des événements à partir d’Event Hubs, puis les écrire dans Data Lake Store à l’aide du [Kit de développement logiciel (SDK) .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [Azure Stream Analytics](../stream-analytics-data-lake-output) : les événements reçus dans Event Hubs peuvent être écrits dans Azure Data Lake à l’aide d’une sortie Azure Data Lake Store.
+* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) : vous pouvez écrire des données directement dans Data Lake Store à partir du cluster Storm.
+* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) : vous pouvez recevoir des événements à partir d’Event Hubs, puis les écrire dans Data Lake Store à l’aide du [Kit de développement logiciel (SDK) .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### Données relationnelles
 
 Les bases de données relationnelles peuvent également être utilisées comme sources des données. Sur une période donnée, les bases de données relationnelles collectent de grandes quantités de données qui peuvent fournir des informations clés si elles sont traitées via un pipeline de Big Data. Vous pouvez utiliser les outils suivants pour déplacer ces données vers Data Lake Store.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
+* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
 
 ### Données de journal de serveur web (téléchargement à l’aide d’applications personnalisées)
 
@@ -68,7 +68,7 @@ Ce type de jeu de données est spécifiquement indiqué, car l’analyse des don
 * [Interface de ligne de commande inter-plateforme Azure](data-lake-store-get-started-cli.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Kit de développement logiciel (SDK) .NET Azure Data Lake Store](data-lake-store-get-started-net-sdk.md)
-* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
+* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
 
 Pour télécharger des données de journal de serveur web, et également pour télécharger d’autres types de données (par exemple, les données relatives aux sentiments sociaux), il est préférable d’écrire vos propres scripts/applications personnalisés, car cela vous donne la possibilité d’inclure votre composant de téléchargement de données dans le cadre de votre application de Big Data plus étendue. Dans certains cas, ce code peut prendre la forme d’un script ou d’un utilitaire de ligne de commande simple. Dans d’autres cas, le code peut être utilisé pour intégrer le traitement de Big Data dans une solution ou une application métier.
 
@@ -79,7 +79,7 @@ La plupart des types de clusters HDInsight (Hadoop, HBase, Storm) prend en charg
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 * [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
-* [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)
+* [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)
 
 ### Jeux de données très volumineux
 
@@ -116,7 +116,7 @@ Vous pouvez également être amené à télécharger ou à déplacer les donnée
 Dans ce cas, vous pouvez utiliser l’une des options suivantes :
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
+* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
 Vous pouvez également utiliser les méthodes suivantes pour écrire votre propre application/script pour télécharger les données à partir de Data Lake Store.
@@ -132,6 +132,6 @@ Vous pouvez utiliser une combinaison de services pour créer des représentation
 ![Visualisation des données dans Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualisation des données dans Data Lake Store")
 
 * Vous pouvez commencer par utiliser [Azure Data Factory pour déplacer les données de Data Lake Store vers Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
-* Ensuite, vous pouvez [intégrer Power BI à Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) pour créer une représentation visuelle des données.
+* Ensuite, vous pouvez [intégrer Power BI à Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) pour créer une représentation visuelle des données.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

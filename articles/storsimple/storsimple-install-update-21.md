@@ -87,11 +87,11 @@ La méthode du correctif logiciel implique les trois étapes suivantes :
 | 3\. | KB3103616 | Package WMI | Normal | ~ 12 minutes |
 
 
- & #42 ; *Sachez que la mise à jour logicielle se compose de deux fichiers binaires : `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` et `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. La mise à jour du logiciel de l’appareil `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` doit être installée avant l’agent CIS et MDS `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+ & #42 ; *Sachez que la mise à jour logicielle se compose de deux fichiers binaires : `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` et `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. La mise à jour du logiciel de l’appareil `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` doit être installée avant les agents CIS et MDS `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. Vous devez également redémarrer le contrôleur actif par le biais de l’applet de commande `Restart-HcsController` après avoir exécuté la mise à jour des agents CIS et MDS (et avant d’appliquer les autres mises à jour).*
 
 #### Télécharger les mises à jour pour un appareil exécutant une version du logiciel antérieure à Update 2
 
-**Si votre appareil utilise les versions 0.2, 0.3, 1.0 et 1.1**, vous devez télécharger et installer la mise à jour du pilote LSI et du microprogramme. Cette mise à jour est déjà installée si vous exécutez Update 1.2 ou 2.
+**Si votre appareil utilise les versions 0.2, 0.3, 1.0 et 1.1**, vous devez télécharger et installer la mise à jour du pilote LSI et du microprogramme outre les mises à jour du logiciel, d’iSCSI et de WMI. Cette mise à jour est déjà installée si vous exécutez Update 1.2 ou 2.
  
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -107,7 +107,7 @@ La méthode du correctif logiciel implique les trois étapes suivantes :
 
 
 
-<br></br> Il se peut également que vous ayez besoin d’installer les mises à jour du microprogramme de disque. Pour vérifier si vous avez besoin des mises à jour du microprogramme de disque, vous pouvez exécuter l’applet de commande `Get-HcsFirmwareVersion`. Si vous exécutez les versions du microprogramme `XMGG`, `XGEG`, `KZ50`, `F6C2` et `VR08`, vous n’avez pas besoin d’installer ces mises à jour.
+<br></br> Il se peut également que vous ayez besoin d’installer des mises à jour du microprogramme de disque. Pour vérifier si vous avez besoin des mises à jour du microprogramme de disque, vous pouvez exécuter l’applet de commande `Get-HcsFirmwareVersion`. Si vous exécutez les versions du microprogramme `XMGG`, `XGEG`, `KZ50`, `F6C2` et `VR08`, vous n’avez pas besoin d’installer ces mises à jour.
 
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |
@@ -132,4 +132,4 @@ Procédez comme suit pour télécharger et importer les correctifs logiciels.
 
 En savoir plus sur la [version Update 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

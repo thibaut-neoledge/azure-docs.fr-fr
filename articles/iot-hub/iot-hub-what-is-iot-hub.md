@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="06/06/2016"
  ms.author="dobett"/>
 
 # Qu’est-ce qu’Azure IoT Hub ?
@@ -31,7 +31,7 @@ L’article [Comparaison entre IoT Hub et Event Hubs][lnk-compare] décrit les d
 
 ![Azure IoT Hub comme passerelle cloud dans une solution Internet des objets][img-architecture]
 
-> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] \(Services Microsoft Azure IoT : Architecture de référence).
+> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Services Microsoft Azure IoT : Architecture de référence).
 
 ## Défis liés à la connectivité des appareils IoT
 
@@ -70,7 +70,7 @@ Ces avantages sont exploitables par de nombreux modèles de communication. IoT H
 
 -   **Messagerie Cloud à appareil fiable (ou *commandes*).** Le serveur principal de la solution peut utiliser IoT Hub pour envoyer des messages avec la garantie d’au moins une livraison vers des appareils individuels. Chaque message bénéficie d’une durée de vie propre, et le serveur principal peut demander des accusés de réception et d’expiration. Cela permet de garantir une visibilité totale du cycle de vie d’un message entre le cloud et un appareil. Vous pouvez ensuite mettre en œuvre une logique métier qui inclut des opérations s’exécutant sur des appareils.
 
-Vous pouvez également implémenter d’autres modèles populaires tels que le chargement ou le téléchargement de fichiers en tirant parti de fonctionnalités spécifiques dans IoT Hub, par exemple la gestion d’identité d’appareil cohérente, la surveillance de la connectivité et la mise à l’échelle.
+-   **Chargement des fichiers et des données de capteur mises en cache dans le cloud.** Vos appareils peuvent charger des fichiers dans Azure Storage à l’aide d’URI SAP gérés par IoT Hub. IoT Hub peut générer des notifications lorsque des fichiers arrivent dans le cloud pour activer le serveur principal chargé de les traiter.
 
 ## Passerelles
 
@@ -121,4 +121,4 @@ Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

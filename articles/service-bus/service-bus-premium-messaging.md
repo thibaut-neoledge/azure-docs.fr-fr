@@ -56,6 +56,6 @@ Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 - [Présentation de la messagerie Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 - [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+- [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

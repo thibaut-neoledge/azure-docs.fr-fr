@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli" />
 
 # Installation d’Update 0.1 sur StorSimple Virtual Array
@@ -87,7 +87,7 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 
 3. Dans la zone de recherche du Catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif que vous souhaitez télécharger, par exemple **3160441**, puis cliquez sur **Rechercher**.
 
-    La liste des correctifs s’affiche, par exemple, **Microsoft Azure StorSimple Virtual Array Update 0.1**.
+    La liste des correctifs s’affiche, par exemple, **StorSimple Virtual Array Update 0.1**.
 
     ![Rechercher dans le catalogue](./media/storsimple-ova-install-update-01/download1.png)
 
@@ -128,4 +128,4 @@ Avant l'installation de la mise à jour ou du correctif, vérifiez que la mise �
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

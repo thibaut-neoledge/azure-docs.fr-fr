@@ -99,7 +99,7 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 
 <!--Article references-->
 [Se connecter à SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
-[Prise en main de l’audit de base de données SQL]: sql-database-auditing-get-started.md
+[Prise en main de l’audit de base de données SQL]: sql-database-auditing-overview.md
 
 <!--MSDN references-->
 [Pare-feu de base de données SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -113,4 +113,4 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

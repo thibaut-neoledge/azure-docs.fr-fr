@@ -20,9 +20,6 @@
 
 # Comment capturer une machine virtuelle Linux pour utiliser un modèle de gestionnaire de ressources
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
-
-
 Utilisez l’interface de ligne de commande Azure pour capturer une machine virtuelle Azure exécutant Linux afin de pouvoir l’utiliser comme modèle Azure Resource Manager pour créer d’autres machines virtuelles. Ce modèle spécifie le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. Il n’inclut pas des ressources de réseau virtuel, et vous devez créer une machine virtuelle de gestionnaire de ressource et donc, dans la plupart des cas, vous devrez les configurer séparément avant de pouvoir créer une autre machine virtuelle utilisant le modèle.
 
 ## Avant de commencer
@@ -178,7 +175,7 @@ Si vous souhaitez que le réseau soit automatiquement configuré lorsque vous cr
 
 ## Utilisation de la commande azure vm create
 
-En général, pour créer une machine virtuelle à partir de l’image, vous devez utiliser un modèle de gestionnaire de ressource. Toutefois, vous pouvez créer la machine virtuelle de façon _impérative_ à l’aide de la commande **azure vm create** avec le paramètre **-Q** (**--image-urn**). Vous devez également passer le paramètre **-d** (**--os-disk-vhd**) pour spécifier l'emplacement du fichier .vhd du système d'exploitation pour la nouvelle machine virtuelle. Il doit se trouver dans le conteneur de disques durs virtuels du compte de stockage sur lequel se trouve le fichier d'image du disque dur virtuel. La commande copie le disque dur virtuel pour la nouvelle machine virtuelle automatiquement sur le conteneur de disques durs virtuels.
+En général, pour créer une machine virtuelle à partir de l’image, vous devez utiliser un modèle de gestionnaire de ressource. Toutefois, vous pouvez créer la machine virtuelle de façon _impérative_ à l’aide de la commande **azure vm create** avec le paramètre **-Q** (**--image-urn**). Vous devez également transmettre le paramètre **-d** (**--os-disk-vhd**) pour spécifier l'emplacement du fichier .vhd du système d'exploitation pour la nouvelle machine virtuelle. Il doit se trouver dans le conteneur de disques durs virtuels du compte de stockage sur lequel se trouve le fichier d'image du disque dur virtuel. La commande copie le disque dur virtuel pour la nouvelle machine virtuelle automatiquement sur le conteneur de disques durs virtuels.
 
 Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
 
@@ -197,4 +194,4 @@ Pour obtenir d’autres options de commande supplémentaires, exécutez `azure h
 
 Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

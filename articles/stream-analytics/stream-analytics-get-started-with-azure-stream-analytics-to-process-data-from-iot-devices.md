@@ -119,4 +119,4 @@ Ici, nous utilisons une clause **LEFT OUTER JOIN** sur le même flux de données
 
 Ce didacticiel vous apprend essentiellement à écrire différentes requêtes SAQL à partir de différents modèles de données et à afficher les résultats dans le navigateur. Toutefois, il ne s’agit que d’une prise en main. Vous pouvez effectuer beaucoup plus de choses avec Stream Analytics. La prochaine étape consiste à apprendre à connecter le travail Stream Analytics à des entrées et sorties et à le déployer sur Azure. Vous pouvez commencer à explorer l’utilisation de Stream Analytics à l’aide de notre guide [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/), et si vous souhaitez obtenir plus d’informations sur l’écriture de requêtes, consultez l’article [Modèles de requête courants](./stream-analytics-stream-analytics-query-patterns.md#query-example-detect-the-absence-of-events).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->

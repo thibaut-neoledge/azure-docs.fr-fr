@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="03/01/2016"
+   ms.date="05/31/2016"
    ms.author="piotrci"/>
 
 # Publier des applications pour des utilisateurs individuels dans une collection Azure RemoteApp (version préliminaire)
@@ -102,4 +102,4 @@ Nous vous remercions de nous faire part de vos commentaires et suggestions conce
 ## Vous n’avez pas eu l’occasion de tester la fonctionnalité en version préliminaire ?
 Si vous n’avez pas encore participé à l’évaluation, utilisez cette [enquête](http://www.instant.ly/s/AY83p) pour demander l’accès à la fonctionnalité.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

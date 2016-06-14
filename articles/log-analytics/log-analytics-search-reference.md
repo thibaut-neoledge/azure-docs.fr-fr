@@ -607,7 +607,7 @@ Valeurs Tag Perf Counter inférieures à 50 % définies comme LOW et les autres 
 **Fonctions prises en charge**
 
 
-| Fonction | Description | Exemples de syntaxe |
+|Fonction |Description |Exemples de syntaxe|
 |---------|---------|---------|
 | abs | Retourne la valeur absolue de la valeur ou de la fonction spécifiée.| `abs(x)` <br> `abs(-5)` |
 | and | Retourne la valeur true si et seulement si tous les opérandes ont la valeur true. | `and(not(exists(**popularity**)),exists(**price**))` |

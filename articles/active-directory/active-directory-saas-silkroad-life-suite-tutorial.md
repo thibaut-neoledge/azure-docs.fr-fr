@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Pour configurer l’intégration d’Azure AD avec SilkRoad Life Suite, vous av
 - Un abonnement SilkRoad Life Suite pour lequel l’authentification unique est activée
 
 
-> [AZURE.NOTE]Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -88,10 +88,10 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 5. Connectez-vous à votre site d’entreprise SilkRoad en tant qu’administrateur. 
 
 
-    > [AZURE.NOTE]Pour obtenir l’accès à l’application d’authentification SilkRoad Life Suite pour configurer la fédération avec Microsoft Azure AD, contactez le support technique SilkRoad ou votre représentant SilkRoad Services.
+    > [AZURE.NOTE] Pour obtenir l’accès à l’application d’authentification SilkRoad Life Suite pour configurer la fédération avec Microsoft Azure AD, contactez le support technique SilkRoad ou votre représentant SilkRoad Services.
 
 
-6. Accédez à **Service Provider**, puis cliquez sur **Federation Details**. <br><br>![Authentification unique Azure AD][10] <br>
+6. Accédez à **Service Provider** (Fournisseur de services), puis cliquez sur **Federation Details** (Informations sur la fédération). <br><br>![Authentification unique Azure AD][10] <br>
 
 
 1. Cliquez sur **Download Federation Metadata**, puis enregistrez le fichier de métadonnées sur votre ordinateur. <br><br>![Authentification unique Azure AD][11] <br>
@@ -271,4 +271,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/23/2016"
 	ms.author="jeffstok"/>
 
 # Cibler les sorties de transformations de données Stream Analytics vers des outils d’analyse et des options de stockage des données
@@ -86,6 +86,8 @@ Vous pouvez utiliser une [base de données SQL Azure](https://azure.microsoft.c
 | Nom d’utilisateur | Nom de l’utilisateur qui a accès en écriture à la base de données |
 | Mot de passe | Mot de passe de connexion à la base de données |
 | Table | Nom de la table où la sortie sera écrite. Le nom de la table est sensible à la casse et le schéma de cette table doit correspondre exactement au nombre de champs et aux types générés par la sortie de votre tâche. |
+
+> [AZURE.NOTE] L’offre de base de données SQL Azure est actuellement prise en charge pour une sortie de tâche dans Stream Analytics. Toutefois, une machine virtuelle de Azure exécutant SQL Server avec une base de données associée n’est pas pris en charge. Cela est susceptible de changer dans des futures versions.
 
 ## Stockage d'objets blob
 
@@ -316,4 +318,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

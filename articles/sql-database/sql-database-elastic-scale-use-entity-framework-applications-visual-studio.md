@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="torsteng;sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="torsteng"/>
 
 # Bibliothèque cliente de la base de données élastique avec Entity Framework 
  
@@ -44,10 +44,10 @@ Une fois que vous avez créé ces bases de données, remplissez les espaces rés
 
 Les développeurs d'Entity Framework s'appuient sur l'un des quatre flux de travail suivants pour créer des applications et garantir la persistance pour les objets d'application :
 
-* **Code First (Nouvelle base de données)** : le développeur Entity Framework crée le modèle dans le code de l'application, puis Entity Framework génère la base de données à partir de celui-ci. 
-* **Code First (Base de données existante)** : le développeur laisse Entity Framework générer le code d'application du modèle à partir d'une base de données existante.
-* **Model First** : le développeur crée le modèle dans le concepteur d'Entity Framework, puis Entity Framework crée la base de données à partir de ce modèle.
-* **Database First** : le développeur utilise les outils Entity Framework pour déduire le modèle à partir d'une base de données existante. 
+* **Code First (Nouvelle base de données)** : le développeur Entity Framework crée le modèle dans le code de l'application, puis Entity Framework génère la base de données à partir de celui-ci. 
+* **Code First (Base de données existante)** : le développeur laisse Entity Framework générer le code d'application du modèle à partir d'une base de données existante.
+* **Model First** : le développeur crée le modèle dans le concepteur d'Entity Framework, puis Entity Framework crée la base de données à partir de ce modèle.
+* **Database First** : le développeur utilise les outils Entity Framework pour déduire le modèle à partir d'une base de données existante. 
 
 Toutes ces approches s'appuient sur la classe DbContext pour gérer en toute transparence les connexions et le schéma de base de données d'une application. Comme nous le verrons plus tard dans ce document, les différents constructeurs de la classe de base DbContext permettent différents niveaux de contrôle sur la création de la connexion, de la base de données d'amorçage et du schéma. Les problèmes surviennent principalement en raison du fait que la gestion des connexions de base de données fournie par Entity Framework interfère avec les fonctionnalités de gestion de connexion des interfaces de routage dépendant des données fournies par la bibliothèque cliente de base de données élastique.
 
@@ -64,13 +64,13 @@ Le gestionnaire des cartes de partitions empêche tout affichage incohérent des
 
 Lors de l’utilisation des API de la bibliothèque cliente de la base de données élastique et de Entity Framework, nous souhaitons conserver les propriétés suivantes :
 
-* **Montée en charge** : nous souhaitons ajouter ou supprimer des bases de données de la couche Données de l'application partitionnée si nécessaire pour les demandes de capacité de l'application. Cela revient à contrôler la création et la suppression des bases de données et à utiliser les API du gestionnaire des cartes de partitions de la base de données élastique pour gérer les bases de données et les mappages des shardlets. 
+* **Montée en charge** : nous souhaitons ajouter ou supprimer des bases de données de la couche Données de l'application partitionnée si nécessaire pour les demandes de capacité de l'application. Cela revient à contrôler la création et la suppression des bases de données et à utiliser les API du gestionnaire des cartes de partitions de la base de données élastique pour gérer les bases de données et les mappages des shardlets. 
 
-* **Cohérence** : l'application utilise le partitionnement et les capacités de routage dépendant des données de la bibliothèque cliente. Pour éviter d'obtenir des résultats de requêtes incorrects ou altérés, les connections sont demandées via le gestionnaire des cartes de partitions. Cela maintient également la validation et la cohérence.
+* **Cohérence** : l'application utilise le partitionnement et les capacités de routage dépendant des données de la bibliothèque cliente. Pour éviter d'obtenir des résultats de requêtes incorrects ou altérés, les connections sont demandées via le gestionnaire des cartes de partitions. Cela maintient également la validation et la cohérence.
  
 * **Code First**: pour conserver la commodité du paradigme Code First d'Entity Framework. Dans Code First, les classes de l'application sont mappées en toute transparence vers les structures de base de données sous-jacentes. Le code d’application interagit avec les propriétés DbSet qui masquent la plupart des aspects impliqués dans le traitement de base de données sous-jacent.
  
-* **Schéma** : Entity Framework gère la création initiale de schémas de base de données et l'évolution subséquente des schémas via des migrations. En gardant ces capacités, il est facile d'adapter votre application à mesure que les données évoluent.
+* **Schéma** : Entity Framework gère la création initiale de schémas de base de données et l'évolution subséquente des schémas via des migrations. En gardant ces capacités, il est facile d'adapter votre application à mesure que les données évoluent.
 
 Le guide suivant indique comment répondre à ces impératifs pour les applications Code First à l'aide des outils de base de données élastique.
 
@@ -162,7 +162,7 @@ Le nouveau constructeur ouvre la connexion vers la partition qui héberge les do
 #### Gestion des erreurs temporaires
 L'équipe d'aide de Microsoft a publié l'article [Bloc d'application de gestion des erreurs temporaires](https://msdn.microsoft.com/library/dn440719.aspx). La bibliothèque est utilisée avec la bibliothèque cliente d’infrastructure élastique conjointement à EF. Toutefois, assurez-vous que toute exception temporaire renvoie à un emplacement où nous pouvons garantir que le nouveau constructeur est utilisé après une erreur temporaire afin que toute nouvelle tentative de connexion soit effectuée à l'aide des constructeurs que nous avons modifiés. Sinon, une connexion à la partition appropriée n'est pas garantie et il n'est pas certain que la connexion soit maintenue, lorsque des modifications de la carte de partitions surviennent.
 
-L'exemple de code suivant explique comment utiliser une stratégie de récupération SQL autour des nouveaux constructeurs de sous-classe **DbContext** :
+L'exemple de code suivant explique comment utiliser une stratégie de récupération SQL autour des nouveaux constructeurs de sous-classe **DbContext** :
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
     { 
@@ -281,4 +281,4 @@ En suivant les procédures décrites dans ce document, les applications Entity F
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

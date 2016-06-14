@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="02/12/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Configuration de CHAP pour votre appareil StorSimple
@@ -54,6 +54,7 @@ Dans l’authentification unidirectionnelle, la cible authentifie l’initiateur
 	3. Confirmez le mot de passe.
 
 4. Cliquez sur **Enregistrer**. Un message de confirmation s’affiche. Cliquez sur **OK** pour enregistrer les modifications.
+
 #### Configuration de l’authentification unidirectionnelle sur le serveur hôte Windows
 
 1. Sur le serveur hôte Windows, démarrez l’initiateur iSCSI.
@@ -74,7 +75,7 @@ Dans l’authentification unidirectionnelle, la cible authentifie l’initiateur
 
 		![Découvrir le portail cible](./media/storsimple-configure-chap/IC740945.png)
 
-4. Dans la boîte de dialogue **Paramètres avancés** :
+4. Dans la boîte de dialogue **Paramètres avancés** :
 													
 	1. Cochez la case **Enable CHAP log on**.
 
@@ -145,7 +146,7 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 
 7. Dans la boîte de dialogue **Se connecter à la cible**, cliquez sur **Avancé**.
 
-8. Dans la boîte de dialogue **Advanced Properties** :
+8. Dans la boîte de dialogue **Advanced Properties** :
 													
 	1. Cochez la case **Enable CHAP log on**.
 
@@ -157,7 +158,7 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 
 		![Authentification mutuelle - paramètres avancés](./media/storsimple-configure-chap/IC740950.png)
 
-	5. Cliquez sur **OK** pour terminer la configuration CHAP.
+	5. Cliquez sur **OK** pour terminer la configuration CHAP
 	 
 Pour plus d’informations sur la configuration du protocole CHAP sur le serveur hôte Windows, voir la rubrique [Considérations supplémentaires](#additional-considerations).
 
@@ -197,4 +198,4 @@ Vous pouvez vérifier que le protocole CHAP est utilisé en procédant comme sui
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0601_2016-->

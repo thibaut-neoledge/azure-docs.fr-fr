@@ -1,0 +1,109 @@
+<properties 
+	pageTitle="Utilisation d’Application Insights dans Visual Studio" 
+	description="Analyse des performances et diagnostics en phase de débogage et de production." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
+	manager="douge"/>
+
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="05/25/2016" 
+	ms.author="awills"/>
+
+
+# Utilisation d’Application Insights dans Visual Studio
+
+Visual Studio 2015 (et versions ultérieures) vous permet d’analyser les performances et de diagnostiquer les problèmes aussi bien en phase de débogage qu’en production, à l’aide des données de télémétrie de [Visual Studio Application Insights](app-insights-overview.md).
+
+Si vous ne l’avez pas encore fait, [installez Application Insights dans votre application](app-insights-asp-net.md).
+
+## <a name="run"></a> Débogage de votre projet
+
+Exécutez votre application à l'aide de la touche F5 et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
+
+Un décompte des événements consignés s’affiche dans Visual Studio.
+
+![Dans Visual Studio, le bouton Application Insights apparaît pendant le débogage.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
+
+Cliquez sur ce bouton pour ouvrir la recherche de diagnostic.
+
+
+
+## Recherche de diagnostic
+
+La fenêtre de recherche présente les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements dans le portail.)
+
+![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/app-insights-visual-studio/34.png)
+
+La recherche en texte libre fonctionne sur tous les champs des événements. Par exemple, vous pouvez effectuer une recherche sur une partie de l’URL d’une page, sur la valeur d’une propriété telle que la ville du client, ou encore sur des termes spécifiques contenus dans un journal de suivi.
+
+Cliquez sur n’importe quel événement pour afficher le détail de ses propriétés.
+
+Vous pouvez également ouvrir l’onglet Éléments connexes pour aider à repérer les demandes ayant échoué ou les exceptions.
+
+
+![](./media/app-insights-visual-studio/41.png)
+
+
+
+## Concentrateur de diagnostic
+
+Le concentrateur de diagnostic (Visual Studio 2015 ou version ultérieure) affiche les données de télémétrie du serveur Application Insights au moment où elles sont générées. Il fonctionne même si vous avez choisi d’installer le SDK sans le connecter à une ressource dans le portail Azure.
+
+![Ouvrez la fenêtre Outils de diagnostic et passez en revue les événements Application Insights.](./media/app-insights-visual-studio/31.png)
+
+
+## Exceptions
+
+Si vous avez [configuré l’analyse des exceptions](app-insights-asp-net-exceptions.md), les rapports d’exception s’afficheront dans la fenêtre de recherche.
+
+Cliquez sur une exception pour obtenir une trace de pile. Si le code de l’application est ouvert dans Visual Studio, vous pouvez utiliser la trace de pile pour accéder à la ligne de code recherchée.
+
+
+![](./media/app-insights-visual-studio/17.png)
+
+
+## Surveillance locale
+
+
+
+(À partir de Visual Studio 2015 Mise à jour 2) Si vous n’avez pas configuré le Kit de développement logiciel pour envoyer les données de télémétrie au portail Application Insights (et qu’il n’existe donc aucune clé d’instrumentation dans ApplicationInsights.config), la fenêtre de diagnostic affichera les données de télémétrie de votre dernière session de débogage.
+
+C’est le comportement adéquat si vous avez déjà publié une version antérieure de votre application. Vous ne voulez pas que les données de télémétrie de vos sessions de débogage soient confondues avec les données de télémétrie sur le portail Application Insights de l’application publiée.
+
+Cela est également utile si vous disposez de [données de télémétrie personnalisées](app-insights-api-custom-events-metrics.md) que vous souhaitez déboguer avant de les envoyer sur le portail.
+
+
+* *Dans un premier temps, j’ai entièrement configuré Application Insights pour envoyer des données de télémétrie au portail. À présent, j’aimerais afficher ces données uniquement dans Visual Studio.*
+
+ * Dans les paramètres de la fenêtre de recherche, il existe une option permettant de rechercher des diagnostics locaux même si votre application envoie des données de télémétrie au portail.
+ * Pour arrêter l’envoi de données de télémétrie au portail, commentez la ligne `<instrumentationkey>...` du fichier ApplicationInsights.config. Lorsque vous êtes prêt à envoyer de nouveau les données de télémétrie au portail, supprimez les commentaires.
+
+
+
+
+
+## Pour passer aux versions ultérieures du Kit de développement logiciel (SDK)
+
+Pour passer à la [nouvelle version du Kit de développement logiciel (SDK)](app-insights-release-notes-dotnet.md), ouvrez une nouvelle fois le gestionnaire de package NuGet et filtrez les packages qui ont été installés. Sélectionnez Microsoft.ApplicationInsights.Web et choisissez Mettre à niveau.
+
+Si vous avez apporté des personnalisations à ApplicationInsights.config, conservez-en une copie avant d’effectuer la mise à niveau et fusionnez ensuite vos modifications dans la nouvelle version.
+
+
+
+## Et ensuite ?
+
+||
+|---|---
+|**[Ajout de données supplémentaires](app-insights-asp-net-more.md)**<br/>Analyser l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. | ![Visual studio](./media/app-insights-asp-net/64.png)
+|**[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyses, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual studio](./media/app-insights-asp-net/62.png)
+
+
+ 
+
+<!---HONumber=AcomDC_0608_2016-->

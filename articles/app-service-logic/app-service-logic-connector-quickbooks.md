@@ -1,6 +1,6 @@
 <properties
    pageTitle="Utilisation du connecteur QuickBooks dans des applications logiques | Microsoft Azure App Service"
-   description="Comment créer et configurer le connecteur QuickBooks ou une application API et l'utiliser dans une application logique d’Azure App Service"
+   description="Comment créer et configurer le connecteur QuickBooks ou une application API et l’utiliser dans une application logique d’Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
@@ -45,12 +45,12 @@ Supprimer|Cette action supprime l’objet spécifié de l’entité sélectionn�
 Interroger|L’opération d’interrogation permet de créer une requête concernant une entité.
 
 ##Créer une application API du connecteur QuickBooks##
-1.	Ouvrez Azure Marketplace à l’aide de l’option « + NOUVEAU » en bas à droite du portail Azure.
-2.	Accédez à « Web et mobilité > API Apps » et recherchez « QuickBooks ».
+1.	Ouvrez Azure Marketplace à l’aide de l’option « + NOUVEAU » en bas à droite du portail Azure.
+2.	Accédez à « Web et mobilité > API Apps » et recherchez « QuickBooks ».
 3.	Configurez le connecteur QuickBooks en indiquant les détails du plan d’hébergement, le groupe de ressources et en sélectionnant le nom de l’application API.
 
 	![][13]
-4. Configurez les entités QuickBooks que vous souhaitez lire/écrire dans « Paramètres du package ».
+4. Configurez les entités QuickBooks que vous souhaitez lire/écrire dans « Paramètres du package ».
 
 Vous pouvez maintenant créer une application API du connecteur QuickBooks.
 
@@ -58,7 +58,7 @@ Vous pouvez maintenant créer une application API du connecteur QuickBooks.
 ##Créer une application logique##
 Créons une application logique simple qui crée un compte dans QuickBooks et mettons à jour le « Type de catégorie » de ce compte.
 
-1.	Connectez-vous au portail Azure et cliquez sur Nouveau -> Web + mobile -> Application logique.
+1.	Connectez-vous au portail Azure et cliquez sur Nouveau -> Web + mobile -> Application logique
 
 	![][1]
 
@@ -66,11 +66,11 @@ Créons une application logique simple qui crée un compte dans QuickBooks et me
 
 	![][2]
 
-3.	Cliquez sur Déclencheurs et actions. L'écran de l'éditeur d'application logique s'affiche.
+3.	Cliquez sur Déclencheurs et actions. L’écran de l’éditeur d’application logique s’affiche.
 
 	![][3]
 
-4.	Sélectionnez Exécuter cette logique manuellement, ce qui signifie que cette application logique ne peut être appelée que manuellement.
+4.	Sélectionnez « Exécuter cette logique manuellement », ce qui signifie que cette application logique ne peut être appelée que manuellement.
 
 
 5.	Développez « Applications API dans ce groupe de ressources » dans la galerie pour afficher toutes les applications API disponibles. Sélectionnez « Connecteur QuickBooks » dans la galerie. Le « Connecteur QuickBooks » est ajouté au flux.
@@ -92,38 +92,38 @@ Créons une application logique simple qui crée un compte dans QuickBooks et me
 
 	![][7]
 
-10.	Sélectionnez l'action « Créer ou mettre à jour le compte ». Les paramètres d'entrée s'affichent.
+10.	Sélectionnez l'action « Créer ou mettre à jour le compte ». Les paramètres d'entrée s'affichent.
 
 	![][8]
 
-11.	Renseignez les champs « Nom » et « Type de compte », puis cliquez sur ✓.
+11.	Renseignez les champs « Nom » et « Type de compte », puis cliquez sur ✓.
 
 	![][9]
 
 12.	Sélectionnez « Connecteur QuickBooks » dans la section « Récemment utilisé » de la galerie. Une action QuickBooks est ajoutée.
 
-13.	Sélectionnez « Créer ou mettre à jour le compte » dans la liste des actions. Les paramètres d'entrée de l'action s'affichent.
+13.	Sélectionnez « Créer ou mettre à jour le compte » dans la liste des actions. Les paramètres d'entrée de l'action s'affichent.
 
 	![][10]
 
-14.	Cliquez sur « + » en regard de « ID » pour sélectionner la valeur de l'ID dans la sortie de l'action Créer le compte.
+14.	Cliquez sur « + » en regard de « ID » pour sélectionner la valeur de l'ID dans la sortie de l'action Créer le compte.
 
 	![][11]
 
-15.	Indiquez les nouvelles valeurs dans Type de compte et cliquez sur ✓.
+15.	Indiquez les nouvelles valeurs dans Type de compte et cliquez sur ✓.
 
 	![][12]
 
-16. Cliquez sur OK dans l’éditeur d’application logique, puis cliquez sur Créer. Environ 30 secondes sont nécessaires pour terminer la création.
+16. Cliquez sur OK dans l’éditeur d’application logique, puis cliquez sur Créer. Environ 30 secondes sont nécessaires pour terminer la création.
 
 17. Accédez à l’application logique créée et cliquez sur Exécuter pour l’exécuter.
 
-18. Vous pouvez vérifier qu'un compte nommé « Contoso » est créé dans votre compte QuickBooks.
+18. Vous pouvez vérifier qu'un compte nommé « Contoso » est créé dans votre compte QuickBooks.
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -144,4 +144,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

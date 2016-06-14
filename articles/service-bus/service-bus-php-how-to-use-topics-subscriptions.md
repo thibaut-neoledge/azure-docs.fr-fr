@@ -75,7 +75,7 @@ Pour créer un client de service Azure, vous devez utiliser la classe **Services
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 	
@@ -91,7 +91,7 @@ Vous pouvez effectuer des opérations de gestion pour les rubriques Service Bus 
 L’exemple suivant montre comment instancier un **ServiceBusRestProxy** et appeler **ServiceBusRestProxy->createTopic** pour créer une rubrique nommée `mytopic` dans un espace de noms `MySBNamespace` :
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -126,7 +126,7 @@ Les abonnements de rubrique sont également créés à l'aide de la méthode **S
 Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est spécifié lors de la création d'un abonnement. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d'attente virtuelle de l'abonnement. Dans l'exemple suivant, l'abonnement « mysubscription » qui est créé utilise le filtre par défaut **MatchAll**.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -191,7 +191,7 @@ $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleIn
 Pour envoyer un message à une rubrique Service Bus, votre application appelle la méthode **ServiceBusRestProxy->sendTopicMessage**. Le code suivant montre comment envoyer un message à la rubrique `mytopic` créée plus haut dans l’espace de noms de service `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -247,7 +247,7 @@ En mode **PeekLock**, la réception d'un message devient une opération en deux 
 L'exemple ci-dessous montre comment un message peut être reçu et traité avec le mode **PeekLock** (différent du mode par défaut).
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -300,7 +300,7 @@ Pour supprimer une rubrique ou un abonnement, utilisez la méthode **ServiceBusR
 L'exemple suivant montre comment supprimer une rubrique nommée `mytopic` et ses abonnements inscrits.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
 use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -338,4 +338,4 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
 [require-once]: http://php.net/require_once
 [Quotas Service Bus]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -104,10 +104,10 @@ Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez 
 [migration]: ./sql-data-warehouse-overview-migrate.md
 [développement]: ./sql-data-warehouse-overview-develop.md
 [chargement]: ./sql-data-warehouse-overview-load.md
-[charger manuellement des exemples de données]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[charger manuellement des exemples de données]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [portail Azure]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

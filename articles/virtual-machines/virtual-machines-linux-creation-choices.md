@@ -37,7 +37,7 @@ Utilisez l’interface de ligne de commande (CLI). Consultez l’article [Instal
 
 L’interface utilisateur graphique du [portail Azure](https://portal.azure.com) constitue un moyen simple de tester une machine virtuelle, en particulier si vous découvrez Microsoft Azure, étant donné qu’aucune installation n’est à effectuer sur votre système. Utilisez le portail Azure pour créer la machine virtuelle :
 
-* [Création d’une machine virtuelle exécutant Linux dans le portail Azure](virtual-machines-linux-portal-create.md) 
+* [Création d’une machine virtuelle exécutant Linux dans le portail Azure](virtual-machines-linux-quick-create-portal.md) 
 
 ## Système d'exploitation et choix d'images
 
@@ -59,10 +59,10 @@ Si vous avez besoin de personnalisations spécifiques, vous pouvez utiliser une 
 
 ## Étapes suivantes
 
-* Essayez l’un des didacticiels pour créer une machine virtuelle Linux à partir du [portail](virtual-machines-linux-portal-create.md), avec le [CLI](virtual-machines-linux-quick-create-cli.md) ou à l’aide d’un [modèle](virtual-machines-linux-cli-deploy-templates.md) Azure Resource Manager.
+* Essayez l’un des didacticiels pour créer une machine virtuelle Linux à partir du [portail](virtual-machines-linux-quick-create-portal.md), avec le [CLI](virtual-machines-linux-quick-create-cli.md) ou à l’aide d’un [modèle](virtual-machines-linux-cli-deploy-templates.md) Azure Resource Manager.
 
 * Après avoir créé une machine virtuelle Linux, vous pouvez facilement [ajouter un disque de données](virtual-machines-linux-add-disk.md).
 
 * Étapes rapides pour [réinitialiser un mot de passe ou des clés SSH et gérer les utilisateurs](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

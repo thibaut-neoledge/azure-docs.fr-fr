@@ -3,8 +3,8 @@
    description="Cet article est une rapide leçon expliquant aux auteurs familiarisés avec PowerShell les différences spécifiques entre PowerShell et un workflow PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/03/2016"
+   ms.date="05/26/2016"
    ms.author="bwren" />
 
 # Apprentissage du workflow Windows PowerShell
@@ -211,7 +211,7 @@ L'exemple suivant est similaire à l'exemple précédent concernant la copie de 
 
 ## Points de contrôle
 
-Un *point de contrôle* est un instantané de l'état actuel du workflow qui inclut la valeur actuelle des variables et toute sortie générée à ce stade. Si un flux de travail se termine par erreur ou est [suspendu](suspending-a-workflow), il démarrera à la prochaine exécution à partir de son dernier point de contrôle et non depuis le début du worfklow. Vous pouvez définir un point de contrôle dans un workflow avec l'activité **Checkpoint-Workflow**.
+Un *point de contrôle* est un instantané de l'état actuel du workflow qui inclut la valeur actuelle des variables et toute sortie générée à ce stade. Si un flux de travail se termine par erreur ou est suspendu, il démarrera à la prochaine exécution à partir de son dernier point de contrôle et non depuis le début du worfklow. Vous pouvez définir un point de contrôle dans un workflow avec l'activité **Checkpoint-Workflow**.
 
 Dans l'exemple de code suivant, une exception se produit après qu'Activity2 a provoqué l'arrêt du workflow. Lorsque le workflow est réexécuté, il commence par exécuter Activity2, juste après le dernier point de contrôle défini.
 
@@ -240,13 +240,11 @@ L'exemple suivant copie plusieurs fichiers vers un emplacement réseau et défin
 	}
 
 
-
 Pour plus d'informations sur les points de contrôle, consultez [Ajout de points de contrôle à un workflow de script](http://technet.microsoft.com/library/jj574114.aspx).
 
 
+## Étapes suivantes
 
-## Articles connexes
+- Pour une prise en main des Runbooks de flux de travail PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md). 
 
-- [Mise en route d'un workflow Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0601_2016-->

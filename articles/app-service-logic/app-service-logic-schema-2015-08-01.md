@@ -13,31 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 	
 # Nouvelle version de schéma 2015-08-01-preview
 
-Le nouveau schéma et la récente version de l’API pour les applications logiques ont bénéficié d’un certain nombre d’améliorations destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques. Voici les 4 principales différences :
+Le nouveau schéma et la récente version de l’API pour les applications logiques ont bénéficié d’un certain nombre d’améliorations destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques. Voici les 4 principales différences :
 
 1. Le type d’action **APIApp** a été remplacé par un nouveau type d’action **APIConnection**.
 2. **Repeat** a été renommée en **Foreach**.
-3. L’application API de l’**Écouteur HTTP** n’est plus requise.
+3. L’application API de l’**Écouteur HTTP** n’est plus requise.
 4. L’appel des flux de travail enfants utilise un nouveau schéma.
 
 ## 1\. Déplacement vers les connexions d’API
 
-La modification la plus importante ? Pour utiliser les API, il n’est plus nécessaire de déployer des applications d’API dans votre abonnement Azure. Il existe 2 façons d’utiliser les API : * API gérées * Vos API web personnalisées
+La modification la plus importante ? Pour utiliser les API, il n’est plus nécessaire de déployer des applications d’API dans votre abonnement Azure. Il existe 2 moyens d’utiliser les API :
+* API gérées
+* Vos API web personnalisées
 
 Chacune de ces méthodes fait l’objet d’un traitement légèrement différent, car leurs modèles de gestion et d’hébergement sont différents. Avec ce modèle, vous n’êtes plus limité aux ressources déployées dans votre groupe de ressources.
 
 ### API gérées
 
-Diverses API sont gérées par Microsoft pour votre compte, comme Office 365, Salesforce, Twitter, FTP, etc... Certaines de ces API gérées peuvent être utilisées en l’état (par exemple, Bing Translate), tandis que d’autres nécessitent une configuration. Cette configuration est appelée une *connexion*.
+Diverses API sont gérées par Microsoft pour votre compte, comme Office 365, Salesforce, Twitter, FTP, etc... Certaines de ces API gérées peuvent être utilisées en l’état (par exemple, Bing Translate), tandis que d’autres nécessitent une configuration. Cette configuration est appelée une *connexion*.
 
-Par exemple, lorsque vous utilisez Office 365, vous devez créer une connexion qui contient votre jeton de connexion Office 365. Ce jeton est stocké et actualisé de manière sécurisée, afin que votre application logique puisse toujours appeler l’API Office 365. Sinon, si vous souhaitez vous connecter à votre serveur SQL ou FTP, il vous faut créer une connexion présentant la chaîne connection.
+Par exemple, lorsque vous utilisez Office 365, vous devez créer une connexion qui contient votre jeton de connexion Office 365. Ce jeton est stocké et actualisé de manière sécurisée, afin que votre application logique puisse toujours appeler l’API Office 365. Sinon, si vous souhaitez vous connecter à votre serveur SQL ou FTP, il vous faut créer une connexion présentant la chaîne connection.
 
-Dans la définition, ces actions sont appelées `APIConnection`. Voici un exemple de connexion appelant l’API Office 365 pour envoyer un courrier électronique :
+Dans la définition, ces actions sont appelées `APIConnection`. Voici un exemple de connexion appelant l’API Office 365 pour envoyer un courrier électronique :
 
 ```
 {
@@ -66,17 +68,17 @@ Dans la définition, ces actions sont appelées `APIConnection`. Voici un exempl
 }
 ```
 
-La portion des entrées spécifique aux connexions d’API est l’objet `host`. Elle comporte deux parties : `api` et `connection`.
+La portion des entrées spécifique aux connexions d’API est l’objet `host`. Elle comporte deux parties : `api` et `connection`.
 
 L’`api` présente l’URL d’exécution de l’emplacement d’hébergement de cette API gérée. Pour afficher l’ensemble des API gérées disponibles, appelez `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Une API utilisée présente ou non des **paramètres de connexion** définis. Si elle n’en possède pas, aucune **connexion** n’est requise. Si elle en possède, il vous faudra créer une connexion. La connexion créée présente le nom choisi par vos soins, que vous référencez dans l’objet `connection`, dans l’objet `host`. Pour créer une connexion dans un groupe de ressources, appelez :
+Une API utilisée présente ou non des **paramètres de connexion** définis. Si elle n’en possède pas, aucune **connexion** n’est requise. Si elle en possède, il vous faudra créer une connexion. La connexion créée présente le nom choisi par vos soins, que vous référencez dans l’objet `connection`, dans l’objet `host`. Pour créer une connexion dans un groupe de ressources, appelez :
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
 ```
 
-Avec le corps suivant :
+Avec le corps suivant :
 
 
 ```
@@ -95,7 +97,7 @@ Avec le corps suivant :
 
 ### Déploiement d’API gérées dans un modèle Azure Resource Manager
 
-Vous pouvez créer une application complète dans un modèle ARM, tant qu’elle ne nécessite aucune connexion interactive. Si elle nécessite une connexion, vous pouvez procéder à la configuration avec le modèle ARM, mais devrez néanmoins accéder au portail afin d’autoriser les connexions.
+Vous pouvez créer une application complète dans un modèle ARM, tant qu’elle ne nécessite aucune connexion interactive. Si elle nécessite une connexion, vous pouvez procéder à la configuration avec le modèle ARM, mais devrez néanmoins accéder au portail afin d’autoriser les connexions.
 
 ```
 	"resources": [{
@@ -190,9 +192,10 @@ Vous pouvez constater dans cet exemple que les connexions sont des ressources no
 
 ### Vos API web personnalisées
 
-Si vous utilisez vos propres API (c’est-à-dire non gérées par Microsoft), vous devez utiliser l’action **HTTP** intégrée pour les appeler. Pour profiter d’une expérience optimale, vous avez tout intérêt à exposer un point de terminaison swagger pour votre API. Ce faisant, le concepteur d’application logique pourra réaliser le rendu des entrées et des sorties pour votre API. Sans point de terminaison swagger, le concepteur pourra simplement représenter les entrées et les sorties en tant qu’objets JSON opaques.
+Si vous utilisez vos propres API (c’est-à-dire non gérées par Microsoft), vous devez utiliser l’action **HTTP** intégrée pour les appeler. Pour profiter d’une expérience optimale, vous avez tout intérêt à exposer un point de terminaison swagger pour votre API. Ce faisant, le concepteur d’application logique pourra réaliser le rendu des entrées et des sorties pour votre API. Sans point de terminaison swagger, le concepteur pourra simplement représenter les entrées et les sorties en tant qu’objets JSON opaques.
 
-Voici un exemple illustrant la nouvelle propriété `metadata.apiDefinitionUrl` : ```
+Voici un exemple illustrant la nouvelle propriété `metadata.apiDefinitionUrl` :
+```
 {
    "actions": {
         "mycustomAPI": {
@@ -211,11 +214,12 @@ Voici un exemple illustrant la nouvelle propriété `metadata.apiDefinitionUrl` 
 
 Si vous hébergez votre API web sur **App Service**, la liste des actions disponibles dans le concepteur s’affichera automatiquement. Si ce n’est pas le cas, vous devrez coller le contenu directement dans l’URL. Le point de terminaison swagger doit être non authentifié pour être utilisé dans le concepteur des applications logiques (vous pouvez cependant sécuriser l’API à l’aide des méthodes prises en charge dans le point de terminaison swagger).
 
-### Utilisation de vos applications API déployées avec 2015-08-01-preview
+### Utilisation de vos applications API déployées avec 2015-08-01-preview
 
-Si vous avez déjà déployé une application API, vous pouvez l’appeler via l’action **HTTP**.
+Si vous avez déjà déployé une application API, vous pouvez l’appeler via l’action **HTTP**.
 
-Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouvez disposer du contenu suivant dans votre définition de version de schéma **2014-12-01-preview**: ```
+Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouvez disposer du contenu suivant dans votre définition de version de schéma **2014-12-01-preview** :
+```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
     "contentVersion": "1.0.0.0",
@@ -254,7 +258,7 @@ Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouve
 }
 ```
 
-Vous pouvez générer l’action HTTP équivalente comme ci-dessous (la section des paramètres de la définition de l’application demeure inchangée) :
+Vous pouvez générer l’action HTTP équivalente comme ci-dessous (la section des paramètres de la définition de l’application demeure inchangée) :
 
 ```
 {
@@ -281,7 +285,7 @@ Vous pouvez générer l’action HTTP équivalente comme ci-dessous (la section 
 }
 ```
 
-Présentation de ces propriétés une par une :
+Présentation de ces propriétés une par une :
 
 | Propriété d’action | Description |
 | --------------- | -----------  |
@@ -292,11 +296,11 @@ Présentation de ces propriétés une par une :
 | `inputs.body` | Identique aux paramètres de l’application API | 
 | `inputs.authentication` | Identique à l’authentification de l’application API |
 
-Cette approche doit fonctionner avec l’ensemble des actions d’application API. Toutefois, gardez à l’esprit que ces anciennes applications API ne sont plus prises en charge, et que vous avez tout intérêt à adopter l’une des deux autres options ci-dessus (recourir à une API gérée ou héberger votre API web personnalisée).
+Cette approche doit fonctionner avec l’ensemble des actions d’application API. Toutefois, gardez à l’esprit que ces anciennes applications API ne sont plus prises en charge, et que vous avez tout intérêt à adopter l’une des deux autres options ci-dessus (recourir à une API gérée ou héberger votre API web personnalisée).
 
 ## 2\. Repeat renommée en Foreach
 
-Les clients ayant utilisé la version de schéma précédente se sont beaucoup plaints du caractère déroutant de **Repeat** et n’ont pas vraiment compris qu’il s’agissait réellement d’une boucle foreach. Par conséquent, nous l’avons renommée en **Foreach**. Par exemple :
+Les clients ayant utilisé la version de schéma précédente se sont beaucoup plaints du caractère déroutant de **Repeat** et n’ont pas vraiment compris qu’il s’agissait réellement d’une boucle foreach. Par conséquent, nous l’avons renommée en **Foreach**. Par exemple :
 
 ```
 {
@@ -313,7 +317,7 @@ Les clients ayant utilisé la version de schéma précédente se sont beaucoup p
 }
 ```
 
-Sera désormais rédigé de cette manière :
+Sera désormais rédigé de cette manière :
 
 ```
 {
@@ -333,7 +337,7 @@ Sera désormais rédigé de cette manière :
 Auparavant, la fonction `@repeatItem()` était utilisée pour référencer l’élément sur lequel était actuellement exécutée une itération. Elle a été simplifiée en `@item()`.
 
 ### Référencement des sorties de la boucle Foreach
-Afin de simplifier encore davantage le code, les sorties des actions **Foreach** ne seront pas encapsulées dans un objet appelé **repeatItems**. Concrètement, cela signifie que les sorties de la boucle repeat ci-dessous se présentaient ainsi :
+Afin de simplifier encore davantage le code, les sorties des actions **Foreach** ne seront pas encapsulées dans un objet appelé **repeatItems**. Concrètement, cela signifie que les sorties de la boucle repeat ci-dessous se présentaient ainsi :
 
 ```
 {
@@ -354,7 +358,7 @@ Afin de simplifier encore davantage le code, les sorties des actions **Foreach**
 }
 ```
 
-Elles présenteront désormais cette apparence :
+Elles présenteront désormais cette apparence :
 
 ```
 [
@@ -373,7 +377,7 @@ Elles présenteront désormais cette apparence :
 ]
 ```
 
-Lorsque vous référenciez ces sorties, pour atteindre le corps de l’action vous procédiez ainsi :
+Lorsque vous référenciez ces sorties, pour atteindre le corps de l’action vous procédiez ainsi :
 
 ```
 {
@@ -391,7 +395,7 @@ Lorsque vous référenciez ces sorties, pour atteindre le corps de l’action vo
 }
 ```
 
-Désormais le code présente cette apparence :
+Désormais le code présente cette apparence :
 
 ```
 {
@@ -412,13 +416,13 @@ Désormais le code présente cette apparence :
 Ces modifications entraînent la disparition des fonctions `@repeatItem()`, `@repeatBody()` et `@repeatOutputs()`.
 
 ## 3\. Écouteur HTTP natif 
-Les fonctionnalités de l’écouteur HTTP étant désormais intégrées, vous n’avez plus à déployer une application API d’écouteur HTTP. Découvrez [une explication détaillée de la configuration d’un point de terminaison d’application logique pouvant être appelé ici](app-service-logic-http-endpoint.md).
+Les fonctionnalités de l’écouteur HTTP étant désormais intégrées, vous n’avez plus à déployer une application API d’écouteur HTTP. Découvrez [une explication détaillée de la configuration d’un point de terminaison d’application logique pouvant être appelé ici](app-service-logic-http-endpoint.md).
 
 Avec ces modifications, la fonction `@accessKeys()`, supprimée, est remplacée par la fonction `@listCallbackURL()` dédiée à la récupération du point de terminaison (si nécessaire). En outre, vous devez maintenant définir au moins un déclencheur dans votre application logique. Si vous souhaitez appliquer l’action `/run` au flux de travail, vous devrez disposer d’un déclencheur `manual`, `apiConnectionWebhook` ou `httpWebhook`.
 
 ## 4\. Appel de flux de travail enfants
 
-Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y accéder, récupérer le jeton d’accès, puis coller ce dernier dans la définition de l’application logique destinée à effectuer l’appel. Avec la nouvelle version de schéma, le moteur des applications logiques génère automatiquement une SAP lors de l’exécution pour le flux de travail enfant, ce qui signifie qu’il n’est plus nécessaire de coller aucune clé secrète dans la définition. Voici un exemple :
+Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y accéder, récupérer le jeton d’accès, puis coller ce dernier dans la définition de l’application logique destinée à effectuer l’appel. Avec la nouvelle version de schéma, le moteur des applications logiques génère automatiquement une SAP lors de l’exécution pour le flux de travail enfant, ce qui signifie qu’il n’est plus nécessaire de coller aucune clé secrète dans la définition. Voici un exemple :
 
 ```
 "mynestedwf" : {
@@ -456,7 +460,7 @@ Tous les types d’action prennent désormais en charge une nouvelle entrée app
 ### Fonction parse() renommée
 Dans la mesure où nous ajouterons bientôt d’autres types de contenu, la fonction `parse()` a été renommée en `json()`.
 
-## Bientôt disponibles : API d’intégration d’entreprise
-À ce stade, nous ne disposons d’aucune version gérée disponible des API d’intégration d’entreprise (comme AS2). Elles le seront bientôt, tel qu’indiqué dans la [feuille de route](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Entre-temps, vous pouvez utiliser vos API BizTalk actuellement déployées via l’action HTTP, tel qu’indiqué ci-dessus dans l’article « Utilisation de vos applications API déployées ».
+## Bientôt disponibles : API d’intégration d’entreprise
+À ce stade, nous ne disposons d’aucune version gérée disponible des API d’intégration d’entreprise (comme AS2). Elles le seront bientôt, tel qu’indiqué dans la [feuille de route](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Entre-temps, vous pouvez utiliser vos API BizTalk actuellement déployées via l’action HTTP, tel qu’indiqué ci-dessus dans l’article « Utilisation de vos applications API déployées ».
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

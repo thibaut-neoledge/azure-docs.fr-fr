@@ -19,8 +19,6 @@
 
 # Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 Configurez votre première ou prochaine application métier basée sur le Web et exclusivement conçue pour l’Intranet dans Microsoft Azure et bénéficiez de la facilité de configuration et de la possibilité d’étendre rapidement l’application pour y ajouter de nouvelles capacités.
  
 Avec les machines virtuelles et les fonctionnalités des réseaux virtuels des services d’infrastructure Azure, vous pouvez déployer et faire fonctionner rapidement une application métier accessible aux utilisateurs de votre organisation. Par exemple, vous pouvez configurer ceci.
@@ -85,4 +83,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 - Découvrez un [aperçu](virtual-machines-windows-lob-overview.md) de la charge de travail de production avant de vous lancer dans la configuration.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

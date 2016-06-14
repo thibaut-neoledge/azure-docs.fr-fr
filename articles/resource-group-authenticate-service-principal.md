@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Authentification d’un principal du service à l’aide d’Azure Resource Manager | Microsoft Azure"
-   description="Explique comment authentifier un principal du service et lui accorder l’accès via le contrôle d’accès en fonction du rôle. Explique comment effectuer ces tâches avec PowerShell et Azure CLI."
+   pageTitle="Créer une application AD à l’aide de PowerShell | Microsoft Azure"
+   description="Décrit l’utilisation d’Azure PowerShell pour créer une application Active Directory et lui accorder l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,44 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Authentification d'un principal du service à l'aide d'Azure Resource Manager
+# Utiliser Azure PowerShell pour créer une application Active Directory pour accéder aux ressources
 
-Cette rubrique explique comment autoriser un principal du service (tel qu’un processus automatisé, une application ou un service) à accéder aux autres ressources de votre abonnement. Azure Resource Manager vous permet d’utiliser le contrôle d’accès en fonction du rôle pour authentifier un principal du service et lui attribuer des actions autorisées.
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Interface de ligne de commande Azure](resource-group-authenticate-service-principal-cli.md)
+- [Portail](resource-group-create-service-principal-portal.md)
 
-Cette rubrique explique comment utiliser Azure PowerShell ou l’interface de ligne de commande Azure (CLI) pour Mac, Linux et Windows afin de créer une application et un principal du service, d’attribuer un rôle à un principal du service et de vous authentifier en tant que principal du service. Si Azure PowerShell n’est pas installé sur votre système, consultez la page [Installation et configuration d’Azure PowerShell](./powershell-install-configure.md). Si Azure CLI n’est pas installé, consultez [Installation et configuration d’Azure CLI](xplat-cli-install.md). Pour plus d’informations sur l’utilisation du portail pour effectuer ces étapes, consultez la rubrique [Création de l'application Active Directory et du principal du service à l'aide du portail](resource-group-create-service-principal-portal.md)
 
-## Concepts
-1. Azure Active Directory : service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](active-directory/active-directory-whatis.md)
-2. Principal du service : instance d’application dans un répertoire ayant besoin d’accéder à d’autres ressources.
-3. Application Active Directory : enregistrement de répertoire qui identifie une application à AAD.
+Cette rubrique vous montre comment utiliser [Azure PowerShell](powershell-install-configure.md) pour créer une application Active Directory (AD), telle qu’un processus, une application ou un service automatisé, qui peut accéder aux autres ressources de votre abonnement. Azure Resource Manager vous permet d’utiliser le contrôle d’accès en fonction du rôle pour octroyer les actions autorisées à l’application.
 
-Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](active-directory/active-directory-authentication-scenarios.md).
+Dans cet article, vous allez créer deux objets, l’application AD et le principal du service. L’application AD réside sur le client sur lequel l’application est inscrite, et définit le processus à exécuter. Le principal du service contient l’identité de l’application AD et est utilisé pour attribuer des autorisations. Dans l’application AD, vous pouvez créer plusieurs principaux du service. Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-Cette rubrique décrit 4 façons de créer une application Active Directory et d’authentification cette application. Ces méthodes varient selon que vous souhaitez utiliser un mot de passe ou un certificat pour vous authentifier, et que vous préférez utiliser PowerShell ou Azure CLI. Ces méthodes sont les suivantes :
+2 options sont à votre disposition pour authentifier votre application :
 
-- [Authentification par mot de passe - PowerShell](#authenticate-with-password---powershell)
-- [Authentification par un certificat - PowerShell](#authenticate-with-certificate---powershell)
-- [Authentification par mot de passe - Azure CLI](#authenticate-with-password---azure-cli)
-- [Authentification par un certificat - Azure CLI](#authenticate-with-certificate---azure-cli)
+ - mot de passe : convient lorsqu’un utilisateur souhaite se connecter de manière interactive pendant l’exécution
+ - certificat : convient aux scripts d’installation sans assistance qui doivent s’authentifier sans intervention de l’utilisateur
 
-## Authentification par mot de passe avec PowerShell
+## Créer une application AD à l’aide d’un mot de passe
 
-Dans cette section, vous allez effectuer les étapes pour créer un principal du service pour une application Azure Active Directory, attribuer un rôle au principal du service et vous authentifier en tant que principal du service en fournissant l’identificateur d’application et un mot de passe.
+Dans cette section, vous allez effectuer la procédure permettant de créer l’application AD avec un mot de passe.
 
 1. Connectez-vous à votre compte.
 
-        PS C:\> Login-AzureRmAccount
+        Add-AzureRmAccount
 
-1. Créez une application Active Directory à l’aide de la commande **New-AzureRmADApplication**. Indiquez le nom d’affichage de votre application, l’URI vers une page décrivant votre application (le lien n’est pas vérifié), les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
+1. Créez une application Active Directory en indiquant le nom d’affichage de votre application, l’URI vers une page décrivant votre application (le lien n’est pas vérifié), les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
 
-        PS C:\> $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -Password "<Your_Password>"
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -Password "<Your_Password>"
 
-     Examinez le nouvel objet d’application. La propriété **ApplicationId** est nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition du jeton d’accès.
+     Examinez le nouvel objet d’application.
 
-        PS C:\> $azureAdApplication
+        $azureAdApplication
+        
+     Notez en particulier la propriété **ApplicationId**, qui est nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition du jeton d’accès.
 
         DisplayName             : exampleapp
         Type                    : Application
@@ -61,148 +60,90 @@ Dans cette section, vous allez effectuer les étapes pour créer un principal du
         IdentifierUris          : {https://www.contoso.org/example}
         ReplyUrls               : {}
 
-2. Créez un principal du service pour votre application en transmettant l’ID d’application de l’application Active Directory.
 
-        PS C:\> New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+### Créer un principal du service et lui affecter un rôle
 
-     Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
+À partir de votre application AD, vous devez créer un principal du service et lui affecter un rôle.
 
-3. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
+1. Créez un principal du service pour votre application en transmettant l’ID d’application de l’application Active Directory.
 
-        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-Vous avez créé une application Active Directory et un principal du service pour votre application. Vous avez également assigné un rôle au principal du service. Vous devez maintenant ouvrir une session en tant que principal du service pour pouvoir effectuer des opérations de principal du service. Trois options sont présentées dans cette rubrique :
+2. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-- [Fournir manuellement des informations d’identification via PowerShell](#manually-provide-credentials-through-powershell)
-- [Fournir des informations d’identification via un script PowerShell automatisé](#provide-credentials-through-automated-powershell-script)
-- [Fournir des informations d’identification via un code intégré à une application](#provide-credentials-through-code-in-an-application)
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
-<a id="manually-provide-credentials-through-powershell" />
 ### Fournir manuellement des informations d’identification via PowerShell
 
-Vous pouvez renseigner manuellement les informations d’identification du principal du service lors de l’exécution de script ou de commandes à la demande.
+Vous avez créé une application Active Directory et un principal du service pour votre application. Vous avez également assigné un rôle au principal du service. Maintenant, vous devez ouvrir une session en tant qu’application pour effectuer des opérations. Vous pouvez renseigner manuellement les informations d’identification de l’application lors de l’exécution de scripts ou de commandes à la demande.
 
 1. Créez un objet **PSCredential** contenant vos informations d’identification à l’aide de la commande **Get-Credential**.
 
-        PS C:\> $creds = Get-Credential
+        $creds = Get-Credential
 
 2. Vous serez invité à entrer vos informations d’identification. Pour le nom d’utilisateur, utilisez le paramètre **ApplicationId** ou **IdentifierUris** que vous avez utilisé lors de la création de l’application. Utilisez le mot de passe que vous avez indiqué lors de la création du compte.
 
-     ![saisir les informations d’identification][1]
+     ![saisir les informations d’identification](./media/resource-group-authenticate-service-principal/arm-get-credential.png)
 
-3. Récupérez l’abonnement dans lequel l’attribution de rôle a été créée. Cet abonnement sera utilisé pour récupérer le paramètre **TenantId** du client correspondant à l’attribution de rôle du principal du service.
+3. Récupérez l’abonnement dans lequel l’attribution de rôle a été créée. Cet abonnement sera utilisé pour récupérer le paramètre **TenantId** du client correspondant à l’affectation de rôle du principal du service.
 
-        PS C:\> $subscription = Get-AzureRmSubscription
+        $subscription = Get-AzureRmSubscription
 
-     Si vous avez créé l’attribution de rôle dans un abonnement autre que l’abonnement sélectionné, vous pouvez spécifier le paramètre **SubscriptoinId** ou **SubscriptionName** afin de récupérer un autre abonnement.
+     Si votre compte est lié à plusieurs abonnements, indiquez un nom ou un ID d’abonnement pour obtenir l’abonnement que vous souhaitez utiliser.
+     
+        $subscription = Get-AzureRmSubscription -SubscriptionName "Azure MSDN - Visual Studio Ultimate"
 
-4. Connectez-vous en tant que principal du service à l’aide de l’applet de commande **Login-AzureRmAccount**, en veillant à fournir l’objet informations d’identification et à indiquer que ce compte est un principal de service.
+4. Ouvrez une session en tant que principal du service en spécifiant que ce compte est un principal du service et en fournissant l’objet informations d’identification.
 
-        PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
-        Environment           : AzureCloud
-        Account               : {guid}
-        Tenant                : {guid}
-        Subscription          : {guid}
-        CurrentStorageAccount :
-
-Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
-
-<a id="provide-credentials-through-automated-powershell-script" />
-### Fournir des informations d’identification via un script PowerShell automatisé
-
-Cette section explique comment se connecter en tant que principal du service sans avoir à saisir manuellement les informations d’identification. Il est inutile de renseigner manuellement le mot de passe, car celui-ci est récupéré à partir d’un coffre de clés.
-
-> [AZURE.NOTE] L’intégration directe d’un mot de passe dans votre script PowerShell présente des risques dans la mesure où le mot de passe est exposé de façon visible. Il est plutôt recommandé d’utiliser un service (un coffre de clés, par exemple) pour stocker le mot de passe et le récupérer ensuite lors de l’exécution du script.
-
-Ces étapes supposent que vous avez défini un coffre de clés et une clé secrète permettant de stocker le mot de passe. Pour déployer un coffre de clés et une clé secrète via un modèle, consultez [Format de modèle de coffre de clés](). Pour en savoir plus sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
-
-1. Récupérez votre mot de passe (dans l’exemple ci-dessous, le mot de passe est stocké en tant que clé secrète sous le nom **appPassword**) dans le coffre de clés.
-
-        PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
+        Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $subscription.TenantId
         
-2. Accédez à votre application Active Directory. Vous avez besoin de l’ID d’application au moment de la connexion.
+     Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
 
-        PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
+5. Pour utiliser le jeton d’accès actuel dans une session ultérieure, vous pouvez enregistrer le profil.
 
-3. Créez un objet **PSCredential** et identifiez-le à l’aide de l’ID d’application et du mot de passe.
+        Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+        
+     Vous pouvez ouvrir le profil et en examiner le contenu. Notez qu’il contient un jeton d’accès.
+        
+6. Au lieu d’ouvrir une nouvelle session la prochaine fois que vous souhaiterez exécuter du code en tant que principal du service, chargez simplement le profil.
 
-        PS C:\> $creds = New-Object System.Management.Automation.PSCredential ($azureAdApplication.ApplicationId, $secret.SecretValue)
-    
-4. Récupérez l’abonnement dans lequel l’attribution de rôle a été créée. Cet abonnement sera utilisé ultérieurement pour récupérer le paramètre **TenantId** du client correspondant à l’attribution de rôle du principal du service.
+        Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+        
+> [AZURE.NOTE] Le jeton d’accès arrive à expiration. L’utilisation d’un profil enregistré ne fonctionne donc que durant la validité du jeton. Pour exécuter définitivement des scripts d’installation sans assistance, utilisez un certificat.
+        
+## Créer une application AD à l’aide d’un certificat
 
-        PS C:\> $subscription = Get-AzureRmSubscription
+Dans cette section, vous allez effectuer la procédure permettant de créer une application AD avec un certificat.
 
-     Si vous avez créé l’attribution de rôle dans un abonnement autre que l’abonnement sélectionné, vous pouvez spécifier le paramètre **SubscriptoinId** ou **SubscriptionName** afin de récupérer un autre abonnement.
+1. Vous pouvez créer un certificat auto-signé.
 
-5. Connectez-vous en tant que principal du service à l’aide de l’applet de commande **Login-AzureRmAccount**, en veillant à fournir l’objet informations d’identification et à indiquer que ce compte est un principal de service.
-    
-        PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $subscription.TenantId
+        $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+       
+     Vous recevez des informations sur le certificat, notamment son empreinte.
+     
+        Directory: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
 
-Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
+        Thumbprint                                Subject
+        ----------                                -------
+        724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
 
-<a id="provide-credentials-through-code-in-an-application" />
-### Fournir des informations d’identification via un code intégré à une application
+2. Récupérez la valeur de la clé à partir du certificat.
 
-Pour l’authentification à partir d’une application .NET, incluez le code suivant. Vous avez besoin de l’ID d’application de l’application Active Directory, du mot de passe et de l’ID client de l’abonnement. Après avoir récupéré le jeton d’accès, vous pouvez utiliser les ressources contenues dans l’abonnement.
-
-    public static string GetAccessToken()
-    {
-      var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-      var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
-      var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
-
-      if (result == null) {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-
-      string token = result.AccessToken;
-
-      return token;
-    }
-
-
-## Authentification par un certificat via PowerShell
-
-Dans cette section, vous allez effectuer les étapes pour créer un principal du service pour une application Azure Active Directory, attribuer un rôle au principal du service et vous authentifier en tant que principal du service en fournissant un certificat. Cette rubrique suppose que vous avez reçu un certificat.
-
-Elle montre deux façons d’utiliser des certificats : informations d’identification de clé et valeurs de clés. Vous pouvez utiliser les deux approches.
-
-Tout d’abord, vous devez configurer certaines valeurs dans PowerShell que vous allez utiliser ultérieurement lors de la création de l’application.
-
-1. Connectez-vous à votre compte.
-
-        PS C:\> Login-AzureRmAccount
-
-1. Pour les deux approches, créez un objet X509Certificate2 à partir de votre certificat et récupérez la valeur de clé. Utilisez le chemin d’accès à votre certificat et le mot de passe pour ce certificat.
-
-        $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-2. Si vous utilisez des informations d’identification de clé, créez l’objet d’informations d’identification de clé et affectez-lui la valeur `$keyValue` de l’étape précédente. L’exemple suivant suppose d’appeler `Add-Type` pour ajouter un type à partir d’un assembly. Le chemin d’accès indiqué dans l’exemple devrait être similaire à celui que vous obtenez, à quelques différences près.
+3. Connectez-vous à votre compte Azure.
 
-        Add-Type -Path 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ResourceManager\AzureResourceManager\AzureRM.Resources\Microsoft.Azure.Commands.Resources.dll'
-        $currentDate = Get-Date
-        $endDate = $currentDate.AddYears(1)
-        $keyId = [guid]::NewGuid()
-        $keyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
-        $keyCredential.StartDate = $currentDate
-        $keyCredential.EndDate= $endDate
-        $keyCredential.KeyId = $keyId
-        $keyCredential.Type = "AsymmetricX509Cert"
-        $keyCredential.Usage = "Verify"
-        $keyCredential.Value = $keyValue
+        Add-AzureRmAccount
 
-3. Créez une application dans le répertoire. La première commande montre comment utiliser les valeurs de clés.
+4. Créez une application dans le répertoire.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert       
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
         
-    Vous pouvez aussi utiliser le deuxième exemple pour affecter des informations d’identification de clé.
+    Examinez le nouvel objet d’application.
 
-         $azureAdApplication = New-AzureRmADApplication -DisplayName "example" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyCredentials $keyCredential
+        $azureAdApplication
 
-    Examinez le nouvel objet d’application. La propriété **ApplicationId** est nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition de jeton d’accès.
-
-        PS C:\> $azureAdApplication
+    Remarquez la propriété **ApplicationId** qui est nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition de jetons d’accès.
 
         DisplayName             : exampleapp
         Type                    : Application
@@ -211,316 +152,61 @@ Tout d’abord, vous devez configurer certaines valeurs dans PowerShell que vous
         AvailableToOtherTenants : False
         AppPermissions          : {}
         IdentifierUris          : {https://www.contoso.org/example}
-        ReplyUrls               : {}       
+        ReplyUrls               : {}    
 
-4. Créez un principal du service pour votre application en transmettant l’ID d’application de l’application Active Directory.
 
-        PS C:\> New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+### Créer un principal du service et lui affecter un rôle
 
-    Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
+1. Créez un principal du service pour votre application en transmettant l’ID d’application de l’application Active Directory.
 
-5. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
+        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+2. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-Vous avez créé une application Active Directory et un principal du service pour votre application. Vous avez également assigné un rôle au principal du service. Vous devez maintenant ouvrir une session en tant que principal du service pour pouvoir effectuer des opérations de principal du service. Deux options sont présentées dans cette rubrique :
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
-- [Fournir un certificat via un script PowerShell automatisé](#provide-certificate-through-automated-powershell-script)
-- [Fournir un certificat via un code intégré à une application](#provide-certificate-through-code-in-an-application)
+### Préparer les valeurs pour votre script
 
-<a id="provide-certificate-through-automated-powershell-script" />
+Dans votre script, vous allez transmettre trois valeurs nécessaires pour vous connecter en tant que principal du service. Vous aurez besoin de ce qui suit :
+
+- ID d’application
+- ID client 
+- Empreinte de certificat
+
+Vous avez vu l’ID d’application et l’empreinte de certificat lors des étapes précédentes. Toutefois, si vous devez récupérer ces valeurs ultérieurement, les commandes requises sont indiquées ci-dessous, ainsi que la commande permettant d’obtenir l’ID client.
+
+1. Pour récupérer l’ID client, utilisez :
+
+        (Get-AzureRmSubscription).TenantId 
+
+    Si vous possédez plusieurs abonnements, vous pouvez également indiquer le nom de l’abonnement :
+
+        (Get-AzureRmSubscription -SubscriptionName "Azure MSDN - Visual Studio Ultimate").TenantId
+        
+2. Pour récupérer l’ID d’application, utilisez :
+
+        (Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example").ApplicationId
+        
+3. Pour récupérer l’empreinte de certificat, utilisez :
+
+        (Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp).Thumbprint
+
 ### Fournir un certificat via un script PowerShell automatisé
 
-1. Accédez à votre application Active Directory. Vous avez besoin de l’ID d’application au moment de la connexion.
+Vous avez créé une application Active Directory et un principal du service pour votre application. Vous avez également assigné un rôle au principal du service. Vous devez maintenant ouvrir une session en tant que principal du service pour pouvoir effectuer des opérations de principal du service.
 
-        PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
-        
-2. Récupérez l’abonnement dans lequel l’attribution de rôle a été créée. Cet abonnement sera utilisé ultérieurement pour récupérer le paramètre **TenantId** du client correspondant à l’attribution de rôle du principal du service.
+Pour vous authentifier dans votre script, spécifiez le compte principal du service et indiquez l’empreinte de certificat, l’ID d’application et l’ID client.
 
-        PS C:\> $subscription = Get-AzureRmSubscription
-
-     Si vous avez créé l’attribution de rôle dans un abonnement autre que l’abonnement sélectionné, vous pouvez spécifier le paramètre **SubscriptoinId** ou **SubscriptionName** afin de récupérer un autre abonnement.
-
-3. Récupérez le certificat que vous allez utiliser pour l’authentification.
-
-        PS C:\> $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
-
-4. Pour vous authentifier dans PowerShell, vous devez fournir l’empreinte du certificat, l’ID d’application et l’ID de client.
-
-        PS C:\> Login-AzureRmAccount -CertificateThumbprint $cert.Thumbprint -ApplicationId $azureAdApplication.ApplicationId -ServicePrincipal -TenantId $subscription.TenantId
+    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint {thumbprint} -ApplicationId {applicationId} -TenantId {tenantid}
 
 Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
-
-<a id="provide-certificate-through-code-in-an-application" />
-### Fournir un certificat via un code intégré à une application
-
-Pour l’authentification à partir d’une application .NET, incluez le code suivant. Après avoir récupéré le client, vous pouvez accéder aux ressources dans l’abonnement.
-
-    var clientId = "<Application ID for your AAD app>"; 
-    var subscriptionId = "<Your Azure SubscriptionId>"; 
-    var tenant = "<Tenant id or tenant name>"; 
-    var certName = "examplecert"; 
-
-    var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
-
-    X509Certificate2 cert = null; 
-    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser); 
-    
-    try 
-    { 
-      store.Open(OpenFlags.ReadOnly); 
-      var certCollection = store.Certificates; 
-      var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false); 
-      cert = certs[0]; 
-    } 
-    finally 
-    { 
-      store.Close(); 
-    }        
-
-    var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
-    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
-    var creds = new TokenCredentials(token.AccessToken); 
-    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
-    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
-    var client = new ResourceManagementClient(creds); 
-        
-
-## Authentification par mot de passe via Azure CLI
-
-Commencez par créer un principal du service. Pour ce faire, nous allons utiliser la fonction Créer une application dans le répertoire. Cette section vous guidera à travers les étapes de création d’une application dans le répertoire.
-
-1. Basculez en mode Azure Resource Manager et connectez-vous à votre compte.
-
-        azure config mode arm
-        azure login
-
-2. Créez une application Active Directory en exécutant la commande **azure ad app create**. Indiquez le nom d’affichage de votre application, l’URI vers une page décrivant votre application (le lien n’est pas vérifié), les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
-
-        azure ad app create --name "exampleapp" --home-page "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your_Password>
-        
-    L’application Active Directory est renvoyée. La propriété ApplicationId est nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition de jeton d’accès.
-
-        data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
-        data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
-        data:    DisplayName:    exampleapp
-        ...
-        info:    ad app create command OK
-
-3. Créez un principal du service pour votre application. Indiquez l’ID d’application renvoyé à l’étape précédente.
-
-        azure ad sp create 4fd39843-c338-417d-b549-a545f584a745
-        
-    Le nouveau principal du service est renvoyé. L’ID d’objet est nécessaire lorsque vous accordez des autorisations.
-    
-        info:    Executing command ad sp create
-        - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
-        data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
-        data:    Display Name:     exampleapp
-        data:    Service Principal Names:
-        data:                      4fd39843-c338-417d-b549-a545f584a745
-        data:                      https://www.contoso.org/example
-        info:    ad sp create command OK
-
-    Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
-
-4. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
-
-        azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
-
-Vous avez créé une application Active Directory et un principal du service pour votre application. Vous avez également assigné un rôle au principal du service. Vous devez maintenant ouvrir une session en tant que principal du service pour pouvoir effectuer des opérations de principal du service. Trois options sont présentées dans cette rubrique :
-
-- [Fournir manuellement des informations d’identification via Azure CLI](#manually-provide-credentials-through-azure-cli)
-- [Fournir des informations d’identification via un script Azure CLI automatisé](#provide-credentials-through-automated-azure-cli-script)
-- [Fournir des informations d’identification via un code intégré à une application](#provide-credentials-through-code-in-an-application-cli)
-
-<a id="manually-provide-credentials-through-Azure-cli" />
-### Fournir manuellement des informations d’identification via Azure CLI
-
-Si vous souhaitez vous connecter manuellement en tant que principal du service, vous pouvez utiliser la commande **azure login**. Vous devez renseigner l’ID de client, l’ID d’application et le mot de passe. L’intégration directe d’un mot de passe dans un script présente des risques dans la mesure où le mot de passe est stocké dans le fichier. Consultez la section suivante pour découvrir une meilleure alternative lors de l’exécution d’un script automatisé.
-
-1. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service. Si vous récupérez l’ID de client pour votre abonnement actuellement authentifié, il est inutile de fournir l’ID d’abonnement en tant que paramètre. Le commutateur **- r** récupère la valeur sans guillemets.
-
-        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
-
-2. Pour le nom d’utilisateur, utilisez le paramètre **AppId** que vous avez utilisé lors de la création du principal du service. Si vous avez besoin de récupérer l’ID d’application, utilisez la commande suivante. Indiquez le nom de l’application Active Directory dans le paramètre **search**.
-
-        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
-
-3. Connectez-vous en tant que principal du service.
-
-        azure login -u "$appId" --service-principal --tenant "$tenantId"
-
-À l’invite, entrez le mot de passe que vous avez indiqué lors de la création du compte.
-
-    info:    Executing command login
-    Password: ********
-
-Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
-
-<a id="provide-credentials-through-automated-azure-cli-script" />
-### Fournir des informations d’identification via un script Azure CLI automatisé
-
-Cette section explique comment se connecter en tant que principal du service sans avoir à saisir manuellement les informations d’identification.
-
-> [AZURE.NOTE] L’intégration d’un mot de passe dans votre script Azure CLI présente des risques dans la mesure où le mot de passe est exposé de façon visible. Il est plutôt recommandé d’utiliser un service (un coffre de clés, par exemple) pour stocker le mot de passe et le récupérer ensuite lors de l’exécution du script.
-
-Ces étapes supposent que vous avez défini un coffre de clés et une clé secrète permettant de stocker le mot de passe. Pour déployer un coffre de clés et une clé secrète via un modèle, consultez [Format de modèle de coffre de clés](). Pour en savoir plus sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
-
-1. Récupérez votre mot de passe (dans l’exemple ci-dessous, le mot de passe est stocké en tant que clé secrète sous le nom **appPassword**) dans le coffre de clés. Incluez le commutateur **-r** pour supprimer les guillemets ouvrants et fermants renvoyés par la sortie JSON.
-
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
-    
-2. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service. Si vous récupérez l’ID de client pour votre abonnement actuellement authentifié, il est inutile de fournir l’ID d’abonnement en tant que paramètre.
-
-        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
-
-3. Pour le nom d’utilisateur, utilisez le paramètre **AppId** que vous avez utilisé lors de la création du principal du service. Si vous avez besoin de récupérer l’ID d’application, utilisez la commande suivante. Indiquez le nom de l’application Active Directory dans le paramètre **search**.
-
-        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
-
-4. Connectez-vous en tant que principal du service en indiquant l’ID d’application, le mot de passe obtenu à partir du coffre de clés, ainsi que l’ID de client.
-
-        azure login -u "$appId" -p "$secret" --service-principal --tenant "$tenantId"
-    
-Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
-
-<a id="provide-credentials-through-code-in-an-application-cli" />
-### Fournir des informations d’identification via un code intégré à une application
-
-Pour l’authentification à partir d’une application .NET, incluez le code suivant. Vous avez besoin de l’ID d’application de l’application Active Directory, du mot de passe et de l’ID client de l’abonnement. Après avoir récupéré le jeton d’accès, vous pouvez utiliser les ressources contenues dans l’abonnement.
-
-    public static string GetAccessToken()
-    {
-      var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-      var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
-      var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
-
-      if (result == null) {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-
-      string token = result.AccessToken;
-
-      return token;
-    }
-
-## Authentification par un certificat via Azure CLI
-
-Dans cette section, vous suivrez la procédure vous permettant de créer le principal du service d'une application Azure Active Directory qui utilise un certificat pour l'authentification. Cette rubrique part du principe que vous avez reçu un certificat et que vous disposez d’[OpenSSL](http://www.openssl.org/).
-
-1. Créez un fichier **.pem** avec :
-
-        openssl pkcs12 -in C:\certificates\examplecert.pfx -out C:\certificates\examplecert.pem -nodes
-
-2. Ouvrez le fichier **.pem** et copiez les données de certificat. Recherchez la longue séquence de caractères entre **---BEGIN CERTIFICATE---** et **---END CERTIFICATE---**.
-
-3. Créez une application Active Directory à l’aide de la commande **azure ad app create** et fournissez les données de certificat que vous avez copiées à l’étape précédente en tant que valeur de clé.
-
-        azure ad app create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
-
-    L’application Active Directory est renvoyée. La propriété ApplicationId est nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition de jeton d’accès.
-
-        data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
-        data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
-        data:    DisplayName:    exampleapp
-        ...
-        info:    ad app create command OK
-
-4. Créez un principal du service pour votre application. Indiquez l’ID d’application renvoyé à l’étape précédente.
-
-        azure ad sp create 4fd39843-c338-417d-b549-a545f584a745
-        
-    Le nouveau principal du service est renvoyé. L’ID d’objet est nécessaire lorsque vous accordez des autorisations.
-    
-        info:    Executing command ad sp create
-        - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
-        data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
-        data:    Display Name:     exampleapp
-        data:    Service Principal Names:
-        data:                      4fd39843-c338-417d-b549-a545f584a745
-        data:                      https://www.contoso.org/example
-        info:    ad sp create command OK
-        
-5. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
-
-        azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
-
-Vous avez créé une application Active Directory et un principal du service pour votre application. Vous avez également assigné un rôle au principal du service. Vous devez maintenant ouvrir une session en tant que principal du service pour pouvoir effectuer des opérations de principal du service. Deux options sont présentées dans cette rubrique :
-
-- [Fournir un certificat via un script Azure CLI automatisé](#provide-certificate-through-automated-azure-cli-script)
-- [Fournir un certificat via un code intégré à une application](#provide-certificate-through-code-in-an-application-cli)
-
-<a id="provide-certificate-through-automated-azure-cli-script" />
-### Fournir un certificat via un script Azure CLI automatisé
-
-1. Vous devez récupérer l’empreinte de certificat et supprimer les caractères inutiles.
-
-        cert=$(openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g')
-    
-     Vous obtenez alors une valeur d’empreinte semblable à ce qui suit :
-
-        30996D9CE48A0B6E0CD49DBB9A48059BF9355851
-
-2. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service. Si vous récupérez l’ID de client pour votre abonnement actuellement authentifié, il est inutile de fournir l’ID d’abonnement en tant que paramètre. Le commutateur **- r** récupère la valeur sans guillemets.
-
-        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
-
-3. Pour le nom d’utilisateur, utilisez le paramètre **AppId** que vous avez utilisé lors de la création du principal du service. Si vous avez besoin de récupérer l’ID d’application, utilisez la commande suivante. Indiquez le nom de l’application Active Directory dans le paramètre **search**.
-
-        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
-
-4. Pour vous authentifier avec Azure CLI, vous devez fournir l’empreinte du certificat, le fichier de certificat, l’ID d’application et l’ID de client.
-
-        azure login --service-principal --tenant "$tenantId" -u "$appId" --certificate-file C:\certificates\examplecert.pem --thumbprint "$cert"
-
-Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
-
-<a id="provide-certificate-through-code-in-an-application-cli" />
-### Fournir un certificat via un code intégré à une application
-
-Pour l’authentification à partir d’une application .NET, incluez le code suivant. Après avoir récupéré le client, vous pouvez accéder aux ressources dans l’abonnement.
-
-    var clientId = "<Application ID for your AAD app>"; 
-    var subscriptionId = "<Your Azure SubscriptionId>"; 
-    var tenant = "<Tenant id or tenant name>"; 
-    var certName = "examplecert"; 
-
-    var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
-
-    X509Certificate2 cert = null; 
-    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser); 
-    
-    try 
-    { 
-      store.Open(OpenFlags.ReadOnly); 
-      var certCollection = store.Certificates; 
-      var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false); 
-      cert = certs[0]; 
-    } 
-    finally 
-    { 
-      store.Close(); 
-    }        
-
-    var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
-    var creds = new TokenCredentials(token.AccessToken); 
-    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
-    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
-    var client = new ResourceManagementClient(creds); 
-       
-Pour obtenir des informations supplémentaires sur l’utilisation de certificats et d’Azure CLI, consultez la page [Authentification par certificat à l’aide de principaux du service Azure à partir de la ligne de commande Linux (en anglais)](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
 
 ## Étapes suivantes
   
-- Pour en savoir plus sur l’utilisation du portail avec les principaux du service, consultez la rubrique [Création d’un principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)  
-- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez la rubrique [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour obtenir des exemples d’authentification .NET, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour .NET](resource-manager-net-sdk.md).
+- Pour obtenir des exemples d’authentification Java, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour Java](resource-manager-java-sdk.md). 
+- Pour obtenir des exemples d’authentification Python, consultez [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Authentification Resource Management pour Python).
+- Pour obtenir des exemples d’authentification REST, consultez [API REST Resource Manager](resource-manager-rest-api.md).
+- Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
-
-<!-- Images. -->
-[1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
-
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Planifications dans Azure Automation | Microsoft Azure"
+   pageTitle="Planifications dans Azure Automation | Microsoft Azure"
    description="Les planifications Automation permettent de planifier les Runbooks dans Azure pour qu'ils démarrent automatiquement. Cet article décrit comment créer les planifications."
    services="automation"
    documentationCenter=""
@@ -17,11 +17,11 @@
 
 # Planifications dans Azure Automation
 
-Les planifications Automation permettent de planifier les Runbooks pour qu'ils s'exécutent automatiquement. Il peut s'agir d'une seule date et heure pour que le Runbook s'exécute une seule fois. Ou il peut s’agir d’une planification horaire ou quotidienne récurrente pour démarrer le Runbook plusieurs fois. Les planifications ne sont généralement pas accessibles à partir des Runbooks.
+Les planifications Automation permettent de planifier les Runbooks pour qu'ils s'exécutent automatiquement. Il peut s'agir d'une seule date et heure pour que le Runbook s'exécute une seule fois. Ou il peut s’agir d’une planification horaire, quotidienne, hebdomadaire ou mensuelle récurrente pour démarrer le Runbook plusieurs fois. Les planifications ne sont généralement pas accessibles à partir des Runbooks.
 
->[AZURE.NOTE]  Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
+>[AZURE.NOTE]  Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
 
-## Applets de commande Windows PowerShell
+## Applets de commande Windows PowerShell
 
 Les applets de commande du tableau suivant permettent de créer et de gérer les planifications avec Windows PowerShell dans Azure Automation. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md).
 
@@ -52,9 +52,9 @@ Les applets de commande du tableau suivant permettent de créer et de gérer les
 1. Cliquez sur **Ajouter une planification** en haut du panneau.
 1. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer la nouvelle planification.
 
-### Pour créer une planification avec Windows PowerShell
+### Pour créer une planification avec Windows PowerShell
 
-L'applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) crée une planification et définit la valeur d'une planification existante. Les exemples de commandes Windows PowerShell suivants créent une planification nommée My Daily Schedule, qui débute le lendemain à midi et se déclenche chaque jour de l'année :
+L'applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) crée une planification et définit la valeur d'une planification existante. Les exemples de commandes Windows PowerShell suivants créent une planification nommée My Daily Schedule, qui débute le lendemain à midi et se déclenche chaque jour de l'année :
 
 	$automationAccountName = "MyAutomationAccount"
 	$scheduleName = "My Daily Schedule"
@@ -67,4 +67,4 @@ L'applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/lib
 ## Voir aussi
 - [Planification d'un Runbook dans Azure Automation](automation-scheduling-a-runbook.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

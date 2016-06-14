@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="ddove;sidneyh" />
+	ms.date="05/27/2016" 
+	ms.author="ddove" />
 
 # Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques
 
@@ -86,4 +86,4 @@ Pour l’historique des versions, accédez à [Microsoft.Azure.SqlDatabase.Elast
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

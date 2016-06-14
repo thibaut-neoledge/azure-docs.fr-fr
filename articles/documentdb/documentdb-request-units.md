@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
 #Unités de requête dans DocumentDB
+Désormais disponible : DocumentDB [calculatrice d’unités de demande](https://www.documentdb.com/capacityplanner). Pour en savoir plus, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs).
 
+![Calculatrice de débit][5]
+
+##Introduction
 Cet article fournit une vue d’ensemble des unités de requête dans [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
@@ -31,12 +35,12 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 ##Unités de requête et frais de requête
 DocumentDB offre des performances élevées et prévisibles en *réservant* des ressources pour répondre aux besoins de débit de votre application. Étant donné que les schémas d’accès et de charge des applications changent au fil du temps, DocumentDB vous permet de facilement augmenter ou diminuer la quantité de débit réservé disponible pour votre application.
 
-Avec DocumentDB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde à votre application. Chaque opération dans DocumentDB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S. Autrement dit, chaque opération entraîne des *frais de requête*, exprimées en *unités de requête*. Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible.
+Avec DocumentDB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde à votre application. Chaque opération dans DocumentDB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S. Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*. Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible.
 
 ##Spécification de la capacité d’unités de requête
 Quand vous créez une collection DocumentDB, vous spécifiez le nombre d’unités de requête par seconde à réserver pour la collection. Une fois la collection créée, l’affectation totale des unités de requête spécifiée est réservée à une utilisation par la collection. Chaque collection est garantie comme ayant des caractéristiques de débit dédiées et isolées.
 
-Il est important de noter que DocumentDB fonctionne d’après un modèle de réservation. Autrement dit, vous êtes facturé pour la quantité de débit *réservée* pour la collection, quelle que soit la quantité activement *utilisée*. Toutefois, n’oubliez pas qu’à mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire la quantité d’unités réservées par le biais des Kits de développement logiciel DocumentDB ou à l’aide du [portail Azure](https://portal.azure.com). Pour plus d’informations sur la façon d’augmenter ou de réduire le débit, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
+Il est important de noter que DocumentDB fonctionne d’après un modèle de réservation. Autrement dit, vous êtes facturé pour la quantité de débit *réservée* pour la collection, quelle que soit la quantité activement *utilisée*. Toutefois, n’oubliez pas qu’à mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire la quantité d’unités réservées par le biais des Kits de développement logiciel DocumentDB ou à l’aide du [Portail Azure](https://portal.azure.com). Pour plus d’informations sur la façon d’augmenter ou de réduire le débit, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
 
 ##Considérations relatives aux unités de requête
 Quand vous évaluez le nombre d’unités de requête à réserver pour votre collection DocumentDB, vous devez impérativement tenir compte des variables suivantes :
@@ -54,6 +58,30 @@ Une unité de requête est une mesure normalisée du coût de traitement de la r
 
 > [AZURE.NOTE] La ligne de base d’une unité de requête pour un document de 1 Ko correspond à une opération GET simple par l’élément self link ou id du document.
 
+###Utiliser la calculatrice d’unités de demande
+Pour aider les clients à affiner leurs estimations de débit, il existe une [calculatrice d’unités de demande](https://www.documentdb.com/capacityplanner) sur le web qui permet d’estimer les besoins d’unité de demande pour les opérations courantes, notamment :
+
+- Créations (écritures) de documents
+- Lectures de documents
+- Suppressions de documents
+
+L’utilisation de l’outil est simple :
+
+1. Chargez un ou plusieurs documents JSON représentatifs.
+
+	![Charger les documents vers la calculatrice d’unités de demande][2]
+
+2. Entrez le nombre d’opérations de création, lecture et suppression de documents dont vous avez besoin (par seconde).
+
+	![Entrez les exigences de débit dans la calculatrice d’unités de demande][3]
+
+3. Cliquez sur Calculer et examinez les résultats.
+
+	![Résultats de la calculatrice d’unités de demande][4]
+
+>[AZURE.NOTE]Si vous avez des types de documents qui varient considérablement en termes de taille et de nombre de propriétés indexées, chargez un exemple de chaque *type* de document standard dans l’outil, puis calculez les résultats.
+
+###Utiliser l’en-tête de réponse de frais de requête DocumentDB
 Chaque réponse du service DocumentDB inclut un en-tête personnalisé (x-ms-request-charge) qui contient le nombre d’unités de requête consommées pour la requête. Cet en-tête est également accessible par le biais des Kits de développement logiciel (SDK) DocumentDB. Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse. Pour les requêtes, l’Explorateur de requête DocumentDB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
 
 ![Examen des frais d’unités de requête dans l’Explorateur de requête][1]
@@ -182,5 +210,9 @@ Pour commencer avec le test des performances et de la mise à l’échelle avec 
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
+[2]: ./media/documentdb-request-units/RUEstimatorUpload.png
+[3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
+[4]: ./media/documentdb-request-units/RUEstimatorResults.png
+[5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/26/2016" 
-    ms.author="ddove;sidneyh" />
+    ms.date="05/27/2016" 
+    ms.author="ddove" />
 
 # Déplacement de données entre des bases de données cloud mises à l’échelle
 
@@ -82,11 +82,11 @@ Le service de fractionnement/fusion utilise une base de données pour mettre à 
 
 Le service de fractionnement/fusion fait la distinction entre (1) les tables partitionnées, (2) les tables de référence et (3) les tables normales. La sémantique d'une opération de fractionnement/fusion/déplacement dépend du type de la table utilisée et est définie comme suit :
 
-* **Tables partitionnées** : les opérations de fusion, de fractionnement et de déplacement déplacent les shardlets de la partition source vers la partition cible. Après l'achèvement réussi de la demande générale, ces shardlets ne sont plus présents dans la partition source. Notez que les tables cibles doivent figurer sur la partition cible et ne doivent pas contenir de données dans la plage cible avant le traitement de l'opération. 
+* **Tables partitionnées** : les opérations de fusion, de fractionnement et de déplacement déplacent les shardlets de la partition source vers la partition cible. Après l'achèvement réussi de la demande générale, ces shardlets ne sont plus présents dans la partition source. Notez que les tables cibles doivent figurer sur la partition cible et ne doivent pas contenir de données dans la plage cible avant le traitement de l'opération. 
 
-* **Tables de référence** : pour les tables de référence, les opérations de fractionnement, de fusion et de déplacement copient les données de la partition source vers la partition cible. Notez, néanmoins, qu'aucune modification n'intervient sur la partition cible pour une table donnée si une ligne est déjà présente dans cette table de la cible. La table doit être vide pour qu’une opération de copie de table de référence soit traitée.
+* **Tables de référence** : pour les tables de référence, les opérations de fractionnement, de fusion et de déplacement copient les données de la partition source vers la partition cible. Notez, néanmoins, qu'aucune modification n'intervient sur la partition cible pour une table donnée si une ligne est déjà présente dans cette table de la cible. La table doit être vide pour qu’une opération de copie de table de référence soit traitée.
 
-* **Autres tables** : d'autres tables peuvent être présentes sur la source ou la cible d'une opération de fusion et de fractionnement. Le service de fusion et de fractionnement ignore ces tables pour les opérations de copie ou de déplacement des données. Notez, toutefois, qu’ils peuvent interférer avec ces opérations en cas de contraintes.
+* **Autres tables** : d'autres tables peuvent être présentes sur la source ou la cible d'une opération de fusion et de fractionnement. Le service de fusion et de fractionnement ignore ces tables pour les opérations de copie ou de déplacement des données. Notez, toutefois, qu’ils peuvent interférer avec ces opérations en cas de contraintes.
 
 Les informations de comparaison des tables de référence et des tables partitionnées sont fournies par les API **SchemaInfo** dans la carte de partitions. L'exemple suivant illustre l'utilisation de ces API sur un objet « smm » donné du gestionnaire des cartes de partitions :
 
@@ -162,17 +162,17 @@ Le service de fractionnement de fusion s'exécute comme un service cloud dans vo
 
 Le service de fractionnement et de fusion fournit la table **RequestStatus** dans la base de données de stockage des métadonnées pour la surveillance des demandes terminées et en cours. La table répertorie une ligne pour chaque demande de fractionnement et de fusion qui a été soumise à cette instance du service de fractionnement et de fusion. Elle donne les informations suivantes pour chaque demande :
 
-* **Timestamp** : heure et date de début de la demande.
+* **Timestamp** : heure et date de début de la demande.
 
-* **OperationId** : GUID qui identifie de façon unique la demande. Cette demande peut également servir à annuler l’opération alors qu’elle est encore en cours.
+* **OperationId** : GUID qui identifie de façon unique la demande. Cette demande peut également servir à annuler l’opération alors qu’elle est encore en cours.
 
-* **Status** : état actuel de la demande. Pour les demandes en cours, répertorie également la phase dans laquelle la demande se trouve.
+* **Status** : état actuel de la demande. Pour les demandes en cours, répertorie également la phase dans laquelle la demande se trouve.
 
-* **CancelRequest** : indicateur signalant si la demande a été annulée.
+* **CancelRequest** : indicateur signalant si la demande a été annulée.
 
-* **Progress** : estimation du pourcentage d'achèvement de l'opération. Une valeur de 50 indique que l’opération est terminée à environ 50 %.
+* **Progress** : estimation du pourcentage d'achèvement de l'opération. Une valeur de 50 indique que l’opération est terminée à environ 50 %.
 
-* **Details** : valeur XML qui fournit un rapport de progression plus détaillé. Le rapport de progression est régulièrement mis à jour lorsque des ensembles de lignes sont copiés de la source vers la cible. En cas de défaillances ou d’exceptions, cette colonne inclut également des informations plus détaillées sur l’échec.
+* **Details** : valeur XML qui fournit un rapport de progression plus détaillé. Le rapport de progression est régulièrement mis à jour lorsque des ensembles de lignes sont copiés de la source vers la cible. En cas de défaillances ou d’exceptions, cette colonne inclut également des informations plus détaillées sur l’échec.
 
 
 ### Azure Diagnostics
@@ -252,4 +252,4 @@ Il est inutile de configurer une nouvelle base de données de métadonnées de f
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

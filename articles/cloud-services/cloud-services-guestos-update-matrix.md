@@ -52,7 +52,7 @@ Le déploiement du système d’exploitation invité de 201511-02 de novembre a 
 ## Publications de famille 4
 **Windows Server 2012 R2**
 
-Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
+Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Les dates précédées de * sont susceptibles de changer.
 
@@ -203,4 +203,4 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
