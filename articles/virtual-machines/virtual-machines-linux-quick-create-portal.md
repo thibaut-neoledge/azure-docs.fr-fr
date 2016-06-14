@@ -37,7 +37,7 @@ Cet article explique comment utiliser le [portail Azure](https://portal.azure.co
 3. Dans la page **Fonctions de base** entrez :
     - un nom pour la machine virtuelle ;
     - un nom d’utilisateur pour l’administrateur ;
-    - la définition du Type d’authentification sur **Clé publique SSH** ;
+    - la définition du Type d’authentification sur **Clé publique SSH** ;
     - votre clé publique SSH sous forme de chaîne (par défaut, à partir de votre répertoire `~/.ssh/`) ;
     - un nom de groupe de ressources (pour créer un groupe de déploiement), ou sélectionnez un groupe existant.
 

@@ -70,7 +70,7 @@ Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé
 
 ![Dataset visualization][screen1b]
 
-Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
+Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
 
 ## Étape 2 : traitement préalable des données
 
@@ -180,9 +180,9 @@ Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur 
 
 - **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
 - **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
+- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
 Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination**, est proche de un (1.0), plus la prévision est correcte.
 

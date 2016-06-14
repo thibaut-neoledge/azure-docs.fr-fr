@@ -206,7 +206,7 @@ Le tableau suivant répertorie les paramètres requis pour configurer l’intég
 |**URL du coffre de clés** |L’emplacement du coffre de clés.|https://contosokeyvault.vault.azure.net/ |
 |**Nom du principal** |Nom du principal du service Azure Active Directory Également appelé ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2|
 | **Secret du principal**|Secret du principal du service Azure Active Directory Également appelé Secret client. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Nom des informations d’identification**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.| mycred1|
+|**Nom des informations d’identification**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.| mycred1|
 
 Pour plus d’informations, consultez [Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles](virtual-machines-windows-classic-ps-sql-keyvault.md).
 

@@ -54,11 +54,11 @@ Lorsque vous développez des solutions qui utilisent Microsoft Azure Batch pour 
 
 Lorsque vous développez des solutions Batch, vous devrez utiliser les comptes suivants dans Microsoft Azure.
 
-- **Compte et abonnement Azure** : si vous ne possédez pas encore d’abonnement Azure, vous pouvez activer les [avantages de votre abonnement MSDN][msdn_benefits] ou vous inscrire pour obtenir un [compte Azure gratuit][free_account]. Lorsque vous créez un compte, un abonnement par défaut sera automatiquement créé.
+- **Compte et abonnement Azure** : si vous ne possédez pas encore d’abonnement Azure, vous pouvez activer les [avantages de votre abonnement MSDN][msdn_benefits] ou vous inscrire pour obtenir un [compte Azure gratuit][free_account]. Lorsque vous créez un compte, un abonnement par défaut sera automatiquement créé.
 
-- **Compte Batch** : lorsque vos applications interagissent avec le service Batch, le nom du compte, l’URL du compte et une clé d’accès sont utilisés comme informations d’identification. Toutes vos ressources Batch, telles que les pools, les nœuds de calcul, les travaux et les tâches, sont associées à un compte Batch. Vous pouvez [créer et gérer un compte Batch](batch-account-create-portal.md) dans le portail Azure.
+- **Compte Batch** : lorsque vos applications interagissent avec le service Batch, le nom du compte, l’URL du compte et une clé d’accès sont utilisés comme informations d’identification. Toutes vos ressources Batch, telles que les pools, les nœuds de calcul, les travaux et les tâches, sont associées à un compte Batch. Vous pouvez [créer et gérer un compte Batch](batch-account-create-portal.md) dans le portail Azure.
 
-- **Compte de stockage** : Batch inclut la prise en charge intégrée de l’utilisation des fichiers dans [Azure Storage][azure_storage]. Presque tous les scénarios du service Batch font appel à Azure Storage pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie générées par vos tâches. Pour créer un compte Storage, consultez l’article [À propos des comptes de stockage Azure](./../storage/storage-create-storage-account.md).
+- **Compte de stockage** : Batch inclut la prise en charge intégrée de l’utilisation des fichiers dans [Azure Storage][azure_storage]. Presque tous les scénarios du service Batch font appel à Azure Storage pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie générées par vos tâches. Pour créer un compte Storage, consultez l’article [À propos des comptes de stockage Azure](./../storage/storage-create-storage-account.md).
 
 ### API de développement Batch
 

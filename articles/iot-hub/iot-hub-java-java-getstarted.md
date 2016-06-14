@@ -190,7 +190,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     import java.util.logging.*;
     ```
 
-7. Ajoutez les variables de niveau classe ci-après à la classe **App**. Remplacez les chaînes **{youriothubkey}**, **{youreventhubcompatiblenamespace}** et **{youreventhubcompatiblename}** par les valeurs que vous avez notées précédemment. La valeur de l’espace réservé **{youreventhubcompatiblenamespace}** provient du **point de terminaison compatible avec Event Hub**. Elle prend la forme **xyznamespace** (en d’autres termes, supprimez le préfixe ****sb://** et le suffixe **.servicebus.windows.net** de la valeur de point de terminaison Event Hub à partir du portail) :
+7. Ajoutez les variables de niveau classe ci-après à la classe **App**. Remplacez les chaînes **{youriothubkey}**, **{youreventhubcompatiblenamespace}** et **{youreventhubcompatiblename}** par les valeurs que vous avez notées précédemment. La valeur de l’espace réservé **{youreventhubcompatiblenamespace}** provient du **point de terminaison compatible avec Event Hub**. Elle prend la forme **xyznamespace** (en d’autres termes, supprimez le préfixe **sb://** et le suffixe **.servicebus.windows.net** de la valeur de point de terminaison Event Hub à partir du portail) :
 
     ```
     private static String namespaceName = "{youreventhubcompatiblenamespace}";

@@ -64,7 +64,7 @@ Supposons maintenant que Jane Doe doive administrer les sites web et les ressour
 
 1.	Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en utilisant le compte d’administrateur de service de l’abonnement Azure (dans cet exemple, msmith@hotmail.com)).
 2.	Transférez l'abonnement à l'annuaire Contoso : cliquez sur **Paramètres** > **Abonnements** > sélectionnez l'abonnement > **Modifier l'annuaire** > sélectionnez **Contoso (Contoso.com)**. Dans le cadre du transfert, les comptes professionnels ou scolaires qui sont des co-administrateurs de l’abonnement sont supprimés.
-3.	Ajoutez Jane Doe en tant que co-administrateur de l’abonnement : cliquez sur **Paramètres** > **Administrateurs** > sélectionnez l’abonnement > **Ajouter** > tapez ****JohnDoe@Contoso.com**.
+3.	Ajoutez Jane Doe en tant que co-administrateur de l’abonnement : cliquez sur **Paramètres** > **Administrateurs** > sélectionnez l’abonnement > **Ajouter** > tapez **JohnDoe@Contoso.com**.
 
 ## Étapes suivantes
 Pour plus d'informations sur la relation entre les annuaires et les abonnements, consultez [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md).

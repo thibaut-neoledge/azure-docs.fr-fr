@@ -33,7 +33,7 @@ Service Bus est un service cloud mutualisé, ce qui signifie que le service est
 Dans un espace de noms, vous pouvez utiliser une ou plusieurs instances de quatre mécanismes de communication distincts, chacun se connectant de manière différente à l’application. Les choix sont les suivants :
 
 - Les *files d’attente* permettent la communication unidirectionnelle. Chacune agit comme un intermédiaire (ou *broker*) qui stocke les messages envoyés jusqu’à leur réception. Chaque message est reçu par un destinataire unique.
-- Les *rubriques* qui fournissent une communication unidirectionnelle à l’aide d’*abonnements* : une seule rubrique peut avoir plusieurs abonnements. Comme une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
+- Les *rubriques* qui fournissent une communication unidirectionnelle à l’aide d’*abonnements* : une seule rubrique peut avoir plusieurs abonnements. Comme une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
 - Les *relais* permettent la communication bidirectionnelle. À l’inverse des files d’attente et des rubriques, le relais ne stocke pas les messages en transit, il ne s’agit pas d’un intermédiaire. Il ne fait que les transférer vers l’application de destination.
 - Les *concentrateurs d’événements* fournissent des entrées d’événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité.
 

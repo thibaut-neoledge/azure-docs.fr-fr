@@ -66,17 +66,17 @@ Chaque recommandation dispose d'un ensemble d'actions qui peuvent être effectu�
 
 Le panneau **Mises à jour système manquantes** affiche un tableau incluant les informations suivantes :
 
-- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
-- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
-- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
-- **ÉTAT** : état actuel de la recommandation :
-	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
-	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
-- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
-	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
-	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
-	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
+- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
+- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
+- **ÉTAT** : état actuel de la recommandation :
+	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
+	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
+- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
+	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
+	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
+	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Pour afficher des informations détaillées sur les recommandations, cliquez sur le nom de la machine virtuelle concernée. Un nouveau panneau s’ouvre pour cette machine virtuelle et affiche la liste des mises à jour manquantes, comme indiqué ci-dessous.
 

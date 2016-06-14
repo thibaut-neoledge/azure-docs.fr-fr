@@ -161,7 +161,7 @@ Le déploiement d’une stratégie de sauvegarde sur la machine virtuelle ne sig
 
 À moins que votre sauvegarde initiale soit imminente, il est recommandé d’utiliser l’option **Sauvegarder maintenant**.
 
-Pour utiliser l’option **Sauvegarder maintenant** :
+Pour utiliser l’option **Sauvegarder maintenant** :
 
 1. Dans la vignette **Sauvegarde** du tableau de bord de l’archivage, cliquez sur **Machines virtuelles Azure** <br/> ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
