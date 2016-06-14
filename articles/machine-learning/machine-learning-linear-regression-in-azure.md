@@ -62,9 +62,7 @@ Dans un premier temps, le modèle Excel a clairement surpassé le modèle Azure 
 |---|:---:|:---:|
 |Performances| | |
 |<ul style="list-style-type: none;"><li>Carré R ajusté</li></ul>| 0,96 |N/A|
-|<ul style="list-style-type: none;"><li>Coefficient de <br />
-détermination</li></ul>|N/A|	0,78<br />
-(faible précision)|
+|<ul style="list-style-type: none;"><li>Coefficient de <br />détermination</li></ul>|N/A|	0,78<br />(faible précision)|
 |Erreur d'absolue moyenne |	9,5 M $|	19,4 M $|
 |Erreur d’absolue moyenne (%)|	6,03 %|	12,2 %
 
