@@ -497,7 +497,12 @@ Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et port
 
 | Noms de domaine | Ports | Description |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) || *.servicebus.windows.net | 9350-9354, 5671 | Système Service Bus Relay facultatif via TCP || *.core.windows.net | 443 | HTTPS || *.clouddatahub.net | 443 | HTTPS || Graph.Windows.NET | 443 | HTTPS || Login.Windows.NET | 443 | HTTPS | 
+| *.servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) |
+| *.servicebus.windows.net | 9350-9354, 5671 | Système Service Bus Relay facultatif via TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| Graph.Windows.NET | 443 | HTTPS |
+| Login.Windows.NET | 443 | HTTPS | 
 
 Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Sinon, vous pouvez configurer en conséquence les domaines et les ports sur l’ordinateur de passerelle.
 
