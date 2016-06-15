@@ -85,7 +85,7 @@ Cet exemple utilise la valeur d’une clé entière **CustomerID**, à l’aide 
 
 La méthode **OpenConnectionForKey** retourne une nouvelle connexion déjà ouverte à la base de données. Les connexions utilisées de cette manière tirent pleinement parti du regroupement de connexions ADO.Net. Tant que les transactions et les demandes peuvent être satisfaites une seule partition à la fois, il s'agit de la seule modification nécessaire dans une application utilisant déjà ADO.Net.
 
-La **[méthode OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** est également disponible si votre application utilise la programmation asynchrone avec ADO.Net. Son comportement est l’équivalent du routage dépendant des données de la méthode (https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)******[Connection.OpenAsync] d’ADO.NET.
+La **[méthode OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** est également disponible si votre application utilise la programmation asynchrone avec ADO.Net. Son comportement est l’équivalent du routage dépendant des données de la méthode **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** d’ADO.NET.
 
 ## Intégration de la gestion des erreurs temporaires 
 
