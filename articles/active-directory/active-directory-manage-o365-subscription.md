@@ -69,4 +69,4 @@ Supposons maintenant que Jane Doe doive administrer les sites web et les ressour
 ## Étapes suivantes
 Pour plus d'informations sur la relation entre les annuaires et les abonnements, consultez [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!-----HONumber=AcomDC_0608_2016-->
