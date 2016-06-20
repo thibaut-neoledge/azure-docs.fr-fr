@@ -48,7 +48,7 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 
 1.	Accédez au [portail Azure](https://portal.azure.com).
 2.	Accédez à la base de données que vous souhaitez copier : Parcourir > Bases de données SQL
-3.	Dans le panneau de la base de données SQL, cliquez sur **Copier** pour ouvrir le panneau **Copier** :
+3.	Dans le panneau de la base de données SQL, cliquez sur **Copier** pour ouvrir le panneau **Copier** :
 
     ![copier une base de données][1]
 

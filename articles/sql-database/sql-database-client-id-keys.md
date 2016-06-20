@@ -88,7 +88,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Ajouter l’application][6]
 
-5. Spécifiez un **NOM** pour l’application et sélectionnez ** APPLICATION WEB ET/OU API WEB**.
+5. Spécifiez un **NOM** pour l’application et sélectionnez **APPLICATION WEB ET/OU API WEB**.
 
     ![Ajouter l’application][10]
 

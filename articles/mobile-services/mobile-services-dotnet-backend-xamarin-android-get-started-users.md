@@ -54,11 +54,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
-1. Ajoutez la propriété suivante à la classe **TodoActivity** :
+1. Ajoutez la propriété suivante à la classe **TodoActivity** :
 
 			private MobileServiceUser user;
 
-2. Ajoutez la méthode suivante à la classe **TodoActivity** :
+2. Ajoutez la méthode suivante à la classe **TodoActivity** :
 
 	        private async Task Authenticate()
 	        {

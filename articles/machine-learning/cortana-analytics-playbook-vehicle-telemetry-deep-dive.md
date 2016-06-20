@@ -328,9 +328,9 @@ Les données sont maintenant optimisées, plus faciles à gérer et prêtes à �
 
 Dans cette section, vous verrez comment nous avons utilisé les composants Azure Stream Analytics, Azure Machine Learning, Azure Data Factory et Azure HDInsight pour analyser avec précision l’état des véhicules et les habitudes de conduite. Nous proposons ici 3 sous-sections :
 
-1.	**Apprentissage automatique** : cette sous-section contient des informations relatives à l’expérience de détection des anomalies que nous avons utilisée dans cette solution pour identifier de manière proactive les véhicules ayant besoin d’une intervention de maintenance ainsi que les véhicules devant faire l’objet d’un rappel pour des raisons de sécurité.
-2.	**Analyse en temps réel** : cette sous-section contient des informations concernant l’analyse en temps réel utilisant le langage de requête Stream Analytics et l’amélioration de l’expérience d’apprentissage automatique en temps réel à l’aide d'une application personnalisée.
-3.	**Analyse par lots** : cette sous-section contient des informations relatives à la transformation et au traitement des données par lots à l’aide des composants Azure HDInsight et Azure Machine Learning déployés par Azure Data Factory
+1.	**Apprentissage automatique** : cette sous-section contient des informations relatives à l’expérience de détection des anomalies que nous avons utilisée dans cette solution pour identifier de manière proactive les véhicules ayant besoin d’une intervention de maintenance ainsi que les véhicules devant faire l’objet d’un rappel pour des raisons de sécurité.
+2.	**Analyse en temps réel** : cette sous-section contient des informations concernant l’analyse en temps réel utilisant le langage de requête Stream Analytics et l’amélioration de l’expérience d’apprentissage automatique en temps réel à l’aide d'une application personnalisée.
+3.	**Analyse par lots** : cette sous-section contient des informations relatives à la transformation et au traitement des données par lots à l’aide des composants Azure HDInsight et Azure Machine Learning déployés par Azure Data Factory
 
 ### Apprentissage automatique
 
@@ -387,7 +387,7 @@ Ce modèle s’applique également aux scénarios dans lesquels vous souhaitez i
 
 Cliquez sur [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) pour télécharger la solution RealtimeDashboardApp Visual Studio pour les personnalisations.
 
-**** Pour exécuter l’application de tableau de bord en temps réel **
+**Pour exécuter l’application de tableau de bord en temps réel**
 
 1.	Cliquez sur le nœud PowerBI sur la vue schématique, puis cliquez sur le lien Télécharger l’application de tableau de bord en temps réel dans le volet des propriétés. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 17 - Instructions de configuration du tableau de bord Power BI*
 2.	Extrayez le fichier et enregistrez-le en local ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 18 – Dossier RealtimeDashboardApp*

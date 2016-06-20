@@ -37,7 +37,7 @@ L'application terminée est également fournie à la fin de ce didacticiel.
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Mobile** pour votre application ;
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -263,15 +263,15 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 ### Valeurs requises
 
-*IdentityMetadata* : il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour l’IdP, ainsi que les clés pour la validation des jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
+*IdentityMetadata* : il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour l’IdP, ainsi que les clés pour la validation des jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
 
-*audience* : URI de redirection à partir du portail.
+*audience* : URI de redirection à partir du portail.
 
 > [AZURE.NOTE]
 Nous remplaçons régulièrement nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid\_keys » et que l’application peut accéder à Internet.
 
 
-## 11 : ajout de configuration à votre fichier server.js
+## 11 : ajout de configuration à votre fichier server.js
 
 Nous avons besoin de lire ces valeurs dans le fichier de configuration que vous venez de créer dans notre application. Pour ce faire, nous ajoutons simplement le fichier .config comme une ressource requise dans notre application, puis nous réglons les variables globales sur celles utilisées dans le document config.js.
 

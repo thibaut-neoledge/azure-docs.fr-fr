@@ -36,7 +36,7 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
     ![Installation du kit de ressources Azure pour Eclipse][01]
 
-1. Dans la boîte de dialogue **Available Software** (Logiciels disponibles), dans la zone de texte **Work with** (Fonctionnement avec), tapez ****http://dl.microsoft.com/eclipse** suivi de la touche **Entrée**.
+1. Dans la boîte de dialogue **Available Software** (Logiciels disponibles), dans la zone de texte **Work with** (Fonctionnement avec), tapez **http://dl.microsoft.com/eclipse** suivi de la touche **Entrée**.
 
 1. Dans le volet **Name** (Nom), cochez **Azure Toolkit for Eclipse** (Kit de ressources Azure pour Eclipse) et décochez **Contact all update sites during install to find required software** (Contacter tous les sites de mise à jour durant l’installation pour trouver le logiciel requis). Votre écran doit se présenter comme suit :
 
@@ -44,7 +44,7 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
 1. Si vous développez le **Kit de ressources Azure pour Eclipse**, les éléments suivants apparaissent :
 
-    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
+    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
     * **Azure Access Control Services Filter** : ce composant prend en charge l’authentification des utilisateurs de l’application avec Azure ACS, permettant les scénarios d’authentification unique et l’externalisation de la logique d’identité hors de l’application.
     * **Azure Common Plugin** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.
     * **Azure Explorer for Eclipse** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.

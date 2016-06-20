@@ -36,13 +36,13 @@ Pendant le traitement, le VIN est utilisé pour extraire des informations sur le
 
 Les composants utilisés dans la topologie Storm sont les suivants :
 
-* **EventHubSpout** : lit les données à partir d'Azure Event Hubs
+* **EventHubSpout** : lit les données à partir d'Azure Event Hubs
 
-* **TypeConversionBolt** : convertit la chaîne JSON à partir des hubs d'événements en un tuple contenant les valeurs de données individuelles de la température du moteur, la température ambiante, la vitesse, le VIN et l'horodatage
+* **TypeConversionBolt** : convertit la chaîne JSON à partir des hubs d'événements en un tuple contenant les valeurs de données individuelles de la température du moteur, la température ambiante, la vitesse, le VIN et l'horodatage
 
-* **DataReferencBolt** : recherche dans DocumentDB le modèle du véhicule à l'aide du VIN
+* **DataReferencBolt** : recherche dans DocumentDB le modèle du véhicule à l'aide du VIN
 
-* **WasbStoreBolt** : stocke les données dans HDFS (Azure Storage)
+* **WasbStoreBolt** : stocke les données dans HDFS (Azure Storage)
 
 Voici un diagramme de cette solution :
 

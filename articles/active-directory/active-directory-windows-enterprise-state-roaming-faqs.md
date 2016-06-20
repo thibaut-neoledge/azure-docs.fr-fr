@@ -22,17 +22,17 @@
 Cette rubrique répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 
 ## Quelles données sont itinérantes ?
-Les **Paramètres Windows** : les paramètres du PC intégrés au système d’exploitation Windows. En règle générale, ce sont des paramètres qui personnalisent le PC de l’utilisateur. Ils incluent les catégories principales suivantes :
+Les **Paramètres Windows** : les paramètres du PC intégrés au système d’exploitation Windows. En règle générale, ce sont des paramètres qui personnalisent le PC de l’utilisateur. Ils incluent les catégories principales suivantes :
 
-- Le **Thème** : le thème du bureau, les paramètres de la barre des tâches, etc.
-- Les **Paramètres Internet Explorer** : les onglets récemment ouverts, les Favoris, etc.
-- Les **Paramètres du navigateur Edge** : les Favoris, les listes de lecture
-- Les **Mots de passe** : les mots de passe Internet, les profils Wi-Fi, etc.
+- Le **Thème** : le thème du bureau, les paramètres de la barre des tâches, etc.
+- Les **Paramètres Internet Explorer** : les onglets récemment ouverts, les Favoris, etc.
+- Les **Paramètres du navigateur Edge** : les Favoris, les listes de lecture
+- Les **Mots de passe** : les mots de passe Internet, les profils Wi-Fi, etc.
 - Les **Préférences linguistiques** : la disposition du clavier, la langue du système, la date et l’heure, etc.
-- Les **Options d’ergonomie** : les thèmes à contraste élevé, le Narrateur, la Loupe, etc.
-- Les **Autres paramètres Windows** : les paramètres d’invite de commandes, la liste des applications, etc.
+- Les **Options d’ergonomie** : les thèmes à contraste élevé, le Narrateur, la Loupe, etc.
+- Les **Autres paramètres Windows** : les paramètres d’invite de commandes, la liste des applications, etc.
 
-Les **Données d’application** : les applications Windows universelles peuvent écrire des données de paramètres dans un dossier « roaming » (itinérance), et toutes les données écrites dans ce dossier sont automatiquement synchronisées. Il incombe aux développeurs d’applications de concevoir eux-mêmes une application pour tirer parti de cette fonctionnalité. Pour plus d’informations sur la façon de développer une application Windows universelle qui utilise l’itinérance, consultez l’[API de stockage des données d’application](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) et le [blog des développeurs d’applications Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+Les **Données d’application** : les applications Windows universelles peuvent écrire des données de paramètres dans un dossier « roaming » (itinérance), et toutes les données écrites dans ce dossier sont automatiquement synchronisées. Il incombe aux développeurs d’applications de concevoir eux-mêmes une application pour tirer parti de cette fonctionnalité. Pour plus d’informations sur la façon de développer une application Windows universelle qui utilise l’itinérance, consultez l’[API de stockage des données d’application](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) et le [blog des développeurs d’applications Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## Quel compte est utilisé pour la synchronisation des paramètres ?
 Dans Windows 8 et Windows 8.1, la synchronisation des paramètres a toujours utilisé les comptes Microsoft consommateur. Les utilisateurs de l’entreprise avaient la possibilité de connecter un compte Microsoft à leur compte de domaine Active Directory pour avoir accès à la synchronisation des paramètres. Dans Windows 10, cette fonctionnalité « compte Microsoft connecté » est remplacée par une structure de compte principal et secondaire.
@@ -67,7 +67,7 @@ Lorsque plusieurs comptes Azure AD regroupant différents clients Azure AD se 
 
 1. Vous avez tout d’abord besoin du GUID de chaque client Azure AD. Ouvrez le portail Azure Classic et sélectionnez un client Azure AD. Le GUID du client se trouve dans l’URL affichée dans la barre d’adresse de votre navigateur, comme suit : `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Une fois que vous disposez du GUID, vous devez ajouter la clé de Registre suivante : **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\SettingSync\\WinMSIPC < GUID de l’ID du client >** À partir de la clé <**GUID de l’ID du client**>, créez une nouvelle valeur de chaînes multiples (REG-MULTI-SZ) nommée **AllowedRMSServerUrl**s et pour ses données, spécifiez les URL de point de distribution de licence des autres clients Azure auxquels l’appareil a accès.
-3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration**. Si les valeurs de **LicensingIntranetDistributionPointUrl ** et de **LicenseingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
+3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration**. Si les valeurs de **LicensingIntranetDistributionPointUrl** et de **LicenseingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
 
 
 ## Quelles sont les options disponibles pour les paramètres d’itinérance des applications de bureau Windows existantes ?
@@ -118,7 +118,7 @@ Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’ab
 - Se connecter à Windows avec une carte à puce physique ou virtuelle provoque l’arrêt de la synchronisation des paramètres. Si vous essayez de vous connecter à votre appareil à l’aide d’une carte à puce physique ou virtuelle, la synchronisation cessera de fonctionner. Les mises à jour futures de Windows 10 résoudront peut-être ce problème.
 - La synchronisation des favoris Internet Explorer ne fonctionne pas pour les versions plus anciennes de Windows 10. Vous devez installer la mise à jour cumulative de mai pour Windows 10 (build 10.0.10586.318 ou version ultérieure) pour bénéficier de la synchronisation des favoris Internet Explorer.
 - Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur (MFA) est configurée. 
-    - Si l’utilisateur est configuré pour utiliser [Azure MFA](multi-factor-authentication.md) sur le portail Azure AD, l’utilisateur risque de ne pas réussir à synchroniser les paramètres lors d’une connexion à un appareil Windows 10 à l’aide d’un mot de passe. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Windows Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou, éventuellement, en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365. 
+    - Si l’utilisateur est configuré pour utiliser [Azure MFA](multi-factor-authentication.md) sur le portail Azure AD, l’utilisateur risque de ne pas réussir à synchroniser les paramètres lors d’une connexion à un appareil Windows 10 à l’aide d’un mot de passe. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Microsoft Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou, éventuellement, en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365. 
     - La synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel MFA AD FS et si le jeton d’accès de l’appareil arrive à expiration. Veillez à vous déconnecter et à vous connecter en utilisant le code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou à effectuer une authentification multifacteur lorsque vous accéder à d’autres services Azure comme Office 365.
 
 

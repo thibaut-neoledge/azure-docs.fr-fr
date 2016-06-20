@@ -39,7 +39,7 @@ L’émulateur simule le service de calcul Azure et s’exécute dans votre envi
 
 1. Parcourez l’application en sélectionnant les commandes du menu **Déboguer** et en définissant des points d’arrêt dans votre code. À mesure que vous parcourez l'application dans le débogueur, les volets sont mis à jour avec l'état actuel de l'application. Quand vous arrêtez le débogage, le déploiement de l’application est annulé. Si votre application inclut un rôle web et que vous avez défini la propriété Action de démarrage pour démarrer le navigateur web, Visual Studio démarre votre application web dans le navigateur. Si vous modifiez le nombre d’instances d’un rôle dans la configuration du service, vous devez arrêter votre service cloud, puis relancer le débogage pour déboguer ces nouvelles instances du rôle.
 
-    **Remarque** : quand vous arrêtez l’exécution ou le débogage de votre service, l’émulateur de calcul et l’émulateur de stockage locaux ne sont pas interrompus. Vous devez les arrêter explicitement à partir de la zone de notification.
+    **Remarque** : quand vous arrêtez l’exécution ou le débogage de votre service, l’émulateur de calcul et l’émulateur de stockage locaux ne sont pas interrompus. Vous devez les arrêter explicitement à partir de la zone de notification.
 
 
 ## Déboguer un service cloud dans Azure
@@ -145,7 +145,7 @@ Les projets Visual Studio ASP.NET permettent de créer une machine virtuelle que
 
     ![Boîte de dialogue de création de projet web ASP.NET](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746723.png)
 
-    **Remarque** : vous serez invité à vous connecter à votre compte Azure si vous ne l’êtes pas déjà.
+    **Remarque** : vous serez invité à vous connecter à votre compte Azure si vous ne l’êtes pas déjà.
 
 1. Sélectionnez les différents paramètres de la machine virtuelle, puis sélectionnez **OK**. Pour plus d’informations, consultez [Machines virtuelles](http://go.microsoft.com/fwlink/?LinkId=623033).
 

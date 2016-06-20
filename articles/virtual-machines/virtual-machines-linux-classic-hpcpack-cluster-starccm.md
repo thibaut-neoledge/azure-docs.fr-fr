@@ -286,7 +286,7 @@ Remplacez le **runner.java** par le lanceur de modèle Java STAR-CCM+ de votre c
     exit ${RTNSTS}
 ```
 
-Dans notre test, nous avons utilisé un jeton de licence Power-On-Demand, dont vous devez définir la variable d’environnement **$CDLMD\_LICENSE\_FILE** sur ****1999@flex.cd-adapco.com** et la clé dans l’option **-podkey** de la ligne de commande.
+Dans notre test, nous avons utilisé un jeton de licence Power-On-Demand, dont vous devez définir la variable d’environnement **$CDLMD\_LICENSE\_FILE** sur **1999@flex.cd-adapco.com** et la clé dans l’option **-podkey** de la ligne de commande.
 
 Après une phase d’initialisation, le script extrait, à partir des variables d’environnement **$CCP\_NODES\_CORES** définies par HPC Pack, la liste des nœuds permettant de générer un fichier d’hôte utilisé par le lanceur MPI. Ce fichier d’hôte contient la liste des noms de nœuds de calcul utilisés pour le travail (un nom par ligne).
 

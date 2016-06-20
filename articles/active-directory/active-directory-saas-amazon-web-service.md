@@ -224,7 +224,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 	![Configurer l’authentification unique][24]
 
-    a. Dans la zone de texte **Nom d’attribut**, tapez ****https://aws.amazon.com/SAML/Attributes/Role**.
+    a. Dans la zone de texte **Nom d’attribut**, tapez **https://aws.amazon.com/SAML/Attributes/Role**.
 
     b. Dans la zone de texte **Valeur d’attribut**, tapez **[valeur du champ Role ARN] [valeur du champ Trusted Entity ARN]**.
 
@@ -242,7 +242,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 	![Configurer l’authentification unique][25]
 
 
-     a. Dans la zone de texte **Nom d’attribut**, tapez ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+     a. Dans la zone de texte **Nom d’attribut**, tapez **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
      b. Dans la zone de texte **Valeur d’attribut**, tapez **userprincipalname**.
 

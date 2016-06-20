@@ -141,7 +141,7 @@ Vous pouvez supprimer les données de sauvegarde associées à une machine virtu
 - Au cours du travail Arrêter la protection
 - Après la fin du travail d’arrêt de la protection sur une machine virtuelle
 
-Pour supprimer les données de sauvegarde sur une machine virtuelle à l’état *Protection arrêtée* à l’issue d’une tâche **Arrêter la sauvegarde** :
+Pour supprimer les données de sauvegarde sur une machine virtuelle à l’état *Protection arrêtée* à l’issue d’une tâche **Arrêter la sauvegarde** :
 
 1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme *type*, puis cliquez sur le bouton **Sélectionner**.
 
@@ -217,19 +217,19 @@ PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId** : vous pouvez obtenir cela à partir de la fenêtre contextuelle Journaux des opérations, comme indiqué dans la section ci-dessus. L’élément ResourceUri de la fenêtre contextuelle de détails d’une opération est l’ID de ressource à fournir à cet applet de commande.
+**ResourceId** : vous pouvez obtenir cela à partir de la fenêtre contextuelle Journaux des opérations, comme indiqué dans la section ci-dessus. L’élément ResourceUri de la fenêtre contextuelle de détails d’une opération est l’ID de ressource à fournir à cet applet de commande.
 
 **OperationName** : cette valeur a le format « Microsoft.Backup/backupvault/<EventName> » où EventName peut être Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**État** : les valeurs prises en charge sont Démarré, Réussi et Échec.
+**État** : les valeurs prises en charge sont Démarré, Réussi et Échec.
 
-**ResourceGroup** : groupe de ressources auquel appartient la ressource sur laquelle l’opération est déclenchée. Vous pouvez l’obtenir à partir de la valeur ResourceId. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur ResourceId valeur correspond à la valeur de GroupeResource.
+**ResourceGroup** : groupe de ressources auquel appartient la ressource sur laquelle l’opération est déclenchée. Vous pouvez l’obtenir à partir de la valeur ResourceId. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur ResourceId valeur correspond à la valeur de GroupeResource.
 
-**Nom** : nom de la règle d’alerte.
+**Nom** : nom de la règle d’alerte.
 
-**CustomEmail** : spécifiez l’adresse e-mail personnalisée à laquelle vous voulez envoyer des notifications d’alerte
+**CustomEmail** : spécifiez l’adresse e-mail personnalisée à laquelle vous voulez envoyer des notifications d’alerte
 
-**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement. Elle peut être utilisée dans l’applet de commande **New-AzureRmAlertRuleEmail**
+**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement. Elle peut être utilisée dans l’applet de commande **New-AzureRmAlertRuleEmail**
 
 ### Limitations sur les alertes
 Les alertes basées sur des événements sont soumises aux limitations suivantes :

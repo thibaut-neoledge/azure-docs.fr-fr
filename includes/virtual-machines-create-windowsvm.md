@@ -12,6 +12,7 @@
 
 	- Le **nom de la machine virtuelle** peut contenir uniquement des lettres, des chiffres et des traits d'union. Il doit commencer par une lettre et se terminer par une lettre ou un chiffre.
 	- **Nouveau nom d’utilisateur** fait référence au compte administratif que vous utilisez pour gérer le serveur. Le mot de passe doit compter 8 à 123 caractères et au moins trois des types de caractère suivants : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter et vous identifier sur la machine virtuelle**.
+
 	- La taille d'une machine virtuelle affecte son coût d'utilisation, ainsi que les options de configuration comme le nombre de disques de données que vous pouvez joindre. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md).
 
 6. Le troisième écran vous permet de configurer les ressources pour la mise en réseau, le stockage et la disponibilité. Voici quelques conseils :

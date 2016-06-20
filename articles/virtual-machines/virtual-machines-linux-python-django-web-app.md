@@ -50,7 +50,7 @@ Voici une capture d’écran de l’application terminée :
 
 ## <a id="setup"> </a>Configuration de l’environnement de développement
 
-**Remarque** : si vous devez installer Python ou que vous souhaitez utiliser les bibliothèques clientes, consultez l’article [Installation de Python](../python-how-to-install.md).
+**Remarque** : si vous devez installer Python ou que vous souhaitez utiliser les bibliothèques clientes, consultez l’article [Installation de Python](../python-how-to-install.md).
 
 Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche, Apache et Django ne sont pas installés. Pour vous connecter à votre machine virtuelle et installer Apache et Django, procédez comme suit :
 

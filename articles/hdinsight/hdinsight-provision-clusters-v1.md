@@ -534,7 +534,7 @@ L’interface de ligne de commande Azure peut être installée à l’aide de NP
 
 **Installation de l’interface de ligne de commande à l’aide de Windows Installer**
 
-1.	Accédez à ****http://azure.microsoft.com/downloads/**.
+1.	Accédez à **http://azure.microsoft.com/downloads/**.
 2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande Azure** et suivez les étapes de l’Assistant Web Platform Installer.
 
 **Pour télécharger et importer des paramètres de publication**

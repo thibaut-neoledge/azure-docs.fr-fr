@@ -243,7 +243,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 
 	Instance 2 de l'application ![][5]
 
-8. Comme la valeur `__version` utilisée pour la tentative de mise à jour ne correspond pas à la valeur `__version` du serveur, le Kit de développement logiciel (SDK) Mobile Services lève une exception `MobileServicePreconditionFailedException` qui permet à l'application de résoudre ce conflit. Pour résoudre le conflit, vous pouvez cliquer sur **Commit Local Text ** pour valider les valeurs de l'instance 2. Sinon, cliquez sur **Leave Server Text** pour ignorer les valeurs dans l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application.
+8. Comme la valeur `__version` utilisée pour la tentative de mise à jour ne correspond pas à la valeur `__version` du serveur, le Kit de développement logiciel (SDK) Mobile Services lève une exception `MobileServicePreconditionFailedException` qui permet à l'application de résoudre ce conflit. Pour résoudre le conflit, vous pouvez cliquer sur **Commit Local Text** pour valider les valeurs de l'instance 2. Sinon, cliquez sur **Leave Server Text** pour ignorer les valeurs dans l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application.
 
 	Instance 1 de l'application ![][4]
 

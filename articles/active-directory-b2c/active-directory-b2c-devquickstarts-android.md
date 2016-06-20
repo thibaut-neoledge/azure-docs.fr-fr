@@ -359,7 +359,8 @@ Vous avez créé des boutons qui appellent votre intention `ToDoActivity` (qui a
 
 Cette activité sert à remplir votre interface utilisateur de paramètres.
 
-Créez un fichier appelé `SettingsActivity.java` pour les opérations de création, lecture, mise à jour et suppression (CRUD) simples.
+Créez un fichier appelé `SettingsActivity.java`
+pour les opérations de création, lecture, mise à jour et suppression (CRUD) simples.
 
 ```
  package com.microsoft.aad.taskapplication;
@@ -481,7 +482,8 @@ public class SettingsActivity extends Activity {
 
 Cette activité permet d’ajouter une tâche au point de terminaison de votre API REST.
 
-Créez un fichier appelé `AddTaskActivity.java` et écrivez le code suivant :
+Créez un fichier appelé `AddTaskActivity.java` 
+et écrivez le code suivant :
 
 ```
 package com.microsoft.aad.taskapplication;
@@ -875,7 +877,7 @@ Pour fonctionner, ce code nécessite des méthodes supplémentaires. Écrivez-le
 
 Vous devez générer l’URL de point de terminaison à laquelle vous vous connecterez. Effectuez cette opération dans le même fichier de classe.
 
-**Dans le même fichier ** appelé `ToDoActivity.java`, écrivez le code suivant :
+**Dans le même fichier** appelé `ToDoActivity.java`, écrivez le code suivant :
 
  ```
     private URL getEndpointUrl() {

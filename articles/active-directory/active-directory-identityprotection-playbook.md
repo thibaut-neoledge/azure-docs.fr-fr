@@ -40,7 +40,7 @@ Les autres événements à risque ne peuvent pas être simulés de manière séc
 
 Ce type d’événement à risque signale les utilisateurs qui se sont connectés depuis une adresse IP ayant été identifiée comme l’adresse IP d’un proxy anonyme. Ces proxys sont utilisés par des individus souhaitant masquer l’adresse IP de leur appareil et peuvent être utilisés dans un but malveillant.
 
-**Pour simuler une connexion depuis une adresse IP anonyme, procédez comme suit** :
+**Pour simuler une connexion depuis une adresse IP anonyme, procédez comme suit** :
 
 1.	Téléchargez le [navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en).
 2.	À l’aide du navigateur Tor, accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).   
@@ -61,7 +61,7 @@ Azure Active Directory Identity Protection :
 Pour simuler des emplacements non connus, vous devez vous connecter depuis un emplacement et un appareil depuis lesquels le compte ne s’est jamais connecté.
 
 
-**Pour simuler une connexion depuis un emplacement non connu, procédez comme suit** :
+**Pour simuler une connexion depuis un emplacement non connu, procédez comme suit** :
 
 1.	Choisissez un compte qui présente un historique de connexion d’au moins 14 jours. 
 
@@ -76,7 +76,7 @@ La connexion s’affiche dans le tableau de bord d’Identity Protection dans un
 ### Voyage impossible vers des emplacements inhabituels
 La simulation de la condition de voyage impossible est difficile, car l’algorithme utilise l’apprentissage automatique pour éliminer les faux positifs, tels que le voyage impossible depuis des appareils connus ou les connexions depuis des VPN utilisés par d’autres utilisateurs du répertoire. De plus, l’algorithme requiert un historique de connexion de 3 à 14 jours pour l’utilisateur avant de commencer à générer des événements à risque.
 
-**Pour simuler un voyage impossible vers des emplacements inhabituels, procédez comme suit** :
+**Pour simuler un voyage impossible vers des emplacements inhabituels, procédez comme suit** :
 
 1.	À l’aide de votre navigateur standard, accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).  
 
@@ -102,7 +102,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 
 ##Risque de compromission de l’utilisateur
 
-**Pour tester le risque de compromission de l’utilisateur, procédez comme suit** :
+**Pour tester le risque de compromission de l’utilisateur, procédez comme suit** :
 
 1.	Connectez-vous à [https://portal.azure.com](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre client.
 

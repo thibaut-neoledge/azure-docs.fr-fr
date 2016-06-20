@@ -119,10 +119,10 @@ La sonde personnalisée est configurée pendant cette opération.
 
 Les paramètres utilisés sont :
 
-- **-Intervalle** : configure les vérifications d'intervalle de sonde en secondes.
-- **-Délai d'expiration** : définit le délai d'expiration d'un contrôle de réponse HTTP.
-- **-Nom d'hôte et -chemin d'accès** : chemin d'accès complet à l'URL qui est appelé par Application Gateway pour déterminer l'état de l'instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
-- **-Seuil de défaillance sur le plan de l'intégrité** : le nombre d'échecs de réponses HTTP nécessaires pour marquer l'instance de serveur principal comme *défectueuse*.
+- **-Intervalle** : configure les vérifications d'intervalle de sonde en secondes.
+- **-Délai d'expiration** : définit le délai d'expiration d'un contrôle de réponse HTTP.
+- **-Nom d'hôte et -chemin d'accès** : chemin d'accès complet à l'URL qui est appelé par Application Gateway pour déterminer l'état de l'instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
+- **-Seuil de défaillance sur le plan de l'intégrité** : le nombre d'échecs de réponses HTTP nécessaires pour marquer l'instance de serveur principal comme *défectueuse*.
 
 <BR>
 

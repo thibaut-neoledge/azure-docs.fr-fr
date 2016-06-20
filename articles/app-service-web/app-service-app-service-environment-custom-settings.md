@@ -23,7 +23,7 @@ Les environnements App Service étant isolés pour chaque client, certains param
 
 Vous pouvez stocker les personnalisations de l’environnement App Service (App Service Environment) à l’aide d’un tableau dans le nouvel attribut **clusterSettings**. Cet attribut se trouve dans le dictionnaire des « Propriétés » de l’entité Azure Resource Manager *hostingEnvironments*.
 
-L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
+L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
 
 
     "resources": [

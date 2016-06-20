@@ -77,11 +77,11 @@ Ouvrez le panneau Filtre et choisissez les types d’événement que vous souhai
 
 Les types d'événements sont :
 
-* **Suivi** : les journaux de diagnostic comprennent les appels TrackTrace, log4Net, NLog et System.Diagnostic.Trace.
-* **Demandes** : demandes HTTP reçues par votre serveur d’applications, dont les pages, les scripts, les images, les fichiers de style et les données. Ces événements sont utilisés pour créer les graphiques de présentation de la demande et la réponse.
-* **Affichage de page** : télémétrie envoyée par le client web et utilisée pour créer les rapports d’affichage des pages. 
-* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
-* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException().
+* **Suivi** : les journaux de diagnostic comprennent les appels TrackTrace, log4Net, NLog et System.Diagnostic.Trace.
+* **Demandes** : demandes HTTP reçues par votre serveur d’applications, dont les pages, les scripts, les images, les fichiers de style et les données. Ces événements sont utilisés pour créer les graphiques de présentation de la demande et la réponse.
+* **Affichage de page** : télémétrie envoyée par le client web et utilisée pour créer les rapports d’affichage des pages. 
+* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
+* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException().
 
 ## Filtrer des valeurs de propriétés
 

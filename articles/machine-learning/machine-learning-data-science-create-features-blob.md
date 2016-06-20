@@ -24,7 +24,8 @@ Ce document montre comment créer des fonctionnalités pour les données stocké
 
 
 ## Composants requis
-Cet article part du principe que vous avez créé un compte de stockage d’objets blob Azure et que vous y avez stocké vos données. Si vous avez besoin d’aide pour configurer un compte, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
+Cet article part du principe que vous avez :
+* créé un compte de stockage d’objets blob Azure et que vous y avez stocké vos données. Si vous avez besoin d’aide pour configurer un compte, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
 
 
 ## Chargement des données dans une trame de données Pandas

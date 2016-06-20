@@ -26,7 +26,7 @@ Cette page vous aide à configurer un cluster Azure Service Fabric. Votre abonne
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Cliquez sur **+ Nouveau** pour ajouter un nouveau modèle de ressources. Recherchez votre modèle dans le **Marketplace** sous **Tout** ; il porte le nom **Cluster Service Fabric**.
+2. Cliquez sur **+ Nouveau** pour ajouter un nouveau modèle de ressources. Recherchez votre modèle dans le **Marketplace** sous **Tout** ; il porte le nom **Cluster Service Fabric**.
 
     a. Au niveau supérieur, cliquez sur **Marketplace**.
 
@@ -123,10 +123,12 @@ Une fois votre cluster créé, vous pouvez l’inspecter dans le portail :
 
 1. Accédez à **Parcourir**, puis cliquez sur **Clusters Service Fabric**.
 
-2. Recherchez votre cluster et cliquez dessus. ![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
+2. Recherchez votre cluster et cliquez dessus.
 
-3. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment l’adresse IP publique du cluster. Le fait de survoler **l’adresse IP publique du cluster** affiche un presse-papiers sur lequel vous pouvez cliquer pour copier l’adresse. ![Capture d’écran des détails du cluster dans le tableau de bord.][ClusterDashboard]
+  ![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
+3. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment l’adresse IP publique du cluster. Le fait de survoler **l’adresse IP publique du cluster** affiche un presse-papiers sur lequel vous pouvez cliquer pour copier l’adresse.
 
+  ![Capture d’écran des détails du cluster dans le tableau de bord.][ClusterDashboard]
   La section **Surveillance des nœuds** du panneau du tableau de bord du cluster indique le nombre de machines virtuelles intègres et de machines virtuelles non intègres. Pour plus d’informations sur l’intégrité du cluster, consultez [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md).
 
 >[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Par conséquent, il est généralement déconseillé d’arrêter tous les ordinateurs du cluster, sauf si vous avez d’abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).

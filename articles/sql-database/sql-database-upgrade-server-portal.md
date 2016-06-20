@@ -45,15 +45,15 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 ## Préparation de la mise à niveau
 
-- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) ci-dessous ou [Surveiller et gérer un pool de bases de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) ci-dessous ou [Surveiller et gérer un pool de bases de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 - **Vérifier et suspendre la géoréplication** : si votre base de données SQL Azure est configurée pour la géoréplication, vous devez documenter la configuration actuelle et [arrêter la géoréplication](sql-database-geo-replication-portal.md#remove-secondary-database). Une fois la mise à niveau terminée, reconfigurez votre base de données pour la géoréplication.
-- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 
 ## Lancer la mise à niveau
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
 2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
 
       ![mettre à niveau le serveur][1]
@@ -100,7 +100,7 @@ Lorsque toutes les bases de données du serveur sont éligibles, vous pouvez com
 
 Dans le [portail Azure](https://portal.azure.com/), accédez au serveur V12 et cliquez sur **Ajouter un pool**.
 
-- ou -
+ -ou-
 
 Si vous voyez un message indiquant **Cliquez ici pour afficher le pool de base de données élastique recommandé pour votre serveur**, cliquez dessus pour créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d’informations, consultez [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 

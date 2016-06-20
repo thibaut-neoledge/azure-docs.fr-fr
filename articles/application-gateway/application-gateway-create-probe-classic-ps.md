@@ -161,12 +161,12 @@ Un nouvel élément de configuration <Probe> est ajouté pour configurer les son
 
 Les paramètres de configuration sont :
 
-- **Nom** : nom de référence de la sonde personnalisée.
-- **Protocole** : protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).
-- **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l'instance. Par exemple, pour un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les analyses de sonde reçoivent une réponse HTTP positive.
-- **Intervalle** : configure les intervalles d’analyse de sonde en secondes.
-- **Délai d’expiration** : définit le délai d’expiration de sonde pour une vérification de réponse HTTP.
-- **Seuil de défaillance sur le plan de l’intégrité** : nombre de réponses HTTP en échec nécessaires pour marquer l’instance de serveur principal comme étant *défectueuse*.
+- **Nom** : nom de référence de la sonde personnalisée.
+- **Protocole** : protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).
+- **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l'instance. Par exemple, pour un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les analyses de sonde reçoivent une réponse HTTP positive.
+- **Intervalle** : configure les intervalles d’analyse de sonde en secondes.
+- **Délai d’expiration** : définit le délai d’expiration de sonde pour une vérification de réponse HTTP.
+- **Seuil de défaillance sur le plan de l’intégrité** : nombre de réponses HTTP en échec nécessaires pour marquer l’instance de serveur principal comme étant *défectueuse*.
 
 Le nom de la sonde est référencé dans la configuration <BackendHttpSettings> pour affecter le pool principal qui va utiliser les paramètres de sonde personnalisée.
 

@@ -133,7 +133,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     b. Cliquez sur **Next**.
 
 
-5. Pour configurer l’authentification unique pour votre application, contactez votre l’équipe de support technique AppBlade via ****support@appblade.com** et joignez le fichier de métadonnées téléchargé à votre courrier électronique. Demandez-lui également de configurer l’**URL de l’émetteur d’authentification unique** sur ****https://appblade.com/saml**. Ce paramètre est nécessaire pour que l'authentification unique fonctionne.
+5. Pour configurer l’authentification unique pour votre application, contactez votre l’équipe de support technique AppBlade via **support@appblade.com** et joignez le fichier de métadonnées téléchargé à votre courrier électronique. Demandez-lui également de configurer l’**URL de l’émetteur d’authentification unique** sur **https://appblade.com/saml**. Ce paramètre est nécessaire pour que l'authentification unique fonctionne.
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.

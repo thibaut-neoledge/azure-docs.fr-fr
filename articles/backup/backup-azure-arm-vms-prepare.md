@@ -26,7 +26,7 @@
 
 Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle Azure déployée avec le modèle Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure.
 
-Le service Azure Backup comprend deux types de coffres (coffres de sauvegarde et coffres Recovery Services) pour la protection de vos machines virtuelles. Un coffre de sauvegarde protège les machines virtuelles déployées à l'aide du modèle de déploiement classique. Un coffre Recovery Services protège ** les machines virtuelles déployées à l’aide du modèle classique et à l’aide du modèle Resource Manager** . Vous devez utiliser un coffre Recovery Services pour protéger une machine virtuelle déployée à l’aide du modèle Resource Manager.
+Le service Azure Backup comprend deux types de coffres (coffres de sauvegarde et coffres Recovery Services) pour la protection de vos machines virtuelles. Un coffre de sauvegarde protège les machines virtuelles déployées à l'aide du modèle de déploiement classique. Un coffre Recovery Services protège **les machines virtuelles déployées à l’aide du modèle classique et à l’aide du modèle Resource Manager** . Vous devez utiliser un coffre Recovery Services pour protéger une machine virtuelle déployée à l’aide du modèle Resource Manager.
 
 >[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Consultez la page [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-vms-prepare.md) pour plus d’informations sur l’utilisation des machines virtuelles avec le modèle de déploiement Classic.
 
@@ -50,8 +50,8 @@ Avant de préparer votre environnement, notez les limitations.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - Vous pouvez sauvegarder des machines virtuelles uniquement pour des versions de systèmes d’exploitation sélectionnées :
-  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
-  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
+  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l'aide du flux de travail de restauration dans l'interface utilisateur n'aura pas ces configurations réseau une fois l'opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
   - Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
@@ -284,7 +284,7 @@ HttpProxy.Port=<proxy port>
 3. Dans l’**Assistant Nouvelle règle de trafic entrant**, choisissez l’option **personnalisée** comme **Type de règle**, puis cliquez sur **Suivant**.
 4. Dans la page servant à sélectionner le **programme**, choisissez **Tous les programmes**, puis cliquez sur **Suivant**.
 
-5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
+5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
 
     ![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-03.png)
 

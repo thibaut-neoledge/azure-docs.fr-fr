@@ -226,12 +226,12 @@ L’agent et le fournisseur Azure Site Recovery peuvent également être install
 
 4. Puis, exécutez les commandes suivantes pour inscrire le serveur dans le coffre : CD C:\\Program Files\\Microsoft Azure Site Recovery Provider\\ C:\\Program Files\\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> où :
 
-- **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve  
-- **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
-- **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
-- **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
-- **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
-- **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
+- **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve  
+- **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
+- **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
+- **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
+- **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
+- **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
 
 
 ## Étape 3 : configurer l’environnement cible

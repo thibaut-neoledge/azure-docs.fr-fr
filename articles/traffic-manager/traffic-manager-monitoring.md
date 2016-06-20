@@ -27,8 +27,8 @@ Les contrôles d’intégrité des points de terminaison « Détériorés » con
 
 Pour configurer la surveillance des points de terminaison, vous devez spécifier les paramètres suivants sur votre profil Traffic Manager :
 
-- **Protocole** : choisissez HTTP ou HTTPS. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement qu’il est présent.
-- **Port** : choisissez le port utilisé pour la requête. Les ports HTTP standard et HTTPS font partie des options.
+- **Protocole** : choisissez HTTP ou HTTPS. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement qu’il est présent.
+- **Port** : choisissez le port utilisé pour la requête. Les ports HTTP standard et HTTPS font partie des options.
 - **Chemin d’accès** : indiquez le chemin d’accès relatif et le nom du fichier ou de la page web auxquels le contrôle d’intégrité de la surveillance tentera d’accéder. Notez que vous pouvez utiliser la barre oblique « / » pour le chemin d’accès relatif, pour indiquer que le fichier est dans le répertoire racine (par défaut).
 
 Pour vérifier l’intégrité de chaque point de terminaison, Traffic Manager soumet une requête GET au point de terminaison à l’aide du protocole, du port et du chemin d’accès relatif donné.
@@ -91,14 +91,14 @@ Le chronologie suivante décrit en détail la séquence d’étapes qui se produ
 
 ![Séquence de basculement et de restauration automatique des points de terminaison Traffic Manager](./media/traffic-manager-monitoring/timeline.png)
 
-1. **GET** : le système de surveillance de Traffic Manager exécute une commande GET sur le chemin d’accès et le fichier que vous avez spécifiés dans les paramètres de surveillance. Cette opération est répétée pour chaque point de terminaison.
+1. **GET** : le système de surveillance de Traffic Manager exécute une commande GET sur le chemin d’accès et le fichier que vous avez spécifiés dans les paramètres de surveillance. Cette opération est répétée pour chaque point de terminaison.
 2. **200 OK** : le système de surveillance attend un message HTTP 200 OK dans un délai de 10 secondes. Lorsqu’il reçoit cette réponse, il comprend que le service est disponible.
 3. **30 secondes entre les contrôles** : le contrôle d’intégrité du point de terminaison est répété toutes les 30 secondes.
 4. **Service indisponible** : le service est indisponible. Traffic Manager n’est pas averti avant le prochain contrôle d’intégrité.
 5. **Tente d’accéder au fichier de surveillance (4 essais)** : le système de surveillance exécute une commande GET, mais ne reçoit pas de réponse au cours du délai d’expiration de 10 secondes (sinon, une réponse autre que 200 peut être reçue). Il effectue ensuite trois essais supplémentaires par intervalles de 30 secondes. Lorsque l’un des essais aboutit, le nombre d’essais est réinitialisé.
 6. **Marquage du service comme détérioré** : après le quatrième échec successif, le système de surveillance marque le point de terminaison indisponible comme étant Détérioré. 
 7. **Le trafic est détourné vers d’autres points de terminaison** : les serveurs de noms DNS Traffic Manager sont mis à jour et le point de terminaison n’est plus renvoyé par Traffic Manager en réponse aux requêtes DNS. Les nouvelles connexions sont par conséquent dirigées vers les autres points de terminaison disponibles. Toutefois, les réponses DNS précédentes incluant ce point de terminaison peuvent toujours être mises en cache par des serveurs DNS et des clients DNS récursifs, amenant certains clients à tenter de se connecter à ce point de terminaison. À mesure que ces caches expirent, les clients exécutent de nouvelles requêtes DNS et sont dirigés vers différents points de terminaison. La durée du cache est contrôlée par le paramètre TTL dans le profil Traffic Manager (par exemple, 30 secondes). 
-8. **Les contrôles d’intégrité continuent ** : Traffic Manager continue à contrôler l’intégrité du point de terminaison pendant qu’il se trouve dans l’état Détérioré. Ainsi il peut détecter le moment auquel le point de terminaison retrouve son intégrité.
+8. **Les contrôles d’intégrité continuent** : Traffic Manager continue à contrôler l’intégrité du point de terminaison pendant qu’il se trouve dans l’état Détérioré. Ainsi il peut détecter le moment auquel le point de terminaison retrouve son intégrité.
 9. **Le service est remis en ligne** : le service devient disponible. Le point de terminaison reste Détérioré dans Traffic Manager jusqu’à ce que le système de surveillance effectue le contrôle d’intégrité suivant.
 10. **Le trafic vers le service reprend** : Traffic Manager envoie une commande GET et reçoit un message 200 OK, indiquant que le service a retrouvé un état sain. Les serveurs de noms Traffic Manager sont mis à jour une fois encore et commencent à distribuer le nom DNS du service dans les réponses DNS. Le trafic retournera de nouveau au point de terminaison tandis que les réponses DNS mises en cache et renvoyées vers d’autres points de terminaison expirent et que les connexions existantes à d’autres points de terminaison s’arrêtent.
 

@@ -41,11 +41,11 @@ L'application terminée est également fournie à la fin de ce didacticiel.
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Mobile** pour votre application ;
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 ## Installez et configurez ADAL
-Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code. In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
+Maintenant que vous disposez d’une application enregistrée auprès de Microsoft, vous pouvez installer ADAL et écrire votre code associé aux identités. Pour permettre à ADAL de communiquer avec le point de terminaison v2.0, vous devez lui fournir des informations sur l’enregistrement de votre application.
 
 -	Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
 
@@ -211,7 +211,7 @@ private async void GetTodoList()
 ...
 
 
-- When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
+- Lorsque l’utilisateur a fini de gérer de sa liste des tâches, celui-ci peut se déconnecter de l’application en cliquant sur le bouton Vider le cache.
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -235,9 +235,9 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 
 ## Exécuter
 
-Félicitations ! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0. Run your both projects, and sign in with either a personal Microsoft account or a work or school account. Add tasks to that user's To-Do list.   Sign out, and sign back in as another user to view their To-Do list. Fermez l’application et exécutez-la de nouveau. Remarquez à quel point la session de l'utilisateur reste intacte - car l'application cache des jetons dans un fichier local.
+Félicitations ! Vous disposez désormais d’une application .NET WPF fonctionnelle, capable d’authentifier les utilisateurs et d’appeler des API web en toute sécurité via OAuth 2.0. Exécutez vos projets et connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire. Ajoutez des tâches à la liste de tâches de cet utilisateur. Déconnectez-vous et reconnectez-vous à l'aide du compte d'un autre utilisateur pour afficher sa liste de tâches. Fermez l’application et exécutez-la de nouveau. Remarquez à quel point la session de l'utilisateur reste intacte - car l'application cache des jetons dans un fichier local.
 
-ADAL makes it easy to incorporate common identity features into your app, using both personal and work accounts. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `authContext.AcquireTokenAsync(...)`.
+La bibliothèque ADAL permet d’intégrer facilement des fonctionnalités d’identité courantes à votre application à l’aide de vos comptes personnels et professionnels. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `authContext.AcquireTokenAsync(...)`.
 
 Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 

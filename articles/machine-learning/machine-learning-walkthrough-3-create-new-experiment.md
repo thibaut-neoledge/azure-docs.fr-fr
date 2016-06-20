@@ -110,7 +110,7 @@ Nous devons répéter cette opération de réplication pour chaque sortie du mod
 3.	Connectez le premier port d’entrée de ce module [Exécuter un script R][execute-r-script] au port de sortie droit du module [Fractionner les données][split].  
 
 > [AZURE.TIP] La copie du Module d’exécution de script R contient le même script que le module d’origine. Lorsque vous copiez-collez un module sur le canevas, la copie conserve toutes les propriétés de l'original.
-
+>
 À ce stade, notre expérience ressemble à cela :
 
 ![Adding Split module and R scripts][3]

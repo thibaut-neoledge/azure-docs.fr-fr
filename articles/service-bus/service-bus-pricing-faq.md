@@ -80,7 +80,7 @@ Nous nous réservons le droit de désactiver un compte client ayant dépassé so
 	- **File d’attente/Rubrique/Abonnement** - Le nombre de connexions TCP simultanées sur une file d’attente/rubrique/abonnement est limité à 100. Si ce quota est atteint, les requêtes suivantes pour des connexions supplémentaires sont rejetées et une exception sera reçue par le code appelant. Pour chaque structure de messagerie, Service Bus entretient une connexion TCP si l’un des clients créés par cette structure de messagerie ont une opération active en attente ou une opération terminée depuis moins de 60 secondes. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées.
 
 
-- **Nombre d’écouteurs simultanés sur un relais** – le nombre d’écouteurs **netTcpRelay** et ** netHttpRelay ** sur un relais est limité à 25 (1 pour un relais **NetOneway**).
+- **Nombre d’écouteurs simultanés sur un relais** – le nombre d’écouteurs **netTcpRelay** et **netHttpRelay** sur un relais est limité à 25 (1 pour un relais **NetOneway**).
 
 - **Nombre d’écouteurs de relais simultanés par espace de noms** – Service Bus impose une limite de 2 000 écouteurs de relais simultanés par espace de noms de service. Si ce quota est atteint, les requêtes suivantes concernant des ouvertures d’écouteurs de relais supplémentaires sont rejetées et une exception sera reçue par le code appelant.
 
@@ -89,18 +89,18 @@ Nous nous réservons le droit de désactiver un compte client ayant dépassé so
 - **Quotas de taille des messages**
 	- **File d’attente/Rubrique/Abonnement**
 		- **Taille de message** – chaque message est limité au total à 256 Ko, en-têtes de message compris.
-		- **Taille de l’en-tête de message** : chaque en-tête de message est limité à 64 Ko.
+		- **Taille de l’en-tête de message** : chaque en-tête de message est limité à 64 Ko.
 
-	- **Relais NetOneway et NetEvent** : chaque message est limité au total à 64 Ko, en-têtes de message compris.
-	- **Relais http et NetTcp** : Service Bus n’applique pas de limite supérieure à la taille de ces messages.
+	- **Relais NetOneway et NetEvent** : chaque message est limité au total à 64 Ko, en-têtes de message compris.
+	- **Relais http et NetTcp** : Service Bus n’applique pas de limite supérieure à la taille de ces messages.
 
 	Les messages qui dépassent ces quotas de taille sont rejetés et le code appelant reçoit une exception.
 
-- **Nombre d’abonnements par rubrique** : le nombre maximal d’abonnements par rubrique est limité à 2 000. Si ce quota est atteint, les demandes de création d’abonnements supplémentaires à la rubrique seront rejetées. Dans ce cas, le [portail Azure Classic][] affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée par le biais du portail ou dans le code client.
+- **Nombre d’abonnements par rubrique** : le nombre maximal d’abonnements par rubrique est limité à 2 000. Si ce quota est atteint, les demandes de création d’abonnements supplémentaires à la rubrique seront rejetées. Dans ce cas, le [portail Azure Classic][] affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée par le biais du portail ou dans le code client.
 
-- **Nombre de filtres SQL par rubrique** : le nombre maximal de filtres SQL par rubrique est limité à 2 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
+- **Nombre de filtres SQL par rubrique** : le nombre maximal de filtres SQL par rubrique est limité à 2 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
 
-- **Nombre de filtres de corrélation par rubrique** : le nombre maximal de filtres de corrélation par rubrique est limité à 100 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
+- **Nombre de filtres de corrélation par rubrique** : le nombre maximal de filtres de corrélation par rubrique est limité à 100 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
 
 Pour plus d’informations sur les quotas, consultez [Quotas Service Bus](service-bus-quotas.md).
 

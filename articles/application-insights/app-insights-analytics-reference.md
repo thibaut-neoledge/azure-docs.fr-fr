@@ -119,7 +119,7 @@ Ajoute une ou plusieurs colonnes calculées à une table.
 
 **Arguments**
 
-* *T :* table d’entrée.
+* *T :* table d’entrée.
 * *ColumnName :* nom de la colonne à ajouter. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des « \_ ». Utilisez `['...']` ou `["..."]` pour entourer de guillemets les mots-clés ou les noms avec d’autres caractères.
 * *Expression :* calcul sur les colonnes existantes.
 
@@ -367,12 +367,12 @@ Extrait les valeurs d’une chaîne. Peut utiliser une correspondance d’expres
 
 **Arguments**
 
-* `T` : table d’entrée.
-* `kind` : 
- * `simple` (par défaut) : les chaînes `Match` sont des chaînes de texte brut.
- * `relaxed` : si le texte n’est pas analysé en tant que type d’une colonne, la colonne est définie sur la valeur null et l’analyse continue 
- * `regex` : les chaînes `Match` sont des expressions régulières.
-* `Text` : colonne ou autre expression pouvant être convertie en chaîne ou en prendre la valeur.
+* `T` :* table d’entrée.
+* `kind` :* 
+* `simple` (par défaut) :* les chaînes `Match` sont des chaînes de texte brut.
+* `relaxed` :* si le texte n’est pas analysé en tant que type d’une colonne, la colonne est définie sur la valeur null et l’analyse continue 
+* `regex` :* les chaînes `Match` sont des expressions régulières.
+* `Text` :* colonne ou autre expression pouvant être convertie en chaîne ou en prendre la valeur.
 * *Correspondance :* faire correspondre la partie suivante de la chaîne et l’ignorer.
 * *Colonne :* affecter la partie suivante de la chaîne à cette colonne. La colonne est créée si elle n’existe pas.
 * *Type :* analyse la partie suivante de la chaîne comme le type spécifié (par exemple, int, date, double). 
@@ -1394,7 +1394,17 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo |
+|| 
+|`<` |Inférieur à 
+|`<=`|Inférieur ou égal à 
+|`>` |Supérieur à 
+|`>=`|Supérieur ou égal à 
+|`<>`|Non égal à 
+|`!=`|Non égal à
 
 
 ### abs

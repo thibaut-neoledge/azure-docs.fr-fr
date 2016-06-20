@@ -560,7 +560,7 @@ L’exemple suivant montre plusieurs manières d’écrire des journaux :
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, la sortie de l’objet `TextWriter` apparaît lorsque vous accédez à la page relative à l’appel d’une fonction particulière et que vous cliquez sur **Activer/désactiver la sortie** :
+Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, la sortie de l’objet `TextWriter` apparaît lorsque vous accédez à la page relative à l’appel d’une fonction particulière et que vous cliquez sur **Activer/désactiver la sortie** :
 
 ![Cliquez sur le lien d’appel de fonction](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
