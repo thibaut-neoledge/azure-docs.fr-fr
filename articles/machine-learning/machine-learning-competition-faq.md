@@ -73,7 +73,7 @@ Dans la plupart des concours, vous recevez un score public pour chaque envoi eff
 
 * Le jeu de données utilisé dans le concours est divisé de façon aléatoire par stratification des données de formation et de test. Le fractionnement aléatoire est stratifié pour garantir la cohérence des distributions des étiquettes dans les données de formation et de test.
  
-* Les données de formation sont chargées et fournies dans le cadre de l’expérience de démarrage dans la configuration du module Reader.
+* Les données de formation sont chargées et fournies dans le cadre de l’expérience de démarrage dans la configuration du module Importer des données.
 
 * Les données de test sont à leur tour divisées en données de test publiques et privées, à l’aide de la même stratification.
 
@@ -115,4 +115,4 @@ La plateforme de concours ne prend actuellement en charge que les contributions 
 
 Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

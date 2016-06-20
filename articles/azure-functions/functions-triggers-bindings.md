@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="05/27/2016"
 	ms.author="chrande"/>
 
 # Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions
@@ -29,6 +29,7 @@ Les articles suivants expliquent comment configurer et coder des déclencheurs e
 * [Déclencheurs et liaisons (files d’attente, objets blob, tables) Azure Storage](functions-bindings-storage.md)
 * [Azure Service Bus (queues, topics) triggers and bindings](functions-bindings-service-bus.md) (Déclencheurs et liaisons Azure Service Bus (files d’attente, rubriques))
 * [Liaisons Azure DocumentDB](functions-bindings-documentdb.md)
+* [Liaisons de concentrateur d'événements Azure](functions-bindings-event-hubs.md)
 * [Liaisons Azure Mobile Apps](functions-bindings-mobile-apps.md)
 * [Liaison de sortie de concentrateur de notification Azure](functions-bindings-notification-hubs.md)
 
@@ -39,4 +40,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Test d’une fonction](functions-test-a-function.md)
 * [Mettre à l’échelle une fonction](functions-scale.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

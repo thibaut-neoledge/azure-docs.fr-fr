@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="06/02/2016"
 	ms.author="robb"/>
 
 
-# Qu'est-ce que les diagnostics Microsoft Azure ?
+# Qu'est-ce que les diagnostics Microsoft Azure ?
 
 
 Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et les rôles de travail Azure Cloud Service, Azure Virtual Machines sous Microsoft Windows et Service Fabric. Les autres services Azure ont leurs propres diagnostics distincts.
 
 ## Données que vous pouvez collecter
 
-Les diagnostics Azure peuvent collecter les types de données suivants :
+Les diagnostics Azure peuvent collecter les types de données suivants :
 
 Source de données|Description
 ---|---
@@ -47,7 +47,7 @@ Voir [Historique de contrôle de version des diagnostics Azure](azure-diagnostic
 ## Étapes suivantes
 Choisissez le service sur lequel vous voulez collecter des diagnostics et utilisez les articles suivants pour commencer. Utilisez les liens des diagnostics Azure généraux comme référence pour des tâches spécifiques.
 
-## Applications Web
+## Applications Web
 Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations équivalentes sur [Web Apps](./app-service-web/web-sites-enable-diagnostic-log.md)
 
 ## Cloud Services avec les diagnostics Azure
@@ -56,6 +56,7 @@ Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations
 - [Configuration des diagnostics Azure dans une application Cloud Services](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Pour des rubriques plus avancées, voir
+
 - [Utilisation des diagnostics avec Application Insights pour Cloud Services](./application-insights/app-insights-cloudservices.md)
 - [Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Utilisation de PowerShell pour configurer les diagnostics sur Cloud Services](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
@@ -66,6 +67,7 @@ Pour des rubriques plus avancées, voir
 - [Configurer les diagnostics Azure sur une machine virtuelle Azure](./virtual-machines-dotnet-diagnostics.md)
 
 Pour des rubriques plus avancées, voir
+
 - [Utilisation de PowerShell pour configurer les diagnostics sur Azure Virtual Machines](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 - [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
@@ -79,4 +81,4 @@ Commencez avec [Surveillance d’une application Service Fabric](./service-fabri
 - Apprenez à [acheminer les informations des diagnostics Azure vers Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - Si vous rencontrez des difficultés avec le lancement des diagnostics ou la recherche des données dans les tables Azure Storage, voir [Résolution des problèmes des diagnostics Azure](./azure-diagnostics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

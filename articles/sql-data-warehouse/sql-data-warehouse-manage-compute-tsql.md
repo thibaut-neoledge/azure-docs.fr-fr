@@ -19,7 +19,7 @@
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (T-SQL)
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-data-warehouse-overview-manage-compute.md)
+- [Vue d'ensemble](sql-data-warehouse-manage-compute-overview.md)
 - [Portail](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -35,7 +35,7 @@ Cette collection de tâches utilise T-SQL pour :
 
 Pour suspendre ou reprendre une base de données, choisissez l’une des autres options de plateforme en haut de cet article.
 
-Pour plus d’informations, consultez l’article [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)).
+Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestion de la puissance de calcul][].
 
 <a name="current-dwu-bk"></a>
 
@@ -86,7 +86,7 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power in Azure SQL Data Warehouse (Overview)]: ./sql-data-warehouse-overview-manage-compute-power.md
+[Vue d’ensemble de la gestion de la puissance de calcul]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -97,4 +97,4 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

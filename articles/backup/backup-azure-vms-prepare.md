@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="sauvegardes ; sauvegarde ;"/>
 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Préparer votre environnement pour la sauvegarde des machines virtuelles Azure
 
 > [AZURE.SELECTOR]
-- [Préparer la sauvegarde de machines virtuelles ARM](backup-azure-arm-vms-prepare.md)
-- [Préparer la sauvegarde de machines virtuelles Azure](backup-azure-vms-prepare.md)
+- [Modèle Resource Manager](backup-azure-arm-vms-prepare.md)
+- [Modèle classique](backup-azure-vms-prepare.md)
 
 Avant de pouvoir sauvegarder une machine virtuelle (VM) Azure, trois conditions sont requises.
 
@@ -43,8 +43,8 @@ Si vous savez que ces conditions existent déjà dans votre environnement, passe
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup est prise en charge dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que pour certaines versions de système d’exploitation :
-  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
-  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
+  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l’aide du flux de travail de restauration de l’interface utilisateur n’ont pas ces configurations réseau une fois l’opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
     - Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
@@ -92,7 +92,7 @@ Pour créer un archivage de sauvegarde :
 
 Afin de gérer les instantanés de la machine virtuelle, l’extension de sauvegarde nécessite une connectivité vers les adresses IP publiques Azure. Sans une bonne connectivité Internet, les requêtes HTTP de la machine virtuelle expirent et l’opération de sauvegarde échoue. Si votre déploiement comporte des restrictions d’accès (via un groupe de sécurité réseau (NSG), par exemple), choisissez l’une de ces options pour fournir un chemin clair pour le trafic de sauvegarde :
 
-- [Mettez sur liste blanche les plages IP du centre de données Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste blanche des adresses IP.
+- [Mettez sur liste blanche les plages IP du centre de données Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste blanche des adresses IP.
 - Déployer un serveur de proxy HTTP pour acheminer le trafic.
 
 Lors du choix de l’option à utiliser, le compromis se situe entre la facilité de gestion, le contrôle granulaire et le coût.
@@ -104,7 +104,7 @@ Lors du choix de l’option à utiliser, le compromis se situe entre la facilit�
 
 ### Mettez sur liste blanche les plages IP du centre de données Azure.
 
-Pour mettre sur liste blanche les plages IP du centre de données Azure, consultez le [site Web Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) pour plus d’informations sur les plages d’adresses IP et obtenir des instructions.
+Pour mettre sur liste blanche les plages IP du centre de données Azure, consultez le [site Web Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) pour plus d’informations sur les plages d’adresses IP et obtenir des instructions.
 
 ### Utilisation d’un proxy HTTP pour les sauvegardes de machine virtuelle
 Lorsque vous sauvegardez une machine virtuelle, l’extension de sauvegarde sur la machine virtuelle envoie les commandes de gestion de capture instantanée vers le stockage Azure à l’aide d’une API HTTPS. Acheminez le trafic de l’extension de sauvegarde via le proxy HTTP, car c’est le seul composant configuré pour l’accès à l’Internet public.
@@ -133,11 +133,11 @@ Cela définit la configuration du serveur proxy pour le compte système local.
      ```
     Une fenêtre Internet Explorer s’ouvre.
 3. Accédez à Outils -> Options Internet -> Connexions -> Paramètres réseau.
-4. Vérifiez les paramètres de proxy pour le compte système. Définissez l’adresse IP et le port de proxy. 
+4. Vérifiez les paramètres de proxy pour le compte système. Définissez l’adresse IP et le port de proxy.
 5. Fermez Internet Explorer.
 
 Cela permet d’installer une configuration de proxy au niveau de l’ordinateur et de l’utiliser pour le trafic HTTP/HTTPS sortant.
-   
+
 Si vous avez configuré un serveur proxy sur un compte d’utilisateur actuel (pas un compte système local), utilisez le script suivant pour les appliquer à SYSTEMACCOUNT :
 
 ```
@@ -151,7 +151,7 @@ Si vous avez configuré un serveur proxy sur un compte d’utilisateur actuel (p
 
 >[AZURE.NOTE] Si vous voyez « (407)Authentification proxy requise » dans le journal du serveur proxy, vérifiez que votre authentification est configurée correctement.
 
-######Pour les machines Linux 
+######Pour les machines Linux
 
 Ajoutez la ligne suivante au fichier ```/etc/environment``` :
 
@@ -160,7 +160,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Ajoutez les lignes suivantes au fichier ```/etc/waagent.conf``` :
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -180,7 +180,7 @@ HttpProxy.Port=<proxy port>
 
 4. Dans la page servant à sélectionner le **programme**, choisissez **Tous les programmes**, puis cliquez sur **Suivant**.
 
-5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
+5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
 
     ![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-03.png)
 
@@ -238,4 +238,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Planification de votre infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
 - [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

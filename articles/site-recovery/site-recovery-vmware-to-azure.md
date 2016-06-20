@@ -154,7 +154,7 @@ Le serveur de processus Site Recovery peut découvrir automatiquement les machin
 ## Créer un coffre Recovery Services
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Nouveau** > **Intégration hybride** > **Recovery Services**. Vous pouvez également cliquer sur **Parcourir** > Archivages de **Recovery Services** > **Ajouter**.
+2. Cliquez sur **Nouveau** > **Gestion** > **Sauvegarde et récupération de sites (OMS)**. Vous pouvez également cliquer sur **Parcourir** > **Coffre de Recovery Services** > **Ajouter**.
 
 	![Nouveau coffre](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
@@ -533,8 +533,7 @@ Sur le serveur de processus, les programmes d’installation sont disponibles da
 Système d’exploitation source | Fichier d’installation du service Mobilité
 --- | ---
 Windows Server (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
-SUSE Linux Enterprise Server 11 SP3 (64 bits seulement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (64 bits seulement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -637,7 +636,7 @@ Lorsque vous activez la réplication, tous les disques de la machine sont répli
 
 	![Activer la réplication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
+11. Dans **Paramètres de réplication** > ** Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
 
 12. Cochez la case **Cohérence multimachine virtuelle** pour regrouper les machines dans un groupe de réplication, et nommez le groupe. Cliquez ensuite sur **OK**. Notez les points suivants :
 
@@ -780,7 +779,7 @@ Vérifiez les [tailles recommandées pour les serveurs de processus](#size-recom
 
 	![Ajouter un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
 
-2. Dans **Type de serveur**, cliquez sur **Process server (on-premises) (Serveur de processus (local))**.
+2. Dans **Type de serveur**, cliquez sur ** Process server (on-premises) (Serveur de processus (local))**.
 
 	![Ajouter un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 
@@ -832,4 +831,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

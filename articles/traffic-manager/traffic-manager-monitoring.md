@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Surveillance avec Traffic Manager"
-   description="Cet article vous aide à comprendre et à configurer la surveillance de Traffic Manager"
+   pageTitle="Surveillance et basculement des points de terminaison Traffic Manager | Microsoft Azure"
+   description="Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour activer les clients Azure et déployer des applications haute disponibilité"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -12,109 +12,168 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.date="06/04/2016"
+   ms.author="jtuliani" />
 
-# À propos de la surveillance avec Traffic Manager
+# Surveillance et basculement des points de terminaison Traffic Manager
 
-Azure Traffic Manager surveille vos points de terminaison, y compris les services cloud et sites web, pour vérifier qu’ils sont disponibles. Afin que la surveillance fonctionne correctement, vous devez la configurer de la même façon pour chaque point de terminaison que vous spécifiez dans votre profil Traffic Manager. Dès lors que vous avez configuré la surveillance, Traffic Manager affiche l’état de vos points de terminaison et de votre profil dans le portail Azure Classic. Vous pouvez configurer les paramètres de surveillance dans le portail Azure Classic dans la page Configurer de votre profil Traffic Manager. Vous pouvez spécifier les paramètres suivants :
+Azure Traffic Manager inclut la surveillance intégrée des points de terminaison et leur basculement automatique. Vous pouvez ainsi fournir des applications haute disponibilité résistantes aux défaillances des points de terminaison, notamment les défaillances des régions Azure.
 
-- **Protocole** : choisissez HTTP ou HTTPS. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement qu’il est présent.
+Pour cela, il soumet des requêtes régulières à chaque point de terminaison et vérifie la réponse. Si un point de terminaison échoue à fournir une réponse valide, il est marqué comme « Détérioré » et n’est plus inclus dans les réponses DNS. Celles-ci renvoient à la place un autre point de terminaison disponible. Le trafic utilisateur est ainsi renvoyé loin des points de terminaison défaillants et vers ceux qui sont disponibles.
 
-- **Port** : choisissez le port utilisé pour la requête. Les ports HTTP standard et HTTPS font partie des options.
+Les contrôles d’intégrité des points de terminaison « Détériorés » continuent. Ainsi, ils sont automatiquement remis en service une fois leur intégrité rétablie.
 
-- **Chemin d’accès relatif et nom de fichier** : indiquez le chemin d’accès et le nom du fichier auquel le système de surveillance tentera d’accéder. Notez que vous pouvez utiliser la barre oblique « / » pour le chemin d’accès relatif, pour indiquer que le fichier est dans le répertoire racine (par défaut).
+## Configuration de la surveillance des points de terminaison
 
-## À propos de la surveillance de l’état d’intégrité
+Pour configurer la surveillance des points de terminaison, vous devez spécifier les paramètres suivants sur votre profil Traffic Manager :
 
-Azure Traffic Manager indique l’intégrité du service du point de terminaison et du profil dans le portail Azure Classic. La colonne d’état affiche l’état d’analyse le plus récent pour le profil et le point de terminaison. Cet état vous permet de connaître l’intégrité de vos profils en fonction de vos paramètres de surveillance Traffic Manager. Lorsque votre profil est intègre, les requêtes DNS sont distribuées à vos services selon les paramètres de routage du trafic du profil (tourniquet (round robin), performances ou basculement). Lorsque le système de surveillance de Traffic Manager détecte une modification de l’état d’analyse, il met à jour l’entrée d’état dans le portail Azure Classic. L’actualisation de l’état peut prendre jusqu’à cinq minutes.
+- **Protocole** : choisissez HTTP ou HTTPS. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement qu’il est présent.
+- **Port** : choisissez le port utilisé pour la requête. Les ports HTTP standard et HTTPS font partie des options.
+- **Chemin d’accès** : indiquez le chemin d’accès relatif et le nom du fichier ou de la page web auxquels le contrôle d’intégrité de la surveillance tentera d’accéder. Notez que vous pouvez utiliser la barre oblique « / » pour le chemin d’accès relatif, pour indiquer que le fichier est dans le répertoire racine (par défaut).
 
-### État d’analyse des points de terminaison
+Pour vérifier l’intégrité de chaque point de terminaison, Traffic Manager soumet une requête GET au point de terminaison à l’aide du protocole, du port et du chemin d’accès relatif donné.
 
-Dans le tableau ci-dessous, l’état d’analyse des points de terminaison découle d’une combinaison des résultats des sondes d’intégrité des points de terminaison et des configurations de vos profils et points de terminaison.
+Il est courant d’implémenter une page personnalisée dans votre application, par exemple, « /health.aspx » et de configurer cette page comme chemin de surveillance des points de terminaison Traffic Manager. Dans cette page, vous pouvez effectuer tous les contrôles nécessaires spécifiques à l’application, comme le contrôle de la disponibilité d’une base de données principale, avant de renvoyer HTTP 200 (si le service est sain) ou un code d’état différent dans le cas contraire.
+
+Les paramètres de surveillance des points de terminaison sont configurés au niveau du profil Traffic Manager, et non au niveau de chaque point de terminaison. Par conséquent, les mêmes paramètres sont utilisés pour vérifier l’intégrité de tous les points de terminaison. Si vous devez utiliser différents paramètres de surveillance pour les différents points de terminaison, vous pouvez le faire en utilisant des [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
+
+## État des points de terminaison et des profils
+
+Les profils et points de terminaison Traffic Manager peuvent être activés et désactivés par l’utilisateur. Suite aux contrôles d’intégrité des points de terminaison, l’état peut également être modifié. Les paramètres suivants décrivent le comportement en détail.
+
+### État du point de terminaison
+
+L’État du point de terminaison est un paramètre contrôlé par l’utilisateur, qui permet d’activer ou de désactiver facilement un point de terminaison. Cela n’affecte pas l’état du service sous-jacent (qui peut continuer à s’exécuter), mais permet de contrôler la disponibilité de ce point de terminaison à partir de Traffic Manager. Lorsqu’un point de terminaison est désactivé, son intégrité n’est pas contrôlée et il n’est pas renvoyé dans une réponse DNS.
+
+### État du profil
+
+L’État du profil est un paramètre contrôlé par l’utilisateur, qui permet d’activer ou de désactiver facilement le profil. Alors que l’État du point de terminaison affecte un seul point de terminaison, l’État du profil affecte le profil complet, donc l’ensemble des points de terminaison. Lorsqu’il est désactivé, l’intégrité des points de terminaison n’est pas contrôlée et aucun point de terminaison n’est renvoyé dans la réponse DNS (les réponses DNS reçoivent à la place des réponses 'NXDOMAIN').
+
+### État de surveillance des points de terminaison
+
+L’État de surveillance des points de terminaison est un paramètre généré par Traffic Manager. Il ne peut pas être défini par l’utilisateur. Il affiche l’état actuel des points de terminaison, reflétant en permanence la surveillance des points de terminaison ainsi que d’autre informations comme l’État du point de terminaison. Les valeurs possibles de l’État de surveillance des points de terminaison sont affichées dans le tableau suivant. (Pour savoir comment l’État de surveillance des points de terminaison est calculé pour les points de terminaison imbriqués, consultez la section relative aux [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md).)
 
 |État du profil|État du point de terminaison|État d’analyse des points de terminaison (API et portail)|Remarques|
 |---|---|---|---|
-|Désactivé|Activé|Inactif|Les profils désactivés ne sont pas surveillés. Toutefois, l’état des points de terminaison dans les profils désactivés peut toujours être géré.|
-|&lt;tout&gt;|Désactivé|Désactivé|Les profils désactivés ne sont pas surveillés. Toutefois, l’état des points de terminaison dans les profils désactivés peut toujours être géré.|
-|Activé|Activé|En ligne|Le point de terminaison est surveillé et sain.|
-|Activé|Activé|Détérioré|Le point de terminaison est surveillé et défectueux.|
-|Activé|Activé|CheckingEndpoint|Le point de terminaison est surveillé, mais les résultats de la première analyse n’ont pas encore été reçus. Cet état temporaire est indiqué lorsque vous venez d’ajouter un nouveau point de terminaison au profil ou que vous venez d’activer un point de terminaison ou un profil.|
-|Activé|Activé|Arrêté|Le service cloud ou site web sous-jacent n’est pas en cours d’exécution.|
+|Désactivé|Activé|Inactif|Le profil a été désactivé par l’utilisateur. Même si l’état du point de terminaison peut toujours être « Activé », l’état du profil a la priorité. Dans les profils désactivés, les points de terminaison ne sont pas surveillés. Aucun point de terminaison n’est renvoyé dans les réponses DNS (une réponse « NXDOMAIN » est donnée à la place).|
+|&lt;tout&gt;|Désactivé|Désactivé|Le point de terminaison a été désactivé par l’utilisateur. Les points de terminaison désactivés ne sont pas surveillés. Ils ne sont pas disponibles pour l’inclusion dans les réponses DNS, et ne reçoivent donc pas de trafic.|
+|Activé|Activé|En ligne|Le point de terminaison est surveillé et sain. Il est disponible pour l’inclusion dans les réponses DNS et peut donc recevoir du trafic.|
+|Activé|Activé|Détérioré|Les contrôles d’intégrité de surveillance des points de terminaison sont défaillants. Le point de terminaison n’est pas disponible pour l’inclusion dans les réponses DNS, et ne reçoit donc pas de trafic.|
+|Activé|Activé|CheckingEndpoint|Le point de terminaison est surveillé, mais les résultats de la première analyse n’ont pas encore été reçus. Il s’agit d’un état temporaire qui survient lorsque vous venez d’ajouter un nouveau point de terminaison au profil ou que vous venez d’activer un point de terminaison ou un profil. Les points de terminaison dans cet état sont disponibles pour l’inclusion dans les réponses DNS, et peuvent donc recevoir du trafic.|
+|Activé|Activé|Arrêté|Le service cloud ou l’application web vers lequel/laquelle le point de terminaison pointe ne s’exécute pas. Vérifiez les paramètres du service cloud ou de l’application web. Les points de terminaison arrêtés ne sont pas surveillés. Ils ne sont pas disponibles pour l’inclusion dans les réponses DNS, et ne reçoivent donc pas de trafic.|
 
-### État d’analyse des profils
+### État de surveillance du profil
 
-Dans le tableau ci-dessous, l’état d’analyse des profils découle d’une combinaison de l’état d’analyse des points de terminaison et de l’état de vos profils configurés.
+L’État de surveillance du profil est une combinaison de l’état de surveillance de l’ensemble des points de terminaison dans le profil et de l’état du profil que vous avez configuré. Les valeurs possibles sont décrites dans le tableau suivant :
 
 |État du profil (conformément à la configuration)|État d’analyse des points de terminaison|État d’analyse des profils (API et portail)|Remarques|
 |---|---|---|---|
-|Désactivé|&lt;tout&gt; ou profil sans points de terminaison définis.|Désactivé|Les points de terminaison ne sont pas surveillés.|
-|Activé|Un ou plusieurs points de terminaison ont l’état Détérioré.|Détérioré|Indique qu’une action du client est requise.|
+|Désactivé|&lt;tout&gt; ou profil sans points de terminaison définis.|Désactivé|Le profil a été désactivé par l’utilisateur.|
+|Activé|Un ou plusieurs points de terminaison ont l’état Détérioré.|Détérioré|Indique qu’une action du client est requise. Passez en revue les valeurs d’état de chaque point de terminaison pour déterminer quels points de terminaison doivent être examinés.|
 |Activé|Un ou plusieurs points de terminaison ont l’état En ligne. Aucun point de terminaison n’est Détérioré.|En ligne|Le service accepte le trafic et aucune action du client n’est requise.|
-|Activé|Un ou plusieurs points de terminaison ont l’état CheckingEndpoint. Aucun point de terminaison n’est En ligne ou Détérioré.|CheckingEndpoints|État de transition. Cet état survient généralement lorsqu’un profil vient d’être activé et que l’intégrité du point de terminaison est en cours d’analyse.|
+|Activé|Un ou plusieurs points de terminaison ont l’état CheckingEndpoint. Aucun point de terminaison n’est En ligne ou Détérioré.|CheckingEndpoints|État de transition. Cet état survient généralement lorsqu’un profil vient d’être créé ou activé et que l’intégrité du point de terminaison est contrôlée pour la première fois.|
 |Activé|Tous les points de terminaison définis dans le profil ont l’état Désactivé ou Arrêté, ou le profil n’inclut aucun point de terminaison défini.|Inactif|Aucun point de terminaison n’est actif, mais le profil est toujours activé.|
 
-## Fonctionnement de la surveillance
+## Basculement et restauration automatique du point de terminaison
 
-Un exemple illustrant, de façon de chronologique, le processus de surveillance avec un seul service cloud est proposé ci-dessous. Le scénario est le suivant :
+Imaginez un scénario dans lequel un point de terminaison Traffic Manager auparavant sain devient défaillant. Cette défaillance est détectée par Traffic Manager et le point de terminaison est mis hors service. Plus tard, lorsque le point de terminaison est rétabli, Traffic Manager le détecte et le remet en service.
 
-- Le service cloud est disponible et reçoit le trafic via le profil Traffic Manager uniquement.
+>[AZURE.NOTE] Traffic Manager considère qu’un point de terminaison a l’état En ligne uniquement lorsqu’il reçoit un message 200 OK. Il considère que le contrôle a échoué lorsque les événements suivants se produisent :
 
-- Le service cloud devient indisponible.
+>- Réception d’une réponse autre que 200 (y compris un code 2xx différent ou une redirection 301/302)
+>- Demande d’authentification du client
+>- Délai d’expiration (le seuil de délai d’expiration est de 10 secondes)
+>- Impossible de se connecter
 
-- Le temps d’indisponibilité du service cloud est beaucoup plus long que la durée de vie (TTL, Time-to-Live) du DNS.
+>Pour plus d’informations sur le dépannage des vérifications en échec, consultez [Résolution des problèmes liés à l’état Détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-- Le service cloud redevient disponible.
+Le chronologie suivante décrit en détail la séquence d’étapes qui se produit.
 
-- Le service cloud reçoit de nouveau le trafic via ce profil Traffic Manager uniquement.
+![Séquence de basculement et de restauration automatique des points de terminaison Traffic Manager](./media/traffic-manager-monitoring/timeline.png)
 
-![Séquence de surveillance de Traffic Manager](./media/traffic-manager-monitoring/IC697947.jpg)
+1. **GET** : le système de surveillance de Traffic Manager exécute une commande GET sur le chemin d’accès et le fichier que vous avez spécifiés dans les paramètres de surveillance. Cette opération est répétée pour chaque point de terminaison.
+2. **200 OK** : le système de surveillance attend un message HTTP 200 OK dans un délai de 10 secondes. Lorsqu’il reçoit cette réponse, il comprend que le service est disponible.
+3. **30 secondes entre les contrôles** : le contrôle d’intégrité du point de terminaison est répété toutes les 30 secondes.
+4. **Service indisponible** : le service est indisponible. Traffic Manager n’est pas averti avant le prochain contrôle d’intégrité.
+5. **Tente d’accéder au fichier de surveillance (4 essais)** : le système de surveillance exécute une commande GET, mais ne reçoit pas de réponse au cours du délai d’expiration de 10 secondes (sinon, une réponse autre que 200 peut être reçue). Il effectue ensuite trois essais supplémentaires par intervalles de 30 secondes. Lorsque l’un des essais aboutit, le nombre d’essais est réinitialisé.
+6. **Marquage du service comme détérioré** : après le quatrième échec successif, le système de surveillance marque le point de terminaison indisponible comme étant Détérioré. 
+7. **Le trafic est détourné vers d’autres points de terminaison** : les serveurs de noms DNS Traffic Manager sont mis à jour et le point de terminaison n’est plus renvoyé par Traffic Manager en réponse aux requêtes DNS. Les nouvelles connexions sont par conséquent dirigées vers les autres points de terminaison disponibles. Toutefois, les réponses DNS précédentes incluant ce point de terminaison peuvent toujours être mises en cache par des serveurs DNS et des clients DNS récursifs, amenant certains clients à tenter de se connecter à ce point de terminaison. À mesure que ces caches expirent, les clients exécutent de nouvelles requêtes DNS et sont dirigés vers différents points de terminaison. La durée du cache est contrôlée par le paramètre TTL dans le profil Traffic Manager (par exemple, 30 secondes). 
+8. **Les contrôles d’intégrité continuent ** : Traffic Manager continue à contrôler l’intégrité du point de terminaison pendant qu’il se trouve dans l’état Détérioré. Ainsi il peut détecter le moment auquel le point de terminaison retrouve son intégrité.
+9. **Le service est remis en ligne** : le service devient disponible. Le point de terminaison reste Détérioré dans Traffic Manager jusqu’à ce que le système de surveillance effectue le contrôle d’intégrité suivant.
+10. **Le trafic vers le service reprend** : Traffic Manager envoie une commande GET et reçoit un message 200 OK, indiquant que le service a retrouvé un état sain. Les serveurs de noms Traffic Manager sont mis à jour une fois encore et commencent à distribuer le nom DNS du service dans les réponses DNS. Le trafic retournera de nouveau au point de terminaison tandis que les réponses DNS mises en cache et renvoyées vers d’autres points de terminaison expirent et que les connexions existantes à d’autres points de terminaison s’arrêtent.
 
-**Figure 1** : exemple de séquence de surveillance. Les chiffres de la figure correspondent aux explications ci-après :
+>[AZURE.NOTE] Comme Traffic Manager fonctionne au niveau du DNS, il est impossible de modifier les connexions existantes à un point de terminaison. Lorsque vous dirigez le trafic entre les points de terminaison (en modifiant les paramètres de profil, ou lors d’un basculement ou d’une restauration automatique), Traffic Manager dirige les nouvelles connexions vers les points de terminaison disponibles. Toutefois, les autres points de terminaison peuvent continuer à recevoir le trafic via les connexions existantes, jusqu’à ce que ces sessions s’arrêtent. Pour libérer le trafic à partir des connexions existantes, les applications doivent limiter la durée de session utilisée avec chaque point de terminaison.
 
-1. **GET** : le système de surveillance de Traffic Manager exécute une commande GET sur le chemin d’accès et le fichier que vous avez spécifiés dans les paramètres de surveillance.
-2. **200 OK** : le système de surveillance attend le renvoi d’un message HTTP 200 OK dans un délai de 10 secondes. Lorsqu’il reçoit cette réponse, il considère que le service cloud est disponible. 
+## Points de terminaison détériorés
 
->[AZURE.NOTE] Traffic Manager considère qu’un point de terminaison a l’état En ligne uniquement lorsqu’il reçoit un message 200 OK. S’il reçoit une autre réponse, il considère que le point de terminaison n’est pas disponible et que le contrôle a échoué. Pour plus d’informations sur le dépannage des vérifications en échec, consultez [Résolution des problèmes liés à l’état Détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+Lorsqu’un point de terminaison est détérioré, il n’est plus renvoyé en réponse aux requêtes DNS (pour une exception à cette règle, voir la Remarque ci-dessous). Au lieu de cela, un autre point de terminaison est choisi et renvoyé. Le choix d’autres points de terminaison dépend de la méthode de routage du trafic configurée :
 
-3. **30 secondes entre les vérifications** : cette vérification est effectuée toutes les 30 secondes.
-4. **Service cloud indisponible** : le service cloud est indisponible. Traffic Manager ne sera pas averti avant le prochain contrôle de surveillance.
-5. **Tentatives d’accès au fichier de surveillance (4 essais)** : le système de surveillance exécute une commande GET, mais ne reçoit pas de réponse dans un délai de 10 secondes. Il effectue ensuite trois essais supplémentaires par intervalles de 30 secondes. Cela signifie qu’il faut environ 1 minute et demie au système de surveillance (au maximum) pour détecter si un service devient indisponible. Lorsque l’un des essais aboutit, le nombre d’essais est réinitialisé. Si un ou plusieurs messages 200 OK sont renvoyés plus de 10 secondes après la commande GET, le système de surveillance considère toujours que le contrôle a échoué (ceci n’apparaît pas sur la figure).
-6. **Marquage du service comme détérioré** : après le quatrième échec successif, le système de surveillance marque le service cloud indisponible comme étant détérioré. 
+- **Priorité** : les points de terminaison forment une liste hiérarchisée. Le premier point de terminaison disponible sur la liste est toujours renvoyé. S’il est détérioré, le point de terminaison disponible suivant est renvoyé.
+- **Pondéré** : tous les points de terminaison disponibles peuvent être renvoyés, choisis de façon aléatoire en fonction des pondérations qui leur ont été affectées et des pondérations des autres points de terminaison disponibles. Si un point de terminaison est détérioré, un point de terminaison est choisi dans le pool restant de points de terminaison disponibles.
+- **Performances** : le point de terminaison « le plus proche » de l’utilisateur final est renvoyé (à l’exception des points de terminaison désactivés/arrêtés). Si ce point de terminaison est indisponible, le point de terminaison renvoyé est choisi de façon aléatoire parmi tous les autres points de terminaison disponibles. (Cela a pour but d’éviter un échec en cascade qui pourrait se produire en cas de surcharge du point de terminaison le plus proche. Il est possible de configurer d’autres plans de basculement pour le routage du trafic à l’aide des [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).)
 
-7. **Diminution du trafic vers le service cloud** : le trafic vers le service cloud indisponible peut être maintenu. Les clients seront confrontés à des défaillances, car le service n’est pas disponible. Les clients et les serveurs DNS secondaires ont mis en cache l’enregistrement DNS pour l’adresse IP du service cloud indisponible. Ils continuent à résoudre le nom DNS du domaine d’entreprise en adresse IP du service. En outre, les serveurs DNS secondaires peuvent encore distribuer les informations DNS du service indisponible. Comme les clients et les serveurs DNS secondaires sont mis à jour, le trafic vers l’adresse IP du service indisponible est ralenti. Le système de surveillance continue à effectuer des contrôles toutes les 30 secondes. Dans cet exemple, le service ne répond pas et reste indisponible.
-8. **Arrêt du trafic vers le service cloud** : à ce stade, la plupart des serveurs DNS et des clients doivent être mis à jour, et le trafic vers le service indisponible s’arrête. Le délai maximal avant l’arrêt complet du trafic dépend de la TTL. Par défaut, la TTL du DNS est de 300 secondes (5 minutes). Les clients se basent sur cette valeur pour arrêter d’utiliser le service après 5 minutes. Le système de surveillance continue à effectuer des contrôles toutes les 30 secondes et le service cloud ne répond pas.
-9. **Le service cloud est de nouveau en ligne et reçoit le trafic** : le service est disponible, mais Traffic Manager n’en est pas informé tant que le système de surveillance n’a pas effectué de vérifications.
-10. **Le trafic vers le service est rétabli** : Traffic Manager envoie une commande GET et reçoit un message 200 OK dans un délai de 10 secondes. Il commence ensuite à distribuer le nom DNS du service cloud aux serveurs DNS, à mesure que ces derniers demandent des mises à jour. Le trafic retournera de nouveau au point de terminaison tandis que les réponses DNS mises en cache et renvoyées vers d’autres points de terminaison expirent et que les connexions existantes à d’autres points de terminaison s’arrêtent.
+Pour plus d’informations, consultez [Méthodes de routage de Traffic Manager](traffic-manager-routing-methods.md).
 
->[AZURE.NOTE] Comme Traffic Manager fonctionne au niveau du DNS, il est impossible de modifier les connexions existantes à un point de terminaison. Lors de la restauration automatique, même si Traffic Manager peut diriger les nouvelles connexions vers le point de terminaison principal, les points de terminaison secondaires continueront de recevoir le trafic via des connexions existantes jusqu’à ce que ces sessions s’arrêtent. Si une restauration automatique rapide est requise, les applications doivent limiter la durée de la session au niveau des points de terminaison secondaires.
+>[AZURE.NOTE] Que se passe-t-il si tous les points de terminaison Traffic Manager (à l’exception des points de terminaison « Désactivés » ou « Arrêtés ») sont marqués comme « Détériorés » à l’issue des contrôles d’intégrité ?
 
-## État des points de terminaison parents et enfants pour les profils imbriqués
+>Cela se produit généralement suite à une erreur de configuration du service (par exemple, une ACL bloquant les contrôles d’intégrité de Traffic Manager) ou une erreur de configuration du profil Traffic Manager (par exemple, un chemin d’accès de surveillance incorrect).
 
-Le tableau suivant décrit le comportement de surveillance de Traffic Manager pour les profils parents et enfants d’un profil imbriqué et le paramètre minChildEndpoints. Pour plus d'informations, consultez la rubrique [Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md).
+>Dans ce cas, Traffic Manager applique un « meilleur effort » et *réagit comme si tous les points de terminaison détériorés étaient en fait « en ligne »*. Cette méthode est préférable à l’autre solution, qui serait de ne renvoyer aucun point de terminaison dans la réponse DNS.
 
-|État d’analyse des profils enfants|État d’analyse des points de terminaison parents|Remarques|
-|---|---|---|
-|Désactivé : vous avez désactivé le profil.|Arrêté|L’état des points de terminaison parents est Arrêté, pas Désactivé. L’état Désactivé sert uniquement à indiquer que vous avez désactivé le point de terminaison dans le profil parent.|
-|Détérioré : un point de terminaison enfant au moins a l’état Détérioré.|État En ligne, si le nombre de points de terminaison En ligne du profil enfant correspond au moins à la valeur de l’état minChildEndpoints.CheckingEndpoint, si le nombre de points de terminaison En ligne et CheckingEndpoint du profil enfant correspond au moins à la valeur de l’état minChildEndpoints. Dans le cas contraire, l’état est Détérioré.|Le trafic est acheminé vers un point de terminaison dont l’état est CheckingEndpoint. Si la valeur minChildEndpoints définie est trop élevée, le point de terminaison parent est toujours détérioré.|
-|En ligne : au moins un enfant a l’état En ligne, et aucun n’a l’état Détérioré.|Identique à ce qui précède.||
-|CheckingEndpoints : au moins un enfant a l’état CheckingEndpoint ; aucun n’a l’état En ligne ou Détérioré.|Identique à ce qui précède.||
-|Inactif : tous les points de terminaison ont l’état Désactivé ou Arrêté, ou ce profil n’inclut aucun point de terminaison.|Arrêté||
+>La conséquence de ce comportement est la suivante : lorsque les contrôles d’intégrité de Traffic Manager ne sont pas configurés correctement, du point de vue du routage du trafic il semble que Traffic Manager fonctionne correctement. Toutefois, aucun basculement de point de terminaison ne se produit en cas de défaillance d’un point de terminaison, ce qui a un impact sur la disponibilité globale de l’application. Pour s’assurer que cela ne se produise pas, il est important de vérifier que le profil affiche un état « En ligne » plutôt que « Détérioré ». L’état « En ligne » indique que les contrôles d’intégrité de Traffic Manager fonctionnent comme prévu.
 
-## Configuration de la surveillance pour un chemin d’accès et un nom de fichier spécifiques
+Pour plus d’informations sur la résolution des problèmes d’échec de contrôles d’intégrité, consultez [Résolution des problèmes liés à l’état Détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+ 
+## Forum Aux Questions
 
-1. Créez un fichier portant le même nom sur chaque point de terminaison que vous envisagez d’inclure dans votre profil.
-2. Pour chaque point de terminaison, utilisez un navigateur web pour tester l’accès au fichier. L’URL est constituée du nom de domaine du point de terminaison spécifique (service cloud ou site web), du chemin d’accès au fichier et du nom de fichier. 
-3. Dans le portail Azure Classic, sous **Paramètres de surveillance**, indiquez le chemin et le nom du fichier dans le champ **Chemin d’accès relatif et nom de fichier**.
-4. Après avoir modifié la configuration, cliquez sur **Enregistrer** en bas de la page.
+### Traffic Manager est-il résistant aux défaillances des régions Azure ?
 
-## Voir aussi
+Azure Traffic Manager, qui intègre des contrôles d’intégrité et un basculement automatique entre les régions, est un composant clé de la fourniture d’applications haute disponibilité dans Azure, y compris d’applications résistantes aux pannes Azure à l’échelle régionale.
 
-[Créer un profil](traffic-manager-manage-profiles.md)
+Par conséquent, nous sommes conscients que Traffic Manager doit lui-même fournir un niveau de disponibilité extrêmement élevé, notamment une résistance aux défaillances régionales.
 
-[Ajout d’un point de terminaison](traffic-manager-endpoints.md)
+Si certains composants de Traffic Manager s’exécutent dans Azure, ils sont répartis entre les régions et conçus pour résister à une défaillance complète de région Azure, quelle qu’elle soit. Cette tolérance s’applique à tous les composants de Traffic Manager : les serveurs de noms DNS, l’API, la couche de stockage et le service de surveillance des points de terminaison.
 
-[Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
+Par conséquent, même en cas de panne totale d’une région Azure, Traffic Manager doit continuer à fonctionner normalement. Les clients ayant déployé des applications dans plusieurs régions Azure peuvent se fier à Traffic Manager pour diriger le trafic vers une instance disponible de leur application.
+
+### En quoi le choix de l’emplacement du groupe de ressources affecte-t-il Traffic Manager ?
+
+Traffic Manager est un service global unique. Il n’est pas régional. Le choix de l’emplacement du groupe de ressources na aucune influence sur les profils Traffic Manager déployés dans ce groupe de ressources.
+
+Azure Resource Manager exige que tous les groupes de ressources spécifient un « emplacement », qui détermine l’emplacement par défaut des ressources déployées dans ce groupe de ressources. Vous serez invité à préciser cet emplacement si vous créez un nouveau groupe de ressources lors de la création d’un profil Traffic Manager via le Portail Azure.
+
+Tous les profils Traffic Manager utilisent la valeur « global » comme emplacement. Comme il s’agit de la seule valeur acceptée, elle n’est pas exposée dans les interfaces du Portail Azure, de PowerShell ou de la CLI. Elle remplace la valeur par défaut du groupe de ressources.
+
+### Comment déterminer l’état d’intégrité actuel de chaque point de terminaison ?
+
+L’état de surveillance en cours de chaque point de terminaison et le profil global s’affichent dans le portail de gestion Azure. Ces informations sont également disponibles via [l’API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), [les applets de commande PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) et [l’interface de ligne de commande Azure multiplateforme](../xplat-cli-install.md) de Traffic Manager.
+
+Pour le moment, il n’est pas possible d’afficher les informations d’historique relatives à l’intégrité passée des points de terminaison, ni de configurer des alertes sur les modifications de l’intégrité des points de terminaison.
+
+### Puis-je surveiller les points de terminaison HTTPS ?
+
+Oui. Traffic Manager prend en charge la détection sur HTTPS. Configurez simplement « HTTPS » comme protocole dans la configuration de la surveillance. Notez les points suivants :
+
+- Le certificat côté serveur n’est pas validé.
+- Les certificats SNI côté serveur ne sont pas pris en charge.
+- Les certificats clients ne sont pas pris en charge.
+
+### Quel en-tête « hôte » est utilisé pour les contrôles d’intégrité des points de terminaison ?
+
+L’en-tête « hôte » utilisé dans les contrôles d’intégrité HTTP/S est le nom DNS associé avec chaque point de terminaison. Ces informations sont exposées en tant que « cible » du point de terminaison dans le Portail Azure, les [applets de commande PowerShell](https://msdn.microsoft.com/library/mt125941.aspx), [l’interface de ligne de commande Azure multiplateforme](../xplat-cli-install.md) et [l’API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx).
+
+Cette valeur fait partie de la configuration du point de terminaison. La valeur utilisée dans l’en-tête hôte ne peut pas être spécifiée séparément de la propriété « cible ».
+
+
+## Étapes suivantes
+
+En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md).
+
+En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager.
+
+En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-manage-profiles.md).
+
+[Résolution des problèmes liés à l’état « Détérioré »](traffic-manager-troubleshooting-degraded.md) sur un point de terminaison Traffic Manager.
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

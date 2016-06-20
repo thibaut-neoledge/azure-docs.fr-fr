@@ -355,7 +355,7 @@ Il est possible d’annuler à tout moment un traitement par lots en cours d'ex�
 
 Le [package Nugget du Kit de développement logiciel BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fournit des fonctions qui permettent d'appeler facilement BES pour la notation en mode par lot. Pour installer le package Nuget, dans Visual Studio, dans le menu **Outils**, sélectionnez **Gestionnaire de package Nuget** et cliquez sur **Console du gestionnaire de package**.
 
-Les expériences Azure Machine Learning déployées en tant que services web peuvent inclure des modules d’entrée de service web. Cela signifie que l’entrée est censée être fournie par le biais de l’appel de service web sous la forme d’une référence à un emplacement d’objet blob. Il est également possible de ne pas utiliser de module d’entrée de service web et d’utiliser plutôt un module **Reader**. Dans ce cas, le module **Reader** lit généralement à partir d’une base de données SQL avec une requête au moment de l’exécution pour obtenir les données. Les paramètres de service web peuvent être utilisés pour pointer dynamiquement vers d’autres serveurs ou tables, etc. Le Kit de développement logiciel (SDK) prend en charge ces deux modèles.
+Les expériences Azure Machine Learning déployées en tant que services web peuvent inclure des modules d’entrée de service web. Cela signifie que l’entrée est censée être fournie par le biais de l’appel de service web sous la forme d’une référence à un emplacement d’objet blob. Il est également possible de ne pas utiliser de module d’entrée de service web et d’utiliser plutôt un module **Importer des données**. Dans ce cas, le module **Importer des données** lit généralement à partir d’une base de données SQL à l’aide d’une requête au moment de l’exécution pour obtenir les données. Les paramètres de service web peuvent être utilisés pour pointer dynamiquement vers d’autres serveurs ou tables, etc. Le Kit de développement logiciel (SDK) prend en charge ces deux modèles.
 
 L'exemple de code ci-dessous montre comment vous pouvez soumettre et surveiller un traitement par lots sur un point de terminaison de service Microsoft Azure Machine Learning à l’aide du Kit de développement logiciel BES. Notez les commentaires pour plus d’informations sur les paramètres et les appels.
 
@@ -685,4 +685,4 @@ Vous pouvez à présent utiliser les outils Swagger. Voici les instructions pour
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

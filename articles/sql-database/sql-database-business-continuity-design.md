@@ -43,13 +43,13 @@ Pour activer la géo-restauration, consultez [Géo-restaurer une base de donnée
 
 La [géo-réplication active](sql-database-geo-replication-overview.md) permet de créer des bases de données accessibles en lecture (secondaires) dans une autre région à partir de votre base principale. Elle garantit que votre base de données aura les données et ressources de calcul nécessaires pour supporter la charge de travail de l'application après la restauration. Consultez la section [Récupération après une panne](sql-database-disaster-recovery.md) pour plus d'informations sur l'utilisation du basculement pour récupérer votre application.
 
-Nous vous recommandons d'utiliser la géo-réplication si votre application répond aux critères suivants :
+Nous vous recommandons d’utiliser la géoréplication si votre application répond aux critères suivants :
 
 1. Elle est essentielle. Elle a un contrat SLA contraignant avec des valeurs RPO et RTO agressives. La perte de données et de disponibilité entraînent une responsabilité financière. 
 2. Le taux de modification des données est élevé (par exemple, en transactions par minute ou seconde). Le RPO de 1 heure associé à la protection par défaut entraînera sans doute une perte de données inacceptable.
 3. Le coût associé à l'utilisation de la géo-réplication est nettement plus faible que la responsabilité financière potentielle et la perte d'activité associée.
 
-Pour activer la géo-réplication active, consultez [Configurer la géo-réplication pour une base de données SQL Azure](sql-database-geo-replication-portal.md)
+Pour activer la géoréplication active, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-portal.md)
 
 > [AZURE.NOTE] La géo-réplication active prend également en charge l'accès en lecture seule à la base de données secondaire, offrant ainsi une capacité supplémentaire pour les charges de travail en lecture seule.
 
@@ -60,4 +60,4 @@ Pour activer la géo-réplication active, consultez [Configurer la géo-réplica
 
 Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions Cloud pour la récupération d'urgence à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) pour obtenir des instructions.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -36,7 +36,7 @@ Pour créer les compteurs, appelez la méthode CreatePeformanceCategoryAndCounte
 
 	ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
-La méthode crée les compteurs de performances suivants :
+Vous pouvez également utiliser [ce](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script PowerShell pour exécuter la méthode. La méthode crée les compteurs de performances suivants :
 
 * **Cached mappings** (Mappages mis en cache) : nombre de mappages mis en cache pour la carte de partitions.
 *  **DDR operations/sec** (Opérations DDR/s) : taux d’opérations de routage dépendant des données pour la carte de partitions. Ce compteur est mis à jour lorsqu’un appel à [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) permet d’établir la connexion à la partition de destination. 
@@ -73,4 +73,4 @@ Les compteurs de performance seront mis à jour par toutes les opérations du ca
 <!--Anchors-->
 <!--Image references-->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

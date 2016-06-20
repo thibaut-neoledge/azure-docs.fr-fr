@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma" />
 
 # Créer une sonde personnalisée pour Azure Application Gateway (classique) en utilisant PowerShell
@@ -30,7 +30,7 @@
 
 ## Créer une passerelle d’application
 
-Pour créer une passerelle d’application :
+Pour créer une passerelle d’application :
 
 1. Créez une ressource de passerelle d’application.
 2. Créez un fichier XML de configuration ou un objet de configuration.
@@ -40,7 +40,7 @@ Pour créer une passerelle d’application :
 
 Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
-L’exemple suivant illustre la création d’une passerelle d’application avec un réseau virtuel appelé « testvnet1 » et un sous-réseau appelé « subnet-1 ».
+L’exemple suivant illustre la création d’une passerelle d’application avec un réseau virtuel appelé « testvnet1 » et un sous-réseau appelé « subnet-1 ».
 
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -82,7 +82,7 @@ Vous pouvez configurer la passerelle d’application à l’aide d’un objet de
 
 Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle d’application et les valider dans la ressource de passerelle d’application.
 
-### Étape 1 :  
+### Étape 1 :  
 
 Copiez le texte suivant dans le Bloc-notes.
 
@@ -110,7 +110,8 @@ Copiez le texte suivant dans le Bloc-notes.
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
-    <BackendAddressPools>
+      </Probes>
+     <BackendAddressPools>
         <BackendAddressPool>
             <Name>pool1</Name>
             <IPAddresses>
@@ -151,36 +152,36 @@ Copiez le texte suivant dans le Bloc-notes.
 
 Modifiez les valeurs entre parenthèses pour les éléments de configuration. Enregistrez le fichier avec l’extension .xml.
 
-L’exemple suivant montre comment utiliser un fichier de configuration pour configurer la passerelle d’application en vue d’équilibrer la charge du trafic HTTP sur le port public 80 et d’orienter le trafic réseau vers le port 80 principal entre deux adresses IP en utilisant une sonde personnalisée.
+L’exemple suivant montre comment utiliser un fichier de configuration pour configurer la passerelle d’application en vue d’équilibrer la charge du trafic HTTP sur le port public 80 et d’orienter le trafic réseau vers le port 80 principal entre deux adresses IP en utilisant une sonde personnalisée.
 
 >[AZURE.IMPORTANT] L’élément de protocole Http ou Https respecte la casse.
 
 
 Un nouvel élément de configuration <Probe> est ajouté pour configurer les sondes personnalisées.
 
-Les paramètres de configuration sont :
+Les paramètres de configuration sont :
 
-- **Nom** : nom de référence de la sonde personnalisée.
-- **Protocole** : protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).
-- **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l'instance. Par exemple, pour un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les analyses de sonde reçoivent une réponse HTTP positive.
-- **Intervalle** : configure les intervalles d’analyse de sonde en secondes.
-- **Délai d’expiration** : définit le délai d’expiration de sonde pour une vérification de réponse HTTP.
-- **Seuil de défaillance sur le plan de l’intégrité** : nombre de réponses HTTP en échec nécessaires pour marquer l’instance de serveur principal comme étant *défectueuse*.
+- **Nom** : nom de référence de la sonde personnalisée.
+- **Protocole** : protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).
+- **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l'instance. Par exemple, pour un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les analyses de sonde reçoivent une réponse HTTP positive.
+- **Intervalle** : configure les intervalles d’analyse de sonde en secondes.
+- **Délai d’expiration** : définit le délai d’expiration de sonde pour une vérification de réponse HTTP.
+- **Seuil de défaillance sur le plan de l’intégrité** : nombre de réponses HTTP en échec nécessaires pour marquer l’instance de serveur principal comme étant *défectueuse*.
 
 Le nom de la sonde est référencé dans la configuration <BackendHttpSettings> pour affecter le pool principal qui va utiliser les paramètres de sonde personnalisée.
 
 ## Ajouter une configuration de sonde personnalisée à une passerelle d’application existante
 
-La modification de la configuration actuelle d’une passerelle d’application se fait en trois étapes : obtenez le fichier de configuration XML actuel, modifiez-le de façon à avoir une sonde personnalisée et configurez la passerelle d’application avec les nouveaux paramètres XML.
+La modification de la configuration actuelle d’une passerelle d’application se fait en trois étapes : obtenez le fichier de configuration XML actuel, modifiez-le de façon à avoir une sonde personnalisée et configurez la passerelle d’application avec les nouveaux paramètres XML.
 
-### Étape 1
+### Étape 1
 
 Accédez au fichier XML à l’aide de get-AzureApplicationGatewayConfig. Le fichier XML de configuration est alors exporté pour être modifié de façon à y ajouter un paramètre de sonde
 
 	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
 
 
-### Étape 2
+### Étape 2
 
 Ouvrez le fichier XML dans un éditeur de texte. Ajoutez une section `<probe>` après `<frontendport>`.
 
@@ -195,7 +196,7 @@ Ouvrez le fichier XML dans un éditeur de texte. Ajoutez une section `<probe>` a
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
 
-Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde comme dans l’exemple ci-dessous :
+Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde comme dans l’exemple ci-dessous :
 
         <BackendHttpSettings>
             <Name>setting1</Name>
@@ -209,7 +210,7 @@ Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde c
 Enregistrez le fichier XML.
 
 
-### Étape 3
+### Étape 3
 
 Mettez à jour la configuration de la passerelle d’application à partir du nouveau fichier XML en utilisant **Set-AzureApplicationGatewayConfig**. Cette opération permettra de mettre à jour votre passerelle d’application avec cette nouvelle configuration.
 
@@ -222,4 +223,4 @@ Si vous voulez configurer le déchargement SSL (Secure Sockets Layer), consultez
 
 Si vous voulez configurer une passerelle d’application à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

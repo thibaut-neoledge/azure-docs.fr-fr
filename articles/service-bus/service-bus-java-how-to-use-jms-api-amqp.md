@@ -27,7 +27,7 @@ Cet article explique comment utiliser les fonctionnalités de messagerie répart
 
 ## Prise en main de Service Bus
 
-Ce guide présume que vous êtes déjà doté d’un espace de noms Services Bus contenant une file d’attente nommée « queue1 ». Dans le cas contraire, vous pouvez créer l’espace de noms et la file d’attente à l’aide du [portail Azure Classic](http://manage.windowsazure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md).
+Ce guide présume que vous êtes déjà doté d’un espace de noms Services Bus contenant une file d’attente nommée « queue1 ». Dans le cas contraire, vous pouvez créer l’espace de noms et la file d’attente à l’aide du [portail Azure Classic](http://manage.windowsazure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [AZURE.NOTE] Les files d’attente et rubriques partitionnées prennent également en charge AMQP. Pour plus d’informations, consultez [Entités de messagerie partitionnées](service-bus-partitioning.md) et [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente Service Bus partitionnées](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 
@@ -332,11 +332,11 @@ Vous pouvez également utiliser l’AMQP 1.0 de Service Bus avec d’autres lan
 * [Prise en charge d’AMQP 1.0 dans Azure Service Bus](service-bus-amqp-overview.md)
 * [Utilisation d’AMQP 1.0 avec l’API .NET Service Bus](service-bus-dotnet-advanced-message-queuing.md)
 * [AMQP de Service Bus 1.0 : guide du développeur](service-bus-amqp-dotnet.md)
-* [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+* [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Centre de développement Java](/develop/java/).
 
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

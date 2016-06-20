@@ -80,7 +80,7 @@ Nous prenons actuellement en charge un RPO de 5 secondes et le décalage de rép
 ## Quel est le décalage réplication attendu lorsque la zone géographique secondaire est créée dans la même région que la base de données primaire ?  
 En se basant sur des données empiriques, il y a peu de différence entre la réplication intra-région et inter-région si la région associée recommandée par Azure est utilisée.
 
-## Si une défaillance du réseau entre deux régions se produit, comment la logique de nouvelle tentative fonctionne-t-elle lorsque la géo-réplication est définie ?  
+## Si une défaillance du réseau entre deux régions se produit, comment la logique de nouvelle tentative fonctionne-t-elle lorsque la géoréplication est définie ?  
 En cas de déconnexion, une nouvelle tentative de rétablissement des connexions est effectuée toutes les 10 secondes.
 
 ## Que puis-je faire pour garantir qu’une modification critique de la base de données primaire est répliquée ?
@@ -89,4 +89,4 @@ La zone géographique secondaire est un réplica asynchrone et nous n’essayons
 ## Quels outils sont disponibles pour surveiller le décalage de réplication entre la base de données primaire et la zone géographique secondaire ?
 Nous exposons le décalage de réplication en temps réel entre la base de données primaire et la zone géographique secondaire par le biais d’une vue de gestion dynamique (DMV). Pour plus d’informations, consultez [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

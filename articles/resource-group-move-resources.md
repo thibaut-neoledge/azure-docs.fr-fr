@@ -59,10 +59,12 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Operational Insights
 - Cache Redis
 - Scheduler
-- Search
-- Storage (Classic) : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
+- Recherche
+- Storage
+- Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 - Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
-- Virtual Machines (Classic) : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
+- Machines virtuelles
+- Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 
 ## Services qui prennent partiellement en charge le déplacement
 
@@ -76,8 +78,6 @@ Les services qui ne prennent actuellement pas en charge le déplacement d’une 
 
 - Application Insights
 - ExpressRoute
-- Storage
-- Virtual Machines
 - Virtual Networks (Classic) : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
 
 ## Limitations d’App Service
@@ -274,4 +274,4 @@ Avec le corps de requête :
 - Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
 - Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="06/07/2016"
    ms.author="cherylmc"/>
 
 # Forum Aux Questions ExpressRoute
@@ -248,4 +248,4 @@ Oui. Les points de terminaison du service Office 365 sont accessibles via Inter
 ### Dynamics AX est-il accessible via une connexion ExpressRoute ?
 Non, ce n’est pas pris en charge.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

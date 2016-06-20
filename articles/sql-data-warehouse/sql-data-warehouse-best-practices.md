@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="06/02/2016"
    ms.author="sonyama;barbkess"/>
 
-# Meilleures pratiques relatives à SQL Data Warehouse
+# Meilleures pratiques pour Azure SQL Data Warehouse
 
 Cet article est une collection des nombreuses meilleures pratiques qui vous permettra d’atteindre le rapport prix/performances optimal de votre Azure SQL Data Warehouse. Certains des concepts de cet article sont très basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article. L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données. Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
 
@@ -25,7 +25,7 @@ Si vous êtes novice avec Azure SQL Data Warehouse, ne laissez pas cet article v
 ## Réduire les coûts avec les opérations de suspension et de mise à l’échelle
 Une fonctionnalité clé de SQL Data Warehouse est la possibilité de suspension lorsque vous ne l’utilisez pas, ce qui permet d’arrêter la facturation des ressources de calcul. Une autre fonctionnalité clé est la possibilité de mettre à l’échelle les ressources. La suspension et la mise à l’échelle peuvent s’effectuer via le portail Azure ou des commandes PowerShell. Familiarisez-vous avec ces fonctionnalités car ces dernières peuvent réduire considérablement le coût de votre entrepôt de données lorsqu’il n’est pas utilisé. Si vous souhaitez que votre entrepôt de données soit toujours accessible, vous souhaiterez peut-être le réduire à la taille minimale, DW100, au lieu de le suspendre.
 
-Voir aussi [Interrompre des ressources de calcul][], [Reprendre des ressources de calcul][], [Mise à l’échelle des ressources de calcul][]
+Voir aussi [Interrompre des ressources de calcul][], [Reprendre des ressources de calcul][], [Mettre à l’échelle des ressources de calcul][]
 
 
 ## Vider les transactions avant la suspension ou la mise à l’échelle 
@@ -43,7 +43,7 @@ Une charge unique dans une petite table à l’aide d’une instruction INSERT o
 
 Voir aussi [Insert (Transact-SQL)][]
  
-## Utilisez PolyBase pour charger et exporter rapidement des données
+## Utiliser PolyBase pour charger et exporter rapidement des données
 SQL Data Warehouse prend en charge le chargement et l’exportation de données via plusieurs outils dont Azure Data Factory, PolyBase et BCP. Pour les petits volumes de données où les performances ne sont pas essentielles, n’importe quel outil peut suffire à vos besoins. Toutefois, lorsque vous chargez ou exportez de gros volumes de données ou si des performances de vitesse sont nécessaires, PolyBase représente le meilleur choix. PolyBase est conçu pour tirer parti de l’architecture MPP (Massively Parallel Processing) de SQL Data Warehouse et, par conséquent, chargera et exportera les magnitudes des données plus rapidement que n’importe quel autre outil. Les charges PolyBase peuvent être exécutées à l’aide de CTAS ou d’INSERT INTO. **L’utilisation de CTAS permet de minimiser la journalisation des transactions et constitue le moyen le plus rapide de charger vos données.** Azure Data Factory prend également en charge les charges PolyBase. PolyBase prend en charge une variété de formats de fichiers, y compris les fichiers Gzip. **Pour maximiser le débit lors de l’utilisation de fichiers texte gzip, divisez les fichiers en 60 fichiers ou plus pour optimiser le parallélisme de votre charge.** Pour un débit total plus rapide, envisagez le chargement simultané des données.
 
 Consultez aussi [Charger des données dans SQL Data Warehouse][], [Guide d’utilisation de PolyBase dans SQL Data Warehouse][], [Modèles et stratégies de chargement Azure SQL Data Warehouse][], [Téléchargement de données avec Azure Data Factory][], [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][], [Instruction Create Table As Select (CTAS) dans SQL Data Warehouse][]
@@ -58,7 +58,7 @@ Bien que le partitionnement des données peut être très efficace pour mettre �
 
 Voir aussi [Partitions de tables dans SQL Data Warehouse][]
 
-## Minimiser les tailles des transactions
+## Minimiser la taille des transactions
 Les instructions INSERT, UPDATE et DELETE s’exécutent dans une transaction, et en cas d’échec elles doivent être restaurées. Pour minimiser le risque d’une restauration longue, réduisez si possible les tailles de transactions. Pour ce faire, vous pouvez diviser les instructions INSERT, UPDATE et DELETE en plusieurs parties. Par exemple, si vous disposez d’une instruction INSERT qui devrait prendre une heure, décomposez si possible l’insertion en 4 parties, qui seront chacune exécutées en 15 minutes. Exploitez des cas spéciaux de journalisation minimale, tels que CTAS, TRUNCATE, DROP TABLE ou INSERT, dans des tables vides, afin de réduire le risque de restauration. Un autre moyen d’éliminer les restaurations consiste à utiliser des opérations de métadonnées uniquement comme le basculement de partitions pour la gestion des données. Par exemple, plutôt que d’exécuter une instruction DELETE pour supprimer toutes les lignes d’une table où order\_date était octobre 2001, vous pouvez partitionner vos données tous les mois et ensuite extraire la partition contenant les données vers une partition vide à partir d’une autre table (voir les exemples ALTER TABLE). Pour les tables non partitionnées, utilisez une instruction CTAS pour écrire les données que vous souhaitez conserver dans une table plutôt que l’instruction DELETE. Si une instruction CTAS prend le même laps de temps, elle permet une opération beaucoup plus sûre car elle offre une journalisation des transactions très minime et peut être annulée rapidement si nécessaire.
 
 Voir aussi [Transactions dans SQL Data Warehouse][], [Optimisation des transactions pour SQL Data Warehouse][], [Partitions de tables dans SQL Data Warehouse][], [TRUNCATE TABLE (Transact-SQL)][], [ALTER TABLE (Transact-SQL)][], [Instruction Create Table As Select (CTAS) dans SQL Data Warehouse][]
@@ -73,10 +73,10 @@ Lorsque vous envoyez des données dans SQL Data Warehouse, vous trouverez peut-�
 
 Voir aussi [Tables temporaires dans SQL Data Warehouse][], [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][], [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)][]
 
-## Optimiser les tables columnstore en cluster
+## Optimiser les tables columnstore en clusters
 Les index columnstore en cluster sont l’une des méthodes les plus efficaces pour stocker vos données dans Azure SQL Data Warehouse. Par défaut, les tables dans SQL Data Warehouse sont créées en tant que ColumnStore en cluster. Pour obtenir les meilleures performances pour les requêtes sur les tables columnstore, la qualité du segment est importante. Lorsque les lignes sont écrites dans les tables columnstore avec une mémoire insuffisante, la qualité du segment columnstore peut être affectée. La qualité du segment peut être mesurée par le nombre de lignes dans un groupe de lignes compressé. Consultez la section **Qualité du segment Columnstore en cluster** dans [Dépannage][] pour obtenir des instructions étape par étape sur la détection et l’amélioration de la qualité de segment pour les tables columnstore en cluster. La bonne qualité des segments columnstore étant relativement importante, il est généralement judicieux de créer des ID d’utilisateurs spéciaux simplement pour les chargements qui utilisent une classe de ressource de moyenne ou grande taille. Moins vous utilisez de DWU, plus la classe de ressource que vous souhaitez attribuer à votre utilisateur sera grande.
 
-Étant donné que les tables columnstore ne transmettent généralement pas de données dans un segment columnstore compressé s’il existe moins d’1 million de lignes par table et si chaque table SQL Data Warehouse est partitionnée en 60 tables, en règle générale, les tables columnstore ne tireront aucun profit d’une requête, sauf si la table comporte plus de 60 millions de lignes. Pour une table comportant moins de 60 millions de lignes, il ne sera peut-être pas judicieux d’avoir un index columnstore. Mais cela ne peut pas nuire non plus. En outre, si vous partitionnez vos données, vous souhaiterez peut-être estimer que chaque partition nécessitera 1 million de lignes pour bénéficier d’un index columnstore en cluster. Si une table possède 100 partitions, elle devra avoir au moins 6 milliards de lignes pour bénéficier d’une banque de colonnes en cluster (60 distributions * 100 partitions * 1 million de lignes). Si votre table ne possède pas 6 milliards de lignes dans cet exemple, réduisez le nombre de partitions ou envisagez plutôt d’utiliser une table de segment de mémoire. Il peut être également intéressant de tester pour voir si de meilleures performances peuvent être obtenues avec une table de segment de mémoire ayant des index secondaires plutôt qu’avec une table columnstore. Les tables columnstore ne gèrent pas encore les index secondaires.
+Étant donné que les tables columnstore ne transmettent généralement pas de données dans un segment columnstore compressé s’il existe moins d’1 million de lignes par table et si chaque table SQL Data Warehouse est partitionnée en 60 tables, en règle générale, les tables columnstore ne tireront aucun profit d’une requête, sauf si la table comporte plus de 60 millions de lignes. Pour une table comportant moins de 60 millions de lignes, il ne sera peut-être pas judicieux d’avoir un index columnstore. Mais cela ne peut pas nuire non plus. En outre, si vous partitionnez vos données, vous souhaiterez peut-être estimer que chaque partition nécessitera 1 million de lignes pour bénéficier d’un index columnstore en cluster. Si une table possède 100 partitions, elle devra avoir au moins 6 milliards de lignes pour bénéficier d’une banque de colonnes en cluster (60 distributions * 100 partitions * 1 million de lignes). Si votre table ne possède pas six milliards de lignes dans cet exemple, réduisez le nombre de partitions ou envisagez plutôt d’utiliser une table de segment de mémoire. Il peut être également intéressant de tester pour voir si de meilleures performances peuvent être obtenues avec une table de segment de mémoire ayant des index secondaires plutôt qu’avec une table columnstore. Les tables columnstore ne gèrent pas encore les index secondaires.
 
 Lorsque vous interrogez une table columnstore, les requêtes s’exécutent plus vite si vous sélectionnez uniquement les colonnes dont vous avez besoin.
 
@@ -121,9 +121,9 @@ Le [Forum MSDN Azure SQL Data Warehouse][] a été créé pour vous permettre de
 [Surveiller votre charge de travail à l’aide de vues de gestion dynamique]: sql-data-warehouse-manage-monitor.md
 [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [Optimisation des transactions pour SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
-[Interrompre des ressources de calcul]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
-[Reprendre des ressources de calcul]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
-[Mise à l’échelle des ressources de calcul]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
+[Interrompre des ressources de calcul]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Reprendre des ressources de calcul]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Mettre à l’échelle des ressources de calcul]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [Table design in SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
 [Partitions de tables dans SQL Data Warehouse]: sql-data-warehouse-develop-table-partitions.md
 [Tables temporaires dans SQL Data Warehouse]: sql-data-warehouse-develop-temporary-tables.md
@@ -157,4 +157,4 @@ Le [Forum MSDN Azure SQL Data Warehouse][] a été créé pour vous permettre de
 [Forum Azure SQL Data Warehouse Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Modèles et stratégies de chargement Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

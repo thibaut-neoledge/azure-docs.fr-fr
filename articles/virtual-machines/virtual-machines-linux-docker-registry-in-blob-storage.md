@@ -61,6 +61,7 @@ Vous pouvez [configurer][registry-config] votre registre Docker de deux manière
 Par souci de simplicité, cette rubrique suit l’option 2 et utilise donc des variables d’environnement.
 
 Pour exécuter une instance de Docker Registry qui :
+
 * utilise votre compte Azure Storage pour stocker les images
 * écoute sur le port 5000 de la machine virtuelle
 * n’a pas de méthode d’authentification configurée (non recommandé, voir la remarque ci-dessous)
@@ -99,4 +100,4 @@ Une fois le registre configuré, vous pouvez l’utiliser. Démarrez avec le doc
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/03/2016" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -176,6 +176,16 @@ Si vous modifiez un panneau, mais que vous souhaitez revenir à la configuration
 
 ![Dans les boutons en haut de Metrics Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
+## Live Stream : mesures instantanées pour une analyse détaillée
+
+Live Stream indique les mesures de votre application à ce moment précis avec une latence en temps réel proche d’1 seconde. Cette fonctionnalité est très utile lorsque vous libérez une nouvelle build et souhaitez vous assurer que tout fonctionne comme prévu, ou examinez d’un incident en temps réel.
+
+![Dans le panneau Vue d'ensemble, cliquez sur Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
+
+Contrairement à Metrics Explorer, Live Stream affiche un ensemble fixe de mesures. Les données persistent uniquement tant qu’elles se trouvent sur le graphique et sont ensuite ignorées.
+
+Live Stream est disponible avec le Kit de développement logiciel (SDK) Application Insights pour ASP.NET, version 2.1.0 ou ultérieure.
+
 ## Définir des alertes
 
 Pour être averti par courrier électronique en cas de valeurs inhabituelles pour une métrique, ajoutez une alerte. Vous pouvez choisir d'envoyer le courrier électronique aux administrateurs de compte ou à des adresses de messagerie spécifiques.
@@ -197,7 +207,7 @@ Vous voyez ce qui doit être exporté. Si vous voulez modifier la plage des donn
 
 *Pour le moment, Excel est uniquement compatible avec Internet Explorer et Chrome. Nous travaillons sur l’ajout de la prise en charge d’autres navigateurs.*
 
-### Exportation continue
+## Exportation continue
 
 Si vous souhaitez mettre en place une exportation continue des données pour les traiter en externe, envisagez d’utiliser l’[Exportation continue](app-insights-export-telemetry.md).
 
@@ -218,7 +228,7 @@ L’[analyse](app-insights-analytics.md) est un moyen plus souple d’analyser v
     Si vous souhaitez définir des filtres différents sur différents graphiques, créez-les dans des panneaux différents, enregistrez-les sous forme de favoris distincts. Si vous le souhaitez, vous pouvez les épingler au tableau de bord afin de les afficher parallèlement.
 
 * Si vous regroupez un graphique en fonction d’une propriété qui n’est pas définie dans la mesure, alors il n’y aura rien à afficher sur le graphique. Essayez de désélectionner l’option « regrouper par » ou choisissez une propriété de regroupement différente.
-* Les données de performances (UC, taux E/S, et ainsi de suite) sont disponibles pour les services web Java, les applications de bureau Windows, les [services et applications web IIS si vous installez le moniteur d’état](app-insights-monitor-performance-live-website-now.md) et [Azure Cloud Services](app-insights-azure.md). Ces données ne sont pas disponibles pour les sites web Azure.
+* Les données de performances (UC, taux d’E/S, etc.) sont disponibles pour les services web Java, les applications de bureau Windows, les [services et applications web IIS si vous installez le moniteur d’état (Status monitor)](app-insights-monitor-performance-live-website-now.md) et [Azure Cloud Services](app-insights-azure.md). Ces données ne sont pas disponibles pour les sites web Azure.
 
 
 
@@ -236,4 +246,4 @@ L’[analyse](app-insights-analytics.md) est un moyen plus souple d’analyser v
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

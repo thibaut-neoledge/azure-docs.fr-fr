@@ -42,7 +42,7 @@ Voici une capture d’écran de l’application terminée :
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1. Suivez les instructions fournies [ici](virtual-machines-linux-portal-create.md) pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04 LTS*. Si vous préférez, vous pouvez choisir l'authentification par de mot de passe au lieu d’utiliser la clé publique SSH.
+1. Suivez les instructions fournies [ici](virtual-machines-linux-quick-create-portal.md) pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04 LTS*. Si vous préférez, vous pouvez choisir l'authentification par de mot de passe au lieu d’utiliser la clé publique SSH.
 
 1. Modifiez le groupe de sécurité réseau pour autoriser le trafic http entrant vers le port 80 en utilisant les instructions [présentes ici](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -50,7 +50,7 @@ Voici une capture d’écran de l’application terminée :
 
 ## <a id="setup"> </a>Configuration de l’environnement de développement
 
-**Remarque** : si vous devez installer Python ou que vous souhaitez utiliser les bibliothèques clientes, consultez l’article [Installation de Python](../python-how-to-install.md).
+**Remarque** : si vous devez installer Python ou que vous souhaitez utiliser les bibliothèques clientes, consultez l’article [Installation de Python](../python-how-to-install.md).
 
 Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche, Apache et Django ne sont pas installés. Pour vous connecter à votre machine virtuelle et installer Apache et Django, procédez comme suit :
 
@@ -126,4 +126,4 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche
 
 Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machine virtuelle Azure nouvellement créée afin de libérer des ressources pour d'autres didacticiels et éviter l'ajout de charges d'utilisation Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

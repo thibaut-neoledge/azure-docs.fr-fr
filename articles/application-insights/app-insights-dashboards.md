@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Tableaux de bord dans le portail Application Insights"
-	description="Affichez les données de télémétrie de plusieurs composants de votre application dans un tableau de bord."
+	pageTitle="Utilisation du portail Application Insights"
+	description="Mesures, recherche, tableaux de bord et paramètres dans Application Insights."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/25/2016"
+	ms.date="06/03/2016"
 	ms.author="awills"/>
 
 # Navigation et tableaux de bord dans le portail Application Insights
@@ -34,11 +34,12 @@ Le panneau de vue d’ensemble (page) de votre application affiche un résumé d
 
 Cliquez sur :
 
-* **n'importe quel graphique** pour afficher plus de détails ;
-* **Paramètres** pour accéder à des pages prédéfinies d’autres mesures ;
+* **N’importe quel graphique ou mosaïque** pour plus de détails sur ce qui est affiché sur le graphique.
+* **Paramètres** pour obtenir des panneaux prédéfinis d’autres mesures, ainsi que des pages de configuration.
 * [**Metrics Explorer**](app-insights-metrics-explorer.md) pour créer des pages de mesures de votre choix ;
 * [**Rechercher**](app-insights-diagnostic-search.md) pour analyser des instances spécifiques d’événements tels que les demandes, les exceptions ou les suivis de journal.
 * [**Analytics**](app-insights-analytics.md) pour des requêtes puissantes sur vos données de télémétrie.
+* [**Flux en direct**](app-insights-metrics-explorer.md#live-stream) pour un ensemble de mesures quasi instantanées, ce qui est utile lors du déploiement d’une nouvelle version ou du débogage.
 
 
 ![Procédures principales d'affichage de vos données de télémétrie](./media/app-insights-dashboards/010-oview.png)
@@ -52,7 +53,7 @@ Choisissez ce que vous souhaitez afficher sur le panneau Vue d’ensemble. Dans 
 
 ## Tableaux de bord
 
-La première chose que vous voyez après vous être connecté au [portail Microsoft Azure](https://portal.azure.com) est un tableau de bord. Celui-ci vous permet de rassembler les graphiques les plus importants pour vous pour toutes vos ressources Azure, y compris les données de télémétrie de [Visual Studio Application Insights](app-insights-overview.md).
+La première chose que vous voyez après vous être connecté au [portail Microsoft Azure](https://portal.azure.com) est un tableau de bord. Celui-ci vous permet de rassembler les graphiques les plus importants pour vous pour toutes vos ressources Azure, notamment les données de télémétrie de [Visual Studio Application Insights](app-insights-overview.md).
  
 
 ![Un tableau de bord personnalisé.](./media/app-insights-dashboards/30.png)
@@ -109,4 +110,4 @@ Lorsque vous avez créé un tableau de bord, vous pouvez le partager avec d’au
 
 En savoir plus sur [les rôles et le contrôle d’accès](app-insights-resources-roles-access-control.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

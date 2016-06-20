@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Version préliminaire d’Azure Active Directory B2C : connexion web avec OpenID Connect
@@ -30,7 +30,7 @@ Comme il étend OAuth 2.0, les applications peuvent acquérir en toute sécurit
 
 Azure AD B2C étend le protocole OpenID Connect standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [**paramètre de stratégie**](active-directory-b2c-reference-policies.md), grâce auquel vous pouvez utiliser OpenID Connect pour ajouter des expériences utilisateur à votre application comme l’inscription, la connexion et la gestion des profils. Ici, vous allez découvrir comment utiliser OpenID Connect et des stratégies pour implémenter chacune de ces expériences dans vos applications web. Vous verrez également comment obtenir des jetons d’accès afin d’accéder à des API web.
 
-Les demandes HTTP d'exemple ci-dessous utilisent notre répertoire B2C d’exemple **fabrikamb2c.onmicrosoft.com**, ainsi que notre application **https://aadb2cplayground.azurewebsites.net** et nos stratégies d’exemple. Vous êtes libre de tester ces demandes vous-même à l’aide de ces valeurs, ou de les remplacer par les vôtres. Découvrez comment [obtenir votre propre client B2C, votre application et vos stratégies](#use-your-own-b2c-directory).
+Les demandes HTTP d'exemple ci-dessous utilisent notre répertoire B2C d’exemple **fabrikamb2c.onmicrosoft.com**, ainsi que notre application ****https://aadb2cplayground.azurewebsites.net** et nos stratégies d’exemple. Vous êtes libre de tester ces demandes vous-même à l’aide de ces valeurs, ou de les remplacer par les vôtres. Découvrez comment [obtenir votre propre client B2C, votre application et vos stratégies](#use-your-own-b2c-directory).
 
 ## Envoi de demandes d’authentification
 Lorsque votre application Web a besoin d’authentifier l’utilisateur et d’exécuter une stratégie, elle peut le diriger vers le point de terminaison `/authorize`. Il s’agit de la partie interactive du flux, dans laquelle l’utilisateur agit réellement en fonction de la stratégie.
@@ -342,4 +342,4 @@ image goes here
 
 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

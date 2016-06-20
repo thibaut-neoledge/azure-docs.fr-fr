@@ -47,7 +47,6 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 <ol start="6">
 <li><p>Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un simulateur. Vérifiez qu'une exception non gérée avec un code d'état&#160;401 (Non autorisé) est générée après le démarrage de l'application.</p>
-
    	<p>Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table <em>TodoItem</em> requiert désormais l'authentification.</p></li>
 </ol>
 
@@ -55,11 +54,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
-1. Ajoutez la propriété suivante à la classe **TodoActivity** :
+1. Ajoutez la propriété suivante à la classe **TodoActivity** :
 
 			private MobileServiceUser user;
 
-2. Ajoutez la méthode suivante à la classe **TodoActivity** :
+2. Ajoutez la méthode suivante à la classe **TodoActivity** :
 
 	        private async Task Authenticate()
 	        {
@@ -112,4 +111,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion de la sécurité SQL Database - sécurité de connexion | Microsoft Azure"
+   pageTitle="Authentification et autorisation de base de données SQL : octroi de l’accès | Microsoft Azure"
    description="Découvrez la gestion de la sécurité SQL Database, en particulier la façon de gérer la sécurité d’accès et de connexion aux bases de données par le biais du compte du principal au niveau du serveur."
    keywords="sécurité sql database, gestion de la sécurité de base de données, sécurité de connexion,sécurité de base de données, accès aux bases de données"
    services="sql-database"
@@ -15,165 +15,146 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/06/2016"
    ms.author="rickbyh"/>
 
-# Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données  
+# Authentification et autorisation de base de données SQL : octroi de l’accès 
 
-Découvrez la gestion de la sécurité SQL Database, en particulier la façon de gérer la sécurité d’accès et de connexion aux bases de données par le biais du compte du principal au niveau du serveur. Comprenez certaines différences et similitudes dans les options de sécurité de connexion entre SQL Database et un serveur SQL Server local. Consultez la rubrique [Didacticiel sur la base de données SQL Azure : Premiers pas avec la sécurité de la base de données SQL Azure](sql-database-get-started-security.md) pour obtenir un didacticiel rapide.
 
-## Approvisionnement des bases de données et connexion du principal au niveau du serveur
+> [AZURE.SELECTOR]
+- [Prise en main de la sécurité](sql-database-get-started-security.md)
+- [Octroi de l’accès](sql-database-manage-logins.md)
 
-Dans la base de données SQL Azure de Microsoft, lorsque vous vous inscrivez pour bénéficier du service, le processus d’approvisionnement crée un serveur de base de données SQL Azure, une base de données nommée **master**, et une connexion, qui est le principal au niveau du serveur de votre serveur de base de données SQL Azure. Cette connexion est semblable au principal au niveau du serveur (**sa**), d’une instance locale de SQL Server. Les concepts décrits dans cette rubrique s’appliquent également à Azure SQL Data Warehouse.
 
-Le compte principal au niveau du serveur de base de données SQL Azure est autorisé à gérer l’ensemble de la sécurité au niveau du serveur et au niveau de la base de données. Cette rubrique explique comment utiliser le principal au niveau du serveur et d’autres comptes pour gérer les connexions et bases de données dans la base de données SQL
+Commencez ici pour une vue d’ensemble des concepts d’accès à la base de données SQL pour les administrateurs, les non administrateurs et les rôles.
 
-Les utilisateurs Azure qui accèdent à la Base de données SQL par le biais du contrôle d’accès en fonction du rôle Azure (RBAC) et de l’API REST Azure Resource Manager reçoivent les autorisations de leurs rôles Azure. Ces rôles permettent d'accéder aux opérations du plan de gestion, mais pas aux opérations du plan de données. Ces opérations du plan de gestion incluent la possibilité de lire différentes propriétés et divers éléments de schéma dans SQL Database. Et elles permettent la création, la suppression et la configuration de certaines fonctionnalités au niveau du serveur qui sont liées à SQL Database. La plupart de ces opérations du plan de gestion représentent les éléments que vous pouvez afficher et configurer lors de l'utilisation du portail Azure. Lorsque vous utilisez les rôles RBAC, les actions des membres de rôle Azure à l'intérieur de la base de données (telles que la création d’une liste des tables) sont exécutées pour elles par le moteur de base de données afin qu'elles ne soient pas affectées par le système d'autorisation SQL Server standard des instructions GRANT/REVOKE/DENY. Les rôles RBAC n'incluent pas la possibilité de lire ou de modifier les données car ce sont des opérations du plan de données. Pour plus d’informations, consultez [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
+## Comptes d’administration non restreints
 
-> [AZURE.IMPORTANT] La base de données SQL V12 permet aux utilisateurs de s’authentifier pour la base de données à l’aide des utilisateurs de base de données contenu. Les utilisateurs de base de données contenu n’exige pas de connexion. Cela rend les bases de données plus portables, mais réduit la capacité du principal de niveau serveur à contrôler l’accès à la base de données. L’activation des utilisateurs contenus dans la base de données à des impacts de sécurité. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx), [Bases de données à relation contenant-contenu](https://technet.microsoft.com/library/ff929071.aspx), [CRÉER UN UTILISATEUR (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+Il existe deux comptes d’administration avec des autorisations illimitées pour l’accès à la base de données master virtuelle et à toutes les bases de données utilisateur. Ces comptes sont appelés comptes principaux au niveau du serveur.
 
-## Vue d’ensemble de la gestion de la sécurité SQL Database
+### Compte abonné à la base de données SQL Azure 
 
-La gestion de la sécurité SQL Database est similaire à celle d’une instance locale de SQL Server. La gestion de la sécurité au niveau de la base de données est presque identique, les seules différences concernant les paramètres disponibles. Les bases de données SQL pouvant être adaptées à un ou plusieurs ordinateurs physiques, la base de données SQL Azure utilise une stratégie d’administration de niveau du serveur différente. Le tableau résume les différences entre la gestion de la sécurité de base de données pour un serveur SQL Server local et dans Azure SQL Database.
+Un seul compte de connexion est créé lorsqu’une instance SQL logique est créée, appelé compte abonné à la base de données SQL Azure. Ce compte se connecte à l’aide de l’authentification SQL Server (nom d’utilisateur et mot de passe). Ce compte est un administrateur sur l’instance de serveur logique et sur toutes les bases de données utilisateur associées à cette instance. Les autorisations du compte abonné ne peuvent pas être restreintes. Un seul de ces comptes peut exister.
 
-| Différences | SQL Server local | Base de données SQL Azure |
-|------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------|
-| Emplacement où se gère la sécurité de niveau serveur | Dossier **Sécurité** dans l’Explorateur d’objets de SQL Server Management Studio | Base de données **MASTER** et via le portail Azure |
-| Authentification Windows | Identités Active Directory | Identités Azure Active Directory |
-| Rôle de sécurité au niveau du serveur pour la création de connexions | Rôle serveur fixe **securityadmin** | Rôle de base de données **loginmanager** dans la base de données **MASTER** |
-| Commandes de gestion des connexions | CRÉER UNE CONNEXION, MODIFIER UNE CONNEXION, ABANDONNER UNE CONNEXION | CRÉER UNE CONNEXION, MODIFIER UNE CONNEXION, ABANDONNER UNE CONNEXION (il existe certaines limitations de paramètres et vous devez être connecté à la base de données **MASTER**.) |
-| Vue affichant toutes les connexions | sys.server\_principals | Sys.sql\_logins (vous devez être connecté à la base de données **MASTER**.)|
-| Rôle au niveau du serveur pour la création de bases de données | Rôle de base de données fixe **dbcreator** | Rôle de base de données **dbmanager** dans la base de données **MASTER** |
-| Aucune de création de base de données | CRÉER UNE BASE DE DONNÉES | CRÉER UNE BASE DE DONNÉES (il existe certaines limitations de paramètres et vous devez être connecté à la base de données **MASTER**.) |
-| Vue qui répertorie toutes les bases de données | sys.databases | sys.databases (vous devez être connecté à la base de données **master**.) |
+### Administrateur Azure Active Directory
+Un compte Azure Active Directory peut également être configuré en tant qu’administrateur. Ce compte peut être un utilisateur Azure AD ou un groupe Azure AD comprenant plusieurs utilisateurs Azure AD. Il est facultatif de configurer un administrateur Azure AD, mais un administrateur Azure AD doit être configuré si vous voulez utiliser l’authentification Windows pour les comptes Azure AD pour vous connecter à la base de données SQL. Pour plus d’informations sur la configuration de l’accès Azure Active Directory, voir [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
 
-## Administration au niveau du serveur et de la base de données master
+### Configuration du pare-feu
+Lorsqu’un pare-feu au niveau du serveur est configuré, le compte abonné à la base de données SQL Azure et le compte Azure Active Directory peuvent se connecter à la base de données master virtuelle et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur peut être configuré via le portail. Une fois la connexion établie, les règles supplémentaires de pare-feu au niveau du serveur peuvent également être configurées à l’aide de l’instruction Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Pour plus d’informations sur la configuration du pare-feu, voir [Configurer un pare-feu sur une base de données Azure SQL à l’aide du portail Azure](sql-database-configure-firewall-settings.md).
 
-Votre serveur de base de données SQL Azure est une abstraction qui définit un groupement de bases de données. Les bases de données associées à votre serveur de base de données SQL Azure peuvent résider sur des ordinateurs physiques distincts dans le datacenter Microsoft. Effectuez l’administration de l’ensemble des bases de données au niveau du serveur en utilisant une base de données unique nommée **MASTER**.
+### Chemin d’accès administrateur
 
-La base de données **MASTER** effectue le suivi des connexions et indique celles qui sont autorisées à créer des bases de données ou d’autres connexions. Vous devez être connecté à la base de données **MASTER** chaque fois que vous créez, modifiez ou annulez des connexions ou des bases de données. La base de données **MASTER** comporte également les vues ``sys.sql_logins`` et ``sys.databases``, que vous pouvez utiliser pour afficher les connexions et les bases de données.
+Lorsque le pare-feu au niveau du serveur est correctement configuré, le compte abonné à la base de données SQL et les administrateurs de serveur SQL Azure Active Directory peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. Le diagramme suivant illustre une configuration classique avec deux comptes d’administrateur. ![Chemin d’accès administrateur](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
-> [AZURE.NOTE] La commande ``USE`` n’est pas prise en charge pour le basculement entre bases de données. Établissement d’une connexion directe à la base de données cible.
+Lorsque vous utilisez un port ouvert dans le pare-feu au niveau du serveur, les administrateurs peuvent se connecter à n’importe quelle base de données SQL.
 
-Il est possible de gérer la sécurité au niveau de la base de données pour les utilisateurs et les objets de base de données SQL Azure de la même façon que celle d’une instance locale de SQL Server. Il existe uniquement des différences de paramètres disponibles pour les commandes correspondantes. Pour plus d’informations, voir [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md).
+### Connexion à la base de données à l’aide de SQL Server Management Studio
+Pour une procédure pas à pas de la connexion à l’aide de SQL Server Management Studio, voir [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 
-## Gestion des utilisateurs de base de données à relation contenant-contenu
 
-Créez le premier utilisateur de base de données à relation contenant-contenu dans une base de données en vous connectant à la base de données avec le principal au niveau du serveur. Utilisez les instructions ``CREATE USER``, ``ALTER USER`` ou ``DROP USER``. L’exemple qui suit permet de créer un utilisateur nommé user1.
+## Comptes spéciaux supplémentaires
+La base de données SQL fournit deux rôles d’administrateur restreints dans la base de données master virtuelle à laquelle des comptes d’utilisateur peuvent être ajoutés.
 
-```
-CREATE USER user1 WITH password='<Strong_Password>';
-```
+### Créateurs de base de données
+Les comptes d’administrateur peuvent créer des bases de données. Pour créer un compte supplémentaire capable de créer des bases de données, vous devez créer un utilisateur dans la base de données master et l’ajouter au rôle de base de données spécial **dbmanager**. L’utilisateur peut être un utilisateur de base de données contenu ou un utilisateur basé sur une connexion SQL Server dans la base de données master virtuelle.
 
-> [AZURE.NOTE] Vous devez utiliser un mot de passe fort au moment de la création d’un utilisateur de base de données à relation contenant-contenu. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
+1.	À l’aide d’un compte d’administrateur, connectez-vous à la base de données master virtuelle.
+2.	Étape facultative : Créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemple d’instruction :
 
-Des utilisateurs de base de données à relation contenant-contenu supplémentaires peuvent être créés par tout utilisateur disposant de l’autorisation **MODIFIER UN UTILISATEUR**.
+     ```
+     CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
+     ```
 
-La base de données SQL V12 prend en charge les identités Azure Active Directory en tant qu’utilisateurs de base de données à relation contenant-contenu, comme fonctionnalité en version préliminaire. Pour plus d’informations, voir [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+     > [AZURE.NOTE] Vous devez utiliser un mot de passe fort au moment de la création d’une connexion ou d’un utilisateur de base de données contenu. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
 
-Microsoft recommande l’emploi d’utilisateurs de base de données à relation contenant-contenu avec la base de données SQL. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+3.	Dans la base de données master virtuelle, créez un utilisateur à l’aide de l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données contenu de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données contenu de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Exemples d’instructions :
 
-## Gestion des connexions
+     ```
+     CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
+     CREATE USER Tran WITH PASSWORD = '<strong_password>';
+     CREATE USER Mary FROM LOGIN Mary; 
+     ```
 
-Gérez les connexions avec la connexion au principal au niveau du serveur en se connectant à la base de données master. Vous pouvez utiliser les instructions ``CREATE LOGIN``, ``ALTER LOGIN`` ou ``DROP LOGIN``. L’exemple qui suit crée une connexion nommée **login1** :
+4.	Ajoutez le nouvel utilisateur au rôle de base de données **dbmanager** à l’aide de l’instruction [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Exemples d’instructions :
 
-```
--- first, connect to the master database
-CREATE LOGIN login1 WITH password='<ProvidePassword>';
-```
+     ```
+     ALTER ROLE dbmanager ADD MEMBER Mary; 
+     ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
+     ```
 
-> [AZURE.NOTE] Vous devez utiliser un mot de passe fort au moment de la création d’une connexion. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
+     > [AZURE.NOTE] dbmanager étant un rôle de base de données dans une base de données master virtuelle, vous pouvez uniquement ajouter un utilisateur au rôle dbmanager. Vous ne pouvez pas ajouter une connexion au niveau du serveur au rôle au niveau de la base de données.
 
-#### Utilisation de nouvelles connexions
+5.	Si nécessaire, configurez le pare-feu au niveau du serveur pour permettre au nouvel utilisateur de se connecter.
 
-Pour vous connecter à la base de données SQL Microsoft Azure à l’aide de connexions que vous avez créées, vous devez d’abord accorder à chaque connexion les autorisations de niveau de base de données à l’aide de la commande ``CREATE USER``. Pour plus d'informations, consultez la section **Octroi d’un accès de base de données à une connexion** ci-dessous.
+Désormais, l’utilisateur peut se connecter à la base de données master virtuelle et créer des bases de données. Le compte qui crée la base de données devient propriétaire de cette dernière.
 
-Étant donné que certains outils implémentent les flux de données TDS (Tabular Data Stream) différemment, il se peut que vous deviez ajouter le nom de serveur de base de données SQL Azure à la connexion dans la chaîne de connexion en utilisant la notation ``<login>@<server>``. Dans ces cas-là, insérez le symbole ``@`` entre la connexion et le nom de serveur de base de données SQL Azure. Par exemple, si votre connexion a été nommée **login1** et que le nom complet de votre serveur de base de données SQL Azure est **servername.database.windows.net**, le paramètre de nom d’utilisateur de votre chaîne de connexion doit être : ****login1@servername**. Cette restriction impose des limitations sur le texte que vous pouvez choisir pour le nom de connexion. Pour plus d’informations, consultez [CRÉER UNE CONNEXION (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
+### Gestionnaires de connexion
 
-## Octroi d’autorisations au niveau du serveur à une connexion
+Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base. Cela n’est pas nécessaire dans la plupart des cas, car Microsoft recommande d’avoir recours aux utilisateurs de base de données contenu qui s’authentifient au niveau de la base de données plutôt que des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
-Pour que les connexions autres que le principal au niveau du serveur puissent gérer la sécurité au niveau du serveur, la base de données SQL Azure offre deux rôles en matière de sécurité : **loginmanager** pour la création de connexions, et **dbmanager** pour la création de bases de données. Seuls des utilisateurs présents dans la base de données **MASTER** peuvent être ajoutés à ces rôles de base de données.
+## Utilisateurs non administrateurs
 
-> [AZURE.NOTE] Pour créer des connexions ou des bases de données, vous devez être connecté à la base de données **master** (qui est une représentation logique de **master**).
+En règle générale, les comptes non administrateurs n’ont pas besoin d’accéder à la base de données master virtuelle. Créez des utilisateurs de base de données contenu dans le niveau de base de données à l’aide de l’instruction [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données contenu de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données contenu de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
-### Le rôle loginmanager
-
-À l’instar du rôle de serveur fixe **securityadmin** d’une instance locale de SQL Server, le rôle de base de données **loginmanager** dans la base de données SQL Azure est autorisé à créer des connexions. Seuls la connexion du principal au niveau du serveur (créée par le processus d’approvisionnement) ou les membres du rôle de base de données **loginmanager** peuvent créer des connexions.
-
-### Le rôle dbmanager
-
-Le rôle de base de données **dbmanager** de la base de données SQL Azure est similaire au rôle de serveur fixe **dbcreator** sur une instance locale de SQL Server. Seuls la connexion du principal au niveau du serveur (créée par le processus d’approvisionnement) ou les membres du rôle de base de données **dbmanager** peuvent créer des bases de données. Une fois qu’un utilisateur est membre du rôle de base de données **dbmanager**, il peut créer une base de données avec la commande de base de données SQL Azure ``CREATE DATABASE``, mais cette commande doit être exécutée dans la base de données MASTER. Pour plus d’informations, voir [CRÉER UNE BASE DE DONNÉES (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
-
-### Attribuer de rôles au niveau serveur de base de données SQL
-
-Pour créer une connexion et un utilisateur associé en mesure de créer des bases de données ou d’autres connexions, procédez comme suit :
-
-1. Connectez-vous à la base de données **MASTER** en utilisant les informations d’identification de la connexion du principal au niveau du serveur (créée par le processus d’approvisionnement) ou les informations d’identification d’un membre existant du rôle de base de données **loginmanager**.
-2. Créez une connexion à l’aide de la commande ``CREATE LOGIN``. Pour plus d’informations, consultez [CRÉER UNE CONNEXION (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
-3. Créez un utilisateur pour cette connexion dans la base de données MASTER à l’aide de la commande ``CREATE USER``. Pour plus d’informations, voir [CRÉER UN UTILISATEUR (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
-4. Utilisez la procédure stockée ``sp_addrolememeber`` pour ajouter un nouvel utilisateur au rôle de base de données **dbmanager**, au rôle de base de données loginmanager, ou aux deux.
-
-L’exemple de code qui suit montre comment créer une connexion nommée **login1**, et un utilisateur de base de données correspondant nommé **login1User** qui est en mesure de créer des bases de données ou d’autres connexions lorsqu’il est connecté à la base de données **MASTER** :
+Pour créer des utilisateurs, connectez-vous à la base de données et exécutez des instructions similaires aux suivantes :
 
 ```
--- first, connect to the master database
-CREATE LOGIN login1 WITH password='<ProvidePassword>';
-CREATE USER login1User FROM LOGIN login1;
-EXEC sp_addrolemember 'dbmanager', 'login1User';
-EXEC sp_addrolemember 'loginmanager', 'login1User';
+CREATE USER Mary FROM LOGIN Mary; 
+CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
-> [AZURE.NOTE] Vous devez utiliser un mot de passe fort au moment de la création d’une connexion. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
-
-## Octroi d’un accès de base de données à une connexion
-
-Toutes les connexions doivent être créées dans la base de données **MASTER**. Un fois la connexion créée, vous avez la possibilité de créer un compte utilisateur dans une autre base de données pour cette connexion. La base de données SQL Azure prend également en charge les rôles de base de données de la même façon qu’une instance locale de SQL Server.
-
-Pour créer un compte utilisateur dans une autre base de données, en supposant que vous n’avez pas créé de connexion ou de base de données, procédez comme suit :
-
-1. Se connecter à la base de données **master** (avec une connexion avec les rôles **loginmanager** et **dbmanager**).
-2. Créez une connexion à l’aide de la commande ``CREATE LOGIN``. Pour plus d’informations, voir [CRÉER UNE CONNEXION (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx). L’authentification Windows n’est pas prise en charge.
-3. Créez une base de données à l’aide de la commande ``CREATE DATABASE``. Pour plus d’informations, voir [CRÉER UNE BASE DE DONNÉES (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
-4. Établir une connexion vers la nouvelle base de données (avec la connexion qui a créé la base de données).
-5. Créez un utilisateur dans la nouvelle base de données à l’aide de la commande ``CREATE USER``. Pour plus d’informations, voir [CRÉER UN UTILISATEUR (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
-
-L’exemple de code suivant montre comment créer une connexion nommée **login1** et une base de données nommée **database1** :
+Initialement, seul l’un des administrateurs ou le propriétaire de la base de données peut créer des utilisateurs. Pour autoriser des utilisateurs supplémentaires à créer des utilisateurs, accordez à l’utilisateur sélectionné l’autorisation `ALTER ANY USER`, en utilisant l’une des instructions suivantes :
 
 ```
--- first, connect to the master database
-CREATE LOGIN login1 WITH password='<ProvidePassword>';
-CREATE DATABASE database1;
+GRANT ALTER ANY USER TO Mary;
 ```
 
-> [AZURE.NOTE] Vous devez utiliser un mot de passe fort au moment de la création d’une connexion. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
+Pour donner le contrôle total de la base de données aux utilisateurs supplémentaires, faites-les membres du rôle de base de données fixe **db\_owner** à l’aide de l’instruction `ALTER ROLE`.
 
-L’exemple suivant montre comment créer un utilisateur de base de données nommé **login1User** dans la base de données **database1**, qui correspond à la connexion **login1** : Pour exécuter l'exemple suivant, vous devez tout d'abord établir une nouvelle connexion à database1 via une connexion à l’aide de l’autorisation **ALTER ANY USER** dans cette base de données. Tout utilisateur qui se connecte en tant que membre du rôle **db\_owner** aura cette autorisation, tout comme la connexion qui a créé la base de données.
+> [AZURE.NOTE] Le fait que des utilisateurs de l’authentification SQL Server aient besoin d’accéder à plusieurs bases de données constitue l’une des raisons principales derrière la création d’utilisateurs de base de données basés sur des connexions. Les utilisateurs basés sur des connexions sont liés à la connexion et seul un mot de passe est conservé pour cette connexion. Les utilisateurs de base de données contenu dans des bases de données individuelles sont des entités distinctes qui conservent leur propre mot de passe. Cela peut être source de confusion pour les utilisateurs de base de données contenu s’ils ne conservent pas un mot de passe identique.
 
-```
--- Establish a new connection to the database1 database
-CREATE USER login1User FROM LOGIN login1;
-```
+### Configuration du pare-feu du niveau de base de données
 
-Ce modèle d’autorisation au niveau de la base de données dans la base de données SQL Azure est identique à une instance locale de SQL Server. Pour plus d’informations, consultez les rubriques suivantes dans les références de la documentation en ligne de SQL Server.
+En tant que meilleure pratique, les utilisateurs non administrateurs doivent uniquement bénéficier d’un accès via le pare-feu aux bases de données qu’ils utilisent. Au lieu d’autoriser leurs adresses IP via le pare-feu du niveau du serveur et de leur donner accès à toutes les bases de données, utilisez l’instruction [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) pour configurer le pare-feu du niveau de base de données. Le pare-feu du niveau de base de données ne peut pas être configuré à l’aide du portail.
 
-- [Gestion des connexions, Utilisateurs et Schémas des rubriques de procédures](https://msdn.microsoft.com/library/aa337552.aspx)
-- [Leçon 2 : configuration des autorisations sur les objets de base de données](https://msdn.microsoft.com/library/ms365345.aspx)
+### Chemin d’accès non administrateur
 
-> [AZURE.NOTE] Les instructions liées à la sécurité Transact-SQL dans la base de données SQL Azure peuvent différer légèrement dans les paramètres disponibles. Pour plus d’informations, consultez Documentation de syntaxe en ligne pour instructions spécifiques.
+Lorsque le pare-feu du niveau de base de données est correctement configuré, les utilisateurs de base de données peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. Le diagramme suivant montre un chemin d’accès non-administrateur classique. ![Chemin d’accès non administrateur](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+ 
+## Groupes et rôles
+Une gestion des accès efficace utilise les autorisations assignées aux groupes et aux rôles plutôt qu’aux utilisateurs individuels. Par exemple, lorsque vous utilisez l’authentification Azure Active Directory :
 
-## Affichage des connexions et bases de données
+- Placez les utilisateurs Azure Active Directory dans un groupe Azure Active Directory. Créez un utilisateur de base de données contenu pour le groupe. Placez un ou plusieurs utilisateurs de base de données dans un rôle de base de données. Affectez ensuite les autorisations pour le rôle de base de données.
+
+Lorsque vous utilisez l’authentification SQL Server :
+
+- Créez des utilisateurs de base de données contenu dans la base de données. Placez un ou plusieurs utilisateurs de base de données dans un rôle de base de données. Affectez ensuite les autorisations pour le rôle de base de données.
+
+Les rôles de base de données peuvent être les rôles intégrés, tels que **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter** et **db\_denydatareader**. **db\_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs triés sur le volet. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement des bases de données simples en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. Par exemple, le rôle de base de données fixe **db\_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est généralement plus que le minimum nécessaire. Il est préférable d’utiliser l’instruction [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) pour créer vos propres rôles de base de données définis par l’utilisateur et accorder soigneusement à chaque rôle les autorisations minimales nécessaires aux besoins de l’entreprise. Lorsqu’un utilisateur est membre de plusieurs rôles, toutes les autorisations sont agrégées.
+
+## Autorisations
+
+Il existe plus de 100 autorisations qui peuvent être accordées ou refusées individuellement dans la base de données SQL. La plupart de ces autorisations sont imbriquées. Par exemple, l’autorisation `UPDATE` sur un schéma inclut l’autorisation `UPDATE` sur chaque table dans ce schéma. Comme dans la plupart des systèmes d’autorisation, le refus d’une autorisation remplace l’octroi. En raison de la nature imbriquée et du nombre d’autorisations, la plus grande attention est requise pour concevoir un système d’autorisation approprié capable de protéger correctement votre base de données. Démarrez avec la liste des autorisations sous [Autorisations (moteur de base de données)](https://msdn.microsoft.com/library/ms191291.aspx) et passez en revue les [graphiques de taille affiche](http://go.microsoft.com/fwlink/?LinkId=229142) des autorisations.
 
 
-Pour afficher les connexions et bases de données sur votre serveur de base de données SQL Azure, utilisez respectivement les vues ``sys.sql_logins`` et ``sys.databases`` de la base de données master. L’exemple suivant montre comment afficher une liste de toutes les connexions et bases de données sur votre serveur de base de données SQL Azure.
+### En savoir plus
 
-```
--- first, connect to the master database
-SELECT * FROM sys.sql_logins;
-SELECT * FROM sys.databases;
-```
+[Sécurisation de votre base de données SQL](sql-database-security.md)
 
-## Voir aussi
+[Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-[Didacticiel sur la base de données SQL Azure : Premiers pas avec la sécurité de la base de données SQL Azure](sql-database-get-started-security.md) [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md) [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
+## Étapes suivantes
 
-<!---HONumber=AcomDC_0518_2016-->
+[Sécurisation de votre base de données SQL](sql-database-security.md)
+
+[Création d’une table (didacticiel)](https://msdn.microsoft.com/library/ms365315.aspx)
+
+[Insertion et mise à jour des données dans une table (didacticiel)](https://msdn.microsoft.com/library/ms365309.aspx)
+
+[Lecture des données dans une table (didacticiel)](https://msdn.microsoft.com/library/ms365310.aspx)
+
+[Création de vues et de procédures stockées](https://msdn.microsoft.com/library/ms365311.aspx)
+
+[Octroi de l’accès à un objet de base de données](https://msdn.microsoft.com/library/ms365327.aspx)
+
+<!---HONumber=AcomDC_0608_2016-->

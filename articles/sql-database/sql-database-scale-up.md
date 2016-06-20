@@ -35,8 +35,8 @@ La durée de la totalité du processus de montée en puissance dépend de la tai
 Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-server-portal.md) et [Niveaux de service et de performance de base de données SQL Azure](sql-database-service-tiers.md) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
 
 - Pour qu’une base de données puisse passer à une version antérieure, sa taille doit être inférieure à la taille maximale autorisée par le niveau de service voulu. 
-- Lors de la mise à niveau d’une base de données avec la [géo-réplication](sql-database-geo-replication-overview.md) activée, vous devez commencer par mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant de procéder à la mise à niveau de la base de données primaire.
-- Avant de passer à un niveau de service inférieur, vous devez arrêter toutes les relations de géo-réplication. 
+- Lors de la mise à niveau d’une base de données avec la [géoréplication](sql-database-geo-replication-overview.md) activée, vous devez commencer par mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant de procéder à la mise à niveau de la base de données primaire.
+- Avant de passer à un niveau de service inférieur, vous devez arrêter toutes les relations de géoréplication. 
 - Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour en savoir plus, voir [Sauvegarde et restauration de base de données SQL Azure](sql-database-business-continuity.md).
 - La modification de la tarification de votre base de données ne modifie pas la taille maximale de la base de données. Pour modifier la taille maximale de votre base de données, utilisez [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) ou [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
@@ -58,12 +58,12 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 2.	Cliquez sur **PARCOURIR TOUT**.
 3.	Cliquez sur **Bases de données SQL**.
 2.	Cliquez sur la base de données à modifier.
-3.	Dans le panneau de la base de données SQL, cliquez sur **Tous les paramètres**, puis sur **Niveau tarifaire (mise à l'échelle de DTU)** :
+3.	Dans le panneau de la base de données SQL, cliquez sur **Tous les paramètres**, puis sur **Niveau tarifaire (mise à l'échelle de DTU)** :
 
     ![niveau tarifaire][1]
 
 
-1.  Sélectionnez un nouveau niveau, puis cliquez sur **Sélectionner** :
+1.  Sélectionnez un nouveau niveau, puis cliquez sur **Sélectionner** :
 
     Le fait de cliquer sur **Sélectionner** envoie une demande de mise à l’échelle pour modifier la couche de base de données. En fonction de la taille de votre base de données, l’opération de mise à l’échelle peut prendre plus ou moins longtemps. Cliquez sur la notification pour obtenir les détails et l’état de l’opération de mise à l’échelle.
 
@@ -71,7 +71,7 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 
     ![sélectionner un niveau de tarification][2]
 
-3.	Dans le ruban gauche, cliquez sur **Notifications** :
+3.	Dans le ruban gauche, cliquez sur **Notifications** :
 
     ![notifications][3]
 
@@ -106,4 +106,4 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

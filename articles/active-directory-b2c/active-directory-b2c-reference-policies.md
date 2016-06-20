@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d’Azure Active Directory B2C : infrastructure de stratégie extensible
@@ -161,4 +161,4 @@ Pour activer la réinitialisation affinée du mot de passe sur votre application
 
 - [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure | Microsoft Azure" 
-    description="Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure" 
+    pageTitle="Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure | Microsoft Azure" 
+    description="Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,7 +16,7 @@
     ms.date="04/27/2016"
     ms.author="sstein"/>
 
-# Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure
+# Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure
 
 
 > [AZURE.SELECTOR]
@@ -25,7 +25,7 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-Cet article montre comment configurer la géo-réplication pour Base de données SQL à l’aide du [portail Azure](http://portal.azure.com).
+Cet article montre comment configurer la géoréplication pour Base de données SQL à l’aide du [portail Azure](http://portal.azure.com).
 
 Pour lancer un basculement, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure](sql-database-geo-replication-failover-portal.md).
 
@@ -33,29 +33,29 @@ Pour lancer un basculement, consultez [Lancer un basculement planifié ou non pl
 
 Vous pouvez configurer jusqu'à 4 bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
 
-Pour configurer la géo-réplication, vous devez disposer des éléments suivants :
+Pour configurer la géoréplication, vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 - Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
 
 
 
-## Ajout d’une base de données secondaire
+## Ajout d'une base de données secondaire
 
-Les étapes suivantes créent une base de données secondaire dans un partenariat géo-réplication.
+Les étapes suivantes créent une nouvelle base de données secondaire dans un partenariat de géoréplication.
 
 Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
 
 La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données unique ou d’une base de données élastique. Pour plus d’informations, consultez [Niveaux de service](sql-database-service-tiers.md). Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence.
 
-> [AZURE.NOTE] Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géo-réplication antérieure), la commande échoue.
+> [AZURE.NOTE] Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géoréplication précédente), la commande échoue.
 
 
 
 
 ### Ajouter une base de données secondaire
 
-1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géo-réplication.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géoréplication.
 2. Dans le panneau de la base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
 3. Sélectionnez la région pour créer la base de données secondaire.
 
@@ -88,15 +88,15 @@ La base de données secondaire a le même nom que la base de données primaire e
 
 L’opération arrête définitivement la réplication vers la base de données secondaire et modifie le rôle de la base de données secondaire en une base de données normale accessible en lecture et en écriture. Si la connectivité à la base de données secondaire est interrompue, la commande aboutit, mais la base de données secondaire ne passe pas en mode lecture-écriture une fois la connectivité rétablie.
 
-1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géoréplication.
 2. Dans le panneau Base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
-3. Dans la liste des bases de données **secondaires**, sélectionnez la base de données que vous souhaitez supprimer du partenariat de géo-réplication.
+3. Dans la liste des bases de données **SECONDAIRES**, sélectionnez la base de données que vous souhaitez supprimer du partenariat de géoréplication.
 4. Cliquez sur **Arrêter la réplication**.
 
     ![supprimer la base de données secondaire][7]
 
 
-5. Un clic sur **Arrêter la réplication** ouvre une fenêtre de confirmation. Cliquer sur **Oui** pour supprimer la base de données du partenariat de géo-réplication (définissez-la comme base de données en lecture-écriture ne faisant partie d’aucune réplication).
+5. Un clic sur **Arrêter la réplication** ouvre une fenêtre de confirmation. Cliquer sur **Oui** pour supprimer la base de données du partenariat de géoréplication (définissez-la comme base de données en lecture-écriture ne faisant partie d’aucune réplication).
 
 
     ![confirmer la suppression][8]
@@ -109,13 +109,13 @@ L’opération arrête définitivement la réplication vers la base de données 
 
 - [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure](sql-database-geo-replication-failover-portal.md)
 - [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Exercices de récupération d’urgence](sql-database-disaster-recovery-drills.md)
+- [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 
 
 ## Ressources supplémentaires
 
 - [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
-- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Géo-réplication active](sql-database-geo-replication-overview.md)
@@ -135,4 +135,4 @@ L’opération arrête définitivement la réplication vers la base de données 
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

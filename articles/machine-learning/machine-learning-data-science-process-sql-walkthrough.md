@@ -175,8 +175,8 @@ Dans cet exercice, nous allons :
 
 Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choix :
 
-1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning, ou
-2. stocker les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module [Lecteur][reader] d’Azure Machine Learning.
+1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning, ou
+2. stocker les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module [Importer les données][import-data] d’Azure Machine Learning.
 
 Dans cette section, nous allons enregistrer la requête finale d’extraction et d’échantillonnage des données. La seconde méthode est décrite à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb).
 
@@ -266,7 +266,7 @@ Vous pouvez également utiliser les requêtes de génération d’étiquettes et
 
 #### Préparation des données pour la création de modèles
 
-La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Lecteur][reader] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -298,8 +298,8 @@ Lorsque vous travaillez sur des données volumineuses, il est recommandé de pro
 
 Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez effectuer l’une des deux opérations suivantes :
 
-1. Enregistrez la requête SQL finale d’extraction et d’échantillonnage des données et copiez-collez cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning. Cette méthode est décrite dans la section [Création de modèles dans Azure Machine Learning](#mlmodel).    
-2. Stockez les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utilisez cette table dans le module [Lecteur][reader] d’Azure Machine Learning.
+1. Enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning. Cette méthode est décrite dans la section [Création de modèles dans Azure Machine Learning](#mlmodel).    
+2. Stocker les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module [Importer les données][import-data].
 
 Vous trouverez ci-dessous quelques exemples d’exploration des données, de visualisation des données et de conception de fonctionnalités. Pour découvrir d’autres exemples, reportez-vous à l’exemple de notebook IPython SQL figurant dans le dossier **Exemples de notebooks IPython**.
 
@@ -419,13 +419,13 @@ De la même façon, nous pouvons vérifier la relation entre **rate\_code** et *
 
 ### Sous-échantillonnage des données dans SQL
 
-Lorsque vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit utiliser la **requête SQL directement dans le module Lecteur**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module [Lecteur][reader] à l’aide d’une simple requête **SELECT * FROM <nom\_de\_votre\_table>**.
+Lorsque vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit utiliser la **requête SQL directement dans le module Importer les données**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module [Importer les données][import-data] à l’aide d’une simple requête **SELECT * FROM <nouveau\_nom\_de\_votre\_table>**.
 
 Dans cette section, nous allons créer une table destinée à contenir les données échantillonnées et générées. Un exemple de requête SQL directe pour la création de modèles est fourni à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore).
 
 #### Créer une table d’échantillon et la remplir avec 1 % des données des tables jointes en commençant par supprimer la table si elle existe
 
-Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctaxi\_fare**, extraire un échantillon aléatoire de 1 % des données et stocker les données échantillonnées dans une nouvelle table nommée **nyctaxi\_one\_percent** :
+Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctaxi\_fare**, extraire un échantillon aléatoire de 1 % des données et stocker les données échantillonnées dans une nouvelle table nommée **nyctaxi\_one\_percent** :
 
     cursor = conn.cursor()
 
@@ -631,9 +631,9 @@ Une expérience d’apprentissage classique se déroule comme suit :
 
 Dans cet exercice, nous avons déjà exploré et généré les données dans SQL Server, et déterminé la taille de l’échantillon à recevoir dans Azure Machine Learning. Pour créer les modèles de prédiction souhaités :
 
-1. Récupérez les données dans Azure Machine Learning avec le module [Lecteur][reader], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Lecteur][reader].
+1. Récupérez les données dans Azure Machine Learning avec le module [Importer les données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data].
 
-	![Lecteur Azure Machine Learning][17]
+	![Importer les données Azure ML][17]
 
 2. Dans le panneau **Propriétés**, sélectionnez **Base de données SQL Azure** dans le champ **Source de données**.
 
@@ -653,7 +653,7 @@ La figure ci-après illustre un exemple d’expérience de classification binair
 
 > [AZURE.IMPORTANT] Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
 >
-> Pour exclure les colonnes superflues et/ou les fuites cibles, vous pouvez utiliser le module [Colonnes de projet][project-columns] ou l’[Éditeur de métadonnées][metadata-editor]. Pour plus d’informations, voir les pages de référence des modules [Colonnes de projet][project-columns] et [Éditeur de métadonnées][metadata-editor].
+> Pour exclure les colonnes superflues et/ou les fuites cibles, vous pouvez utiliser le module [Sélectionner des colonnes dans le jeu de données][select-columns] ou [Modifier les métadonnées][edit-metadata]. Pour plus d’informations, consultez les pages de référence [Sélectionner des colonnes dans le jeu de données][select-columns] et [Modifier les métadonnées][edit-metadata].
 
 ## <a name="mldeploy"></a>Déploiement de modèles dans Azure Machine Learning
 
@@ -674,7 +674,7 @@ Azure Machine Learning va essayer de créer une expérience de notation reposant
 2. identifier un **port d’entrée** logique pour représenter le schéma de données d’entrée attendu ;
 3. identifier un **port de sortie** logique pour représenter le schéma de sortie de service web attendu.
 
-Une fois l’expérience de notation créée, passez-la en revue et ajustez-la selon vos besoins. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, car ces derniers ne seront pas disponibles lors de l’appel du service. Il est également recommandé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Colonnes de projet][project-columns].
+Une fois l’expérience de notation créée, passez-la en revue et ajustez-la selon vos besoins. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, car ces derniers ne seront pas disponibles lors de l’appel du service. Il est également recommandé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
 La figure ci-après illustre un exemple d’expérience de notation. Quand vous êtes prêt à effectuer le déploiement, cliquez sur le bouton **PUBLIER LE SERVICE WEB** de la barre d’action inférieure.
 
@@ -712,8 +712,8 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 
 
 <!-- Module References -->
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

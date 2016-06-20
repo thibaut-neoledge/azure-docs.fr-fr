@@ -26,7 +26,7 @@ Cet article explique comment utiliser les fonctionnalités de messagerie répart
 
 ## Prise en main de Service Bus
 
-Cet article présume que vous disposez déjà d'un espace de noms Service Bus contenant une file d'attente nommée « queue1 ». Dans le cas contraire, vous pouvez créer l’espace de noms et la file d’attente à l’aide du [portail Azure Classic](http://manage.windowsazure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md).
+Cet article présume que vous disposez déjà d'un espace de noms Service Bus contenant une file d'attente nommée « queue1 ». Dans le cas contraire, vous pouvez créer l’espace de noms et la file d’attente à l’aide du [portail Azure Classic](http://manage.windowsazure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 ## Téléchargement du Kit de développement logiciel (SDK) Service Bus
 
@@ -320,8 +320,8 @@ Maintenant que vous avez une vue d'ensemble du Service Bus et AMQP avec .NET, co
 
 * [Prise en charge d’AMQP 1.0 dans Azure Service Bus](service-bus-amqp-overview.md)
 * [Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
-* [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+* [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
  
 [portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

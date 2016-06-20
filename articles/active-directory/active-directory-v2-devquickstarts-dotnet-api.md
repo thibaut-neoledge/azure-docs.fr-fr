@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Sécurisation d’une API Web MVC
@@ -45,7 +45,7 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 
 Cette solution Visual Studio contient également une valeur « TodoListClient », qui est une application simple WPF. La valeur « TodoListClient » permet d'indiquer comment un utilisateur se connecte et comment un client peut émettre des requêtes à votre API Web. Les valeurs TodoListClient et TodoListService sont, dans ce cas, représentées par la même application. Pour configurer la valeur TodoListClient, vous devez également :
 
-- ajouter la plateforme **Mobile** pour votre application ;
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -167,4 +167,4 @@ Pour obtenir des ressources supplémentaires, consultez :
 
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

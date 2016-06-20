@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple 
@@ -76,9 +76,9 @@ Les graphiques suivants montrent l’utilisation de la capacité de stockage pri
 
 ![Utilisation de la capacité principale après l’instantané cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
-Si vous exécutez Update 2 ou une version ultérieure, vous pouvez diviser l’utilisation de la capacité de stockage principale (un seul volume, tous les volumes, tous les volumes hiérarchisés ou tous les volumes locaux) comme indiqué ci-dessous. Le fait de diviser la capacité de stockage entre tous les volumes locaux vous permet de déterminer rapidement le niveau d’utilisation d’une couche locale.
+Si vous exécutez Update 2 ou une version ultérieure, vous pouvez diviser l’utilisation de la capacité de stockage principale (un seul volume, tous les volumes, tous les volumes hiérarchisés ou tous les volumes épinglés localement) comme indiqué ci-dessous. Le fait de diviser la capacité de stockage entre tous les volumes épinglés localement vous permet de déterminer rapidement le niveau d’utilisation d’une couche locale.
 
-![Utilisation de la capacité principale pour tous les volumes locaux](./media/storsimple-monitor-device/localvolumes.png)
+![Utilisation de la capacité principale pour tous les volumes épinglés localement](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Utilisation de la capacité de stockage dans le cloud
@@ -126,4 +126,4 @@ Les graphiques ci-dessous montrent le débit du réseau pour Data 0 et Data 4,
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

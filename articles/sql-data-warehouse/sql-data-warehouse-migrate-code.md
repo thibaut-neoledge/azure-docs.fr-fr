@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="06/03/2016"
+   ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migration de votre code SQL vers SQL Data Warehouse
 
@@ -80,7 +80,7 @@ Les expressions de table communes présentent certaines restrictions dans SQL Da
 
 Les expressions de table communes récursives ne sont pas prises en charge dans SQL Data Warehouse. La migration de CTE récursives peut être relativement complète ; le mieux est de décomposer le processus en plusieurs étapes. Vous pouvez généralement utiliser une boucle pour une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][].
 
-### Fonctions système
+## Fonctions système
 
 Certaines fonctions système ne sont pas prises en charge. Voici les principales fonctions habituellement associées aux entrepôts de données :
 
@@ -103,33 +103,34 @@ AND     request_id IN
                     (   SELECT TOP 1    request_id
                         FROM            sys.dm_pdw_exec_requests
                         WHERE           session_id = SESSION_ID()
+                        AND             resource_class IS NOT NULL
                         ORDER BY end_time DESC
                     )
 ;
 ```
 
 ## Étapes suivantes
-Pour bénéficier de recommandation sur le développement de votre code, consultez la [vue d’ensemble sur le développement][].
+Pour obtenir la liste complète de toutes les instructions T-SQL prises en charge, consultez les [rubriques Transact-SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Jointures ANSI sur les opérations UPDATE]: sql-data-warehouse-develop-ctas.md
-[Jointures ANSI sur les opérations DELETE]: sql-data-warehouse-develop-ctas.md
-[Instruction MERGE]: sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+[Jointures ANSI sur les opérations UPDATE]: ./sql-data-warehouse-develop-ctas.md
+[Jointures ANSI sur les opérations DELETE]: ./sql-data-warehouse-develop-ctas.md
+[Instruction MERGE]: ./sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[rubriques Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[Curseurs]: sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
-[Regroupement par clause à l’aide des options rollup/cube/grouping sets]: sql-data-warehouse-develop-group-by-options.md
-[Imbrication des niveaux au-delà de 8]: sql-data-warehouse-develop-transactions.md
-[Mise à jour par le biais de vues]: sql-data-warehouse-develop-views.md
-[Utilisation de Select pour l’attribution des variables]: sql-data-warehouse-develop-variable-assignment.md
-[Type de données no MAX pour les chaînes dynamiques SQL]: sql-data-warehouse-develop-dynamic-sql.md
-[vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
+[Curseurs]: ./sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[Regroupement par clause à l’aide des options rollup/cube/grouping sets]: ./sql-data-warehouse-develop-group-by-options.md
+[Imbrication des niveaux au-delà de 8]: ./sql-data-warehouse-develop-transactions.md
+[Mise à jour par le biais de vues]: ./sql-data-warehouse-develop-views.md
+[Utilisation de Select pour l’attribution des variables]: ./sql-data-warehouse-develop-variable-assignment.md
+[Type de données no MAX pour les chaînes dynamiques SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -90,9 +90,9 @@
 [deployment-guide-2.2]: virtual-machines-linux-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 "Ressources SAP"
 [deployment-guide-3]: virtual-machines-linux-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e "Scénarios de déploiement de machines virtuelles pour SAP sur Microsoft Azure"
 [deployment-guide-3.1.2]: virtual-machines-linux-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab "Déploiement d’une machine virtuelle avec une image personnalisée"
-[deployment-guide-3.2]: virtual-machines-linux-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 "Scénario 1 : Déploiement d’une machine virtuelle provenant d’Azure Marketplace pour SAP"
-[deployment-guide-3.3]: virtual-machines-linux-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 "Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP"
-[deployment-guide-3.4]: virtual-machines-linux-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 "Scénario 3 : Déplacer une machine virtuelle locale à l’aide d’un disque dur virtuel non généralisé avec SAP"
+[deployment-guide-3.2]: virtual-machines-linux-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 "Scénario 1 : Déploiement d’une machine virtuelle provenant d’Azure Marketplace pour SAP"
+[deployment-guide-3.3]: virtual-machines-linux-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 "Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP"
+[deployment-guide-3.4]: virtual-machines-linux-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 "Scénario 3 : Déplacement d’une machine virtuelle locale à l’aide d’un disque dur virtuel Azure non généralisé avec SAP"
 [deployment-guide-4.1]: virtual-machines-linux-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 "Déploiement d’applets de commande Azure PowerShell"
 [deployment-guide-4.2]: virtual-machines-linux-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e "Téléchargement et importation d’applets de commande PowerShell appropriées pour SAP"
 [deployment-guide-4.3]: virtual-machines-linux-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc "Joindre une machine virtuelle au domaine local – Windows uniquement"
@@ -102,11 +102,11 @@
 [deployment-guide-4.5.1]: virtual-machines-linux-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 "Azure PowerShell"
 [deployment-guide-4.5.2]: virtual-machines-linux-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f "Interface de ligne de commande Azure"
 [deployment-guide-5.1]: virtual-machines-linux-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 "Vérification de la disponibilité de l’analyse Azure améliorée pour SAP"
-[deployment-guide-5.2]: virtual-machines-linux-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 "Contrôle d’intégrité de la configuration de l’infrastructure de l’analyse Azure"
-[deployment-guide-5.3]: virtual-machines-linux-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 "Suite de la résolution des problèmes de l’infrastructure d’analyse Azure pour SAP"
+[deployment-guide-5.2]: virtual-machines-linux-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 "Contrôle d’intégrité de la configuration de l’infrastructure d’analyse Azure"
+[deployment-guide-5.3]: virtual-machines-linux-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 "Étapes supplémentaires de la résolution des problèmes de l’infrastructure d’analyse Azure pour SAP"
 [deployment-guide-install-vm-agent-windows]: virtual-machines-linux-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-configure-proxy]: virtual-machines-linux-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d "Configurer le proxy"
-[deployment-guide-configure-monitoring-scenario-1]: virtual-machines-linux-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b "Configuration de l’analyse"
+[deployment-guide-configure-monitoring-scenario-1]: virtual-machines-linux-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b "Configurer l’analyse"
 [deployment-guide-troubleshooting-chapter]: virtual-machines-linux-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b "Vérifications et résolution des problèmes pour la configuration de l’analyse de bout en bout pour SAP sur Azure"
 [deployment-guide-figure-100]: ./media/virtual-machines-linux-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-300]: ./media/virtual-machines-linux-sap-deployment-guide/300-deploy-private-image.png
@@ -132,14 +132,14 @@
 
 [planning-guide-1.2]: virtual-machines-linux-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff "Ressources"
 [planning-guide-2.1]: virtual-machines-linux-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 "Cloud uniquement : déploiements d’une machine virtuelle dans Azure sans dépendances sur le réseau local du client"
-[planning-guide-2.2]: virtual-machines-linux-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 "Entre différents locaux : déploiement d’une ou de plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire"
+[planning-guide-2.2]: virtual-machines-linux-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 "Entre différents locaux : déploiement d’une ou de plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire"
 [planning-guide-3.1]: virtual-machines-linux-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a "Régions Azure"
 [planning-guide-3.2]: virtual-machines-linux-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 "Concept de la machine virtuelle Microsoft Azure"
 [planning-guide-3.2.1]: virtual-machines-linux-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 "Domaines d'erreur"
 [planning-guide-3.2.2]: virtual-machines-linux-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 "Domaines de mise à niveau"
 [planning-guide-3.2.3]: virtual-machines-linux-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 "Groupes à haute disponibilité Azure"
 [planning-guide-3.3.2]: virtual-machines-linux-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 "Stockage Premium Azure"
-[planning-guide-5.1.1]: virtual-machines-linux-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 "Déplacer une machine virtuelle locale vers Azure avec un disque non généralisé"
+[planning-guide-5.1.1]: virtual-machines-linux-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 "Déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé"
 [planning-guide-5.1.2]: virtual-machines-linux-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c "Déploiement d’une machine virtuelle avec une image spécifique au client"
 [planning-guide-5.2]: virtual-machines-linux-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 "Préparation de machines virtuelles avec SAP pour Azure"
 [planning-guide-5.2.1]: virtual-machines-linux-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef "Préparation du déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé"
@@ -151,10 +151,10 @@
 [planning-guide-5.5.3]: virtual-machines-linux-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d "Paramétrage du montage automatique pour les disques attachés"
 [planning-guide-7]: virtual-machines-linux-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 "Concepts de déploiement cloud uniquement d’instances SAP"
 [planning-guide-7.1]: virtual-machines-linux-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 "Machine virtuelle unique avec scénario de démonstration/formation SAP NetWeaver"
-[planning-guide-9.1]: virtual-machines-linux-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 "Solution d’analyse Azure pour SAP"
+[planning-guide-9.1]: virtual-machines-linux-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 "Solution de surveillance Azure pour SAP"
 [planning-guide-11.4.1]: virtual-machines-linux-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 "Haute disponibilité pour les serveurs d’applications SAP"
 [planning-guide-11.5]: virtual-machines-linux-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f "Utilisation du démarrage automatique pour les instances SAP"
-[planning-guide-microsoft-azure-networking]: virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd "Mise en réseau Microsoft Azure"
+[planning-guide-microsoft-azure-networking]: virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd "Mise en réseau Microsoft Azure"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]: virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f "Stockage : Microsoft Azure Storage et disques de données"
 [planning-guide-azure-premium-storage]: virtual-machines-linux-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 "Stockage Premium Azure"
 [planning-guide-figure-100]: ./media/virtual-machines-linux-sap-planning-guide/100-single-vm-in-azure.png
@@ -184,9 +184,9 @@
 [dbms-guide-2]: virtual-machines-linux-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 "Structure d’un déploiement SGBDR"
 [dbms-guide-2.1]: virtual-machines-linux-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f "Mise en cache pour les machines virtuelles et les disques durs virtuels"
 [dbms-guide-2.2]: virtual-machines-linux-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 "RAID logiciel"
-[dbms-guide-2.3]: virtual-machines-linux-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 "Microsoft Azure Storage"
+[dbms-guide-2.3]: virtual-machines-linux-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 "Microsoft Azure Storage"
 [dbms-guide-3]: virtual-machines-linux-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 "Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure"
-[dbms-guide-5]: virtual-machines-linux-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 "Caractéristiques du système SGBDR SQL Server"
+[dbms-guide-5]: virtual-machines-linux-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 "Caractéristiques de SGBDR SQL Server"
 [dbms-guide-5.5.1]: virtual-machines-linux-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 "SQL Server 2012 SP1 CU4 et versions ultérieures"
 [dbms-guide-5.5.2]: virtual-machines-linux-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b "SQL Server 2012 SP1 CU3 et versions antérieures"
 [dbms-guide-5.6]: virtual-machines-linux-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 "Utilisation d’images SQL Server issues de Microsoft Azure Marketplace"
@@ -276,7 +276,7 @@
 [virtual-machines-azure-resource-manager-architecture]: virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]: virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-create-powershell.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
 [virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
@@ -442,28 +442,28 @@ L’assistant vous guide pour configurer les paramètres requis pour créer la m
 Une fois l’assistant terminé, votre machine virtuelle sera déployée dans le groupe de ressources que vous avez sélectionné.
 
 #### Créer une machine virtuelle à l’aide d’un modèle
-Vous pouvez également créer un déploiement à l’aide de l’un des modèles SAP publiés dans le [référentiel github azure-quickstart-templates][azure-quickstart-templates-github]. Vous pouvez également créer une machine virtuelle manuellement à l’aide du [Portail Azure][virtual-machines-windows-tutorial], de [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] ou de l’[interface de ligne de commande Azure][virtual-machines-linux-tutorial].
+Vous pouvez également créer un déploiement à l’aide de l’un des modèles SAP publiés dans le [référentiel github azure-quickstart-templates][azure-quickstart-templates-github]. Vous pouvez également créer une machine virtuelle manuellement à l’aide du [Portail Azure][virtual-machines-windows-tutorial], de [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] ou de [l’interface de ligne de commande Azure][virtual-machines-linux-tutorial].
 
 * [Modèle de configuration à deux niveaux (une seule machine virtuelle)][sap-templates-2-tier-marketplace-image] Utilisez ce modèle si vous voulez créer un système à 2 niveaux avec une seule machine virtuelle.
 * [Modèle de configuration à trois niveaux (plusieurs machines virtuelles)][sap-templates-3-tier-marketplace-image] Utilisez ce modèle si vous voulez créer un système à 3 niveaux avec plusieurs machines virtuelles.
 
 Une fois que vous avez ouvert l’un des modèles ci-dessus, le portail Azure vous dirige vers le panneau Modifier les paramètres. Entrez les informations suivantes :
 
-* **sapSystemId** : identifiant du système SAP
-* **osType** : système d’exploitation que vous voulez déployer, par exemple, Windows Server 2012 R2 ou SLES 12
+* **sapSystemId** : identifiant du système SAP
+* **osType** : système d’exploitation que vous voulez déployer, par exemple, Windows Server 2012 R2 ou SLES 12
     * La liste contient uniquement les versions prises en charge par SAP sur Microsoft Azure
-* **sapSystemSize** : taille du système SAP
+* **sapSystemSize** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système 
+* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système 
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
 * storageType : (modèle à 2 niveaux uniquement) type de stockage à utiliser. 
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section 
         * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide]
         * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.][storage-premium-storage-preview-portal]
         * [Introduction à Microsoft Azure Storage][storage-introduction]
-* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
+* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
     * Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
-* **newOrExistingSubnet** : détermine si un nouveau réseau virtuel et sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
+* **newOrExistingSubnet** : détermine si un nouveau réseau virtuel et sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
 * **subnetId**: identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnement/`<subscription id`> /groupesderessources/`<resource group name`> /fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`> /sous-réseaux/`<subnet name`>
 
 Une fois que vous avez entré tous les paramètres, sélectionnez l’abonnement et le groupe de ressources que vous voulez utiliser. Vous pouvez sélectionner un groupe de ressources existant ou en créer un en sélectionnant « + Nouveau » dans le menu déroulant. Si vous créez un groupe de ressources, vous devez également sélectionner la région dans laquelle le groupe de ressources et la machine virtuelle seront créés.
@@ -504,22 +504,22 @@ Pour créer un déploiement à l’aide d’une image privée de système d’ex
 
 Une fois que vous avez ouvert l’un des modèles ci-dessus, le portail Azure vous dirige vers le panneau Modifier les paramètres. Entrez les informations suivantes :
 
-* **sapSystemId** : identifiant du système SAP
-* **osType** : type de système d’exploitation à déployer, Windows ou Linux
-* **sapSystemSize** : taille du système SAP
+* **sapSystemId** : identifiant du système SAP
+* **osType** : type de système d’exploitation à déployer, Windows ou Linux
+* **sapSystemSize** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système 
+* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système 
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
-* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser. 
+* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser. 
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section 
         * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide]
         * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.][storage-premium-storage-preview-portal]
         * [Introduction à Microsoft Azure Storage][storage-introduction]
-* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
+* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
     * Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
-* **userImageVhdUri** : URI du disque dur virtuel de l’image privée de système d’exploitation, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/userimage.vhd
-* **userImageStorageAccount** : nom du compte de stockage où l’image privée du système d’exploitation est stockée, par exemple, `<accountname`> dans l’exemple d’URI ci-dessus
-* **newOrExistingSubnet** : détermine si un nouveau réseau virtuel et sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
+* **userImageVhdUri** : URI du disque dur virtuel de l’image privée de système d’exploitation, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/userimage.vhd
+* **userImageStorageAccount** : nom du compte de stockage où l’image privée du système d’exploitation est stockée, par exemple, `<accountname`> dans l’exemple d’URI ci-dessus
+* **newOrExistingSubnet** : détermine si un nouveau réseau virtuel et sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
 * **subnetId**: identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnement/`<subscription id`> /groupesderessources/`<resource group name`> /fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`> /sous-réseaux/`<subnet name`>
 
 Une fois que vous avez entré tous les paramètres, sélectionnez l’abonnement et le groupe de ressources que vous voulez utiliser. Vous pouvez sélectionner un groupe de ressources existant ou en créer un en sélectionnant « + Nouveau » dans le menu déroulant. Si vous créez un groupe de ressources, vous devez également sélectionner la région dans laquelle le groupe de ressources et la machine virtuelle seront créés.
@@ -554,7 +554,7 @@ ___
 >
 > ![Linux][Logo_Linux] Linux
 >
-> <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/>
+> <https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-linux-agent-user-guide/>
 
 ___
 
@@ -572,18 +572,18 @@ Pour créer un déploiement à l’aide d’un disque privé de système d’exp
 
 Une fois que vous avez ouvert le modèle ci-dessus, le portail Azure vous dirige vers le panneau Modifier les paramètres. Entrez les informations suivantes :
 
-* **sapSystemId** : identifiant du système SAP
-* **osType** : type de système d’exploitation à déployer, Windows ou Linux
-* **sapSystemSize** : taille du système SAP
+* **sapSystemId** : identifiant du système SAP
+* **osType** : type de système d’exploitation à déployer, Windows ou Linux
+* **sapSystemSize** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser 
+* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser 
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section 
         * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide]
         * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.][storage-premium-storage-preview-portal]
         * [Introduction à Microsoft Azure Storage][storage-introduction]
-* **osDiskVhdUri** : URI du disque de système d’exploitation privé, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/osdisk.vhd
-* **newOrExistingSubnet** : détermine si un nouveau réseau virtuel et sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
-* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnement/`<subscription id`> /groupesderessources/`<resource group name`> /fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`> /sous-réseaux/`<subnet name`>
+* **osDiskVhdUri** : URI du disque de système d’exploitation privé, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/osdisk.vhd
+* **newOrExistingSubnet** : détermine si un nouveau réseau virtuel et sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
+* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnement/`<subscription id`> /groupesderessources/`<resource group name`> /fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`> /sous-réseaux/`<subnet name`>
 
 Une fois que vous avez entré tous les paramètres, sélectionnez l’abonnement et le groupe de ressources que vous voulez utiliser. Vous pouvez sélectionner un groupe de ressources existant ou en créer un en sélectionnant « + Nouveau » dans le menu déroulant. Si vous créez un groupe de ressources, vous devez également sélectionner la région dans laquelle le groupe de ressources et la machine virtuelle seront créés.
 
@@ -938,4 +938,4 @@ Pour obtenir une liste complète et à jour des problèmes connus, consultez la 
 
 Si la note SAP [1999351] ne permet pas de résoudre les problèmes, exécutez à nouveau le script de configuration Set-AzureRmVMAEMExtension comme décrit dans le chapitre [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5]. Vous devrez peut-être attendre une heure, car il est possible que les compteurs d’analyse ou de diagnostics de stockage ne soient pas créés immédiatement après avoir été activés. Si le problème persiste, ouvrez un message de support client SAP sur le composant BC-OP-NT-AZR pour Windows ou BC-OP-LNX-AZR pour une machine virtuelle Linux.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

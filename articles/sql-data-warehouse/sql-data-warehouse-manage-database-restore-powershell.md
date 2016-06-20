@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Sauvegarde et restauration d’une base de données dans Azure SQL Data Warehouse (PowerShell)
 
@@ -30,7 +30,6 @@ Tâches abordées dans cette rubrique :
 
 - restauration d’une base de données active ;
 - restauration d’une base de données supprimée.
-- restauration d’une base de données inaccessible à partir d’une autre région géographique Azure.
 
 [AZURE.INCLUDE [Stratégie de rétention des sauvegardes SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -130,55 +129,16 @@ $RestoredDatabase.status
 
 Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
 
-## Restauration à partir d’une région géographique Azure
-
-Pour restaurer une base de données, utilisez l’applet de commande [Restore-AzureRmSqlDatabase][].
-
-1. Ouvrez Windows PowerShell.
-2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
-3. Sélectionnez l’abonnement qui contient la base de données à restaurer.
-4. Obtenez la base de données à récupérer.
-5. Créez la demande de récupération de la base de données.
-6. Vérifiez l’état de la base de données affectée par la géo-restauration.
-
-```Powershell
-
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
-
-# Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
-
-# Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
-
-# Verify that the geo-restored database is online
-$GeoRestoredDatabase.status
-
-```
-
-### Configurer votre base de données après avoir effectué une géo-restauration
-Voici une liste de contrôle pour vous aider à préparer votre base de données de production récupérée.
-
-1. **Mettre à jour les chaînes de connexion** : vérifiez que les chaînes de connexion de vos outils clients pointent vers la base de données qui vient d’être récupérée.
-2. **Modifier les règles de pare-feu** : vérifiez les règles de pare-feu sur le serveur cible. Assurez-vous également que les connexions entre les ordinateurs clients ou Azure et le serveur et la base de données qui vient d’être récupérée sont activées.
-3. **Vérifier les connexions de serveur et les utilisateurs des bases de données** : vérifiez que toutes les connexions utilisées par votre application existent sur le serveur qui héberge votre base de données récupérée. Créez à nouveau les connexions manquantes et accordez-leur les autorisations appropriées sur la base de données restaurée. 
-4. **Activer l’audit** : si la fonction d’audit est nécessaire pour accéder à votre base de données, vous devez l’activer après la récupération de la base de données.
-
-La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
-
-
 ## Étapes suivantes
-Pour plus d’informations, consultez les articles [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database][] et [Gestion de bases de données dans Azure SQL Data Warehouse][].
+Pour plus d’informations, consultez les articles [Vue d’ensemble de la continuité d’activité d’une base de données SQL Azure][] et [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database]: sql-database-business-continuity.md
+[Vue d’ensemble de la continuité d’activité d’une base de données SQL Azure]: sql-database-business-continuity.md
 [Finaliser une base de données récupérée]: sql-database-recovered-finalize.md
 [Installation et configuration d’Azure PowerShell]: powershell-install-configure.md
-[Gestion de bases de données dans Azure SQL Data Warehouse]: sql-data-warehouse-overview-manage.md
+[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -194,4 +154,4 @@ Pour plus d’informations, consultez les articles [Vue d’ensemble : continuit
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

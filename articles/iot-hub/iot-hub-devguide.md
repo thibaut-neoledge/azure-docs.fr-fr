@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="05/29/2016" 
  ms.author="dobett"/>
 
 # Guide du développeur Azure IoT Hub
@@ -47,11 +47,13 @@ Vous trouverez ci-dessous une description des points de terminaison :
 * **Points de terminaison des appareils**. Pour chaque appareil approvisionné dans le registre des identités des appareils, IoT Hub expose un ensemble de points de terminaison qu’un appareil peut utiliser pour envoyer et recevoir des messages :
     - *Envoyer des messages appareil-à-cloud*. Utilisez ce point de terminaison pour envoyer des messages appareil-à-cloud. Pour plus d’informations, consultez [Messages appareil-à-cloud](#d2c)
     - *Recevoir des messages cloud-à-appareil*. Un appareil utilise ce point de terminaison pour recevoir les messages cloud-à-appareil qui lui sont adressés. Pour plus d’informations, consultez [Messages cloud-à-appareil](#c2d).
+    - *Initier des téléchargements de fichiers*. Un appareil utilise ce point de terminaison pour recevoir un URI SAP Azure Storage à partir d’IoT Hub pour télécharger un fichier. Pour plus d'informations, consultez la rubrique [Téléchargements de fichiers](#fileupload). 
 
-    Ces points de terminaison sont exposés à l’aide de protocoles HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] et [AMQP 1.0][lnk-amqp]. Notez que le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
+    Ces points de terminaison sont exposés à l’aide des protocoles HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] et [AMQP 1.0][lnk-amqp]. Notez que le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison que votre système principal d’application peut utiliser pour communiquer avec vos appareils. Ces points de terminaison sont actuellement exposés uniquement à l’aide du protocole [AMQP][lnk-amqp].
-    - *Recevoir des messages appareil-à-cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs][lnk-event-hubs]. Il peut être utilisé par un service principal pour lire tous les messages appareil vers cloud envoyés par vos appareils. Pour plus d’informations, consultez [Messages appareil-à-cloud](#d2c)
-    - *Envoyer des messages cloud-à-appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent votre système principal d’application à envoyer des messages cloud-à-appareil et à recevoir les accusés de réception ou d’expiration correspondants. Pour plus d’informations, consultez [Messages cloud-à-appareil](#c2d).
+    - *Recevoir des messages Appareil vers cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs][lnk-event-hubs]. Il peut être utilisé par un service principal pour lire tous les messages appareil vers cloud envoyés par vos appareils. Pour plus d’informations, consultez [Messagerie appareil vers cloud](#d2c)
+    - *Envoyer des messages Cloud vers appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent votre système principal d’application à envoyer des messages cloud-à-appareil et à recevoir les accusés de réception ou d’expiration correspondants. Pour plus d’informations, consultez [Messagerie cloud vers appareil](#c2d).
+    - *Recevoir les notifications de fichier*. Ce point de terminaison de messagerie vous permet de recevoir des notifications lorsqu’un fichier est correctement téléchargé sur votre appareil. 
 
 L’article [API et Kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks] décrit les différentes méthodes permettant d’accéder à ces points de terminaison.
 
@@ -61,14 +63,14 @@ Enfin, il est important de noter que tous les points de terminaison IoT Hub util
 
 Lorsque vous utilisez le [Kit Azure Service Bus SDK pour .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) ou [Event Hubs - Hôte du processeur d’événements][], vous pouvez utiliser n’importe quelle chaîne de connexion IoT Hub avec les autorisations appropriées, puis utiliser **messages/événements** comme nom de hub d’événements.
 
-Lorsque vous utilisez des Kits de développement logiciel (SDK) ou des intégrations de produits qui n’ont pas connaissance d’IoT Hub, vous devez récupérer un point de terminaison compatible avec Event Hubs et un nom de hub d’événements à partir des paramètres IoT Hub dans le [portail Azure][] :
+Lorsque vous utilisez des Kits de développement logiciel (SDK) ou des intégrations de produits qui n’ont pas connaissance d’IoT Hub, vous devez récupérer un point de terminaison compatible avec Event Hubs et un nom de hub d’événements à partir des paramètres IoT Hub dans le [portail Azure][] \:
 
 1. Dans le panneau IoT Hub, cliquez sur **Paramètres** > **Messagerie**.
 2. Dans la section **Device-to-cloud settings** (Paramètres Appareil vers cloud), vous trouverez les valeurs suivantes : un **point de terminaison compatible avec Event Hub**, un **nom compatible avec Event Hub** et des **Partitions**.
 
     ![Paramètres Appareil vers cloud][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie de sécurité d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au hub d’événements ci-dessus.
 
@@ -98,7 +100,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 
 | Propriété | Options | Description |
 | -------- | ------- | ----------- |
-| deviceId | obligatoire, en lecture seule sur les mises à jour | Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| deviceId | obligatoire, en lecture seule sur les mises à jour | Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId | obligatoire, en lecture seule | Une chaîne qui respecte la casse, générée par le hub et allant jusqu’à 128 caractères. Elle permet de distinguer les appareils dotés du même **deviceId** lorsqu’ils ont été supprimés et recréés. |
 | etag | obligatoire, en lecture seule | Une chaîne représentant un etag faible pour l’identité d’appareil, conformément à [RFC7232][lnk-rfc7232].|
 | auth | facultatif | Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
@@ -106,7 +108,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 | status | required | Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
 | statusReason | facultatif | Une chaîne de 128 caractères qui stocke le motif de l’état de l’identité de l’appareil. Tous les caractères UTF-8 sont autorisés. |
 | statusUpdateTime | en lecture seule | Un indicateur temporel, indiquant la date et l’heure de la dernière mise à jour de l’état. |
-| connectionState | en lecture seule | Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important **: ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’en réalité, celui-ci est déconnecté. |
+| connectionState | en lecture seule | Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important **: ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’en réalité, celui-ci est déconnecté. |
 | connectionStateUpdatedTime | en lecture seule | Un indicateur temporel, indiquant la date et la dernière heure de mise à jour de l’état de la connexion. |
 | lastActivityTime | en lecture seule | Un indicateur temporel, indiquant la date et la dernière heure de connexion de l’appareil, de réception d’un message ou d’envoi d’un message. |
 
@@ -126,7 +128,7 @@ Le registre des identités des appareils IoT Hub expose les opérations suivant
 
 Toutes ces opérations autorisent l’utilisation de l’accès concurrentiel optimiste comme spécifié dans [RFC7232][lnk-rfc7232].
 
-> [AZURE.IMPORTANT] La seule façon de récupérer toutes les identités dans le registre des identités d’un hub consiste à utiliser la fonctionnalité [Exporter](#importexport).
+> [AZURE.IMPORTANT] La seule façon de récupérer toutes les identités dans le registre d’identité d’un hub consiste à utiliser la fonctionnalité [Exporter](#importexport).
 
 Un registre des identités des appareils IoT Hub :
 
@@ -160,7 +162,7 @@ Cette section décrit les options de sécurisation d’Azure IoT Hub.
 
 ### Contrôle d’accès <a id="accesscontrol"></a>
 
-Azure IoT Hub utilise l’ensemble d’*autorisations* qui suit pour accorder l’accès à chaque point de terminaison de chaque IoT Hub. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
+Azure IoT Hub utilise l’ensemble d’*autorisations* qui suit pour accorder l’accès à chaque point de terminaison de chaque IoT Hub. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
 
 * **RegistryRead**. Accorde l’accès en lecture au registre des identités des appareils. Pour plus d’informations, consultez la rubrique [Registre d’identité des appareils](#device-identity-registry).
 * **RegistryReadWrite**. Accorde l’accès en lecture et en écriture au registre des identités des appareils. Pour plus d’informations, consultez la rubrique [Registre d’identité des appareils](#device-identity-registry).
@@ -169,7 +171,7 @@ Azure IoT Hub utilise l’ensemble d’*autorisations* qui suit pour accorder 
 
 Vous pouvez accorder les autorisations de différentes manières :
 
-* **Stratégies d’accès partagé au niveau du concentrateur**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison des autorisations mentionnées dans la section qui précède. Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal] ou par programmation à l’aide des [API du fournisseur de ressources Azure IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
+* **Stratégies d’accès partagé au niveau du concentrateur**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison des autorisations mentionnées dans la section qui précède. Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal] ou par programmation à l’aide des [API du fournisseur de ressources Azure IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
 
     - **iothubowner** : stratégie jouissant de toutes les autorisations.
     - **service** : stratégie jouissant de l’autorisation ServiceConnect.
@@ -186,7 +188,7 @@ Par exemple, dans une solution IoT classique :
 - Le composant de logique métier des appareils d’exécution utilise la stratégie *service*.
 - Les appareils individuels se connectent à l’aide d’informations d’identification stockées dans le registre des identités du hub IoT.
 
-Pour obtenir des conseils sur les aspects liés à la sécurité d’IoT Hub, consultez la section Sécurité dans [Conception de votre solution][lnk-guidance-security].
+Pour obtenir des conseils sur les aspects liés à la sécurité d’IoT Hub, consultez la section Sécurité dans [Conception de votre solution][lnk-guidance-security].
 
 ### Authentification
 
@@ -246,6 +248,7 @@ IoT Hub offre des primitives de message pour communiquer :
 
 - [Cloud vers appareil](#c2d) : à partir d’un serveur principal d’applications (*service* ou *cloud*).
 - [Appareil vers cloud](#d2c) : à partir d’un appareil vers un serveur principal d’applications.
+- [Téléchargements de fichiers](#fileupload) : à partir d’un appareil vers un compte Azure Storage associé. 
 
 Les principales propriétés de la fonctionnalité de messagerie IoT Hub sont la fiabilité et la durabilité des messages. Elle active la résilience de la connectivité intermittente côté appareils et des pics de chargement dans le traitement d’événements côté cloud. IoT Hub implémente *au moins une fois* des garanties de remise pour l’envoi de messages appareil vers cloud et cloud vers appareil.
 
@@ -265,14 +268,14 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 
 | Propriété | Description |
 | -------- | ----------- |
-| MessageId | Identificateur correspondant au message défini par l’utilisateur, généralement utilisé pour les modèles demande-réponse. Format : une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| MessageId | Identificateur correspondant au message défini par l’utilisateur, généralement utilisé pour les modèles demande-réponse. Format : une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Numéro de séquence | Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. |
 | À | Une destination spécifiée dans les messages [cloud vers appareil](#c2d). |
 | ExpiryTimeUtc | Date et heure d’expiration du message. |
 | EnqueuedTime | Date et heure de réception du message par IoT Hub. |
 | CorrelationId | Une propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. |
 | UserId | Un ID utilisé pour spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. |
-| Ack | Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud vers appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre de remises maximal a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et negative. Pour plus d’informations, consultez [Retours de messages](#feedback). |
+| Ack | Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud vers appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre de remises maximal a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et négative. Pour plus d’informations, consultez [Retours de messages](#feedback). |
 | ConnectionDeviceId | Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **deviceId** de l’appareil qui a envoyé le message. |
 | ConnectionDeviceGenerationId | Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **generationId** (conformément aux [Propriétés d’identité des appareils](#deviceproperties)) de l’appareil qui a envoyé le message. |
 | ConnectionAuthMethod | Une méthode d’authentification définie par IoT Hub sur les messages appareil vers cloud. Cette propriété contient des informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message. Pour plus d’informations, consultez [Prévention d’usurpation d’identité entre un appareil et le cloud](#antispoofing).|
@@ -310,7 +313,7 @@ IoT Hub implémente la messagerie appareil vers cloud d’une manière semblable
 
 Les conséquences sont les suivantes :
 
-* À l’instar des événements Event Hubs, les messages appareil vers cloud sont durables et ils sont conservés dans un IoT Hub jusqu’à sept jours (consultez [Options de configuration Appareil vers cloud](#d2cconfiguration)).
+* À l’instar des événements Event Hubs, les messages appareil vers cloud sont durables et ils sont conservés dans un IoT Hub jusqu’à sept jours (consultez [Options de configuration Appareil vers cloud](#d2cconfiguration)).
 * Les messages appareil vers cloud sont partitionnés en un ensemble fixe de partitions, qui est défini au moment de la création (consultez [Options de configuration Appareil vers cloud](#d2cconfiguration)).
 * Comme pour Event Hubs, les clients lisant des messages appareil-à-cloud doivent gérer des partitions et des points de contrôle. Voir [Event Hubs - Événements de consommation][lnk-event-hubs-consuming-events].
 * De même que pour les événements Event Hubs, les messages appareil vers cloud ne doivent pas dépasser 256 Ko et peuvent être mis en lots pour optimiser les envois. Les lots doivent représenter 256 Ko de volume et 500 messages maximum.
@@ -343,7 +346,7 @@ Un hub IoT expose les propriétés suivantes pour vous permettre de contrôler 
 
 À l’instar d’Event Hubs, IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison de la réception de messages appareil vers cloud.
 
-Toutes les propriétés ci-dessus peuvent être modifiées par programme via [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis] ou via le [portail Azure][lnk-management-portal].
+Toutes les propriétés ci-dessus peuvent être modifiées par programme via [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis] ou via le [portail Azure][lnk-management-portal].
 
 #### Propriétés de la fonction anti-usurpation <a id="antispoofing"></a>
 
@@ -355,7 +358,7 @@ Pour éviter l’usurpation d’appareil dans les messages appareil-à-cloud, Io
 
 Les deux premières propriétés contiennent le **deviceId** et le **generationId** de l’appareil d’origine, conformément aux [Propriétés d’identité des appareils](#deviceproperties).
 
-La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec les propriétés suivantes :
+La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec les propriétés suivantes :
 
 ```
 {
@@ -390,7 +393,7 @@ Un appareil peut également :
 - *rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Deadlettered** (Lettre morte) ;
 - *abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued** (En file attente).
 
-Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai de visibilité (ou de verrouillage)* dont la valeur par défaut est d’une minute.
+Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai de visibilité (ou de verrouillage)*. dont la valeur par défaut est d’une minute.
 
 Un message peut passer de l’état **Enqueued** (En file d’attente) à l’état **Invisible** et inversement, au maximum le nombre de fois spécifié dans la propriété **Nombre maximal de remises** sur IoT Hub. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered** (Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie](#ttl)).
 
@@ -470,6 +473,67 @@ Chaque IoT Hub expose les options de configuration suivantes pour la messagerie 
 
 Pour plus d’informations, consultez [Gérer des IoT Hubs][lnk-manage].
 
+### Téléchargements de fichiers <a id="fileupload"></a>
+
+Comme nous l’avons expliqué dans la section [Points de terminaison](#endpoints), les appareils peuvent initier des téléchargements de fichiers en envoyant une notification via un point de terminaison côté appareil (**/devices/{deviceId}/files**). Lorsqu’un appareil indique à IoT Hub la fin d’un téléchargement, IoT Hub génère des notifications de téléchargement de fichier, que vous pouvez recevoir via un point de terminaison côté service (**/messages/servicebound/filenotifications**) sous la forme de messages.
+
+Au lieu de distribuer les messages via sa propre plate-forme, IoT Hub joue le rôle de répartiteur vers un compte Azure Storage associé. Un appareil demande à IoT Hub un jeton de stockage spécifique au fichier que l’appareil souhaite télécharger. L’appareil utilise l’URI SAP pour télécharger le fichier vers le stockage. Une fois le téléchargement terminé, l’appareil envoie une notification à IoT Hub pour l’en informer. IoT Hub vérifie que le fichier a été téléchargé avant d’ajouter une notification de téléchargement de fichier au nouveau point de terminaison de messagerie côté service dédié à la notification de fichiers.
+
+#### Associer un compte Azure Storage à IoT Hub
+
+Pour utiliser la fonctionnalité de téléchargement de fichier, vous devez d’abord lier un compte Azure Storage à IoT Hub. Pour ce faire, vous pouvez soit utiliser le [portail Azure][lnk-management-portal], soit exécuter un programme via [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis]. Une fois que vous avez associé un compte de stockage à IoT Hub, le service retourne un URI SAP vers un appareil lorsque ce dernier initie une demande de téléchargement de fichier.
+
+> [AZURE.NOTE] Les [kits de développement logiciel Azure IoT Hub][lnk-apis-sdks] gèrent automatiquement la récupération de l’URI SAP, le téléchargement du fichier et l’envoi d’une notification à IoT Hub pour l’informer de la fin du téléchargement.
+
+#### Initialiser un téléchargement de fichier
+
+IoT Hub utilise deux points de terminaison REST pour prendre en charge le téléchargement de fichier, le premier afin d’obtenir l’URI SAP pour le stockage et le second pour informer IoT hub de la fin du téléchargement. L’appareil lance le processus de téléchargement de fichier en envoyant une commande GET à IoT Hub à `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. Le hub retourne un URI SAP spécifique au fichier à télécharger, ainsi qu’un ID de corrélation à utiliser une fois le téléchargement terminé.
+
+#### Notifier IoT Hub de la fin du téléchargement d’un fichier
+
+L’appareil est chargé de télécharger le fichier vers le stockage à l’aide des kits de développement Azure Storage. Une fois le téléchargement terminé, l’appareil envoie une commande POST à IoT Hub à `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}` en utilisant l’ID de corrélation reçu à partir de la commande GET.
+
+#### Notifications de téléchargement de fichier
+
+Lorsqu’un appareil informe IoT Hub de la fin du téléchargement d’un fichier, le service peut également générer un message de notification contenant le nom et l’emplacement de stockage du fichier.
+
+Comme expliqué dans la section [Points de terminaison](#endpoints), IoT Hub fournit des notifications de téléchargement de fichier sous la forme de messages via un point de terminaison côté service (**/messages/servicebound/fileuploadnotifications**). La sémantique de réception des notifications de téléchargement de fichier est identique à celle des messages cloud-à-appareil et présente le même [cycle de vie des messages](#message lifecycle). Chaque message récupéré à partir du point de terminaison de notification de téléchargement de fichier est un enregistrement JSON qui possède les propriétés suivantes :
+
+| Propriété | Description |
+| -------- | ----------- |
+| EnqueuedTimeUtc | Horodatage indiquant la date et l’heure de création de la notification. |
+| DeviceId | **DeviceId** de l’appareil qui a téléchargé le fichier. |
+| BlobUri | URI du fichier téléchargé. |
+| BlobName | Nom du fichier téléchargé. |
+| LastUpdatedTime | Horodatage indiquant la date et l’heure de dernière mise à jour du fichier. |
+| BlobSizeInBytes | Taille du fichier téléchargé. |
+
+**Exemple**. Voici un exemple de corps de message de notification de téléchargement de fichier.
+
+```
+{
+	"deviceId":"mydevice",
+	"blobUri":"https://{storage account}.blob.core.windows.net/{container name}/mydevice/myfile.jpg",
+	"blobName":"mydevice/myfile.jpg",
+	"lastUpdatedTime":"2016-06-01T21:22:41+00:00",
+	"blobSizeInBytes":1234,
+	"enqueuedTimeUtc":"2016-06-01T21:22:43.7996883Z"
+}
+```
+
+#### Options de configuration de notification de téléchargement de fichier <a id="c2dconfiguration"></a>
+
+Chaque IoT Hub expose les options de configuration suivantes pour les notifications de téléchargement de fichier :
+
+| Propriété | Description | Plage et valeur par défaut |
+| -------- | ----------- | ----------------- |
+| **enableFileUploadNotifications** | Indique si les notifications de téléchargement de fichier sont ou non écrites dans le point de terminaison de notification de fichier. | Valeur booléenne. Par défaut : True. |
+| **fileNotifications.ttlAsIso8601** | Durée de vie par défaut des notifications de téléchargement de fichier. | Intervalle ISO\_8601 jusqu’à 48h (minimum 1 minute). Par défaut : 1 heure. |
+| **fileNotifications.lockDuration** | Durée de verrouillage de la file d’attente des notifications de téléchargement de fichiers. | 5 à 300 secondes (5 secondes au minimum). Par défaut : 60 secondes. |
+| **fileNotifications.maxDeliveryCount** | Nombre maximal de diffusions pour la file d’attente de notification de téléchargement de fichier. | 1 à 100. Par défaut : 100. |
+
+Pour plus d’informations, consultez [Gérer des IoT Hubs][lnk-manage].
+
 ## Quotas et limitation <a id="throttling"></a>
 
 Chaque abonnement Azure peut avoir au maximum 10 hubs IoT.
@@ -491,6 +555,7 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 | Envois de messages appareil-à-cloud | 120/sec/unité (pour S2), 12/sec/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 équivalent à 2*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
 | Envois cloud-à-appareil | 100/min/unité. |
 | Réceptions cloud-à-appareil | 1 000/min/unité. |
+| Opérations de téléchargement de fichier | 100 notifications de téléchargement de fichier/min/unité <br/> 10 000 URI SAP peuvent être générés à la fois pour un compte de stockage <br/> 10 URI SAP/appareil peuvent être générés à la fois | 
 
 Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
 
@@ -559,4 +624,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

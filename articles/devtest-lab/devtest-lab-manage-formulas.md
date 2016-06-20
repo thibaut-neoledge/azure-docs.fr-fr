@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Gérer les formules DevTest Labs pour créer des machines virtuelles
@@ -42,21 +42,21 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
+1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
 
-1. Dans la liste des labos, sélectionnez le labo souhaité.
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
 1. Le panneau **Paramètres** du labo sélectionné s’affiche.
 
-1. Dans le panneau **Paramètres** du labo, appuyez sur **Formules**.
+1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Formules**.
 
     ![Menu de formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-1. Sur le panneau **Formules de labo**, appuyez sur **+ Ajouter**.
+1. Sur le panneau des **formules de laboratoire**, sélectionnez **+ Ajouter**.
 
     ![Ajouter une formule](./media/devtest-lab-manage-formulas/add-formula.png)
 
-1. Dans le panneau **Choisir une base**, cliquez sur l’image personnalisée ou l’image Marketplace à partir de laquelle vous voulez créer la formule.
+1. Dans le panneau **Choisir une base**, sélectionnez l’image personnalisée ou l’image Marketplace à partir de laquelle vous voulez créer la formule.
 
     ![Liste de base](./media/devtest-lab-manage-formulas/base-list.png)
 
@@ -65,15 +65,15 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 	- **Nom de la formule** : entrez un nom pour votre formule. Cette valeur s'affichera dans la liste des images de base lorsque vous créerez une machine virtuelle. Le nom est validé au fur et à mesure que vous le tapez. S’il n’est pas valide, un message indique les exigences d’un nom valide.
 	- **Description** : entrez une description significative pour votre formule. Cette valeur est disponible dans le menu contextuel de la formule quand vous créez une machine virtuelle.
 	- **Image** : ce champ affiche le nom de l'image de base que vous avez sélectionnée dans le panneau précédent. 
-	- **Taille de la machine virtuelle** : sélectionnez l'un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer.
+	- **Taille de machine virtuelle** : sélectionnez l'un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer.
 	- **Réseau virtuel** : sélectionnez le réseau virtuel souhaité.
 	- **Sous-réseau** : sélectionnez le sous-réseau souhaité.
 	- **Adresse IP publique** : si la stratégie du labo est définie de manière à autoriser des adresses IP publiques pour le sous-réseau sélectionné, spécifiez si vous souhaitez ou non que l’adresse IP soit publique en sélectionnant **Oui** ou **Non**. Dans le cas contraire, cette option est désactivée et paramétrée sur **Non**.
-	- **Artefacts** : dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l'image de base. Notez que les paramètres d’artefact qui sont des chaînes sécurisées ne s’affichent pas car la formule n’enregistre pas les valeurs des chaînes sécurisées. 
+	- **Artefacts** : sélectionnez cette option et, dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l'image de base. Notez que les paramètres d’artefact qui sont des chaînes sécurisées ne s’affichent pas car la formule n’enregistre pas les valeurs des chaînes sécurisées. 
 
     	![Créer une formule](./media/devtest-lab-manage-formulas/create-formula.png)
 
-1. Cliquez sur **Créer** pour créer la formule. Une fois la formule créée, elle est répertoriée dans le panneau **Formules de laboratoire**.
+1. sélectionnez **Créer** pour créer la formule. Une fois la formule créée, elle est répertoriée dans le panneau **Formules de laboratoire**.
 
 	![Formule juste créée](./media/devtest-lab-manage-formulas/newly-created-formula.png)
 
@@ -84,11 +84,11 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
+1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
 
-1. Dans la liste des labos, sélectionnez le labo souhaité.
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
-1. Dans le panneau du laboratoire, recherchez la section nommée **Mes machines virtuelles**, puis cliquez sur la machine virtuelle à partir de laquelle vous voulez créer la nouvelle formule.
+1. Dans le panneau du laboratoire, recherchez la section nommée **Mes machines virtuelles**, puis sélectionnez la machine virtuelle à partir de laquelle vous voulez créer la nouvelle formule.
 
 	![Machines virtuelles de labo](./media/devtest-lab-manage-formulas/my-vms.png)
 
@@ -105,32 +105,32 @@ Pour modifier une formule, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
+1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
 
-1. Dans la liste des labos, sélectionnez le labo souhaité.
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
-1. Dans le panneau **Paramètres** du labo, appuyez sur **Formules**.
+1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Formules**.
 
     ![Menu de formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-1. Dans le panneau **Formules de laboratoire**, cliquez sur la formule à modifier.
+1. Dans le panneau des **formules de laboratoire**, sélectionnez la formule à modifier.
 
-1. Dans le panneau **Mettre à jour la formule**, effectuez les modifications souhaitées, puis cliquez sur **Mettre à jour**.
+1. Dans le panneau **Mettre à jour la formule**, effectuez les modifications souhaitées, puis sélectionnez **Mettre à jour**.
 
 ## Supprimer une formule 
 Pour supprimer une formule, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
+1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
 
-1. Dans la liste des labos, sélectionnez le labo souhaité.
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
-1. Dans le panneau **Paramètres** du labo, appuyez sur **Formules**.
+1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Formules**.
 
     ![Menu de formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-1. Dans le panneau **Formules de laboratoire**, cliquez sur les points de suspension à droite de la formule à supprimer.
+1. Dans le panneau des **formules de laboratoire**, sélectionnez les points de suspension à droite de la formule à supprimer.
 
     ![Menu de formule](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 
@@ -138,11 +138,11 @@ Pour supprimer une formule, procédez comme suit :
 
     ![Menu contextuel de la formule](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
 
-1. Cliquez sur **Oui** dans la boîte de dialogue de confirmation de suppression.
+1. sélectionnez **Oui** dans la boîte de dialogue de confirmation de la suppression.
 
     ![Menu contextuel de la formule](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
 ## Étapes suivantes
 Quand vous avez créé une formule à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

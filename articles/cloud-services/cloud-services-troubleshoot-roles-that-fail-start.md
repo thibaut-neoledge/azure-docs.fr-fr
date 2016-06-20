@@ -13,27 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Résoudre les problèmes de démarrage des rôles de service cloud
 
 Voici des solutions à quelques problèmes courants liés à l’échec du démarrage des rôles Azure Cloud Services.
 
-## Contacter le Support technique Azure
-
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/).
-
-Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## DLL ou dépendances manquantes
 
-Les rôles qui ne répondent pas ou qui basculent sans cesse entre les états **Initialisation**, **Occupé** et **Arrêt** peuvent être dus à l’absence de bibliothèques DLL ou d’assemblys.
+Les rôles qui ne répondent pas ou qui basculent sans cesse entre les états **Initialisation**, **Occupé** et **Arrêt** peuvent être causés par l’absence de bibliothèques DLL ou d’assemblys.
 
 Symptômes liés à l’absence de bibliothèques DLL ou d’assemblys :
 
 - Votre instance de rôle alterne entre les états **Initialisation**, **Occupé** et **Arrêt**.
-- Votre instance de rôle est passée à l’état **Prêt**, mais le page ne s’affiche pas lorsque vous accédez à votre application web.
+- Votre instance de rôle est passée à l’état **Prêt**, mais la page ne s’affiche pas lorsque vous accédez à votre application web.
 
 Plusieurs méthodes sont recommandées pour rechercher une solution à ces problèmes.
 
@@ -73,7 +69,7 @@ Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher de
 
 2. Lors du déploiement de la solution à l’aide de Visual Studio, choisissez Configurer les connexions Bureau à distance... Pour plus d’informations sur la configuration de la connexion Bureau à distance, consultez l’article [Utilisation du Bureau à distance avec des rôles Azure](../vs-azure-tools-remote-desktop-roles.md).
 
-3. Dans le portail Microsoft Azure Classic, une fois que l’instance affiche l’état **Prêt**, cliquez sur l’une des instances de rôle.
+3. Dans le portail Microsoft Azure Classic, cliquez sur l’une des instances de rôle une fois que l’instance affiche l’état **Prêt**.
 
 4. Cliquez sur l’icône **Connexion** dans la zone **Accès à distance** du ruban.
 
@@ -117,7 +113,7 @@ Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic
 
 5. Sur le nouvel ordinateur, ouvrez une fenêtre d’invite de commandes du Kit de développement logiciel (SDK) Azure et tapez `csrun.exe /devstore:start`.
 
-6. À l’invite de commandes, tapez `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
+6. Dans l’invite de commandes, tapez `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
 
 7. Au démarrage du rôle, le détail de l’erreur s’affiche dans Internet Explorer. Vous pouvez également utiliser les outils de dépannage Windows standard pour diagnostiquer le problème.
 
@@ -163,8 +159,8 @@ Après avoir vérifié que toutes les erreurs ont été corrigées, vous pouvez 
 
 ## Étapes suivantes
 
-Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-issue&service=cloud-services) liés aux services cloud.
+Affichez plus d’[articles de résolution des problèmes](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) liés aux services cloud.
 
-Pour découvrir comment résoudre les problèmes de rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

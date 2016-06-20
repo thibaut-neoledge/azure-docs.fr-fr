@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/05/2016" 
 	ms.author="awills"/>
  
 # Diagnostics proactifs en temps quasi-réel
@@ -23,9 +23,11 @@ Cette fonctionnalité est utilisée pour les applications web Java et ASP.NET, h
 
 Après avoir configuré [Application Insights pour votre projet](app-insights-get-started.md), et si votre application génère un certain volume minimal de télémétrie, un délai de 24 heures est nécessaire aux diagnostics proactifs en temps quasi réel pour découvrir le comportement normal de votre application, être activés et envoyer des alertes.
 
-Voici un exemple d’alerte :
+Voici un exemple d’alerte.
 
 ![Exemple d’alerte intelligente affichant l’analyse du cluster au moment de l’échec](./media/app-insights-nrt-proactive-diagnostics/010.png)
+
+> [AZURE.NOTE] Par défaut, vous obtenez un format de message plus court que dans cet exemple. Toutefois, vous pouvez [basculer vers ce format détaillé](#configure-alerts).
 
 Notez qu’il vous indique :
 
@@ -35,7 +37,9 @@ Notez qu’il vous indique :
 * l’exception, le suivi des journaux et l’échec de dépendance (bases de données ou autres composants externes) qui semblent associés aux demandes identifiées ayant échoué ;
 * les liens directs aux recherches pertinentes sur la télémétrie dans Application Insights.
 
-Les [alertes de mesures](app-insights-alerts.md) ordinaires vous indiquent un problème potentiel. Mais les diagnostics proactifs NRT démarrent le travail de diagnostic à votre place, effectuent la majeure partie de l’analyse que vous auriez à effectuer vous-même. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
+## Avantages des alertes proactives
+
+Les [alertes de mesure](app-insights-alerts.md) ordinaires vous indiquent un problème potentiel. Mais les diagnostics proactifs NRT démarrent le travail de diagnostic à votre place, effectuent la majeure partie de l’analyse que vous auriez à effectuer vous-même. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
 
 ## Fonctionnement
 
@@ -53,17 +57,40 @@ L’analyse obtenue vous est envoyée sous forme d’alerte, sauf si vous n’av
 
 Comme les [alertes que vous définissez manuellement](app-insights-alerts.md), vous pouvez examiner l’état de l’alerte et la configurer dans le panneau Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer les diagnostics proactifs en temps quasi réel. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
 
+
+## Configurer des alertes 
+
+Vous pouvez désactiver les diagnostics proactifs, modifier les destinataires d’e-mails, créer un webhook ou vous abonner à des messages d’alerte plus détaillés.
+
+Ouvrez la page Alertes. Les diagnostics proactifs sont inclus avec toutes les alertes que vous avez définies manuellement, ce qui vous permet de savoir s’ils se trouvent actuellement en état d’alerte.
+
+![Dans la page Vue d’ensemble, cliquez sur la mosaïque Alertes, ou sur n’importe quelle page de mesures, cliquez sur le bouton Alertes.](./media/app-insights-nrt-proactive-diagnostics/021.png)
+
+Cliquez sur l’alerte pour la configurer.
+
+![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
+
+
+Notez que vous pouvez désactiver les diagnostics proactifs, mais pas les supprimer (ni en créer d’autres).
+
+#### Alertes détaillées
+
+Si vous sélectionnez « Receive detailed analysis (Recevoir l’analyse détaillée) », l’e-mail contient plus d’informations de diagnostic. Les données figurant dans l’e-mail peuvent parfois suffire pour vous permettre de diagnostiquer le problème.
+
+Il se peut que l’alerte détaillée contienne des informations sensibles, car elle comprend des messages d’exception de traçage. Toutefois, cela se produit uniquement si votre code autorise que ces informations sensibles soient incluses dans ces messages.
+
+
 ## Triage et diagnostic d’une alerte
 
 Une alerte indique qu’une augmentation anormale du taux de demandes ayant échoué a été détectée. Il est probable que votre application ou son environnement rencontre un problème.
 
-D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 15 % est comparé à un taux normal d’1,3 %, ce qui indique un problème. 22 utilisateurs distincts ont été affectés par des échecs pendant une opération particulière. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
+D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 22.5 % est comparé à un taux normal d’1 %, ce qui indique un problème. En revanche, seuls 11 utilisateurs ont été affectés. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
 
 Dans de nombreux cas, vous serez en mesure de diagnostiquer le problème rapidement à partir du nom de la demande, de l’exception, de l’échec de dépendance et du journal de suivi fournis.
 
 Il existe certains autres indices. Par exemple, le taux d’échec de dépendance dans cet exemple est identique au taux d’exception (89,3 %). Cela signifie que l’exception émane directement de l’échec de dépendance, ce qui vous donne une idée précise de l’emplacement dans votre code où commencer la recherche.
 
-Pour approfondir vos recherches, les liens de chaque section vous dirigeront directement sur une [page de recherche](app-insights-diagnostic-search.md) comportant uniquement les demandes, l’exception, la dépendance ou les journaux de suivi pertinents. Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), accéder à la ressource Application Insights pour votre application et ouvrir le panneau Échecs.
+Pour approfondir vos recherches, les liens de chaque section vous dirigent directement vers une [page de recherche](app-insights-diagnostic-search.md) comportant uniquement les demandes, l’exception, la dépendance ou les journaux de suivi pertinents. Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), accéder à la ressource Application Insights pour votre application et ouvrir le panneau Échecs.
 
 Dans cet exemple, en cliquant sur le lien "Afficher les détails des échecs de dépendance", vous ouvrez le panneau de recherche Application Insights sur l’instruction SQL à l’origine du problème : des valeurs NULL fournies dans des champs obligatoires n’ont pas été validées pendant l’opération d’enregistrement.
 
@@ -74,22 +101,16 @@ Dans cet exemple, en cliquant sur le lien "Afficher les détails des échecs de 
 
 Pour consulter les alertes dans le portail, accédez à **Paramètres, Journaux d’audit**.
 
-![Résumé des alertes](./media/app-insights-nrt-proactive-diagnostics/040.png)
+![Résumé des alertes](./media/app-insights-nrt-proactive-diagnostics/041.png)
+
 
 Cliquez sur une alerte pour afficher ses détails complets.
 
+Ou cliquez sur **Détection Proactive** pour accéder à l’alerte la plus récente :
 
-## Configurer des alertes 
+![Résumé des alertes](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
-Ouvrez la page Alertes. Les diagnostics proactifs sont inclus avec toutes les alertes que vous avez définies manuellement, ce qui vous permet de savoir s’ils se trouvent actuellement en état d’alerte.
 
-![Dans la page Vue d’ensemble, cliquez sur la mosaïque Alertes, ou sur n’importe quelle page de mesures, cliquez sur le bouton Alertes.](./media/app-insights-nrt-proactive-diagnostics/021.png)
-
-Cliquez sur l’alerte pour la configurer.
-
-![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
-
-Notez que vous pouvez désactiver les diagnostics proactifs, mais pas les supprimer (ni en créer d’autres).
 
 
 ## Quelle est la différence ?
@@ -138,4 +159,4 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Votre avis sur le sujet nous intéresse. Merci d’envoyer vos commentaires à :* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

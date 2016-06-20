@@ -25,11 +25,11 @@ Lors de la conception du processus de mise à niveau de l'application, l'objecti
 1.	durée maximale acceptable pendant laquelle la fonctionnalité de l'application sera réduite ; 
 2.	jeu minimal de fonctionnalités disponibles pendant le processus de mise à niveau ;
 3.	possibilité de restauration en cas d'erreur pendant la mise à niveau.
-4.	Coût total impliqué Ceci inclut le coût des composants d'application supplémentaires nécessaires pour créer une copie temporaire (par exemple, les bases de données Premium supplémentaires pour la géo-réplication active) et les coûts incrémentiels des déploiements temporaires utilisés par le processus de mise à niveau. 
+4.	Coût total impliqué Ceci inclut le coût des composants d’application supplémentaires nécessaires pour créer une copie temporaire (par exemple, les bases de données supplémentaires pour la géoréplication active) et les coûts incrémentiels des déploiements temporaires utilisés par le processus de mise à niveau. 
 
 Si l'application peut fonctionner temporairement en lecture seule, le workflow de mise à niveau peut être conçu de façon à éliminer entièrement les interruptions de service. Pour comprendre comment mettre en œuvre le workflow de mise à niveau pour la topologie de votre application spécifique, consultez [Gestion des mises à niveau propagées des applications cloud à l’aide de la géo-réplication active de la base de données SQL](sql-database-manage-application-rolling-upgrade.md).
  
  
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

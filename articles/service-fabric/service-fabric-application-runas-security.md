@@ -14,9 +14,9 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
-# RunAs : exécution d’une application Service Fabric avec des autorisations de sécurité différentes
+# RunAs : exécution d’une application Service Fabric avec des autorisations de sécurité différentes
 Azure Service Fabric permet de sécuriser les applications en cours d’exécution dans le cluster sous différents comptes utilisateurs, appelés **RunAs**. Service Fabric sécurise également les ressources utilisées par les applications avec le compte utilisateur, comme les fichiers, les répertoires et les certificats.
 
 Par défaut, les applications Service Fabric s’exécutent sous le compte qui exécute le processus Fabric.exe. Service Fabric permet également d’exécuter des applications sous un compte utilisateur ou système local spécifié dans le manifeste de l’application. Les types de comptes système locaux pris en charge pour RunAs sont **LocalUser**, **NetworkService**, **LocalService** et **LocalSystem**.
@@ -91,26 +91,26 @@ Vérifiez ensuite que le fichier MySetup.bat est inclus dans le package de servi
 
 ![Visual Studio CopyToOutput pour fichier batch SetupEntryPoint][image1]
 
-Ouvrez maintenant le fichier MySetup.bat et ajoutez les commandes suivantes :
+Ouvrez maintenant le fichier MySetup.bat et ajoutez les commandes suivantes :
 
 ~~~
-REM Définissez une variable d'environnement système. Cela requiert des privilèges d'administrateur
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable définie sur > test.txt
-echo %TestVariable% >> test.txt
+echo System TestVariable set to > out.txt
+echo %TestVariable% >> out.txt
 
-REM Pour supprimer cette variable système utilisez
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l’Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :
+Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l’Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans l’Explorateur de Service Fabric, par exemple, Nœud 2. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si le déploiement a été exécuté sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType** :
+Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans l’Explorateur de Service Fabric, par exemple, Nœud 2. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si le déploiement a été exécuté sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType** :
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -147,28 +147,28 @@ MySetup.bat pour lancer le fichier de PowerShell.
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-Dans le fichier PowerShell, ajoutez la commande suivante pour définir une variable d’environnement système :
+Dans le fichier PowerShell, ajoutez la commande suivante pour définir une variable d’environnement système :
 
 ~~~
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ~~~
 
-**Remarque :** par défaut, quand le fichier de commandes s’exécute, il détermine si le dossier d’application **work** contient des fichiers. Dans ce cas, quand MySetup.bat s’exécute, il doit rechercher le fichier MySetup.ps1 dans ce dossier, qui contient le **package de code** de l’application. À cette fin, définissez le dossier de travail comme indiqué ci-dessous.
-    
+**Remarque :** par défaut, quand le fichier de commandes s’exécute, il détermine si le dossier d’application **work** contient des fichiers. Dans ce cas, quand MySetup.bat s’exécute, il doit rechercher le fichier MySetup.ps1 dans ce dossier, qui contient le **package de code** de l’application. À cette fin, définissez le dossier de travail comme indiqué ci-dessous.
+
 ~~~
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
     <WorkingFolder>CodePackage</WorkingFolder>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 ## Utilisation de la stratégie de redirection de console pour le débogage local des points d’entrée
 Parfois, à des fins de débogage, il est utile de visualiser la sortie de la console générée par l’exécution d’un script. Pour ce faire, vous pouvez définir une stratégie de redirection de console qui écrit la sortie dans un fichier. La sortie du fichier est écrite dans le dossier d’application **log** sur le nœud sur lequel l’application est déployée et exécutée (consultez l’exemple ci-dessus pour déterminer son emplacement).
 
-**Remarque : n’utilisez jamais** la stratégie de redirection de console dans une application déployée dans un environnement de production, car cela peut influer sur le basculement de l’application. Utilisez **UNIQUEMENT** cette stratégie pour le développement local et à des fins de débogage.
+**Remarque : n’utilisez jamais** la stratégie de redirection de console dans une application déployée dans un environnement de production, car cela peut influer sur le basculement de l’application. Utilisez **UNIQUEMENT** cette stratégie pour le développement local et à des fins de débogage.
 
 L’exemple ci-dessous montre comment configurer la redirection de console avec une valeur FileRetentionCount.
 
@@ -179,13 +179,13 @@ L’exemple ci-dessous montre comment configurer la redirection de console avec 
     <WorkingFolder>CodePackage</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 Si vous modifiez le fichier MySetup.ps1 pour écrire une commande **Echo**, le contenu de celle-ci apparaît dans le fichier de sortie à des fins de débogage.
 
 ~~~
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
 **Une fois que vous avez débogué votre script, supprimez immédiatement cette stratégie de redirection de console.**
@@ -241,7 +241,7 @@ Vous pouvez créer un utilisateur local qui peut être utilisé pour sécuriser 
 -->
 
 ## Affectation de stratégies aux packages de code de service
-La section **RunAsPolicy** d’un **ServiceManifestImport** spécifie le compte de la section Principals qui doit être utilisé pour exécuter un package de code. Elle associe également des packages de code du manifeste de service à des comptes d’utilisateur dans la section Principals. Vous pouvez spécifier ce paramètre pour les points d’entrée de configuration ou principaux, ou appliquer ce paramètre aux deux en choisissant l’option Tout. L’exemple ci-dessous illustre les différentes stratégies appliquées :
+La section **RunAsPolicy** d’un **ServiceManifestImport** spécifie le compte de la section Principals qui doit être utilisé pour exécuter un package de code. Elle associe également des packages de code du manifeste de service à des comptes d’utilisateur dans la section Principals. Vous pouvez spécifier ce paramètre pour les points d’entrée de configuration ou principaux, ou appliquer ce paramètre aux deux en choisissant l’option Tout. L’exemple ci-dessous illustre les différentes stratégies appliquées :
 
 ~~~
 <Policies>
@@ -250,7 +250,7 @@ La section **RunAsPolicy** d’un **ServiceManifestImport** spécifie le compte 
 </Policies>
 ~~~
 
-Si **EntryPointType** n'est pas spécifié, la valeur par défaut est définie sur EntryPointType=« Main ». La spécification d’un **SetupEntryPoint** est particulièrement utile quand vous souhaitez exécuter certaines opérations d’installation à privilège élevé sous un compte système. Le code de service en tant que tel peut s’exécuter sous un compte à faible privilège.
+Si **EntryPointType** n'est pas spécifié, la valeur par défaut est définie sur EntryPointType=« Main ». La spécification d’un **SetupEntryPoint** est particulièrement utile quand vous souhaitez exécuter certaines opérations d’installation à privilège élevé sous un compte système. Le code de service en tant que tel peut s’exécuter sous un compte à faible privilège.
 
 ### Application d’une stratégie par défaut à tous les packages de code de service
 La section **DefaultRunAsPolicy** permet de spécifier un compte utilisateur par défaut pour tous les packages de code qui n’ont pas de stratégie **RunAsPolicy** spécifique définie. Si la plupart des packages de code spécifiés dans les manifestes de service utilisés par une application doivent s’exécuter sous le même utilisateur RunAs, l’application peut définir une stratégie RunAs par défaut avec ce compte utilisateur au lieu de spécifier une stratégie **RunAsPolicy** pour chaque package de code. L’exemple suivant spécifie que, si un package de code n’a pas de stratégie **RunAsPolicy** spécifiée, le package de code doit être exécuté sous le compte **MyDefaultAccount** spécifié dans la section Principals.
@@ -286,7 +286,7 @@ Pour le point de terminaison HTTPS, vous devez également indiquer le nom du cer
 
 
 ## Exemple complet de manifeste d'application
-Le manifeste d’application ci-dessous affiche un grand nombre des différents paramètres décrits ci-dessus :
+Le manifeste d’application ci-dessous affiche un grand nombre des différents paramètres décrits ci-dessus :
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -351,4 +351,4 @@ Le manifeste d’application ci-dessous affiche un grand nombre des différents 
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

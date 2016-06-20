@@ -3,7 +3,7 @@
    description="Décrit l'utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="SteveLas"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/16/2016"
-   ms.author="stevelas" />
+   ms.date="06/08/2016"
+   ms.author="allclark;stevelas" />
 
 # Créer des hôtes Docker dans Azure avec Docker Machine
 
@@ -27,14 +27,13 @@ L’exécution de conteneurs [Docker](https://www.docker.com/) nécessite une ma
 
 Créez des machines virtuelles d’hôte Docker sans Azure avec la commande `docker-machine create` en utilisant le pilote `azure`.
 
-Le pilote Azure nécessitera votre ID d’abonnement. Vous pouvez utiliser l’[Interface de ligne de commande Azure](xplat-cli-install.md) ou le [Portail Azure](https:/portal.azure.com) pour récupérer votre abonnement Azure.
+Le pilote Azure nécessitera votre ID d’abonnement. Vous pouvez utiliser [l’interface de ligne de commande Azure](xplat-cli-install.md) ou le [Portail Azure](https://portal.azure.com) pour récupérer votre abonnement Azure.
 
 **Utilisation du portail Azure**
 - Sélectionnez Abonnements dans la page de navigation de gauche, puis copiez l’ID d’abonnement.
 
 **Utilisation de l’interface de ligne de commande Azure (CLI)**
 - Tapez ```azure account list```, puis copiez l’ID d’abonnement.
-
 
 Saisissez `docker-machine create --driver azure` pour afficher les options et leurs valeurs par défaut. Vous pouvez également consulter la [Documentation Docker Azure pilote](https://docs.docker.com/machine/drivers/azure/) pour plus d’informations.
 
@@ -47,11 +46,13 @@ docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_
 ## Choisissez un hôte Docker avec docker-machine
 Une fois que vous avez une entrée dans docker-machine pour votre hôte, vous pouvez définir l’hôte par défaut lorsque vous exécutez des commandes Docker.
 ##Utiliser PowerShell
+
 ```powershell
 docker-machine env MyDockerHost | Invoke-Expression 
 ```
 
 ##Avec Bash
+
 ```bash
 eval $(docker-machine env MyDockerHost)
 ```
@@ -95,6 +96,7 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 ```
 
 Pour vérifier le conteneur en cours d'exécution, saisissez `docker-machine ip <VM name>` pour rechercher l'adresse IP à saisir dans le navigateur.
+
 ```
 PS C:\> docker-machine ip MyDockerHost
 191.237.46.90
@@ -107,4 +109,4 @@ Avec docker-machine, vous pouvez facilement approvisionner des hôtes Docker dan
 
 Pour développer des applications .NET Core avec Visual Studio, consultez [Outils Docker pour Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

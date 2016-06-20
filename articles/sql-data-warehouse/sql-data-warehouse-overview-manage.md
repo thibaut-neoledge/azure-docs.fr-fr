@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/04/2016"
+   ms.date="06/05/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestion de bases de données dans Azure SQL Data Warehouse
@@ -89,46 +89,26 @@ Pour en savoir plus sur la gestion de la sécurité, consultez la [vue d’ensem
 
 ## Sauvegarde et restauration
 
-Il existe deux manières de récupérer une base de données. Si votre base de données comporte des données endommagées ou entraîne une erreur, vous pouvez restaurer une capture instantanée de cette base de données. En cas de panne ou de sinistre au niveau régional entraînant l’indisponibilité de l’une des régions, vous pouvez recréer votre base de données dans une autre région.
-
-SQL Data Warehouse sauvegarde automatiquement votre base de données à intervalles réguliers. Pour plus d’informations sur la planification de sauvegarde de données et la stratégie de rétention, consultez la rubrique [Haute fiabilité][].
-
-### Stockage géo-redondant
-
-Dans la mesure où SQL Data Warehouse sépare le calcul du stockage, l’ensemble de vos données sont directement écrites sur le stockage géo-redondant à accès en lecture de Microsoft Azure. Le stockage géo-redondant réplique vos données vers une région secondaire à des centaines de kilomètres de la région primaire. Au sein des régions principales et secondaires, vos données sont répliquées trois fois, dans les domaines d’erreur et les domaines de mise à niveau. Ainsi, vous êtes assuré que les données restent disponibles, même en cas de panne régionale intégrale ou de sinistre rendant l’une des régions indisponible. Pour en savoir plus sur le stockage géo-redondant avec accès en lecture, consultez la section [Options de redondance de stockage Microsoft Azure][].
-
-### Restauration de base de données
-
-Cette fonctionnalité est utilisée pour restaurer votre base de données à un point antérieur dans le temps. Le service SQL Data Warehouse protège toutes les bases de données avec des captures instantanées de stockage automatiques au moins toutes les 8 heures et les conserve pendant 7 jours afin de vous offrir un ensemble discret de points de restauration. Ces sauvegardes sont stockées sur un espace de stockage géo-redondant avec accès en lecture Microsoft Azure (RA-GRS). Les fonctionnalités automatiques de sauvegarde et de restauration, qui sont proposées gratuitement, ne requièrent aucun coût d’administration pour protéger les bases de données d’une corruption ou d’une suppression accidentelles.
-
-Pour en savoir plus sur la restauration de base de données, consultez la rubrique [Restaurer à partir d’un instantané][].
-
-### Restauration géographique
-
-La restauration géographique est conçue pour prendre en charge la récupération d’une base de données rendue indisponible en raison d’un événement perturbateur. Pour restaurer une base de données à partir d’une sauvegarde géo-redondante et créer une base de données dans une autre région Azure, contactez le support. La sauvegarde étant géo-redondante, vous pouvez la mettre à profit pour récupérer une base de données qu’une panne a rendu inaccessible. La fonctionnalité de restauration géographique est proposée gratuitement.
-
-Pour utiliser la restauration géographique, consultez la rubrique [Géo-restauration à partir d’un instantané][].
+Le stockage de sauvegardes fiables de vos données est un élément essentiel de toute base de données de production. SQL Data Warehouse permet de sécuriser vos données en sauvegardant automatiquement vos bases de données actives à intervalles réguliers. Ces sauvegardes vous permettent d’effectuer une récupération à partir des scénarios où vous avez endommagé vos données ou accidentellement supprimé vos données ou votre base de données. Pour connaître la planification de sauvegarde des données et la stratégie de rétention, consultez [Haute fiabilité][]. Pour en savoir plus sur la restauration d’une base de données, consultez [Restaurer à partir d’un instantané][].
 
 ## Étapes suivantes
-La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [vue d’ensemble du développement][].
+La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [Vue d’ensemble du développement][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Options de redondance de stockage Microsoft Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Créer un entrepôt de données SQL (portail Azure)]: sql-data-warehouse-get-started-provision.md
 [Créer une base de données (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
 [Se connecter à SQL Data Warehouse avec Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Se connecter et lancer des requêtes avec SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
-[vue d’ensemble du développement]: sql-data-warehouse-overview-development.md
-[Géo-restauration à partir d’un instantané]: sql-data-warehouse-backup-and-geo-restore-from-snapshot.md
+[Vue d’ensemble du développement]: sql-data-warehouse-overview-development.md
 [Haute fiabilité]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Surveiller votre charge de travail à l'aide de vues de gestion dynamique]: sql-data-warehouse-manage-monitor.md
-[Suspension du calcul]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
+[Suspension du calcul]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Restaurer à partir d’un instantané]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Reprise du calcul]: sql-data-warehouse-overview-scalability.md#resume-compute-performance-bk
-[Mise à l’échelle des performances]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
+[Reprise du calcul]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
+[Mise à l’échelle des performances]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [vue d’ensemble de la sécurité]: sql-data-warehouse-overview-security.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 [Vues système SQL Data Warehouse]: sql-data-warehouse-reference-tsql-system-views.md
@@ -139,4 +119,4 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -208,7 +208,13 @@ Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de r
 
 ## Décompte des données échantillonnées
 
-`sum(itemCount)` est l’agrégation recommandée pour compter les événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. En revanche, quand l’[échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights. Ainsi, pour chaque point de données que vous voyez, il existe `itemCount` événements. Par conséquent, le fait de résumer itemCount donne une bonne estimation du nombre d’événements d’origine.
+`sum(itemCount)` est l’agrégation recommandée pour compter les événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. En revanche, quand [l’échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights. Ainsi, pour chaque point de données que vous voyez, il existe `itemCount` événements.
+
+Par exemple, si l’échantillonnage ignore 75 % des événements d’origine, itemCount == 4 dans les enregistrements conservés. Autrement dit, pour chaque enregistrement conservé, il existe quatre enregistrements d’origine.
+
+L’échantillonnage adaptatif rend la valeur itemCount supérieure lors des périodes pendant lesquelles votre application est utilisée de façon intensive.
+
+Par conséquent, le fait de résumer itemCount donne une bonne estimation du nombre d’événements d’origine.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
@@ -216,11 +222,10 @@ Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de r
 Il existe également une agrégation `count()`, pour les cas où vous souhaitez réellement compter le nombre de lignes dans un groupe.
 
 
-Il existe un certain nombre de [fonctions d’agrégation](app-insights-analytics-reference.md#aggregations).
+Il existe une gamme de [fonctions d’agrégation](app-insights-analytics-reference.md#aggregations).
 
 
 ## Affichage des résultats dans un graphique
-
 
 
 ```AIQL
@@ -242,9 +247,9 @@ Nous pouvons aller au-delà de la vue de table. Examinons les résultats dans la
 Bien que nous n’ayons pas trié les résultats par heure (comme le montre l’affichage de table), le graphique affiche toujours les dates dans l’ordre approprié.
 
 
-## [Where](app-insights-analytics-reference.md#where-operator) : filtrer une condition
+## [Où](app-insights-analytics-reference.md#where-operator) : filtrage sur une condition
 
-Si vous avez configuré la surveillance Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines des données de télémétrie dans la base de données proviennent des navigateurs.
+Si vous avez configuré la surveillance Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines données télémétriques de la base de données proviennent de navigateurs.
 
 Examinons uniquement les exceptions signalées à partir des navigateurs :
 
@@ -264,7 +269,7 @@ L’opérateur `where` prend une expression booléenne. Voici quelques points cl
  * `==`, `<>` : égal et non égal
  * `=~`, `!=` : chaîne ne respectant pas la casse (égal et non égal). Il existe de nombreux autres opérateurs de comparaison de chaîne.
 
-Tout savoir sur les [expressions scalaires](app-insights-analytics-reference.md#scalars).
+Consultez l’ensemble des informations sur les [expressions scalaires](app-insights-analytics-reference.md#scalars).
 
 ### Filtrage des événements
 
@@ -276,7 +281,7 @@ Rechercher les requêtes ayant échoué :
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` étant de type chaîne, nous devons [le convertir](app-insights-analytics-reference.md#casts) pour une comparaison numérique.
+`responseCode` a le type chaîne, nous devons donc le [convertir](app-insights-analytics-reference.md#casts) pour effectuer une comparaison numérique.
 
 Résumer les différentes réponses :
 
@@ -450,9 +455,9 @@ Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélection
 
 
 
-## [Let](app-insights-analytics-reference.md#let-clause) : affecter un résultat à une variable
+## [Laisser](app-insights-analytics-reference.md#let-clause) : affecter un résultat à une variable
 
-Utilisez [let](./app-insights-analytics-syntax.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
+Utilisez [Laisser](./app-insights-analytics-syntax.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
 ```AIQL
 
@@ -469,4 +474,4 @@ Utilisez [let](./app-insights-analytics-syntax.md#let-statements) pour séparer 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

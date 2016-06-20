@@ -211,6 +211,6 @@ Votre environnement de cloud hybride simulé est maintenant prêt pour les tests
 
 ## Étapes suivantes
 
-- [Ajout d’une machine virtuelle](virtual-machines-windows-create-powershell.md) au sous-réseau TestVNET, par exemple une machine virtuelle exécutant Microsoft SQL Server.
+- [Ajout d’une machine virtuelle](virtual-machines-windows-ps-create.md) au sous-réseau TestVNET, par exemple une machine virtuelle exécutant Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

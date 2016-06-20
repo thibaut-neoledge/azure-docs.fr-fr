@@ -43,7 +43,7 @@ Cet article contient des instructions relatives à un déploiement amélioré da
 
 Le déploiement amélioré est une mise à jour majeure. Voici un récapitulatif des améliorations que nous avons apportées :
 
-- **Aucune machine virtuelle d’infrastructure dans Azure** : les données se répliquent directement dans un compte de stockage Azure. En outre, pour la réplication et le basculement, aucune machine virtuelle d’infrastructure n’est configurée (serveur de configuration, serveur cible maître), comme cela était le cas dans le déploiement hérité.  
+- **Aucune machine virtuelle d’infrastructure dans Azure** : les données se répliquent directement dans un compte de stockage Azure. En outre, pour la réplication et le basculement, il n’est pas nécessaire de configurer des machines virtuelles d’infrastructure (serveur de configuration, serveur cible maître), comme cela était le cas dans le déploiement hérité.  
 - **Installation unifiée** : une seule installation offre une configuration simple et l’extensibilité des composants locaux.
 - **Déploiement sécurisé** : l’ensemble du trafic est chiffré et les communications de gestion de la réplication sont envoyées par le biais du port HTTPS 443.
 - **Points de récupération** : prise en charge des points de récupération après incident cohérents avec les applications pour les environnements Windows et Linux, et prise en charge des configurations avec machine virtuelle unique et machines virtuelles multiples.
@@ -757,4 +757,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Découvrez la restauration automatique](site-recovery-failback-azure-to-vmware-classic.md) qui permet de ramener vos machines basculées s’exécutant dans Azure dans votre environnement local.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

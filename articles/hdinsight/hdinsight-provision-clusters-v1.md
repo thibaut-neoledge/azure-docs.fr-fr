@@ -22,9 +22,9 @@ Apprenez à planifier l’approvisionnement de clusters HDInsight.
 
 > [AZURE.IMPORTANT] Les étapes de ce document utilisent le portail Azure Classic. Microsoft ne recommande pas l’utilisation du portail Classic lors de la création de services. Pour obtenir une explication des avantages du portail Azure, consultez la rubrique [Portail Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Ce document inclut également des informations sur l’utilisation d’Azure PowerShell et de l’interface de ligne de commande Azure. Les extraits de code fournis sont basés sur des commandes qui utilisent Azure Service Management (ASM) pour travailler avec HDInsight et qui sont __déconseillées__. Ces commandes seront supprimées d’ici au 1er janvier 2017.
+> Ce document inclut également des informations sur l’utilisation d’Azure PowerShell, de l’interface de ligne de commande Azure et du Kit de développement logiciel (SDK) .NET SDK pour HDInsight. Les extraits de code fournis sont basés sur des commandes qui utilisent Azure Service Management (ASM) pour travailler avec HDInsight et qui sont __déconseillées__. Ces commandes seront supprimées d’ici au 1er janvier 2017.
 >
->Pour obtenir une version de ce document qui utilise le portail Azure, ainsi que des extraits de code PowerShell et de l’interface de ligne de commande (CLI) Azure qui utilisent Azure Resource Manager (ARM), consultez [Approvisionner des clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
+>Pour obtenir une version de ce document qui utilise le portail Azure, ainsi que des extraits de code PowerShell, de l’interface de ligne de commande (CLI) Azure et du Kit de développement logiciel (SDK) .NET SDK pour HDInsight qui utilisent Azure Resource Manager (ARM), consultez [Approvisionnement de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
 
 **Configuration requise :**
 
@@ -300,7 +300,7 @@ Vous pouvez vous référer aux [options de configuration de base] et aux [option
 ### Utilisation d'Azure PowerShell
 Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la configuration d’un cluster HDInsight à l’aide d’Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des cmdlets Windows PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-> [AZURE.NOTE] Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d’informations sur la création d’un réseau Azure Virtual Network, consultez la rubrique [Tâches de configuration d’un réseau virtuel](../services/virtual-machines/).
+> [AZURE.NOTE] Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d’informations sur la création d’un réseau Azure Virtual Network, consultez la rubrique [Tâches de configuration d’un réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 Les procédures suivantes sont nécessaires pour mettre en service un cluster HDInsight en utilisant Azure PowerShell :
 
@@ -815,4 +815,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

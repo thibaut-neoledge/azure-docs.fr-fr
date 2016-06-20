@@ -171,7 +171,7 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 - [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
 - [AMQP dans Service Bus pour Windows Server]
 
-  [Utilisation des files d’attente Service Bus]: service-bus-dotnet-how-to-use-queues.md
+  [Utilisation des files d’attente Service Bus]: service-bus-dotnet-get-started-with-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -203,4 +203,4 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

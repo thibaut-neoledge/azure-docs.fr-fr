@@ -49,11 +49,11 @@ Des valeurs sont manquantes dans les colonnes numériques et catégorielles de c
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 
-1. **Classification binaire** : prédit qu’un utilisateur a cliqué ou non sur un ajout :
+1. **Classification binaire** : prédit qu’un utilisateur a cliqué ou non sur un ajout :
 	- Classe 0 : aucun clic
 	- Classe 1 : clic
 
-2. **Régression** : prédit la probabilité d'un clic effectué sur une annonce à partir de fonctionnalités utilisateur.
+2. **Régression** : prédit la probabilité d'un clic effectué sur une annonce à partir de fonctionnalités utilisateur.
 
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour la science des données
@@ -111,9 +111,9 @@ Pour créer des tables Hive pour notre groupe de données Criteo, ouvrez la ***L
 
     cd %hive_home%\bin
 
-**REMARQUE IMPORTANTE** : **exécutez, dans cette procédure pas à pas, toutes les commandes Hive depuis l’invite de l’emplacement/du répertoire Hive mentionnée ci-dessus. Il se chargera automatiquement de tout problème lié au chemin d'accès. Nous utiliserons les termes « Invite du répertoire Hive », « Invite de l’emplacement/du répertoire Hive » et « Ligne de commande Hadoop » de manière interchangeable.**
+**REMARQUE IMPORTANTE** : **exécutez, dans cette procédure pas à pas, toutes les commandes Hive depuis l’invite de l’emplacement/du répertoire Hive mentionnée ci-dessus. Il se chargera automatiquement de tout problème lié au chemin d'accès. Nous utiliserons les termes « Invite du répertoire Hive », « Invite de l’emplacement/du répertoire Hive » et « Ligne de commande Hadoop » de manière interchangeable.**
 
-**REMARQUE IMPORTANTE 2** : **pour exécuter une requête Hive, effectuez toujours l'action suivante :** cd %hive\_home%\\bin hive
+**REMARQUE IMPORTANTE 2** : **pour exécuter une requête Hive, effectuez toujours l'action suivante :** cd %hive\_home%\\bin hive
 
 Lorsque Hive REPL apparaît avec un signe « hive > », coupez-collez simplement la requête pour l'exécuter.
 
@@ -168,7 +168,7 @@ Nous remarquons que toutes ces tables sont externes puisque nous désignons simp
 
  	Dans la ligne de commande REPL, coupez-collez la requête qu’elle exécute.
 
-2. **Enregistrement des requêtes dans un fichier et exécution de la commande** : la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
+2. **Enregistrement des requêtes dans un fichier et exécution de la commande** : la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
 
 		hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -438,34 +438,34 @@ Notre processus de création de modèles dans Azure Machine Learning se dérou
 5. [Évaluation du modèle](#step5)
 6. [Publication du modèle en tant que service Web à utiliser](#step6)
 
-Nous sommes désormais prêts à créer des modèles dans Azure Machine Learning Studio. Nos données à échantillon réduit sont enregistrées en tant que tables Hive dans le cluster. Nous utiliserons le module **Lecteur** d'Azure Machine Learning pour lire ces données. Les informations d'identification permettant d'accéder au compte de stockage de ce cluster sont indiquées ci-dessous.
+Nous sommes désormais prêts à créer des modèles dans Azure Machine Learning Studio. Nos données à échantillon réduit sont enregistrées en tant que tables Hive dans le cluster. Nous utiliserons le module **Importer des données** d'Azure Machine Learning pour lire ces données. Les informations d'identification permettant d'accéder au compte de stockage de ce cluster sont indiquées ci-dessous.
 
-### <a name="step1"></a> Étape 1 : Récupérer des données des tables Hive dans Azure Machine Learning à l'aide du module Lecteur et l’utiliser pour une expérience d'apprentissage automatique
+### <a name="step1"></a> Étape 1 : Récupérer des données des tables Hive dans Azure Machine Learning à l'aide du module Importer des données et l’utiliser pour une expérience d'apprentissage automatique
 
-Commencez par sélectionner **+NOUVEAU** -> **EXPÉRIENCE** -> **Nouvelle expérience vide**. Ensuite, dans la zone **Recherche** en haut à gauche, recherchez « Reader » (Lecteur). Effectuez un glisser-déplacer du module **Lecteur** sur la zone de dessin d'expérience (partie centrale de l'écran) pour utiliser le module afin d'accéder aux données.
+Commencez par sélectionner **+NOUVEAU** -> **EXPÉRIENCE** -> **Nouvelle expérience vide**. Ensuite, dans la zone **Recherche** en haut à gauche, recherchez « Import Data ». Effectuez un glisser-déplacer du module **Importer des données** sur la zone de dessin d'expérience (partie centrale de l'écran) pour utiliser le module afin d'accéder aux données.
 
-Voici à quoi ressemble le **Lecteur** lors de la récupération des données d’une table Hive :
+Voici à quoi ressemble le module **Import Data** lors de la récupération des données d’une table Hive :
 
-![Lecteur récupère les données](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
+![Import Data obtient des données](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-Pour le module **Lecteur**, les valeurs des paramètres qui sont fournies dans le graphique servent uniquement d'exemples. Voici quelques instructions générales portant sur le « remplissage » des paramètres pour le module **Lecteur**.
+Pour le module **Importer des données**, les valeurs des paramètres qui sont fournies dans le graphique servent uniquement d'exemples de valeurs que vous devez fournir. Voici quelques instructions générales portant sur la manière de définir le jeu de paramètres pour le module **Importer des données**.
 
 1. Choisissez « Requête Hive » pour la **source de données**.
 2. Dans la zone de **requête de base de données Hive**, une simple opération SELECT * FROM <nom\_de\_votre\_base\_de\_données.nom\_de\_votre\_table> - suffit.
-3. **URI du serveur Hcatalog** : si votre cluster se nomme « abc », vous aurez donc : https://abc.azurehdinsight.net
-4. **Nom du compte utilisateur Hadoop** : nom d'utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
-5. **Nom du compte utilisateur Hadoop** : mot de passe associé au nom d'utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
-6. **Emplacement des données de sortie** : choisissez « Azure »
-7. **Nom du compte de stockage Azure** : le compte de stockage associé au cluster.
-8. **Clé du compte de stockage Azure** : la clé du compte de stockage associé au cluster.
-9. **Nom du conteneur Azure** : si le nom du cluster est « abc », il se nommera tout simplement « abc ».
+3. **URI du serveur Hcatalog** : si votre cluster se nomme « abc », vous aurez donc : https://abc.azurehdinsight.net
+4. **Nom du compte utilisateur Hadoop** : nom d'utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
+5. **Nom du compte utilisateur Hadoop** : mot de passe associé au nom d'utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
+6. **Emplacement des données de sortie** : choisissez « Azure »
+7. **Nom du compte de stockage Azure** : le compte de stockage associé au cluster.
+8. **Clé du compte de stockage Azure** : la clé du compte de stockage associé au cluster.
+9. **Nom du conteneur Azure** : si le nom du cluster est « abc », il se nommera tout simplement « abc ».
 
 
-Dès lors que le **Lecteur** a récupéré les données (vous apercevez la coche verte sur le module), enregistrez-les en tant que groupe de données (avec le nom de votre choix). Cela ressemble à :
+Dès lors que le module **Importer des données** a récupéré les données (vous apercevez la coche verte sur le module), enregistrez-les en tant que jeu de données (avec le nom de votre choix). Cela ressemble à :
 
-![Lecteur enregistre les données](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
+![Import Data enregistre des données](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-Cliquez avec le bouton droit sur le port de sortie du module **Lecteur**. Ceci fait apparaître une option **Enregistrer en tant que groupe de données** et une option **Visualiser**. L’option **Visualiser**, si vous cliquez dessus, fera apparaître les 100 lignes de données, ainsi qu’un panneau, situé à droite, qui sera très utile pour certaines statistiques de résumé. Pour enregistrer les données, sélectionnez simplement **Enregistrer en tant que groupe de données** et suivez les instructions.
+Cliquez avec le bouton droit sur le port de sortie du module **Importer des données**. Ceci fait apparaître une option **Enregistrer en tant que groupe de données** et une option **Visualiser**. L’option **Visualiser**, si vous cliquez dessus, fera apparaître les 100 lignes de données, ainsi qu’un panneau, situé à droite, qui sera très utile pour certaines statistiques de résumé. Pour enregistrer les données, sélectionnez simplement **Enregistrer en tant que groupe de données** et suivez les instructions.
 
 Pour sélectionner le groupe de données enregistré et l’utiliser dans une expérience d'apprentissage automatique, recherchez les groupes de données à l'aide de la zone **Recherche** mentionnée ci-dessous. Puis tapez simplement une partie du nom attribué au groupe de données pour accéder à celui-ci et faites-le glisser sur le panneau principal. En le déposant sur le panneau principal, ce groupe de données est sélectionné pour être utilisé dans la modélisation de l’apprentissage automatique.
 
@@ -501,7 +501,7 @@ Pour créer des fonctionnalités de comptage, nous utilisons le module **Créer 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png) ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
 
-**Remarque importante** : dans la zone **Nombre de colonnes**, nous entrons les colonnes sur lesquelles nous souhaitons effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Au début, nous avons mentionné que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, nous effectuons un comptage sur chacune d'elles et donnons leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
+**Remarque importante** : dans la zone **Nombre de colonnes**, nous entrons les colonnes sur lesquelles nous souhaitons effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Au début, nous avons mentionné que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, nous effectuons un comptage sur chacune d'elles et donnons leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
 
 Pour utiliser le module en mode MapReduce (adapté aux grands ensembles de données), nous devons accéder à un cluster HDInsight Hadoop (celui utilisé pour l'exploration de la fonctionnalité ci-dessus peut être réutilisé à cet effet) et ses informations d'identification. Les valeurs renseignées (remplacez les valeurs fournies à titre d'illustration avec celles adaptées à votre propre cas d'utilisation) sont représentées dans les figures ci-dessus.
 
@@ -510,7 +510,7 @@ Pour utiliser le module en mode MapReduce (adapté aux grands ensembles de donn�
 Dans la figure ci-dessus, nous montrons comment entrer l'emplacement de l'objet blob en entrée. Cet emplacement comporte les données réservées pour la création de tables de comptage.
 
 
-Une fois l'exécution de ce module terminée, nous pouvons enregistrer la transformation pour une utilisation ultérieure en cliquant avec le bouton droit sur le module et en sélectionnant l'option **Enregistrer en tant que transformation** :
+Une fois l'exécution de ce module terminée, nous pouvons enregistrer la transformation pour une utilisation ultérieure en cliquant avec le bouton droit sur le module et en sélectionnant l'option **Enregistrer en tant que transformation** :
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
@@ -578,7 +578,7 @@ Pour l'apprentissage, nous appelons simplement un module **Former le modèle**. 
 
 #### Notation du modèle
 
-Une fois que nous avons formé un modèle, nous sommes prêts à noter le jeu de données de test et à évaluer ses performances. Pour cela, nous utilisons le module **Noter le modèle** ci-dessous, ainsi qu'un module **Évaluer le modèle** :
+Une fois que nous avons formé un modèle, nous sommes prêts à noter le jeu de données de test et à évaluer ses performances. Pour cela, nous utilisons le module **Noter le modèle** ci-dessous, ainsi qu'un module **Évaluer le modèle** :
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
@@ -624,13 +624,13 @@ Remarque : pour le format de données d'entrée, nous utiliserons la SORTIE du 
 
 #### Expérience d’évaluation de la publication du service Web
 
-Tout d’abord, nous vous indiquons ci-dessous à quoi cela ressemble. La structure essentielle est un module **Noter le modèle** qui accepte notre objet de modèle formé ainsi que quelques lignes de données d'entrée que nous avons créées lors des étapes précédentes à l'aide du module **Caractériseur de comptage**. Nous utilisons « Colonnes de projet » pour projeter les Étiquettes notées et Probabilités notées
+Tout d’abord, nous vous indiquons ci-dessous à quoi cela ressemble. La structure essentielle est un module **Noter le modèle** qui accepte notre objet de modèle formé ainsi que quelques lignes de données d'entrée que nous avons créées lors des étapes précédentes à l'aide du module **Caractériseur de comptage**. Nous utilisons « Sélectionner des colonnes dans le jeu de données » pour projeter les étiquettes notées et les probabilités de notes.
 
-![Colonnes de projet](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
+![Sélectionner des colonnes dans le jeu de données](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
-Notez comment le module **Colonnes de projet** peut être utilisé pour le « filtrage » des données d'un groupe de données. Nous vous indiquons ci-dessous le contenu :
+Notez comment le module **Sélectionner des colonnes dans le jeu de données** peut être utilisé pour le « filtrage » des données d'un groupe de données. Nous vous indiquons ci-dessous le contenu :
 
-![Filtrage du module Colonnes de projet](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
+![Filtrage avec le module Sélectionner des colonnes dans le jeu de données](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 Pour obtenir les ports d'entrée et de sortie bleus, vous cliquez simplement sur **préparer le service Web**, situé en bas à droite. Exécuter cette expérience nous permet également de publier le service Web en cliquant sur l’icône **PUBLIER LE SERVICE WEB** située en bas à droite et indiquée ci-dessous.
 
@@ -663,4 +663,4 @@ Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes
 
 Ceci conclut notre procédure pas à pas illustrant comment gérer un jeu de données à grande échelle à l'aide d'Azure Machine Learning. Nous avons démarré avec un téraoctet de données, nous avons construit un modèle de prévision et l'avons déployé en tant que service Web dans le cloud.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

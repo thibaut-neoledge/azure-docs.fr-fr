@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
@@ -60,10 +60,15 @@ Utilisez la commande suivante pour afficher les détails d’un cluster spécifi
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Suppression des clusters
+
 Utilisez les commandes suivantes pour supprimer un cluster :
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+Vous pouvez également supprimer un cluster en supprimant le groupe de ressources qui le contient. Notez que cette opération supprime toutes les ressources dans le groupe, notamment le compte de stockage par défaut.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##Mise à l’échelle des clusters
 La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de travail utilisés par un cluster exécuté dans Azure HDInsight sans avoir à recréer ce cluster.
 
@@ -234,4 +239,4 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

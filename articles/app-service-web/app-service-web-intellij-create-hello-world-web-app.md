@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Créer une application web « Hello World » pour Azure dans IntelliJ
@@ -30,7 +30,7 @@ Ce didacticiel explique comment créer une application Hello World de base et la
 * IntelliJ IDEA édition Ultimate. Vous pouvez le télécharger à partir de <https://www.jetbrains.com/idea/download/index.html>.
 * Une distribution d’un serveur web ou d’un serveur d’applications basé sur Java, comme Apache Tomcat ou Jetty.
 * Un abonnement à Azure, pouvant être souscrit à l’adresse <https://azure.microsoft.com/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
-* Le Kit de ressources Azure pour IntelliJ. Pour plus d’informations, consultez [Installing the Azure Toolkit for IntelliJ] \(Installation du kit de ressources Azure pour IntelliJ).
+* Le Kit de ressources Azure pour IntelliJ. Pour plus d’informations, consultez [Installing the Azure Toolkit for IntelliJ] (Installation du kit de ressources Azure pour IntelliJ).
 
 ## Pour créer une application Hello World
 
@@ -96,49 +96,49 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
 
   1. Entrez un **nom DNS** pour votre conteneur d’application web ; celui-ci constitue le nom DNS feuille de l’URL hôte de votre application web dans Azure. Remarque : Le nom doit être disponible et conforme aux exigences d’affectation de noms pour les applications web Azure.
 
-  1. Dans le menu déroulant **Conteneur web**, sélectionnez le logiciel approprié pour votre application.
+  1. Dans le menu déroulant **Web Container** (Conteneur d’application), sélectionnez le logiciel approprié pour votre application.
 
         Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
-  1. Dans le menu déroulant **Abonnement**, sélectionnez l’abonnement à utiliser pour ce déploiement.
+  1. Dans le menu déroulant **Subscription** (Abonnement), sélectionnez l’abonnement à utiliser pour ce déploiement.
 
-  1. Dans le menu déroulant **Groupe de ressources**, sélectionnez le groupe de ressources auquel vous souhaitez associer votre application web.
+  1. Dans le menu déroulant **Resource Group** (Groupe de ressources), sélectionnez le groupe de ressources auquel vous souhaitez associer votre application web.
 
         Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
         You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
-      * Cliquez sur **Nouveau...**
+      * Cliquez sur **New...** (Nouveau...)
 
-      * La boîte de dialogue **Nouveau groupe de ressources** s’affiche :
+      * La boîte de dialogue **New Resource Group** (Nouveau groupe de ressources) s’affiche :
 
             ![][12]
 
-      * Dans la zone de texte **Nom**, spécifiez un nom pour votre nouveau groupe de ressources.
+      * Dans la zone de texte **Name** (Nom), spécifiez un nom pour votre nouveau groupe de ressources.
 
-      * Dans le menu déroulant **Région**, sélectionnez l’emplacement de centre de données Azure approprié pour votre groupe de ressources.
+      * Dans le menu déroulant **Region** (Région), sélectionnez l’emplacement de centre de données Azure approprié pour votre groupe de ressources.
 
       * Cliquez sur **OK**.
 
-  1. Le menu déroulant **Plan App Service** répertorie les plans de service d’application qui sont associés au groupe de ressources que vous avez sélectionné.
+  1. Le menu déroulant **App Service Plan** (Plan de Service d’application) répertorie les plans de service d’application qui sont associés au groupe de ressources que vous avez sélectionné.
 
         Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
         You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
-      * Cliquez sur **Nouveau...**
+      * Cliquez sur **New...** (Nouveau...)
 
-      * La boîte de dialogue **Nouveau plan App Service** s’affiche :
+      * La boîte de dialogue **New App Service Plan** (Nouveau plan de Service d’application) s’affiche :
 
             ![][13]
 
-      * Dans la zone de texte **Nom**, spécifiez un nom pour votre nouveau plan de service d’application.
+      * Dans la zone de texte **Name** (Nom), spécifiez un nom pour votre nouveau plan de service d’application.
 
-      * Dans le menu déroulant **Emplacement**, sélectionnez l’emplacement de centre de données Azure approprié pour le plan.
+      * Dans le menu déroulant **Location** (Emplacement), sélectionnez l’emplacement de centre de données Azure approprié pour le plan.
 
-      * Dans le menu déroulant **Niveau tarifaire**, sélectionnez la tarification appropriée pour le plan. À des fins de test, vous pouvez choisir **Gratuit**.
+      * Dans le menu déroulant **Pricing Tier** (Niveau de tarification), sélectionnez la tarification appropriée pour le plan. À des fins de test, vous pouvez choisir **Free** (Gratuit).
 
-      * Dans le menu déroulant **Taille des instances**, sélectionnez la taille d’instance appropriée pour le plan. À des fins de test, vous pouvez choisir **Petite**.
+      * Dans le menu déroulant **Instance Size** (Taille de l’instance), sélectionnez la taille d’instance appropriée pour le plan. À des fins de test, vous pouvez choisir **Small** (Petite).
 
   1. Une fois effectuées toutes les étapes ci-dessus, la boîte de dialogue New Web App Container doit ressembler à ceci :
 
@@ -215,19 +215,34 @@ Quand l’**Explorateur Azure** s’affiche, procédez comme suit pour démarrer
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez les liens suivants :
+Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
-* [Centre de développement Java]
-* [Vue d’ensemble de Web Apps]
+- [Kit de ressources Azure pour Eclipse]
+  - [Installation du kit de ressources Azure pour Eclipse]
+  - [Créer une application web « Hello World » pour Azure dans Eclipse]
+  - [Nouveautés du kit de ressources Azure pour Eclipse]
+- [Kit de ressources Azure pour IntelliJ]
+  - [Installation du kit de ressources Azure pour IntelliJ]
+  - *Créer une application web « Hello World » pour Azure dans IntelliJ (cet article)*
+
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
+
+Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vue d’ensemble de Web Apps].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
+[Kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse.md
 [Kit de ressources Azure pour IntelliJ]: ../azure-toolkit-for-intellij.md
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Installation du kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Centre de développement Java]: https://azure.microsoft.com/develop/java/
-[Vue d’ensemble de Web Apps]: ./app-service-web-overview.md
+[Installation du kit de ressources Azure pour IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[Nouveautés du kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+[Vue d’ensemble de Web Apps]: ./app-service-web-overview.md
 
 <!-- IMG List -->
 
@@ -251,4 +266,4 @@ Pour plus d’informations, consultez les liens suivants :
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

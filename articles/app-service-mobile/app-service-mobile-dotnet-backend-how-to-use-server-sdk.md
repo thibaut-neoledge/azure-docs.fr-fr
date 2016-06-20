@@ -303,7 +303,7 @@ Lorsqu’un utilisateur est authentifié par App Service, vous pouvez accéder �
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-Le SID est dérivé de l’ID utilisateur spécifique au fournisseur et est statique pour un utilisateur donné et un fournisseur de connexion.
+Le SID est dérivé de l’ID utilisateur spécifique au fournisseur et est statique pour un utilisateur donné et un fournisseur de connexion. Lorsqu’un utilisateur accède à un point de terminaison de manière anonyme, la propriété User (Utilisateur) retourne la valeur null.
 
 App Service vous permet également de demander des revendications spécifiques à votre fournisseur de connexion. Cela vous permet de demander d’autres informations à partir du fournisseur, par exemple à l’aide des API Graph Facebook. Vous pouvez spécifier des revendications au niveau du panneau de fournisseur dans le portail. Certaines demandes nécessitent une configuration supplémentaire avec le fournisseur.
 
@@ -332,6 +332,19 @@ Le code suivant appelle la méthode d’extension **GetAppServiceIdentityAsync**
     }
 
 Notez que vous devez ajouter une instruction using pour `System.Security.Principal` afin de faire fonctionner la méthode d’extension **GetAppServiceIdentityAsync**.
+
+### <a name="authorize"></a>Limiter l’accès aux données pour les utilisateurs autorisés
+
+Dans la section précédente, nous vous avons montré comment récupérer l’identificateur d’utilisateur d’un utilisateur authentifié. Vous pouvez restreindre l’accès aux données et à d’autres ressources en fonction de cette valeur. Par exemple, l’ajout d’une colonne userId à des tables et le filtrage des résultats de requête par l’identificateur d’utilisateur sont un moyen simple de limiter les données renvoyées uniquement aux utilisateurs autorisés. Le code suivant retourne des lignes de données uniquement lorsque l’identificateur de l’utilisateur actuel correspond à la valeur dans la colonne UserId de la table TodoItem :
+
+    // Get the SID of the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    
+    // Only return data rows that belong to the current user.
+    return Query().Where(t => t.UserId == sid);
+
+Selon votre scénario spécifique, vous pouvez également créer des tables ou rôles utilisateurs pour effectuer le suivi d’informations d'autorisation utilisateur plus détaillées, telles que les points de terminaison auxquels un utilisateur donné peut accéder.
 
 ## Ajouter des notifications Push à un projet de serveur
 
@@ -373,9 +386,9 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
 
 À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications Push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d'informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d'ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Ajouter des balises à l’installation d’un appareil pour activer un push ciblé
+##<a name="tags"></a>Ajout de balises à l’installation d’un appareil pour activer un push ciblé
 
-Notification Hubs vous permet d’envoyer des notifications ciblées vers des enregistrements spécifiques à l’aide de balises. Une balise qui est créée automatiquement est l’ID d’installation, ce qui est spécifique à une instance de l’application sur un appareil donné. Une inscription avec un ID d’installation est également appelée *installation*. Vous pouvez utiliser l’ID d’installation pour gérer l’installation, par exemple pour ajouter des balises. L’ID d’installation est accessible à partir de la propriété **installationId** sur **MobileServiceClient**.
+Notification Hubs vous permet d’envoyer des notifications ciblées vers des enregistrements spécifiques à l’aide de balises. Une balise qui est créée automatiquement est l’ID d’installation, ce qui est spécifique à une instance de l’application sur un appareil donné. Une inscription avec un ID d’installation est également appelée *installation*. Vous pouvez utiliser l’ID d’installation pour gérer l’installation, par exemple pour ajouter des balises. L’ID d’installation est accessible à partir de la propriété **installationId** sur le **MobileServiceClient**.
 
 L’exemple suivant montre comment utiliser un ID d’installation pour ajouter une balise à une installation spécifique dans Notification Hubs :
 
@@ -389,7 +402,7 @@ L’exemple suivant montre comment utiliser un ID d’installation pour ajouter 
 	    }
 	});
 
-Notez que toutes les balises fournies par le client pendant l’inscription aux notifications Push sont ignorées par le backend pendant la création de l’installation. Pour permettre à un client d’ajouter des balises à l’installation, vous devez créer une nouvelle API personnalisée qui ajoute des balises à l’aide du modèle ci-dessus. Pour obtenir un exemple de contrôleur d’API personnalisé qui permet aux clients d’ajouter des balises à une installation, consultez [Balises de notification Push ajoutées au client](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) dans l’exemple de démarrage rapide final d’App Service Mobile Apps pour le serveur principal .NET.
+Notez que toutes les balises fournies par le client pendant l’inscription aux notifications Push sont ignorées par le backend pendant la création de l’installation. Pour permettre à un client d’ajouter des balises à l’installation, vous devez créer une nouvelle API personnalisée qui ajoute des balises à l’aide du modèle ci-dessus. Pour obtenir un exemple de contrôleur d’API personnalisé qui permet aux clients d’ajouter des balises à une installation, consultez [Client-added push notification tags (Balises de notification Push ajoutées au client)](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) dans l’exemple de démarrage rapide complet d’App Service Mobile Apps pour le serveur principal .NET.
 
 ##<a name="push-user"></a>Envoyer des notifications Push à un utilisateur authentifié
 
@@ -406,7 +419,7 @@ Quand un utilisateur authentifié s’inscrit aux notifications Push, une balise
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Quand vous vous inscrivez à des notifications Push à partir d’un client authentifié, assurez-vous au préalable que l’authentification est bien terminée. Pour plus d’informations, consultez [Envoi de notifications Push aux utilisateurs](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) dans l’exemple de démarrage rapide final d’App Service Mobile Apps pour le serveur principal .NET.
+Quand vous vous inscrivez à des notifications Push à partir d’un client authentifié, assurez-vous au préalable que l’authentification est bien terminée. Pour plus d’informations, consultez [Envoi de notifications Push aux utilisateurs](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) dans l’exemple de démarrage rapide complet d’App Service Mobile Apps pour le serveur principal .NET.
 
 ## Déboguer et dépanner le Kit de développement logiciel (SDK) serveur .NET
 
@@ -465,4 +478,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

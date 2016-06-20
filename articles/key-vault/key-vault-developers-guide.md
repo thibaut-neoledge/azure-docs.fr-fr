@@ -64,7 +64,7 @@ Vous pouvez, sous réserve d’autorisation, exécuter les opérations suivantes
 
 Les kits de développement logiciel (SDL) suivants sont disponibles pour une utilisation avec le coffre de clés :
 
-|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
 |[Documentation du Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentation du Kit de développement logiciel (SDK) Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Package du Kit de développement logiciel (SDK) .NET](https://azure.microsoft.com/documentation/api/)|[Package du Kit de développement logiciel (SDK) Node.js](https://www.npmjs.com/package/azure-keyvault)|
@@ -97,4 +97,4 @@ Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation a
 - [Blog de Key Vault](http://aka.ms/kvblog)
 - [Forum de Key Vault](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

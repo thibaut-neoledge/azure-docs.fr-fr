@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="brjohnst"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
@@ -52,6 +52,10 @@ L’API du service Azure Search prend en charge deux syntaxes d’URL pour les o
 [Obtention de statistiques d'index](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[Tester l’analyseur](#TestAnalyzer)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Suppression d'index](#DeleteIndex)
 
@@ -134,7 +138,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom d'index s
 
 La création d'un index détermine la structure des documents stockés et utilisés dans les opérations de recherche. Le remplissage de l'index est une opération distincte. Pour cette étape, vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/azure/mt183328.aspx) (disponible pour les sources de données prises en charge) ou une opération [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). L'index inversé est généré lors de la publication des documents.
 
-**Remarque** : le nombre maximal d'index que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 index. Le service standard autorise 50 index par service de recherche. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx).
+**Remarque** : le nombre maximal d'index que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 index. Le service standard autorise 50 index par service de recherche. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 **Requête**
 
@@ -168,6 +172,7 @@ Les parties principales d'un index sont les suivantes :
 - `fields` qui alimenteront cet index, y compris le nom, le type de données et les propriétés qui définissent les actions autorisées sur ce champ.
 - `suggesters` utilisés pour les requêtes prédictives ou avec saisie semi-automatique.
 - `scoringProfiles` utilisés pour le classement personnalisé des scores de recherche. Pour plus d'informations, consultez [Ajout de profils de calcul de score ](https://msdn.microsoft.com/library/azure/dn798928.aspx).
+- `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` utilisés pour définir la façon dont vos documents/requêtes sont répartis en jetons indexables/cherchables. Consultez [Analyse dans Azure Search](https://aka.ms//azsanalysis) pour plus d’informations.
 - `defaultScoringProfile` utilisé pour remplacer les comportements de calcul de score par défaut.
 - `corsOptions` pour autoriser les requêtes cross-origin sur votre index.
 
@@ -233,6 +238,10 @@ La syntaxe de structuration de la charge utile de la requête est la suivante. U
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -250,7 +259,7 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `searchable` : indique que le champ peut faire l'objet d'une recherche en texte intégral. Cela signifie qu'il fera l'objet d'une analyse, par exemple lexicale, lors de l'indexation. Si vous définissez un champ `searchable` avec une valeur telle que « journée ensoleillée », cette valeur est fractionnée au niveau interne en jetons individuels « journée » et « ensoleillée ». Cela permet d'effectuer des recherches en texte intégral de ces termes. Les champs de type `Edm.String` ou `Collection(Edm.String)` sont `searchable` par défaut. Les autres types de champs ne peuvent pas être `searchable`.
 
-  - **Remarque** : les champs `searchable` nécessitent davantage d'espace dans votre index, car Azure Search stocke une version supplémentaire tokenisée de la valeur du champ pour les recherches en texte intégral. Si vous voulez économiser de l'espace dans votre index et que vous n'avez pas besoin d'inclure un champ dans les recherches, définissez `searchable` avec la valeur `false`.
+  - **Remarque** : les champs `searchable` nécessitent davantage d'espace dans votre index, car Azure Search stocke une version supplémentaire tokenisée de la valeur du champ pour les recherches en texte intégral. Si vous voulez économiser de l'espace dans votre index et que vous n'avez pas besoin d'inclure un champ dans les recherches, définissez `searchable` avec la valeur `false`.
 
 `filterable` : permet au champ d'être référencé dans les requêtes `$filter`. `filterable` diffère de `searchable` dans la manière dont sont gérées les chaînes. Les champs de type `Edm.String` ou `Collection(Edm.String)` qui sont `filterable` ne font pas l'objet d'une analyse lexicale, les comparaisons ne concernent donc que les correspondances exactes. Par exemple, si vous définissez un champ de type `f` avec la valeur « journée ensoleillée », `$filter=f eq 'sunny'` ne trouvera aucune correspondance, contrairement à `$filter=f eq 'sunny day'`. Tous les champs sont `filterable` par défaut.
 
@@ -258,9 +267,9 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `facetable` : généralement utilisé dans une présentation des résultats de recherche qui inclut le nombre d'accès par catégorie (par exemple, vous recherchez des appareils photo numériques et regardez le nombre d'accès par marque, mégapixels, prix, etc.). Cette option ne peut pas être utilisée avec des champs de type `Edm.GeographyPoint`. Tous les autres champs sont `facetable` par défaut.
 
-  - **Remarque** : les champs de type `Edm.String` qui sont `filterable`, `sortable` ou `facetable` ne doivent pas dépasser 32 Ko de longueur. En effet, ces champs sont traités en tant que terme de recherche unique, et la longueur maximale d'un terme dans Azure Search est 32 Ko. Si vous devez stocker plus de texte dans un champ de chaîne unique, définissez explicitement `filterable`, `sortable` et `facetable` avec la valeur `false` dans votre définition d'index.
+  - **Remarque** : les champs de type `Edm.String` qui sont `filterable`, `sortable` ou `facetable` ne doivent pas dépasser 32 Ko de longueur. En effet, ces champs sont traités en tant que terme de recherche unique, et la longueur maximale d'un terme dans Azure Search est 32 Ko. Si vous devez stocker plus de texte dans un champ de chaîne unique, définissez explicitement `filterable`, `sortable` et `facetable` avec la valeur `false` dans votre définition d'index.
 
-  - **Remarque** : si aucun des attributs ci-dessus dans un champ n'est défini avec la valeur `true` (`searchable`, `filterable`, `sortable` ou `facetable`), le champ est exclu de l'index inversé. Cette option est utile pour les champs qui ne sont pas utilisés dans les requêtes, mais qui sont nécessaires dans les résultats de recherche. L'exclusion de ces champs de l'index améliore les performances.
+  - **Remarque** : si aucun des attributs ci-dessus dans un champ n'est défini avec la valeur `true` (`searchable`, `filterable`, `sortable` ou `facetable`), le champ est exclu de l'index inversé. Cette option est utile pour les champs qui ne sont pas utilisés dans les requêtes, mais qui sont nécessaires dans les résultats de recherche. L'exclusion de ces champs de l'index améliore les performances.
 
 `key` : indique que le champ contient des identificateurs uniques pour les documents de l'index. Un seul champ doit être choisi comme champ `key` et il doit être de type `Edm.String`. Les champs de clés peuvent servir à rechercher des documents directement via l'[API de recherche](#LookupAPI).
 
@@ -804,6 +813,10 @@ La syntaxe de schéma utilisée pour créer un index est reproduite ici par comm
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -817,6 +830,14 @@ La syntaxe de schéma utilisée pour créer un index est reproduite ici par comm
 Pour une requête correcte : « 204 Pas de contenu ».
 
 Par défaut, le corps de la réponse est vide. Toutefois, si l'en-tête de la requête `Prefer` est défini avec la valeur `return=representation`, le corps de la réponse contient le code JSON pour la définition d'index mise à jour. Dans ce cas, le code d'état de réussite est « 200 OK ».
+
+**Mise à jour de la définition d’index avec des analyseurs personnalisés**
+
+Une fois défini, un analyseur, un générateur de jetons, un filtre de jetons ou un filtre de caractères ne peut pas être modifié. D’autres peuvent être ajoutés à un index existant à condition que l’indicateur `allowIndexDowntime` soit défini comme true dans la demande de mise à jour de l’index :
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+Notez que cette opération placera votre index hors connexion pendant au moins quelques secondes, ce qui entraînera l’échec de vos demandes d’indexation et de requête. Les performances et la disponibilité d’écriture de l’index peuvent être altérées pendant plusieurs minutes après la mise à jour de l’index, ou plus longtemps pour les très grands index.
 
 <a name="ListIndexes"></a>
 ## Liste des index
@@ -989,6 +1010,100 @@ Le corps de la réponse a le format suivant :
 	  "storageSize": number (size of the index in bytes)
     }
 
+<a name="TestAnalyzer"></a>
+## Tester l’analyseur
+
+L’**API Analyser** montre comment l’analyseur découpe le texte en jetons.
+
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+
+**Requête**
+
+Le protocole HTTPS est requis pour toutes les requêtes de services. La requête **API Analyser** peut être construite à l’aide de la méthode POST.
+
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+
+
+**En-têtes de requête**
+
+La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
+
+- `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **API Analyser** doit inclure un en-tête `api-key` défini avec la valeur d’une clé d’administration (par opposition à une clé de requête).
+
+Vous avez également besoin du nom de l’index et du service pour construire l’URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+
+**Corps de la requête**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "analyzer_name"
+    }
+
+ou
+
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
+
+`analyzer_name`, `tokenizer_name`, `token_filter_name` et `char_filter_name` doivent être des noms valides d’analyseurs, de générateurs de jetons, de filtres de jetons et de filtres de caractères prédéfinis ou personnalisés pour l’index. Pour en savoir plus sur le processus d’analyse lexicale, consultez [Analyse dans Azure Search](https://aka.ms/azsanalysis).
+
+**Réponse**
+
+Code d'état : 200 OK est retourné pour une réponse correcte.
+
+Le corps de la réponse a le format suivant :
+
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
+
+**Exemple d’API Analyser**
+
+**Requête**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "standard"
+    }
+
+**Réponse**
+
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
+    }
+
 ________________________________________
 <a name="DocOps"></a>
 ## Opérations de document
@@ -1081,7 +1196,7 @@ Code d’état : 200 (OK) est retourné pour une réponse correcte, ce qui signi
       ]
     }  
 
-Un code d’état 207 (Multi-état) est renvoyé lorsqu’au moins un élément n’a pas été correctement indexé. Le champ `status` des éléments qui n’ont pas été indexés prend alors la valeur false. Les propriété `errorMessage` et `statusCode` indiquent la raison de l’erreur d’indexation :
+Un code d’état 207 (Multi-état) est renvoyé lorsqu’au moins un élément n’a pas été correctement indexé. Le champ `status` des éléments qui n’ont pas été indexés prend alors la valeur false. Les propriétés `errorMessage` et `statusCode` indiquent la raison de l’erreur d’indexation :
 
     {
       "value": [
@@ -1159,7 +1274,7 @@ Le tableau suivant décrit, par document, les différents codes d’état pouvan
 	</tr>
 </table> 
 
-**Remarque** : si votre code client rencontre fréquemment une réponse 207, le système est peut-être en cours de chargement. Vous pouvez vous en assurer en vérifiant la propriété `statusCode` pour 503. Si tel est le cas, nous vous recommandons de ***limiter les requêtes d'indexation***. Sinon, si le trafic d'indexation ne diminue pas, le système peut commencer à rejeter toutes les requêtes avec des erreurs 503.
+**Remarque** : si votre code client rencontre fréquemment une réponse 207, le système est peut-être en cours de chargement. Vous pouvez vous en assurer en vérifiant la propriété `statusCode` pour 503. Si tel est le cas, nous vous recommandons de ***limiter les requêtes d'indexation***. Sinon, si le trafic d'indexation ne diminue pas, le système peut commencer à rejeter toutes les requêtes avec des erreurs 503.
 
 Le code d’état 429 indique que vous avez dépassé votre quota du nombre de documents par index. Vous devez créer un autre index ou effectuer une mise à niveau pour bénéficier de limites de capacité supérieures.
 
@@ -1252,7 +1367,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `search=[string]` (facultatif) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc (par exemple : `search=hello world`). Pour faire correspondre n'importe quel terme, utilisez `*` (ce qui peut être utile pour les requêtes de filtre booléen). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx).
 
-  - **Remarque** : les résultats peuvent parfois être surprenants lors de l'interrogation de champs `searchable`. Le générateur de jetons inclut une logique pour gérer les cas courants dans le texte anglais tels que les apostrophes, les virgules des nombres, etc. Par exemple, `search=123,456` correspond à un seul terme 123,456 plutôt qu'aux termes individuels 123 et 456, étant donné que les virgules sont utilisées comme séparateurs de milliers dans les grands nombres en anglais. Pour cette raison, nous vous recommandons d'utiliser un espace blanc au lieu des signes de ponctuation pour séparer les termes du paramètre `search`.
+  - **Remarque** : les résultats peuvent parfois être surprenants lors de l'interrogation de champs `searchable`. Le générateur de jetons inclut une logique pour gérer les cas courants dans le texte anglais tels que les apostrophes, les virgules des nombres, etc. Par exemple, `search=123,456` correspond à un seul terme 123,456 plutôt qu'aux termes individuels 123 et 456, étant donné que les virgules sont utilisées comme séparateurs de milliers dans les grands nombres en anglais. Pour cette raison, nous vous recommandons d'utiliser un espace blanc au lieu des signes de ponctuation pour séparer les termes du paramètre `search`.
 
 `searchMode=any|all` (facultatif, la valeur par défaut est `any`) : indique si certains ou l'ensemble des termes de recherche doivent correspondre pour que le document soit considéré comme une correspondance.
 
@@ -1288,7 +1403,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 - `count` (nombre maximal de termes de facette ; la valeur par défaut est 10). Il n'y a pas de valeur maximale, mais les valeurs supérieures ont un impact négatif sur les performances, en particulier si le champ à facettes contient un grand nombre de termes uniques.
   - Par exemple : `facet=category,count:5` obtient les cinq premières catégories des résultats de facette.  
-  - **Remarque** : si le paramètre `count` est inférieur au nombre de termes uniques, les résultats seront peut-être inexacts. Cela s'explique par la manière dont les requêtes de facettes sont distribuées entre les partitions. L'attribution d'une valeur supérieure pour `count` augmente généralement la précision du nombre de termes, mais au détriment des performances.
+  - **Remarque** : si le paramètre `count` est inférieur au nombre de termes uniques, les résultats seront peut-être inexacts. Cela s'explique par la manière dont les requêtes de facettes sont distribuées entre les partitions. L'attribution d'une valeur supérieure pour `count` augmente généralement la précision du nombre de termes, mais au détriment des performances.
 - `sort` (`count` pour effectuer un tri par nombre par ordre *décroissant*, `-count` pour effectuer un tri par nombre par ordre *croissant*, `value` pour effectuer un tri par valeur par ordre *croissant* ou `-value` pour effectuer un tri par valeur par ordre *décroissant*)
   - Par exemple : `facet=category,count:3,sort:count` obtient les trois premières catégories des résultats de facette triées par ordre décroissant du nombre de documents de chaque ville. Par exemple, si les trois premières catégories sont Budget, Motel et Luxe, que Budget a 5 accès, Motel en a 6 et Luxe en a 4, les compartiments apparaîtront dans l'ordre Motel, Budget et Luxe.
   - Par exemple : `facet=rating,sort:-value` génère des compartiments pour tous les classements possibles, triés par ordre décroissant des valeurs. Par exemple, si les classements vont de 1 à 5, les compartiments apparaissent dans l'ordre 5, 4, 3, 2, 1, quel que soit le nombre de documents qui correspond à chaque classement.
@@ -1298,9 +1413,9 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 - `interval` (intervalle d'entiers supérieur à 0 pour les nombres ou `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` pour les valeurs de date et heure)
   - Par exemple : `facet=baseRate,interval:100` génère des compartiments basés sur des plages de taux de base comprenant 100 valeurs. Par exemple, si les taux de base sont tous compris entre 60 dollars et 600 dollars, il y aura les compartiments suivants : 0-100, 100-200, 200-300, 300-400, 400-500 et 500-600.
   - Par exemple : `facet=lastRenovationDate,interval:year` génère un compartiment pour chaque année de rénovation des hôtels.
-- `timeoffset` ([+-]hh:mm, [+-]hhmm, ou [+-]hh) `timeoffset` est facultatif. Il peut uniquement être associé à l’option `interval` et uniquement lorsqu’il est appliqué à un champ de type `Edm.DateTimeOffset`. La valeur spécifie le décalage horaire UTC à prendre en compte lors de la définition des limites de temps.
-  - Par exemple : `facet=lastRenovationDate,interval:day,timeoffset:-01:00` utilise la limite de la journée qui commence à 01:00:00 UTC (minuit dans le fuseau horaire cible).
-- **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
+- `timeoffset` ([+-]hh:mm, [+-]hhmm, ou [+-]hh) `timeoffset` est facultatif. Il peut uniquement être associé à l’option `interval` et seulement lorsqu’il est appliqué à un champ de type `Edm.DateTimeOffset`. La valeur spécifie le décalage horaire UTC à prendre en compte lors de la définition des limites de temps.
+  - Par exemple : `facet=lastRenovationDate,interval:day,timeoffset:-01:00` utilise la limite de la journée qui commence à 01:00:00 UTC (minuit dans le fuseau horaire cible)
+- **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
 - **Remarque** : les facettes d’intervalle de date et d’heure sont calculées en fonction de l’heure UTC si `timeoffset` n’est pas spécifié. Par exemple : pour `facet=lastRenovationDate,interval:day`, la limite de la journée commence à 00:00:00 UTC. 
 
 > [AZURE.NOTE] Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `facets` au lieu de `facet`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une expression de facette distincte.
@@ -1327,7 +1442,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 - Pour les paramètres de score, par exemple pour le renforcement des balises, qui peuvent contenir des virgules, vous pouvez ignorer ces valeurs dans la liste à l’aide de guillemets simples. Si les valeurs elles-mêmes contiennent des guillemets simples, vous pouvez les ignorer en les doublant.
   - Par exemple, si vous avez un paramètre de renforcement des balises appelé « mytag » et que vous souhaitez renforcer les valeurs de balise « Hello, O’Brien » et « Smith », l’option de la chaîne de requête serait `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Notez que les guillemets sont uniquement requis pour les valeurs qui contiennent des virgules.
 
-> [AZURE.NOTE] Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire `name-values` distincte.
+> [AZURE.NOTE] Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire `name-values` distincte.
 
 `minimumCoverage` (facultatif, valeur par défaut 100) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de recherche afin que la requête soit déclarée comme un succès. Par défaut, la totalité de l’index doit être disponible ou `Search` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Search` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
@@ -1720,7 +1835,7 @@ Une opération **Suggestions** est publiée en tant que requête GET ou POST.
 
 Lorsque vous utilisez HTTP GET pour appeler l'API **Suggestions**, vous devez savoir que la longueur de l'URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, il est recommandé d'utiliser HTTP POST, car cela permet d'obtenir des filtres plus volumineux que GET. Avec POST, le nombre de clauses dans un filtre est le facteur limitant, pas la taille de la chaîne du filtre brut, car la limite de la taille de la requête POST est proche de 16 Mo.
 
-> [AZURE.NOTE] Bien que la limite de la taille de la requête POST est très importante, les expressions de filtre ne peuvent pas être arbitrairement complexes. Consultez [Syntaxe d’expression OData](https://msdn.microsoft.com/library/dn798921.aspx) pour plus d’informations sur les limites de la complexité des filtres.
+> [AZURE.NOTE] Bien que la limite de la taille de la requête POST est très importante, les expressions de filtre ne peuvent pas être arbitrairement complexes. Consultez [Syntaxe d’expression OData](https://msdn.microsoft.com/library/dn798921.aspx) pour plus d’informations sur les limites de complexité des filtres.
 
 **Requête**
 
@@ -1853,4 +1968,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

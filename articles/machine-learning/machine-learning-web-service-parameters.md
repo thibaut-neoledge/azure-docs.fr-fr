@@ -20,7 +20,7 @@
 
 Un service Web Azure Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez le faire grâce aux *paramètres de service Web*.
 
-Un exemple courant consiste à configurer le module [Reader][reader], afin que l’utilisateur du service Web publié puisse spécifier une autre source de données lors de l’accès au service Web. Il est également possible de configurer le module [Writer][writer] de façon à spécifier une destination différente. Vous pouvez aussi, par exemple, modifier le nombre de bits pour le module [Feature Hashing][feature-hashing] ou le nombre de fonctionnalités souhaitées pour le module de [Sélection de fonctionnalités basée sur le filtre][filter-based-feature-selection].
+Un exemple courant consiste à configurer le module [Importer les données][import-data], afin que l’utilisateur du service web publié puisse spécifier une autre source de données lors de l’accès au service web. Il est également possible de configurer le module [Exporter les données][export-data] de façon à spécifier une destination différente. Vous pouvez aussi, par exemple, modifier le nombre de bits pour le module [Feature Hashing][feature-hashing] ou le nombre de fonctionnalités souhaitées pour le module de [Sélection de fonctionnalités basée sur le filtre][filter-based-feature-selection].
 
 Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module dans votre expérience, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres quand il appelle le service web.
 
@@ -40,9 +40,9 @@ La documentation pour le service Web (fourni par le biais du lien de la **page 
 
 ##Exemple
 
-Par exemple, supposons que nous avons une expérience avec un module [Writer][writer] qui envoie des informations vers le stockage blob Azure. Nous allons définir un paramètre de service Web nommé « Chemin d'accès d'objet blob » qui permet à l'utilisateur de service Web de modifier le chemin d'accès pour le stockage d'objets blob lors de l’accès au service.
+Par exemple, supposons que nous avons une expérience avec un module [Exporter les données][export-data] qui envoie des informations vers le stockage blob Azure. Nous allons définir un paramètre de service Web nommé « Chemin d'accès d'objet blob » qui permet à l'utilisateur de service Web de modifier le chemin d'accès pour le stockage d'objets blob lors de l’accès au service.
 
-1.	Dans Machine Learning Studio, cliquez sur le module [Writer][writer] pour le sélectionner. Ses propriétés sont affichées dans le volet Propriétés à droite du canevas de l'expérience.
+1.	Dans Machine Learning Studio, cliquez sur le module [Exporter les données][export-data] pour le sélectionner. Ses propriétés sont affichées dans le volet Propriétés à droite du canevas de l'expérience.
 
 2.	Spécification du type de stockage :
 
@@ -57,7 +57,7 @@ Par exemple, supposons que nous avons une expérience avec un module [Writer][wr
 
     Sélectionnez « Définir en tant que paramètre du service Web ».
 
-    Une entrée est ajoutée sous les **paramètres de service Web** en bas du volet Propriétés portant le nom de « Chemin d'accès d’objet blob commençant par le conteneur ». C’est le paramètre de service Web qui est désormais associé à ce paramètre de module [Writer][writer].
+    Une entrée est ajoutée sous les **paramètres de service Web** en bas du volet Propriétés portant le nom de « Chemin d'accès d’objet blob commençant par le conteneur ». C’est le paramètre de service web qui est désormais associé à ce paramètre de module [Exporter les données][export-data].
 
 4.	Pour renommer le paramètre de service Web, cliquez sur son nom, entrez « Blob path », puis appuyez sur la touche **Entrée**.
  
@@ -69,7 +69,7 @@ Par exemple, supposons que nous avons une expérience avec un module [Writer][wr
 
 7.	Cliquez sur **PUBLIER LE SERVICE WEB** pour publier le service Web.
 
-L'utilisateur de service Web peut désormais indiquer une nouvelle destination pour le module [Writer][writer] au moment d’accéder au service Web.
+L’utilisateur du service web peut désormais indiquer une nouvelle destination pour le module [Exporter les données][export-data] au moment d’accéder au service web.
 
 ##Plus d’informations
 
@@ -87,8 +87,8 @@ Pour plus d'informations sur l'accès à un service Web Machine Learning, cons
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

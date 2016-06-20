@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configuration des rôles pour un service cloud Azure avec Visual Studio
@@ -235,7 +235,7 @@ Les paramètres de stockage local s’appliquent à toutes les configurations de
 
 1. (Facultatif) Pour consulter ce fichier que vous avez créé quand vous exécutez votre service cloud localement, procédez comme suit :
 
-  1. Exécutez le rôle web et cliquez sur **Button1** pour vous assurer que le code `Button1_Click` est appelé.
+  1. Exécutez le rôle web et sélectionnez **Button1** pour vous assurer que le code `Button1_Click` est appelé.
 
   1. Dans la zone de notification, ouvrez le menu contextuel pour l’icône Azure et choisissez **Afficher l’interface utilisateur de l’émulateur de calcul**. La boîte de dialogue **Émulateur de calcul Azure** s’affiche.
 
@@ -376,4 +376,4 @@ Les certificats de gestion que vous associez à vos configurations de service s�
 ## Étapes suivantes
 En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

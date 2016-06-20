@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Préparation de votre environnement pour la sauvegarde des machines virtuelles ARM | Microsoft Azure"
+	pageTitle="Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager | Microsoft Azure"
 	description="Assurez-vous que votre environnement est prêt pour la sauvegarde de machines virtuelles dans Azure"
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="sauvegardes ; sauvegarde ;"/>
 
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Préparer votre environnement pour la sauvegarde des machines virtuelles ARM
+# Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
 > [AZURE.SELECTOR]
 - [Modèle Resource Manager](backup-azure-arm-vms-prepare.md)
 - [Modèle classique](backup-azure-vms-prepare.md)
 
-Cet article fournit les étapes pour préparer votre environnement pour sauvegarder une machine virtuelle Azure Resource Manager (ARM). Les étapes indiquées dans les procédures utilisent le portail Azure.
+Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle Azure déployée avec le modèle Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure.
 
-Le service Azure Backup comprend deux types de coffres (coffres de sauvegarde et coffres Recovery Services) pour la protection de vos machines virtuelles. Un coffre de sauvegarde protège les machines virtuelles déployées à l'aide du modèle de déploiement classique. Un coffre Recovery Services protège **les machines virtuelles déployées à l’aide du modèle classique et à l’aide du modèle ARM** . Vous devez utiliser un coffre Recovery Services pour protéger une machine virtuelle déployée à l’aide du modèle ARM.
+Le service Azure Backup comprend deux types de coffres (coffres de sauvegarde et coffres Recovery Services) pour la protection de vos machines virtuelles. Un coffre de sauvegarde protège les machines virtuelles déployées à l'aide du modèle de déploiement classique. Un coffre Recovery Services protège ** les machines virtuelles déployées à l’aide du modèle classique et à l’aide du modèle Resource Manager** . Vous devez utiliser un coffre Recovery Services pour protéger une machine virtuelle déployée à l’aide du modèle Resource Manager.
 
 >[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Consultez la page [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-vms-prepare.md) pour plus d’informations sur l’utilisation des machines virtuelles avec le modèle de déploiement Classic.
 
-Avant de pouvoir protéger ou sauvegarder une machine virtuelle ARM, vérifiez que ces conditions préalables existent :
+Avant de pouvoir protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que ces les conditions préalables suivantes sont remplies :
 
 - Créez un coffre Recovery Services (ou identifiez un coffre Recovery Services existant) *dans le même emplacement que votre machine virtuelle*.
 - Sélectionnez un scénario, définissez la stratégie de sauvegarde et définissez les éléments à protéger.
@@ -50,8 +50,8 @@ Avant de préparer votre environnement, notez les limitations.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - Vous pouvez sauvegarder des machines virtuelles uniquement pour des versions de systèmes d’exploitation sélectionnées :
-  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
-  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
+  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l'aide du flux de travail de restauration dans l'interface utilisateur n'aura pas ces configurations réseau une fois l'opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
   - Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
@@ -196,7 +196,7 @@ Le service Backup installe l’extension de sauvegarde que la machine virtuelle 
 
 Afin de gérer les instantanés de la machine virtuelle, l’extension de sauvegarde nécessite une connectivité vers les adresses IP publiques Azure. Sans une bonne connectivité Internet, les requêtes HTTP de la machine virtuelle expirent et l’opération de sauvegarde échoue. Si votre déploiement comporte des restrictions d’accès (via un groupe de sécurité réseau (NSG), par exemple), choisissez l’une de ces options pour fournir un chemin clair pour le trafic de sauvegarde :
 
-- [Mettez sur liste blanche les plages IP du centre de données Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste blanche des adresses IP.
+- [Mettez sur liste blanche les plages IP du centre de données Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste blanche des adresses IP.
 - Déployer un serveur de proxy HTTP pour acheminer le trafic.
 
 Lors du choix de l’option à utiliser, le compromis se situe entre la facilité de gestion, le contrôle granulaire et le coût.
@@ -208,7 +208,7 @@ Lors du choix de l’option à utiliser, le compromis se situe entre la facilit�
 
 ### Mettez sur liste blanche les plages IP du centre de données Azure.
 
-Pour mettre sur liste blanche les plages IP du centre de données Azure, consultez le [site Web Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) pour plus d’informations sur les plages d’adresses IP et obtenir des instructions.
+Pour mettre sur liste blanche les plages IP du centre de données Azure, consultez le [site Web Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) pour plus d’informations sur les plages d’adresses IP et obtenir des instructions.
 
 ### Utilisation d’un proxy HTTP pour les sauvegardes de machine virtuelle
 Lorsque vous sauvegardez une machine virtuelle, l’extension de sauvegarde sur la machine virtuelle envoie les commandes de gestion de capture instantanée vers le stockage Azure à l’aide d’une API HTTPS. Acheminez le trafic de l’extension de sauvegarde via le proxy HTTP, car c’est le seul composant configuré pour l’accès à l’Internet public.
@@ -238,11 +238,11 @@ Cela définit la configuration du serveur proxy pour le compte système local.
      ```
     Une fenêtre Internet Explorer s’ouvre.
 3. Accédez à Outils -> Options Internet -> Connexions -> Paramètres réseau.
-4. Vérifiez les paramètres de proxy pour le compte système. Définissez l’adresse IP et le port de proxy. 
+4. Vérifiez les paramètres de proxy pour le compte système. Définissez l’adresse IP et le port de proxy.
 5. Fermez Internet Explorer.
 
 Cela permet d’installer une configuration de proxy au niveau de l’ordinateur et de l’utiliser pour le trafic HTTP/HTTPS sortant.
-   
+
 Si vous avez configuré un serveur proxy sur un compte d’utilisateur actuel (pas un compte système local), utilisez le script suivant pour les appliquer à SYSTEMACCOUNT :
 
 ```
@@ -256,7 +256,7 @@ Si vous avez configuré un serveur proxy sur un compte d’utilisateur actuel (p
 
 >[AZURE.NOTE] Si vous voyez « (407)Authentification proxy requise » dans le journal du serveur proxy, vérifiez que votre authentification est configurée correctement.
 
-######Pour les machines Linux 
+######Pour les machines Linux
 
 Ajoutez la ligne suivante au fichier ```/etc/environment``` :
 
@@ -265,7 +265,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Ajoutez les lignes suivantes au fichier ```/etc/waagent.conf``` :
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -284,7 +284,7 @@ HttpProxy.Port=<proxy port>
 3. Dans l’**Assistant Nouvelle règle de trafic entrant**, choisissez l’option **personnalisée** comme **Type de règle**, puis cliquez sur **Suivant**.
 4. Dans la page servant à sélectionner le **programme**, choisissez **Tous les programmes**, puis cliquez sur **Suivant**.
 
-5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
+5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
 
     ![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-03.png)
 
@@ -309,7 +309,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 *Ces étapes utilisent des noms et des valeurs spécifiques pour cet exemple. Utilisez les noms et les valeurs de votre déploiement lors de la saisie, lorsque vous coupez/collez les détails dans votre code.*
 
 
-Maintenant que vous savez que vous disposez d’une connectivité réseau, vous êtes prêt à sauvegarder votre machine virtuelle. Consultez [Sauvegarder des machines virtuelles Azure Resource Manager (ARM)](backup-azure-arm-vms.md).
+Maintenant que vous savez que vous disposez d’une connectivité réseau, vous êtes prêt à sauvegarder votre machine virtuelle. Voir la rubrique [Sauvegarde des machines virtuelles Azure Resource Manager (ARM)](backup-azure-arm-vms.md).
 
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
@@ -321,4 +321,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Planification de votre infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
 - [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -24,12 +24,14 @@
 
 Cet article contient des informations sur les différentes versions et les dernières mises à jour du kit de ressources Azure pour Eclipse.
 
+> [AZURE.NOTE] Il existe également une boîte à outils Azure pour l’environnement de développement IntelliJ. Pour plus d’informations, consultez [Kit de ressources Azure pour IntelliJ].
+
 ### 12 avril 2016
 
 La version d’avril 2016 du Kit de ressources Azure pour Eclipse inclut les améliorations suivantes :
 
 * **Prise en charge du Kit de développement logiciel (SDK) Azure v2.9.0**. La dernière version du Kit de développement logiciel (SDK) Azure est désormais le minimum requis pour le Kit de ressources Azure pour Eclipse.
-* **Diverses améliorations de la convivialité, la réactivité et les performances liées à la prise en charge d’Azure Web App**. Plusieurs optimisations des performances dans la façon dont le Kit de ressources communique avec Azure donnent une interface utilisateur plus réactive.
+* **Diverses améliorations de la convivialité, de la réactivité et des performances liées à la prise en charge d’Azure Web App**. Plusieurs optimisations des performances dans la façon dont le Kit de ressources communique avec Azure donnent une interface utilisateur plus réactive.
 * **Possibilité de supprimer un conteneur Web Application existant dans Azure depuis Eclipse**. Le Kit de ressources Azure pour Eclipse vous permet désormais de supprimer un conteneur Azure Web existant sans quitter Eclipse.
 
 ### 7 mars 2016
@@ -263,8 +265,8 @@ Publication de la version préliminaire CTP (Community Technology Preview) de j
 
 * **Nouvel Assistant Projet de déploiement Azure **: vous permet de sélectionner directement votre JDK, votre serveur d’applications Java et les applications Java dans l’interface utilisateur améliorée de l’Assistant. Vous pouvez effectuer un choix parmi les configurations de serveur prêtes à l’emploi de la liste : Tomcat 6, Tomcat 7, GlassFish OSE 3, Jetty 7, Jetty 8, JBoss 6 et JBoss 7 (autonome). En outre, vous pouvez personnaliser la liste des configurations de serveur. Cette amélioration de l’interface utilisateur est une alternative au glisser-déplacer des fichiers compressés et à leur copie sur les scripts de démarrage, ce qui constituait auparavant l’approche principale. Cette méthode fonctionne toujours, mais sera probablement utilisée uniquement pour des scénarios plus avancés.
 * **Page des propriétés de rôle de configuration de serveur **: vous permet de basculer facilement entre les JDK, les serveurs d’applications Java et les applications associés à votre déploiement après avoir créé le projet. Pour plus d’informations, consultez la section [Propriétés de configuration de serveur].
-* **Assistant Publication sur le cloud**  permet de déployer facilement votre projet sur Azure directement à partir d’Eclipse, en automatisant la récupération des informations d’identification auparavant manuelle, la connexion au portail de gestion Azure, le chargement d’un package, etc. Pour obtenir un exemple de déploiement direct de votre projet sur Azure, consultez le didacticiel [Création d’une application Hello World pour Azure dans Eclipse].
-* **Barre d’outils Azure** : une barre d’outils Azure est désormais disponible dans Eclipse. Elle contient des boutons qui appellent les fonctionnalités suivantes :
+* **Assistant Publication sur le cloud**  permet de déployer facilement votre projet sur Azure directement à partir d’Eclipse, en automatisant la récupération des informations d’identification auparavant manuelle, la connexion au portail de gestion Azure, le chargement d’un package, etc. Pour obtenir un exemple de déploiement direct de votre projet sur Azure, consultez le didacticiel [Création d’une application Hello World pour Azure dans Eclipse].
+* **Barre d’outils Azure** : une barre d’outils Azure est désormais disponible dans Eclipse. Elle contient des boutons qui appellent les fonctionnalités suivantes :
     * ![][ic710879] **Exécuter dans l’émulateur Azure **: exécute votre projet dans l’émulateur.
     * ![][ic710880] **Réinitialiser l’émulateur Azure **: réinitialise l’émulateur.
     * ![][ic710881] **Générer un package cloud pour Azure **: compile votre package pour le déploiement.
@@ -287,34 +289,42 @@ Publication de la version préliminaire CTP de décembre 2011 du plug-in Azure
 * **Prise en charge de l’affinité de session (« sessions rémanentes ») **: permet d’activer des applications Java en cluster avec état à l’aide d’une seule case à cocher. Pour plus d’informations, voir l’article [Affinité de session].
 * **Exemples de script de démarrage préconçus **: pour les principaux serveurs Java (Tomcat, Jetty, JBoss et GlassFish), que vous pouvez simplement copier/coller à partir du répertoire d’exemples de votre projet dans votre script de démarrage.
 * **Sortie de démarrage d’émulateur en temps réel **: vous pouvez désormais visionner l’exécution de toutes les étapes de votre script de démarrage dans une fenêtre de console dédiée, qui vous indique la progression et les échecs de votre script lorsqu’il est exécuté par Azure.
-* **Surveillance de java.exe automatique et légère** : force un recyclage des rôles quand java.exe cesse de s’exécuter, en utilisant un script léger, préconçu inclus automatiquement dans votre déploiement.
-* **Interface utilisateur de configuration de débogage à distance d’application Java** : vous permet d’activer facilement le débogueur distant d’Eclipse afin d’accéder à votre application Java s’exécutant dans l’émulateur ou dans le cloud Azure. Vous pouvez donc parcourir et déboguer votre code Java en temps réel. Pour plus d’informations, consultez [Débogage des applications Azure dans Eclipse].
-* **Interface utilisateur de configuration des ressources de stockage locales** : vous n’avez plus à configurer de ressources locales en manipulant directement le code XML. Cette fonctionnalité vous permet également d’accéder au chemin d’accès de fichier de votre ressource locale après son déploiement via une variable d’environnement que vous pouvez référencer directement à partir de votre script de démarrage. Pour plus d’informations, consultez les [propriétés de stockage local].
+* **Surveillance de java.exe automatique et légère** : force un recyclage des rôles quand java.exe cesse de s’exécuter, en utilisant un script léger, préconçu inclus automatiquement dans votre déploiement.
+* **Interface utilisateur de configuration de débogage à distance d’application Java** : vous permet d’activer facilement le débogueur distant d’Eclipse afin d’accéder à votre application Java s’exécutant dans l’émulateur ou dans le cloud Azure. Vous pouvez donc parcourir et déboguer votre code Java en temps réel. Pour plus d’informations, consultez [Débogage des applications Azure dans Eclipse].
+* **Interface utilisateur de configuration des ressources de stockage locales** : vous n’avez plus à configurer de ressources locales en manipulant directement le code XML. Cette fonctionnalité vous permet également d’accéder au chemin d’accès de fichier de votre ressource locale après son déploiement via une variable d’environnement que vous pouvez référencer directement à partir de votre script de démarrage. Pour plus d’informations, consultez les [propriétés de stockage local].
 * **Interface utilisateur de configuration des variables d’environnement **: vous n’avez plus à définir les variables d’environnement via une modification manuelle du code XML de configuration. Pour plus d’informations, consultez les [propriétés des variables d’environnement].
 * **Pilote JDBC pour SQL Azure **: installé via le plug-in en tant que bibliothèque Eclipse intégrée en toute transparence, il facilite la programmation dans SQL Azure. 
-* **Accès rapide par le menu contextuel à l’interface utilisateur de configuration des rôles** : cliquez simplement avec le bouton droit sur le dossier de rôles, puis cliquez sur **Propriétés**.
+* **Accès rapide par le menu contextuel à l’interface utilisateur de configuration des rôles** : cliquez simplement avec le bouton droit sur le dossier de rôles, puis cliquez sur **Propriétés**.
 * **Icônes personnalisées du dossier de projet Azure et du dossier de rôles **: pour une meilleure visibilité et une navigation plus aisée au sein de votre projet et de votre espace de travail.
 
 ## Voir aussi ##
 
-[Kit de ressources Azure pour Eclipse]
+Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
-[Installation du kit de ressources Azure pour Eclipse]
+- [Kit de ressources Azure pour Eclipse]
+  - [Installation du kit de ressources Azure pour Eclipse]
+  - [Créer une application web « Hello World » pour Azure dans Eclipse]
+  - *Nouveautés du kit de ressources Azure pour Eclipse*
+- [Kit de ressources Azure pour IntelliJ]
+  - [Installation du kit de ressources Azure pour IntelliJ]
+  - [Créer une application web « Hello World » pour Azure dans IntelliJ]
 
-[Création d'une application Hello World pour Azure dans Eclipse]
-
-Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Centre de développement Java].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
 <!-- URL List -->
 
+[Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
+[Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+
 [page web d’Azul Systems correspondant à Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Points de terminaison de service Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Liste des comptes de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[kit de ressources Azure pour IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [propriétés des composants]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Débogage des applications Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Réalisation de déploiements volumineux]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -343,4 +353,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/27/2016"
 	ms.author="szark"/>
 
 #Présentation de Linux sous Azure
@@ -64,12 +64,12 @@ L'agent Linux Azure inclut une fonctionnalité permettant de détecter automatiq
  - [Guide d’utilisateur de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
 ### Cloud-Init
-Les images **Ubuntu** et **CoreOS** utilisent cloud-init pn Azure, qui fournit des fonctionnalités supplémentaires d’amorçage d’une machine virtuelle.
+Les images **Ubuntu** et **CoreOS** utilisent cloud-init sur Azure, qui fournit des fonctionnalités supplémentaires d’amorçage d’une machine virtuelle.
 
  - [Comment injecter des données personnalisées](virtual-machines-windows-classic-inject-custom-data.md)
  - [Données personnalisées et Cloud-Init sur Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Création de partitions d’échange Azure à l’aide de Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Utilisation de CoreOS dans Azure](virtual-machines-linux-classic-coreos-howto.md)
+ - [Utilisation de CoreOS dans Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Capture d’une image de machine virtuelle
@@ -98,4 +98,4 @@ Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et 
 
  - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

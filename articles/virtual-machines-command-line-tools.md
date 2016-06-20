@@ -210,7 +210,7 @@ Les paramètres facultatifs pris en charge pour cette commande sont les suivants
 
 **-c, --connect** crée la machine virtuelle dans un déploiement déjà créé dans un service d'hébergement. Si la commande -vmname n’est pas utilisée avec cette option, le nom de la nouvelle machine virtuelle sera généré automatiquement.<br /> **-n, --vm-name** Spécifie le nom de la machine virtuelle. Ce paramètre prend le nom du service d'hébergement par défaut. Si -vmname n’est pas spécifié, le nom de la nouvelle machine virtuelle est généré sous la forme &lt;nom-service>&lt;id>, où &lt;id> correspond au nombre de machines virtuelles existant dans le service plus 1. Par exemple, si vous utilisez cette commande pour ajouter une machine virtuelle à un service d’hébergement MyService qui comporte une machine virtuelle existante, la nouvelle machine virtuelle est nommée MyService2.<br /> **-u, --blob-url** Spécifie l’URL cible du stockage d’objets blob à partir duquel le disque système de la machine virtuelle est créé. <br /> **-z, --vm-size** Spécifie la taille de la machine virtuelle. Les valeurs valides sont : ExtraSmall, Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9, A10, A11, Basic\_A0, Basic\_A1, Basic\_A2, Basic\_A3, Basic\_A4, Standard\_D1, Standard\_D2, Standard\_D3, Standard\_D4, Standard\_D11, Standard\_D12, Standard\_D13, Standard\_D14, Standard\_DS1, Standard\_DS2, Standard\_DS3, Standard\_DS4, Standard\_DS11, Standard\_DS12, Standard\_DS13, Standard\_DS14, Standard\_G1, Standard\_G2, Standard\_G3, Standard\_G4, Standard\_G55. La valeur par défaut est Small. <br /> **-r** Ajoute une connectivité RDP à une machine virtuelle Windows. <br /> **-e, --ssh** Ajoute une connectivité SSH à une machine virtuelle Windows. <br /> **-t, --ssh-cert** Spécifie le certificat SSH. <br /> **-s** L’abonnement <br /> **-o, --community** L’image communiquée est une image de communauté. <br /> **-w** Le nom du réseau virtuel <br/> **-l, --location** Spécifie le lieu (par exemple « Nord du centre des États-Unis »). <br /> **-a, --affinity-group** Spécifie le groupe d’affinité.<br /> **-w, --virtual-network-name** Spécifie le réseau virtuel auquel ajouter la nouvelle machine virtuelle. Les réseaux virtuels peuvent être configurés et gérés à partir du portail Azure Classic.<br /> **-b, --subnet-names** Spécifie les noms de sous-réseau à attribuer à la machine virtuelle.
 
-Dans cet exemple, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-en-us-30GB est une image fournie par la plateforme. Pour plus d'informations sur les images de système d'exploitation, consultez la commande vm image list.
+Dans cet exemple, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-fr-FR-30GB est une image fournie par la plateforme. Pour plus d'informations sur les images de système d'exploitation, consultez la commande vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -422,15 +422,15 @@ Cette commande permet d'obtenir une liste d'images de machine virtuelle. Il exis
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-fr-FR-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.fr-FR.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.fr-FR.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-fr-FR-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-fr-FR-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-fr-FR-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -503,7 +503,7 @@ Cette commande permet d'afficher les détails concernant un disque Azure.
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-fr-FR-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [nom-mv]**
@@ -791,7 +791,7 @@ Cette commande échange deux connecteurs d’applications Web.
 
 Cette commande prend en charge l'option supplémentaire suivante :
 
-****-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
+****-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
 
 **site start [options] [nom]**
@@ -1008,7 +1008,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 + **--job-name** &lt;nom-tâche> : requise. Nom de la tâche Web.
 + **--job-type** &lt;type-tâche> : requise. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
-+ **-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
++ **-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 + **--slot** &lt;connecteur> : nom du connecteur à redémarrer.
 
 **site job upload [options] &lt;nom\_tâche> &lt;type\_tâche> <jobFile> [nom]**
@@ -1134,10 +1134,10 @@ Azure Mobile Services réunit un ensemble de services Azure qui dotent vos appli
 
 Les options suivantes s'appliquent à la plupart des commandes Mobile Services :
 
-+ **-h** ou **--help** : affiche des informations sur l’utilisation de la sortie.
-+ **-s `<id>`** ou **--subscription `<id>`** : utilise un abonnement spécifique, sous la forme `<id>`.
-+ **-v** ou **--verbose** : écrit une sortie détaillée.
-+ **--json** : écrit une sortie JSON.
++ **-h** ou **--help** : affiche des informations sur l’utilisation de la sortie.
++ **-s `<id>`** ou **--subscription `<id>`** : utilise un abonnement spécifique, sous la forme `<id>`.
++ **-v** ou **--verbose** : écrit une sortie détaillée.
++ **--json** : écrit une sortie JSON.
 
 ### <a name="Mobile_Services"></a>Commandes pour gérer les instances de services mobiles
 
@@ -1166,10 +1166,10 @@ Cette commande permet de créer un service mobile avec une base de données et u
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-r `<sqlServer>`** ou **--sqlServer `<sqlServer>`** : utilise un serveur de base de données SQL existant, spécifié sous la forme `<sqlServer>`.
-+ **-d `<sqlDb>`** ou **--sqlDb `<sqlDb>`** : utilise une base de données SQL existante, spécifiée sous la forme `<sqlDb>`.
-+ **-l `<location>`** ou **--location `<location>`** : crée le service à un emplacement particulier, spécifié sous la forme `<location>`. Exécutez azure mobile locations pour obtenir les emplacements disponibles.
-+ **--sqlLocation `<location>`** : crée le serveur SQL dans un emplacement spécifique `<location>`; par défaut, il s’agit de l’emplacement du service mobile.
++ **-r `<sqlServer>`** ou **--sqlServer `<sqlServer>`** : utilise un serveur de base de données SQL existant, spécifié sous la forme `<sqlServer>`.
++ **-d `<sqlDb>`** ou **--sqlDb `<sqlDb>`** : utilise une base de données SQL existante, spécifiée sous la forme `<sqlDb>`.
++ **-l `<location>`** ou **--location `<location>`** : crée le service à un emplacement particulier, spécifié sous la forme `<location>`. Exécutez azure mobile locations pour obtenir les emplacements disponibles.
++ **--sqlLocation `<location>`** : crée le serveur SQL dans un emplacement spécifique `<location>`; par défaut, il s’agit de l’emplacement du service mobile.
 
 **mobile delete [options] [nom\_service]**
 
@@ -1190,9 +1190,9 @@ Cette commande permet de supprimer un service mobile en même temps que la base 
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-d** ou **--deleteData** : supprime toutes les données de ce service mobile de la base de données.
-+ **-a** ou **--deleteAll** : supprime la base de données et le serveur SQL.
-+ **-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
++ **-d** ou **--deleteData** : supprime toutes les données de ce service mobile de la base de données.
++ **-a** ou **--deleteAll** : supprime la base de données et le serveur SQL.
++ **-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
 **mobile list [options]**
 
@@ -1258,10 +1258,10 @@ Cette commande renvoie les journaux du service mobile, en filtrant tous les type
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-r `<query>`** ou **--query `<query>`** : exécute la requête de journal spécifiée.
-+ **-t `<type>`** ou **--type `<type>`** : filtre les journaux renvoyés par l’entrée `<type>`, qui peut être `information`, `warning`, ou `error`.
-+ **-k `<skip>`** ou **--skip `<skip>`** : ignore le nombre de lignes spécifié par `<skip>`.
-+ **-p `<top>`** ou **--top `<top>`** : renvoie un nombre spécifique de lignes, spécifié par `<top>`.
++ **-r `<query>`** ou **--query `<query>`** : exécute la requête de journal spécifiée.
++ **-t `<type>`** ou **--type `<type>`** : filtre les journaux renvoyés par l’entrée `<type>`, qui peut être `information`, `warning`, ou `error`.
++ **-k `<skip>`** ou **--skip `<skip>`** : ignore le nombre de lignes spécifié par `<skip>`.
++ **-p `<top>`** ou **--top `<top>`** : renvoie un nombre spécifique de lignes, spécifié par `<top>`.
 
 > [AZURE.NOTE] Le paramètre **--query** a la priorité sur **--type**, **--skip** et **--top**.
 
@@ -1271,7 +1271,7 @@ Cette commande permet de récupérer un service mobile défectueux en le dépla�
 
 Cette commande prend en charge l'option supplémentaire suivante :
 
-**-q** ou **--quiet** : supprime l’invite de confirmation de la récupération.
+**-q** ou **--quiet** : supprime l’invite de confirmation de la récupération.
 
 **mobile key regenerate [options] [nom\_service] [type]**
 
@@ -1382,7 +1382,7 @@ Cette commande permet de créer une table.
 
 Cette commande prend en charge l'option supplémentaire suivante :
 
-+ **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`** : liste de paires `<operation>`=`<permission>` séparées par des virgules, où `<operation>` est `insert`, `read`, `update` ou `delete` et `&lt;permissions>` est `public`, `application` (valeur par défaut), `user` ou `admin`.
++ **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`** : liste de paires `<operation>`=`<permission>` séparées par des virgules, où `<operation>` est `insert`, `read`, `update` ou `delete` et `&lt;permissions>` est `public`, `application` (valeur par défaut), `user` ou `admin`.
 
 **mobile data read [options] [nom\_service] [nom\_table] [requête]**
 
@@ -1400,9 +1400,9 @@ Cette commande permet de lire les données d'une table.
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-k `<skip>`** ou **--skip `<skip>`** : ignore le nombre de lignes spécifié par `<skip>`.
-+ **-t `<top>`** ou **--top `<top>`** : renvoie un nombre spécifique de lignes, spécifié par `<top>`.
-+ **-l** ou **--list** : renvoie les données sous forme de liste.
++ **-k `<skip>`** ou **--skip `<skip>`** : ignore le nombre de lignes spécifié par `<skip>`.
++ **-t `<top>`** ou **--top `<top>`** : renvoie un nombre spécifique de lignes, spécifié par `<top>`.
++ **-l** ou **--list** : renvoie les données sous forme de liste.
 
 **mobile table update [options] [nom\_service] [nom\_table]**
 
@@ -1416,11 +1416,11 @@ Cette commande permet de modifier les autorisations de suppression d'une table, 
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`** : liste de paires `<operation>`=`<permission>` séparées par des virgules, où `<operation>` est `insert`, `read`, `update` ou `delete` et `&lt;permissions>` est `public`, `application` (valeur par défaut), `user` ou `admin`.
-+ **--deleteColumn `<columns>`** : liste de colonnes séparées par des virgules, sous la forme `<columns>`.
-+ **-q** ou **--quiet** : supprime les colonnes sans demander de confirmation.
-+ **--addIndex `<columns>`** : liste de colonnes séparées par des virgules, à inclure dans l’index.
-+ **--deleteIndex `<columns>`** : liste de colonnes séparées par des virgules, à exclure de l’index.
++ **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`** : liste de paires `<operation>`=`<permission>` séparées par des virgules, où `<operation>` est `insert`, `read`, `update` ou `delete` et `&lt;permissions>` est `public`, `application` (valeur par défaut), `user` ou `admin`.
++ **--deleteColumn `<columns>`** : liste de colonnes séparées par des virgules, sous la forme `<columns>`.
++ **-q** ou **--quiet** : supprime les colonnes sans demander de confirmation.
++ **--addIndex `<columns>`** : liste de colonnes séparées par des virgules, à inclure dans l’index.
++ **--deleteIndex `<columns>`** : liste de colonnes séparées par des virgules, à exclure de l’index.
 
 **mobile table delete [options] [nom\_service] [nom\_table]**
 
@@ -1481,10 +1481,10 @@ Cette commande permet de télécharger le script d’insertion de la table Todol
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-p `<path>`** ou **--path `<path>`** : emplacement où le script doit être enregistré dans le fichier, dans la mesure où le répertoire de travail actuel est celui par défaut.
-+ **-f `<file>`** ou **--file `<file>`** : nom du fichier dans lequel le script doit être enregistré.
-+ **-o** ou **--override** : permet de remplacer un fichier existant.
-+ **-c** ou **--console** : écrit le script dans la console et non dans un fichier.
++ **-p `<path>`** ou **--path `<path>`** : emplacement où le script doit être enregistré dans le fichier, dans la mesure où le répertoire de travail actuel est celui par défaut.
++ **-f `<file>`** ou **--file `<file>`** : nom du fichier dans lequel le script doit être enregistré.
++ **-o** ou **--override** : permet de remplacer un fichier existant.
++ **-c** ou **--console** : écrit le script dans la console et non dans un fichier.
 
 **mobile script upload [options] [nom\_service] [nom\_script]**
 
@@ -1534,14 +1534,14 @@ Cette commande permet de créer une tâche nommée `getUpdates`, dont l’exécu
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-i `<number>`** ou **--interval `<number>`** : intervalle de travail, défini sous la forme d’entier ; la valeur par défaut est `15`.
-+ **-u `<unit>`** ou **--intervalUnit `<unit>`** : unité du paramètre _interval_, qui peut être l’une des valeurs suivantes :
++ **-i `<number>`** ou **--interval `<number>`** : intervalle de travail, défini sous la forme d’entier ; la valeur par défaut est `15`.
++ **-u `<unit>`** ou **--intervalUnit `<unit>`** : unité du paramètre _interval_, qui peut être l’une des valeurs suivantes :
 	+ **minute** (valeur par défaut)
 	+ **heure**
 	+ **jour**
 	+ **mois**
 	+ **none** (travaux à la demande)
-+ **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO ; la valeur par défaut est `now`.
++ **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO ; la valeur par défaut est `now`.
 
 > [AZURE.NOTE] Les nouveaux travaux créés sont désactivés, car il reste encore à télécharger un script. Utilisez la commande **mobile script upload** pour télécharger un script et la commande **mobile job update** pour activer le travail.
 
@@ -1555,15 +1555,15 @@ La commande suivante active la tâche `getUpdates` désactivée.
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-i `<number>`** ou **--interval `<number>`** : intervalle de travail, défini sous la forme d’entier ; la valeur par défaut est `15`.
-+ **-u `<unit>`** ou **--intervalUnit `<unit>`** : unité du paramètre _interval_, qui peut être l’une des valeurs suivantes :
++ **-i `<number>`** ou **--interval `<number>`** : intervalle de travail, défini sous la forme d’entier ; la valeur par défaut est `15`.
++ **-u `<unit>`** ou **--intervalUnit `<unit>`** : unité du paramètre _interval_, qui peut être l’une des valeurs suivantes :
 	+ **minute** (valeur par défaut)
 	+ **heure**
 	+ **jour**
 	+ **mois**
 	+ **none** (travaux à la demande)
-+ **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO ; la valeur par défaut est `now`.
-+ **-a `<status>`** ou **--status `<status>`** : statut de la tâche, qui peut être `enabled` ou `disabled`.
++ **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO ; la valeur par défaut est `now`.
++ **-a `<status>`** ou **--status `<status>`** : statut de la tâche, qui peut être `enabled` ou `disabled`.
 
 **mobile job delete [options] [nom\_service] [nom\_tâche]**
 
@@ -1601,8 +1601,8 @@ Cette commande permet de modifier l'échelle du service mobile, la faisant passe
 
 Cette commande prend en charge les options supplémentaires suivantes :
 
-+ **-c `<mode>`** ou **--computeMode `<mode>`** : le mode de calcul doit être `Free` ou `Reserved`.
-+ **-i `<count>`** ou **--numberOfInstances `<count>`** : nombre d’instances utilisées lors de l’exécution en mode réservé.
++ **-c `<mode>`** ou **--computeMode `<mode>`** : le mode de calcul doit être `Free` ou `Reserved`.
++ **-i `<count>`** ou **--numberOfInstances `<count>`** : nombre d’instances utilisées lors de l’exécution en mode réservé.
 
 > [AZURE.NOTE] Lorsque vous attribuez au mode de calcul la valeur `Reserved`, tous vos services mobiles d’une même région s’exécutent en mode premium.
 
@@ -1666,7 +1666,7 @@ Cette commande prend en charge l'option supplémentaire suivante :
 Cette commande prend en charge les options supplémentaires suivantes :
 
 + **-p** ou **--permissions** &lt;autorisations> : liste délimitée par des virgules de paires &lt;méthode>=&lt;autorisation>.
-+ **-f** ou **--force** : écrase les modifications personnalisées apportées au fichier de métadonnées des autorisations.
++ **-f** ou **--force** : écrase les modifications personnalisées apportées au fichier de métadonnées des autorisations.
 
 **mobile api delete [options] [nom\_service] [nom\_API]**
 
@@ -1880,13 +1880,15 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-d** ou **--description** &lt;description> : description du compte de stockage.
 + **-l** ou **--location** &lt;nom> : région géographique où créer le compte de stockage.
 + **-a** ou **--affinity-group** &lt;nom> : groupe d'affinités auquel associer le compte d stockage.
-+ **--type** : indique le type de compte à créer, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS) soit Premium Storage (PLRS).
++ **--kind** : type de compte (Storage ou Storage Blob) 
++ **--sku-name** : indique le type de compte à créer, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS), soit Premium Storage (PLRS).
++ **--access-tier** : indique le niveau de stockage (Hot ou Cool)
 
 **storage account set [options] <name>**
 
 Cette commande permet de mettre à jour le compte de stockage spécifié.
 
-	~$ azure storage account set mybasestorage --type GRS
+	~$ azure storage account set mybasestorage --kind Storage --sku-name GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1896,7 +1898,8 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-e** ou **--label** &lt;étiquette> : étiquette du compte de stockage.
 + **-d** ou **--description** &lt;description> : description du compte de stockage.
 + **-l** ou **--location** &lt;nom> : région géographique où créer le compte de stockage.
-+ **--type** : indique le nouveau type de compte, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS) soit Premium Storage (PLRS).
++ **--sku-name** : indique le nouveau type de compte, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS), soit Premium Storage (PLRS).
++ **--access-tier** : indique le niveau de stockage (Hot ou Cool)
 
 **storage account delete [options] <name>**
 
@@ -1904,7 +1907,7 @@ Cette commande permet de supprimer le compte de stockage spécifié.
 
 Cette commande prend en charge l'option supplémentaire suivante :
 
-**-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
+**-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
 ###Commandes pour gérer vos clés de compte de stockage
 
@@ -1926,7 +1929,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 **storage container show [options] [conteneur]** **storage container create [options] [conteneur]**
 
@@ -1939,7 +1942,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 **storage container delete [options] [conteneur]**
 
@@ -1952,7 +1955,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 **storage container set [options] [conteneur]**
 
@@ -1965,7 +1968,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 ###Commandes pour gérer votre objet blob de stockage
 
@@ -1980,7 +1983,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 **storage blob show [options] [container] [blob]**
 
@@ -1993,7 +1996,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 **storage blob delete [options] [container] [blob]**
 
@@ -2001,11 +2004,11 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 + **--container** &lt;conteneur> : nom du conteneur de stockage à créer.
 + **-b** ou **--blob** &lt;nomObjetblob> : nom de l’objet blob de stockage à supprimer.
-+ **-q** ou **--quiet** : supprime l’objet blob de stockage spécifié sans confirmation.
++ **-q** ou **--quiet** : supprime l’objet blob de stockage spécifié sans confirmation.
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 **storage blob upload [options] [file] [container] [blob]**
 
@@ -2019,11 +2022,11 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-p** ou **--properties** &lt;propriétés> : propriétés de l’objet blob de stockage pour le fichier téléchargé. Les propriétés sont des paires clé-valeur séparées par un point-virgule (;). Les propriétés disponibles sont contentType, contentEncoding, contentLanguage et cacheControl.
 + **-m** ou **--metadata** &lt;métadonnées> : métadonnées de l’objet blob de stockage pour le fichier téléchargé. Les métadonnées sont des paires clé-valeur séparées par un point-virgule (;).
 + **--concurrenttaskcount** &lt;nombretâchessimultanées> : nombre maximal de demandes de téléchargement simultanées.
-+ **-q** ou **--quiet** : écrase l’objet blob de stockage spécifié sans confirmation.
++ **-q** ou **--quiet** : écrase l’objet blob de stockage spécifié sans confirmation.
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 **storage blob download [options] [container] [blob] [destination]**
 
@@ -2034,13 +2037,13 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **--container** &lt;conteneur> : nom du conteneur de stockage à créer.
 + **-b** ou **--blob** &lt;nomObjetblob> : nom de l’objet blob de stockage.
 + **-d** ou **--destination** [destination] : fichier de destination du téléchargement ou chemin d’accès du répertoire.
-+ **-m** ou **--checkmd5** : contrôle md5sum du fichier téléchargé.
++ **-m** ou **--checkmd5** : contrôle md5sum du fichier téléchargé.
 + **--concurrenttaskcount** &lt;nombretâchessimultanées> : nombre maximal de demandes de téléchargements simultanées.
-+ **-q** ou **--quiet** : écrase le fichier de destination sans confirmation.
++ **-q** ou **--quiet** : écrase le fichier de destination sans confirmation.
 + **-a** ou **--account-name** &lt;nomCompte> : nom du compte de stockage.
 + **-k** ou **--account-key** &lt;cléCompte> : clé du compte de stockage.
 + **-c** ou **--connection-string** &lt;chaîneConnexion> : chaîne de connexion du stockage.
-+ **--debug** : exécute la commande de stockage en mode de débogage.
++ **--debug** : exécute la commande de stockage en mode de débogage.
 
 ## Commandes pour gérer les bases de données SQL
 
@@ -2350,4 +2353,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

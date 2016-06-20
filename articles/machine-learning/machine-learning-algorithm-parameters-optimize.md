@@ -27,10 +27,10 @@ Cette sélection peut être effectuée de différentes manières. Dans ML, la m�
 
 Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes.
 
-1.	**Définir l’espace de paramètre** : pour l’algorithme, nous devons d’abord déterminer les valeurs de paramètres exactes que nous souhaitons prendre en compte. 
-2.	**Définir les paramètres de validation croisée** : pour le jeu de données, nous devons déterminer comment choisir les plis de validation croisée. 
-3.	**Définir la mesure** : nous devons à présent déterminer la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score). 
-4.	**Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée. Le modèle le plus performant peut alors être choisi selon la mesure d’erreur définie par l’utilisateur.
+1.	**Définir l’espace de paramètre** : pour l’algorithme, nous devons d’abord déterminer les valeurs de paramètres exactes que nous souhaitons prendre en compte. 
+2.	**Définir les paramètres de validation croisée** : pour le jeu de données, nous devons déterminer comment choisir les plis de validation croisée. 
+3.	**Définir la mesure** : nous devons à présent déterminer la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score). 
+4.	**Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée. Le modèle le plus performant peut alors être choisi selon la mesure d’erreur définie par l’utilisateur.
 
 L’expérience ci-dessous indique comment effectuer cette opération dans Microsoft Azure Machine Learning.
 
@@ -48,12 +48,12 @@ Le module [Partition and Sample][partition-and-sample] peut être utilisé pour 
 
 
 ## Définir la mesure
-Le module [Sweep Parameters][sweep-parameters] assure la prise en charge de la sélection empirique du meilleur ensemble de paramètres, pour un algorithme et un jeu de données spécifiques. Le volet des propriétés de ce module comprend la mesure à utiliser pour déterminer le meilleur ensemble de paramètres, en plus d’autres informations concernant l’apprentissage du modèle. Il présente deux listes déroulantes différentes pour les algorithmes de classification et de régression, respectivement. Si l’algorithme en question est un algorithme de classification, la mesure de régression est ignorée, et vice versa. Dans cet exemple, nous avons choisi la mesure **Exactitude**.
+Le module [Tune Model Hyperparameters][tune-model-hyperparameters] assure la prise en charge de la sélection empirique du meilleur ensemble de paramètres pour un algorithme et un jeu de données spécifiques. Le volet des propriétés de ce module comprend la mesure à utiliser pour déterminer le meilleur ensemble de paramètres, en plus d’autres informations concernant l’apprentissage du modèle. Il présente deux listes déroulantes différentes pour les algorithmes de classification et de régression, respectivement. Si l’algorithme en question est un algorithme de classification, la mesure de régression est ignorée, et vice versa. Dans cet exemple, nous avons choisi la mesure **Exactitude**.
  
 ![image5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Apprentissage, évaluation et comparaison  
-Le même module [Sweep Parameters][sweep-parameters] gère l’apprentissage de tous les modèles correspondant à l’ensemble de paramètres, évalue diverses mesures et renvoie ensuite le meilleur modèle formé, en fonction de la mesure choisie par l’utilisateur. Ce module dispose de deux entrées obligatoires :
+Le même module [Tune Model Hyperparameters][tune-model-hyperparameters] gère l’apprentissage de tous les modèles correspondant à l’ensemble de paramètres, évalue diverses mesures et renvoie ensuite le meilleur modèle formé en fonction de la mesure choisie par l’utilisateur. Ce module dispose de deux entrées obligatoires :
 
 * apprenant non formé, 
 * jeu de données, 
@@ -67,7 +67,7 @@ Nous pouvons voir les paramètres exacts choisis en visualisant le port de sorti
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

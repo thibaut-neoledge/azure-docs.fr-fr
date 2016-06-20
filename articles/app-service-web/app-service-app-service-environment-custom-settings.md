@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/01/2016"
 	ms.author="stefsch"/>
 
 # Paramètres de configuration personnalisés pour les environnements App Service
@@ -23,7 +23,7 @@ Les environnements App Service étant isolés pour chaque client, certains param
 
 Vous pouvez stocker les personnalisations de l’environnement App Service (App Service Environment) à l’aide d’un tableau dans le nouvel attribut **clusterSettings**. Cet attribut se trouve dans le dictionnaire des « Propriétés » de l’entité Azure Resource Manager *hostingEnvironments*.
 
-L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
+L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
 
 
     "resources": [
@@ -85,7 +85,7 @@ Les clients demandent également s’ils peuvent modifier la liste des chiffreme
             }
         ],
 
-> Remarque : si des valeurs incorrectes sont définies pour la suite de chiffrement et incompréhensibles pour SChannel, l’ensemble de la communication TLS avec votre serveur peut cesser de fonctionner. Dans ce cas, vous devez redéployer votre environnement App Service, ce qui entraîne un temps d’arrêt considérable et, potentiellement, une perte de données. Utilisez cette fonctionnalité avec précaution.
+> [AZURE.WARNING]  Si des valeurs incorrectes sont définies pour la suite de chiffrement et incompréhensibles pour SChannel, l’ensemble de la communication TLS avec votre serveur peut cesser de fonctionner. Dans ce cas, vous devrez supprimer l’entrée *FrontEndSSLCipherSuiteOrder* des **clusterSettings** et envoyer le modèle ARM mis à jour pour rétablir les paramètres de suite de chiffrement par défaut. Utilisez cette fonctionnalité avec précaution.
 
 ## Prise en main
 Le site de modèles Azure Quickstart Resource Manager comprend un modèle dont la définition de base permet de [créer un environnement App Service](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
@@ -95,4 +95,4 @@ Le site de modèles Azure Quickstart Resource Manager comprend un modèle dont l
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

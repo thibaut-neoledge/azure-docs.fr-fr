@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Gestion des erreurs dans OAuth 2.0
@@ -137,4 +137,4 @@ La spécification RFC 6750 définit les erreurs suivantes pour les ressources qu
 | 403 | insufficient\_scope | Le jeton d’accès ne contient pas les autorisations d’emprunt d’identité requises pour accéder à la ressource. | Envoyez une nouvelle demande d’autorisation au point de terminaison d’autorisation. Si la réponse contient le paramètre d’étendue, utilisez la valeur d’étendue dans la demande à la ressource. |
 | 403 | insufficient\_access | Le sujet du jeton n’a pas les autorisations requises pour accéder à la ressource. | Invitez l’utilisateur à utiliser un compte différent ou à demander des autorisations pour la ressource spécifiée. |
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->
