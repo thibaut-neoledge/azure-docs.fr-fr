@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Ajouter des propriétaires et des utilisateurs à un laboratoire
 
-> [AZURE.NOTE] Cliquez sur le lien suivant pour regarder la vidéo d’accompagnement de cet article : [Comment configurer la sécurité dans DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab)
+> [AZURE.NOTE] Regardez la vidéo d’accompagnement de cet article : [Comment configurer la sécurité dans DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab) (How to set security in DevTest Labs).
 
 ## Vue d'ensemble
 L’accès à DevTest Labs est contrôlé par le contrôle d’accès en fonction du rôle (RBAC) d’Azure. Pour plus d’informations, recherchez [Contrôle d’accès en fonction du rôle (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -40,27 +40,28 @@ Pour ajouter un propriétaire à un abonnement Azure où vous avez déjà créé
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Dans la partie de gauche, cliquez sur **Abonnements**.
+1. Dans la partie de gauche, sélectionnez **Abonnements**.
 
 	![Lien vers les abonnements](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. Cliquez sur l'abonnement qui contiendra le(s) labo(s).
+1. Sélectionnez l'abonnement qui contiendra le(s) labo(s).  
 
-1. Cliquez sur l'icône **Accès**.
+
+1. Sélectionnez l'icône **Accès**.
 
 	![Accéder aux utilisateurs](./media/devtest-lab-add-devtest-user/access-users.png)
 
-1. Sur le panneau **Utilisateurs**, cliquez sur **Ajouter**.
+1. Dans le panneau **Utilisateurs**, sélectionnez **Ajouter**.
 
 	![Ajouter un utilisateur](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. Sur le panneau **Sélectionner un rôle**, cliquez sur **Propriétaire**.
+1. Sur le panneau **Sélectionner un rôle**, sélectionner **Propriétaire**.
 
 1. Dans la zone de texte **Utilisateur**, tapez l'adresse e-mail de l'utilisateur que vous souhaitez ajouter comme propriétaire. Si l'utilisateur n'est pas trouvé, vous obtiendrez un message d'erreur expliquant le problème. Si l'utilisateur est trouvé, cet utilisateur sera répertorié sous la zone de texte **Utilisateur**.
 
-1. Cliquez sur le nom d'utilisateur trouvé.
+1. Sélectionnez le nom d'utilisateur trouvé.
 
-1. Cliquez sur **Sélectionner**.
+1. Sélectionnez **Sélectionner**.
 
 1. Cliquez sur **OK** pour fermer le panneau **Ajouter un accès**.
 
@@ -72,27 +73,27 @@ Pour ajouter un utilisateur DevTest Labs à votre laboratoire, procédez comme s
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Cliquez sur **Parcourir**.
+1. Sélectionnez **Parcourir**.
 
-1. Cliquez sur **DevTest Labs**.
+1. Sélectionnez **DevTest Labs**.
 
-1. Dans la liste des labos, sélectionnez le labo souhaité.
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
-1. Cliquez sur l'icône **Accès**.
+1. Sélectionnez l'icône **Accès**.
 
 	![Accès des utilisateurs](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
-1. Sur le panneau **Utilisateurs**, cliquez sur **Ajouter**.
+1. Dans le panneau **Utilisateurs**, sélectionnez **Ajouter**.
 
 	![Ajouter un utilisateur](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. Dans le panneau **Sélectionner un rôle**, cliquez sur **Utilisateur DevTest Labs**
+1. Dans le panneau **Sélectionner un rôle**, sélectionnez **Utilisateur DevTest Labs**
 
 1. Dans le panneau **Ajouter des utilisateurs** :
 
-	1. Le panneau **Ajouter des utilisateurs** affiche la liste des utilisateurs intégrés. Si l'utilisateur souhaité est déjà dans la liste, vous pouvez simplement cliquer sur la ligne de l'utilisateur pour le sélectionner. Une coche s'affiche à gauche de l'utilisateur pour indiquer que l'utilisateur a été sélectionné. Pour sélectionner plusieurs utilisateurs, maintenez la touche **&lt;Ctrl>** enfoncée tout en cliquant sur chaque utilisateur. Pour désélectionner un utilisateur, maintenez la touche **&lt;Ctrl>** enfoncée et cliquez sur l'utilisateur. Un compteur en bas du panneau indique le nombre d'utilisateurs sélectionnés.
+	1. Le panneau **Ajouter des utilisateurs** affiche la liste des utilisateurs intégrés. Si l'utilisateur souhaité est déjà dans la liste, vous pouvez simplement sélectionner sa ligne pour le sélectionner. Une coche s'affiche à gauche de l'utilisateur pour indiquer que l'utilisateur a été sélectionné. Pour sélectionner plusieurs utilisateurs, maintenez la touche **&lt;Ctrl>** enfoncée tout en sélectionnant chaque utilisateur. Pour désélectionner un utilisateur, maintenez la touche **&lt;Ctrl>** enfoncée et sélectionnez l'utilisateur. Un compteur en bas du panneau indique le nombre d'utilisateurs sélectionnés.
 
-	1. Si l'utilisateur n'est pas dans la liste, entrez un compte de messagerie Microsoft valide dans la zone de texte **Utilisateurs**. Si l'adresse de messagerie est valide, l'utilisateur s'affiche sous la zone de texte **Utilisateur**. Il vous suffit de cliquer dessus pour le sélectionner.
+	1. Si l'utilisateur n'est pas dans la liste, entrez un compte de messagerie Microsoft valide dans la zone de texte **Utilisateurs**. Si l'adresse de messagerie est valide, l'utilisateur s'affiche sous la zone de texte **Utilisateur**.
 
 	1. Une fois que vous avez sélectionné les utilisateurs que vous souhaitez ajouter au labo, cliquez sur **Sélectionner**.
 
@@ -100,4 +101,4 @@ Pour ajouter un utilisateur DevTest Labs à votre laboratoire, procédez comme s
 
 1. Le panneau **Utilisateurs** affiche les rôles et les utilisateurs ajoutés.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

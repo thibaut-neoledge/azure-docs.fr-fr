@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="derrickv"/>
 
 # Forum Aux Questions de Power BI Embedded
@@ -50,7 +50,7 @@
 
     Comme nous l’avons annoncé lors de la BUILD 2016, le service Power BI Embedded est disponible en Amérique du Nord (dans le centre de données du Sud-Centre des États-Unis). Nous prévoyons de déployer ce service très prochainement dans tous les autres centres de données Azure.
 
-9.	**Quel est le contrat SLA disponible pour le service ?**
+9. **Quel est le contrat SLA disponible pour le service ?**
 
     Power BI Embedded est actuellement disponible comme service Azure en version préliminaire, sans contrat SLA particulier. Un contrat SLA sera fourni au moment de la mise en disponibilité générale de ce service.
 
@@ -61,7 +61,8 @@
 
     Vous pouvez utiliser le service Power BI Embedded dans une application que vous développez uniquement si votre application (1) ajoute des fonctionnalités importantes et majeures à notre service et ne constitue pas essentiellement une alternative à un service Power BI, et (2) est fournie uniquement à des utilisateurs externes. Vous ne pouvez pas utiliser le service Power BI Embedded dans des applications métier internes.
 
-    ![](media\power-bi-embedded-faq\price.png)
+
+   ![](media\power-bi-embedded-faq\price.png)
 
 11.	**Qu’est-ce qu’un rendu et comment est-il facturé ?**
 
@@ -101,7 +102,7 @@
 
     Le modèle Power BI Embedded n’impose pas explicitement que vos utilisateurs soient dans des clients Azure Active Directory (Azure AD). Vous avez le choix d’exiger ou non Azure AD pour vos clients. Vous devez donc déterminer le modèle d’architecture cliente nécessaire pour Power BI Embedded par rapport à l’architecture de votre application et de votre infrastructure.
 
-    Les développeurs ou employés qui conçoivent ou utilisent votre application doivent avoir un compte d’utilisateur Azure AD pour pouvoir gérer votre abonnement Azure et les collections d’espaces de travail via le portail Azure. Les API de programmation utilisées par les développeurs pour importer des rapports, modifier des chaînes de connexion et obtenir des URL incorporées se servent de jetons d’application pour l’authentification. Elles ne nécessitent donc pas Azure AD. Vous trouverez plus de détails sur l’utilisation de nos API et du portail Azure dans la [page de documentation de Power BI Embedded sur Azure.com](https://azure.microsoft.com/documentation/services/power-bi-embedded/).
+    Les développeurs ou employés qui conçoivent ou utilisent votre application doivent avoir un compte d’utilisateur Azure AD pour pouvoir gérer votre abonnement Azure et les collections d’espaces de travail via le portail Azure. Les API de programmation utilisées par les développeurs pour importer des rapports, modifier des chaînes de connexion et obtenir des URL incorporées se servent de jetons d’application pour l’authentification. Elles ne nécessitent donc pas Azure AD. Vous trouverez plus de détails sur l’utilisation de nos API et du portail Azure sur la [page de documentation de Power BI Embedded sur Azure.com](https://azure.microsoft.com/documentation/services/power-bi-embedded/).
 
 19.	**Où en savoir plus ?**
 
@@ -109,11 +110,11 @@
 
 20.	**Comment démarrer ?**
 
-    Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement Azure, vous pouvez approvisionner Power BI Embedded directement à partir du portail Azure. Si vous n’en avez pas, vous pouvez créer votre [compte Azure gratuit](https://azure.microsoft.com/free/). Une fois que vous avez approvisionné le service Power BI Embedded, vous pouvez facilement utiliser directement les API REST de Power BI ou utiliser le Kit SDK disponible sur [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Plusieurs exemples sont fournis pour vous aider à utiliser le Kit SDK.
+    Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement Azure, vous pouvez approvisionner Power BI Embedded directement à partir du portail Azure. Si vous n’en avez pas, vous pouvez créer votre [compte Azure gratuit](https://azure.microsoft.com/free/). Une fois que vous avez approvisionné le service Power BI Embedded, vous pouvez facilement utiliser directement les API REST de Power BI ou utiliser le SDK disponible sur [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Plusieurs exemples sont fournis pour vous aider à utiliser le Kit SDK.
 
 ## Voir aussi
 
 - [Présentation de Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

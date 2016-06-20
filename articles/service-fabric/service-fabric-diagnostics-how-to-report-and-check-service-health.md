@@ -3,8 +3,8 @@
    description="Découvrez comment envoyer des rapports d’intégrité à partir de votre code de service et comment contrôler l’intégrité de votre service avec les outils de contrôle d’intégrité fournis par Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
-   manager="timlt"
+   authors="toddabel"
+   manager="mfussell"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="06/07/2016"
    ms.author="toddabel"/>
 
 # Signaler et contrôler l’intégrité du service
@@ -30,7 +30,7 @@ Cet article vous présente un exemple de rapports d’intégrité du code de ser
 ## Composants requis
 Les éléments suivants doivent être installés :
 
-   * Visual Studio 2015
+   * Visual Studio 2015
    * SDK Service Fabric
 
 ## Pour créer un cluster local de développement sécurisé
@@ -75,7 +75,7 @@ Les modèles de projet Visual Studio de Service Fabric contiennent des exemples 
     using System.Fabric.Health;
     ```
 
-    b. Ajoutez le code suivant après l’appel `myDictionary.TryGetValueAsync` :
+    b. Ajoutez le code suivant après l’appel `myDictionary.TryGetValueAsync`
 
     ```csharp
     if (!result.HasValue)
@@ -86,7 +86,7 @@ Les modèles de projet Visual Studio de Service Fabric contiennent des exemples 
     ```
     Nous signalons l’intégrité du réplica, car il provient d’un service avec état. Le paramètre `HealthInformation` stocke les informations relatives au problème d’intégrité signalé.
 
-    Pour un service sans état, utilisez le code suivant.
+    Si vous aviez créé un service sans état, utilisez le code suivant
 
     ```csharp
     if (!result.HasValue)
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## Étapes suivantes
 [Présentation approfondie de l’intégrité de Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

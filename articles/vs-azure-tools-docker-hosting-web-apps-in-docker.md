@@ -3,7 +3,7 @@
    description="Découvrez comment utiliser Visual Studio Tools pour Docker pour publier une application web ASP.NET 5 dans un conteneur Docker fonctionnant sur une machine hôte Azure Docker"   
    services="visual-studio-online"
    documentationCenter=".net"
-   authors="tomarcher"
+   authors="allclark"
    manager="douge"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/08/2016"
-   ms.author="tarcher"/>
+   ms.date="06/08/2016"
+   ms.author="allclark"/>
 
 # Déployer un conteneur ASP.NET sur un hôte Docker distant
 
@@ -57,13 +57,13 @@ Avant de déployer votre application à partir de Visual Studio vers Azure, ajou
 
     1.  Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
-    1.  Appuyez sur **MACHINES VIRTUELLES**.
+    1.  Sélectionnez **MACHINES VIRTUELLES**.
     
     1.  Sélectionnez votre machine virtuelle hôte Docker.
     
-    1.  Appuyez sur l’onglet **POINTS DE TERMINAISON**.
+    1.  Sélectionnez l’onglet **POINTS DE TERMINAISON**.
     
-    1.  Appuyez sur **AJOUTER** (en bas de la page).
+    1.  Sélectionnez **AJOUTER** (en bas de la page).
     
     1.  Suivez les instructions pour exposer le port 80, utilisé par le script de déploiement par défaut.
 
@@ -83,7 +83,7 @@ Lors du déploiement sur les hôtes distants, la fonctionnalité de mappage de v
 
 1.  Modifiez la cible de lancement en spécifiant **Docker**.
 
-1.  Cliquez sur l’icône **Docker** pour générer et exécuter l’application.
+1.  Sélectionnez l’icône **Docker** pour générer et exécuter l’application.
 
 ![Lancez l’application][2]
 
@@ -96,4 +96,4 @@ Vous devriez obtenir un résultat semblable à ce qui suit.
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

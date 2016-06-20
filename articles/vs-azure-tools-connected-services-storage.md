@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Ajout de stockage Azure à l’aide des services connectés de Visual Studio
@@ -48,7 +48,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
     ![Boîte de dialogue Ajouter des services connectés - Stockage](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. Dans la boîte de dialogue **Stockage Azure**, choisissez un compte de stockage existant, puis cliquez sur **Ajouter**.
+1. Dans la boîte de dialogue **Azure Storage**, sélectionnez un compte de stockage existant, puis sélectionnez **Ajouter**.
 
     Si vous devez créer un compte de stockage, passez à l’étape suivante. Sinon, passez à l’étape 6.
 
@@ -64,7 +64,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
         Quand vous revenez à la boîte de dialogue **Stockage Azure**, le nouveau stockage s’affiche dans la liste.
 
-    1. Sélectionnez le nouveau stockage dans la liste et cliquez sur **Ajouter**.
+    1. Sélectionnez le nouveau stockage dans la liste et sélectionnez **Ajouter**.
 
 1. Le service connecté de stockage s’affiche sous le nœud Références de service de votre projet de tâche web.
 
@@ -94,4 +94,4 @@ Quand vous avez terminé la boîte de dialogue, Visual Studio ajoute des référ
 
      - [Documentation du stockage sur azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

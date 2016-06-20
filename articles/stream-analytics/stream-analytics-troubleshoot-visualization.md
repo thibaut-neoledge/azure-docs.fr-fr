@@ -30,7 +30,7 @@ Dans le volet de visualisation, les entrées sont visibles, ainsi que la requêt
 
 Pour accéder à ce visualiseur, cliquez simplement sur le bouton « Diagramme de diagnostic » dans le panneau « Paramètres » de la de la tâche Stream Analytics.
 
-![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram.png)
+![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
 Chaque entrée et sortie ont un code de couleur pour indiquer l’état actuel de ce composant, comme indiqué ci-dessous.
 
@@ -51,4 +51,4 @@ Lorsque l’utilisateur souhaite consulter les étapes intermédiaires de sa req
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

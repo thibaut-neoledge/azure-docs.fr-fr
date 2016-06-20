@@ -12,12 +12,12 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/02/2016" 
+ms.date="06/07/2016" 
 ms.author="adegeo"/>
 
 # Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
 
-Lorsque vous créez un rôle de travail, vous étendez la classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) qui vous fournit des méthodes à substituer, vous permettant de répondre aux événements de cycle de vie. Cette classe est facultative pour les rôles Web, vous devez donc l’utiliser pour répondre aux événements de cycle de vie.
+Lorsque vous créez un rôle de travail, vous étendez la classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) qui vous fournit des méthodes à substituer, vous permettant de répondre aux événements de cycle de vie. Cette classe est facultative pour les rôles Web. Vous devez donc l’utiliser pour répondre aux événements de cycle de vie.
 
 ## Extension de la classe RoleEntryPoint
 
@@ -80,4 +80,4 @@ Vous pouvez utiliser les méthodes de cycle de vie ASP.NET, en plus de celles fo
 ## Étapes suivantes
 Découvrez comment [créer un package de service cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

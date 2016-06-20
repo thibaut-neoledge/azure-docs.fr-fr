@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="ashmaka"/>
 
 # Créer un service Azure Search à l’aide du portail Azure
@@ -20,7 +20,7 @@ Ce guide vous explique comment créer (ou approvisionner) un service Azure Searc
 
 Ce guide suppose que vous disposez d’un abonnement Azure et que vous êtes en mesure de vous connecter au portail Azure.
 
-## I. Trouver Azure Search sur le portail Azure
+## Trouver Azure Search sur le portail Azure
 1. Accédez au [portail Azure](https://portal.azure.com/) et connectez-vous.
 1. Cliquez sur le signe plus (« + ») dans le coin supérieur gauche.
 2. Sélectionnez « Données + stockage ».
@@ -28,7 +28,7 @@ Ce guide suppose que vous disposez d’un abonnement Azure et que vous êtes en 
 
 ![](./media/search-create-service-portal/find-search.png)
 
-## II. Choisir un nom de service et un point de terminaison d’URL pour le service
+## Choisir un nom de service et un point de terminaison d’URL pour le service
 1. Le nom de votre service fait partie de l’URL de point de terminaison de votre service Azure Search que vous utilisez pour effectuer vos appels d’API afin de gérer et d’utiliser le service de recherche.
 2. Tapez le nom de votre service dans le champ « URL ». Le nom du service :
   * doit contenir uniquement des lettres minuscules, des chiffres ou des tirets (« - ») ;
@@ -37,25 +37,25 @@ Ce guide suppose que vous disposez d’un abonnement Azure et que vous êtes en 
   * doit comprendre au minimum 2 caractères et au maximum 60.
 
 
-## III. Sélectionner un abonnement dans lequel conserver le service
+## Sélectionner un abonnement dans lequel conserver le service
 Si vous avez plusieurs abonnements, vous pouvez sélectionner celui qui inclura ce service Azure Search.
 
-## IV. Sélectionner un groupe de ressources pour le service
+## Sélectionner un groupe de ressources pour le service
 Créez un groupe de ressources ou sélectionnez-en un. Un groupe de ressources correspond à une collection de services et ressources Azure utilisés ensemble. Par exemple, si vous utilisez Azure Search pour indexer une base de données SQL, ces deux services doivent faire partie du même groupe de ressources.
 
-## V. Sélectionner l’emplacement d’hébergement du service
+## Sélectionner l’emplacement d’hébergement du service
 En sa qualité de service Azure, Azure Search peut être hébergé dans les centres de données du monde entier. Veuillez noter que les [prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
 
-## VI. Sélectionner un niveau tarifaire
+## Sélectionner un niveau tarifaire
 [Azure Search est actuellement disponible à différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base ou Standard. Chaque niveau est associé à ses propres [capacité et limites](search-limits-quotas-capacity.md).
 
 Ici, nous avons choisi le niveau Standard pour notre service.
 
-## VII. Cliquer sur le bouton « Créer » pour configurer le service
+## Cliquer sur le bouton « Créer » pour configurer le service
 
 ![](./media/search-create-service-portal/create-service.png)
 
-## VIII. Mettre à l’échelle le service
+## Mettre à l’échelle le service
 
 Une fois votre service approvisionné, vous pouvez le mettre à l’échelle en fonction de vos besoins. Si vous avez choisi le niveau Standard pour votre service Azure Search, vous pouvez le mettre à l’échelle dans deux dimensions : réplicas et partitions. Si vous avez choisi le niveau De base, vous pouvez uniquement ajouter des réplicas.
 
@@ -74,4 +74,4 @@ Les *__réplicas__* permettent à votre service de traiter plus de requêtes de 
 ## Suivant
 Après avoir approvisionné un service Azure Search, vous pouvez [définir un index Azure Search](search-what-is-an-index.md) afin de pouvoir télécharger vos données et effectuer des recherches dans vos données.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

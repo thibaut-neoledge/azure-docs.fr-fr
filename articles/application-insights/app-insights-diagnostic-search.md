@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="06/03/2016" 
 	ms.author="awills"/>
  
 # Utilisation de Recherche de diagnostic dans Application Insights
 
-Recherche de diagnostic est le panneau d’[Application Insights][start] qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple les pages vues, les exceptions ou les demandes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
+Recherche de diagnostic (Diagnostic Search) est la fonctionnalité d’[Application Insights][start] qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
 
-## Quand voyez-vous Recherche de diagnostic ?
+## Où voyez-vous Recherche de diagnostic ?
 
 
 ### Dans le portail Azure
@@ -52,10 +52,11 @@ La fenêtre de recherche comporte les mêmes fonctionnalités que le portail web
 ![](./media/app-insights-diagnostic-search/34.png)
 
 
-### Échantillonnage
+## Échantillonnage
 
 Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes.
-> [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
+
+[En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
 
 ## Inspecter les éléments un par un
@@ -76,11 +77,11 @@ Ouvrez le panneau Filtre et choisissez les types d’événement que vous souhai
 
 Les types d'événements sont :
 
-* **Suivi** : les journaux de diagnostic comprennent les appels TrackTrace, log4Net, NLog et System.Diagnostic.Trace.
-* **Demandes** : demandes HTTP reçues par votre serveur d’applications, dont les pages, les scripts, les images, les fichiers de style et les données. Ces événements sont utilisés pour créer les graphiques de présentation de la demande et la réponse.
-* **Affichage de page** : télémétrie envoyée par le client web et utilisée pour créer les rapports d’affichage des pages. 
-* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
-* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException().
+* **Suivi** : les journaux de diagnostic comprennent les appels TrackTrace, log4Net, NLog et System.Diagnostic.Trace.
+* **Demandes** : demandes HTTP reçues par votre serveur d’applications, dont les pages, les scripts, les images, les fichiers de style et les données. Ces événements sont utilisés pour créer les graphiques de présentation de la demande et la réponse.
+* **Affichage de page** : télémétrie envoyée par le client web et utilisée pour créer les rapports d’affichage des pages. 
+* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
+* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException().
 
 ## Filtrer des valeurs de propriétés
 
@@ -157,8 +158,8 @@ Expressions de recherche utilisables :
 Exemple de requête | Résultat 
 ---|---
 slow|Trouve tous les événements dont la période comprend le terme « slow »
-database??|Renvoie database01, databaseAB,...<br/>? n’est pas autorisé au début du terme à rechercher.
-database*|Renvoie database, database01, databaseNNNN<br/>* n’est pas autorisé au début du terme à rechercher.
+database|Renvoie database01, databaseAB,...<br/>? n’est pas autorisé au début du terme à rechercher.
+database* |Renvoie database, database01, databaseNNNN<br/>* n’est pas autorisé au début du terme à rechercher
 apple AND banana|Trouve les événements qui contiennent les deux termes. Utilisez « AND » en lettres majuscules (et non « and » en lettres minuscules).
 apple OR banana<br/>apple banana|Trouve les événements qui contiennent un des deux termes. Utilisez « OR » et non « or ».</br/>Forme abrégée.
 apple NOT banana<br/>apple -banana|Trouve les événements qui contiennent un terme, mais pas l’autre.<br/>Forme abrégée.
@@ -216,8 +217,8 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-spi-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

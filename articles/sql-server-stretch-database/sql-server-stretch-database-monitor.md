@@ -33,11 +33,8 @@ Sélectionnez **Tâches | Stretch | Surveiller** pour une base de données dans 
 Ouvrez la vue de gestion dynamique **sys.dm\_db\_rda\_migration\_status** pour voir combien de lots et de lignes de données ont été migrés. Pour plus d’informations, consultez [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
 ## <a name="Firewall"></a>Dépannage de la migration des données
-**Le pare-feu Azure bloque les connexions à partir de mon serveur local.**
 
-Vous devrez peut-être ajouter une règle dans les paramètres de pare-feu Azure du serveur Azure pour permettre à SQL Server de communiquer avec le serveur Azure distant.
-
-**Les lignes de ma table compatible Stretch Database ne sont pas migrées vers Azure. Quel est le problème ?**
+**Les lignes de ma table Stretch ne sont pas migrées vers Azure. Quel est le problème ?**
 
 Plusieurs problèmes peuvent affecter la migration. Vérifiez les éléments suivants.
 
@@ -51,6 +48,10 @@ Plusieurs problèmes peuvent affecter la migration. Vérifiez les éléments sui
 
     -   Pour plus d’informations sur le contenu d’un message d’erreur SQL Server, consultez [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
+**Le pare-feu Azure bloque les connexions à partir de mon serveur local.**
+
+Vous devrez peut-être ajouter une règle dans les paramètres de pare-feu Azure du serveur Azure pour permettre à SQL Server de communiquer avec le serveur Azure distant.
+
 ## Voir aussi
 
 [Gestion et dépannage de Stretch Database](sql-server-stretch-database-manage.md)
@@ -58,4 +59,4 @@ Plusieurs problèmes peuvent affecter la migration. Vérifiez les éléments sui
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

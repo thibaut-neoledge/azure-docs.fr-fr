@@ -302,13 +302,16 @@ Félicitations ! Vous avez correctement créé le tableau de bord en temps rée
 
 Remarque : une fois le déploiement effectué, comptez environ 2 heures pour permettre au pipeline de traitement par lots de terminer son exécution et de traiter l’équivalent d’une année de données générées. Veuillez patienter avant de procéder aux étapes suivantes.
 
-**Téléchargez le fichier de concepteur Power BI** • Un fichier de concepteur Power BI préconfiguré est inclus dans le cadre du déploiement • Cliquez sur le nœud Power BI sur la vue schématique et cliquez sur « Télécharger le fichier de concepteur Power BI » dans le volet des propriétés ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+**Télécharger le fichier de concepteur Power BI**
+-	Un fichier de concepteur préconfiguré Power BI est inclus dans le cadre du déploiement
+-	Cliquez sur le nœud Power BI sur la vue schématique, puis cliquez sur le lien de téléchargement du fichier de concepteur de PowerBI dans le volet des propriétés ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
-• Enregistrez le fichier en local
+-	Enregistrez le fichier en local
 
-**Configurez les rapports Power BI** • Ouvrez le fichier de concepteur « VehicleTelemetryAnalytics - Desktop Report.pbix » à partir de Power BI Desktop. Le cas échéant, installez Power BI Desktop depuis [PowerBI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configurer les rapports Power BI**
+-	Ouvrez le fichier de concepteur « VehicleTelemetryAnalytics - Desktop Report.pbix » à partir de Power BI Desktop. Le cas échéant, installez Power BI Desktop depuis [PowerBI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331). 
 
-• Cliquez sur **Modifier des requêtes**.
+-	Cliquez sur **Modifier des requêtes**.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 
@@ -364,12 +367,12 @@ Un jeu de données, un rapport et un tableau de bord vide sont alors créés.
 ![Connected Cars PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard2.png)
  
 
-**À partir de la Page 3**, épinglez les éléments suivants :
+**Dans la Page 3**, épinglez les éléments suivants :
 1.	Nombre de VIN ![Connected Cars PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 2. 
 
 2.	Véhicules utilisés de manière intensive par modèle – Graphique en cascade ![Vehicle Telemetry - Épingler des graphiques 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
-**À partir de la Page 5**, épinglez les éléments suivants :
+**Dans la Page 5**, épinglez les éléments suivants :
 1.	Count of vin ![Vehicle Telemetry - Épingler des graphiques 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
 2.	Véhicules économes en carburant par modèle : histogramme groupé ![Vehicle Telemetry - Épingler des graphiques 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
@@ -393,4 +396,4 @@ Un jeu de données, un rapport et un tableau de bord vide sont alors créés.
 
 Félicitations ! Vous avez correctement créé les rapports et le tableau de bord pour obtenir des informations en temps réel, prédictives et par lots sur l’état des véhicules et les habitudes de conduite.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

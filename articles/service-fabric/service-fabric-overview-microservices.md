@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # Pourquoi une approche de microservices pour la conception d’applications ?
 Pour les développeurs de logiciels que nous sommes, il n’y a rien de nouveau dans notre conception de l’affacturage d’une application en composants. Il s’agit du paradigme central de l’orientation des objets, des abstractions de logiciel et de la modularité. Aujourd’hui, cet affacturage a tendance à prendre la forme de classes et d’interfaces entre les bibliothèques partagées et les couches de technologie, généralement par le biais d’une approche hiérarchisée avec un magasin principal, une logique métier de niveau intermédiaire et une interface utilisateur frontale. Ce qui *a* changé au cours des dernières années, c’est que nous, en tant que développeurs, créons des applications distribuées pour le cloud, qui sont pilotées par l’entreprise.
@@ -143,9 +143,9 @@ L’objectif de Service Fabric consiste à réduire la complexité de la créat
 
 * Pour en savoir plus :
 	* [Vue d'ensemble de Service Fabric](service-fabric-overview.md)
-    * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices : une approche révolutionnaire des applications reposant sur le cloud)
+    * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices : une approche révolutionnaire des applications reposant sur le cloud)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="06/03/2016" 
 	ms.author="genemi"/>
 
 
 # Code cible de la mémoire tampon en anneau pour les événements étendus dans SQL Database
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Vous pouvez utiliser un exemple de code complet pour capturer et signaler le plus simplement et rapidement possible les informations liées à un événement étendu pendant un test. La cible la plus simple pour les données d’événement étendu est la [cible de la mémoire tampon en anneau](http://msdn.microsoft.com/library/ff878182.aspx).
 
@@ -51,14 +52,14 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 ## Composants requis
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Une base de données dans laquelle vous pouvez créer une table.
  - Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started.md) en quelques minutes.
 
 
-- SQL Server Management Studio (ssms.exe), version préliminaire d’août 2015 ou version ultérieure. Vous pouvez télécharger la dernière version de ssms.exe à partir des liens suivants :
+- SQL Server Management Studio (ssms.exe), version préliminaire d’août 2015 ou version ultérieure. Vous pouvez télécharger la dernière version de ssms.exe à partir des liens suivants :
  - [Un lien fourni dans une rubrique.](http://msdn.microsoft.com/library/mt238290.aspx)
  - [En utilisant un lien direct vers le téléchargement.](http://go.microsoft.com/fwlink/?linkid=616025)
  - Microsoft recommande de mettre régulièrement à jour votre version de ssms.exe, par exemple tous les mois.
@@ -67,7 +68,7 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 ## Exemple de code
 
 
-Après quelques modifications mineures, vous pouvez exécuter l’exemple suivant de code de mémoire tampon en anneau sur Azure SQL Database ou Microsoft SQL Server. La différence se limite à la présence du nœud '\_database' dans le nom de certaines vues de gestion dynamique (DMV) dans la clause FROM à l’étape 5. Par exemple :
+Après quelques modifications mineures, vous pouvez exécuter l’exemple suivant de code de mémoire tampon en anneau sur Azure SQL Database ou Microsoft SQL Server. La différence se limite à la présence du nœud '\_database' dans le nom de certaines vues de gestion dynamique (DMV) dans la clause FROM à l’étape 5. Par exemple :
 
 - sys.dm\_xe**\_database**\_session\_targets
 - sys.dm\_xe\_session\_targets
@@ -338,7 +339,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 #### Libérer les ressources détenues par votre mémoire tampon en anneau
 
 
-Quand vous n’avez plus besoin de votre mémoire tampon en anneau, vous pouvez la supprimer et libérer ses ressources à l’aide d’une instruction **ALTER**, comme suit :
+Quand vous n’avez plus besoin de votre mémoire tampon en anneau, vous pouvez la supprimer et libérer ses ressources à l’aide d’une instruction **ALTER**, comme suit :
 
 
 ```
@@ -349,7 +350,7 @@ GO
 ```
 
 
-La définition de votre session d’événement est mise à jour, mais pas supprimée. Vous pouvez ajouter ultérieurement une autre instance de la mémoire tampon en anneau à votre session d’événement :
+La définition de votre session d’événement est mise à jour, mais pas supprimée. Vous pouvez ajouter ultérieurement une autre instance de la mémoire tampon en anneau à votre session d’événement :
 
 
 ```
@@ -372,10 +373,10 @@ La rubrique suivante fournit des informations essentielles au sujet des événem
 - La rubrique [Considérations relatives aux événements étendus dans Azure SQL Database](sql-database-xevent-db-diff-from-svr.md) décrit les différences à prendre en compte entre les événements étendus dans Azure SQL Database et ceux dans Microsoft SQL Server.
 
 
-Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou la base de données SQL Azure. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
+Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou la base de données SQL Azure. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
 
 
-- Exemple de code pour Azure SQL Database : [Code cible du fichier d’événements pour les événements étendus dans SQL Database](sql-database-xevent-code-event-file.md)
+- Exemple de code pour Azure SQL Database : [Code cible du fichier d’événements pour les événements étendus dans SQL Database](sql-database-xevent-code-event-file.md)
 
 
 <!--
@@ -385,4 +386,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

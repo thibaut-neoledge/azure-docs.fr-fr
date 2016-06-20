@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -23,6 +23,8 @@
 Le kit de ressources Azure pour Eclipse contient des modèles et des fonctionnalités qui vous permettent de créer, de développer, de tester et de déployer des applications Azure avec l’environnement de développement Eclipse. Il s’agit d’un projet Open Source, dont le code source est disponible sous licence MIT sur le site du projet à l’adresse :
 
 * <https://github.com/microsoft/azure-tools-for-java>
+
+> [AZURE.NOTE] Il existe également une boîte à outils Azure pour l’environnement de développement IntelliJ. Pour plus d’informations, consultez [Kit de ressources Azure pour IntelliJ].
 
 ## Prise en main du kit de ressources Azure pour Eclipse
 
@@ -54,25 +56,40 @@ Les articles suivants expliquent comment utiliser la Boîte à outils Azure pour
 
 ## Voir aussi
 
+Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
+
+- *Kit de ressources Azure pour Eclipse (cet article)*
+  - [Installation du kit de ressources Azure pour Eclipse]
+  - [Créer une application web « Hello World » pour Azure dans Eclipse]
+  - [Nouveautés du kit de ressources Azure pour Eclipse]
+- [Kit de ressources Azure pour IntelliJ]
+  - [Installation du kit de ressources Azure pour IntelliJ]
+  - [Créer une application web « Hello World » pour Azure dans IntelliJ]
+
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
 <!-- URL List -->
 
+[Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+
 [Propriétés du projet Azure]: ./azure-toolkit-for-eclipse-azure-project-properties.md
 [Propriétés du rôle Azure]: ./azure-toolkit-for-eclipse-azure-role-properties.md
 [Points de terminaison de service Azure]: ./azure-toolkit-for-eclipse-azure-service-endpoints.md
 [Liste de compte de stockage Azure]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [Créer un service cloud « Hello World » pour Azure dans Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Débogage des applications Azure dans Eclipse]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
 [Réalisation de déploiements volumineux]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [Affichage du contenu Javadoc dans Eclipse pour le package de bibliothèques Azure pour Java]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Activation de l’accès à distance pour les déploiements Azure dans Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
-[Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Activer l’affinité de session]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
-[Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -82,4 +99,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 <!-- [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549 -->
 <!-- [Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

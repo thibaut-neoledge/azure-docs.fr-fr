@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="04/14/2016"
-   ms.author="cawaMS" />
+   ms.author="cawa" />
 
 # Configuration de la mise à niveau d’une application Service Fabric dans Visual Studio
 
@@ -94,4 +94,4 @@ L'exemple suivant montre comment appliquer une stratégie de contrôle d'intégr
 ## Étapes suivantes
 Pour plus d'informations sur le déploiement d'une application, consultez la page [Déploiement d’une application existante dans Azure Service Fabric](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

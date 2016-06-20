@@ -24,9 +24,9 @@ Pour désactiver Stretch Database pour une table, sélectionnez **Stretch** pour
 
 -   **Désactiver | Laisser les données dans Azure**. Désactiver Stretch Database pour la table. Abandonner les données distantes pour la table dans Azure.
 
-Une fois que vous avez désactivé Stretch Database pour une table, la migration des données s’arrête et les résultats de requête n’incluent plus les résultats de la table distante.
-
 Vous pouvez également utiliser Transact-SQL pour désactiver Stretch Database pour une table ou une base de données.
+
+Une fois que vous avez désactivé Stretch Database pour une table, la migration des données s’arrête et les résultats de requête n’incluent plus les résultats de la table distante.
 
 Si vous souhaitez simplement suspendre la migration des données, consultez [Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md).
 
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

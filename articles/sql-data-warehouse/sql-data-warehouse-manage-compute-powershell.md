@@ -19,7 +19,7 @@
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-data-warehouse-overview-manage-compute.md)
+- [Vue d'ensemble](sql-data-warehouse-manage-compute-overview.md)
 - [Portail](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ Cette collection de tâches utilise le portail Azure pour :
 - Suspension du calcul
 - Reprise du calcul
 
-Pour plus d’informations, consultez l’article [Manage compute power in Azure SQL Data Warehouse (Overview)][].
+Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestion du calcul][].
 
 
 ## Avant de commencer
@@ -124,7 +124,7 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
+
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -136,4 +136,4 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

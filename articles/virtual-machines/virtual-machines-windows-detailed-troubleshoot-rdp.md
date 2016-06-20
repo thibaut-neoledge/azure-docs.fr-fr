@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="04/06/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Dépannage de connexions du Bureau à distance à des machines virtuelles Azure Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et résoudre les erreurs complexes du Bureau à distance pour les machines virtuelles basées Azure sur Windows.
 
-> [AZURE.IMPORTANT] Pour éliminer les erreurs du Bureau à distance plus courantes, veillez à lire l’article sur [le dépannage de base pour le Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md) avant de continuer.
+> [AZURE.IMPORTANT] Pour éliminer les erreurs du Bureau à distance plus courantes, veillez à lire [l’article sur la résolution des problèmes de base du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md) avant de continuer.
 
-Si vous obtenez un message d’erreur du Bureau à distance qui ne ressemble à aucun des messages d’erreur spécifiques couverts dans [le guide de dépannage de base des problèmes du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md), vous pouvez suivre ces étapes et essayer de déterminer pourquoi le client Bureau à distance (ou [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) ne parvient pas à se connecter au service RDP sur la machine virtuelle Azure.
+Si vous obtenez un message d’erreur du Bureau à distance qui ne ressemble à aucun des messages d’erreur spécifiques couverts dans [le guide de résolution des problèmes de base du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md), vous pouvez suivre ces étapes et essayer de déterminer pourquoi le client Bureau à distance (RDP) ne parvient pas à se connecter au service RDP sur la machine virtuelle Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
@@ -38,7 +38,7 @@ Voici les composants impliqués dans une connexion RDP :
 
 Avant de poursuivre, nous vous recommandons de réfléchir à tout ce qui a changé depuis que vous avez créé avec succès une connexion Bureau à distance à la machine virtuelle. Par exemple :
 
-- Si l'adresse IP publique de la machine l'ordinateur virtuel ou du service cloud contenant la machine virtuelle (également appelée adresse IP virtuelle [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) a changé, l’erreur RDP peut indiquer que le cache client DNS a toujours l’*ancienne adresse IP* enregistrée pour le nom DNS. Videz le cache client DNS et essayez de vous reconnecter à la machine virtuelle. Ou essayez de vous connecter directement avec la nouvelle adresse IP virtuelle.
+- Si l’adresse IP publique de la machine virtuelle ou du service cloud contenant la machine virtuelle (également appelée adresse IP virtuelle [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) a changé, l’erreur RDP peut indiquer que le cache client DNS a toujours *l’ancienne adresse IP* enregistrée pour le nom DNS. Videz le cache client DNS et essayez de vous reconnecter à la machine virtuelle. Ou essayez de vous connecter directement avec la nouvelle adresse IP virtuelle.
 - Si vous utilisez une application tierce pour gérer vos connexions Bureau à distance au lieu d’utiliser l’un des portails Azure, vérifiez que la configuration de l’application inclut bien le port TCP approprié pour le trafic de Bureau à distance. Vous pouvez vérifier ce port pour une machine virtuelle classique dans le [portail Azure](https://portal.azure.com), en cliquant sur Paramètres de la machine virtuelle > Points de terminaison.
 
 
@@ -47,7 +47,7 @@ Avant de poursuivre, nous vous recommandons de réfléchir à tout ce qui a chan
 Avant de passer à la procédure de dépannage détaillé,
 
 - vérifiez l’état de la machine virtuelle sur le portail Azure Classic ou le portail Azure pour identifier d’éventuels problèmes flagrants
-- Suivez les [étapes du guide de dépannage de base pour corriger rapidement les erreurs RDP courantes](virtual-machines-windows-troubleshoot-rdp-connection.md#quickfixrdp)
+- Suivez les [étapes du guide de résolution des problèmes de base pour corriger rapidement les erreurs RDP courantes](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 
 Essayez de vous reconnecter à la machine virtuelle via le Bureau à distance après ces étapes.
@@ -102,7 +102,7 @@ Pour des machines virtuelles créées à l’aide du modèle de déploiement cla
 
 > [AZURE.NOTE] Pour les machines virtuelles créées dans Resource Manager, passez à [Source 4 : groupes de sécurité réseau](#nsgs).
 
-Si vous ne disposez pas d’une autre machine virtuelle dans le même service cloud ou réseau virtuel, vous pouvez en créer une en suivant les étapes de la rubrique [Création d’une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-hero-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle supplémentaire.
+Si vous ne disposez pas d’une autre machine virtuelle dans le même service cloud ou réseau virtuel, vous pouvez en créer une en suivant les étapes de la rubrique [Création d’une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-hero-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle supplémentaire.
 
 Si vous pouvez vous connecter à une machine virtuelle via Bureau à distance dans le même service cloud ou réseau virtuel, vérifiez les paramètres suivants :
 
@@ -195,4 +195,4 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

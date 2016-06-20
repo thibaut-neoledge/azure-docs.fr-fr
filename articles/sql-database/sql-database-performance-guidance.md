@@ -126,7 +126,7 @@ La **récupération d'urgence** fait référence à la capacité de restauration
 
 La *restauration géographique* est disponible pour tous les niveaux de service, sans aucun coût supplémentaire. En cas de panne, vous pouvez utiliser la dernière sauvegarde géo-redondante pour restaurer votre base de données avec n'importe quelle région Azure.
 
-La [géo-réplication active](sql-database-geo-replication-overview.md) fournit des fonctionnalités de récupération d’urgence similaires, mais avec un objectif de point de récupération (RPO) beaucoup plus faible. Par exemple, avec la restauration géographique, le RPO est inférieur à une heure (en d'autres termes, la sauvegarde peut remonter jusqu'à une heure). Mais pour la géo-réplication active, le RPO est inférieur à 5 secondes.
+La [géo-réplication active](sql-database-geo-replication-overview.md) fournit des fonctionnalités de récupération d’urgence similaires, mais avec un objectif de point de récupération (RPO) beaucoup plus faible. Par exemple, avec la restauration géographique, le RPO est inférieur à une heure (en d'autres termes, la sauvegarde peut remonter jusqu'à une heure). Mais pour la géoréplication active, le RPO est inférieur à cinq secondes.
 
 Pour plus d'informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
@@ -507,4 +507,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

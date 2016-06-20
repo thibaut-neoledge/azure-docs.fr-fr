@@ -128,7 +128,7 @@ Tout dépend de ce que vous devez mettre à jour :
 
 Si vous ne modifiez pas le modèle, mais que vous changez simplement la façon dont le service web gère les données, vous pouvez modifier l’expérience prédictive, puis cliquez de nouveau sur **Déployer le service web**. Le service web sera arrêté et l’expérience prédictive mise à jour déployée avant le redémarrage du service web.
 
-Voici un exemple : supposons que votre expérience prédictive retourne toute la ligne de données d’entrée avec le résultat prédit. Vous pouvez décider que le service web se contente simplement de retourner le résultat. Vous pouvez donc ajouter un module **Colonnes de projet** dans l’expérience prédictive, juste avant le port de sortie, pour exclure les colonnes qui ne correspondent pas au résultat. Lorsque vous cliquez de nouveau sur **Déployer le service web**, le service web est mis à jour.
+Voici un exemple : supposons que votre expérience prédictive retourne toute la ligne de données d’entrée avec le résultat prédit. Vous pouvez décider que le service web se contente simplement de retourner le résultat. Vous pouvez donc ajouter un module **Sélectionner des colonnes dans le jeu de données** dans l’expérience prédictive, juste avant le port de sortie, pour exclure les colonnes qui ne correspondent pas au résultat. Lorsque vous cliquez de nouveau sur **Déployer le service web**, le service web est mis à jour.
 
 **Vous souhaitez reformer le modèle avec de nouvelles données**
 
@@ -160,4 +160,4 @@ Pour obtenir des exemples de l’ensemble du processus, consultez :
 
 -   [Guide pas à pas : développer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tables temporaires dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à l’utilisation de tables temporaires dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   pageTitle="Tables temporaires dans SQL Data Warehouse | Microsoft Azure"
+   description="Conseils relatifs à l’utilisation de tables temporaires dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="mausher;jrj;barbkess;sonyama"/>
+   ms.date="06/06/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
-# Tables temporaires dans SQL Data Warehouse
-Les tables temporaires sont très utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse. Toutefois, elles sont toujours définies en tant que tables temporaires locales. Contrairement aux tables SQL Server, elles sont accessibles depuis n’importe quel point de la session.
+# Tables temporaires dans SQL Data Warehouse
+Les tables temporaires sont très utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse. Toutefois, elles sont toujours définies en tant que tables temporaires locales. Contrairement aux tables SQL Server, elles sont accessibles depuis n’importe quel point de la session.
 
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session. Ces informations peuvent vous aider à modulariser votre code. La modularité du code est importante pour faciliter sa maintenance et sa réutilisation.
 
@@ -205,7 +205,7 @@ Cependant, notez également que la procédure stockée n’inclut pas de command
 
 Passons maintenant à la partie intéressante !
 
-Dans SQL Data Warehouse, il est possible d’utiliser la table temporaire en dehors de la procédure qui l’a créée. Ce n’est pas le cas de SQL Server. En fait, la table temporaire peut être utilisée à **n’importe quel point** de la session.
+Dans SQL Data Warehouse, il est possible d’utiliser la table temporaire en dehors de la procédure qui l’a créée. Ce n’est pas le cas de SQL Server. En fait, la table temporaire peut être utilisée à **n’importe quel point** de la session.
 
 Cela peut optimiser la facilité de gestion et la modularité du code. Examinez l’exemple ci-dessous :
 
@@ -235,9 +235,9 @@ Dans certains cas, les fonctions à instructions multiples et en ligne peuvent �
 > [AZURE.NOTE] Vous pouvez également étendre cette solution. Si vous souhaitez simplement mettre à jour une table unique, par exemple, il vous suffit de filtrer la table #stats\_ddl.
 
 ## Limitations relatives aux tables temporaires
-SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.
+SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.
 
-Voici les principales limitations :
+Voici les principales limitations :
 
 - Les tables temporaires globales ne sont pas prises en charge.
 - Vous ne pouvez pas créer des vues sur des tables temporaires.
@@ -248,10 +248,10 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
+[vue d’ensemble sur le développement]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

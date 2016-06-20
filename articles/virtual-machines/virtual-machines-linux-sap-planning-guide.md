@@ -1396,7 +1396,7 @@ azure group create $rgName "North Europe"
 * Création d’un nouveau compte de stockage
 
 ```
-azure storage account create --resource-group $rgName --location "North Europe" --type LRS $rgNameLower
+azure storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku-name LRS $rgNameLower
 ```
 
 * Création d’un réseau virtuel pour chaque paysage de formation et de démonstration pour rendre possible l’utilisation du même nom d’hôte et des mêmes adresses IP. Le réseau virtuel est protégé par un groupe de sécurité réseau qui autorise uniquement le trafic vers le port 3389 afin de rendre possible l’accès au Bureau à distance et activer le port 22 pour SSH. 
@@ -1503,9 +1503,9 @@ Les ports de communication SAP classiques sont répertoriés dans le tableau ci-
 | Passerelle | sapgw`<nn`> voir * | 3301 | gratuit | Passerelle SAP, utilisée pour les communications CPIC et RFC |
 | Routeur SAP | sapdp99 | 3299 | gratuit | Seuls les noms de service de l’instance centrale peuvent être réaffectés dans /etc/services à une valeur arbitraire après l’installation. |
 
-*) nn = Numéro d’instance SAP
+**) nn = Numéro d’instance SAP
 
-**) sid = SAP-System-ID
+****) sid = SAP-System-ID
 
 Vous trouverez ici <http://scn.sap.com/docs/DOC-17124> plus d’informations sur les ports requis pour les différents produits ou services SAP. Ce document va vous permettre d’ouvrir des ports dédiés sur le périphérique VPN nécessaire pour les scénarios et produits SAP spécifiques.
 
@@ -1659,7 +1659,7 @@ Les blocs de construction de base de la solution de surveillance dans Azure pour
  
 ![Composants d’extension Microsoft Azure][planning-guide-figure-2400]
 
-Comme indiqué dans le diagramme de blocs ci-dessus, une partie de la solution de surveillance pour SAP est hébergée dans l’image de machine virtuelle Azure et la galerie d’extensions Azure, qui est un référentiel à réplication globale géré par des opérations Azure. L’équipe SAP/MS travaillant à l’implémentation Azure de SAP est chargée d’utiliser les opérations Azure pour publier de nouvelles versions de l’extension de surveillance Azure pour SAP. Cette extension de surveillance Azure pour SAP utilisera l’extension Windows Azure Diagnostics (WAD) ou Linux Azure Diagnostics (LAD) pour obtenir les informations nécessaires.
+Comme indiqué dans le diagramme de blocs ci-dessus, une partie de la solution de surveillance pour SAP est hébergée dans l’image de machine virtuelle Azure et la galerie d’extensions Azure, qui est un référentiel à réplication globale géré par des opérations Azure. L’équipe SAP/MS travaillant à l’implémentation Azure de SAP est chargée d’utiliser les opérations Azure pour publier de nouvelles versions de l’extension de surveillance Azure pour SAP. Cette extension de surveillance Azure pour SAP utilisera l’extension des diagnostics Microsoft Azure (WAD) ou Linux Azure (LAD) pour obtenir les informations nécessaires.
 
 Lorsque vous déployez une nouvelle machine virtuelle Windows, l’agent de machine virtuelle Azure est automatiquement ajouté à la machine virtuelle. La fonction de cet agent consiste à coordonner le chargement et la configuration des extensions Azure pour la surveillance des systèmes SAP NetWeaver. Pour les machines virtuelles LINUX, l’agent de machine virtuelle Azure fait déjà partie de l’image du système d’exploitation d’Azure Marketplace.
 
@@ -1930,4 +1930,4 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 * La sauvegarde des instances de boîte de dialogue SAP n’est pas très utile, dans la mesure où il est généralement plus rapide de redéployer des instances de boîte de dialogue simples.
 * La sauvegarde de la machine virtuelle qui contient le répertoire global du système SAP, et tous les profils des différentes instances, est utile et doit être effectuée avec la sauvegarde Windows ou, par exemple, tar sous Linux. Dans la mesure où il existe des différences entre Windows Server 2008 (R2) et Windows Server 2012 (R2), qui facilitent la sauvegarde à l’aide des versions les plus récentes de Windows Server, nous vous recommandons d’exécuter Windows Server 2012 (R2) en tant que système d’exploitation invité Windows. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

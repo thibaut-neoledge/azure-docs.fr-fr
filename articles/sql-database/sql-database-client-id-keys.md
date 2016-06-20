@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/15/2016"
+   ms.date="06/06/2016"
    ms.author="sstein"/>
 
 # Obtenir l’ID client et la clé pour la connexion à une base de données SQL à partir du code
@@ -46,7 +46,7 @@ Pour créer et inscrire une application, procédez comme suit :
 
     ![Ajouter l’application][7]
 
-6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
+6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
 
     ![Ajouter l’application][8]
 
@@ -69,7 +69,7 @@ Pour créer et inscrire une application, procédez comme suit :
 
 ## Inscrire une application web (ou API web) et obtenir l’ID client et la clé
 
-Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
+Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
 
 1. Connectez-vous au [portail Classic](https://manage.windowsazure.com/).
 1. Recherchez **Active Directory** dans le menu, puis sélectionnez-le.
@@ -88,11 +88,11 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Ajouter l’application][6]
 
-5. Spécifiez un **NOM** pour l’application et sélectionnez ** APPLICATION WEB ET/OU API WEB**.
+5. Spécifiez un **NOM** pour l’application et sélectionnez **APPLICATION WEB ET/OU API WEB**.
 
     ![Ajouter l’application][10]
 
-6. Indiquez une **URL DE CONNEXION** et un **URI ID D’APPLICATION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
+6. Indiquez une **URL DE CONNEXION** et un **URI ID D’APPLICATION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
 
     ![Ajouter l’application][11]
 
@@ -123,7 +123,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
 ## Obtenir votre nom de domaine
 
-Le nom de domaine est parfois nécessaire pour votre code d’authentification. Pour identifier aisément le nom de domaine correct, procédez comme suit :
+Le nom de domaine est parfois nécessaire pour votre code d’authentification. Pour identifier aisément le nom de domaine correct, procédez comme suit :
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Pointez sur votre nom dans le coin supérieur droit et notez le domaine qui apparaît dans la fenêtre contextuelle.
@@ -250,4 +250,4 @@ Pour obtenir des exemples de code spécifiques associés à l’authentification
 [13]: ./media/sql-database-client-id-keys/key-duration.png
 [14]: ./media/sql-database-client-id-keys/web-secrets.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

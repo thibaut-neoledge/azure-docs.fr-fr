@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Éditions d’Azure Active Directory
@@ -454,6 +454,20 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 | | | ![Vérification][12]| |
 
 
+#### Enterprise State Roaming
+
+**Type :** Azure Active Directory Join - Fonctionnalités propres à Windows 10
+
+
+**Disponibilité :**
+
+| Édition gratuite| Édition de base| Édition Premium| Applications Office 365 uniquement |
+| :-: | :-: | :-: | :-: |
+| | | ![Vérification][12]| |
+
+**Détails supplémentaires :**
+
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Fonctionnalités préliminaires d’Azure AD
@@ -465,7 +479,6 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 - [Unités administratives](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Intégration d’applications HR](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
@@ -482,4 +495,4 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,6 +12,4 @@ SQL Data Warehouse crée des instantanés de toutes les données actives au moin
 
 Avant de supprimer une base de données, SQL Data Warehouse en crée un instantané et le conserve 7 jours. Lorsque cela se produit, il ne conserve pas les instantanés de la base de données active. Cela vous permet de restaurer une base de données supprimée dans son état au moment de sa suppression.
 
-SQL Data Warehouse copie les instantanés de façon asynchrone dans une autre région géographique pour faciliter leur récupération en cas de défaillance dans une région. Si vous ne pouvez pas accéder à votre base de données en raison d’une défaillance dans une région Azure, vous pouvez la restaurer à l’aide de l’un des instantanés géo-redondants.
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

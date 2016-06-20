@@ -133,12 +133,12 @@ Figure 8. validation croisée d’un modèle de classification binaire
 Figure 9. résultats de la validation croisée d’un classifieur binaire
 
 ##Évaluation d’un modèle de classification multiclasse##
-Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est publiquement accessible dans le [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Référentiel Machine Learning UCI) et peut être téléchargé à l’aide d’un module [Importer les données][reader].
+Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est publiquement accessible dans le [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Référentiel Machine Learning UCI) et peut être téléchargé à l’aide d’un module [Importer les données][import-data].
 
 ###Création de l’expérience###
 Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :
 
-- [Importer des données][reader]
+- [Importer des données][import-data]
 - [Forêt d’arbres de décision multiclasse][multiclass-decision-forest]
 - [Fractionner les données][split]
 - [Former le modèle][train-model]
@@ -149,9 +149,9 @@ Connectez les ports comme illustré ci-après à la Figure 10.
 
 Définissez l’index de la colonne Étiquette du module [Former le modèle][train-model] sur 5. Le jeu de données ne comporte pas de ligne d’en-tête, mais nous savons que les étiquettes de classe figurent dans la cinquième colonne.
 
-Cliquez sur le module [Importer les données][reader] et définissez la propriété *Source de données* sur *URL web via HTTP* et l’*URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Cliquez sur le module [Importer les données][import-data] et définissez la propriété *Source de données* sur *URL web via HTTP* et l’*URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Définissez la fraction d’instances à utiliser pour l’apprentissage dans le module [Fractionner les données][split] \(0,7 par exemple).
+Définissez la fraction d’instances à utiliser pour l’apprentissage dans le module [Fractionner les données][split] (0,7 par exemple).
  
 ![évaluation d’un classifieur multiclasse](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -165,7 +165,7 @@ Exécutez l’expérience et cliquez sur le port de sortie du module [Évaluer l
 Figure 11. résultats de l’évaluation de la classification multiclasse
 
 ###Utilisation de la validation croisée###
-Comme indiqué précédemment, vous pouvez exécuter automatiquement des opérations répétées d’apprentissage, de notation et d’évaluation à l’aide du module [Effectuer la validation croisée du modèle][cross-validate-model]. Pour mener à bien cette tâche, vous avez besoin d’un jeu de données, d’un modèle non formé et d’un module [Effectuer la validation croisée du modèle][cross-validate-model] \(voir la figure ci-dessous). Là encore, vous devez définir la colonne Étiquette du module [Effectuer la validation croisée du modèle][cross-validate-model] (index de colonne 5 dans notre cas). Après avoir exécuté l’expérience et avoir cliqué sur le port de sortie de droite du module [Effectuer la validation croisée du modèle][cross-validate-model], vous pouvez inspecter les valeurs des métriques pour chaque pli, ainsi que l’écart moyen et l’écart-type de chacun d’eux. Les métriques affichées ici sont semblables à ceux que nous avons présentés dans le cas de classification binaire. Toutefois, notez que dans le cadre d’une classification multiclasse, le calcul des vrais positifs/négatifs et des faux positifs/négatifs s’effectue par le biais d’un décompte par classe, car il n’existe aucune classe entièrement positive ou négative. Par exemple, le calcul de la précision ou du rappel de la classe « Iris-setosa » repose sur l’hypothèse qu’il s’agit de la classe positive, et que toutes les autres classes sont négatives.
+Comme indiqué précédemment, vous pouvez exécuter automatiquement des opérations répétées d’apprentissage, de notation et d’évaluation à l’aide du module [Effectuer la validation croisée du modèle][cross-validate-model]. Pour mener à bien cette tâche, vous avez besoin d’un jeu de données, d’un modèle non formé et d’un module [Effectuer la validation croisée du modèle][cross-validate-model] (voir la figure ci-dessous). Là encore, vous devez définir la colonne Étiquette du module [Effectuer la validation croisée du modèle][cross-validate-model] (index de colonne 5 dans notre cas). Après avoir exécuté l’expérience et avoir cliqué sur le port de sortie de droite du module [Effectuer la validation croisée du modèle][cross-validate-model], vous pouvez inspecter les valeurs des métriques pour chaque pli, ainsi que l’écart moyen et l’écart-type de chacun d’eux. Les métriques affichées ici sont semblables à ceux que nous avons présentés dans le cas de classification binaire. Toutefois, notez que dans le cadre d’une classification multiclasse, le calcul des vrais positifs/négatifs et des faux positifs/négatifs s’effectue par le biais d’un décompte par classe, car il n’existe aucune classe entièrement positive ou négative. Par exemple, le calcul de la précision ou du rappel de la classe « Iris-setosa » repose sur l’hypothèse qu’il s’agit de la classe positive, et que toutes les autres classes sont négatives.
  
 ![Validation croisée d’un modèle de classification multiclasse](media/machine-learning-evaluate-model-performance/12.png)
 
@@ -182,11 +182,11 @@ Figure 13 : résultats de la validation croisée d’un modèle de classificat
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

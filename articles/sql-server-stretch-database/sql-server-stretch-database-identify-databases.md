@@ -47,7 +47,7 @@ Téléchargez et installez le Conseiller de mise à niveau [ici](http://go.micro
 
 2.  Dans la liste des tables recommandées du panneau **Résultats de l’analyse**, sélectionnez l’une des tables recommandées pour afficher le panneau **Table results (Résultats de la table)**.
 
-    Le panneau **Table results (Résultats de la table)** répertorie les problèmes de blocage de la table sélectionnée. Pour plus d’informations sur les problèmes de blocage détectés par Stretch Database Advisor, consultez la rubrique [Limitations de la surface d’exposition et problèmes de blocage pour Stretch Database](sql-server-stretch-database-limitations.md).
+    Le panneau **Table results (Résultats de la table)** répertorie les problèmes de blocage de la table sélectionnée. Pour plus d’informations sur les problèmes de blocage détectés par Stretch Database Advisor, consultez [Limitations pour Stretch Database](sql-server-stretch-database-limitations.md).
 
 3.  Dans la liste des problèmes de blocage du panneau des **résultats de la table**, sélectionnez l’un des problèmes pour afficher le panneau **Rule result (Résultat de la règle)**.
 
@@ -62,10 +62,10 @@ Activer Stretch Database
 
 ## Voir aussi
 
-[Limitations de la surface d’exposition et problèmes de blocage pour Stretch Database](sql-server-stretch-database-limitations.md)
+[Limites de Stretch Database](sql-server-stretch-database-limitations.md)
 
 [Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md)
 
 [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

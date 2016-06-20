@@ -29,7 +29,7 @@ La demande dynamique est une réalité pour les applications actuelles. De la de
  
 ## Créer
 
-- [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md) 
+- [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md) 
 - [Lettres mortes dans la messagerie répartie Service Bus (billet de blog du 21 octobre 2011)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
 - [Meilleures pratiques pour protéger les applications Service Bus contre les pannes de Service Bus et les sinistres](service-bus-outages-disasters.md)
 - [Messagerie répartie : exemple de réponse à une demande](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
@@ -46,4 +46,4 @@ La demande dynamique est une réalité pour les applications actuelles. De la de
 - [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

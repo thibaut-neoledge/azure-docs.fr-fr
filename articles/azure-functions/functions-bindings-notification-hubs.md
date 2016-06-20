@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser les liaisons Azure Notification Hubs dans Azure Functions."
 	services="functions"
 	documentationCenter="na"
-	authors="christopheranderson"
+	authors="wesmc7777"
 	manager="erikre"
 	editor=""
 	tags=""
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.author="wesmc"/>
 
 # Liaison de sortie Notification Hubs Azure Functions
 
@@ -24,7 +24,7 @@ Cet article explique comment configurer et coder des liaisons Notification Hubs 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Vos fonctions peuvent envoyer des notifications Push à l’aide d’un concentrateur de notification Azure configuré avec très peu de lignes de code. Toutefois, le concentrateur de notification doit être configuré pour l’infrastructure Platform Notification System (PNS) que vous souhaitez utiliser. Pour plus d’informations sur la configuration d’Azure Notification Hubs et sur le développement d’applications clientes qui s’inscrivent aux notifications, consultez [Prise en main de Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) en cliquant sur votre plateforme cliente cible au début de l’article.
+Vos fonctions peuvent envoyer des notifications Push à l’aide d’un concentrateur de notification Azure configuré avec très peu de lignes de code. Toutefois, le concentrateur de notification doit être configuré pour l’infrastructure Platform Notification System (PNS) que vous souhaitez utiliser. Pour plus d’informations sur la configuration d’un concentrateur de notifications Azure et sur le développement d’applications clientes qui s’inscrivent pour recevoir des notifications, consultez [Prise en main de Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) en cliquant sur votre plateforme cliente cible au début de l’article.
 
 ## function.json pour les liaisons de sortie Azure Notification Hubs
 
@@ -155,4 +155,4 @@ Exemple de code :
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

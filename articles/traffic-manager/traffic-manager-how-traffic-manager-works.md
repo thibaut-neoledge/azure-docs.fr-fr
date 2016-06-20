@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
+   ms.date="06/07/2016"
    ms.author="jonatul"/>
 
 # Fonctionnement de Traffic Manager
@@ -64,6 +64,63 @@ Lorsqu’un utilisateur demande la page https://partners.contoso.com/login.aspx 
 
 Notez que le service DNS récursif mettra en cache les réponses DNS qu’il reçoit, ainsi que le client DNS sur l’appareil de l’utilisateur final. Les requêtes DNS suivantes recevront donc plus rapidement une réponse, en utilisant les données du cache sans interroger d’autres serveurs de noms. La durée du cache est déterminée par la propriété « time-to-live » (TTL) de chaque enregistrement DNS. Des valeurs plus courtes entraînent une expiration plus rapide du cache et, par conséquent, davantage d’allers-retours sur les serveurs de noms Traffic Manager ; avec des valeurs plus longues, la redirection du trafic suite à l’échec d’un point de terminaison peut prendre davantage de temps. Traffic Manager vous permet de configurer la durée de vie utilisée dans les réponses DNS de Traffic Manager, ce qui vous permet de choisir la valeur qui réponde au mieux aux besoins de votre application.
 
+## Forum Aux Questions
+
+### Quelle est l’adresse IP utilisée par Traffic Manager ?
+
+Comme expliqué à la section Fonctionnement de Traffic Manager, Traffic Manager fonctionne au niveau du DNS. Il utilise les réponses DNS pour diriger les clients vers le point de terminaison de service approprié. Les clients se connectent ensuite directement au point de terminaison du service, et non via Traffic Manager.
+
+Par conséquent, Traffic Manager ne fournit pas de point de terminaison ou d’adresse IP pour permettre aux clients de se connecter. Si par exemple une adresse IP statique est requise, elle doit être configurée au niveau du service et non dans Traffic Manager.
+
+### Traffic Manager prend-il en charge les sessions « rémanentes » ?
+
+Comme expliqué [ci-dessus](#how-clients-connect-using-traffic-manager), Traffic Manager fonctionne au niveau du DNS. Il utilise les réponses DNS pour diriger les clients vers le point de terminaison de service approprié. Les clients se connectent ensuite directement au point de terminaison du service, et non via Traffic Manager. Par conséquent, Traffic Manager ne voit pas le trafic HTTP entre le client et le serveur, y compris les cookies.
+
+En outre, l’adresse IP source de la requête DNS reçue par Traffic Manager correspond à l’adresse IP du service DNS récursif, et non à l’adresse IP du client.
+
+Traffic Manager n’a donc aucun moyen d’identifier ou d’effectuer le suivi des clients individuels, et ne peut par conséquent pas implémenter de sessions « rémanentes ». Cela est courant pour tous les systèmes de gestion du trafic DNS, il ne s’agit pas d’une restriction d’utilisation de Traffic Manager.
+
+### J’obtiens une erreur HTTP lors de l’utilisation de Traffic Manager... Pourquoi ?
+
+Comme expliqué [ci-dessus](#how-clients-connect-using-traffic-manager), Traffic Manager fonctionne au niveau du DNS. Il utilise les réponses DNS pour diriger les clients vers le point de terminaison de service approprié. Les clients se connectent ensuite directement au point de terminaison du service, et non via Traffic Manager.
+
+Par conséquent, Traffic Manager ne voit pas le trafic HTTP entre le client et le serveur et ne peut pas générer d’erreurs au niveau HTTP. Si vous constatez une erreur HTTP, c’est qu’elle provient probablement de votre application. Dans la mesure où le client se connecte à l’application, cela signifie également que la résolution DNS comprenant le rôle Traffic Manager a été effectuée.
+
+Un examen approfondi de l’application doit donc être effectué.
+
+L’un des problèmes courants lorsque vous utilisez Traffic Manager est que l’en-tête HTTP « d’hôte » transmise par le navigateur à l’application affiche le nom de domaine utilisé dans le navigateur. Cela peut être le nom de domaine Traffic Manager (par exemple, myprofile.trafficmanager.net) si vous utilisez ce nom de domaine au cours du test, ou le domaine personnel que CNAME a configuré pour pointer vers le nom de domaine Traffic Manager. Dans les deux cas, vérifiez que l’application est configurée pour accepter cet en-tête d’hôte.
+
+Si votre application est hébergée dans Azure App Service, consultez l’article [Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+
+### Quel est l’impact de Traffic Manager sur les performances ?
+
+Comme expliqué [ci-dessus](#how-clients-connect-using-traffic-manager), Traffic Manager fonctionne au niveau du DNS. Il utilise les réponses DNS pour diriger les clients vers le point de terminaison de service approprié. Les clients se connectent ensuite directement au point de terminaison du service, et non via Traffic Manager.
+
+Étant donné que les clients se connectent directement à vos points de terminaison de service, il n’y a aucun impact sur les performances inhérent à l’utilisation de Traffic Manager une fois la connexion établie.
+
+Étant donné que Traffic Manager s’intègre aux applications au niveau du DNS, cela nécessite l’insertion d’une recherche DNS supplémentaire dans la chaîne de résolution DNS (voir [Exemples Traffic Manager](#traffic-manager-example)). L’impact sur le temps de résolution DNS de Traffic Manager est minime. Traffic Manager utilise un réseau mondial de serveurs de noms et utilise la mise en réseau Anycast pour garantir que les requêtes DNS sont toujours acheminées vers le serveur de noms disponible le plus proche. En outre, la mise en cache des réponses DNS signifie que la latence DNS supplémentaire générée par l’utilisation de Traffic Manager s’applique uniquement à une petite partie des sessions.
+
+Le résultat est que l’impact sur les performances globales associé à l’incorporation de Traffic Manager à votre application est généralement minime.
+
+De plus, lorsque la [méthode de routage du trafic « Performance »](traffic-manager-routing-methods.md#performance-traffic-routing-method) est utilisée, l’augmentation de la latence DNS doit être bien plus que simplement compensée par l’amélioration des performances obtenue par le routage des utilisateurs finaux vers leur point de terminaison disponible le plus proche.
+
+### Quels protocoles d’application puis-je utiliser avec Traffic Manager ?
+Comme expliqué [ci-dessus](#how-clients-connect-using-traffic-manager), Traffic Manager fonctionne au niveau du DNS. Une fois la recherche DNS terminée, les clients se connectent au point de terminaison d’application directement, et non via Traffic Manager. Cette connexion peut par conséquent utiliser tout protocole d’application.
+
+Toutefois, les vérifications d’intégrité de point de terminaison de Traffic Manager requièrent un point de terminaison HTTP ou HTTPS. Celui-ci peut être distinct du point de terminaison d’application auquel les clients se connectent, en spécifiant un port TCP ou un chemin d’accès URI différent dans les paramètres de vérification d’intégrité du profil Traffic Manager.
+
+### Puis-je utiliser Traffic Manager avec un nom de domaine « nu » (sans www) ?
+
+Pas actuellement.
+
+Le type d’enregistrement DNS CNAME est utilisé pour créer un mappage d’un nom DNS vers un autre nom. Comme expliqué dans [l’exemple Traffic Manager](#traffic-manager-example), Traffic Manager nécessite un enregistrement DNS CNAME pour mapper le nom DNS personnel (par exemple, www.contoso.com) sur le nom DNS du profil Traffic Manager (par exemple, contoso.trafficmanager.net). En outre, le profil Traffic Manager renvoie lui-même un deuxième DNS CNAME pour indiquer le point de terminaison auquel le client doit se connecter.
+
+Les normes DNS n’autorisent pas les enregistrements CNAME à coexister avec d’autres enregistrements DNS du même type. Étant donné que l’extrémité (ou la racine) d’une zone DNS contient toujours deux enregistrements DNS préexistants (le SOA et les enregistrements NS faisant autorité), cela signifie qu’un enregistrement CNAME ne peut pas être créé à l’extrémité de la zone sans violer les normes DNS.
+
+Pour contourner ce problème, nous recommandons que les services utilisant un domaine nu (sans www) et souhaitant avoir recours à Traffic Manager utilisent une redirection HTTP pour diriger le trafic du domaine nu vers une URL différente, ce qui permettra ensuite d’utiliser Traffic Manager. Par exemple, le domaine nu « contoso.com » peut rediriger les utilisateurs vers « www.contoso.com » pour qu’ils puissent ensuite utiliser Traffic Manager.
+
+La prise en charge complète des domaines nus dans Traffic Manager est suivie dans notre backlog de fonctionnalités. Si vous êtes intéressé par cette fonctionnalité, faites-nous part de votre soutien en [votant sur notre site de commentaires de la communauté](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+
 ## Étapes suivantes
 
 En savoir plus sur le [basculement automatique et la surveillance des points de terminaison](traffic-manager-monitoring.md) de Traffic Manager.
@@ -74,4 +131,4 @@ En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

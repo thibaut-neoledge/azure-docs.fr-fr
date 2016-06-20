@@ -44,7 +44,7 @@ Les sous-sections suivantes décrivent les connaissances nécessaires et les dé
 ### Clarification de version
 
 
-Ce document concerne la mise à niveau de Microsoft Azure SQL Database de la version V11 à la version V12. De manière plus formelle, les numéros de version sont proches des deux valeurs suivantes, comme indiqué par l’instruction Transact-SQL **SELECT @@version;** :
+Ce document concerne la mise à niveau de Microsoft Azure SQL Database de la version V11 à la version V12. De manière plus formelle, les numéros de version sont proches des deux valeurs suivantes, comme indiqué par l’instruction Transact-SQL **SELECT @@version;** :
 
 
 - 12\.0.2000.8 *(ou légèrement supérieure, version 12)*
@@ -64,10 +64,10 @@ Pour obtenir des informations détaillées sur les niveaux de service De base, S
 
 
 
-### Examen de la configuration de géo-réplication
+### Examen de la configuration de géoréplication
 
 
-Si votre base de données SQL Azure est configurée pour la géo-réplication, vous devez documenter la configuration actuelle et arrêter la géo-réplication avant de commencer à préparer la mise à jour. Une fois la mise à jour terminée, vous devez reconfigurer votre base de données pour la géo-réplication.
+Si votre base de données SQL Azure est configurée pour la géoréplication, vous devez documenter la configuration actuelle et arrêter la géoréplication avant de commencer à préparer la mise à niveau. Une fois la mise à jour terminée, vous devez reconfigurer votre base de données pour la géoréplication.
 
 
 La stratégie consiste à laisser la source intacte et à effectuer les tests sur une copie de la base de données.
@@ -97,13 +97,13 @@ Vous pouvez réduire le nombre d’étapes nécessaires pour la mise à jour en 
 Si vous n’êtes pas sûr du niveau de service vers lequel basculer, nous vous recommandons le niveau S2 de l’édition Standard. Si vous choisissez un niveau inférieur, vous disposerez probablement d’un nombre de ressources moins important que ce qu’offrait le niveau « Web et Business ».
 
 
-### Suspension de la géo-réplication pendant la mise à niveau
+### Suspension de la géoréplication pendant la mise à niveau
 
 
-La mise à niveau vers la V12 ne peut pas s’exécuter si la géo-réplication est active sur votre base de données. Vous devez d’abord reconfigurer votre base de données pour qu’elle n’utilise plus la géo-réplication.
+La mise à niveau vers la V12 ne peut pas s’exécuter si la géoréplication est active sur votre base de données. Vous devez d’abord reconfigurer votre base de données pour qu’elle n’utilise plus la géoréplication.
 
 
-Une fois la mise à niveau terminée, vous pouvez configurer votre base de données pour qu’elle utilise à nouveau la géo-réplication.
+Une fois la mise à niveau terminée, vous pouvez configurer votre base de données pour qu’elle utilise à nouveau la géoréplication.
 
 
 ### Client sur une machine virtuelle Azure
@@ -167,7 +167,7 @@ La base de données V11 est toujours disponible pour l’accès aux données pen
 | Limitation | Description |
 | :--- | :--- |
 | Durée de la mise à niveau | La durée de la mise à niveau dépend de la taille, de l’édition et du nombre de bases de données sur le serveur. La mise à niveau peut prendre plusieurs heures ou plusieurs jours, notamment pour les serveurs dont les bases de données présentent les caractéristiques suivantes :<br/><br/>* Taille supérieure à 50 Go, ou <br/>* Un niveau de service autre que Premium<br/><br/>La création de bases de données sur le serveur pendant la mise à niveau peut également augmenter la durée de cette opération. |
-| Aucune géo-réplication | La géo-réplication n’est pas prise en charge sur un serveur V12 impliqué dans une mise à niveau à partir de V11. |
+| Aucune géoréplication | La géoréplication n’est pas prise en charge sur un serveur V12 impliqué dans une mise à niveau à partir de V11. |
 | La base de données est temporairement indisponible à l’étape finale de la mise à niveau vers V12. | Les bases de données appartenant à votre serveur V11 restent disponibles pendant le processus de mise à niveau. Toutefois, la connexion au serveur et aux bases de données est temporairement indisponible à l’étape finale, quand le basculement commence du serveur V11 vers le serveur V12 prêt.<br/><br/>La période de basculement peut varier de 40 secondes à 5 minutes. Pour la plupart des serveurs, le basculement ne prend pas plus de 90 secondes. Le temps de basculement augmente pour les serveurs qui ont un grand nombre de bases de données ou lorsque les bases de données ont des charges de travail d’écriture lourdes. |
 
 
@@ -253,4 +253,4 @@ Si la mise à niveau échoue pour une raison quelconque, votre base de données 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

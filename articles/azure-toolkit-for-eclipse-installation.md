@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -44,7 +44,7 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
 1. Si vous développez le **Kit de ressources Azure pour Eclipse**, les éléments suivants apparaissent :
 
-    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
+    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
     * **Azure Access Control Services Filter** : ce composant prend en charge l’authentification des utilisateurs de l’application avec Azure ACS, permettant les scénarios d’authentification unique et l’externalisation de la logique d’identité hors de l’application.
     * **Azure Common Plugin** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.
     * **Azure Explorer for Eclipse** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.
@@ -74,20 +74,28 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
 ## Voir aussi
 
-[Kit de ressources Azure pour Eclipse]
+Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
-[Créer une application web « Hello World » pour Azure dans Eclipse]
-
-[Nouveautés du kit de ressources Azure pour Eclipse]
+- [Kit de ressources Azure pour Eclipse]
+  - *Installation du kit de ressources Azure pour Eclipse*
+  - [Créer une application web « Hello World » pour Azure dans Eclipse]
+  - [Nouveautés du kit de ressources Azure pour Eclipse]
+- [Kit de ressources Azure pour IntelliJ]
+  - [Installation du kit de ressources Azure pour IntelliJ]
+  - [Créer une application web « Hello World » pour Azure dans IntelliJ]
 
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
 <!-- URL List -->
 
 [Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
-[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+[Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
 [Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
+[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -98,4 +106,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

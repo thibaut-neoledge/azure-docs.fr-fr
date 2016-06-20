@@ -19,8 +19,6 @@
 
 # Dépannage des échecs d’extension de machine virtuelle Azure Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Affichage de l’état de l’extension
@@ -72,4 +70,4 @@ Où « publsher-name » correspond au type d'extension à partir de la sortie 
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

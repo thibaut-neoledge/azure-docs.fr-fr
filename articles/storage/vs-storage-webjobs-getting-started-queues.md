@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
@@ -515,15 +515,15 @@ L’exemple suivant montre plusieurs manières d’écrire des journaux :
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, la sortie de l'objet **TextWriter** apparaît quand vous accédez à la page d'un appel de fonction spécifique et cliquez sur **Activer/désactiver la sortie** :
+Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, la sortie de l’objet **TextWriter** apparaît quand vous accédez à la page d’un appel de fonction spécifique et sélectionnez **Activer/désactiver la sortie** :
 
-![Cliquez sur le lien d’appel de fonction](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Lien d’appel](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Journaux affichés dans la page d’appel de fonctions](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, les 100 lignes les plus récentes de la sortie de console apparaissent lorsque vous accédez à la page de la tâche web (et non à celle de l’appel de fonction) et que vous cliquez sur **Activer/désactiver la sortie**.
+Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, les 100 lignes les plus récentes de la sortie de console apparaissent lorsque vous accédez à la page de la tâche web (et non à celle de l’appel de fonction) et que vous sélectionnez **Activer/désactiver la sortie**.
 
-![Cliquez sur Activer/désactiver la sortie](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Activer/désactiver la sortie](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/*{nomdelatâcheweb}*/job\_log.txt dans le système de fichiers du site web.
 
@@ -543,4 +543,4 @@ Dans une table Azure, les journaux **Console.Out** et **Console.Error** ressembl
 
 Cet article fournit des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des files d’attente Azure. Pour plus d’informations sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) WebJobs, consultez la section [Ressources de documentation Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

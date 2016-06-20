@@ -12,11 +12,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="05/27/2016" 
 	ms.author="awills"/>
  
 # Guide de dépannage : Application Insights pour .NET
 
+## Certaines de mes données télémétriques manquent
+
+*Dans Application Insights, je vois seulement une fraction des événements qui sont générés par mon application.*
+
+* Si vous voyez régulièrement la même fraction, cela est probablement causé par [l’échantillonnage](app-insights-sampling.md) adaptatif. Pour vérifier cela, ouvrez la recherche (dans le panneau de vue d’ensemble) et recherchez une instance d’une demande ou d’autres événements. En bas de la section Propriétés, cliquez sur «... » pour obtenir des détails de propriété complets. Si le nombre de requêtes est supérieur à 1, l’échantillonnage est en cours. 
+* Dans le cas contraire, il est possible que vous rencontriez une [limite de débit](app-insights-pricing.md#limits-summary) pour votre plan tarifaire. Ces limites sont appliquées par minute.
 
 ## Problèmes Moniteur d’état
 
@@ -29,9 +35,9 @@ Consultez [Résolution des problèmes liés à Status Monitor](app-insights-moni
 
 *Lorsque je crée un nouveau projet dans Visual Studio, ou lorsque j’effectue un clic droit sur le projet existant dans l’Explorateur de solutions, je ne vois aucune option Application Insights.*
 
-+ Les outils ne prennent pas en charge tous les types de projets .NET. Les projets Web et WCF sont pris en charge. Pour les autres types de projets, notamment les applications de bureau ou de service, vous avez toujours la possibilité d’[ajouter un kit de développement logiciel Application Insights à votre projet manuellement](app-insights-windows-desktop.md).
++ Les outils ne prennent pas en charge tous les types de projets .NET. Les projets Web et WCF sont pris en charge. Pour les autres types de projets, notamment les applications de bureau ou de service, vous avez toujours la possibilité [d’ajouter un kit de développement logiciel Application Insights à votre projet manuellement](app-insights-windows-desktop.md).
 + Vérifiez que vous disposez de [Visual Studio 2013 Update 3 ou version ultérieure](http://go.microsoft.com/fwlink/?LinkId=397827). Ce logiciel est fourni préinstallé avec les outils Application Insights.
-+ Sélectionnez **Outils**, **Extensions et mises à jour** et vérifiez qu’**Outils Application Insights** est installé et activé. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
++ Sélectionnez **Outils**, **Extensions et mises à jour** et vérifiez qu**’Outils Application Insights** est installé et activé. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
 + Ouvrez la boîte de dialogue Nouveau projet et sélectionnez l’application Web ASP.NET. Si vous voyez l’option Application Insights à cet endroit, les outils sont installés. Si ce n’est pas le cas, essayez de désinstaller, puis de réinstaller Outils Application Insights.
 
 
@@ -78,7 +84,7 @@ Causes probables :
 Correctif :
 
 * assurez-vous que votre version de Visual Studio est bien 2013 Mise à jour 3 ou une version ultérieure.
-* Sélectionnez **Outils**, **Extensions et mises à jour** et vérifiez qu’**Outils Application Insights** est installé et activé. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
+* Sélectionnez **Outils**, **Extensions et mises à jour** et vérifiez qu**’Outils Application Insights** est installé et activé. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
 * Cliquez avec le bouton droit sur l’Explorateur de solutions. Si vous voyez la commande **Configurer Application Insights**, utilisez-la pour raccorder votre projet à la ressource dans le service d’Application Insights.
 
 
@@ -96,7 +102,7 @@ La connexion Microsoft que vous avez utilisée en dernier dans votre navigateur 
 
  * Correctif : cliquez sur votre nom en haut à droite de la fenêtre du navigateur et déconnectez-vous. Connectez-vous ensuite avec le compte ayant l’accès. Dans la barre de navigation de gauche, cliquez sur Application Insights, puis sélectionnez votre application.
 
-* Quelqu’un d’autre a ajouté Application Insights au projet, et a oublié de vous octroyer l’[accès au groupe de ressources](app-insights-resources-roles-access-control.md) dans lequel elle a été créée.
+* Quelqu’un d’autre a ajouté Application Insights au projet, et a oublié de vous octroyer [l’accès au groupe de ressources](app-insights-resources-roles-access-control.md) dans lequel elle a été créée.
 
  * Correctif : si c’est un compte professionnel qui a été utilisé, vous pouvez être ajouté à l’équipe ; ou vous pouvez vous voir accorder l’accès individuel au groupe de ressources individuel.
 
@@ -150,7 +156,7 @@ Correctif :
     
 + Dans [tableau de bord d’accueil de Microsoft Azure](https://portal.azure.com), examinez la carte État du service. Si des alertes sont indiquées, attendez qu'elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
 + Vérifiez également [notre blog d'état](http://blogs.msdn.com/b/applicationinsights-status/).
-+ Avez-vous écrit pour le [kit de développement logiciel côté serveur](app-insights-api-custom-events-metrics.md) un code susceptible de modifier la clé d’instrumentation dans les instances `TelemetryClient` ou dans `TelemetryContext` ? Ou avez-vous rédigé une [configuration de filtre ou d’échantillonnage](app-insights-api-filtering-sampling.md) trop exclusive ?
++ Avez-vous écrit de code pour le [côté serveur SDK](app-insights-api-custom-events-metrics.md) susceptible de modifier la clé d’instrumentation dans `TelemetryClient` instances ou dans `TelemetryContext` ? Ou avez-vous rédigé une [configuration de filtre ou d’échantillonnage](app-insights-api-filtering-sampling.md) trop exclusive ?
 + Si vous avez modifié ApplicationInsights.config, vérifiez attentivement la configuration de [TelemetryInitializers et de TelemetryProcessors](app-insights-api-filtering-sampling.md). Un type ou un paramètre nommé de manière incorrecte peut empêcher le kit de développement logiciel d'envoyer des données.
 
 ## <a name="q04"></a>Aucune donnée sur l’Affichage des pages, les navigateurs, l’utilisation
@@ -189,7 +195,7 @@ Ces données ne sont pas disponibles pour les sites web Azure.
 
 ## Je ne vois pas toutes les données que j’attends
 
-Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’[échantillonnage adaptatif](app-insights-sampling.md) peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie.
+Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité [d’échantillonnage adaptatif](app-insights-sampling.md) peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie.
 
 Vous pouvez le désactiver, mais cela n’est pas recommandé. L’échantillonnage est conçu pour que la télémétrie associée soit correctement transmise pour faciliter le diagnostic.
 
@@ -205,4 +211,4 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 * [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/fr-FR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

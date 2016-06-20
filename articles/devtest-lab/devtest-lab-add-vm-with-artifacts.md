@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Ajouter une machine virtuelle avec des artefacts à un laboratoire
 
-> [AZURE.NOTE] Cliquez sur le lien suivant pour regarder la vidéo d’accompagnement de cet article : [Comment créer des machines virtuelles avec des artefacts dans un laboratoire](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab)
+> [AZURE.NOTE] Regardez la vidéo d’accompagnement de cet article : [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) (Comment créer des machines virtuelles avec des artefacts dans un laboratoire)
 
 ## Vue d'ensemble
 
@@ -36,11 +36,11 @@ Cet article vous explique comment créer une machine virtuelle dans votre labora
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
+1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
 
-1. Dans la liste des laboratoires, cliquez sur le laboratoire dans lequel vous souhaitez créer la nouvelle machine virtuelle.
+1. Dans la liste des laboratoires, sélectionnez le laboratoire dans lequel vous souhaitez créer la nouvelle machine virtuelle.
 
-1. Dans le volet du laboratoire, cliquez sur **+ MV de laboratoire** (+ Lab VM) comme indiqué dans l'illustration suivante. ![Bouton Ajouter une machine virtuelle de laboratoire](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+1. Dans le volet du laboratoire, sélectionnez **+ MV de laboratoire** (+ Lab VM) comme indiqué dans l'illustration suivante. ![Bouton Ajouter une machine virtuelle de laboratoire](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
 1. Dans le panneau **Choisir une base**, sélectionnez une base pour la machine virtuelle.
 
@@ -54,19 +54,19 @@ Cet article vous explique comment créer une machine virtuelle dans votre labora
 
 1. Selon le type d’authentification spécifié, entrez un mot de passe ou une clé publique SSH.
 
-1. Cliquez sur **Taille MV** et sélectionnez l'un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer.
+1. Sélectionnez **Taille de machine virtuelle**, puis l'un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer.
 
-1. Cliquez sur **Réseau virtuel**, puis sélectionnez le réseau virtuel souhaité.
+1. Sélectionnez le **Réseau virtuel**, puis le réseau virtuel souhaité.
 
-1. Cliquez sur **Sous-réseau** et sélectionnez le sous-réseau.
+1. sélectionnez **Sous-réseau**, puis le sous-réseau.
 
 1. Si la stratégie du laboratoire est définie de façon à autoriser des adresses IP publiques pour le sous-réseau sélectionné, spécifiez si vous voulez ou non que l’adresse IP soit publique en sélectionnant **Oui** ou **non**. Dans le cas contraire, cette option est désactivée et définie sur **Non**.
 
-1. Cliquez sur **Artefacts** et, dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l'image de base. **Remarque :** si vous n’êtes pas familier avec DevTest Labs ou avec la configuration d’artefacts, passez à la section [Ajout d’un artefact existant à une machine virtuelle](#add-an-existing-artifact-to-a-vm), puis revenez ici quand vous avez terminé.
+1. Sélectionnez **Artefacts** et, dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l'image de base. **Remarque :** si vous n’êtes pas familier avec DevTest Labs ou avec la configuration d’artefacts, passez à la section [Ajout d’un artefact existant à une machine virtuelle](#add-an-existing-artifact-to-a-vm), puis revenez ici quand vous avez terminé.
 
 1. Si vous voulez afficher ou copier le modèle ARM, passez à la section [Enregistrer un modèle ARM](#save-arm-template), puis revenez ici quand vous avez terminé.
 
-1. Cliquez sur **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
+1. Sélectionnez **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
 
 1. Le volet du laboratoire affiche l'état de la création de la machine virtuelle ; premièrement comme **Création en cours**, puis comme **En cours d'exécution** après le démarrage de la machine virtuelle.
 
@@ -76,15 +76,15 @@ Cet article vous explique comment créer une machine virtuelle dans votre labora
 
 Au cours de la création d’une machine virtuelle, vous pouvez ajouter des artefacts existants. Chaque laboratoire comprend des artefacts provenant du dépôt d’artefacts DevTest Labs public, ainsi que les artefacts que vous avez créés et ajoutés à votre propre dépôt d’artefacts. Pour découvrir comment créer des artefacts, consultez l’article [Découvrez comment créer vos propres artefacts pour les utiliser avec DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Dans le panneau **Machine virtuelle de laboratoire**, cliquez sur **Artefacts**. 
+1. Dans le panneau de la **machine virtuelle de laboratoire**, sélectionnez **Artefacts**. 
 
-1. Dans le panneau **Ajouter des artefacts**, cliquez sur l’artefact souhaité.
+1. Dans le panneau **Ajouter des artefacts**, sélectionnez l’artefact souhaité.
 
 ![Volet Ajouter des artefacts](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
 1. Entrez les valeurs de paramètres requises et les paramètres facultatifs dont vous avez besoin.  
 
-1. Cliquez sur **Ajouter** pour ajouter l'artefact et revenir au volet **Ajouter des artefacts**.
+1. Sélectionnez **Ajouter** pour ajouter l'artefact et revenir au volet **Ajouter des artefacts**.
 
 1. Continuez à ajouter des artefacts en fonction des besoins de votre machine virtuelle.
 
@@ -94,7 +94,7 @@ Au cours de la création d’une machine virtuelle, vous pouvez ajouter des arte
 
 Par défaut, les actions des artefacts sont exécutées dans l'ordre dans lequel ceux-ci sont ajoutés à la machine virtuelle. Les étapes suivantes montrent comment modifier l’ordre dans lequel les artefacts sont exécutés.
 
-1. En haut du panneau **Ajouter des artefacts**, cliquez sur le lien indiquant le nombre d’artefacts ajoutés à la machine virtuelle.
+1. En haut du panneau **Ajouter des artefacts**, sélectionnez le lien indiquant le nombre d’artefacts ajoutés à la machine virtuelle.
 
     ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
@@ -106,21 +106,21 @@ Par défaut, les actions des artefacts sont exécutées dans l'ordre dans lequel
 
 Les étapes suivantes montrent comment afficher ou modifier les paramètres d’un artefact :
 
-1. En haut du panneau **Ajouter des artefacts**, cliquez sur le lien indiquant le nombre d’artefacts ajoutés à la machine virtuelle.
+1. En haut du panneau **Ajouter des artefacts**, sélectionnez le lien indiquant le nombre d’artefacts ajoutés à la machine virtuelle.
 
     ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. Dans le panneau **Artefacts sélectionnés**, cliquez sur l’artefact que vous voulez afficher ou modifier.
+1. Dans le panneau des **artefacts sélectionnés**, sélectionnez l’artefact que vous voulez afficher ou modifier.
 
 1. Dans le panneau **Ajouter un artefact**, apportez les modifications nécessaires, puis cliquez sur **OK** pour fermer le panneau **Ajouter un artefact**.
 
-1. Cliquez sur **OK** pour fermer le volet **Artefacts sélectionnés**.
+1. Cliquez sur **OK** pour fermer le panneau des **Artefacts sélectionnés**.
 
 ## Enregistrer un modèle ARM
 
-Un modèle ARM constitue un moyen déclaratif de définir un déploiement qui peut être répété. Les étapes suivantes expliquent comment enregistrer le modèle ARM pour la machine virtuelle en cours de création. Une fois enregistré, vous pouvez utiliser le modèle ARM pour [déployer de nouvelles machines virtuelles avec Azure PowerShell](../resource-group-overview/#template-deployment).
+Un modèle ARM constitue un moyen déclaratif de définir un déploiement qui peut être répété. Les étapes suivantes expliquent comment enregistrer le modèle ARM pour la machine virtuelle en cours de création. Une fois enregistré, vous pouvez utiliser le modèle ARM pour [déployer de nouvelles machines virtuelles avec Azure PowerShell](../resource-group-overview.md#template-deployment).
 
-1. Dans le panneau **Machine virtuelle de laboratoire**, cliquez sur **Afficher le modèle ARM**.
+1. Dans le panneau **Machine virtuelle de laboratoire**, sélectionnez **Afficher le modèle ARM**.
 
 1. Dans le panneau **Afficher le modèle Azure Resource Manager**, sélectionnez tout le texte du modèle.
 
@@ -136,8 +136,8 @@ Un modèle ARM constitue un moyen déclaratif de définir un déploiement qui pe
 
 ## Étapes suivantes
 
-- Une fois la machine virtuelle créée, vous pouvez vous y connecter en cliquant sur **Connexion** dans le panneau de la machine virtuelle.
+- Une fois la machine virtuelle créée, vous pouvez vous y connecter en sélectionnant **Connexion** dans le panneau de la machine virtuelle.
 - Découvrez comment [créer des artefacts personnalisés pour vos machines virtuelles DevTest Labs](devtest-lab-artifact-author.md).
 - Explorer la [Galerie de modèles de démarrage rapide d’ARM DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Publication d’un service cloud à l’aide des outils Azure
@@ -49,7 +49,7 @@ Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des t�
 
   1. Dans la boîte de dialogue **Package Azure Application**, choisissez la configuration du service pour lequel vous souhaitez créer un package, puis la configuration de la version.
 
-  1. (facultatif) Pour activer Bureau à distance pour le service cloud après sa publication, activez la case à cocher **Activer le Bureau à distance pour tous les rôles**, puis cliquez sur **Paramètres** pour configurer Bureau à distance. Si vous souhaitez déboguer votre service cloud après sa publication, activez le débogage à distance en sélectionnant **Activer le débogueur distant pour tous les rôles**.
+  1. (facultatif) Pour activer Bureau à distance pour le service cloud après sa publication, activez la case à cocher **Activer le Bureau à distance pour tous les rôles**, puis sélectionnez **Paramètres** pour configurer Bureau à distance. Si vous souhaitez déboguer votre service cloud après sa publication, activez le débogage à distance en sélectionnant **Activer le débogueur distant pour tous les rôles**.
 
       Pour plus d’informations, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
 
@@ -97,7 +97,7 @@ La procédure suivante suppose que vous utilisez l’Assistant **Publication d�
 
     Le service cloud est publié. La machine virtuelle créée comporte des connexions à distance activées pour IIS, de sorte que Web Deploy peut être utilisé pour mettre à jour vos rôles web sans les republier.
 
-    >[AZURE.NOTE] Si vous avez plusieurs instances configurées pour un rôle web, un message d'avertissement s'affiche, indiquant que chaque rôle web sera limité à une seule instance dans le package créé pour publier votre application. Cliquez sur OK pour continuer. Comme indiqué dans la section Configuration requise, vous pouvez avoir plusieurs rôles web, mais une seule instance de chaque rôle.
+    >[AZURE.NOTE] Si vous avez plusieurs instances configurées pour un rôle web, un message d'avertissement s'affiche, indiquant que chaque rôle web sera limité à une seule instance dans le package créé pour publier votre application. Sélectionnez **OK** pour continuer. Comme indiqué dans la section Configuration requise, vous pouvez avoir plusieurs rôles web, mais une seule instance de chaque rôle.
 
 ### Pour mettre à jour votre rôle web à l'aide de Web Deploy
 
@@ -125,7 +125,7 @@ La procédure suivante suppose que vous utilisez l’Assistant **Publication d�
 
 1. Pour ajouter un certificat SSL approuvé à IIS afin d'utiliser des connexions à distance, procédez comme suit :
 
-  1. Pour vous connecter à la machine virtuelle qui exécute le rôle web, cliquez sur l'instance du rôle web dans **Cloud Explorer** ou **Explorateur de serveurs**, puis choisissez la commande **Connexion à l'aide du Bureau à distance**. Pour obtenir la procédure détaillée de connexion à la machine virtuelle, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-remote-desktop-roles.md).
+  1. Pour vous connecter à la machine virtuelle qui exécute le rôle web, sélectionnez l’instance du rôle web dans **Cloud Explorer** ou **Explorateur de serveurs**, puis choisissez la commande **Connexion à l’aide du Bureau à distance**. Pour obtenir la procédure détaillée de connexion à la machine virtuelle, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-remote-desktop-roles.md).
 
       Votre navigateur vous invitera à télécharger un fichier RDP.
 
@@ -173,4 +173,4 @@ Vous devrez peut-être inclure des fichiers spécifiques dans votre package de s
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

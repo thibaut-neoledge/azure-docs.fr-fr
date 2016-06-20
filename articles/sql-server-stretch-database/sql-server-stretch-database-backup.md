@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Sauvegarder et restaurer des bases de données Stretch | Microsoft Azure"
-	description="Découvrez comment sauvegarder et restaurer des bases de données Stretch."
+	pageTitle="Sauvegarder des bases de données Stretch | Microsoft Azure"
+	description="Découvrez comment sauvegarder des bases de données Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,42 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/03/2016"
 	ms.author="douglasl"/>
 
+# Sauvegarder des bases de données Stretch
 
-# Sauvegarder et restaurer des bases de données Stretch
+Les sauvegardes de bases de données vous permettent d’effectuer une récupération à partir de nombreux types d’échecs, d’erreurs et de sinistres.
 
-Pour sauvegarder et restaurer des bases de données Stretch, vous pouvez continuer à appliquer les méthodes que vous appliquez actuellement. Pour plus d’informations sur la sauvegarde et la restauration SQL Server, consultez [Sauvegarde et restauration de bases de données SQL](https://msdn.microsoft.com/library/ms187048.aspx).
+-   Vous devez sauvegarder vos bases de données Stretch SQL Server.  
 
-Une sauvegarde d’une base de données Stretch est une sauvegarde partielle qui n’inclut pas les données migrées vers le serveur distant.
+-   Microsoft Azure sauvegarde automatiquement les données distantes que Stretch Database a migrées de SQL Server vers Azure.
 
-La fonctionnalité Stretch Database fournit une prise en charge complète de la limite de restauration dans le temps. Une fois que vous avez restauré votre base de données SQL Server à une limite dans le temps et autorisé la connexion à Azure, Stretch Database rapproche les données distantes à la même limite dans le temps. Pour plus d’informations sur la limite de restauration dans le temps dans SQL Server, consultez [Restaurer une base de données SQL Server jusqu’à une limite dans le temps (mode de récupération complète)](https://msdn.microsoft.com/library/ms179451.aspx). Pour plus d’informations sur la procédure stockée à exécuter après une restauration pour réautoriser la connexion à Azure, consultez [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx).
+>    [AZURE.NOTE] La sauvegarde n’est qu’une partie d’une solution complète de haute disponibilité et de continuité d’activité. Pour plus d’informations sur la haute disponibilité, consultez [Solutions de haute disponibilité](https://msdn.microsoft.com/library/ms190202.aspx).
 
-## <a name="Reconnect"></a>Restaurer une base de données Stretch à partir d’une sauvegarde
+## Sauvegarder vos données SQL Server  
 
-1.  Restaurez la base de données à partir d’une sauvegarde.
+Pour sauvegarder vos bases de données Stretch SQL Server, vous pouvez continuer à appliquer les méthodes de sauvegarde SQL Server que vous appliquez actuellement. Pour plus d’informations, consultez [Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
-2.  Exécutez la procédure stockée [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) pour reconnecter la base de données Stretch locale à Azure.
+Les sauvegardes de bases de données Stretch SQL Server contiennent uniquement les données locales et les données éligibles à la migration au moment où la sauvegarde s’exécute. (Les données éligibles sont des données qui n’ont pas encore été migrées, mais qui seront migrées vers Azure conformément aux paramètres de migration des tables.) Il s’agit d’une sauvegarde **superficielle** qui n’inclut pas les données déjà migrées vers Azure.
 
-    -   Fournissez les informations d’identification de portée de base de données sous forme de valeur varchar (128) ou sysname. (N’utilisez pas varchar(max).) Vous pouvez rechercher le nom d’identification dans la vue **sys.database\_scoped\_credentials**.
+## Sauvegarder vos données Azure distantes   
 
-	-   Indiquez s’il est nécessaire d’effectuer une copie des données distantes et de s’y connecter.
+Microsoft Azure sauvegarde automatiquement les données distantes que Stretch Database a migrées de SQL Server vers Azure.
 
-    ```tsql
-    Declare @credentialName nvarchar(128);
-    SET @credentialName = N'<database_scoped_credential_name_created_previously>';
-    EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 0;
-    ```
+### Azure réduit le risque de perte de données avec la sauvegarde automatique  
+Le service SQL Server Stretch Database sur Azure protège vos bases de données distantes avec des instantanés de stockage automatiques au moins toutes les huit heures. Il conserve chaque instantané pendant sept jours pour vous fournir un éventail de points de restauration possibles.
 
-## <a name="MoreInfo"></a>Plus d’informations sur la sauvegarde et la restauration
-Les sauvegardes sur une base de données où Stretch Database est activée contiennent uniquement les données locales et les données éligibles à la limite dans le temps où la sauvegarde s’exécute. Ces sauvegardes contiennent également des informations sur le point de terminaison distant où se trouvent les données distantes de la base de données. On appelle cela une « sauvegarde partielle ». Les sauvegardes complètes qui contiennent toutes les données de la base de données, à la fois locales et distantes, ne sont pas prises en charge.
+### Azure réduit le risque de perte de données avec la géo-redondance  
+Les sauvegardes de base de données Azure sont stockées sur un espace Azure Storage géo-redondant (RA-GRS) et sont donc géo-redondantes par défaut. Le stockage géo-redondant réplique vos données vers une région secondaire à des centaines de kilomètres de la région primaire. Au sein des régions principales et secondaires, vos données sont répliquées trois fois, dans les domaines d’erreur et les domaines de mise à niveau. Ainsi, vous êtes assuré que les données restent disponibles, même en cas de panne régionale intégrale ou de sinistre rendant l’une des régions Azure indisponible.
 
-Quand vous restaurez une sauvegarde d’une base de données avec Stretch Database activée, cette opération restaure les données locales et les données éligibles dans la base de données comme prévu. (Les données éligibles sont des données qui n’ont pas encore été déplacées, mais qui seront déplacées vers Azure conformément à la configuration Stretch Database des tables.) Après l’opération de restauration, la base de données contient les données locales et éligibles à partir du point où la sauvegarde a été exécutée, mais elle n’a pas les informations d’identification et les artefacts nécessaires pour se connecter au point de terminaison distant.
+### <a name="stretchRPO"></a>Stretch Database réduit le risque de perte de vos données Azure en conservant temporairement les lignes migrées
+Une fois que Stretch Database a migré les lignes éligibles de SQL Server vers Azure, il conserve ces lignes dans la table intermédiaire pendant au minimum huit heures. Si vous restaurez une sauvegarde de votre base de données Azure, Stretch Database utilise les lignes enregistrées dans la table intermédiaire pour rapprocher les bases de données SQL Server et Azure.
 
-Vous devez exécuter la procédure stockée **sys.sp\_rda\_reauthorize\_db** pour rétablir la connexion entre la base de données locale et son point de terminaison distant. Seul un db\_owner peut effectuer cette opération. Cette procédure stockée nécessite également l’identifiant et le mot de passe de l’administrateur pour le serveur Azure cible.
+Après avoir restauré une sauvegarde de vos données Azure, vous devez exécuter la procédure stockée [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) pour reconnecter la base de données Stretch SQL Server à la base de données Azure distante. Lorsque vous exécutez **sys.sp\_rda\_reauthorize\_db**, Stretch Database rapproche automatiquement les bases de données SQL Server et Azure.
 
-Une fois que vous avez rétabli la connexion, Stretch Database tente de rapprocher les données éligibles dans la base de données locale et les données distantes en créant une copie des données distantes sur le point de terminaison distant et en les liant à la base de données locale. Ce processus est automatique et ne nécessite aucune intervention de l’utilisateur. Une fois ce rapprochement effectué, la base de données locale et le point de terminaison distant sont dans un état cohérent.
+Pour augmenter le nombre d’heures pendant lesquelles Stretch Database conserve temporairement les données migrées dans la table intermédiaire, exécutez la procédure stockée [sys.sp\_rda\_set\_rpo\_duration](https://msdn.microsoft.com/library/mt707766.aspx) et spécifiez un nombre supérieur à huit heures. Pour déterminer la quantité de données à conserver, tenez compte des facteurs suivants :
+-   La fréquence des sauvegardes Azure automatiques (au moins toutes les huit heures).
+-   Le temps nécessaire après un problème pour l’identifier et décider de restaurer une sauvegarde.
+-   La durée de l’opération de restauration Azure.
+
+> [AZURE.NOTE] Augmenter la quantité de données que Stretch Database conserve temporairement dans la table intermédiaire augmente l’espace requis sur le serveur SQL Server.
+
+Pour vérifier le nombre d’heures pendant lesquelles Stretch Database conserve temporairement les données dans la table intermédiaire actuellement, exécutez la procédure stockée [sys.sp\_rda\_get\_rpo\_duration](https://msdn.microsoft.com/library/mt707767.aspx).
 
 ## Voir aussi
 
@@ -58,4 +64,4 @@ Une fois que vous avez rétabli la connexion, Stretch Database tente de rapproch
 
 [Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

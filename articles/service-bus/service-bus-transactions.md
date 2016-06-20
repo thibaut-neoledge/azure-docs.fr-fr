@@ -81,6 +81,6 @@ Pour plus d’informations sur les files d’attente de lettres mortes Service B
 - Exemple [Auto-forward](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward) (transfert automatique)
 - Exemple [Atomic Transactions with Service Bus](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions) (Transactions atomiques avec Service Bus)
 - [Comparaison des files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+- [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
