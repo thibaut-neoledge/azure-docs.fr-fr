@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Didacticiel : Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure
@@ -46,9 +46,9 @@ Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store]() d
 
     ![Volet du portail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-	- **Nom** : nom du compte Analytics.
-	- **Data Lake Store** : chaque compte Data Lake Analytics possède un compte Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
-	- **Abonnement** : choisissez l'abonnement Azure utilisé pour le compte Analytics.
+	- **Nom** : nom du compte Analytics.
+	- **Data Lake Store** : chaque compte Data Lake Analytics possède un compte Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
+	- **Abonnement** : choisissez l'abonnement Azure utilisé pour le compte Analytics.
 	- **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d'un groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](resource-group-overview.md). 
 	- **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics. 
 7. Sélectionnez **Épingler au Tableau d'accueil**. Cela est nécessaire pour ce didacticiel.
@@ -155,4 +155,4 @@ Une fois que vous avez préparé la source de données, vous pouvez démarrer le
 - Pour obtenir une vue d'ensemble de Data Lake Analytics, consultez [Vue d'ensemble de Data Lake Analytics Azure](data-lake-analytics-overview.md).
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

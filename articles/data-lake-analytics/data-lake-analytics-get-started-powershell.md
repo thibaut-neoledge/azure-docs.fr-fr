@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Prise en main du service Analytique Data Lake Azure à l’aide d’Azure PowerShell
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Découvrez comment utiliser Azure PowerShell pour créer des comptes Analytique Data Lake Azure, définir des travaux Analytique Data Lake dans [U-SQL](data-lake-analytics-u-sql-get-started.md), et envoyer des travaux à des comptes Analytique Data Lake. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
+Découvrez comment utiliser le Kit de développement logiciel (SDK) Azure PowerShell pour créer des comptes Azure Data Lake Analytics, définir des travaux Data Lake Analytics dans [U-SQL](data-lake-analytics-u-sql-get-started.md) et envoyer des travaux à des comptes Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
 Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertir en fichier CSV (valeurs séparées par des virgules). Pour suivre ce même didacticiel à l’aide d’autres outils pris en charge, cliquez sur les onglets en haut de cette section.
 
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécuter un travail quelconque. Pour créer un compte Analytique Data Lake, vous devez spécifier les éléments suivants :
 
-- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](../resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.  
+- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](../resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.  
 
 	Pour répertorier les groupes de ressources dans votre abonnement :
     
@@ -50,8 +50,8 @@ Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécute
 			-Location "<Azure Data Center>" # For example, "East US 2"
 
 - **Nom du compte Analytique Data Lake**
-- **Emplacement** : un des centres de données Azure prenant en charge Data Lake Analytics.
-- **Compte Data Lake par défaut**: chaque compte Data Lake Analytics possède un compte Data Lake par défaut.
+- **Emplacement** : un des centres de données Azure prenant en charge Data Lake Analytics.
+- **Compte Data Lake par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake par défaut.
 
 	Pour créer un compte Azure Data Lake :
 
@@ -133,7 +133,7 @@ Analytique Data Lake peut également accéder au stockage d’objets blobs Azure
 
 ##Envoyer des travaux Analytique Data Lake
 
-Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Pour créer un script de travail Analytique Data Lake**
 
@@ -186,7 +186,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	Dans le script, le fichier de script U-SQL est stocké à c:\tutorials\data-lake-analytics\copyFile.usql. Mettez à jour le chemin d’accès en conséquence.
+	Dans le script, le fichier de script U-SQL est stocké à c:\\tutorials\\data-lake-analytics\\copyFile.usql. Mettez à jour le chemin d’accès en conséquence.
  
 Une fois le travail terminé, vous pouvez utiliser les applets de commande suivantes pour répertorier le fichier et télécharger le fichier :
 	
@@ -203,10 +203,10 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 ## Voir aussi
 
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
-- Pour voir une requête plus complexe, consultez [Analyse de journaux de site web à l’aide d’Analytique Data Lake Azure](data-lake-analytics-analyze-weblogs.md).
-- Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec les outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Pour voir une requête plus complexe, consultez [Analyse de journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

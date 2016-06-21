@@ -68,17 +68,16 @@ Il existe trois produits Azure CDN : **Azure CDN Standard fourni par Akamai**, *
 | [Rapports HTTP avancés](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiques en temps réel](cdn-real-time-stats.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Une idée de fonctionnalité à ajouter à Azure CDN ? [Envoyez-nous vos commentaires](https://feedback.azure.com/forums/169397-cdn) !
 
 ## Étapes suivantes
 
-Pour une prise en main du CDN, consultez [Utilisation d’Azure CDN](./cdn-create-new-endpoint.md).
+Pour une prise en main du CDN, voir [Utilisation d’Azure CDN](./cdn-create-new-endpoint.md).
 
 Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points de terminaison CDN via le [portail Microsoft Azure](https://portal.azure.com).
 
 Pour voir le CDN à l’œuvre, regardez la [vidéo de notre session Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Pour plus d’informations sur la tarification, consultez la page [Prix appliqués au CDN](https://azure.microsoft.com/pricing/details/cdn/).
+Pour plus d’informations sur la tarification, voir [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-Une idée de fonctionnalité à ajouter à Azure CDN ? [Envoyez-nous vos commentaires](https://feedback.azure.com/forums/169397-cdn) !
-
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

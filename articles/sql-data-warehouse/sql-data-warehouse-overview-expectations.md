@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/11/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -31,7 +31,7 @@ Nous tendrons en permanence vers ces objectifs dans la version préliminaire de 
 
 ## Performances prévisibles et évolutives
 
-Azure SQL Data Warehouse présente les unités DWU (Data Warehouse Units) comme un moyen de mesurer les ressources informatiques (processeurs, mémoire, stockage E/S) disponibles pour l’entrepôt de données. L’augmentation du nombre de DWU augmente les ressources. À mesure que le nombre de DWU augmente, SQL Data Warehouse exécute des opérations en parallèle (chargement de données ou requête, par exemple) sur un plus grand nombre de ressources distribuées. Cela réduit la latence et améliore les performances.
+SQL Data Warehouse présente les unités DWU (Data Warehouse Units) comme un moyen de mesurer les ressources informatiques (processeurs, mémoire, E/S de stockage) disponibles pour l’entrepôt de données. L’augmentation du nombre de DWU augmente les ressources. À mesure que le nombre de DWU augmente, SQL Data Warehouse exécute des opérations en parallèle (chargement de données ou requête, par exemple) sur un plus grand nombre de ressources distribuées. Cela réduit la latence et améliore les performances.
 
 Tout entrepôt de données possède 2 mesures fondamentales des performances :
 
@@ -42,21 +42,15 @@ Nous mesurons certaines améliorations importantes des performances et partagero
 
 ## Protection des données
 
-SQL Data Warehouse stocke l’ensemble des données dans Azure Storage à l’aide du stockage localement redondant. Plusieurs copies synchrones des données sont conservées dans le centre de données local afin de garantir la protection transparente des données en cas de défaillance localisée.
-
-## Sauvegardes
-
-SQL Data Warehouse d’azure sauvegarde toutes les données au moins toutes les 8 heures à l’aide des captures instantanées d’Azure Storage. Ces instantanés sont conservés pendant 7 jours. Ce système permet de restaurer les données suivant 21 points différents dans le temps au cours des 7 derniers jours, jusqu’au moment de la prise du dernier instantané. Les données peuvent être restaurées à partir d’un instantané à l’aide de PowerShell ou des API REST.
+SQL Data Warehouse stocke l’ensemble des données dans le stockage Azure localement redondant. Plusieurs copies synchrones des données sont conservées dans le centre de données local afin de garantir la protection transparente des données en cas de défaillance localisée. En outre, SQL Data Warehouse sauvegarde automatiquement les bases de données actives (réactivées) à intervalles réguliers à l’aide d’instantanés Azure Storage. Pour plus d’informations sur le fonctionnement des processus de sauvegarde et de restauration, voir une [vue d’ensemble des fonctionnalités de sauvegarde et de restauration][].
 
 ## Fiabilité des requêtes
 
 SQL Data Warehouse repose sur une architecture MPP (Massively Parallel Processing). SQL Data Warehouse détecte automatiquement les défaillances de nœud de calcul et de contrôle, et les migre. Toutefois, une opération (par exemple, un chargement de données ou une requête) peut échouer suite à une défaillance ou une migration de nœud. Lors de la phase préliminaire, nous apportons des améliorations continues pour terminer avec succès les opérations en dépit des défaillances de nœud.
 
-
 ## Mises à niveau et temps d'arrêt
 
 SQL Data Warehouse sera mis à niveau périodiquement afin d’ajouter de nouvelles fonctionnalités et installer des correctifs critiques. Ces mises à niveau peuvent entraîner des perturbations et ne sont pas effectuées selon un calendrier prévisible pour l’instant. Si vous trouvez que ce processus provoque trop de perturbations, nous vous encourageons à [créer un ticket de support][]. Nous pourrons ainsi vous aider à contourner ce processus.
-
 
 ## Étapes suivantes
 
@@ -67,9 +61,10 @@ SQL Data Warehouse sera mis à niveau périodiquement afin d’ajouter de nouvel
 <!--Article references-->
 [créer un ticket de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Prise en main]: ./sql-data-warehouse-get-started-provision.md
+[vue d’ensemble des fonctionnalités de sauvegarde et de restauration]: ./sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

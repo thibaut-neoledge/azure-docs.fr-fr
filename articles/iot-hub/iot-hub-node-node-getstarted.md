@@ -44,7 +44,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
-+ Node.js version 0.12.x ou version ultérieure. <br/> [Préparer votre environnement de développement][lnk-dev-setup] décrit comment installer Node.js pour ce didacticiel sous Windows ou sous Linux.
++ Node.js version 0.12.x ou version ultérieure. <br/> L’article [Prepare your development environment][lnk-dev-setup] \(Préparer votre environnement de développement) décrit comment installer Node.js pour ce didacticiel sur Windows ou sur Linux.
 
 + Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
 
@@ -358,7 +358,7 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
@@ -367,4 +367,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

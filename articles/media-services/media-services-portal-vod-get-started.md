@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure (version préliminaire)
+# Prise en main de la diffusion de contenus à la demande à l’aide du Portail Azure
 
 Ce didacticiel explique comment implémenter un service de diffusion de contenu vidéo à la demande (VoD) de base avec l’application Azure Media Services (AMS) à l’aide du portail Azure.
 
@@ -229,4 +229,4 @@ Certaines considérations s’appliquent :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

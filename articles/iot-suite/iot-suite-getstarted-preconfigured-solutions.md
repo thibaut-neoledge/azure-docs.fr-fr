@@ -29,33 +29,7 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
 > [AZURE.NOTE]  Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk_free_trial].
 
-## Configurer la solution préconfigurée de surveillance à distance
-
-1.  Connectez-vous à [azureiotsuite.com][lnk-azureiotsuite] à l’aide des identifiants de votre compte Azure, puis cliquez sur **+** pour créer une nouvelle solution.
-
-    > [AZURE.NOTE] Si vous rencontrez des problèmes avec les autorisations nécessaires pour approvisionner une solution, consultez [Autorisations sur le site azureiotsuite.com][lnk-permissions] pour obtenir de l’aide.
-
-2.  Cliquez sur **Sélectionner** sur la vignette **Surveillance à distance**.
-
-3.  Entrez un **Nom de solution** pour votre solution préconfigurée de surveillance à distance.
-
-4.  Sélectionnez la **Région** et l’**Abonnement** pour lesquels vous voulez déployer la solution.
-
-5.  Cliquez sur **Créer une solution** pour commencer le processus de déploiement. Cette opération prend généralement plusieurs minutes.
-
-## Attendre la fin du processus d’approvisionnement
-
-1. Cliquez sur la vignette de votre solution avec l’état **Approvisionnement**.
- 
-2. Notez les **états d’approvisionnement** à mesure que les services Azure sont déployés dans votre abonnement Azure.
-
-3. Une fois l’approvisionnement terminé, l’état devient **Prêt**.
-
-4. Cliquez sur la vignette ; les détails de votre solution apparaissent alors dans le volet de droite.
-
-> [AZURE.NOTE] Si vous rencontrez des problèmes lors du déploiement de la solution préconfigurée, consultez [Autorisations sur le site azureiotsuite.com][lnk-permissions] et la section [FAQ][lnk-faq]. Si les problèmes persistent, créez un ticket de service sur le [portail][lnk-portal].
-
-Certains détails de votre solution semblent-ils faire défaut ? Faites-nous part de vos suggestions concernant les fonctionnalités sur [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+[AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 ## Afficher le tableau de bord de la solution de surveillance à distance
 
@@ -72,8 +46,8 @@ Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée
 Le tableau de bord affiche les informations suivantes :
 
 - La carte affiche l'emplacement de chaque appareil connecté à la solution. Lors de la première exécution de la solution, quatre appareils sont simulés. Les appareils simulés sont implémentés en tant qu’Azure WebJobs, et la solution utilise l'API Bing Maps pour tracer les informations sur la carte.
-- Le panneau **Historique de télémétrie** panneau trace la télémétrie de l'humidité et de la température d'un appareil sélectionné en temps quasi-réel et affiche les données d'agrégation telles que l’humidité maximale, minimale et moyenne.
-- Le panneau **Historique d'alarme** affiche les alarme récentes lorsqu'une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
+- Le panneau **Historique de télémétrie** trace la télémétrie de l’humidité et de la température d’un appareil sélectionné en temps quasi-réel et affiche les données d’agrégation telles que l’humidité maximale, minimale et moyenne.
+- Le panneau **Historique des alertes** affiche les alarme récentes lorsqu’une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
 
 ## Afficher la liste des appareils de la solution
 
@@ -89,11 +63,11 @@ La liste des appareils montre tous les appareils inscrits dans la solution. Vous
 
     ![][img-devicedetails]
 
-Le panneau **Détails de l'appareil** comprend trois sections :
+Le panneau **Détails de l’appareil** comprend trois sections :
 
-- La section **Actions** répertorie les actions que vous pouvez effectuer sur l'appareil. Si vous désactivez l’appareil, il ne sera plus autorisé à envoyer des données de télémétrie ou à recevoir des commandes. Si vous désactivez un appareil, vous pourrez le réactiver ensuite. Vous pouvez ajouter une règle associée à l'appareil qui déclenche une alerte lorsqu'une valeur de télémétrie dépasse un seuil défini. Vous pouvez également envoyer une commande à un appareil. Lorsqu’un appareil se connecte pour la première fois, il indique à la solution à quelles commandes il peut répondre.
-- La section **Propriétés d'un appareil** répertorie les métadonnées de l'appareil. Certaines de ces métadonnées proviennent de l'appareil proprement dit (par exemple, le fabricant) et certaines sont générées par la solution (par exemple, l'heure de création). Vous pouvez modifier les métadonnées de l'appareil à partir d'ici.
-- La section **Clés d'authentification** répertorie les clés que l'appareil peut utiliser pour s'authentifier avec la solution.
+- La section **Actions** répertorie les actions que vous pouvez exécuter sur l’appareil. Si vous désactivez l’appareil, il ne sera plus autorisé à envoyer des données de télémétrie ou à recevoir des commandes. Si vous désactivez un appareil, vous pourrez le réactiver ensuite. Vous pouvez ajouter une règle associée à l'appareil qui déclenche une alerte lorsqu'une valeur de télémétrie dépasse un seuil défini. Vous pouvez également envoyer une commande à un appareil. Lorsqu’un appareil se connecte pour la première fois, il indique à la solution à quelles commandes il peut répondre.
+- La section **Propriétés d’un appareil** répertorie les métadonnées de l’appareil. Certaines de ces métadonnées proviennent de l'appareil proprement dit (par exemple, le fabricant) et certaines sont générées par la solution (par exemple, l'heure de création). Vous pouvez modifier les métadonnées de l'appareil à partir d'ici.
+- La section **Clés d’authentification** répertorie les clés que l’appareil peut utiliser pour s’authentifier avec la solution.
 
 ## Envoyer une commande à un appareil
 
@@ -111,7 +85,7 @@ Le volet des détails de l’appareil affiche toutes les commandes prises en cha
 
     ![][img-pingcommand]
 
-La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat est défini sur **Réussite** :
+La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat prend la valeur **Réussite**.
 
 ## Ajouter un nouvel appareil simulé
 
@@ -125,7 +99,7 @@ La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Init
 
     ![][img-addnew]
     
-    Outre la création d'un nouvel appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour en savoir plus à ce sujet, [connectez votre appareil à la solution préconfigurée de surveillance à distance IoT Suite][lnk-connecting-devices].
+    Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations à ce sujet, voir [Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite][lnk-connecting-devices].
 
 4.  Sélectionnez **Me laisser définir mon propre ID d’appareil** et ajoutez un nom unique d’ID d’appareil, par exemple **monappareil\_01**.
 
@@ -147,7 +121,7 @@ La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Init
 
 1.  Retournez à la liste des appareils.
 
-2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Modifier** pour modifier les **Propriétés d'un appareil** :
+2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Modifier** pour modifier les **Propriétés d’un appareil** :
 
     ![][img-editdevice]
 
@@ -167,7 +141,7 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
 2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Ajouter une règle** pour ajouter une nouvelle règle pour l’appareil.
 
-3. Créez une règle qui utilise **Température** comme champ de données et utilisez **AlarmTemp** comme sortie lorsque la température dépasse 47 degrés :
+3. Créez une règle qui utilise **Température** comme champ de données et **AlarmTemp** en tant que sortie lorsque la température dépasse 47 degrés :
 
     ![][img-adddevicerule]
 
@@ -181,11 +155,11 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
     ![][img-adddevicerule3]
 
-7.  Retournez au tableau de bord de la solution. Après un bref moment, vous verrez une nouvelle entrée dans le volet **Historique d'alarme** lorsque la température signalée par votre nouvel appareil dépassera le seuil de 47 degrés :
+7.  Retournez au tableau de bord de la solution. Après un bref instant, vous verrez une nouvelle entrée dans le volet **Historique des alertes** lorsque la température signalée par votre nouvel appareil dépassera le seuil de 47 degrés :
 
     ![][img-adddevicerule4]
 
-8. Vous pouvez consulter et modifier toutes les règles sur le tableau de bord **Règles** :
+8. Vous pouvez consulter et modifier toutes les règles dans le tableau de bord **Règles** :
 
     ![][img-rules]
 
@@ -193,17 +167,17 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
     ![][img-actions]
 
-> [AZURE.NOTE] Il est possible de définir des actions pouvant envoyer un message électronique ou un SMS en réponse à une règle ou s’intégrer dans un système métier via une [Application logique][lnk-logic-apps].
+> [AZURE.NOTE] Il est possible de définir des actions pouvant envoyer un e-mail ou un SMS en réponse à une règle ou s’intégrer à un système métier par le biais d’une [application logique][lnk-logic-apps].
 
 ## Dans les coulisses
 
-Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l'abonnement Azure que vous avez sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur le nom que vous avez choisi pour votre solution préconfigurée :
+Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l'abonnement Azure que vous avez sélectionné. Vous pouvez afficher ces ressources dans le [Portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
 
 ![][img-portal]
 
 Vous pouvez afficher les paramètres de chaque ressource en la sélectionnant dans la liste des ressources dans le groupe de ressources. La capture d'écran ci-dessus illustre les paramètres pour l’IoT Hub utilisé dans la solution préconfigurée.
 
-Vous pouvez également afficher le code source pour la solution préconfigurée. Le code source de la solution préconfigurée de surveillance à distance est [azure-iot-remote-monitoring][lnk-rmgithub] :
+Vous pouvez également afficher le code source pour la solution préconfigurée. Le code source de la solution préconfigurée de surveillance à distance est [azure-iot-remote-monitoring][lnk-rmgithub] \:
 
 - Le dossier **DeviceAdministration** contient le code source pour le tableau de bord.
 - Le dossier **Simulator** contient le code source pour l’appareil simulé.
@@ -211,7 +185,7 @@ Vous pouvez également afficher le code source pour la solution préconfigurée.
 
 Quand vous avez terminé, vous pouvez supprimer la solution préconfigurée de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ceci vous permet de supprimer toutes les ressources qui ont été approvisionnées lors de la création de la solution préconfigurée.
 
-> [AZURE.NOTE] Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez-la depuis m [azureiotsuite.com][lnk-azureiotsuite] et ne supprimez pas simplement le groupe de ressources dans le portail.
+> [AZURE.NOTE] Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez cette dernière à partir du site [azureiotsuite.com][lnk-azureiotsuite] ; ne vous contentez pas de supprimer le groupe de ressources dans le portail.
 
 ## Étapes suivantes
 
@@ -254,4 +228,4 @@ Une solution préconfigurée opérationnelle étant créée, vous pouvez passer 
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

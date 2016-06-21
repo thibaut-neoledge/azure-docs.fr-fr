@@ -230,7 +230,7 @@ Copiez et collez la méthode **CreateDocumentCollectionIfNotExists** sous votre 
 				// Here we create a collection with 400 RU/s.
 				await this.client.CreateDocumentCollectionAsync(
 					UriFactory.CreateDatabaseUri(databaseName),
-					new DocumentCollection { Id = collectionName },
+					collectionInfo,
 					new RequestOptions { OfferThroughput = 400 });
 
 				this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
@@ -612,4 +612,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

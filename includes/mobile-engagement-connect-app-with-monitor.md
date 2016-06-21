@@ -8,8 +8,8 @@ Cette section montre comment connecter votre application au serveur principal Mo
 
 3. Le moniteur est prêt à afficher en temps réel tous les appareils qui démarrent votre application.
 	 
-4. Démarrez votre application dans l’émulateur/le simulateur ou sur un périphérique connecté. Vous devez voir une session dans le moniteur si l'intégration est correcte, ce qui signifie que votre application est maintenant connectée au serveur principal de Mobile Engagement et envoie des données à celui-ci.
+4. Démarrez votre application maintenant. Vous devez voir une session dans le moniteur si l'intégration est correcte, ce qui signifie que votre application est maintenant connectée au serveur principal de Mobile Engagement et envoie des données à celui-ci.
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0615_2016-->
