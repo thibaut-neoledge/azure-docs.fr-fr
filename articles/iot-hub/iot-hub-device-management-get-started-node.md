@@ -184,7 +184,7 @@ Laissez les appareils simulés et l’application de gestion des appareils en co
 
 ## Étape suivante
 
-Pour plus d’informations sur les fonctionnalités de gestion des appareils Azure IoT Hub, voir le didacticiel [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] (Explorer la gestion des appareils Azure IoT Hub à l’aide de l’exemple d’interface utilisateur).
+Pour plus d’informations sur les fonctionnalités de gestion des appareils Azure IoT Hub, voir le didacticiel [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] \(Explorer la gestion des appareils Azure IoT Hub à l’aide de l’exemple d’interface utilisateur).
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png

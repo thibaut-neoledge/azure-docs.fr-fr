@@ -44,7 +44,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
-+ Node.js version 0.12.x ou version ultérieure. <br/> L’article [Prepare your development environment][lnk-dev-setup] (Préparer votre environnement de développement) décrit comment installer Node.js pour ce didacticiel sur Windows ou sur Linux.
++ Node.js version 0.12.x ou version ultérieure. <br/> L’article [Prepare your development environment][lnk-dev-setup] \(Préparer votre environnement de développement) décrit comment installer Node.js pour ce didacticiel sur Windows ou sur Linux.
 
 + Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
 
