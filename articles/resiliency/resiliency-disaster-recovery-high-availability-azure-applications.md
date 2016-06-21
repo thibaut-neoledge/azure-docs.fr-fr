@@ -76,7 +76,7 @@ L’objectif de délai de récupération correspond à l’intervalle maximal de
 L’objectif de point de récupération correspond à la fenêtre de temps acceptable de perte de données associée au processus de récupération. Par exemple, si l’objectif de point de récupération est d’une heure, vous devez procéder à une sauvegarde ou à une réplication complètes des données au moins toutes les heures. Une fois que vous déplacez l’application dans une nouvelle région, le volume des données de sauvegarde peut être diminué d’une quantité équivalant à une heure de données, au maximum. Tout comme pour l’objectif de délai de récupération, un objectif de point de récupération bien plus faible sera privilégié pour les applications critiques.
 
 ##Liste de contrôle
-Résumons les points principaux abordés dans cet article (et les articles associés sur la [haute disponibilité](./resiliency-high-availability-azure-applications.md) et la [récupération d’urgence](./resiliency-disaster-recovery-azure-applications.md) pour les applications Azure). Cette synthèse fait office de liste de contrôle des éléments à prendre en compte pour votre propre planification de disponibilité et de récupération d’urgence. Il s’agit des meilleures pratiques appliquées par les clients qui ont décidé de franchir le pas, d’implémenter une solution efficace. Ce type de produit fonctionne véritablement, en prenant en charge la récupération des données de manière appropriée, en temps et en heure, en cas de défaillance du système.
+Résumons les points principaux abordés dans cet article (et les articles associés sur la [haute disponibilité](resiliency-high-availability-azure-applications.md) et la [récupération d’urgence](resiliency-disaster-recovery-azure-applications.md) pour les applications Azure). Cette synthèse fait office de liste de contrôle des éléments à prendre en compte pour votre propre planification de disponibilité et de récupération d’urgence. Il s’agit des meilleures pratiques appliquées par les clients qui ont décidé de franchir le pas, d’implémenter une solution efficace. Ce type de produit fonctionne véritablement, en prenant en charge la récupération des données de manière appropriée, en temps et en heure, en cas de défaillance du système.
 
 1. Effectuez une évaluation des risques pour l’ensemble des applications, dans la mesure où chacune présente ses exigences propres. Certaines applications, plus critiques que d’autres, nécessitent l’allocation d’un budget supplémentaire dédié à la récupération d’urgence.
 1. Utilisez ces informations pour définir les objectifs de délai et de point de récupération de chaque application.
@@ -99,11 +99,11 @@ Azure détecte et gère de nombreux exemples de défaillances, mais nombre de pr
 Lorsque vous créez le plan de récupération d’urgence et de disponibilité de votre application, tenez compte des conséquences pour l’entreprise de la défaillance des applications. La définition des processus, des stratégies et des procédures nécessaires à la restauration des systèmes critiques après un événement catastrophique nécessite du temps, de l’engagement et des efforts de planification. Une fois les plans établis, vous devez poursuivre votre initiative. Vous devez régulièrement analyser, tester les plans et les améliorer continuellement en fonction de votre portefeuille d’applications, des besoins de votre entreprise et des technologies dont vous disposez. Azure vous procure de nouvelles fonctionnalités, tout en présentant des obstacles inédits à la création d’applications robustes qui résistent aux défaillances.
 
 ##Ressources supplémentaires
-[Haute disponibilité pour les applications développées sur Microsoft Azure](./resiliency-high-availability-azure-applications.md)
+[Haute disponibilité pour les applications développées sur Microsoft Azure](resiliency-high-availability-azure-applications.md)
 
-[Récupération d’urgence des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md)
+[Récupération d’urgence des applications développées sur Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
 
-[Guide technique de la résilience Azure](./resiliency-technical-guidance.md)
+[Guide technique de la résilience Azure](resiliency-technical-guidance.md)
 
 [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](../sql-database/sql-database-business-continuity.md)
 
@@ -114,6 +114,6 @@ Lorsque vous créez le plan de récupération d’urgence et de disponibilité d
 [Best Practices for the design of large-scale services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Meilleures pratiques de conception de services à grande échelle sur Azure Cloud Services)
 
 ##Étapes suivantes
-Cet article fait partie d’une série d’articles axés sur la récupération d’urgence et la haute disponibilité pour les applications Azure. L’article suivant de cette série est [Haute disponibilité pour les applications développées sur Microsoft Azure](./resiliency-high-availability-azure-applications.md).
+Cet article fait partie d’une série d’articles axés sur la récupération d’urgence et la haute disponibilité pour les applications Azure. L’article suivant de cette série est [Haute disponibilité pour les applications développées sur Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

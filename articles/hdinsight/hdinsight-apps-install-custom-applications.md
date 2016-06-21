@@ -142,4 +142,4 @@ Vous pouvez utiliser l’interface de ligne de commande Azure pour supprimer le 
 - [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) : apprenez à utiliser l’action de script pour installer des applications supplémentaires.
 - [Créer des clusters Hadoop sous Linux dans HDInsight à l’aide de modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) : apprenez à appeler des modèles ARM pour la création de clusters HDInsight.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!-----HONumber=AcomDC_0608_2016-->

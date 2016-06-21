@@ -1,6 +1,6 @@
 <properties
    pageTitle="Déployer des infrastructures d’application populaires | Microsoft Azure"
-   description="Créez des infrastructures d’application populaires sur des machines virtuelles Windows et Linux à l’aide de modèles Azure Resource Manager pour installer Active Directory, Docker et bien davantage."
+   description="Créez des infrastructures d’application populaires sur des machines virtuelles Windows et Linux à l’aide de modèles Azure Resource Manager pour installer Active Directory, Docker et bien davantage."
    services="virtual-machines-windows"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="02/03/2016"
+   ms.date="06/06/2016"
    ms.author="rasquill"/>
 
 # Déployer des infrastructures d’application populaires à l’aide de modèles Azure Resource Manager
@@ -23,4 +23,4 @@ Les charges de travail nécessitent généralement de nombreuses ressources pour
 
 [AZURE.INCLUDE [virtual-machines-common-app-frameworks](../../includes/virtual-machines-common-app-frameworks.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

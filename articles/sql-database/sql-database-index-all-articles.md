@@ -211,7 +211,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
 | 105 | [FAQ sur la continuité des activités](sql-database-bcdr-faq.md) | Questions courantes (et les réponses associées) posées par les clients sur les fonctionnalités intégrées et facultatives pour la continuité des activités et la récupération d'urgence avec une base de données SQL Azure. |
-| 106 | [Concevoir une application pour la récupération d’urgence cloud à l’aide de la géo-réplication active dans une base de données SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Apprenez à concevoir des solutions de récupération d’urgence cloud pour la planification de la continuité des activités à l’aide de la géo-réplication pour la sauvegarde de données d’application avec Azure SQL Database. |
+| 106 | [Concevoir une application pour la récupération d’urgence cloud à l’aide de la géo-réplication active dans une base de données SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Apprenez à concevoir des solutions de récupération d’urgence cloud pour la planification de la continuité d’activité à l’aide de la géoréplication pour la sauvegarde de données d’application avec une base de données SQL Azure. |
 | 107 | [Conception pour la continuité des activités](sql-database-business-continuity-design.md) | Conseils sur le choix Dans cette section, vous bénéficierez de conseils sur le choix des fonctionnalités BCDR à utiliser et quand. Vous y trouverez, entre autres, des descriptions de ce que vous obtenez automatiquement en utilisant une base de données SQL. |
 | 108 | [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md) | Limite de restauration dans le temps, base de données SQL Microsoft Azure, restaurer une base de données, récupérer une base de données, portail Azure Classic, portail Azure Classic |
 | 109 | [Comment restaurer une table unique à partir d’une sauvegarde Azure SQL Database](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Découvrez comment restaurer une table unique à partir d’une sauvegarde Base de données SQL Azure. |
@@ -302,14 +302,14 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | 159 | [Code cible de la mémoire tampon en anneau pour les événements étendus dans la base de données SQL](sql-database-xevent-code-ring-buffer.md) | Fournit un exemple de code Transact-SQL simple et rapide en utilisant la cible de la mémoire tampon en anneau, dans Azure SQL Database. |
 
 
-## Géo-réplication
+## Utiliser la géo-réplication
 
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
-| 160 | [Configurer la géo-réplication pour la base de données SQL Azure avec PowerShell](sql-database-geo-replication-powershell.md) | géo-réplication active pour Base de données SQL Azure avec PowerShell |
-| 161 | [Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md) | Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure |
-| 162 | [Configurer la géo-réplication pour Base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configurer la géo-réplication pour Base de données SQL Azure avec Transact-SQL |
+| 160 | [Configurer la géoréplication pour Base de données SQL Azure avec PowerShell](sql-database-geo-replication-powershell.md) | Géoréplication pour Base de données SQL Azure avec PowerShell |
+| 161 | [Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md) | Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure |
+| 162 | [Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL |
 | 163 | [Gestion de la sécurité après la récupération d’urgence](sql-database-geo-replication-security-config.md) | Cette rubrique décrit les éléments de sécurité concernant la gestion des scénarios de géo-réplication active pour une base de données SQL. |
 | 164 | [Vue d’ensemble : Géo-réplication active de base de données SQL](sql-database-geo-replication-overview.md) | La géo-réplication active permet de configurer 4 réplicas de votre base de données dans un des centres de données Azure. |
 
@@ -351,7 +351,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | 180 | [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md) | Cette page décrit certaines limites de ressources courantes pour une base de données SQL Azure. |
 | 181 | [Différences dans le langage Transact-SQL Azure SQL Database.](sql-database-transact-sql-information.md) | Instructions Transact-SQL qui ne sont pas entièrement prises en charge dans Azure SQL Database |
 | 182 | [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md) | Répertorie le numéro de version minimal pour chaque pilote que les programmes clients peuvent utiliser lors de la connexion à Azure SQL Database ou à Microsoft SQL Server. Un lien est fourni pour les informations sur les versions des pilotes publiés par la communauté, et non par Microsoft. |
-| 183 | [Recherche avec des filtres](https://azure.microsoft.com/en-us/documentation/articles/?service=sql-database) | Rechercher avec des filtres des articles de la documentation sur la base de données SQL Azure. |
+| 183 | [Recherche avec des filtres](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Rechercher avec des filtres des articles de la documentation sur la base de données SQL Azure. |
 
 
 ## Divers
@@ -378,4 +378,4 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 - Graphique de parcours d’apprentissage : [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

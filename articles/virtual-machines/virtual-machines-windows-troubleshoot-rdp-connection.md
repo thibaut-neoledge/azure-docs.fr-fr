@@ -20,86 +20,92 @@
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
 
-La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous aide à identifier et corriger les causes de l’échec.
+La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. Vous pouvez également lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md) si votre problème n’est pas répertorié ici, ou si vous ne pouvez toujours pas vous connecter à votre machine virtuelle suivant le protocole RDP.
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
-Cet article s’applique aux machines virtuelles Azure exécutant Windows. Pour les machines virtuelles qui exécutent Linux, consultez [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-linux-troubleshoot-ssh-connection.md).
-
-Si vous avez besoin d’aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis sélectionnez **Obtenir un support**.
+Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 <a id="quickfixrdp"></a>
 
-## Corriger les erreurs courantes liées au Bureau à distance
+## Résolution des problèmes des machines virtuelles créées à l’aide du modèle de déploiement Resource Manager
 
-Cette section répertorie les correctifs rapides aux problèmes de connexion Bureau à distance.
+Après chaque étape de résolution des problèmes, essayez de vous reconnecter à la machine virtuelle.
 
-### Résolution des problèmes des machines virtuelles créées à l’aide du modèle de déploiement Classic
-
-Cette procédure permet de résoudre la plupart des échecs de connexion Bureau à distance dans les machines virtuelles Azure créées à l’aide du modèle de déploiement Classic. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
-
-- Réinitialisez le service Bureau à distance à partir du [portail Azure](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP. Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Réinitialiser l’accès à distance**.
-
-- Redémarrez la machine virtuelle pour résoudre d’autres problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Redémarrer**.
-
-- Redéployez la machine virtuelle vers un nouveau nœud Azure. Consultez [Redéployer une machine virtuelle vers un nouveau nœud Azure](virtual-machines-windows-redeploy-to-new-node.md).
-
-	Notez qu’une fois cette opération terminée, les données de disque éphémères seront perdues et les adresses IP dynamiques associées à la machine virtuelle seront mises à jour.
-
-- Passez en revue le journal de la console ou la capture d'écran de votre machine virtuelle pour corriger les problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Paramètres** > **Diagnostics de démarrage**.
-
-
-- Vérifiez l’intégrité des ressources de la machine virtuelle et recherchez des problèmes de plateforme. Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Paramètres** > **Vérifier l’intégrité**.
-
-
-### Résolution des problèmes des machines virtuelles créées à l’aide du modèle de déploiement Azure Resource Manager
-
-Cette procédure permet de résoudre la plupart des échecs de connexion Bureau à distance dans les machines virtuelles Azure créées à l’aide du modèle de déploiement Resource Manager. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
-
-> [AZURE.TIP] Si le bouton Connecter du portail est grisé et si vous n’êtes pas connecté à Azure via une connexion [Express Route](../expressroute/expressroute-introduction.md) ou [VPN de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+> [AZURE.TIP] Si le bouton Connecter du portail est grisé et si vous n’êtes pas connecté à Azure avec une connexion [Express Route](../expressroute/expressroute-introduction.md) ou [VPN de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 - Réinitialisez l’accès à distance à l’aide de Powershell.
-	- Si ce n’est déjà fait, [installez PowerShell et connectez-vous à votre abonnement Azure](../powershell-install-configure.md) à l’aide de la méthode Azure Active Directory. Notez qu’il est inutile de passer en mode Resource Manager dans les versions 1.0.x de PowerShell.
+	- Si vous ne l’avez pas déjà fait, [installez et configurez la dernière version d’Azure PowerShell](../powershell-install-configure.md).
 
 	- Réinitialisez votre connexion RDP en utilisant l’une des commandes PowerShell suivantes. Remplacez `myRG`, `myVM`, `myVMAccessExtension` et l’emplacement par des valeurs adaptées à votre installation.
 
 	```
-	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
+	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" `
+		-Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" `
+		-Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" `
+		-Location Westus
 	```
 	OU
 
   	```
-	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
+	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" `
+		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] S’il s’agit de la première réinitialisation de la connexion RDP, l’agent VMAccessAgent n’existe probablement pas encore. Dans les exemples précédents, `myVMAccessExtension` ou `MyVMAccess` est un nom que vous spécifiez pour la nouvelle extension installée dans le cadre de ce processus. Souvent, ce nom est souvent celui de la machine virtuelle. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Ensuite, examinez la section Extensions de la sortie. Comme une machine virtuelle ne peut avoir qu’un agent VMAccessAgent, vous devez également ajouter le paramètre `-ForceReRun` lors de l’utilisation de `Set-AzureRmVMExtension.`. Cela force la réinscription de l’agent.
+	> [AZURE.NOTE] Dans les exemples précédents, `myVMAccessExtension` ou `MyVMAccess` est un nom que vous spécifiez pour la nouvelle extension installée dans le cadre de ce processus. Souvent, ce nom est souvent celui de la machine virtuelle. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Ensuite, examinez la section Extensions de la sortie. Comme une machine virtuelle ne peut avoir qu’un agent VMAccessAgent, vous devez également ajouter le paramètre `-ForceReRun` lors de l’utilisation de `Set-AzureRmVMExtension` pour forcer la réinscription de l’agent.
 
-- Redémarrez la machine virtuelle pour résoudre d’autres problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Redémarrer**.
+- Redémarrez votre machine virtuelle pour résoudre d’autres problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle* > **Redémarrer**.
 
-- Redimensionnez la machine virtuelle pour résoudre les problèmes d’hôte. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Paramètres** > **Taille**.
+- [Redéployer une machine virtuelle vers un nouveau nœud Azure](virtual-machines-windows-redeploy-to-new-node.md).
 
-- Passez en revue le journal de la console de la machine virtuelle ou la capture d’écran pour corriger les problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Paramètres** > **Diagnostics de démarrage**.
+	Notez qu’une fois cette opération terminée, les données de disque éphémères seront perdues et les adresses IP dynamiques associées à la machine virtuelle seront mises à jour.
+	
+- Vérifiez que vos [règles de groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) autorisent le trafic RDP (port TCP 3389).
+
+- Passez en revue le journal de la console ou la capture d'écran de votre machine virtuelle pour corriger les problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Support + Résolution des problèmes** > **Diagnostics de démarrage**.
+
+- [Réinitialisez le mot de passe de votre machine virtuelle](virtual-machines-windows-reset-rdp.md).
+
+- Si vous rencontrez toujours des problèmes de protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.microsoft.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 
-Si les étapes ci-dessus n’ont pas permis de résoudre vos échecs de connexion Bureau à distance, passez à la section suivante.
+## Résolution des problèmes des machines virtuelles créées à l’aide du modèle de déploiement classique
+
+Après chaque étape de résolution des problèmes, essayez de vous reconnecter à la machine virtuelle.
+
+- Réinitialisez le service Bureau à distance à partir du [portail Azure](https://portal.azure.com). Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle* > **Réinitialiser l’accès à distance**.
+
+- Redémarrez votre machine virtuelle pour résoudre d’autres problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle* > **Redémarrer**.
+
+- [Redéployer une machine virtuelle vers un nouveau nœud Azure](virtual-machines-windows-redeploy-to-new-node.md).
+
+	Notez qu’une fois cette opération terminée, les données de disque éphémères seront perdues et les adresses IP dynamiques associées à la machine virtuelle seront mises à jour.
+	
+- Vérifiez que votre [point de terminaison Cloud Services autorise le trafic RDP](../cloud-services/cloud-services-role-enable-remote-desktop.md).
+
+- Passez en revue le journal de la console ou la capture d'écran de votre machine virtuelle pour corriger les problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle* > **Paramètres** > **Diagnostics de démarrage**.
+
+- Vérifiez l’intégrité des ressources de votre machine virtuelle et recherchez des problèmes de plateforme. Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle* > **Paramètres** > **Vérifier l’intégrité**.
+
+- [Réinitialisez le mot de passe de votre machine virtuelle](virtual-machines-windows-reset-rdp.md).
+
+- Si vous rencontrez toujours des problèmes de protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.microsoft.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+
 
 ## Dépannage des erreurs spécifiques à la connexion Bureau à distance
 
-Voici les erreurs les plus courantes que vous pouvez rencontrer quand vous tentez d’établir une connexion Bureau à distance à votre machine virtuelle Azure :
+Vous pouvez recevoir une erreur spécifique lorsque vous tentez de vous connecter à votre machine virtuelle suivant le protocole RDP. Voici les messages d’erreur les plus courants :
 
-- [Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence](#rdplicense).
+- [La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence](#rdplicense).
 
-- [Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l'ordinateur.](#rdpname)
+- [Le Bureau à distance ne trouve pas le « name » de l’ordinateur](#rdpname).
 
-- [Erreur de connexion Bureau à distance : Une erreur d'authentification s'est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
+- [Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
 
 - [Message d'erreur de sécurité Windows : Vos informations d'identification n'ont pas fonctionné](#wincred).
 
-- [Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant](#rdpconnect).
+- [Cet ordinateur ne peut pas se connecter à l’ordinateur distant](#rdpconnect).
 
 <a id="rdplicense"></a>
-### Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
+### La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
 
 Cause : La période de grâce du Gestionnaire de licences de 120 jours pour le rôle de serveur Bureau à distance a expiré et vous devez installer les licences.
 
@@ -112,7 +118,7 @@ Si vous n’avez pas besoin de plus de deux connexions Bureau à distance simult
 Pour plus d’information, consultez le billet de blog [La machine virtuelle Azure échoue et affiche le message « Aucun serveur de licences Bureau à distance n’est disponible »](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
 
 <a id="rdpname"></a>
-### Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l’ordinateur.
+### Le bureau à distance ne trouve pas le « name » de l’ordinateur.
 
 Cause : Le client Bureau à distance de votre ordinateur ne peut pas résoudre le nom de l’ordinateur dans les paramètres du fichier RDP.
 
@@ -131,7 +137,7 @@ La partie adresse de ce fichier RDP comporte :
 - Le port TCP externe du point de terminaison pour le trafic Bureau à distance (55919).
 
 <a id="rdpauth"></a>
-### Erreur de connexion Bureau à distance : Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée.
+### Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée.
 
 Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
@@ -164,7 +170,7 @@ Vérifiez que le nom du compte est un nom qui peut être considéré comme valid
 Pour modifier le mot de passe du compte administrateur local, voir [Réinitialisation d’un mot de passe ou du Service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-rdp.md).
 
 <a id="rdpconnect"></a>
-### Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant.
+### Cet ordinateur ne peut pas se connecter à l’ordinateur distant.
 
 Cause : Le compte utilisé pour vous connecter ne dispose pas des droits de connexion au Bureau à distance.
 
@@ -174,7 +180,7 @@ Vérifiez que le compte que vous utilisez pour vous connecter dispose des droits
 
 ## Résolution des erreurs génériques du Bureau à distance
 
-Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pas à vous connecter à la machine virtuelle via le Bureau à distance, consultez [Dépannage de connexions du Bureau à distance à des machines virtuelles Azure Windows](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pas à vous connecter à la machine virtuelle avec le Bureau à distance, consultez le [guide de résolution des problèmes du Bureau à distance](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 
 ## Ressources supplémentaires
@@ -189,4 +195,4 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -64,4 +64,8 @@ Chaque base de données au sein d'un pool respecte également les caractéristiq
 - Découvrez comment [analyser, gérer et redimensionner des pools élastiques](sql-database-elastic-pool-manage-portal.md) et [analyser les performances des bases de données uniques](sql-database-single-database-monitor.md).
 - Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre [compte gratuit](https://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+## Ressources supplémentaires
+
+Pour plus d’informations sur les modèles d’architecture de données courants pour les applications de base de données SaaS (software as a service) mutualisées, voir [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

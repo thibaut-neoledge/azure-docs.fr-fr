@@ -24,12 +24,14 @@
 
 Cet article contient des informations sur les différentes versions et les dernières mises à jour du kit de ressources Azure pour Eclipse.
 
+> [AZURE.NOTE] Il existe également une boîte à outils Azure pour l’environnement de développement IntelliJ. Pour plus d’informations, consultez [Kit de ressources Azure pour IntelliJ].
+
 ### 12 avril 2016
 
 La version d’avril 2016 du Kit de ressources Azure pour Eclipse inclut les améliorations suivantes :
 
 * **Prise en charge du Kit de développement logiciel (SDK) Azure v2.9.0**. La dernière version du Kit de développement logiciel (SDK) Azure est désormais le minimum requis pour le Kit de ressources Azure pour Eclipse.
-* **Diverses améliorations de la convivialité, la réactivité et les performances liées à la prise en charge d’Azure Web App**. Plusieurs optimisations des performances dans la façon dont le Kit de ressources communique avec Azure donnent une interface utilisateur plus réactive.
+* **Diverses améliorations de la convivialité, de la réactivité et des performances liées à la prise en charge d’Azure Web App**. Plusieurs optimisations des performances dans la façon dont le Kit de ressources communique avec Azure donnent une interface utilisateur plus réactive.
 * **Possibilité de supprimer un conteneur Web Application existant dans Azure depuis Eclipse**. Le Kit de ressources Azure pour Eclipse vous permet désormais de supprimer un conteneur Azure Web existant sans quitter Eclipse.
 
 ### 7 mars 2016
@@ -297,24 +299,32 @@ Publication de la version préliminaire CTP de décembre 2011 du plug-in Azure
 
 ## Voir aussi ##
 
-[Kit de ressources Azure pour Eclipse]
+Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
-[Installation du kit de ressources Azure pour Eclipse]
+- [Kit de ressources Azure pour Eclipse]
+  - [Installation du kit de ressources Azure pour Eclipse]
+  - [Créer une application web « Hello World » pour Azure dans Eclipse]
+  - *Nouveautés du kit de ressources Azure pour Eclipse*
+- [Kit de ressources Azure pour IntelliJ]
+  - [Installation du kit de ressources Azure pour IntelliJ]
+  - [Créer une application web « Hello World » pour Azure dans IntelliJ]
 
-[Création d'une application Hello World pour Azure dans Eclipse]
-
-Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Centre de développement Java].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
 <!-- URL List -->
 
+[Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
+[Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+
 [page web d’Azul Systems correspondant à Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Points de terminaison de service Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Liste des comptes de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[kit de ressources Azure pour IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [propriétés des composants]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Débogage des applications Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Réalisation de déploiements volumineux]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -343,4 +353,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

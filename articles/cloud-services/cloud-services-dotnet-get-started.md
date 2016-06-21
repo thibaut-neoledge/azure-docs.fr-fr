@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/21/2016"
+	ms.date="06/10/2016"
 	ms.author="adegeo"/>
 
 # Prise en main des services cloud Azure et d'ASP.NET
@@ -487,7 +487,7 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 	- Dans le dossier *Views\\Shared* : *\_Layout.cshtml*.
 	- Dans le dossier *Views\\Home* : *Index.cshtml*.
 	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
 
@@ -870,4 +870,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!-----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

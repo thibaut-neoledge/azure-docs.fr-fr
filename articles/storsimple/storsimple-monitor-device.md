@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple 
@@ -25,7 +25,7 @@ Pour afficher les informations de surveillance pour un appareil spécifique, dan
 
 ## Performances E/S 
 
-**Performances E/S** : cette option assure le suivi des mesures relatives au nombre d’opérations de lecture et d’écriture entre les interfaces de l’initiateur iSCSI sur le serveur hôte et l’appareil ou entre l’appareil et le cloud. Ces performances peuvent être mesurées pour un volume spécifique, un conteneur de volumes spécifique ou tous les conteneurs de volumes.
+**Performances E/S** : cette option assure le suivi des mesures relatives au nombre d’opérations de lecture et d’écriture entre les interfaces de l’initiateur iSCSI sur le serveur hôte et l’appareil ou entre l’appareil et le cloud. Ces performances peuvent être mesurées pour un volume spécifique, un conteneur de volumes spécifique ou tous les conteneurs de volumes.
 
 Le tableau ci-dessous montre les E/S pour l’initiateur vers votre appareil pour tous les volumes d’un appareil de production. Les mesures de tracé sont des octets en lecture et écriture par seconde, des E/S de lecture et écriture par seconde, ainsi que des latences de lecture et écriture.
 
@@ -43,7 +43,7 @@ Pour le même appareil, un instantané de cloud a été pris pour les données d
 
 ## Utilisation de la capacité 
 
-**Utilisation de la capacité** : cette option assure le suivi des mesures relatives à la quantité d’espace de stockage des données qui est utilisé par les volumes, les conteneurs de volumes ou l’appareil. Vous pouvez créer des rapports basés sur l’utilisation de la capacité du stockage principal, du stockage cloud ou du stockage de l’appareil. L’utilisation de la capacité peut être mesurée sur un volume spécifique, un conteneur de volumes spécifique ou tous les conteneurs de volumes.
+**Utilisation de la capacité** : cette option assure le suivi des mesures relatives à la quantité d’espace de stockage des données qui est utilisé par les volumes, les conteneurs de volumes ou l’appareil. Vous pouvez créer des rapports basés sur l’utilisation de la capacité du stockage principal, du stockage cloud ou du stockage de l’appareil. L’utilisation de la capacité peut être mesurée sur un volume spécifique, un conteneur de volumes spécifique ou tous les conteneurs de volumes.
 
 
 La capacité de stockage principale, de cloud et de l’appareil peut être décrite comme suit :
@@ -54,7 +54,7 @@ Ces graphiques affichent la quantité de données écrites sur des volumes Stor
 
 Lorsque vous affichez des graphiques d’utilisation de la capacité de volume stockage principal pour tous les volumes (et non pour des volumes individuels) et exploitez les données principales dans ces deux cas, il se peut que vous détectiez une différence entre les deux nombres. Les données principales totales sur tous les volumes ne peuvent pas être ajoutées à la somme totale des données principales des volumes individuels. Cela peut être dû à l’une des opérations suivantes :
 
-- **Données d’instantané incluses pour tous les volumes** : les données principales affichées pour tous les volumes sont la somme des données principales de chaque volume et des données d’instantané. Les données principales indiquées pour un volume donné correspondent uniquement au volume de données alloué sur le volume (et n’incluent pas le volume correspondant de données d’instantané).
+- **Données d’instantané incluses pour tous les volumes** : les données principales affichées pour tous les volumes sont la somme des données principales de chaque volume et des données d’instantané. Les données principales indiquées pour un volume donné correspondent uniquement au volume de données alloué sur le volume (et n’incluent pas le volume correspondant de données d’instantané).
 
 	Cela peut également s’expliquer par l’équation suivante :
 
@@ -64,11 +64,11 @@ Lorsque vous affichez des graphiques d’utilisation de la capacité de volume s
  
 	Si les instantanés sont supprimés par le biais du service, la suppression s’effectue de façon asynchrone en arrière-plan. La mise à jour de la taille des données du volume peut prendre un certain temps après la suppression de l’instantané.
  
-- **Volumes avec l’analyse désactivée inclus dans tous les volumes** : si vous avez des volumes sur votre appareil pour lequel la surveillance est désactivée, les données de surveillance pour ces volumes individuels ne seront pas disponibles dans les graphiques. Toutefois, les données pour tous les volumes dans le graphique incluent les volumes pour lesquels la surveillance est désactivée.
+- **Volumes avec l’analyse désactivée inclus dans tous les volumes** : si vous avez des volumes sur votre appareil pour lequel la surveillance est désactivée, les données de surveillance pour ces volumes individuels ne seront pas disponibles dans les graphiques. Toutefois, les données pour tous les volumes dans le graphique incluent les volumes pour lesquels la surveillance est désactivée.
  
-- **Volumes supprimés avec des sauvegardes associées en continu inclus pour tous les volumes** : si les volumes contenant des données d’instantané sont supprimés alors que les instantanés associés existent toujours, vous pouvez détecter une différence.
+- **Volumes supprimés avec des sauvegardes associées en continu inclus pour tous les volumes** : si les volumes contenant des données d’instantané sont supprimés alors que les instantanés associés existent toujours, vous pouvez détecter une différence.
 
-- **Volumes supprimés inclus pour tous les volumes** : dans certains cas, les anciens volumes peuvent exister même si ceux-ci ont été supprimés. L’effet de suppression n’est pas visible et l’appareil peut afficher moins de capacité disponible. Vous devez contacter le Support Microsoft pour supprimer ces volumes.
+- **Volumes supprimés inclus pour tous les volumes** : dans certains cas, les anciens volumes peuvent exister même si ceux-ci ont été supprimés. L’effet de suppression n’est pas visible et l’appareil peut afficher moins de capacité disponible. Vous devez contacter le Support Microsoft pour supprimer ces volumes.
 
 Les graphiques suivants montrent l’utilisation de la capacité de stockage principale d’un appareil StorSimple avant et après un instantané cloud. Étant donné qu’il s’agit uniquement des données de volume, un instantané cloud ne doit pas modifier le stockage principal. Comme vous pouvez le voir, le graphique n’affiche aucune différence dans l’utilisation de la capacité principale suite à un instantané cloud. Notez que l’instantané cloud a démarré à environ 14 h 00 sur l’appareil.
 
@@ -76,9 +76,9 @@ Les graphiques suivants montrent l’utilisation de la capacité de stockage pri
 
 ![Utilisation de la capacité principale après l’instantané cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
-Si vous exécutez Update 2 ou une version ultérieure, vous pouvez diviser l’utilisation de la capacité de stockage principale (un seul volume, tous les volumes, tous les volumes hiérarchisés ou tous les volumes locaux) comme indiqué ci-dessous. Le fait de diviser la capacité de stockage entre tous les volumes locaux vous permet de déterminer rapidement le niveau d’utilisation d’une couche locale.
+Si vous exécutez Update 2 ou une version ultérieure, vous pouvez diviser l’utilisation de la capacité de stockage principale (un seul volume, tous les volumes, tous les volumes hiérarchisés ou tous les volumes épinglés localement) comme indiqué ci-dessous. Le fait de diviser la capacité de stockage entre tous les volumes épinglés localement vous permet de déterminer rapidement le niveau d’utilisation d’une couche locale.
 
-![Utilisation de la capacité principale pour tous les volumes locaux](./media/storsimple-monitor-device/localvolumes.png)
+![Utilisation de la capacité principale pour tous les volumes épinglés localement](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Utilisation de la capacité de stockage dans le cloud
@@ -105,7 +105,7 @@ Les graphiques suivants montrent l’utilisation de la capacité de stockage pri
 
 ## Débit du réseau
 
-**Débit du réseau** : cette option assure le suivi des mesures relatives à la quantité de données transférées entre les interfaces réseau de l’initiateur iSCSI sur le serveur hôte et l’appareil, et entre l’appareil et le cloud. Vous pouvez surveiller cette mesure pour chacune des interfaces réseau iSCSI sur votre appareil.
+**Débit du réseau** : cette option assure le suivi des mesures relatives à la quantité de données transférées entre les interfaces réseau de l’initiateur iSCSI sur le serveur hôte et l’appareil, et entre l’appareil et le cloud. Vous pouvez surveiller cette mesure pour chacune des interfaces réseau iSCSI sur votre appareil.
 
 Les graphiques ci-dessous montrent le débit du réseau pour Data 0 et Data 4, deux interfaces de réseau 1 Gigabit Ethernet sur votre appareil. Dans le cas présent, le cloud a été activé pour Data 0, et iSCSI a été activé pour Data 4. Vous pouvez voir le trafic entrant et sortant pour votre appareil StorSimple. Notez que la ligne plate dans le graphique à partir de 15 h 24 est due au fait que nous ne collectons des données que toutes les 5 minutes et que celle-ci doit être ignorée.
 
@@ -116,7 +116,7 @@ Les graphiques ci-dessous montrent le débit du réseau pour Data 0 et Data 4,
 
 ## Performances de l’appareil 
 
-**Performances de l’appareil** : cette option assure le suivi des métriques relatives aux performances de votre appareil. Le tableau ci-dessous affiche les statistiques d’utilisation du processeur pour un appareil en production.
+**Performances de l’appareil** : cette option assure le suivi des métriques relatives aux performances de votre appareil. Le tableau ci-dessous affiche les statistiques d’utilisation du processeur pour un appareil en production.
 
 ![Utilisation du processeur pour l’appareil](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
 
@@ -126,4 +126,4 @@ Les graphiques ci-dessous montrent le débit du réseau pour Data 0 et Data 4,
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/20/2016"
+ ms.date="06/03/2016"
  ms.author="larryfr"/>
 
 #Se connecter à Hive sur Azure HDInsight à l’aide du pilote JDBC Hive
@@ -161,15 +161,15 @@ __Symptômes__ : lors de la connexion à un cluster HDInsight version 3.3 ou 3.4
     at java.util.concurrent.FutureTas...(FutureTask.java:122)
     at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
-__Cause__ : cette erreur est due à une incohérence entre la version du fichier codec.jar-commun utilisé par SQuirreL et celle du fichier requis par les composants JDBC Hive téléchargés à partir du cluster HDInsight.
+__Cause__ : cette erreur est due à une incohérence entre la version du fichier commons-codec.jar utilisé par SQuirreL et celle du fichier exigés par les composants JDBC Hive téléchargés à partir du cluster HDInsight.
 
 __Résolution__ : pour corriger cette erreur, procédez comme suit.
 
-1. Téléchargez le fichier common-codec jar à partir de votre cluster HDInsight.
+1. Téléchargez le fichier jar common-codec à partir de votre cluster HDInsight.
 
-        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/common-codec*.jar ./common-codec.jar
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. Quittez SQuirreL et accédez au répertoire où SQuirreL est installé sur votre système. Dans le répertoire SquirreL, sous le dossier `lib`, remplacez le fichier common-codec.jar existant par le fichier téléchargé à partir du cluster HDInsight.
+2. Quittez SQuirreL et accédez au répertoire où SQuirreL est installé sur votre système. Dans le répertoire SquirreL, sous le dossier `lib`, remplacez le fichier commons-codec.jar existant par le fichier téléchargé à partir du cluster HDInsight.
 
 3. Redémarrez SQuirreL. L'erreur ne devrait plus apparaître lors de la connexion à Hive sur HDInsight.
 
@@ -182,4 +182,4 @@ Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,33 +13,31 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/20/2016"
+	ms.date="06/03/2016"
 	ms.author="marsma" />
 
 # Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch
 
 Avec les tâches multi-instances, vous pouvez exécuter une tâche Azure Batch sur plusieurs nœuds de calcul simultanément pour permettre des scénarios de calcul haute performance comme les applications MPI (Message Passing Interface). Dans cet article, vous allez apprendre à exécuter des tâches multi-instances à l’aide de la bibliothèque [Batch.NET][api_net].
 
-> [AZURE.IMPORTANT] Actuellement, les tâches multi-instances ne sont prises en charge que par les pools créés avec **CloudServiceConfiguration**. Vous ne pouvez pas utiliser de tâches multi-instances sur des nœuds dans des pools créés avec des images VirtualMachineConfiguration. Pour plus d’informations sur les deux configurations, consultez la section [Configuration de la machine virtuelle](batch-linux-nodes.md#virtual-machine-configuration) dans [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md).
-
 ## Présentation des tâches multi-instances
 
-Dans Azure Batch, chaque tâche est normalement exécutée sur un nœud de calcul unique : vous soumettez plusieurs tâches à un travail, et le service Azure Batch planifie l’exécution de chacune d’entre elles sur un nœud. Toutefois, en configurant les **paramètres multi-instances** d’une tâche, vous pouvez ordonner à Azure Batch de fractionner cette tâche en tâches subordonnées pour une exécution sur plusieurs nœuds.
+Dans Azure Batch, chaque tâche est normalement exécutée sur un nœud de calcul unique : vous soumettez plusieurs tâches à un travail, et le service Azure Batch planifie l’exécution de chacune d’entre elles sur un nœud. Toutefois, en configurant les **paramètres multi-instances** d’une tâche, vous pouvez ordonner à Azure Batch de fractionner cette tâche en tâches subordonnées pour une exécution sur plusieurs nœuds.
 
 ![Présentation des tâches multi-instances][1]
 
 Lorsque vous envoyez à un travail une tâche dotée de paramètres multi-instances, Azure Batch exécute plusieurs étapes uniques aux tâches multi-instances :
 
-1. Le service Azure Batch fractionne automatiquement la tâche en une tâche **principale** et en plusieurs **tâches subordonnées**. Azure Batch planifie ensuite l’exécution de la tâche principale et des tâches subordonnées sur les nœuds de calcul du pool.
+1. Le service Azure Batch fractionne automatiquement la tâche en une tâche **principale** et en plusieurs **tâches subordonnées**. Azure Batch planifie ensuite l’exécution de la tâche principale et des tâches subordonnées sur les nœuds de calcul du pool.
 2. Ces tâches, tant la tâche principale que les tâches subordonnées, téléchargent les **fichiers de ressources communs** que vous indiquez dans les paramètres multi-instances.
-3. Une fois les fichiers de ressources communs téléchargés, la tâche principale et les tâches subordonnées exécutent la **commande de coordination** que vous indiquez dans les paramètres multi-instances. Cette commande de coordination lance habituellement un service à l’arrière-plan (comme le fichier `smpd.exe` de l’application [Microsoft MPI][msmpi_msdn]), et vérifie également que les nœuds sont prêts à traiter les messages entre les nœuds.
-4. Au moment où la tâche principale et toutes les tâches subordonnées finissent d’exécuter la commande de coordination, l’exécution de la **ligne de commande** de la tâche multi-instances (la « commande d’application ») intervient, *uniquement* par la **tâche principale**. Par exemple, dans une solution basée sur [MS-MPI][msmpi_msdn], c’est là où vous exécutez votre application prenant en charge MPI au moyen du fichier `mpiexec.exe`.
+3. Une fois les fichiers de ressources communs téléchargés, la tâche principale et les tâches subordonnées exécutent la **commande de coordination** que vous indiquez dans les paramètres multi-instances. Cette commande de coordination lance habituellement un service à l’arrière-plan (comme le fichier `smpd.exe` de l’application [Microsoft MPI][msmpi_msdn]), et vérifie également que les nœuds sont prêts à traiter les messages entre les nœuds.
+4. Au moment où la tâche principale et toutes les tâches subordonnées finissent d’exécuter la commande de coordination, l’exécution de la **ligne de commande** de la tâche multi-instances (la « commande d’application ») intervient, *uniquement* par la **tâche principale**. Par exemple, dans une solution basée sur [MS-MPI][msmpi_msdn], c’est là où vous exécutez votre application prenant en charge MPI au moyen du fichier `mpiexec.exe`.
 
-> [AZURE.NOTE] Même si elle est différente d’un point de vue fonctionnel, la « tâche multi-instances » n’est pas un type de tâche unique comme [StartTask][net_starttask] ou [JobPreparationTask][net_jobprep]. La tâche multi-instances est simplement une tâche Azure Batch standard ([CloudTask][net_task] dans Batch .NET) dont les paramètres multi-instances ont été configurés. Dans cet article, nous parlons de **tâche multi-instances**.
+> [AZURE.NOTE] Même si elle est différente d’un point de vue fonctionnel, la « tâche multi-instances » n’est pas un type de tâche unique comme [StartTask][net_starttask] ou [JobPreparationTask][net_jobprep]. La tâche multi-instances est simplement une tâche Azure Batch standard ([CloudTask][net_task] dans Batch .NET) dont les paramètres multi-instances ont été configurés. Dans cet article, nous parlons de **tâche multi-instances**.
 
 ## Configuration requise pour les tâches multi-instances
 
-Les tâches multi-instances nécessitent un pool avec **communication entre les nœuds activée** et **exécution de tâches simultanées désactivée**. Si vous essayez d’exécuter une tâche multi-instances dans un pool dont la communication entre les nœuds a été désactivée ou avec une valeur *maxTasksPerNode* supérieure à 1, la tâche ne sera jamais planifiée : elle restera indéfiniment à l’état « actif ». Cet extrait de code illustre la création d’un tel pool à l’aide de la bibliothèque Batch.NET.
+Les tâches multi-instances nécessitent un pool avec **communication entre les nœuds activée** et **exécution de tâches simultanées désactivée**. Si vous essayez d’exécuter une tâche multi-instances dans un pool dont la communication entre les nœuds a été désactivée ou avec une valeur *maxTasksPerNode* supérieure à 1, la tâche ne sera jamais planifiée : elle restera indéfiniment à l’état « actif ». Cet extrait de code illustre la création d’un tel pool à l’aide de la bibliothèque Batch.NET.
 
 ```csharp
 CloudPool myCloudPool =
@@ -55,9 +53,9 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-En outre, les tâches multi-instances s’exécutent *uniquement* sur les nœuds des **pools créés après le 14 décembre 2015**.
+En outre, les tâches multi-instances s’exécutent *uniquement* sur les nœuds des **pools créés après le 14 décembre 2015**.
 
-> [AZURE.TIP] Quand vous utilisez des [nœuds de calcul de taille A8 ou A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) dans le pool Batch, votre application MPI peut tirer parti du réseau d’accès direct à la mémoire à distance (RDMA) haute performance d’Azure. Vous pouvez voir la liste complète des tailles de nœud de calcul disponibles pour les pools Azure Batch dans [Tailles de services cloud](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] Lorsque vous utilisez des [nœuds de calcul de taille A8 ou A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) dans le pool Batch, votre application MPI peut tirer parti du réseau d’accès direct à la mémoire à distance (RDMA) haute performance d’Azure. Vous pouvez voir la liste complète des tailles de nœud de calcul disponibles pour les pools Azure Batch dans [Tailles de services cloud](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Utiliser une tâche StartTask pour l’installation de l’application MPI
 
@@ -111,9 +109,9 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 
 ## Tâche principale et tâches subordonnées
 
-Lorsque vous créez les paramètres multi-instances d’une tâche, vous indiquez le nombre de nœuds de calcul qui vont exécuter la tâche. Quand vous soumettez la tâche à un travail, le service Azure Batch crée une tâche **principale** et suffisamment de **tâches subordonnées** pour le nombre de nœuds indiqué.
+Lorsque vous créez les paramètres multi-instances d’une tâche, vous indiquez le nombre de nœuds de calcul qui vont exécuter la tâche. Lorsque vous soumettez la tâche à un travail, le service Azure Batch crée une tâche **principale** et suffisamment de **tâches subordonnées** pour le nombre de nœuds indiqué.
 
-Ces tâches se voient affecter un identifiant entier allant de 0 à *numberOfInstances - 1*. La tâche dont l’identifiant est 0 est la tâche principale, tandis que tous les autres identifiants correspondent aux tâches subordonnées. Par exemple, si vous créez les paramètres multi-instances suivants d’une tâche, la tâche principale a pour identifiant 0 et les tâches subordonnées, des identifiants allant de 1 à 9.
+Ces tâches se voient affecter un identifiant entier allant de 0 à *numberOfInstances - 1*. La tâche dont l’identifiant est 0 est la tâche principale, tandis que tous les autres identifiants correspondent aux tâches subordonnées. Par exemple, si vous créez les paramètres multi-instances suivants d’une tâche, la tâche principale a pour identifiant 0 et les tâches subordonnées, des identifiants allant de 1 à 9.
 
 ```csharp
 int numberOfNodes = 10;
@@ -130,7 +128,7 @@ L’appel de la commande de coordination bloque : Azure Batch exécute uniquem
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 ```
 
-Notez l’utilisation de `start` dans cette commande de coordination. Cela est nécessaire, car l’application `smpd.exe` n’est pas immédiatement renvoyée après l’exécution. Sans l’utilisation de la commande [start][cmd_start], cette commande de coordination ne serait pas renvoyée et bloquerait donc l’exécution de la commande d’application.
+Notez l’utilisation de `start` dans cette commande de coordination. Cela est nécessaire, car l’application `smpd.exe` n’est pas immédiatement renvoyée après l’exécution. Sans l’utilisation de la commande [start][cmd_start], cette commande de coordination ne serait pas renvoyée et bloquerait par conséquent l’exécution de la commande d’application.
 
 La **commande d’application**, la ligne de commande indiquée pour la tâche multi-instances, est exécutée *uniquement* par la tâche principale. Pour les applications MS-MPI, il s’agit d’exécuter votre application prenant en charge MPI à l’aide de `mpiexec.exe`. Par exemple, voici une commande d’application pour une solution qui utilise la version 7 de MS-MPI :
 
@@ -140,9 +138,9 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 
 ## Fichiers de ressources
 
-Il existe deux ensembles de fichiers de ressources à prendre en compte pour les tâches multi-instances : les **fichiers de ressources communs** que *toutes* les tâches téléchargent (tâche principale et tâches subordonnées) et les **fichiers de ressources** indiqués pour la tâche multi-instances elle-même que *seule la tâche principale* télécharge.
+Il existe deux ensembles de fichiers de ressources à prendre en compte pour les tâches multi-instances : les **fichiers de ressources communs** que *toutes* les tâches téléchargent (tâche principale et tâches subordonnées) et les **fichiers de ressources** indiqués pour la tâche multi-instances elle-même que *seule la tâche principale* télécharge.
 
-Vous pouvez indiquer un ou plusieurs **fichiers de ressources communs** dans les paramètres multi-instances d’une tâche. Ces fichiers de ressources communs sont téléchargés à partir d’[Azure Storage](./../storage/storage-introduction.md) dans le répertoire partagé de tâche de chaque nœud, par la tâche principale et les tâches subordonnées. Vous pouvez accéder au répertoire partagé de la tâche à partir de l’application et des lignes de commande de coordination à l’aide de la variable d’environnement `AZ_BATCH_TASK_SHARED_DIR`.
+Vous pouvez indiquer un ou plusieurs **fichiers de ressources communs** dans les paramètres multi-instances d’une tâche. Ces fichiers de ressources communs sont téléchargés à partir de [Azure Storage](./../storage/storage-introduction.md) dans le répertoire partagé de tâche de chaque nœud, par la tâche principale et les tâches subordonnées. Vous pouvez accéder au répertoire partagé de la tâche à partir de l’application et des lignes de commande de coordination à l’aide de la variable d’environnement `AZ_BATCH_TASK_SHARED_DIR`.
 
 Les fichiers de ressources que vous indiquez dans la tâche multi-instances elle-même sont téléchargés dans le répertoire de travail de la tâche `AZ_BATCH_TASK_WORKING_DIR`, par la tâche principale *uniquement* : les tâches subordonnées ne téléchargent pas les fichiers de ressources indiqués par la tâche multi-instances.
 
@@ -150,7 +148,7 @@ Le contenu du répertoire `AZ_BATCH_TASK_SHARED_DIR` est accessible par la tâch
 
 Notez que dans les exemples de code de cet article, nous n’indiquons pas les fichiers de ressources de la tâche multi-instances elle-même. Nous les indiquons uniquement pour la tâche StartTask du pool et la tâche [CommonResourceFiles][net_multiinsance_commonresfiles] des paramètres multi-instances.
 
-> [AZURE.IMPORTANT] Utilisez toujours les variables d’environnement `AZ_BATCH_TASK_SHARED_DIR` et `AZ_BATCH_TASK_WORKING_DIR` pour faire référence à ces répertoires dans les lignes de commande. N’essayez pas de construire les chemins d’accès manuellement.
+> [AZURE.IMPORTANT] Veillez à toujours utiliser les variables d’environnement `AZ_BATCH_TASK_SHARED_DIR` et `AZ_BATCH_TASK_WORKING_DIR` pour faire référence à ces répertoires dans les lignes de commande. N’essayez pas de construire les chemins d’accès manuellement.
 
 ## Durée de vie de la tâche
 
@@ -160,7 +158,7 @@ Si l’une des tâches subordonnées échoue, par exemple en se fermant avec un 
 
 Quand vous supprimez une tâche multi-instances, la tâche principale et toutes les tâches subordonnées sont également supprimées par le service Azure Batch. Tous les répertoires des tâches subordonnées et leurs fichiers sont supprimés des nœuds de calcul, à l’image d’une tâche standard.
 
-Les [TaskConstraints][net_taskconstraints] pour une tâche multi-instances, par exemple les propriétés [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] et [RetentionTime][net_taskconstraint_retention], sont honorées en l’état pour une tâche standard et s’appliquent à la tâche principale et à toutes les tâches subordonnées. Toutefois, si vous modifiez la propriété [RetentionTime][net_taskconstraint_retention] après l’ajout de la tâche multi-instances au travail, cette modification s’applique uniquement à la tâche principale. Toutes les tâches subordonnées vont continuer à utiliser la propriété [RetentionTime][net_taskconstraint_retention] d’origine.
+[TaskConstraints][net_taskconstraints] pour une tâche multi-instances, par exemple les propriétés [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] et [RetentionTime][net_taskconstraint_retention], sont honorées en l’état pour une tâche standard, puis appliquer à la tâche principale et à toutes les tâches subordonnées. Toutefois, si vous modifiez la propriété [RetentionTime][net_taskconstraint_retention] après l’ajout de la tâche multi-instances au travail, cette modification s’applique uniquement à la tâche principale. Toutes les tâches subordonnées vont continuer à utiliser la propriété [RetentionTime][net_taskconstraint_retention] d’origine.
 
 Une liste des tâches récentes d’un nœud de calcul reflète l’identifiant d’une tâche subordonnée si la tâche récente faisait partie d’une tâche multi-instances.
 
@@ -168,7 +166,7 @@ Une liste des tâches récentes d’un nœud de calcul reflète l’identifiant 
 
 Pour obtenir plus d’informations sur les tâches subordonnées à l’aide de la bibliothèque Batch.NET, appelez la méthode [CloudTask.ListSubtasks][net_task_listsubtasks]. Cette méthode renvoie des informations sur toutes les tâches subordonnées, ainsi que sur le nœud de calcul qui a exécuté les tâches. À partir de ces informations, vous pouvez déterminer le répertoire racine de chaque tâche subordonnée, l’identifiant du pool, son état actuel, le code de sortie, etc. Utilisez ces informations en même temps que la méthode [PoolOperations.GetNodeFile][poolops_getnodefile] pour obtenir les fichiers de la tâche subordonnée. Notez que cette méthode ne renvoie pas d’informations pour la tâche principale (identifiant 0).
 
-> [AZURE.NOTE] Sauf indication contraire, les méthodes Batch.NET qui interviennent sur la tâche multi-instances [CloudTask][net_task] elle-même s’appliquent *uniquement* à la tâche principale. Par exemple, quand vous appelez la méthode [CloudTask.ListNodeFiles][net_task_listnodefiles] sur une tâche multi-instances, seuls les fichiers de la tâche principale sont renvoyés.
+> [AZURE.NOTE] Sauf indication contraire, les méthodes Batch.NET qui interviennent sur la tâche multi-instances [CloudTask][net_task] elle-même s’appliquent *uniquement* à la tâche principale. Par exemple, lorsque vous appelez la méthode [CloudTask.ListNodeFiles][net_task_listnodefiles] sur une tâche multi-instances, seuls les fichiers de la tâche principale sont renvoyés.
 
 L’extrait de code suivant montre comment obtenir des informations sur les tâches subordonnées et comment demander le contenu du fichier à partir des nœuds sur lesquels elles sont exécutées.
 
@@ -211,9 +209,9 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Étapes suivantes
 
-- Vous voulez peut-être créer une application MS-MPI simple à utiliser tout en testant des tâches multi-instances dans Azure Batch. L’article de blog Microsoft HPC et Azure Batch [How to compile and run a simple MS-MPI program][msmpi_howto] \(Comment compiler et exécuter un programme MS-MPI simple) contient une procédure pas à pas pour créer une application MPI simple à l’aide de MS-MPI.
+- Vous voulez peut-être créer une application MS-MPI simple à utiliser tout en testant des tâches multi-instances dans Azure Batch. L’article de blog Microsoft HPC et Azure Batch [How to compile and run a simple MS-MPI program][msmpi_howto] (Comment compiler et exécuter un programme MS-MPI simple) contient une procédure pas à pas pour créer une application MPI simple à l’aide de MS-MPI.
 
-- Découvrez la page [Microsoft MPI][msmpi_msdn] sur MSDN pour en savoir plus sur MS-MPI.
+- Découvrez la page [Microsoft MPI][msmpi_msdn] sur MSDN pour en savoir plus sur MS-MPI.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -249,4 +247,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Présentation multi-instances"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

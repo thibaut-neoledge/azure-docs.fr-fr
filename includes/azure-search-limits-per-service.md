@@ -1,14 +1,16 @@
-Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes or documents, whichever comes first. 
+Le stockage est limité par l’espace disque ou le *nombre maximum* d’index ou de documents inconditionnel, selon la limite atteinte en premier.
 
-Resource|Free|Basic|S1|S2|S3 <br/>(Preview)|S3 HD <br/>(Preview)
+Ressource|Gratuit|De base|S1|S2|S3 <br/>(version préliminaire)|S3 HD <br/>(version préliminaire)
 ---|---|---|---|----|---|----
-Service Level Agreement (SLA)|No <sup>1</sup> |Yes |Yes  |Yes |No <sup>1</sup> |No <sup>1</sup> 
-Storage per service|50 MB |2 GB|300 GB|1.2 TB|2.4 TB|200 GB
-Partitions per service|N/A|1|12|12|12|1
-Partition size|N/A|2 GB|25 GB|100 GB|200 GB |200 GB
-Replicas|N/A|1|12|12|12|12
-Maximum Indexes|3|5|50|200|200|1000
-Maximum Documents|10,000|1 million|180 million per service, 15 million per partition |720 million documents per service, 60 million per partition|1.4 billion documents per service, 120 million per partition|200 million per service, 1 million per index
-Estimated queries per second (QPS)|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
+Contrat de Niveau de Service (SLA)|Non <sup>1</sup> |Oui |Oui |Oui |Non <sup>1</sup> |Non <sup>1</sup> 
+Stockage par service|50 Mo |2 Go|300 Go|1,2 To|2,4 To|200 Go
+Partitions par service|N/A|1|12|12|12|1
+Taille de partition|N/A|2 Go|25 Go|100 Go|200 Go |200 Go
+Réplicas|N/A|1|12|12|12|12
+Nombre maximal d’index|3|5|50|200|200|1 000
+Nombre maximal de documents|10 000|1 million|180 millions par service, 15 millions par partition |720 millions de documents par service, 60 millions par partition|1,4 milliards de documents par service, 120 millions par partition|200 millions par service, 1 million par index
+Nombre de requêtes par seconde (QPS) estimé|N/A|~3 par réplica|~15 par réplica|~60 par réplica|Moins de 60 par réplica|Moins de 60 par réplica
 
-<sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
+<sup>1</sup> Les références gratuites et les versions préliminaires ne sont pas fournies avec les contrats de niveau de service. Des contrats de niveau de service sont mis en œuvre dès qu’une référence (SKU) est généralement disponible.
+
+<!---HONumber=AcomDC_0608_2016-->

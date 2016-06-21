@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="06/06/2016"
 	ms.author="tdykstra"/>
 
 # Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
@@ -197,4 +197,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

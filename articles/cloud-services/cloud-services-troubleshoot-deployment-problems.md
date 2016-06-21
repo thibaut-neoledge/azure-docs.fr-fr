@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Résoudre les problèmes de déploiement de service cloud
@@ -27,11 +27,7 @@ Vous trouverez le volet **Propriétés** comme suit :
 
 > [AZURE.NOTE] Vous pouvez copier le contenu du volet **Propriétés** dans le Presse-papiers en cliquant sur l’icône dans le coin supérieur droit du volet.
 
-## Contacter le Support technique Azure
-
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/).
-
-Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Problème : Je ne peux pas accéder à mon site web bien que mon déploiement soit démarré et que toutes les instances de rôle soient prêtes
 
@@ -60,7 +56,7 @@ Un échange d’adresses IP virtuelles n’est pas autorisé si une mise à jou
 Pour savoir si une mise à jour automatique vous empêche d’effectuer un échange d’adresses IP virtuelles :
 
 1. Dans le portail Azure, cliquez sur le déploiement de votre service cloud.
-2. Dans le volet **Propriétés** du portail Azure, examinez la valeur **État**. Si elle affiche **Prêt**, vérifiez la **Dernière opération** pour voir si une opération récente empêche l’échange d’adresses IP virtuelles.
+2. Dans le volet **Propriétés** du portail Azure, examinez la valeur de **l’État**. Si elle affiche **Prêt**, vérifiez la **Dernière opération** pour voir si une opération récente empêche l’échange d’adresses IP virtuelles.
 3. Répétez les étapes 1 et 2 pour le déploiement en production.
 4. Si une mise à jour automatique est en cours, attendez qu’elle se termine avant d’essayer d’effectuer l’échange d’adresses IP virtuelles.
 
@@ -68,7 +64,7 @@ Pour savoir si une mise à jour automatique vous empêche d’effectuer un écha
 
 Cette condition peut indiquer un problème lié à votre code d’application, package ou fichier de configuration. Dans ce cas, vous devez être en mesure de voir l’état changer à des intervalles de quelques minutes, et le portail Azure peut indiquer des états tels que **Recyclage**, **Occupé** ou **Initialisation**. Cela indique qu’il existe un problème au niveau de l’application qui empêche l’exécution de l’instance de rôle.
 
-Pour plus d’informations sur la résolution de ce problème, consultez le billet de blog [Données de diagnostic de calcul PaaS Azure](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) et [Problèmes courants provoquant le recyclage des rôles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Pour plus d’informations sur la résolution de ce problème, consultez les billets de blog [Azure PaaS Compute Diagnostics Data (Données de diagnostic de calcul PaaS Azure)](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) et [Common issues that cause roles to recycle (Problèmes courants provoquant le recyclage des rôles)](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## Problème : Mon application a cessé de fonctionner
 
@@ -82,8 +78,8 @@ Pour plus d’informations sur la résolution de ce problème, consultez le bill
 
 ## Étapes suivantes
 
-Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-issue&service=cloud-services) liés aux services cloud.
+Affichez plus d’[articles de résolution des problèmes](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) liés aux services cloud.
 
-Pour découvrir comment résoudre les problèmes de rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

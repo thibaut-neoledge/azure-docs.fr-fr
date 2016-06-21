@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Sauvegarde et restauration d’une base de données dans Azure SQL Data Warehouse (API REST)
 
@@ -30,7 +30,6 @@ Tâches abordées dans cette rubrique :
 
 - restauration d’une base de données active ;
 - restauration d’une base de données supprimée.
-- restauration d’une base de données inaccessible à partir d’une autre région géographique Azure.
 
 ## Avant de commencer
 
@@ -57,39 +56,19 @@ Pour restaurer une base de données supprimée :
 
 >[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
 
-## Restauration à partir d’une région géographique Azure
-
-Pour effectuer une restauration géographique :
-
-1. Obtenez la liste des bases de données récupérables à l’aide de l’opération [List Recoverable Databases][].
-2. Obtenez la base de données à récupérer à l’aide de l’opération [Get Recoverable Database][].
-3. Créez la requête de récupération à l’aide de l’opération [Create Database Recovery Request][].
-4. Suivez l’état de la récupération à l’aide de l’opération [Database Operation Status][].
-
-### Configurer votre base de données après avoir effectué une géo-restauration
-Voici une liste de contrôle pour vous aider à préparer votre base de données de production récupérée.
-
-1. **Mettre à jour les chaînes de connexion** : vérifiez que les chaînes de connexion de vos outils clients pointent vers la base de données qui vient d’être récupérée.
-2. **Modifier les règles de pare-feu** : vérifiez les règles de pare-feu sur le serveur cible. Assurez-vous également que les connexions entre les ordinateurs clients ou Azure et le serveur et la base de données qui vient d’être récupérée sont activées.
-3. **Vérifier les connexions de serveur et les utilisateurs des bases de données** : vérifiez que toutes les connexions utilisées par votre application existent sur le serveur qui héberge votre base de données récupérée. Créez à nouveau les connexions manquantes et accordez-leur les autorisations appropriées sur la base de données restaurée. 
-4. **Activer l’audit** : si la fonction d’audit est nécessaire pour accéder à votre base de données, vous devez l’activer après la récupération de la base de données.
-
-La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
-
 
 ## Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité d’activité de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: sql-database-business-continuity.md
+[Vue d’ensemble de la continuité d’activité de la base de données SQL Azure]: sql-database-business-continuity.md
 [Finaliser une base de données récupérée]: sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references-->
 [Création d’une demande de restauration de base de données]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Statut d’opération de base de données]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obtention de base de données supprimée pouvant être restaurée]: https://msdn.microsoft.com/library/azure/dn509574.aspx
 [Liste des bases de données supprimées pouvant être restaurées]: https://msdn.microsoft.com/library/azure/dn509562.aspx
@@ -102,4 +81,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

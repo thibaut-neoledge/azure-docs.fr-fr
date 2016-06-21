@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de la capacité de SQL Data Warehouse
@@ -35,7 +35,7 @@ Les tableaux ci-après présentent les valeurs maximales autorisées pour les di
 
 | Catégorie | Description | Maximale |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Base de données | Taille maximale | 60 To compressés sur disque <br/><br/>SQL Data Warehouse autorise jusqu’à 60 To d’espace brut sur le disque par base de données. L’espace disque est la taille compressée des tables permanentes. Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes. La compression cluster columnstore est estimée à 5 fois, ce qui signifie que la taille décompressée de la base de données peut augmenter jusqu’à environ 300 To quand toutes les tables sont columnstore cluster (type de table par défaut). La limite de 60 To passera à 240 To à la fin de la version préliminaire publique, ce qui permettra à la plupart des bases de données de dépasser 1 Po de données non compressées.|
+| Base de données | Taille maximale | 240 To compressés sur disque<br/><br/>Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes. La compression cluster columnstore est estimée à cinq fois, ce qui signifie que la taille décompressée de la base de données peut augmenter jusqu’à environ 1 Po quand toutes les tables sont columnstore cluster (type de table par défaut).|
 | Table | Taille maximale | 60 To compressés sur disque |
 | Table | Tables par base de données | 2 milliards |
 | Table | Colonnes par table | 1 024 colonnes |
@@ -109,4 +109,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Erreur interne : une limite des services d’expression a été atteinte]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

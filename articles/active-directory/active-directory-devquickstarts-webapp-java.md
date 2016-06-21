@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,16 +23,16 @@
 
 Azure AD simplifie l’externalisation de la gestion des identités de votre application web en fournissant une authentification unique avec seulement quelques lignes de code. Dans les applications web Java, vous pouvez y parvenir en utilisant l’implémentation Microsoft d’ADAL4J communautaire.
 
-  Ici, nous allons utiliser ADAL4J pour :
-- connecter l’utilisateur à l’application à l’aide d’Azure AD comme fournisseur d’identité ;
-- afficher des informations sur l’utilisateur ;
+  Ici, nous allons utiliser ADAL4J pour :
+- connecter l’utilisateur à l’application à l’aide d’Azure AD comme fournisseur d’identité ;
+- afficher des informations sur l’utilisateur ;
 - déconnecter l’utilisateur de l’application.
 
-Pour ce faire, vous devez :
+Pour ce faire, vous devez :
 
-1. inscrire une application auprès d’Azure AD ;
+1. inscrire une application auprès d’Azure AD ;
 2. Configurez votre application pour utiliser la bibliothèque ADAL4J.
-3. Utilisez la bibliothèque ADAL4J pour émettre des demandes de connexion et de déconnexion dans Azure AD.
+3. Utilisez la bibliothèque ADAL4J pour émettre des demandes de connexion et de déconnexion dans Azure AD.
 4. afficher les données relatives à l’utilisateur.
 
 Pour commencer, téléchargez [la structure de l’application](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip). Vous aurez également besoin d’un client Azure AD dans lequel inscrire votre application. Si ce n’est pas déjà fait, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
@@ -56,7 +56,7 @@ Une fois dans le portail de votre application, créez un **secret d’applicatio
 ## 2\. Configurer votre application pour utiliser la bibliothèque ADAL4J et la configuration requise à l’aide de Maven
 Ici, nous allons configurer ADAL4J pour utiliser le protocole d’authentification OpenID Connect. ADAL4J sera utilisée pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
 
--	Dans le répertoire racine de votre projet, ouvrez/créez `pom.xml`, recherchez `// TODO: provide dependencies for Maven` et remplacez cette portion par les éléments suivants :
+-	Dans le répertoire racine de votre projet, ouvrez/créez `pom.xml`, recherchez `// TODO: provide dependencies for Maven` et remplacez cette portion par les éléments suivants :
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -175,7 +175,7 @@ Ici, nous allons configurer l’application web Java pour utiliser le protocole 
 
 -	Pour commencer, ouvrez le fichier `web.xml` situé sous `\webapp\WEB-INF`, puis entrez les valeurs de configuration de votre application dans le fichier .xml.
 
-Le fichier doit se présenter comme suit :
+Le fichier doit se présenter comme suit :
 
 ```xml
 <?xml version="1.0"?>
@@ -243,7 +243,7 @@ Ne modifiez pas les autres paramètres de configuration.
 > [AZURE.NOTE]
 Comme vous pouvez le voir à partir du fichier XML, nous écrivons une application web JSP/Servlet appelée `mvc-dispatcher` qui utilisera `BasicFilter` chaque fois que nous visitons l’URL /secure. Vous verrez dans la suite que nous allons utiliser /secure comme emplacement de notre contenu protégé, et que nous allons forcer l’authentification à Azure Active Directory.
 
--	Ensuite, créez le fichier `mvc-dispatcher-servlet.xml` situé sous `\webapp\WEB-INF`, puis entrez les informations suivantes :
+-	Ensuite, créez le fichier `mvc-dispatcher-servlet.xml` situé sous `\webapp\WEB-INF`, puis entrez les informations suivantes :
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -276,11 +276,11 @@ Cela indiquera à l’application web d’utiliser Spring, ainsi que l’emplace
 
 Nous sommes seulement à la moitié de la configuration de notre application web dans WEB-INF. Ensuite, nous devrons créer les fichiers de pages de serveur Java réels que notre application web exécutera et que nous avons suggérés dans notre configuration.
 
-Rappelez-vous : nous avions indiqué à Java dans nos fichiers de configuration xml que nous avions une ressource `/` qui doit charger des fichiers .jsp, et une ressource `/secure` qui doit passer par un filtre que nous avions appelé `BasicFilter`.
+Rappelez-vous : nous avions indiqué à Java dans nos fichiers de configuration xml que nous avions une ressource `/` qui doit charger des fichiers .jsp, et une ressource `/secure` qui doit passer par un filtre que nous avions appelé `BasicFilter`.
 
 Nous allons effectuer ces opérations maintenant.
 
--	Pour commencer, créez le fichier `index.jsp` situé sous `\webapp`, puis coupez/collez les informations suivantes :
+-	Pour commencer, créez le fichier `index.jsp` situé sous `\webapp`, puis coupez/collez les informations suivantes :
 
 ```jsp
 <html>
@@ -296,7 +296,7 @@ Nous allons effectuer ces opérations maintenant.
 
 Cette opération redirige simplement vers une page sécurisée qui est protégée par notre filtre.
 
-- Ensuite, dans le même répertoire, nous allons créer un fichier `error.jsp` pour intercepter les erreurs susceptibles de se produire :
+- Ensuite, dans le même répertoire, nous allons créer un fichier `error.jsp` pour intercepter les erreurs susceptibles de se produire :
 
 ```jsp
 <html>
@@ -314,7 +314,7 @@ Cette opération redirige simplement vers une page sécurisée qui est protégé
 
 - Enfin, créons la page web sécurisée que nous souhaitons en créant un dossier sous `\webapp` appelé `\secure` afin que le répertoire soit désormais `\webapp\secure`. 
 
-- Dans ce répertoire, nous allons ensuite créer un fichier `aad.jsp` et couper/coller les éléments suivants :
+- Dans ce répertoire, nous allons ensuite créer un fichier `aad.jsp` et couper/coller les éléments suivants :
 
 ```jsp
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -343,13 +343,13 @@ Cette opération redirige simplement vers une page sécurisée qui est protégé
 </html>
 ```
 
-Cette page vous redirigera vers les demandes spécifiques que notre servlet BasicFilter lira puis exécutera lors de l’utilisation de la bibliothèque `ADAJ4J`. Assez simple, non ?
+Cette page vous redirigera vers les demandes spécifiques que notre servlet BasicFilter lira puis exécutera lors de l’utilisation de la bibliothèque `ADAJ4J`. Assez simple, non ?
 
 Bien sûr, nous devons maintenant configurer nos fichiers Java afin que le servlet puisse effectuer son travail.
 
 ## 5\. Créer des fichiers d’assistance Java (pour BasicFilter MVC)
 
-Notre objectif est de créer des fichiers Java qui effectueront les opérations suivantes :
+Notre objectif est de créer des fichiers Java qui effectueront les opérations suivantes :
 
 1. Autoriser la connexion et la déconnexion de l’utilisateur
 2. Obtenir des données relatives à l’utilisateur
@@ -357,13 +357,13 @@ Notre objectif est de créer des fichiers Java qui effectueront les opérations 
 > [AZURE.NOTE] 
 Pour obtenir les données relatives à l’utilisateur, nous devons utiliser l’API Graph d’Azure Active Directory. L’API Graph est un service web sécurisé que vous pouvez utiliser pour récupérer des données relatives à votre organisation, y compris aux utilisateurs individuels. Cela est préférable au remplissage préalable de données sensibles dans les jetons, car cela garantit que l’utilisateur demandant les données est autorisé, et que quiconque récupérant le jeton (à partir d’un téléphone débridé ou du cache d’un navigateur web sur un ordinateur de bureau) ne pourra pas obtenir d’informations importantes sur l’utilisateur ou l’organisation.
 
-Nous allons écrire des fichiers Java afin qu’ils effectuent ce travail pour nous :
+Nous allons écrire des fichiers Java afin qu’ils effectuent ce travail pour nous :
 
-1. Créez un dossier dans votre répertoire racine appelé « adal4jsample » pour stocker l’ensemble de nos fichiers Java. 
+1. Créez un dossier dans votre répertoire racine appelé « adal4jsample » pour stocker l’ensemble de nos fichiers Java. 
 
-Nous allons utiliser l’espace de noms `com.microsoft.aad.adal4jsample` dans nos fichiers Java. Pour ce faire, la plupart des environnements IDE créent une structure de dossiers imbriqués (p. ex., `/com/microsoft/aad/adal4jsample`). Vous êtes libre de le faire, mais cela n’est pas nécessaire.
+Nous allons utiliser l’espace de noms `com.microsoft.aad.adal4jsample` dans nos fichiers Java. Pour ce faire, la plupart des environnements IDE créent une structure de dossiers imbriqués (p. ex., `/com/microsoft/aad/adal4jsample`). Vous êtes libre de le faire, mais cela n’est pas nécessaire.
 
-2. Dans ce dossier, créez un fichier appelé `JSONHelper.java` que nous utiliserons pour faciliter l’analyse des données JSON à partir de nos jetons. Vous pouvez couper/coller ces éléments ci-dessous :
+2. Dans ce dossier, créez un fichier appelé `JSONHelper.java` que nous utiliserons pour faciliter l’analyse des données JSON à partir de nos jetons. Vous pouvez couper/coller ces éléments ci-dessous :
 
 ```Java
 
@@ -586,7 +586,7 @@ public class JSONHelper {
 
 ```
 
-3. Ensuite, créez un fichier appelé `HttpClientHelper.java` que nous utiliserons pour faciliter l’analyse des données HTTP à partir de notre point de terminaison AAD. Vous pouvez couper/coller ces éléments ci-dessous :
+3. Ensuite, créez un fichier appelé `HttpClientHelper.java` que nous utiliserons pour faciliter l’analyse des données HTTP à partir de notre point de terminaison AAD. Vous pouvez couper/coller ces éléments ci-dessous :
 
 ```Java
 
@@ -746,7 +746,7 @@ public class HttpClientHelper {
 
 Comme indiqué ci-dessus, nous utiliserons l’API Graph pour obtenir les données relatives à l’utilisateur connecté. Afin de nous faciliter la tâche, nous devons créer un fichier pour représenter un **objet répertoire** et un fichier individuel pour représenter l’**utilisateur** afin que le modèle OO de Java puisse être utilisé.
 
-1. Créez un fichier appelé `DirectoryObject.java` que nous utiliserons pour stocker les données de base sur n’importe quel objet répertoire (n’hésitez pas à l’utiliser ultérieurement pour toutes vos autres requêtes Graph éventuelles). Vous pouvez couper/coller ces éléments ci-dessous :
+1. Créez un fichier appelé `DirectoryObject.java` que nous utiliserons pour stocker les données de base sur n’importe quel objet répertoire (n’hésitez pas à l’utiliser ultérieurement pour toutes vos autres requêtes Graph éventuelles). Vous pouvez couper/coller ces éléments ci-dessous :
 
 ```Java
 
@@ -801,7 +801,7 @@ public abstract class DirectoryObject {
 
 ```
 
-2. Créez un fichier appelé `User.java` que nous utiliserons pour stocker les données de base sur n’importe quel utilisateur du répertoire. Là encore, il s’agit de méthodes getters/setters assez basiques pour les données de répertoire afin que vous puissiez couper/coller ces éléments ci-dessous :
+2. Créez un fichier appelé `User.java` que nous utiliserons pour stocker les données de base sur n’importe quel utilisateur du répertoire. Là encore, il s’agit de méthodes getters/setters assez basiques pour les données de répertoire afin que vous puissiez couper/coller ces éléments ci-dessous :
 
 ```Java
 
@@ -1323,13 +1323,13 @@ public class User extends DirectoryObject{
 
 Oui, Java est assez détaillé, mais nous avons presque terminé. Avant-dernière étape, avant d’écrire le servlet BasicFilter pour gérer nos demandes, nous allons écrire quelques fichiers d’assistance supplémentaires dont la bibliothèque `ADAL4J` a besoin.
 
-1. Créez un fichier appelé `AuthHelper.java` qui nous donnera les méthodes que nous utiliserons pour déterminer l’état de l’utilisateur connecté. Vous avez notamment vu les points suivants :
+1. Créez un fichier appelé `AuthHelper.java` qui nous donnera les méthodes que nous utiliserons pour déterminer l’état de l’utilisateur connecté. Vous avez notamment vu les points suivants :
 
 - Méthode `isAuthenticated()`, qui renvoie si l’utilisateur est connecté ou non
 - `containsAuthenticationData()`, qui indique si le jeton comporte des données ou non
 - `isAuthenticationSuccessful()`, qui indique si l’authentification a réussi pour l’utilisateur.
 
-Coupez/collez le code ci-dessous :
+Coupez/collez le code ci-dessous :
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1377,7 +1377,7 @@ public final class AuthHelper {
 }
 ```
 
-2. Créez un fichier appelé `AuthParameterNames.java` qui nous donnera des variables immuables requises par `ADAL4J`. Coupez/collez les éléments suivants :
+2. Créez un fichier appelé `AuthParameterNames.java` qui nous donnera des variables immuables requises par `ADAL4J`. Coupez/collez les éléments suivants :
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1397,7 +1397,7 @@ public final class AuthParameterNames {
 
 3. Enfin, créez un fichier appelé `AadController.java` qui est le contrôleur de notre modèle MVC, qui nous donnera notre contrôleur JSP et exposera l’URL de point de terminaison `secure/aad` pour notre application. En outre, nous avons également placé la requête Graph dans ce fichier.
 
-Coupez/collez les éléments suivants :
+Coupez/collez les éléments suivants :
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1478,7 +1478,7 @@ public class AadController {
 
 Nous sommes enfin prêts à créer le fichier BasicFilter pour gérer nos demandes depuis notre View (fichiers JSP).
 
-Créez un fichier appelé `BasicFilter.java` contenant les éléments suivants :
+Créez un fichier appelé `BasicFilter.java` contenant les éléments suivants :
 
 ```Java
 
@@ -1720,13 +1720,13 @@ public class BasicFilter implements Filter {
 }
 ```
 
-Ce servlet expose toutes les méthodes que `ADAL4J` attendra que notre application exécute. notamment :
+Ce servlet expose toutes les méthodes que `ADAL4J` attendra que notre application exécute. notamment :
 
-- `getAccessTokenFromClientCredentials()` : obtient un jeton d’accès à partir de notre secret
-- `getAccessTokenFromRefreshToken()` : obtient un jeton d’accès à partir d’un jeton d’actualisation
-- `getAccessToken()` : obtient un jeton d’accès à partir d’un flux OpenID Connect (que nous utilisons)
-- `createSessionPrincipal()` : crée un principal que nous utilisons pour l’accès à l’API Graph
-- `getRedirectUrl()` : obtient l’URL de redirection à comparer avec la valeur que vous avez entrée dans le portail.
+- `getAccessTokenFromClientCredentials()` : obtient un jeton d’accès à partir de notre secret
+- `getAccessTokenFromRefreshToken()` : obtient un jeton d’accès à partir d’un jeton d’actualisation
+- `getAccessToken()` : obtient un jeton d’accès à partir d’un flux OpenID Connect (que nous utilisons)
+- `createSessionPrincipal()` : crée un principal que nous utilisons pour l’accès à l’API Graph
+- `getRedirectUrl()` : obtient l’URL de redirection à comparer avec la valeur que vous avez entrée dans le portail.
 
 ##Compilation et exécution de l’exemple dans Tomcat
 
@@ -1744,10 +1744,10 @@ Il est très facile de déployer un fichier WAR avec les derniers serveurs Tomca
 
 ##Étapes suivantes
 
-Félicitations ! Vous disposez désormais d’une application Java fonctionnelle capable d’authentifier les utilisateurs, d’appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et d’obtenir des informations de base concernant l’utilisateur. Si vous ne l’avez pas encore fait, il est maintenant temps de remplir votre client avec quelques utilisateurs.
+Félicitations ! Vous disposez désormais d’une application Java fonctionnelle capable d’authentifier les utilisateurs, d’appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et d’obtenir des informations de base concernant l’utilisateur. Si vous ne l’avez pas encore fait, il est maintenant temps de remplir votre client avec quelques utilisateurs.
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

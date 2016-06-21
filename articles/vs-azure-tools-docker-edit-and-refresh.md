@@ -3,7 +3,7 @@
    description="Découvrez comment modifier une application qui s’exécute dans un conteneur Docker local et actualiser le conteneur via la modification et l’actualisation ainsi que la définition de points d’arrêt pour le débogage"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="AllenClark"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/13/2016"
+   ms.date="06/08/2016"
    ms.author="allclark" />
 
 # Débogage d’applications dans un conteneur Docker local
@@ -29,7 +29,7 @@ Les outils suivants doivent être installés.
 - [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
 - [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS)
 
-Pour exécuter des conteneurs de Docker localement, vous aurez besoin d’un client Docker local. Vous pouvez utiliser la version [Boîte à outils Docker](https://www.docker.com/products/overview#/docker_toolbox), qui nécessite la désactivation d’Hyper-V, ou vous pouvez utiliser la [version bêta de Docker pour Windows](https://beta.docker.com) qui utilise Hyper-V et nécessite Windows 10.
+Pour exécuter des conteneurs de Docker localement, vous aurez besoin d’un client Docker local. Vous pouvez utiliser la version [Boîte à outils Docker](https://www.docker.com/products/overview#/docker_toolbox), qui nécessite la désactivation d’Hyper-V, ou la [version bêta de Docker pour Windows](https://beta.docker.com) qui utilise Hyper-V et nécessite Windows 10.
 
 Si vous utilisez la Boîte à outils Docker, vous devrez [Configurer le client Docker](./vs-azure-tools-docker-setup.md)
 
@@ -56,14 +56,18 @@ Visual Studio 2015 Tools pour Docker permet aux développeurs d’applications w
 
 	![][1]
 
-> [AZURE.NOTE] Si vous utilisez la [version bêta de Docker pour Windows](https://beta.docker.com), ouvrez Properties\\Docker.props et supprimez la valeur par défaut, puis redémarrez Visual Studio pour que la valeur prenne effet. ![][2]
+> [AZURE.NOTE] Si vous utilisez la [version bêta de Docker pour Windows](https://beta.docker.com), ouvrez Properties\\Docker.props et supprimez la valeur par défaut, puis redémarrez Visual Studio pour que la valeur prenne effet.
+>
+> ![][2]
 
 ##Modifier et actualiser
 Pour effectuer une itération rapide des modifications, vous pouvez lancer votre application au sein d’un conteneur et continuer à apporter des modifications, en les observant comme vous le feriez avec IIS Express.
 
-1. Définissez la configuration de solution sur `Debug`, puis appuyez sur **&lt;CTRL + F5 >** pour créer votre image de Docker et l’exécuter localement. Voir la fenêtre de sortie, avec le build ou
+1. Définissez la configuration de solution sur `Debug`, puis appuyez sur **&lt;CTRL + F5 >** pour créer votre image de Docker et l’exécuter localement.
 
-1. Une fois l’image de conteneur créée et en cours d’exécution dans un conteneur Docker, Visual Studio essaiera de lancer l’application web dans votre navigateur par défaut. Si vous utilisez le navigateur Microsoft Edge ou rencontrez des erreurs, consultez la section [Résolution des problèmes](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+    Une fois l’image de conteneur créée et en cours d’exécution dans un conteneur Docker, Visual Studio lancera l’application web dans votre navigateur par défaut. Si vous utilisez le navigateur Microsoft Edge ou rencontrez des erreurs, consultez la section [Résolution des problèmes](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+
+1. Accédez à la page À propos, à laquelle nous allons apporter nos modifications.
 
 1. Revenez à Visual Studio et ouvrez `Views\Home\About.cshtml`.
 
@@ -73,14 +77,19 @@ Pour effectuer une itération rapide des modifications, vous pouvez lancer votre
 	<h1>Hello from a Docker Container!</h1>
 	```
 
-1.	Dans la fenêtre de sortie, lorsque le build .NET est terminé et que vous voyez `Application started. Press Ctrl+C to shut down`, revenez sur votre navigateur et actualisez la page.
+1.	Dans la fenêtre de sortie, lorsque le build .NET est terminé et que vous voyez ces lignes, revenez sur votre navigateur et actualisez la page À propos.
 
-1.	Vous devriez voir que les modifications ont été appliquées.
+    ```
+    Now listening on: http://*:80
+    Application started. Press Ctrl+C to shut down
+    ```
+
+1.	Vos modifications ont été appliquées !
 
 ##Points d’arrêt pour débogage
 Les modifications nécessitent souvent une inspection plus poussée, en exploitant les fonctionnalités de débogage de Visual Studio
 
-1.	Revenez à Visual Studio et ouvrez `Controllers\HomeController.cs`.
+1.	Revenez à Visual Studio et ouvrez `Controllers\HomeController.cs`
 
 1.  Remplacez le contenu de la méthode About() par ce qui suit :
 
@@ -108,9 +117,9 @@ Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vo
 ## En savoir plus sur Docker avec Visual Studio, Windows et Azure
 
 - [Outils Docker pour Visual Studio](http://aka.ms/dockertoolsforvs) : développer votre code .NET Core dans un conteneur
-- [Outils Docker pour Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) : créez et déployez des conteneurs de Docker
+- [Outils Docker pour Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) : créez et déployez des conteneurs Docker
 - [Outils Docker pour Visual Studio Code](http://aka.ms/dockertoolsforvscode) : services linguistiques pour la modification de fichiers Docker, avec plus de scénarios E2E à venir
-- [Informations sur le conteneur Windows](http://aka.ms/containers) : informations sur Windows Server et Nano Server
+- [Informations sur le conteneur Windows](http://aka.ms/containers) : informations sur Windows Server et Nano Server
 - [Service de conteneur Azure](https://azure.microsoft.com/services/container-service/) - [Contenu du service de conteneur Azure](http://aka.ms/AzureContainerService)
 
 ## Divers outils Docker
@@ -132,4 +141,4 @@ Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vo
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
 [3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

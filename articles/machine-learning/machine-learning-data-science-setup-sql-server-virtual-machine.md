@@ -131,7 +131,7 @@ Pour attacher des disques de données supplémentaires, suivez la procédure dé
 
 ##<a name="SSMS"></a>Se connecter à SQL Server Management Studio et activer l’authentification en mode mixte
 
-Le moteur de base de données de SQL Server ne peut pas utiliser l’authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows Le mode d’authentification SQL est requis pour la réception de données directement depuis vos bases de données de machine virtuelle SQL Server dans [Azure Machine Learning Studio](https://studio.azureml.net) à l’aide du module Lecteur.
+Le moteur de base de données de SQL Server ne peut pas utiliser l’authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows Le mode d’authentification SQL est requis pour la réception de données directement à partir de vos bases de données de machine virtuelle SQL Server dans [Azure Machine Learning Studio](https://studio.azureml.net) à l’aide du module Importer les données.
 
 1.  Lorsque vous êtes connecté à la machine virtuelle à l’aide du Bureau à distance, utilisez le volet Windows **Rechercher** et tapez **SQL Server Management Studio** (SMSS). Cliquez pour démarrer SQL Server Management Studio (SSMS). Vous pouvez ajouter un raccourci pour SSMS sur votre Bureau à des fins d’utilisation ultérieure.
 
@@ -251,9 +251,9 @@ Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vo
 
 ##<a name="amlconnect"></a>Se connecter au moteur de base de données à partir d’Azure Machine Learning
 
-Dans les étapes ultérieures du processus Cortana Analytics, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module **Lecteur** dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Cette rubrique est traitée plus en détail dans les liens du guide du processus Cortana Analytics. Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
+Dans les étapes ultérieures du processus Cortana Analytics, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module **Importer les données** dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Cette rubrique est traitée plus en détail dans les liens du guide du processus Cortana Analytics. Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
 
-2.	Dans le volet **Propriétés** du [module Lecteur](https://msdn.microsoft.com/library/azure/dn905997.aspx), sélectionnez **Base de données SQL Azure** dans la liste déroulante **Source de données**.
+2.	Dans le volet **Propriétés** du [module Importer les données](https://msdn.microsoft.com/library/azure/dn905997.aspx), sélectionnez **Base de données SQL Azure** dans la liste déroulante **Source de données**.
 
 3.	Dans la zone de texte **Nom du serveur de base de données**, entrez `tcp:<DNS name of your virtual machine>,1433`.
 
@@ -261,7 +261,7 @@ Dans les étapes ultérieures du processus Cortana Analytics, vous allez utilise
 
 5.	Entrez le mot de passe de l’utilisateur SQL dans la zone de texte **Mot de passe de compte d’utilisateur du serveur**.
 
-	![Lecteur Azure Machine Learning][13]
+	![Importer les données Azure ML][13]
 
 ##<a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
 
@@ -306,4 +306,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

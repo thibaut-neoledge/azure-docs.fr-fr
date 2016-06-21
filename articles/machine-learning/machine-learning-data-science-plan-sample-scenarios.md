@@ -64,7 +64,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 6.  Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-7.  Lisez les données des objets blob Azure à l’aide du module [Lecteur][reader].
+7.  Lisez les données des objets blob Azure à l’aide du module [Importer des données][import-data].
 
 8. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
@@ -90,7 +90,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 8. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Lisez les données des objets blob Azure à l’aide du module [Lecteur][reader].
+9. Lisez les données des objets blob Azure à l’aide du module [Importer des données][import-data].
 
 10. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
@@ -132,7 +132,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 9. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Lisez les données directement à partir de SQL Server à l’aide du module [Lecteur][reader]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données si besoin directement dans la requête [Lecteur][reader].
+10. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données le cas échéant directement dans la requête [Importer des données][import-data].
 
 11. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
@@ -176,7 +176,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 7.  Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Lisez les données directement à partir de SQL Server à l’aide du module [Lecteur][reader]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données si besoin directement dans la requête [Lecteur][reader].
+8. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données le cas échéant directement dans la requête [Importer des données][import-data].
 
 9. Flux d’expérience Azure Machine Learning simple commençant par le jeux de données téléchargés
 
@@ -216,7 +216,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 7.  Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Lisez les données directement à partir de SQL Server à l’aide du module [Lecteur][reader]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données si besoin directement dans la requête [Lecteur][reader].
+8. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données le cas échéant directement dans la requête [Importer des données][import-data].
 
 9. Flux d’expérience Azure Machine Learning simple commençant par le jeux de données téléchargé.
 
@@ -280,7 +280,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 
 8.  Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Lisez les données directement à partir des `Hive Queries` à l’aide du module [Lecteur][reader]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données si besoin directement dans la requête [Lecteur][reader].
+9. Lisez les données directement à partir de `Hive Queries` à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données le cas échéant directement dans la requête [Import Data][import-data].
 
 10. Flux d’expérience Azure Machine Learning simple commençant par le jeux de données téléchargé.
 
@@ -312,6 +312,6 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

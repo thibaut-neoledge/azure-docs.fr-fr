@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="06/06/2016"
  ms.author="nberdy"/>
 
 # Introduction à la surveillance des opérations
@@ -122,6 +122,25 @@ La catégorie de connexions effectue le suivi des erreurs provoquées par la con
          "deviceId": "device-ID"
     }
 
+### Chargements de fichiers
+
+La catégorie de chargement de fichiers effectue le suivi des erreurs qui se produisent au niveau de l’IoT hub et qui sont liées à la fonctionnalité de chargement. Cela inclut les erreurs qui se produisent avec l’URI SAS (par exemple, lorsqu’il expire avant qu’un appareil ne notifie le concentrateur d’un chargement terminé), avec les chargements ayant échoué signalés par l’appareil et si un fichier est introuvable dans le stockage lors de la création de messages de notification IoT Hub. Notez que cette catégorie ne peut pas détecter les erreurs qui surviennent directement pendant que le périphérique charge un fichier de stockage.
+
+    {
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
+         "protocol": "HTTP",
+         "time": " UTC timestamp",
+         "operationName": "ingress",
+         "category": "fileUpload",
+         "level": "Error",
+         "statusCode": 4XX,
+         "statusType": 4XX001,
+         "statusDescription": "MessageDescription",
+         "deviceId": "device-ID",
+         "blobUri": "http//bloburi.com",
+         "durationMs": 1234
+    }
+
 ## Étapes suivantes
 
 La surveillance des opérations n’étant plus un secret pour vous, vous pouvez suivre les liens ci-après :
@@ -139,4 +158,4 @@ La surveillance des opérations n’étant plus un secret pour vous, vous pouvez
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

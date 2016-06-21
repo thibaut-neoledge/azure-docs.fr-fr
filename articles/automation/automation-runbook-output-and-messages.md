@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="stevenka"
+   manager="jwhit"
    editor="tysonn" />
 <tags
    ms.service="automation"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="06/08/2016"
    ms.author="magoedte;bwren" />
 
 # Sortie et messages de Runbook dans Azure Automation
 
 La plupart des Runbooks Azure Automation présentent une certaine forme de sortie. Il peut s’agir, par exemple, d’un message d’erreur à l’attention de l’utilisateur, ou encore d’un objet complexe destiné à être consommé par un autre flux de travail. Windows PowerShell fournit [plusieurs flux](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chacun de ces flux. Lorsque vous créez un Runbook, vous devez suivre les meilleures pratiques relatives à l’utilisation de chaque flux.
 
-Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le Portail de gestion Azure lors de l’exécution d’un Runbook publié et lors du [test d’un Runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
+Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le Portail de gestion Azure lors de l’exécution d’un Runbook publié et lors du [test d’un Runbook](automation-testing-runbook.md). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
 
 | Stream | Description | Publié | Test|
 |:---|:---|:---|:---|
@@ -32,7 +32,7 @@ Le tableau suivant fournit une brève description de chacun des flux et de leur 
 
 ## Flux de sortie
 
-Le flux de sortie est destiné à la sortie des objets créés par un script ou un flux de travail lorsqu’il s’exécute correctement. Dans Azure Automation, ce flux est principalement utilisé pour les objets destinés à être consommés par les [Runbooks parents qui appellent le Runbook actuel](automation-child-runbooks.md). Lorsque vous [appelez un Runbook en ligne](automation-child-runbooks.md/#InlineExecution) à partir d’un Runbook parent, il renvoie les données au parent à partir du flux de sortie. Vous devez utiliser le flux de sortie uniquement pour retourner des informations générales à l’utilisateur si vous savez que le Runbook ne sera jamais appelé par un autre Runbook. Cependant, nous vous recommandons d’utiliser le [flux des commentaires](#Verbose) pour communiquer des informations générales à l’utilisateur.
+Le flux de sortie est destiné à la sortie des objets créés par un script ou un flux de travail lorsqu’il s’exécute correctement. Dans Azure Automation, ce flux est principalement utilisé pour les objets destinés à être consommés par les [Runbooks parents qui appellent le Runbook actuel](automation-child-runbooks.md). Lorsque vous [appelez un Runbook en ligne](automation-child-runbooks.md#InlineExecution) à partir d’un Runbook parent, il renvoie les données au parent à partir du flux de sortie. Vous devez utiliser le flux de sortie uniquement pour retourner des informations générales à l’utilisateur si vous savez que le Runbook ne sera jamais appelé par un autre Runbook. Cependant, nous vous recommandons d’utiliser le [flux des commentaires](#Verbose) pour communiquer des informations générales à l’utilisateur.
 
 Vous pouvez écrire des données dans le flux de sortie à l’aide de [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) ou en plaçant l’objet sur sa propre ligne dans le Runbook.
 
@@ -59,11 +59,11 @@ Examinez l’exemple de Runbook suivant.
 	   }
 	}
 
-Le flux de sortie pour la tâche du Runbook serait :
+Le flux de sortie pour la tâche du Runbook serait :
 
 	Output outside of function
 
-Le flux des commentaires pour la tâche du Runbook serait :
+Le flux des commentaires pour la tâche du Runbook serait :
 
 	Verbose outside of function
 	Verbose inside of function
@@ -102,7 +102,7 @@ Créez un message d’avertissement ou un message d’erreur à l’aide de l’
 
 Ce flux est utilisé pour les informations générales sur le fonctionnement du Runbook. Dans la mesure où le [flux de débogage](#Debug) n’est pas disponible dans un Runbook, les messages documentés doivent être utilisés pour les informations de débogage. Par défaut, les messages documentés provenant de Runbooks publiés ne seront pas stockés dans l’historique des tâches. Pour stocker les messages documentés, configurez les Runbooks publiés de façon à enregistrer les informations de commentaires sous l’onglet de configuration du Runbook dans le Portail de gestion Azure. Pour des raisons de performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de commentaires ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook.
 
-Lors du [test d’un Runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), les messages documentés ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de commentaires. Pour afficher les messages documentés lors du [test d’un Runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), vous devez affecter la valeur Continue à la variable $VerbosePreference. Dans ce cas, les messages documentés seront affichés dans le volet de sortie du test du Portail de gestion Azure.
+Lors du [test d’un Runbook](automation-testing-runbook.md), les messages documentés ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de commentaires. Pour afficher les messages documentés lors du [test d’un Runbook](automation-testing-runbook.md), vous devez affecter la valeur Continue à la variable $VerbosePreference. Dans ce cas, les messages documentés sont affichés dans le volet de sortie du test du Portail Azure.
 
 Créez un message documenté à l’aide de l’applet de commande [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx).
 
@@ -116,7 +116,7 @@ Le flux de débogage est destiné à être utilisé avec un utilisateur interact
 
 ## Informations de progression
 
-Si vous configurez un Runbook pour enregistrer les informations de progression (sous l’onglet de configuration du Runbook, dans le Portail de gestion Azure), un enregistrement est consigné dans l’historique des tâches avant et après l’exécution de chaque activité. Afin d’optimiser les performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de progression ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook. Lors du test d’un Runbook, les messages de progression ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de progression.
+Si vous configurez un runbook pour enregistrer les informations de progression (sous l’onglet de configuration du runbook, dans le Portail Azure), un enregistrement est consigné dans l’historique des tâches avant et après l’exécution de chaque activité. Afin d’optimiser les performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de progression ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook. Lors du test d’un Runbook, les messages de progression ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de progression.
 
 L’applet de commande [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) n’est pas valide dans un Runbook, dans la mesure où les messages sont destinés à un utilisateur interactif.
 
@@ -142,30 +142,33 @@ Le tableau suivant indique le comportement associé aux valeurs des variables de
 
 ## Récupération de la sortie et des messages de Runbook
 
-### Portail de gestion Azure
+### Portail Azure
 
-Vous pouvez afficher les détails d’une tâche de Runbook dans le Portail de gestion Azure à partir de l’onglet Tâches d’un Runbook. Le résumé de la tâche affiche les paramètres d’entrée et le [flux de sortie](#Output) en plus des informations générales sur la tâche et des exceptions, le cas échéant. L’historique inclura les messages du [flux de sortie](#Output) et des [flux d’avertissements et d’erreurs](#WarningError) en plus du [flux des commentaires](#Verbose) et des [informations de progression](#Progress) si le Runbook est configuré pour enregistrer les informations de commentaires et de progression.
+Vous pouvez afficher les détails d’une tâche de Runbook dans le Portail Azure à partir de l’onglet Tâches d’un Runbook. Le résumé de la tâche affiche les paramètres d’entrée et le [flux de sortie](#Output) en plus des informations générales sur la tâche et des exceptions, le cas échéant. L’historique inclura les messages du [flux de sortie](#Output) et des [flux d’avertissements et d’erreurs](#WarningError) en plus du [flux des commentaires](#Verbose) et des [informations de progression](#Progress) si le Runbook est configuré pour enregistrer les informations de commentaires et de progression.
 
 ### Windows PowerShell
 
-Dans Windows PowerShell, vous pouvez récupérer la sortie et les messages d’un Runbook à l’aide de l’applet de commande [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx). Cette applet de commande requiert l’ID de la tâche. Elle inclut le paramètre Stream qui vous permet de spécifier le flux à renvoyer. Vous pouvez spécifier la valeur Any pour renvoyer tous les flux de la tâche.
+Dans Windows PowerShell, vous pouvez récupérer la sortie et les messages d’un Runbook à l’aide de l’applet de commande [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx). Cette applet de commande requiert l’ID de la tâche. Elle inclut le paramètre Stream qui vous permet de spécifier le flux à renvoyer. Vous pouvez spécifier la valeur Any pour renvoyer tous les flux de la tâche.
 
 Dans l’exemple suivant, un exemple de Runbook est démarré et exécuté. À l’issue de l’exécution du Runbook, son flux de sortie est collecté à partir de la tâche.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+	$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 	$doLoop = $true
 	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+	   $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
 	   $status = $job.Status
 	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
 
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+	Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
 ### Création graphique
 
-Pour les runbooks graphiques, une journalisation supplémentaire est disponible sous la forme de suivi au niveau de l’activité. Il existe deux niveaux de suivi : de base et détaillé. Dans le suivi de base, vous pouvez voir l’heure de début et de fin de chaque activité dans le runbook, ainsi que des informations relatives à toute nouvelle tentative de l’activité, comme le nombre de tentatives et l’heure de début de l’activité. Dans le suivi détaillé, vous obtenez le suivi de base, ainsi que des données d’entrée et de sortie pour chaque activité. Notez qu’actuellement les enregistrements de suivi sont écrits à l’aide du flux de commentaires détaillé. Vous devez activer la journalisation détaillée lorsque vous activez le suivi. Pour les runbooks graphiques avec le suivi activé, il est inutile de journaliser les informations de progression, étant donné que le suivi de base joue le même rôle et contient des informations plus détaillées.
+Pour les runbooks graphiques, une journalisation supplémentaire est disponible sous la forme de suivi au niveau de l’activité. Il existe deux niveaux de suivi : de base et détaillé. Dans le suivi de base, vous pouvez voir l’heure de début et de fin de chaque activité dans le runbook, ainsi que des informations relatives à toute nouvelle tentative de l’activité, comme le nombre de tentatives et l’heure de début de l’activité. Dans le suivi détaillé, vous obtenez le suivi de base, ainsi que des données d’entrée et de sortie pour chaque activité. Notez qu’actuellement les enregistrements de suivi sont écrits à l’aide du flux de commentaires détaillé. Vous devez activer la journalisation détaillée lorsque vous activez le suivi. Pour les runbooks graphiques avec le suivi activé, il est inutile de journaliser les informations de progression, étant donné que le suivi de base joue le même rôle et contient des informations plus détaillées.
 
 ![Vue du flux de travail de création graphique](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
@@ -185,9 +188,9 @@ La capture d’écran ci-dessus illustre le fait que lorsque vous activez la jou
 
     ![Panneau Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-## Articles connexes
+## Étapes suivantes
 
-- [Suivre une tâche de Runbook](automation-runbook-execution.md)
-- [Runbooks enfants](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
+- Pour comprendre comment créer et utiliser des runbooks enfants, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

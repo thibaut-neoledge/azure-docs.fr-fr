@@ -23,7 +23,7 @@
 Pour utiliser vos propres données dans Machine Learning Studio afin de développer et de tester une solution d'analyse prédictive, vous pouvez :
 
 - télécharger par avance les données d’un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail.  
-- accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Lecteur][reader]. 
+- accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Importer des données][import-data]. 
 - utiliser les données d’une autre expérimentation Azure Machine Learning enregistrée en tant que **jeu de données**. 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -65,7 +65,7 @@ Si vous importez des données dans un format tel que ARFF qui inclut des métado
 
 Si vous importez des données dans des formats tels que TSV ou CSV qui n’incluent pas ces métadonnées, Machine Learning Studio déduit le type de données de chaque colonne en échantillonnant les données. Si les données aussi n’ont pas non plus de titre de colonne, Machine Learning Studio fournit des noms par défaut.
 
-Vous pouvez spécifier de manière explicite ou modifier les titres et les types de données pour les colonnes à l’aide de l’[Éditeur de métadonnées][metadata-editor].
+Vous pouvez spécifier de manière explicite ou modifier les titres et les types de données pour les colonnes à l’aide de [Modifier les métadonnées][edit-metadata].
 
 Voici les **types de données** reconnus par Machine Learning Studio :
 
@@ -86,7 +86,7 @@ Au besoin, vous pouvez convertir à nouveau le format de la table de données au
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

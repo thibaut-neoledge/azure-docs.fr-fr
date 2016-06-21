@@ -124,9 +124,8 @@ Avant de pouvoir voir le service Todo List en action, vous devez configurer le c
 - Créez une application dans votre client Azure AD, puis sélectionnez **Application cliente native** dans l’invite qui en résulte.
     -	Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
     -	Pour l’**URI de redirection**, entrez `http://TodoListClient/`.
-- Une fois l’inscription terminée, AAD affecte un **ID d’application** unique à votre application. Copiez cette valeur à partir de l’onglet Configurer, car vous en aurez besoin lors des prochaines étapes.
--	Une fois l’inscription terminée, accédez à l’onglet **Configurer** et recherchez le champ **URI ID d’application**. Entrez un identificateur propre au client pour cette valeur, par exemple `https://contoso.onmicrosoft.com/TodoListService`.
-- Toujours sous l’onglet **Configurer**, cherchez la section Autorisations pour d’autres applications. Cliquez sur Ajouter une application. Sélectionnez Autre dans la liste déroulante Afficher et cliquez sur la coche située en haut. Recherchez le service To Do List, cliquez dessus, puis cliquez sur la coche située en bas pour ajouter l’application. Sélectionnez Accéder au service To Do List à partir de la liste déroulante Autorisations déléguées, puis enregistrez la configuration.
+- Une fois l’inscription terminée, AAD affecte un **ID client unique** à votre application. Copiez cette valeur à partir de l’onglet Configurer, car vous en aurez besoin lors des prochaines étapes.
+- Toujours sous l’onglet **Configurer**, cherchez la section Autorisations pour d’autres applications. Cliquez sur Ajouter une application. Sélectionnez Toutes les applications dans la liste déroulante Afficher et cliquez sur la coche située en haut. Recherchez le service To Do List, cliquez dessus, puis cliquez sur la coche située en bas pour ajouter l’application. Sélectionnez Accéder au service To Do List à partir de la liste déroulante Autorisations déléguées, puis enregistrez la configuration.
 
 
 - Dans Visual Studio, ouvrez `App.config` dans le projet TodoListClient et entrez les valeurs de votre configuration dans la section `<appSettings>`.
@@ -140,4 +139,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

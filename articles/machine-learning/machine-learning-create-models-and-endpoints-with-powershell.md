@@ -36,13 +36,13 @@ Nous allons utiliser un exemple d’[expérience de formation](https://gallery.c
 
 >[AZURE.NOTE] Pour suivre cet exemple, il est préférable d’utiliser un espace de travail standard plutôt qu’un espace de travail gratuit. Nous allons créer un point de terminaison pour chaque client (soit 10 points de terminaison en tout), ce qui nécessite un espace de travail standard car un espace de travail gratuit est limité à trois points de terminaison. Si vous disposez uniquement d’un espace de travail gratuit, il suffit de modifier les scripts ci-dessous pour autoriser uniquement trois emplacements.
 
-L’expérience utilise un module **Reader** pour importer le jeu de données de formation *customer001.csv* à partir d’un compte de stockage Azure. Supposons que nous avons recueilli des jeux de données de formation à partir de tous les emplacements de location de vélos et que nous les avons stockés dans le même emplacement de stockage d’objets blob avec des noms de fichiers allant de *rentalloc001.csv* à *rentalloc10.csv*.
+L’expérience utilise un module **Import Data** pour importer le jeu de données de formation *customer001.csv* à partir d’un compte de stockage Azure. Supposons que nous avons recueilli des jeux de données de formation à partir de tous les emplacements de location de vélos et que nous les avons stockés dans le même emplacement de stockage d’objets blob avec des noms de fichiers allant de *rentalloc001.csv* à *rentalloc10.csv*.
 
 ![image](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
 
 Notez qu’un module **Web Service Output** a été ajouté au module **Train Model**. Quand cette expérience est déployée comme service web, le point de terminaison associé à cette sortie retourne le modèle formé au format de fichier .ilearner.
 
-Notez également que nous configurons un paramètre de service web pour l’URL utilisée par le module **Reader**. Cela nous permet d’utiliser le paramètre pour spécifier des jeux de données de formation individuels visant à former le modèle pour chaque emplacement. Nous aurions pu procéder de plusieurs manières, par exemple en utilisant une requête SQL avec un paramètre de service web pour obtenir des données à partir d’une base de données SQL Azure, ou simplement en utilisant un module **Web Service Input** pour transmettre un jeu de données au service web.
+Notez également que nous configurons un paramètre de service web pour l’URL utilisée par le module **Import Data**. Cela nous permet d’utiliser le paramètre pour spécifier des jeux de données de formation individuels visant à former le modèle pour chaque emplacement. Nous aurions pu procéder de plusieurs manières, par exemple en utilisant une requête SQL avec un paramètre de service web pour obtenir des données à partir d’une base de données SQL Azure, ou simplement en utilisant un module **Web Service Input** pour transmettre un jeu de données au service web.
 
 ![image](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
 
@@ -159,4 +159,4 @@ Voici l’intégralité du code source :
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -27,7 +27,7 @@ La base de données SQL Azure prend en charge des millions de bases de données 
 
 ## Nous sommes là
 
-Vous ne pouvez qu’espérer ne pas avoir besoin d’accéder aux sauvegardes de la veille ou d’effectuer de récupération d’urgence. Mais si vous vous trouvez dans une telle situation, la base de données SQL Azure est là pour vous aider. Avec une disponibilité de 99,99 %, des sauvegardes automatiques, une limite de restauration dans le temps, une géo-réplication intégrée et des options de basculement, vous avez l’assurance qu’il ne peut rien arriver à votre application.
+Vous ne pouvez qu’espérer ne pas avoir besoin d’accéder aux sauvegardes de la veille ou d’effectuer de récupération d’urgence. Mais si vous vous trouvez dans une telle situation, la base de données SQL Azure est là pour vous aider. Avec une disponibilité de 99,99 %, des sauvegardes automatiques, une limite de restauration dans le temps, une géoréplication intégrée et des options de basculement, vous avez l’assurance qu’il ne peut rien arriver à votre application.
 
 [Lire la documentation](sql-database-business-continuity.md)
 
@@ -55,4 +55,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

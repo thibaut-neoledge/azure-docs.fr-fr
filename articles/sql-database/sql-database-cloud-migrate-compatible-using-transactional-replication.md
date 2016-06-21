@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrer vers Base de données SQL à l’aide de la réplication transactionnelle"
+   pageTitle="Migrer vers une base de données SQL à l’aide de la réplication transactionnelle | Microsoft Azure"
    description="Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, réplication transactionnelle"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Migrer une base de données SQL Server vers une Base de données SQL Azure à l’aide de la réplication transactionnelle
@@ -65,4 +65,4 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

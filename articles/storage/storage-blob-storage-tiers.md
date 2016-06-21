@@ -124,7 +124,7 @@ Les comptes de stockage d’objets blob utilisent un nouveau modèle de tarifica
 
 ## Quick Start
 
-Dans cette section, nous décrivons les scénarios suivants utilisant le portail Azure :
+Dans cette section, nous décrivons les scénarios ci-après utilisant le Portail Azure :
 
 - Création d’un compte de stockage d’objets blob
 - Gestion d’un compte de stockage d’objets blob
@@ -135,35 +135,51 @@ Dans cette section, nous décrivons les scénarios suivants utilisant le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, sélectionnez **Nouveau** -> **Données et stockage** -> **Compte de stockage**.
+2. Dans le menu hub, sélectionnez **Nouveau** -> **Données + stockage** -> **Compte de stockage**.
 
 3. Entrez un nom pour votre compte de stockage.
 
-4. Sélectionnez le modèle de déploiement **Resource Manager**.
+	Il doit s’agir d’un nom global unique ; il fait partie de l’URL permettant d’accéder aux objets du compte de stockage.
 
-5. Sélectionnez le type de compte de stockage **Blob Storage**.
+4. Sélectionnez **Resource Manager** comme modèle de déploiement.
 
-6. Sélectionnez le niveau d’accès : **Chaud** ou **Froid**. Le niveau par défaut est **Chaud**.
+	Le stockage hiérarchisé est uniquement utilisable avec des comptes de stockage Resource Manager ; ce modèle de déploiement est recommandé pour les nouvelles ressources. Pour plus d’informations, voir [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
-7. Sélectionnez l’option de réplication pour le compte de stockage : **LRS**, **GRS** ou **RA-GRS**. La valeur par défaut est **RA-GRS**. Pour plus d’informations sur les options de réplication d’Azure Storage, consultez [Réplication Azure Storage](storage-redundancy.md).
+5. Dans la liste déroulante Account Kind (Type de compte), sélectionnez **Stockage d’objets blob**.
+
+	Cette liste vous permet de sélectionner le type de compte de stockage. Le stockage hiérarchisé n’est pas disponible dans le stockage à usage général ; il l’est uniquement dans le type de compte Stockage d’objets blob.
+
+	Notez que lorsque vous sélectionnez cette option, le niveau de performances est défini sur Standard. Le stockage hiérarchisé n’est pas disponible avec le niveau de performances Premium.
+
+6. Sélectionnez l’option de réplication pour le compte de stockage : **LRS**, **GRS** ou **RA-GRS**. La valeur par défaut est **RA-GRS**.
+ 
+	LRS = stockage localement redondant ; GRS = stockage géo-redondant (2 régions) ; RA-GRS = stockage géo-redondant avec accès en lecture (2 régions avec accès en lecture à la seconde).
+
+	Pour plus d’informations sur les options de réplication d’Azure Storage, voir [Réplication Azure Storage](storage-redundancy.md).
+
+7. Sélectionnez le niveau d’accès : **Froid** ou **Chaud**. Le niveau par défaut est **Chaud**.
 
 8. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 
-9. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du Portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
+9. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, voir [Utilisation du portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
 
-10. Sélectionnez l’emplacement géographique de votre compte de stockage.
+10. Sélectionnez la région de votre compte de stockage.
 
 11. Cliquez sur **Créer** pour créer le compte de stockage.
 
-#### Modifier le niveau d’accès d’un compte de stockage d’objets blob à l’aide du portail Azure
+#### Modifier le niveau d’accès d’un compte de stockage d’objets blob à l’aide du Portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre compte de stockage.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur **Tous les paramètres**, puis sur **Configuration** pour afficher et/ou modifier la configuration du compte.
+2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
 
-3. Spécifiez le niveau d’accès souhaité : **Chaud** ou **Froid**.
+3. Dans le panneau Paramètres, cliquez sur **Configuration** pour afficher et/ou modifier la configuration du compte.
 
-    > [AZURE.NOTE] La modification du niveau d’accès peut entraîner des frais supplémentaires. Veuillez consulter la section [Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing) pour plus de détails.
+4. Sélectionnez le niveau d’accès souhaité : **Chaud** ou **Froid**.
+
+5. Cliquez sur Enregistrer dans la partie supérieure du panneau.
+
+    > [AZURE.NOTE] La modification du niveau d’accès peut entraîner des frais supplémentaires. Pour plus d’informations, voir la section [Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing).
 
 ## Migration vers des comptes de stockage d’objets blob
 
@@ -176,7 +192,7 @@ Si vous déplacez vos données vers un compte de stockage d’objets blob, vous 
 - Votre modèle de consommation de stockage : quel est le volume de données stockées et quelle est son évolution mensuelle ?
 - Vos modèles d’accès au stockage : quel est le volume de données du compte faisant l’objet d’accès en lecture et en écriture (y compris les nouvelles données) ? Combien de transactions sont utilisées pour accéder aux données, et quelles sont ces transactions ?
 
-Pour savoir comment surveiller vos comptes de stockage existants et collecter ces données, voir [Activation des métriques Azure Storage et affichage des données associées](storage-enable-and-view-metrics.md). Grâce à ces données, vous pouvez à présent utiliser la [Calculatrice des prix Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) pour faciliter l’estimation des coûts.
+Pour plus d’informations sur la surveillance de vos comptes de stockage existants et sur le regroupement de ces données, voir [Activation des métriques Azure Storage et affichage des données associées](storage-enable-and-view-metrics.md). Grâce à ces données, vous pouvez à présent utiliser la [Calculatrice de prix Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) pour faciliter l’estimation des coûts.
 
 ### Migration des données existantes
 
@@ -186,21 +202,21 @@ Vous pouvez utiliser les méthodes suivantes pour migrer les données existantes
 
 AzCopy est un utilitaire de ligne de commande Windows conçu pour la copie de données hautes performances vers ou à partir d’Azure Storage. Vous pouvez utiliser AzCopy pour copier des données dans votre compte de stockage d’objets blob à partir de vos comptes de stockage à usage général existants, ou pour charger des données à partir de vos périphériques de stockage locaux vers votre compte de stockage d’objets blob.
 
-Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
+Pour plus d’informations, voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 #### Bibliothèque de déplacement des données
 
 La bibliothèque de déplacement de données Azure Storage pour .NET est basée sur l’infrastructure principale de déplacement de données sous-tendant AzCopy. La bibliothèque est conçue pour assurer des opérations de transfert de données fiables, simples et hautes performances, comme AzCopy. Cela vous permet de tirer pleinement parti des fonctionnalités offertes par AzCopy dans votre application de façon native, sans avoir à gérer l’exécution et la surveillance des instances externes d’AzCopy.
 
-Pour plus d’informations, consultez [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Bibliothèque de déplacement des données Azure Storage pour .Net).
+Pour plus d’informations, voir [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Bibliothèque de déplacement des données Azure Storage pour .Net).
 
 #### API REST ou bibliothèque cliente
 
 Vous pouvez créer une application personnalisée pour migrer vos données vers un compte de stockage d’objets blob à l’aide de l’une des bibliothèques clientes Azure ou de l’API REST des services Azure Storage. Azure Storage offre des bibliothèques clientes enrichies pour une diversité de langages et plateformes, par exemple .NET, Java, C++, Node.JS, PHP, Ruby et Python. Les bibliothèques clientes offrent des fonctionnalités avancées telles que la logique de nouvelle tentative, la journalisation et les téléchargements parallèles. Vous pouvez également développer votre application directement avec l’API REST, qui peut être appelée à l’aide de n’importe quel langage permettant de créer des requêtes HTTP/HTTPS.
 
-Pour plus d’informations, consultez l’article [Prise en main du stockage d’objets blob Azure](storage-dotnet-how-to-use-blobs.md).
+Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azure](storage-dotnet-how-to-use-blobs.md).
 
-> [AZURE.NOTE] Les objets blob chiffrés à l’aide du chiffrement côté client stockent les métadonnées relatives au chiffrement stockées avec l’objet blob. Il est absolument essentiel que n’importe quel mécanisme de copie s’assure de la préservation des métadonnées de blob et en particulier des métadonnées relatives au chiffrement. Si vous copiez des objets blob sans ces métadonnées, le contenu de l’objet blob ne sera plus récupérable. Pour plus de détails concernant les métadonnées liées au chiffrement, consultez [Azure Storage client side encryption](storage-client-side-encryption.md) (Chiffrement côté client Azure Storage).
+> [AZURE.NOTE] Les objets blob chiffrés à l’aide du chiffrement côté client stockent les métadonnées relatives au chiffrement stockées avec l’objet blob. Il est absolument essentiel que n’importe quel mécanisme de copie s’assure de la préservation des métadonnées de blob et en particulier des métadonnées relatives au chiffrement. Si vous copiez des objets blob sans ces métadonnées, le contenu de l’objet blob ne sera plus récupérable. Pour plus d’informations concernant les métadonnées liées au chiffrement, voir [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](storage-client-side-encryption.md).
 
 ## FAQ
 
@@ -232,7 +248,7 @@ Pour plus d’informations, consultez l’article [Prise en main du stockage d�
 
     Les objets blob du niveau d’accès au stockage chaud ont la même latence que les objets blob des comptes de stockage à usage général. Les objets blob du niveau d’accès au stockage froid ont une latence similaire (en millisecondes) à celle des objets blob des comptes de stockage à usage général.
 
-    Les objets blob du niveau d’accès au stockage froid auront un niveau de service de disponibilité légèrement inférieur (SLA) que les objets blob stockés au niveau d’accès au stockage chaud. Pour plus d’informations, consultez [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage) (SLA du stockage).
+    Les objets blob du niveau d’accès au stockage froid auront un niveau de service de disponibilité légèrement inférieur (SLA) que les objets blob stockés au niveau d’accès au stockage chaud. Pour plus d’informations, voir [SLA pour Storage](https://azure.microsoft.com/support/legal/sla/storage).
 
 8. **Puis-je stocker des objets blob de pages et des disques de machine virtuelle dans les comptes de stockage d’objets blob ?**
 
@@ -266,4 +282,4 @@ Pour plus d’informations, consultez l’article [Prise en main du stockage d�
 
 [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

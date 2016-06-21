@@ -81,7 +81,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 8. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du Portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
 
-9. Sélectionnez l’emplacement géographique de votre compte de stockage.
+9. Sélectionnez l’emplacement géographique de votre compte de stockage. Pour plus d’informations sur les services disponibles dans chaque région, voir [Régions Azure](https://azure.microsoft.com/regions/#services).
 
 10. Cliquez sur **Créer** pour créer le compte de stockage.
 
@@ -93,19 +93,19 @@ Après avoir créé votre compte de stockage, vous pouvez modifier sa configurat
 
 > [AZURE.NOTE] Selon le niveau de performances que vous avez choisi lors de la création du compte de stockage, certaines options de réplication peuvent ne pas être disponibles.
 
-La modification de l’option de réplication entraîne une modification de vos tarifs. Pour plus de détails, voir la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+La modification de l’option de réplication entraîne une modification de vos tarifs. Pour plus d’informations, voir [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut entraîner des frais, outre la modification des prix appliqués. Consultez [Comptes de stockage d’objets blob - Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing) pour plus de détails.
+Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut entraîner des frais, outre la modification des prix appliqués. Pour plus d’informations, voir [Stockage des objets blob Azure - section Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing).
 
 ### Gérer vos clés d’accès de stockage
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, consultez [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 
 #### Afficher et copier les clés d’accès de stockage
 
-Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, cliquez sur **Tous les paramètres**, puis cliquez sur **Clés d’accès** pour afficher, copier et régénérer les clés d’accès de votre compte. Le panneau **Clés d’accès** inclut également des chaînes de connexion préconfigurées utilisant vos clés principales et secondaires, que vous pouvez copier pour utilisation dans vos applications.
+Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, cliquez sur **Tous les paramètres**, puis cliquez sur **Clés d’accès** pour visualiser, copier et régénérer les clés d’accès de votre compte. Le panneau **Clés d’accès** inclut également des chaînes de connexion préconfigurées utilisant vos clés principales et secondaires, que vous pouvez copier pour utilisation dans vos applications.
 
 #### Régénération des clés d'accès de stockage
 
@@ -139,15 +139,15 @@ Pour supprimer un compte de stockage qui est associé à une machine virtuelle A
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Si le compte de stockage utilise le modèle de déploiement classique, vous pouvez supprimer le disque de machine virtuelle en procédant de la manière suivante dans le [Portail Azure](https://manage.windowsazure.com) :
+Si le compte de stockage utilise le modèle de déploiement Classic, vous pouvez supprimer le disque de machine virtuelle en procédant comme suit dans le [Portail Azure](https://manage.windowsazure.com) :
 
-1. Accédez au [portail Classic](https://manage.windowsazure.com).
+1. Accédez au [Portail Classic](https://manage.windowsazure.com).
 2. Accédez à l’onglet Virtual Machines.
 3. Cliquez sur l’onglet Disques.
 4. Sélectionnez votre disque de données, puis cliquez sur Supprimer le disque.
 5. Pour supprimer des images de disque, accédez à l’onglet Images et supprimez les images qui sont stockées dans le compte.
 
-Pour plus d’informations, consultez la [documentation relative aux machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Pour plus d’informations, voir la [documentation sur les machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Étapes suivantes
 
@@ -157,4 +157,4 @@ Pour plus d’informations, consultez la [documentation relative aux machines vi
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

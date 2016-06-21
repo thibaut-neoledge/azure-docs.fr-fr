@@ -68,8 +68,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 - [Installation et exécution de MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
 
 ### CoreOS
-- [Utilisation de CoreOS dans Azure](virtual-machines-linux-classic-coreos-howto.md)
-- [Prise en main de fleet et de Docker avec CoreOS sur Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [Utilisation de CoreOS dans Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Planification
@@ -131,10 +130,10 @@ Les liens ci-après se rapportent aux blogs Microsoft, aux pages Technet et à d
 
 - [Exécution d'ASP.NET 5 sur Linux à l'aide de conteneurs Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [déploiement d'une image de machine virtuelle CentOS à partir d'OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
-- [SUSE Update Infrastructure](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure) (Infrastructure de mise à jour SUSE)
+- [SUSE Update Infrastructure (Infrastructure de mise à jour SUSE)](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 - [SUSE Linux Enterprise Server pour SAP Cloud Appliance Library](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 - [génération d'une distribution Linux à haute disponibilité dans Azure en 12 étapes](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-- [Automate Provisioning Linux on Azure with Azure CLI, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx) (Automatisation de l’approvisionnement de Linux dans Azure avec l’interface de ligne de commande Azure, node.js et jhawk)
+- [Automate Provisioning Linux on Azure with Azure CLI, node.js, jhawk (Automatisation de l’approvisionnement de Linux dans Azure avec l’interface de ligne de commande Azure, node.js et jhawk)](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 - [GlusterFS sur Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ### FreeBSD
@@ -171,7 +170,7 @@ Les liens ci-après se rapportent aux blogs Microsoft, aux pages Technet et à d
 
 Étant donné que les domaines des DevOps, de la gestion et de l’optimisation sont assez vastes et évoluent rapidement, il convient de considérer la liste ci-dessous comme un point de départ.
 
-- [Vidéo : Azure Virtual Machines : Using Chef, Puppet and Docker for managing Linux VMs](https://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/) (Utilisation de Chef, Puppet et Docker pour la gestion des machines virtuelles Linux)
+- [Vidéo : Azure Virtual Machines : Using Chef, Puppet and Docker for managing Linux VMs (Utilisation de Chef, Puppet et Docker pour la gestion des machines virtuelles Linux)](https://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/)
 
 - [Guide complet du déploiement automatisé de cluster Kubernetes avec CoreOS et Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
 - [Visualiseur Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
@@ -193,4 +192,4 @@ Les liens ci-après se rapportent aux blogs Microsoft, aux pages Technet et à d
 
 - [Plug-in Packer pour Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

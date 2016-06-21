@@ -544,7 +544,7 @@ Voici un exemple d’appel de cette fonction pour générer des fonctionnalités
 
 ### Préparer les données pour la création de modèles
 
-La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon de l’intégralité du jeu de données joint. L’échantillonnage est effectué en récupérant un sous-ensemble des courses basé sur l’heure d’embarquement. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Lecteur][reader] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre l’ingestion directe de données de l’instance de base de données SQL dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon de l’intégralité du jeu de données joint. L’échantillonnage est effectué en récupérant un sous-ensemble des courses basé sur l’heure d’embarquement. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -563,8 +563,8 @@ La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, g
 
 Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choix :
 
-1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning, ou
-2. stocker les données échantillonnées et générées que vous envisagez d’utiliser pour la création de modèles dans une nouvelle table SQL DW et utiliser cette table dans le module [Lecteur][reader] d’Azure Machine Learning. Le script PowerShell de l’étape précédente a effectué cette opération pour vous. Vous pouvez lire directement cette table dans le module Lecteur.
+1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning, ou
+2. stocker les données échantillonnées et générées que vous envisagez d’utiliser pour la création de modèles dans une nouvelle table SQL DW et utiliser cette table dans le module [Importer les données][import-data] d’Azure Machine Learning. Le script PowerShell de l’étape précédente a effectué cette opération pour vous. Vous pouvez lire directement cette table dans le module Importer les données.
 
 
 ## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans IPython Notebook
@@ -869,9 +869,9 @@ Une expérience de formation classique se déroule comme suit :
 
 Dans cet exercice, nous avons déjà exploré et généré les données dans SQL Data Warehouse, et déterminé la taille de l’échantillon à ingérer dans Azure ML. Pour créer un ou plusieurs des modèles de prédiction, procédez comme suit :
 
-1. Insérez les données dans Azure ML à l’aide du module [Lecteur][reader], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Lecteur][reader].
+1. Intégrez les données dans Azure Machine Learning avec le module [Importer des données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data].
 
-	![Lecteur Azure Machine Learning][17]
+	![Importer les données Azure ML][17]
 
 2. Dans le panneau **Propriétés**, sélectionnez **Base de données SQL Azure** dans le champ **Source de données**.
 
@@ -891,7 +891,7 @@ Un exemple d’expérience de classification binaire lisant directement les donn
 
 > [AZURE.IMPORTANT] Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
 >
-> Pour exclure les colonnes superflues ou les fuites cibles, vous pouvez utiliser le module [Colonnes de projet][project-columns] ou l’[Éditeur de métadonnées][metadata-editor]. Pour plus d’informations, voir les pages de référence des modules [Colonnes de projet][project-columns] et [Éditeur de métadonnées][metadata-editor].
+> Pour exclure les colonnes superflues ou les fuites cibles, vous pouvez utiliser le module [Sélectionner des colonnes dans le jeu de données][select-columns] ou [Modifier les métadonnées][edit-metadata]. Pour plus d’informations, consultez les pages de référence [Sélectionner des colonnes dans le jeu de données][select-columns] et [Modifier les métadonnées][edit-metadata].
 
 ## <a name="mldeploy"></a>Déployer des modèles dans Azure Machine Learning
 
@@ -912,7 +912,7 @@ Azure Machine Learning va essayer de créer une expérience de notation reposant
 2. identifier un **port d’entrée** logique pour représenter le schéma de données d’entrée attendu ;
 3. identifier un **port de sortie** logique pour représenter le schéma de sortie de service web attendu.
 
-Une fois l’expérience de notation créée, vérifiez-la et effectuez les ajustements nécessaires. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, car ces derniers ne seront pas disponibles lors de l’appel du service. Il est également recommandé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Colonnes de projet][project-columns].
+Une fois l’expérience de notation créée, vérifiez-la et effectuez les ajustements nécessaires. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, car ces derniers ne seront pas disponibles lors de l’appel du service. Il est également recommandé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
 La figure ci-après illustre un exemple d’expérience de notation. Quand vous êtes prêt à effectuer le déploiement, cliquez sur le bouton **PUBLIER LE SERVICE WEB** de la barre d’action inférieure.
 
@@ -960,8 +960,8 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 
 
 <!-- Module References -->
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

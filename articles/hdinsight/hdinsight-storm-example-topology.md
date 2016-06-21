@@ -14,17 +14,17 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="03/18/2016"
+ ms.date="06/06/2016"
  ms.author="larryfr"/>
 
-# Exemples de topologie et de composant Storm pour Apache Storm sur HDInsight
+# Exemples de topologie et de composant Storm pour Apache Storm sur HDInsight
 
 Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apache Storm dans HDInsight. Ces exemples couvrent une variété de sujets, depuis la création de topologies de base en C# et Java jusqu'à l'utilisation des services Azure tels que Event Hubs, DocumentDB, Power BI, SQL Database, HBase dans HDInsight et Azure Storage. Certains exemples montrent également comment utiliser des technologies non Azure, ou même non Microsoft, telles que SignalR et Socket.IO
 
 | Description | Illustre le | Langage/structure |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
 | [Écrire dans Azure Data Lake Store à partir d’Apache Storm](hdinsight-storm-write-data-lake-store.md) | Écrire dans Azure Data Lake Store | Java |
-| [Source de spout et bolt Event Hub](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Source de spout et bolt Event Hub | Java |
+| [Source de spout et bolt Event Hub](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Source de spout et bolt Event Hub | Java |
 | [Développement de topologies basées sur Java pour Apache Storm dans HDInsight][5797064f] | Maven | Java |
 | [Développement de topologies C# pour Apache Storm dans HDInsight à l'aide de Visual Studio][16fce2d1] | Outils HDInsight pour Visual Studio | C#, Java |
 | [Création de plusieurs flux de données dans une topologie C# Storm][ec5a4064] | Plusieurs flux de données | C# |
@@ -61,4 +61,4 @@ Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apa
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Ce projet contient des modèles de spouts, bolts et topologies permettant d'interagir avec divers services Azure tels que Event Hubs, DocumentDB et SQL Database."
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

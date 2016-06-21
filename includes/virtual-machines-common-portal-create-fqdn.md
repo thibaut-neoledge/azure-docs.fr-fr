@@ -1,9 +1,6 @@
+## Procédure rapide 
 
-
-
-Lorsque vous créez une machine virtuelle dans le [portail Azure](https://portal.azure.com) à l’aide du modèle de déploiement du **gestionnaire de ressources**, une ressource d’adresse IP publique est créée automatiquement pour la machine virtuelle. Vous pouvez utiliser cette adresse IP pour accéder à distance à la machine virtuelle. Bien que le portail ne crée pas de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) par défaut, il est très facile d’en générer un une fois la machine virtuelle créée. Cet article explique les étapes pour créer un nom DNS ou un nom de domaine complet.
-
-Cet article suppose que vous vous êtes connecté à votre abonnement dans le portail et créé une machine virtuelle avec les images disponibles, à l’aide de **Gestionnaire des ressources**. Une fois que votre machine virtuelle commence à s’exécuter, suivez ces étapes.
+Cet article suppose que vous vous êtes connecté à votre abonnement dans le portail et que vous avez créé une machine virtuelle avec les images disponibles, à l’aide du modèle de déploiement Resource Manager. Une fois que votre machine virtuelle commence à s’exécuter, suivez ces étapes.
 
 1.  Affichez les paramètres de machine virtuelle sur le portail, puis cliquez sur l’adresse IP publique.
 
@@ -23,7 +20,4 @@ Cet article suppose que vous vous êtes connecté à votre abonnement dans le po
 
     ![le nom de domaine complet est créé](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-    Vous pouvez maintenant vous connecter à distance à la machine virtuelle à l’aide de ce nom DNS. Par exemple, utilisez `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com` lorsque vous vous connectez à une machine virtuelle Linux qui présente le nom de domaine complet `testdnslabel.centralus.cloudapp.azure.com` et le nom d’utilisateur `adminuser`.
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

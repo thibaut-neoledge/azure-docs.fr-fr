@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ Pour configurer l’intégration de Predictix Price Reporting avec Azure AD, vo
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
-	![Active Directory][1]
+	![Applications][1]
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
 3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
@@ -79,10 +79,11 @@ Pour configurer l’intégration de Predictix Price Reporting avec Azure AD, vo
 
 6. Dans la zone de recherche, tapez **Predictix Price Reporting**.
 
-	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+	![Applications](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+
 7. Dans le volet des résultats, sélectionnez **Predictix Price Reporting**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-
+	![Applications](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_02.png)
 
 ##  Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Predictix Price Reporting avec un utilisateur de test appelé « Britta Simon ».
@@ -95,7 +96,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Predictix P
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Predictix Price Reporting](#creating-a-predictix-price-reporting-test-user)** pour avoir un équivalent de Britta Simon dans Predictix Price Reporting lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test Predictix](#creating-a-predictix-price-reporting-test-user)** - pour avoir un équivalent de Britta Simon dans Predictix lié à sa représentation dans Azure AD.
 4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -110,7 +111,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 	 
 	![Configurer l’authentification unique][6]
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Predictix Price Reporting**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Predictix Price Reporting**, sélectionnez **Authentification unique Azure AD**, puis sur **Suivant**.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_03.png)
 
@@ -118,9 +119,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 	![Configurer l’authentification unique](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_04.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Predictix Price Reporting, au format suivant : **https://\<nom entreprise-tarification>.predictix.com/sso/request**.
+    a. Dans la zone de** texte URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Predictix Price Reporting au format suivant : `https://<company name-pricing>.predictix.com/sso/request`
 	
-	b. Cliquez sur **Next**
+	b. Cliquez sur **Suivant**
  
 4. Sur la page **Configurer l’authentification unique sur Predictix Price Reporting**, procédez comme suit :
 
@@ -135,13 +136,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 	• Le certificat téléchargé
 
-	• L’**ID d’entité**
+	• L**’ID d’entité**
 
-	• L’**URL d’authentification unique SAML**
+	• L**’URL d’authentification unique SAML**
 
-	• L’**URL du service d’authentification unique**
+	•L**’URL du service d’authentification unique**
 
-6. Sur le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 	
 	![Authentification unique Azure AD][10]
 
@@ -164,15 +165,15 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, cliquez sur **Utilisateurs** dans le menu du haut.
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils du bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
+5. Sur la page de boîte de dialogue **Parlez-nous de cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -180,7 +181,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
+6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
 
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
@@ -192,11 +193,11 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_07.png)
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_08.png)
 
@@ -219,7 +220,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Predictix Price Reporting, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Classic, dans l’affichage de l’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -269,4 +270,4 @@ Lorsque vous cliquez sur la vignette Predictix Price Reporting dans le volet d�
 [204]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

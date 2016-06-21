@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -113,8 +113,6 @@ Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propri�
 ### Quels sont les types de machines virtuelles pris en charge ?
 Les machines virtuelles créées à partir des [modèles de déploiement de type classique et Resource Manager](../azure-classic-rm.md) sont prises en charge, notamment celles qui font partie de clusters Azure Service Fabric.
 
-Les recommandations relatives aux listes de contrôle d’accès s’appliquent actuellement aux machines virtuelles de type Classique. Pour l’heure, les groupes de sécurité réseau s’appliquent uniquement aux machines virtuelles de type Resource Manager.
-
 Machines virtuelles Windows prises en charge :
 
 - Windows Server 2008 R2
@@ -124,9 +122,9 @@ Machines virtuelles Windows prises en charge :
 Machines virtuelles Linux prises en charge :
 
 - Ubuntu versions 12.04, 14.04, 15.10 et 16.04
-- Debian versions 7.0 et 8.0
-- CentOS versions 6.0 et 7.0
-- Red Hat Enterprise Linux (RHEL) versions 6 et 7
-- SUSE Linux Enterprise Server (SLES) versions 11 et 12
+- Debian versions 7 et 8
+- CentOS versions 6.* et 7.*
+- Red Hat Enterprise Linux (RHEL) versions 6.* et 7.*
+- SUSE Linux Enterprise Server (SLES) versions 11.* et 12.*
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

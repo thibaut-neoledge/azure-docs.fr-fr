@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d’Azure Active Directory B2C : infrastructure de stratégie extensible
@@ -75,8 +75,8 @@ Pour activer l’inscription dans votre application, vous devez créer une strat
 5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Inscription par le biais d’une adresse e-mail ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
 6. Cliquez sur **Attributs d'inscription**. Ici, vous choisissez les attributs que vous souhaitez collecter auprès du client au cours de l’inscription. Par exemple, sélectionnez « Pays/région », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
 7. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience d’inscription réussie. Par exemple, sélectionnez « Nom d'affichage », « Fournisseur d'identité », « Code postal », « Nouvel utilisateur » et « ID d'objet de l'utilisateur ».
-8. Cliquez sur **Create**. Notez que la stratégie créée s’affiche sous la forme « **B2C\_1\_SiUp** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le volet **Stratégies d’inscription**.
-9. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiUp** ».
+8. Cliquez sur **Create**. Notez que la stratégie créée s’affiche sous la forme « **B2C\_1\_SiUp** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le volet **Stratégies d’inscription**.
+9. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiUp** ».
 10. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**.
 11. Cliquez sur **Exécuter maintenant**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous inscrire à votre application.
 
@@ -93,8 +93,8 @@ Pour activer la connexion à votre application, vous devez créer une stratégie
 4. Le **Nom** détermine le nom de la stratégie de connexion utilisée par votre application. Par exemple, entrez « SiIn ».
 5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Inscription par le biais du compte local ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
 6. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de connexion réussie. Par exemple, sélectionnez « Nom d'affichage », « Fournisseur d'identité », « Code postal » et « ID d'objet de l'utilisateur ». Cliquez sur **OK**.
-7. Cliquez sur **Create**. Notez que la stratégie créée s'affiche sous la forme « **B2C\_1\_SiIn** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le volet **Stratégies de connexion**.
-8. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiIn** ».
+7. Cliquez sur **Create**. Notez que la stratégie créée s'affiche sous la forme « **B2C\_1\_SiIn** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le volet **Stratégies de connexion**.
+8. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiIn** ».
 9. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**.
 10. Cliquez sur **Exécuter maintenant**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous connecter à votre application.
 
@@ -161,4 +161,4 @@ Pour activer la réinitialisation affinée du mot de passe sur votre application
 
 - [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

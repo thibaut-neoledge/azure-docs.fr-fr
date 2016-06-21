@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/31/2016"
 	ms.author="tamram"/>
 
 
@@ -38,7 +38,7 @@ Commencez par vérifier que la bibliothèque cliente Azure Storage pour .NET es
 
 Dans Visual Studio, créez une application console Windows et nommez-la **GenerateSharedAccessSignatures**. Ajoutez des références à **Microsoft.WindowsAzure.Configuration.dll** et **Microsoft.WindowsAzure.Storage.dll**, en utilisant l'une des méthodes suivantes :
 
-- 	Si vous souhaitez installer le package NuGet, commencez par installer [NuGet Package Manager Extension pour Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Dans Visual Studio, sélectionnez **Project | Manage NuGet Packages**, effectuez une recherche en ligne sur **Azure Storage** et suivez les instructions d'installation.
+- 	Si vous souhaitez installer le package NuGet, commencez par installer le [Client NuGet](https://docs.nuget.org/consume/installing-nuget). Dans Visual Studio, sélectionnez **Project | Manage NuGet Packages**, effectuez une recherche en ligne sur **Azure Storage** et suivez les instructions d'installation.
 - 	Vous pouvez également rechercher les assemblys dans votre installation du Kit de développement logiciel (SDK) Azure et y ajouter des références.
 
 Au début du fichier Program.cs, ajoutez les instructions **using** suivantes :
@@ -189,7 +189,7 @@ Ajoutez une nouvelle méthode qui crée une stratégie d’accès stockée sur u
         container.SetPermissions(permissions);
     }
 
-Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l’appel à **Console.ReadLine()** pour supprimer les stratégies d’accès existantes, puis pour appeler la méthode **CreateSharedAccessPolicy()** :
+Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l’appel à **Console.ReadLine()** pour supprimer les stratégies d’accès existantes, puis pour appeler la méthode **CreateSharedAccessPolicy()** :
 
     //Clear any existing access policies on container.
     BlobContainerPermissions perms = container.GetPermissions();
@@ -219,7 +219,7 @@ Ajoutez une nouvelle méthode pour générer une autre signature d'accès partag
 	    return container.Uri + sasContainerToken;
     }
 
-Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetContainerSasUriWithPolicy** :
+Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetContainerSasUriWithPolicy** :
 
     //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -254,7 +254,7 @@ Ajoutez une nouvelle méthode pour créer un objet blob et générer une signatu
 	    return blob.Uri + sasBlobToken;
     }
 
-Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetBlobSasUriWithPolicy** :
+Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetBlobSasUriWithPolicy** :
 
     //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -554,4 +554,4 @@ Exécutez l'application console et observez la sortie pour connaître les opéra
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

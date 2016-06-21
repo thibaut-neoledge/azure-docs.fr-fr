@@ -156,9 +156,6 @@ Pour rendre le partage permanent :
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Mettre à jour les pilotes Linux
-Il se peut que vous deviez mettre à jour les pilotes InfiniBand des nœuds de calcul Linux. Pour plus d’informations, consultez l’article [Mettre à jour les pilotes Linux RDMA pour SLES 12](virtual-machines-linux-classic-rdma-cluster.md/#update-the-linux-rdma-drivers-for-sles-12).
-
 ## Installer STAR-CCM+
 Les instances A8 et A9 de machine virtuelle Azure prennent en charge InfiniBand et les fonctionnalités RDMA. Les pilotes de noyau qui mettent en œuvre ces fonctionnalités sont disponibles pour les images Windows Server 2012 R2, SUSE 12, CentOS 6.5 et CentOS 7.1 dans Azure Marketplace. Microsoft MPI et Intel MPI (version 5.x) sont les deux bibliothèques MPI qui prennent en charge ces pilotes dans Azure.
 
@@ -214,7 +211,7 @@ Les nœuds sont alloués exclusivement au travail et ne peuvent pas être partag
 
 Le modèle d’entrée et le script **runstarccm.sh** sont stockés dans le partage **/hpcdata** précédemment monté.
 
-Les fichiers journaux sont nommés d’après l’ID du travail et stockés dans le **partage /hpcdata** avec les fichiers de sortie Star-CCM+.
+Les fichiers journaux sont nommés d’après l’ID du travail et stockés dans le **partage /hpcdata** avec les fichiers de sortie STAR-CCM+.
 
 
 #### Exemple de script SubmitStarccmJob.ps1
@@ -241,7 +238,7 @@ Les fichiers journaux sont nommés d’après l’ID du travail et stockés dans
 
     Submit-HpcJob -Job $job -Scheduler $scheduler
 ```
-Remplacez le **runner.java** par le lanceur de modèle Java Star-CCM+ de votre choix et votre code de journalisation.
+Remplacez le **runner.java** par le lanceur de modèle Java STAR-CCM+ de votre choix et votre code de journalisation.
 
 #### Exemple de script runstarccm.sh
 ```
@@ -289,11 +286,11 @@ Remplacez le **runner.java** par le lanceur de modèle Java Star-CCM+ de votre c
     exit ${RTNSTS}
 ```
 
-Dans notre test, nous avons utilisé un jeton de licence Power-On-Demand, dont vous devez définir la variable d’environnement **$CDLMD\_LICENSE\_FILE** sur ****1999@flex.cd-adapco.com** et la clé dans l’option **-podkey** de la ligne de commande.
+Dans notre test, nous avons utilisé un jeton de licence Power-On-Demand, dont vous devez définir la variable d’environnement **$CDLMD\_LICENSE\_FILE** sur **1999@flex.cd-adapco.com** et la clé dans l’option **-podkey** de la ligne de commande.
 
 Après une phase d’initialisation, le script extrait, à partir des variables d’environnement **$CCP\_NODES\_CORES** définies par HPC Pack, la liste des nœuds permettant de générer un fichier d’hôte utilisé par le lanceur MPI. Ce fichier d’hôte contient la liste des noms de nœuds de calcul utilisés pour le travail (un nom par ligne).
 
-Le format de **$CCP\_NODES\_CORES** est le suivant :
+Le format de **$CCP\_NODES\_CORES** suit ce modèle :
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -348,4 +345,4 @@ Essayez d’exécuter d’autres charges de travail Linux, par exemple :
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -21,12 +21,15 @@
 <a name="TypeofBuilds"></a>
 ## Quel type de build de recommandations dois-je utiliser ? ##
 
-Nous prenons actuellement en charge deux types de build : les builds *Recommandation* et *FBT*. Chacune d’elles sont créées à l’aide de différents algorithmes et offrent des fonctionnalités bien distinctes.
+Nous prenons actuellement en charge deux types de build : les builds *Recommandation* et *FBT*. Chacune d’elles sont créées à l’aide de différents algorithmes et offrent des fonctionnalités bien distinctes. Ce document décrit chacune de ces builds, ainsi que les techniques permettant de comparer la qualité des modèles générés.
+
+
+> Si ce n’est déjà fait, nous vous encourageons à suivre le [guide de démarrage rapide](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Build de type recommandation ###
 
-La build de type *recommandation* utilise la factorisation de matrice pour fournir des recommandations. Elle utilise les transactions de l’utilisateur pour générer des vecteurs de [fonctionnalité latente](https://en.wikipedia.org/wiki/Latent_variable) afin de décrire chaque élément, et utilise ensuite ces vecteurs latents pour comparer les éléments similaires.
+Le type de build *recommandation* utilise la factorisation de matrice pour fournir des recommandations. La version courte utilise les transactions de l’utilisateur pour générer des vecteurs de [fonctionnalité latente](https://en.wikipedia.org/wiki/Latent_variable) afin de décrire chaque élément, et utilise ensuite ces vecteurs latents pour comparer les éléments similaires.
 
 En supposant que vous formiez le modèle en fonction des achats effectués dans votre boutique électronique, et en utilisant comme donnée d’entrée du modèle le moment auquel vous fournissez un téléphone Lumia 650, vous obtiendrez en retour un ensemble d’articles pouvant potentiellement intéresser les personnes sont susceptibles d’acheter un téléphone Lumia 650. Notez que les articles ne sont peut-être pas complémentaires. Dans cet exemple, il est possible que d’autres téléphones soient retournés dans la mesure où les personnes qui apprécient le Lumia 650 peuvent aussi aimer d’autres téléphones.
 
@@ -56,7 +59,7 @@ La build de recommandation possède deux fonctionnalités intéressantes :
 
 -	Elle prend en charge les recommandations utilisateur.
 
- Une build de recommandation prend en charge les [recommandations de l’utilisateur](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). Cela signifie qu’elle peut s’appuyer sur l’historique des transactions d’un utilisateur afin de proposer à cet utilisateur des recommandations personnalisées. Pour les recommandations de l’utilisateur, vous pouvez fournir l’ID d’utilisateur et/ou l’historique de transactions récent de cet utilisateur.
+ Le type de build Recommandation prend en charge les [recommandations de l’utilisateur](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). Cela signifie qu’elle peut s’appuyer sur l’historique des transactions d’un utilisateur afin de proposer à cet utilisateur des recommandations personnalisées. Pour les recommandations de l’utilisateur, vous pouvez fournir l’ID d’utilisateur et/ou l’historique de transactions récent de cet utilisateur.
 
  Il peut être intéressant d’appliquer les recommandations de l’utilisateur lorsque, par exemple, l’utilisateur se connecte à votre boutique/site, sur la page d’accueil. Vous pouvez alors promouvoir le contenu qui s’applique à cet utilisateur spécifique.
  
@@ -155,7 +158,7 @@ Au moment de la build, dans le cadre des paramètres de build FBT ou de recomman
 
 2.	Vous pouvez éventuellement sélectionner *splitterStrategy* (*RandomSplitter* ou *LastEventSplitter*). *RandomSplitter* fractionne les données d’utilisation dans les jeux de données d’apprentissage et de test à partir des pourcentages de test et des valeurs de départ aléatoires *randomSplitterParameters*. *LastEventSplitter* fractionne les données d’utilisation dans les jeux de données d’apprentissage et de test en fonction de la dernière transaction de chaque utilisateur.
 
-Ceci déclenche une build qui utilise uniquement un sous-ensemble des données pour l’apprentissage, en réservant les autres données pour calculer les mesures d’évaluation. Une fois la build terminée, pour obtenir le résultat de l’évaluation, vous devez simplement appeler [l’API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console), en transmettant les valeurs *modelId* et *buildId* correspondantes.
+Ceci déclenche une build qui utilise uniquement un sous-ensemble des données pour l’apprentissage, en réservant les autres données pour calculer les mesures d’évaluation. Une fois la build terminée, vous devez simplement appeler [l’API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console) en transmettant les valeurs *modelId* et *buildId* correspondantes pour obtenir le résultat de l’évaluation.
 
  Voici le résultat JSON obtenu pour l’exemple d’évaluation que nous avons effectuée :
 
@@ -238,4 +241,4 @@ Ceci déclenche une build qui utilise uniquement un sous-ensemble des données p
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

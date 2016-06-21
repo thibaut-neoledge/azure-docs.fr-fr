@@ -1,3 +1,4 @@
+
 <properties 
 	pageTitle="Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas | Microsoft Azure" 
 	description="Comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure avec le package Python Pandas." 
@@ -25,7 +26,8 @@ Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonction
 
 
 ## Composants requis
-Cet article part du principe que vous avez créé un compte de stockage d’objets blob Azure et que vous y avez stocké vos données. Si vous avez besoin d’aide pour configurer un compte, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
+Cet article part du principe que vous avez :
+* créé un compte de stockage d’objets blob Azure et que vous y avez stocké vos données. Si vous avez besoin d’aide pour configurer un compte, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
 
 
 ## Chargement des données dans une trame de données Pandas
@@ -130,11 +132,11 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) d’Azure Machine Learning comme le montre l’écran ci-dessous :
+3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) d’Azure Machine Learning comme le montre l’écran ci-dessous :
  
 ![objet blob de lecteur](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

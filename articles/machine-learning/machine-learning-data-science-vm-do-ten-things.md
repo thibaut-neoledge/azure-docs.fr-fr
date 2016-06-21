@@ -52,7 +52,7 @@ Pour R, vous pouvez utiliser un IDE appelé « Revolution R Enterprise 8.0 » 
 
 Pour Python, vous pouvez utiliser un IDE comme Visual Studio Community Edition qui contient l'extension Outils Python pour Visual Studio (PTVS) préinstallée. Par défaut, seule une version de base de Python 2.7 est configurée sur PTVS (sans aucune bibliothèque d’analyse comme SciKit, Pandas). Pour activer Anaconda Python 2.7 et 3.5, vous devez effectuer les opérations suivantes :
 
-* Créez des environnements personnalisés pour chaque version en accédant à **Outils** -> **Outils Python** -> **Environnements Python**, puis en cliquant sur « **+ personnalisé** » dans Visual Studio 2015 Community Edition
+* Créez des environnements personnalisés pour chaque version en accédant à **Outils** -> **Outils Python** -> **Environnements Python**, puis en cliquant sur « **+ personnalisé** » dans Visual Studio 2015 Community Edition
 * Donnez une description et définissez le préfixe du chemin d’accès de l’environnement comme *c:\\anaconda* pour Anaconda Python 2.7 OU *c:\\anaconda\\envs\\py35* pour Anaconda Python 3.5
 * Cliquez sur **Détection automatique** puis sur **Appliquer** pour enregistrer l’environnement.
 
@@ -198,7 +198,7 @@ Vous trouverez plus d’informations sur la bibliothèque R Azure Machine Learni
 
 La DSVM vous permet non seulement de développer votre solution d'analyse localement sur la machine virtuelle, mais également d'accéder aux services sur le cloud Microsoft Azure. Azure fournit plusieurs services de calcul, de stockage, d'analyse de données et autres que vous pouvez administrer et auxquels vous pouvez accéder à partir de votre DSVM.
 
-Pour gérer vos ressources cloud et votre abonnement Azure, vous pouvez utiliser votre navigateur et pointer vers le [portail Azure](portal.azure.com). Vous pouvez également utiliser Azure PowerShell pour administrer votre abonnement Azure et vos ressources à l’aide d’un script. Vous pouvez exécuter Azure PowerShell à partir d'un raccourci sur le bureau ou dans le menu Démarrer intitulé « Microsoft Azure PowerShell ». Reportez-vous à la [documentation Microsoft Azure PowerShell](../powershell-azure-resource-manager.md) pour plus d’informations sur l’administration de votre abonnement Azure et de vos ressources à l’aide de scripts Windows PowerShell.
+Pour gérer vos ressources cloud et votre abonnement Azure, vous pouvez utiliser votre navigateur et pointer vers le [portail Azure](https://portal.azure.com). Vous pouvez également utiliser Azure PowerShell pour administrer votre abonnement Azure et vos ressources à l’aide d’un script. Vous pouvez exécuter Azure PowerShell à partir d'un raccourci sur le bureau ou dans le menu Démarrer intitulé « Microsoft Azure PowerShell ». Reportez-vous à la [documentation Microsoft Azure PowerShell](../powershell-azure-resource-manager.md) pour plus d’informations sur l’administration de votre abonnement Azure et de vos ressources à l’aide de scripts Windows PowerShell.
 
 
 ## 5\. Augmenter votre espace de stockage avec un système de fichiers partagés
@@ -268,7 +268,7 @@ Les objets blob Azure constituent un stockage fiable et économique dans le clou
 
 **Configuration requise**
 
-- **Créez votre compte de stockage d’objets blob Azure sur le [portail Azure](http://portal.azure.com).**
+- **Créez votre compte de stockage d’objets blob Azure sur le [portail Azure](https://portal.azure.com).**
 
 ![Create\_Azure\_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -287,7 +287,7 @@ Pour déplacer des données entre vos fichiers locaux et le stockage d’objets 
 
 	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-Remplacez **C:\\myfolder** par le chemin d’accès où se trouve votre fichier, **mystorageaccount** par le nom de votre compte de stockage d’objets blob, **mycontainer** par le nom du conteneur et **storage account key** par votre clé d’accès de stockage d’objets blob. Vous trouverez les informations d’identification de votre compte de stockage sur le [portail Azure](http://portal.azure.com).
+Remplacez **C:\\myfolder** par le chemin d’accès où se trouve votre fichier, **mystorageaccount** par le nom de votre compte de stockage d’objets blob, **mycontainer** par le nom du conteneur et **storage account key** par votre clé d’accès de stockage d’objets blob. Vous trouverez les informations d’identification de votre compte de stockage sur le [portail Azure](https://portal.azure.com).
 
 ![StorageAccountCredential\_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -318,7 +318,7 @@ Vous pouvez également télécharger des données du fichier local vers votre ma
 
 **Lire des données à partir d'Azure Blob : module lecteur AML**
 
-Dans Azure Machine Learning Studio, vous pouvez utiliser un **Module lecteur** pour lire des données à partir de votre objet blob.
+Dans Azure Machine Learning Studio, vous pouvez utiliser un **module Importer les données** pour lire des données à partir de votre objet blob.
 
 
 ![AML\_ReaderBlob\_Module\_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
@@ -379,7 +379,7 @@ Le stockage Azure Data Lake est un référentiel hyperscale pour les charges de 
 
 **Configuration requise**
 
-- Créez votre Azure Data Lake Analytics dans le [portail Azure](http://portal.azure.com).
+- Créez votre Azure Data Lake Analytics dans le [portail Azure](https://portal.azure.com).
 
 ![Azure\_Data\_Lake\_Create\_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
@@ -474,7 +474,7 @@ Azure HDInsight est un service Apache Hadoop, Spark, HBase et Storm géré dans 
 
 **Configuration requise**
 
-- Créez votre compte de stockage d’objets blob Azure sur le [portail Azure](http://portal.azure.com). Ce compte de stockage est utilisé pour stocker les données des clusters HDInsight.
+- Créez votre compte de stockage d’objets blob Azure sur le [portail Azure](https://portal.azure.com). Ce compte de stockage est utilisé pour stocker les données des clusters HDInsight.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -910,4 +910,4 @@ Vous pouvez tirer parti des autres services de données et d’analyse Azure pr�
 ## Résumé
 Ce sont quelques-unes des actions possibles sur la machine virtuelle pour la science des données Microsoft. Il existe bien d'autres actions que vous pouvez effectuer pour en faire un environnement d'analyse efficace.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

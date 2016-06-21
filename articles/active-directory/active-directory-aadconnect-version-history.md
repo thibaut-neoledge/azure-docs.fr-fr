@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/11/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -29,6 +29,15 @@ Rubrique |
 Étapes de mise à niveau à partir d’Azure AD Connect | Différentes méthodes pour [effectuer une mise à niveau à partir d’une version précédente vers la dernière](active-directory-aadconnect-upgrade-previous-version.md) version Azure AD Connect.
 Autorisations requises | Pour plus d'informations sur les autorisations requises pour appliquer une mise à jour, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#upgrade)
 Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.189.0
+Publiée : juin 2016
+
+**Problèmes résolus et améliorations :**
+
+- Vous pouvez maintenant installer Azure AD Connect sur un serveur compatible FIPS.
+    - Pour la synchronisation du mot de passe, consultez [Synchronisation de mot de passe et FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
+- Correction d’un problème à cause duquel un nom NetBIOS ne pouvait pas être résolu pour le nom de domaine complet dans le connecteur Active Directory.
 
 ## 1\.1.180.0
 Publication : mai 2016
@@ -89,8 +98,8 @@ Publié : février 2016
 
 **Fonctionnalités promues de version préliminaire à disponibilité générale :**
 
-- [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md)
-- [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md)
+- [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md).
+- [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nouvelles fonctionnalités préliminaires :**
 
@@ -284,4 +293,4 @@ Publiée : septembre 2014
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

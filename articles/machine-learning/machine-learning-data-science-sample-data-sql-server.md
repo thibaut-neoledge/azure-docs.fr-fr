@@ -60,7 +60,7 @@ Vous pouvez également utiliser l’élément TABLESAMPLE pour l’échantillonn
 
 ###<a name="sql-aml"></a>Connexion à Azure Machine Learning
 
-Vous pouvez utiliser directement les exemples de requêtes ci-dessus dans le module Lecteur d’Azure Machine Learning afin de sous-échantillonner les données à la volée et de les importer dans une expérience Azure Machine Learning. La capture d’écran ci-après illustre l’utilisation du module Lecteur pour lire les données échantillonnées :
+Vous pouvez utiliser directement les exemples de requêtes ci-dessus dans le module Importer les données d’Azure Machine Learning afin de sous-échantillonner les données à la volée et de les importer dans une expérience Azure Machine Learning. La capture d’écran ci-après illustre l’utilisation du module Lecteur pour lire les données échantillonnées :
    
 ![lecteur sql][1]
 
@@ -83,7 +83,7 @@ Vous pouvez à présent travailler sur les données échantillonnées dans la tr
 
 ###<a name="python-aml"></a>Connexion à Azure Machine Learning
 
-Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données sous-échantillonnées dans un fichier et les charger dans un objet blob Azure. Les données figurant dans l’objet blob peuvent être lues directement dans une expérimentation Azure Machine Learning à l’aide du module *Lecteur*. La procédure comporte trois étapes :
+Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données sous-échantillonnées dans un fichier et les charger dans un objet blob Azure. Les données figurant dans l’objet blob peuvent être lues directement dans une expérimentation Azure Machine Learning à l’aide du module *Importer les données*. La procédure comporte trois étapes :
 
 1. Écrire la trame de données pandas dans un fichier local
 
@@ -111,7 +111,7 @@ Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Lisez les données de l’objet blob Azure à l’aide du module *Lecteur* d’Azure Machine Learning comme illustré dans la capture d’écran ci-dessous :
+3. Lisez les données de l’objet blob Azure à l’aide du module *Importer les données* d’Azure Machine Learning, comme l’illustre la capture d’écran ci-dessous :
  
 ![objet blob de lecteur][2]
 
@@ -124,4 +124,4 @@ Pour obtenir un exemple de procédure pas à pas complet du processus Cortana An
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

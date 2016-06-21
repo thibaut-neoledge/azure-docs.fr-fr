@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | Microsoft Azure"
+	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | Microsoft Azure"
 	 description="Une vue d'ensemble de la façon de créer et gérer les hubs IoT Azure via le portail Azure"
 	 services="iot-hub"
 	 documentationCenter=""
@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="03/14/2016"
+	 ms.date="06/06/2016"
 	 ms.author="nasing"/>
 
 # Configuration de hubs IoT par le biais du portail Azure
@@ -36,7 +36,7 @@ Vous pouvez créer un hub IoT à l'aide des méthodes suivantes.
 
 1. La création d'un hub IoT via l'option **+ New** vous amène au panneau illustré dans la capture d'écran suivante. Les étapes de création du hub IoT via cette méthode et via le marketplace sont identiques.
 
-2. Création d'un hub IoT via Marketplace : un clic sur **Créer** ouvre un panneau identique au panneau précédent correspondant à l'expérience **+ New**. Plusieurs opérations intervenant dans la création d'un hub IoT figurent dans les sections qui suivent.
+2. Création d'un hub IoT via Marketplace : un clic sur **Créer** ouvre un panneau identique au panneau précédent correspondant à l'expérience **+ New**. Plusieurs opérations intervenant dans la création d'un hub IoT figurent dans les sections qui suivent.
 
 ### Choisir le nom du hub IoT
 
@@ -44,7 +44,7 @@ Pour créer un hub IoT, vous devez nommer le hub. Veuillez noter que le nom doit
 
 ### Choisir le niveau tarifaire.
 
-Vous pouvez choisir entre 3 niveaux : **Gratuit**, **Standard 1** et **Standard 2**. Le niveau gratuit permet la connexion de seulement 500 appareils au IoT Hub, avec jusqu’à 8 000 messages par jour.
+Vous pouvez choisir entre 3 niveaux : **Gratuit**, **Standard 1** et **Standard 2**. Le niveau gratuit permet la connexion de seulement 500 appareils au IoT Hub, avec jusqu’à 8 000 messages par jour.
 
 **S1 (basse fréquence)** : l'édition IoT Hubs S1 (faible fréquence) est conçue pour les solutions IoT qui ont un grand nombre d’appareils générant de petites quantités de données par appareil. Chaque unité de l’édition S1 (fréquence faible) permet de transmettre au maximum 400 000 messages par jour sur l’ensemble des appareils connectés.
 
@@ -60,7 +60,7 @@ Une unité IoT Hub comprend un certain nombre de messages par jour. Le choix du 
 
 ### Les partitions appareil-à-cloud et groupe de ressources
 
-Vous pouvez modifier le nombre de partitions pour un hub IoT. Les partitions par défaut sont définies sur 4 ; toutefois, vous pouvez choisir un nombre de partitions différent dans la liste déroulante.
+Vous pouvez modifier le nombre de partitions pour un hub IoT. Les partitions par défaut sont définies sur 4 ; toutefois, vous pouvez choisir un nombre de partitions différent dans la liste déroulante.
 
 Pour les groupes de ressources, vous n’avez pas besoin de créer explicitement un groupe de ressources vide. Lorsque vous créez une ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant.
 
@@ -72,7 +72,7 @@ IoT Hub Azure montre automatiquement la liste des abonnements auquel le compte u
 
 ### Choisir l’emplacement
 
-L’option d’emplacement fournit une liste des régions dans lesquelles IoT Hub est proposé. IoT Hub peut être déployé aux emplacements suivants : Est des États-Unis, Ouest des États-Unis, Europe du Nord, Europe de l’Ouest, Asie de l’Est et Asie du Sud-Est.
+L’option d’emplacement fournit une liste des régions dans lesquelles IoT Hub est proposé. IoT Hub peut être déployé aux emplacements suivants : Est des États-Unis, Ouest des États-Unis, Europe du Nord, Europe de l’Ouest, Asie de l’Est et Asie du Sud-Est.
 
 ### Créer le hub IoT
 
@@ -102,9 +102,9 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 ## Messagerie
 
-Cliquez sur les stratégies **Messagerie** pour afficher une liste des messages de propriétés pour le hub IoT en cours de modification. Il existe deux types principaux de propriétés que vous pouvez modifier ou copier : **cloud-à-appareil** et **appareil-à-cloud**.
+Cliquez sur les stratégies **Messagerie** pour afficher une liste des messages de propriétés pour le hub IoT en cours de modification. Il existe deux types principaux de propriétés que vous pouvez modifier ou copier : **cloud-à-appareil** et **appareil-à-cloud**.
 
-- Paramètres **cloud-à-appareil** : contiennent 2 configurations secondaires : **cloud-à-appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’1 heure. Toutefois, vous pouvez les personnaliser en utilisant les curseurs ou en saisissant les valeurs.
+- Paramètres **cloud-à-appareil** : contiennent 2 configurations secondaires : **cloud-à-appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’1 heure. Toutefois, vous pouvez les personnaliser en utilisant les curseurs ou en saisissant les valeurs.
 
 - Paramètres **Appareil-à-cloud** : contiennent plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le hub IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
 
@@ -120,9 +120,27 @@ Cliquez sur les stratégies **Messagerie** pour afficher une liste des messages 
 
 ![][11]
 
+## Chargement de fichiers
+
+Pour utiliser la fonctionnalité de chargement de fichiers dans IoT Hub, vous devez d’abord associer un compte Azure Storage à votre concentrateur. Sélectionnez les paramètres de **chargement de fichiers** pour afficher une liste de propriétés de fichier pour l’IoT Hub en cours de modification.
+
+**Compte de stockage** : utilisez le portail pour sélectionner un compte de stockage de votre abonnement actuel à associer à votre IoT Hub. IoT Hub génère des URI SAS à partir de ce compte de stockage pour les appareils à utiliser lors du chargement de fichiers.
+
+![][14]
+
+**Recevoir des notifications pour les fichiers chargés** : activez ou désactivez les notifications de chargement de fichiers.
+
+**SAS TTL** : ce paramètre est le time-to-live (la durée de vie) des URI SAS renvoyé à l’appareil par IoT Hub. Il est défini par défaut sur 1 heure, mais il peut être personnalisé avec d’autres valeurs à l’aide du curseur.
+
+**Durée de vie par défaut des paramètres de notification de fichiers** : la durée de vie d’une notification de chargement avant son expiration. Elle est définie par défaut sur 1 jour, mais elle peut être personnalisée avec d’autres valeurs à l’aide du curseur.
+
+**Nombre maximum de remises de notifications de fichier** : le nombre de tentatives de remise d’une notification de chargement de fichier par l’IoT Hub. Il est défini par défaut sur 10, mais il peut être personnalisé avec d’autres valeurs à l’aide du curseur.
+
+![][13]
+
 ## Tarification et mise à l'échelle
 
-La tarification d'un hub IoT existant peut être modifiée via les paramètres de **tarification** avec les exceptions suivantes :
+La tarification d'un concentrateur IoT existant peut être modifiée via les paramètres de **tarification** avec les exceptions suivantes :
 
 - Dans l’implémentation actuelle, un hub IoT avec une référence gratuite ne peut pas changer de niveau pour une référence payante, ou vice-versa.
 - Il ne peut y avoir qu’un niveau gratuit de hub IoT par abonnement.
@@ -133,14 +151,14 @@ Le déplacement d’un niveau élevé (S2) vers un faible niveau (S1) est autori
 
 ## Supprimez IoT Hub
 
-Vous pouvez accéder au hub IoT en cliquant sur **Parcourir**, puis en choisissant le hub à supprimer. Cliquez sur le bouton **Supprimer** situé sous le nom du hub pour supprimer le hub.
+Vous pouvez accéder au concentrateur IoT Hub en cliquant sur **Parcourir**, puis en choisissant le concentrateur à supprimer. Cliquez sur le bouton **Supprimer** situé sous le nom du concentrateur pour supprimer le concentrateur.
 
 ## Étapes suivantes
 
-Suivez ces liens pour en savoir plus sur Azure IoT Hub :
+Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
 - [Prise en main d'IoT Hub (didacticiel)][lnk-get-started]
-- [Qu’est-ce qu’Azure IoT Hub ?][]
+- [Qu’est-ce qu’Azure IoT Hub ?][]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -149,8 +167,10 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
   [10]: ./media/iot-hub-manage-through-portal/shared-access-policies.png
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
+  [13]: ./media/iot-hub-manage-through-portal/file-upload-settings.png
+  [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
+[Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

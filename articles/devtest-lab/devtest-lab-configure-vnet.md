@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Configuration d’un réseau virtuel pour un laboratoire
@@ -27,23 +27,23 @@ Les étapes suivantes vous montrent comment ajouter un réseau virtuel (et sous-
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
+1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
 
-1. Dans la liste des labos, sélectionnez le labo souhaité.
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
 1. Le panneau **Paramètres** du labo sélectionné s’affiche.
 
-1. Appuyez sur **Réseaux virtuels**.
+1. Sélectionnez **Réseaux virtuels**.
 
 	![Les réseaux virtuels peuvent être configurés à partir du panneau Paramètres du labo](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
 	
 1. Sur le panneau **Réseaux virtuels**, vous verrez une liste de réseaux virtuels configurés pour le labo actuel ainsi que le réseau virtuel par défaut créé pour votre labo.
 
-1. Appuyez sur **+ Ajouter**.
+1. Sélectionnez **Ajouter**.
 
 	![Ajout d’un réseau virtuel existant à votre labo](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
-1. Sur le panneau **Réseau virtuel**, cliquez sur **[Sélectionner un réseau virtuel]**.
+1. Sur le panneau **Réseau virtuel**, sélectionnez **[Sélectionner un réseau virtuel]**.
 
 	![Sélection d’un réseau virtuel existant](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 	
@@ -61,7 +61,7 @@ Les étapes suivantes vous montrent comment ajouter un réseau virtuel (et sous-
 
 1. Dans le champ **NOMBRE MAXIMAL DE MACHINES VIRTUELLES PAR UTILISATEUR**, spécifiez le nombre maximal de machines virtuelles par utilisateur pour chaque sous-réseau. Si vous souhaitez un nombre illimité de machines virtuelles, laissez ce champ vide.
 
-1. Appuyez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 1. Maintenant que le réseau virtuel est configuré, il peut être sélectionné lors de la création d'une nouvelle machine virtuelle. Ceci est expliqué dans l’article [Ajouter une machine virtuelle avec des artefacts à un laboratoire](devtest-lab-add-vm-with-artifacts.md).
 
@@ -69,4 +69,4 @@ Les étapes suivantes vous montrent comment ajouter un réseau virtuel (et sous-
 
 Une fois que vous avez ajouté le ou les réseaux virtuels souhaités à votre laboratoire, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

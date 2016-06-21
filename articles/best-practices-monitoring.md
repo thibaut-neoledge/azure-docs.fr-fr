@@ -659,9 +659,9 @@ Dans de nombreux cas, les traitements par lots peuvent générer des rapports en
 - [Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) (Azure : Concepts de base de la télémétrie et résolution des problèmes)
 - [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Cache Redis Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) et [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [Utilisation des files d’attente Service Bus](./service-bus/service-bus-dotnet-how-to-use-queues.md)
+- [Utilisation des files d’attente Service Bus](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [Business Intelligence de SQL Server dans Azure Virtual Machines](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Réception de notifications d’alerte](./azure-portal/insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -35,13 +35,13 @@ Pour une prise en main du stockage Azure Premium, consultez la page [Évaluation
 
 ## Caractéristiques de Premium Storage
 
-**Disques Premium Storage** : Azure Storage Premium prend en charge les disques de machine virtuelle pouvant être connectés à des machines virtuelles Azure des séries DS, DSv2 ou GS. Quand vous utilisez Premium Storage, vous avez le choix entre trois tailles de disque, à savoir, P10 (128 Gio), P20 (512 Gio) et P30 (1 024 Gio), chacun avec ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez connecter un ou plusieurs de ces disques à votre machine virtuelle de série DS, DSv2 ou GS. La section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets) décrit ces spécifications plus en détail.
+**Disques Premium Storage** : Azure Storage Premium prend en charge les disques de machine virtuelle pouvant être connectés à des machines virtuelles Azure des séries DS, DSv2 ou GS. Quand vous utilisez Premium Storage, vous avez le choix entre trois tailles de disque, à savoir, P10 (128 Gio), P20 (512 Gio) et P30 (1 024 Gio), chacun avec ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez connecter un ou plusieurs de ces disques à votre machine virtuelle de série DS, DSv2 ou GS. La section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets) décrit ces spécifications plus en détail.
 
-**Objet blob de pages Premium** : Premium Storage prend en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des machines virtuelles Azure. Actuellement, Premium Storage ne prend pas en charge les objets blob de blocs Azure, les objets blob d’ajout Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Tout autre objet placé dans un compte de stockage Premium est un objet blob de pages, et il s’aligne sur une des tailles configurées prises en charge. Un compte de stockage Premium n’est donc pas conçu pour stocker de petits objets blob.
+**Objet blob de pages Premium** : Premium Storage prend en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des machines virtuelles Azure. Actuellement, Premium Storage ne prend pas en charge les objets blob de blocs Azure, les objets blob d’ajout Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Tout autre objet placé dans un compte de stockage Premium est un objet blob de pages, et il s’aligne sur une des tailles configurées prises en charge. Un compte de stockage Premium n’est donc pas conçu pour stocker de petits objets blob.
 
-**Compte Premium Storage** : pour commencer à utiliser Premium Storage, vous devez créer un compte Premium Storage. Si vous préférez utiliser le [portail Azure](https://portal.azure.com), vous pouvez créer un compte Premium Storage en spécifiant le niveau de performances « Premium » et le « stockage localement redondant (LRS) » comme option de réplication. Vous pouvez également créer un compte Premium Storage en spécifiant le type « Premium\_LRS » à l’aide de l’[API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 ou ultérieure, l’[API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure (déploiements classiques), la [Référence de l’API REST du fournisseur de ressources Azure Storage](http://msdn.microsoft.com/library/azure/mt163683.aspx) (déploiements ARM) et [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 ou ultérieure. Pour en savoir plus sur les limites de compte de stockage Premium, voir la section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets).
+**Compte Premium Storage** : pour commencer à utiliser Premium Storage, vous devez créer un compte Premium Storage. Si vous préférez utiliser le [portail Azure](https://portal.azure.com), vous pouvez créer un compte Premium Storage en spécifiant le niveau de performances « Premium » et le « stockage localement redondant (LRS) » comme option de réplication. Vous pouvez également créer un compte Premium Storage en spécifiant le type « Premium\_LRS » à l’aide de l’[API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 ou ultérieure, l’[API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure (déploiements classiques), la [Référence de l’API REST du fournisseur de ressources Azure Storage](http://msdn.microsoft.com/library/azure/mt163683.aspx) (déploiements ARM) et [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 ou ultérieure. Pour en savoir plus sur les limites de compte de stockage Premium, voir la section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets).
 
-**Stockage Premium localement redondant** : un compte Premium Storage prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication et conserve trois copies des données dans une même région. Pour plus d’informations sur la géo-réplication pendant l’utilisation de Premium Storage, voir la section [Captures instantanées et copie d’objets blob](#snapshots-and-copy-blob) dans cet article.
+**Stockage Premium localement redondant** : un compte Premium Storage prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication et conserve trois copies des données dans une même région. Pour plus d’informations sur la géo-réplication pendant l’utilisation de Premium Storage, voir la section [Captures instantanées et copie d’objets blob](#snapshots-and-copy-blob) dans cet article.
 
 Azure utilise le compte de stockage comme conteneur pour votre système d'exploitation et vos disques de données. Lorsque vous créez une machine virtuelle Azure de série DS, DSv2 ou GS, puis sélectionnez un compte Premium Storage, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
 
@@ -256,39 +256,40 @@ Les distributions Linux suivantes ont été validées avec le stockage Premium. 
 	<td><strong>Distribution</strong></td>
 	<td><strong>Version</strong></td>
 	<td><strong>Noyau pris en charge</strong></td>
-	<td><strong>Image prise en charge</strong></td>
+	<td><strong>Détails</strong></td>
 </tr>
 <tr>
-	<td rowspan="4"><strong>Ubuntu</strong></td>
+	<td rowspan="2"><strong>Ubuntu</strong></td>
 	<td>12.04</td>
-	<td>3.2.0-75.110</td>
+	<td>3.2.0-75.110+</td>
 	<td>Ubuntu-12_04_5-LTS-amd64-Server-20150119-fr-FR-30GB</td>
 </tr>
 <tr>
-	<td>14.04</td>
-	<td>3.13.0-44.73</td>
+	<td>14.04+</td>
+	<td>3.13.0-44.73+</td>
 	<td>Ubuntu-14_04_1-LTS-amd64-Server-20150123-fr-FR-30GB</td>
 </tr>
 <tr>
-	<td>14.10</td>
-	<td>3.16.0-29.39</td>
-	<td>Ubuntu-14_10-amd64-Server-20150202-fr-FR-30GB</td>
+	<td><strong>Debian</strong></td>
+	<td>7.x, 8.x</td>
+	<td>3.16.7-ckt4-1+</td>
+    <td> </td>
 </tr>
 <tr>
-	<td>15.04</td>
-	<td>3.19.0-15</td>
-	<td>Ubuntu-15_04-amd64-Server-20150422-fr-FR-30GB</td>
-</tr>
-<tr>
-	<td><strong>SUSE</strong></td>
+	<td rowspan="2"><strong>SUSE</strong></td>
 	<td>SLES&#160;12</td>
-	<td>3.12.36-38.1</td>
+	<td>3.12.36-38.1+</td>
 	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
 </tr>
 <tr>
+	<td>SLES 11 SP4</td>
+    <td>3.0.101-0.63.1+</td>
+    <td> </td>
+</tr>
+<tr>
 	<td><strong>CoreOS</strong></td>
-	<td>584.0.0</td>
-	<td>3.18.4</td>
+	<td>584.0.0+</td>
+	<td>3.18.4+</td>
 	<td>CoreOS 584.0.0</td>
 </tr>
 <tr>
@@ -296,29 +297,40 @@ Les distributions Linux suivantes ont été validées avec le stockage Premium. 
 	<td>6.5, 6.6, 6.7, 7.0</td>
 	<td></td>
 	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Requise </a> </br>
-		*Voir la remarque ci-dessous
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 requis</a> <br/>
+		*Voir la remarque ci-dessous*
 	</td>
 </tr>
 <tr>
-	<td>7.1</td>
-	<td>3.10.0-229.1.2.el7</td>
+	<td>7.1+</td>
+	<td>3.10.0-229.1.2.el7+</td>
 	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommandé</a> <br/>
-		*Voir la remarque ci-dessous
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 recommandée</a> <br/>
+		*Voir la remarque ci-dessous*
 	</td>
 </tr>
-
 <tr>
-	<td rowspan="2"><strong>Oracle</strong></td>
-	<td>6.4.</td>
+	<td><strong>RHEL</strong></td>
+	<td>6.8+, 7.2+</td>
+	<td> </td>
 	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Requise </a></td>
 </tr>
 <tr>
-	<td>7.0</td>
+	<td rowspan="3"><strong>Oracle</strong></td>
+    <td>6.8+, 7.2+</td>
+    <td> </td>
+    <td> UEK4 ou RHCK </td>
+
+</tr>
+<tr>
+	<td>7.0-7.1</td>
+	<td> </td>
+	<td>UEK4 ou RHCK avec <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a></td>
+</tr>
+<tr>
+	<td>6.4-6.7</td>
 	<td></td>
-	<td>Contacter le Support technique pour plus d'informations</td>
+	<td>UEK4 ou RHCK avec <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a></td>
 </tr>
 </tbody>
 </table>
@@ -339,7 +351,7 @@ Les considérations de facturation suivantes s'appliquent à l'utilisation du st
 - Instantanés Premium Storage
 - Transferts de données sortantes
 
-**Taille de disque Premium Storage/de l’objet blob** : la facturation pour un disque Premium Storage/un objet blob dépend de la taille configurée du disque/de l’objet blob. Azure mappe la taille provisionnée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche, comme indiqué dans le tableau de la section [Objectifs d’extensibilité et de performances avec le stockage Premium](#scalability-and-performance-targets-whfr-FRing-premium-storage). Tous les objets stockés dans un compte de stockage Premium sont mis en correspondance avec l’une des tailles prises en charge configurées et sont facturés en conséquence. Évitez donc d’utiliser un compte de stockage Premium pour stocker de petits objets blob. La facturation de n’importe quel disque/objet blob configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit/IOPS utilisés.
+**Taille de disque Premium Storage/de l’objet blob** : la facturation pour un disque Premium Storage/un objet blob dépend de la taille configurée du disque/de l’objet blob. Azure mappe la taille provisionnée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche, comme indiqué dans le tableau de la section [Objectifs d’extensibilité et de performances avec le stockage Premium](#scalability-and-performance-targets-whfr-FRing-premium-storage). Tous les objets stockés dans un compte de stockage Premium sont mis en correspondance avec l’une des tailles prises en charge configurées et sont facturés en conséquence. Évitez donc d’utiliser un compte de stockage Premium pour stocker de petits objets blob. La facturation de n’importe quel disque/objet blob configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit/IOPS utilisés.
 
 **Instantanés Premium Storage** : les captures instantanées sur Premium Storage sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
@@ -550,4 +562,4 @@ Pour plus d’informations sur Azure Storage Premium, voir les articles suivants
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

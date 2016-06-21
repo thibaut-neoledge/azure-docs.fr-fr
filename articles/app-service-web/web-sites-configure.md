@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Configurer des applications web dans Azure App Service" 
 	description="Configuration d’une application web dans Azure App Service" 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter="" 
-	authors="erikre" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,23 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
-	ms.author="tdykstra"/>
-
+	ms.date="06/02/2016" 
+	ms.author="robmcm"/>
 
 # Configurer des applications web dans Azure App Service #
 
-Cet article explique comment configurer une application Web à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+Cet article explique comment configurer une application Web à l’aide du [portail Azure].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Paramètres de l’application
 
-1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de l’application Web.
+1. Sur le [portail Azure], ouvrez le panneau de l’application Web.
 2. Cliquez sur **Tous les paramètres**.
 3. Cliquez sur **Paramètres de l’application**.
 
-![](./media/web-sites-configure/configure01.png)
+![Paramètres de l’application][configure01]
 
 Le panneau **Paramètres de l’application** regroupe différents paramètres sous plusieurs catégories.
 
@@ -46,19 +45,17 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 
 <a name="platform"></a> **Plate-forme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
-**WebSockets**. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application Web utilise [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).
+**WebSockets**. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application Web utilise [ASP.NET SignalR] ou [socket.io].
 
 <a name="alwayson"></a> **Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des tâches Web en continu, activez l’option **Toujours actif**. Sinon, les tâches Web risquent de ne pas s’exécuter de façon fiable.
 
-**Version de pipeline gérée**. Définit le [mode pipeline](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application) d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
+**Version de pipeline gérée**. Définit le [mode pipeline] d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
 
 **Basculement automatique**. Si vous activez le basculement automatique pour un emplacement de déploiement, App Service fera basculer l’application web en production automatiquement lorsque vous enverrez une mise à jour sur cet emplacement. Pour plus d’informations, consultez [Déployer vers des emplacements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
-
 
 ### Débogage
 
 **Débogage à distance** Active le débogage distant. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre application web. Le débogage à distance reste activé pendant 48 heures.
-
 
 ### Paramètres de l'application
 
@@ -76,10 +73,10 @@ Pour les applications .NET, ces chaînes de connexion sont incluses dans les pa
 
 Pour les applications PHP, Python, Java et Node, ces paramètres sont disponibles en tant que variables d'environnement au moment de l'exécution, avec le type de connexion comme préfixe. Les préfixes de la variable d'environnement sont les suivants :
 
-- SQL Server : SQLCONNSTR\_
-- MySQL : MYSQLCONNSTR\_
-- Base de données SQL : SQLAZURECONNSTR\_
-- Personnalisé : CUSTOMCONNSTR\_
+- SQL Server : `SQLCONNSTR_`
+- MySQL : `MYSQLCONNSTR_`
+- Base de données SQL : `SQLAZURECONNSTR_`
+- Personnalisé : `CUSTOMCONNSTR_`
 
 Par exemple, si une chaîne de connexion MySql se nomme `connectionstring1`, elle est accessible par le biais de la variable d’environnement `MYSQLCONNSTR_connectionString1`.
 
@@ -129,52 +126,67 @@ Pour afficher les fichiers journaux, vous devez créer des informations d’iden
 3. Entrez un nom d'utilisateur et un mot de passe.
 4. Cliquez sur **Save**.
 
-![](./media/web-sites-configure/configure03.png)
-
+![Définir les informations d’identification de déploiement][configure03]
 
 Le nom d’utilisateur FTP complet est « app\\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
 
-![](./media/web-sites-configure/configure02.png)
+![Informations d’identification de déploiement FTP][configure02]
 
 ## Autres tâches de configuration
 
 ### SSL 
 
-En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d’informations, consultez [Activer le protocole HTTPS pour une application Web](web-sites-configure-ssl-certificate.md).
+En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d’informations, consultez [Activer le protocole HTTPS pour une application web].
 
 Pour afficher vos certificats téléchargés, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### Noms de domaine
 
-Ajouter des noms de domaine personnalisés pour votre application web. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md).
+Ajouter des noms de domaine personnalisés pour votre application web. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé pour une application web dans Azure App Service].
 
 Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### Déploiements
 
-- Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications Web dans Azure App Service](web-sites-publish-source-control.md)
-- Emplacements de déploiement Consultez [Configurer des environnements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md)
+- Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications Web dans Azure App Service]
+- Emplacements de déploiement Consultez [Déployer sur des environnements intermédiaires pour les applications web dans Azure App Service].
 
 Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
-
 
 ### Analyse
 
 En mode De base ou Standard, vous pouvez tester la disponibilité des points de terminaison HTTP ou HTTPS, à partir de trois emplacements géo-distribués au maximum. Un test de surveillance échoue si le code de réponse HTTP est une erreur (4xx ou 5xx) ou si la réponse prend plus de 30 secondes. Un point de terminaison est considéré comme disponible s'il passe avec succès les différents tests de surveillance à partir de tous les emplacements spécifiés.
 
-Pour plus d’informations, consultez [Surveillance de l’état d’un point de terminaison Web](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
+Pour plus d’informations, consultez [Surveillance de l’état d’un point de terminaison Web].
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service]. Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Étapes suivantes
 
-- [Configurer un nom de domaine personnalisé](web-sites-custom-domain-name.md)
-- [Activer le protocole HTTPS](web-sites-configure-ssl-certificate.md)
-- [Faire évoluer une application Web dans Azure App Service](web-sites-scale.md)
-- [Surveiller les applications Web dans Azure App Service](web-sites-monitor.md)
+- [Configuration d’un nom de domaine personnalisé dans Azure App Service]
+- [Activer le protocole HTTPS pour une application dans Azure App Service]
+- [Faire évoluer une application Web dans Azure App Service]
+- [Surveiller les applications Web dans Azure App Service]
 
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
- 
+<!-- URL List -->
 
-<!---HONumber=AcomDC_0518_2016-->
+[ASP.NET SignalR]: http://www.asp.net/signalr
+[portail Azure]: https://portal.azure.com/
+[Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./web-sites-custom-domain-name.md
+[Déployer sur des environnements intermédiaires pour les applications web dans Azure App Service]: ./web-sites-staged-publishing.md
+[Activer le protocole HTTPS pour une application dans Azure App Service]: ./web-sites-configure-ssl-certificate.md
+[Surveillance de l’état d’un point de terminaison Web]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Surveiller les applications Web dans Azure App Service]: ./web-sites-monitor.md
+[mode pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[Faire évoluer une application Web dans Azure App Service]: ./web-sites-scale.md
+[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
+[Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Utilisation de Git pour déployer des applications Web dans Azure App Service]: ./web-sites-publish-source-control.md
+
+<!-- IMG List -->
+
+[configure01]: ./media/web-sites-configure/configure01.png
+[configure02]: ./media/web-sites-configure/configure02.png
+[configure03]: ./media/web-sites-configure/configure03.png
+
+<!---HONumber=AcomDC_0608_2016-->

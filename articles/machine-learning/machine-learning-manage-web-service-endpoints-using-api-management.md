@@ -162,15 +162,15 @@ Renommez-la **SimpleFeatureHashingExperiment**. Développez **Datasets enregistr
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Développez **Transformation des données** et **Manipulation** et faites glisser **Colonnes de projet** sur votre expérience. Connectez **Critiques de livres d’Amazon** à **Colonnes de projet**.
+Développez **Transformation des données** et **Manipulation** et faites glisser **Sélectionner des colonnes dans le jeu de données** sur votre expérience. Connectez **Critiques de livres d’Amazon** à **Sélectionner des colonnes dans le jeu de données**.
 
-![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Cliquez sur **Colonnes de projet**, puis sur **Exécuter le sélecteur de colonne** et sélectionnez **Col2**. Cliquez sur la coche pour appliquer ces modifications.
+Cliquez sur **Sélectionner des colonnes dans le jeu de données**, puis sur **Exécuter le sélecteur de colonne** et sélectionnez **Col2**. Cliquez sur la coche pour appliquer ces modifications.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Développez **Analyse de texte** et faites glisser **Fonction de hachage** sur l’expérience. Connectez **Colonnes de projet** à **Fonction de hachage**.
+Développez **Analyse de texte** et faites glisser **Fonction de hachage** sur l’expérience. Connectez **Sélectionner des colonnes dans le jeu de données** à **Fonction de hachage**.
 
 ![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -384,4 +384,4 @@ Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec le
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -122,7 +122,7 @@ Les images que vous envoyez avec votre expérience seront utilisées pour créer
 
 Si votre jeu de données fait partie de votre expérience et n’est pas importé via un module de lecture, il fait partie de votre expérience et est publié dans la galerie avec votre expérience. Pour cette raison, assurez-vous que le jeu de données que vous publiez avec l’expérience présente les termes du contrat de licence appropriés autorisant le partage et le téléchargement par toute personne.
 
-**J'ai une expérience qui utilise un module Reader pour extraire les données à partir de HDInsight ou SQL. Elle utilise mes informations d'identification pour récupérer les données. Comment puis-je publier cette expérience et m'assurer que mes informations d'identification ne seront pas partagées ?**
+**J’ai une expérience qui utilise un module Importer les données pour extraire les données à partir de HDInsight ou SQL. Elle utilise mes informations d'identification pour récupérer les données. Comment puis-je publier cette expérience et m'assurer que mes informations d'identification ne seront pas partagées ?**
 
 Pour le moment, nous n'autorisons pas la publication d'expériences qui utilisent des informations d'identification.
 
@@ -136,4 +136,4 @@ Le rendu de la description complète n'est pas disponible de façon étendue à 
 
 **[ALLER À LA GALERIE >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Comment créer une machine virtuelle Linux personnalisée
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
-Cette rubrique décrit comment créer une machine virtuelle *personnalisée* avec l’interface de ligne de commande Azure, à l’aide du modèle de déploiement classique. Nous allons utiliser une image Linux provenant des **IMAGES** disponibles sur Azure. L’interface de ligne de commande Azure propose notamment les choix de configuration suivants :
+Cette rubrique décrit comment créer une machine virtuelle personnalisée avec l’interface de ligne de commande Azure, à l’aide du modèle de déploiement classique. Nous allons utiliser une image Linux provenant des **IMAGES** disponibles sur Azure. L’interface de ligne de commande Azure propose notamment les choix de configuration suivants :
 
 - Connexion de la machine virtuelle à un réseau virtuel
 - Ajout de la machine virtuelle à un service cloud existant
@@ -35,4 +35,4 @@ Cette rubrique décrit comment créer une machine virtuelle *personnalisée* ave
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

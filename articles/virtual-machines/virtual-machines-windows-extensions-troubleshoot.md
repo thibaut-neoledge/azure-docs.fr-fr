@@ -19,8 +19,6 @@
 
 # Dépannage des échecs d’extension de machine virtuelle Windows dans Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Affichage de l’état de l’extension
@@ -70,4 +68,4 @@ Si vous exécutez des scripts sur la machine virtuelle à l’aide de l’extens
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

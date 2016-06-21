@@ -210,7 +210,7 @@ Les paramètres facultatifs pris en charge pour cette commande sont les suivants
 
 **-c, --connect** crée la machine virtuelle dans un déploiement déjà créé dans un service d'hébergement. Si la commande -vmname n’est pas utilisée avec cette option, le nom de la nouvelle machine virtuelle sera généré automatiquement.<br /> **-n, --vm-name** Spécifie le nom de la machine virtuelle. Ce paramètre prend le nom du service d'hébergement par défaut. Si -vmname n’est pas spécifié, le nom de la nouvelle machine virtuelle est généré sous la forme &lt;nom-service>&lt;id>, où &lt;id> correspond au nombre de machines virtuelles existant dans le service plus 1. Par exemple, si vous utilisez cette commande pour ajouter une machine virtuelle à un service d’hébergement MyService qui comporte une machine virtuelle existante, la nouvelle machine virtuelle est nommée MyService2.<br /> **-u, --blob-url** Spécifie l’URL cible du stockage d’objets blob à partir duquel le disque système de la machine virtuelle est créé. <br /> **-z, --vm-size** Spécifie la taille de la machine virtuelle. Les valeurs valides sont : ExtraSmall, Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9, A10, A11, Basic\_A0, Basic\_A1, Basic\_A2, Basic\_A3, Basic\_A4, Standard\_D1, Standard\_D2, Standard\_D3, Standard\_D4, Standard\_D11, Standard\_D12, Standard\_D13, Standard\_D14, Standard\_DS1, Standard\_DS2, Standard\_DS3, Standard\_DS4, Standard\_DS11, Standard\_DS12, Standard\_DS13, Standard\_DS14, Standard\_G1, Standard\_G2, Standard\_G3, Standard\_G4, Standard\_G55. La valeur par défaut est Small. <br /> **-r** Ajoute une connectivité RDP à une machine virtuelle Windows. <br /> **-e, --ssh** Ajoute une connectivité SSH à une machine virtuelle Windows. <br /> **-t, --ssh-cert** Spécifie le certificat SSH. <br /> **-s** L’abonnement <br /> **-o, --community** L’image communiquée est une image de communauté. <br /> **-w** Le nom du réseau virtuel <br/> **-l, --location** Spécifie le lieu (par exemple « Nord du centre des États-Unis »). <br /> **-a, --affinity-group** Spécifie le groupe d’affinité.<br /> **-w, --virtual-network-name** Spécifie le réseau virtuel auquel ajouter la nouvelle machine virtuelle. Les réseaux virtuels peuvent être configurés et gérés à partir du portail Azure Classic.<br /> **-b, --subnet-names** Spécifie les noms de sous-réseau à attribuer à la machine virtuelle.
 
-Dans cet exemple, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-en-us-30GB est une image fournie par la plateforme. Pour plus d'informations sur les images de système d'exploitation, consultez la commande vm image list.
+Dans cet exemple, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-fr-FR-30GB est une image fournie par la plateforme. Pour plus d'informations sur les images de système d'exploitation, consultez la commande vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -422,15 +422,15 @@ Cette commande permet d'obtenir une liste d'images de machine virtuelle. Il exis
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-fr-FR-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.fr-FR.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.fr-FR.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-fr-FR-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-fr-FR-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-fr-FR-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -503,7 +503,7 @@ Cette commande permet d'afficher les détails concernant un disque Azure.
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-fr-FR-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [nom-mv]**
@@ -791,7 +791,7 @@ Cette commande échange deux connecteurs d’applications Web.
 
 Cette commande prend en charge l'option supplémentaire suivante :
 
-****-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
+**-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
 
 **site start [options] [nom]**
@@ -814,7 +814,7 @@ Cette commande permet d’arrêter une application Web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-****site restart [options] [name]
+**site restart [options] [name]**
 
 Cette commande arrête puis démarre une application Web spécifique.
 
@@ -1880,13 +1880,15 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-d** ou **--description** &lt;description> : description du compte de stockage.
 + **-l** ou **--location** &lt;nom> : région géographique où créer le compte de stockage.
 + **-a** ou **--affinity-group** &lt;nom> : groupe d'affinités auquel associer le compte d stockage.
-+ **--type** : indique le type de compte à créer, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS) soit Premium Storage (PLRS).
++ **--kind** : type de compte (Storage ou Storage Blob) 
++ **--sku-name** : indique le type de compte à créer, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS), soit Premium Storage (PLRS).
++ **--access-tier** : indique le niveau de stockage (Hot ou Cool)
 
 **storage account set [options] <name>**
 
 Cette commande permet de mettre à jour le compte de stockage spécifié.
 
-	~$ azure storage account set mybasestorage --type GRS
+	~$ azure storage account set mybasestorage --kind Storage --sku-name GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1896,7 +1898,8 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-e** ou **--label** &lt;étiquette> : étiquette du compte de stockage.
 + **-d** ou **--description** &lt;description> : description du compte de stockage.
 + **-l** ou **--location** &lt;nom> : région géographique où créer le compte de stockage.
-+ **--type** : indique le nouveau type de compte, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS) soit Premium Storage (PLRS).
++ **--sku-name** : indique le nouveau type de compte, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS), soit Premium Storage (PLRS).
++ **--access-tier** : indique le niveau de stockage (Hot ou Cool)
 
 **storage account delete [options] <name>**
 
@@ -2350,4 +2353,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
