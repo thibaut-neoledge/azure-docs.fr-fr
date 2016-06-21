@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
@@ -132,7 +132,11 @@ Pour plus d’informations sur les signatures d’accès partagé, consultez [Si
 
 ## Réplication pour la durabilité et la haute disponibilité
 
-Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour garantir une durabilité et une haute disponibilité, conformément au [contrat de niveau de service (SLA) pour Storage](https://azure.microsoft.com/support/legal/sla/storage/), même en cas de défaillances matérielles temporaires. Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
+Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour garantir une durabilité et une haute disponibilité, conformément au [contrat de niveau de service (SLA) pour Storage](https://azure.microsoft.com/support/legal/sla/storage/), même en cas de défaillances matérielles temporaires.
+
+Pour plus d’informations sur les services disponibles dans chaque région, voir [Régions Azure](https://azure.microsoft.com/regions/#services).
+
+Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
 
 - **Stockage localement redondant (LRS).** Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par installation et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans une installation donnée.  
   
@@ -149,25 +153,26 @@ Les données de votre compte de stockage Microsoft Azure sont toujours répliqu�
 
 - **Stockage géo-redondant (GRS)**. Le stockage géo-redondant est activé par défaut sur votre compte de stockage lors de la création de celui-ci. Le stockage GRS effectue six copies de vos données. Avec le stockage GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans une région secondaire située à des centaines de kilomètres de la région principale, ce qui confère aux données le plus haut niveau de durabilité disponible. En cas de défaillance dans la région principale, Azure Storage bascule vers la région secondaire. Le stockage GRS assure la durabilité de vos données dans deux régions distinctes.
 
+	Pour plus d’informations sur les associations de régions principales et secondaires, voir [Régions Azure](https://azure.microsoft.com/regions/).
 
 - **Stockage géo-redondant avec accès en lecture (RA-GRS)**. Le stockage géo-redondant avec accès en lecture réplique vos données dans un emplacement secondaire et permet d’y accéder en lecture. Le stockage géo-redondant avec accès en lecture offre un accès aux données, qu’elles se situent dans l’emplacement principal ou secondaire, si l’un des deux n’est pas disponible.
 
 	> [AZURE.IMPORTANT] Vous pouvez modifier le mode de réplication de vos données après la création de votre compte de stockage, sauf si vous avez défini la réplication ZRS à cette étape. Toutefois, notez qu’il vous faudra éventuellement subir un coût forfaitaire supplémentaire lié au transfert de données si vous passez de LRS à GRS ou RA-GRS.
  
-Pour en savoir plus sur les options de réplication du stockage, consultez la page [Réplication Azure Storage](storage-redundancy.md).
+Pour plus d’informations sur les options de réplication de stockage, voir [Réplication Azure Storage](storage-redundancy.md).
 
-Pour plus d’informations sur la tarification relative à la réplication du compte de stockage, consultez la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Pour plus d’informations sur la tarification relative à la réplication des comptes de stockage, voir [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Pour plus d’informations sur la durabilité avec Azure Storage, consultez [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+Pour plus d’informations sur la durabilité avec Azure Storage, voir [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte).
 
 
 ## Transfert de données vers et depuis Azure Storage
 
-Vous pouvez utiliser l’utilitaire de ligne de commande AzCopy pour copier des données d’objets blob, de fichiers et de table au sein de votre compte de stockage ou entre des comptes de stockage. Consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) pour plus d’informations.
+Vous pouvez utiliser l’utilitaire de ligne de commande AzCopy pour copier des données d’objets blob, de fichiers et de table au sein de votre compte de stockage ou entre des comptes de stockage. Pour plus d’informations, voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 AzCopy repose sur la [bibliothèque de déplacement de données Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), actuellement disponible en version préliminaire.
 
-Grâce au service Azure Import/Export, vous pouvez importer des données d’objets blob dans votre compte de stockage, ou en exporter depuis celui-ci, par le biais d’un disque dur envoyé au centre de données Azure. Pour plus d’informations sur le service Import/Export, consultez l’article [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](storage-import-export-service.md).
+Grâce au service Azure Import/Export, vous pouvez importer des données d’objets blob dans votre compte de stockage, ou en exporter depuis celui-ci, par le biais d’un disque dur envoyé au centre de données Azure. Pour plus d’informations sur le service Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](storage-import-export-service.md).
 
 ## Tarification
 
@@ -260,4 +265,4 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 - [Utilisation du stockage de fichiers à partir de Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

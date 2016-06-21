@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio
@@ -77,7 +77,7 @@ Si vous voulez utiliser vos propres données, voici les procédures de télécha
 
 ## Développer des scripts U-SQL
 
-Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Pour créer et soumettre une tâche Data Lake Analytics**
 
@@ -87,7 +87,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 	![nouveau projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
 3. Cliquez sur **OK**. Visual Studio crée une solution avec un fichier **Script.usql**.
-4. Insérez le script suivant dans le fichier **Script.usql** :
+4. Insérez le script suivant dans le fichier **Script.usql** :
 
         @searchlog =
             EXTRACT UserId          int,
@@ -130,10 +130,9 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 
 		IntelliSense pour les entités de catalogue (Bases de données, Schémas, Tables, UDO, etc.) est lié à votre compte de calcul. Vous pouvez vérifier le compte de calcul, la base de données et le schéma actifs actuels dans la barre d'outils supérieure et les faire commuter via les listes déroulantes.
 
-    - **Développez les colonnes***
+    - **Développez les colonnes ***
 
-        Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas. 
-	![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Cliquez sur **Développer les colonnes**. L’outil remplace alors * par le nom des colonnes.
 
@@ -169,13 +168,13 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 
 	![Soumettre un projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
 
-8. Vous devez cliquer sur le bouton Actualiser pour afficher le dernier état du travail et actualiser l'écran. Si le travail réussit, vous verrez le **Graphique** associé, les **Opérations sur les métadonnées**, l’**Historique de l’état**, les **Diagnostics** :
+8. Vous devez cliquer sur le bouton Actualiser pour afficher le dernier état du travail et actualiser l'écran. Si le travail réussit, vous verrez le **Graphique** associé, les **Opérations sur les métadonnées**, l’**Historique de l’état**, les **Diagnostics** :
 
 	![Graphique des performances du travail U-SQL Visual Studio Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
 	* Résumé du travail. Affiche les informations de résumé du travail en cours, par exemple : état, progression, durée d'exécution, nom de l'exécution, demandeur, etc.   
 	* Détails du travail. Informations détaillées sur ce travail, y compris le script, les ressources, la vue d'exécution du vertex.
-	* Graphique du travail. Quatre graphiques permettent de visualiser les informations du travail : progression, données lues, données écrites, durée d'exécution, durée d'exécution moyenne par nœud, débit d'entrée, débit de sortie.
+	* Graphique du travail. Plusieurs graphiques permettent de visualiser les informations du travail : progression, données lues, données écrites, durée d’exécution, durée d’exécution moyenne par nœud, débit d’entrée, débit de sortie.
 	* Opérations sur les métadonnées. Affiche toutes les opérations sur les métadonnées.
 	* Historique de l'état.
 	* Diagnostics. Data Lake Tools pour Visual Studio diagnostique automatiquement l'exécution du travail. Vous recevrez des alertes lorsqu'il y a des erreurs ou des problèmes de performances dans les travaux. Consultez la section Diagnostics de travaux (lien TBD) pour plus d'informations.
@@ -236,8 +235,8 @@ La vidéo suivante présente la fonctionnalité d'exécution locale U-SQL :
 
     - Dans l'entrée du script (EXTRACT * FROM "/path/abc") - le chemin d'accès à DataRoot et le chemin d'accès au script seront explorés.
     - Dans la sortie du script (OUTPUT TO "path/abc") : le chemin d'accès au dossier DataRoot sera utilisé comme dossier de sortie.
-    - Dans l'enregistrement de l'assembly (CREATE ASSEMBLY xyz FROM "/path/abc") : le chemin d'accès du script est exploré, mais pas celui du dossier DataRoot.
-    - Dans les entités TVF/View ou autres entités métadonnées inscrites : le chemin d'accès au dossier DataRoot est exploré, mais pas celui du script.
+    - Dans l’enregistrement de l’assembly (CREATE ASSEMBLY xyz FROM "/path/abc") : le chemin d’accès au script est exploré, mais non celui du dossier DataRoot.
+    - Dans les entités TVF/View ou autres entités de métadonnées inscrites : le chemin d’accès au dossier DataRoot est exploré, mais non celui du script.
 
     Pour les scripts exécutés sur le service Data Lake, le compte de stockage par défaut sera utilisé comme dossier racine et exploré en conséquence.
 
@@ -292,7 +291,7 @@ Pour afficher les autres rubriques sur le développement :
 
 ##Exemple PowerShell pour la préparation du didacticiel
 
-Le script PowerShell suivant prépare un compte Azure Data Lake Analytics et la source de données pour vous. Vous pouvez donc passer à [Développer des scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et la source de données pour vous. Vous pouvez donc passer au didacticiel [Développer des scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -362,4 +361,4 @@ Le script PowerShell suivant prépare un compte Azure Data Lake Analytics et la 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

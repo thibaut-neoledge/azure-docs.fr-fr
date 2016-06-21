@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/21/2016"
+	ms.date="06/10/2016"
 	ms.author="adegeo"/>
 
 # Prise en main des services cloud Azure et d'ASP.NET
@@ -292,9 +292,9 @@ Les chaînes de connexion au compte de stockage Azure pour le projet de rôle w
 
 Les paramètres d'environnement de rôle configurés à l'aide de l'interface utilisateur de Visual Studio sont stockés dans les fichiers suivants du projet ContosoAdsCloudService :
 
-* *ServiceDefinition.csdef* : définit les noms des paramètres.
-* *ServiceConfiguration.Cloud.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
-* *ServiceConfiguration.Local.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute localement.
+* *ServiceDefinition.csdef* : définit les noms des paramètres.
+* *ServiceConfiguration.Cloud.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
+* *ServiceConfiguration.Local.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute localement.
 
 Par exemple, le fichier ServiceDefinition.csdef inclut les définitions suivantes.
 
@@ -359,8 +359,7 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
 ## Créer l’application à partir de zéro
 
-Si vous n'avez pas encore téléchargé
-[l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
+Si vous n'avez pas encore téléchargé [l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
 
 La création de l'application Contoso Ads implique les étapes suivantes :
 
@@ -484,9 +483,9 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 3. Dans le projet ContosoAdsWeb, ajoutez les fichiers suivants du projet téléchargé.
 	- *Global.asax.cs*.  
-	- Dans le dossier *Views\\Shared* : *\_Layout.cshtml*.
-	- Dans le dossier *Views\\Home* : *Index.cshtml*.
-	- Dans le dossier *Controllers* : *AdController.cs*.
+	- Dans le dossier *Views\\Shared* : *\_Layout.cshtml*.
+	- Dans le dossier *Views\\Home* : *Index.cshtml*.
+	- Dans le dossier *Controllers* : *AdController.cs*.
 	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
@@ -870,4 +869,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!-----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

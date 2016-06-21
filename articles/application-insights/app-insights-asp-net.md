@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/25/2016" 
+	ms.date="06/08/2016" 
 	ms.author="awills"/>
 
 
@@ -31,7 +31,6 @@ Ce dont vous avez besoin :
 Vous pouvez consulter d’autres articles selon les aspects qui vous intéressent :
 
 * [Instrumentation d’une application web au moment de l’exécution](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Ajouter le kit de développement logiciel (SDK) Application Insights
@@ -47,10 +46,11 @@ Assurez-vous qu’Application Insights est sélectionné lorsque vous créez un 
 
 ### ... ou s'il s'agit d'un projet existant
 
-Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et sélectionnez **Ajouter la télémétrie Application Insights** ou **Configurer Application Insights**.
+Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et sélectionnez **Ajouter Application Insights Telemetry** ou **Configurer Application Insights**.
 
 ![Sélection de Ajouter Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
+* Projet ASP.NET Core ? - [Suivez ces instructions pour corriger quelques lignes de code](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
 
 
 
@@ -77,7 +77,7 @@ Cette vue affiche la télémétrie générée du côté serveur de votre applica
 <a name="monitor"></a>
 ### ... dans le portail
 
-Sauf si vous avez choisi *Installer le Kit de développement logiciel (SDK) uniquement*, vous pouvez également afficher les données de télémétrie dans le portail web Application Insights.
+Vous pouvez également afficher les données de télémétrie dans le portail web Application Insights à moins que vous n’ayez choisi *Installer le Kit de développement logiciel (SDK) uniquement*.
 
 Le portail offre plus de graphiques, d’outils d’analyse et de tableaux de bord que Visual Studio.
 
@@ -88,10 +88,10 @@ Ouvrez votre ressource Application Insights dans le [portail Azure](https://por
 
 Lorsque le portail s’ouvre, il affiche les données de télémétrie de votre application : ![](./media/app-insights-asp-net/66.png)
 
-* Les événements individuels apparaissent sous **Recherche** (1). Les données apparaissent à cet endroit en premier (et dans le flux live). Cliquez sur n’importe quel événement pour afficher ses propriétés. 
+* Les événements individuels apparaissent sous **Recherche** (1). Les données apparaissent à cet endroit en premier (et dans [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream)). Cliquez sur n’importe quel événement pour afficher ses propriétés. 
 * Les métriques agrégées apparaissent dans les graphiques (2). L’affichage des données à cet endroit peut prendre une minute ou deux. Cliquez sur un graphique pour ouvrir un panneau plus détaillé.
 
-[En savoir plus sur l’utilisation d’Application Insights dans le Portail Azure](app-insights-dashboards.md).
+[En savoir plus sur l’utilisation d’Application Insights dans le portail Azure](app-insights-dashboards.md).
 
 ##<a name="land"></a> Quelle est la fonction de la commande « Ajouter Application Insights » ?
 
@@ -102,10 +102,10 @@ Application Insights envoie les données de télémétrie de votre application a
 La commande assure donc trois fonctions :
 
 1. Elle ajoute le package NuGet du Kit de développement logiciel (SDK) web Application Insights à votre projet. Pour le visualiser dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet.
-2. Elle crée une ressource Application Insights dans [le Portail Azure](https://portal.azure.com/). Il s’agit de l’endroit où s’afficheront vos données. Elle récupère la *clé d’instrumentation*, qui identifie la ressource.
-3. Elle insère la clé d’instrumentation dans `ApplicationInsights.config` pour permettre au SDK d’envoyer les données de télémétrie au portail.
+2. Elle crée une ressource Application Insights dans le [portail Azure](https://portal.azure.com/). Il s’agit de l’endroit où s’afficheront vos données. Elle récupère la *clé d’instrumentation*, qui identifie la ressource.
+3. Elle insère la clé d’instrumentation dans `ApplicationInsights.config` pour permettre au Kit de développement logiciel (SDK) d’envoyer les données de télémétrie au portail.
 
-Si vous le souhaitez, vous pouvez [effectuer ces étapes manuellement](app-insights-asp-net-manual.md).
+Si vous le souhaitez, vous pouvez effectuer ces étapes manuellement pour [ASP.NET 4](app-insights-asp-net-manual.md) ou [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 
 ## Et ensuite ?
@@ -116,4 +116,4 @@ Si vous le souhaitez, vous pouvez [effectuer ces étapes manuellement](app-insig
 |**[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyses, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/app-insights-asp-net/62.png)
 |**[Ajout de données supplémentaires](app-insights-asp-net-more.md)**<br/>Analyser l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. | ![Visual Studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

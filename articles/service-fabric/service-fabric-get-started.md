@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="06/15/2016"
    ms.author="ryanwi"/>
 
 # Préparer votre environnement de développement
@@ -34,7 +34,7 @@ Les versions de système d’exploitation prises en charge pour le développemen
 
 Web Platform Installer offre trois configurations pour le développement de Service Fabric :
 
-- [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015][full-bundle-vs2015]
+- [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015 Update 2][full-bundle-vs2015]
 - [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015 Preview][full-bundle-dev15]
 - [Installation du runtime Service Fabric et du Kit de développement logiciel (SDK) uniquement (aucun outil Visual Studio)][core-sdk]
 
@@ -59,9 +59,9 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Page de campagne Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Lien WebPI VS 2015"
-[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Lien WebP Dev15"
-[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Lien WebPI du Kit de développement logiciel principal"
+[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015-2_1 "Lien WebPI VS 2015"
+[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15-2_1 "Lien WebP Dev15"
+[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Lien WebPI du Kit de développement logiciel principal"
 [powershell5-download]: https://www.microsoft.com/fr-FR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

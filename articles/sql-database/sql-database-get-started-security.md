@@ -20,6 +20,11 @@
 
 # Didacticiel sur la base de données SQL : créer des comptes d'utilisateurs de base de données SQL pour accéder et gérer une base de données à l'aide du portail Azure
 
+
+> [AZURE.SELECTOR]
+- [Didacticiel de prise en main](sql-database-get-started-security.md)
+- [Accorder l’accès](sql-database-manage-logins.md)
+
 Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure pour :
 
 - Vous connecter à la base de données SQL à l'aide d'une connexion du principal au niveau du serveur
@@ -43,6 +48,6 @@ Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure pour :
 
 
 ## Étapes suivantes
-Maintenant que vous avez terminé ce didacticiel sur la base de données SQL, créé un compte d'utilisateur et accordé des dbo au compte d'utilisateur, vous êtes prêt à passer à la [sécurité de la base de données SQL](sql-database-manage-logins.md).
+Maintenant que vous avez terminé ce didacticiel concernant le service Base de données SQL, créé un compte d’utilisateur et accordé des autorisations de propriétaire de base de données (dbo) au compte d’utilisateur, vous voici prêt à découvrir la [sécurité de Base de données SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->
