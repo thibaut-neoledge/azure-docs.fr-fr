@@ -126,7 +126,7 @@ De manière générale, la bibliothèque cliente gère la communication entre l�
 
 Nous venons d’expliquer comment implémenter la logique spécifique de l’appareil pour effectuer les travaux d’appareil. À présent, nous allons évoquer les objets que vous pouvez utiliser.
 
-Certains de ces objets sont requis : vous devez implémenter la logique spécifique de l’appareil pour que ce dernier fasse partie de la gestion des appareils IoT Hub. D’autres sont facultatifs : vous pouvez donc faire votre choix en fonction des besoins de votre service (par exemple, vous pouvez choisir de ne pas effectuer les mises à jour du microprogramme avec IoT Hub). Voici une description de chacun de ces objets :
+Certains de ces objets sont nécessaires, ce qui signifie que vous devez implémenter la logique spécifique à l’appareil pour que ce dernier fasse partie de la gestion des appareils IoT Hub. D’autres sont facultatifs : vous pouvez donc faire votre choix en fonction des besoins de votre service (par exemple, vous pouvez choisir de ne pas effectuer les mises à jour du microprogramme avec IoT Hub). Voici une description de chacun de ces objets :
 
 - **Objet d’appareil (obligatoire)** : fournit des informations spécifiques de l’appareil, comme les informations relatives au fabricant, le numéro de modèle, le numéro de série et l’heure de l’appareil. Le service peut lire ces informations et parfois les mettre à jour. Il définit également deux actions que le service peut effectuer sur un appareil : le redémarrage et la réinitialisation aux paramètres d’usine.
 - **Objet de serveur (obligatoire)** : contient les paramètres de connexion à IoT Hub, comme la durée de vie de l’inscription et la liaison de transport. Le service peut uniquement lire ces informations.
@@ -222,4 +222,4 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

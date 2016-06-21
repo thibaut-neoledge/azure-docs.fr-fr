@@ -16,7 +16,7 @@
 	ms.date="05/15/2016"
 	ms.author="glenga"/>
 
-# Ajout de notifications Push à votre application Windows Runtime 8.1 universelle
+# Ajouter des notifications Push à votre application Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -42,7 +42,7 @@ Pour pouvoir envoyer des notifications Push vers des applications Windows à par
 
 3. Une fois l’inscription de l’application créée, sélectionnez le nouveau nom d’application, cliquez sur **Suivant**, puis sur **Associer**. Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.
 
-7. Accédez au [Centre de développement Windows](https://dev.windows.com/en-us/overview), connectez-vous à l'aide de votre compte Microsoft, cliquez sur la nouvelle inscription d'application dans **Mes applications**, puis développez **Services** > **Notifications Push**.
+7. Accédez au [Centre de développement Windows](https://dev.windows.com/fr-FR/overview), connectez-vous à l'aide de votre compte Microsoft, cliquez sur la nouvelle inscription d'application dans **Mes applications**, puis développez **Services** > **Notifications Push**.
 
 8. Sur la page **Notifications Push**, cliquez sur **Site des services Live** sous **Microsoft Azure Mobile Services**.
 
@@ -213,4 +213,4 @@ Ensuite, votre application doit s’inscrire pour les notifications Push au dém
 <!-- Images. -->
 ))) )
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/08/2016" 
 	ms.author="ccompy"/>
 
 # Comment créer un environnement App Service #
@@ -36,7 +36,7 @@ Il existe quelques détails importants pour chacun de ces éléments.
 - Toutes les applications faites dans un ASE se trouveront dans le même abonnement que l'ASE lui-même
 - Si vous n'avez pas accès à l'abonnement utilisé pour faire l'ASE, vous ne pouvez pas utiliser l'ASE pour créer des applications
 - Les réseaux virtuels utilisés pour héberger un ASE doivent être des réseaux virtuels « v1 » classiques régionaux 
-- Le sous-réseau utilisé pour héberger l’ASE ne doit contenir aucune autre ressource de calcul
+- **Le sous-réseau utilisé pour héberger l’ASE ne doit contenir aucune autre ressource de calcul**
 - Il ne peut exister qu’un seul ASE dans un sous-réseau
 - Actuellement, seuls les réseaux virtuels avec un espace d'adressage RFC1918 (c'est-à-dire des adresses privées) sont pris en charge.
 
@@ -165,4 +165,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

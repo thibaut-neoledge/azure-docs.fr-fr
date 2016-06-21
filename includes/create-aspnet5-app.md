@@ -10,7 +10,7 @@
 
 1. Donnez un nom à votre nouvelle application (ou utilisez la valeur par défaut).
 
-1. Appuyez sur **OK**.
+1. Sélectionnez **OK**.
 
 1. La boîte de dialogue **Nouveau projet ASP.NET** s’affiche.
 
@@ -18,6 +18,6 @@
 
 1. Sous Modèles ASP.NET 5, sélectionnez Application Web ASP.NET.
 
-1. Appuyez sur **OK**.
+1. Sélectionnez **OK**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

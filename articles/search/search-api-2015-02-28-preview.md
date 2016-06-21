@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="brjohnst"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
@@ -52,6 +52,10 @@ L’API du service Azure Search prend en charge deux syntaxes d’URL pour les o
 [Obtention de statistiques d'index](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[Tester l’analyseur](#TestAnalyzer)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Suppression d'index](#DeleteIndex)
 
@@ -168,6 +172,7 @@ Les parties principales d'un index sont les suivantes :
 - `fields` qui alimenteront cet index, y compris le nom, le type de données et les propriétés qui définissent les actions autorisées sur ce champ.
 - `suggesters` utilisés pour les requêtes prédictives ou avec saisie semi-automatique.
 - `scoringProfiles` utilisés pour le classement personnalisé des scores de recherche. Pour plus d'informations, consultez [Ajout de profils de calcul de score ](https://msdn.microsoft.com/library/azure/dn798928.aspx).
+- `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` utilisés pour définir la façon dont vos documents/requêtes sont répartis en jetons indexables/cherchables. Consultez [Analyse dans Azure Search](https://aka.ms//azsanalysis) pour plus d’informations.
 - `defaultScoringProfile` utilisé pour remplacer les comportements de calcul de score par défaut.
 - `corsOptions` pour autoriser les requêtes cross-origin sur votre index.
 
@@ -233,6 +238,10 @@ La syntaxe de structuration de la charge utile de la requête est la suivante. U
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -804,6 +813,10 @@ La syntaxe de schéma utilisée pour créer un index est reproduite ici par comm
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -817,6 +830,14 @@ La syntaxe de schéma utilisée pour créer un index est reproduite ici par comm
 Pour une requête correcte : « 204 Pas de contenu ».
 
 Par défaut, le corps de la réponse est vide. Toutefois, si l'en-tête de la requête `Prefer` est défini avec la valeur `return=representation`, le corps de la réponse contient le code JSON pour la définition d'index mise à jour. Dans ce cas, le code d'état de réussite est « 200 OK ».
+
+**Mise à jour de la définition d’index avec des analyseurs personnalisés**
+
+Une fois défini, un analyseur, un générateur de jetons, un filtre de jetons ou un filtre de caractères ne peut pas être modifié. D’autres peuvent être ajoutés à un index existant à condition que l’indicateur `allowIndexDowntime` soit défini comme true dans la demande de mise à jour de l’index :
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+Notez que cette opération placera votre index hors connexion pendant au moins quelques secondes, ce qui entraînera l’échec de vos demandes d’indexation et de requête. Les performances et la disponibilité d’écriture de l’index peuvent être altérées pendant plusieurs minutes après la mise à jour de l’index, ou plus longtemps pour les très grands index.
 
 <a name="ListIndexes"></a>
 ## Liste des index
@@ -989,6 +1010,100 @@ Le corps de la réponse a le format suivant :
 	  "storageSize": number (size of the index in bytes)
     }
 
+<a name="TestAnalyzer"></a>
+## Tester l’analyseur
+
+L’**API Analyser** montre comment l’analyseur découpe le texte en jetons.
+
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+
+**Requête**
+
+Le protocole HTTPS est requis pour toutes les requêtes de services. La requête **API Analyser** peut être construite à l’aide de la méthode POST.
+
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+
+
+**En-têtes de requête**
+
+La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
+
+- `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **API Analyser** doit inclure un en-tête `api-key` défini avec la valeur d’une clé d’administration (par opposition à une clé de requête).
+
+Vous avez également besoin du nom de l’index et du service pour construire l’URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+
+**Corps de la requête**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "analyzer_name"
+    }
+
+ou
+
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
+
+`analyzer_name`, `tokenizer_name`, `token_filter_name` et `char_filter_name` doivent être des noms valides d’analyseurs, de générateurs de jetons, de filtres de jetons et de filtres de caractères prédéfinis ou personnalisés pour l’index. Pour en savoir plus sur le processus d’analyse lexicale, consultez [Analyse dans Azure Search](https://aka.ms/azsanalysis).
+
+**Réponse**
+
+Code d'état : 200 OK est retourné pour une réponse correcte.
+
+Le corps de la réponse a le format suivant :
+
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
+
+**Exemple d’API Analyser**
+
+**Requête**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "standard"
+    }
+
+**Réponse**
+
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
+    }
+
 ________________________________________
 <a name="DocOps"></a>
 ## Opérations de document
@@ -1081,7 +1196,7 @@ Code d’état : 200 (OK) est retourné pour une réponse correcte, ce qui signi
       ]
     }  
 
-Un code d’état 207 (Multi-état) est renvoyé lorsqu’au moins un élément n’a pas été correctement indexé. Le champ `status` des éléments qui n’ont pas été indexés prend alors la valeur false. Les propriété `errorMessage` et `statusCode` indiquent la raison de l’erreur d’indexation :
+Un code d’état 207 (Multi-état) est renvoyé lorsqu’au moins un élément n’a pas été correctement indexé. Le champ `status` des éléments qui n’ont pas été indexés prend alors la valeur false. Les propriétés `errorMessage` et `statusCode` indiquent la raison de l’erreur d’indexation :
 
     {
       "value": [
@@ -1298,8 +1413,8 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 - `interval` (intervalle d'entiers supérieur à 0 pour les nombres ou `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` pour les valeurs de date et heure)
   - Par exemple : `facet=baseRate,interval:100` génère des compartiments basés sur des plages de taux de base comprenant 100 valeurs. Par exemple, si les taux de base sont tous compris entre 60 dollars et 600 dollars, il y aura les compartiments suivants : 0-100, 100-200, 200-300, 300-400, 400-500 et 500-600.
   - Par exemple : `facet=lastRenovationDate,interval:year` génère un compartiment pour chaque année de rénovation des hôtels.
-- `timeoffset` ([+-]hh:mm, [+-]hhmm, ou [+-]hh) `timeoffset` est facultatif. Il peut uniquement être associé à l’option `interval` et uniquement lorsqu’il est appliqué à un champ de type `Edm.DateTimeOffset`. La valeur spécifie le décalage horaire UTC à prendre en compte lors de la définition des limites de temps.
-  - Par exemple : `facet=lastRenovationDate,interval:day,timeoffset:-01:00` utilise la limite de la journée qui commence à 01:00:00 UTC (minuit dans le fuseau horaire cible).
+- `timeoffset` ([+-]hh:mm, [+-]hhmm, ou [+-]hh) `timeoffset` est facultatif. Il peut uniquement être associé à l’option `interval` et seulement lorsqu’il est appliqué à un champ de type `Edm.DateTimeOffset`. La valeur spécifie le décalage horaire UTC à prendre en compte lors de la définition des limites de temps.
+  - Par exemple : `facet=lastRenovationDate,interval:day,timeoffset:-01:00` utilise la limite de la journée qui commence à 01:00:00 UTC (minuit dans le fuseau horaire cible)
 - **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
 - **Remarque** : les facettes d’intervalle de date et d’heure sont calculées en fonction de l’heure UTC si `timeoffset` n’est pas spécifié. Par exemple : pour `facet=lastRenovationDate,interval:day`, la limite de la journée commence à 00:00:00 UTC. 
 
@@ -1327,7 +1442,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 - Pour les paramètres de score, par exemple pour le renforcement des balises, qui peuvent contenir des virgules, vous pouvez ignorer ces valeurs dans la liste à l’aide de guillemets simples. Si les valeurs elles-mêmes contiennent des guillemets simples, vous pouvez les ignorer en les doublant.
   - Par exemple, si vous avez un paramètre de renforcement des balises appelé « mytag » et que vous souhaitez renforcer les valeurs de balise « Hello, O’Brien » et « Smith », l’option de la chaîne de requête serait `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Notez que les guillemets sont uniquement requis pour les valeurs qui contiennent des virgules.
 
-> [AZURE.NOTE] Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire `name-values` distincte.
+> [AZURE.NOTE] Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire `name-values` distincte.
 
 `minimumCoverage` (facultatif, valeur par défaut 100) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de recherche afin que la requête soit déclarée comme un succès. Par défaut, la totalité de l’index doit être disponible ou `Search` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Search` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
@@ -1720,7 +1835,7 @@ Une opération **Suggestions** est publiée en tant que requête GET ou POST.
 
 Lorsque vous utilisez HTTP GET pour appeler l'API **Suggestions**, vous devez savoir que la longueur de l'URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, il est recommandé d'utiliser HTTP POST, car cela permet d'obtenir des filtres plus volumineux que GET. Avec POST, le nombre de clauses dans un filtre est le facteur limitant, pas la taille de la chaîne du filtre brut, car la limite de la taille de la requête POST est proche de 16 Mo.
 
-> [AZURE.NOTE] Bien que la limite de la taille de la requête POST est très importante, les expressions de filtre ne peuvent pas être arbitrairement complexes. Consultez [Syntaxe d’expression OData](https://msdn.microsoft.com/library/dn798921.aspx) pour plus d’informations sur les limites de la complexité des filtres.
+> [AZURE.NOTE] Bien que la limite de la taille de la requête POST est très importante, les expressions de filtre ne peuvent pas être arbitrairement complexes. Consultez [Syntaxe d’expression OData](https://msdn.microsoft.com/library/dn798921.aspx) pour plus d’informations sur les limites de complexité des filtres.
 
 **Requête**
 
@@ -1853,4 +1968,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

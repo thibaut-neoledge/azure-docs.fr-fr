@@ -65,7 +65,11 @@ Si vous avez [configuré l’analyse des exceptions](app-insights-asp-net-except
 Cliquez sur une exception pour obtenir une trace de pile. Si le code de l’application est ouvert dans Visual Studio, vous pouvez utiliser la trace de pile pour accéder à la ligne de code recherchée.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Arborescence des appels de procédure d’exception](./media/app-insights-visual-studio/17.png)
+
+En outre, le nombre d’exceptions enregistrées par Application Insights dans les dernières 24 heures est indiqué dans la ligne de filtre Code au-dessus de chaque méthode.
+
+![Arborescence des appels de procédure d’exception](./media/app-insights-visual-studio/21.png)
 
 
 ## Surveillance locale
@@ -86,8 +90,6 @@ Cela est également utile si vous disposez de [données de télémétrie personn
 
 
 
-
-
 ## Pour passer aux versions ultérieures du Kit de développement logiciel (SDK)
 
 Pour passer à la [nouvelle version du Kit de développement logiciel (SDK)](app-insights-release-notes-dotnet.md), ouvrez une nouvelle fois le gestionnaire de package NuGet et filtrez les packages qui ont été installés. Sélectionnez Microsoft.ApplicationInsights.Web et choisissez Mettre à niveau.
@@ -100,10 +102,10 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
 ||
 |---|---
-|**[Ajout de données supplémentaires](app-insights-asp-net-more.md)**<br/>Analyser l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. | ![Visual studio](./media/app-insights-asp-net/64.png)
-|**[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyses, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual studio](./media/app-insights-asp-net/62.png)
+|**[Ajout de données supplémentaires](app-insights-asp-net-more.md)**<br/>Analyser l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. | ![Visual Studio](./media/app-insights-asp-net/64.png)
+|**[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/app-insights-asp-net/62.png)
 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

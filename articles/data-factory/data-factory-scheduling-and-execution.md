@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="06/06/2016" 
 	ms.author="spelluru"/>
 
 # Planification et exécution avec Data Factory
@@ -282,7 +282,7 @@ ActivitédeCopie2 : Entrées : JeudeDonnées3 Sortie JeudeDonnées2 : JeudeDonn�
 
 Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
 
-- ActivitédeCopie2 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
+- ActivitédeCopie1 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
 - JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.  
 
 
@@ -702,4 +702,4 @@ Notez les points suivants :
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Ajouter un dépôt d’artefacts Git à un laboratoire
 
-> [AZURE.NOTE] Cliquez sur le lien suivant pour regarder la vidéo d’accompagnement de cet article : [Comment ajouter votre dépôt d’artefacts privé à un laboratoire dans DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
+> [AZURE.NOTE] Regardez la vidéo d’accompagnement de cet article : [How to add your private artifacts repository to a lab in DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab) (Comment ajouter votre dépôt d’artefacts privé à un laboratoire dans DevTest Labs)
 
 ## Vue d'ensemble
 
@@ -41,7 +41,7 @@ Pour ajouter un dépôt d’artefacts GitHub à votre laboratoire, vous devez d�
 
 1. Dans le menu **Paramètres personnels** situé à gauche, sélectionnez **Jetons d’accès personnels**.
 
-1. Sélectionnez **Générer un jeton**.
+1. Sélectionnez **Générer un nouveau jeton**.
 
 1. Sur la page **Nouveau jeton d’accès personnel** entrez une **Description du jeton**, acceptez les éléments par défaut dans le **Choix des étendues**, puis sélectionnez **Générer le jeton**.
 
@@ -53,13 +53,13 @@ Pour ajouter un dépôt d’artefacts GitHub à votre laboratoire, vous devez d�
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
+1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
 
-1. Dans la liste des laboratoires, appuyez sur le laboratoire souhaité.
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
 1. Dans le panneau du laboratoire, sélectionnez **Paramètres**.
 
-1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Dépôt d’artefacts**.
+1. Dans le panneau **Paramètres** du laboratoire, sélectionnez le **Dépôt d’artefacts**.
 
 1. Dans le panneau **Dépôt d’artefacts** :
 
@@ -67,7 +67,7 @@ Pour ajouter un dépôt d’artefacts GitHub à votre laboratoire, vous devez d�
     1. Entrez l’**URL de clonage Git** enregistrée.
     2. Entrez le **Chemin d’accès du dossier** dans le dépôt d’artefacts contenant les artefacts.
     3. Entrez le **Jeton d’accès personnel** enregistré dans le dépôt d’artefacts.
-    4. Appuyez sur **Enregistrer**.
+    4. Sélectionnez **Enregistrer**.
 
 Les artefacts de votre dépôt sont désormais répertoriés dans le panneau **Ajouter des artefacts**.
 
@@ -77,19 +77,19 @@ Pour ajouter un dépôt d’artefacts Git Visual Studio à votre laboratoire, vo
 
 ### Sur la page web Visual Studio de votre projet d’artefact :
 
-1. Ouvrez la page d’accueil de votre collection d’équipe (par exemple, `https://contoso-web-team.visualstudio.com`), puis appuyez sur le projet d’artefact.
+1. Ouvrez la page d’accueil de votre collection d’équipe (par exemple, `https://contoso-web-team.visualstudio.com`), puis sélectionnez le projet d’artefact.
 
-2. Sur la page d’accueil du projet, appuyez sur **Code**.
+2. Sur la page d’accueil du projet, sélectionnez **Code**.
 
-1. Pour afficher l’URL de clonage, sur la page **Code** du projet, appuyez sur **Cloner**.
+1. Pour afficher l’URL de clonage, sélectionnez sur la page **Code** du projet l’option **Cloner**.
 
 1. Enregistrez l’URL, car vous en aurez besoin ultérieurement dans ce didacticiel.
 
-1. Pour créer un jeton d’accès personnel, appuyez sur **Mon profil** dans le menu déroulant du compte d’utilisateur.
+1. Pour créer un jeton d’accès personnel, sélectionnez **Mon profil** dans le menu déroulant du compte d’utilisateur.
 
-1. Sur la page d’informations du profil, appuyez sur **Sécurité**.
+1. Sur la page d’informations du profil, sélectionnez **Sécurité**.
 
-1. Sous l’onglet **Sécurité**, appuyez sur **Ajouter**.
+1. Sous l’onglet **Sécurité**, sélectionnez **Ajouter**.
 
 1. Sur la page **Créer un jeton d’accès personnel** :
 
@@ -99,15 +99,15 @@ Pour ajouter un dépôt d’artefacts Git Visual Studio à votre laboratoire, vo
     4. Sélectionnez l’option **Toutes les étendues**.
     5. Sélectionnez **Créer le jeton**.
 
-1. Lorsque vous avez terminé, le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton** puis enregistrez la valeur du jeton, car elle vous sera utile sous peu.
+1. Lorsque vous avez terminé, le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton** puis enregistrez la valeur du jeton, car vous devrez l’utiliser sous peu.
 
 ### Dans le laboratoire
 
-1. Dans le panneau de votre laboratoire, appuyez sur **Paramètres**.
+1. Dans le panneau du laboratoire, sélectionnez **Paramètres**.
 
     ![Sélectionner Paramètres](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)
 
-1. Dans le panneau **Paramètres**, appuyez sur **Dépôt d’artefacts**.
+1. Dans le panneau **Paramètres**, sélectionnez le **Dépôt d’artefacts**.
 
 1. Dans le panneau **Dépôt d’artefacts**
 
@@ -115,6 +115,6 @@ Pour ajouter un dépôt d’artefacts Git Visual Studio à votre laboratoire, vo
     1. Entrez l’**URL de clonage Git** enregistrée.
     2. Entrez le **Chemin d’accès du dossier** dans le dépôt d’artefacts contenant les artefacts.
     3. Entrez le **Jeton d’accès personnel** enregistré dans le dépôt d’artefacts.
-    4. Appuyez sur **Enregistrer**.
+    4. Sélectionnez **Enregistrer**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

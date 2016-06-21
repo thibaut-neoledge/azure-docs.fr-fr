@@ -28,7 +28,7 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 
 -   Avant de configurer une base de données pour Stretch, nous vous recommandons d’exécuter le Conseiller Stretch Database pour identifier les bases de données et les tables qui sont éligibles pour Stretch. Le Conseiller Stretch Database identifie également les problèmes de blocage. Pour plus d’informations, consultez [Identifier les bases de données et les tables pour Stretch Database](sql-server-stretch-database-identify-databases.md).
 
--   Passez en revue les [limitations de la surface d’exposition et les problèmes de blocage pour Stretch Database](sql-server-stretch-database-limitations.md).
+-   Consultez [Limites de Stretch Database](sql-server-stretch-database-limitations.md).
 
 -   Stretch Database migre les données vers Azure. Vous devez donc avoir un compte Azure et un abonnement pour la facturation. Pour obtenir un compte Azure, [cliquez ici](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +52,7 @@ GO
 Pour plus d’informations, consultez [Configure the remote data archive Server Configuration Option](https://msdn.microsoft.com/library/mt143175.aspx) et [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
 ## <a name="Wizard"></a>Utiliser l’Assistant pour activer Stretch Database sur une base de données
-Pour plus d’informations sur l’Assistant Activer la base de données pour Stretch, notamment sur les informations que vous devez entrer et les choix que vous devez faire, consultez [Activer une base de données pour Stretch](sql-server-stretch-database-wizard.md).
+Pour plus d’informations sur l’Assistant Activer la base de données pour Stretch, notamment sur les informations que vous devez entrer et les choix que vous devez faire, consultez [Commencez par exécuter l’Assistant Activer une base de données pour Stretch](sql-server-stretch-database-wizard.md).
 
 ## <a name="EnableTSQLDatabase"></a>Utiliser Transact-SQL pour activer Stretch Database sur une base de données
 Avant de pouvoir activer Stretch Database sur des tables spécifiques, vous devez l’activer sur la base de données.
@@ -125,7 +125,7 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 
 -   [Gérer et dépanner Stretch Database](sql-server-stretch-database-manage.md)
 
--   [Sauvegarder et restaurer des bases de données Stretch](sql-server-stretch-database-backup.md)
+-   [Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md)
 
 ## Voir aussi
 
@@ -133,4 +133,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

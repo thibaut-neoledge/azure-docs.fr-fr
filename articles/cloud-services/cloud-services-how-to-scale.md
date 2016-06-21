@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Azure"
-	description="Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure."
+	description="(Classic) Découvrez comment utiliser le portail Classic pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -19,9 +19,13 @@
 
 # Mise à l’échelle automatique d’un service cloud
 
+> [AZURE.SELECTOR]
+- [Portail Azure](cloud-services-how-to-scale-portal.md)
+- [Portail Azure Classic](cloud-services-how-to-scale.md)
+
 Dans la page Mettre à l’échelle du portail Azure Classic, vous pouvez procéder à une mise à l’échelle manuelle de votre rôle web ou de travail, ou vous pouvez activer la mise à l’échelle automatique en fonction de la charge de l’UC ou d’une file d’attente de messages.
 
->[AZURE.NOTE] Cet article porte essentiellement sur les rôles web et de travail d’un service cloud. Quand vous créez directement une machine virtuelle, elle est hébergée dans un service cloud. Certaines de ces informations s’appliquent à ces types de machines virtuelles. La mise à l’échelle d’un groupe à haute disponibilité de machines virtuelles consiste simplement à les démarrer et à les arrêter selon les règles de mise à l’échelle que vous configurez. Pour plus d’informations sur les machines virtuelles et les groupes à haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles](../virtual-machines/virtual-machines-windows-classic-configure-availability.md).
+>[AZURE.NOTE] Cet article porte essentiellement sur les rôles web et de travail d’un service cloud. Lorsque vous créez directement une machine virtuelle (Classic), elle est hébergée dans un service cloud. Certaines de ces informations s’appliquent à ces types de machines virtuelles. La mise à l’échelle d’un groupe à haute disponibilité de machines virtuelles consiste simplement à les démarrer et à les arrêter selon les règles de mise à l’échelle que vous configurez. Pour plus d’informations sur les machines virtuelles et les groupes à haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
 
 Vous devez tenir compte des informations suivantes avant de configurer la mise à l'échelle de votre application :
 
@@ -46,7 +50,7 @@ Par défaut, tous les rôles ne suivent pas une planification spécifique. Par c
 - Des dates spécifiques
 - Des plages de dates spécifiques
 
-Ces paramètres sont configurés dans le [portail Azure Classic](https://manage.windowsazure.com/) dans la page **Cloud Services** > **[Votre service cloud]** > **Mettre à l’échelle** > **[Production ou Intermédiaire]**.
+Ces paramètres sont configurés dans le [portail Azure Classic](https://manage.windowsazure.com/) à la page **Cloud Services** > **[Votre service cloud]** > **Mettre à l’échelle** > **[Production ou Intermédiaire]**.
 
 Cliquez sur le bouton **Configurer des heures de planification** pour chaque rôle à modifier.
 
@@ -60,9 +64,9 @@ Dans la page **Mettre à l’échelle**, vous pouvez augmenter ou diminuer manue
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
-    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être passer de **Production** à **Intermédiaire** ou vice versa.
 
-2. Cliquez sur **Mettre à l’échelle**.
+2. Cliquez sur **Scale**.
 
 3. Sélectionnez la planification dont vous voulez modifier les options de mise à l’échelle. La valeur par défaut est *Aucune heure planifiée* si vous n’avez pas défini de planification.
 
@@ -85,9 +89,9 @@ Une mise à l’échelle se produit si le pourcentage moyen d’utilisation de l
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
-    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être passer de **Production** à **Intermédiaire** ou vice versa.
 
-2. Cliquez sur **Mettre à l’échelle**.
+2. Cliquez sur **Scale**.
 
 3. Sélectionnez la planification dont vous voulez modifier les options de mise à l’échelle. La valeur par défaut est *Aucune heure planifiée* si vous n’avez pas défini de planification.
 
@@ -109,11 +113,11 @@ Une mise à l’échelle automatique se produit si le nombre de messages dans un
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
-    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être passer de **Production** à **Intermédiaire** ou vice versa.
 
-2. Cliquez sur **Mettre à l’échelle**.
+2. Cliquez sur **Scale**.
 
-3. Recherchez la section **Mettre à l’échelle par métrique**, puis sélectionnez **File d’attente**.
+3. Recherchez la section **Mettre à l’échelle par métrique**, puis sélectionnez **UC**.
 
 4. Vous pouvez maintenant configurer une plage minimale et maximale d’instances de rôles, la file d’attente et la quantité de messages de file d’attente à traiter pour chaque instance, ainsi que le nombre d’instances devant faire l’objet d’une montée ou d’une descente en charge.
 
@@ -128,7 +132,7 @@ Lorsque vous mettez à l'échelle un rôle, il est souvent avantageux de mettre 
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
-    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être passer de **Production** à **Intermédiaire** ou vice versa.
 
 2. Cliquez sur **Scale**.
 
@@ -147,4 +151,4 @@ Lorsque vous mettez à l'échelle un rôle, il est souvent avantageux de mettre 
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="hawong"/>
 
 # Didacticiel de Power BI pour DocumentDB : visualiser les données à l'aide du connecteur Power BI
@@ -111,8 +111,7 @@ Prêt à vous lancer ? Allons-y.
 11. Cliquez sur **Modifier** pour lancer l’éditeur de requête et transformer les données.
 
 ## Mise à plat et transformation de documents JSON
-1. Dans l’éditeur de requête de Power BI, une colonne **Document** doit normalement apparaître dans le volet central.
-![Power BI Desktop - Éditeur de requête](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. Dans l’éditeur de requête de Power BI, une colonne **Document** doit normalement apparaître dans le volet central. ![Power BI Desktop - Éditeur de requête](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Cliquez sur l’icône de développement à droite de l’en-tête de colonne **Document**. Un menu contextuel s’affiche avec une liste de champs. Sélectionnez les champs dont vous avez besoin pour votre rapport (par exemple, nom du volcan, pays, région, emplacement, altitude, type, état et dernière éruption connue), puis cliquez sur **OK**.
 
@@ -195,4 +194,4 @@ Pour partager votre rapport, vous devez disposer d’un compte dans PowerBI.com.
 - Cliquez [ici](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) pour en savoir plus sur Power BI.
 - Pour en savoir plus sur DocumentDB, cliquez [ici](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

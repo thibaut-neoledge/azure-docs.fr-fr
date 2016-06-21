@@ -12,7 +12,7 @@
 <tags
    ms.service="functions"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="05/07/2016"
@@ -67,8 +67,7 @@ Ensuite, vous allez créer le webhook lui-même dans votre référentiel GitHub.
 
 	![Créer une nouvelle fonction de webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png)
 
-À ce stade, le webhook GitHub est configuré pour déclencher votre fonction lors de l’ajout d’un nouveau commentaire de problème. 
-À présent, il est temps de tout tester.
+À ce stade, le webhook GitHub est configuré pour déclencher votre fonction lors de l’ajout d’un nouveau commentaire de problème. À présent, il est temps de tout tester.
 
 ##Tester la fonction
 
@@ -83,14 +82,11 @@ Ensuite, vous allez créer le webhook lui-même dans votre référentiel GitHub.
 
 Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
-+ [Référence du développeur Azure Functions](functions-reference.md)  
-Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
-+ Le didacticiel [Test d’Azure Functions](functions-test-a-function.md)  
-décrit plusieurs outils et techniques permettant de tester vos fonctions.
-+ La rubrique [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
-présente les plans de services disponibles dans Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins.  
++ [Référence du développeur Azure Functions](functions-reference.md) Référence du programmeur pour le codage de fonctions.
++ Le didacticiel [Test d’Azure Functions](functions-test-a-function.md) décrit plusieurs outils et techniques permettant de tester vos fonctions.
++ La rubrique [Comment mettre à l’échelle Azure Functions](functions-scale.md) présente les plans de services disponibles dans Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins.  
 
 
 [AZURE.INCLUDE [Remarque relative à la prise en main](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

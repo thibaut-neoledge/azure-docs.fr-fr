@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/01/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (portail Azure)
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-data-warehouse-overview-manage-compute.md)
+- [Vue d'ensemble](sql-data-warehouse-manage-compute-overview.md)
 - [Portail](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ Cette collection de tâches utilise le portail Azure pour :
 - Suspension du calcul
 - Reprise du calcul
 
-Pour plus d’informations, consultez l’article [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)).
+Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestion du calcul][].
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -112,7 +112,7 @@ Pour plus d’informations, consultez la [vue d’ensemble de la gestion][].
 
 <!--Article references-->
 [vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power in Azure SQL Data Warehouse (Overview)]: ./sql-data-warehouse-overview-manage-compute.md
+[Vue d’ensemble de la gestion du calcul]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -121,4 +121,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de la gestion][].
 
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

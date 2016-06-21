@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="05/05/2016"
-   ms.author="eslesar"/>
+   ms.date="06/06/2016"
+   ms.author="magoedte;eslesar"/>
    
 
 # Prise en main d’Azure Automation DSC
@@ -27,7 +27,7 @@ Cette rubrique fournit des instructions détaillées sur l’utilisation d’Azu
 
 Pour exécuter les exemples de cette rubrique, vous devez disposer des éléments suivants :
 
-- Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte Azure Automation, consultez [Configuring Azure Automation](automation-configuring.md) (Configuration d’Azure Automation).
+- Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Configurer un compte d’authentification Azure](automation-sec-configure-azure-runas-account.md).
 - Une machine virtuelle Azure Resource Manager (non classique) exécutant Windows Server 2008 R2 ou version ultérieure. Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Création d’une configuration DSC
@@ -266,4 +266,4 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

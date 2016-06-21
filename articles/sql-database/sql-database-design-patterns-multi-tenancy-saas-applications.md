@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure"
+   pageTitle="Modèles de conception pour les applications SaaS mutualisées avec une base de données SQL Azure | Microsoft Azure" 
    description="Cet article décrit la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS mutualisées s’exécutant dans un environnement cloud, ainsi que les compromis associés à ces modèles. Il explique également comment le service Base de données SQL Azure, avec ses outils et ses pools de base de données élastique, permet de satisfaire ces exigences sans aucun compromis."
    keywords=""
    services="sql-database"
@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.workload="sqldb-design"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure
@@ -172,4 +172,4 @@ Pour toute question, contactez-nous sur le [forum Base de données SQL](http://s
 
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

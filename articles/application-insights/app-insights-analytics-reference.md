@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # Référence pour Analytics
@@ -22,30 +22,32 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[opérateur summarize](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[opérateur join](#join-operator)|[range](#range)|[opérateur take](#take-operator)
-|[any](#any)|[dcount](#dcount)|[Expressions de chemin JSON](#json-path-expressions)|[opérateur range](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[clause let](#let-clause)|[opérateur reduce](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[Objets dynamiques dans les clauses let](#dynamic-objects-in-let-clauses)|[opérateur limit](#limit-operator)|[directive render](#render-directive)|[todynamic](#todynamic)
-|[opérateurs arithmétiques](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
-|[Littéraux de tableau et d’objet](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[clause restrict](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Comparaisons scalaires](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[opérateur sort](#sort-operator)|[opérateur top](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[op imbriqué-haut](#top-nested-operator)
-|[Littéraux booléens](#boolean-literals)|[opérateur extend](#extend-operator)|[mvexpand op](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Opérateurs booléens](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[Littéraux numériques](#numeric-literals)|[startofyear](#startofyear)|[opérateur union](#union-operator)
-|[opérateur count](#count-operator)|[gettype](#gettype)|[Littéraux de chaîne masqués](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[opérateur parse](#parse-operator)|[strcat](#strcat)|[WeekOfYear](#weekofyear)
-|[countof](#countof)|[Hachage](#hash)|[parsejson](#parsejson)|[Comparaisons de chaînes](#string-comparisons)|[opérateur where](#where-operator)
-|[Expressions de date et d’heure](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[Littéraux de chaîne](#string-literals)
-|[Littéraux de date et d’heure](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[opérateur project](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[opérateur project-away](#project-away-operator)|[sum](#sum)
+## Index
+
+|Requêtes et opérateurs|Agrégations|Valeurs scalaires|Nombres|Date et heure|Chaîne|Tableaux, objets et dynamiques
+|---|---|---|---|---|---|---
+|[count](#count-operator)|[any](#any)|[Littéraux booléens](#boolean-literals)|[Opérateurs arithmétiques](#arithmetic-operators)|[Expressions de date et d’heure](#date-and-time-expressions)|[GUID](#guids)|[Littéraux de tableau et d’objet](#array-and-object-literals)
+|[extend](#extend-operator)|[argmax](#argmax)|[Opérateurs booléens](#boolean-operators)|[Littéraux numériques](#numeric-literals)|[Littéraux de date et d’heure](#date-and-time-literals)|[Littéraux de chaîne masqués](#obfuscated-string-literals)|[Fonctions de l’objet dynamique](#dynamic-object-functions)
+|[join](#join-operator)|[argmin](#argmin)|[Casts](#casts)|[abs](#abs)|[ago](#ago)|[Littéraux de chaîne](#string-literals)|[Objets dynamiques dans les clauses let](#dynamic-objects-in-let-clauses)
+|[clause let](#let-clause)|[avg](#avg)|[Comparaisons scalaires](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Comparaisons de chaînes](#string-comparisons)|[Expressions de chemin JSON](#json-path-expressions)
+|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Noms](#names)
+|[mvexpand](#mvexpand-operator)|[count](#count)|[Hachage](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
+|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
+|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
+|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
+|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
+|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
+|[directive render](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
+|[clause restrict](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
+|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
+|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
+|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
+|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
+|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
+|[union](#union-operator)||||[todatetime](#todatetime)||
+|[où](#where-operator)||||[totimespan](#totimespan)||
+|||||[WeekOfYear](#weekofyear)||
+
 
 
 
@@ -61,7 +63,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Chaque filtre précédé de la barre verticale `|` est une instance d’un *opérateur*, assortie de certains paramètres. L’entrée de l’opérateur est la table résultant du pipeline précédent. Dans la plupart des cas, tous les paramètres sont des [expressions scalaires](##scalars) sur les colonnes de l’entrée. Dans certains cas, les paramètres correspondent aux noms des colonnes d’entrée et, parfois, le paramètre est une seconde table. Le résultat d’une requête est toujours une table, même si elle ne contient qu’une colonne et qu’une ligne.
+Chaque filtre précédé de la barre verticale `|` est une instance d’un *opérateur*, assortie de certains paramètres. L’entrée de l’opérateur est la table résultant du pipeline précédent. Dans la plupart des cas, tous les paramètres sont des [expressions scalaires](#scalars) sur les colonnes de l’entrée. Dans certains cas, les paramètres correspondent aux noms des colonnes d’entrée et, parfois, le paramètre est une seconde table. Le résultat d’une requête est toujours une table, même si elle ne contient qu’une colonne et qu’une ligne.
 
 Les requêtes peuvent contenir des sauts de ligne uniques, mais se terminent par une ligne vide. Elles peuvent contenir des commentaires entre `//` et la fin de la ligne.
 
@@ -1228,7 +1230,7 @@ Vérifier si une chaîne peut être convertie en un type spécifique :
 
 **Retourne**
 
-Une chaîne représentant le type de stockage sous-jacent de son argument unique. C’est particulièrement utile avec des valeurs de type `dynamic` : dans ce cas `gettype()` indique comment une valeur est encodée.
+Une chaîne représentant le type de stockage sous-jacent de son argument unique. Ceci est particulièrement utile avec des valeurs de type `dynamic` : dans ce cas `gettype()` indique comment une valeur est encodée.
 
 **Exemples**
 
@@ -1361,7 +1363,6 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 
 
 
-## Boolean 
 
 ### Littéraux booléens
 
@@ -1396,7 +1397,7 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 | - | Soustraire |
 | * | Multiplier |
 | / | Diviser |
-| % | Modulo | 
+| % | Modulo |
 || 
 |`<` |Inférieur à 
 |`<=`|Inférieur ou égal à 
@@ -2091,7 +2092,7 @@ Convertit une chaîne en majuscules.
 
 
 
-## GUID
+### GUID
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2199,7 +2200,7 @@ T
 ```
 
 
-## Fonctions de l’objet dynamique
+### Fonctions de l’objet dynamique
 
 |||
 |---|---|
@@ -2400,7 +2401,7 @@ Un tableau d’expressions de chemin.
 
 Notez que « [0] » indique la présence d’un tableau, mais ne spécifie pas l’index utilisé par un chemin spécifique.
 
-## Noms
+### Noms
 
 Les noms peuvent comprendre jusqu’à 1 024 caractères. Ils respectent la casse et peuvent contenir des lettres, des chiffres et des traits de soulignement (`_`).
 
@@ -2425,4 +2426,4 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

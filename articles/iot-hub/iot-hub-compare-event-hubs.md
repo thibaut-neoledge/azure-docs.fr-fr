@@ -30,6 +30,7 @@ Toutefois, les services présentent de nombreuses différences répertoriées da
 | Surveillance des opérations | Permet aux solutions IoT de s’abonner à un vaste ensemble d’événements de gestion d’identité d’appareil et de connectivité tels que des erreurs d’authentification de chaque appareil, la limitation et les exceptions de format incorrect. Ces événements permettent d’identifier rapidement les problèmes de connectivité au niveau de chaque appareil. | Expose uniquement les mesures d’agrégation. |
 | Mise à l'échelle | est optimisé pour prendre en charge des millions d’appareils connectés simultanément. | peut prendre en charge un nombre de connexions simultanées moindre : jusqu’à 5 000 connexions AMQP, conformément à ce qui est défini dans [Quotas Azure Service Bus][]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
 | Kits de développement logiciel (SDK) d’appareil | Fournit [des Kits de développement logiciel (SDK) d’appareil][Azure IoT Hub SDKs] pour une grande variété de plateformes et de langages. | est prise en charge sur .NET, et C. Elle offre des interfaces d’envoi HTTP et AMQP. |
+| Chargement de fichiers | Permet à des solutions IoT de charger des fichiers à partir d’appareils vers le cloud. Comprend un point de terminaison de notification de fichier pour l’intégration du workflow et une catégorie de surveillance des opérations pour le débogage de la prise en charge. | Utilise un modèle de vérification des requêtes pour demander manuellement des fichiers à des appareils et fournir aux appareils une clé de stockage pour la transaction. |
 
 Pour résumer, même si le seul cas d’utilisation est l’entrée de mesures de télémétrie d’un appareil vers le cloud, IoT Hub offre un service spécialement conçu pour la connectivité d’appareil IoT. Les propositions de valeur pour ces scénarios continueront à se développer avec des fonctionnalités spécifiques à IoT. Event Hubs est conçu pour les entrées d’événements à grande échelle, dans les contextes inter et intra centres de données.
 
@@ -52,4 +53,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

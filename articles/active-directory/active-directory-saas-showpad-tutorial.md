@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ Pour configurer l’intégration de Showpad à Azure AD, vous devez ajouter Show
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
 
-	![Active Directory][1]
+	![Applications][1]
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -80,24 +80,25 @@ Pour configurer l’intégration de Showpad à Azure AD, vous devez ajouter Show
 
 6. Dans la zone de recherche, entrez **Showpad**.
 
-	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+	![Applications](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
 
 7. Dans le volet des résultats, sélectionnez **Showpad**, puis cliquez sur **Terminer** pour ajouter l’application.
 
+	![Applications](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_02.png)
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Showpad avec un utilisateur test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit pouvoir identifier l’utilisateur Showpad équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Showpad associé doit être établie.
 
-Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans Showpad.
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Showpad.
 
 Pour configurer et tester l’authentification unique Azure AD avec Showpad, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Showpad](#creating-a-showpad-test-user)** pour avoir un équivalent de Britta Simon dans Showpad lié à la représentation Azure AD associée.
-4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test Showpad](#creating-a-showpad-test-user)** - pour avoir un équivalent de Britta Simon dans Showpad lié à sa représentation dans Azure AD.
+4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
@@ -112,7 +113,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 	![Configurer l’authentification unique][6]
 
-2. Sur la page **How would you like users to sign on to Showpad** (Comment voulez-vous que les utilisateurs se connectent à Showpad), sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Showpad**, sélectionnez **Authentification unique Azure AD**, puis sur **Suivant**.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_03.png)
 
@@ -189,11 +190,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png)
 
@@ -303,4 +304,4 @@ Lorsque vous cliquez sur la mosaïque **Showpad** dans le volet d’accès, vous
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

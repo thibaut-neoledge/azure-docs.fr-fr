@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/08/2016"
 	ms.author="jodebrui"/>
 
 
@@ -533,8 +533,8 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Version préliminaire de SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx), pour la dernière version mensuelle.
 
-- [Description des utilitaires RML pour SQL Server](http://support.microsoft.com/en-us/kb/944837)
+- [Description des utilitaires RML pour SQL Server](http://support.microsoft.com/fr-FR/kb/944837)
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

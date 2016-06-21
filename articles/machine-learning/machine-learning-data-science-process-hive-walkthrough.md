@@ -142,7 +142,7 @@ Pour préparer le cluster d’analyse exploratoire des données, nous téléchar
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette procédure pas à pas sur le répertoire local ***C:\temp&#92;*** dans le nœud principal.
+Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette procédure pas à pas sur le répertoire local ***C:\\temp & #92 ;*** dans le nœud principal.
 
 ## <a name="#hive-db-tables"></a>Créer la base de données Hive et les tables partitionnées par mois
 
@@ -474,7 +474,7 @@ Le fichier *sample\_hive\_tipped\_frequencies.hql* ci-dessous effectue cette op�
 
 ### Exploration : distributions de classe dans le paramètre multiclasse
 
-**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Pour le problème de classification multiclasse décrit dans la section [Exemples de tâches de prédiction](machine-learning-data-science-process-hive-walkthrough.md#mltasks), ce jeu de données se prête également à une classification naturelle où nous aimerions prédire la quantité de pourboires donnés. Nous pouvons utiliser des compartiments pour définir les montants de pourboires dans la requête. Pour obtenir les distributions de classe pour les différents montants de pourboire, nous utilisons le fichier *sample\_hive\_tip\_range\_frequencies.hql*. Son contenu est présenté ci-dessous.
 
@@ -495,7 +495,7 @@ Exécutez la commande suivante dans la console de ligne de commande Hadoop :
 
 ### Exploration : calculer la distance directe entre deux emplacements de latitude-longitude
 
-**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Avoir une idée de la distance directe nous permet de déterminer l'écart entre celle-ci et la distance de course réelle. Nous expliquons cette fonctionnalité par le fait qu’un passager peut être moins susceptible de donner un pourboire s’il se rend compte que le chauffeur a pris intentionnellement un itinéraire beaucoup plus long.
 
@@ -541,22 +541,22 @@ Pour afficher le contenu d'un fichier donné, par exemple 000000\_0, nous utilis
 
 	hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
-**Avertissement :**`copyToLocal` peut être très lent pour les fichiers volumineux et n'est pas recommandé pour une utilisation avec eux.
+**Avertissement :**`copyToLocal` peut être très lent pour les fichiers volumineux et n'est pas recommandé pour une utilisation avec eux.
 
-Le principal avantage lié au fait que ces données résident dans un objet blob Azure est que nous pouvons explorer les données au sein de Azure Machine Learning à l'aide du module [Lecteur][reader].
+Le principal avantage lié au fait que ces données résident dans un objet blob Azure est que nous pouvons explorer les données au sein de Azure Machine Learning à l'aide du module [Importer des données][import-data].
 
 
 ## <a name="#downsample"></a>Réduire l’échantillon des données et créer des modèles dans Azure Machine Learning
 
-**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
-Après la phase d'analyse exploratoire des données, nous sommes prêts à réduire l’échantillon des données pour générer des modèles dans Azure Machine Learning. Dans cette section, nous montrons comment utiliser une requête Hive pour réduire l’échantillon de données, qui est ensuite accessible à partir du module [Lecteur][reader] dans Azure Machine Learning.
+Après la phase d'analyse exploratoire des données, nous sommes prêts à réduire l’échantillon des données pour générer des modèles dans Azure Machine Learning. Dans cette section, nous montrons comment utiliser une requête Hive pour réduire l’échantillon de données, qui est ensuite accessible à partir du module [Importer des données][import-data] dans Azure Machine Learning.
 
 ### Réduction de l'échantillonnage des données
 
 Il existe deux étapes dans cette procédure. Tout d'abord nous regroupons les tables **nyctaxidb.trip** et **nyctaxidb.fare** sur trois clés présentes dans tous les enregistrements : « medallion », « hack\_license » et « pickup\_datetime ». Nous générons ensuite une étiquette de classification binaire **avec pourboire** et une étiquette de classification multiclasse **tip\_class**.
 
-Pour pouvoir utiliser les données à échantillon réduit directement à partir du module [Lecteur][reader] dans Azure Machine Learning, il est nécessaire de stocker les résultats de la requête ci-dessus dans une table interne de Hive. Dans ce qui suit, nous créons une table interne Hive et remplissons son contenu avec les données regroupées et à échantillon réduit.
+Pour pouvoir utiliser les échantillons de données réduits directement à partir du module [Importer des données][import-data] dans Azure Machine Learning, il est nécessaire de stocker les résultats de la requête ci-dessus dans une table Hive interne. Dans ce qui suit, nous créons une table interne Hive et remplissons son contenu avec les données regroupées et à échantillon réduit.
 
 La requête s'applique directement aux fonctions Hive standards pour générer l'heure du jour, la semaine de l’année, le jour de la semaine (1 signifie lundi et 7 signifie dimanche) à partir du champ « pickup\_datetime » et la distance directe entre les emplacements de départ et d’arrivée. Les utilisateurs peuvent se reporter à la fonction [UDF LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) pour consulter la liste complète de ces fonctions.
 
@@ -689,13 +689,13 @@ Pour exécuter cette requête, à partir de l'invite du répertoire Hive :
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Nous avons maintenant une table interne « nyctaxidb.nyctaxi\_downsampled\_dataset », qui est accessible à l'aide du module [Lecteur][reader] d’Azure Machine Learning. En outre, nous pouvons utiliser ce jeu de données pour générer des modèles d'apprentissage automatique.
+Nous avons maintenant une table interne « nyctaxidb.nyctaxi\_downsampled\_dataset », qui est accessible à l'aide du module [Importer des données][import-data] d’Azure Machine Learning. En outre, nous pouvons utiliser ce jeu de données pour générer des modèles d'apprentissage automatique.
 
-### Utiliser le module Lecteur dans Azure Machine Learning pour accéder aux données à échantillon réduit
+### Utiliser le module Importer des données dans Azure Machine Learning pour accéder aux données à échantillon réduit
 
-En tant que composants requis pour la délivrance de requêtes Hive dans le module [Lecteur][reader] d’Azure Machine Learning, nous devons accéder à un espace de travail Azure Machine Learning et aux informations d'identification du cluster et de son compte de stockage associé.
+En tant que composants requis pour la création de requêtes Hive dans le module [Importer des données][import-data] d’Azure Machine Learning, nous devons accéder à un espace de travail Azure Machine Learning et aux informations d'identification du cluster et de son compte de stockage associé.
 
-Certains détails sur le module [Lecteur][reader] et les paramètres d'entrée :
+Certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
 **URI du serveur HCatalog** : si le nom du cluster est abc123, il s'agit simplement : https://abc123.azurehdinsight.net
 
@@ -709,7 +709,7 @@ Certains détails sur le module [Lecteur][reader] et les paramètres d'entrée 
 
 **Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
 
-**Remarque importante :** **n'importe quelle table que nous souhaitons interroger à l'aide du module [Lecteur][reader] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
+**Remarque importante :** **toute table que nous souhaitons interroger à l'aide du module [Importer des données][import-data] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
 
 À partir de l'invite du répertoire Hive, exécutez la commande :
 
@@ -717,7 +717,7 @@ Certains détails sur le module [Lecteur][reader] et les paramètres d'entrée 
 
 Si la table est une table interne et qu’elle est remplie, son contenu doit s’afficher ici. Pour déterminer si une table est une table interne, il est également possible d’utiliser Azure Storage Explorer. Utilisez-le pour accéder au nom de conteneur par défaut du cluster, puis filtrez par nom de table. Si la table et son contenu s'affichent, cela confirme qu'il s’agit d’une table interne.
 
-Voici un aperçu de la requête Hive et du module [Lecteur][reader] :
+Voici un aperçu de la requête Hive et du module [Importer des données][import-data] :
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
@@ -731,9 +731,9 @@ Nous sommes désormais capables de passer aux phases de création et de déploie
 
 **1. Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
 
-**Apprenant utilisé :** régression logistique à deux classes
+**Apprenant utilisé :** régression logistique à deux classes
 
-a. Pour ce problème, notre étiquette (ou classe) cible est « avec pourboire ». Notre jeu de données original à l’échantillon réduit dispose de quelques colonnes qui sont des fuites cibles pour cette expérience de classification. En particulier : tip\_class, tip\_amount et total\_amount révèlent des informations sur l'étiquette cible qui n'est pas disponible au moment du test. Nous supprimons ces colonnes du compte à l'aide du module [Colonnes de projet][project-columns].
+a. Pour ce problème, notre étiquette (ou classe) cible est « avec pourboire ». Notre jeu de données original à l’échantillon réduit dispose de quelques colonnes qui sont des fuites cibles pour cette expérience de classification. En particulier : tip\_class, tip\_amount et total\_amount révèlent des informations sur l'étiquette cible qui n'est pas disponible au moment du test. Nous supprimons ces colonnes du compte à l'aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
 L'instantané ci-dessous illustre notre expérience pour prédire si un pourboire a été versé pour une course donnée.
 
@@ -749,11 +749,11 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
-**2. Classification multiclasse **: pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
+**2. Classification multiclasse** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
 **Apprenant utilisé :** régression logistique multiclasse
 
-a. Pour ce problème, notre cible (ou classe) est « tip\_class », ce qui peut prendre une des cinq valeurs suivantes (0,1,2,3,4). Comme dans le cas de classification binaire, nous avons quelques colonnes qui sont des fuites cibles pour cette expérience. En particulier : avec pourboire, tip\_amount et total\_amount révèlent des informations sur l'étiquette cible qui n'est pas disponible au moment du test. Nous supprimons ces colonnes à l'aide du module [Colonnes de projet][project-columns].
+a. Pour ce problème, notre cible (ou classe) est « tip\_class », ce qui peut prendre une des cinq valeurs suivantes (0,1,2,3,4). Comme dans le cas de classification binaire, nous avons quelques colonnes qui sont des fuites cibles pour cette expérience. En particulier : avec pourboire, tip\_amount et total\_amount révèlent des informations sur l'étiquette cible qui n'est pas disponible au moment du test. Nous supprimons ces colonnes à l'aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
 L'instantané ci-dessous illustre notre expérience pour prédire le compartiment où un pourboire est susceptible de tomber (classe 0 : pourboire = 0 $, classe 1 : pourboire > 0 $ et pourboire <= 5 $, classe 2 : pourboire > 5 $ et pourboire <= 10 $, classe 3 : pourboire > 10 $ et pourboire <= 20 $, classe 4 : pourboire > 20 $)
 
@@ -774,7 +774,7 @@ Notez que la précision des classes sur les classes les plus courantes est assez
 
 **Apprenant utilisé :** arbre de décision optimisé
 
-a. Pour ce problème, notre étiquette (ou classe) cible est « tip\_amount ». Nos fuites cibles dans ce cas sont : avec pourboire, tip\_class, total\_amount. Toutes ces variables révèlent des informations sur le montant du pourboire qui est en général indisponible au moment du test. Nous supprimons ces colonnes à l'aide du module [Colonnes de projet][project-columns].
+a. Pour ce problème, notre étiquette (ou classe) cible est « tip\_amount ». Nos fuites cibles dans ce cas sont : avec pourboire, tip\_class, total\_amount. Toutes ces variables révèlent des informations sur le montant du pourboire qui est en général indisponible au moment du test. Nous supprimons ces colonnes à l'aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
 L'instantané ci-dessous illustre notre expérience pour prédire la quantité de pourboire donné.
 
@@ -786,7 +786,7 @@ b. Pour les problèmes de régression, nous évaluons la précision de nos prév
 
 Nous voyons que le coefficient de détermination est de 0,709, ce qui signifie que 71 % environ de la variance est expliquée par nos coefficients modèles.
 
-**Remarque importante :** pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, reportez-vous à [Qu’est-ce que l'apprentissage automatique ?](machine-learning-what-is-machine-learning.md). La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) est une ressource très utile pour découvrir de nombreuses expériences d’apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une présentation approfondie des fonctionnalités d’Azure Machine Learning.
+**Remarque importante :** pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, reportez-vous à [Qu’est-ce que l'apprentissage automatique ?](machine-learning-what-is-machine-learning.md). La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) est une ressource très utile pour découvrir de nombreuses expériences d’apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une présentation approfondie des fonctionnalités d’Azure Machine Learning.
 
 ## Informations de licence
 
@@ -794,9 +794,7 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 ## Références
 
-•	[Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-•	[Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -807,7 +805,7 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [15]: ./media/machine-learning-data-science-process-hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -79,7 +79,7 @@ Une fois que les résultats de prédiction ont été compris et considérés com
 
 Figure 3 : Expérience de notation d'un problème de classification double classe Iris
 
-Nous devons à présent définir l'entrée et la sortie du service web. L'entrée est, bien entendu, caractérisée par le port d'entrée droit de [Noter le modèle][score-model], qui représente l'entrée des fonctionnalités de la fleur d'Iris. La sortie est, quant à elle, définie en fonction de l'intérêt que nous portons à la classe prédite (étiquette notée), à la probabilité notée ou bien aux deux. On considère ici que nous sommes intéressés par les deux. Pour sélectionner les colonnes de sortie souhaitées, nous devons utiliser un module [Colonnes de projet][project-columns]. Nous cliquons sur le module [Colonnes de projet][project-columns], sur **Lancer le sélecteur de colonne** situé dans le volet droit, puis nous sélectionnons **Étiquettes notées** et **Probabilités notées**. Une fois le port de sortie du module [Colonnes de projet][project-columns] configuré et exécuté à nouveau, nous devons être en mesure de publier l'expérience de notation en tant que service web en cliquant sur le bouton du bas, intitulé **PUBLISH WEB SERVICE**. L'expérience finale est semblable à celle mentionnée dans la Figure 4.
+Nous devons à présent définir l'entrée et la sortie du service web. L'entrée est, bien entendu, caractérisée par le port d'entrée droit de [Noter le modèle][score-model], qui représente l'entrée des fonctionnalités de la fleur d'Iris. La sortie est, quant à elle, définie en fonction de l'intérêt que nous portons à la classe prédite (étiquette notée), à la probabilité notée ou bien aux deux. On considère ici que nous sommes intéressés par les deux. Pour sélectionner les colonnes de sortie souhaitées, nous devons utiliser un module [Sélectionner des colonnes dans le jeu de données][select-columns]. Nous cliquons sur le module [Sélectionner des colonnes dans le jeu de données][select-columns], sur **Lancer le sélecteur de colonne** situé dans le volet droit, puis nous sélectionnons **Étiquettes notées** et **Probabilités notées**. Une fois le port de sortie du module [Sélectionner des colonnes dans le jeu de données][select-columns] configuré et exécuté à nouveau, nous devons être en mesure de publier l’expérience de notation en tant que service web en cliquant sur le bouton du bas, intitulé **PUBLIER LE SERVICE WEB**. L'expérience finale est semblable à celle mentionnée dans la Figure 4.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
@@ -116,7 +116,7 @@ Les seize colonnes de gauche représentent les valeurs caractéristiques de l'en
 
 **Publication du service web**
 
-Cette fois, au lieu d'utiliser [Colonnes de projet][project-columns] pour sélectionner certaines colonnes en tant que sortie de notre service web, nous souhaitons obtenir l'étiquette notée pour chaque entrée, de même que la probabilité de l'étiquette notée. La logique de base consiste à trouver la probabilité la plus élevée parmi toutes les probabilités notées. Pour ce faire, nous devons utiliser le module [Exécuter le script R][execute-r-script]. Le code R est mentionné dans la Figure 8 et l'expérience dans la Figure 9.
+Cette fois, au lieu d’utiliser [Sélectionner des colonnes dans le jeu de données][select-columns] pour sélectionner certaines colonnes en tant que sortie de notre service web, nous souhaitons obtenir l’étiquette notée pour chaque entrée, de même que la probabilité de l’étiquette notée. La logique de base consiste à trouver la probabilité la plus élevée parmi toutes les probabilités notées. Pour ce faire, nous devons utiliser le module [Exécuter le script R][execute-r-script]. Le code R est mentionné dans la Figure 8 et l'expérience dans la Figure 9.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
@@ -302,11 +302,11 @@ Figure 26 : Résultat du service web d'un problème de recommandation de resta
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

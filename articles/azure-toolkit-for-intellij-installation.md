@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 # Installation du kit de ressources Azure pour IntelliJ
@@ -88,17 +88,28 @@ Il existe deux méthodes d’installation du kit de ressources Azure pour Intell
 
 ## Voir aussi
 
-[Kit de ressources Azure pour IntelliJ]
+Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
-[Créer une application web « Hello World » pour Azure dans IntelliJ]
+- [Kit de ressources Azure pour Eclipse]
+  - [Installation du kit de ressources Azure pour Eclipse]
+  - [Créer une application web « Hello World » pour Azure dans Eclipse]
+  - [Nouveautés du kit de ressources Azure pour Eclipse]
+- [Kit de ressources Azure pour IntelliJ]
+  - *Installation du kit de ressources Azure pour IntelliJ (cet article)*
+  - [Créer une application web « Hello World » pour Azure dans IntelliJ]
 
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
 <!-- URL List -->
 
+[Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
-[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
+[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -112,4 +123,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Dépannage | Microsoft Azure"
-   description="Dépannage de SQL Data Warehouse."
+   pageTitle="Résolution des problèmes d’Azure SQL Data Warehouse | Microsoft Azure"
+   description="Résolution des problèmes d’Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,8 +16,8 @@
    ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
-# Résolution de problèmes
-La rubrique suivante répertorie certains des problèmes les plus courants auxquels les clients sont confrontés avec Azure SQL Data Warehouse.
+# Résolution des problèmes d’Azure SQL Data Warehouse
+Cette rubrique répertorie certains des problèmes les plus courants auxquels vous pourriez être confronté avec Azure SQL Data Warehouse.
 
 ## Connectivité
 Exemples de problèmes de connectivité courants :
@@ -39,7 +39,7 @@ Voici quelques-unes des causes les plus courantes des problèmes de performances
 
 ### Statistiques
 
-Les [statistiques][] de vos tables contiennent des informations sur la plage et la fréquence de valeurs dans une colonne ou une combinaison de colonnes de base de données. Le moteur de requête utilise ces statistiques pour optimiser l'exécution des requêtes et améliorer leurs performances. Contrairement à SQL Server ou SQL DB, SQL Data Warehouse ne prend pas en charge les statistiques de création ou de mise à jour automatiques. Les statistiques doivent être manuellement gérées sur toutes les tables. Pour savoir comment gérer vos statistiques et identifier des tables qui requièrent des statistiques, consultez l’article [Gérer des statistiques dans SQL Data Warehouse][].
+Les [statistiques][] de vos tables contiennent des informations sur la plage et la fréquence de valeurs dans une colonne ou une combinaison de colonnes de base de données. Le moteur de requête utilise ces statistiques pour optimiser l'exécution des requêtes et améliorer leurs performances. Contrairement à SQL Server ou la base de données SQL, SQL Data Warehouse ne prend pas en charge les statistiques de création ou de mise à jour automatiques. Les statistiques doivent être manuellement gérées sur toutes les tables. Pour savoir comment gérer vos statistiques et identifier des tables qui requièrent des statistiques, consultez l’article [Gérer des statistiques dans SQL Data Warehouse][].
 
 ### Conception de tables
 
@@ -109,7 +109,7 @@ Consultez l’article [Meilleures pratiques relatives à SQL Data Warehouse][] p
 <!--Image references-->
 
 <!--Article references-->
-[mise à l’échelle de votre base de données SQL Data Warehouse]: ./sql-data-warehouse-overview-scalability.md
+[mise à l’échelle de votre base de données SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [conception de vos tables]: ./sql-data-warehouse-develop-table-design.md
 [choisir une clé de distribution par hachage adaptée à votre table]: ./sql-data-warehouse-develop-hash-distribution-key
 [development overview]: ./sql-data-warehouse-overview-develop.md
@@ -126,4 +126,4 @@ Consultez l’article [Meilleures pratiques relatives à SQL Data Warehouse][] p
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

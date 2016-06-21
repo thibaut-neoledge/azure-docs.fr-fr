@@ -128,9 +128,9 @@ Dans certains scénarios, plusieurs clients peuvent écrire à un même moment d
 	> [AZURE.NOTE] Lorsque des tables non typées sont utilisées, l'activation du contrôle d'accès concurrentiel optimiste s'effectue en ajoutant l'indicateur Version aux propriétés système (SystemProperties) de la table.
 	>
 	>`````
-	//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-`````
+	>//Enable optimistic concurrency by retrieving __version
+	>todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+	>`````
 
 
 2. En ajoutant la propriété `Version` à la classe `TodoItem`, l'application est notifiée par une exception `MobileServicePreconditionFailedException` lors d'une mise à jour si l'enregistrement a été modifié depuis la dernière requête. Cette exception inclut la dernière version de l'élément en provenance du serveur. Dans MainPage.cs pour le projet partagé, ajoutez le code suivant pour gérer l'exception dans la `UpdateToDoItem()` méthode.
@@ -243,7 +243,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 
 	Instance 2 de l'application ![][5]
 
-8. Comme la valeur `__version` utilisée pour la tentative de mise à jour ne correspond pas à la valeur `__version` du serveur, le Kit de développement logiciel (SDK) Mobile Services lève une exception `MobileServicePreconditionFailedException` qui permet à l'application de résoudre ce conflit. Pour résoudre le conflit, vous pouvez cliquer sur **Commit Local Text ** pour valider les valeurs de l'instance 2. Sinon, cliquez sur **Leave Server Text** pour ignorer les valeurs dans l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application.
+8. Comme la valeur `__version` utilisée pour la tentative de mise à jour ne correspond pas à la valeur `__version` du serveur, le Kit de développement logiciel (SDK) Mobile Services lève une exception `MobileServicePreconditionFailedException` qui permet à l'application de résoudre ce conflit. Pour résoudre le conflit, vous pouvez cliquer sur **Commit Local Text** pour valider les valeurs de l'instance 2. Sinon, cliquez sur **Leave Server Text** pour ignorer les valeurs dans l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application.
 
 	Instance 1 de l'application ![][4]
 
@@ -369,4 +369,4 @@ Ce didacticiel a montré comment permettre à une application Windows Store de g
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriétés système]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

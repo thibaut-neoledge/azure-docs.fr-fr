@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Déploiement et gestion d’une sauvegarde pour les machines virtuelles ARM à l’aide de PowerShell | Microsoft Azure"
-   description="Utiliser PowerShell pour déployer et gérer les sauvegardes dans Azure pour les machines virtuelles ARM"
+   pageTitle="Déploiement et gestion des sauvegardes pour les machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell | Microsoft Azure"
+   description="Utilisation de PowerShell pour déployer et gérer des sauvegardes dans Azure pour les machines virtuelles déployées avec le modèle Resource Manager"
    services="backup"
    documentationCenter=""
    authors="markgalioto"
-   manager="jwhit"
+   manager="cfreeman"
    editor=""/>
 
 <tags
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="05/24/2016"
+   ms.date="06/03/2016"
    ms.author="markgal; trinadhk"/>
 
-# Déploiement et gestion de la sauvegarde pour les machines virtuelles ARM à l’aide de PowerShell
+# Déploiement et gestion des sauvegardes pour les machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM](backup-azure-vms-automation.md)
+- [Gestionnaire de ressources](backup-azure-vms-automation.md)
 - [Classique](backup-azure-vms-classic-automation.md)
 
-Cet article vous montre comment utiliser des applets de commande Azure PowerShell pour sauvegarder et restaurer une machine virtuelle Azure à partir d’un coffre Recovery Services. Un coffre Recovery Services est une ressource Azure Resource Manager (ARM) utilisée pour protéger les données et les actifs dans Azure Backup et Azure Site Recovery Services. Utiliser un coffre Recovery Services dans un déploiement ARM. Vous pouvez utiliser un coffre Recovery Services pour protéger des machines virtuelles déployées avec Azure Service Manager (ASM), ainsi que des machines virtuelles ARM.
+Cet article vous montre comment utiliser des applets de commande Azure PowerShell pour sauvegarder et restaurer une machine virtuelle Azure à partir d’un coffre Recovery Services. Un coffre Recovery Services est une ressource Azure Resource Manager utilisée pour protéger les données et les actifs dans Azure Backup et Azure Site Recovery Services. Vous pouvez utiliser un coffre Recovery Services pour protéger des machines virtuelles déployées avec Azure Service Manager, ainsi que des machines virtuelles déployées avec le modèle Azure Resource Manager.
 
 >[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Cet article concerne l’utilisation avec des machines virtuelles créées à l’aide du modèle Resource Manager.
 
@@ -43,7 +43,7 @@ Pour afficher les informations de référence sur l’applet de commande PowerSh
 
 Pour commencer :
 
-1. [Téléchargez la dernière version de PowerShell](https://github.com/Azure/azure-powershell/releases) (version minimale requise : 1.0.0).
+1. [Téléchargez la dernière version de PowerShell](https://github.com/Azure/azure-powershell/releases) (version minimale requise : 1.4.0)
 
 2. Rechercher les applets de commande PowerShell Azure Backup disponibles en tapant la commande suivante :
 
@@ -52,33 +52,33 @@ PS C:\> Get-Command *azurermrecoveryservices*
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Backup-AzureRmRecoveryServicesBackupItem           1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Disable-AzureRmRecoveryServicesBackupProtection    1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Enable-AzureRmRecoveryServicesBackupProtection     1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupContainer         1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupItem              1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupJob               1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupJobDetails        1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupManagementServer  1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupProperties        1.1.0      AzureRM.RecoveryServices
-Cmdlet          Get-AzureRmRecoveryServicesBackupProtectionPolicy  1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRMRecoveryServicesBackupRecoveryPoint     1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupRetentionPolic... 1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesBackupSchedulePolicy... 1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Get-AzureRmRecoveryServicesVault                   1.1.0      AzureRM.RecoveryServices
-Cmdlet          Get-AzureRmRecoveryServicesVaultSettingsFile       1.1.0      AzureRM.RecoveryServices
-Cmdlet          New-AzureRmRecoveryServicesBackupProtectionPolicy  1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          New-AzureRmRecoveryServicesVault                   1.1.0      AzureRM.RecoveryServices
-Cmdlet          Remove-AzureRmRecoveryServicesProtectionPolicy     1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Remove-AzureRmRecoveryServicesVault                1.1.0      AzureRM.RecoveryServices
-Cmdlet          Restore-AzureRMRecoveryServicesBackupItem          1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Set-AzureRmRecoveryServicesBackupProperties        1.1.0      AzureRM.RecoveryServices
-Cmdlet          Set-AzureRmRecoveryServicesBackupProtectionPolicy  1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Set-AzureRmRecoveryServicesVaultContext            1.1.0      AzureRM.RecoveryServices
-Cmdlet          Stop-AzureRmRecoveryServicesBackupJob              1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.0.0      AzureRM.RecoveryServices.Backup
-Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Backup-AzureRmRecoveryServicesBackupItem           1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Disable-AzureRmRecoveryServicesBackupProtection    1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Enable-AzureRmRecoveryServicesBackupProtection     1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupContainer         1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupItem              1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupJob               1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupJobDetails        1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupManagementServer  1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupProperties        1.4.0      AzureRM.RecoveryServices
+Cmdlet          Get-AzureRmRecoveryServicesBackupProtectionPolicy  1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRMRecoveryServicesBackupRecoveryPoint     1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupRetentionPolic... 1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupSchedulePolicy... 1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesVault                   1.4.0      AzureRM.RecoveryServices
+Cmdlet          Get-AzureRmRecoveryServicesVaultSettingsFile       1.4.0      AzureRM.RecoveryServices
+Cmdlet          New-AzureRmRecoveryServicesBackupProtectionPolicy  1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          New-AzureRmRecoveryServicesVault                   1.4.0      AzureRM.RecoveryServices
+Cmdlet          Remove-AzureRmRecoveryServicesProtectionPolicy     1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Remove-AzureRmRecoveryServicesVault                1.4.0      AzureRM.RecoveryServices
+Cmdlet          Restore-AzureRMRecoveryServicesBackupItem          1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Set-AzureRmRecoveryServicesBackupProperties        1.4.0      AzureRM.RecoveryServices
+Cmdlet          Set-AzureRmRecoveryServicesBackupProtectionPolicy  1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Set-AzureRmRecoveryServicesVaultContext            1.4.0      AzureRM.RecoveryServices
+Cmdlet          Stop-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
 
 
@@ -100,7 +100,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-2. Le coffre Recovery Services constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Si vous ne disposez pas d’un groupe de ressources, créez-en un avec l’applet de commande **[New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx)**. Quand vous créez un groupe de ressources, spécifiez ses nom et emplacement.
+2. Le coffre Recovery Services constituant une ressource Resource Manager, vous devez le placer dans un groupe de ressources. Si vous ne disposez pas d’un groupe de ressources, créez-en un avec l’applet de commande **[New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx)**. Quand vous créez un groupe de ressources, spécifiez ses nom et emplacement.
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
@@ -317,7 +317,7 @@ Une fois les disques restaurés, passez à la section suivante, qui explique com
 
 ### Créer une machine virtuelle à partir de disques restaurés
 
-Après avoir restauré les disques, utilisez les étapes ci-après pour créer et configurer une machine virtuelle ARM à partir des disques.
+Après avoir restauré les disques, exécutez les étapes ci-après pour créer et configurer la machine virtuelle à partir du disque.
 
 1. Interrogez les propriétés des disques restaurés pour obtenir les détails du travail.
 
@@ -368,7 +368,11 @@ Après avoir restauré les disques, utilisez les étapes ci-après pour créer e
 
     ```
     PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
-    PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "centralindia" -VM $vm
+    PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
 
-<!---HONumber=AcomDC_0525_2016-->
+## Étapes suivantes
+
+Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](./backup-client-automation.md). Il existe également un article de PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](./backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.
+
+<!---HONumber=AcomDC_0608_2016-->

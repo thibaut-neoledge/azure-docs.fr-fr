@@ -3,7 +3,7 @@
    description="Résolvez les problèmes d’utilisation de Visual Studio pour créer et déployer des applications web dans Docker sur Windows avec Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/15/2016"
-   ms.author="tarcher" />
+   ms.date="06/08/2016"
+   ms.author="allclark" />
 
 # Résolution des problèmes de développement avec Docker pour Visual Studio
 
@@ -22,6 +22,7 @@ Lorsque vous travaillez avec Visual Studio Tools pour Docker Preview, vous pourr
 ##Impossible de configurer Program.cs pour la prise en charge de Docker
 
 Lorsque vous ajoutez la prise en charge de Docker, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` doit être ajouté à WebHostBuilder(). Si Program.cs, la fonction Main() ou une nouvelle classe WebHostBuilder est introuvable, un avertissement s’affichera. .UseUrls() est requis pour activer l’écoute du trafic entrant par Kestrel, au-delà de localhost lors de l’exécution au sein d’un conteneur Docker. Une fois terminé, le code standard doit ressembler à ce qui suit :
+
 ```
 public class Program
 {
@@ -39,31 +40,41 @@ public class Program
     }
 }
 ```
+
 UseUrls() a configuré WebHost pour écouter le trafic URL entrant. [Outils docker pour Visual Studio](http://aka.ms/DockerToolsForVS) configurera la variable d’environnement dans le mode dockerfile.debug/release comme suit :
+
 ```
 # Configure the listening port to 80
 ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
+
 ## Le mappage de volumes ne fonctionne pas
 Pour activer les fonctionnalités de modification et d’actualisation, le mappage de volumes est configuré pour partager le code source de votre projet sur le dossier .app au sein du conteneur. Lorsque des fichiers sont modifiés sur votre machine hôte, le répertoire containers/app utilise le même répertoire. Dans docker-compose.debug.yml, la configuration suivante active le mappage de volumes :
+
 ```
     volumes:
       - ..:/app
 ```
+
 Pour vérifier si le mappage de volumes fonctionne, exécutez la commande suivante :
 
 **À partir de Windows**
+
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
 cd wormhole
 / # ls
 ```
+
 Vous devriez voir une liste de répertoires dans le dossier Users/Public. Si aucun fichier ne s’affiche et que votre dossier /c/Users/Public n’est pas vide, le mappage de volumes n’est pas configuré correctement.
+
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
+
 Modifiez avec le répertoire wormhole pour voir le contenu du répertoire `/c/Users/Public` :
+
 ```
 / # cd wormhole/
 /wormhole # ls
@@ -72,6 +83,7 @@ Desktop          Host             NuGet.Config     a.txt
 Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
+
 **Remarque :** *lorsque vous travaillez avec des machines virtuelles Linux, le système de fichiers du conteneur respecte la casse.*
 
 Si vous ne parvenez pas à afficher le contenu, essayez ce qui suit :
@@ -92,10 +104,10 @@ Par défaut, VirtualBox partage `C:\Users` en tant que `c:/Users`. Si possible, 
 
 Si vous utilisez le navigateur Microsoft Edge, le site risque de ne pas s’ouvrir, car Edge considère l’adresse IP comme non sécurisée. Pour résoudre ce problème, procédez comme suit :
 1. Dans la zone Exécuter, tapez `Internet Options`.
-2. Cliquez sur **Options Internet**. 
-2. Cliquez sur l’onglet **Sécurité**.
+2. Sélectionnez **Options Internet**. 
+2. Sélectionnez l’onglet **Sécurité**.
 3. Sélectionnez la zone **Intranet local**.
-4. Cliquez sur **Sites**. 
+4. Sélectionnez **Sites**. 
 5. Ajoutez l’IP de votre machine virtuelle (dans ce cas, l’hôte Docker) à la liste. 
 6. Actualisez la page dans Edge et vérifiez que le site est opérationnel. 
 7. Pour plus d’informations sur ce problème, reportez-vous au billet de blog de Scott Hanselman [Microsoft Edge can’t see or open VirtualBox-hosted local web sites (Microsoft Edge ne peut pas voir ou ouvrir des sites web locaux hébergés sur VirtualBox)](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
@@ -107,13 +119,14 @@ Si vous utilisez le navigateur Microsoft Edge, le site risque de ne pas s’ouv
 
 Cela peut être dû à une erreur au cours de `docker-compose-up`. Procédez comme suit pour afficher l’erreur :
 
-1. Ouvrez le fichier `Properties\launchSettings.json`. Recherchez l’entrée Docker.
+1. Ouvrez le fichier `Properties\launchSettings.json`
+1. Recherchez l’entrée Docker.
 1. Notez la ligne qui commence comme suit :
 
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
 	
-1. Ajoutez le paramètre `-noexit` afin que la ligne soit comme suit : Cette opération permet de garder PowerShell ouvert afin que vous puissiez afficher l’erreur.
+1. Ajoutez le paramètre `-noexit` afin que la ligne soit comme suit. Cette opération permet de garder PowerShell ouvert afin que vous puissiez afficher l’erreur.
 
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

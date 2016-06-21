@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Configurer la géo-réplication active pour base de données SQL Azure avec PowerShell | Microsoft Azure" 
-    description="géo-réplication active pour Base de données SQL Azure avec PowerShell" 
+    description="Configurer la géoréplication active pour Base de données SQL Azure avec PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,7 +16,7 @@
     ms.date="04/27/2016"
     ms.author="sstein"/>
 
-# Configurer la géo-réplication pour la base de données SQL Azure avec PowerShell
+# Configurer la géoréplication pour Base de données SQL Azure avec PowerShell
 
 
 
@@ -26,7 +26,7 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-Cet article vous montre comment configurer la géo-réplication pour une base de données SQL à l’aide de PowerShell.
+Cet article vous montre comment configurer la géoréplication pour Base de données SQL à l’aide de PowerShell.
 
 Pour lancer un basculement, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure](sql-database-geo-replication-failover-powershell.md).
 
@@ -34,7 +34,7 @@ Pour lancer un basculement, consultez [Lancer un basculement planifié ou non pl
 
 Vous pouvez configurer jusqu'à 4 bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
 
-Pour configurer la géo-réplication, vous devez disposer des éléments suivants :
+Pour configurer la géoréplication, vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
 - Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
@@ -60,10 +60,10 @@ Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. 
 Après avoir exécuté **Select-AzureRmSubscription**, vous êtes redirigé vers l’invite PowerShell.
 
 
-## Ajouter une base de données secondaire
+## Ajout d'une base de données secondaire
 
 
-Les étapes suivantes créent une nouvelle base de données secondaire dans un partenariat géo-réplication.
+Les étapes suivantes créent une nouvelle base de données secondaire dans un partenariat de géoréplication.
   
 Pour activer une base de données secondaire, vous devez être le propriétaire de l’abonnement ou le copropriétaire.
 
@@ -73,7 +73,7 @@ Cette applet de commande remplace **Start-AzureSqlDatabaseCopy** avec le paramè
 
 La base de données répliquée sur le serveur secondaire aura le même nom que la base de données sur le serveur primaire et aura, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données unique ou d’une base de données élastique. Pour plus d’informations, consultez [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) et [Niveaux de Service](sql-database-service-tiers.md). Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence. Les étapes ci-dessous décrivent comment accomplir cette tâche à l’aide de PowerShell pour créer des bases de données secondaires, accessibles en lecture ou non, avec une base de données unique ou une base de données élastique.
 
-Si la base de données de partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géo-réplication précédente), la commande échoue.
+Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géoréplication précédente), la commande échoue.
 
 
 
@@ -158,11 +158,11 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 ## Ressources supplémentaires
 
 - [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
-- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Géo-réplication active](sql-database-geo-replication-overview.md)
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

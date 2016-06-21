@@ -88,8 +88,7 @@ Dans le volet De base, vous devez fournir les informations de base de votre clus
 
 	b. Ajoutez tous les ports dans le champ séparé par des virgules **Points de terminaison d’entrée d’application**. Le point de terminaison de connexion TCP client étant 19000 par défaut, vous n’avez pas besoin de les spécifier. Ainsi, l’exemple d’application de comptage de mots a besoin du port 83 pour être ouvert. Cette information se trouve dans le fichier servicemanifest.xml, dans votre package d’application. (Plusieurs fichiers servicemanifest.xml peuvent coexister.)
 
-    c. La plupart des applications d’exemple utilisent les ports 80 et 8081. Ainsi, ajoutez-les si vous envisagez de déployer les exemples sur ce cluster. 
-    	![Ports][Ports]
+    c. La plupart des applications d’exemple utilisent les ports 80 et 8081. Ainsi, ajoutez-les si vous envisagez de déployer les exemples sur ce cluster. ![Ports][Ports]
 
 10. Vous n’avez pas besoin de configurer **Propriétés de sélection élective**, car une propriété de sélection élective par défaut de « NodeTypeName » est ajoutée par le système. Vous pouvez en ajouter si votre application le nécessite.
 
@@ -101,22 +100,18 @@ Dans le volet De base, vous devez fournir les informations de base de votre clus
 
 15. Facultatif : définissez les **paramètres du cluster Service Fabric**. Cette option avancée vous permet de modifier les paramètres par défaut du cluster Service Fabric. Nous vous recommandons de ne pas modifier les valeurs par défaut, sauf si vous êtes certain que votre application ou cluster le nécessite.
 
-
-
 ## Étape 3 : configurer la sécurité
 
-À ce stade, Service Fabric ne prend en charge les clusters de sécurisation que par le biais d’un certificat X509. Avant de commencer ce processus, vous devez charger votre certificat sur le coffre de clés. Pour savoir comment effectuer cette opération, consultez [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md).
+Les scénarios et concepts de sécurité sont documentés dans [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md). À ce stade, Service Fabric ne prend en charge la sécurisation des clusters qu’avec un certificat X.509. Reportez-vous à [Sécuriser un cluster Service Fabric sur Azure à l’aide de certificats](service-fabric-secure-azure-cluster-with-certs.md) pour savoir comment procéder.
 
-La sécurisation de votre cluster est facultative, mais elle est fortement recommandée. Si vous choisissez de ne pas sécuriser votre cluster, placez le commutateur **Mode de sécurité** sur **Non sécurisé**. Remarque : vous **ne pourrez pas** mettre à jour ultérieurement un cluster non sécurisé vers un cluster sécurité.
-
-Les considérations de sécurité et les instructions sont documentées dans [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md).
+La sécurisation de votre cluster est facultative, mais elle est fortement recommandée. Si vous choisissez de ne pas sécuriser votre cluster, placez le commutateur **Mode de sécurité** sur **Non sécurisé**. Remarque : vous **ne pourrez pas** mettre à jour ultérieurement un cluster non sécurisé vers un cluster sécurisé.
 
 ![Capture d’écran des configurations de sécurité sur le portail Azure.][SecurityConfigs]
 
 
 ## Étape 4 : achever la création du cluster
 
-Pour achever la création du cluster, cliquez sur **Résumé** pour voir les configurations que vous avez fournies, ou téléchargez le modèle Azure Resource Manager qui permet de déployer votre cluster. Après avoir fourni les paramètres obligatoires, le bouton **OK** est activé ; vous pouvez cliquer dessus pour démarrer le processus de création de cluster.
+Pour achever la création du cluster, cliquez sur **Résumé** pour voir les configurations que vous avez fournies, ou téléchargez le modèle Azure Resource Manager qui permet de déployer votre cluster. Après avoir fourni les paramètres obligatoires, le bouton **OK** est activé ; vous pouvez cliquer dessus pour démarrer le processus de création de cluster.
 
 Vous pouvez voir la progression de la création dans les notifications. (Cliquez sur l’icône représentant une cloche près de la barre d’état dans l’angle supérieur droit de votre écran.) Si vous avez cliqué sur **Épingler au Tableau d’accueil** pendant la création du cluster, **Déploiement du cluster Service Fabric** apparaît épinglé au **tableau d’accueil**.
 
@@ -128,12 +123,13 @@ Une fois votre cluster créé, vous pouvez l’inspecter dans le portail :
 
 1. Accédez à **Parcourir**, puis cliquez sur **Clusters Service Fabric**.
 
-2. Recherchez votre cluster et cliquez dessus. 
-	![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
+2. Recherchez votre cluster et cliquez dessus.
 
-3. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment l’adresse IP publique du cluster. Le fait de survoler l’**Adresse IP publique du cluster** affiche un presse-papiers sur lequel vous pouvez cliquer pour copier l’adresse. ![Capture d’écran des détails du cluster dans le tableau de bord.][ClusterDashboard]
+  ![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
+3. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment l’adresse IP publique du cluster. Le fait de survoler **l’adresse IP publique du cluster** affiche un presse-papiers sur lequel vous pouvez cliquer pour copier l’adresse.
 
-  La section **Surveillance des nœuds** du panneau du tableau de bord du cluster indique le nombre de machines virtuelles intègres et de machines virtuelles non intègres. Pour plus d’informations sur l’intégrité du cluster, consultez [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md).
+  ![Capture d’écran des détails du cluster dans le tableau de bord.][ClusterDashboard]
+  La section **Surveillance des nœuds** du panneau du tableau de bord du cluster indique le nombre de machines virtuelles intègres et de machines virtuelles non intègres. Pour plus d’informations sur l’intégrité du cluster, consultez [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md).
 
 >[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Par conséquent, il est généralement déconseillé d’arrêter tous les ordinateurs du cluster, sauf si vous avez d’abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
 
@@ -209,7 +205,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 
 ## Connexion distante à une instance de jeu de mise à l’échelle de machine virtuelle ou à un nœud de cluster
 
-Chacun des types de nœud que vous spécifiez dans votre cluster entraîne la configuration d’un jeu de mise à l’échelle de machine virtuelle. Pour plus d’informations, voir [Se connecter à distance à une instance du groupe de machines virtuelles identiques ou à un nœud de cluster](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node).
+Chacun des types de nœud que vous spécifiez dans votre cluster entraîne la configuration d’un jeu de mise à l’échelle de machine virtuelle. Pour plus d’informations, consultez [Se connecter à distance à une instance du groupe de machines virtuelles identiques ou à un nœud de cluster](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node).
 
 ## Étapes suivantes
 
@@ -231,4 +227,4 @@ Après avoir créé un cluster, découvrez comment le protéger et y déployer d
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

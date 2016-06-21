@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/14/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure Connect AD sync : tâches opérationnelles et examen
@@ -30,7 +30,9 @@ Avec un serveur en mode intermédiaire, vous pouvez apporter des modifications �
 
 Lors de l’installation, vous pouvez sélectionner le serveur en **mode intermédiaire**. Cela rendra le serveur actif pour l’importation et la synchronisation, mais n’entraînera pas d’exportation. Un serveur en mode intermédiaire n’exécute pas la synchronisation de mot de passe et l’écriture différée de mot de passe même si vous sélectionnez ces fonctions. Lorsque vous désactivez le mode intermédiaire, le serveur lance l’exportation et active la synchronisation de mot de passe et l’écriture différée de mot de passe (si activé).
 
-Un serveur en mode intermédiaire continue de recevoir des modifications Active Directory et Azure AD. Il associe aura toujours une copie des modifications les plus récentes et peut très rapidement reprendre les responsabilités d’un autre serveur. Si vous apportez des modifications de configuration à votre serveur principal, la responsabilité d’apporter les mêmes modifications au(x) serveur(s) en mode intermédiaire vous incombe.
+Vous pouvez toujours forcer une exportation en utilisant le gestionnaire de services de synchronisation.
+
+Un serveur en mode intermédiaire continue de recevoir des modifications Active Directory et Azure AD. Il disposera toujours d’une copie des modifications les plus récentes et peut très rapidement reprendre les responsabilités d’un autre serveur. Si vous apportez des modifications de configuration à votre serveur principal, la responsabilité d’apporter les mêmes modifications au(x) serveur(s) en mode intermédiaire vous incombe.
 
 Pour ceux qui connaissant les technologies de synchronisation plus anciennes, le mode intermédiaire est différent, dans la mesure où le serveur a sa propre base de données SQL. Ainsi, le serveur en mode intermédiaire doit être situé dans un autre centre de données.
 
@@ -51,15 +53,15 @@ Pour appliquer cette méthode, procédez comme suit :
 
 1. Sélectionnez **Connecteurs**, puis sélectionnez le premier connecteur de type **Services de domaine Active Directory**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**. Répétez l’opération pour tous les connecteurs de ce type.
 2. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**.
-4. Vérifiez que l'option Connecteurs est toujours sélectionnée et pour chaque connecteur de type **Services de domaine Active Directory**, cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
-5. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis OK.
+3. Vérifiez que l'option Connecteurs est toujours sélectionnée et pour chaque connecteur de type **Services de domaine Active Directory**, cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
+4. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis OK.
 
 Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et Active Directory local (si vous utilisez un déploiement Exchange hybride). Les prochaines étapes vous permettront d’inspecter les changements avant de commencer effectivement l’exportation vers les répertoires.
 
 **Verify**
 
-1. Démarrez une invite de commande et accédez à `%Program Files%\Microsoft Azure AD Sync\bin`
-2. Exécution : `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> le nom du connecteur se trouve dans le service de synchronisation. Il possède un nom semblable à « contoso.com – AAD » pour Azure AD.
+1. Démarrez une invite de commande et accédez à `%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Exécution : `csexport "Name of Connector" %temp%\export.xml /f:x` le nom du connecteur se trouve dans le service de synchronisation. Le nom sera semblable à « contoso.com – AAD » pour Azure AD.
 3. Exécuter : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. Vous disposez maintenant d’un fichier dans %temp% nommé export.csv qui peuvent être examiné dans Microsoft Excel. Ce fichier contient toutes les modifications sur le point d’être exportées.
 5. Apportez les modifications nécessaires aux données ou à la configuration et réexécutez ces opérations (Importer, synchroniser et vérifier) jusqu’à ce que les modifications sur le point d’être exportées soient attendues.
@@ -96,7 +98,7 @@ Microsoft Azure AD sync ayant une dépendance sur une base de données SQL, vous
 ### Régénérer lorsque nécessaire
 Une stratégie viable consiste à planifier une régénération du serveur si nécessaire. Dans de nombreux cas, l’installation du moteur de synchronisation et l’exécution de l’importation et la synchronisation initiales peuvent être complétées en quelques heures. Si aucun serveur n’est libre, il est possible d’utiliser provisoirement un contrôleur de domaine pour héberger le moteur de synchronisation.
 
-Le serveur de moteur de synchronisation ne stocke aucun état relatif aux objets de sorte que la base de données peut être recréée à partir des données présentes dans Active Directory et Azure AD. L’attribut **sourceAnchor** est utilisé pour associer les objets à partir du site et du cloud. Si vous régénérez le serveur avec les objets sur site et sur le cloud existants, le moteur de synchronisation les remettra en correspondance de nouveau. Vous devez documenter et enregistrer les modifications de configuration apportées au serveur, notamment aux règles de filtrage et de synchronisation. Elles doivent être de nouveau appliquées avant de lancer la synchronisation.
+Le serveur de moteur de synchronisation ne stocke aucun état relatif aux objets de sorte que la base de données peut être recréée à partir des données présentes dans Active Directory et Azure AD. L’attribut **sourceAnchor** est utilisé pour associer les objets à partir du site et du cloud. Si vous régénérez le serveur avec les objets locaux et sur le cloud existants, le moteur de synchronisation les remettra en correspondance de nouveau. Vous devez documenter et enregistrer les modifications de configuration apportées au serveur, notamment aux règles de filtrage et de synchronisation. Elles doivent être de nouveau appliquées avant de lancer la synchronisation.
 
 ### Disposer d’un serveur de secours en attente, connu sous le nom de mode intermédiaire.
 Si vous disposez d’un environnement plus complexe, il est recommandé d’avoir un ou plusieurs serveurs de secours. Lors de l'installation, vous pouvez activer un serveur en **mode intermédiaire**.
@@ -114,4 +116,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

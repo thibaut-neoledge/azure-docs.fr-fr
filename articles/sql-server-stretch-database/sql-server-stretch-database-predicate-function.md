@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database) | Microsoft Azure"
-	description="Apprenez à utiliser un prédicat de filtre pour sélectionner les lignes à migrer."
+	pageTitle="Sélectionner les lignes à migrer à l’aide d’un prédicat de filtre (Stretch Database) | Microsoft Azure"
+	description="Découvrez comment sélectionner les lignes à migrer à l’aide d’un prédicat de filtre."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -16,7 +16,7 @@
 	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
-# Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database)
+# Sélectionnez les lignes à migrer en utilisant un prédicat de filtre (Stretch Database)
 
 Si vous stockez des données historiques dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. D’autre part, si votre table contient à la fois des données historiques et des données actuelles, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre est une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
 
@@ -24,7 +24,7 @@ Si vous stockez des données historiques dans une table distincte, vous pouvez c
 
 Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
 
-Lorsque vous exécutez l’Assistant Activer la base de données pour Stretch, vous pouvez migrer une table entière, ou vous pouvez spécifier un prédicat de filtre simple basé sur la date dans l’assistant. Si vous souhaitez utiliser un prédicat de filtre différent pour sélectionner les lignes à migrer, effectuez l'une des opérations suivantes.
+Lorsque vous exécutez l’Assistant Activer la base de données pour Stretch, vous pouvez migrer une table entière, ou vous pouvez spécifier un prédicat simple dans l’Assistant. Si vous souhaitez utiliser un type différent de prédicat de filtre pour sélectionner les lignes à migrer, effectuez l’une des opérations suivantes.
 
 -   Quittez l'assistant et exécutez l'instruction ALTER TABLE pour activer Stretch pour la table et spécifier un prédicat.
 
@@ -32,7 +32,7 @@ Lorsque vous exécutez l’Assistant Activer la base de données pour Stretch, v
 
 La syntaxe ALTER TABLE pour ajouter un prédicat est décrite plus loin dans cette rubrique.
 
-## Exigences de base pour la fonction tabulaire inline
+## Exigences de base pour le prédicat de filtre
 La fonction tabulaire inline requise pour un prédicat de filtre Stretch Database ressemble à l’exemple qui suit.
 
 ```tsql
@@ -156,6 +156,58 @@ Après avoir lié la fonction à la table en tant que prédicat, les éléments 
 
 Il est impossible de supprimer la fonction tabulaire inline tant qu’une table utilise la fonction en tant que prédicat de filtre.
 
+>   [AZURE.NOTE] Pour améliorer les performances de la fonction de filtre, créez un index sur les colonnes utilisées par la fonction.
+
+### Transmettre des noms de colonnes au prédicat de filtre
+Lorsque vous affectez une fonction de filtre à une table, spécifiez les noms de colonnes transmis à la fonction de filtre avec un nom en une seule partie. Si vous spécifiez un nom en trois parties lorsque vous transmettez les noms de colonnes, les requêtes suivantes sur la table Stretch échoueront.
+
+Par exemple, si vous spécifiez un nom de colonne en trois parties comme dans l’exemple suivant, l’instruction est exécutée avec succès, mais les requêtes suivantes sur la table échouent.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(dbo.SensorTelemetry.ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+Spécifiez plutôt la fonction de filtre avec un nom de colonne en une partie comme l’indique l’exemple suivant.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON  (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+## <a name="addafterwiz"></a>Ajouter un prédicat de filtre après avoir exécuté l’Assistant  
+
+Si vous souhaitez utiliser un prédicat que vous ne pouvez pas créer dans l’Assistant **Activer la base de données pour Stretch**, vous pouvez exécuter l’instruction ALTER TABLE pour spécifier un prédicat une fois que vous avez quitté l’Assistant. Pour pouvoir appliquer un prédicat, toutefois, vous devez arrêter la migration des données déjà en cours et récupérer les données migrées. (Pour plus d’informations sur la raison de cette condition, consultez [Remplacer un prédicat de filtre existant](#replacePredicate).
+
+1. Inversez le sens de la migration et récupérez les données déjà migrées. Vous ne pouvez pas annuler cette opération après son démarrage. Vous encourez également des frais sur Azure pour les transferts de données sortants (sortie). Pour plus d’informations, consultez [Fonctionnement de la tarification Azure](https://azure.microsoft.com/pricing/details/data-transfers/).  
+
+    ```tsql  
+    ALTER TABLE <table name>  
+         SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
+    ```  
+
+2. Attendez que la migration se termine. Vous pouvez vérifier l’état dans **Surveiller Stretch Database** dans SQL Server Management Studio, ou interroger l’affichage **sys.dm\_db\_rda\_migration\_status**. Pour plus d’informations, consultez [Surveillance et dépannage de la migration de données](sql-server-stretch-database-monitor.md) ou [sys.dm\_db\_rda\_migration\_status](https://msdn.microsoft.com/library/dn935017.aspx).
+
+3. Créez le prédicat de filtre que vous souhaitez appliquer à la table.
+
+4. Ajoutez le prédicat à la table et relancez la migration des données vers Azure.
+
+    ```tsql  
+    ALTER TABLE <table name>  
+        SET ( REMOTE_DATA_ARCHIVE  
+            (           
+                FILTER_PREDICATE = <predicate>,  
+                MIGRATION_STATE = OUTBOUND  
+            )  
+        );   
+    ```  
+
 ## Filtrer les lignes par date
 L’exemple suivant migre les lignes pour lesquelles la colonne **date** contient une valeur antérieure au 1er janvier 2016.
 
@@ -191,7 +243,7 @@ Pour filtrer les lignes à l’aide d’une fenêtre glissante, n’oubliez pas 
 
 -   La fonction utilise la liaison de schéma. Par conséquent, vous ne pouvez pas simplement mettre à jour la fonction « sur place » chaque jour en appelant ALTER FUNCTION pour déplacer la fenêtre glissante.
 
-Démarrez avec un prédicat de filtre semblable à l’exemple suivant, qui permet de migrer les lignes pour lesquelles la colonne **systemEndTime** contient une valeur antérieure au 1er janvier 2016.
+Commencez avec un prédicat de filtre semblable à l’exemple suivant, qui permet de migrer les lignes pour lesquelles la colonne **systemEndTime** contient une valeur antérieure au 1er janvier 2016.
 
 ```tsql
 CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
@@ -405,7 +457,7 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 Si la fonction retourne un résultat non vide pour la ligne, la ligne éligible à la migration.
 
-## Remplacer un prédicat de filtre existant
+## <a name="replacePredicate"></a>Remplacer un prédicat de filtre existant
 Vous pouvez remplacer le prédicat de filtre spécifié précédemment en exécutant à nouveau l’instruction ALTER TABLE et en spécifiant une nouvelle valeur pour le paramètre FILTER\_PREDICATE. Par exemple :
 
 ```tsql
@@ -504,8 +556,15 @@ Une fois que vous avez supprimé le prédicat de filtre, toutes les lignes de la
 ## Vérifier le prédicat de filtre appliqué à une table
 Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate**. Si la valeur est null, la table entière est éligible à l’archivage. Pour plus d’informations, consultez [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
+## Notes de sécurité pour les prédicats de filtre  
+Un compte compromis avec des privilèges db\_owner peut effectuer les opérations suivantes.
+
+-   Créer et appliquer une fonction table qui consomme de grandes quantités de ressources du serveur ou attend pendant une période prolongée, ce qui entraîne un déni de service.  
+
+-   Créer et appliquer une fonction table qui permet de déduire le contenu d’une table pour laquelle l’utilisateur a explicitement refusé l’accès en lecture.
+
 ## Voir aussi
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

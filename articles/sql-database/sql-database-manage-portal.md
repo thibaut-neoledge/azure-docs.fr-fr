@@ -60,11 +60,11 @@ Il est également possible de configurer les bases de données SQL Azure de man
 - [Dynamic Data Masking (masquage des données dynamiques)](sql-database-dynamic-data-masking-get-started.md)
 
 
-## 4\. Géo-réplication
+## 4\. Utiliser la géo-réplication
 
-![Géo-réplication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
+![Utiliser la géo-réplication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliquer de manière asynchrone les transactions validées vers une base de données secondaire. La fonction de géo-réplication du portail Azure permet de sélectionner la région Azure dans laquelle vous voulez que la base de données secondaire réside.
+Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliquer de manière asynchrone les transactions validées vers une base de données secondaire. La fonction de géoréplication du portail Azure permet de sélectionner la région Azure dans laquelle vous voulez que la base de données secondaire réside.
 
 - [Utiliser la géo-réplication](sql-database-geo-replication-overview.md)
 
@@ -74,4 +74,4 @@ Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliqu
 
 - [Base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

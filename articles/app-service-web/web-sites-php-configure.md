@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="robmcm"/>
 
 #Configurer PHP dans Azure App Service Web Apps
@@ -160,14 +160,34 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 
 	![Enregistrer les paramètres de configuration][save-button]
 
+<a name="composer" />
+## Activation de l’automatisation du Compositeur dans Azure
+
+Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dans votre projet PHP. Si vous utilisez le [déploiement Git](app-service-web-php-get-started.md), vous pouvez activer le traitement du composer.json pendant `git push` en activant l’extension du Compositeur.
+
+>[AZURE.NOTE] Vous pouvez [voter pour la prise en charge haut de gamme de Compositeur dans App Service ici](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip) !
+
+1. Dans le panneau d’application web PHP (dans le [portail Azure](https://portal.azure.com)), cliquez sur **Outils** > **Extensions**.
+
+    ![Panneau de paramètres du portail Azure pour activer l’automatisation du Compositeur dans Azure](./media/web-sites-php-configure/composer-extension-settings.png)
+
+2. Cliquez sur **Ajouter**, puis sur **Compositeur**.
+
+    ![Ajouter l’extension du Compositeur pour activer l’automatisation du Compositeur dans Azure](./media/web-sites-php-configure/composer-extension-add.png)
+    
+3. Cliquez sur **OK** pour accepter les conditions juridiques. Cliquez à nouveau sur **OK** pour ajouter l’extension.
+
+    Le panneau **Extensions installées** affiche désormais l’extension du Compositeur. ![Accepter les conditions juridiques pour activer l’automatisation de Compositeur dans Azure](./media/web-sites-php-configure/composer-extension-view.png)
+    
+4. Maintenant, exécutez `git add`, `git commit` et `git push` comme dans la section précédente. Vous verrez alors que Compositeur installe des interdépendances définies dans composer.json.
+
+    ![Déploiement Git avec automatisation du Compositeur dans Azure](./media/web-sites-php-configure/composer-extension-success.png)
+
 ## Étapes suivantes
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [version d’évaluation gratuite]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -189,4 +209,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

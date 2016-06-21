@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="larryfr"/>
 
 #Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X :
@@ -245,4 +245,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

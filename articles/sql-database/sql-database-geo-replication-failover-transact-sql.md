@@ -25,13 +25,13 @@
 - [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-Cet article montre comment lancer le basculement vers une base de données SQL secondaire avec Transact-SQL. Pour configurer la géo-réplication, consultez [Configurer la géo-réplication pour une base de données SQL Azure](sql-database-geo-replication-transact-sql.md).
+Cet article montre comment lancer le basculement vers une base de données SQL secondaire avec Transact-SQL. Pour configurer la géoréplication, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-transact-sql.md).
 
 
 
 Pour lancer le basculement, vous avez besoin des éléments suivants :
 
-- Une connexion d’accès DBManager sur le serveur principal, ont la propriété db\_ownership de la base de données locale que vous allez géo-répliquer, et est DBManager sur le ou les serveurs partenaires auxquels vous allez configurer la géo-réplication.
+- Une connexion qui est DBManager sur le serveur principal, a la propriété db\_ownership de la base de données locale que vous allez géo-répliquer et est DBManager sur le ou les serveurs partenaires sur lesquels vous allez configurer la géoréplication.
 - La version la plus récente de SQL Server Management Studio. Pour obtenir la version la plus récente de SQL Server Management Studio (SSMS), accédez à [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Pour plus d’informations sur l’utilisation de SQL Server Management Studio dans la gestion des serveurs logiques et des bases de données SQL Azure, consultez [Gestion de base de données SQL à l’aide de SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 
 
@@ -44,7 +44,7 @@ La commande exécute le flux de travail suivant :
 
 1. Bascule provisoirement la réplication en mode synchrone, ce qui fait que toutes les transactions en attente doivent être vidées vers le serveur secondaire et toutes les nouvelles transactions bloquées ;
 
-2. Inverse les rôles des deux bases de données du partenariat géo-réplication.
+2. Inverse les rôles des deux bases de données du partenariat géoréplication.
 
 Cette séquence garantit que les deux bases de données sont synchronisées avant le basculement des rôles et que, par conséquent, aucune perte de données ne se produira. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
 
@@ -92,10 +92,10 @@ Utilisez les étapes suivantes pour lancer un basculement non planifié.
 
 ## Ressources supplémentaires
 
-- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

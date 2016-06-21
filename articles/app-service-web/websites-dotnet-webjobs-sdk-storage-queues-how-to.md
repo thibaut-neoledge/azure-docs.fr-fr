@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/01/2016" 
 	ms.author="tdykstra"/>
 
 # Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs
@@ -560,7 +560,7 @@ L’exemple suivant montre plusieurs manières d’écrire des journaux :
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, la sortie de l’objet `TextWriter` apparaît lorsque vous accédez à la page relative à l’appel d’une fonction particulière et que vous cliquez sur **Activer/désactiver la sortie** :
+Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, la sortie de l’objet `TextWriter` apparaît lorsque vous accédez à la page relative à l’appel d’une fonction particulière et que vous cliquez sur **Activer/désactiver la sortie** :
 
 ![Cliquez sur le lien d’appel de fonction](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
@@ -611,4 +611,4 @@ Vous pouvez également désactiver et activer dynamiquement des fonctions pour c
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des files d’attente Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

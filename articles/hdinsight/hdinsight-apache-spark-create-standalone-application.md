@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="06/06/2016"
 	ms.author="nitinme"/>
 
 
-# Créer une application Scala autonome à exécuter sur des clusters HDInsight Spark Linux (version préliminaire)
+# Création d’une application Scala autonome à exécuter sur un cluster Apache Spark sur HDInsight Linux
 
 Cet article fournit des instructions détaillées pour le développement d'applications Spark autonomes écrites en Scala à l'aide de Maven avec IntelliJ IDEA. Dans cet article, Apache Maven est utilisé comme système de génération. Le document présente dans un premier temps un archétype Maven existant pour Scala fourni par IntelliJ IDEA. La création d'une application Scala avec IntelliJ IDEA implique généralement les étapes suivantes :
 
@@ -29,7 +29,7 @@ Cet article fournit des instructions détaillées pour le développement d'appli
 * Générer un fichier jar qui peut être soumis à des clusters HDInsight Spark.
 * Exécuter l’application à distance sur le cluster Spark à l’aide de Livy.
 
->[AZURE.NOTE] HDInsight propose également un outil de plug-in IntelliJ IDEA pour faciliter le processus de création et d’envoi des applications à un cluster HDInsight Spark sous Linux. Pour plus d’informations, consultez [Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin de créer et d’envoyer des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md).
+>[AZURE.NOTE] HDInsight propose également un outil de plug-in IntelliJ IDEA pour faciliter le processus de création et d’envoi des applications à un cluster HDInsight Spark sous Linux. Pour plus d’informations, consultez [Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin de créer et d’envoyer des applications Spark](hdinsight-apache-spark-intellij-tool-plugin.md).
 
 
 **Configuration requise**
@@ -82,7 +82,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 	![Configurer Maven pour les téléchargements automatiques](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
 	1. Dans le menu **Fichier**, cliquez sur **Paramètres**.
-	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
+	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
 	3. Sélectionnez l'option **Importer les projets Maven automatiquement**.
 	4. Cliquez sur **Appliquer**, puis sur **OK**.
 
@@ -191,12 +191,20 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gérer des ressources
+* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Gestion des ressources
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
+
+<!---HONumber=AcomDC_0608_2016-->

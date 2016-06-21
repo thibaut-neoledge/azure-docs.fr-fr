@@ -22,7 +22,7 @@ Le routage basé sur le chemin d’URL vous permet d’associer des itinéraires
 
 Le routage basé sur l’URL introduit un nouveau type de règle pour la passerelle Application Gateway. La passerelle Application Gateway comporte 2 types de règles : une règle de base et PathBasedRouting. Le type de règle de base fournit le service de tourniquet (round robin) pour les pools principaux alors que PathBasedRouting, en plus de la distribution de tourniquet, prend également en compte le modèle de chemin de l’URL de demande lors du choix du pool principal.
 
->[AZURE.IMPORTANT] PathPattern : liste de modèles de chemin à utiliser pour la correspondance. Chaque modèle doit commencer par le signe / et le seul endroit où un astérisque * est autorisé est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés.
+>[AZURE.IMPORTANT] PathPattern : liste de modèles de chemin à utiliser pour la correspondance. Chaque modèle doit commencer par le signe / et le seul endroit où un astérisque (*) est autorisé est à la fin. /xyz, /xyz* ou /xyz /* sont des exemples valides. La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés.
 
 ## Scénario
 Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com avec deux pools de serveurs principaux : un pool de serveurs vidéo et un pool de serveurs d’images.
@@ -194,6 +194,6 @@ Créez une passerelle Application Gateway avec tous les objets de configuration 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
 ## Obtenir une passerelle Application Gateway
-	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

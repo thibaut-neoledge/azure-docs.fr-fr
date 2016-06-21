@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migration d’une base de données SQL Server vers une base de données SQL Azure"
+   pageTitle="Migration d’une base de données SQL Server vers une base de données SQL Azure | Microsoft Azure"
    description="Microsoft Azure SQL Database, déployer base de données, migration base de données, importer base de données, exporter base de données, assistant de migration"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Importation depuis BACPAC vers Base de données SQL avec SSMS
@@ -63,4 +63,4 @@ Cet article explique la procédure d’importation depuis un fichier [BACPAC](ht
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

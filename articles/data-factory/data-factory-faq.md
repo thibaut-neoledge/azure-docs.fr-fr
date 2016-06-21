@@ -64,6 +64,11 @@ Vous pouvez créer des fabriques de données à l'aide de l'une des solutions su
 ### Puis-je renommer une fabrique de données ?
 Non. Tout comme les autres ressources Azure, le nom d'une fabrique de données Azure ne peut pas être modifié.
 
+### Puis-je déplacer une fabrique de données d’un abonnement Azure à un autre ? 
+Oui. Utilisez le bouton **Déplacer** sur votre panneau Data Factory comme indiqué ci-dessous :
+
+![Déplacer la fabrique de données](media/data-factory-faq/move-data-factory.png)
+
 ## Activités - Forum Aux Questions
 ### Quels sont les différents types d’activités que vous pouvez utiliser dans un pipeline Data Factory ? 
 
@@ -71,7 +76,7 @@ Non. Tout comme les autres ressources Azure, le nom d'une fabrique de données A
 - [Activités de transformation des données](data-factory-data-transformation-activities.md) pour traiter/transformer les données. 
 
 ### Quand une activité s'exécute-t-elle ?
-Les paramètres de configuration de la **disponibilité** présents dans la table de données de sortie déterminent quand l'activité doit être exécutée. L'activité vérifie si toutes les dépendances de données d'entrée sont satisfaites (par exemple, état **Prêt**) avant de s'exécuter si des jeux de données d’entrée sont spécifiés.
+Les paramètres de configuration de la **disponibilité** présents dans la table de données de sortie déterminent quand l'activité doit être exécutée. L'activité vérifie si toutes les dépendances de données d'entrée sont satisfaites (par exemple, l’état **Prêt**) avant de s'exécuter si des jeux de données d’entrée sont spécifiés.
 
 ## Activité de copie - Forum Aux Questions
 ### Est-il préférable d'avoir un pipeline avec plusieurs activités ou un pipeline distinct pour chaque activité ? 
@@ -182,4 +187,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

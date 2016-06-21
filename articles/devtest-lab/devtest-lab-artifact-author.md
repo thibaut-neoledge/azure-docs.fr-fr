@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 #Créer des artefacts personnalisés pour vos machines virtuelles DevTest Labs
 
-> [AZURE.NOTE] Cliquez sur le lien suivant pour afficher la vidéo d’accompagnement de cet article : [Créer des artefacts personnalisés](/documentation/videos/how-to-author-custom-artifacts)
+> [AZURE.NOTE] Regardez la vidéo d’accompagnement de cet article : [How to author custom artifacts](/documentation/videos/how-to-author-custom-artifacts) (Créer des artefacts personnalisés)
 
-## Vue d’ensemble
+## Vue d'ensemble
 Les **artefacts** sont utilisés pour déployer et configurer votre application après l’approvisionnement d’une machine virtuelle. Un artefact se compose d'un fichier de définition d'artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom de l'artefact, la commande à exécuter et les paramètres qui sont disponibles lorsque la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
 
 ##Format de fichier de définition d'artefact
@@ -124,4 +124,4 @@ Créez votre artefact personnalisé en suivant les étapes ci-dessous :
 
 - Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

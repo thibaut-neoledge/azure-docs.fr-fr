@@ -102,7 +102,7 @@ Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’em
 
 ###<a name="sql-aml"></a>Connexion à Azure Machine Learning
 
-La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) dans Azure Machine Learning comme expliqué ci-dessous :
+La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![lecteurs azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -125,4 +125,4 @@ Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans 
 
  
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

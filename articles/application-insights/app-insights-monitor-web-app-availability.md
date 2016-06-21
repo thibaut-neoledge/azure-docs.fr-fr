@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/10/2016"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
@@ -238,6 +238,15 @@ Ouvrez un test à modifier ou à désactiver.
 
 Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des opérations de maintenance sur votre service.
 
+## Tests de performance
+
+Vous pouvez effectuer un test de charge sur votre site web. Comme pour le test de disponibilité, vous pouvez envoyer des requêtes uniques ou des requêtes à plusieurs étapes à partir de nos points de présence dans le monde. Contrairement à un test de disponibilité, de nombreuses demandes sont envoyées, afin de simuler la présence de plusieurs utilisateurs simultanés.
+
+Dans le panneau Vue d’ensemble, ouvrez **Paramètres**, **Tests de performance**. Lorsque vous créez un test, vous êtes invité à vous connecter à Visual Studio Team Services ou à créer un compte.
+
+Une fois le test terminé, les temps de réponse et les taux de réussite s’affichent.
+
+
 ## Automation
 
 * [Utilisez des scripts PowerShell pour configurer un test web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatiquement. 
@@ -421,4 +430,4 @@ Ouvrez les ports 80 (http) et 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

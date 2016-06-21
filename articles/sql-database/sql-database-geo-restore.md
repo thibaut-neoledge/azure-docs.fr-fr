@@ -35,7 +35,7 @@ La géo-restauration constitue l’option de récupération par défaut lorsque 
 
 ## La géo-restauration en détail
 
-La géo-restauration utilise la même technologie que la limite de restauration dans le temps, avec toutefois une différence importante. Elle restaure la base de données à partir d’une copie de la sauvegarde quotidienne la plus récente dans le stockage d’objets blob géo-répliqué (RA-GRS). Pour chaque base de données active, le service gère une chaîne de sauvegarde qui inclut une sauvegarde hebdomadaire complète, plusieurs sauvegardes différentielles quotidiennes et des journaux de transactions enregistrés toutes les 5 minutes. Ces objets blob sont répliqués, ce qui garantit la disponibilité des sauvegardes quotidiennes même après une défaillance importante dans la région primaire. L’image ci-dessous illustre la géo-réplication des sauvegardes hebdomadaires et quotidiennes copiées vers les conteneurs de stockage.
+La géo-restauration utilise la même technologie que la limite de restauration dans le temps, avec toutefois une différence importante. Elle restaure la base de données à partir d’une copie de la sauvegarde quotidienne la plus récente dans le stockage d’objets blob géo-répliqué (RA-GRS). Pour chaque base de données active, le service gère une chaîne de sauvegarde qui inclut une sauvegarde hebdomadaire complète, plusieurs sauvegardes différentielles quotidiennes et des journaux de transactions enregistrés toutes les 5 minutes. Ces objets blob sont répliqués, ce qui garantit la disponibilité des sauvegardes quotidiennes même après une défaillance importante dans la région primaire. L’image ci-dessous illustre la géoréplication des sauvegardes hebdomadaires et quotidiennes copiées vers les conteneurs de stockage.
 
 ![géo-restauration](./media/sql-database-geo-restore/geo-restore-1.png)
 
@@ -54,7 +54,7 @@ Le temps de récupération dépend de plusieurs facteurs : la taille de la base
 
 ## Résumé
 
-Bien que la géo-restauration soit disponible pour tous les niveaux de service, il s’agit de la solution de récupération d’urgence la plus basique proposée dans la base de données SQL Azure, avec le RPO et le temps de récupération estimé (ERT) les plus longs. Pour les bases de données de base dont la taille ne dépasse pas 2 Go, la géo-restauration offre une solution de récupération d’urgence intéressante avec un ERT de 12 heures. Pour les bases de données Standard ou Premium plus volumineuses, vous pouvez utiliser la géo-réplication active pour bénéficier de temps de récupération plus courts ou réduire le risque de perte de données. La géo-réplication active offre un RPO et un ERT nettement inférieurs, car elle nécessite simplement l’initialisation d’un basculement vers une base de données secondaire répliquée en continu. Pour plus d’informations, consultez l’article [Géo-réplication active](sql-database-geo-replication-overview.md).
+Bien que la géo-restauration soit disponible pour tous les niveaux de service, il s’agit de la solution de récupération d’urgence la plus basique proposée dans la base de données SQL Azure, avec le RPO et le temps de récupération estimé (ERT) les plus longs. Pour les bases de données de base dont la taille ne dépasse pas 2 Go, la géo-restauration offre une solution de récupération d’urgence intéressante avec un ERT de 12 heures. Pour les bases de données Standard ou Premium plus volumineuses, vous pouvez utiliser la géoréplication active pour bénéficier de temps de récupération plus courts ou réduire le risque de perte de données. La géoréplication active offre un RPO et un ERT nettement inférieurs, car elle nécessite simplement l’initialisation d’un basculement vers une base de données secondaire répliquée en continu. Pour plus d’informations, consultez l’article [Géo-réplication active](sql-database-geo-replication-overview.md).
 
 ## Ressources supplémentaires
 
@@ -65,4 +65,4 @@ Bien que la géo-restauration soit disponible pour tous les niveaux de service, 
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

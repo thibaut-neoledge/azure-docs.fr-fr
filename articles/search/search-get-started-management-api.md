@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 # Prise en main de l'API REST de gestion Azure Search
@@ -24,21 +24,21 @@
 
 L'API REST de gestion Azure Search est une autre solution de programmation permettant d'effectuer des tâches d'administration dans le portail. Les opérations de gestion de service incluent la création ou la suppression du service, la mise à l'échelle du service et la gestion des clés. Ce didacticiel est fourni avec un exemple d'application cliente qui montre l'API de gestion des services. Il inclut également les étapes de configuration nécessaires pour exécuter l'exemple dans votre environnement de développement local.
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Visual Studio 2012 ou 2013
+- Visual Studio 2012 ou 2013
 - Téléchargement de l'exemple d'application cliente
 
-Avec ce didacticiel, vous allez approvisionner deux services : Azure Search et Azure Active Directory (AD). De plus, vous allez créer une application AD qui établit la relation d'approbation entre votre application cliente et le point de terminaison du gestionnaire de ressources dans Azure.
+Avec ce didacticiel, vous allez approvisionner deux services : Azure Search et Azure Active Directory (AD). De plus, vous allez créer une application AD qui établit la relation d'approbation entre votre application cliente et le point de terminaison du gestionnaire de ressources dans Azure.
 
 Pour suivre ce didacticiel, vous aurez besoin d'un compte Azure.
 
 
 ##Téléchargement de l'exemple d'application
 
-Ce didacticiel est basé sur une application console Windows écrite en C#, que vous pouvez modifier et exécuter dans Visual Studio 2012 ou 2013
+Ce didacticiel est basé sur une application console Windows écrite en C#, que vous pouvez modifier et exécuter dans Visual Studio 2012 ou 2013
 
-Vous pouvez trouver l'application cliente sur Codeplex à la page [Démonstration de l'API de gestion Azure Search](https://github.com/Azure-Samples/search-dotnet-management-api/).
+Vous pouvez trouver l’application cliente sur Github à la page [Démonstration de l’API de gestion .NET Azure Search](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configuration de l'application
@@ -47,11 +47,11 @@ Avant de pouvoir exécuter l'exemple d'application, vous devez activer l'authent
 
 Le gestionnaire de ressources Azure nécessite le service Azure Active Directory en tant que fournisseur d'identité.
 
-Pour obtenir un jeton d'accès qui permet aux demandes d'atteindre le gestionnaire de ressources, l'application cliente inclut un segment de code qui appelle Active Directory. Le segment de code et les étapes préalables à son utilisation proviennent de cet article : [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+Pour obtenir un jeton d'accès qui permet aux demandes d'atteindre le gestionnaire de ressources, l'application cliente inclut un segment de code qui appelle Active Directory. Le segment de code et les étapes préalables à son utilisation proviennent de cet article : [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Vous pouvez suivre les instructions fournies dans le lien ci-dessus ou les étapes de ce document si vous préférez parcourir le didacticiel étape par étape.
 
-Dans cette section, vous allez effectuer les tâches suivantes :
+Dans cette section, vous allez effectuer les tâches suivantes :
 
 1. Création d'un service Active Directory
 1. Création d'une application Active Directory
@@ -76,7 +76,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
 ###Création d'une application Active Directory pour ce service
 
-1. Sélectionnez le service Active Directory « SearchTutorial » que vous venez de créer.
+1. Sélectionnez le service Active Directory « SearchTutorial » que vous venez de créer.
 
 2. Dans le menu supérieur, cliquez sur **Applications**.
  
@@ -86,21 +86,21 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
      ![][6]
  
-5. Entrez un nom, comme « Azure-Search-Manager ».
+5. Entrez un nom, comme « Azure-Search-Manager ».
 
 6. Choisissez **Application cliente native** comme type d'application. Cette valeur correspond à l'exemple d'application. Il s'agit d'une application cliente (console) Windows, pas une application web.
 
      ![][7]
  
-7. Dans l'URI de redirection, entrez « http://localhost/Azure-Search-Manager-App ». C'est l'URI vers lequel Azure Active Directory va rediriger l'agent utilisateur en réponse à une demande d'autorisation OAuth 2.0. La valeur n’a pas besoin d’être un point de terminaison physique, mais doit être un URI valide.
+7. Dans l'URI de redirection, entrez « http://localhost/Azure-Search-Manager-App ». C'est l'URI vers lequel Azure Active Directory va rediriger l'agent utilisateur en réponse à une demande d'autorisation OAuth 2.0. La valeur n’a pas besoin d’être un point de terminaison physique, mais doit être un URI valide.
 
     Dans ce didacticiel, la valeur peut être quelconque, mais la valeur que vous entrez devient une entrée obligatoire pour la connexion d'administration dans l'exemple d'application.
  
-7. Cochez la case pour créer l'application Active Directory. Vous devez voir « Azure-Search-Manager-App » dans le volet de navigation gauche.
+7. Cochez la case pour créer l'application Active Directory. Vous devez voir « Azure-Search-Manager-App » dans le volet de navigation gauche.
 
 ###Configuration de l'application Active Directory
  
-9. Cliquez sur l'application Active Directory, « Azure-Search-Manager-App », que vous venez de créer. Elle doit être affichée dans le volet de navigation gauche.
+9. Cliquez sur l'application Active Directory, « Azure-Search-Manager-App », que vous venez de créer. Elle doit être affichée dans le volet de navigation gauche.
 
 10. Cliquez sur **Configurer** dans le menu supérieur.
  
@@ -116,7 +116,7 @@ Ne fermez pas la page de configuration d'application. Dans l'étape suivante, vo
 
 ###Chargement de l'exemple de programme d'application avec des valeurs d'inscription et d'abonnement
 
-Dans cette section, vous allez modifier la solution dans Visual Studio, en remplaçant les valeurs valides obtenues dans le portail. Les valeurs que vous ajoutez apparaissent en haut du fichier Program.cs :
+Dans cette section, vous allez modifier la solution dans Visual Studio, en remplaçant les valeurs valides obtenues dans le portail. Les valeurs que vous ajoutez apparaissent en haut du fichier Program.cs :
 
         private const string TenantId = "<your tenant id>";
         private const string ClientId = "<your client id>";
@@ -139,10 +139,10 @@ Si vous n’avez pas encore [téléchargé l’exemple d’application à partir
 	- Revenez à Active Directory | SearchTutorial (service). 
 	- Cliquez sur **Applications** dans la barre supérieure. 
 	- Cliquez sur **Afficher les points de terminaison** au bas de la page. 
-	- Copiez le point de terminaison d'autorisation OAUTH 2.0 au bas de la liste. 
+	- Copiez le point de terminaison d'autorisation OAUTH 2.0 au bas de la liste. 
 	- Collez le point de terminaison dans TenantID, en ajustant la valeur de tous les paramètres d'URI à l'exception de l'ID de client.
 
-    Étant donné « https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0 », supprimez tout sauf « 55e324c7-1656-4afe-8dc3-43efcd4ffa50 ».
+    Étant donné « https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0 », supprimez tout sauf « 55e324c7-1656-4afe-8dc3-43efcd4ffa50 ».
 
 	![][10]
 
@@ -170,7 +170,7 @@ L'exemple d'application crée un service Azure Search gratuit pour un abonnement
 
 5. Ensuite, un nouveau service Azure Search est inscrit auprès du fournisseur du gestionnaire de ressources Azure. Là encore, c'est la méthode **ExecuteArmRequest**, utilisée cette fois pour créer le service Search sur Azure pour votre abonnement via `providers/Microsoft.Search/register`.
 
-6. Le reste du programme utilise l'[API REST de gestion Azure Search](http://msdn.microsoft.com/library/dn832684.aspx). Notez que l'`api-version` de cette API est différent de l'« api-version » du gestionnaire de ressources Azure. Par exemple, `/listAdminKeys?api-version=2014-07-31-Preview` affiche l’`api-version` de l’API REST de gestion d’Azure Search.
+6. Le reste du programme utilise l'[API REST de gestion Azure Search](http://msdn.microsoft.com/library/dn832684.aspx). Notez que l'`api-version` de cette API est différent de l'« api-version » du gestionnaire de ressources Azure. Par exemple, `/listAdminKeys?api-version=2014-07-31-Preview` affiche l’`api-version` de l’API REST de gestion d’Azure Search.
 
 	La prochaine série d'opérations récupère la définition de service que vous venez de créer, les api-keys d'administration, régénère et récupère les clés, modifie le réplica et la partition, et enfin supprime le service.
 
@@ -180,7 +180,7 @@ L'exemple d'application crée un service Azure Search gratuit pour un abonnement
 
 ##Étapes suivantes
 
-Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus sur la gestion des services ou l'authentification avec le service Active Directory :
+Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus sur la gestion des services ou l'authentification avec le service Active Directory :
 
 - Découvrez plus en détail l'intégration d'une application cliente avec Active Directory. Consultez la rubrique [Intégration d'applications dans Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151122.aspx).
 - Découvrez les autres opérations de gestion des services dans Azure. Consultez la rubrique [Gestion de vos services](http://msdn.microsoft.com/library/azure/dn578292.aspx).
@@ -208,4 +208,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

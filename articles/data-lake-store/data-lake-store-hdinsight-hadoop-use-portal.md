@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Créer des clusters HDInsight Hadoop avec Azure Data Lake Store à l'aide du portail | Azure"
-   description="Utiliser le portail Azure pour créer et utiliser les clusters HDInsight Hadoop avec Azure Data Lake Store"
+   pageTitle="Créer des clusters HDInsight avec Azure Data Lake Store à l'aide du portail | Azure"
+   description="Utiliser le portail Azure pour créer et utiliser les clusters HDInsight avec Azure Data Lake Store"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
@@ -23,18 +23,18 @@
 - [Utiliser PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Apprenez à utiliser le portail Azure pour créer un cluster HDInsight (Hadoop, HBase ou Storm) avec accès à Azure Data Lake Store. Points importants à prendre en compte pour cette version :
+Apprenez à utiliser le portail Azure pour créer un cluster HDInsight (Hadoop, HBase, Spark ou Storm) avec accès à Azure Data Lake Store. Points importants à prendre en compte pour cette version :
 
-* **Pour les clusters Hadoop (Windows et Linux)**, le Data Lake Store n’est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
+* **Pour les clusters Spark (Linux) et Hadoop (Windows et Linux)**, le Data Lake Store n’est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
 
 * **Pour les clusters Storm (Windows et Linux)**, le Data Lake Store peut être utilisé pour écrire des données à partir d’une topologie Storm. Le Data Lake Store peut également servir à stocker des données de référence qui peuvent ensuite être lues par une topologie Storm. Pour obtenir plus d’informations, consultez [Utiliser Data Lake Store dans une topologie Storm](#use-data-lake-store-in-a-storm-topology).
 
 * **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire. Pour obtenir plus d’informations, consultez [Utiliser Data Lake Store avec les clusters HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store est disponible uniquement si vous utilisez HDInsight version 3.2 (pour Windows et Linux).
+> [AZURE.NOTE] L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store est disponible uniquement si vous utilisez HDInsight version 3.2 et 3.4 (pour des clusters Hadoop, HBase et Storm sur Windows et Linux). Pour les clusters Spark sur Linux, cette option est uniquement disponible sur des clusters HDInsight 3.4.
 
 
-## Configuration requise
+## Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -258,4 +258,4 @@ Avec les clusters HBase, vous pouvez utiliser Data Lake Store comme stockage par
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

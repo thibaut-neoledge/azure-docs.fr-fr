@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/18/2016"
+ms.date="06/06/2016"
 ms.author="larryfr"/>
 
 #Traitement des données de capteur de véhicules à partir d’Azure Event Hubs à l’aide d’Apache Storm dans HDInsight
@@ -34,7 +34,7 @@ Les données de télémétrie pour la température du moteur, la température am
 
 Pendant le traitement, le VIN est utilisé pour extraire des informations sur le modèle à partir d'Azure DocumentDB. Ces informations sont ajoutées au flux de données avant le stockage.
 
-Les composants utilisés dans la topologie Storm sont les suivants :
+Les composants utilisés dans la topologie Storm sont les suivants :
 
 * **EventHubSpout** : lit les données à partir d'Azure Event Hubs
 
@@ -44,7 +44,7 @@ Les composants utilisés dans la topologie Storm sont les suivants :
 
 * **WasbStoreBolt** : stocke les données dans HDFS (Azure Storage)
 
-Voici un diagramme de cette solution :
+Voici un diagramme de cette solution :
 
 ![topologie Storm](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
 
@@ -58,4 +58,4 @@ Une solution automatisée complète pour ce scénario est disponible dans le ré
 
 Pour plus d'exemples de topologies Storm, consultez les [exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

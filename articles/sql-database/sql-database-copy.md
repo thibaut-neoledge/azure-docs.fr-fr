@@ -4,13 +4,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -18,9 +18,7 @@
 
 
 
-# Copie d'une base de données SQL Azure
-
-**Base de données unique**
+# Copie d'une base de données SQL Azure
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-copy.md)
@@ -40,13 +38,13 @@ Lorsque vous copiez une base de données sur le même serveur logique, les même
 Pour copier une base de données SQL, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-- Une base de données SQL à copier. Si vous n’avez pas de base de données SQL, créez-en une en suivant les étapes figurant dans cet article : [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+- Une base de données SQL à copier. Si vous n’avez pas de base de données SQL, créez-en une en suivant les étapes figurant dans cet article : [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
 
 
 ## Copie de votre base de données SQL
 
-Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
+Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 
 1.	Accédez au [portail Azure](https://portal.azure.com).
 2.	Accédez à la base de données que vous souhaitez copier : Parcourir > Bases de données SQL
@@ -85,7 +83,7 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 
 ## Étapes suivantes
 
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 - [Exporter la base de données vers un fichier BACPAC](sql-database-export.md)
 
 
@@ -102,4 +100,4 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

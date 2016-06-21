@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/02/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -97,15 +97,17 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 - [Étendues d’autorisation de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) : étendues d’autorisation OAuth 2.0 utilisées pour contrôler l’accès d’une application aux données d’annuaire d’un client.
 
-### Protocoles d’authentification
+### Protocoles d’authentification et d’autorisation
 
-- [Protocoles d’authentification Azure Active Directory](active-directory-protocols.md) : en savoir plus sur les différents protocoles d’authentification et d’autorisation pris en charge par Azure Active Directory.
+- [Protocoles d’autorisation et d’authentification Azure Active Directory](active-directory-protocols.md) : en savoir plus sur les différents protocoles d’authentification et d’autorisation pris en charge par Azure Active Directory.
+
+- [Protocole OAuth 2.0 : utilisation de l’octroi de code d’autorisation](active-directory-protocols-oauth-code.md) : vous pouvez utiliser l’octroi de code d’autorisation du protocole OAuth 2.0 pour autoriser l’accès aux applications web et aux API web dans votre client Azure Active Directory.
+
+- [Protocole OAuth 2.0 : présentation de l’octroi implicite](active-directory-dev-understanding-oauth2-implicit-grant.md) : en savoir plus sur l’octroi d’autorisation implicite et découvrir s’il convient à votre application.
+
+- [Protocole OpenID Connect 1.0 : connexion et authentification](active-directory-protocols-openid-connect-code.md) : le protocole OpenID Connect 1.0 étend OAuth 2.0 pour une utilisation comme protocole d’authentification. Une application cliente peut recevoir un id\_token pour gérer le processus de connexion ou augmenter le flux du code d’autorisation pour recevoir à la fois un id\_token et le code d’autorisation.
 
 - [Référence du protocole SAML 2.0](active-directory-saml-protocol-reference.md) : le protocole SAML 2.0 permet aux applications de fournir une expérience d’authentification unique à leurs utilisateurs.
-
-- [Informations de référence sur le protocole OAuth 2.0](active-directory-protocols-oauth-code.md) : vous pouvez utiliser le protocole OAuth 2.0 pour autoriser l’accès aux applications web et aux API web dans votre client Azure Active Directory.
-
-- [Référence du protocole OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) : le protocole OpenID Connect 1.0 étend OAuth 2.0 pour une utilisation comme protocole d'authentification.
 
 - [Protocole WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) : Azure Active Directory prend en charge le protocole WS-Federation 1.2, tel que spécifié dans la spécification Web Services Federation Version 1.2.
 
@@ -139,4 +141,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

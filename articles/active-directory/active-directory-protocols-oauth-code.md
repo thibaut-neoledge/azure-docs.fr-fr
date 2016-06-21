@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 
@@ -188,7 +188,7 @@ Le paramètre `id_token` inclut les types de revendication suivants. Pour plus d
 | given\_name | Le prénom de l’utilisateur. L’application peut afficher cette valeur. |
 | iat | Heure d’émission. L’heure d’émission du jeton JWT. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
 | iss | Identifie l’émetteur du jeton. |
-| nbf | Heure à laquelle le jeton entre en vigueur. Pour que le jeton soit valide, la date et l’heure actuelles doivent être postérieures ou identiques à la valeur Nbf. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
+| nbf | Pas avant l’heure. Heure à laquelle le jeton entre en vigueur. Pour que le jeton soit valide, la date et l’heure actuelles doivent être postérieures ou identiques à la valeur Nbf. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
 | oid | Identificateur (ID) de l’objet utilisateur dans Azure AD. |
 | sub | Identificateur du sujet du jeton. Il s’agit d’un identificateur persistant et immuable de l’utilisateur décrit par le jeton. Utilisez cette valeur dans la logique de mise en cache. |
 | tid | Identificateur (ID) du client Azure AD qui a émis le jeton. |
@@ -297,4 +297,4 @@ Une réponse d’erreur se présenterait ainsi :
 }
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

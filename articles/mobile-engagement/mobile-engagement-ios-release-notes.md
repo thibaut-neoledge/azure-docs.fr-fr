@@ -18,13 +18,18 @@
 
 #Notes de publication
 
+##3\.2.3 (07/06/2016)
+
+-   Résolution du bogue d’absence de signalement des commentaires de livraison lorsque l’application est en arrière-plan.
+-   Optimisation de l’envoi des journaux techniques.
+
 ##3\.2.2 (04/07/2016)
 
--   Résolution du bogue rencontré lors de l’annulation des demandes HTTP qui conduit parfois à un blocage. 
+-   Résolution du bogue rencontré lors de l’annulation des demandes HTTP qui conduit parfois à un blocage.
 
 ##3\.2.1 (12/11/2015)
 
--   Fixe le délai lorsqu’une nouvelle instance de l’application est déclenchée par une notification avec des liens ciblés 
+-   Fixe le délai lorsqu’une nouvelle instance de l’application est déclenchée par une notification avec des liens ciblés
 
 ##3\.2.0 (10/08/2015)
 
@@ -62,4 +67,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

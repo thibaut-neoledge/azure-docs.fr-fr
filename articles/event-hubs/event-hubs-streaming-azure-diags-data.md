@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Diffusion des données de diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs
@@ -64,7 +64,7 @@ Le récepteur Event Hubs doit également être déclaré et défini dans la sect
 	    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
 	  </PrivateConfig>
 
-L’élément **SharedAccessKeyName** doit correspondre à une clé SAS et une stratégie qui a été définie dans l’espace de noms **ServiceBus/EventHub**. Pour cela, accédez au tableau de bord Event Hubs dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur l’onglet **Configurer** et définissez une stratégie nommée (par exemple « SendRule ») qui a des autorisations d’*envoi*. L’élément **StorageAccount** est également déclaré dans le fichier **PrivateConfig**. Il est inutile de modifier les valeurs ici, surtout si elles fonctionnent correctement. Dans cet exemple, nous ne renseignons pas les valeurs, car c’est une ressource en aval qui va les définir. Par exemple, le fichier de configuration d’environnement *ServiceConfiguration.Cloud.cscfg* définit les noms et clés appropriés pour l’environnement.
+L’élément **SharedAccessKeyName** doit correspondre à une clé SAS et une stratégie qui a été définie dans l’espace de noms **ServiceBus/EventHub**. Pour cela, accédez au tableau de bord Event Hubs dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez l’onglet **Configurer** et définissez une stratégie nommée (par exemple « SendRule ») qui a des autorisations d’*envoi*. L’élément **StorageAccount** est également déclaré dans le fichier **PrivateConfig**. Il est inutile de modifier les valeurs ici, surtout si elles fonctionnent correctement. Dans cet exemple, nous ne renseignons pas les valeurs, car c’est une ressource en aval qui va les définir. Par exemple, le fichier de configuration d’environnement *ServiceConfiguration.Cloud.cscfg* définit les noms et clés appropriés pour l’environnement.
 
 >[AZURE.WARNING] Notez que la clé SAS Event Hubs est stockée en texte brut dans le fichier *.wadcfgx*. Elle est souvent intégrée au contrôle du code source ou en tant que ressource dans votre serveur de builds. Vous devez donc la protéger en conséquence. Il est recommandé d’utiliser une clé SAS ici avec les autorisations *Envoyer uniquement* afin qu’un utilisateur malveillant puisse au plus écrire dans le hub d’événements, mais sans jamais l’écouter ou le gérer.
 
@@ -295,4 +295,4 @@ Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple s
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

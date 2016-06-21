@@ -50,8 +50,8 @@ Pour une récupération après panne : utilisez [Obtenir une base de données r
 
 Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) est un exemple d'une façon d'accomplir cette tâche.
 
-## 8\. Quel est le délai de réplication avec la géo-réplication active ?
+## 8\. Quel est le délai de réplication avec la géoréplication ?
 
 Utilisez la vue de gestion dynamique (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) pour obtenir l’heure de la dernière réplication, le dernier décalage de la réplication et d’autres informations sur le lien de réplication.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

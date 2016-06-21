@@ -120,7 +120,7 @@ Vous pouvez en outre exploiter les fonctionnalités de localisation ci-dessus po
 
 ###<a name="sql-aml"></a>Connexion à Azure Machine Learning
 
-La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données][reader] dans Azure Machine Learning comme expliqué ci-dessous :
+La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données][import-data] dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![lecteurs azureml][1]
 
@@ -149,7 +149,7 @@ Pour découvrir un exemple de procédure pas à pas du processus de science des 
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

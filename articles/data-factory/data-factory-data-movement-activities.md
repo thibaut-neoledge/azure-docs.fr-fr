@@ -102,7 +102,7 @@ Les magasins de données ont différents types de systèmes natifs. L'activité 
 Vous pouvez trouver le mappage d'un système de type natif donné en .NET pour le magasin de données dans les articles sur les connecteurs de magasin de données respectifs. Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d'exécuter les conversions adaptées lors de l'activité de copie.
 
 ### Utilisation de différents formats de fichiers
-L’activité de copie prend en charge différents formats de fichiers, y compris les formats binaire, texte, Avro et JSON pour les magasins basés sur des fichiers. Il est possible d'utiliser l'activité de copie pour convertir des données d'un format vers un autre. Exemple : du format texte (CSV) au format Avro. Si les données ne sont pas structurées, vous pouvez omettre la propriété **Structure** dans la définition JSON du [jeu de données](data-factory-create-datasets.md).
+L’activité de copie prend en charge différents formats de fichiers, notamment les formats binaire, texte, Avro. ORC et JSON pour les magasins basés sur des fichiers. Il est possible d'utiliser l'activité de copie pour convertir des données d'un format vers un autre. Exemple : du format texte (CSV) au format Avro. Si les données ne sont pas structurées, vous pouvez omettre la propriété **Structure** dans la définition JSON du [jeu de données](data-factory-create-datasets.md).
 
 ### Propriétés de l'activité de copie
 Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités. En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité.
@@ -195,4 +195,4 @@ Vous pouvez également configurer une variable **custom**, comme indiqué ci-des
 
 ![Utilisation de la variable custom](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

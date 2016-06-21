@@ -5,7 +5,7 @@
     keywords="quels sont les paramètres de stratégie de groupe et de MDM pour Enterprise State Roaming, Enterprise State Roaming, cloud windows"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Paramètres de stratégie de groupe et de gestion des appareils mobiles
@@ -24,20 +24,20 @@ Ces paramètres de stratégie de groupe et de gestion des appareils mobiles (MDM
 Les entreprises qui souhaitent gérer l’itinérance pour les appareils personnels (non gérés) peuvent utiliser le portail Azure pour activer ou désactiver l’itinérance, plutôt que de recourir à une stratégie de groupe ou à la MDM. Les tableaux suivants décrivent les paramètres de stratégie disponibles.
 
 ## Paramètres de MDM
-Les paramètres de stratégie de MDM s’appliquent à Windows 10 et à Windows 10 Mobile.
+Les paramètres de stratégie de MDM s’appliquent à Windows 10 et à Windows 10 Mobile. La prise en charge Windows 10 Mobile existe uniquement pour l’itinérance basée sur compte Microsoft via le compte OneDrive de l’utilisateur. Veuillez consulter « Appareils et systèmes d’extrémité » pour plus de détails sur les appareils pris en charge pour la synchronisation basée sur Azure AD.
 
 | Nom | Description |
 |------------------------------------|----------------------------------------------------------------------|
 | Autoriser la connexion de comptes Microsoft | Permet aux utilisateurs de s’authentifier sur l’appareil à l’aide d’un compte Microsoft |
-| Autoriser la synchronisation de mes paramètres | Permet l’itinérance des paramètres Windows et des données d’application des utilisateurs |
- 
+| Autoriser la synchronisation de mes paramètres | Permet l’itinérance pour les paramètres de Windows et les données d’application. Désactiver cette stratégie désactive la synchronisation, ainsi que les sauvegardes sur les appareils mobiles |
+
 ## Paramètres de stratégie de groupe
-Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10 joints à un domaine Active Directory. Le tableau inclut les paramètres hérités qui apparaissent pour gérer les paramètres de synchronisation, mais qui ne fonctionnent pas pour Enterprise State Roaming pour Windows 10.
+Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10 joints à un domaine Active Directory. Le tableau inclut également les paramètres hérités qui apparaissent pour gérer les paramètres de synchronisation, mais qui ne fonctionnent pas pour Enterprise State Roaming pour Windows 10, avec la notation « Ne pas utiliser » dans la description.
 
 | Nom | Description |
 |-------------------------------------|-------------|
 | Comptes : bloquer les comptes Microsoft |Ce paramètre de stratégie empêche les utilisateurs d’ajouter de nouveaux comptes Microsoft sur l’ordinateur|
-| Ne pas synchroniser |Permet l’itinérance des paramètres Windows et des données d’application des utilisateurs|
+| Ne pas synchroniser |Empêche l’itinérance des paramètres Windows et des données d’application des utilisateurs|
 | Ne pas synchroniser les options personnalisées |Désactive la synchronisation du groupe Thèmes|
 | Ne pas synchroniser les paramètres du navigateur |Désactive la synchronisation du groupe Internet Explorer|
 | Ne pas synchroniser les mots de passe |Désactive la synchronisation du groupe Mots de passe|
@@ -55,4 +55,4 @@ Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10
 - [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 - [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

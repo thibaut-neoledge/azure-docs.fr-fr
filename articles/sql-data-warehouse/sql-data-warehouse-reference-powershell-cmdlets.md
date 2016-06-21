@@ -84,23 +84,21 @@ Ces applets de commande PowerShell sont souvent utilisées avec Azure SQL Data W
 Pour plus d’exemples PowerShell, consultez :
 
 - [Création de SQL Data Warehouse à l’aide de Powershell][]
-- [Restaurer à partir d’un instantané][]
-- [Géo-restauration à partir d’un instantané][]
+- [Restauration de base de données][]
 
-Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Azure SQL Database Cmdlets][] \(Applets de commande de la base de données SQL Azure). Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Operations for Azure SQL Databases][] \(Opérations des bases de données SQL Azure).
+Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande de la base de données SQL Azure][]. Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations des bases de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Installation et configuration d’Azure PowerShell]: ./powershell-install-configure.md
 [Création de SQL Data Warehouse à l’aide de Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restaurer à partir d’un instantané]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Géo-restauration à partir d’un instantané]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
-[Gérer l’évolutivité avec REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
+[Restauration de base de données]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Gérer l’évolutivité avec REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
-[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
-[Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
+[Applets de commande de la base de données SQL Azure]: https://msdn.microsoft.com/library/mt574084.aspx
+[Opérations des bases de données SQL Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
@@ -116,4 +114,4 @@ Pour obtenir la liste de toutes les tâches pouvant être automatisées avec Pow
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

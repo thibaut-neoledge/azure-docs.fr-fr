@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/01/2016"
 	ms.author="tdykstra"/>
 
 # Créer une tâche web .NET dans Azure App Service
@@ -36,7 +36,13 @@ Ce didacticiel a été écrit pour Visual Studio 2013. Si vous ne disposez pas 
 
 Le didacticiel peut être utilisé avec Visual Studio 2015. Toutefois, avant d’exécuter l’application localement, vous devez modifier la partie `Data Source` de la chaîne de connexion SQL Server LocalDB dans les fichiers Web.config et App.config de `Data Source=(localdb)\v11.0` à `Data Source=(LocalDb)\MSSQLLocalDB`.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
+> [AZURE.NOTE] <a name="note"></a>Pour suivre ce didacticiel, vous avez besoin d’un compte Azure :
+  >
+  > + Vous pouvez [ouvrir un compte Azure gratuitement](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
+  >
+  > + Vous pouvez [activer les avantages de l’abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+  >
+  >Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## <a id="learn"></a>Contenu
 
@@ -73,13 +79,11 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 1. Ouvrez la fenêtre **Explorateur de serveurs** dans Visual Studio.
 
-2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**. 
-![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**. ![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Connectez-vous à l'aide de vos informations d'identification Azure.
 
-5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**. 
-![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**. ![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom correspondant au compte de stockage.
 
@@ -471,7 +475,7 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 	- Dans le dossier *Controllers* : *AdController.cs*.
 	- Dans le dossier *Views\\Shared* : fichier *\_Layout.cshtml*
 	- Dans le dossier *Views\\Home* : *Index.cshtml*.
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
 
@@ -817,4 +821,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -41,7 +41,7 @@ Pour que la base de données secondaire puisse être utilisable en tant que base
 
 Les autorisations spécifiques de chaque étape sont décrites plus tard dans cette rubrique.
 
-La préparation de l’accès utilisateur à une base de données secondaire de géo-réplication doit être effectuée dans le cadre de la configuration de la géo-réplication. La préparation de l’accès utilisateur aux bases de données géo-restaurées doit être effectuée à tout moment lorsque le serveur d’origine est en ligne (par exemple dans le cadre du test de récupération d’urgence).
+La préparation de l’accès utilisateur à une base de données secondaire de géoréplication doit être effectuée dans le cadre de la configuration de la géoréplication. La préparation de l’accès utilisateur aux bases de données géo-restaurées doit être effectuée à tout moment lorsque le serveur d’origine est en ligne (par exemple dans le cadre du test de récupération d’urgence).
 
 >[AZURE.NOTE] Si vous effectuez un basculement ou une géo-restauration vers un serveur sur lequel les identifiants de connexion ne sont pas configurés correctement, l’accès à ce serveur sera limité au compte d’administrateur du serveur.
 
@@ -100,4 +100,4 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
 - [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

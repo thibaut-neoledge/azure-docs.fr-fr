@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Substitution de la clé de signature dans Azure Active Directory
@@ -228,4 +228,4 @@ Si votre plate-forme ou votre type d’application ne prend en charge aucun méc
 
 Vous venez de créer le certificat X509 qui est utilisé en tant que clé publique pour Azure AD. En utilisant les informations du certificat (par exemple, son empreinte numérique et sa date d’expiration), vous pouvez, soit manuellement soit à l’aide d’un programme, vérifier la validité du certificat et de l’empreinte numérique actuellement utilisés par votre application.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

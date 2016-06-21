@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prise en main du stockage de files d’attente Azure à l’aide de .NET | Microsoft Azure"
-	description="Envoyez et recevez des messages de façon asynchrone entre les composants d’application à l’aide du stockage de files d’attente Azure. Commencez par des opérations simples de stockage de files d’attente, notamment la création et la suppression de files d’attente, et l’ajout, la lecture et la suppression des messages de file d’attente."
+	description="Les files d’attente Azure fournissent une messagerie asynchrone fiable entre les composants d’application. La messagerie cloud permet de mettre à l’échelle vos composants d’application indépendamment."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="06/09/2016"
 	ms.author="gusapost"/>
 
 # Prise en main du stockage de files d’attente Azure à l’aide de .NET
@@ -22,7 +22,7 @@
 
 ## Vue d'ensemble
 
-Le stockage de files d’attente Azure est un service qui fournit des files d’attente de messagerie dans le cloud. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d'attente offre une solution de messagerie fiable pour la communication asynchrone entre les composants d'application, qu'ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
+Le stockage de files d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
 
 ### À propos de ce didacticiel
 
@@ -275,4 +275,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

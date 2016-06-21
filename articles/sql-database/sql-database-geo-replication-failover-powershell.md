@@ -26,7 +26,7 @@
 - [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-Cet article vous montre comment lancer un basculement planifié ou non planifié pour une base de données SQL avec PowerShell. Pour configurer la géo-réplication, consultez [Configurer la géo-réplication pour une base de données SQL Azure](sql-database-geo-replication-powershell.md).
+Cet article vous montre comment lancer un basculement planifié ou non planifié pour une base de données SQL avec PowerShell. Pour configurer la géoréplication, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-powershell.md).
 
 
 
@@ -38,7 +38,7 @@ La commande exécute le flux de travail suivant :
 
 1. Basculer temporairement la réplication en mode synchrone. Les transactions en attente seront alors vidées sur la base de données secondaire.
 
-2. Changer les rôles des deux bases de données dans le partenariat de géo-réplication.
+2. Changer les rôles des deux bases de données dans le partenariat de géoréplication.
 
 Cette séquence garantit que les deux bases de données sont synchronisées avant le basculement des rôles et que, par conséquent, aucune perte de données ne se produira. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, consultez [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
@@ -81,10 +81,10 @@ La commande suivante bascule les rôles de la base de données nommée « mydb�
 
 ## Ressources supplémentaires
 
-- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

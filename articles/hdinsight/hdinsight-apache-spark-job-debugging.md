@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
-# Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans Azure HDInsight (version préliminaire)
+# Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight Linux
 
 Dans cet article, vous allez apprendre à effectuer le suivi et à déboguer les tâches Spark à l’aide de l’interface utilisateur YARN, de l’interface utilisateur Spark et du serveur d’historique Spark. Nous allons lancer un travail Spark à partir d’un bloc-notes disponible avec le cluster Spark, **Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib**. Vous pouvez utiliser les étapes ci-dessous pour effectuer le suivi d’une application que vous avez envoyée selon une autre méthode, par exemple, **spark-submit**.
 
@@ -120,7 +120,9 @@ Une fois qu’un travail est terminé, les informations concernant ce travail so
 
 * [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-### Création et exécution d’applications
+* [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+
+### Créer et exécuter des applications
 
 * [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
 
@@ -130,12 +132,18 @@ Une fois qu’un travail est terminé, les informations concernant ce travail so
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gérer des ressources
+* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Gestion des ressources
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

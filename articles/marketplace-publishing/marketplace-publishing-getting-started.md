@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="06/01/2016"
    ms.author="hascipio" />
 
 # Publier une offre dans Azure Marketplace
@@ -44,11 +44,12 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 | **Étape 4 :Déployer votre offre sur Marketplace** | [Déployer votre offre sur Marketplace][link-pushprod] | Version préliminaire privée | [Déployer votre offre sur Marketplace][link-pushprod] | [Déployer votre offre sur Marketplace][link-pushprod] |
 
 ## Support
-- [Obtenir de l’aide en tant qu’éditeur][suppt-general]
+- [Guide de post-production pour les offres de machine virtuelle](marketplace-publishing-vm-image-post-publishing.md)
 - [Présentation du rapport Informations du vendeur][suppt-rpt-insights]
 - [Présentation du rapport Revenus][suppt-rpt-payouts]
 - [Modification de « l'offre incitative revendeurs » des fournisseurs de solutions Cloud](marketplace-publishing-csp-incentive.md)
 - [Résolution des problèmes de publication courants dans le Marketplace][suppt-common]
+- [Obtenir de l’aide en tant qu’éditeur][suppt-general]
 
 ## Ressources supplémentaires
 - Pour en savoir plus sur les portails utilisés, voir [Portails dont vous avez besoin](marketplace-publishing-portals.md).
@@ -82,4 +83,4 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

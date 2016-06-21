@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Exploration des didacticiels relatifs à la base de données SQL"
+   pageTitle="Exploration des didacticiels relatifs à la base de données SQL Azure | Microsoft Azure"
    description="En savoir plus sur les fonctions et capacités de la base de données SQL"
    keywords=""
    services="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="06/01/2016"
    ms.author="carlrab"/>
    
-# Exploration des didacticiels relatifs à la base de données SQL
+# Exploration des didacticiels relatifs à la base de données SQL Azure
 
-Utilisez les liens ci-dessous pour obtenir une vue d’ensemble de chaque fonctionnalité répertoriée et accéder à un didacticiel de démarrage rapide pour chaque domaine abordé.
+Utilisez les liens ci-dessous pour obtenir une vue d’ensemble de chaque fonctionnalité répertoriée et accéder à un didacticiel de démarrage simple pas à pas pour chaque domaine abordé. Pour consulter des démarrages rapides de solutions qui illustrent l’utilisation de la base de données SQL dans une solution complète à partir de scénarios réels, consultez [Démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md).
 
 ## Avec SQL Server Management Studio
 
@@ -61,14 +61,14 @@ Dans les didacticiels suivants, vous apprendrez à exécuter des [requêtes éla
 
 | Didacticiel | Description |
 |---|---|---|
-| [Prise en main des requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal)](sql-database-elastic-query-getting-started.md) | Ce didacticiel vous apprend à créer des rapports à partir de toutes les bases de données contenues dans une base de données partitionnée horizontalement à l’aide de [requêtes élastiques](sql-database-elastic-query-overview.md). |
-| [Prise en main des requêtes de bases de données croisées (partitionnement vertical)](sql-database-elastic-query-getting-started-vertical.md#create-database-objects) | Ce didacticiel vous apprend à créer des rapports à partir de toutes les bases de données contenues dans une base de données partitionnée verticalement à l’aide de [requêtes élastiques](sql-database-elastic-query-overview.md). |
+| [Prise en main des requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal)](sql-database-elastic-query-getting-started.md) | Ce didacticiel vous apprend à créer des rapports à partir de toutes les bases de données contenues dans une base de données partitionnée horizontalement à l’aide de [requêtes élastiques](sql-database-elastic-query-overview.md) |
+| [Prise en main des requêtes de bases de données croisées (partitionnement vertical)](sql-database-elastic-query-getting-started-vertical.md#create-database-objects) | Ce didacticiel vous apprend à créer des rapports à partir de toutes les bases de données contenues dans une base de données partitionnée verticalement à l’aide de [requêtes élastiques](sql-database-elastic-query-overview.md) |
 | [Conversion de bases de données existantes pour utiliser les outils de base de données élastique](sql-database-elastic-convert-to-use-elastic-tools.md)| Ce didacticiel vous apprend à mettre à l’échelle une base de données SQL Azure dans le cadre d’un partitionnement horizontal. |
 ||||
 
 ## Optimisation des performances
 
-Dans les didacticiels suivants, vous apprendrez à optimiser les [performances de bases de données uniques](sql-database-performance-guidance.md). Pour optimiser les performances de plusieurs bases de données, consultez la page [Pools élastiques](#elastic-pools).
+Dans les didacticiels suivants, vous apprendrez à optimiser les [performances de bases de données uniques](sql-database-performance-guidance.md). Pour optimiser les performances de plusieurs bases de données, consultez [Pools élastiques](#elastic-pools).
 
 | Didacticiel | Description |
 |---|---|---|
@@ -92,7 +92,7 @@ Dans les didacticiels suivants, vous allez apprendre à [migrer une base de donn
 | [Migration d’une base de données SQL Server vers Base de données SQL à l’aide de l’assistant de déploiement de base de données vers Microsoft Azure Database](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) | Ce didacticiel vous apprend à migrer une base de données SQL Server compatible dans votre base de données SQL Azure à l’aide de l’Assistant de déploiement de base de données vers Microsoft Azure Database dans SQL Server Management Studio.
 | [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) | Ce didacticiel vous apprend à exporter une base de données SQL Server compatible dans un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio.|
 | [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) | Ce didacticiel vous apprend à exporter une base de données SQL Server compatible vers un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage.exe.|
-| [Importation depuis BACPAC vers Base de données SQL avec SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | Ce didacticiel vous apprend à importer une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
+| [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | Ce didacticiel vous apprend à importer une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
 | [Importation vers Base de données SQL à partir d’un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) | Ce didacticiel vous apprend à importer une base de données dans une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage. |
 | [Importer un fichier BACPAC pour créer une nouvelle base de données SQL Azure](sql-database-import.md) | Ce didacticiel vous apprend à importer une base de données dans une base de données SQL Azure à partir d’un fichier BACPAC stocké dans un objet bloc Azure à l’aide du portail Azure.|
 | [Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell](sql-database-import-powershell.md) | Ce didacticiel vous apprend à importer une base de données dans une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de PowerShell.|
@@ -119,7 +119,7 @@ Les didacticiels suivants fournissent des informations sur la [connectivité cli
  
 ## Accès à la base de données
 
-Les didacticiels suivants portent sur la [création et la gestion des connexions et des utilisateurs](sql-database-manage-logins.md).
+Les didacticiels suivants portent sur [la création et la gestion des connexions et des utilisateurs](sql-database-manage-logins.md).
 
 | Didacticiel | Description |
 |---|---|---|
@@ -151,7 +151,7 @@ Les didacticiels suivants portent sur la [sécurité des données d’une base d
 
 ## Continuité d’activité et montée en puissance parallèle des requêtes
 
-Dans les didacticiels suivants, vous apprendrez à utiliser la [géo-restauration et la géo-réplication active](sql-database-business-continuity.md) pour la récupération d’erreurs, la continuité d’activité et la montée en puissance parallèle des requêtes.
+Dans les didacticiels suivants, vous apprendrez à utiliser la [géorestauration et la géoréplication active](sql-database-business-continuity.md) pour la récupération d’erreurs, la continuité d’activité et la montée en puissance parallèle des requêtes.
 
 | Didacticiel | Description |
 |---|---|---|
@@ -159,9 +159,9 @@ Dans les didacticiels suivants, vous apprendrez à utiliser la [géo-restauratio
 | [Restaurer une base de données SQL Azure à un point dans le temps avec PowerShell](sql-database-point-in-time-restore-powershell.md) | Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide de PowerShell.|
 | [Restaurer une base de données SQL Azure supprimée à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md) | Ce didacticiel vous apprend à restaurer une base de données supprimée à l’aide du portail Azure.|
 | [Restaurer une base de données SQL Azure supprimée avec PowerShell](sql-database-restore-deleted-database-powershell.md) | Ce didacticiel vous apprend à restaurer une base de données supprimée à l’aide de PowerShell.|
-| [Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md)| Ce didacticiel vous apprend à configurer la géo-réplication active à l’aide du portail Azure.|
-| [Configurer la géo-réplication pour la base de données SQL Azure avec PowerShell](sql-database-geo-replication-powershell.md)| Ce didacticiel vous apprend à configurer la géo-réplication active à l’aide de PowerShell.|
-| [Configurer la géo-réplication pour Base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-transact-sql.md)| Ce didacticiel vous apprend à configurer la géo-réplication active à l’aide de Transact-SQL.|
+| [Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md)| Ce didacticiel vous apprend à configurer la géoréplication active à l’aide du portail Azure.|
+| [Configurer la géoréplication pour Base de données SQL Azure avec PowerShell](sql-database-geo-replication-powershell.md)| Ce didacticiel vous apprend à configurer la géoréplication active à l’aide de PowerShell.|
+| [Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-transact-sql.md)| Ce didacticiel vous apprend à configurer la géoréplication active à l’aide de Transact-SQL.|
 | [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure](sql-database-geo-replication-failover-portal.md) | Ce didacticiel vous explique comment basculer vers un réplica secondaire géo-répliqué à l’aide du portail Azure.|
 | [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec PowerShell](sql-database-geo-replication-failover-powershell.md) | Ce didacticiel vous explique comment basculer vers un réplica secondaire géo-répliqué à l’aide de PowerShell.|
 | [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-failover-transact-sql.md) | Ce didacticiel vous explique comment basculer vers un réplica secondaire géo-répliqué à l’aide de Transact-SQL.|
@@ -176,4 +176,8 @@ Ce didacticiel fournit des informations relatives à la [synchronisation des don
 | [Prise en main d’Azure SQL Data Sync (version préliminaire)](sql-database-get-started-sql-data-sync.md) | Dans ce didacticiel, vous allez vous familiariser avec les concepts de base d’Azure SQL Data Sync avec le portail Azure. |
 ||||
 
-<!---HONumber=AcomDC_0518_2016-->
+## Étapes suivantes
+
+[Explorer les démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md)
+
+<!---HONumber=AcomDC_0608_2016-->

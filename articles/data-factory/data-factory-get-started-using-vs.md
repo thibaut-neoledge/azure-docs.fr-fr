@@ -32,11 +32,15 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes à l'aide de Visual 
 4. Créez une fabrique de données et déployer des services liés, un groupe de données et le pipeline.    
 
 ## Configuration requise
-Passez en revue l'article [Vue d'ensemble du didacticiel](data-factory-get-started.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
 
-Les composants suivants doivent être installés sur votre ordinateur :
-- Visual Studio 2013
-- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
+1. Vous **devez** lire l’article [Vue d’ensemble du didacticiel](data-factory-get-started.md) et effectuer les étapes préalables avant de continuer.
+2. Pour être en mesure de publier des entités de fabrique de données dans Azure Data Factory, vous devez être un **administrateur de l’abonnement Azure**. Cette limitation est en vigueur pour l’instant. Dès que cette exigence évoluera, nous vous en informerons. 
+3. Les composants suivants doivent être installés sur votre ordinateur : 
+	- Visual Studio 2013 ou Visual Studio 2015
+	- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
+	- Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in de la manière suivante : dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**. 
+ 
+
 
 ## Création d’un projet Visual Studio 
 1. Lancez **Visual Studio 2013**. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**. La boîte de dialogue **Nouveau projet** doit s’afficher.  
@@ -70,7 +74,7 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinke
 
 5. Cliquez de nouveau avec le bouton droit sur le nœud **Services liés** dans l'**Explorateur de solutions**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**. 
 6. Cette fois, sélectionnez **Service lié SQL Azure**, puis cliquez sur **Ajouter**. 
-7. Dans le **fichier AzureSqlLinkedService1.json**, remplacez **servername**, **databasename**, **username@servername** et **password** par les noms du serveur SQL Azure, de la base de données et du compte d'utilisateur, et par le mot de passe.
+7. Dans le **fichier AzureSqlLinkedService1.json**, remplacez **servername**, **databasename**, ****username@servername** et **password** par les noms du serveur SQL Azure, de la base de données et du compte d'utilisateur, et par le mot de passe.
 8.  Enregistrez le fichier **AzureSqlLinkedService1.json**. 
 
 
@@ -221,7 +225,7 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 
 Notez les points suivants :
 
-- Si vous recevez le message d’erreur : « **Cet abonnement n’est pas enregistré pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de publier à nouveau : 
+- Si vous recevez le message d’erreur : « **L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de relancer la publication : 
 
 	- Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory. 
 		
@@ -230,7 +234,7 @@ Notez les points suivants :
 		Vous pouvez exécuter la commande suivante pour vérifier que le fournisseur Data Factory est bien enregistré.
 	
 			Get-AzureRmResourceProvider
-	- Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.
+	- Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le Portail Azure. Cette action enregistre automatiquement le fournisseur.
 - 	Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 - 	Pour créer des instances de fabrique de données, vous devez avoir le statut d’administrateur/collaborateur de l’abonnement Azure
 
@@ -240,7 +244,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 1.	Création d’une **fabrique de données** Azure.
 2.	Création de **services liés** :
 	1. Un service lié **Azure Storage** pour lier votre compte Azure Storage contenant des données d’entrée. 	
-	2. Un service lié **Azure SQL** pour lier votre base de données Azure contenant les données de sortie. 
+	2. Un service lié **Azure SQL** pour lier votre base de données Azure SQL contenant les données de sortie. 
 3.	Création des **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
 4.	Création d’un **pipeline** avec une **activité de copie** avec **BlobSource** en tant que source et **SqlSink** en tant que récepteur. 
 
@@ -269,4 +273,4 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-star
 | [Groupes de données](data-factory-create-datasets.md) | Cet article va vous aider à comprendre les jeux de données dans Azure Data Factory.
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

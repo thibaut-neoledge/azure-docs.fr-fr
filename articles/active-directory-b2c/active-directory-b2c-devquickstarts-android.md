@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Version préliminaire d’Azure AD B2C : appel d’une API web depuis une application Android
@@ -482,7 +482,7 @@ public class SettingsActivity extends Activity {
 
 Cette activité permet d’ajouter une tâche au point de terminaison de votre API REST.
 
-Créez un fichier appelé `AddTaskActivity.java`
+Créez un fichier appelé `AddTaskActivity.java` 
 et écrivez le code suivant :
 
 ```
@@ -977,4 +977,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [En savoir plus sur les cookies](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

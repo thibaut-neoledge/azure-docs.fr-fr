@@ -45,7 +45,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -74,8 +74,8 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -99,7 +99,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
-	            "folderPath": "MSFTHistoricalPrices"
+	            "folderPath": "adfgetstarted/Movies"
 	        },
 	        "availability":
 	        {
@@ -186,7 +186,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -231,8 +231,8 @@ index | Index de la table dans la ressource. Pour savoir comment obtenir l’ind
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -286,4 +286,4 @@ Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https:
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

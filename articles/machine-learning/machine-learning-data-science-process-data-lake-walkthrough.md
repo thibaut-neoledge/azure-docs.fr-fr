@@ -701,7 +701,7 @@ Lorsque l’exécution de la requête est terminée, les résultats s’affichen
 
 Nous sommes maintenant prêts à créer et déployer un modèle qui prédit si un pourboire est payé avec Azure Machine Learning. L’échantillon stratifié de données est prêt à être utilisé dans ce problème de classification binaire (pourboire ou non). Les modèles prévisionnels utilisant la classification multiclasse (tip\_class) et la régression (tip\_amount) peuvent également être créés et déployés avec Azure Machine Learning Studio, mais ici nous expliquons seulement comment gérer le cas avec le modèle de classification binaire.
 
-1. Insérez les données dans Azure ML à l’aide du module **Lecteur**, disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
+1. Intégrez les données dans Azure Machine Learning avec le module **Importer des données**, disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
 2. Sélectionnez **Requête Hive** comme **Source de données** dans le panneau **Propriétés**.
 3. Collez le script Hive suivant dans l’éditeur de **requête de base de données Hive**
 
@@ -741,4 +741,4 @@ Le parcours d’apprentissage du [processus Cortana Analytics (CAP)](http://aka.
 - [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

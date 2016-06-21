@@ -13,14 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/09/2016"
    ms.author="sonyama;barbkess"/>
 
 # Se connecter à SQL Data Warehouse avec Visual Studio
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 Cette procédure pas à pas vous explique comment vous connecter à un SQL Data Warehouse en quelques minutes en utilisant l’extension SQL Server Data Tools (SSDT) dans Visual Studio. Une fois que vous serez connecté, vous exécuterez une requête simple.
@@ -32,7 +31,7 @@ Cette procédure pas à pas vous explique comment vous connecter à un SQL Data 
 
 ## Étape 1 : Obtenir le nom complet de votre serveur SQL Azure
 
-Votre SQL Data Warehouse est associé à un serveur SQL Azure. Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (**servername**.database.windows.net*).
+Votre base de données SQL Data Warehouse est associée à un serveur SQL Azure. Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (**servername**.database.windows.net*).
 
 Pour obtenir le nom complet du serveur
 
@@ -116,4 +115,4 @@ Pour configurer votre environnement pour l’authentification Windows, voir [Con
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

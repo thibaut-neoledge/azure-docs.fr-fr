@@ -22,7 +22,7 @@
 ## Commandes rapides
 Vous pouvez également [effectuer ces étapes à l’aide d’Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
-Créez d’abord votre Groupe de sécurité réseau. Sélectionnez un groupe de ressources dans le portail, cliquez sur « Ajouter », puis recherchez un « groupe de sécurité de réseau » à sélectionner :
+Créez d’abord votre Groupe de sécurité réseau. Sélectionnez un groupe de ressources dans le portail, cliquez sur « Ajouter », puis recherchez et sélectionnez « groupe de sécurité de réseau » :
 
 ![Ajouter un groupe de sécurité réseau](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
 
@@ -38,7 +38,7 @@ Entrez un nom pour votre nouvelle règle. Notez que le port 80 est déjà entré
 
 ![Créer une règle de trafic entrant](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
-L’étape finale consiste à associer un sous-réseau ou une interface réseau spécifique à votre groupe de sécurité réseau. Permet d’associer le groupe de sécurité réseau à un sous-réseau :
+L’étape finale consiste à associer un sous-réseau ou une interface réseau spécifique à votre groupe de sécurité réseau. Associons le groupe de sécurité réseau à un sous-réseau :
 
 ![Associer un groupe de sécurité réseau à un sous-réseau](./media/virtual-machines-windows-nsg-quickstart-portal/associate-subnet.png)
 
@@ -52,7 +52,7 @@ Vous avez maintenant créé un groupe de sécurité réseau, créé une règle d
 ## En savoir plus sur les groupes de sécurité réseau
 Les commandes rapides vous permettent d’être opérationnel avec le trafic entrant vers votre machine virtuelle. Les groupes de sécurité réseau fournissent un grand nombre de fonctionnalités intéressantes et une granularité pour contrôler l’accès à vos ressources. Découvrez plus d’informations sur la [création d’un groupe de sécurité réseau et de règles de liste de contrôle d’accès ici](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-Les groupes de sécurité réseau et les règles de liste de contrôle d’accès peuvent également être définis dans le cadre de modèles Azure Resouce Manager. En savoir plus sur la [création de groupes de sécurité réseau avec des modèles](../virtual-network/virtual-networks-create-nsg-arm-template.md).
+Les groupes de sécurité réseau et les règles ACL peuvent également être définis dans le cadre de modèles Azure Resource Manager. En savoir plus sur la [création de groupes de sécurité réseau avec des modèles](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
 Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, vous devez utiliser un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d'un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 
@@ -63,4 +63,4 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 - [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 - [Présentation d’Azure Resource Manager](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

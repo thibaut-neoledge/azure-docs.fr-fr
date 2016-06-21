@@ -336,7 +336,12 @@ Consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.m
  
 
 ## Service lié Azure SQL
-
 Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_0601_2016-->
+## Service lié Azure SQL Data Warehouse
+Créez un service lié Azure SQL Data Warehouse et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#azure-sql-data-warehouse-linked-service-properties).
+
+## Service SQL Server lié
+Créez un service lié à SQL Server et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Server](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+
+<!---HONumber=AcomDC_0608_2016-->

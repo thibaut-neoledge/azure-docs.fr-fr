@@ -180,7 +180,7 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Lecteur][reader] d’Azure Machine Learning comme le montre l’écran ci-dessous :
+3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Importer des données][import-data] d’Azure Machine Learning comme le montre l’écran ci-dessous :
  
 ![objet blob de lecteur][1]
 
@@ -188,7 +188,7 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

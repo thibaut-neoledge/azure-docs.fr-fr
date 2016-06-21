@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 
@@ -197,4 +197,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Une fois que vous avez obtenu une autorisation `code` et un `id_token`, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le `id_token` exactement comme décrit ci-dessus. Pour obtenir des jetons d’accès, vous pouvez suivre la procédure décrite dans la [documentation du protocole OAuth](active-directory-protocols-oauth-code.md#Use-the-Authorization-Code-to-Request-an-Access-Token).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

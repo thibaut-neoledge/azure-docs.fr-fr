@@ -96,4 +96,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-----HONumber=AcomDC_0511_2016-->

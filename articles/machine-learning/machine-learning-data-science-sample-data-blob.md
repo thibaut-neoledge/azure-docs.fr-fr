@@ -96,10 +96,10 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Lisez les données de l’objet blob Azure à l’aide du [lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Azure Machine Learning, comme illustré dans la capture d’écran ci-dessous :
+3. Lisez les données de l’objet blob Azure à l’aide du module [Importer les données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Azure Machine Learning, comme l’illustre l’image ci-dessous :
  
 ![objet blob de lecteur](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

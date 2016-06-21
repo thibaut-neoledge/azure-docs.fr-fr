@@ -32,7 +32,9 @@ Cette procédure pas à pas s’applique aux éléments suivants :
 
 * Azure Active Directory
 * Azure Active Directory B2C
-* Azure Active Directory B2B Le document ci-dessous part du principe que vous savez comment [approvisionner des applications dans le portail hérité dédié à Azure Active Directory](active-directory-how-to-integrate.md)et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) Microsoft Identity Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+* Azure Active Directory B2B
+
+Notez que le document ci-dessous prend pour acquis que vous savez comment [mettre en service des applications dans le portail hérité dédié à Azure Active Directory](active-directory-how-to-integrate.md) et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) Microsoft Identity Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Concepts de l’authentification unique dans la plateforme Microsoft Identity
 
@@ -240,7 +242,7 @@ Votre URI de redirection doit présenter la forme appropriée suivante :
 
 ex : **msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription des applications Azure AD, consultez la rubrique [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
+Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
 
 
 #### Étape 3: Configurer les autorisations appropriées dans votre application
@@ -259,4 +261,4 @@ MANAGE_ACCOUNTS
 
 Désormais, le Kit de développement logiciel (SDK) Microsoft Identity partage automatiquement les informations d’identification entre vos applications et appelle l’éventuel répartiteur existant sur l’appareil.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

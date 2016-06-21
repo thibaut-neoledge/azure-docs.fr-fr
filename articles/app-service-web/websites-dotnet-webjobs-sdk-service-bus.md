@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/01/2016" 
 	ms.author="tdykstra"/>
 
 # Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs
@@ -186,4 +186,4 @@ Les sujets abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation d’Azure Service Bus. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->
