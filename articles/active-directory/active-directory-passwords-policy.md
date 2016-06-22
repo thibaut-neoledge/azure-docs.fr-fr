@@ -37,7 +37,7 @@ La table suivante décrit les paramètres de stratégie de mot de passe disponib
 
 | Propriété | Configuration requise |
 |   ----------------------- |   ----------------------- |
-| Caractères autorisés | <ul><li>A à Z</li><li>a à z </li><li>0 à 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } | \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Caractères autorisés | <ul><li>A à Z</li><li>a à z </li><li>0 à 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } &#124; \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Caractères non autorisés | <ul><li>Les caractères Unicode</li><li>Espaces</li><li>Espaces</li><li> **Mots de passe forts uniquement** : ne peut pas contenir de point '.' précédant immédiatement le symbole ' @'</li></ul> |
 | Restrictions de mot de passe | <ul><li>8 caractères au minimum et 16 caractères au maximum</li><li>** Mots de passe forts uniquement ** : nécessite 3 des 4 opérations suivantes :<ul><li>Caractères minuscules</li><li>Caractères majuscules</li><li>Chiffres (0 à 9)</li><li>Symboles (voir les restrictions de mot de passe ci-dessus)</li></ul></li></ul> |
 | Délai d'expiration du mot de passe | <ul><li>Valeur par défaut : **90** jours </li><li>La valeur est configurable à l'aide de l'applet de commande Set-MsolPasswordPolicy à partir du Module Azure Active Directory pour Windows PowerShell.</li></ul> |
