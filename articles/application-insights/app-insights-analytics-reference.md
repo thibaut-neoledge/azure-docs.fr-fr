@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Référence d’Analytics dans Application Insights" 
+	pageTitle="Référence d’Analytics dans Application Insights | Microsoft Azure" 
 	description="Référence pour les instructions dans Analytics, le puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -20,33 +20,22 @@
 [Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
 ## Index
 
-|Requêtes et opérateurs|Agrégations|Valeurs scalaires|Nombres|Date et heure|Chaîne|Tableaux, objets et dynamiques
-|---|---|---|---|---|---|---
-|[count](#count-operator)|[any](#any)|[Littéraux booléens](#boolean-literals)|[Opérateurs arithmétiques](#arithmetic-operators)|[Expressions de date et d’heure](#date-and-time-expressions)|[GUID](#guids)|[Littéraux de tableau et d’objet](#array-and-object-literals)
-|[extend](#extend-operator)|[argmax](#argmax)|[Opérateurs booléens](#boolean-operators)|[Littéraux numériques](#numeric-literals)|[Littéraux de date et d’heure](#date-and-time-literals)|[Littéraux de chaîne masqués](#obfuscated-string-literals)|[Fonctions de l’objet dynamique](#dynamic-object-functions)
-|[join](#join-operator)|[argmin](#argmin)|[Casts](#casts)|[abs](#abs)|[ago](#ago)|[Littéraux de chaîne](#string-literals)|[Objets dynamiques dans les clauses let](#dynamic-objects-in-let-clauses)
-|[clause let](#let-clause)|[avg](#avg)|[Comparaisons scalaires](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Comparaisons de chaînes](#string-comparisons)|[Expressions de chemin JSON](#json-path-expressions)
-|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Noms](#names)
-|[mvexpand](#mvexpand-operator)|[count](#count)|[Hachage](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
-|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
-|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
-|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
-|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
-|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
-|[directive render](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
-|[clause restrict](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
-|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
-|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
-|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
-|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
-|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
-|[union](#union-operator)||||[todatetime](#todatetime)||
-|[où](#where-operator)||||[totimespan](#totimespan)||
-|||||[WeekOfYear](#weekofyear)||
+**Requêtes et opérateurs** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [clause let](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [directive render](#render-directive) | [clause restrict](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Agrégations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Valeurs scalaires** [Littéraux booléens](#boolean-literals) | [Opérateurs booléens](#boolean-operators) | [Conversions](#casts) | [Comparaisons de valeurs scalaires](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Nombres** [Opérateurs arithmétiques](#arithmetic-operators) | [Littéraux numériques](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Date et heure** [Expressions de date et heure](#date-and-time-expressions) | [Littéraux de date et heure](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**Chaînes** [GUID](#guids) | [Littéraux de chaîne masqués](#obfuscated-string-literals) | [Littéraux de chaîne](#string-literals) | [Comparaisons de chaînes](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Tableaux, objets et dynamique** [Littéraux de tableau et d’objet](#array-and-object-literals) | [Fonctions d’objet dynamique](#dynamic-object-functions) | [Objets dynamiques dans des clauses let](#dynamic-objects-in-let-clauses) | [Expressions de chemin JSON](#json-path-expressions) | [Noms](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+
 
 
 
@@ -67,7 +56,7 @@ Chaque filtre précédé de la barre verticale `|` est une instance d’un *opé
 
 Les requêtes peuvent contenir des sauts de ligne uniques, mais se terminent par une ligne vide. Elles peuvent contenir des commentaires entre `//` et la fin de la ligne.
 
-Une requête peut être précédée d’une ou plusieurs [clauses Let](#let-clause), qui définissent les valeurs scalaires, les tables ou les fonctions pouvant être utilisées dans la requête.
+Une requête peut être précédée d’une ou plusieurs [clauses let](#let-clause), qui définissent des valeurs scalaires, des tables ou des fonctions utilisables dans la requête.
 
 ```AIQL
 
@@ -84,7 +73,7 @@ Une requête peut être précédée d’une ou plusieurs [clauses Let](#let-clau
 
 ### opérateur count
 
-L’opérateur `count` retourne le nombre d’enregistrements (lignes) dans le jeu d’enregistrements d’entrée.
+L’opérateur `count` renvoie le nombre d’enregistrements (lignes) dans le jeu d’enregistrements d’entrée.
 
 **Syntaxe**
 
@@ -96,7 +85,7 @@ L’opérateur `count` retourne le nombre d’enregistrements (lignes) dans le j
 
 **Retourne**
 
-Cette fonction retourne une table contenant un seul enregistrement et une colonne de type `long`. La valeur de l’unique cellule correspond au nombre d’enregistrements dans *T*.
+Cette fonction renvoie une table contenant un seul enregistrement et une colonne de type `long`. La valeur de la seule cellule correspond au nombre d’enregistrements dans *T*.
 
 **Exemple**
 
@@ -120,7 +109,7 @@ Ajoute une ou plusieurs colonnes calculées à une table.
 **Arguments**
 
 * *T :* table d’entrée.
-* *ColumnName :* nom de la colonne à ajouter. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des « \_ ». Utilisez `['...']` ou `["..."]` pour entourer de guillemets les mots-clés ou les noms avec d’autres caractères.
+* *ColumnName :* nom de la colonne à ajouter. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des traits de soulignement (\_). Utilisez `['...']` ou `["..."]` pour entourer les mots-clés ou les noms avec d’autres caractères.
 * *Expression :* calcul sur les colonnes existantes.
 
 **Retourne**
@@ -129,8 +118,8 @@ Une copie de la table d’entrée, avec les colonnes supplémentaires spécifié
 
 **Conseils**
 
-* Utilisez plutôt [`project`](#project-operator) si vous souhaitez également supprimer ou renommer des colonnes.
-* N’utilisez pas `extend` si vous souhaitez simplement obtenir un nom plus court à utiliser dans une expression longue. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* Préférez [`project`](#project-operator) si vous souhaitez également supprimer ou renommer des colonnes.
+* N’utilisez pas seulement `extend` si vous souhaitez obtenir un nom plus court à utiliser dans une expression longue. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
 
     Les colonnes d’origine de la table ont été indexées. Votre nouveau nom définit une colonne supplémentaire qui n’est pas indexée, c’est pourquoi la requête risque de s’exécuter plus lentement.
 
@@ -166,7 +155,7 @@ Fusionne les lignes de deux tables en faisant correspondre les valeurs de la col
 Une table avec :
 
 * Une colonne pour chaque colonne dans chacune des deux tables, y compris les clés correspondantes. Les colonnes du côté droit seront automatiquement renommées en cas de conflit de nom.
-* Une ligne pour chaque correspondance entre les tables d’entrée. Une correspondance est une ligne sélectionnée dans une table ayant la même valeur pour tous les champs `on` qu’une ligne dans l’autre table. 
+* Une ligne pour chaque correspondance entre les tables d’entrée. Une correspondance est une ligne sélectionnée dans une table, dont tous les champs `on` ont la même valeur qu’une ligne dans l’autre table. 
 
 * `Kind` non spécifié
 
@@ -263,7 +252,7 @@ Jointure réflexive :
 
      T | limit 5
 
-Retourne au maximum le nombre spécifié de lignes de la table d’entrée. Il n’est pas possible de savoir quels enregistrements vont être retournés. (Pour retourner des enregistrements spécifiques, utilisez [`top`](#top-operator).)
+Retourne au maximum le nombre spécifié de lignes de la table d’entrée. Il n’est pas possible de savoir quels enregistrements vont être retournés. (Pour renvoyer des enregistrements spécifiques, utilisez [`top`](#top-operator).)
 
 **Alias** `take`
 
@@ -274,9 +263,9 @@ Retourne au maximum le nombre spécifié de lignes de la table d’entrée. Il n
 
 **Conseils**
 
-`Take` est un moyen simple et efficace d’afficher un aperçu des résultats quand vous travaillez de manière interactive. N’oubliez pas qu’il ne garantit pas de produire des lignes spécifiques ou de les afficher dans un ordre particulier.
+`Take` est un moyen simple et efficace d’afficher un échantillon de vos résultats quand vous travaillez de manière interactive. N’oubliez pas qu’il ne garantit pas de produire des lignes spécifiques ou de les afficher dans un ordre particulier.
 
-Il existe une limite implicite quant au nombre de lignes retournées au client, même si vous n’utilisez pas `take`. Pour lever cette limite, utilisez l’option de requête client `notruncation`.
+Il existe une limite implicite quant au nombre de lignes renvoyées au client, même si vous n’utilisez pas `take`. Pour relever cette limite, utilisez l’option de requête client `notruncation`.
 
 
 
@@ -321,19 +310,19 @@ Voici le résultat :
 * *ColumnName :* dans le résultat, les tableaux dans la colonne nommée sont développés en plusieurs lignes. 
 * *ArrayExpression :* expression produisant un tableau. Si ce formulaire est utilisé, une nouvelle colonne est ajoutée et la colonne existante est conservée.
 * *Name :* nom de la nouvelle colonne.
-* *Typename :* effectue le transtypage de l’expression développée en un type spécifique.
+* *Typename :* convertit l’expression développée en un type spécifique.
 * *RowLimit :* nombre maximal de lignes générées à partir de chaque ligne d’origine. La valeur par défaut est 128.
 
 **Retourne**
 
 Plusieurs lignes pour chacune des valeurs dans n’importe quel tableau dans la colonne nommée ou dans l’expression de tableau.
 
-La colonne développée est toujours de type dynamique. Utilisez un transtypage tel que `todatetime()` ou `toint()` si vous souhaitez calculer ou agréger des valeurs.
+La colonne développée est toujours de type dynamique. Utilisez une conversion telle que `todatetime()` ou `toint()` si vous souhaitez calculer ou agréger des valeurs.
 
 Deux modes de développement de conteneurs de propriétés sont pris en charge :
 
 * `bagexpansion=bag` : les conteneurs de propriétés sont développés en conteneurs de propriétés à entrée unique. Il s’agit du développement par défaut.
-* `bagexpansion=array` : les conteneurs de propriétés sont développés dans des structures de tableau `[`*clé*`,`*valeur*`]` à deux éléments, ce qui permet un accès uniforme aux clés et aux valeurs (par exemple, effectuer une agrégation de comptage de valeurs sur les noms de propriétés). 
+* `bagexpansion=array` : les conteneurs de propriétés sont développés en des structures de tableau `[`*clé*`,`*valeur*`]` à deux éléments, permettant un accès uniforme aux clés et valeurs (par exemple, pour effectuer une agrégation de comptage des différents noms de propriété). 
 
 **Exemples**
 
@@ -351,7 +340,7 @@ Fractionne un enregistrement d’exception en plusieurs lignes pour chaque élé
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
-    T | parse kind="relaxed"
+    T | parse kind=relaxed
           "I got no socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long * 
 
@@ -367,15 +356,15 @@ Extrait les valeurs d’une chaîne. Peut utiliser une correspondance d’expres
 
 **Arguments**
 
-* `T` :* table d’entrée.
-* `kind` :* 
-* `simple` (par défaut) :* les chaînes `Match` sont des chaînes de texte brut.
-* `relaxed` :* si le texte n’est pas analysé en tant que type d’une colonne, la colonne est définie sur la valeur null et l’analyse continue 
-* `regex` :* les chaînes `Match` sont des expressions régulières.
-* `Text` :* colonne ou autre expression pouvant être convertie en chaîne ou en prendre la valeur.
-* *Correspondance :* faire correspondre la partie suivante de la chaîne et l’ignorer.
-* *Colonne :* affecter la partie suivante de la chaîne à cette colonne. La colonne est créée si elle n’existe pas.
-* *Type :* analyse la partie suivante de la chaîne comme le type spécifié (par exemple, int, date, double). 
+* `T` : table d’entrée.
+* `kind` : 
+ * `simple` (par défaut) : les chaînes `Match` sont des chaînes de texte brut.
+ * `relaxed` : si le texte n’est pas analysé comme le type d’une colonne, la colonne prend l’état null et l’analyse continue. 
+ * `regex` : les chaînes `Match` sont des expressions régulières.
+* `Text` : colonne ou autre expression pouvant être calculée ou convertie en une chaîne.
+* *Match :* fait correspondre la partie suivante de la chaîne et la rejette.
+* *Column :* affecte la partie suivante de la chaîne à cette colonne. La colonne est créée si elle n’existe pas.
+* *Type :* analyse la partie suivante de la chaîne comme le type spécifié (par exemple, int, date ou double). 
 
 
 **Retourne**
@@ -485,7 +474,7 @@ Sélectionnez les colonnes à inclure, renommer ou supprimer, puis insérez les 
 **Arguments**
 
 * *T :* table d’entrée.
-* *ColumnName :* nom d’une colonne à afficher dans la sortie. S’il n’y a aucune *Expression*, une colonne portant ce nom doit apparaître dans l’entrée. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des « \_ ». Utilisez `['...']` ou `["..."]` pour entourer de guillemets les mots-clés ou les noms avec d’autres caractères.
+* *ColumnName :* nom d’une colonne à afficher dans la sortie. S’il n’y a aucune *Expression*, une colonne portant ce nom doit apparaître dans l’entrée. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des traits de soulignement (\_). Utilisez `['...']` ou `["..."]` pour entourer les mots-clés ou les noms avec d’autres caractères.
 * *Expression :* expression scalaire facultative faisant référence aux colonnes d’entrée. 
 
     Il est possible de retourner une nouvelle colonne calculée portant le même nom qu’une colonne figurant dans l’entrée.
@@ -496,7 +485,7 @@ Une table contenant les colonnes nommées en tant qu’arguments, et autant de l
 
 **Exemple**
 
-L’exemple suivant présente plusieurs genres de manipulations pouvant être effectuées à l’aide de l’opérateur `project`. La table d’entrée `T` comporte trois colonnes de type `int` : `A`, `B` et `C`.
+L’exemple suivant présente plusieurs types de manipulations possibles à l’aide de l’opérateur `project`. La table d’entrée `T` comporte trois colonnes de type `int` : `A`, `B` et `C`.
 
 ```AIQL
 T
@@ -535,16 +524,16 @@ Génère une table de valeurs à une seule colonne. Notez qu’elle ne comporte 
 
 **Arguments**
 
-* *ColumnName :* nom de la colonne unique dans la table de sortie.
+* *ColumnName :* nom de la seule colonne dans la table de sortie.
 * *Start :* plus petite valeur de la sortie.
-* *Stop :* valeur la plus élevée générée dans la sortie (ou une limite pour la valeur la plus élevée, si *l’étape* dépasse cette valeur).
+* *Stop :* valeur la plus élevée générée dans la sortie (ou limite de la valeur la plus élevée, si *step* dépasse cette valeur).
 * *Step :* différence entre deux valeurs consécutives. 
 
-Les arguments doivent être des valeurs de type numérique, date ou durée. Ils ne peuvent pas faire référence aux colonnes d’une table. (Si vous souhaitez calculer la plage d’après une table d’entrée, utilisez la [fonction *range*](#range), éventuellement avec [l’opérateur mvexpand](#mvexpand-operator).)
+Les arguments doivent être des valeurs de type numérique, date ou durée. Ils ne peuvent pas faire référence aux colonnes d’une table. (Si vous souhaitez calculer la plage d’après une table d’entrée, utilisez la [*fonction* range](#range), éventuellement avec l’[opérateur mvexpand](#mvexpand-operator).)
 
 **Retourne**
 
-Une table comportant une seule colonne nommée *ColumnName*, dont les valeurs sont*Start*, *Start* + *Step*, ... jusqu’à *Stop* inclus.
+Une table comportant une seule colonne nommée *ColumnName*, dont les valeurs sont *Start*, *Start* + *Step*... jusqu’à *Stop* inclus.
 
 **Exemple**
 
@@ -573,7 +562,7 @@ range timestamp from ago(4h) to now() step 1m
 | render timechart  
 ```
 
-Montre comment utiliser l’opérateur `range` pour créer une petite table de dimension ad hoc qui est ensuite utilisée pour intégrer des zéros là où les données sources ne contiennent aucune valeur.
+Montre comment utiliser l’opérateur `range` pour créer une petite table ad hoc de dimensions servant à intégrer des zéros là où les données sources ne contiennent aucune valeur.
 
 ### opérateur reduce
 
@@ -591,7 +580,7 @@ Tente de regrouper des enregistrements similaires. Pour chaque groupe, l’opér
 **Arguments**
 
 * *ColumnName :* colonne à examiner. Cette valeur doit être de type chaîne.
-* *Threshold :* valeur dans la plage {0..1}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas. 
+* *Threshold :* valeur dans la plage {0 à 1}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas. 
 
 **Retourne**
 
@@ -639,7 +628,7 @@ Trie les lignes de la table d’entrée dans l’ordre d’après une ou plusieu
 **Arguments**
 
 * *T :* table d’entrée à trier.
-* *Column :* colonne de *T* d’après laquelle trier. Les valeurs doivent être de type numérique, date, heure ou chaîne.
+* *Column :* colonne de *T* selon laquelle trier. Les valeurs doivent être de type numérique, date, heure ou chaîne.
 * `asc` Tri par ordre croissant, de faible à élevé. La valeur par défaut est `desc`, par ordre décroissant allant d’élevé à faible.
 
 **Exemple**
@@ -649,7 +638,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-Toutes les lignes dans la table Traces ayant un `ActivityId` spécifique, triées d’après leur horodatage.
+Toutes les lignes de la table Traces ayant un `ActivityId` spécifique, triées d’après leur horodatage.
 
 ### opérateur summarize
 
@@ -676,13 +665,13 @@ Une table indiquant le nombre d’éléments ayant un prix dans chaque intervall
 
 **Arguments**
 
-* *Column :* nom facultatif d’une colonne de résultats. Prend par défaut un nom dérivé de l’expression. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des « \_ ». Utilisez `['...']` ou `["..."]` pour entourer de guillemets les mots-clés ou les noms avec d’autres caractères.
+* *Column :* nom facultatif d’une colonne de résultats. Prend par défaut un nom dérivé de l’expression. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des traits de soulignement (\_). Utilisez `['...']` ou `["..."]` pour entourer les mots-clés ou les noms avec d’autres caractères.
 * *Aggregation :* appel d’une fonction d’agrégation telle que `count()` ou `avg()`, avec des noms de colonnes comme arguments. Voir [Agrégations](#aggregations).
-* *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou de `bin()` avec une colonne numérique ou de temps en tant qu’argument. 
+* *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou de `bin()` avec une colonne numérique ou horaire en tant qu’argument. 
 
-Si vous fournissez une expression numérique ou de temps sans utiliser `bin()`, Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
+Si vous fournissez une expression numérique ou horaire sans utiliser `bin()`, Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
 
-Si vous ne fournissez pas de *GroupExpression*, la table entière est résumée dans une ligne de sortie unique.
+Si vous ne fournissez pas une expression *GroupExpression*, la table est entièrement résumée dans une ligne de sortie unique.
 
 
 
@@ -690,24 +679,24 @@ Si vous ne fournissez pas de *GroupExpression*, la table entière est résumée 
 
 Les lignes d’entrée sont organisées en groupes ayant les mêmes valeurs que les expressions `by`. Ensuite, les fonctions d’agrégation spécifiées sont calculées sur chaque groupe, générant une ligne pour chaque groupe. Le résultat contient les colonnes `by` et au moins une colonne pour chaque agrégation calculée. (Certaines fonctions d’agrégation retournent plusieurs colonnes.)
 
-Le résultat contient autant de lignes qu’il existe de combinaisons de valeurs `by`. Si vous souhaitez générer une synthèse sur des plages de valeurs numériques, utilisez `bin()` pour limiter les plages à des valeurs discrètes.
+Le résultat contient autant de lignes qu’il existe de combinaisons de valeurs `by`. Si vous souhaitez générer une synthèse sur des plages de valeurs numériques, utilisez `bin()` pour limiter les plages aux valeurs discrètes.
 
 **Remarque :**
 
-Bien que vous puissiez fournir des expressions arbitraires pour les expressions d’agrégation et de regroupement, il est plus efficace d’utiliser des noms de colonnes simples ou d’appliquer `bin()` à une colonne numérique.
+Si vous pouvez fournir des expressions arbitraires pour les expressions d’agrégation et de regroupement, il est plus efficace d’utiliser des noms de colonnes simples ou d’appliquer `bin()` à une colonne numérique.
 
 
 
 ### opérateur take
 
-Alias de [limite](#limit-operator)
+Alias de [limit](#limit-operator)
 
 
 ### opérateur top
 
     T | top 5 by Name desc
 
-Retourne les *N* premiers enregistrements triés d’après les colonnes spécifiées.
+Renvoie les *N* premiers enregistrements triés d’après les colonnes spécifiées.
 
 
 **Syntaxe**
@@ -716,14 +705,14 @@ Retourne les *N* premiers enregistrements triés d’après les colonnes spécif
 
 **Arguments**
 
-* *NumberOfRows :* nombre de lignes de *T* à retourner.
-* *Sort\_expression :* expression utilisée pour trier les lignes. Il s’agit généralement juste d’un nom de colonne. Vous pouvez spécifier plusieurs expressions sort\_expression.
-* `asc` ou `desc` (la valeur par défaut) peut permettre d’indiquer si la sélection est effectuée à partir du «bas » ou du « haut » de la plage.
+* *NumberOfRows :* nombre de lignes de *T* à renvoyer.
+* *Sort\_expression :* expression selon laquelle trier les lignes. Il s’agit généralement juste d’un nom de colonne. Vous pouvez spécifier plusieurs expressions sort\_expression.
+* `asc` ou `desc` (valeur par défaut) peut s’afficher pour indiquer si la sélection provient du bas ou du haut de la plage.
 
 
 **Conseils**
 
-`top 5 by name` équivaut approximativement à `sort by name | take 5`. Toutefois, cet opérateur s’exécute plus rapidement et retourne toujours les résultats triés, contrairement à `take`.
+`top 5 by name` équivaut approximativement à `sort by name | take 5`. Toutefois, cet opérateur s’exécute plus rapidement et renvoie toujours des résultats triés, contrairement à `take`.
 
 ### Opérateur top-nested
 
@@ -763,11 +752,11 @@ Prend deux tables ou plus et retourne les lignes de toutes les tables.
 * *Table1*, *Table2* ...
  *  Nom d’une table, tel que `requests`, ou table définie dans une [clause let](#let-clause), ou
  *  Expression de requête, telle que `(requests | where success=="True")`
- *  Ensemble de tables spécifié par un caractère générique. Par exemple, `e*` formerait l’union de toutes les tables définies dans les clauses let précédentes dont le nom commence par « e » et des tables « exceptions ».
+ *  Ensemble de tables spécifié par un caractère générique. Par exemple, `e*` unirait toutes les tables définies dans les clauses let précédentes, dont le nom commence par « e », ainsi que les tables « exceptions ».
 * `kind` : 
- * `inner` : le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
- * `outer` : le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée prennent la valeur `null`.
-* `withsource=`*ColumnName :* si spécifiée, la sortie comprend une colonne nommée *ColumnName* dont la valeur indique la table source correspondant à chaque ligne.
+ * `inner` : le résultat contient les colonnes communes à toutes les tables d’entrée.
+ * `outer` : le résultat contient toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée prennent la valeur `null`.
+* `withsource=`*ColumnName :* si cet élément est spécifié, la sortie contient une colonne nommée *ColumnName*, dont la valeur indique la table source correspondant à chaque ligne.
 
 **Retourne**
 
@@ -792,7 +781,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-Nombre d’utilisateurs ayant produit un événement `exceptions` ou un événement `traces` au cours de la journée précédente. Dans le résultat, la colonne ’SourceTable’ indique « Requête » ou « Commande ».
+Nombre d’utilisateurs ayant produit un événement `exceptions` ou `traces` la veille. Dans le résultat, la colonne ’SourceTable’ indique « Requête » ou « Commande ».
 
 ```AIQL
 exceptions
@@ -819,21 +808,21 @@ Filtre une table d’après le sous-ensemble de lignes correspondant à un préd
 **Arguments**
 
 * *T* : entrée tabulaire dont les enregistrements doivent être filtrés.
-* *Predicate :* `boolean`[expression](#boolean) sur les colonnes de *T*. Elle est évaluée pour chaque ligne dans *T*.
+* *Predicate :* [expression](#boolean) `boolean` sur les colonnes de *T*. Elle est calculée pour chaque ligne de *T*.
 
 **Retourne**
 
-Lignes de *T* dont *Predicate* est `true`.
+Lignes de *T* pour lesquelles *Predicate* est `true`.
 
 **Conseils**
 
 Pour obtenir des performances optimales :
 
-* **Utilisez des comparaisons simples** entre les noms de colonnes et les constantes. (« Constante » s’entend dans le sens de constante au fil de la table, donc `now()` et `ago()` sont OK, tout comme les valeurs scalaires affectées à l’aide d’une [clause `let`](#let-clause).)
+* **Utilisez des comparaisons simples** entre les noms de colonne et les constantes. (« Constante » s’entendant au sens de constante à l’intérieur de la table, donc `now()` et `ago()` sont OK, tout comme les valeurs scalaires affectées à l’aide d’une [clause `let`](#let-clause).)
 
     Par exemple, préférez `where Timestamp >= ago(1d)` à `where floor(Timestamp, 1d) == ago(1d)`.
 
-* **Simplest terms first** : si vous avez plusieurs clauses unies avec `and`, insérez d’abord les clauses n’impliquant qu’une seule colonne. C’est pourquoi `Timestamp > ago(1d) and OpId == EventId` est plus adapté.
+* **Mettez les termes les plus simples en premier** : si vous avez plusieurs clauses unies par `and`, insérez d’abord les clauses n’impliquant qu’une seule colonne. `Timestamp > ago(1d) and OpId == EventId` est donc préférable à l’autre solution.
 
 
 **Exemple**
@@ -853,7 +842,7 @@ Notez que nous plaçons la comparaison entre deux colonnes à la fin, car elle n
 
 ## Agrégations
 
-Les agrégations sont des fonctions utilisées pour combiner des valeurs dans les groupes créés dans [l’opération summarize](#summarize-operator). Par exemple, dans cette requête, dcount() est une fonction d’agrégation :
+Les agrégations sont des fonctions utilisées pour combiner des valeurs dans les groupes créés dans l’[opération summarize](#summarize-operator). Par exemple, dans cette requête, dcount() est une fonction d’agrégation :
 
     requests | summarize dcount(name) by success
 
@@ -881,9 +870,9 @@ traces
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-Recherche dans le groupe la ligne correspondant à la valeur maximale de *ExprToMaximize* ou à la valeur minimale, et retourne la valeur de *ExprToReturn* (ou `*` pour retourner la ligne entière).
+Recherche dans le groupe la ligne qui minimise/maximalise *ExprToMaximize* et renvoie la valeur de *ExprToReturn* (ou `*` pour renvoyer la ligne entière).
 
-**Conseil** : les colonnes analysées sont renommées automatiquement. Pour vérifier que vous utilisez les noms corrects, examinez les résultats à l’aide de `take 5` avant de les transmettre à un autre opérateur.
+**Conseil** : les colonnes analysées sont renommées automatiquement. Pour être sûr d’utiliser les noms corrects, examinez les résultats à l’aide de `take 5` avant de les transmettre à un autre opérateur.
 
 **Exemples**
 
@@ -917,7 +906,7 @@ Calcule la moyenne de *Expression* dans le groupe.
 
     buildschema(DynamicExpression)
 
-Retourne le schéma minimal qui admet toutes les valeurs de *DynamicExpression*.
+Renvoie le schéma minimal qui admet toutes les valeurs de *DynamicExpression*.
 
 Le type de la colonne de paramètre doit être `dynamic` (tableau ou conteneur de propriétés).
 
@@ -1005,27 +994,27 @@ Le schéma s’apparente à un sous-ensemble d’annotations de type TypeScript,
 
     count([ Predicate ])
 
-Retourne le nombre de lignes pour lesquelles *Predicate* a la valeur `true`. Si *Predicate* n’est pas spécifié, retourne le nombre total d’enregistrements dans le groupe.
+Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`. Si *Predicate* n’est pas spécifié, renvoie le nombre total d’enregistrements dans le groupe.
 
 **Conseil pour optimiser les performances** : utilisez `summarize count(filter)` plutôt que `where filter | summarize count()`.
 
-> [AZURE.NOTE] Évitez d'utiliser count() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
+> [AZURE.NOTE] Évitez d'utiliser count() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand l’[échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données dans Application Insights est inférieur au nombre d’événements. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
 ### countif
 
     countif(Predicate)
 
-Retourne le nombre de lignes pour lesquelles *Predicate* a la valeur `true`.
+Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`.
 
 **Conseil pour optimiser les performances** : utilisez `summarize countif(filter)` plutôt que `where filter | summarize count()`.
 
-> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
+> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand l’[échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
 ### dcount
 
     dcount( Expression [ ,  Accuracy ])
 
-Retourne une estimation du nombre de valeurs distinctes de *Expr* dans le groupe. (Pour afficher les valeurs distinctes, utilisez [`makeset`](#makeset).)
+Renvoie une estimation du nombre de valeurs distinctes de *Expr* dans le groupe. (Pour afficher les valeurs distinctes, utilisez [`makeset`](#makeset).)
 
 Si *Accuracy* est spécifié, détermine le compromis entre vitesse et précision.
 
@@ -1046,7 +1035,7 @@ Si *Accuracy* est spécifié, détermine le compromis entre vitesse et précisio
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Retourne une estimation du nombre de valeurs distinctes de *Expr* de lignes dans le groupe pour lesquelles *Predicate* a la valeur true. (Pour afficher les valeurs distinctes, utilisez [`makeset`](#makeset).)
+Renvoie une estimation du nombre de valeurs distinctes de *Expr* des lignes du groupe pour lesquelles *Predicate* a la valeur true. (Pour afficher les valeurs distinctes, utilisez [`makeset`](#makeset).)
 
 Si *Accuracy* est spécifié, détermine le compromis entre vitesse et précision.
 
@@ -1065,17 +1054,17 @@ Si *Accuracy* est spécifié, détermine le compromis entre vitesse et précisio
 
     makelist(Expr [ ,  MaxListSize ] )
 
-Retourne un tableau (JSON) `dynamic` de toutes les valeurs de *Expr* dans le groupe.
+Renvoie un tableau (JSON) `dynamic` de toutes les valeurs de *Expr* dans le groupe.
 
-* *MaxListSize* est une limite de nombre entier facultative sur le nombre maximal d’éléments retournés (la valeur par défaut est *128*).
+* *MaxListSize* est une limite (nombre entier) facultative portant sur le nombre maximal d’éléments renvoyés (valeur par défaut : *128*).
 
 ### makeset
 
     makeset(Expression [ , MaxSetSize ] )
 
-Retourne un tableau (JSON) `dynamic` du jeu de valeurs distinctes que *Expr* prend dans le groupe. (Conseil : pour comptabiliser uniquement les valeurs distinctes, utilisez [`dcount`](#dcount).)
+Renvoie un tableau (JSON) `dynamic` du jeu de valeurs distinctes prises par *Expr* dans le groupe. (Conseil : pour ne comptabiliser que les valeurs distinctes, utilisez [`dcount`](#dcount).)
   
-*  *MaxSetSize* est une limite de nombre entier facultative sur le nombre maximal d’éléments retournés (la valeur par défaut est *128*).
+*  *MaxSetSize* est une limite (nombre entier) facultative portant sur le nombre maximal d’éléments renvoyés (valeur par défaut : *128*).
 
 **Exemple**
 
@@ -1085,7 +1074,7 @@ Retourne un tableau (JSON) `dynamic` du jeu de valeurs distinctes que *Expr* pre
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
-Consultez aussi [l’opérateur `mvexpand`](#mvexpand-operator) pour la fonction inverse.
+Consultez aussi l’[opérateur `mvexpand`](#mvexpand-operator) pour la fonction inverse.
 
 
 ### max, min
@@ -1101,21 +1090,29 @@ Calcule la valeur minimale de *Expr*.
 **Conseil** : ces fonctions ne donnent que des valeurs maximales ou minimales, par exemple le prix le plus élevé ou le plus bas. Pour que la ligne contienne d’autres colonnes, par exemple le nom du fournisseur proposant le prix le plus bas, utilisez [argmin ou argmax](#argmin-argmax).
 
 
-<a name="percentile"></a> <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentile"></a> <a name="percentiles"></a> <a name="percentilew"></a> <a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
-Retourne une estimation de *Expression* du centile spécifié dans le groupe. La précision dépend de la densité de population dans la région du centile.
+Renvoie une estimation de *Expression* du centile spécifié dans le groupe. La précision dépend de la densité de population dans la région du centile.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Similaire à `percentile()`, mais calcule un nombre de valeurs de centile (opération plus rapide que le calcul de chaque centile individuellement).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Centile pondéré. À utiliser pour les données pré-agrégées. `WeightExpression` est un entier qui indique le nombre de lignes d’origine représentées par chaque ligne agrégée.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Similaire à `percentilew()`, mais calcule un nombre de valeurs de centile.
 
 **Exemples**
 
 
-Pour chaque nom de requête, valeur de `duration` supérieure à 95 % du jeu d’échantillon et inférieure à 5 % du jeu d’échantillon :
+Pour chaque nom de requête, la valeur de `duration` qui est supérieure à 95 % de l’échantillon et inférieure à 5 % de l’échantillon :
 
     request 
     | summarize percentile(duration, 95)
@@ -1135,7 +1132,6 @@ Calculer simultanément plusieurs centiles pour différents noms de requête :
 
 Les résultats montrent que pour la requête /Events/Index, 5 % des requêtes reçoivent une réponse en moins de 2,44 s, la moitié en 3,52 s et 5 % en plus de 6,85 s.
 
-
 Calculer plusieurs statistiques :
 
     requests 
@@ -1145,7 +1141,43 @@ Calculer plusieurs statistiques :
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Erreur d’estimation dans les centiles
+#### Centiles pondérés
+
+Utilisez les fonctions de centile pondéré lorsque les données ont été pré-agrégées.
+
+Par exemple, supposons que votre application exécute des milliers d’opérations par seconde et que vous souhaitez connaître leur latence. La solution simple consisterait à générer une demande Application Insights ou un événement personnalisé pour chaque opération. Ceci créerait beaucoup de trafic, même si l’échantillonnage adaptatif permettait de le réduire. Mais vous optez pour une solution bien meilleure : écrire du code dans votre application pour agréger les données avant leur envoi à Application Insights. La synthèse agrégée est envoyée à intervalles réguliers, ce qui réduit le débit de données à quelques points par minute.
+
+Votre code affiche un flux de mesures de latence de l’ordre de la milliseconde. Par exemple :
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+Il compte les mesures dans les emplacements suivants : `{ 10, 20, 30, 40, 50, 100 }`
+
+Périodiquement, il effectue une série d’appels TrackEvent, un pour chaque compartiment, avec des valeurs personnalisées dans chaque appel :
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+Dans Analytics, vous voyez un groupe d’événements comme celui-ci :
+
+`opCount` | `latency`| Signification
+---|---|---
+8 | 10 | = 8 opérations dans l’emplacement de 10 ms
+6 | 20 | = 6 opérations dans l’emplacement de 20 ms
+3 | 30 | = 3 opérations dans l’emplacement de 30 ms
+1 | 40 | = 1 opération dans l’emplacement de 40 ms
+
+Pour obtenir une image précise de la distribution d’origine des latences des événements, nous utilisons `percentilesw` :
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+Les résultats sont les mêmes que si nous avions utilisé `percentiles` sur l’ensemble des mesures d’origine.
+
+> [AZURE.NOTE] Les centiles pondérés ne s’appliquent pas aux [données échantillonnées](app-insights-sampling.md), où chaque ligne échantillonnée représente un échantillon aléatoire de lignes d’origine, plutôt qu’un emplacement. Les fonctions percentile conviennent pour les données échantillonnées.
+
+#### Erreur d’estimation dans les centiles
 
 L’agrégation de centiles fournit une valeur approximative au moyen de [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
 
@@ -1158,24 +1190,24 @@ Voici quelques points importants :
 
      stdev(Expr)
 
-Retourne l’écart type de *Expr* sur le groupe.
+Renvoie l’écart-type de *Expr* sur le groupe.
 
 ### variance
 
     variance(Expr)
 
-Retourne la variance de *Expr* sur le groupe.
+Renvoie la variance de *Expr* sur le groupe.
 
 ### sum
 
     sum(Expr)
 
-Retourne la somme de *Expr* sur le groupe.
+Renvoie la somme de *Expr* sur le groupe.
 
 
 ## Valeurs scalaires
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
+[conversions](#casts) | [comparaisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 Les types pris en charge sont :
 
@@ -1230,7 +1262,7 @@ Vérifier si une chaîne peut être convertie en un type spécifique :
 
 **Retourne**
 
-Une chaîne représentant le type de stockage sous-jacent de son argument unique. Ceci est particulièrement utile avec des valeurs de type `dynamic` : dans ce cas `gettype()` indique comment une valeur est encodée.
+Une chaîne représentant le type de stockage sous-jacent de son argument unique. Ceci est particulièrement utile pour les valeurs de type `dynamic` : dans ce cas, `gettype()` indique comment une valeur est encodée.
 
 **Exemples**
 
@@ -1258,8 +1290,8 @@ Une chaîne représentant le type de stockage sous-jacent de son argument unique
 
 **Arguments**
 
-* *source* : source scalaire à partir de laquelle le hachage est calculé.
-* *mod* : valeur modulo à appliquer au résultat de hachage.
+* *source* : valeur scalaire source à partir de laquelle le hachage est calculé.
+* *mod* : valeur de modulo à appliquer au résultat de hachage.
 
 **Retourne**
 
@@ -1274,7 +1306,7 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### iff
 
-La fonction `iff()` évalue le premier argument (le prédicat) et retourne la valeur du deuxième ou troisième argument selon que le prédicat est `true` ou `false`. Les deuxième et troisième arguments doivent être de même type.
+La fonction `iff()` évalue le premier argument (prédicat) et renvoie la valeur du deuxième ou troisième argument selon que le prédicat est `true` ou `false`. Les deuxième et troisième arguments doivent être de même type.
 
 **Syntaxe**
 
@@ -1284,12 +1316,12 @@ La fonction `iff()` évalue le premier argument (le prédicat) et retourne la va
 **Arguments**
 
 * *predicate :* expression qui correspond à une valeur `boolean`.
-* *ifTrue :* expression qui est évaluée et sa valeur retournée par la fonction si *predicate* a la valeur `true`.
-* *ifFalse :* expression qui est évaluée et sa valeur retournée par la fonction si *predicate* a la valeur `false`.
+* *ifTrue :* expression calculée, dont la valeur est renvoyée par la fonction si *predicate* a la valeur `true`.
+* *ifFalse :* expression calculée, dont la valeur est renvoyée par la fonction si *predicate* a la valeur `false`.
 
 **Retourne**
 
-Cette fonction retourne la valeur de *ifTrue* si *predicate* a la valeur `true`, ou la valeur de *ifFalse* dans le cas contraire.
+Cette fonction renvoie la valeur de *ifTrue* si *predicate* a la valeur `true`, ou la valeur de *ifFalse* dans le cas contraire.
 
 **Exemple**
 
@@ -1394,17 +1426,7 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire |
-| * | Multiplier |
-| / | Diviser |
-| % | Modulo |
-|| 
-|`<` |Inférieur à 
-|`<=`|Inférieur ou égal à 
-|`>` |Supérieur à 
-|`>=`|Supérieur ou égal à 
-|`<>`|Non égal à 
-|`!=`|Non égal à
+| - | Soustraction | | * | Multiplication | | / | Division | | % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Différent de |`!=`|Différent de
 
 
 ### abs
@@ -1436,11 +1458,11 @@ Alias `floor`.
 **Arguments**
 
 * *value :* nombre, date ou intervalle de temps. 
-* *roundTo :* « taille bin ». Nombre, date ou intervalle de temps qui divise *value*. 
+* *roundTo :* « taille du compartiment ». Nombre, date ou intervalle de temps qui divise *value*. 
 
 **Retourne**
 
-Multiple le plus proche de *roundTo* en dessous de *value*.
+Multiple le plus proche de *roundTo*, inférieur à *value*.
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -1470,7 +1492,7 @@ L’expression suivante calcule un histogramme de durées, avec une taille de co
 
 ### floor
 
-Alias pour [`bin()`](#bin).
+Alias de [`bin()`](#bin).
 
 
 ### log
@@ -1480,14 +1502,14 @@ Alias pour [`bin()`](#bin).
     log10(v)  // Logarithm base 10 of v
 
 
-`v` doit être un nombre réel > 0. Sinon, la valeur null est retournée.
+`v` doit être un nombre réel supérieur à 0. Sinon, la valeur null est retournée.
 
 ### rand
 
 Générateur de nombres aléatoires.
 
-* `rand()` : nombre réel compris entre 0,0 et 1,0
-* `rand(n)` : entier compris entre 0 et n-1
+* `rand()` : nombre réel compris entre 0,0 et 1,0.
+* `rand(n)` : entier compris entre 0 et n-1.
 
 
 
@@ -1502,12 +1524,12 @@ Fonction racine carrée.
 
 **Arguments**
 
-* *x :* nombre réel > = 0.
+* *x :* nombre réel supérieur ou égal à 0.
 
 **Retourne**
 
-* Nombre positif tel que `sqrt(x) * sqrt(x) == x`
-* `null` si l’argument est négatif ou s’il ne peut pas être converti en valeur `real`. 
+* Nombre positif tel que `sqrt(x) * sqrt(x) == x`.
+* `null` si l’argument est négatif ou n’est pas convertible en une valeur `real`. 
 
 
 
@@ -1625,7 +1647,7 @@ Extrait une partie spécifiée d’une date sous forme d’entier.
 
 **Arguments**
 
-* `part:String` : {« Année », « Mois », « Jour », « Heure », « Minute », « Seconde », « Milliseconde », « Microsecondes », « Nanosecondes »}
+* `part:String` - {"Year", "Month", "Day", "Hour", "Minute", "Second", "Millisecond", "Microsecond", "Nanosecond"}
 * `datetime`
 
 **Retourne**
@@ -1645,14 +1667,14 @@ Numéro ordinal du jour du mois.
 
 **Arguments**
 
-* `a_date` : `datetime`.
+* `a_date`: `datetime`.
 
 
 ### dayofweek
 
     dayofweek(datetime("2015-12-14")) == 1d  // Monday
 
-Nombre entier de jours écoulés depuis le précédent dimanche, en tant que `timespan`.
+Nombre (entier) de jours écoulés depuis le dimanche précédent, en tant que `timespan`.
 
 **Syntaxe**
 
@@ -1664,7 +1686,7 @@ Nombre entier de jours écoulés depuis le précédent dimanche, en tant que `ti
 
 **Retourne**
 
-`timespan` depuis minuit au début du précédent dimanche, arrondi au nombre entier inférieur de jours.
+`timespan` depuis minuit au début du dimanche précédent, arrondi au nombre entier inférieur de jours.
 
 **Exemples**
 
@@ -1736,7 +1758,7 @@ L’heure UTC actuelle, avec un décalage éventuel selon un intervalle de temps
 
 **Retourne**
 
-Heure UTC actuelle en tant que `datetime`.
+Heure UTC actuelle, en tant que `datetime`.
 
     now() + offset
 
@@ -1806,7 +1828,7 @@ Les règles sont les mêmes que dans JavaScript.
 
 Les chaînes peuvent être placées entre guillemets simples ou doubles.
 
-La barre oblique inverse (``) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets englobants.
+La barre oblique inverse (``) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -1842,7 +1864,7 @@ Opérateur|Description|Respecte la casse|Exemple vrai
 `matches regex`|Le terme de gauche contient une correspondance du terme de droite|Oui| `"Fabrikam" matches regex "b.*k"`
 
 
-Utilisez `has` ou `in` si vous testez la présence d’un terme lexical entier, c’est-à-dire un symbole ou un mot alphanumérique délimité par des caractères non alphanumériques ou le début ou la fin de champ. `has` effectue la recherche plus rapidement que `contains` ou `startswith`. La première de ces requêtes s’exécute plus rapidement :
+Utilisez `has` ou `in` si vous testez la présence d’un terme lexical complet, c’est-à-dire un symbole ou un mot alphanumérique délimité par des caractères non alphanumériques ou le début ou la fin d’un champ. `has` effectue la recherche plus rapidement que `contains` ou `startswith`. La première de ces requêtes s’exécute plus rapidement :
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -1864,9 +1886,9 @@ Compte les occurrences d’une sous-chaîne dans une chaîne. Les correspondance
 
 **Arguments**
 
-* *text :* chaîne.
-* *search :* chaîne simple ou expression régulière à faire correspondre au *text*.
-* *kind :* `"normal"|"regex"`. Valeur par défaut : `normal`. 
+* *text :* chaîne de caractères.
+* *search :* chaîne simple ou expression régulière à rechercher dans *text*.
+* *kind :* `"normal"|"regex"` (valeur par défaut : `normal`). 
 
 **Retourne**
 
@@ -1899,19 +1921,19 @@ Obtient une correspondance pour une [expression régulière](#regular-expression
 **Arguments**
 
 * *regex :* [expression régulière](#regular-expressions).
-* *captureGroup :* constante `int` positive qui indique le groupe de capture à extraire. Les valeurs sont 0 pour la correspondance entière, 1 pour la valeur mise en correspondance par la première '('parenthèse')' dans l’expression régulière, 2 ou plus pour les parenthèses suivantes.
+* *captureGroup :* constante `int` positive identifiant le groupe de capture à extraire. Les valeurs sont 0 pour la correspondance entière, 1 pour la valeur mise en correspondance par la première '('parenthèse')' dans l’expression régulière, 2 ou plus pour les parenthèses suivantes.
 * *text :* `string` à rechercher.
 * *typeLiteral :* littéral de type facultatif (par exemple, `typeof(long)`). Si elle est fournie, la sous-chaîne extraite est convertie dans ce type. 
 
 **Retourne**
 
-Si *regex* trouve une correspondance dans *text* : sous-chaîne mise en correspondance avec le groupe de capture indiqué *captureGroup*, éventuellement convertie en *typeLiteral*.
+Si *regex* trouve une correspondance dans *text* : sous-chaîne correspondant au *captureGroup* indiqué, éventuellement convertie en *typeLiteral*.
 
-Si aucune correspondance n’est trouvée, ou si la conversion de type échoue : `null`.
+Si aucune correspondance n’est trouvée ou si la conversion de type échoue : `null`.
 
 **Exemples**
 
-Une définition de `Duration` est recherchée dans l’exemple de chaîne `Trace`. La correspondance est convertie en `real`, qui est ensuite multiplié par une constante de temps (`1s`) pour que `Duration` soit de type `timespan`. Dans cet exemple, elle est égale à 123,45 secondes :
+Une définition de `Duration` est recherchée dans l’exemple de chaîne `Trace`. La correspondance est convertie en `real`, qui est ensuite multipliée par une constante de temps (`1s`) pour que `Duration` soit de type `timespan`. Dans cet exemple, elle est égale à 123,45 secondes :
 
 ```AIQL
 ...
@@ -1974,9 +1996,9 @@ Remplace toutes les correspondances d’expression régulière par une autre cha
 
 **Arguments**
 
-* *regex :* [expression régulière](https://github.com/google/re2/wiki/Syntax) pour rechercher le *text*. Elle peut contenir des groupes de capture entre '('parenthèses')'. 
+* *regex :* [expression régulière](https://github.com/google/re2/wiki/Syntax) utilisée pour rechercher *text*. Elle peut contenir des groupes de capture entre '('parenthèses')'. 
 * *rewrite :* expression régulière de remplacement pour toute correspondance trouvée par *matchingRegex*. Utilisez `\0` pour faire référence à la correspondance complète, `\1` pour le premier groupe de capture, `\2` et ainsi de suite pour les groupes de capture suivants.
-* *text :* chaîne.
+* *text :* chaîne de caractères.
 
 **Retourne**
 
@@ -2017,8 +2039,8 @@ Fractionne une chaîne donnée en fonction d’un délimiteur donné et retourne
 
 **Arguments**
 
-* *source* : chaîne source qui sera fractionnée en fonction du délimiteur donné.
-* *delimiter* : délimiteur qui sera utilisé pour fractionner la chaîne source.
+* *source* : chaîne source à fractionner en fonction du délimiteur donné.
+* *delimiter* : délimiteur utilisé pour fractionner la chaîne source.
 * *requestedIndex* : index de base zéro facultatif `int`. S’il est fourni, le tableau de chaînes retourné contient la sous-chaîne demandée si elle existe. 
 
 **Retourne**
@@ -2062,9 +2084,9 @@ Extrait une sous-chaîne d’une chaîne source donnée à partir d’un index d
 
 **Arguments**
 
-* *source :* chaîne source dont la sous-chaîne est extraite.
-* *startingIndex :* position du caractère de départ de base zéro de la sous-chaîne demandée.
-* *length :* paramètre facultatif qui peut être utilisé pour spécifier le nombre de caractères demandé dans la sous-chaîne. 
+* *source :* chaîne source dont la sous-chaîne sera extraite.
+* *startingIndex :* position du caractère de départ (base zéro) de la sous-chaîne demandée.
+* *length :* paramètre facultatif qui permet de spécifier le nombre de caractères demandés dans la sous-chaîne. 
 
 **Retourne**
 
@@ -2099,7 +2121,7 @@ Convertit une chaîne en majuscules.
 
 ## Tableaux, objets et dynamiques
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[littéraux](#dynamic-literals) | [conversion](#casting-dynamic-objects) | [opérateurs](#operators) | [clauses let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Voici le résultat d’une requête sur une exception d’Application Insights. La valeur de `details` est un tableau.
@@ -2113,9 +2135,9 @@ Voici le résultat d’une requête sur une exception d’Application Insights. 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Mais utilisez `arraylength` et d’autres fonctions Analytics (pas « .length » !)
+* Mais utilisez `arraylength` et d’autres fonctions Analytics (pas « .length » !).
 
-**Conversion** Dans certains cas, il est nécessaire de convertir un élément que vous extrayez à partir d’un objet, car son type peut varier. Par exemple, `summarize...to` a besoin d’un type spécifique :
+**Conversion** Parfois, il est nécessaire de convertir un élément que vous extrayez d’un objet, car son type pourrait varier. Par exemple, `summarize...to` a besoin d’un type spécifique :
 
     exceptions 
     | summarize count() 
@@ -2125,12 +2147,12 @@ Voici le résultat d’une requête sur une exception d’Application Insights. 
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Littéraux** Pour créer un tableau explicite ou un objet conteneur de propriétés, écrivez-le en tant que chaîne JSON et effectuez le transtypage :
+**Littéraux** Pour créer un tableau explicite ou un objet conteneur de propriétés, écrivez-le en tant que chaîne JSON et effectuez la conversion :
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
 
-**mvexpand :** pour décomposer les propriétés d’un objet dans des lignes distinctes, utilisez mvexpand :
+**mvexpand :** pour décomposer les propriétés d’un objet en plusieurs lignes, utilisez mvexpand :
 
     exceptions | take 1 
     | mvexpand details[0].parsedStack[0]
@@ -2183,12 +2205,12 @@ Résultat :
 
 Pour créer un littéral dynamique, utilisez `parsejson` (alias `todynamic`) avec un argument de chaîne JSON :
 
-* `parsejson('[43, 21, 65]')` : tableau de nombres
+* `parsejson('[43, 21, 65]')` : tableau de nombres.
 * `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
-* `parsejson('21')` : valeur unique de type dynamique qui contient un nombre
-* `parsejson('"21"')` : valeur unique de type dynamique qui contient une chaîne
+* `parsejson('21')` : valeur unique de type dynamique qui contient un nombre.
+* `parsejson('"21"')` : valeur unique de type dynamique qui contient une chaîne.
 
-Notez que, contrairement à JavaScript, JSON impose l’utilisation de guillemets doubles (`"`) autour des chaînes. Ainsi, il est généralement plus facile de placer les littéraux de chaîne encodés JSON à l’aide de guillemets simples (`'`).
+Notez que, contrairement à JavaScript, JSON impose l’utilisation de guillemets (`"`) autour des chaînes. Ainsi, il est généralement plus facile de placer les littéraux de chaîne en langage JSON entre des apostrophes (`'`).
 
 Cet exemple crée une valeur dynamique, puis utilise ses champs :
 
@@ -2204,8 +2226,8 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| True s’il existe un élément de *array* qui == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *value* `!in` *array*| True s’il n’existe aucun élément de *array* qui == *value*
+| *value* `in` *array*| Vrai s’il existe un élément de *array* qui est égal à *value*<br/>`where City in ('London', 'Paris', 'Rome')`.
+| *value* `!in` *array*| Vrai s’il n’existe aucun élément de *array* qui est égal à *value*.
 |[`arraylength(`array`)`](#arraylength)| Null si ce n’est pas un tableau
 |[`extractjson(`path,object`)`](#extractjson)|Utilise le chemin pour accéder à l’objet.
 |[`parsejson(`source`)`](#parsejson)| Convertit une chaîne JSON en un objet dynamique.
@@ -2218,7 +2240,7 @@ T
 ### Objets dynamiques dans les clauses let
 
 
-Les [clauses let](#let-clause) stockent des valeurs dynamiques sous forme de chaînes, pour que ces deux clauses soient équivalentes, et elles nécessitent toutes deux `parsejson` (ou `todynamic`) avant d’être utilisées :
+Les [clauses let](#let-clause) stockent des valeurs dynamiques sous forme de chaînes, pour que ces deux clauses soient équivalentes. De plus, toutes deux doivent avoir `parsejson` (ou `todynamic`) pour être utilisées :
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2291,9 +2313,9 @@ La notation entre [crochets] et la notation sous forme de points sont équivalen
 
 **Conseils sur les performances**
 
-* Appliquez les clauses where avant d’utiliser `extractjson()`
+* Appliquez les clauses where avant d’utiliser `extractjson()`.
 * Utilisez plutôt une correspondance d’expression régulière avec [extract](#extract). L’exécution peut être beaucoup plus rapide, et elle est efficace si le JSON est généré à partir d’un modèle.
-* Utilisez `parsejson()` si vous avez besoin d’extraire plusieurs valeurs à partir du JSON.
+* Utilisez `parsejson()` si vous avez besoin d’extraire plusieurs valeurs de JSON.
 * Envisagez d’analyser le JSON lors de l’ingestion en déclarant le type de la colonne comme étant dynamique.
 
 ### Expressions de chemin JSON
@@ -2312,7 +2334,7 @@ La notation entre [crochets] et la notation sous forme de points sont équivalen
 
 ### parsejson
 
-Interprète une `string` comme une [valeur JSON](http://json.org/) et retourne la valeur en tant que `dynamic`. Son efficacité est supérieure à l’utilisation de `extractjson()` quand vous devez extraire plusieurs éléments d’un objet composé JSON.
+Interprète une `string` comme une [valeur JSON](http://json.org/) et renvoie la valeur en tant que `dynamic`. Son efficacité est supérieure à celle de `extractjson()` si vous devez extraire plusieurs éléments d’un objet composé JSON.
 
 **Syntaxe**
 
@@ -2328,13 +2350,13 @@ Objet de type `dynamic` spécifié par *json*.
 
 **Exemple**
 
-Dans l’exemple suivant, quand `context_custom_metrics` est une `string`, le résultat ressemble à ceci :
+Dans l’exemple suivant, quand `context_custom_metrics` est un élément `string`, le résultat ressemble à ceci :
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-Ensuite, le fragment suivant récupère la valeur de l’emplacement `duration` dans l’objet et à partir de cette valeur, il récupère deux emplacements, `duration.value` et `duration.min` (`118.0` et `110.0`, respectivement).
+Le fragment suivant récupère la valeur de l’emplacement `duration` dans l’objet et, grâce à cette valeur, récupère deux emplacements, `duration.value` et `duration.min` (`118.0` et `110.0`, respectivement).
 
 ```AIQL
 T
@@ -2355,13 +2377,13 @@ La fonction `range()` (à ne pas confondre avec l’opérateur `range`) génère
 
 **Arguments**
 
-* *start :* valeur du premier élément dans le tableau résultant. 
-* *stop :* valeur du dernier élément dans le tableau résultant, ou valeur minimale qui est supérieure au dernier élément du tableau obtenu et dans un multiple entier de *step* à partir de *start*.
+* *start :* valeur du premier élément dans le tableau obtenu. 
+* *stop :* valeur du dernier élément dans le tableau obtenu, ou valeur minimale supérieure au dernier élément du tableau obtenu et correspondant à un multiple entier de *step* à partir de *start*.
 * *step :* différence entre deux éléments consécutifs du tableau.
 
 **Exemples**
 
-L’exemple suivant retourne `[1, 4, 7]` :
+L’exemple suivant renvoie `[1, 4, 7]` :
 
 ```AIQL
 range(1, 8, 3)
@@ -2426,4 +2448,4 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

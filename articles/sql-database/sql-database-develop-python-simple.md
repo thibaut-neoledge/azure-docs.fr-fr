@@ -47,4 +47,8 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
-<!---HONumber=AcomDC_0518_2016-->
+## Ressources supplémentaires
+
+Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

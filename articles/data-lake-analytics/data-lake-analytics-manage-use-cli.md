@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gestion de Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI)
@@ -173,7 +173,7 @@ Le catalogue U-SQL est utilisé pour structurer les données et le code afin que
 	#List tables
 	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 	
-Les types incluent : database, schema, assembly, externaldatasource, table, tablevaluedfunction ou tablestatistics.
+Les types incluent : database, schema, assembly, external data source, table, table valued function ou table statistics.
 
 ###Créer la clé secrète du catalogue
 
@@ -191,7 +191,7 @@ Les types incluent : database, schema, assembly, externaldatasource, table, tab
 <!-- ################################ -->
 ## Utilisez des groupes ARM
 
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d’informations, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md).
 
 Un service Data Lake Analytics peut inclure les composants suivants :
 
@@ -214,4 +214,4 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 - [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 - [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="06/09/2016"
     ms.author="awills"/>
 
 # Annotations de version dans Application Insights
@@ -39,8 +39,8 @@ Vous devez procéder ainsi une seule fois pour votre compte Visual Studio Team S
 Vous devez effectuer cette opération pour chaque modèle de version dans lequel vous souhaitez créer des annotations de version.
 
 
-1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. (Ou [créez-en une maintenant](app-insights-overview.md) si vous ne l’avez pas encore fait.)
-2. Ouvrez **Paramètres**, **Accès API** et copiez l’**ID Application Insights**.
+1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. (Ou [créez-en une maintenant](app-insights-overview.md) si vous ne l’avez pas encore fait.)
+2. Ouvrez **Paramètres**, **Accès API** et copiez l’**ID Application Insights**.
 
     ![Dans portal.azure.com, ouvrez votre ressource Application Insights, puis choisissez Paramètres. Ouvrir Accès API. Copier l’ID de l’application](./media/app-insights-annotations/20.png)
 
@@ -48,7 +48,7 @@ Vous devez effectuer cette opération pour chaque modèle de version dans lequel
 
     Ajoutez une tâche, sélectionnez la tâche d’annotation de version d’Application Insights à partir du menu.
 
-    Collez l’**ID de l’application** que vous avez copié à partir du panneau Accès API.
+    Collez l’**ID de l’application** que vous avez copié à partir du panneau Accès API.
 
     ![Dans Visual Studio Team Services, ouvrez Version, sélectionnez une définition de version, puis choisissez Modifier. Cliquez sur Ajouter une tâche, puis sélectionnez la tâche Annotation de version Application Insights. Collez l’ID Application Insights.](./media/app-insights-annotations/30.png)
 
@@ -75,7 +75,7 @@ Vous pouvez également créer des annotations à partir du processus de votre ch
 
 Obtenez le [script Powershell à partir de GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
 
-Utilisez-le comme suit :
+Utilisez-le comme suit :
 
     .\CreateReleaseAnnotation.ps1 `
       -applicationId "<applicationId>" `
@@ -85,7 +85,7 @@ Utilisez-le comme suit :
           "ReleaseDescription"="a description";
           "TriggerBy"="My Name" }
 
-Obtenez l’`applicationId` et une `apiKey` à partir de votre ressource Application Insights : ouvrez Paramètres, Accès API et copiez l’ID de l’application. Cliquez ensuite sur Créer une clé d’API, puis copiez la clé.
+Obtenez l’`applicationId` et une `apiKey` à partir de votre ressource Application Insights : ouvrez Paramètres, Accès API et copiez l’ID de l’application. Cliquez ensuite sur Créer une clé d’API, puis copiez la clé.
 
 ## Annotations de version
 
@@ -96,4 +96,4 @@ Cliquez sur un marqueur d’annotation pour ouvrir les détails sur la version, 
 
 ![Cliquez sur un marqueur d’annotation de version.](./media/app-insights-annotations/60.png)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

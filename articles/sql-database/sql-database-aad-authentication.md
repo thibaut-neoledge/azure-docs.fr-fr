@@ -263,7 +263,7 @@ Utilisez cette méthode lors de la connexion avec un nom principal Azure AD à l
 Utilisez cette méthode si vous êtes connecté à Windows à l’aide des informations d’identification d’un domaine qui n’est pas fédéré avec Azure, ou lorsque vous utilisez l’authentification Azure AD à l’aide d’Azure AD sur le domaine initial ou le domaine client.
 
 1. Démarrez Management Studio ou Data Tools et dans la boîte de dialogue **Se connecter au serveur** (ou **Se connecter au moteur de base de données**), dans la zone **Authentification**, sélectionnez **Authentification par mot de passe Active Directory**.
-2. Dans la zone **Nom d’utilisateur** saisissez votre nom d’utilisateur Azure Active Directory au format **username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
+2. Dans la zone **Nom d’utilisateur** saisissez votre nom d’utilisateur Azure Active Directory au format ****username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
 3. Dans la zone **Mot de passe**, saisissez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine fédéré. ![Sélectionner l’authentification par mot de passe AD][12]
 
 4. Cliquez sur le bouton **Options** puis, sur la page **Propriétés de connexion**, dans la zone **Se connecter à la base de données**, saisissez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter.
@@ -367,4 +367,4 @@ Pour plus d’informations, consultez le [Blog de sécurité de SQL Server](http
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="nadavhelfman"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -72,4 +72,4 @@ Le nouveau point de terminaison IP de la base de données dépend de la région 
 | Centre du Canada | 13\.88.248.106 |
 | Est du Canada | 40\.86.227.82 |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

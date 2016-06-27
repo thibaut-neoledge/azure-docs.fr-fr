@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Restauration d’une base de données dans Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
-   description="Tâches PowerShell permettant de restaurer une base de données active, supprimée ou inaccessible dans Azure SQL Data Warehouse."
+   pageTitle="Restauration d’un Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   description="Tâches PowerShell permettant de restaurer un Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,38 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Sauvegarde et restauration d’une base de données dans Azure SQL Data Warehouse (PowerShell)
+# Restauration d’un Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-data-warehouse-overview-manage-database-restore.md)
-- [Portail](sql-data-warehouse-manage-database-restore-portal.md)
-- [PowerShell](sql-data-warehouse-manage-database-restore-powershell.md)
-- [REST](sql-data-warehouse-manage-database-restore-rest-api.md)
+- [Vue d'ensemble][]
+- [Portail][]
+- [PowerShell][]
+- [REST][]
 
-Tâches PowerShell permettant de restaurer une base de données active, supprimée ou inaccessible dans SQL Data Warehouse.
-
-Tâches abordées dans cette rubrique :
-
-- restauration d’une base de données active ;
-- restauration d’une base de données supprimée.
-- restauration d’une base de données inaccessible à partir d’une autre région géographique Azure.
-
-[AZURE.INCLUDE [Stratégie de rétention des sauvegardes SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
-
+Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse à l’aide de PowerShell.
 
 ## Avant de commencer
 
 ### Vérifiez la capacité DTU de votre base de données SQL. 
-SQL Data Warehouse effectue les restaurations vers une base de données résidant sur votre serveur SQL logique ; il est donc important de veiller à ce que le serveur SQL vers lequel vous exécutez la restauration dispose d’une capacité DTU suffisante pour prendre en charge la nouvelle base de données. Consultez ce blog pour plus d’informations sur [l’affichage et l’augmentation du quota DTU][].
+
+Chaque SQL Data Warehouse est hébergé par un serveur SQL logique. Ce serveur logique a une limite de capacité mesurée en DTU. Avant de pouvoir restaurer un SQL Data Warehouse, il est important de s’assurer que le serveur SQL logique qui héberge votre base de données a une capacité de DTU suffisante pour la base de données en cours de restauration. Consultez ce blog pour plus d’informations sur [l’affichage et l’augmentation du quota de DTU][].
 
 ### Installer PowerShell
 
 Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
 
-## restauration d’une base de données active ;
+## Restauration d’une base de données active ou en pause
 
 Pour restaurer une base de données à partir d’un instantané, utilisez l’applet de commande PowerShell [Restore-AzureRmSqlDatabase][].
 
@@ -88,8 +80,6 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Pour le serveur nommé foo.database.windows.net, vous devez utiliser « foo » comme nom du serveur dans les applets de commande PowerShell ci-dessus.
-
 Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
 
 ## restauration d’une base de données supprimée.
@@ -126,9 +116,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Pour le serveur nommé foo.database.windows.net, vous devez utiliser « foo » comme nom du serveur dans les applets de commande PowerShell ci-dessus.
-
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
+Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
 
 ## Restauration à partir d’une région géographique Azure
 
@@ -159,6 +147,7 @@ $GeoRestoredDatabase.status
 ```
 
 ### Configurer votre base de données après avoir effectué une géo-restauration
+
 Voici une liste de contrôle pour vous aider à préparer votre base de données de production récupérée.
 
 1. **Mettre à jour les chaînes de connexion** : vérifiez que les chaînes de connexion de vos outils clients pointent vers la base de données qui vient d’être récupérée.
@@ -170,28 +159,28 @@ La base de données récupérée sera compatible avec le chiffrement transparent
 
 
 ## Étapes suivantes
-Pour plus d’informations, consultez les articles [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database][] et [Gestion de bases de données dans Azure SQL Data Warehouse][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database]: sql-database-business-continuity.md
+[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: sql-database-business-continuity.md
+[Finalize a recovered database]: sql-database-recovered-finalize.md
 [Finaliser une base de données récupérée]: sql-database-recovered-finalize.md
 [Installation et configuration d’Azure PowerShell]: powershell-install-configure.md
-[Gestion de bases de données dans Azure SQL Data Warehouse]: sql-data-warehouse-overview-manage.md
+[Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
+[Portail]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
-[Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
-[Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
-[List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Blog references-->
-[l’affichage et l’augmentation du quota DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
+[l’affichage et l’augmentation du quota de DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

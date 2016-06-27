@@ -30,7 +30,7 @@ Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDataba
 
 ## Configuration requise
 
-1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://ms.portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
+1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 
 2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, assurez-vous que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé**. Cliquez sur l’icône « Enregistrer ».
 
@@ -90,7 +90,7 @@ Exécutez la commande suivante à partir de la même fenêtre que celle où make
 2. Dans l’**Assistant Importation de certificat**, sélectionnez **Utilisateur actuel** et cliquez sur **Suivant**.
 3. Vérifiez le chemin d’accès au fichier et cliquez sur **Suivant**.
 4. Tapez le mot de passe, laissez l’option **Inclure toutes les propriétés étendues** activée, puis cliquez sur **Suivant**.
-5. Laissez l’option **Sélectionner automatiquement le magasin de certificats…** activée, puis cliquez sur **Suivant**.
+5. Laissez l’option ** Sélectionner automatiquement le magasin de certificats…** activée, puis cliquez sur **Suivant**.
 6. Cliquez sur **Terminer** et sur **OK**.
 
 ### Téléchargement du fichier PFX dans le service cloud
@@ -151,14 +151,14 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Assurez-vous que le nom du serveur ne commence pas par **https://**.
+* Assurez-vous que le nom du serveur ne commence pas par ****https://**.
 * Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez https://manage.windowsazure.com, cliquez sur « Bases de données SQL » à gauche, puis sur « Serveurs » en haut, et sélectionnez votre serveur. Cliquez sur **Configurer** en haut et assurez-vous que le paramètre **Services Azure** est défini sur « Oui ». (voir la section « Configuration requise » en haut de cet article).
 
 ## Tester le déploiement du service
 
 ### Se connecter avec un navigateur Web
 
-Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail Azure Classic en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
+Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail Azure Classic en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez ****http://** par ****https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
 
 ### Effectuer des tests avec des scripts PowerShell
 
@@ -166,11 +166,11 @@ Le déploiement et votre environnement peuvent être testés en exécutant les e
 
 Les fichiers de script inclus sont les suivants :
 
-1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
-2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
-3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
-4. **ShardManagement.psm1** : script d’assistance qui encapsule l’API ShardManagement
-5. **SqlDatabaseHelpers.psm1** : script d’assistance pour la création et la gestion des bases de données SQL
+1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
+2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
+3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
+4. **ShardManagement.psm1** : script d’assistance qui encapsule l’API ShardManagement
+5. **SqlDatabaseHelpers.psm1** : script d’assistance pour la création et la gestion des bases de données SQL
 
 <table style="width:100%">
   <tr>
@@ -339,4 +339,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

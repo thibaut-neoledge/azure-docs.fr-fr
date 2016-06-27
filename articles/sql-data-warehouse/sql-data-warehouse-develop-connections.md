@@ -155,10 +155,10 @@ Une fois connecté, vous pouvez commencer à concevoir vos tables. Pour plus d�
 <!--Azure.com references-->
 [se connecter et envoyer des requêtes]: ./sql-data-warehouse-get-started-connect.md
 [conception de tables]: ./sql-data-warehouse-develop-table-design.md
-[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
+[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Étape 4 : formation et évaluation des modèles d’analyse prédictive | Microsoft Azure"
-	description="Étape 4 de la procédure pas à pas du développement d’une solution prédictive : formation, notation et évaluation des multiples modèles dans Azure Machine Learning Studio."
+	pageTitle="Étape 4 : formation et évaluation des modèles d’analyse prédictive | Microsoft Azure"
+	description="Étape 4 de la procédure pas à pas du développement d’une solution prédictive : formation, notation et évaluation des multiples modèles dans Azure Machine Learning Studio."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
-# Étape 4 de la procédure pas à pas : formation et évaluation des modèles d’analyse prédictive
+# Étape 4 de la procédure pas à pas : formation et évaluation des modèles d’analyse prédictive
 
 Voici la quatrième étape de la procédure pas à pas [Développement d’une solution d’analyse prédictive avec Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
@@ -37,48 +37,48 @@ Dans l’expérience développée au fil de cette procédure pas à pas, nous al
 
 Nous pouvons choisir parmi de nombreux modèles. Pour connaître les modèles disponibles, développez le nœud **Machine Learning** dans la palette des modules, puis développez **Initialiser le modèle** et les nœuds inférieurs. Pour cette expérience, nous allons sélectionner les modules Machines à vecteurs de support (Support Vector Machine, SVM) et Arbres de décision optimisés à deux classes.
 
-> [AZURE.TIP] Pour déterminer facilement l’algorithme Machine Learning le mieux adapté au problème à résoudre, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+> [AZURE.TIP] Pour déterminer facilement l’algorithme Machine Learning le mieux adapté au problème à résoudre, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 ##Formation des modèles
-Configurons d'abord le modèle Arbre de décision optimisé :
+Configurons d'abord le modèle Arbre de décision optimisé :
 
 1.	Recherchez le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] dans la palette des modules et faites-le glisser sur le canevas.
-2.	Recherchez le module [Former le modèle][train-model], faites-le glisser sur le canevas et connectez la sortie du module Arbre de décision optimisé vers le port d'entrée de gauche (« Modèle non formé ») du module [Former le modèle][train-model].
+2.	Recherchez le module [Former le modèle][train-model], faites-le glisser sur le canevas et connectez la sortie du module Arbre de décision optimisé vers le port d'entrée de gauche (« Modèle non formé ») du module [Former le modèle][train-model].
     
     Le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] initialise le modèle générique, tandis que le module [Former le modèle][train-model] utilise les données d’apprentissage pour former le modèle.
      
-3.	Connectez la sortie gauche (« Jeu de données du résultat ») du module [Exécuter le script R][execute-r-script] de gauche au port d'entrée à droite (« Jeu de données ») du module [Former le modèle][train-model].
+3.	Connectez la sortie gauche (« Jeu de données du résultat ») du module [Exécuter le script R][execute-r-script] de gauche au port d'entrée à droite (« Jeu de données ») du module [Former le modèle][train-model].
 
-	> [AZURE.TIP] Nous n’avons pas besoin de deux des entrées et de l’une des sorties du module [Exécuter le script R][execute-r-script] pour cette expérience ; nous les laisserons donc sans liaison. Cela est courant pour certains modules.
+	> [AZURE.TIP] Nous n’avons pas besoin de deux des entrées et de l’une des sorties du module [Exécuter le script R][execute-r-script] pour cette expérience ; nous les laisserons donc sans liaison. Cela est courant pour certains modules.
 
-4.	Sélectionnez le module [Former le modèle][train-model]. Dans le panneau **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **Noms des colonnes** dans la deuxième et entrez « Risque de crédit » dans le champ textuel (vous pouvez également sélectionner **Index des colonnes** et entrer « 21 »). Cela identifie la colonne 21, qui correspond à la valeur de risque du crédit, comme colonne de prédiction du modèle.
+4.	Sélectionnez le module [Former le modèle][train-model]. Dans le panneau **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **Noms des colonnes** dans la deuxième et entrez « Risque de crédit » dans le champ textuel (vous pouvez également sélectionner **Index des colonnes** et entrer « 21 »). Cela identifie la colonne 21, qui correspond à la valeur de risque du crédit, comme colonne de prédiction du modèle.
 
 
-Cette partie de l'expérience ressemble alors à ce qui suit :
+Cette partie de l'expérience ressemble alors à ce qui suit :
 
 ![Training a model][1]
 
-Nous allons ensuite configurer le modèle SVM.
+Nous allons ensuite configurer le modèle SVM.
 
-Tout d’abord, une petite explication sur SVM. Les arbres de décision optimisés fonctionnent bien avec tout type de caractéristique. Toutefois, le module SVM générant un classifieur linéaire, le modèle qu'il génère obtient la meilleure erreur de test quand toutes les caractéristiques numériques sont à la même échelle. Ainsi, pour convertir toutes les caractéristiques numériques à la même échelle, nous allons utiliser une transformation « Tanh » (avec le module [Normaliser les données][normalize-data]) qui transforme les nombres en la plage [0,1] \(les caractéristiques de chaîne étant converties par le module SVM en caractéristiques de catégorie, puis en caractéristiques binaires 0/1, nous n’avons pas besoin de les transformer manuellement). De même, nous ne voulons pas transformer la colonne Risque du crédit (colonne 21). Elle est numérique et contient la valeur que nous apprenons à prédire au modèle ; nous devons donc la laisser seule.
+Tout d’abord, une petite explication sur SVM. Les arbres de décision optimisés fonctionnent bien avec tout type de caractéristique. Toutefois, le module SVM générant un classifieur linéaire, le modèle qu'il génère obtient la meilleure erreur de test quand toutes les caractéristiques numériques sont à la même échelle. Ainsi, pour convertir toutes les caractéristiques numériques à la même échelle, nous allons utiliser une transformation « Tanh » (avec le module [Normaliser les données][normalize-data]) qui transforme les nombres en la plage [0,1] (les caractéristiques de chaîne étant converties par le module SVM en caractéristiques de catégorie, puis en caractéristiques binaires 0/1, nous n’avons pas besoin de les transformer manuellement). De même, nous ne voulons pas transformer la colonne Risque du crédit (colonne 21). Elle est numérique et contient la valeur que nous apprenons à prédire au modèle ; nous devons donc la laisser seule.
 
-Pour configurer le modèle SVM, procédez comme suit :
+Pour configurer le modèle SVM, procédez comme suit :
 
 1.	Recherchez le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine] dans la palette des modules et faites-le glisser sur le canevas.
 2.	Cliquez avec le bouton droit sur le module [Former le modèle][train-model], sélectionnez **Copier**, puis cliquez avec le bouton droit sur le canevas et sélectionnez **Coller**. Notez que la copie du module [Former le modèle][train-model] comporte la même sélection de colonnes que l'original.
-3.	Connectez la sortie du module SVM au port d'entrée gauche (« Modèle non formé ») du module [Former le modèle][train-model].
+3.	Connectez la sortie du module SVM au port d'entrée gauche (« Modèle non formé ») du module [Former le modèle][train-model].
 4.	Trouvez le module [Normaliser les données][normalize-data] et faites-le glisser vers le canevas.
-5.	Connectez l’entrée de ce module à la sortie de gauche du module [Exécuter le script R][execute-r-script] de gauche (notez que le port de sortie d’un module peut être connecté à plusieurs autres modules).
-6.	Connectez le port de sortie de gauche (« Jeu de données transformé ») du module [Normaliser les données][normalize-data] au port d’entrée de droite (« Jeu de données ») du module [Former le modèle][train-model].
+5.	Connectez l’entrée de ce module à la sortie de gauche du module [Exécuter le script R][execute-r-script] de gauche (notez que le port de sortie d’un module peut être connecté à plusieurs autres modules).
+6.	Connectez le port de sortie de gauche (« Jeu de données transformé ») du module [Normaliser les données][normalize-data] au port d’entrée de droite (« Jeu de données ») du module [Former le modèle][train-model].
 7.	Dans le volet **Propriétés** du module [Normaliser les données][normalize-data], sélectionnez **Tanh** comme **Méthode de transformation**.
-8.	Cliquez sur **Lancer le sélecteur de colonne**, sélectionnez « Aucune colonne » pour **Commencer par**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **type de colonne** dans la deuxième et sélectionnez **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) seront transformées.
-9.	Cliquez sur le signe plus (+) à droite de cette ligne : cette opération crée une ligne de listes déroulantes. Sélectionnez **Exclure** dans la première liste déroulante, sélectionnez **Noms des colonnes** dans la seconde et entrez « Risque de crédit » dans le champ textuel (ou sélectionnez **Index des colonnes** et entrez « 21 »). Cette opération indique que la colonne Risque de crédit doit être ignorée (en effet, cette colonne étant numérique, elle serait transformée dans le cas contraire).
+8.	Cliquez sur **Lancer le sélecteur de colonne**, sélectionnez « Aucune colonne » pour **Commencer par**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **type de colonne** dans la deuxième et sélectionnez **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) seront transformées.
+9.	Cliquez sur le signe plus (+) à droite de cette ligne : cette opération crée une ligne de listes déroulantes. Sélectionnez **Exclure** dans la première liste déroulante, sélectionnez **Noms des colonnes** dans la seconde et entrez « Risque de crédit » dans le champ textuel (ou sélectionnez **Index des colonnes** et entrez « 21 »). Cette opération indique que la colonne Risque de crédit doit être ignorée (en effet, cette colonne étant numérique, elle serait transformée dans le cas contraire).
 10.	Cliquez sur **OK**.  
 
 
-Le module [Normaliser les données][normalize-data] est maintenant configuré pour effectuer une transformation Tanh sur toutes les colonnes numériques à l’exception de la colonne Risque de crédit.
+Le module [Normaliser les données][normalize-data] est maintenant configuré pour effectuer une transformation Tanh sur toutes les colonnes numériques à l’exception de la colonne Risque de crédit.
 
-Cette partie de l'expérience ressemble alors à ceci :
+Cette partie de l'expérience ressemble alors à ceci :
 
 ![Training the second model][2]
 
@@ -87,13 +87,13 @@ Nous allons utiliser les données de test séparées par le module [Fractionner 
 
 1.	Recherchez le module [Noter le modèle][score-model] et faites-le glisser sur le canevas.
 2.	Connectez le port d'entrée de gauche de ce module au modèle Arbre de décision optimisé (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree]).
-3.	Connectez le port d’entrée de droite du module [Noter le modèle][score-model] à la sortie de gauche du module [Exécuter le script R][execute-r-script] de droite.
+3.	Connectez le port d’entrée de droite du module [Noter le modèle][score-model] à la sortie de gauche du module [Exécuter le script R][execute-r-script] de droite.
 
     Le module [Noter le modèle][score-model] peut maintenant récupérer les informations de crédit des données de tests, les exécuter par le biais du modèle et comparer les prédictions produites par le modèle à la colonne Risque de crédit réelle dans les données de test.
 
 4.	Copiez et collez le module [Noter le modèle][score-model] pour créer une deuxième copie ou faites glisser un nouveau module sur le canevas.
-5.	Connectez le port d'entrée de gauche de ce module au modèle SVM (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-support-vector-machine]).
-6.	Pour le modèle SVM, nous devons effectuer la même transformation pour tester les données comme nous l’avons fait pour les données de formation. Donc, copiez et collez le module [Normaliser les données][normalize-data] pour créer une autre copie et connectez-la à la sortie de gauche du module [Exécuter le script R][execute-r-script] de droite.
+5.	Connectez le port d'entrée de gauche de ce module au modèle SVM (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-support-vector-machine]).
+6.	Pour le modèle SVM, nous devons effectuer la même transformation pour tester les données comme nous l’avons fait pour les données de formation. Donc, copiez et collez le module [Normaliser les données][normalize-data] pour créer une autre copie et connectez-la à la sortie de gauche du module [Exécuter le script R][execute-r-script] de droite.
 7.	Connectez le port d’entrée de droite du module [Noter le modèle][score-model] à la sortie de gauche du module [Normaliser les données][normalize-data].  
 
 Pour évaluer les résultats notés, nous allons utiliser le module [Évaluer le modèle][evaluate-model].
@@ -102,9 +102,9 @@ Pour évaluer les résultats notés, nous allons utiliser le module [Évaluer le
 2.	Connectez le port d'entrée de gauche au port de sortie du module [Noter le modèle][score-model] associé au modèle Arbre de décision optimisé.
 3.	Connectez le port d'entrée de droite à l'autre module [Noter le modèle][score-model].  
 
-Cliquez sur le bouton **EXÉCUTER** sous le canevas pour exécuter l'expérience. Cette opération peut prendre quelques minutes. Un indicateur rotatif sur chaque module indique qu'il est en cours d'exécution ; une coche verte s'affiche ensuite pour indiquer que l'exécution est terminée. Lorsque tous les modules comportent une coche, l'exécution de l'expérience est terminée.
+Cliquez sur le bouton **EXÉCUTER** sous le canevas pour exécuter l'expérience. Cette opération peut prendre quelques minutes. Un indicateur rotatif sur chaque module indique qu'il est en cours d'exécution ; une coche verte s'affiche ensuite pour indiquer que l'exécution est terminée. Lorsque tous les modules comportent une coche, l'exécution de l'expérience est terminée.
 
-L'expérience doit ressembler à ceci :
+L'expérience doit ressembler à ceci :
 
 ![Evaluating both models][3]
 
@@ -112,7 +112,7 @@ Pour examiner les résultats, cliquez sur le port de sortie du module [Évaluer 
 
 Le module [Évaluer le modèle][evaluate-model] produit une paire de courbes et de mesures qui permettent de comparer les résultats des deux modèles notés. Vous pouvez afficher les résultats sous forme de courbes Receiver Operator Characteristic (ROC), Precision/Recall ou Lift. Les données supplémentaires affichées comprennent une matrice de confusion, les valeurs cumulées pour l’aire sous la courbe (ASC) et d’autres mesures. Vous pouvez modifier la valeur du seuil en déplaçant le curseur vers la gauche ou la droite et voir son influence sur l'ensemble des mesures.
 
-À droite du graphique, cliquez sur **Jeu de données noté** ou **Jeu de données noté à comparer** pour afficher en surbrillance la courbe associée et afficher les mesures associées en dessous. Dans la légende des courbes, « Jeu de données noté » correspond au port d'entrée de gauche du module [Évaluer le modèle][evaluate-model], dans notre cas, le modèle Arbre de décision optimisé. « Jeu de données noté à comparer » correspond au port d’entrée de droite, le modèle SVM dans notre cas. Lorsque vous cliquez sur une de ces étiquettes, vous affichez en surbrillance la courbe de ce modèle et les mesures correspondantes en dessous.
+À droite du graphique, cliquez sur **Jeu de données noté** ou **Jeu de données noté à comparer** pour afficher en surbrillance la courbe associée et afficher les mesures associées en dessous. Dans la légende des courbes, « Jeu de données noté » correspond au port d'entrée de gauche du module [Évaluer le modèle][evaluate-model], dans notre cas, le modèle Arbre de décision optimisé. « Jeu de données noté à comparer » correspond au port d’entrée de droite, le modèle SVM dans notre cas. Lorsque vous cliquez sur une de ces étiquettes, vous affichez en surbrillance la courbe de ce modèle et les mesures correspondantes en dessous.
 
 ![ROC curves for models][4]
 
@@ -125,7 +125,7 @@ En examinant ces valeurs, vous pouvez décider quel modèle est le plus suscepti
 
 ----------
 
-**Étape suivante : [déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)**
+**Étape suivante : [déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
@@ -143,4 +143,4 @@ En examinant ces valeurs, vous pouvez décider quel modèle est le plus suscepti
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

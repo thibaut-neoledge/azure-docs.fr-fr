@@ -2,16 +2,16 @@
 	pageTitle="Exemple Azure IoT MyDriving - Création d’une application | Microsoft Azure"
 	description="Créez une application qui détaille toute la procédure permettant de concevoir un système IoT avec Microsoft Azure, comme Stream Analytics, Machine Learning et Event Hubs."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -83,7 +83,7 @@ En outre, vérifiez que vous avez les extensions Visual Studio adéquates. Sous 
 
 ### Ordinateur de développement Mac
 
-Un ordinateur Mac (Yosemite ou version ultérieure) est requis si vous souhaitez développer pour iOS. Même si nous utilisons Visual Studio avec Xamarin sur Windows pour développer et gérer tout le code, Xamarin utilise un agent installé sur un Mac afin de générer et signer le code iOS.
+Un ordinateur Mac (Yosemite ou version ultérieure) est nécessaire si vous souhaitez développer pour iOS. Même si nous utilisons Visual Studio avec Xamarin sur Windows pour développer et gérer tout le code, Xamarin utilise un agent installé sur un Mac afin de générer et signer le code iOS.
 
 ![Développez sur Windows et générez sur Mac](./media/iot-solution-build-system/image1.png)
 
@@ -438,7 +438,7 @@ Nous partons de l’hypothèse suivante :
 
 Pour plus d'informations, consultez les pages suivantes :
 
--   Récapitulatif des [limites et quotas de service Azure](../azure-subscription-service-limits/#iot-hub-limits)
+-   Récapitulatif des [limites et quotas de service Azure](../azure-subscription-service-limits.md#iot-hub-limits)
 
 -   [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) Azure
 
@@ -454,7 +454,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 -  Vous avez des suggestions pour améliorer MyDriving ou cette documentation.
 
-Vous pouvez également signaler un [problème sur GitHub] ou laisser un commentaire ci-dessous (édition en-us).
+Vous pouvez également signaler un [problème sur GitHub] ou laisser un commentaire ci-dessous (édition fr-FR).
 
 Nous espérons recevoir bientôt de vos nouvelles.
 
@@ -462,4 +462,4 @@ Nous espérons recevoir bientôt de vos nouvelles.
 
 Nous vous recommandons de consulter le [Guide de référence MyDriving](http://aka.ms/mydrivingdocs), qui offre une description complète de la conception du système et de ses composants.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

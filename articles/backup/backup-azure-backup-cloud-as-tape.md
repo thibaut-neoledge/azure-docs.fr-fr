@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="05/03/2016"
+   ms.date="06/08/2016"
    ms.author="jimpark;"/>
 
 # Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
@@ -44,10 +44,10 @@ Le nombre total de « points de rétention » spécifié dans cette stratégie
 
 ![Exemple d’écran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 7 jours.
-2. **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant 4 semaines.
-3. **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois.
-4. **Stratégie de rétention annuelle** : les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
+1. **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 7 jours.
+2. **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant 4 semaines.
+3. **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois.
+4. **Stratégie de rétention annuelle** : les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
 
 Le nombre total de « points de rétention » (points à partir duquel un client peut restaurer des données) dans le schéma ci-dessus est calculé comme suit :
 
@@ -71,4 +71,4 @@ Pour plus d'informations sur Azure Backup, consultez la rubrique
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -112,7 +112,7 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 - [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
 
-- [Connexion à la base de données SQL : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
+- [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 
 
 - [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
@@ -120,4 +120,4 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

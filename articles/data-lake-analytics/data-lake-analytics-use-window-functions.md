@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -23,7 +23,7 @@ Les fonctions de fenêtre ont été intégrées à la norme SQL ISO/ANSI en 2003
 
 Les fonctions de fenêtre sont utilisées pour faire des calculs dans les ensembles de lignes nommées *fenêtres*. Les fenêtres sont définies par la clause OVER. Les fonctions de fenêtre peuvent résoudre certains scénarios clés de façon très efficace.
 
-Ce didacticiel/guide de formation utilise deux jeux de données exemple pour vous guider dans un exemple de scénario dans lequel vous pouvez appliquer des fonctions de fenêtre. Pour plus d’informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+Ce guide de formation utilise deux jeux de données exemple pour vous guider dans un exemple de scénario dans lequel vous pouvez appliquer des fonctions de fenêtre. Pour plus d’informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 Les fonctions de fenêtre sont classées dans les catégories :
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC n’interpole pas les valeurs, et par conséquent, la valeur m�
 - [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

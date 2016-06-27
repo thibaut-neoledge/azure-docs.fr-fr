@@ -3,7 +3,7 @@
 	description="En savoir plus sur les quotas, les limites et les contraintes liés à l’utilisation du service Azure Batch"
 	services="batch"
 	documentationCenter=""
-	authors="dlepow"
+	authors="mmacy"
 	manager="timlt"
 	editor=""/>
 
@@ -13,30 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
-	ms.author="danlep"/>
+	ms.date="06/10/2016"
+	ms.author="marsma"/>
 
 # Quotas et limites pour le service Azure Batch
 
-Cet article répertorie les limites par défaut et maximales de certaines ressources que vous pouvez utiliser avec le service Azure Batch. La plupart de ces limites sont des quotas qu’Azure applique à votre abonnement ou à vos comptes Batch.
+Comme avec d’autres services Azure, il existe des limites concernant certaines ressources associées au service Batch. La plupart de ces limites représentent des quotas par défaut appliqués par Azure au niveau de l’abonnement ou du compte. Cet article décrit ces paramètres par défaut, et comment vous pouvez demander une augmentation de ces quotas.
 
-Si vous envisagez d’exécuter des charges de travail Batch dans un environnement de production, vous devrez peut-être affecter à un ou plusieurs des quotas une valeur supérieure à la valeur par défaut. Si vous souhaitez augmenter un quota, ouvrez une demande de service clientèle en ligne gratuitement.
+Si vous envisagez d’exécuter des charges de travail de production dans Batch, vous devrez peut-être affecter à un ou plusieurs des quotas une valeur supérieure à la valeur par défaut. Si vous souhaitez augmenter un quota, vous pouvez ouvrir une [demande de service clientèle](#increase-a-quota) en ligne gratuitement.
 
 >[AZURE.NOTE] Un quota est une limite de crédit, pas une garantie de capacité. Si vous avez des besoins de capacité à grande échelle, contactez le support Azure.
 
 ## Quotas d’abonnement
-Ressource|Limite par défaut|Limite maximale
+**Ressource**|**Limite par défaut**|**Limite maximale**
 ---|---|---
-Comptes Batch par région et par abonnement|1|50
+Comptes Batch par région et par abonnement | 1 | 50
 
 ## Quotas de compte Batch
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## Autres limites
-Ressource|Limite maximale
+**Ressource**|**Limite maximale**
 ---|---
-Tâches par nœud de calcul | 4 x nombre de cœurs de nœud
-Applications par compte Batch | 20
+[Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul | 4 x nombre de cœurs de nœud
+[Applications](batch-application-packages.md) par compte Batch | 20
 Packages d’applications par application | 40
 Taille de package d’application (individuel) | Environ 195 Go<sup>1</sup>
 
@@ -44,49 +44,53 @@ Taille de package d’application (individuel) | Environ 195 Go<sup>1</sup>
 
 ## Afficher les quotas Batch
 
-Affichez vos quotas de compte Batch dans le [portail Azure](https://portal.azure.com).
+Affichez vos quotas de compte Batch dans le [portail Azure][portal].
 
 1. Dans le portail, cliquez sur **Comptes Batch**, puis sur le nom de votre compte Batch.
 
-2. Dans le panneau associé au compte, cliquez sur **Paramètres** > **Propriétés**.
+2. Dans le panneau associé au compte, cliquez sur **Tous les paramètres** > **Propriétés**.
 
 	![Quotas de compte Batch][account_quotas]
 
-3. Dans le panneau **Propriétés**, passez en revue les quotas qui s’appliquent actuellement au compte Batch.
+3. Le panneau **Propriétés** affiche les quotas actuellement appliqués au compte Batch.
 
 ## Augmenter un quota
 
-Procédez comme suit pour demander une augmentation de quota dans le portail Azure (vous pouvez également demander une augmentation dans le [portail Azure Classic](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
+Suivez les étapes ci-dessous pour demander une augmentation du quota à l’aide du [portail Azure][portal].
 
-1. Dans le tableau de bord du portail, cliquez sur **Aide + Support**.
+1. Sélectionnez la mosaïque **Aide + Support** sur le tableau de bord du portail, ou le point d’interrogation (**?**) dans le coin supérieur droit du portail.
 
-2. Cliquez sur **Nouvelle demande de support > De base**.
+2. Sélectionnez **Nouvelle demande de support** > **De base**.
 
-3. Dans le panneau **De base**, procédez comme suit :
+3. Sur le panneau **De base** :
 
-	a. Dans **Type de problème**, sélectionnez **Quota**.
+	a. **Type de problème** > **Quota**
 
 	b. Sélectionnez votre abonnement.
 
-	c. Dans **Type de quota**, sélectionnez **Batch**.
+	c. **Type de quota** > **Batch**
 
-	d. Dans **Formule d’assistance**, sélectionnez **Formule d’assistance Azure - Développeur**.
-
-	Cliquez sur **Next**.
-
-4. Dans le panneau **Problème**, procédez comme suit :
-
-	a. Sélectionnez un **niveau de gravité** en fonction de l’impact sur votre activité.
-
-	b. Dans **Détails**, répertoriez le quota ou les quotas à modifier dans un compte spécifique et les nouvelles limites que vous souhaitez.
+	d. **Plan de support** > **Support quota - Inclus**
 
 	Cliquez sur **Next**.
 
-5. Dans le panneau **Informations de contact**, entrez vos coordonnées et cliquez sur **Suivant**.
+4. Sur le panneau **Problème** :
 
-6. Cliquez sur **Créer** pour envoyer la demande de support.
+	a. Sélectionnez un **niveau de gravité** en fonction de [l’impact sur votre activité][support_sev].
 
-Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu’à 2 jours ouvrés.
+	b. Dans **Détails**, spécifiez chaque quota que vous souhaitez modifier, le nom du compte Batch et la nouvelle limite.
+
+	Cliquez sur **Next**.
+
+5. Sur le panneau **Informations de contact** :
+
+	a. Sélectionnez une **méthode de contact préférée**.
+
+	b. Vérifiez et entrez les informations de contact requises.
+
+	Cliquez sur **Créer** pour envoyer la demande de support.
+
+Une fois que vous avez envoyé votre demande de support, le support Azure vous contactera. Notez que le traitement de la demande peut prendre jusqu’à 2 jours ouvrés.
 
 ## Rubriques connexes
 
@@ -96,6 +100,10 @@ Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu
 
 * [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
 
+[portal]: https://portal.azure.com
+[portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
+[support_sev]: http://aka.ms/supportseverity
+
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

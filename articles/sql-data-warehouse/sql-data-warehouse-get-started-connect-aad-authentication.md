@@ -14,14 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.date="06/09/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
@@ -56,6 +55,6 @@ Les principales différences entre l’utilisation de l’authentification Azure
   
 ## Étapes suivantes 
 - Effectuez les étapes détaillées. Les étapes détaillées de configuration et d’utilisation de l’authentification Azure Active Directory sont presque identiques pour Base de données SQL Azure et Azure SQL Data Warehouse. Suivez les étapes détaillées dans la rubrique [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
-- Créez des rôles de base de données personnalisés et ajoutez des utilisateurs aux rôles. Accordez ensuite des autorisations granulaires aux rôles. Pour plus d’informations, consultez la rubrique [Prise en main des autorisations de moteur de base de données](https://msdn.microsoft.com/library/mt667986.aspx).
+- Créez des rôles de base de données personnalisés et ajoutez des utilisateurs aux rôles. Accordez ensuite des autorisations granulaires aux rôles. Pour plus d’informations, consultez la rubrique [Prise en main des autorisations du moteur de base de données](https://msdn.microsoft.com/library/mt667986.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

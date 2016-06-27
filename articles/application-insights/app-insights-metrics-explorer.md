@@ -176,15 +176,16 @@ Si vous modifiez un panneau, mais que vous souhaitez revenir à la configuration
 
 ![Dans les boutons en haut de Metrics Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-## Live Stream : mesures instantanées pour une analyse détaillée
+<a name="live-metrics-stream"></a>
+## Live Metrics Stream : mesures instantanées pour une analyse détaillée
 
-Live Stream indique les mesures de votre application à ce moment précis avec une latence en temps réel proche d’1 seconde. Cette fonctionnalité est très utile lorsque vous libérez une nouvelle build et souhaitez vous assurer que tout fonctionne comme prévu, ou examinez d’un incident en temps réel.
+Live Metrics Stream indique les mesures de votre application à ce moment précis avec une latence en temps réel proche d’1 seconde. Cette fonctionnalité est très utile lorsque vous libérez une nouvelle build et souhaitez vous assurer que tout fonctionne comme prévu, ou examinez d’un incident en temps réel.
 
 ![Dans le panneau Vue d'ensemble, cliquez sur Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
 
-Contrairement à Metrics Explorer, Live Stream affiche un ensemble fixe de mesures. Les données persistent uniquement tant qu’elles se trouvent sur le graphique et sont ensuite ignorées.
+Contrairement à Metrics Explorer, Live Metrics Stream affiche un ensemble fixe de mesures. Les données persistent uniquement tant qu’elles se trouvent sur le graphique et sont ensuite ignorées.
 
-Live Stream est disponible avec le Kit de développement logiciel (SDK) Application Insights pour ASP.NET, version 2.1.0 ou ultérieure.
+Live Metrics Stream est disponible avec le Kit de développement logiciel (SDK) Application Insights pour ASP.NET, version 2.1.0 ou ultérieure.
 
 ## Définir des alertes
 
@@ -209,7 +210,7 @@ Vous voyez ce qui doit être exporté. Si vous voulez modifier la plage des donn
 
 ## Exportation continue
 
-Si vous souhaitez mettre en place une exportation continue des données pour les traiter en externe, envisagez d’utiliser l’[Exportation continue](app-insights-export-telemetry.md).
+Si vous souhaitez mettre en place une exportation continue des données pour les traiter en externe, envisagez d’utiliser l[’Exportation continue](app-insights-export-telemetry.md).
 
 ### Power BI
 
@@ -217,7 +218,7 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
 ## Analyse
 
-L’[analyse](app-insights-analytics.md) est un moyen plus souple d’analyser vos données de télémétrie à l’aide d’un langage de requête puissant. Utilisez l’analyse si vous souhaitez combiner ou calculer les résultats à partir des mesures ou effectuer une exploration approfondie des performances récentes de votre application. En revanche, utilisez Metrics Explorer si vous souhaitez obtenir l’actualisation automatique, les graphiques sur le tableau de bord et les alertes.
+L[’analyse](app-insights-analytics.md) est un moyen plus souple d’analyser vos données de télémétrie à l’aide d’un langage de requête puissant. Utilisez l’analyse si vous souhaitez combiner ou calculer les résultats à partir des mesures ou effectuer une exploration approfondie des performances récentes de votre application. En revanche, utilisez Metrics Explorer si vous souhaitez obtenir l’actualisation automatique, les graphiques sur le tableau de bord et les alertes.
 
 ## Résolution des problèmes
 
@@ -246,4 +247,4 @@ L’[analyse](app-insights-analytics.md) est un moyen plus souple d’analyser v
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

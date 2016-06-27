@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/15/2016"
 	ms.author="jeffstok"/>
 
 # Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
@@ -40,7 +40,7 @@ Il est important de noter que l’horodatage par défaut des événements issus 
 
 Chaque entrée Event Hub Stream Analytics doit être configurée de manière à disposer de son propre groupe de consommateurs. Quand une tâche contient une jointure réflexive ou plusieurs entrées, certaines entrées peuvent être lues par plus d'un lecteur en aval, ce qui impacte le total de lecteurs d'un même groupe de consommateurs. Pour éviter de dépasser la limite d'Event Hub de 5 lecteurs par groupe de consommateurs par partition, il est recommandé de désigner un groupe de consommateurs pour chaque tâche Stream Analytics. Notez qu’il existe également une limite de 20 groupes de consommateurs par hub d’événements. Pour plus d’informations, consultez [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
-## Configurer Event Hub comme un flux de données d’entrée
+### Configurer Event Hub comme un flux de données d’entrée
 
 Le tableau ci-dessous explique chaque propriété de l’onglet des entrées Event Hub et fournit la description correspondante :
 
@@ -77,11 +77,13 @@ FROM Input
 
 Azure Iot Hub est un service de réception d’événements de publication/d’abonnement hautement évolutif optimisé pour les scénarios IoT. Il est important de noter que l’horodatage par défaut des événements issus des conteneurs IoT Hub dans Stream Analytics est l’horodatage de l’arrivée de l’événement dans IoT Hub, EventEnqueuedUtcTime. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
+> [AZURE.NOTE] Seuls les messages envoyés avec une propriété DeviceClient peuvent être traités.
+
 ### Groupes de consommateurs
 
 Chaque entrée IoT Hub Stream Analytics doit être configurée de manière à disposer de son propre groupe de consommateurs. Quand une tâche contient une jointure réflexive ou plusieurs entrées, certaines entrées peuvent être lues par plus d’un lecteur en aval, ce qui impacte le total de lecteurs d’un même groupe de consommateurs. Pour éviter de dépasser la limite d’IoT Hub de 5 lecteurs par groupe de consommateurs par partition, il est recommandé de désigner un groupe de consommateurs pour chaque tâche Stream Analytics.
 
-## Configurer IoT Hub comme flux de données d’entrée
+### Configurer IoT Hub comme flux de données d’entrée
 
 Le tableau ci-dessous explique chaque propriété de l’onglet des entrées IoT Hub et fournit la description correspondante :
 
@@ -209,4 +211,4 @@ Vous avez appris à connaître les options de connexion de données dans Azure p
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

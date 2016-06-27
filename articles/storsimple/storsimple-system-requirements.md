@@ -24,9 +24,9 @@ Bienvenue dans Microsoft Azure StorSimple. Cet article décrit les configuration
 
 Les conditions requises sont les suivantes :
 
-- **Configuration logicielle requise pour les clients de stockage** : décrit les systèmes d’exploitation pris en charge et les conditions supplémentaires requises pour ces systèmes d’exploitation.
-- **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
-- **Conditions requises de haute disponibilité pour StorSimple** : décrit les exigences de haute disponibilité et les meilleures pratiques pour votre ordinateur hôte et votre appareil StorSimple. 
+- **Configuration logicielle requise pour les clients de stockage** : décrit les systèmes d’exploitation pris en charge et les conditions supplémentaires requises pour ces systèmes d’exploitation.
+- **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
+- **Conditions requises de haute disponibilité pour StorSimple** : décrit les exigences de haute disponibilité et les meilleures pratiques pour votre ordinateur hôte et votre appareil StorSimple. 
 
 
 ## Configuration logicielle requise pour les clients de stockage
@@ -86,7 +86,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Service StorSimple Manager<br>Access Control Service<br>Azure Service Bus| Interfaces réseau activées pour le cloud |
 |`https://*.backup.windowsazure.com`|Enregistrement de l’appareil| DATA 0 uniquement|
-|`http://crl.microsoft.com/pki/*` |Révocation de certificat |Interfaces réseau activées pour le cloud |
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Révocation de certificat |Interfaces réseau activées pour le cloud |
 | `https://*.core.windows.net/*` | Comptes de stockage Azure et surveillance | Interfaces réseau activées pour le cloud |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Serveurs Microsoft Update<br> | Adresses IP fixes du contrôleur uniquement |
 | `http://*.deploy.akamaitechnologies.com` |CDN Akamai |Adresses IP fixes du contrôleur uniquement |
@@ -127,12 +127,7 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métr
 
 	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 || Data 2 | 3 | 30 || Data 3 | 4 | 40 || Data 4 | 5 | 50 || Data 5 | 6 | 60 |
 
 
 - L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
@@ -159,9 +154,8 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métr
 
 - En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
 
-	Prenez l'exemple suivant :
-	un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
-		
+	Prenez l'exemple suivant : un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
+
 	Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
 
 
@@ -259,7 +253,7 @@ L’appareil StorSimple (modèle 8600) est équipé d’un boîtier EBOD (Extend
 
 - Si un module de contrôleur de boîtier EBOD tombe en panne, avant de remplacer le module défectueux, assurez-vous que l’autre module de contrôleur est actif. Pour vérifier si un contrôleur est actif, consultez [Identification du contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Lors du remplacement d’un module de contrôleur EBOD, surveillez en permanence l’état du composant dans le service StorSimple Manager. Pour cela, accédez à **Maintenance** > **État du matériel**.
+- Lors du remplacement d’un module de contrôleur EBOD, surveillez en permanence l’état du composant dans le service StorSimple Manager. Pour cela, accédez à **Maintenance** > **Statut du matériel**.
 
 - Si un câble SAS est défectueux ou doit être remplacé (cette décision doit être prise après consultation du support technique Microsoft), veillez à retirer uniquement le câble à remplacer.
 
@@ -281,4 +275,4 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

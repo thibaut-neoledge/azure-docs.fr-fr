@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Surveillance du cache Redis Azure
@@ -54,7 +54,7 @@ Cliquez sur la flèche à droite de **Compte de stockage** pour sélectionner le
 
 Une fois les paramètres de diagnostic configurés, cliquez sur **Enregistrer** pour enregistrer la configuration. Il peut s’écouler quelques instants avant que les modifications prennent effet.
 
->[AZURE.IMPORTANT] Les caches de la même région et du même abonnement partagent le même compte de stockage de diagnostics, et lorsque la configuration est modifiée, elle s’applique à tous les caches de l’abonnement qui se trouvent dans cette région.
+>[AZURE.IMPORTANT] Les caches de la même région et du même abonnement partagent les mêmes paramètres de stockage de diagnostics, et lorsque la configuration est modifiée (diagnostics activés/désactivés ou changement du compte de stockage), elle s’applique à tous les caches de l’abonnement qui se trouvent dans cette région.
 
 Pour voir les mesures stockées, examinez les tables de votre compte de stockage dont le nom commence par `WADMetrics`. Pour plus d’informations sur l’accès aux mesures stockées en dehors du portail Azure, consultez l’exemple [Access Redis cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
@@ -259,4 +259,4 @@ Pour plus d’informations sur les alertes dans Azure, consultez la page [Récep
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -91,8 +91,7 @@ Notre expérience doit alors ressembler à cela :
 
 Exécutez une dernière fois l'expérience (cliquez sur **Exécuter**). Si vous voulez vérifier que le modèle fonctionne toujours, cliquez sur la sortie du module [Noter le modèle][score-model] et sélectionnez **Afficher les résultats**. Vous constatez que les données d'origine sont affichées, ainsi que la valeur du risque sur le crédit (« Étiquettes notées ») et la probabilité de la notation (« Probabilités notées »).
 
-##
-Déploiement du service web
+## Déploiement du service web
 
 Pour déployer un service web dérivé de notre expérience, cliquez sur **Déployer le service web** sous la zone de dessin. Machine Learning Studio déploie l’expérience en tant que service web et vous amène au tableau de bord associé à ce service web. Dans le tableau de bord, vous pouvez revenir à l’expérience (**Afficher l’instantané** ou **Afficher les dernières**) et exécuter un test simple du service web (bouton **Test** - voir **Test du service web** ci-dessous). En outre, il contient des informations sur la création d’applications pouvant accéder au service web (l’étape suivante de cette procédure pas à pas aborde ce point plus en détail).
 
@@ -105,18 +104,22 @@ Vous pouvez configurer le service en cliquant sur l'onglet **CONFIGURATION**. Vo
 ![Configuration du service web][5]
 
 ## Test du service web
-Dans la page **TABLEAU DE BORD**, cliquez sur le bouton **Test** sous **Point de terminaison par défaut**. Une boîte de dialogue vous demande d’entrer les données du service. Les colonnes sont identiques à celles du jeu de données d'origine du risque sur le crédit allemand.
+Dans la page **TABLEAU DE BORD**, cliquez sur le bouton **Test** sous **Point de terminaison par défaut**.
+
+![Test du service web][7]
+
+Une boîte de dialogue vous demande d’entrer les données du service. Les colonnes sont identiques à celles du jeu de données d'origine du risque sur le crédit allemand.
 
 Entrez un jeu de données, puis cliquez sur **OK**.
 
 Dans le service web, les données passent successivement par le module **Entrée du service web**, le module [Modifier les métadonnées][edit-metadata] et le module [Noter le modèle][score-model], dans lequel elles sont évaluées. Les résultats sont ensuite générés à partir du service web par le biais du module **Sortie du service web**.
 
-> [AZURE.TIP] Suivant la façon dont nous avons configuré l’expérience prédictive, la totalité des résultats du module [Noter le modèle][score-model] est retournée. Ces résultats incluent toutes les données d’entrée, ainsi que la valeur du risque de crédit et la probabilité de la notation. Si vous souhaitez retourner quelque chose de différent, par exemple, seulement la valeur du risque de crédit, vous pouvez insérer un module [Sélectionner des colonnes sans le jeu de données][select-columns] entre les modules [Noter le modèle][score-model] et **Sortie du service web** pour éliminer les colonnes à ne pas retourner.
+> [AZURE.TIP] Suivant la façon dont nous avons configuré l’expérience prédictive, la totalité des résultats du module [Noter le modèle][score-model] est retournée. Ces résultats incluent toutes les données d’entrée, ainsi que la valeur du risque de crédit et la probabilité de la notation. Si vous souhaitez retourner quelque chose de différent, par exemple, seulement la valeur du risque de crédit, vous pouvez insérer un module [Sélectionner des colonnes dans le jeu de données][select-columns] entre les modules [Noter le modèle][score-model] et **Sortie du service web** pour éliminer les colonnes à ne pas retourner.
 
 ## Gérer le service web
-Une fois que vous avez déployé votre service web, vous pouvez le gérer à partir du [portail classique Azure](https://manage.windowsazure.com).
+Une fois que vous avez déployé votre service web, vous pouvez le gérer à partir du [Portail Azure Classic](https://manage.windowsazure.com).
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com).
 2. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
 3. Cliquez sur votre espace de travail.
 4. Cliquez sur l’onglet **SERVICES WEB**.
@@ -141,6 +144,7 @@ Pour plus d'informations, consultez la page suivante :
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
+[7]: ./media/machine-learning-walkthrough-5-publish-web-service/publish7.png
 
 
 <!-- Module References -->
@@ -155,4 +159,4 @@ Pour plus d'informations, consultez la page suivante :
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [select-columns]: https://msdn.microsoft.com/fr-FR/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

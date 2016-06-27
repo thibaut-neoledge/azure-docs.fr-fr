@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/13/2016"
 	ms.author="guybo"/>
 
 # Déployer un jeu de mise à l’échelle de machines virtuelles à l’aide de Visual Studio
@@ -75,7 +75,7 @@ Vous pouvez modifier dès à présent le modèle pour le personnaliser en foncti
 
 	![Nouveau groupe de ressources][new_resource]
 
-9. Sélectionnez ensuite le bouton **Modifier les paramètres** pour saisir des paramètres qui seront transmis à votre modèle. Certaines valeurs, telles que le nom d'utilisateur et le mot de passe du système d'exploitation, sont requises pour créer le déploiement.
+9. Sélectionnez ensuite le bouton **Modifier les paramètres** pour saisir des paramètres qui seront transmis à votre modèle. Certaines valeurs, telles que le nom d'utilisateur et le mot de passe du système d'exploitation, sont requises pour créer le déploiement. Si les outils PowerShell pour Visual Studio ne sont pas installés, il est recommandé d’activer l’option « enregistrer les mots de passe » afin d’éviter une invite de ligne de commande PowerShell masquée, ou utilisez le [support KeyVault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
 
 	![Modifier les paramètres][edit_parameters]
 
@@ -85,7 +85,7 @@ Vous pouvez modifier dès à présent le modèle pour le personnaliser en foncti
 
 ## Exploration de votre jeu de mise à l’échelle de machines virtuelles
 
-Une fois le déploiement terminé, vous pouvez afficher le nouveau jeu de mise à l'échelle de machines virtuelles dans le **Cloud Explorer** de Visual Studio (actualisez la liste). Cloud Explorer vous permet de gérer des ressources Azure dans Visual Studio lors du développement d'applications. Vous pouvez également afficher votre jeu de mise à l’échelle de machines virtuelles dans le [portail Azure](https://portal.azure.com) et [Azure Resource Explorer](https://resources.azure.com/).
+Une fois le déploiement terminé, vous pouvez afficher le nouveau jeu de mise à l'échelle de machines virtuelles dans le **Cloud Explorer** de Visual Studio (actualisez la liste). Cloud Explorer vous permet de gérer des ressources Azure dans Visual Studio lors du développement d'applications. Vous pouvez également afficher votre groupe identique de machines virtuelles dans le [portail Azure](https://portal.azure.com) et [Azure Resource Explorer](https://resources.azure.com/).
 
 ![Cloud Explorer][cloud_explorer]
 
@@ -107,4 +107,4 @@ Une fois les jeux de mise à l'échelle de machines virtuelles déployés avec s
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

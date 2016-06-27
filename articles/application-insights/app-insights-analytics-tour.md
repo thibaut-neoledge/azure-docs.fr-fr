@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visite guidée d’Analytics dans Application Insights" 
+	pageTitle="Visite guidée d’Analytics dans Application Insights | Microsoft Azure" 
 	description="Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -22,8 +22,6 @@
 
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
-
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
  
 Pour vous aider à démarrer, examinons certaines requêtes de base.
 
@@ -175,7 +173,7 @@ Pour extraire ces valeurs dans Analytics :
 
 ``` 
 
-> [AZURE.NOTE] Dans [Metrics Explorer](app-insights-metrics-explorer.md), toutes les mesures personnalisées attachés à une télémétrie, quel que soit son type, apparaissent dans le panneau de métriques avec les métriques envoyées à l’aide de `TrackMetric()`. Dans Analytics, en revanche, les mesures personnalisées restent attachées au type de télémétrie d’origine, et les métriques apparaissent dans leur propre flux `metrics`.
+> [AZURE.NOTE] Dans [Metrics Explorer](app-insights-metrics-explorer.md), toutes les mesures personnalisées attachées à une télémétrie, quel que soit son type, apparaissent dans le panneau de métriques avec les métriques envoyées à l’aide de `TrackMetric()`. Dans Analytics, en revanche, les mesures personnalisées restent attachées au type de télémétrie d’origine, et les métriques apparaissent dans leur propre flux `metrics`.
 
 
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator) : agréger des groupes de lignes
@@ -474,4 +472,4 @@ Utilisez [Laisser](./app-insights-analytics-syntax.md#let-statements) pour sépa
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

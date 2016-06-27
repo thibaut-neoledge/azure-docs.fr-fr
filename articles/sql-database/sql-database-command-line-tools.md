@@ -106,4 +106,4 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 
 - [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

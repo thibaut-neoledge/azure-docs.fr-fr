@@ -28,6 +28,7 @@ La procédure comporte trois étapes distinctes :
 2. Chargement du certificat vers le coffre de clés Azure.
 3. Indication de l’emplacement et des informations du certificat au processus de création de clusters Service Fabric.
 
+<a id="acquirecerts"></a>
 ## Étape 1 : Acquisition des certificats X.509
 
 Vous devez utiliser un certificat X.509 signé par une [autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority) pour sécuriser les clusters exécutant des charges de travail de production. Pour plus d’informations sur l’obtention de ces certificats, accédez à [Procédure : obtenir un certificat](http://msdn.microsoft.com/library/aa702761.aspx).
@@ -133,7 +134,7 @@ Les certificats exigés sont spécifiés au niveau du type de nœud sous Configu
 
 ### Paramètres obligatoires
 
-- **Mode de sécurité** Sélectionnez **Certificat X509** pour configurer un cluster sécurisé avec les certificats X.509.
+- **Mode de sécurité** Sélectionnez **Certificat X509 ** pour configurer un cluster sécurisé avec les certificats X.509.
 - **Niveau de protection du cluster** Consultez ce [document sur les niveaux de protection](https://msdn.microsoft.com/library/aa347692.aspx) pour comprendre la signification de chacune de ces valeurs. Même si nous autorisons ici trois valeurs (EncryptAndSign, Sign et None), il est préférable de conserver la valeur par défaut EncryptAndSign sauf si vous savez ce que vous faites.
 - **Coffre source** Ce paramètre désigne l’ID de ressource du coffre de clés. Il doit respecter le format suivant :
 
@@ -178,4 +179,4 @@ Après avoir créé le cluster, vous pouvez ultérieurement [mettre à jour un c
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_01.png
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

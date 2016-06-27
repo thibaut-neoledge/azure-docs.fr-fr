@@ -103,9 +103,9 @@ Pour une migration avec un temps d’arrêt minimal, utilisez la [réplication t
 - [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-##En savoir plus
+##Ressources supplémentaires
 
 - [SQL Database V12](sql-database-v12-whats-new.md) [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

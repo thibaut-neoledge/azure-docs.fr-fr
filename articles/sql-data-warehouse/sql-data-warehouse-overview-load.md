@@ -35,6 +35,7 @@ Résumé du processus de chargement :
 2. Déplacez vos données vers Azure Blob Storage et enregistrez-les dans des fichiers texte.
 3. Configurez les objets externes dans SQL Data Warehouse pour définir l’emplacement et le format des données.
 4. Exécutez une commande T-SQL pour charger les données en parallèle dans une nouvelle table de base de données.
+
 <!-- 5. Schedule and run a loading job. --> 
 
 Pour accéder à un didacticiel, consultez [Charger les données de stockage d’objets blob Azure dans SQL Data Warehouse (PolyBase)][].
@@ -133,4 +134,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 <!--Other Web references-->
 [Import/Export]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

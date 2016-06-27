@@ -3,7 +3,7 @@
  description="Vue d'ensemble de la gestion des appareils Azure IoT Hub : représentations d’appareils physiques, requêtes d’appareils, travaux d'appareils"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Vue d’ensemble de la gestion des appareils Azure IoT Hub (version préliminaire)
 
@@ -24,7 +24,7 @@ Il existe trois principaux concepts concernant la gestion des appareils dans Azu
 
 1.  **Représentation d’appareil physique :** la représentation de l’appareil physique dans IoT Hub.
 
-2.  **Requêtes d’appareils** : vous permettent de rechercher des représentations d’appareils et d’obtenir une compréhension agrégée des représentations d’appareils. Par exemple, vous pouvez rechercher toutes les représentations d’appareils avec une version de microprogramme 1.0.
+2.  **Requêtes d’appareils** : vous permettent de rechercher des représentations d’appareils et d’obtenir une compréhension agrégée de différentes représentations d’appareils. Par exemple, vous pouvez lancer une requête pour rechercher toutes les représentations d’appareils avec une version de microprogramme 1.0.
 
 3.  **Travaux d’appareils** : action à exécuter sur un ou plusieurs appareils physiques, par exemple la mise à jour du microprogramme, le redémarrage et la réinitialisation aux paramètres d’usine.
 
@@ -86,7 +86,7 @@ Pour le moment, il existe six types de travaux d’appareil qui sont fournis par
 
 Pour plus d’informations sur l’utilisation de chacun de ces travaux, consultez la [documentation sur les API pour C# et node.js][lnk-apidocs].
 
-Un travail peut s’appliquer à plusieurs appareils. Lorsque vous démarrez un travail, un travail enfant associé est créé pour chacun de ces appareils. Un travail enfant s’applique à un seul appareil. Chaque travail enfant comporte un pointeur vers son travail parent. Le travail parent n’est qu’un conteneur pour les travaux enfants, il n'implémente aucune logique pour distinguer les types d’appareils (par exemple la mise à jour d’un appareil Edison Intel par rapport à la mise à jour d'un appareil Raspberry Pi). Le diagramme suivant illustre la relation entre un travail parent, ses enfants et les appareils physiques associés.
+Un travail peut s’appliquer à plusieurs appareils. Lorsque vous démarrez un travail, un travail enfant associé est créé pour chacun de ces appareils. Un travail enfant s’applique à un seul appareil. Chaque travail enfant comporte un pointeur vers son travail parent. Le travail parent n’est qu’un conteneur pour les travaux enfants, il n’implémente aucune logique pour distinguer les types d’appareils (par exemple la mise à jour d’un appareil Edison Intel par rapport à la mise à jour d’un appareil Raspberry Pi). Le diagramme suivant illustre la relation entre un travail parent, ses enfants et les appareils physiques associés.
 
 ![][img-jobs]
 
@@ -103,17 +103,9 @@ La bibliothèque cliente DM a deux grandes responsabilités dans la gestion des 
 
 Pour plus d’informations concernant ces responsabilités et l’implémentation sur l’appareil physique, consultez la rubrique [Présentation de la bibliothèque cliente de gestion des appareils Azure IoT Hub pour C][lnk-library-c].
 
-## Étapes suivantes
+## Étape suivante
 
-Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure IoT Hub, vous pouvez parcourir les didacticiels suivants :
-
-- [Prise en main de la gestion des appareils Azure IoT Hub][lnk-get-started]
-
-- [Utilisation des représentations d’appareil physique][lnk-tutorial-twin]
-
-- [Recherche de représentations d’appareil physique à l’aide de requêtes][lnk-tutorial-queries]
-
-- [Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils][lnk-tutorial-jobs]
+Pour plus d’informations sur les fonctionnalités de gestion des appareils Azure IoT Hub, consultez le didacticiel [Prise en main de la gestion des appareils Azure IoT Hub][lnk-get-started].
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,9 +116,7 @@ Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure I
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

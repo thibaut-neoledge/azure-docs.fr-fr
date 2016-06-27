@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/25/2016"
+   ms.date="06/09/2016"
    ms.author="thmullan;jackr"/>
 
 
@@ -85,10 +85,6 @@ La gestion des bases de données et serveurs logiques à partir du portail Azure
 La base de données SQL Microsoft Azure peut vous aider à protéger vos données en les chiffrant lorsqu’elles sont « au repos » ou stockées dans des fichiers de base de données et des sauvegardes, à l’aide du [chiffrement transparent des données](http://go.microsoft.com/fwlink/?LinkId=526242). Pour chiffrer votre base de données, connectez-vous en tant que propriétaire de la base de données et exécutez la commande suivante :
 
 ```
-CREATE DATABASE ENCRYPTION KEY
-   WITH ALGORITHM = AES_256
-   ENCRYPTION BY SERVER CERTIFICATE ##MS_TdeCertificate##;
-
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -108,4 +104,4 @@ Threat Detection pour la base de données SQL fournit une couche de sécurité s
 
 Non seulement la base de données SQL Microsoft Azure propose les fonctions décrites ci-dessus ainsi que des fonctionnalités permettant à votre application à répondre à différentes exigences en matière de conformité de la sécurité, mais elle participe également à des audits réguliers. Elle est certifiée conforme avec de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

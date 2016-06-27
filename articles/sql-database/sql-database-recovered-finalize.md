@@ -3,8 +3,8 @@
    description="Limite de restauration dans le temps, base de données SQL Microsoft Azure, restaurer une base de données, récupérer une base de données, portail Azure Classic, portail Azure Classic"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
    ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Finaliser la base de données SQL Microsoft Azure restaurée
 
@@ -29,7 +29,7 @@ Vérifiez que les chaînes de connexion de votre application pointent bien vers 
   + La base de données restaurée utilise un nom différent de celui de la base de données source.
   + La base de données restaurée se trouve sur un serveur différent du serveur source.
 
-Pour en savoir plus sur la modification des chaînes de connexion, voir [Instructions pour la connexion à la base de données SQL Azure par programme](https://msdn.microsoft.com/library/azure/ee336282.aspx) et [Connexion à la base de données SQL : recommandations principales](sql-database-connect-central-recommendations.md).
+Pour en savoir plus sur la modification des chaînes de connexion, voir les [instructions pour la connexion à la base de données SQL Azure par programme](https://msdn.microsoft.com/library/azure/ee336282.aspx) et [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md).
  
 ## Modifier les règles de pare-feu
 Vérifiez les règles de pare-feu appliquées au niveau du serveur et de la base de données. Assurez-vous également que les connexions entre les ordinateurs clients et le serveur et la base de données qui vient d’être restaurée sont activées. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx) et [Procédure : configurer les paramètres de pare-feu (Base de données SQL Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
@@ -56,4 +56,4 @@ Pour en savoir plus, voir [Procédure : recevoir des notifications d’alerte e
 Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *.database.secure.windows.net. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

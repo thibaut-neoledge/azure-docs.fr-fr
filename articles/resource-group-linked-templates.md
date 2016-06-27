@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Modèles liés à Azure Resource Manager | Microsoft Azure"
+   pageTitle="Modèles liés avec Resource Manager | Microsoft Azure"
    description="Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/08/2016"
    ms.author="tomfitz"/>
 
 # Utilisation de modèles liés à Azure Resource Manager
@@ -51,6 +51,29 @@ Le service Resource Manager doit être en mesure d’accéder au modèle lié, c
         "contentVersion": "1.0.0.0",
     }
 
+Bien que le modèle lié doive être disponible en externe, il n’a pas besoin d’être accessible au public. Vous pouvez ajouter votre modèle à un compte de stockage privé accessible seulement au propriétaire du compte de stockage, et ensuite créer un jeton de signature d’accès partagé (SAP) pour permettre l’accès au cours du déploiement. Vous ajoutez ce jeton SAP à l’URI pour le modèle lié. Pour connaître les étapes de configuration d’un modèle dans un compte de stockage et de génération d’un jeton SAP, consultez [Déployer des ressources avec des modèles Resource Manager et Azure PowerShell](resource-group-template-deploy.md) ou [Déployer des ressources avec des modèles Resource Manager et l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md).
+
+L’exemple suivant montre un modèle parent lié à un autre modèle. Le modèle imbriqué est accessible avec un jeton SAP qui est transmis en paramètre.
+
+    "parameters": {
+        "sasToken": { "type": "securestring" }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+              "mode": "incremental",
+              "templateLink": {
+                "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
+                "contentVersion": "1.0.0.0"
+              }
+            }
+        }
+    ],
+
+Même si le jeton est transmis sous forme de chaîne sécurisée, l’URI du modèle lié, y compris le jeton SAP, est enregistré dans les opérations de déploiement de ce groupe de ressources. Pour limiter l’exposition, définissez un délai d’expiration pour le jeton.
 
 ## Liaison à un fichier de paramètres
 
@@ -75,7 +98,7 @@ L’exemple suivant utilise la propriété **parametersLink** pour créer un lie
       } 
     ] 
 
-La valeur d'URI pour le fichier de paramètres liés ne peut pas être un fichier local et doit inclure **http** ou **https**.
+La valeur d’URI pour le fichier de paramètres liés ne peut pas être un fichier local et doit inclure **http** ou **https**. Bien sûr, le fichier de paramètres peut également être limité à l’accès avec un jeton SAP.
 
 ## Utilisation de variables pour lier des modèles
 
@@ -102,18 +125,78 @@ L’exemple suivant indique comment utiliser une URL de base afin de créer deux
         }
     }
 
-Vous pouvez également utiliser [deployment()](../resource-group-template-functions/#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cela est utile si l’emplacement des modèles change (à cause des versions notamment) ou si vous voulez éviter de coder en dur les URL dans le fichier de modèle.
+Vous pouvez également utiliser [deployment()](resource-group-template-functions.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cela est utile si l’emplacement des modèles change (à cause des versions notamment) ou si vous voulez éviter de coder en dur les URL dans le fichier de modèle.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
-## Transmettre des valeurs à partir d’un modèle lié
+## Exemple complet
 
-Si vous devez transmettre une valeur du modèle lié vers le modèle principal, vous pouvez créer une valeur dans la section **outputs** du modèle lié. Pour consulter un exemple, accédez à la page [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
+Les exemples de modèles suivants montrent une disposition simplifiée des modèles liés pour illustrer certains des concepts décrits dans cet article. Ils partent du principe que les modèles ont été ajoutés au même conteneur dans un compte de stockage dont l’accès public est désactivé. Le modèle lié retransmet une valeur au modèle principal dans la section **outputs**.
+
+Le fichier **parent.json** est composé de :
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "containerSasToken": { "type": "string" }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "nestedTemplate",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "incremental",
+            "templateLink": {
+              "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+              "contentVersion": "1.0.0.0"
+            }
+          }
+        }
+      ],
+      "outputs": {
+        "result": {
+          "type": "object",
+          "value": "[reference('nestedTemplate').outputs.result]"
+        }
+      }
+    }
+
+Le fichier **helloworld.json** est composé de :
+
+    {
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {},
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
+		"result": {
+			"value": "Hello World",
+			"type" : "string"
+		}
+	  }
+    }
+    
+Dans PowerShell, vous obtenez un jeton pour le conteneur et déployez les modèles avec :
+
+    Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+    $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+
+Dans l’interface de ligne de commande Azure, vous obtenez un jeton pour le conteneur et déployez les modèles avec le code suivant. Actuellement, vous devez fournir un nom pour le déploiement lorsque vous utilisez un modèle d’URI qui inclut un jeton SAP.
+
+    expiretime=$(date -I'minutes' --date "+30 minutes")  
+    azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
+    azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
+
+Vous devrez fournir le jeton SAP en paramètre. Vous devez faire précéder le jeton de **?**.
 
 ## Étapes suivantes
-- Pour obtenir des informations sur la définition de l'ordre de déploiement de vos ressources, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md)
-- Pour savoir comment définir une ressource sans créer de nombreuses instances de celle-ci, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
+- Pour obtenir des informations sur la définition de l’ordre de déploiement de vos ressources, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md)
+- Pour savoir comment définir une seule ressource mais créer de nombreuses instances de celle-ci, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

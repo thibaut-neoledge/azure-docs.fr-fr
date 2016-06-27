@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de Diagnostic Search" 
+	pageTitle="Utilisation de Diagnostic Search | Microsoft Azure" 
 	description="Recherchez et filtrez des événements individuels, des demandes et le suivi des journaux." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="06/09/2016" 
 	ms.author="awills"/>
  
 # Utilisation de Recherche de diagnostic dans Application Insights
@@ -63,9 +63,22 @@ Si votre application génère un volume important de télémétrie (et si vous u
 
 Sélectionnez un élément de télémétrie pour afficher les champs clés et les éléments associés. Si vous voulez voir l’ensemble des champs, cliquez sur « ... ».
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
+
+![Cliquez sur Nouvel élément de travail, modifiez les champs, puis cliquez sur OK.](./media/app-insights-diagnostic-search/10-detail.png)
 
 Pour obtenir l’ensemble des champs, utilisez des chaînes de texte brut (sans caractères génériques). Les champs disponibles dépendent du type de télémétrie.
+
+## Création d’un élément de travail
+
+Vous pouvez créer un bogue dans Visual Studio Team Services avec les détails d’un élément de télémétrie.
+
+![Cliquez sur Nouvel élément de travail, modifiez les champs, puis cliquez sur OK.](./media/app-insights-diagnostic-search/42.png)
+
+La première fois que vous procédez ainsi, vous êtes invité à configurer un lien vers votre compte et votre projet Team Services.
+
+![Indiquez l’URL de votre serveur Team Services et le nom du projet, puis cliquez sur Autoriser](./media/app-insights-diagnostic-search/41.png)
+
+(Vous pouvez également accéder au panneau de configuration à partir du menu Paramètres > Éléments de travail.)
 
 ## Filtrer les types d’événement
 
@@ -77,11 +90,11 @@ Ouvrez le panneau Filtre et choisissez les types d’événement que vous souhai
 
 Les types d'événements sont :
 
-* **Suivi** : les journaux de diagnostic comprennent les appels TrackTrace, log4Net, NLog et System.Diagnostic.Trace.
-* **Demandes** : demandes HTTP reçues par votre serveur d’applications, dont les pages, les scripts, les images, les fichiers de style et les données. Ces événements sont utilisés pour créer les graphiques de présentation de la demande et la réponse.
-* **Affichage de page** : télémétrie envoyée par le client web et utilisée pour créer les rapports d’affichage des pages. 
-* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
-* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException().
+* **Suivi** : les journaux de diagnostic comprennent les appels TrackTrace, log4Net, NLog et System.Diagnostic.Trace.
+* **Demandes** : demandes HTTP reçues par votre serveur d’applications, dont les pages, les scripts, les images, les fichiers de style et les données. Ces événements sont utilisés pour créer les graphiques de présentation de la demande et la réponse.
+* **Affichage de page** : télémétrie envoyée par le client web et utilisée pour créer les rapports d’affichage des pages. 
+* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
+* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException().
 
 ## Filtrer des valeurs de propriétés
 
@@ -221,4 +234,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

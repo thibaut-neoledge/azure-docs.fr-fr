@@ -192,11 +192,14 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 -   [Une opération hors bande s’est produite sur une machine virtuelle et la validation du basculement a échoué](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Test Failover
     -   [Impossible de lancer le basculement : test de basculement en cours](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+-   <span style="color:green;">NOUVEAU</span> Le basculement expire avec le message ’Tâche PreFailoverWorkflow, expiration de WaitForScriptExecutionTask’ en raison des paramètres de configuration du groupe de sécurité réseau associé à la machine virtuelle ou au sous-réseau auquel la machine appartient. Voir [’PreFailoverWorkflow task WaitForScriptExecutionTask timed out’](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) pour plus de détails.
+
 
 ### Serveur de configuration, Serveur de traitement, Serveur maître
-Serveur de configuration, Serveur de traitement, Cible maître : [Échec de l’hôte ESXi sur lequel le serveur de traitement/configuration est hébergé comme machine virtuelle avec un écran violet.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+Serveur de configuration, Serveur de traitement, Serveur maître
+-   [Échec de l'hôte ESXi sur lequel le serveur de traitement/configuration est hébergé comme machine virtuelle avec un écran violet de la mort.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Résolution des problèmes après un basculement de bureau à distance
 -   Suite à un basculement, de nombreux clients ont été confrontés à des problèmes de connexion à la machine virtuelle dans Azure. [Utiliser le document de résolution des problèmes pour le protocole RDP dans la machine virtuelle](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!----HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0615_2016-->

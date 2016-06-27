@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (PowerShell)
@@ -41,7 +41,7 @@ Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestio
 
 ### Installer la dernière version d’Azure PowerShell
 
-> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Pour vérifier votre version, exécutez la commande **Get-Module -ListAvailable -Name Azure**. Vous pouvez installer la version la plus récente à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell][].
+> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Pour vérifier votre version, exécutez la commande **Get-Module -ListAvailable -Name Azure**. Vous pouvez installer la version la plus récente à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations, consultez [Comment installer et configurer Azure PowerShell][].
 
 ### Prise en main des applets de commande Azure PowerShell
 
@@ -124,16 +124,15 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
-
+[Comment installer et configurer Azure PowerShell]: ./powershell-install-configure.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
-
 <!--Other Web references-->
-
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

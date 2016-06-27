@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/03/2016"
+   ms.date="06/14/2016"
    ms.author="ryanwi"/>
 
 # Déployer une application
@@ -30,7 +30,9 @@ Une fois qu’un [type d’application a été packagé][10], il est prêt à ê
 
 Quand vous chargez le package d’application, celui-ci est placé dans un dossier accessible aux composants internes de Service Fabric. Vous pouvez utiliser PowerShell pour effectuer le chargement. Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande **Connect-ServiceFabricCluster**.
 
-Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande **Copy-ServiceFabricApplicationPackage** charge le package. Par exemple :
+Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande **Copy-ServiceFabricApplicationPackage** charge le package dans le magasin d’image du cluster. L’applet de commande **Get-ImageStoreConnectionStringFromClusterManifest**, qui fait partie du module PowerShell du SDK de Service Fabric sert à obtenir la chaîne de connexion au magasin d’image. Pour importer le module du kit de développement logiciel, exécutez *Import-Module «$ENV:ProgramFiles\\Microsoft SDKs\\Service Fabric\\Tools\\PSModule\\ServiceFabricSDK\\ServiceFabricSDK.psm1»*.
+
+L’exemple suivant charge le package :
 
 ~~~
 PS D:\temp> dir
@@ -175,17 +177,11 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-<!--
-## Next steps
-
-TODO [Upgrade applications][11]
--->
-
 ## Résolution de problèmes
 
 ### Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
 
-L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande **Get-ServiceFabricClusterManifest** :
+L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande **Get-ServiceFabricClusterManifest** :
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -225,4 +221,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

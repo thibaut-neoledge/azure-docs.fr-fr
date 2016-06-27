@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Utiliser Azure PowerShell pour créer une application Active Directory pour accéder aux ressources
@@ -26,12 +26,12 @@
 
 Cette rubrique vous montre comment utiliser [Azure PowerShell](powershell-install-configure.md) pour créer une application Active Directory (AD), telle qu’un processus, une application ou un service automatisé, qui peut accéder aux autres ressources de votre abonnement. Azure Resource Manager vous permet d’utiliser le contrôle d’accès en fonction du rôle pour octroyer les actions autorisées à l’application.
 
-Dans cet article, vous allez créer deux objets, l’application AD et le principal du service. L’application AD réside sur le client sur lequel l’application est inscrite, et définit le processus à exécuter. Le principal du service contient l’identité de l’application AD et est utilisé pour attribuer des autorisations. Dans l’application AD, vous pouvez créer plusieurs principaux du service. Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
+Dans cet article, vous allez créer deux objets : l’application AD et le principal du service. L’application AD réside sur le client sur lequel l’application est inscrite, et définit le processus à exécuter. Le principal du service contient l’identité de l’application AD et est utilisé pour attribuer des autorisations. Dans l’application AD, vous pouvez créer plusieurs principaux du service. Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
 2 options sont à votre disposition pour authentifier votre application :
 
  - mot de passe : convient lorsqu’un utilisateur souhaite se connecter de manière interactive pendant l’exécution
- - certificat : convient aux scripts d’installation sans assistance qui doivent s’authentifier sans intervention de l’utilisateur
+ - certificat : convient aux scripts sans assistance qui doivent s’authentifier sans intervention de l’utilisateur
 
 ## Créer une application AD à l’aide d’un mot de passe
 
@@ -115,7 +115,7 @@ Vous avez créé une application Active Directory et un principal du service pou
 
 Dans cette section, vous allez effectuer la procédure permettant de créer une application AD avec un certificat.
 
-1. Vous pouvez créer un certificat auto-signé.
+1. Vous pouvez créer un certificat auto-signé. Si vous disposez de Windows 10 ou de Windows Server 2016 Technical Preview, exécutez la commande suivante : 
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -126,6 +126,12 @@ Dans cette section, vous allez effectuer la procédure permettant de créer une 
         Thumbprint                                Subject
         ----------                                -------
         724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
+
+     Si vous n’avez pas Windows 10 ou Windows Server 2016 Technical Preview, téléchargez le script PowerShell [Générateur de certificat auto-signé](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6). Exécutez les commandes suivantes pour générer un certificat.
+     
+        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+        $cert = Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp
 
 2. Récupérez la valeur de la clé à partir du certificat.
 
@@ -143,7 +149,7 @@ Dans cette section, vous allez effectuer la procédure permettant de créer une 
 
         $azureAdApplication
 
-    Remarquez la propriété **ApplicationId** qui est nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition de jetons d’accès.
+    Remarquez la propriété **ApplicationId** nécessaire pour la création de principaux du service, les affectations de rôles et l’acquisition de jetons d’accès.
 
         DisplayName             : exampleapp
         Type                    : Application
@@ -209,4 +215,4 @@ Vous êtes maintenant authentifié en tant que principal du service pour l’app
 - Pour obtenir des exemples d’authentification REST, consultez [API REST Resource Manager](resource-manager-rest-api.md).
 - Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -57,7 +57,7 @@ Lorsque vous créez un cluster, vous créez les ressources de calcul Azure conte
 
 **Pour créer un cluster Hadoop**
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **NOUVEAU**, sur **Analyse des données**, puis sur **HDInsight**. Le portail ouvre un panneau **Nouveau cluster HDInsight**.
 
     ![Créer un cluster dans le portail Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Créer un cluster dans le portail Azure")
@@ -97,7 +97,7 @@ Lorsque vous créez un cluster, vous créez les ressources de calcul Azure conte
 
 **Exécution d'un travail Hive à partir d'un tableau de bord du cluster**
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **PARCOURIR TOUT**, puis sur **Clusters HDInsight**. La liste des clusters s’affiche, avec celui que vous avez créé dans la section précédente.
 3. Cliquez sur le nom du cluster que vous voulez utiliser pour l’exécution du travail Hive, puis cliquez sur **Tableau de bord** en haut du panneau.
 4. Une page web s'ouvre dans un autre onglet du navigateur. Entrez le compte et le mot de passe de l'utilisateur Hadoop. Le nom d’utilisateur par défaut est **admin**, le mot de passe est celui que vous avez entré pendant la création du cluster.
@@ -155,7 +155,7 @@ Vous devez avoir installé Excel 2013 ou 2010 pour mener à bien cette partie
 4. Entrez la **Clé du compte** du compte de stockage d’objets blob Azure, puis cliquez sur **Enregistrer**.
 5. Dans le volet droit, double-cliquez sur le nom de l'objet blob. Par défaut, le nom de l'objet blob est identique à celui du cluster.
 
-6. Localisez **stdout** dans la colonne **Nom**. Vérifiez que le GUID de la colonne **Chemin du dossier** correspond au GUID que vous avez copié précédemment. Une correspondance suggère que les données de sortie correspondent à la tâche que vous avez envoyée. Cliquez sur **Fichier binaire** dans la colonne à gauche de **stdout**.
+6. Localisez **stdout** dans la colonne **Nom**. Vérifiez que le GUID de la colonne** Chemin du dossier** correspond au GUID que vous avez copié précédemment. Une correspondance suggère que les données de sortie correspondent à la tâche que vous avez envoyée. Cliquez sur **Fichier binaire** dans la colonne à gauche de **stdout**.
 
 	![Recherche des données produites par le GUID dans la liste du contenu.][image-hdi-gettingstarted-powerquery-importdata2]
 
@@ -222,7 +222,7 @@ Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Win
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://ms.portal.azure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -255,4 +255,4 @@ Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Win
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

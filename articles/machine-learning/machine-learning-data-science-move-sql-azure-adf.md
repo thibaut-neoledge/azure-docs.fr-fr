@@ -53,7 +53,7 @@ Ce didacticiel part du principe que vous disposez de :
 * Accès à une **base de données SQL Azure** Si vous devez configurer une base de données SQL Azure, l’article [Créer votre première base de données SQL Microsoft Azure](../sql-database/sql-database-get-started.md) fournit des informations sur la configuration d'une nouvelle instance de base de données SQL Azure.
 * **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
 
-> [AZURE.NOTE] Cette procédure utilise le [portail Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Cette procédure utilise le [portail Azure](https://portal.azure.com/).
 
 
 ##<a name="upload-data"></a> Téléchargement des données sur votre SQL Server local
@@ -66,7 +66,7 @@ Vous pouvez adapter les procédures fournies ici à un jeu de vos propres donné
 
 ##<a name="create-adf"></a> Création d’une Azure Data Factory
 
-Les instructions pour la création d’une nouvelle fabrique de données Azure Data Factory et d’un groupe de ressources dans le [portail Azure](https://ms.portal.azure.com/) sont fournies [Créer une fabrique de données Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Nommez la nouvelle instance ADF *adfdsp* et nommez le groupe de ressources créé *adfdsprg*.
+Les instructions pour la création d’une nouvelle fabrique de données Azure Data Factory et d’un groupe de ressources dans le [portail Azure](https://portal.azure.com/) sont fournies [Créer une fabrique de données Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Nommez la nouvelle instance ADF *adfdsp* et nommez le groupe de ressources créé *adfdsprg*.
 
 
 ## Installez et configurez la passerelle de gestion des données.
@@ -310,4 +310,4 @@ Une fois que le pipeline s'exécute, vous devez être en mesure de voir des donn
 
 Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

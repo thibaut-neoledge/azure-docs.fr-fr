@@ -114,7 +114,7 @@ Plus récemment, Azure a publié l'API REST de [gestion des ressources Azure](..
 
 Plusieurs systèmes courants peuvent déployer des groupes entiers de machines virtuelles et installer Docker (ou autres systèmes d’hébergement de conteneurs Linux ) comme un groupe automatisable. Pour des liens directs, consultez la section [Conteneurs et outils](#containers-and-vm-technologies) ci-dessous. Plusieurs systèmes peuvent plus ou moins réaliser ces opérations ; cette liste n’est pas exhaustive. En fonction de vos compétences et scénarios, ils peuvent se révéler utiles ou non
 
-Docker possède son propre jeu d'outils de création de machines virtuelles ([docker-machine](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)), ainsi qu'un outil de gestion des clusters, conteneur de Docker et à équilibrage de charge ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). En outre, l’[extension Docker VM Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) est prise en charge par défaut pour [`docker-compose`](https://docs.docker.com/compose/) qui peut déployer des conteneurs d’applications configurés sur plusieurs conteneurs.
+Docker possède son propre jeu d'outils de création de machines virtuelles ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)), ainsi qu'un outil de gestion des clusters, conteneur de Docker et à équilibrage de charge ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). En outre, l’[extension Docker VM Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) est prise en charge par défaut pour [`docker-compose`](https://docs.docker.com/compose/) qui peut déployer des conteneurs d’applications configurés sur plusieurs conteneurs.
 
 En outre, vous pouvez essayer le [système d'exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](http://docs.mesosphere.com/install/azurecluster/). DCOS est basé sur le « noyau de systèmes distribués » open source [mesos](http://mesos.apache.org/) qui vous permet de traiter votre centre de données comme un service adressable. DCOS intègre des packages pour plusieurs systèmes importants tels que [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) et d’autres, ainsi que des services intégrés tels que [Marathon](https://mesosphere.github.io/marathon/) (un système de contrôle de conteneurs) et [Chronos](https://mesosphere.github.io/chronos/) (un planificateur distribué). Mesos est un dérivé de leçons tirées de Twitter, d’AirBnb et autres entreprises web à grande échelle.
 
@@ -165,7 +165,7 @@ Docker sur Microsoft Azure :
 - [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
 - [Utilisation de l’extension Docker VM avec le portail Azure](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
 - [Prise en main rapide de Docker dans Azure Marketplace](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
-- [Comment utiliser docker-machine sur Azure](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- [Comment utiliser docker-machine sur Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
 - [Comment utiliser docker avec swarm sur Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
 - [Prise en main de Docker et Compose sur Microsoft Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Utilisation d’un modèle de groupe de ressources Azure pour créer rapidement un hôte Docker sur Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
@@ -216,4 +216,4 @@ Découvrez [Docker](https://www.docker.com) et les [conteneurs Windows](https://
 [microservices]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

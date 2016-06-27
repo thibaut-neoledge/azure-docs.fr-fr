@@ -49,7 +49,7 @@ Comment créer une collection ?
 - Fournissent un accès complet au réseau local + réseau virtuel Azure.
 - Offrent un accès avec jonction au domaine pour les applications et les données. Les applications distantes peuvent s’authentifier auprès de votre annuaire Active Directory local. Elles peuvent ensuite accéder aux ressources dans votre domaine.
 - Permettent d’effectuer une surveillance et une gestion avancées avec des solutions System Center et des stratégies de groupe Windows existantes (via une image personnalisée basée sur Windows Server 2012 R2).
-- Prennent en charge [Express Route](https://azure.microsoft.com/services/expressroute/) pour connecter votre réseau virtuel Azure à votre réseau local virtuel.
+- Prennent en charge [ExpressRoute](https://azure.microsoft.com/services/expressroute/) pour connecter votre réseau virtuel Azure à votre réseau local virtuel.
 
 Créez une collection avec l’option **Créer avec un réseau virtuel** et choisissez de rejoindre un domaine.
 
@@ -57,7 +57,7 @@ Créez une collection avec l’option **Créer avec un réseau virtuel** et choi
 Azure RemoteApp prend en charge les comptes Microsoft et Azure Active Directory, mais les collections ne prennent pas toutes en charge toutes les méthodes.
 
 | Type de compte | | Cloud | Cloud + réseau virtuel | Hybride |
-|-----------------------------------|-------------------------------------------------------------|-------|--------------|-------|
+|-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
 | Compte Microsoft | | Oui | Oui | Non |
 | Azure Active Directory (Azure AD) | | | | |
 | | Azure AD uniquement | Oui | Oui | Non |
@@ -91,4 +91,4 @@ Il ne vous reste plus qu’une chose à faire : créer votre première collecti
 
 [Créez une collection cloud](remoteapp-create-cloud-deployment.md) ou [créez une collection hybride](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

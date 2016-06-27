@@ -115,7 +115,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 }
 ```
 
-Ce code appelle **IoTHubClient\_LL\_DoWork** jusqu’à ce que tous les événements placés en mémoire tampon aient été envoyés à IoT Hub. Notez que cela ne signifie pas non plus que tous les messages en file d’attente ont été reçus. Cela est en partie dû au fait que le contrôle de « tous » les messages n’est pas une action déterminante. Que se passe-t-il si vous récupérez « tous » les messages, mais qu’un autre est envoyé à l’appareil immédiatement après ? Une bonne façon de traiter cette possibilité consiste à programmer un délai d’attente. Par exemple, la fonction de rappel de message peut réinitialiser une minuterie à chaque fois qu’elle est appelée. Vous pouvez ensuite rédiger un programme permettant de poursuivre le traitement si, par exemple, aucun message n’a été reçu au cours des *X* dernières secondes.
+Ce code appelle **IoTHubClient\_LL\_DoWork** jusqu’à ce que tous les événements placés en mémoire tampon aient été envoyés à IoT Hub. Notez que cela ne signifie pas non plus que tous les messages en file d’attente ont été reçus. Cela est en partie dû au fait que le contrôle de « tous » les messages n’est pas une action déterminante. Que se passe-t-il si vous récupérez « tous » les messages, mais qu’un autre est envoyé à l’appareil immédiatement après ? Une bonne façon de traiter cette possibilité consiste à programmer un délai d’attente. Par exemple, la fonction de rappel de message peut réinitialiser une minuterie à chaque fois qu’elle est appelée. Vous pouvez ensuite rédiger un programme permettant de poursuivre le traitement si, par exemple, aucun message n’a été reçu au cours des *X* dernières secondes.
 
 Lorsque vous avez terminé de réceptionner les événements et les messages, assurez-vous d’appeler la fonction correspondante pour nettoyer les ressources.
 
@@ -268,7 +268,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Quelques options sont couramment utilisées :
 
--   **SetBatching** (bool) : si cette option a la valeur **true**, les données transmises à IoT Hub sont envoyées par lots. Si elle a la valeur **false**, les messages sont envoyés individuellement. La valeur par défaut est **false**.
+-   **SetBatching** (bool) : si cette option a la valeur **true**, les données transmises à IoT Hub sont envoyées par lots. Si elle a la valeur **false**, les messages sont envoyés individuellement. La valeur par défaut est **false**. Notez que l’option **SetBatching** s’applique uniquement au protocole HTTP et non aux protocoles AMQP et MQTT.
 
 -   **Timeout** (unsigned int) : cette valeur est exprimée en millisecondes. Si l’envoi d’une demande HTTP ou la réception d’une réponse prend davantage de temps, la connexion expire.
 
@@ -276,7 +276,6 @@ L’option de traitement par lot est importante. Par défaut, la bibliothèque i
 
 ## Étapes suivantes
 
-Cet article décrit en détail le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **Kit de développement logiciel (SDK) d’appareils Azure IoT pour C**. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Le [prochain article](iot-hub-device-sdk-c-serializer.md) fournit des détails similaires sur la bibliothèque **sérialiseur**.
+Cet article décrit en détail le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **Kit de développement logiciel (SDK) d’appareils Azure IoT pour C **. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Le [prochain article](iot-hub-device-sdk-c-serializer.md) fournit des détails similaires sur la bibliothèque **sérialiseur**.
 
-<!---HONumber=AcomDC_0525_2016-->
-
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="05/16/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
 # Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
@@ -198,11 +198,11 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 
 1.  Ajouter une sortie Power BI dans Azure Stream Analytics (ASA).
 
-    -  Pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI, suivez les instructions fournies dans [Azure Stream Analytics et Power BI : tableau de bord d’analyse permettant de visualiser en temps réel les données de diffusion en continu](stream-analytics\stream-analytics-power-bi-dashboard.md).
+    -  Pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI, vous devez suivre les instructions contenues dans [Azure Stream Analytics et Power BI : tableau de bord d’analyse permettant de visualiser en temps réel les données de diffusion en continu](stream-analytics-power-bi-dashboard.md).
 
 	- Dans votre [portail de gestion Azure](https://manage.windowsazure.com), recherchez le travail Stream Analytics. Le nom du travail doit être au format nom\_solution+"streamingjob"+nombre\_aléatoire+"asapbi" (c'est-à-dire, demostreamingjob123456asapbi).
 
-	- Configurez la sortie de la requête ASA (**PBIoutput**). Vérifiez que l’**Alias de sortie** est identique à celui de votre requête. Dans **Nom du jeu de données** et **Nom de la table**, entrez **EnergyStreamData**. Une fois que vous avez ajouté la sortie, cliquez sur **Démarrer** en bas de la page pour démarrer le travail Stream Analytics. Un message de confirmation doit s’afficher (*par exemple* : La tâche Stream Analytics 'myteststreamingjob12345asablob' a bien démarré).
+	- Ajoutez une sortie PowerBI pour le travail ASA. Définissez l**’alias de sortie** sur **« PBIoutput »**. Dans **Nom du jeu de données** et **Nom de la table**, entrez **EnergyStreamData**. Une fois que vous avez ajouté la sortie, cliquez sur **Démarrer** en bas de la page pour démarrer le travail Stream Analytics. Un message de confirmation doit s’afficher (*par exemple* : La tâche Stream Analytics 'myteststreamingjob12345asablob' a bien démarré).
 
 2. Connectez-vous à [Power BI en ligne](http://www.powerbi.com).
 
@@ -225,14 +225,13 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 
 	-	Dans le tableau de bord, pointez la souris sur cette vignette, cliquez sur l’icône Modifier située en haut à droite pour donner le titre « Demand by Timestamp ».
 
-4.	Créez d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. La vue Tableau de bord finale est illustrée ci-dessous.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Créez d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. La vue Tableau de bord finale est illustrée ci-dessous. ![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
 
 
 ### Configurer le tableau de bord de chemin à froid
 Dans le pipeline de données de chemin à froid, l'objectif principal est d’obtenir la prévision de la demande de chaque région. Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction.
 
-> [AZURE.NOTE] \(1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+> [AZURE.NOTE] (1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 
 
@@ -253,8 +252,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 
 	-	Dans le dossier **DemandForecastingDataGeneratorv1.0** que vous avez téléchargé, double-cliquez sur le fichier **Power BI Template\\DemandForecastPowerBI.pbix**. Les visualisations initiales sont basées sur des données fictives. **Remarque :** si un message d’erreur s’affiche, vérifiez que vous avez installé la dernière version de Power BI Desktop.
 
-		Après avoir ouvert le fichier, cliquez sur **Modifier les requêtes** dans la partie supérieure. Dans la fenêtre contextuelle, double-cliquez sur **Source** dans le volet droit.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Après avoir ouvert le fichier, cliquez sur **Modifier les requêtes** dans la partie supérieure. Dans la fenêtre contextuelle, double-cliquez sur **Source** dans le volet droit. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   Dans la fenêtre contextuelle, remplacez **Serveur** et **Base de données** par vos propres noms de serveur et de base de données, puis cliquez sur **OK**. Pour le nom du serveur, spécifiez le port 1433 (**NomVotreSolution.database.windows.net, 1433**). Ignorez les messages d’avertissement qui s’affichent à l’écran.
 
@@ -282,6 +280,9 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 	-   Planifiez l’actualisation selon vos besoins. Pour plus d’informations, consultez la page [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
+## **Comment supprimer votre solution**
+Veillez à arrêter le générateur de données quand vous n’utilisez pas la solution activement, car l’exécution du générateur de données entraîne des coûts plus élevés. Supprimez la solution si vous ne l’utilisez pas. La suppression de votre solution supprime tous les composants qui étaient configurés dans votre abonnement quand vous avez déployé la solution. Pour supprimer la solution, cliquez sur son nom dans le volet gauche du modèle de solution, puis cliquez sur Supprimer.
+
 ## **Outils d’estimation des coûts**
 
 Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impliqués dans l’exécution du modèle de solution de prévision de la demande énergétique dans votre abonnement :
@@ -290,4 +291,7 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0413_2016-->
+## **Remerciements**
+Cet article a été créé par le scientifique de données Yijing Chen et l’ingénieur logiciel Min Qiu de Microsoft.
+
+<!---HONumber=AcomDC_0615_2016-->

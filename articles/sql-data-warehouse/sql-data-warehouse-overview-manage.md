@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestion de bases de données dans Azure SQL Data Warehouse
@@ -89,10 +89,10 @@ Pour en savoir plus sur la gestion de la sécurité, consultez la [vue d’ensem
 
 ## Sauvegarde et restauration
 
-Le stockage de sauvegardes fiables de vos données est un élément essentiel de toute base de données de production. SQL Data Warehouse permet de sécuriser vos données en sauvegardant automatiquement vos bases de données actives à intervalles réguliers. Ces sauvegardes vous permettent d’effectuer une récupération à partir des scénarios où vous avez endommagé vos données ou accidentellement supprimé vos données ou votre base de données. Pour connaître la planification de sauvegarde des données et la stratégie de rétention, consultez [Haute fiabilité][]. Pour en savoir plus sur la restauration d’une base de données, consultez [Restaurer à partir d’un instantané][].
+Le stockage de sauvegardes fiables de vos données est un élément essentiel de toute base de données de production. SQL Data Warehouse permet de sécuriser vos données en sauvegardant automatiquement vos bases de données actives à intervalles réguliers. Ces sauvegardes vous permettent d’effectuer une récupération à partir des scénarios où vous avez endommagé vos données ou accidentellement supprimé vos données ou votre base de données. Pour en savoir plus sur la planification de la sauvegarde de données, la stratégie de rétention et la restauration d’une base de données, consultez [Restore from snapshot (Restaurer à partir d’un instantané)][].
 
 ## Étapes suivantes
-La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [Vue d’ensemble du développement][].
+La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [vue d’ensemble du développement][].
 
 <!--Image references-->
 
@@ -102,14 +102,13 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 [connection]: sql-data-warehouse-develop-connections.md
 [Se connecter à SQL Data Warehouse avec Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Se connecter et lancer des requêtes avec SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
-[Vue d’ensemble du développement]: sql-data-warehouse-overview-development.md
-[Haute fiabilité]: sql-data-warehouse-overview-expectations.md#high-reliability
+[vue d’ensemble du développement]: sql-data-warehouse-overview-development.md
 [Surveiller votre charge de travail à l'aide de vues de gestion dynamique]: sql-data-warehouse-manage-monitor.md
 [Suspension du calcul]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Restaurer à partir d’un instantané]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Restore from snapshot (Restaurer à partir d’un instantané)]: sql-data-warehouse-restore-database-overview.md
 [Reprise du calcul]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
 [Mise à l’échelle des performances]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[vue d’ensemble de la sécurité]: sql-data-warehouse-overview-security.md
+[vue d’ensemble de la sécurité]: sql-data-warehouse-overview-manage-security.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 [Vues système SQL Data Warehouse]: sql-data-warehouse-reference-tsql-system-views.md
 
@@ -119,4 +118,4 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

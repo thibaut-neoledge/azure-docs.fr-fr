@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Afficher les opérations de déploiement avec l’interface CLI Azure
@@ -28,6 +28,8 @@
 Si vous avez obtenu une erreur lors du déploiement des ressources sur Azure, vous pouvez afficher plus de détails sur les opérations de déploiement qui ont été exécutées. L’interface de ligne de commande Azure fournit les commandes qui vous permettent de rechercher les erreurs et de déterminer les corrections éventuelles.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+
+Vous pouvez éviter certaines erreurs en validant votre modèle et votre infrastructure avant le déploiement. Vous pouvez également enregistrer des informations supplémentaires de requête et de réponse pendant le déploiement, qui pourront se révéler utiles plus tard pour la résolution des problèmes. Pour en savoir plus sur la validation et l’enregistrement d’informations de requête et de réponse, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy-cli.md).
 
 ## Utilisation des journaux d'audit pour résoudre les problèmes
 
@@ -90,7 +92,7 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 ## Utilisation des opérations de déploiement pour résoudre les problèmes
 
-1. Récupérez l'état global d'un déploiement avec la commande **azure group deployment show**. Dans l'exemple ci-dessous, le déploiement a échoué.
+1. Récupérez l’état global d’un déploiement avec la commande **azure group deployment show**. Dans l'exemple ci-dessous, le déploiement a échoué.
 
         azure group deployment show --resource-group ExampleGroup --name ExampleDeployment
         
@@ -118,7 +120,7 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 ## Étapes suivantes
 
 - Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Pour en savoir plus sur l'utilisation des journaux d'audit pour surveiller d'autres types d'actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
+- Pour en savoir plus sur l’utilisation des journaux d’audit pour surveiller d’autres types d’actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
 - Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -4,7 +4,7 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags
 	ms.service="automation"
@@ -12,15 +12,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="03/02/2016"
+	ms.date="06/14/2016"
 	ms.author="magoedte;bwren" />
 
 
 # Galeries de runbooks et de modules pour Azure Automation
 
-Au lieu de créer vos propres runbooks et modules dans Azure Automation, vous pouvez accéder à un large éventail de solutions déjà générées par Microsoft et la communauté. Vous pouvez utiliser ces solutions sans les modifier ou les utiliser comme point de départ, puis les modifier selon vos besoins spécifiques.
+Au lieu de créer vos propres runbooks et modules dans Azure Automation, vous pouvez accéder à un large éventail de scénarios déjà générés par Microsoft et la communauté. Vous pouvez utiliser ces scénarios sans les modifier ou les utiliser comme point de départ, puis les modifier selon vos besoins spécifiques.
 
-Vous pouvez obtenir des runbooks à partir de la [galerie de runbooks](#runbooks-in-runbook-gallery) et des modules à partir de la [PowerShell Gallery](#modules-in-powerShell-gallery). Vous pouvez également contribuer à la communauté en partageant les solutions que vous développez.
+Vous pouvez obtenir des runbooks à partir de la [galerie de runbooks](#runbooks-in-runbook-gallery) et des modules à partir de la [PowerShell Gallery](#modules-in-powerShell-gallery). Vous pouvez également contribuer à la communauté en partageant les scénarios que vous développez.
 
 ## Runbooks dans la galerie de runbooks
 
@@ -32,7 +32,7 @@ Vous pouvez uniquement importer directement à partir de la galerie de runbooks 
 
 ### Pour importer un runbook à partir de la galerie de runbooks avec le portail Azure Classic
 
-1. Dans le portail de gestion Azure, cliquez sur **Nouveau**, **Services d’application**, **Automation**, **Runbook**, **À partir de la galerie**.
+1. Dans le portail Azure, cliquez sur **Nouveau**, **Services d’application**, **Automation**, **Runbook**, **À partir de la galerie**.
 2. Sélectionnez une catégorie pour afficher les runbooks associés, puis sélectionnez un runbook pour afficher les informations le concernant. Une fois que vous avez sélectionné le runbook souhaité, cliquez sur la flèche droite.
 
     ![Galerie de runbooks](media/automation-runbook-gallery/runbook-gallery.png)
@@ -66,9 +66,9 @@ Vous pouvez uniquement importer directement à partir de la galerie de runbooks 
 
 Microsoft vous invite à ajouter à la galerie de runbooks des runbooks dont vous pensez qu’ils pourraient être utiles à d’autres utilisateurs. Vous pouvez ajouter un runbook en [le téléchargeant vers le Centre de scripts](http://gallery.technet.microsoft.com/site/upload) en tenant compte des informations suivantes.
 
-- Vous devez spécifier *Microsoft Azure* comme **Catégorie** et *Automation* comme **Sous-catégorie** pour le runbook à afficher dans l’Assistant.  
+- Vous devez spécifier *Windows Azure* comme **Catégorie** et *Automation* comme **Sous-catégorie** pour le runbook à afficher dans l’Assistant.  
 
-- Le téléchargement doit être un seul fichier .ps1 ou .graphrunbook. Si le runbook nécessite des modules, des runbooks enfants ou des ressources, vous devez répertorier ceux figurant dans la description de l’envoi et dans la section commentaires du runbook. Si vous disposez d’une solution nécessitant plusieurs runbooks, téléchargez-les séparément et répertoriez les noms des runbooks associés dans chacune de leurs descriptions. Assurez-vous que vous utilisez les mêmes balises afin qu’elles s’affichent dans la même catégorie. Un utilisateur doit lire la description pour savoir que les autres runbooks sont requis pour que la solution fonctionne.
+- Le téléchargement doit être un seul fichier .ps1 ou .graphrunbook. Si le runbook nécessite des modules, des runbooks enfants ou des ressources, vous devez répertorier ceux figurant dans la description de l’envoi et dans la section commentaires du runbook. Si vous disposez d’un scénario nécessitant plusieurs runbooks, téléchargez-les séparément et répertoriez les noms des runbooks associés dans chacune de leurs descriptions. Assurez-vous que vous utilisez les mêmes balises afin qu’elles s’affichent dans la même catégorie. Un utilisateur doit lire la description pour savoir que les autres runbooks sont requis pour que le scénario fonctionne.
 
 - Ajoutez la balise « GraphicalPS » si vous publiez un **Runbook graphique** (et non un workflow graphique).
 
@@ -133,9 +133,9 @@ Les modules PowerShell contiennent des applets de commande que vous pouvez utili
 
 Vous pouvez envoyer des demandes à [User Voice](https://feedback.azure.com/forums/246290-azure-automation/). Si vous avez besoin d’aide pour écrire un runbook ou si vous avez une question à propos de PowerShell, publiez une question sur notre [forum](http://social.msdn.microsoft.com/Forums/windowsazure/fr-FR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
-## Articles connexes
+## Étapes suivantes
 
-- [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
-- [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
+- Pour vous familiariser avec les runbooks, consultez [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
+- Pour comprendre les différences entre PowerShell et un workflow PowerShell avec les Runbooks, consultez [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

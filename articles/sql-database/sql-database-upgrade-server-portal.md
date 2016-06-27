@@ -37,7 +37,7 @@ Lors du processus de mise à niveau vers la version V12, vous allez mettre à n
 
 En outre, la migration vers un [pool de base de données élastique](sql-database-elastic-pool.md) peut être plus économique que la mise à niveau vers des niveaux de performances individuels (niveaux de tarification) pour des bases de données uniques. Les pools simplifient également la gestion des bases de données, car vous devez uniquement gérer les paramètres de performances du pool, et non gérer séparément les niveaux de performances des bases de données individuelles. Si vous disposez de bases de données sur plusieurs serveurs, envisagez de les déplacer dans le même serveur et de tirer parti de leur regroupement au sein d’un pool. Vous pouvez facilement [auto-migrer des bases de données à partir de serveurs V11 directement dans des pools de base de données élastique à l’aide de PowerShell](sql-database-upgrade-server-powershell.md). Vous pouvez également utiliser le portail pour migrer des bases de données V11 dans un pool, mais vous devez déjà disposer d’un serveur V12 dans le portail pour créer un pool. Des instructions sont fournies plus loin dans cet article pour créer le pool après la mise à niveau du serveur si vous disposez de [bases de données qui peuvent retirer des avantages d’un pool](sql-database-elastic-pool-guidance.md).
 
-Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connect-central-recommendations.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à niveau.
+Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connectivity-issues.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à niveau.
 
 Il n’est pas possible d’annuler la mise à niveau vers SQL Database V12. Après une mise à niveau, le serveur ne peut pas être restauré vers la version V11.
 
@@ -45,15 +45,15 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 ## Préparation de la mise à niveau
 
-- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) ci-dessous ou [Surveiller et gérer un pool de bases de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) ci-dessous ou [Surveiller et gérer un pool de bases de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 - **Vérifier et suspendre la géoréplication** : si votre base de données SQL Azure est configurée pour la géoréplication, vous devez documenter la configuration actuelle et [arrêter la géoréplication](sql-database-geo-replication-portal.md#remove-secondary-database). Une fois la mise à niveau terminée, reconfigurez votre base de données pour la géoréplication.
-- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 
 ## Lancer la mise à niveau
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
 2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
 
       ![mettre à niveau le serveur][1]
@@ -100,7 +100,7 @@ Lorsque toutes les bases de données du serveur sont éligibles, vous pouvez com
 
 Dans le [portail Azure](https://portal.azure.com/), accédez au serveur V12 et cliquez sur **Ajouter un pool**.
 
- -ou-
+- ou -
 
 Si vous voyez un message indiquant **Cliquez ici pour afficher le pool de base de données élastique recommandé pour votre serveur**, cliquez dessus pour créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d’informations, consultez [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
@@ -167,4 +167,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

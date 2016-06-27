@@ -89,7 +89,7 @@ Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATA
 
 [Informations sur les performances des bases de données SQL](sql-database-performance.md)
 
-## En savoir plus
+## Ressources supplémentaires
 
 Pour plus d’informations, consultez les articles suivants :
 
@@ -101,4 +101,4 @@ Pour plus d’informations, consultez les articles suivants :
 
 - [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

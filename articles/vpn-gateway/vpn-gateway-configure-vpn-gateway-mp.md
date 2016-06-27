@@ -52,7 +52,7 @@ La procédure suivante vous guide lors de la configuration de votre passerelle V
 
 Avant de configurer votre passerelle, vous devrez tout d’abord créer votre réseau virtuel. Pour connaître la procédure de création d’un réseau virtuel pour les connexions entre locaux, voir [Configuration d’un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md) ou [Configuration d’une connexion VPN de point à site à un réseau virtuel Azure](vpn-gateway-point-to-site-create.md). Suivez ensuite la procédure ci-dessous pour configurer la passerelle VPN et rassemblez les informations qui vous seront nécessaires pour configurer votre périphérique VPN.
 
-Si vous disposez déjà d’une passerelle VPN et que vous souhaitez modifier le type de routage, consultez la section [Modification du type de routage de votre passerelle VPN](#how-to-change-your-vpn-gateway-type).
+Si vous disposez déjà d’une passerelle VPN et que vous souhaitez modifier le type de routage, consultez la section [Modification du type de routage VPN de votre passerelle](#how-to-change-the-vpn-routing-type-for-your-gateway).
 
 ## Créer une passerelle VPN
 
@@ -168,4 +168,4 @@ Si vous souhaitez configurer une connexion VPN de point à site, voir l’articl
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/03/2016"
+   ms.date="06/10/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
@@ -127,7 +127,7 @@ Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches 
 
 5. Cliquez sur le bouton **Exécuter** au bas de l’**Éditeur de requête** pour démarrer la requête. Une section **Résultats du processus de requête** doit apparaître en dessous de l’**Éditeur de requête** et afficher des informations sur le travail.
 
-6. Une fois la requête terminée, la section **Résultats du processus de requête** affiche les résultats de l’opération. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
+6. Une fois la requête terminée, la section **Résultats du processus de requête** affiche les résultats de l’opération. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
 
 7. Lancez la requête suivante pour vérifier que la table a été créée.
 
@@ -229,6 +229,91 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 	Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers dans Data Lake Store, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
 
+## Utilisation de Data Lake Store avec Spark cluster
+
+Dans cette section, vous utilisez le bloc-notes Jupyter disponible avec les clusters HDInsight Spark pour exécuter une tâche qui lit les données d’un compte Data Lake Store que vous avez associé un cluster HDInsight Spark, plutôt que le compte d’objets blob Azure Storage par défaut.
+
+1. Copiez quelques données d’exemple du compte de stockage par défaut (WASB) associé au cluster Spark dans le compte Azure Data Lake associé au cluster. Vous pouvez utiliser l[’outil ADLCopy](http://aka.ms/downloadadlcopy) pour cette opération. Téléchargez et installez l’outil à l’aide du lien.
+
+2. Ouvrez une invite de commandes et accédez au répertoire où vous avez installé AdlCopy, généralement `%HOMEPATH%\Documents\adlcopy`.
+
+3. Exécutez la commande suivante pour copier un objet blob spécifique du conteneur source vers Data Lake Store :
+
+		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+
+	Pour ce didacticiel, copiez le fichier de données d’exemple **HVAC.csv** situé dans **/HdiSamples/HdiSamples/SensorSampleData/hvac/** dans le compte Azure Data Lake. L’extrait de code doit ressembler à ceci :
+
+		AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+
+	>[AZURE.WARNING] Assurez-vous que la casse des noms de fichiers et du chemin est correcte.
+
+4. Vous êtes invité à entrer les informations d’identification de l’abonnement Azure sous lequel vous disposez d’un compte Data Lake Store. Vous devez voir une sortie similaire à ce qui suit :
+
+		Initializing Copy.
+		Copy Started.
+		100% data copied.
+		Copy Completed. 1 file copied.
+
+	Le fichier de données (**HVAC.csv**) sera copié dans un dossier **/hvac** du compte Data Lake Store.
+
+4. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
+
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+
+	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
+
+	![Créer un bloc-notes Jupyter](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.note.jupyter.createnotebook.png "Créer un bloc-notes Jupyter")
+
+3. Un nouveau bloc-notes est créé et ouvert sous le nom **Untitled.pynb**.
+
+4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour cela, collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+
+		from pyspark.sql.types import *
+		
+	À chaque exécution d’une tâche dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **PySpark** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
+
+	 ![État d’un travail de bloc-notes Jupyter](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.jupyter.job.status.png "État d’un travail de bloc-notes Jupyter")
+
+4. Chargez des exemples de données dans une table temporaire à l’aide du fichier **HVAC.csv** que vous avez copié dans le compte Data Lake Store. Vous pouvez accéder aux données du compte Data Lake Store à l’aide du modèle d’URL suivant.
+
+		adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+
+	Dans une cellule vide, collez l’exemple de code suivant, remplacez **MYDATALAKESTORE** par votre nom de compte Data Lake Store, puis appuyez sur **MAJ + ENTRÉE**. Cet exemple de code enregistre les données dans une table temporaire appelée **hvac**.
+
+		# Load the data
+		hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/hvac/HVAC.csv")
+		
+		# Create the schema
+		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+		
+		# Parse the data in hvacText
+		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+		
+		# Create a data frame
+		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+		
+		# Register the data fram as a table to run queries against
+		hvacdf.registerTempTable("hvac")
+
+5. Étant donné que vous utilisez un noyau PySpark, vous pouvez maintenant exécuter directement une requête SQL sur la table temporaire **hvac** que vous venez de créer à l’aide de la méthode magique `%%sql`. Pour plus d’informations sur la méthode magique `%%sql`, ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+		
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
+
+5. Une fois le travail terminé, le résultat tabulaire suivant s’affiche par défaut.
+
+ 	![Sortie de table du résultat de la requête](./media/data-lake-store-hdinsight-hadoop-use-portal/tabular.output.png "Sortie de table du résultat de la requête")
+
+	Vous pouvez également voir les résultats dans d’autres visualisations. Par exemple, un graphique en aires pour le même résultat se présenterait comme suit.
+
+	![Graphique en aires du résultat de la requête](./media/data-lake-store-hdinsight-hadoop-use-portal/area.output.png "Graphique en aires du résultat de la requête")
+
+
+6. Une fois que vous avez terminé l’exécution de l’application, vous devez arrêter le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
 
 ## Utiliser Data Lake Store dans une topologie Storm
 
@@ -258,4 +343,4 @@ Avec les clusters HBase, vous pouvez utiliser Data Lake Store comme stockage par
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

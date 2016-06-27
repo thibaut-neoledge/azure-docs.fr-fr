@@ -13,18 +13,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.date="06/09/2016"
     ms.author="sstein"/>
 
 # Restaurer une base de données SQL Azure à un point dans le temps avec PowerShell
 
-> [AZURE.SELECTOR]
-- [Portail Azure](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
-
-Cet article explique comment restaurer votre base de données à un point dans le temps à l’aide de PowerShell.
-
-[**La limite de restauration dans le temps**](sql-database-point-in-time-restore.md) est une fonctionnalité en libre-service qui vous permet de restaurer une base de données à partir des sauvegardes automatiques que nous effectuons pour toutes les bases de données à n’importe quel point de la période de rétention de votre base de données. Pour en savoir plus sur les périodes de rétention des bases de données et des sauvegardes automatiques, consultez la [vue d’ensemble de la continuité d’activité](sql-database-business-continuity.md).
+Cet article explique comment restaurer votre base de données à un point antérieur dans le temps à partir de [sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md) à l’aide de PowerShell.
 
 [AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -34,7 +28,7 @@ Cet article explique comment restaurer votre base de données à un point dans l
 
         $Database = Get-AzureRmSqlDatabase -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
-2. Restaurez une version donnée de la base de données à l’aide de l’applet de commande [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
+2. Restaurez une version antérieure donnée de la base de données à l’aide de l’applet de commande [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
     
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID -Edition "Standard" -ServiceObjectiveName "S2"
 
@@ -45,19 +39,24 @@ Cet article explique comment restaurer votre base de données à un point dans l
 
         $Database = Get-AzureRmSqlDatabase -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
-2. Restaurez une version donnée de la base de données à l’aide de l’applet de commande [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
+2. Restaurez une version antérieure donnée de la base de données à l’aide de l’applet de commande [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
     
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID –ElasticPoolName "elasticpool01"
 
 ## Étapes suivantes
 
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
-
+- [Restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Limite de restauration dans le temps à l’aide du portail Azure](sql-database-point-in-time-restore-portal.md)
+- [Limite de restauration dans le temps à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
 
 ## Ressources supplémentaires
 
+- [restauration d’une base de données supprimée.](sql-database-restore-deleted-database.md)
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Restauration géographique](sql-database-geo-restore.md)
+- [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

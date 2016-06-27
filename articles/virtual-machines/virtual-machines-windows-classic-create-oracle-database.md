@@ -25,7 +25,7 @@ L’exemple suivant vous montre comment créer une base de données Oracle sur u
 
 ##Pour créer votre base de données à l’aide de la machine virtuelle Oracle Database dans Azure
 
-1.	Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
+1.	Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2.	Cliquez sur **Virtual Machines**.
 
@@ -35,7 +35,7 @@ L’exemple suivant vous montre comment créer une base de données Oracle sur u
 
 5.	Répondez aux invites pour vous connecter à la machine virtuelle. Lorsque vous y êtes invité, entrez le nom d’administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
 
-6.	Créez une variable d’environnement nommée **ORACLE_HOSTNAME** dont la valeur correspond au nom d’ordinateur de la machine virtuelle. Vous pouvez créer cette variable d’environnement en procédant comme suit :
+6.	Créez une variable d’environnement nommée **ORACLE\_HOSTNAME** dont la valeur correspond au nom d’ordinateur de la machine virtuelle. Vous pouvez créer cette variable d’environnement en procédant comme suit :
 
 	a. Cliquez sur **Démarrer**, saisissez **Panneau de configuration**, cliquez sur l’icône **Panneau de configuration**, et sélectionnez **Système et sécurité**, puis **Système,** et enfin cliquez sur **Paramètres système avancés.**
 
@@ -79,7 +79,7 @@ L’exemple suivant vous montre comment créer une base de données Oracle sur u
 
 3.	Exécutez la commande suivante dans l’invite de commandes SQL Plus.
 
-		**select \* from GLOBAL\_NAME;**
+		**select * from GLOBAL\_NAME;**
 
 	Vous devez alors obtenir le nom global de la base de données que vous avez créée.
 
@@ -117,7 +117,7 @@ Pour permettre l’accès à distance à votre base de données (par exemple, à
 
 ### Créer un point de terminaison public pour le port 1521
 
-1.	Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
+1.	Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2.	Cliquez sur **Parcourir**.
 
@@ -146,7 +146,7 @@ Pour permettre l’accès à distance à votre base de données (par exemple, à
 ##Activer l’accès à distance à Oracle Database Enterprise Manager
 Si vous souhaitez activer l’accès distant à Oracle Database Enterprise Manager, ouvrez le port 5500 dans votre pare-feu et créez un point de terminaison de machine virtuelle pour le port 5500 dans le portail Azure Classic (utilisez la procédure décrite ci-dessus pour ouvrir le port 1521 et créer un point de terminaison pour le port 1521). Ensuite, pour exécuter Oracle Enterprise Manager à partir de l’ordinateur distant, ouvrez un navigateur et accédez à l’URL `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE] \(Vous pouvez déterminer la valeur de *\<\<unique\_domain\_name\>\>* dans le [Portail Azure Classic](https://ms.portal.azure.com/) en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
+> [AZURE.NOTE] (Vous pouvez déterminer la valeur de *<<unique\_domain\_name>>* dans le [Portail Azure Classic](https://portal.azure.com/) en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
 
 ##Configuration des offres groupées, options populaires et options avancées
 Si vous avez choisi l’offre groupée **Oracle Database avec options populaires** ou l’offre groupée **Oracle Database avec options avancées**, l’étape suivante vous permet de configurer les fonctionnalités supplémentaires de votre installation Oracle. Pour obtenir des informations concernant la configuration dans Windows, consultez la documentation Oracle, les configurations pouvant fortement varier en fonction de vos besoins concernant chaque composant.
@@ -168,4 +168,4 @@ Maintenant que vous avez configuré votre machine virtuelle et créé votre base
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

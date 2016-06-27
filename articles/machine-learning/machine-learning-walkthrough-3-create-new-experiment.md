@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+	ms.date="06/10/2016" 
 	ms.author="garye"/>
 
 
@@ -110,7 +110,7 @@ Nous devons répéter cette opération de réplication pour chaque sortie du mod
 3.	Connectez le premier port d’entrée de ce module [Exécuter un script R][execute-r-script] au port de sortie droit du module [Fractionner les données][split].  
 
 > [AZURE.TIP] La copie du Module d’exécution de script R contient le même script que le module d’origine. Lorsque vous copiez-collez un module sur le canevas, la copie conserve toutes les propriétés de l'original.
->
+
 À ce stade, notre expérience ressemble à cela :
 
 ![Adding Split module and R scripts][3]
@@ -131,4 +131,4 @@ Pour plus d’informations sur l'utilisation de scripts R dans vos expériences,
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

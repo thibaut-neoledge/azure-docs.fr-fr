@@ -150,7 +150,9 @@ Le démon Docker sur l’hôte est configuré pour écouter et authentifier les 
 
 ## Étapes suivantes
 
-Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser votre machine virtuelle Docker. Pour créer une machine virtuelle Docker dans le nouveau portail, consultez la page [Utilisation de l'extension Docker VM avec le portail].
+* Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser votre machine virtuelle Docker. Pour créer une machine virtuelle Docker dans le nouveau portail, consultez la page [Utilisation de l'extension Docker VM avec le portail].
+
+* L’extension de machine virtuelle Azure Docker prend également en charge Docker Compose, qui utilise un fichier YAML déclaratif pour utiliser une application modélisée par un développeur dans tout environnement et générer un déploiement cohérent. Voir [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure].
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
@@ -172,5 +174,6 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
+[Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -20,7 +20,7 @@
 
 [Revenir à la page Meilleures pratiques relatives aux limites de sécurité][HOME]
 
-Cet exemple crée une zone DMZ simple avec quatre serveurs Windows et les groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic qui explique en détail et étape par étape comment le trafic procède via les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
+Cet exemple crée une zone DMZ simple avec quatre serveurs Windows et les groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic (Traffic Scenario) qui explique en détail et étape par étape l’évolution du trafic à travers les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
 
 ![Réseau de périmètre entrant avec groupe de sécurité réseau][1]
 
@@ -64,9 +64,9 @@ Les règles qui suivent sont générées de façon déclarative pour le trafic e
 
 Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante arrive en provenance d’Internet à destination du serveur web, les règles 3 (autorisation) et 5 (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au serveur web. Si le même trafic tentait d’atteindre le serveur DNS01, la règle 5 (Refus) serait la première à s’appliquer et le trafic ne serait pas autorisé à franchir le serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque d’une personne mal intentionnée sur l’application web sur le serveur frontal. Cette personne aurait alors un accès limité au réseau principal « protégé » (uniquement les ressources exposées sur le serveur AppVM01).
 
-Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux directions, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’« exemple 3 » ci-dessous.
+Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’exemple 3 ci-dessous.
 
-Chaque règle est abordée plus en détail par la suite (Remarque : tous les éléments de la liste ci-dessous commençant par un signe dollar (par exemple : $NSGName) sont des variables définies par l’utilisateur à partir du script de la section Références de ce document) :
+Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les éléments de la liste ci-dessous commençant par un signe dollar (par exemple : $NSGName) sont des variables définies par l’utilisateur à partir du script de la section Références de ce document) :
 
 1. Tout d’abord, un groupe de sécurité réseau doit être généré. Il contiendra les règles :
 
@@ -97,7 +97,7 @@ Chaque règle est abordée plus en détail par la suite (Remarque : tous les é
 	    	-DestinationPortRange '3389' `
 	    	-Protocol *
 
-4.	Cette règle autorise le trafic Internet entrant à accéder au serveur web. Cela ne modifie pas le comportement de l’itinéraire, mais autorise uniquement le trafic à destination d’IIS01 à passer. Donc, si le trafic en provenance d’Internet a pour destination le serveur web, cette règle l’autorise et arrête le traitement des règles suivantes. (Dans la règle de priorité 140, tout autre trafic Internet entrant est bloqué). Si vous traitez uniquement le trafic HTTP, cette règle peut encore être restreinte pour autoriser uniquement le trafic à destination du Port 80.
+4.	Cette règle autorise le trafic Internet entrant à accéder au serveur web. Cela ne modifie pas le comportement de routage, mais autorise uniquement le trafic à destination d’IIS01 à passer. Donc, si le trafic en provenance d’Internet a pour destination le serveur web, cette règle l’autorise et arrête le traitement des règles suivantes. (Dans la règle de priorité 140, tout autre trafic Internet entrant est bloqué). Si vous traitez uniquement le trafic HTTP, cette règle peut encore être restreinte pour autoriser uniquement le trafic à destination du Port 80.
 
 		Get-AzureNetworkSecurityGroup -Name $NSGName | `
 		    Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" `
@@ -550,4 +550,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

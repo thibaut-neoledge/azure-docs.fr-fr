@@ -17,7 +17,7 @@
 # Création et gestion des tâches de bases de données SQL élastiques à l'aide de PowerShell (version préliminaire)
 
 > [AZURE.SELECTOR]
-- [Portail Azure Classic](sql-database-elastic-jobs-create-and-manage.md)
+- [Portail Azure](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -28,7 +28,7 @@ Les API PowerShell pour les **tâches de bases de données élastiques** (en ver
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un ensemble de bases de données créé avec les outils de bases de données élastiques. Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-* Package Powershell des **tâches de bases de données élastiques** : voir [Vue d’ensemble de l’installation de Tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md)
+* Package Powershell des **tâches de bases de données élastiques** : voir [Vue d’ensemble de l’installation de Tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md)
 
 ### Sélectionner votre abonnement Azure
 
@@ -238,21 +238,7 @@ En cas de modification des mots de passe, utilisez l’applet de commande [**Set
 
 Pour exécuter une tâche sur toutes les bases de données dans un ensemble de partitions (créé à l’aide de la [bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md)), utilisez une carte de partitions en tant que cible de base de données. Cet exemple requiert une application partitionnée créée à l’aide de la bibliothèque cliente de la base de données élastique. Voir [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
-###Créez un gestionnaire des cartes de partitions à l’aide de l’exemple d’application
-
-Dans cet exemple, vous allez créer un gestionnaire des cartes de partitions avec plusieurs partitions, puis insérer des données dans les partitions.
-
-1. Créez et exécutez l’exemple d’application de la rubrique **Prise en main des outils de base de données élastique**. Suivez la procédure jusqu’à l’étape 7 dans la section [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). À la fin de l’étape 7, vous verrez l’invite de commande suivante :
-
-	![invite de commande][1]
-
-2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
-  
-3.  Le [portail Azure](https://portal.azure.com) affiche alors trois nouvelles bases de données dans votre serveur v12 :
-
-	![Confirmation Visual Studio][2]
-
-Créez une cible de carte de partitions, à l’aide de l’applet de commande [**New-AzureSqlJobCredential cmdlet**](https://msdn.microsoft.com/library/mt346063.aspx). La base de données du gestionnaire de cartes de partitions doit être définie en tant que base de données cible et la carte de partitions spécifique doit être spécifiée en tant que cible.
+La base de données du gestionnaire de cartes de partitions doit être définie en tant que base de données cible et la carte de partitions spécifique doit être spécifiée en tant que cible.
 
 	$shardMapCredentialName = "{Credential Name}"
 	$shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -694,4 +680,4 @@ Après la création d’un DACPAC dans les tâches de bases de données élastiq
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

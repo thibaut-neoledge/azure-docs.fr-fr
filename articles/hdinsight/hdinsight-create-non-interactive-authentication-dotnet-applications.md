@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer des applications .NET HDInsight d’authentification non interactives | Microsoft Azure"
+	pageTitle="Créer des applications .NET HDInsight d’authentification non interactives | Microsoft Azure"
 	description="Apprenez à créer des applications .NET HDInsight d’authentification non interactives."
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="06/13/2016"
 	ms.author="jgao"/>
 
 # Créer des applications .NET HDInsight d’authentification non interactives
 
-Vous pouvez exécuter votre application .NET Azure HDInsight sous l’identité de l’application (non interactif) ou sous l’identité de l’utilisateur connecté à l’application (interactif). Pour voir un exemple de l’application interactive, consultez [Envoi de tâches Hive/Pig/Sqoop avec le kit de développement logiciel .NET HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Cet article vous présente comment créer une application .NET d’authentification non interactive pour se connecter à Azure HDInsight et envoyer une tâche Hive.
+Vous pouvez exécuter votre application .NET Azure HDInsight sous l’identité de l’application (non interactif) ou sous l’identité de l’utilisateur connecté à l’application (interactif). Pour voir un exemple de l’application interactive, consultez [Envoi de tâches Hive/Pig/Sqoop avec le kit de développement logiciel .NET HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Cet article vous présente comment créer une application .NET d’authentification non interactive pour se connecter à Azure HDInsight et envoyer une tâche Hive.
 
-Dans votre application .NET, vous aurez besoin des éléments suivants :
+Dans votre application .NET, vous aurez besoin des éléments suivants :
 
-- votre ID client d’abonnement Azure ;
-- l’ID client d’application Azure Active Directory ;
+- votre ID client d’abonnement Azure ;
+- l’ID client d’application Azure Active Directory ;
 - la clé secrète de l’application Azure Active Directory.  
 
-Ce processus comprend les étapes suivantes :
+Ce processus comprend les étapes suivantes :
 
 2. Créer une application Azure Active Directory.
 2. Affecter des rôles à l’application Active Directory.
@@ -44,7 +44,7 @@ Ce processus comprend les étapes suivantes :
 ## Créer une application Azure Active Directory 
 Lorsque vous créez une application Active Directory, l’application et le principal du service sont créés. Vous pouvez exécuter l’application sous l’identité de l’application.
 
-Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory. Cette possibilité sera ajoutée au portail Azure dans une version ultérieure. Vous pouvez également effectuer ces étapes via Azure PowerShell ou l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de PowerShell ou de l’interface de ligne de commande avec le principal du service, consultez [Authentifier un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md).
+Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory. Cette possibilité sera ajoutée au portail Azure dans une version ultérieure. Vous pouvez également effectuer ces étapes via Azure PowerShell ou l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de PowerShell ou de l’interface de ligne de commande avec le principal du service, consultez [Authentifier un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
 **Créer une application Azure Active Directory**
 
@@ -60,16 +60,16 @@ Actuellement, vous devez utiliser le portail Azure Classic pour créer une appli
 
     ![nouvelle application Azure Active Directory](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application.png)
 
-7.	Entrez l’**URL de connexion** et un **URI ID d’application**. Pour **URL de connexion**, indiquer l’URI vers un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour l’URI ID d’application, indiquez l’URI qui identifie votre application. Cliquez ensuite sur **Terminé**. Il faut quelques instants pour créer l’application. Une fois l’application créée, le portail affiche la page Aperçu rapide de la nouvelle application. Ne fermez pas le portail.
+7.	Entrez l’**URL de connexion** et un **URI ID d’application**. Pour **URL de connexion**, indiquer l’URI vers un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour l’URI ID d’application, indiquez l’URI qui identifie votre application. Cliquez ensuite sur **Terminé**. Il faut quelques instants pour créer l’application. Une fois l’application créée, le portail affiche la page Aperçu rapide de la nouvelle application. Ne fermez pas le portail.
 
     ![Propriétés de la nouvelle application Azure Active Directory](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application-properties.png)
 
 **Pour obtenir l’ID client d’application et la clé secrète**
 
 1.	Dans la page de la nouvelle application Active Directory, cliquez sur **Configurer** dans le menu supérieur.
-2.	Faites une copie de **ID client**. Vous en aurez besoin dans votre application .NET.
+2.	Faites une copie de **ID client**. Vous en aurez besoin dans votre application .NET.
 3.	Sous **Clés**, cliquez sur la liste déroulante **Sélectionner une durée**, sélectionnez **1 an** ou **2 ans**. La valeur de la clé s’affichera pas jusqu’à ce que vous ayez enregistré la configuration.
-4.	Cliquez sur **Enregistrer** en bas de la page. Lorsque la clé secrète s’affiche, faites une copie de la clé. Vous en aurez besoin dans votre application .NET.
+4.	Cliquez sur **Enregistrer** en bas de la page. Lorsque la clé secrète s’affiche, faites une copie de la clé. Vous en aurez besoin dans votre application .NET.
 
 ##Affecter l’application Active Directory à un rôle
 
@@ -89,7 +89,7 @@ Vous devez affecter l’application à un [rôle](../active-directory/role-based
 
 ##Développer une application cliente HDInsight
 
-Créez une application de console Visual C# .net en suivant les instructions stipulées dans [Envoi de tâches Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically/#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Puis remplacez la méthode GetTokenCloudCredentials par les éléments suivants :
+Créez une application de console .NET Visual C# en suivant les instructions stipulées dans [Envoi de travaux Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Puis remplacez la méthode GetTokenCloudCredentials par les éléments suivants :
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -106,11 +106,11 @@ Créez une application de console Visual C# .net en suivant les instructions sti
         return new TokenCloudCredentials(accessToken);
     }
 
-Pour récupérer l’ID client par le biais de PowerShell :
+Pour récupérer l’ID client par le biais de PowerShell :
 
     Get-AzureRmSubscription
 
-Ou d’Azure CLI :
+Ou d’Azure CLI :
 
     azure account show --json
 
@@ -119,7 +119,7 @@ Ou d’Azure CLI :
 
 - [Envoi de tâches Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Création de l'application Active Directory et du principal du service à l'aide du portail](../resource-group-create-service-principal-portal.md)
-- [Authentifier un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+- [Authentifier un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

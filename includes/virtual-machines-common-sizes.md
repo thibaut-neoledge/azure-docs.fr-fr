@@ -1,21 +1,21 @@
 
 Pour connaître les limites générales des machines virtuelles Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
 
-Les tailles standard sont constituées de plusieurs séries : A, D, DS, F, G et GS. Voici des considérations quant à certaines de ces tailles :
+Les tailles standard sont constituées de plusieurs séries : A, D, DS, F, Fs, G et GS. Voici des considérations quant à certaines de ces tailles :
 
 *   Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).
 
 *   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
-* La série F est basée sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz pouvant aller jusqu’à 3,1 GHz avec Intel Turbo Boost Technology 2.0. Ce sont les mêmes performances d’UC que la série Dv2 de machines virtuelles. Affichant le coût le plus bas par heure, la série F offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par cœur. Les tailles de la série F vont de 1 à 16 cœurs d’UC avec des options de tailles optimisées pour le stockage standard et premium.
+* La série F est basée sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz pouvant aller jusqu’à 3,1 GHz avec Intel Turbo Boost Technology 2.0. Ce sont les mêmes performances d’UC que la série Dv2 de machines virtuelles. Affichant le coût le plus bas par heure, la série F offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par cœur.
 
- La série F introduit également un nouveau standard de nom de taille de machine virtuelle pour Azure. Pour les tailles de machines virtuelles de cette série et à venir, la valeur numérique après la lettre du nom de la gamme correspond au nombre de cœurs de processeur. Les fonctionnalités supplémentaires, notamment l’optimisation pour le stockage premium, seront désignées par les lettres suivant le nombre de cœurs de processeur. Ce format d’affectation de noms sera utilisé pour les tailles de machines virtuelles commercialisées à l’avenir mais ne changera pas rétroactivement le nom des tailles de machines virtuelles qui sont déjà commercialisées.
+	La série F introduit également un nouveau standard de nom de taille de machine virtuelle pour Azure. Pour les tailles de machines virtuelles de cette série et à venir, la valeur numérique après la lettre du nom de la gamme correspond au nombre de cœurs de processeur. Les fonctionnalités supplémentaires, notamment l’optimisation pour le stockage premium, seront désignées par les lettres suivant le nombre de cœurs de processeur. Ce format d’affectation de noms sera utilisé pour les tailles de machines virtuelles commercialisées à l’avenir mais ne changera pas rétroactivement le nom des tailles de machines virtuelles qui sont déjà commercialisées.
 
 
 *   Les machines virtuelles de la série G offrent le plus de mémoire et s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
 
 
-*   Les machines virtuelles des séries DS, DSv2 F et GS peuvent utiliser Premium Storage, qui offre un stockage hautes performances à faible latence pour les charges de travail impliquant de nombreuses E/S. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+*   Les machines virtuelles des séries DS, DSv2 F et GS peuvent utiliser Premium Storage, qui offre un stockage hautes performances à faible latence pour les charges de travail utilisant une quantité importante d’E/S. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 *   Les machines virtuelles de la série A peuvent être déployées sur différents types de matériels et processeurs. La taille est limitée, en fonction du matériel, pour offrir des performances de processeur cohérentes pour l’instance en cours d’exécution, quel que soit le matériel sur lequel elle est déployée. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle.
@@ -29,7 +29,7 @@ La taille de la machine virtuelle a une incidence sur la tarification. La taille
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 
-* Les tailles A8 à A11 sont également connues comme étant des *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances A8, A9, A10 et A11 nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+* Les tailles A8 à A11 sont également connues comme étant des *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 
 *	Les séries Dv2, D, G et DS/GS sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
@@ -49,18 +49,18 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 
 |Famille de références |ACU/Cœur |
 |---|---|
-|[Standard\_A0](#standard-tier-a-series) |50 |
-|[Standard\_A1-4](#standard-tier-a-series) |100 |
-|[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225*|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-15v2](#standard-tier-dv2-series) |210 - 250*|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[DS1-15v2](#standard-tier-dsv2-series) |210-250* |
-|[F1-F16](#standard-storage-optimized-f-series) | 210-250*|
-|[F1s-F16s](#premium-storage-optimized-f-series) | 210-250*|
-|[G1-5](#standard-tier-g-series) |180 - 240*|
-|[GS1-5](#standard-tier-gs-series) |180 - 240*|
+|[Standard\_A0](#a-series) |50 |
+|[Standard\_A1-4](#a-series) |100 |
+|[Standard\_A5-7](#a-series) |100 |
+|[A8-A11](#a-series) |225*|
+|[D1-14](#d-series) |160 |
+|[D1-15v2](#dv2-series) |210 - 250*|
+|[DS1-14](#ds-series) |160 |
+|[DS1-15v2](#dsv2-series) |210-250* |
+|[F1-F16](#f-series) | 210-250*|
+|[F1s-F16s](#fs-series) | 210-250*|
+|[G1-5](#g-series) |180 - 240*|
+|[GS1-5](#gs-series) |180 - 240*|
 
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
@@ -74,7 +74,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 * La bande passante réseau maximale est la bande passante maximale agrégée allouée et affectée par type de machine virtuelle. La bande passante maximale fournit des recommandations pour la sélection du bon type de machine virtuelle afin de garantir une capacité réseau adéquate. Lors du déplacement entre Faible, Modéré, Élevé et Très élevé, le débit augmente en conséquence. Les performances réseau réelles dépendent de nombreux facteurs, notamment les charges du réseau et de l’application, ainsi que les paramètres réseau de l’application.
 
 
-## Niveau standard : série A
+## Série A
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
@@ -89,9 +89,9 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 
 
-## Niveau standard : série A : instances nécessitant beaucoup de ressources système
+## Série A - Instances de calcul intensif
 
-Remarque : pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances A8, A9, A10 et A11 nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
@@ -100,7 +100,7 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_A10|8|56 Go|2| Temporaire = 382 Go |16|16 x 500| élevé |
 |Standard\_A11|16|112 Go|4| Temporaire = 382 Go |16|16 x 500| très élevé |
 
-## Niveau standard : série D
+## Série D
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
@@ -114,7 +114,7 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |D14 standard |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
 
 
-## Niveau standard : série Dv2
+## Série Dv2
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
@@ -130,7 +130,7 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_D15\_v2 |20|140 Go|10|Temporaire (SSD) = 1 To |40|40 x 500| très élevé |
 
 
-## Niveau standard : série DS*
+## Séries DS*
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|---|
@@ -143,10 +143,10 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde | élevé |
 |Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 512 Mo par seconde | très élevé |
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
-## Niveau standard : série DSv2*
+## Séries DSv2*
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|---|
@@ -162,41 +162,41 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_DS15\_v2 |20|140 Go|10|Disque SSD local = 280 Go |40| 720|64 000 960 Mo par seconde | très élevé |
 
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
-## Série F optimisée pour le stockage standard
+## Série F
 
 
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Taille du disque | Nombre maximal de disques de données (1 023 Go chacun) | Nombre maximal d’opérations d’E/S par seconde (500 par disque) | Bande passante réseau maximale |
-|--------------|-----------|--------|------------|-------------------------|--------------------------------|--------------------------|-----------------------|
-| Standard\_F1 | 1 | 2 Go | 1 | Temporaire (SSD) = 16 Go | 2 | 2 x 500 | 500 Mbits/s |
-| Standard\_F2 | 2 | 4 Go | 2 | Temporaire (SSD) = 32 Go | 4 | 4 x 500 | 1 000 Mbits/s |
-| Standard\_F4 | 4 | 8 Go | 4 | Temporaire (SSD) = 64 Go | 8 | 8 x 500 | 2 000 Mbits/s |
-| Standard\_F8 | 8 | 16 Go | 8 | Temporaire (SSD) = 128 Go | 16 | 16 x 500 | 4 000 Mbit/s |
-| Standard\_F16 | 16 | 32 Go | 8 | Temporaire (SSD) = 256 Go | 32 | 32 x 500 | 8 000 Mbit/s |
+|--------------|-----------|--------|------------|-------------------------|--------------------------|--------------------------|-------------|
+| Standard\_F1 | 1 | 2 Go | 1 | Temporaire (SSD) = 16 Go | 2 | 2 x 500 | Modéré |
+| Standard\_F2 | 2 | 4 Go | 2 | Temporaire (SSD) = 32 Go | 4 | 4 x 500 | élevé |
+| Standard\_F4 | 4 | 8 Go | 4 | Temporaire (SSD) = 64 Go | 8 | 8 x 500 | élevé |
+| Standard\_F8 | 8 | 16 Go | 8 | Temporaire (SSD) = 128 Go | 16 | 16 x 500 | élevé |
+| Standard\_F16 | 16 | 32 Go | 8 | Temporaire (SSD) = 256 Go | 32 | 32 x 500 | très élevé |
 
 
 
-## Série F optimisée pour le stockage premium*
+## Série Fs*
 
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Taille du disque | Nombre maximal de disques de données (1 023 Go chacun) | Taille de cache (Go) | Nombre maximal d’opérations d’E/S par seconde du disque et bande passante | Bande passante réseau maximale |
-|---------------|-----------|--------|------------|------------------------|--------------------------------|-----------------|----------------------------|-----------------------|
-| Standard\_F1s | 1 | 2 | 1 | Disque SSD local = 4 Go | 2 | 12 | 3 200 48 Mo par seconde | 500 Mbits/s |
-| Standard\_F2s | 2 | 4 | 2 | Disque SSD local = 8 Go | 4 | 24 | 6 400 96 Mo par seconde | 1 000 Mbits/s |
-| Standard\_F4s | 4 | 8 | 4 | Disque SSD local = 16 Go | 8 | 48 | 12 800 192 Mo par seconde | 2 000 Mbits/s |
-| Standard\_F8s | 8 | 16 | 8 | Disque SSD local = 32 Go | 16 | 96 | 25 600 384 Mo par seconde | 4 000 Mbit/s |
-| Standard\_F16s | 16 | 32 | 8 | Disque SSD local = 64 Go | 32 | 192 | 51 200 768 Mo par seconde | 8 000 Mbit/s |
+|---------------|-----------|--------|------------|------------------------|-----------|-----------|----------------------------|------------|
+| Standard\_F1s | 1 | 2 | 1 | Disque SSD local = 4 Go | 2 | 12 | 3 200 48 Mo par seconde | Modéré |
+| Standard\_F2s | 2 | 4 | 2 | Disque SSD local = 8 Go | 4 | 24 | 6 400 96 Mo par seconde | élevé |
+| Standard\_F4s | 4 | 8 | 4 | Disque SSD local = 16 Go | 8 | 48 | 12 800 192 Mo par seconde | élevé |
+| Standard\_F8s | 8 | 16 | 8 | Disque SSD local = 32 Go | 16 | 96 | 25 600 384 Mo par seconde | élevé |
+| Standard\_F16s | 16 | 32 | 8 | Disque SSD local = 64 Go | 32 | 192 | 51 200 768 Mo par seconde | très élevé |
 
 
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série Fs sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 
 
 
-## Niveau standard : série G
+## Série G
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
@@ -209,7 +209,7 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 
 
 
-## Niveau standard : série GS
+## Série GS
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|---|
@@ -239,4 +239,4 @@ Dans le modèle de déploiement classique, certains noms des tailles de machines
 - En savoir plus sur [l’abonnement Azure et les limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
 - En savoir plus sur [l’utilisation des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

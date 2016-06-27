@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Démarrage et arrêt de machines virtuelles - Graphique | Microsoft Azure"
-	description="La version du workflow PowerShell de la solution Azure Automation inclut des Runbooks pour démarrer et arrêter des machines virtuelles classiques."
+	description="La version du workflow PowerShell du scénario Azure Automation inclut des Runbooks pour démarrer et arrêter des machines virtuelles classiques."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
+	authors="mgoedtel"
+	manager="jwhit"
 	editor="tysonn" />
 <tags 
 	ms.service="automation"
@@ -12,36 +12,36 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/27/2016"
+	ms.date="06/14/2016"
 	ms.author="bwren" />
 
-# Solution Azure Automation : démarrage et arrêt de machines virtuelles
+# Scénario Azure Automation : démarrage et arrêt de machines virtuelles
 
-Cette solution Azure Automation inclut des runbooks pour démarrer et arrêter des machines virtuelles classiques. Vous pouvez utiliser cette solution dans les cas suivants :
+Ce scénario Azure Automation inclut des runbooks pour démarrer et arrêter des machines virtuelles classiques. Vous pouvez utiliser ce scénario dans les cas suivants :
 
 - Utiliser les runbooks sans modification dans votre propre environnement. 
 - Modifier les runbooks pour exécuter une fonctionnalité personnalisée.  
 - Appeler les runbooks à partir d’un autre runbook dans le cadre d’une solution globale. 
-- Utilisez les Runbooks comme didacticiels pour apprendre les concepts de création de Runbook. 
+- Utiliser les runbooks comme didacticiels pour apprendre les concepts de création de runbook. 
 
 > [AZURE.SELECTOR]
-- [Graphical](automation-solution-startstopvm-graphical.md)
-- [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
+- [Graphique](automation-solution-startstopvm-graphical.md)
+- [Workflow PowerShell](automation-solution-startstopvm-psworkflow.md)
 
-Il s'agit de la version graphique du Runbook de cette solution. Elle est également disponible en utilisant des [Runbooks de workflow PowerShell](automation-solution-startstopvm-psworkflow.md).
+Il s'agit de la version graphique du Runbook de ce scénario. Elle est également disponible en utilisant des [Runbooks de workflow PowerShell](automation-solution-startstopvm-psworkflow.md).
 
-## Obtenir la solution
+## Obtention du scénario
 
-Cette solution se compose de deux Runbooks graphiques que vous pouvez télécharger à partir des liens suivants. Consultez la [version du workflow PowerShell](automation-solution-startstopvm-psworkflow.md) de cette solution pour obtenir des liens vers les Runbooks du workflow PowerShell.
+Ce scénario se compose de deux Runbooks graphiques que vous pouvez télécharger à partir des liens suivants. Consultez la [version du workflow PowerShell](automation-solution-startstopvm-psworkflow.md) de ce scénario pour obtenir des liens vers les Runbooks du workflow PowerShell.
 
 
 | Runbook | Lien | Type | Description |
 |:---|:---|:---|:---|
 | StartAzureClassicVM | [Démarrer le Runbook graphique d’une machine virtuelle Azure classique](https://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Classic-VM-c6067b3d) | Graphique | Démarre toutes les machines virtuelles classiques d’un abonnement Azure ou toutes les machines virtuelles portant un nom de service particulier. |
-| StopAzureClassicVM | [Arrêter le Runbook graphique d’une machine virtuelle Azure classique](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-Classic-VM-397819bd) | Graphique | Arrête toutes les machines virtuelles classiques d’un compte Automation ou toutes les machines virtuelles portant un nom de service particulier. |
+| StopAzureClassicVM | [Arrêter le Runbook graphique d’une machine virtuelle Azure classique](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-Classic-VM-397819bd) | Graphique | Arrête toutes les machines virtuelles d’un compte Automation ou toutes les machines virtuelles portant un nom de service particulier. |
 
 
-## Installation de la solution
+## Installation et configuration du scénario
 
 ### 1\. Installation des Runbooks
 
@@ -51,28 +51,28 @@ Après avoir téléchargé les Runbooks, vous pouvez les importer à l'aide de l
 Les Runbooks incluent une activité appelée **Lisez-moi** qui comprend une description et les ressources requises. Vous pouvez afficher ces informations en sélectionnant l’activité **Lisez-moi**, puis le paramètre **Script Workflow**. Vous pouvez également obtenir les mêmes informations dans cet article.
 
 ### 3\. Configuration des ressources
-Les Runbooks requièrent les ressources suivantes que vous devez créer et remplir avec les valeurs appropriées. Les noms sont définis par défaut. Vous pouvez utiliser des ressources avec des noms différents si vous spécifiez ces noms dans les [paramètres d'entrée](#using-the-solution) au démarrage du Runbook.
+Les Runbooks requièrent les ressources suivantes que vous devez créer et remplir avec les valeurs appropriées. Les noms sont définis par défaut. Vous pouvez utiliser des ressources avec des noms différents si vous spécifiez ces noms dans les [paramètres d'entrée](#using-the-runbooks) au démarrage du Runbook.
 
 | Type de ressource | Nom par défaut | Description |
 |:---|:---|:---|:---|
 | [Informations d'identification](automation-credentials.md) | AzureCredential | Contient des informations d'identification d'un compte ayant les autorisations pour démarrer et arrêter des machines virtuelles dans l'abonnement Azure. |
 | [Variable](automation-variables.md) | AzureSubscriptionId | Contient l’ID d’abonnement de votre abonnement Azure. |
 
-## Utilisation de la solution
+## Utilisation du scénario
 
 ### Paramètres
 
-Les Runbooks ont tous les [paramètres d’entrée](automation-starting-a-runbook#runbook-parameters) suivants. Vous devez fournir des valeurs pour tous les paramètres obligatoires et pouvez éventuellement fournir des valeurs pour les autres paramètres, selon vos besoins.
+Les Runbooks ont tous les [paramètres d’entrée](automation-starting-a-runbook.md#runbook-parameters) suivants. Vous devez fournir des valeurs pour tous les paramètres obligatoires et pouvez éventuellement fournir des valeurs pour les autres paramètres, selon vos besoins.
 
 | Paramètre | Type | Obligatoire | Description |
 |:---|:---|:---|:---|
 | ServiceName | string | Non | Si une valeur est fournie, toutes les machines virtuelles portant ce nom de service sont démarrées ou arrêtées. Si aucune valeur n’est fournie, toutes les machines virtuelles classiques dans l’abonnement Azure sont démarrées ou arrêtées. |
-| AzureSubscriptionIdAssetName | string | Non | Contient le nom de la [ressource variable](#installing-the-solution) qui contient l’ID d’abonnement de votre abonnement Azure. Si vous ne spécifiez aucune valeur, la valeur *AzureSubscriptionId* est utilisée. |
-| AzureCredentialAssetName | string | Non | Contient le nom de la [ressource d’informations d’identification](#installing-the-solution) qui contient les informations d’identification pour le runbook à utiliser. Si vous ne spécifiez aucune valeur, la valeur *AzureCredential* est utilisée. |
+| AzureSubscriptionIdAssetName | string | Non | Contient le nom de la [ressource variable](#installing-and-configuring-the-scenario) qui contient l’ID d’abonnement de votre abonnement Azure. Si vous ne spécifiez aucune valeur, la valeur *AzureSubscriptionId* est utilisée. |
+| AzureCredentialAssetName | string | Non | Contient le nom de la [ressource d’informations d’identification](#installing-and-configuring-the-scenario) qui contient les informations d’identification pour le runbook à utiliser. Si vous ne spécifiez aucune valeur, la valeur *AzureCredential* est utilisée. |
 
 ### Démarrage des runbooks
 
-Vous pouvez utiliser n’importe quelle méthode proposée dans [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md) pour démarrer le Runbook de votre choix dans cette solution.
+Vous pouvez utiliser n’importe quelle méthode proposée dans [Démarrage d’un runbook dans Azure Automation](automation-starting-a-runbook.md) pour démarrer le runbook de votre choix dans cet article.
 
 Les exemples de commandes suivant utilisent Windows PowerShell pour exécuter **StartAzureClassicVM** afin de démarrer toutes les machines virtuelles portant le nom de service *MyVMService*.
 
@@ -105,7 +105,7 @@ Voici une image de l'utilisation de **StartAzureClassicVM** comme [Runbook enfan
 
 ## Analyse détaillée
 
-Voici une description détaillée des Runbooks de cette solution. Vous pouvez utiliser ces informations pour personnaliser les Runbooks ou simplement pour obtenir des informations à partir de ceux-ci afin de créer vos propres solutions.
+Voici une analyse détaillée des runbooks de ce scénario. Vous pouvez utiliser ces informations pour personnaliser les Runbooks ou simplement pour obtenir des informations à partir de ceux-ci afin de créer vos propres scénarios d’automatisation.
  
 
 ### Authentification
@@ -114,7 +114,7 @@ Voici une description détaillée des Runbooks de cette solution. Vous pouvez ut
 
 Le Runbook démarre avec des activités pour définir les [informations d'identification](automation-configuring.md#configuring-authentication-to-azure-resources) et un abonnement Azure qui sera utilisé pour le reste du Runbook.
 
-Les deux premières activités, **Get Subscription Id** et **Get Azure Credential**, récupèrent les [ressources](#installing-the-solution) utilisées par les deux prochaines activités. Ces activités pourraient spécifier directement les ressources, mais elles ont besoin de leurs noms. Dans la mesure où nous autorisons l'utilisateur à spécifier ces noms dans les [paramètres d'entrée](#using-the-solution), ces activités doivent récupérer les ressources avec un nom spécifié par le paramètre d'entrée.
+Les deux premières activités, **Get Subscription Id** et **Get Azure Credential**, récupèrent les [ressources](#installing-the-runbook) utilisées par les deux prochaines activités. Ces activités pourraient spécifier directement les ressources, mais elles ont besoin de leurs noms. Dans la mesure où nous autorisons l'utilisateur à spécifier ces noms dans les [paramètres d'entrée](#using-the-runbooks), ces activités doivent récupérer les ressources avec un nom spécifié par le paramètre d'entrée.
 
 **Add-AzureAccount** définit les informations d'identification qui seront utilisées pour le reste du Runbook. La ressource d'informations d'identification qu'il récupère à partir de l’activité **Get Azure Credential** doit pouvoir démarrer et arrêter des machines virtuelles dans l'abonnement Azure. L'abonnement utilisé est sélectionné par **Select-AzureSubscription**, qui utilise l'ID d'abonnement à partir de l’activité **Get Subscription Id**.
 
@@ -132,7 +132,7 @@ Les deux activités utilisent l’applet de commande **Get-AzureVM**. **Get All 
 
 L’activité **Merge VMs** est requise pour fournir une entrée à **Start-AzureVM** qui nécessite le nom et le nom de service des machines virtuelles pour démarrer. Cette entrée peut provenir de l’activité **Get All VMs** ou **Get VMs in Service**, mais **Start-AzureVM** ne peut spécifier qu'une activité pour son entrée.
 
-La solution consiste à créer une activité **Merge VMs** qui exécute l’applet de commande **Write-Output**. Le paramètre **InputObject** pour cette applet de commande est une expression PowerShell qui combine l'entrée des deux activités précédentes. Comme une seule de ces activités s'exécutera, un seul jeu de sortie est attendu. **Start-AzureVM** peut utiliser ce résultat pour ses paramètres d'entrée.
+Le scénario consiste à créer une activité **Merge VMs** qui exécute l’applet de commande **Write-Output**. Le paramètre **InputObject** pour cette applet de commande est une expression PowerShell qui combine l'entrée des deux activités précédentes. Comme une seule de ces activités s'exécutera, un seul jeu de sortie est attendu. **Start-AzureVM** peut utiliser ce résultat pour ses paramètres d'entrée.
 
 ### Démarrage/arrêt de machines virtuelles
 
@@ -147,10 +147,10 @@ Selon le Runbook, les activités suivantes tenteront de démarrer ou d’arrête
 La dernière étape du Runbook consiste à envoyer la sortie si la demande de démarrage ou d'arrêt pour chaque machine virtuelle a été correctement envoyée. Il existe une activité **Write-Output** distincte pour chaque machine, et nous déterminons celle qui doit s'exécuter à l’aide de liens conditionnels. **Notify VM Started** ou **Notify VM Stopped** est exécuté si *OperationStatus* indique *Succeeded*. Si *OperationStatus* affiche une autre valeur, **Notify Failed To Start** ou **Notify Failed to Stop** est exécuté.
 
 
-## Articles connexes
+## Étapes suivantes
 
 - [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 - [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) 
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

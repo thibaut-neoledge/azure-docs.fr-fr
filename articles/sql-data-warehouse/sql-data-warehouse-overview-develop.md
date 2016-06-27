@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Choix de conception et techniques de codage pour le développement avec SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Choix de conception et techniques de codage pour le développement avec SQL Data Warehouse | Microsoft Azure"
    description="Concepts de développement, choix de conception, recommandations et des techniques de codage pour SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -21,7 +21,7 @@
 Consultez les articles sur le développement afin de mieux comprendre les choix de conception, les recommandations et les techniques de codage fondamentaux pour SQL Data Warehouse.
 
 ## Choix de conception clés
-Les articles suivants offrent un aperçu de quelques-uns des concepts principaux et des décisions de conception que vous devrez maîtriser pour le développement de votre entrepôt de données distribué à l’aide de SQL Data Warehouse :
+Les articles suivants offrent un aperçu de quelques-uns des concepts principaux et des décisions de conception que vous devrez maîtriser pour le développement de votre entrepôt de données distribué à l’aide de SQL Data Warehouse :
 
 - [connexions][]
 - [accès concurrentiel][]
@@ -34,7 +34,7 @@ Les articles suivants offrent un aperçu de quelques-uns des concepts principaux
 - [statistiques][]
 
 ## Recommandations pour le développement et techniques de codage
-Ces articles mettent l’accent sur des techniques de codage spécifiques, des conseils et des recommandations pour le développement de votre SQL Data Warehouse :
+Ces articles mettent l’accent sur des techniques de codage spécifiques, des conseils et des recommandations pour le développement de votre SQL Data Warehouse :
 
 - [procédures stockées][]
 - [étiquettes][]
@@ -48,7 +48,7 @@ Ces articles mettent l’accent sur des techniques de codage spécifiques, des c
 - [attribution de variables][]
 
 ## Étapes suivantes
-Une fois que vous avez consulté les articles sur le développement, accédez à la page des [informations de référence sur Transact-SQL][] pour en savoir plus sur la syntaxe prise en charge pour SQL Data Warehouse.
+Une fois que vous avez consulté les articles sur le développement, accédez à la page des [informations de référence sur Transact-SQL][] pour en savoir plus sur la syntaxe prise en charge pour SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -62,7 +62,6 @@ Une fois que vous avez consulté les articles sur le développement, accédez à
 [étiquettes]: sql-data-warehouse-develop-label.md
 [bouclage]: sql-data-warehouse-develop-loops.md
 [glissement de données]: sql-data-warehouse-develop-pivot-unpivot.md
-[modification des noms d’objets]: sql-data-warehouse-develop-rename.md
 [statistiques]: sql-data-warehouse-develop-statistics.md
 [procédures stockées]: sql-data-warehouse-develop-stored-procedures.md
 [conception de tables]: sql-data-warehouse-develop-table-design.md
@@ -76,7 +75,8 @@ Une fois que vous avez consulté les articles sur le développement, accédez à
 [informations de référence sur Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
+[modification des noms d’objets]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -156,7 +156,7 @@ Une fois que vous avez [créé un pool de bases de données élastique](sql-data
 
 **Durée estimée :** 10 minutes.
 
-1. Dans la vue du tableau de bord du pool de bases de données élastique via le [portail Azure](https://ms.portal.azure.com/#), cliquez sur **Créer une tâche**.
+1. Dans la vue du tableau de bord du pool de bases de données élastique via le [portail Azure](https://portal.azure.com/#), cliquez sur **Créer une tâche**.
 2. Si vous créez une tâche pour la première fois, vous devez installer **Tâches de bases de données élastiques** en cliquant sur **PREVIEW TERMS**.
 3. Acceptez les termes en cliquant sur la case à cocher.
 4. Dans la vue « Installer les services », cliquez sur **JOB CREDENTIALS**.
@@ -187,4 +187,4 @@ Vérifiez que les informations d’identification disposant des droits appropri�
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/17/2016" 
+    ms.date="06/14/2016" 
     ms.author="b-hoedid"/>
 
 # Notifications relatives aux ressources DocumentDB nouvelles ou modifiées à l’aide de Logic Apps
@@ -52,7 +52,7 @@ Si vous examinez la figure suivante, il existe plusieurs étapes dans le flux de
 
 ![Processus de la logique principale](./media/documentdb-change-notification/main-logic-app-process.png)
 
-La procédure comporte trois étapes :
+La procédure comporte trois étapes :
 
 1. Vous devez obtenir la date/heure UTC actuelles à partir d’une application API. La valeur par défaut est 1 heure avant.
 
@@ -1156,4 +1156,4 @@ Veuillez télécharger et utiliser le code de l’application logique fourni sur
 
 Pour en savoir plus sur DocumentDB, consultez le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) associé.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

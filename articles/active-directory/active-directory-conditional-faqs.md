@@ -1,10 +1,10 @@
 <properties
 	pageTitle="FAQ sur l’accès conditionnel | Microsoft Azure"
-	description="Forum Aux Questions sur l’accès conditionnel"
+	description="Forum Aux Questions concernant l’accès conditionnel"
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,13 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # FAQ sur l’accès conditionnel
 
-**Puis-je utiliser les conditions de l’appareil dans Azure AD si j’ai recours à la gestion des appareils mobiles pour Office 365 ?**
- 
-Avec la gestion des appareils mobiles pour Office 365, l’ensemble des stratégies d’appareils sont intégrées à Office 365. Pour éviter les conflits entre les stratégies définies dans Office 365 et celles définies dans Azure AD, nous interdisons actuellement la configuration de ces stratégies dans Azure AD si vous utilisez la GAM pour Office 365.
+## A quelles applications les stratégies d’accès conditionnel s’appliquent-elles ?
+Consultez la rubrique [Accès conditionnel - applications prises en charge](active-directory-conditional-access-supported-apps.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+## Les stratégies d’accès conditionnel s’appliquent-elles à la collaboration B2B et aux utilisateurs invités ?
+Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collaboration B2B. Toutefois, dans certains cas, l’utilisateur peut ne pas remplir les conditions de la stratégie, par exemple si son organisation ne prend pas en charge l’authentification multifacteur. La stratégie ne s’applique actuellement pas aux utilisateurs SharePoint invités. Comme la relation d’invité est conservée au sein de SharePoint, les comptes d’invités ne bénéficient pas des stratégies d’accès au niveau du serveur d’authentification. L’accès invité peut être géré au niveau de SharePoint.
+
+## La stratégie SharePoint Online s’applique-t-elle également à OneDrive Entreprise ?
+Oui.
+ 
+## Pourquoi ne puis-je pas définir une stratégie pour les applications clientes telles que Word ou Outlook ?
+La stratégie d’accès conditionnel définit les conditions requises pour accéder à un service et s’applique lorsque l’authentification est effectuée sur ce service. La stratégie n’est donc pas définie directement sur une application cliente, mais appliquée lorsqu’elle est appelée dans un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint, et la stratégie définie sur Exchange s’applique à Outlook.
+
+<!---HONumber=AcomDC_0615_2016-->

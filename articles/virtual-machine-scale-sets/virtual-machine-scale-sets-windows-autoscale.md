@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Mise à l’échelle automatique des machines dans un groupe de machines virtuelles à échelle identique
@@ -37,17 +37,15 @@ Dans ce didacticiel, vous allez déployer les ressources et les extensions suiva
 
 Pour plus d’informations sur les ressources de Resource Manager, consultez [Calcul, réseau et fournisseurs de stockage Azure sous Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-Le modèle que vous créez dans ce didacticiel est similaire à un modèle qui se trouve dans la galerie de modèles. Pour plus d’informations, consultez [Déployer un jeu de mise à l’échelle de machine virtuelle avec des machines virtuelles Windows et une Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
-
 ## Étape 1 : installer Azure PowerShell
 
-Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment installer la dernière version d’Azure PowerShell, sélectionner l’abonnement à utiliser et vous connecter à votre compte Azure.
+Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour plus d'informations sur l’installation de la dernière version d'Azure PowerShell, sélectionnez l’abonnement vous souhaitez utiliser et connectez-vous à votre compte Azure.
 
 ## Étape 2 : créer un groupe de ressources et un compte de stockage
 
-1. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstestrg1**. Consultez la page [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstestrg1**. Consultez la page [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-2. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmsstestsa**. Gardez la fenêtre Azure PowerShell ouverte en prévision pour d’autres opérations de ce didacticiel.
+2. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmsstestsa**. Gardez la fenêtre Azure PowerShell ouverte en prévision pour d’autres opérations de ce didacticiel.
 
 ## Étape 3 : créer le modèle
 Un modèle Azure Resource Manager permet de déployer et gérer des ressources Azure simultanément grâce à une description des ressources JSON et des paramètres de déploiement associés.
@@ -94,9 +92,8 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     
 3. Des variables peuvent être utilisées dans un modèle pour spécifier des valeurs qui changent fréquemment ou qui doivent être créées à partir d’une combinaison de valeurs de paramètres. Ajoutez ces variables sous l’élément parent des variables que vous avez ajouté au modèle.
 
-        "apiVersion": "2016-03-30"
-        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
-        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
+        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')]",
         "vmSize": "Standard_A0",
         "imagePublisher": "MicrosoftWindowsServer",
         "imageOffer": "WindowsServer",
@@ -118,10 +115,10 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
         "storageAccountType": "Standard_LRS",
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
-        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
+        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
 	    "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="fr-FR"/></PerformanceCounterConfiguration>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="fr-FR"/></PerformanceCounterConfiguration></PerformanceCounters>",
         "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
         "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -153,7 +150,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 5. Ajoutez la ressource de réseau virtuelle. Pour plus d’informations, consultez [Fournisseurs de ressources réseau](../virtual-network/resource-groups-networking.md).
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "type": "Microsoft.Network/virtualNetworks",
           "name": "[variables('virtualNetworkName')]",
           "location": "[resourceGroup().location]",
@@ -177,7 +174,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 6. Ajoutez des ressources d’adresse IP publiques qui sont utilisées par l’équilibrage de charge et l’interface réseau.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP1')]",
           "location": "[resourceGroup().location]",
@@ -189,7 +186,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP2')]",
           "location": "[resourceGroup().location]",
@@ -204,7 +201,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 7. Ajoutez la ressource d’équilibrage de charge utilisée par le groupe à échelle identique. Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](../load-balancer/load-balancer-arm.md)
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "name": "[variables('loadBalancerName')]",
           "type": "Microsoft.Network/loadBalancers",
           "location": "[resourceGroup().location]",
@@ -247,7 +244,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 8. Ajoutez la ressource d’interface réseau qui est utilisée par la machine virtuelle distincte. Les machines présentes dans le groupe de machines virtuelles à échelle identique n’étant pas directement accessibles par le biais d’une adresse IP publique, une machine virtuelle distincte est créée dans le même réseau virtuel que le groupe à échelle identique et est utilisée pour accéder à distance aux machines du groupe.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/networkInterfaces",
           "name": "[variables('nicName1')]",
           "location": "[resourceGroup().location]",
@@ -276,7 +273,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 9. Ajoutez la machine virtuelle distincte dans le même réseau que le groupe à échelle identique.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Compute/virtualMachines",
           "name": "[parameters('vmName')]",
           "location": "[resourceGroup().location]",
@@ -302,7 +299,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
               "osDisk": {
                 "name": "osdisk1",
                 "vhd": {
-                  "uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
+                  "uri":  "[concat('https://',parameters('resourcePrefix'),'sa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"        
@@ -322,7 +319,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
-              "apiVersion": "[variables('apiVersion')]",
+              "apiVersion": "2016-03-30",
               "name": "[parameters('vmSSName')]",
               "location": "[resourceGroup().location]",
               "dependsOn": [
@@ -343,11 +340,11 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
                   "storageProfile": {
                     "osDisk": {
                       "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), 'saa.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sag.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sam.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sas.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'say.blob.core.windows.net/vmss')]"
+                        "[concat('https://', parameters('resourcePrefix'), 'a.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'g.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'm.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 's.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'y.blob.core.windows.net/vmss')]"
                       ],
                       "name": "vmssosdisk",
                       "caching": "ReadOnly",
@@ -410,7 +407,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
                           },
                           "protectedSettings": {
                             "storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-                            "storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
+                            "storageAccountKey": "[listkeys(variables('accountid'), '2015-06-15').key1]",
                             "storageAccountEndPoint": "https://core.windows.net"
                           }
                         }
@@ -471,18 +468,18 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
     Pour ce didacticiel, il s’agit de valeurs importantes :
 
-    - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension de diagnostic relève le compteur **Processeur(\_Total)\\% Temps processeur **.
-	- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
-    - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
-    - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
-    - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
-    - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
-    - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
-    - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
-    - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
-    - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
-    - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
-    - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
+    - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension de diagnostic relève le compteur **Processeur(\_Total)\\% Temps processeur **.
+- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
+    - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
+    - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
+    - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
+    - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
+    - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
+    - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+    - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+    - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
+    - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
+    - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
 
 12.	Enregistrez le fichier de modèle.
 
@@ -567,7 +564,9 @@ Si vous souhaitez conserver votre groupe de ressources, vous pouvez supprimer un
     
 ## Étapes suivantes
 
-- Gérer le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un jeu de mise à l’échelle de machines virtuelles (en anglais)](virtual-machine-scale-sets-windows-manage.md).
-- Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Gérer le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un groupe identique de machines virtuelles](virtual-machine-scale-sets-windows-manage.md).
+- Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des groupes identiques de machines virtuelles](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Découvrez des exemples de fonctionnalités de surveillance Azure Insights dans les [exemples de démarrage rapide d’Azure Insights PowerShell](../azure-portal/insights-powershell-samples.md)
+- Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) et [Utiliser les journaux d’audit pour envoyer des notifications webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -103,7 +103,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | 44 | [Connexion à SQL Database à l’aide de Node.js](sql-database-develop-nodejs-simple.md) | Cette rubrique présente un exemple de code Node.js que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. |
 | 45 | [Connexion à SQL Database à l’aide de Python](sql-database-develop-python-simple.md) | Cette rubrique présente un exemple de code Python que vous pouvez utiliser pour vous connecter à une base de données SQL Azure. |
 | 46 | [Connexion à SQL Database à l’aide de Ruby](sql-database-develop-ruby-simple.md) | Offre un exemple de code Ruby que vous pouvez exécuter pour vous connecter à la base de données SQL Azure. |
-| 47 | [Connexion à SQL Database : meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md) | Rubrique servant de point de départ qui rassemble des liens et des meilleures pratiques concernant les programmes clients qui se connectent à Azure SQL Database à partir de technologies telles que ADO.NET et PHP. |
+| 47 | [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md) | Rubrique servant de point de départ qui rassemble des liens et des meilleures pratiques concernant les programmes clients qui se connectent à Azure SQL Database à partir de technologies telles que ADO.NET et PHP. |
 | 48 | [Création et déploiement d’une application ASP.NET Web Forms sécurisée avec appartenance, OAuth et Base de données SQL sur Azure App Service](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md) | Ce didacticiel vous montre comment créer une application web ASP.NET 4.5 Web Forms sécurisée qui intègre une base de données SQL et comment la déployer vers Azure. |
 | 49 | [Obtenir l’ID client et la clé pour la connexion à une base de données SQL à partir du code](sql-database-client-id-keys.md) | Obtenez l’ID client et la clé pour l’accès à la base de données SQL à partir du code. |
 | 50 | [Prise en main des tables temporelles dans Azure SQL Database](sql-database-temporal-tables.md) | Découvrez comment prendre en main les tables temporelles dans Azure SQL Database. |
@@ -351,7 +351,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | 180 | [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md) | Cette page décrit certaines limites de ressources courantes pour une base de données SQL Azure. |
 | 181 | [Différences dans le langage Transact-SQL Azure SQL Database.](sql-database-transact-sql-information.md) | Instructions Transact-SQL qui ne sont pas entièrement prises en charge dans Azure SQL Database |
 | 182 | [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md) | Répertorie le numéro de version minimal pour chaque pilote que les programmes clients peuvent utiliser lors de la connexion à Azure SQL Database ou à Microsoft SQL Server. Un lien est fourni pour les informations sur les versions des pilotes publiés par la communauté, et non par Microsoft. |
-| 183 | [Recherche avec des filtres](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Rechercher avec des filtres des articles de la documentation sur la base de données SQL Azure. |
+| 183 | [Recherche avec des filtres](https://azure.microsoft.com/fr-FR/documentation/articles/?service=sql-database) | Rechercher avec des filtres des articles de la documentation sur la base de données SQL Azure. |
 
 
 ## Divers
@@ -378,4 +378,4 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 - Graphique de parcours d’apprentissage : [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

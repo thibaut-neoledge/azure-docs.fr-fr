@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Utiliser le catalogue U-SQL
@@ -73,7 +73,7 @@ Vous pouvez utiliser les outils Data Lake pour Visual Studio pour gérer le cata
 - U-SQL et développement
     - [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
     - [Utiliser les fonctions de la fenêtre U-SQL pour des travaux Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)
-    - [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analtyics-u-sql-user-defined-operators.md)
+    - [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-Analytics-u-sql-user-defined-operators.md)
 
 - Gestion
     - [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-use-portal.md)
@@ -84,4 +84,4 @@ Vous pouvez utiliser les outils Data Lake pour Visual Studio pour gérer le cata
     - [Utiliser les didacticiels interactifs Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
     - [Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->
