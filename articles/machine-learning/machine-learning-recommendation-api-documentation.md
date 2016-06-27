@@ -92,7 +92,10 @@ Crée une demande de création de modèle.
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | | apiVersion | 1.0 | ||| | Corps de la demande | AUCUN |
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | 
+| apiVersion | 1.0 | 
+||| 
+| Corps de la demande | AUCUN |
 
 
 **Réponse** :
@@ -263,7 +266,9 @@ OData XML
 
 ###5\.4. Mise à jour du modèle
 
-Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> <ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
+Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> 
+<ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> 
+Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
 
 | Méthode HTTP | URI |
@@ -884,7 +889,18 @@ OData XML
 |	apiVersion | 1\.0 |
 |||
 | Corps de la requête | 
-<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (l’ID que vous avez utilisé dans le fichier de catalogue)</ins><br> <ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureBlockList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Pour ajouter une règle WhiteList :</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureWhiteList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (l’ID que vous avez utilisé dans le fichier de catalogue)</ins><br> 
+<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Pour ajouter une règle FeatureBlockList :</ins><br> 
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
+Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> 
+<ins>Pour ajouter une règle WhiteList :</ins><br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Pour ajouter une règle FeatureWhiteList :</ins><br> 
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> 
+Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Réponse** :
@@ -974,7 +990,11 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 
 | Nom | Obligatoire | Type | Description |
 |:---|:---|:---|:---|
-| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | | Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | | Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | | Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4000 | Description de cet élément. | | Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4000 ; nombre maximal de fonctionnalités : 20 | | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
+| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | 
+| Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | 
+| Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | 
+| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4000 | Description de cet élément. | 
+| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4000 ; nombre maximal de fonctionnalités : 20 | | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
 
 
 | Méthode HTTP | URI |
@@ -985,7 +1005,10 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | 
+| apiVersion | 1.0 | 
+||| 
+| Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Réponse** :

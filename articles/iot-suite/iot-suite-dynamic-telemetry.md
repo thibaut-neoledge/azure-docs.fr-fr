@@ -38,7 +38,7 @@ Vous pouvez suivre ce didacticiel sur n’importe quel système d’exploitation
 
 1. Dans le tableau de bord de surveillance à distance, cliquez sur **+ Ajouter un appareil**, puis ajoutez un nouvel appareil personnalisé. Notez le nom d’hôte, l’ID de l’appareil et la clé de l’appareil IoT Hub. Vous en aurez besoin ultérieurement dans ce didacticiel lorsque vous préparerez l’application cliente de l’appareil remote\_monitoring.js.
 
-2. Assurez-vous que Node.js version 0.12.x ou ultérieure est installé sur votre ordinateur de développement. Exécutez `node --version` à l’invite de commande ou dans un interpréteur de commandes pour vérifier la version. Pour plus d’informations sur l’utilisation d’un gestionnaire de package pour installer Node.js sur Linux, consultez [Installing Node.js via package manager][node-linux] (Installation de Node.js via le gestionnaire de package).
+2. Assurez-vous que Node.js version 0.12.x ou ultérieure est installé sur votre ordinateur de développement. Exécutez `node --version` à l’invite de commande ou dans un interpréteur de commandes pour vérifier la version. Pour plus d’informations sur l’utilisation d’un gestionnaire de package pour installer Node.js sur Linux, consultez [Installing Node.js via package manager][node-linux] \(Installation de Node.js via le gestionnaire de package).
 
 3. Une fois que vous avez installé Node.js, clonez la dernière version du référentiel [azure-iot-sdks][lnk-github-repo] sur votre ordinateur de développement. Vous devez toujours utiliser la branche **maître** pour la version la plus récente des bibliothèques et des exemples.
 

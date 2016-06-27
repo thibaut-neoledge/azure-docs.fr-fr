@@ -109,7 +109,7 @@ Décompressez le fichier dans un dossier avec un nom de chemin d’accès court,
 
 Si vous souhaitez contribuer à notre code ou bénéficier des mises à jour correspondantes, vous pouvez également cloner le dépôt comme suit :
 
-****git clone https://github.com/Azure-Samples/MyDriving.git**
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Obtenir une clé d’API Bing Cartes
 

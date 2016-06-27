@@ -20,7 +20,7 @@
 
 Interagir avec l’exemple d’interface utilisateur de gestion d’appareils vous permettra de renforcer les concepts et les fonctionnalités abordés dans les articles [Vue d’ensemble][lnk-dm-overview] et [Prise en main][lnk-get-started] de la gestion d’appareils Azure IoT Hub. Cet article vous permettra de vous familiariser avec les trois principaux concepts de gestion d’appareils (*représentation d’appareil*, *requêtes d’appareil* et *travaux d’appareil*) comme représenté dans l’exemple d’interface utilisateur Web de gestion d’appareils.
 
-Les développeurs souhaitant créer leur propre expérience interactive de gestion d’appareils peuvent répliquer l’exemple de code base de l’interface utilisateur pour l’utiliser comme base pour un projet personnalisé. Vous pouvez consulter l’intégralité du code de projet et les documents Lisez-moi qui décrivent en détail les fonctionnalités de développement supplémentaires dans le référentiel GitHub [Azure IoT device management UI][lnk-dm-github] (Interface utilisateur de gestion d’appareils Azure IoT).
+Les développeurs souhaitant créer leur propre expérience interactive de gestion d’appareils peuvent répliquer l’exemple de code base de l’interface utilisateur pour l’utiliser comme base pour un projet personnalisé. Vous pouvez consulter l’intégralité du code de projet et les documents Lisez-moi qui décrivent en détail les fonctionnalités de développement supplémentaires dans le référentiel GitHub [Azure IoT device management UI][lnk-dm-github] \(Interface utilisateur de gestion d’appareils Azure IoT).
 
 ## Composants requis
 

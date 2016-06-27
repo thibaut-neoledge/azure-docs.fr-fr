@@ -158,7 +158,7 @@ Pour exécuter U-SQL, ouvrez Visual Studio, cliquez sur **Fichier--> Nouveau--> 
 
 ### <a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
 
-L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, peut être extrait à l’aide de **Extractors.Csv()**. Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container_name@blob_storage_account_name dans l’adresse wasb. Étant donné que les noms de fichiers sont au même format, nous pouvons utiliser **trip\_data\_ {*} .csv** pour lire les 12 fichiers de course.
+L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, peut être extrait à l’aide de **Extractors.Csv()**. Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container_name@blob_storage_account_name dans l’adresse wasb. Étant donné que les noms de fichiers sont au même format, nous pouvons utiliser **trip\_data\_ {*} .csv** pour lire les 12 fichiers de course.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ L’emplacement des données dans l’objet blob Azure, auquel il est fait réf�
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Dans la mesure où la première ligne comporte des en-têtes, nous devons les supprimer et modifier les types de colonne afin de les adapter. Vous pouvez enregistrer les données traitées dans Azure Data Lake Storage à l’aide de ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou dans un compte de stockage d’objets blob Azure à l’aide de ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Dans la mesure où la première ligne comporte des en-têtes, nous devons les supprimer et modifier les types de colonne afin de les adapter. Vous pouvez enregistrer les données traitées dans Azure Data Lake Storage à l’aide de **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou dans un compte de stockage d’objets blob Azure à l’aide de **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@ Puis cliquez sur **Tableau de bord** en regard du bouton **Paramètres**. Une fe
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Collez les scripts Hive suivants pour créer une table. L’emplacement de la source de données se trouve dans la référence Azure Data Lake Store sous la forme suivante : ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Collez les scripts Hive suivants pour créer une table. L’emplacement de la source de données se trouve dans la référence Azure Data Lake Store sous la forme suivante : **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(

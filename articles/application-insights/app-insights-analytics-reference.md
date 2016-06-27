@@ -1426,7 +1426,17 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraction | | * | Multiplication | | / | Division | | % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Différent de |`!=`|Différent de
+| - | Soustraction | 
+| * | Multiplication | 
+| / | Division | 
+| % | Modulo | 
+|| 
+|`<` |Inférieur à 
+|`<=`|Inférieur ou égal à 
+|`>` |Supérieur à 
+|`>=`|Supérieur ou égal à 
+|`<>`|Différent de 
+|`!=`|Différent de
 
 
 ### abs

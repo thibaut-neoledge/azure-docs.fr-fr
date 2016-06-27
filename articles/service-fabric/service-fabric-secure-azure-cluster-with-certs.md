@@ -134,7 +134,7 @@ Les certificats exigés sont spécifiés au niveau du type de nœud sous Configu
 
 ### Paramètres obligatoires
 
-- **Mode de sécurité** Sélectionnez **Certificat X509 ** pour configurer un cluster sécurisé avec les certificats X.509.
+- **Mode de sécurité** Sélectionnez **Certificat X509** pour configurer un cluster sécurisé avec les certificats X.509.
 - **Niveau de protection du cluster** Consultez ce [document sur les niveaux de protection](https://msdn.microsoft.com/library/aa347692.aspx) pour comprendre la signification de chacune de ces valeurs. Même si nous autorisons ici trois valeurs (EncryptAndSign, Sign et None), il est préférable de conserver la valeur par défaut EncryptAndSign sauf si vous savez ce que vous faites.
 - **Coffre source** Ce paramètre désigne l’ID de ressource du coffre de clés. Il doit respecter le format suivant :
 

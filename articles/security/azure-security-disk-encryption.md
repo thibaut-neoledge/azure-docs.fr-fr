@@ -91,7 +91,7 @@ Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtue
 
 La solution Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux inclut l’extension de chiffrement de disque pour Windows, l’extension de chiffrement de disque pour Linux, les applets de commande CLI de chiffrement de disque et les modèles Azure Resource Manager de chiffrement de disque. Azure Disk Encryption est pris en charge sur les machines virtuelles IaaS exécutant les systèmes d’exploitation Windows ou Linux. Pour plus d’informations sur les systèmes d’exploitation pris en charge, consultez la section Conditions préalables requises ci-dessous.
 
-****Remarque : ** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
+**Remarque:** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
 
 ### Proposition de valeur
 
@@ -169,21 +169,21 @@ Azure Disk Encryption est pris en charge sur les SKU clients Windows suivants : 
 
 	- Exemple d’URL secrète valide :
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Exemple de KEK KRK valide :
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Le chiffrement de disque Azure ne prend pas en charge les numéros de port spécifié dans le cadre du secret de coffre de clés et de secrets et des URL KEK. Voir les exemples ci-dessous pour l’URL de coffre de clés pris en charge :
 
  	- URL de coffre de clés non acceptée
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- URL du coffre de clés accepté :
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Pour activer la fonction de chiffrement de disque Azure, les machines virtuelles IaaS doivent répondre aux exigences de configuration du point de terminaison de réseau suivantes :
 

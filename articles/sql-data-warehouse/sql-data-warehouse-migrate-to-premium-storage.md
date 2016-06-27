@@ -22,7 +22,7 @@ Le logiciel SQL Data Warehouse a récemment proposé pour la première fois la f
 Si vous disposez de plusieurs entrepôts de données, utilisez les instructions de la section [Planification de la migration automatique][] ci-dessous pour déterminer à quel moment ils doivent également être migrés.
 
 ## Détails sur la migration automatique
-Par défaut, nous allons migrer votre base de données pour vous entre 18:00 et 6 heures du matin (heure locale de votre région) à un moment donné lors de la [planification de la migration automatique][] (voir section ci-dessous). Lors de la migration, l’entrepôt de données existant est inutilisable. Nous estimons que la migration dure environ 1 heure par To de stockage, pour chaque entrepôt de données. Nous allons également nous assurer que vous n’êtes facturé à aucun moment de la migration.
+Par défaut, nous allons migrer votre base de données pour vous entre 18:00 et 6 heures du matin (heure locale de votre région) à un moment donné lors de la [planification de la migration automatique][] \(voir section ci-dessous). Lors de la migration, l’entrepôt de données existant est inutilisable. Nous estimons que la migration dure environ 1 heure par To de stockage, pour chaque entrepôt de données. Nous allons également nous assurer que vous n’êtes facturé à aucun moment de la migration.
 
 > [AZURE.NOTE] Vous ne serez pas en mesure d’utiliser votre entrepôt de données existant lors de la migration. Une fois la migration terminée, votre entrepôt de données sera remis en ligne.
 
@@ -144,6 +144,6 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, veuillez
 
 
 <!--Other Web references-->
-[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/fr-FR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 
 <!---HONumber=AcomDC_0615_2016-->

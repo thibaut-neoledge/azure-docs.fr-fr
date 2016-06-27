@@ -63,7 +63,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 	  }
 	}
 
-**Jeu de données d’entrée WebTable ** La définition de la propriété **external** sur **true** et la spécification de la stratégie **externalData** (facultative) informent le service Data Factory qu’il s’agit d’une table qui est externe à la fabrique de données et non produite par une activité dans la fabrique de données.
+**Jeu de données d’entrée WebTable** La définition de la propriété **external** sur **true** et la spécification de la stratégie **externalData** (facultative) informent le service Data Factory qu’il s’agit d’une table qui est externe à la fabrique de données et non produite par une activité dans la fabrique de données.
 
 > [AZURE.NOTE] Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page).
 

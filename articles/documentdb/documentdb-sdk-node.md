@@ -137,7 +137,31 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 juin 2016 |--- | [1\.7.0](#1.7.0) | 26 avril 2016 |--- | [1\.6.0](#1.6.0) | 29 mars 2016 |--- | [1\.5.6](#1.5.6) | 8 mars 2016 |--- | [1\.5.5](#1.5.5) | 2 février 2016 |--- | [1\.5.4](#1.5.4) | 1 février 2016 |--- | [1\.5.2](#1.5.2) | 26 janvier 2016 |--- | [1\.5.2](#1.5.2) | 22 janvier 2016 |--- | [1\.5.1](#1.5.1) | 4 janvier 2016 |--- | [1\.5.0](#1.5.0) | 31 décembre 2015 |--- | [1\.4.0](#1.4.0) | 6 octobre 2015 |--- | [1\.3.0](#1.3.0) | 6 octobre 2015 |--- | [1\.2.2](#1.2.2) | 10 septembre 2015 |--- | [1\.2.1](#1.2.1) | 15 août 2015 |--- | [1\.2.0](#1.2.0) | 5 août 2015 |--- | [1\.1.0](#1.1.0) | 9 juillet 2015 |--- | [1\.0.3](#1.0.3) | 4 juin 2015 |--- | [1\.0.2](#1.0.2) |23 mai 2015 |--- | [1\.0.1](#1.0.1) | 15 mai 2015 |--- | [1\.0.0](#1.0.0) | 8 avril 2015 |--- | Version préliminaire 0.9.4 | 6 avril 2015 | 29 février 2016 | Version préliminaire 0.9.3 | 14 janvier 2015 | 29 février 2016 | Version préliminaire 0.9.2 | 18 décembre 2014 | 29 février 2016 | Version préliminaire 0.9.1 | 22 août 2014 | 29 février 2016 | Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
+| [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 avril 2016 |--- 
+| [1\.6.0](#1.6.0) | 29 mars 2016 |--- 
+| [1\.5.6](#1.5.6) | 8 mars 2016 |--- 
+| [1\.5.5](#1.5.5) | 2 février 2016 |--- 
+| [1\.5.4](#1.5.4) | 1 février 2016 |--- 
+| [1\.5.2](#1.5.2) | 26 janvier 2016 |--- 
+| [1\.5.2](#1.5.2) | 22 janvier 2016 |--- 
+| [1\.5.1](#1.5.1) | 4 janvier 2016 |--- 
+| [1\.5.0](#1.5.0) | 31 décembre 2015 |--- 
+| [1\.4.0](#1.4.0) | 6 octobre 2015 |--- 
+| [1\.3.0](#1.3.0) | 6 octobre 2015 |--- 
+| [1\.2.2](#1.2.2) | 10 septembre 2015 |--- 
+| [1\.2.1](#1.2.1) | 15 août 2015 |--- 
+| [1\.2.0](#1.2.0) | 5 août 2015 |--- 
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
+| [1\.0.3](#1.0.3) | 4 juin 2015 |--- 
+| [1\.0.2](#1.0.2) |23 mai 2015 |--- 
+| [1\.0.1](#1.0.1) | 15 mai 2015 |--- 
+| [1\.0.0](#1.0.0) | 8 avril 2015 |--- 
+| Version préliminaire 0.9.4 | 6 avril 2015 | 29 février 2016 
+| Version préliminaire 0.9.3 | 14 janvier 2015 | 29 février 2016 
+| Version préliminaire 0.9.2 | 18 décembre 2014 | 29 février 2016 
+| Version préliminaire 0.9.1 | 22 août 2014 | 29 février 2016 
+| Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
 
 
 ## Forum Aux Questions

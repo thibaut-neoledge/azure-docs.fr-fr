@@ -38,7 +38,7 @@ Pour restaurer une base de données :
 2. Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][].
 3. Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][].
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
 
 ## restauration d’une base de données supprimée.
 
@@ -49,7 +49,7 @@ Pour restaurer une base de données supprimée :
 3.	Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][].
 4.	Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][].
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
 
 
 ## Étapes suivantes

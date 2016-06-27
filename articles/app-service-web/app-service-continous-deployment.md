@@ -79,7 +79,7 @@ Pour désactiver le déploiement continu :
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-[Azure App Service]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-changes-existing-services/
+[Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [portail Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/fr-FR/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

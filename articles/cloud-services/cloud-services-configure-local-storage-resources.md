@@ -33,8 +33,8 @@ Une ressource de stockage local est déclarée dans le fichier de définition de
 Pour déclarer une ressource de stockage local dans le fichier de définition de service, ajoutez l'élément **LocalResources** comme enfant d'un élément **WebRole** ou d'un élément **WorkerRole**. Ajoutez ensuite un élément **LocalStorage** pour représenter la ressource. L'élément **LocalStorage** prend trois attributs :
 
 -   *name*
--   *sizeInMB* : spécifie la taille souhaitée pour cette ressource de stockage local
--   *cleanOnRoleRecycle* : spécifie si la ressource de stockage local doit être effacée quand une instance de rôle est recyclée, ou si elle doit être persistante dans le cycle de vie du rôle. La valeur par défaut est **true**.
+-   *sizeInMB* : spécifie la taille souhaitée pour cette ressource de stockage local
+-   *cleanOnRoleRecycle* : spécifie si la ressource de stockage local doit être effacée quand une instance de rôle est recyclée, ou si elle doit être persistante dans le cycle de vie du rôle. La valeur par défaut est **true**.
 
 Le fichier de définition de service suivant illustre deux ressources de stockage local déclarées pour un rôle web :
 

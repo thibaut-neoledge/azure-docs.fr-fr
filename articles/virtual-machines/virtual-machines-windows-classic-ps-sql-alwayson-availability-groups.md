@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
 
 
 Les machines virtuelles (VM) Azure permettent aux administrateurs de base de données de réduire le coût d’un système SQL Server haute disponibilité. Ce didacticiel vous indique comment implémenter un groupe de disponibilité en utilisant SQL Server Always On de bout en bout dans un environnement Azure. À la fin du didacticiel, votre solution SQL Server Always On dans Azure comprendra les éléments suivants :

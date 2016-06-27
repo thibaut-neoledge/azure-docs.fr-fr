@@ -127,7 +127,12 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métr
 
 	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | | Data 1 | 2 | 20 || Data 2 | 3 | 30 || Data 3 | 4 | 40 || Data 4 | 5 | 50 || Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | 
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
+	| Data 5 | 6 | 60 |
 
 
 - L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :

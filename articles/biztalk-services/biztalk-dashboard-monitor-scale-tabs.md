@@ -233,7 +233,8 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**i
 
 ##### Pour supprimer ou afficher des mesures dans le graphique :
 1. Sélectionnez l'onglet **Surveiller**.
-2. Sélectionnez **Ajouter des métriques** dans la barre des tâches : ![Sélectionnez Ajouter des métriques.][AddMetrics]
+2. Sélectionnez **Ajouter des métriques** dans la barre des tâches :  
+![Sélectionnez Ajouter des métriques.][AddMetrics]
 3. Vérifiez les mesures de performances que vous souhaitez afficher.
 4. Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
 5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.  
@@ -241,7 +242,8 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**i
 	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique :![La mesure Utilisation du processeur apparaît en grisé  
 ][GrayedMetric]
 
-	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique :![La mesure Utilisation du processeur est activée][EnabledMetric]
+	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique :  
+	![La mesure Utilisation du processeur est activée][EnabledMetric]
 
 6. Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure et cochez la case pour revenir à l'onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 

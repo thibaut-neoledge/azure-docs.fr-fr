@@ -194,7 +194,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 1.	Téléchargez agent.zip. Pour ce faire :
 
-    a. Connectez-vous à votre projet d’équipe, par exemple ****https://[your-VSTS-account-name].visualstudio.com**.
+    a. Connectez-vous à votre projet d’équipe, par exemple **https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Sélectionnez l’icône en forme d’engrenage dans l’angle supérieur droit de votre écran.
 
@@ -401,7 +401,7 @@ Si une build précédente n’a pas nettoyé après avoir terminé (par exemple,
     |Nom du fichier de script|Cliquez sur le bouton **...** et accédez au répertoire **Scripts** à l’intérieur de votre projet d’application. Sélectionnez `Deploy-FabricApplication.ps1`.|
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] Un moyen simple de créer un fichier xml de profil de publication de travail consiste à le créer dans Visual Studio, comme illustré ici : https://azure.microsoft.com/fr-FR/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] Un moyen simple de créer un fichier xml de profil de publication de travail consiste à le créer dans Visual Studio, comme illustré ici : https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] Si vous souhaitez prendre en charge le déploiement de l’application sur un cluster en remplaçant l’application existante au lieu de la mettre à niveau, ajoutez cet argument Powershell: ’-OverwriteBehavior SameAppTypeAndVersion’. En outre, assurez-vous que le profil de publication sélectionné n’est pas configuré pour permettre une mise à niveau. Cela supprimera d’abord tout ApplicationType existant avant d’installer la version la plus récente.
 

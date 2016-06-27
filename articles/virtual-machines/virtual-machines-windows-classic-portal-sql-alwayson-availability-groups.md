@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
 
 
 Ce didacticiel de bout en bout vous indique comment implémenter des groupes de disponibilité en utilisant SQL Server Always On sur des machines virtuelles Azure.

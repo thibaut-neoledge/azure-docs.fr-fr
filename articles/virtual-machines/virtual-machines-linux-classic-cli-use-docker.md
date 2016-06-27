@@ -19,7 +19,7 @@
 
 # Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
 
 
 

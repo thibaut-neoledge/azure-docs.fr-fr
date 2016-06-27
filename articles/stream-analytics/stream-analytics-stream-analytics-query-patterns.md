@@ -169,7 +169,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	HAVING
 		[Count] >= 3
 
-**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d’expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l’avantage supplémentaire d’ouvrir moins de lecteurs à la source d’entrée par exemple.
+**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d’expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l’avantage supplémentaire d’ouvrir moins de lecteurs à la source d’entrée par exemple.
 
 	WITH AllRedCars AS (
 		SELECT

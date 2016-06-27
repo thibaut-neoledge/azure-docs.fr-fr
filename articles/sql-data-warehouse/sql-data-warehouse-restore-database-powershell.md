@@ -116,7 +116,7 @@ $RestoredDatabase.status
 
 ```
 
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
+Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
 
 ## Restauration à partir d’une région géographique Azure
 

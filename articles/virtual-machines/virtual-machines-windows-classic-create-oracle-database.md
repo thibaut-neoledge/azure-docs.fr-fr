@@ -146,7 +146,7 @@ Pour permettre l’accès à distance à votre base de données (par exemple, à
 ##Activer l’accès à distance à Oracle Database Enterprise Manager
 Si vous souhaitez activer l’accès distant à Oracle Database Enterprise Manager, ouvrez le port 5500 dans votre pare-feu et créez un point de terminaison de machine virtuelle pour le port 5500 dans le portail Azure Classic (utilisez la procédure décrite ci-dessus pour ouvrir le port 1521 et créer un point de terminaison pour le port 1521). Ensuite, pour exécuter Oracle Enterprise Manager à partir de l’ordinateur distant, ouvrez un navigateur et accédez à l’URL `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE] (Vous pouvez déterminer la valeur de *<<unique\_domain\_name>>* dans le [Portail Azure Classic](https://portal.azure.com/) en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
+> [AZURE.NOTE] \(Vous pouvez déterminer la valeur de *<<unique\_domain\_name>>* dans le [Portail Azure Classic](https://portal.azure.com/) en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
 
 ##Configuration des offres groupées, options populaires et options avancées
 Si vous avez choisi l’offre groupée **Oracle Database avec options populaires** ou l’offre groupée **Oracle Database avec options avancées**, l’étape suivante vous permet de configurer les fonctionnalités supplémentaires de votre installation Oracle. Pour obtenir des informations concernant la configuration dans Windows, consultez la documentation Oracle, les configurations pouvant fortement varier en fonction de vos besoins concernant chaque composant.

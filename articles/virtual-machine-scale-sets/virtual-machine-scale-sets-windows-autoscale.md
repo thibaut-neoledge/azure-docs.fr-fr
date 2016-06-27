@@ -469,7 +469,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     Pour ce didacticiel, il s’agit de valeurs importantes :
 
     - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension de diagnostic relève le compteur **Processeur(\_Total)\\% Temps processeur **.
-- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
+	- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
     - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
     - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
     - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
