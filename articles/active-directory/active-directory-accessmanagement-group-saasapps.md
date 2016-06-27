@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure"
-	description="Comment utiliser les groupes dans Azure Active Directory Premium ou Basic pour attribuer l’accès à des applications SaaS intégrées à Azure Active Directory."
+	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure"
+	description="Comment utiliser les groupes dans Azure Active Directory Premium ou Basic pour attribuer l’accès à des applications SaaS intégrées à Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -14,21 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 
-# Utilisation d’un groupe pour gérer l’accès aux applications SaaS
+# Utilisation d’un groupe pour gérer l’accès aux applications SaaS
 
-En utilisant Azure Active Directory (Azure AD) avec une licence Azure AD Premium ou Azure AD Basic, vous pouvez utiliser les groupes pour attribuer l’accès à une application SaaS intégrée à Azure AD. Par exemple, si vous souhaitez attribuer l’accès à différentes applications SaaS au service marketing, vous pouvez créer un groupe comportant les utilisateurs du service marketing, puis allouer ce groupe aux cinq applications SaaS dont il a besoin. De cette manière, vous pouvez gagner du temps en gérant de manière centralisée l’adhésion du service marketing. Ensuite, les utilisateurs sont affectés à l’application lorsqu’ils sont ajoutés en tant que membres du groupe marketing. Leurs attributions sont retirées de l’application lors de leur suppression du groupe marketing.
+En utilisant Azure Active Directory (Azure AD) avec une licence Azure AD Premium ou Azure AD Basic, vous pouvez utiliser les groupes pour attribuer l’accès à une application SaaS intégrée à Azure AD. Par exemple, si vous souhaitez attribuer l’accès à différentes applications SaaS au service marketing, vous pouvez créer un groupe comportant les utilisateurs du service marketing, puis allouer ce groupe aux cinq applications SaaS dont il a besoin. De cette manière, vous pouvez gagner du temps en gérant de manière centralisée l’adhésion du service marketing. Ensuite, les utilisateurs sont affectés à l’application lorsqu’ils sont ajoutés en tant que membres du groupe marketing. Leurs attributions sont retirées de l’application lors de leur suppression du groupe marketing.
 
-Cette fonctionnalité peut être utilisée avec des centaines d’applications pouvant être ajoutées à partir de la galerie d’applications Azure AD.
+Cette fonctionnalité peut être utilisée avec des centaines d’applications pouvant être ajoutées à partir de la galerie d’applications Azure AD.
 
-**Pour attribuer à un groupe l’accès à une application SaaS**
+**Pour attribuer à un groupe l’accès à une application SaaS**
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory** dans la barre de navigation à gauche.
 
-2. Sélectionnez l’onglet **Répertoire**, puis ouvrez le répertoire dans lequel vous souhaitez attribuer l’accès à un groupe à une application SaaS.
+2. Sélectionnez l’onglet **Répertoire**, puis ouvrez le répertoire dans lequel vous souhaitez attribuer l’accès à un groupe à une application SaaS.
 
 3. Sélectionnez l’onglet **Applications**. Sélectionnez une application ajoutée à partir de la galerie d’applications, puis cliquez sur l’onglet **Utilisateurs et groupes**.
 
@@ -50,8 +50,10 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+* [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
+
+* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

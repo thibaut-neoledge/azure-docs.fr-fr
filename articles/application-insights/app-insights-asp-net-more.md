@@ -40,7 +40,7 @@ Voici un résumé des fonctionnalités qu’il vous reste peut-être encore à d
 |[**Recherche de diagnostic pour les données d’instance**](app-insights-visual-studio.md)<br/>Cherchez et filtrez les événements, comme les requêtes, les exceptions, les appels de dépendance, les suivis de journaux et les affichages de pages. Dans Visual Studio, accédez au code à partir de l’arborescence des appels de procédure.|![Visual Studio](./media/app-insights-asp-net/61.png)
 |[**Metrics Explorer pour les données agrégées**](app-insights-metrics-explorer.md)<br/>Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages.|![Visual Studio](./media/app-insights-asp-net-more/060.png)
 |[**Tableaux de bord**](app-insights-dashboards.md#dashboards)<br/>Combinez des données de plusieurs sources et partagez-les avec d’autres. Idéal pour les applications à composants multiples et pour un affichage en continu dans la salle de l’équipe. |![Exemple de tableaux de bord](./media/app-insights-asp-net/62.png)
-|[**Flux en direct**](app-insights-metrics-explorer.md#live-stream)<br/>Lorsque vous déployez une nouvelle version, observez ces indicateurs de performance quasiment en temps réel pour vous assurer que tout fonctionne comme prévu.|![Exemple d’analyse](./media/app-insights-asp-net-more/050.png)
+|[**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream)<br/>Lorsque vous déployez une nouvelle version, observez ces indicateurs de performance quasiment en temps réel pour vous assurer que tout fonctionne comme prévu.|![Exemple d’analyse](./media/app-insights-asp-net-more/050.png)
 |[**Analyses**](app-insights-analytics.md)<br/>Répondez à des questions difficiles sur les performances et l’utilisation de votre application avec ce langage de requêtes puissant.|![Exemple d’analyse](./media/app-insights-asp-net-more/010.png)
 |[**Alertes automatiques et manuelles**](app-insights-alerts.md)<br/>Les alertes automatiques s’adaptent aux habitudes télémétriques normales de votre application et se déclenchent lorsqu’un comportement inhabituel est détecté. Vous pouvez également définir des alertes sur des niveaux particuliers de mesures personnalisées ou standard.|![Exemple d’alerte](./media/app-insights-asp-net-more/020.png)
 
@@ -52,4 +52,4 @@ Voici un résumé des fonctionnalités qu’il vous reste peut-être encore à d
 |**API d’accès aux données**<br/>Prochainement disponible.|
 |[**Échantillonnage**](app-insights-sampling.md)<br/>Réduit le débit de données et vous permet de rester dans la limite de votre niveau tarifaire.|![Mosaïque d’échantillonnage](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

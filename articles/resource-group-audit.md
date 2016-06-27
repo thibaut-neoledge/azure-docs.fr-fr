@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
 # Opérations d’audit avec Resource Manager
@@ -125,4 +125,4 @@ Les opérations REST à utiliser avec le journal d’audit font partie de l’[A
 - Pour en savoir plus sur les commandes qui permettent de résoudre les problèmes liés aux déploiements, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

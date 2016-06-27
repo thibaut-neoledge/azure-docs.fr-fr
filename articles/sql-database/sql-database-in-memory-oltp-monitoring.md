@@ -56,6 +56,6 @@ Pour résoudre cette erreur, deux possibilités s’offrent à vous :
 - adapter le niveau de service afin de disposer d’un stockage en mémoire suffisant pour les données que vous devez conserver dans des tables à mémoire optimisée.
 
 ## Étapes suivantes
-En savoir plus sur l’[Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
+Ressources supplémentaires sur l’[analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

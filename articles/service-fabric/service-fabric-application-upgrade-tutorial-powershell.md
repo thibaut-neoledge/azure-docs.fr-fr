@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="06/13/2016"
    ms.author="subramar"/>
 
 
@@ -29,9 +29,8 @@ Grâce à la mise à niveau propagée surveillée de Service Fabric, l’adminis
 
 ## Étape 1 : Créer et déployer l'exemple Visual Objects
 
-Ces étapes peuvent être effectuées en téléchargeant l’application à partir de GitHub et en ajoutant les fichiers **webgl-utils.js** et **gl-matrice-min.js** au projet comme indiqué dans le fichier Lisezmoi de l’exemple. Sans cela, l'application ne fonctionnera pas.
 
-Après les avoir ajoutés au projet, générez et publiez l’application en cliquant avec le bouton droit sur le projet d’application, **VisualObjectsApplication** et en sélectionnant la commande **Publier** dans l’élément de menu Service Fabric, comme ci-après. Pour plus d’informations, consultez le [didacticiel sur la mise à niveau d’une application Service Fabric](service-fabric-application-upgrade-tutorial.md). Vous pouvez également utiliser PowerShell pour déployer votre application.
+Générez et publiez l’application en cliquant avec le bouton droit sur le projet d’application, **VisualObjectsApplication** et en sélectionnant la commande **Publier** dans l’élément de menu Service Fabric, comme ci-après. Pour plus d’informations, consultez le [didacticiel sur la mise à niveau d’une application Service Fabric](service-fabric-application-upgrade-tutorial.md). Vous pouvez également utiliser PowerShell pour déployer votre application.
 
 > [AZURE.NOTE] Avant d’utiliser les commandes Service Fabric dans PowerShell, vous devez vous connecter au cluster en utilisant l’applet de commande `Connect-ServiceFabricCluster`. De même, cela suppose que le cluster a déjà été configuré sur votre ordinateur local. Consultez l'article sur la [configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
 
@@ -117,7 +116,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Notez que le nom de l’application est tel qu’il a été décrit dans le fichier *ApplicationManifest.xml*. Service Fabric utilise ce nom pour identifier l'application à mettre à niveau. Si vous définissez des délais d’attente trop courts, vous pouvez recevoir un message d’échec stipulant le problème. Reportez-vous à la section de résolution des problèmes ou augmentez les délais d’attente.
 
-Vous pouvez désormais surveiller la progression de la mise à niveau de l’application à l’aide de l’Explorateur de Service Fabric ou à l’aide de la commande PowerShell suivante : **Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects**.
+Vous pouvez désormais surveiller la progression de la mise à niveau de l’application à l’aide de Service Fabric Explorer ou à l’aide de la commande PowerShell suivante : **Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects**.
 
 Après quelques minutes, l’état issu de la commande PowerShell ci-dessus doit indiquer que tous les domaines de mise à jour ont été mis à niveau (terminés). De plus, vous pouvez normalement noter que les objets visuels sont désormais en rotation dans la fenêtre de votre navigateur.
 
@@ -128,12 +127,12 @@ Vous souhaiterez peut-être essayer de modifier les versions et de passer de la 
 
 La [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
-Contrôlez les mises à niveau de votre application à l’aide des [paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
+Contrôlez les mises à niveau de votre application à l’aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-Rendez les mises à niveau de votre application compatibles en apprenant à utiliser la [sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
+Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
-Apprenez à utiliser les fonctionnalités avancées pendant la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
+Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
 Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

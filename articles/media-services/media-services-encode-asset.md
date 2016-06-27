@@ -220,7 +220,7 @@ ErrorCancelingTask|Catégorie d’erreurs se produisant à la suite d’échecs 
 TransientError|Catégorie d’erreurs regroupant les problèmes temporaires, comme les problèmes temporaires de mise en réseau avec Azure Storage.
 
 
-Pour obtenir de l’aide de la part de l’équipe **Media Services**, ouvrez un [ticket de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Pour obtenir de l’aide de la part de l’équipe **Media Services**, ouvrez un [ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 
@@ -242,4 +242,4 @@ Pour obtenir de l’aide de la part de l’équipe **Media Services**, ouvrez un
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

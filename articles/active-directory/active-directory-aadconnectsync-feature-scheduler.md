@@ -38,6 +38,8 @@ Pour afficher vos paramètres de configuration en cours, accédez à PowerShell 
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
+Si le message **La commande de synchronisation ou l’applet de commande n’est pas disponible** apparaît lorsque vous exécutez cette applet de commande, le module PowerShell n'est pas chargé. Cela peut se produire si vous exécutez Azure AD Connect sur un contrôleur de domaine ou sur un serveur avec des niveaux de restriction PowerShell plus élevés que les paramètres par défaut. Si vous recevez cette erreur, exécutez `Import-Module ADSync` pour libérer l’applet de commande.
+
 - **AllowedSyncCycleInterval**. Fréquence maximale à laquelle Azure AD autorise les synchronisations. Vous ne pouvez pas synchroniser plus fréquemment tout en maintenant la prise en charge.
 - **CurrentlyEffectiveSyncCycleInterval**. Planificateur actuellement en vigueur. La valeur sera identique à celle de CustomizedSyncInterval (si ce paramètre est défini) si la fréquence n’est pas supérieure à AllowedSyncInterval. Si vous modifiez CustomizedSyncCycleInterval, cela prendra effet après le prochain cycle de synchronisation.
 - **CustomizedSyncCycleInterval**. Si vous souhaitez que le planificateur s’exécute à une fréquence autre que celle par défaut de 30 minutes, vous devez configurer ce paramètre. Dans l’image ci-dessus, le planificateur a été défini pour s’exécuter toutes les heures. Si vous choisissez une valeur inférieure à AllowedSyncInterval, ce dernier sera utilisé.
@@ -108,7 +110,7 @@ Vous pouvez démarrer un profil pour un connecteur de cette façon :
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Les noms à utiliser pour [Noms de connecteur](active-directory-aadconnectsync-service-manager-ui-connectors.md) et [Exécuter les noms de profil](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) se trouvent dans l’[interface utilisateur Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
+Les noms à utiliser pour [Noms de connecteur](active-directory-aadconnectsync-service-manager-ui-connectors.md) et [Exécuter les noms de profil](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) se trouvent dans l[’interface utilisateur Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
 ![Appeler le profil d’exécution](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
 
@@ -142,4 +144,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

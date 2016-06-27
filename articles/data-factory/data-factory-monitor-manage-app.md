@@ -23,7 +23,8 @@
 
 Cet article décrit comment surveiller, gérer et déboguer vos pipelines et comment créer des alertes pour être averti des échecs à l’aide de l’**application de surveillance et gestion**. Vous pouvez également regarder la vidéo suivante pour en savoir plus sur l’utilisation de l’application de surveillance et de gestion.
    
-> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
+
+> [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
       
 ## Lancer l’application de surveillance et gestion a
 Pour lancer l’application de surveillance et gestion, cliquez sur la mosaïque **Surveiller et gérer** dans le panneau **DATA FACTORY** de votre fabrique de données.
@@ -313,4 +314,4 @@ Cluster HDI à la demande supprimé | Succeeded | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Didacticiel : Prise en main du langage U-SQL Azure Data Lake Analytics
@@ -53,7 +53,7 @@ Notez le point d'interrogation en regard du type de données du champ Durée. Ce
 
 Quelques concepts et mots-clés du script :
 
-- **Variables de l'ensemble de lignes** : toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms variable T-SQL, par exemple **@searchlog** dans le script. Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l'expression et vous donne la possibilité de construire des expressions plus complexes.
+- **Variables de l'ensemble de lignes** : toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms variable T-SQL, par exemple **@searchlog** dans le script. Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l'expression et vous donne la possibilité de construire des expressions plus complexes.
 - **EXTRACT** vous donne la possibilité de définir un schéma lors de la lecture. Le schéma est spécifié par une paire nom de colonne et nom de type C# par colonne. Il utilise un **Extracteur**, par exemple **Extractors.Tsv()**, pour extraire les fichiers tsv. Vous pouvez développer des extracteurs personnalisés.
 - **OUTPUT** prend un ensemble de lignes et le sérialise. Outputters.Csv() génère un fichier séparé par des virgules dans l'emplacement spécifié. Vous pouvez également développer des générateurs de sortie personnalisés.
 - Notez que les deux chemins d'accès sont relatifs. Vous pouvez également utiliser des chemins d'accès absolus. Par exemple : 
@@ -112,7 +112,7 @@ Utilisez **SELECT** pour transformer des ensembles de lignes :
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-La clause WHERE utilise une [expression booléenne C#](https://msdn.microsoft.com/library/6a71f45d.aspx). Vous pouvez utiliser le langage d'expressions C# pour faire vos propres expressions et fonctions. Vous pouvez même effectuer un filtrage plus complexe en les combinant avec des conjonctions logiques (and) et des disjonctions (or).
+La clause WHERE utilise une [expression booléenne C#](https://msdn.microsoft.com/library/6a71f45d.aspx). Vous pouvez utiliser le langage d'expressions C# pour faire vos propres expressions et fonctions. Vous pouvez même effectuer un filtrage plus complexe en les combinant avec des conjonctions logiques (AND) et des disjonctions (OR).
 
 Le script suivant utilise la méthode DateTime.Parse() et une conjonction.
 
@@ -247,7 +247,7 @@ U-SQL prend uniquement en charge la syntaxe de jointure conforme à ANSI : Ense
 
 U-SQL vous permet d'utiliser des données dans le contexte d'une base de données et du schéma. Par conséquent, vous n'avez pas besoin de toujours lire ou écrire dans des fichiers.
 
-Chaque script U-SQL s'exécute avec une base de données par défaut (master) et le schéma par défaut (dbo) comme contexte par défaut. Vous pouvez créer votre propre base de données et/ou schéma. Pour modifier le contexte, utilisez l'instruction **USE**.
+Chaque script U-SQL s'exécute avec une base de données par défaut (master) et le schéma par défaut (DBO) comme contexte par défaut. Vous pouvez créer votre propre base de données et/ou schéma. Pour modifier le contexte, utilisez l'instruction **USE**.
 
 
 ### Créer une fonction table
@@ -409,8 +409,8 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Utilisation des fonctions fenêtre U-SQL dans les tâches Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)
-- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)
+- [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Donnez-nous votre avis
 
@@ -419,4 +419,4 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 - [Obtenir de l'aide dans les forums](http://aka.ms/adlaforums)
 - [Faire des commentaires sur U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

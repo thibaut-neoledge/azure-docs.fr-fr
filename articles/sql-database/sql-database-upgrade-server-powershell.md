@@ -38,7 +38,7 @@ En outre, la migration vers un [pool de base de données élastique](sql-databas
 
 Vous pouvez facilement auto-migrer des bases de données à partir de serveurs V11 directement dans des pools de base de données élastique en suivant les étapes décrites dans cet article.
 
-Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connect-central-recommendations.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à niveau.
+Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connectivity-issues.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à niveau.
 
 Il n’est pas possible d’annuler la mise à niveau vers SQL Database V12. Après une mise à niveau, le serveur ne peut pas être restauré vers la version V11.
 
@@ -46,9 +46,9 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 ## Préparation de la mise à niveau
 
-- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) ci-dessous ou utilisez [PowerShell pour mettre à niveau les bases de données et le serveur](sql-database-upgrade-server-powershell.md).
+- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) ci-dessous ou utilisez [PowerShell pour mettre à niveau les bases de données et le serveur](sql-database-upgrade-server-powershell.md).
 - **Vérifier et suspendre la géoréplicationréplication** : si votre base de données SQL Azure est configurée pour la géoréplication, vous devez documenter la configuration actuelle et [arrêter la géoréplication](sql-database-geo-replication-portal.md#remove-secondary-database). Une fois la mise à niveau terminée, reconfigurez votre base de données pour la géoréplication.
-- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez la rubrique [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez la rubrique [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 ## Composants requis
@@ -201,4 +201,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

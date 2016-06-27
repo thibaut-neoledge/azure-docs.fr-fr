@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -53,6 +53,7 @@ Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes 
 - [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [Base de données de documents](#documentdb-limits)
+- [Hubs d'événements](#event-hubs-limits)
 - [IoT Hub](#iot-hub-limits)
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
@@ -177,6 +178,7 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](./documentdb/documentdb-increase-limits.md).
 
 ### Limites Mobile Engagement
 
@@ -217,6 +219,9 @@ Pour plus d’informations granulaires sur les autres limites, notamment la tail
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
+### Limites de concentrateurs d’événements
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Limites de Service Bus
 
@@ -300,4 +305,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

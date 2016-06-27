@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/14/2016"
 	ms.author="aelnably"/>
 
 # Gestion d’Azure Web Apps avec PowerShell à l’aide du modèle Azure Resource Manager#
@@ -42,11 +42,22 @@ Exemple d’utilisation de cette applet de commande :
 
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
+### Création d’un plan App Service dans un environnement App Service ###
+Pour créer un plan App Service dans un environnement App Service, vous pouvez utiliser la même commande **New-AzureRmAppServicePlan** avec des paramètres supplémentaires pour spécifier le nom de l’ASE et le nom du groupe de ressources auquel il appartient.
+
+Exemple d’utilisation de cette applet de commande :
+
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -AseName constosoASE -AseResourceGroupName contosoASERG -Tier Premium -WorkerSize Large -NumberofWorkers 10
+
+Pour en savoir plus sur l’environnement App Service, consultez [Présentation de l’environnement App Service](app-service-app-service-environment-intro.md)
+
 ### Répertorier les plans App Service existants ###
 
 Pour répertorier les plans App Service existants, utilisez l’applet de commande **Get-AzureRmAppServicePlan**.
 
-Pour répertorier tous les plans App Service associés à votre abonnement, utilisez l’applet de commande **Get-AzureRmAppServicePlan**
+Pour répertorier tous les plans App Service associés à votre abonnement, utilisez :
+
+    Get-AzureRmAppServicePlan
 
 Pour répertorier tous les plans App Service associés à un groupe de ressources spécifique, utilisez :
 
@@ -110,7 +121,7 @@ Pour créer une nouvelle application web dans un environnement App Service (ASE)
 
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"  -ASEName ContosoASEName -ASEResourceGroupName ContosoASEResourceGroupName
 
-Pour en savoir plus sur l’environnement App Service, consultez [Présentation de l’environnement App Service](app-service-app-service-environment-intro.md).
+Pour en savoir plus sur l’environnement App Service, consultez [Présentation de l’environnement App Service](app-service-app-service-environment-intro.md)
 
 ### Supprimer une application web existante ###
 
@@ -204,4 +215,4 @@ Pour savoir comment gérer les certificats d’application web, consultez [Liais
 - Pour en savoir plus sur la gestion des certificats SSL App Service à l’aide de PowerShell, consultez [Liaison de certificats SSL à l’aide de PowerShell.](app-service-web-app-powershell-ssl-binding.md)
 - Pour obtenir la liste complète des applets de commande PowerShell basées sur Azure Resource Manager pour Azure Web Apps, consultez la [référence complète d’applets de commande basées sur Azure Resource Manager pour Web Apps](https://msdn.microsoft.com/library/mt619237.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

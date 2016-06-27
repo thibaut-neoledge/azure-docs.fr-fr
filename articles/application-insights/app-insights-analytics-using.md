@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation d’Analytics, le puissant outil de recherche d’Application Insights" 
+	pageTitle="Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Azure" 
 	description="Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -23,7 +23,6 @@
 
 [Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ## Ouverture de la fonctionnalité Analytics
 
@@ -37,7 +36,7 @@ Vous pouvez cependant consulter [ici une présentation approfondie](app-insights
 
 ## Écriture de requêtes
 
-Écrivez une requête commençant par le nom de n’importe quelle table répertoriée sur la gauche. Utilisez `|` pour créer un pipeline d’[opérateurs](app-insights-analytics-reference.md#queries-and-operators).
+Écrivez une requête commençant par le nom de n’importe quelle table répertoriée sur la gauche. Utilisez `|` pour créer un pipeline d[’opérateurs](app-insights-analytics-reference.md#queries-and-operators).
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -104,4 +103,4 @@ Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. C
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

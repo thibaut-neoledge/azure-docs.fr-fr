@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 # Utilisation de données de référence ou de tables de choix dans un flux d’entrée Stream Analytics
@@ -72,9 +72,16 @@ Pour configurer vos données de référence, vous devez d'abord créer une entr�
 
 ## Génération de données de référence sur une planification
 
-Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle ````"/sample/{date}/{time}/products.csv"```` avec un format de date « JJ-MM-AAAA » et un format d'heure « HH:mm » indique à Stream Analytics de récupérer l'objet blob mis à jour ````"/sample/2015-04-16/17:30/products.csv"```` à 17:30 le 16 avril 2015 (UTC).
+Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons de substitution {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle `sample/{date}/{time}/products.csv` avec un format de date **« JJ-MM-AAAA »** et un format d'heure **« HH:mm »** demande à Stream Analytics de récupérer l'objet blob mis à jour `sample/2015-04-16/17:30/products.csv` à 17:30 le 16 avril 2015 (UTC).
 
-> [AZURE.NOTE] Actuellement, les tâches Stream Analytics recherchent l’actualisation des objets blob uniquement lorsque l’heure machine coïncide avec l’heure encodée dans le nom de l’objet blob. Par exemple, la tâche recherchera /sample/2015-04-16/17:30/products.csv entre 17:30 et 17:30:59.9 le 16 avril 2015 (UTC). Lorsque l’horloge de la machine marque 17:31, la tâche cesse de rechercher /sample/2015-04-16/17:30/products.csv et commence à rechercher /sample/2015-04-16/17:31/products.csv. Une exception est faite à cette règle lorsque la tâche doit traiter de nouveau des données en revenant en arrière dans le temps ou lors du premier démarrage de la tâche. Au moment du démarrage, la tâche recherche l'objet blob le plus récent produit avant l'heure de début de la tâche spécifiée. Cela permet de garantir la présence d'un jeu de données de référence non vide au démarrage de la tâche. En l’absence d’un tel jeu de données, la tâche échouera et affichera la notification de diagnostic suivante à l’utilisateur :
+> [AZURE.NOTE] Actuellement, les tâches Stream Analytics recherchent l’actualisation des objets blob uniquement lorsque l’heure machine s’approche de l’heure encodée dans le nom de l’objet blob. Par exemple la tâche recherche `sample/2015-04-16/17:30/products.csv` dès que possible, mais aucune version antérieure à 17 h 30 le 16 avril 2015 (UTC). Elle ne recherche *jamais* un fichier avec une heure encodée antérieure à la dernière heure détectée.
+> 
+> Par exemple, une fois que la tâche trouve l’objet blob `sample/2015-04-16/17:30/products.csv`, elle ignore tout fichier dont la date encodée est antérieure à 17 h 30 le 16 avril 2015. Donc, si un objet blob `sample/2015-04-16/17:25/products.csv` arrivant ultérieurement est créé dans le même conteneur, la tâche ne l’utilise pas.
+> 
+> De même, si `sample/2015-04-16/17:30/products.csv` est produit uniquement à 23 h 03 16 avril 2015 alors qu’aucun objet blob avec une date antérieure n’est présent dans le conteneur, la tâche utilise ce fichier en commençant à 23 h 03 le 16 avril 2015 et les données de référence antérieures à ce moment.
+> 
+> Une exception est faite à cette règle lorsque la tâche doit traiter de nouveau des données en revenant en arrière dans le temps ou lors du premier démarrage de la tâche. Au moment du démarrage, la tâche recherche l'objet blob le plus récent produit avant l'heure de début de la tâche spécifiée. Cela permet de garantir la présence d'un jeu de données de référence **non vide** au démarrage de la tâche. Si un aucun jeu de données n’est trouvé, la tâche affiche le diagnostic suivant : `Initializing input without a valid reference data blob for UTC time <start time>`.
+
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) peut être utilisé pour orchestrer la tâche de création d’objets blob mis à jour requise par Stream Analytics pour mettre à jour les définitions de données de référence. Data Factory est un service d’intégration de données dans le cloud qui gère et automatise le déplacement et la transformation des données. Data Factory prend en charge la [connexion à un grand nombre de magasins de données cloud et en local](../data-factory/data-factory-data-movement-activities.md) et le déplacement facile de données à intervalles réguliers que vous spécifiez. Pour plus d'informations et des instructions étape par étape sur la façon de configurer un pipeline Data Factory pour générer des données de référence pour Stream Analytics qui est actualisé selon une planification prédéfinie, consultez cet [exemple GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
@@ -103,4 +110,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

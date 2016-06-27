@@ -175,7 +175,7 @@ Voici une brève description des types d’aide pour cette interface Windows Pow
 
 - Pour obtenir de l’aide en ligne pour une applet de commande, utilisez l’applet de commande précédente avec le paramètre `-Online` : `Get-Help <cmdlet-name> -Online`
 
-- Pour obtenir une aide complète, vous pouvez utiliser le paramètre –Full. Pour obtenir des exemples, utilisez le paramètre `–Examples`.
+- Pour obtenir une aide complète, vous pouvez utiliser le paramètre `–Full`. Pour obtenir des exemples, utilisez le paramètre `–Examples`.
 
 #### Pour mettre à jour l’aide
 
@@ -197,4 +197,4 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 ## Étapes suivantes
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

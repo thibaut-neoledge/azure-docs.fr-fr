@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/03/2016"
+   ms.date="06/10/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
@@ -29,7 +29,7 @@ Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hado
 
 * **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire.
 
-> [AZURE.NOTE] L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store est disponible uniquement si vous utilisez HDInsight version 3.2 (pour Windows et Linux).
+> [AZURE.NOTE] L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store est disponible uniquement si vous utilisez HDInsight version 3.2 et 3.4 (pour des clusters Hadoop, HBase et Storm sur Windows et Linux). Pour les clusters Spark sur Linux, cette option est uniquement disponible sur des clusters HDInsight 3.4.
 
 
 Dans cet article, nous approvisionnons un cluster Hadoop avec Data Lake Store comme stockage supplémentaire.
@@ -380,4 +380,4 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

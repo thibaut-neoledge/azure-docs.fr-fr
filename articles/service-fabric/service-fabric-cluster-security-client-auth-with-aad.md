@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2016"
+   ms.date="06/13/2016"
    ms.author="seanmck"/>
 
-# VERSION PRÉLIMINAIRE : Créer un cluster Service Fabric à l’aide d’Azure Active Directory pour l’authentification client
+# Créer un cluster Service Fabric à l’aide d’Azure Active Directory pour l’authentification client
 
 Vous pouvez sécuriser l’accès aux points de terminaison de gestion d’un cluster Service Fabric à l’aide d’Azure Active Directory (AAD). Cet article décrit comment créer les artefacts AAD nécessaires, les remplir pendant la création des clusters et se connecter à ces clusters par la suite.
-
->[AZURE.IMPORTANT] L’intégration d’AAD aux clusters Service Fabric est actuellement en version préliminaire. Tous les éléments décrits dans cet article sont disponibles dans le runtime Service Fabric 5.0, mais nous vous recommandons de ne pas l’utiliser pour les clusters de production pour l’instant.
 
 ## Modéliser un cluster Service Fabric dans AAD
 
@@ -151,7 +149,7 @@ Pour contourner ce problème, ajoutez **http://<i></i>localhost** comme URI de r
 <!-- Links -->
 [sf-aad-ps-script-download]: http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [secure-cluster-arm-template]: https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad
-[aad-graph-api-docs]: https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
+[aad-graph-api-docs]: https://msdn.microsoft.com/fr-FR/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
 
 <!-- Images -->
@@ -160,4 +158,4 @@ Pour contourner ce problème, ajoutez **http://<i></i>localhost** comme URI de r
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

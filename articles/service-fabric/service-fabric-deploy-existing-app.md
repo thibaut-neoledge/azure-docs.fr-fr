@@ -1,6 +1,6 @@
 <properties
    pageTitle="Déploiement d’un exécutable existant dans Azure Service Fabric | Microsoft Azure"
-   description="Procédure pas à pas pour empaqueter une application existante afin de la déployer sur un cluster Azure Service Fabric"
+   description="Procédure pas à pas pour empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -12,13 +12,13 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.workload="na"
+   ms.date="06/06/2016"
+   ms.author="bscholl;mikhegn"/>
 
 # Déploiement d'un exécutable invité dans Service Fabric
 
-Vous pouvez exécuter n’importe quel type d’application, comme Node.js, Java ou des applications natives dans Azure Service Fabric. Dans la terminologie Service Fabric, ces types d'applications sont appelés invités exécutables. Les invités exécutables sont traités par le Service Fabric comme des services sans état. Par conséquent, ils seront placés sur des nœuds dans un cluster, en fonction de la disponibilité et d'autres métriques. Cet article décrit comment empaqueter et déployer un exécutable invité dans un cluster Service Fabric.
+Vous pouvez exécuter n’importe quel type d’application, comme Node.js, Java ou des applications natives dans Azure Service Fabric. Dans la terminologie Service Fabric, ces types d’applications sont appelés invités exécutables. Les invités exécutables sont traités par le Service Fabric comme des services sans état. En conséquence, ils seront placés dans des nœuds dans un cluster, sur la base de la disponibilité et d’autres données. Cet article décrit comment empaqueter et déployer un exécutable invité dans un cluster Service Fabric, en utilisant Visual Studio ou un utilitaire en ligne de commande
 
 ## Avantages de l'exécution d'un exécutable invité dans Service Fabric
 
@@ -31,11 +31,9 @@ L’exécution d'un exécutable invité dans un cluster Service Fabric présente
 
 Dans cet article, nous abordons les étapes de base pour empaqueter un exécutable invité et le déployer dans Service Fabric.
 
-
 ## Vue d’ensemble rapide des fichiers du manifeste de service et d’application.
 
-Avant d’entrer dans les détails du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric. Le modèle d’empaquetage et de déploiement Service Fabric repose principalement sur deux fichiers XML : les manifestes d’applications et de services. La définition de schéma pour les fichiers ServiceManifest.xml et ApplicationManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
-
+Dans le cadre du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric. Le modèle d’empaquetage et de déploiement Service Fabric repose principalement sur deux fichiers XML : les manifestes d’applications et de services. La définition de schéma pour les fichiers ServiceManifest.xml et ApplicationManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 * **Manifeste d’application**
 
@@ -43,13 +41,11 @@ Avant d’entrer dans les détails du déploiement d’un exécutable invité, i
 
   Dans l’univers Service Fabric, une application représente l’unité pouvant être mise à niveau. Une application peut être mise à niveau en tant qu’une unité simple où les défaillances potentielles (et les restaurations potentielles) sont gérées par la plateforme. La plateforme garantit que la réussite complète de la mise à niveau ou, en cas d’échec, elle fait en sorte que l’application ne reste pas dans un état inconnu / instable.
 
-
 * **Manifeste de service**
 
   Le manifeste de service décrit les composants d'un service. Il inclut des données, telles que le nom et le type de service (c’est-à-dire les informations utilisées par Service Fabric pour gérer le service) et ses composants de code, de configuration et de données. Le manifeste de service inclut également des paramètres supplémentaires qui peuvent être utilisés pour configurer le service après son déploiement.
 
-  Nous n’entrerons pas dans les détails de tous les paramètres disponibles dans le manifeste de service. Nous allons examiner le sous-ensemble requis pour exécuter un exécutable invité sur Service Fabric.
-
+  Nous n’entrerons pas dans les détails de tous les paramètres disponibles dans le manifeste de service. Nous allons examiner le sous-ensemble nécessaire pour exécuter un exécutable invité sur Service Fabric.
 
 ## Structure de fichier d'un package d'application
 Pour déployer une application dans Service Fabric, l'application doit respecter une structure de répertoires prédéfinie. Vous trouverez ci-dessous un exemple de cette structure :
@@ -59,9 +55,9 @@ Pour déployer une application dans Service Fabric, l'application doit respecter
 	|-- code
 		|-- existingapp.exe
 	|-- config
-		|--Settings.xml
-    |--data    
-    |-- ServiceManifest.xml
+		|-- Settings.xml
+  |-- data    
+  |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -75,7 +71,9 @@ Remarque : il est inutile de créer les répertoires `config` et `data` si vous
 
 ## Processus d’empaquetage d’une application existante
 
-Le processus d'empaquetage d'un exécutable invité est basé sur les étapes suivantes :
+Lors de l’empaquetage d’un fichier exécutable invité, vous pouvez choisir d’utiliser modèle de projet Visual Studio ou de créer le package d’application manuellement. À l’aide de Visual Studio, la structure de package d’application et les fichiers manifest sont créés pour vous par l’assistant de nouveau projet. Voir ce qui suit pour un guide détaillé de l’empaquetage d’un fichier exécutable invité avec Visual Studio.
+
+Le processus d’empaquetage manuel d’un exécutable invité est basé sur les étapes suivantes :
 
 1. Créez la structure de répertoires du package.
 2. Ajoutez des fichiers de code et de configuration de l’application.
@@ -163,7 +161,7 @@ L’élément `Name` est utilisé pour spécifier le nom du répertoire dans le 
 ```
 L’élément SetupEntrypoint sert à spécifier un fichier exécutable ou de commandes qui doit être exécuté avant le lancement du code du service. Cet élément est facultatif et il n’est donc pas nécessaire de l’inclure si aucune procédure d’initialisation / de configuration n’est requise. SetupEntrypoint est exécuté chaque fois que le service est redémarré.
 
-Comme il n’existe qu’un seul paramètre SetupEntrypoint, les scripts d’installation / de configuration doivent être regroupés dans un même fichier de commandes si l’installation / la configuration de l’application requiert plusieurs scripts. À l’instar de l’élément Entrypoint, l’élément SetupEntrypoint peut exécuter n’importe quel type de fichier : fichiers exécutables, fichiers de commandes et applets de commande PowerShell. Dans l’exemple ci-dessus, l’élément SetupEntrypoint est basé sur un fichier de commandes LaunchConfig.cmd qui se trouve dans le sous-répertoire `scripts` du répertoire Code (en supposant que l’élément WorkingDirectory est défini sur Code).
+Comme il n’existe qu’un seul paramètre SetupEntrypoint, les scripts d’installation / de configuration doivent être regroupés dans un même fichier de commandes si l’installation / la configuration de l’application requiert plusieurs scripts. À l’instar de l’élément SetupEntryPoint, l’élément SetupEntrypoint peut exécuter n’importe quel type de fichier : fichiers exécutables, fichiers de commandes et applets de commande PowerShell. Dans l’exemple ci-dessus, l’élément SetupEntrypoint est basé sur un fichier de commandes LaunchConfig.cmd qui se trouve dans le sous-répertoire `scripts` du répertoire Code (en supposant que l’élément WorkingFolder est défini sur Code).
 
 ### Entrypoint
 
@@ -184,7 +182,7 @@ L’élément `Entrypoint` dans le fichier de manifeste de service sert à spéc
 - `WorkingFolder` spécifie le répertoire de travail pour le processus qui va être démarré. Vous pouvez spécifier deux valeurs :
 	- `CodeBase` indique que le répertoire de travail sera défini selon le répertoire Code, dans le package d’application (répertoire `Code` dans la structure illustrée ci-dessous).
 	- `CodePackage` indique que le répertoire de travail sera défini sur la racine du package d’application (`MyServicePkg`).
-- `WorkingDirectory` est utile pour définir le répertoire de travail correct afin que des chemins d’accès relatifs puissent être utilisés par l’application ou des scripts d’initialisation.
+- `WorkingFolder` est utile pour définir le répertoire de travail correct afin que des chemins d’accès relatifs puissent être utilisés par l’application ou des scripts d’initialisation.
 
 ### Points de terminaison
 
@@ -282,12 +280,30 @@ Si vous accédez au répertoire à l’aide de l’Explorateur de serveurs, vous
 
 ![Emplacement du journal](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## Utilisation de Visual Studio pour empaqueter une application existante
+
+Visual Studio fournit un modèle de service Service Fabric pour vous aider à déployer un fichier exécutable invité sur un cluster Service Fabric. Vous devez suivre les étapes ci-dessous pour terminer la publication :
+
+1. Sélectionnez Fichier -> Nouveau projet pour créer une application Service Fabric
+2. Choisissez Exécutable invité comme Modèle de service
+3. Cliquez sur Parcourir pour sélectionner le dossier avec votre fichier exécutable et remplissez le reste des paramètres pour créer le service
+  - Vous pouvez configurer le *Comportement du package de code* de sorte à copier tout le contenu de votre dossier dans le projet Visual Studio, ce qui est utile si l’exécutable ne change pas. Si vous vous attendez à ce que le fichier exécutable soit modifié et souhaitez avoir la possibilité de choisir les nouvelles versions de façon dynamique, vous pouvez choisir de créer un lien vers le dossier à la place.
+  - *Programme* spécifie le nom du fichier exécutable qui doit être exécuté pour démarrer le service.
+  - *Arguments* spécifie les arguments qui doivent être passés au fichier exécutable. Il peut s’agir d’une liste de paramètres avec des arguments.
+  - *WorkingFolder* spécifie le répertoire de travail pour le processus qui va être démarré. Vous pouvez spécifier deux valeurs :
+  	- *CodeBase* indique que le répertoire de travail sera défini selon le répertoire Code, dans le package d’application (répertoire `Code` dans la structure illustrée ci-dessous).
+    - *CodePackage* indique que le répertoire de travail sera défini sur la racine du package d’application (`MyServicePkg`).
+4. Donnez un nom à votre service et cliquez sur OK
+5. Si votre service a besoin d’un système d’extrémité pour la communication, vous pouvez maintenant ajouter le protocole, le port et le type dans le fichier ServiceManifest.xml (par exemple) : ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
+6. Vous pouvez maintenant essayer le package et l’action de publication sur votre cluster local en effectuant le débogage de la solution dans Visual Studio. Vous pouvez, quand vous le souhaitez, publier l’application sur un cluster à distance ou archiver la solution pour contrôler le code source.
+
+>[AZURE.NOTE] Vous pouvez utiliser les dossiers liés lors de la création du projet d’application dans Visual Studio. Cela permet de créer un lien vers l’emplacement source à partir du projet, ce qui ouvre la possibilité de mettre à jour le fichier exécutable invité dans la destination de la source, en faisant de ces mises à jour une partie intégrante du package d’application de sa création.
 
 ## Étapes suivantes
 Dans cet article, vous avez appris à empaqueter un exécutable invité et à le déployer dans Service Fabric. Pour continuer, vous pouvez consulter le contenu supplémentaire sur ce sujet.
 
-- [Exemple pour empaqueter et déployer un exécutable invité sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), y compris un lien vers la version préliminaire de l’outil d’empaquetage.
+- [Exemple pour empaqueter et déployer un exécutable invité sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), y compris un lien vers la version préliminaire de l’outil d’empaquetage
 - [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
 - [Créez votre première application Service Fabric avec Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

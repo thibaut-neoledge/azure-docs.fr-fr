@@ -13,32 +13,27 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="carlrab"/>
 
 # Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL
 
-
-
 > [AZURE.SELECTOR]
+- [Vue d'ensemble](sql-database-geo-replication-overview.md)
 - [Portail Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-Cet article vous montre comment configurer la géoréplication pour Base de données SQL Azure à l’aide de Transact-SQL.
+Cet article vous montre comment configurer la géoréplication active pour une base de données SQL Azure à l’aide de Transact-SQL.
 
 Pour lancer un basculement, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure](sql-database-geo-replication-failover-transact-sql.md).
 
 >[AZURE.NOTE] La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
 
-Vous pouvez configurer jusqu'à 4 bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
+Pour configurer la géoréplication active à l’aide de Transact-SQL, vous devez disposer des éléments suivants :
 
-
-Pour configurer la géoréplication, vous devez disposer des éléments suivants :
-
-- Abonnement Azure : si vous ne disposez pas d’un abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-- Un serveur de base de données SQL Azure logique <MyLocalServer> et une base de données SQL <MyDB>. La base de données primaire que vous souhaitez répliquer vers une autre région géographique.
+- Un abonnement Azure.
+- Un serveur de base de données SQL Azure logique <MyLocalServer> et une base de données SQL <MyDB> : la base de données primaire que vous souhaitez répliquer.
 - Un ou plusieurs serveurs logiques de bases de données SQL Azure <MySecondaryServer(n)> - Les serveurs logiques qui seront serveurs partenaires dans lequel vous créerez des bases de données secondaires.
 - Une connexion qui est DBManager sur le serveur principal, a la propriété db\_ownership de la base de données locale que vous allez géo-répliquer et est DBManager sur le ou les serveurs partenaires sur lesquels vous allez configurer la géoréplication.
 - La version la plus récente de SQL Server Management Studio. Pour obtenir la version la plus récente de SQL Server Management Studio (SSMS), accédez à [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Pour plus d’informations sur l’utilisation de SQL Server Management Studio dans la gestion des serveurs logiques et des bases de données SQL Azure, consultez [Gestion de base de données SQL à l’aide de SQL Server Management Studio](sql-database-manage-azure-ssms.md)
@@ -61,7 +56,7 @@ Utilisez les étapes suivantes pour créer une base de données non lisible en t
 
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
 
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géoréplication primaire avec une base de données secondaire non accessible en lecture sur MySecondaryServer1, où MySecondaryServer1 est le nom de serveur convivial.
+3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géoréplication primaire avec une base de données secondaire non accessible en lecture sur MySecondaryServer1, où MySecondaryServer1 est un nom de serveur convivial.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -76,7 +71,7 @@ Utilisez les étapes suivantes pour créer une base de données secondaire acces
 
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
 
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour fabriquer une base de données locale dans une géoréplication primaire avec une base de données secondaire accessible en lecture sur un serveur secondaire.
+3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géoréplication primaire avec une base de données secondaire accessible en lecture sur un serveur secondaire.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
@@ -183,4 +178,4 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géoréplicatio
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

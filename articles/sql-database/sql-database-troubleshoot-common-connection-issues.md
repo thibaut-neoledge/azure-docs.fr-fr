@@ -27,7 +27,7 @@ Si vous rencontrez des problèmes de connexion, essayez de suivre les étapes de
 
 Les problèmes de connexion peuvent avoir l’une des causes suivantes :
 
-- Échec d’application [des meilleures pratiques et des directives de conception](sql-database-connect-central-recommendations.md) pendant le processus de conception de l’application.
+- Échec de la mise en œuvre de bonnes pratiques et de directives de conception pendant le processus de conception de l’application. Pour commencer, consultez la page [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md).
 - Reconfiguration de la base de données SQL Azure
 - Paramètres du pare-feu
 - Expiration du délai de connexion
@@ -80,7 +80,7 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 | 5 | [Dépannage de l’erreur « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. »](sql-database-troubleshoot-connection.md) | Explique comment identifier et résoudre une erreur 40613 : « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. » |
 | 6\. | [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md) | Fournit des informations sur les codes d’erreur SQL pour les applications clientes de base de données SQL, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales. |
 | 7\. | [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md) | Vous aide à déterminer le niveau de service adapté à votre application. Fournit également des recommandations pour le paramétrage de votre application afin de tirer le meilleur parti de votre base de données SQL Azure. |
-| 8 | [Connexion à une base de données SQL : meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md) | Fournit des liens vers des exemples de code pour diverses technologies que vous pouvez utiliser pour vous connecter à et interagir avec une base de données SQL Azure. |
+| 8 | [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md) | Fournit des liens vers des exemples de code pour diverses technologies que vous pouvez utiliser pour vous connecter à et interagir avec une base de données SQL Azure. |
 | 9\. | Page Mise à niveau vers la base de données SQL Azure v12 ([Portail Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Fournit des instructions sur la mise à niveau des serveurs et bases de données SQL Azure V11 existants vers la base de données SQL Azure V12 avec le portail Azure ou PowerShell. |
 
 
@@ -93,12 +93,12 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 - [Affichage des dernières mises à jour du service de base de données SQL Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
 
-## En savoir plus
+## Ressources supplémentaires
 
-- [Connexion à une base de données SQL : meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
+- [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 - [Aide générale sur le traitement des erreurs temporaires](../best-practices-retry-general.md)
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 - [Parcours d’apprentissage pour l’utilisation de la base de données SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [Parcours d’apprentissage pour l’utilisation des outils et fonctionnalités des bases de données élastiques](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

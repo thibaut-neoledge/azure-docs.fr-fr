@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="priyamo"/>
 
 # Protocoles d’authentification Active Directory
@@ -22,9 +22,10 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 
 Cette série d’articles décrit les protocoles pris en charge et leur implémentation dans Azure AD. Nous y présenterons des exemples de requêtes et de réponses. Les protocoles étant directement intégrés, ces articles sont totalement indépendants du langage.
 
-- [OAuth 2.0 dans Azure AD](active-directory-protocols-oauth-code.md) : découvrez le flux d’octroi d’un code d’autorisation OAuth2.0 et son implémentation dans Azure AD.
+- [Octroi du code d’autorisation OAuth 2.0](active-directory-protocols-oauth-code.md) : en savoir plus sur l’octroi d’autorisation du « code d’autorisation » OAuth2.0 et son implémentation dans Azure AD.
+- [Octroi implicite OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md) : en savoir plus sur l’octroi d’autorisation implicite OAuth 2.0 et découvrir s’il convient à votre application.
 - [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) : découvrez comment utiliser le protocole d’autorisation OpenID Connect dans Azure AD.
-- [Informations de référence sur le protocole SAML](active-directory-saml-protocol-reference.md) : apprenez à utiliser le protocole SAML pour la prise en charge de l’[authentification unique](active-directory-single-sign-on-protocol-reference.md) et de la [déconnexion unique](active-directory-single-sign-out-protocol-reference.md) dans Azure AD.
+- [Informations de référence sur le protocole SAML](active-directory-saml-protocol-reference.md) : apprenez à utiliser le protocole SAML pour la prise en charge de l[’authentification unique](active-directory-single-sign-on-protocol-reference.md) et de la [déconnexion unique](active-directory-single-sign-out-protocol-reference.md) dans Azure AD.
 
 
 ## Références et résolution des problèmes
@@ -37,4 +38,4 @@ Cette série d’articles fournit des informations supplémentaires qui peuvent 
 - [Dépannage des protocoles d’authentification](active-directory-error-handling.md) : apprenez à interpréter et résoudre les erreurs les plus courantes liées à l’utilisation d’OAuth 2.0 et d’Azure AD.
 - [Meilleures pratiques pour OAuth 2.0 dans Azure AD](active-directory-oauth-best-practices.md) : familiarisez-vous avec les bonnes pratiques d’utilisation d’OAuth 2.0 dans Azure AD et apprenez à éviter les pièges courants.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

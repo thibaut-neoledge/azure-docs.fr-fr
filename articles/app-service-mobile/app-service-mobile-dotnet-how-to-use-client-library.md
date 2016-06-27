@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/11/2016"
 	ms.author="glenga"/>
 
 # Utilisation du client géré pour Azure Mobile Apps
@@ -47,7 +47,19 @@ Le type côté client typé en C# correspondant est le suivant :
 
 L’attribut [JsonPropertyAttribute] est utilisé pour définir le mappage *PropertyName* entre le type client et la table.
 
-Pour savoir comment créer des tables dans votre backend Mobile Apps, consultez les informations contenues dans les [instructions pour le Kit de développement logiciel (SDK) .NET Server](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) ou [instructions pour le Kit de développement logiciel (SDK) Node.js Server](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). Si vous avez créé votre backend Mobile Apps dans le portail Azure avec le démarrage rapide, vous pouvez également utiliser le paramètre **Tables facile** dans le [portail Azure].
+Pour savoir comment créer des tables dans votre backend Mobile Apps, consultez les informations contenues dans la [rubrique du Kit de développement logiciel (SDK) .NET Server](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) ou dans la [rubrique du Kit de développement logiciel (SDK) Node.js Server](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). Si vous avez créé votre backend Mobile Apps dans le portail Azure avec le démarrage rapide, vous pouvez également utiliser le paramètre **Tables facile** dans le [portail Azure].
+
+###Comment : installer le package du Kit de développement logiciel (SDK) client géré
+
+Utilisez une des méthodes suivantes pour installer le package du Kit de développement logiciel (SDK) client géré pour applications mobiles à partir de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) :
+
++ **Visual Studio** Cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client` et cliquez sur **Installer**.
+
++ **Xamarin Studio** Cliquez avec le bouton droit sur votre projet, puis cliquez sur **Ajouter** > **Ajouter des packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client ` et cliquez sur **Ajouter un package**.
+
+Dans votre fichier d’activité principal, pensez à ajouter l’instruction **using** suivante :
+
+	using Microsoft.WindowsAzure.MobileServices;
 
 ###<a name="symbolsource"></a>Instructions : Utilisation des symboles de débogage dans Visual Studio
 
@@ -84,8 +96,7 @@ La section suivante explique comment rechercher et récupérer les enregistremen
 
 L’ensemble du code permettant d’accéder aux données d’une table du backend ou de les modifier appelle des fonctions sur l’objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la méthode [GetTable] sur une instance du `MobileServiceClient`, comme suit :
 
-    IMobileServiceTable<TodoItem> todoTable =
-		client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
 Il s'agit du modèle de sérialisation typé. Les modèles de sérialisation non typés sont également pris en charge. Le code suivant [crée une référence à une table non typée] \:
 
@@ -407,12 +418,11 @@ Cette section montre comment afficher des objets de données renvoyés à l'aide
 
 Certains contrôles dans l’exécution gérée prennent en charge une interface appelée [ISupportIncrementalLoading]. Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Une prise en charge de cette interface peut être intégrée aux applications Windows universelles par le biais de [MobileServiceIncrementalLoadingCollection], qui traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans des applications Windows, procédez comme suit :
 
-			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
-		items = todoTable.Where(todoItem => todoItem.Complete == false)
-					 ToIncrementalLoadingCollection();
+    MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
+    items = todoTable.Where(todoItem => todoItem.Complete == false).ToIncrementalLoadingCollection();
 
-		ListBox lb = new ListBox();
-		lb.ItemsSource = items;
+    ListBox lb = new ListBox();
+    lb.ItemsSource = items;
 
 Pour utiliser la nouvelle collection sur les applications Windows Phone 8 et « Silverlight », utilisez les méthodes d’extension `ToCollection` au niveau de `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
 
@@ -447,7 +457,7 @@ Notez qu'il s'agit d'un appel de méthode typé pour lequel le type de renvoi de
 
 ##<a name="authentication"></a>Authentification des utilisateurs
 
-Mobile Apps prend en charge l’authentification et l’autorisation des utilisateurs d’applications via divers fournisseurs d’identité externes : Facebook, Google, Microsoft Account, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d'informations, consultez le didacticiel [Ajout de l'authentification à votre application].
+Mobile Apps prend en charge l’authentification et l’autorisation des utilisateurs d’applications via divers fournisseurs d’identité externes : Facebook, Google, Microsoft Account, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d’informations, consultez le didacticiel [Ajout de l’authentification à votre application].
 
 Deux flux d’authentification sont pris en charge : un flux _géré par le client_ et un flux _géré par le serveur_. Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. En revanche, le flux client est celui qui s'intègre le plus profondément aux fonctionnalités propres à l'appareil, car il s'appuie sur les Kits de développement logiciel (SDK) propres au fournisseur et à l'appareil.
 
@@ -671,7 +681,7 @@ Le code suivant s’authentifie à l’aide du SDK Live et utilise le jeton reto
 Consultez la documentation pour obtenir plus d’informations sur le [Kit de développement logiciel (SDK) Windows Live].
 
 ###<a name="serverflow"></a>Authentification gérée par le serveur
-Une fois que vous avez inscrit votre fournisseur d’identité, appelez la méthode [LoginAsync] sur le [MobileServiceClient] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, le code suivant initie une connexion de flux serveur via Facebook.
+Une fois que vous avez inscrit votre fournisseur d’identité, appelez la méthode [LoginAsync] sur [MobileServiceClient] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, le code suivant initie une connexion de flux serveur via Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -699,7 +709,7 @@ Une fois que vous avez inscrit votre fournisseur d’identité, appelez la méth
 
 Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de [MobileServiceAuthenticationProvider] ci-dessus par la valeur de votre fournisseur.
 
-Dans un flux serveur, Azure App Service gère le flux d’authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d’authentification App Service après avoir établi une authentification avec le fournisseur d’identité. La méthode [LoginAsync] renvoie un [MobileServiceUser], qui fournit à la fois l’[UserId] de l’utilisateur authentifié et le [MobileServiceAuthenticationToken], sous la forme d’un jeton web JSON (JWT). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification](#caching).
+Dans un flux serveur, Azure App Service gère le flux d’authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d’authentification App Service après avoir établi une authentification avec le fournisseur d’identité. La méthode [LoginAsync] renvoie un [MobileServiceUser], qui fournit à la fois l[’UserId] de l’utilisateur authentifié et le [MobileServiceAuthenticationToken], sous la forme d’un jeton web JSON (JWT). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification](#caching).
 
 ###<a name="caching"></a>Mise en cache du jeton d'authentification
 
@@ -746,7 +756,7 @@ Lorsque vous utilisez l’authentification gérée par le client, vous pouvez é
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 
-##<a name="pushnotifications">Notifications Push
+##<a name="pushnotifications"></a>Notifications Push
 
 Les rubriques suivantes traitent des notifications Push :
 
@@ -849,7 +859,7 @@ Quand une erreur se produit sur le backend, le Kit de développement logiciel (S
 		}
 	}
 
-Vous trouverez un autre exemple de traitement des conditions d’erreur dans l’[exemple de fichiers Mobile Apps] ; l’exemple [LoggingHandler] fournit un gestionnaire de délégué de journalisation (voir ci-dessous) pour consigner les requêtes envoyées au backend. Ceci permet de déboguer plus facilement les applications Xamarin plutôt que de compter sur Fiddler.
+Vous trouverez un autre exemple de traitement des conditions d’erreur dans l[’exemple de fichiers Mobile Apps] ; l’exemple [LoggingHandler] fournit un gestionnaire de délégué de journalisation (voir ci-dessous) pour consigner les requêtes envoyées au backend. Ceci permet de déboguer plus facilement les applications Xamarin plutôt que de compter sur Fiddler.
 
 ###<a name="headers"></a>Procédure de personnalisation des en-têtes de requête
 
@@ -897,7 +907,7 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 <!-- Internal URLs. -->
 [Démarrage rapide avec Azure Mobile Apps]: app-service-mobile-windows-store-dotnet-get-started.md
 [démarrage rapide d’Azure Mobile Apps]: app-service-mobile-windows-store-dotnet-get-started.md
-[Ajout de l'authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Ajout de l’authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Ajout d’une fonction d’authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Work with .NET backend SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
@@ -932,7 +942,7 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 [Select]: https://msdn.microsoft.com/fr-FR/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/fr-FR/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/fr-FR/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[’UserId]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/fr-FR/library/azure/dn250579(v=azure.10).aspx
 [portail Azure]: https://portal.azure.com/
 [Portail Azure Classic]: https://manage.windowsazure.com/
@@ -945,7 +955,7 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [API Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[exemple de fichiers Mobile Apps]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[’exemple de fichiers Mobile Apps]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 [référentiel GitHub d’exemples Azure]: https://github.com/Azure-Samples
 
@@ -957,4 +967,4 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 [SymbolSource]: http://www.symbolsource.org/
 [instructions SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

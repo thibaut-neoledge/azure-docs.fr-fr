@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/13/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Différences dans le langage Transact-SQL Azure SQL Database.
@@ -36,7 +36,7 @@ Cette rubrique traite des fonctionnalités qui sont disponibles avec la base de 
 
 ## Fonctionnalités partiellement prises en charge par la V12 de la base de données SQL
 
-La V12 de la base de données SQL prend en charge certains arguments qui existent dans les instructions relatives au langage Transact-SQL pour SQL Server 2016. Par exemple, l’instruction CREATE PROCEDURE est disponible, cependant l’option WITH ENCRYPTION de CREATE PROCEDURE n’est pas disponible. Reportez-vous aux rubriques de syntaxe liées pour plus d’informations sur la prise en charge des fonctionnalités de chaque instruction.
+La V12 de la base de données SQL prend en charge certains arguments qui existent dans les instructions relatives au langage Transact-SQL pour SQL Server 2016. Par exemple, l’instruction CREATE PROCEDURE est disponible, mais aucune option de CREATE PROCEDURE n’est disponible. Reportez-vous aux rubriques de syntaxe liées pour plus d’informations sur la prise en charge des fonctionnalités de chaque instruction.
 
 - Bases de données : [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - Les DMV sont généralement disponibles pour les fonctionnalités disponibles
@@ -64,7 +64,7 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 - Gestion des événements : événements, notifications d’événements, notifications de requête
 - Fonctionnalités liées à l’emplacement du fichier de la base de données, taille et fichiers de la base de données qui sont gérés automatiquement par Microsoft Azure.
 - Fonctionnalités à haute disponibilité qui est gérée via votre compte Microsoft Azure : sauvegarde, restauration, AlwaysOn, mise en miroir de la base de données, envoi de journaux, modes de récupération. Pour en savoir plus, consultez Sauvegarde et restauration de la base de données SQL Azure.
-- Fonctionnalités qui reposent sur le lecteur de journal : réplication, capture de données modifiées.
+- Fonctionnalités qui reposent sur le lecteur de journal exécuté dans une base de données SQL : réplication par émission, capture de données modifiées.
 - Fonctionnalités qui reposent sur l’Agent SQL Server ou la base de données MSDB : travaux, alertes et les opérateurs, gestion basée sur la stratégie, messagerie de la base de données, serveurs d’administration centrale.
 - FILESTREAM
 - Fonctions : fn\_get\_sql fn\_virtualfilestats, fn\_virtualservernodes
@@ -108,4 +108,4 @@ La référence sur Transact-SQL comprend des rubriques relatives aux versions de
 
 Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

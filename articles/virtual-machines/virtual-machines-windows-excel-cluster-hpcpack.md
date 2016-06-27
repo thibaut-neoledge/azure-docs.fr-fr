@@ -29,7 +29,7 @@ Le diagramme général suivant montre le cluster HPC Pack que vous allez créer.
 
 ## Composants requis
 
-*   **Ordinateur client** : vous aurez besoin d'un ordinateur client Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement) et pour soumettre des exemples de tâches Excel et SOA au cluster.
+*   **Ordinateur client** : vous aurez besoin d'un ordinateur client Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement) et pour soumettre des exemples de tâches Excel et SOA au cluster.
 
 *   **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 
@@ -46,7 +46,7 @@ Nous allons vous montrer deux méthodes de configuration du cluster : tout d'a
 ### Utilisation d’un modèle de démarrage rapide
 Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et facilement un cluster HPC Pack dans le portail Azure. Lorsque vous ouvrez le modèle dans le portail en version préliminaire, vous obtenez une interface utilisateur simple vous permettant de saisir les paramètres pour votre cluster. Voici la procédure à suivre.
 
->[AZURE.TIP]Si vous le souhaitez, utilisez un [modèle Azure Marketplace](https://ms.portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) qui crée un cluster similaire spécialement pour les charges de travail Excel. Les étapes sont légèrement différentes de celles qui suivent.
+>[AZURE.TIP]Si vous le souhaitez, utilisez un [modèle Azure Marketplace](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) qui crée un cluster similaire spécialement pour les charges de travail Excel. Les étapes sont légèrement différentes de celles qui suivent.
 
 1.  Consultez [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Si vous le souhaitez, examinez les informations sur le modèle et le code source.
 
@@ -88,9 +88,9 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 **Autres composants requis**
 
-* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
 
-* **Script de déploiement de HPC Pack IaaS** : Téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.5.0 ou ultérieure du script.
+* **Script de déploiement de HPC Pack IaaS** : Téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.5.0 ou ultérieure du script.
 
 **Création du fichier de configuration**
 
@@ -382,4 +382,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

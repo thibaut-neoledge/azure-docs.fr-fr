@@ -38,7 +38,7 @@ Une application mutualisée correctement mise en œuvre offre les avantages suiv
 
 En résumé, bien que de nombreux aspects soient à prendre en compte pour fournir un service hautement évolutif, il y a également une série d'objectifs et d'exigences communs à de nombreuses applications mutualisées. Certains peuvent ne pas concerner des scénarios spécifiques, et l'importance d'objectifs et d'exigences individuels peut différer pour chaque scénario. En tant que fournisseur de l'application mutualisée, vous aurez également des objectifs et des exigences tels que la satisfaction des objectifs et des exigences des locataires, la rentabilité, la facturation, les niveaux de service multiples, l'approvisionnement, la surveillance de la maintenabilité et l'automatisation.
 
-Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure][].
+Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure][]. Pour plus d’informations sur les modèles d’architecture de données courants pour les applications de base de données SaaS (software as a service) mutualisées, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 Azure offre de nombreuses fonctionnalités vous permettant de résoudre les problèmes clés rencontrés lors de la conception d'un système mutualisé.
 
@@ -95,4 +95,4 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
 [Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0615_2016-->

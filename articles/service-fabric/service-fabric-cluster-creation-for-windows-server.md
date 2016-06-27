@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Création d’un cluster Azure Service Fabric local ou sur plusieurs clouds | Microsoft Azure"
-   description="Apprenez à créer un cluster Azure Service Fabric sur n’importe quel ordinateur (physique ou virtuel) exécutant Windows Server, qu’il soit local ou dans le cloud."
+   pageTitle="Création d’un cluster Azure Service Fabric local ou sur cloud | Microsoft Azure"
+   description="Apprenez à créer un cluster Azure Service Fabric sur n’importe quel ordinateur (physique ou virtuel) exécutant Windows Server, qu’il soit local ou dans un cloud."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/12/2016"
+   ms.date="06/14/2016"
    ms.author="chackdan"/>
 
 
@@ -23,7 +23,11 @@ Azure Service Fabric permet la création de clusters Service Fabric sur toute ma
 
 Cet article vous guide tout au long des étapes de création d’un cluster à l’aide d’un package autonome Service Fabric en local, même s’il peut être facilement adapté à tout autre environnement, notamment d’autres clouds.
 
+>[AZURE.NOTE] Cette offre autonome est actuellement en version préliminaire. [Cliquez ici](http://go.microsoft.com/fwlink/?LinkID=733084) si vous souhaitez télécharger une copie du CLUF (Contrat de Licence Utilisateur Final).
+
+<a id="downloadpackage"></a>
 ## Télécharger le package autonome Service Fabric
+
 
 [Téléchargez le package autonome Service Fabric pour Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), intitulé *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
@@ -82,6 +86,7 @@ Lorsque vous spécifiez des domaines de mise à niveau dans *ClusterConfig.JSON*
 ### Étape 5 : télécharger le package autonome Service Fabric pour Windows Server
 [Téléchargez le package autonome Service Fabric pour Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) et décompressez le package sur un ordinateur de déploiement qui ne fait pas partie du cluster ou sur l’un des ordinateurs qui fera partie de votre cluster.
 
+<a id="createcluster"></a>
 ## Création de votre cluster
 
 Une fois les étapes décrites dans la section Planification et préparation ci-dessus effectuées, vous êtes prêt à créer votre cluster.
@@ -91,7 +96,7 @@ Ouvrez *ClusterConfig.JSON* à partir du package que vous avez téléchargé. Vo
 
 |**Paramètres de configuration**|**Description**|
 |-----------------------|--------------------------|
-|NodeTypes|Les types de nœuds permettent de séparer vos nœuds de cluster en différents groupes. Un cluster doit comprendre au moins un NodeType. Tous les nœuds d’un groupe ont les caractéristiques communes suivantes. <br> *Name* : il s’agit du nom du type de nœud. <br>*EndPoints* : il s’agit de différents points de terminaison (ports) nommés qui sont associés à ce type de nœud. Vous pouvez utiliser n’importe quel numéro de port, tant qu’il n’entre en conflit avec aucun autre élément dans ce manifeste et n’est pas déjà en cours d’utilisation par d’autres programmes sur les ordinateurs/machines virtuelles <br> *PlacementProperties* : elles décrivent les propriétés pour ce type de nœud que vous utiliserez ensuite comme contraintes de placement pour les services système ou vos services. Ces propriétés sont des paires clé/valeur définies par l'utilisateur qui fournissent des métadonnées supplémentaires pour un nœud donné. La présence d’un disque dur ou d’une carte graphique sur le nœud, le nombre de rotations du disque dur, les noyaux et d’autres propriétés physiques sont des exemples de propriétés du nœud. <br> *Capacities* - les capacités du nœud définissent le nom et la quantité d'une ressource spécifique disponible sur un nœud particulier pour consommation. Par exemple, un nœud peut définir qu’il possède la capacité pour une mesure appelée « MemoryInMb » et qu’il dispose de 2 048 Mo de mémoire disponible par défaut. Ces capacités permettent de garantir que les services qui nécessitent une quantité spécifique de ressources sont placés sur des nœuds dans lesquels ces ressources restent disponibles au cours de l’exécution.|
+|NodeTypes|Les types de nœuds permettent de séparer vos nœuds de cluster en différents groupes. Un cluster doit comprendre au moins un NodeType. Tous les nœuds d’un groupe ont les caractéristiques communes suivantes. <br> *Name* : il s’agit du nom du type de nœud. <br>*EndPoints* : il s’agit de différents points de terminaison (ports) nommés qui sont associés à ce type de nœud. Vous pouvez utiliser n’importe quel numéro de port, tant qu’il n’entre en conflit avec aucun autre élément dans ce manifeste et n’est pas déjà en cours d’utilisation par d’autres programmes sur les ordinateurs/machines virtuelles <br> *PlacementProperties* : elles décrivent les propriétés pour ce type de nœud que vous utiliserez ensuite comme contraintes de placement pour les services système ou vos services. Ces propriétés sont des paires clé/valeur définies par l'utilisateur qui fournissent des métadonnées supplémentaires pour un nœud donné. La présence d’un disque dur ou d’une carte graphique sur le nœud, le nombre de rotations du disque dur, les noyaux et d’autres propriétés physiques sont des exemples de propriétés du nœud. <br> *Capacities* - les capacités du nœud définissent le nom et la quantité d’une ressource spécifique disponible sur un nœud particulier pour consommation. Par exemple, un nœud peut définir qu’il possède la capacité pour une mesure appelée « MemoryInMb » et qu’il dispose de 2 048 Mo de mémoire disponible par défaut. Ces capacités permettent de garantir que les services qui nécessitent une quantité spécifique de ressources sont placés sur des nœuds dans lesquels ces ressources restent disponibles au cours de l’exécution.|
 |Nœuds|Les détails de chacun des nœuds qui feront partie du cluster (type de nœud, nom de nœud, adresse IP, domaine d’erreur et domaine de mise à niveau du nœud). Les ordinateurs sur lesquels vous souhaitez créer le cluster doivent être répertoriés ici avec leur adresse IP. <br> Si vous utilisez les mêmes adresses IP pour tous les nœuds, un cluster à boîtier unique est créé. Vous pouvez l’utiliser à des fins de test. Les clusters à boîtier unique ne doivent pas servir au déploiement de charges de travail de production.|
 
 ### Étape 2 : exécuter le script de création de cluster
@@ -115,4 +120,4 @@ Lisez les informations suivantes pour démarrer le développement et de déploie
 En savoir plus sur les clusters Azure et les clusters autonomes :
 - [Vue d’ensemble de la création de clusters autonomes et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

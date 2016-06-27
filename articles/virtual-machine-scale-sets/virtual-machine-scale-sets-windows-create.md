@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création de jeux de mise à l’échelle de machine virtuelle | Microsoft Azure"
-	description="Créer un jeu de mise à l’échelle de machine virtuelle à l’aide de PowerShell"
+	description="Créer un groupe identique de machine virtuelle à l’aide de PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Créer un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell
@@ -84,7 +84,7 @@ Un jeu de mise à l'échelle de machine virtuelle doit figurer dans un groupe de
 
 ### Compte de stockage
 
-Les machines virtuelles créées dans un jeu de mise à l'échelle nécessitent un compte de stockage pour stocker les disques associés.
+Un compte de stockage est utilisé par une machine virtuelle pour stocker le disque du système d’exploitation et les données de diagnostic utilisées pour la mise à l’échelle. Lorsque cela est possible, il est recommandé d’utiliser un compte de stockage pour chaque machine virtuelle créée dans un jeu identique. Dans le cas contraire, ne prévoyez pas plus de 20 machines virtuelles par compte de stockage. L’exemple présenté dans cet article montre 3 comptes de stockage créés pour 3 machines virtuelles dans un groupe identique.
 
 1. Remplacez la valeur de **saName** par le nom que vous souhaitez utiliser pour le compte de stockage, puis créez la variable : 
 
@@ -127,6 +127,8 @@ Les machines virtuelles créées dans un jeu de mise à l'échelle nécessitent 
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
+5. Répétez les étapes 1 à 4 pour créer 3 comptes de stockage, par exemple myst1, myst2 et myst3.
+
 ### Réseau virtuel
 
 Un réseau virtuel est requis pour les machines virtuelles dans le jeu de mise à l'échelle.
@@ -153,7 +155,7 @@ Un réseau virtuel est requis pour les machines virtuelles dans le jeu de mise �
 
 Avant de pouvoir créer une interface réseau, vous devez créer une adresse IP publique.
 
-1. Remplacez la valeur de **$domName** par l'étiquette de nom de domaine que vous souhaitez utiliser avec votre adresse IP publique, puis créez la variable :  
+1. Remplacez la valeur de **$domName** par l'étiquette du nom de domaine que vous souhaitez utiliser avec votre adresse IP publique, puis créez la variable :  
 
         $domName = "domain name label"
         
@@ -197,7 +199,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Remplacez la valeur de **$vmssConfig** par le nom que vous souhaitez utiliser pour la configuration du jeu de mise à l’échelle, puis créez la variable :
+2. Remplacez la valeur de **$vmssConfig** par le nom que vous souhaitez utiliser pour la configuration du groupe identique, puis créez la variable :
 
         $vmssConfig = "Scale set configuration name"
         
@@ -205,7 +207,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    Cet exemple montre la création d’un jeu de mise à l’échelle avec 3 machines virtuelles. Consultez la rubrique [Vue d’ensemble des jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-overview.md) pour en savoir plus sur la capacité des jeux de mise à l’échelle. Cette étape inclut également la définition de la taille (appelée SkuName) des machines virtuelles dans le jeu. Consultez la rubrique [Tailles de machines virtuelles](..\virtual-machines\virtual-machines-windows-sizes.md) pour trouver une taille adaptée à vos besoins.
+    Cet exemple montre la création d’un jeu de mise à l’échelle avec 3 machines virtuelles. Consultez la rubrique [Vue d’ensemble des groupes identiques dde machines virtuelles](virtual-machine-scale-sets-overview.md) pour en savoir plus sur la capacité des jeux de mise à l’échelle. Cette étape inclut également la définition de la taille (appelée SkuName) des machines virtuelles dans le jeu. Consultez la rubrique [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md) pour trouver une taille adaptée à vos besoins.
     
 4. Ajoutez la configuration de l’interface réseau à la configuration du jeu de mise à l’échelle :
         
@@ -254,21 +256,21 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Consultez la rubrique [Rechercher et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md) pour identifier les informations sur d’autres images à utiliser.
+    Consultez la rubrique [Rechercher et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) pour identifier les informations sur d’autres images à utiliser.
         
 3. Remplacez la valeur de **$vhdContainer** par le chemin d’accès dans lequel les disques durs virtuels sont stockés, tels que « https://mystorage.blob.core.windows.net/vhds », puis créez la variable :
        
-        $vhdContainer = "URI of storage container"
+        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
 4. Créez le profil de stockage :
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Jeu de mise à l’échelle de machine virtuelle
 
 Enfin, vous pouvez créer le jeu de la mise à l’échelle.
 
-1. Remplacez la valeur de **$vmssName** par le nom du jeu de mise à l'échelle de machine virtuelle, puis créez la variable :
+1. Remplacez la valeur de **$vmssName** par le nom du groupe identique de machine virtuelle, puis créez la variable :
 
         $vmssName = "scale set name"
         
@@ -295,15 +297,20 @@ Enfin, vous pouvez créer le jeu de la mise à l’échelle.
 Utilisez ces ressources pour explorer le jeu de mise à l'échelle de machine virtuelle que vous venez de créer :
 
 - Portail Azure : une quantité limitée d’informations est disponible via le portail.
-- [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre jeu de mise à l’échelle.
+- [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre groupe identique.
 - Azure PowerShell : utilisez cette commande pour obtenir des informations :
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or 
+        
+        Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
 
 ## Étapes suivantes
 
-- Gérer le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un jeu de mise à l’échelle de machines virtuelles (en anglais)](virtual-machine-scale-sets-windows-manage.md)
-- Vous pouvez configurer la mise à l'échelle automatique de votre jeu de mise à l’échelle à l'aide des informations fournies dans la rubrique [Mise à l’échelle automatique et jeux de mise à l’échelle de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md)
-- Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Gérer le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un groupe identique de machines virtuelles (en anglais)](virtual-machine-scale-sets-windows-manage.md)
+- Vous pouvez configurer la mise à l'échelle automatique de votre groupe identique à l'aide des informations fournies dans la rubrique [Mise à l’échelle automatique et groupes identiques de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md)
+- Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des groupes identiques de machines virtuelles](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

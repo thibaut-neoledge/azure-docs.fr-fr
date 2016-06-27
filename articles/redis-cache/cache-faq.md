@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -47,21 +47,21 @@ De ce tableau, nous pouvons tirer les conclusions suivantes.
 -	Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 250 000 * 10 = 2,5 millions de demandes par seconde.
 -	Pour les tailles de clé supérieures, le débit du niveau Premium est plus élevé que celui du niveau Standard.
 
-| Niveau tarifaire | Taille | Bande passante disponible | Taille de clé de 1 Ko |
-|----------------------|--------|----------------------------|--------------------------------|
-| **Tailles de cache Standard** | &nbsp; |**Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** | **Demandes par seconde (RPS)** |
-| C0 | 250 Mo | 5 / 0,625 | 600 |
-| C1 | 1 Go | 100 / 12,5 | 12 200 |
-| C2 | 2,5 Go | 200 / 25 | 24 000 |
-| C3 | 6 Go | 400 / 50 | 49 000 |
-| C4 | 13 Go | 500 / 62,5 | 61 000 |
-| C5 | 26 Go | 1 000 / 125 | 115 000 |
-| C6 | 53 Go | 2 000 / 250 | 150 000 |
-| **Tailles de cache Premium** | &nbsp; | &nbsp; | **Demandes par seconde (RPS), par partition** |
-| P1 | 6 Go | 1 000 / 125 | 140 000 |
-| P2 | 13 Go | 2 000 / 250 | 220 000 |
-| P3 | 26 Go | 2 000 / 250 | 220 000 |
-| P4 | 53 Go | 4 000 / 500 | 250 000 |
+| Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de clé de 1 Ko |
+|--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
+| **Tailles de cache Standard** | | | **Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** | **Demandes par seconde (RPS)** |
+| C0 | 250 Mo | Partagé | 5 / 0,625 | 600 |
+| C1 | 1 Go | 1 | 100 / 12,5 | 12 200 |
+| C2 | 2,5 Go | 2 | 200 / 25 | 24 000 |
+| C3 | 6 Go | 4 | 400 / 50 | 49 000 |
+| C4 | 13 Go | 2 | 500 / 62,5 | 61 000 |
+| C5 | 26 Go | 4 | 1 000 / 125 | 115 000 |
+| C6 | 53 Go | 8 | 2 000 / 250 | 150 000 |
+| **Tailles de cache Premium** | | **Cœurs de processeur par partition** | | **Demandes par seconde (RPS), par partition** |
+| P1 | 6 Go | 2 | 1 000 / 125 | 140 000 |
+| P2 | 13 Go | 4 | 2 000 / 250 | 220 000 |
+| P3 | 26 Go | 4 | 2 000 / 250 | 220 000 |
+| P4 | 53 Go | 8 | 4 000 / 500 | 250 000 |
 
 
 Pour obtenir des instructions sur le téléchargement des outils Redis comme `redis-benchmark.exe`, consultez la section [Comment exécuter des commandes Redis ?](#cache-commands).
@@ -285,4 +285,4 @@ Pour plus d’informations sur la prise en main du cache Redis Azure, consultez 
 
 [paramètre de configuration « minIoThreads »]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -724,7 +724,9 @@ Si vous souhaitez accéder à une machine virtuelle Azure exécutant Linux aprè
 - Un point de terminaison public doit être créé pour autoriser les connexions entrantes sur le port SSH (port TCP 22 par défaut).
 - Si la machine virtuelle est accessible via une connexion VPN (Express Route ou VPN de site à site), vous pouvez utiliser le client pour vous connecter directement à la machine virtuelle via SSH.
 
+**Sur la machine virtuelle Azure Windows/Linux après basculement **:
 
+Si vous avez associé un groupe de sécurité réseau à la machine virtuelle ou au sous-réseau auquel la machine appartient, assurez-vous que le groupe de sécurité réseau dispose d’une règle sortante pour autoriser HTTP/HTTPS. Assurez-vous également que le serveur DNS du réseau sur lequel la machine virtuelle bascule est correctement configuré. Sinon, le basculement peut expirer avec l’erreur -’Tâche PreFailoverWorkflow, expiration de WaitForScriptExecutionTask’. Pour comprendre cela en détail, reportez-vous à la section sur la récupération dans le [Guide d’analyse et de dépannage](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
 ## Exécution d’un test de basculement
 
@@ -799,7 +801,7 @@ Vérifiez les [tailles recommandées pour les serveurs de processus](#size-recom
 
 	![Valider un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 
-2. Cliquez avec le bouton droit sur le serveur de processus en cours d’utilisation et cliquez sur **Échanger**.
+2. Cliquez avec le bouton droit sur le serveur de processus en cours d’utilisation et cliquez sur **Echanger**.
 
 	![Valider un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 
@@ -831,4 +833,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

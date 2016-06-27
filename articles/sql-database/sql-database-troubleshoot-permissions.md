@@ -23,20 +23,25 @@ Utilisez cette rubrique pour accorder et refuser l’accès à une base de donn�
 - [Sécurisation de votre base de données SQL](sql-database-security.md)
 - [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
+
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-##Modifier le mot de passe d’administration d’un serveur logique
+
+## Modifier le mot de passe d’administration d’un serveur logique
+
+
 - Dans le [portail Azure](https://portal.azure.com),cliquez sur **Serveurs SQL**, sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe**.
-##S’assurer que seules les adresses IP autorisées peuvent accéder au serveur
+
+## S’assurer que seules les adresses IP autorisées peuvent accéder au serveur
 - Voir [Configuration des paramètres de pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md).
 
-##Créer des utilisateurs de base de données à relation contenant-contenu dans la base de données utilisateur
+## Créer des utilisateurs de base de données à relation contenant-contenu dans la base de données utilisateur
 - Utilisez l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) et consultez [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Pour authentifier les utilisateurs de base de données à relation contenant-contenu de la base de données à l’aide d’Azure Active Directory
-- Consultez [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+- Consultez la rubrique [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Pour créer des connexions supplémentaires pour les utilisateurs avec des privilèges élevés vers la base de données master virtuelle
-- Utilisez l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx), et consultez la section Gestion des connexions de [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md) pour plus de détails.
+- Utilisez l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) et consultez la section Gestion des connexions de [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md) pour plus de détails.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

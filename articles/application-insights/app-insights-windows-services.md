@@ -127,7 +127,7 @@ Les événements s’affichent également dans les fenêtres de diagnostics et d
 
 Revenez au volet de votre application dans le portail Azure.
 
-Les premiers événements seront affichés dans la fenêtre de flux dynamique.
+Les premiers événements seront affichés dans [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
 
 
 ## Canal de persistance 
@@ -256,4 +256,4 @@ Le code du canal de persistance est disponible sur [github](https://github.com/M
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
    description="Découvrez comment récupérer une base de données en cas de panne d’un centre de données régional grâce aux fonctionnalités de géo-réplication active et de restauration géographique du service Base de données SQL Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 
@@ -72,7 +72,7 @@ Si vous utilisez le basculement par géo-réplication des options de géo-restau
 
 Comme votre base de données restaurée se trouve sur un autre serveur, vous devez mettre à jour la chaîne de connexion de votre application de sorte qu’elle pointe vers celui-ci.
 
-Pour plus d’informations sur la modification des chaînes de connexion, consultez l’article [Connexion à la base de données SQL : recommandations principales](sql-database-connect-central-recommendations.md).
+Pour plus d’informations sur la modification des chaînes de connexion, consultez le langage de développement approprié pour votre [bibliothèque de connectivité](sql-database-libraries.md).
 
 ### Configurer les règles de pare-feu
 
@@ -110,4 +110,4 @@ Si la fonction d’audit doit accéder à votre base de données, vous devez l�
 - [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
 - [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

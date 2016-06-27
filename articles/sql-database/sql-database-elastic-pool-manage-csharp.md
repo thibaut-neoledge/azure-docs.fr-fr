@@ -173,7 +173,7 @@ Créez une application console et remplacez le contenu de Program.cs par le code
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
 
             // Open the portal so we can see our operations in action
-            string portalPage = @"https://ms.portal.azure.com/#resource/subscriptions/"
+            string portalPage = @"https://portal.azure.com/#resource/subscriptions/"
                 + subscriptionId
                 + @"/resourceGroups/"
                 + resourceGroupName
@@ -432,4 +432,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md)
 - Consultez [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

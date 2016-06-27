@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restaurer une base de données dans Azure SQL Data Warehouse (Vue d’ensemble) | Microsoft Azure"
+   pageTitle="Restauration d’un Azure SQL Data Warehouse (Vue d’ensemble) | Microsoft Azure"
    description="Vue d’ensemble des options de restauration de base de données pour la récupération d’une base de données dans Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,58 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/14/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Restaurer une base de données dans Azure SQL Data Warehouse (Vue d’ensemble)
+# Restauration d’un Azure SQL Data Warehouse (Vue d’ensemble)
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-data-warehouse-restore-database-overview.md)
-- [Portail](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Vue d'ensemble][]
+- [Portail][]
+- [PowerShell][]
+- [REST][]
 
-Décrit les options de restauration d’une base de données dans Azure SQL Data Warehouse, Il inclut la restauration d’un entrepôt de données actives et d’un entrepôt de données supprimées. Les entrepôts de données actives et supprimées sont restaurés à partir d’instantanés automatiques créés à partir de tous les entrepôts de données.
+Azure SQL Data Warehouse protège vos données avec un stockage localement redondant et des sauvegardes automatisées. Les sauvegardes automatisées ne requièrent aucun coût d’administration pour protéger vos bases de données d’une corruption ou d’une suppression accidentelle. Si un utilisateur modifie ou supprime accidentellement des données, vous pouvez garantir la continuité des activités en restaurant votre base de données à un point antérieur dans le temps. SQL Data Warehouse utilise des instantanés Azure Storage Snapshots pour sauvegarder votre base de données façon transparente sans avoir besoin d’une interruption de service.
 
-## Scénarios de récupération
+## Sauvegardes automatisées
 
-**Récupération après des défaillances d’infrastructure :** ce scénario est relatif à la récupération après des défaillances d’infrastructure (défaillances de disques, etc.). Un client souhaite garantir la continuité des activités avec une infrastructure hautement disponible, à tolérance de pannes.
+Vos bases de données **actives** sont automatiquement sauvegardées au moins toutes les 8 heures et conservées pendant 7 jours. Cela vous permet de restaurer votre base de données active à une de plusieurs points de restauration au cours des 7 derniers jours.
 
-**Récupération après des erreurs d’utilisateurs :** ce scénario est relatif à la récupération après des corruptions ou suppressions accidentelles de données. Si un utilisateur modifie ou supprime accidentellement des données, un client souhaite garantir la disponibilité des activités en restaurant la base de données à un point antérieur dans le temps.
+Lorsqu’une base de données est suspendue, aucun nouvel instantané n’est créé et les instantanés précédents sont supprimés après 7 jours. Si une base de données est interrompue pendant plus de 7 jours, le dernier instantané est enregistré pour garantir que vous disposez toujours d’au moins une sauvegarde.
 
-## Stratégies de capture d’instantanés
+Lorsqu’une base de données est supprimée, le dernier instantané est enregistré pendant 7 jours.
 
-[AZURE.INCLUDE [Stratégie de rétention des sauvegardes SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
+Exécutez cette requête lorsque la dernière sauvegarde a été effectuée sur votre instance :
 
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
 
-## Fonctionnalités de restauration de base de données
+Si vous devez conserver une sauvegarde pendant plus de 7 jours, vous pouvez tout simplement restaurer l’un de vos points de restauration comme nouvelle base de données et suspendre éventuellement cette base de données pour ne payer que pour l’espace de stockage de cette sauvegarde.
 
-Penchons-nous sur la manière dont SQL Data Warehouse améliore la fiabilité de votre base de données et prend en charge les scénarios mentionnés plus haut récupération et de continuité des activités
+## Redondance des données
 
+En plus des sauvegardes, SQL Data Warehouse protège également vos données avec un stockage Azure Premium [localement redondant][]. Plusieurs copies synchrones des données sont conservées dans le centre de données local afin de garantir la protection transparente des données en cas de défaillance localisée. La redondance des données assure que vos données peuvent survivre à des problèmes liés à l’infrastructure tels que des défaillances de disque, etc. La redondance des données assure la continuité des activités avec une infrastructure hautement disponible tolérante aux pannes.
 
-### Redondance des données
+## Restauration d’une base de données
 
-SQL Data Warehouse stocke toutes les données sur un stockage Azure Premium Storage [localement redondant (LRS)](../storage/storage-redundancy.md) et conserve trois copies de vos données.
+La restauration d’un SQL Data Warehouse est une opération simple qui peut être effectuée dans le portail Azure ou automatisée à l’aide de PowerShell ou d’API REST.
 
-### Restauration de base de données
-
-Cette fonctionnalité est utilisée pour restaurer votre base de données à un point antérieur dans le temps. Le service SQL Data Warehouse d’Azure protège toutes les bases de données avec des captures instantanées de stockage automatiques au moins toutes les 8 heures et les conserve pendant 7 jours afin de vous offrir un ensemble discret de points de restauration. Les fonctionnalités automatiques de capture d’instantanés et de restauration ne requièrent aucun coût d’administration pour protéger les bases de données d’une corruption ou d’une suppression accidentelle. Pour en savoir plus sur la restauration de base de données, consultez la section [Tâches de restauration de base de données][].
 
 ## Étapes suivantes
-Pour d’autres tâches de gestion significatives, consultez la [Vue d’ensemble de la gestion][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir la [vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-management.md
-[Tâches de restauration de base de données]: sql-data-warehouse-manage-database-restore-portal.md
+[vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[localement redondant]: ../storage/storage-redundancy.md
+[Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
+[Portail]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

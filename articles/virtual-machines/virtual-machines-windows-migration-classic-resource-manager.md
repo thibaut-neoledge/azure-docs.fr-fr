@@ -81,14 +81,12 @@ Les fonctionnalités suivantes ne sont pas prises en charge dans la version pré
 
 Fournisseur de ressources | Fonctionnalité
 ---------- | ------------
-Calcul | Diagnostics de démarrage.
 Calcul | Disques de machine virtuelle non associés.
 Calcul | Images de machine virtuelle.
 Réseau | IP réservées non associées (si elles ne sont pas attachées à une machine virtuelle) Les IP réservées attachées à des machines virtuelles sont prises en charge.
 Réseau | Groupes de sécurité réseau non associés (s’ils ne sont pas attachés à un réseau virtuel ou à une interface réseau). Les groupes de sécurité réseau référencés par les réseaux virtuels sont pris en charge.
 Réseau | Listes de contrôle d’accès de points de terminaison.
 Réseau | Passerelles de réseau virtuel (de site à site, Azure ExpressRoute, de point à site).
-Storage | Comptes de stockage.
 
 ### Configurations non prises en charge
 
@@ -103,7 +101,6 @@ Calcul | Machines virtuelles dotées d’alertes et de stratégies de mise à l�
 Calcul | Extensions XML de machines virtuelles (débogueur Visual Studio, Web Deploy et le débogage à distance) | Ce n’est pas pris en charge. Nous vous recommandons de les supprimer de la machine virtuelle pour poursuivre la migration.
 Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge actuellement.
 Réseau | Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail | Non pris en charge actuellement.
-Réseau | Sous-réseaux dont le nom contient des espaces | Non pris en charge actuellement.
 Azure App Service | Réseaux virtuels contenant des environnements App Service | Non pris en charge actuellement.
 Azure HDInsight | Réseaux virtuels contenant des services HDInsight | Non pris en charge actuellement.
 Services de cycle de vie Microsoft Dynamics | Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services | Non pris en charge actuellement.
@@ -226,4 +223,4 @@ Les noms de toutes les ressources que vous avez explicitement fournis dans le mo
 - [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

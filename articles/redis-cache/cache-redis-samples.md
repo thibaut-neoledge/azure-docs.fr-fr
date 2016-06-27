@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Exemples de Cache Redis Azure" 
+	pageTitle="Exemples de Cache Redis Azure | Microsoft Azure" 
 	description="Découvrez comment utiliser le Cache Redis Azure" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
+	ms.date="06/09/2016" 
 	ms.author="sdanie"/>
 
 # Exemples de Cache Redis Azure 
@@ -26,7 +26,7 @@ Les exemples de cette section montrent les principes fondamentaux de la connexio
 
 L’exemple [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) montre comment effectuer différentes opérations de cache à l’aide du client .NET [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
 
-Cet exemple montre comment :
+Cet exemple montre comment :
 
 -	Utiliser les différentes options de connexion
 -	Lire et écrire des objets dans le cache à l’aide des opérations synchrones et asynchrones
@@ -41,7 +41,7 @@ Pour plus d’informations, consultez la documentation [StackExchange.Redis](htt
 
 L’exemple [How to use Azure Redis Cache with Python](cache-python-get-started.md) montre comment utiliser le cache Redis Azure avec Python et le client [redis-py](https://github.com/andymccurdy/redis-py).
 
-L’exemple [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
+L’exemple [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
 
 ## Utiliser le Cache Redis comme un fond de panier de montée en puissance pour ASP.NET SignalR
 
@@ -74,4 +74,4 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 L’exemple [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Étape 1 : création d’un espace de travail Machine Learning | Microsoft Azure"
-	description="Étape 1 de la procédure pas à pas de développement d’une solution prédictive : apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio."
+	pageTitle="Étape 1 : création d’un espace de travail Machine Learning | Microsoft Azure"
+	description="Étape 1 de la procédure pas à pas de développement d’une solution prédictive : apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
-# Étape 1 de la procédure pas à pas : création d’un espace de travail Machine Learning
+# Étape 1 de la procédure pas à pas : création d’un espace de travail Machine Learning
 
 Voici la première étape de la procédure pas à pas [Développement d'une solution d'analyse prédictive dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
@@ -47,8 +47,8 @@ Une fois votre espace de travail Machine Learning créé, vous voyez son nom app
 
 ----------
 
-**Suivant : [Téléchargement de données existantes](machine-learning-walkthrough-2-upload-data.md)**
+**Suivant : [Téléchargement de données existantes](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

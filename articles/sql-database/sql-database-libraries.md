@@ -21,7 +21,7 @@
 Cette rubrique répertorie chaque bibliothèque/pilote que les programmes clients peuvent utiliser lors de la connexion à la base de données SQL Azure ou à Microsoft SQL Server.
 
 
-| Langage | Plateforme | En savoir plus | Télécharger |
+| Langage | Plateforme | Ressources supplémentaires | Télécharger |
 | :-- | :-- | :-- | :-- |
 | ADO.NET | Windows, Linux, Mac | [Connexion à SQL Database à l’aide de .NET (C#)](sql-database-develop-dotnet-simple.md) | [Télécharger](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
 | Java | Windows | [Connexion à la base de données SQL à l’aide de Java avec JDBC sous Windows](sql-database-develop-java-simple-windows.md) | [Télécharger](http://go.microsoft.com/fwlink/?LinkId=245496) |
@@ -30,4 +30,4 @@ Cette rubrique répertorie chaque bibliothèque/pilote que les programmes client
 | Python | Windows, Linux, Mac | [Connexion à SQL Database à l’aide de Python](sql-database-develop-python-simple.md) | [Installer](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux, Mac | [Connexion à SQL Database à l’aide de Ruby](sql-database-develop-ruby-simple.md) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

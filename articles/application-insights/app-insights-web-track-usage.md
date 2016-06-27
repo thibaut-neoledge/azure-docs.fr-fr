@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/12/2016" 
 	ms.author="awills"/>
  
 # Analyse de l’utilisation des applications web avec Application Insights
@@ -152,32 +152,22 @@ Mais vous voulez qu'Application Insights continue de consigner le nombre de fois
 
 ## Événements personnalisés
 
-Utilisez des événements personnalisés pour Vous pouvez les envoyer à partir d'applications de l'appareil, des pages web ou du serveur web :
-
-*JavaScript*
+Écrivez une télémétrie personnalisée pour consigner des événements spécifiques. En particulier dans une application à page unique, vous pourrez connaître la fréquence à laquelle l’utilisateur effectue des actions particulières ou atteint certains objectifs :
 
     appInsights.trackEvent("GameEnd");
 
-*C#*
+Par exemple, pour ouvrir une session en cliquant sur un lien :
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
-    tc.TrackEvent("GameEnd");
-
-*VB*
-
-    Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
-    tc.TrackEvent("GameEnd")
+    <a href="target.htm" onclick="appInsights.trackEvent('linkClick');return true;">my link</a>
 
 
-Les événements personnalisés les plus fréquents sont répertoriés dans le panneau Vue d'ensemble.
+## Nombre d’événements personnalisés affichés
 
-![Dans le panneau Vue d'ensemble, faites défiler vers le bas et cliquez sur les événements personnalisés.](./media/app-insights-web-track-usage/04-events.png)
-
-Cliquez sur l'en-tête de la table pour voir le nombre total d'événements. Vous pouvez segmenter le graphique en fonction de divers attributs, comme le nom de l'événement :
+Ouvrez Metrics Explorer et ajoutez un graphique pour afficher les événements. Segment par nom :
 
 ![Sélectionnez un graphique qui affiche une seule mesure. Basculez sur le regroupement. Sélectionnez une propriété. Toutes les propriétés ne sont pas disponibles.](./media/app-insights-web-track-usage/06-eventsSegment.png)
 
-La chronologie est une fonctionnalité particulièrement utile avec laquelle vous pouvez mettre en corrélation les modifications avec d'autres mesures et d'autres événements. Par exemple, lorsque plusieurs jeux sont lancés, vous vous attendez à voir aussi une hausse du nombre de jeux abandonnés. Mais l'augmentation des jeux abandonnés est disproportionnée, vous souhaitez savoir si la charge élevée est à l'origine de problèmes que les utilisateurs considèrent inacceptables.
+
 
 ## Explorer des événements spécifiques
 
@@ -376,4 +366,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

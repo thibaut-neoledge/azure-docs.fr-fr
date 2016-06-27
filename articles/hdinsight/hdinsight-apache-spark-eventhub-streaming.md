@@ -24,7 +24,7 @@ La diffusion en continu de Spark développe l’API Spark de base pour générer
 
 Ce didacticiel explique comme créer un Event Hub Azure, recevoir des messages dans un Event Hub à l’aide d’une application console écrite en Java, et à les récupérer en parallèle à l’aide d’une application Spark écrite en Scala. Cette application utilise les données diffusées en continu via les Event Hubs, et les achemine vers différentes sorties (objet blob Azure Storage, table Hive et table SQL).
 
-> [AZURE.NOTE] Pour suivre les instructions de cet article, vous devez utiliser les deux versions du portail Azure. Pour créer un Event Hub, vous utiliserez le [Portail Azure Classic](https://manage.windowsazure.com). Pour travailler avec le cluster HDInsight Spark, vous utiliserez le [portail Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Pour suivre les instructions de cet article, vous devez utiliser les deux versions du portail Azure. Pour créer un Event Hub, vous utiliserez le [Portail Azure Classic](https://manage.windowsazure.com). Pour travailler avec le cluster HDInsight Spark, vous utiliserez le [Portail Azure](https://portal.azure.com/).
 
 **Configuration requise :**
 
@@ -391,4 +391,4 @@ Le résultat ressemble à ce qui suit :
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

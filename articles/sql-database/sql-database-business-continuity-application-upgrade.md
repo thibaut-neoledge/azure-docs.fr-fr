@@ -3,7 +3,7 @@
    description="Cette section fournit de l’aide pour éviter les temps d’arrêt pendant une mise à niveau de l’application." 
    services="sql-database"
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/27/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 #Mettre à niveau une application sans temps d’arrêt
 
@@ -32,4 +32,4 @@ Si l'application peut fonctionner temporairement en lecture seule, le workflow d
  
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

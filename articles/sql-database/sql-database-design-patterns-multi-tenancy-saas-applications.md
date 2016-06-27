@@ -150,13 +150,17 @@ Pour obtenir un exemple d’application illustrant la bibliothèque cliente, con
 
 Pour convertir des bases de données existantes afin d’utiliser les outils, consultez [Migrer des bases de données existantes pour la montée en charge](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Créez un pool avec le [didacticiel](sql-database-elastic-pool-create-portal.md).
+Pour créer un nouveau pool, consultez le [Didacticiel de création de pool élastique](sql-database-elastic-pool-create-portal.md).
 
-## En savoir plus
+Pour surveiller et gérer un pool élastique, consultez [Surveillance et gestion d’un pool de base de données élastique](sql-database-elastic-pool-manage-portal.md).
 
-[Qu’est-ce qu’un pool de base de données élastique ?](sql-database-elastic-pool.md)
+## Ressources supplémentaires
 
-[Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
+- [Qu’est-ce qu’un pool de base de données élastique ?](sql-database-elastic-pool.md)
+- [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
+- [Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Authentification sur les applications mutualisées, avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## Questions et demandes de fonctionnalités
 
@@ -172,4 +176,4 @@ Pour toute question, contactez-nous sur le [forum Base de données SQL](http://s
 
 	
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

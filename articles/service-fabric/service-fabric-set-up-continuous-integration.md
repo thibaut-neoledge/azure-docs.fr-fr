@@ -261,6 +261,8 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 3. Ajoutez les nouveaux fichiers de contrôle de code source et envoyez vers VSTS.
 
+>[AZURE.NOTE] Si vous avez utilisé un certificat différent pour la gestion de votre cluster Service Fabric, répétez les étapes décrites dans « Importer votre certificat Automation » à l’aide de ce certificat.
+
 ### Créer la définition de build
 
 1.	Créez une définition de build vide. Pour ce faire :
@@ -302,7 +304,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 ### Ajouter une étape Build
 
-1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**
+1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**.
 
 2.	Sélectionnez **Build** > **MSBuild**.
 
@@ -320,7 +322,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 ### Ajouter une étape Package
 
-1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**
+1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**.
 
 2.	Sélectionnez **Build** > **MSBuild**.
 
@@ -340,6 +342,8 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 ### <a name="RemoveClusterResourceGroup"></a> Ajouter une étape « Supprimer le groupe de ressources de cluster »
 
 Si une build précédente n’a pas nettoyé après avoir terminé (par exemple, si la build a été annulée avant de pouvoir nettoyer), il est possible qu’un groupe de ressources existant entre en conflit avec le nouveau. Pour éviter les conflits, nettoyez tout groupe de ressources restant (et ses ressources associées) avant d’en créer un nouveau.
+
+>[AZURE.NOTE] Ignorez cette étape si vous souhaitez créer et réutiliser le même cluster pour chaque build.
 
 1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**.
 
@@ -376,8 +380,8 @@ Si une build précédente n’a pas nettoyé après avoir terminé (par exemple,
     |Action|**Créer ou mettre à jour un groupe de ressources**|
     |Groupe de ressources|Doit correspondre au nom que vous avez utilisé à l'étape précédente.|
     |Emplacement|Doit correspondre à l’emplacement de votre coffre de clés.|
-    |Modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.json`.|
-    |Paramètres de modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.parameters.json`.|
+    |Modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.json`|
+    |Paramètres de modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.parameters.json`|
 
 5.	Enregistrez la définition de build.
 
@@ -389,13 +393,17 @@ Si une build précédente n’a pas nettoyé après avoir terminé (par exemple,
 
 3.	Sélectionnez l’icône en forme de crayon en regard du nom de l’étape de build et renommez-la **Déployer**.
 
-4. Sélectionnez ces valeurs :
+4. Sélectionnez ces valeurs (remplacez les valeurs de -PublishProfile et -ApplicationPackagePath avec vos chemins d’accès réels) :
 
     |Nom de paramètre|Valeur|
     |---|---|
     |Type|**Chemin de fichier**|
     |Nom du fichier de script|Cliquez sur le bouton **...** et accédez au répertoire **Scripts** à l’intérieur de votre projet d’application. Sélectionnez `Deploy-FabricApplication.ps1`.|
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
+
+>[AZURE.NOTE] Un moyen simple de créer un fichier xml de profil de publication de travail consiste à le créer dans Visual Studio, comme illustré ici : https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+
+>[AZURE.NOTE] Si vous souhaitez prendre en charge le déploiement de l’application sur un cluster en remplaçant l’application existante au lieu de la mettre à niveau, ajoutez cet argument Powershell: ’-OverwriteBehavior SameAppTypeAndVersion’. En outre, assurez-vous que le profil de publication sélectionné n’est pas configuré pour permettre une mise à niveau. Cela supprimera d’abord tout ApplicationType existant avant d’installer la version la plus récente.
 
 5.	Enregistrez la définition de build.
 
@@ -429,4 +437,4 @@ Pour en savoir plus sur l’intégration continue avec les applications de Servi
  - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

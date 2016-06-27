@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/25/2016"
+ms.date="06/14/2016"
 ms.author="garye;krishnan"/>
 
 # Effectuer des analyses avancées avec Azure Machine Learning en utilisant les données d’une base de données SQL Server locale
@@ -57,7 +57,7 @@ Vous devez prendre en compte ce qui suit lors de la configuration et de l’util
 
 - Vous devez utiliser la passerelle de gestion des données pour Azure Machine Learning, même si vous utilisez Azure ExpressRoute pour d’autres données. Vous devez considérer votre source de données comme une source de données locale (qui se trouve derrière un pare-feu) même lorsque vous utilisez ExpressRoute, et utiliser la passerelle de gestion des données pour établir la connectivité entre Machine Learning et la source de données.
 
-Vous trouverez des informations détaillées sur les conditions préalables à l’installation, des étapes d’installation et des conseils de dépannage dans les sections du début de l’article [Déplacer des données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+Vous trouverez des informations détaillées sur les conditions préalables à l’installation, des étapes d’installation et des conseils de dépannage dans l’article [Déplacer des données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway), qui commence par la section [Considérations relatives à l’utilisation d’une passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Intégrer des données de votre base de données SQL Server locale dans Azure Machine Learning
 
@@ -162,4 +162,4 @@ Une fois l’expérience terminée, vous pouvez visualiser les données que vous
 
 Une fois que vous avez terminé le développement de votre expérience, vous pouvez déployer et opérationnaliser votre modèle. Grâce au service d’exécution de lots, les données de la base de données SQL Server locale configurées dans le module **Importer des données** seront lues et utilisées pour l’évaluation. Vous pouvez utiliser le service de réponse aux demandes pour l’évaluation des données locales, mais Microsoft recommande d’utiliser plutôt le [complément Excel](machine-learning-excel-add-in-for-web-services.md). Actuellement, l’écriture dans une base de données SQL Server locale avec **Exporter des données** n’est pas prise en charge dans vos expériences ou dans les services web publiés.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->
