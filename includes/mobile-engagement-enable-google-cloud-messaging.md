@@ -5,33 +5,30 @@
 
 1. Accédez à la [Console Google Cloud](https://console.developers.google.com/project) et connectez-vous avec les informations d’identification de votre compte Google.
 
-2. Cliquez sur **Atteindre le projet**, puis cliquez sur **Créer un projet**.
-<!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+2. Accédez à **All Projects (Tous les projets)**, puis cliquez sur **Create Project (Créer un projet)**.
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
--->
-3. Entrez un nom de projet.
+3. Entrez un **Project name (Nom de projet)**, puis cliquez sur **Create (Créer)**.
 
-4. Prenez note du numéro de projet qui apparaît sous la zone de texte **Nom du projet**. Vous en aurez besoin plus loin dans le didacticiel pour l’insérer dans le fichier manifeste Android. ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
-5. Cliquez sur **Create**.
+4. Une fois le projet créé, veillez à noter le **Project number (Numéro de projet)** qui est une valeur numérique longue. Vous aurez besoin ultérieurement de ce numéro qui se trouve dans la section **IAM & Admin (IAM et administration)** des **Settings (Paramètres)** de votre projet.
+ 
+	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
 
-6. Dans la colonne de gauche, assurez-vous que **Présentation** est sélectionné puis, sous API Mobiles, cliquez sur **Google Cloud Messaging**. Sur la page suivante, cliquez sur **Activer**.
+5. Maintenant, nous allons créer une clé pour la plateforme de messagerie Google Cloud qui sera utilisée par notre plateforme pour envoyer des notifications aux appareils Android. Accédez à la section **API Manager (Gestionnaires des API)** et cliquez sur **Google Cloud Messaging** sous **Mobile APIs (API pour mobiles)**.
+
+	![](./media/mobile-engagement-enable-google-cloud-messaging/gcm.png)
+
+6. Dans la page suivante, cliquez sur le bouton **Activer**. Le tableau de bord vous invite à créer des informations d’identification. Pour ce faire, cliquez sur le bouton **Go to Credentials (Aller aux informations d’identification)**.
 
 	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
-<!--
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
--->
-7. Sur la page suivante, cliquez sur **Accéder aux informations d’identification** et, sur la page suivante, sélectionnez **Google Cloud Messaging** dans la première liste déroulante et **Serveur web** dans l’autre, puis cliquez sur **De quelles informations d’identification ai-je besoin ?**
+
+6. Sélectionnez **Google Cloud Messaging** dans la première liste déroulante et **Serveur web** dans l’autre, puis cliquez sur **De quelles informations d’identification ai-je besoin ?**
 
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. Dans **Ajouter des informations d’identification à votre projet**, cliquez sur **Créer une clé API**.
+7. Dans **Ajouter des informations d’identification à votre projet**, cliquez sur **Créer une clé API**.
 
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
-<!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
--->
-9. Prenez note de la valeur de **API KEY**. Vous allez utiliser cette valeur de clé API ultérieurement pour configurer dans la section « Push Natif ». Maintenant, cliquez sur **Terminé**.
 
-<!---HONumber=AcomDC_0608_2016-->
+8. Prenez note de la valeur de **API KEY**. Vous allez utiliser cette valeur de clé API ultérieurement pour configurer dans la section « Push Natif ». Maintenant, cliquez sur **Terminé**.
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -10,11 +10,18 @@ Non. Le protocole BGP est pris en charge uniquement sur les passerelles VPN bas�
 
 Oui, vous pouvez utiliser vos propres NSA publics ou privés pour vos réseaux locaux et les réseaux virtuels Azure.
 
+#### Existe-t-il des NSA réservés par Azure ?
+
+Oui. Les NSA suivants sont réservés par Azure pour les homologations internes et externes :
+
+- NSA publics : 8075, 8076, 12076
+- NSA privés : 65515, 65517, 65518, 65519, 65520
+
+Vous ne pouvez pas spécifier ces NSA pour vos périphériques VPN locaux lors de la connexion à des passerelles VPN Azure.
+
 ### Puis-je utiliser le même NSA pour les réseaux VPN locaux et les réseaux virtuels Azure ?
 
 Non. Vous devez attribuer des NSA différents à vos réseaux locaux et vos réseaux virtuels Azure si vous les interconnectez avec le protocole BGP. Le NSA 65515 est attribué aux passerelles VPN Azure par défaut, et ce, que le protocole BGP soit activé ou non pour la connectivité entre sites locaux. Vous pouvez remplacer cette valeur par défaut en attribuant un NSA différent lors de la création de la passerelle VPN, ou modifier le NSA après avoir créé la passerelle. Vous devez affecter vos NSA locaux aux passerelles de réseau local Azure correspondantes.
-
-
 
 ### Quels préfixes d’adresse les passerelles VPN Azure publieront-elles pour moi ?
 
@@ -23,6 +30,14 @@ La passerelle VPN Azure publiera les itinéraires suivants pour vos périphériq
 - préfixes d’adresse de votre réseau virtuel ;
 - préfixes d’adresse de chaque passerelle de réseau local connectée à la passerelle VPN Azure ;
 - itinéraires obtenus à partir d’autres sessions d’homologation BGP connectées à la passerelle VPN Azure, **à l’exception de l’itinéraire par défaut ou des itinéraires se chevauchant avec un préfixe de réseau virtuel**.
+
+#### Puis-je publier l’itinéraire par défaut (0.0.0.0/0) vers les passerelles VPN Azure ?
+
+Pas pour l'instant.
+
+#### Puis-je publier les mêmes préfixes que ceux de mon adresse de réseau virtuel ?
+
+Non. La publication des mêmes préfixes que ceux de votre adresse de réseau virtuel est bloquée ou filtrée par la plateforme Azure.
 
 ### Puis-je utiliser le protocole BGP avec des connexions entre réseaux virtuels ?
 
@@ -34,7 +49,7 @@ Oui. Vous pouvez combiner des connexions BGP et non-BGP pour la même passerelle
 
 ### La passerelle VPN Azure prend-elle en charge le routage de transit BGP ?
 
-Oui. Le routage de transit BGP est pris en charge. Cependant, les passerelles VPN Azure ne publieront **PAS** les itinéraires par défaut pour les autres homologues BGP. Pour activer le routage de transit via plusieurs passerelles VPN Azure, vous devez activer le protocole BGP sur toutes les connexions intermédiaires entre réseaux virtuels.
+Oui. Le routage de transit BGP est pris en charge. Cependant, les passerelles VPN Azure ne publieront **PAS** les itinéraires par défaut vers les autres homologues BGP. Pour activer le routage de transit via plusieurs passerelles VPN Azure, vous devez activer le protocole BGP sur toutes les connexions intermédiaires entre réseaux virtuels.
 
 ### Puis-je avoir plusieurs tunnels entre ma passerelle VPN Azure et mon réseau local ?
 
@@ -54,7 +69,7 @@ La passerelle VPN Azure alloue une adresse IP unique à partir de la plage Gatew
 
 ### Quelles sont les conditions requises concernant les adresses IP d’homologue BGP sur mon périphérique VPN ?
 
-Votre adresse d’homologue BGP local **NE DOIT PAS** être la même que l’adresse IP publique de votre périphérique VPN. Utilisez une adresse IP différente de l’IP d’homologue BGP pour votre périphérique VPN. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Spécifiez cette adresse sur la passerelle de réseau local correspondante, représentant l’emplacement.
+Votre adresse d’homologue BGP local **NE DOIT PAS** être identique à l’adresse IP publique de votre périphérique VPN. Utilisez une adresse IP différente de l’IP d’homologue BGP pour votre périphérique VPN. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Spécifiez cette adresse sur la passerelle de réseau local correspondante, représentant l’emplacement.
 
 ### Que dois-je spécifier comme préfixes d’adresse pour la passerelle de réseau local lorsque j’utilise le protocole BGP ?
 
@@ -63,3 +78,5 @@ La passerelle de réseau local Azure spécifie les préfixes d’adresse initiau
 ### Que dois-je ajouter à mon périphérique VPN local pour la session d’homologation BGP ?
 
 Vous devez ajouter un itinéraire hôte de l’adresse IP d’homologue BGP Azure sur votre périphérique VPN pointant vers le tunnel VPN S2S IPsec. Par exemple, si l’adresse IP d’homologue VPN Azure est « 10.12.255.30 », vous devez ajouter un itinéraire hôte pour « 10.12.255.30 » avec l’interface de tronçon suivant de l’interface de tunnel IPsec correspondante sur votre périphérique VPN.
+
+<!---HONumber=AcomDC_0622_2016-->

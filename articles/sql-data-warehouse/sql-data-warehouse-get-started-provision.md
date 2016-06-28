@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Créer un Azure SQL Data Warehouse
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous utiliserez le portail Azure pour créer un entrepôt d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur **+ Nouveau** > **Données et stockage** > **SQL Data Warehouse**.
+2. Cliquez sur **+ Nouveau** > **Données et stockage** > **SQL Data Warehouse**.
 
     ![Créer](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
@@ -44,7 +44,7 @@ Dans ce didacticiel, vous utiliserez le portail Azure pour créer un entrepôt d
 
 	- **Nom de la base de données** : le nom qui vous servira à référencer le SQL Data Warehouse. Le nom doit être unique sur le serveur.
 	
-    - **Performances** : nous vous recommandons de commencer par 400 DWU. Vous pouvez déplacer le curseur vers la gauche ou la droite pour ajuster les performances de votre entrepôt de données, ou le faire monter ou descendre en puissance suivant la création. Pour en savoir plus sur les DWU, consultez notre documentation sur la [montée en charge](./sql-data-warehouse-manage-compute-overview.md) ou notre [page de tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+    - **Performances** : nous vous recommandons de commencer par 400 DWU. Vous pouvez déplacer le curseur vers la gauche ou la droite pour ajuster les performances de votre entrepôt de données, ou le faire monter ou descendre en puissance suivant la création. Pour en savoir plus sur les DWU, consultez notre documentation sur la [montée en charge](./sql-data-warehouse-manage-compute-overview.md) ou notre [page de tarification](https://azure.microsoft.com/fr-FR/pricing/details/sql-data-warehouse/).
 
     - **Abonnement** : sélectionnez l’abonnement sur lequel ce SQL Data Warehouse sera facturé.
 
@@ -62,10 +62,10 @@ Dans ce didacticiel, vous utiliserez le portail Azure pour créer un entrepôt d
 
 ## Étapes suivantes
 
-Maintenant que vous avez créé un SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) et à lancer des requêtes.
+Maintenant que vous avez créé un SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-connect-overview.md) et à lancer des requêtes.
 
 Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse](./sql-data-warehouse-overview-load.md).
 
 Si vous essayez de migrer une base de données existante vers SQL Data Warehouse, consultez le [vue d’ensemble de la Migration](./sql-data-warehouse-overview-migrate.md) ou utilisez [utilitaire de Migration de](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

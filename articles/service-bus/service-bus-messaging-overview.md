@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Présentation de la messagerie Service Bus | Microsoft Azure"
-	description="Messagerie Service Bus : service flexible de distribution de données dans le cloud"
+	description="Messagerie Service Bus : service flexible de distribution de données dans le cloud"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/20/2016"
 	ms.author="sethm"/>
 
 
 # Messagerie Service Bus : service flexible de distribution de données dans le cloud
 
-La messagerie Service Bus Azure est un service fiable de distribution des informations. L'objectif de ce service est de simplifier la communication. Quand plusieurs parties souhaitent échanger des informations, elles ont besoin d'un système de communication. La messagerie Service Bus est un système de communication tiers ou réparti, qui peut être comparé à un service postal classique. Le service postal permet aux clients d'envoyer facilement partout dans le monde toutes sortes de lettres et de paquets, avec différentes garanties de distribution au choix.
+La messagerie Microsoft Azure Service Bus est un service fiable de distribution des informations. L'objectif de ce service est de simplifier la communication. Quand plusieurs parties souhaitent échanger des informations, elles ont besoin d'un système de communication. La messagerie Service Bus est un système de communication tiers ou réparti, qui peut être comparé à un service postal classique. Le service postal permet aux clients d'envoyer facilement partout dans le monde toutes sortes de lettres et de paquets, avec différentes garanties de distribution au choix.
 
 À l’instar du service postal de distribution du courrier, la messagerie Service Bus constitue un moyen flexible de distribuer des informations entre l’expéditeur et le destinataire. Ce service de messagerie garantit la distribution des informations même si les deux parties concernées ne sont jamais en ligne en même temps ou si elles ne sont pas disponibles au même moment. C'est en cela que ce système de communication répartie s'apparente à l'envoi d'une lettre, tandis que la communication non répartie équivaut à un appel téléphonique traditionnel (quand il n'y avait pas encore de signal d'appel ni d'identification de l'appelant, qui sont plutôt des fonctionnalités de messagerie répartie).
 
@@ -39,7 +39,7 @@ La messagerie relayée offre de nombreux avantages, mais nécessite que le serve
 
 ## Messagerie répartie
 
-Contrairement au modèle de la messagerie relayée, la [messagerie répartie](service-bus-fundamentals-hybrid-solutions.md) peut être considérée comme asynchrone, ou « temporellement découplée ». Les producteurs (expéditeurs) et les consommateurs (récepteurs) n'ont pas besoin d’être en ligne en même temps. L'infrastructure de la messagerie stocke les messages de façon fiable dans un « broker » (par exemple, une file d'attente) jusqu'à ce que le récepteur soit prêt à les recevoir. Ceci permet aux composants de l'application distribuée d'être déconnectés, soit volontairement, par exemple pour des raisons de maintenance, soit en raison de l'échec d'un composant, sans conséquences sur le système dans sa globalité. En outre, il se peut que l'application réceptrice n’ait besoin d’être en ligne qu’à certaines heures de la journée (par exemple, un système de gestion d'inventaire dont l’exécution n’est requise qu’en fin de journée).
+Contrairement au modèle de la messagerie relayée, la [messagerie répartie](service-bus-queues-topics-subscriptions.md) peut être considérée comme asynchrone, ou « temporellement découplée ». Les producteurs (expéditeurs) et les consommateurs (récepteurs) n'ont pas besoin d’être en ligne en même temps. L'infrastructure de la messagerie stocke les messages de façon fiable dans un « broker » (par exemple, une file d'attente) jusqu'à ce que le récepteur soit prêt à les recevoir. Ceci permet aux composants de l'application distribuée d'être déconnectés, soit volontairement, par exemple pour des raisons de maintenance, soit en raison de l'échec d'un composant, sans conséquences sur le système dans sa globalité. En outre, il se peut que l'application réceptrice n’ait besoin d’être en ligne qu’à certaines heures de la journée (par exemple, un système de gestion d'inventaire dont l’exécution n’est requise qu’en fin de journée).
 
 Les principaux composants de l'infrastructure de la messagerie répartie Service Bus sont des files d'attente, des rubriques et des abonnements. La principale différence est que les rubriques prennent en charge les fonctionnalités de publication et d'abonnement qui peuvent être utilisées dans la logique de distribution et de routage basée sur du contenu sophistiqué, y compris l'envoi à plusieurs destinataires. Ces composants donnent accès à de nouveaux scénarios de messagerie asynchrone, comme le découplage temporel, la publication/abonnement et l'équilibrage de charge. Pour plus d’informations sur ces éléments de messagerie, consultez [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md).
 
@@ -47,13 +47,13 @@ Comme pour l'infrastructure de messagerie relayée, la fonctionnalité de messag
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes.
+Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 
-- [Files d'attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Files d'attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 - [Architecture de Service Bus](service-bus-architecture.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
-- [Comment utiliser les rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

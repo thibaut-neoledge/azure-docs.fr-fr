@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analyse de données avec Azure Machine Learning | Microsoft Azure"
-   description="Didacticiel sur l’utilisation de Microsoft Azure Machine Learning avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   description="Utilisez Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="shivaniguptamsft"
@@ -13,30 +13,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="shigu;barbkess;sonyama"/>
 
 # Analyse des données avec Azure Machine Learning
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Ce didacticiel vous montre comment créer un modèle Machine Learning prédictif avec Azure Machine Learning à l’aide des données Azure SQL Data Warehouse. Dans ce didacticiel, nous allons créer une campagne marketing ciblée pour Adventure Works, le magasin de vélos, en prévoyant si un client est susceptible d’acheter ou non un vélo.
+Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure SQL Data Warehouse. Plus précisément, il crée une campagne marketing ciblée pour Adventure Works, le magasin de vélos, en prévoyant si un client est susceptible d’acheter ou non un vélo.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
-## Configuration requise
+
+## Composants requis
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-- SQL Data Warehouse avec la base de données exemple AdventureWorksDW.
+- un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][] et chargez les exemples de données. Si vous disposez déjà d’un entrepôt de données sans exemples de données, vous pouvez [charger manuellement des exemples de données][].
 
-[Créer un entrepôt SQL Data Warehouse][] vous montre comment configurer une base de données avec des exemples de données. Si vous disposez déjà d’une base de données SQL Data Warehouse, mais que vous ne disposez pas d’exemples de données, vous pouvez [charger manuellement des exemples de données][].
-
-
-## Étape 1 : Obtention des données
-Les données seront lues à partir de la vue dbo.vTargetMail de la base de données AdventureWorksDW.
+## 1\. Obtention des données
+Les données sont indiquées dans la vue dbo.vTargetMail de la base de données AdventureWorksDW. Pour lire ces données :
 
 1. Connectez-vous à [Azure Machine Learning Studio][], puis cliquez sur Mes expériences.
 2. Cliquez sur **+NOUVEAU** et sélectionnez **Expérience vide**.
@@ -71,8 +70,8 @@ Démarrez l’expérience en cliquant sur l’option **Démarrer** sous la zone 
 Une fois que l’expérience s’est terminée avec succès, cliquez sur le port de sortie au bas du module Reader et sélectionnez **Visualiser** pour voir les données importées. ![Afficher les données importées][3]
 
 
-## Étape 2 : Nettoyer les données
-Nous allons abandonner certaines colonnes inutiles pour le modèle.
+## 2\. Nettoyer les données
+Pour nettoyer les données, supprimez certaines colonnes qui sont inutiles pour le modèle. Pour ce faire :
 
 1. Faites glisser le module **Colonnes de projet** sur la zone de dessin.
 2. Cliquez sur **Lancer le sélecteur de colonne** dans le volet Propriétés pour spécifier les colonnes que vous souhaitez supprimer. ![Colonnes de projet][4]
@@ -80,7 +79,7 @@ Nous allons abandonner certaines colonnes inutiles pour le modèle.
 3. Excluez deux colonnes : CustomerAlternateKey et GeographyKey. ![Supprimer les colonnes inutiles][5]
 
 
-## Étape 3 : Générer le modèle
+## 3\. Générer le modèle
 Nous allons fractionner les données dans la proportion 80 et 20 : 80 % pour l’apprentissage d’un modèle Machine Learning et 20 % pour tester le modèle. Nous nous engageons à utiliser des algorithmes « À deux classes » pour ce problème de classification binaire.
 
 1. Faites glisser le module **Fractionner** dans la zone de dessin.
@@ -92,7 +91,7 @@ Nous allons fractionner les données dans la proportion 80 et 20 : 80 % pour l
 5. Sélectionnez la colonne **BikeBuyer** comme colonne à prédire. ![Sélectionner la colonne à prédire][8]
 
 
-## Étape 4 : Noter le modèle
+## 4\. Notation du modèle
 Maintenant, nous allons voir comment le modèle s’exécute sur les données de test. Nous allons comparer l’algorithme de notre choix avec un autre algorithme et voir celui qui fonctionne le mieux.
 
 1. Faites glisser le module **Noter le modèle** dans la zone de dessin. Première entrée : modèle formé Deuxième entrée : données de test ![Notation du modèle][9]
@@ -116,27 +115,24 @@ En comparant la colonne BikeBuyer (réelle) avec les étiquettes de marquage (pr
 Pour en savoir plus sur la création de modèles Machine Learning prédictifs, reportez-vous à [Introduction à Machine Learning sur Azure][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
 [Azure Machine Learning studio]: https://studio.azureml.net/
 [Introduction à Machine Learning sur Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [charger manuellement des exemples de données]: sql-data-warehouse-get-started-load-sample-databases.md
-[Créer un entrepôt SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[Créer un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

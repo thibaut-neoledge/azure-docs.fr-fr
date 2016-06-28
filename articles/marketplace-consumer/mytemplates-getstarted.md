@@ -113,7 +113,7 @@ Sélectionnez **Partager** dans le volet de navigation d’un élément spécifi
 
 ![Partager le modèle](media/share-template-portal1a.png) <br />
 
- Vous pouvez à présent choisir un rôle et un utilisateur/groupe auquel fournir l’accès à un **Modèle** donné. Les rôles disponibles sont Propriétaire, Lecteur et Collaborateur. Pour obtenir plus d’informations, consultez la section [Contrôle d’accès](#access-control-for-a-tenant-resource-provider) ci-dessous.
+ Vous pouvez à présent choisir un rôle et un utilisateur/groupe auquel fournir l’accès à un **Modèle** donné. Les rôles disponibles sont Propriétaire, Lecteur et Collaborateur. Pour plus d’informations, consultez la section [Contrôle d’accès](#access-control-for-a-tenant-resource-provider) ci-dessus.
 
 ![Partager le modèle](media/share-template-portal2b.png) <br />
 
@@ -131,4 +131,4 @@ Cliquez sur **Sélectionner**, puis **OK**. Vous pouvez à présent afficher les
 - Pour mieux comprendre les fonctions que vous pouvez utiliser dans un modèle Resource Manager, voir [Fonctions des modèles](../resource-group-template-functions.md).
 - Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](../best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

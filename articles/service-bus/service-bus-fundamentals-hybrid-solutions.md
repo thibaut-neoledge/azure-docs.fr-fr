@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Service Bus | Microsoft Azure" 
-	description="Présentation des différentes utilisations de Service Bus pour connecter les applications Azure à d’autres logiciels." 
+	description="Présentation de l’utilisation de Service Bus pour connecter les applications Azure à d’autres logiciels." 
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/09/2016" 
+	ms.date="06/20/2016" 
 	ms.author="sethm"/>
 
 # Azure Service Bus
@@ -33,13 +33,13 @@ Service Bus est un service cloud mutualisé, ce qui signifie que le service est
 Dans un espace de noms, vous pouvez utiliser une ou plusieurs instances de quatre mécanismes de communication distincts, chacun se connectant de manière différente à l’application. Les choix sont les suivants :
 
 - Les *files d’attente* permettent la communication unidirectionnelle. Chacune agit comme un intermédiaire (ou *broker*) qui stocke les messages envoyés jusqu’à leur réception. Chaque message est reçu par un destinataire unique.
-- Les *rubriques* qui fournissent une communication unidirectionnelle à l’aide d’*abonnements* : une seule rubrique peut avoir plusieurs abonnements. Comme une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
+- Les *rubriques* qui fournissent une communication unidirectionnelle à l’aide d’*abonnements* : une seule rubrique peut avoir plusieurs abonnements. Comme une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
 - Les *relais* permettent la communication bidirectionnelle. À l’inverse des files d’attente et des rubriques, le relais ne stocke pas les messages en transit, il ne s’agit pas d’un intermédiaire. Il ne fait que les transférer vers l’application de destination.
 - Les *concentrateurs d’événements* fournissent des entrées d’événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité.
 
 Lorsque vous créez une file d’attente, une rubrique, un relais ou un concentrateur d’événements, vous lui donnez un nom. Ce nom, combiné à celui de votre espace de noms, donne un identificateur unique à l’objet. Les applications peuvent fournir ce nom à Service Bus, puis utiliser cette file d’attente, cette rubrique, ce relais ou ce concentrateur d’événements pour communiquer entre elles.
 
-Pour utiliser ces objets, les applications Windows peuvent utiliser Windows Communication Foundation (WCF). Pour les files d’attente, les rubriques et les concentrateurs d’événements, les applications Windows peuvent aussi utiliser une API de messagerie définie par Service Bus. Pour faciliter l’utilisation de ces objets à partir d’applications non-Windows, Microsoft fournit des Kits de développement logiciel (SDK) pour Java, Node.js et d’autres langages. Vous pouvez également accéder aux files d’attente, rubriques et concentrateurs d’événements à l’aide des API REST sur HTTP.
+Pour utiliser ces objets dans le scénario de relais, les applications Windows peuvent utiliser Windows Communication Foundation (WCF). Pour les files d’attente, les rubriques et les concentrateurs d’événements, les applications Windows peuvent utiliser une API de messagerie définie par Service Bus. Pour faciliter l’utilisation de ces objets à partir d’applications non-Windows, Microsoft fournit des Kits de développement logiciel (SDK) pour Java, Node.js et d’autres langages. Vous pouvez également accéder aux files d’attente, rubriques et concentrateurs d’événements à l’aide des API REST sur HTTP.
 
 Il est important de comprendre que même si Service Bus fonctionne dans le cloud (c'est-à-dire dans les centres de données Microsoft Azure), les applications qui y ont recours peuvent s'exécuter n'importe où. Vous pouvez utiliser Service Bus pour connecter des applications qui s’exécutent sous Azure, par exemple, ou des applications qui s’exécutent dans votre centre de données. Vous pouvez également l’utiliser pour connecter une application qui s’exécute sous Azure ou une autre plateforme cloud avec une application locale ou avec des tablettes et des téléphones. Il est également possible de connecter des appareils électroménagers, des capteurs ou d’autres appareils à une application centrale ou bien de les connecter entre eux. Service Bus est un mécanisme de communication générique dans le cloud, accessible quasiment partout. La façon dont vous l’utilisez dépend des besoins de vos applications.
 
@@ -63,9 +63,9 @@ La deuxième option, *PeekLock*, a pour but de résoudre ce problème. Comme dan
 - Si le destinataire décide qu'il ne peut pas traiter correctement le message, il passe l'appel **Abandon**. La file d'attente déverrouille le message et le remet à disposition des autres destinataires.
 - Si le destinataire ne passe aucun de ces appels pendant une période réglable (60 secondes par défaut), la file d’attente part du principe que le destinataire a échoué. Dans ce cas, elle se comporte comme si le destinataire avait passé l’appel **Abandon**, rendant le message accessible aux autres destinataires.
 
-Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cette situation. Afin de faciliter la détection des doublons, chaque message comporte une propriété **MessageID** unique, qui reste la même par défaut quel que soit le nombre de lectures du message dans la file d’attente.
+Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cette situation. Afin de faciliter la détection des doublons, chaque message comporte une propriété **MessageID** unique, qui reste la même par défaut quel que soit le nombre de lectures du message dans la file d’attente.
 
-Les files d’attente sont utiles dans de nombreuses situations. Elles laissent les applications communiquer, même si elles ne s’exécutent pas toutes les deux en même temps, ce qui peut s’avérer utile avec les applications mobiles et les applications de traitement par lots. Une file d'attente avec plusieurs destinataires assure aussi un équilibrage automatique de la charge, car les messages sont répartis vers ces différents destinataires.
+Les files d’attente sont utiles dans de nombreuses situations. Elles permettent aux applications de communiquer, même si elles ne s’exécutent pas toutes les deux en même temps, ce qui peut s’avérer utile avec les applications mobiles et les applications de traitement par lots. Une file d'attente avec plusieurs destinataires assure aussi un équilibrage automatique de la charge, car les messages sont répartis vers ces différents destinataires.
 
 ## Rubriques
 
@@ -75,27 +75,27 @@ Même si elles sont utiles, les files d'attente ne sont pas toujours la bonne so
  
 **Figure 3 : en fonction du filtre spécifié par l’application, celle-ci peut recevoir certains messages ou tous les messages envoyés à une rubrique Service Bus.**
 
-Les rubriques sont assez similaires aux files d'attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La principale différence est que les rubriques permettent à chaque application réceptrice de créer son propre abonnement en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
+Les *rubriques* sont assez similaires aux files d’attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La principale différence est que les rubriques permettent à chaque application réceptrice de créer son propre *abonnement* en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
 
 - L’abonné 1 ne reçoit que les messages contenant la propriété *Seller="Ava"*.
 - L’abonné 2 reçoit les messages qui contiennent la propriété *Seller="Ruby"* et/ou qui contiennent la propriété *Amount* avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle souhaitera peut-être pouvoir afficher ses propres ventes ainsi que toutes les ventes importantes, quel que soit le vendeur.
 - L’abonné 3 a défini son filtre sur *True*, ce qui veut dire qu’il reçoit tous les messages. Par exemple, cette application peut être chargée de maintenir une piste d’audit et doit donc voir tous les messages.
 
-Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les messages via **ReceiveAndDelete** ou **PeekLock**. À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnés. Cette approche, communément appelée *publication et abonnement*, est utile lorsque plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
+Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les messages via **ReceiveAndDelete** ou **PeekLock**. À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnements. Cette approche, communément appelée *publication et abonnement* (ou *pub/sub*), est utile lorsque plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
 
 ## Relais
 
-Les files d'attente et les rubriques permettent la communication asynchrone unidirectionnelle par le biais d'un intermédiaire. Le trafic circule dans une seule direction, et il n’y a pas de connexion directe entre expéditeur et destinataire. Mais que faire si vous ne voulez pas de cette situation ? Supposons que vos applications doivent aussi bien envoyer que recevoir des messages, ou bien que vous souhaitiez disposer d’une liaison directe entre elles et que vous n’avez pas besoin d’un intermédiaire pour stocker les messages. Pour ce genre de scénarios, Service Bus fournit des relais, comme illustré dans la figure 4.
+Les files d'attente et les rubriques permettent la communication asynchrone unidirectionnelle par le biais d'un intermédiaire. Le trafic circule dans une seule direction, et il n’y a pas de connexion directe entre expéditeur et destinataire. Mais que faire si vous ne voulez pas de cette situation ? Supposons que vos applications doivent aussi bien envoyer que recevoir des messages, ou bien que vous souhaitiez disposer d’une liaison directe entre elles et que vous n’avez pas besoin d’un intermédiaire pour stocker les messages. Pour ce genre de scénarios, Service Bus fournit des *relais*, comme illustré dans la figure 4.
 
 ![][4]
  
 **Figure 4 : le relais Service Bus permet la communication bidirectionnelle synchrone entre applications.**
 
-La question évidente à poser à propos des relais est la suivante : pourquoi y recourir ? Même si je n’ai pas besoin de files d’attente, pourquoi faire communiquer les applications via un service cloud au lieu de les faire interagir directement ? La réponse est que de les faire communiquer directement peut s’avérer plus compliqué qu’il n’y paraît.
+La question évidente à poser à propos des relais est la suivante : pourquoi y recourir ? Même si je n’ai pas besoin de files d’attente, pourquoi faire communiquer les applications via un service cloud au lieu de les faire interagir directement ? La réponse est que de les faire communiquer directement peut s’avérer plus compliqué qu’il n’y paraît.
 
-Supposons que vous souhaitiez connecter deux applications locales s’exécutant dans les centres de données de l’entreprise. Chaque application se trouve derrière un pare-feu et chaque centre de données utilise probablement la traduction d’adresses réseau. Le pare-feu bloque les données entrantes sur presque tous les ports, et la traduction d’adresses réseau indique que les ordinateurs sur lesquels s’exécutent les applications ne disposent pas d’une adresse IP fixe que vous pouvez joindre directement depuis l’extérieur du centre de données. Sans aide supplémentaire, la connexion de ces applications via Internet pose problème.
+Supposons que vous souhaitiez connecter deux applications locales s’exécutant dans les centres de données de l’entreprise. Chaque application se trouve derrière un pare-feu et chaque centre de données utilise probablement la traduction d’adresses réseau. Le pare-feu bloque les données entrantes sur presque tous les ports, et la traduction d’adresses réseau indique que les ordinateurs sur lesquels s’exécutent les applications ne disposent pas d’une adresse IP fixe que vous pouvez joindre directement depuis l’extérieur du centre de données. Sans aide supplémentaire, la connexion de ces applications via Internet public pose problème.
 
-Le relais Service Bus apporte la solution à ce problème. Afin d’établir une communication bidirectionnelle via un relais, chaque application établit une connexion TCP sortante avec Service Bus, et la maintient ouverte. Toutes les communications entre les deux applications transitent par ces connexions. Comme chaque connexion a été établie depuis le centre de données, le pare-feu autorise le trafic entrant vers chaque application sans ouvrir de nouveaux ports. Cette approche contourne également le problème de la traduction d’adresses réseau, car chaque application dispose d’un point de terminaison constant dans le cloud pendant toute la durée de la communication. En échangeant des données via le relais, les applications peuvent éviter les problèmes qui pourraient rendre la communication difficile.
+Un Service Bus Relay peut être utile. Afin d’établir une communication bidirectionnelle via un relais, chaque application établit une connexion TCP sortante avec Service Bus, et la maintient ouverte. Toutes les communications entre les deux applications transitent par ces connexions. Comme chaque connexion a été établie depuis le centre de données, le pare-feu autorise le trafic entrant vers chaque application sans ouvrir de nouveaux ports. Cette approche contourne également le problème de la traduction d’adresses réseau, car chaque application dispose d’un point de terminaison constant dans le cloud pendant toute la durée de la communication. En échangeant des données via le relais, les applications peuvent éviter les problèmes qui pourraient rendre la communication difficile.
 
 Pour utiliser les relais Service Bus, les applications s’appuient sur Windows Communication Foundation (WCF) Service Bus comporte des liaisons WCF qui simplifient l’interaction des applications Windows via les relais. Les applications qui utilisent déjà WCF peuvent normalement ne spécifier qu’une seule de ces liaisons, puis ensuite communiquer via un relais. Cependant, à l’inverse des files d’attente et des rubriques, et même si elle reste possible, l’utilisation de relais à partir d’applications non-Windows demande un effort de programmation certain. En effet, aucune bibliothèque standard n’est fournie.
 
@@ -103,9 +103,9 @@ Contrairement aux files d’attente et aux rubriques, les applications ne créen
 
 Lorsque vous avez besoin d’une communication directe entre les applications, les relais constituent la meilleure solution. Prenons par exemple le système de réservation d’une compagnie aérienne qui s’exécute sur un centre de données local qui peut être accessible à partir de bornes d’enregistrement, d’appareils mobiles et d’ordinateurs. Les applications qui s’exécutent sur tous ces systèmes peuvent s’appuyer sur les relais Service Bus dans le cloud pour communiquer, quel que soit l’endroit où elles s’exécutent.
 
-## Concentrateurs d’événements
+## Event Hubs
 
-Les concentrateurs d'événements consistent en un système d'ingestion hautement évolutif capable de traiter plusieurs millions d'événements par seconde. Ils permettent ainsi à votre application de traiter et d'analyser les quantités de données immenses produites par vos appareils connectés et les applications. Par exemple, vous pouvez utiliser un concentrateur d’événements pour collecter les données de performance de moteur en direct d’un parc de voitures. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage. Pour plus d’informations sur les concentrateurs d’événements, consultez la [Vue d’ensemble des concentrateurs d’événements](../event-hubs/event-hubs-overview.md).
+Les [concentrateurs d’événements](https://azure.microsoft.com/services/event-hubs/) consistent en un système d’ingestion hautement évolutif capable de traiter plusieurs millions d’événements par seconde. Ils permettent ainsi à votre application de traiter et d’analyser les quantités de données immenses produites par vos appareils connectés et les applications. Par exemple, vous pouvez utiliser un concentrateur d’événements pour collecter les données de performance de moteur en direct d’un parc de voitures. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage. Pour plus d’informations sur les concentrateurs d’événements, consultez la [Vue d’ensemble des concentrateurs d’événements](../event-hubs/event-hubs-overview.md).
 
 ## Résumé
 
@@ -125,4 +125,4 @@ Maintenant que vous avez appris les principes de base d’Azure Service Bus, con
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

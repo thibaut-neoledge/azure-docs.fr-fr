@@ -16,7 +16,7 @@
 	ms.date="05/13/2016"
 	ms.author="sethm"/>
 
-# Prise en main des concentrateurs d’événements
+# Prise en main des hubs d’événements
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
@@ -28,14 +28,13 @@ Ce didacticiel montre comment utiliser le portail Azure Classic pour créer un c
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-+ Microsoft Visual Studio 2013 ou version ultérieure, ou Microsoft Visual Studio Express pour Windows. Les exemples de cet article utilisent Visual Studio 2015.
++ [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Un compte Azure actif. <br/>Si vous n’en possédez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page d'[essai gratuit d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Un compte Azure actif. <br/>Si vous n’en possédez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -73,7 +72,7 @@ Appuyez sur **Ctrl+C** dans la fenêtre **Expéditeur** pour quitter l’applica
 
 ## Étapes suivantes
 
-Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie et reçoit des données. Vous pouvez à présent passer aux scénarios suivants :
+Vous avez conçu une application opérationnelle qui crée un hub d’événements et envoie et reçoit des données. Vous pouvez à présent passer aux scénarios suivants :
 
 - Un [exemple d'application complet qui utilise des hubs d’événements][].
 - L’exemple de [montée en puissance du traitement des événements avec Event Hubs][].
@@ -95,4 +94,4 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->
