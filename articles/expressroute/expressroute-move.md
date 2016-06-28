@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
 
 # Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager
@@ -110,4 +110,4 @@ Suivez les instructions dans [Migration d’un circuit ExpressRoute du modèle d
 	- [Configuration du routage](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

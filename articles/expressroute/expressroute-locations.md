@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2016"
+   ms.date="06/17/2016"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
@@ -31,7 +31,7 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une un
 |---|---|---|
 |**Amérique du Nord**|Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre du Canada, Est du Canada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal+, Québec+, Toronto|
 |**Amérique du Sud**|Sud du Brésil|São Paulo|
-|**Europe**|Europe du Nord, Europe de l’Ouest|Amsterdam, Dublin, Londres, Newport(Pays de Galles)+, Paris+|
+|**Europe**|Europe du Nord, Europe de l’Ouest|Amsterdam, Dublin, Londres, Newport(Pays de Galles)+, Paris|
 |**Asie**|Asie orientale, Asie du Sud-Est|Hong Kong, Singapour|
 |**Japon**|Ouest du Japon, Est du Japon|Osaka, Tokyo|
 |**Australie**|Sud-est de l’Australie |Est de l’Australie|Melbourne, Sydney|
@@ -62,16 +62,18 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
 |**CenturyLink** | Bientôt disponible | Bientôt disponible| Silicon Valley |
 |**China Telecom Global** | Pris en charge | Non pris en charge | Hong Kong |
-|**Cologix** | Pris en charge | Bientôt disponible | Montréal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Pris en charge | Bientôt disponible | Montréal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Dublin, Londres, Tokyo |
 | **Comcast** | Pris en charge | Pris en charge | Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Pris en charge | Pris en charge | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** | Pris en charge | Pris en charge | Amsterdam |
+| **GÉANT** | Bientôt disponible | Bientôt disponible | Amsterdam + |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Pris en charge | Pris en charge | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Pris en charge | Pris en charge | Amsterdam, Londres, Singapour, Washington DC |
 | **Internet Solutions - Cloud Connect** | Pris en charge | Pris en charge | Amsterdam, Londres |
-| **Interxion** | Pris en charge | Pris en charge | Amsterdam, Londres |
+| **Interxion** | Pris en charge | Pris en charge | Amsterdam, Londres, Paris |
+| **Jisc** | Bientôt disponible | Bientôt disponible | Londres+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Pris en charge | Amsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Pris en charge | Pris en charge | Dallas, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapour, Sydney, Washington DC |
 | **MTN** | Pris en charge | Pris en charge | Londres |
@@ -99,9 +101,9 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Chicago, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Chicago, Dallas+, New York, Washington DC |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Bientôt disponible | Chicago, New York+, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Pris en charge | Chicago, New York, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Pris en charge | Chicago, Dallas+, New York, Washington DC |
 
 #### Chine
 
@@ -130,6 +132,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 	- [InterXion](http://www.interxion.com/)
 	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
+	- [Cologix](http://www.cologix.com/)
 - Demandez à votre fournisseur de connectivité d’étendre votre réseau à l’emplacement d’homologation de votre choix.
 	- Vérifiez que votre fournisseur de connectivité étend votre connectivité avec une haute disponibilité pour éviter tout point de défaillance unique.
 - Commandez un circuit ExpressRoute avec échange en tant que fournisseur de connectivité pour se connecter à Microsoft.
@@ -148,7 +151,7 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Asie, Europe, États-Unis |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europe |
-|**[Nimbo](http://www.nimbo.com/)**|FR||
+|**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|FR||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asie |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | FR |
@@ -161,4 +164,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
