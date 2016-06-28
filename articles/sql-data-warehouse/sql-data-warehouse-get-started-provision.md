@@ -44,7 +44,7 @@ Dans ce didacticiel, vous utiliserez le portail Azure pour créer un entrepôt d
 
 	- **Nom de la base de données** : le nom qui vous servira à référencer le SQL Data Warehouse. Le nom doit être unique sur le serveur.
 	
-    - **Performances** : nous vous recommandons de commencer par 400 DWU. Vous pouvez déplacer le curseur vers la gauche ou la droite pour ajuster les performances de votre entrepôt de données, ou le faire monter ou descendre en puissance suivant la création. Pour en savoir plus sur les DWU, consultez notre documentation sur la [montée en charge](./sql-data-warehouse-manage-compute-overview.md) ou notre [page de tarification](https://azure.microsoft.com/fr-FR/pricing/details/sql-data-warehouse/).
+    - **Performances** : nous vous recommandons de commencer par 400 DWU. Vous pouvez déplacer le curseur vers la gauche ou la droite pour ajuster les performances de votre entrepôt de données, ou le faire monter ou descendre en puissance suivant la création. Pour en savoir plus sur les DWU, consultez notre documentation sur la [montée en charge](./sql-data-warehouse-manage-compute-overview.md) ou notre [page de tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
     - **Abonnement** : sélectionnez l’abonnement sur lequel ce SQL Data Warehouse sera facturé.
 

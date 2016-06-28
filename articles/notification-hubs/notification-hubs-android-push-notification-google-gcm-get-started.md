@@ -229,7 +229,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 		                regID = hub.register(token).getRegistrationId();
 
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/fr-FR/documentation/articles/notification-hubs-routing-tag-expressions/
+						// Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
@@ -427,7 +427,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 
 ##Envoi de notifications Push
 
-Vous pouvez tester la réception de notifications Push dans votre application en les envoyant via le [portail Azure] (recherchez la section **Dépannage** dans le panneau Hub, comme illustré ci-dessous).
+Vous pouvez tester la réception de notifications Push dans votre application en les envoyant via le [portail Azure] \(recherchez la section **Dépannage** dans le panneau Hub, comme illustré ci-dessous).
 
 ![Azure Notification Hubs - Test d’envoi](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
@@ -619,7 +619,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/fr-FR/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	

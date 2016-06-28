@@ -32,7 +32,7 @@ Pour utiliser ce didacticiel, vous avez besoin des éléments suivants :
 
 + Un entrepôt de données SQL existant. Pour en créer un, consultez la page [Créer un entrepôt de données SQL][].
 + SSDT pour Visual Studio. Si vous avez Visual Studio, vous en disposez probablement déjà. Pour obtenir des instructions et des options d’installation, consultez [Installation de Visual Studio et/ou SSDT][].
-+ Le nom complet du serveur SQL. Pour le trouver, consultez la page [Connect to SQL Data Warehouse][] (Connexion à SQL Data Warehouse).
++ Le nom complet du serveur SQL. Pour le trouver, consultez la page [Connect to SQL Data Warehouse][] \(Connexion à SQL Data Warehouse).
 
 ## 1\. Connexion à votre SQL Data Warehouse
 
