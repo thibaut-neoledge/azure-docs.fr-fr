@@ -13,31 +13,29 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
 # Configurer la géoréplication pour Base de données SQL Azure avec PowerShell
 
-
-
 > [AZURE.SELECTOR]
+- [Vue d'ensemble](sql-database-geo-replication-overview.md)
 - [Portail Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-Cet article vous montre comment configurer la géoréplication pour Base de données SQL à l’aide de PowerShell.
+Cet article vous montre comment configurer la géoréplication active pour Base de données SQL à l’aide de PowerShell.
 
 Pour lancer un basculement, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
 
-Vous pouvez configurer jusqu'à 4 bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
 
-Pour configurer la géoréplication, vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
-- Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
+Pour configurer la géoréplication active à l’aide de PowerShell, vous devez disposer des éléments suivants :
+
+- Un abonnement Azure. 
+- Une base de données SQL Azure : la base de données primaire que vous souhaitez répliquer.
 - Azure PowerShell 1.0 ou version ultérieure. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
 
 
@@ -165,4 +163,4 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

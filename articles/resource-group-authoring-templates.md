@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
@@ -86,8 +86,6 @@ C’est dans la section des paramètres du modèle que vous pouvez spécifier le
 
 Vous pouvez utiliser ces valeurs de paramètre dans tout le modèle pour définir les valeurs des ressources déployées. Seuls les paramètres déclarés dans la section des paramètres peuvent être utilisés dans d'autres sections du modèle.
 
-Au sein de la section des paramètres, vous ne pouvez pas utiliser une valeur de paramètre pour construire une autre valeur de paramètre. Les nouvelles valeurs se construisent dans la section des variables.
-
 Vous définissez des paramètres avec la structure suivante :
 
     "parameters": {
@@ -125,49 +123,49 @@ Les valeurs et types autorisés sont :
 - object ou secureObject - n'importe quel objet JSON valide
 - array - n'importe quel tableau JSON valide
 
-Pour spécifier un paramètre comme facultatif, définissez sa valeur defaultValue sur une chaîne vide.
+Pour spécifier un paramètre comme facultatif, fournissez une valeur defaultValue (peut être une chaîne vide).
 
-Si vous indiquez un nom de paramètre correspondant à l’un des paramètres de la commande pour déployer le modèle (par exemple, en incluant un paramètre nommé **ResourceGroupName** dans votre modèle, qui est le même que le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), vous serez invité à fournir une valeur pour un paramètre avec le suffixe **FromTemplate** (tel que **ResourceGroupNameFromTemplate**). En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
+Si vous indiquez un nom de paramètre correspondant à l’un des paramètres de la commande pour déployer le modèle (par exemple, en incluant un paramètre nommé **ResourceGroupName** dans votre modèle, qui est le même que le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), vous serez invité à fournir une valeur de paramètre avec le suffixe **FromTemplate** (par exemple, **ResourceGroupNameFromTemplate**). En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
 
 >[AZURE.NOTE] Tous les mots de passe, clés et autres secrets doivent utiliser le type **secureString**. Il est impossible de lire les paramètres du modèle dont le type est secureString après le déploiement de la ressource.
 
 L’exemple suivant vous indique comment définir les paramètres :
 
     "parameters": {
-       "siteName": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 60
-       },
-       "siteLocation": {
-          "type": "string",
-          "minLength": 2
-       },
-       "hostingPlanName": {
-          "type": "string"
-       },  
-       "hostingPlanSku": {
-          "type": "string",
-          "allowedValues": [
-            "Free",
-            "Shared",
-            "Basic",
-            "Standard",
-            "Premium"
-          ],
-          "defaultValue": "Free"
-       },
-       "instancesCount": {
-          "type": "int",
-          "maxValue": 10
-       },
-       "numberOfWorkers": {
-          "type": "int",
-          "minValue": 1
-       }
+      "siteName": {
+        "type": "string",
+        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+      },
+      "hostingPlanName": {
+        "type": "string",
+        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+      },
+      "skuName": {
+        "type": "string",
+        "defaultValue": "F1",
+        "allowedValues": [
+          "F1",
+          "D1",
+          "B1",
+          "B2",
+          "B3",
+          "S1",
+          "S2",
+          "S3",
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ]
+      },
+      "skuCapacity": {
+        "type": "int",
+        "defaultValue": 1,
+        "minValue": 1
+      }
     }
 
-Pour plus d’informations sur la saisie des valeurs de paramètre au cours du déploiement, voir [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md#parameter-file).
+Pour plus d’informations sur la saisie des valeurs de paramètre au cours du déploiement, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md#parameter-file).
 
 ## Variables
 
@@ -248,7 +246,7 @@ Vous définissez des ressources avec la structure suivante :
 | tags | Non | Balises associées à la ressource.
 | commentaires | Non | Vos commentaires pour documenter les ressources dans votre modèle
 | dependsOn | Non | Ressources desquelles dépend la ressource qui est définie. Les dépendances entre les ressources sont évaluées et les ressources sont déployées dans leur ordre dépendant. Quand les ressources ne dépendent les unes des autres, leur déploiement en parallèle est tenté. La valeur peut être une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.
-| properties | Non | Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Pour accéder à la documentation du schéma de ressources ou l’API REST, consultez [Fournisseurs, régions, schémas et versions d’API Resource Manager](resource-manager-supported-services.md).
+| properties | Non | Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Pour accéder à la documentation du schéma de ressources ou l’API REST, consultez [Fournisseurs du Gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md).
 | les ressources | Non | Ressources enfants qui dépendent de la ressource qui est définie. Vous pouvez fournir uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le nom qualifié complet du type de ressource enfant inclut le type de ressource parente, tel que **Microsoft.Web/sites/extensions**. La dépendance à la ressource parent n’est pas induite ; vous devez la définir explicitement cette dépendance. 
 
 
@@ -283,7 +281,7 @@ La section des ressources contient un tableau des ressources à déployer. Au se
 
 
 
-L’exemple suivant représente une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource enfant **Extensions**. Notez que le site est marqué comme dépendant de la batterie de serveurs, car cette dernière doit être en place avant que le site puisse être déployé. Notez également que la ressource **Extensions** est une ressource enfant du site.
+L’exemple suivant représente une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource enfant **Extensions** : Notez que le site est marqué comme dépendant de la batterie de serveurs, car cette dernière doit être en place avant que le site puisse être déployé. Notez également que la ressource **Extensions** est une ressource enfant du site.
 
     "resources": [
       {
@@ -377,4 +375,4 @@ L'exemple suivant montre une valeur retournée dans la section des sorties.
 - Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Cette situation est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -171,10 +171,9 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 | -------- | ----------- | -------- | 
 | type | La propriété de type doit être définie sur **Web**. | Oui | 
 | Url | URL de la source web | Oui |
+| authenticationType | Anonyme ou De base. | Oui |
 | userName | Nom d’utilisateur pour l’authentification de base | Oui (pour l’authentification de base)
 | password | Mot de passe pour l’authentification de base | Oui (pour l’authentification de base)
-| authenticationType | Anonymous, Basic ou WebApi | Oui |
-| apiKey | Clé d’API pour l’authentification WebApi. | Oui (pour l’authentification WebApi)|   
 
 ### Utilisation de l’authentification anonyme
 
@@ -214,11 +213,11 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **WebTable** a les propriétés suivantes.
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **WebTable** a les propriétés suivantes
 
 Propriété | Description | Requis
 :-------- | :----------- | :--------
-type | Type du jeu de données. Doit avoir la valeur **WebTable**. | Oui
+type | Type du jeu de données. Doit avoir la valeur **WebTable** | Oui
 path | URL relative de la ressource qui contient la table. | Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. 
 index | Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page). | Oui
 
@@ -256,12 +255,12 @@ En cas d’activité de copie quand la source est de type **WebSource**, aucune 
 2. Cliquez sur **Nouvelle requête** dans la barre d’outils, pointez sur **À partir d’autres sources** et cliquez sur **À partir du web**.
 	
 	![Menu Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png) 
-3. Dans la boîte de dialogue **À partir du web**, entrez l’**URL** que vous utiliseriez dans le service lié JSON (par exemple : https://en.wikipedia.org/wiki/), ainsi que le chemin d’accès à spécifier pour le jeu de données (par exemple : AFI%27s\_100\_Years...100\_Movies), puis cliquez sur **OK**. 
+3. Dans la boîte de dialogue **À partir du web**, entrez l**’URL** que vous utiliseriez dans le service lié JSON (par exemple : https://en.wikipedia.org/wiki/), ainsi que le chemin d’accès à spécifier pour le jeu de données (par exemple : AFI%27s\_100\_Years...100\_Movies), puis cliquez sur **OK**. 
 
 	![Boîte de dialogue À partir du web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
 	URL utilisée dans cet exemple : https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
-4.  Si la boîte de dialogue **Accéder au contenu web** apparaît, sélectionnez l’**URL** et l’**authentification** adéquates, puis cliquez sur **Se connecter**. 
+4.  Si la boîte de dialogue **Accéder au contenu web** apparaît, sélectionnez l**’URL** et l**’authentification** adéquates, puis cliquez sur **Se connecter**. 
 
 	![Boîte de dialogue Accéder au contenu web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5.  Cliquez sur un élément de **table** dans l’arborescence pour afficher le contenu de la table, puis sur le bouton **Modifier** du bas.  
@@ -286,4 +285,4 @@ Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https:
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

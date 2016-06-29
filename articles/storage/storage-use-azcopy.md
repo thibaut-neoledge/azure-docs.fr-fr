@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="micurd"/>
 
 # Transfert de données avec l'utilitaire de ligne de commande AzCopy
@@ -357,7 +357,7 @@ L'option `/EntityOperation` indique comment insérer des entités dans la table.
 
 Remarque : vous ne pouvez pas spécifier l'option `/PKRS` dans le scénario d'importation. À la différence du scénario d’exportation dans lequel vous devez spécifier l’option `/PKRS` pour démarrer des opérations simultanées, AzCopy lance par défaut des opérations simultanées lorsque vous importez une table. Le nombre par défaut d’opérations simultanées démarrées est égal au nombre de processeurs Core. Cependant, vous pouvez spécifier un nombre différent d’opérations simultanées avec l’option `/NC`. Pour plus d'informations, tapez `AzCopy /?:NC` dans la ligne de commande.
 
-Notez qu’AzCopy ne prend en charge que l’importation pour JSON, et non CSV.
+Notez qu’AzCopy ne prend en charge que l’importation pour JSON, et non CSV. AzCopy ne prend pas en charge les importations de table à partir de fichiers JSON créés par l’utilisateur et de fichiers manifeste. Ces deux types de fichiers doivent provenir d’une exportation de table AzCopy. Pour éviter les erreurs, ne modifiez pas le fichier JSON ou le fichier manifeste exporté.
 
 ### Importez des entités vers la table à l’aide d’objets blob
 
@@ -866,4 +866,4 @@ Pour plus d’informations sur Azure Storage et AzCopy, reportez-vous aux ressou
 - [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

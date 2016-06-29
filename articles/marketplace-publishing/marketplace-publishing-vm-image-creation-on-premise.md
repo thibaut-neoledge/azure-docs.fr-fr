@@ -25,9 +25,9 @@ Pour le développement local, vous devez télécharger le disque dur virtuel de 
 ### Localiser une URL d’objet blob
 Pour télécharger le disque dur virtuel, vous devez d’abord localiser l’URL d’objet blob du disque de système d’exploitation.
 
-Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure](https://ms.portal.azure.com) :
+Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure](https://portal.azure.com) :
 
-1.	Accédez à **Parcourir** > **Machines virtuelles**, puis sélectionnez la machine virtuelle déployée.
+1.	Accédez à **Parcourir** > **Machines virtuelles**, puis sélectionnez la machine virtuelle déployée.
 2.	Sous **Configurer**, sélectionnez la mosaïque **Disques** qui ouvre le panneau Disques.
 
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
@@ -94,7 +94,7 @@ Pour créer un compte de stockage, vous pouvez utiliser le [portail Microsoft Az
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 
 4.	Cliquez sur **Create**.
-5.	Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir** > **Comptes de stockage**. Dans le panneau Compte de stockage, sélectionnez le compte de stockage créé.
+5.	Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir** > **Comptes de stockage**. Dans le panneau Compte de stockage, sélectionnez le compte de stockage créé.
 6.	Sélectionnez **Conteneurs**.
 
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
@@ -139,4 +139,4 @@ Avec l’[outil en ligne de commande Linux](../virtual-machines/command-line-too
 - [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

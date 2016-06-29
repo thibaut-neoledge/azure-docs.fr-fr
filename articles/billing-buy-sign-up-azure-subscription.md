@@ -44,29 +44,28 @@ Pour souscrire un abonnement à un essai gratuit d’Azure, vous devez fournir u
 
 1. Ouvrez la [page de version d’essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), puis sélectionnez **Essayez dès maintenant**.
 2. Connectez-vous avec votre compte Microsoft ou à un compte scolaire/professionnel.
-3. Dans la section **À propos de vous**, entrez vos informations personnelles.
-![Capture d’écran des informations personnelles](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. Dans la section **À propos de vous**, entrez vos informations personnelles. ![Capture d’écran des informations personnelles](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Remarque** L’adresse électronique et le pays que vous indiquez lors de votre inscription à un abonnement Azure sont toujours associés à l’abonnement et ne peuvent pas être modifiés ultérieurement.</br>
 4. Dans la section **Vérification par téléphone**, vous devez fournir un numéro de téléphone afin de recevoir un code de vérification que vous pouvez utiliser pour terminer le processus de vérification.
 
  Vous pouvez choisir de recevoir le code de vérification sous forme de SMS ou d'appel vocal. Choisissez en sélectionnant **Envoyer un SMS** ou **M'appeler**. Sélectionnez l'indicatif téléphonique international de votre pays dans la première zone, puis saisissez votre numéro de téléphone dans la seconde. Après avoir reçu le code de vérification, entrez-le dans la troisième zone, puis sélectionnez le bouton **Vérifier le code**.
 
- **Remarque** : vous ne pouvez pas utiliser un numéro de téléphone VoIP pour le processus de vérification par téléphone.</br> ![Capture d’écran de la vérification par téléphone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>Si vous ne recevez pas de SMS ou d’appel, essayez d’utiliser un autre numéro de téléphone ou contactez le [support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir de l’aide. </br>
+ **Remarque** : vous ne pouvez pas utiliser un numéro de téléphone VoIP pour le processus de vérification par téléphone.</br> ![Capture d’écran de la vérification par téléphone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>Si vous ne recevez pas de SMS ou d’appel, essayez d’utiliser un autre numéro de téléphone ou contactez le [support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir de l’aide. </br>
 5. Dans la section **Vérification par carte**, saisissez les détails d'une carte de crédit valide. Ces informations sont collectées uniquement pour vérifier votre identité.
 
- **Remarque** : même si votre carte de crédit n’est pas débitée, Microsoft effectuera une retenue d’autorisation d’un montant minimal pour vérifier que la carte de crédit est valide. Cette retenue sera validée dans les 3 à 5 jours ouvrés en fonction des politiques de votre institution financière.
+ **Remarque** : même si votre carte de crédit n’est pas débitée, Microsoft effectuera une retenue d’autorisation d’un montant minimal pour vérifier que la carte de crédit est valide. Cette retenue sera validée dans les 3 à 5 jours ouvrés en fonction des politiques de votre institution financière.
 
  Si vous recevez une erreur après avoir soumis les informations de votre carte de crédit, consultez l’article [Ma carte de crédit ne fonctionne pas quand je tente de m’inscrire à Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. Dans la section **Contrat**, activez la case à cocher si vous êtes d’accord avec le contrat d’abonnement, les détails de l’offre et la déclaration de confidentialité. Sélectionnez ensuite **S’inscrire**. La copie d'écran figurant ici est un exemple de version anglaise du contrat. La forme du contrat peut varier en fonction du pays.
 
- ![Inscription](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> La configuration de votre abonnement peut prendre quelques minutes. Si la configuration de l’abonnement ne se termine pas dans un délai de 15 minutes, contactez le [support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir de l’aide. </br> Si vous obtenez un message d’erreur, suivez les étapes décrites dans le message pour résoudre le problème. Message d’erreur typique :
+ ![Inscription](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> La configuration de votre abonnement peut prendre quelques minutes. Si la configuration de l’abonnement ne se termine pas dans un délai de 15 minutes, contactez le [support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir de l’aide. </br> Si vous obtenez un message d’erreur, suivez les étapes décrites dans le message pour résoudre le problème. Message d’erreur typique :
 
  **Impossible de terminer l’opération. Réessayez ultérieurement ou rechargez la page web.** </br>
 
- Dans ce cas, essayez d’utiliser un autre navigateur pour terminer le processus d’inscription. Si le problème persiste, contactez le [support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir de l’aide.</br>
+ Dans ce cas, essayez d’utiliser un autre navigateur pour terminer le processus d’inscription. Si le problème persiste, contactez le [support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir de l’aide.</br>
 7. Lorsque l’abonnement est prêt, sélectionnez **Commencer à gérer mon service** pour commencer. </br>![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 <a name="UpgradeFreeToPYG"></a>
@@ -89,4 +88,4 @@ Si vous avez acheté des crédits Azure dans Open auprès d’un revendeur et si
 
 3. Entrez la clé de produit, puis activez l’option indiquant votre consentement.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -17,9 +17,9 @@ ms.author="cristyg"/>
 
 # Configuration des ressources de stockage local
 
-Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle dans lequel s’exécute l’instance d’un rôle. Vous pouvez stocker des informations dans votre instance de machine virtuelle afin que le code qui s'exécute dans l'instance puisse accéder à la ressource de stockage local lorsqu'il a besoin d'écrire dans un fichier ou de lire un fichier. Par exemple, une ressource de stockage local peut être utilisée pour mettre en cache les données devant être accessibles de nouveau pendant que le service s'exécute dans Azure. Vous pouvez également configurer une ressource de stockage local pour stocker des fichiers au démarrage. Pour plus d'informations sur la configuration des ressources de stockage local pour le démarrage, consultez [Utilisation du stockage local pour stocker des fichiers au démarrage](https://msdn.microsoft.com/library/azure/hh974419.aspx).
+Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle dans lequel s’exécute l’instance d’un rôle. Vous pouvez stocker des informations dans votre instance de machine virtuelle afin que le code qui s'exécute dans l'instance puisse accéder à la ressource de stockage local lorsqu'il a besoin d'écrire dans un fichier ou de lire un fichier. Par exemple, une ressource de stockage local peut être utilisée pour mettre en cache les données devant être accessibles de nouveau pendant que le service s'exécute dans Azure. Vous pouvez également configurer une ressource de stockage local pour stocker des fichiers au démarrage. Pour plus d'informations sur la configuration des ressources de stockage local pour le démarrage, consultez [Utilisation du stockage local pour stocker des fichiers au démarrage](cloud-services-startup-tasks-common.md#create-files-in-local-storage-from-a-startup-task).
 
-Une ressource de stockage local est déclarée dans le fichier de définition de service. Vous pouvez déclarer plusieurs ressources de stockage local pour un rôle. Chaque ressource de stockage local est réservée pour chaque instance de ce rôle. La quantité minimale d'espace disque que vous pouvez allouer à une ressource de stockage local est de 1 Mo. La quantité maximale que vous pouvez allouer pour une ressource locale donnée dépend de la taille de la machine virtuelle spécifiée pour le rôle. La taille de chaque machine virtuelle a une allocation de stockage total correspondante et l'espace total alloué pour toutes les ressources de stockage local déclarées pour un rôle ne peut pas dépasser la taille maximale allouée pour cette machine virtuelle. Pour plus d'informations sur la quantité maximale d'espace disque local alloué pour chaque taille de machine virtuelle, consultez [Configuration des tailles pour les services cloud](https://msdn.microsoft.com/library/azure/ee814754.aspx).
+Une ressource de stockage local est déclarée dans le fichier de définition de service. Vous pouvez déclarer plusieurs ressources de stockage local pour un rôle. Chaque ressource de stockage local est réservée pour chaque instance de ce rôle. La quantité minimale d'espace disque que vous pouvez allouer à une ressource de stockage local est de 1 Mo. La quantité maximale que vous pouvez allouer pour une ressource locale donnée dépend de la taille de la machine virtuelle spécifiée pour le rôle. La taille de chaque machine virtuelle a une allocation de stockage total correspondante et l'espace total alloué pour toutes les ressources de stockage local déclarées pour un rôle ne peut pas dépasser la taille maximale allouée pour cette machine virtuelle. Pour plus d'informations sur la quantité maximale d'espace disque local alloué pour chaque taille de machine virtuelle, consultez [Tailles pour les services cloud](cloud-services-sizes-specs.md).
 
 > [AZURE.NOTE]
 >
@@ -56,7 +56,7 @@ Le fichier de définition de service suivant illustre deux ressources de stockag
 
 Pour plus d'informations sur le fichier de définition de service, consultez [Schéma de définition du service Azure (fichier .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE] Si vous utilisez Azure Tools pour Microsoft Visual Studio, vous pouvez définir une ressource de stockage local dans les pages **Propriétés** du rôle. Pour plus d'informations, consultez [Configuration de l'application Azure avec Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Si vous utilisez Azure Tools pour Microsoft Visual Studio, vous pouvez définir une ressource de stockage local dans les pages **Propriétés** du rôle.
 
 ## Accès par programme à une ressource de stockage local
 
@@ -102,6 +102,6 @@ Le code s'exécutant dans une instance de rôle peut accéder à une ressource d
 
 ## Étapes suivantes
 
-- [Configuration d'un service cloud pour Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
+- [Configuration d'un service cloud pour Azure](cloud-services-model-and-package.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

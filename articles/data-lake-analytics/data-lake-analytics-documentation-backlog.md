@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Backlog de la documentation Azure Data Lake Analytics
@@ -62,4 +62,4 @@ Plusieurs possibilités vous sont données pour fournir des commentaires sur le 
 * Envoyer une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Envoyer un e-mail à l’adresse [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

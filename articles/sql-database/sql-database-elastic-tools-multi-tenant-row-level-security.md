@@ -18,7 +18,9 @@
 
 # Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes 
 
-Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (RLS)](https://msdn.microsoft.com/library/dn765131) offrent un ensemble de puissants outils, qui permettent d’étendre la couche Données d’une application multi-locataires de manière souple et efficace, au moyen de la base de données SQL Microsoft Azure. Cet article explique comment utiliser ces technologies conjointement, afin de créer une application proposant une couche Données hautement évolutive, capable de prendre en charge des partitions multi-locataires, en utilisant **SqlClient ADO.NET** et/ou **Entity Framework**.
+Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (RLS)](https://msdn.microsoft.com/library/dn765131) offrent un ensemble de puissants outils, qui permettent d’étendre la couche Données d’une application multi-locataires de manière souple et efficace, au moyen de la base de données SQL Microsoft Azure. Consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) pour plus d’informations.
+
+Cet article explique comment utiliser ces technologies conjointement, afin de créer une application proposant une couche Données hautement évolutive, capable de prendre en charge des partitions multi-locataires, en utilisant **SqlClient ADO.NET** et/ou **Entity Framework**.
 
 * Les **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données d’une application via des pratiques de partitionnement normalisées, reposant sur un ensemble de bibliothèques .NET et des modèles de service Microsoft Azure. En gérant les partitions via la bibliothèque cliente de base de données élastique, vous rationalisez et automatisez nombre des tâches de l’infrastructure portant généralement sur le partitionnement. 
 
@@ -48,8 +50,8 @@ Générez et exécutez l’application. Cette opération démarre le gestionnair
 
 Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. La procédure à suivre implique deux étapes :
 
-1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément SESSION\_CONTEXT sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
-2. **Couche données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon l’ID de locataire stocké dans l’élément SESSION\_CONTEXT. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
+1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément SESSION\_CONTEXT sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
+2. **Couche données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon l’ID de locataire stocké dans l’élément SESSION\_CONTEXT. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
 
 
 ## Étape 1) Couche application : définissez l’identifiant de locataire dans l’élément SESSION\_CONTEXT
@@ -295,16 +297,27 @@ GO
 
 ### Maintenance 
 
-* **Ajout de nouvelles partitions** : vous devez exécuter le script T-SQL pour activer la fonction RLS sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne seront pas filtrées.
+* **Ajout de nouvelles partitions** : vous devez exécuter le script T-SQL pour activer la fonction RLS sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne seront pas filtrées.
 
-* **Ajout de nouvelles tables** : vous devez ajouter un prédicat de filtrage et de blocage à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne seront pas filtrées. Vous pouvez automatiser ce processus via un déclencheur DDL, comme décrit dans l’article [Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+* **Ajout de nouvelles tables** : vous devez ajouter un prédicat de filtrage et de blocage à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne seront pas filtrées. Vous pouvez automatiser ce processus via un déclencheur DDL, comme décrit dans l’article [Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 
 ## Résumé 
 
 Les outils de base de données élastique et la fonction de sécurité au niveau des lignes (RLS) peuvent être utilisés ensemble pour faire monter en charge la couche Données d’une application prenant en charge les partitions multi-locataires ou à un seul locataire. Les partitions multi-locataires peuvent être utilisées pour stocker des données de manière plus efficace (notamment dans les cas où un grand nombre de locataires présente quelques lignes de données seulement). Les partitions à un seul locataire peuvent quant à elles servir à prendre en charge les locataires « premium » qui doivent respecter des exigences plus élevées en termes de performances et d’isolation. Pour plus d’informations, consultez [Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Ressources supplémentaires
+
+- [Qu’est-ce qu’un pool de base de données élastique ?](sql-database-elastic-pool.md)
+- [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
+- [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Authentification sur les applications mutualisées, avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+
+## Questions et demandes de fonctionnalités
+
+Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
@@ -312,4 +325,4 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

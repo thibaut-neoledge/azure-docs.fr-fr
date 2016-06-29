@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;viviali"/>
 
 # Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory
@@ -84,4 +84,4 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
@@ -333,7 +333,7 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Prise en main des analyses Data Lake à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
-- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Annexe A - Modèle ARM Data Lake Analytics
 
@@ -392,4 +392,4 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
 	  }
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

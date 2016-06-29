@@ -31,7 +31,7 @@ Vous devez disposer des éléments suivants :
 
 ## Comment lancer l’interface utilisateur web Ambari ?
 
-1. Dans le tableau d’accueil du [portail Azure](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
  
 2. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
@@ -43,7 +43,7 @@ Vous devez disposer des éléments suivants :
 
 ## Comment lancer le serveur d’historique Spark ?
 
-1. Dans le tableau d’accueil du [portail Azure](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil).
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil).
 
 2. Dans le panneau du cluster, sous **Liens rapides**, cliquez sur **Tableau de bord du cluster**. Dans le panneau **Tableau de bord du cluster**, cliquez sur **Serveur d’historique Spark**.
 
@@ -212,4 +212,4 @@ La mémoire du pilote du serveur Thrift Spark est configurée sur 25 % de la tai
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

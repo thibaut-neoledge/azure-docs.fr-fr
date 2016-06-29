@@ -127,8 +127,8 @@ Les transactions de bases de données élastiques sont prises en charge sur plus
 
 Pour gérer les relations de communication entre serveurs pour les transactions de bases de données élastiques, utilisez les applets de commande PowerShell suivants :
 
-* **New-AzureRmSqlServerCommunicationLink** : utilisez cet applet de commande pour créer une nouvelle relation de communication entre deux serveurs logiques dans la base de données SQL Azure. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
-* **Get-AzureRmSqlServerCommunicationLink** : utilisez cet applet de commande pour extraire les relations de communication existantes et leurs propriétés.
+* **New-AzureRmSqlServerCommunicationLink** : utilisez cet applet de commande pour créer une nouvelle relation de communication entre deux serveurs logiques dans la base de données SQL Azure. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
+* **Get-AzureRmSqlServerCommunicationLink** : utilisez cet applet de commande pour extraire les relations de communication existantes et leurs propriétés.
 * **Remove-AzureRmSqlServerCommunicationLink**: utilisez cet applet de commande pour supprimer une relation de communication existante. 
 
 
@@ -138,9 +138,9 @@ Utilisez les vues de gestion dynamique (DMV) dans la base de données SQL pour s
  
 Les vues de gestion dynamique ci-dessous sont particulièrement utiles :
 
-* **sys.dm\_tran\_active\_transactions** : répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx).
-* **sys.dm\_tran\_database\_transactions** : fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx).
-* **sys.dm\_tran\_locks** : fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, voir la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx).
+* **sys.dm\_tran\_active\_transactions** : répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions** : fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks** : fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, voir la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## Limites 
 
@@ -151,11 +151,11 @@ Les limites suivantes s’appliquent actuellement aux transactions de bases de d
 * Seules les bases de données hébergées sur la base de données SQL Azure V12 sont prises en charge.
 * Les transactions entre les services WCF ne sont pas prises en charge. Par exemple, vous disposez d’une méthode de service WCF qui exécute une transaction. L’inclusion de l’appel dans une étendue de transaction échouera en levant l’exception [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## En savoir plus
+## Ressources supplémentaires
 
 Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Microsoft Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

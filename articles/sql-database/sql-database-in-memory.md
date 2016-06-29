@@ -141,7 +141,7 @@ Un résultat de **0** signifie que In-Memory n’est pas pris en charge, et un r
 
 #### À propos des éléments créés à mémoire optimisée.
 
-**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
+**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
 
 - SalesLT.Product\_inmem
 - SalesLT.SalesOrderHeader\_inmem
@@ -165,7 +165,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
+**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
 
 
 ```
@@ -507,7 +507,7 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
  - [Constructions Transact-SQL non prises en charge par In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx)
 
 
-## Étapes supplémentaires
+## Étapes suivantes
 
 
 - Essayer d’[utiliser In-Memory OLTP dans une application SQL Azure existante.](sql-database-in-memory-oltp-migration.md)
@@ -537,4 +537,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

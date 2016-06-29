@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
+   ms.date="06/13/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Résolution des problèmes d’Azure SQL Data Warehouse
@@ -26,7 +26,7 @@ Exemples de problèmes de connectivité courants :
 - Les outils/protocoles ne sont pas pris en charge
 
 ### Règles de pare-feu
-Les bases de données SQL Azure sont protégées par des pare-feu au niveau du serveur et de la base de données pour s’assurer que seules les adresses IP connues ont accès à une base de données. Les pare-feu sont sécurisés par défaut, ce qui signifie que vous devez activer explicitement une adresse IP ou une plage d’adresses avant de vous connecter. Pour configurer votre pare-feu pour l’accès, suivez les étapes décrites dans la section [Configurer l’accès au pare-feu du serveur pour l’adresse IP de votre client][] des [instructions de mise en service][].
+Les bases de données SQL Azure sont protégées par des pare-feu au niveau du serveur et de la base de données pour s’assurer que seules les adresses IP connues ont accès à une base de données. Les pare-feu sont sécurisés par défaut, ce qui signifie que vous devez activer explicitement une adresse IP ou une plage d’adresses avant de vous connecter. Pour configurer votre pare-feu pour l’accès, suivez les étapes décrites dans la section de [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client][] des [instructions d’approvisionnement][].
 
 ### Les outils/protocoles ne sont pas pris en charge
 SQL Data Warehouse recommande l’utilisation de [Visual Studio 2013 ou 2015][] pour interroger vos données. Pour la connectivité client, il est recommandé d’utiliser [SQL Server Native Client 10/11 (ODBC)][]. SQL Server Management Studio (SSMS) n’est pas encore pris en charge et, bien qu’elle fonctionne partiellement, l’arborescence de l’Explorateur d’objets ne fonctionne pas avec SQL Data Warehouse ; la requête peut également s’exécuter si vous ignorez certains messages d’erreur.
@@ -115,8 +115,8 @@ Consultez l’article [Meilleures pratiques relatives à SQL Data Warehouse][] p
 [development overview]: ./sql-data-warehouse-overview-develop.md
 [surveillance de vos requêtes]: ./sql-data-warehouse-manage-monitor.md
 [Gérer des statistiques dans SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
-[instructions de mise en service]: ./sql-data-warehouse-get-started-provision.md
-[Configurer l’accès au pare-feu du serveur pour l’adresse IP de votre client]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[instructions d’approvisionnement]: ./sql-data-warehouse-get-started-provision.md
+[configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 ou 2015]: ./sql-data-warehouse-get-started-connect.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 [statistiques]: ./sql-data-warehouse-develop-statistics.md
@@ -126,4 +126,4 @@ Consultez l’article [Meilleures pratiques relatives à SQL Data Warehouse][] p
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

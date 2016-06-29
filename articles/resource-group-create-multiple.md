@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/09/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Création de plusieurs instances de ressources dans Azure Resource Manager
@@ -22,7 +22,7 @@ Cette rubrique explique comment procéder à une itération dans votre modèle A
 
 ## copy, copyIndex et length
 
-Dans la ressource que vous souhaitez créer à plusieurs reprises, vous pouvez définir un objet **copy** qui indique le nombre d’itérations à effectuer. La copie respecte le format suivant :
+Dans la ressource que vous souhaitez créer à plusieurs reprises, vous pouvez définir un objet **copy** qui indique le nombre d’itérations à effectuer. La copie respecte le format suivant :
 
     "copy": { 
         "name": "websitescopy", 
@@ -42,13 +42,13 @@ Lorsque vous créez plusieurs ressources à partir d'un tableau de valeurs, vous
 
 ## Utilisation de la valeur d’index dans le nom
 
-Vous pouvez utiliser l’opération de copie pour créer plusieurs instances d’une ressource, nommées de manière unique en fonction de l’index d’incrémentation. Cela peut être utile si, par exemple, vous voulez ajouter un nombre unique à la fin de chaque nom de ressource déployée. Pour déployer trois sites web nommés :
+Vous pouvez utiliser l’opération de copie pour créer plusieurs instances d’une ressource, nommées de manière unique en fonction de l’index d’incrémentation. Cela peut être utile si, par exemple, vous voulez ajouter un nombre unique à la fin de chaque nom de ressource déployée. Pour déployer trois sites web nommés :
 
 - examplecopy-0
 - examplecopy-1
 - examplecopy-2
 
-Utilisez le modèle suivant :
+Utilisez le modèle suivant :
 
     "parameters": { 
       "count": { 
@@ -74,7 +74,7 @@ Utilisez le modèle suivant :
 
 ## Valeur d’index de décalage
 
-Vous noterez que dans l’exemple précédent, la valeur d’index va de 0 à 2. Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction **copyIndex()**, par exemple **copyIndex(1)**. Le nombre d’itérations à effectuer est toujours spécifié dans l’élément copy, mais la valeur de copyIndex est décalée en fonction de la valeur spécifiée. Ainsi, si nous utilisons le même modèle que dans l’exemple précédent, mais que nous spécifions **copyIndex(1)**, nous déploierons trois sites web nommés :
+Vous noterez que dans l’exemple précédent, la valeur d’index va de 0 à 2. Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction **copyIndex()**, par exemple **copyIndex(1)**. Le nombre d’itérations à effectuer est toujours spécifié dans l’élément copy, mais la valeur de copyIndex est décalée en fonction de la valeur spécifiée. Ainsi, si nous utilisons le même modèle que dans l’exemple précédent, mais que nous spécifions **copyIndex(1)**, nous déploierons trois sites web nommés :
 
 - examplecopy-1
 - examplecopy-2
@@ -82,13 +82,13 @@ Vous noterez que dans l’exemple précédent, la valeur d’index va de 0 à 2.
 
 ## Utilisation avec un tableau
    
-L’opération copy se révèle particulièrement utile lorsque vous travaillez avec des tableaux, car vous pouvez itérer sur chaque élément du tableau. Pour déployer trois sites web nommés :
+L’opération copy se révèle particulièrement utile lorsque vous travaillez avec des tableaux, car vous pouvez itérer sur chaque élément du tableau. Pour déployer trois sites web nommés :
 
 - examplecopy-Contoso
 - examplecopy-Fabrikam
 - examplecopy-Coho
 
-Utilisez le modèle suivant :
+Utilisez le modèle suivant :
 
     "parameters": { 
       "org": { 
@@ -120,7 +120,7 @@ Bien sûr, vous définissez le nombre de copies sur une valeur autre que la long
 
 ## Selon les ressources dans une boucle
 
-Vous pouvez spécifier le déploiement d’une ressource après une autre ressource à l’aide de l’élément **dependsOn**. Quand vous devez déployer une ressource qui dépend de la collection de ressources dans une boucle, vous pouvez utiliser le nom de la boucle de copie dans l’élément **dependsOn**. L’exemple suivant montre comment déployer 3 comptes de stockage avant de déployer la machine virtuelle. La définition complète de la machine virtuelle n’est pas affichée. Notez que le **nom** de l’élément de copie a la valeur **storagecopy** et que l’élément **dependsOn** pour la machine virtuelle est également défini sur **storagecopy**.
+Vous pouvez spécifier le déploiement d’une ressource après une autre ressource à l’aide de l’élément **dependsOn**. Quand vous devez déployer une ressource qui dépend de la collection de ressources dans une boucle, vous pouvez utiliser le nom de la boucle de copie dans l’élément **dependsOn**. L’exemple suivant montre comment déployer 3 comptes de stockage avant de déployer la machine virtuelle. La définition complète de la machine virtuelle n’est pas affichée. Notez que le **nom** de l’élément de copie a la valeur **storagecopy** et que l’élément **dependsOn** pour la machine virtuelle est également défini sur **storagecopy**.
 
     {
 	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -488,4 +488,4 @@ Le modèle lié définit le tableau à renvoyer. Le modèle ci-dessous omet la r
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
 - Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -83,7 +83,7 @@ Dans cet exemple, vous spécifiez la zone en utilisant le nom de zone et le nom 
 
 ### 3\. Ajouter un enregistrement
 
-Pour utiliser le jeu d’enregistrements « www » que vous venez de créer, vous devez y ajouter des enregistrements. Ajoutez les enregistrements IPv4 *A* au jeu d’enregistrements « www » comme dans l’exemple suivant : Cet exemple s’appuie sur la variable *$rs* que vous avez définie à l’étape précédente.
+Pour utiliser le jeu d’enregistrements « www » que vous venez de créer, vous devez y ajouter des enregistrements. Ajoutez les enregistrements IPv4 *A* au jeu d’enregistrements « www » comme dans l’exemple suivant. Cet exemple s’appuie sur la variable *$rs* que vous avez définie à l’étape précédente.
 
 L’ajout d’enregistrements à un jeu d’enregistrements avec `Add-AzureRmDnsRecordConfig` est une opération hors connexion. Seule la variable locale *$rs* est mise à jour.
 
@@ -145,4 +145,4 @@ Les exemples suivants montrent comment créer un jeu d’enregistrements de chaq
 
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 # Gestion des propriétaires d’un groupe
@@ -48,8 +48,9 @@ Une fois que le propriétaire d'une ressource a attribué l'accès à une ressou
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
+* [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/13/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimisation des transactions pour SQL Data Warehouse
@@ -37,7 +37,7 @@ Contrairement aux opérations entièrement journalisées, qui utilisent le fichi
 
 ## Journalisations minimales
 
-Les opérations suivantes peuvent faire l’objet d’une journalisation minimale :
+Les opérations suivantes peuvent faire l’objet d’une journalisation minimale :
 
 - CREATE TABLE AS SELECT (CTAS)
 - INSERT..SELECT
@@ -87,7 +87,7 @@ Vous trouverez ci-dessous quatre exemples expliquant comment optimiser votre cod
 - Opérations de traitement par lot
 
 ### Optimisation des opérations de suppression de grande envergure à l’aide de CTAS
-Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver : création d’une table avec [CTAS][]. Après la création, utilisez une paire de commandes [RENAME OBJECT][] afin d’échanger les noms des tables.
+Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver : création d’une table avec [CTAS][]. Après la création, utilisez des commandes [RENAME OBJECT][] afin d’échanger les noms des tables.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -403,7 +403,7 @@ END
 ```
 
 ## Instructions supplémentaires pour les opérations de suspension et de mise à l’échelle
-Azure SQL Data Warehouse vous permet de suspendre, de reprendre et de mettre à l’échelle à la demande votre entrepôt de données. Lorsque vous suspendez ou mettez à l’échelle votre instance SQL Data Warehouse, il est important de comprendre que l’ensemble des transactions en cours sont immédiatement arrêtées ; toute transaction ouverte est restaurée. Si votre charge de travail a émis une modification de données incomplète et de longue durée avant l’opération de suspension ou de mise à l’échelle, cette tâche devra être annulée. Cela peut avoir une incidence sur le délai nécessaire à la suspension complète de votre base de données Azure SQL Data Warehouse.
+Azure SQL Data Warehouse vous permet de suspendre, de reprendre et de mettre à l’échelle à la demande votre entrepôt de données. Lorsque vous suspendez ou mettez à l’échelle votre instance SQL Data Warehouse, il est important de comprendre que l’ensemble des transactions en cours sont immédiatement arrêtées ; toute transaction ouverte est restaurée. Si votre charge de travail a émis une modification de données incomplète et de longue durée avant l’opération de suspension ou de mise à l’échelle, cette tâche devra être annulée. Cela peut avoir une incidence sur le délai nécessaire à la suspension complète de votre base de données Azure SQL Data Warehouse.
 
 > [AZURE.IMPORTANT] `UPDATE` et `DELETE` correspondant toutes deux à des journalisations complètes, ces opérations d’annulation/de rétablissement peuvent nécessiter un délai considérablement plus important que des journalisations minimales de taille équivalente.
 
@@ -420,7 +420,7 @@ Pour plus de conseils sur le développement et pour consulter du contenu relatif
 - [Partitionnement de table][]
 - [Accès concurrentiel][]
 - [CTAS][]
-- [RENOMMER UN OBJET][]
+- [RENAME (Transact-SQL)][]
 
 <!--Image references-->
 
@@ -431,10 +431,10 @@ Pour plus de conseils sur le développement et pour consulter du contenu relatif
 [table partition]: sql-data-warehouse-develop-table-partitions.md
 [accès concurrentiel]: sql-data-warehouse-develop-concurrency.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
-[RENOMMER UN OBJET]: sql-data-warehouse-develop-rename.md
+
 
 <!--MSDN references-->
-[alter index]: https://msdn.microsoft.com/fr-FR/library/ms188388.aspx
+[alter index]: https://msdn.microsoft.com/library/ms188388.aspx
+[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

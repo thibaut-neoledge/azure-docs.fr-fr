@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 Cet article vous montre comment lancer un basculement planifié ou non planifié pour une base de données SQL avec PowerShell. Pour configurer la géoréplication, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-powershell.md).
@@ -87,4 +87,4 @@ La commande suivante bascule les rôles de la base de données nommée « mydb�
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

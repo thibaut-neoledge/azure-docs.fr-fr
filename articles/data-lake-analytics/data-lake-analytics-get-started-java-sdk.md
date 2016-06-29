@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Didacticiel : prise en main d’Azure Data Lake Analytics en utilisant le Kit de développement logiciel (SDK) .NET
@@ -38,7 +38,7 @@ Dans ce didacticiel, vous allez développer une application de console Java qui 
 
 L’extrait de code ci-dessous fournit le code pour une authentification **non interactive**, où l’application fournit ses propres informations d’identification.
 
-Vous devrez donner à votre application l’autorisation de créer des ressources dans Azure pour que ce didacticiel fonctionne. Pour les besoins de ce didacticiel, il est **vivement recommandé** de n’accorder que des autorisations de collaborateur de cette application à un nouveau groupe de ressources, inutilisé et vide, dans votre abonnement Azure.
+Vous devrez donner à votre application l’autorisation de créer des ressources dans Azure pour que ce didacticiel fonctionne. Dans le cadre de ce didacticiel, il est **recommandé** de n’accorder à cette application que des autorisations de type Collaborateur pour un nouveau groupe de ressources, inutilisé et vide, dans votre abonnement Azure.
 
 ## Création d’une application Java
 
@@ -75,7 +75,17 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
 	            <artifactId>azure-client-authentication</artifactId>
-	            <version>1.0.0-SNAPSHOT</version>
+	            <version>1.0.0-20160513.000802-24</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-runtime</artifactId>
+	            <version>1.0.0-20160513.000812-28</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.rest</groupId>
+	            <artifactId>client-runtime</artifactId>
+	            <version>1.0.0-20160513.000825-29</version>
 	        </dependency>
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
@@ -95,7 +105,9 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 5. Ouvrez **Main.java** et remplacez le bloc de code existant par le code suivant. De même, indiquez les valeurs des paramètres inclus dans l’extrait de code, tels que **localFolderPath**, **\_adlsAccountName**, **\_adlsAccountName**, **\_resourceGroupName** et remplacez les espaces réservés pour **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** et **SUBSCRIPTION-ID**.
 
 	Ce code mène à bien l’ensemble du processus, à savoir : création de comptes Data Lake Store et Data Lake Analytics, création de fichiers dans le magasin, exécution d’un travail, obtention de l’état du travail, téléchargement de la sortie du travail et enfin suppression du compte.
- 
+
+>[AZURE.NOTE] Il existe actuellement un problème connu avec le service Azure Data Lake. Si l’exemple d’application est interrompue ou rencontre une erreur, vous devrez peut-être supprimer manuellement les comptes Data Lake Store & Data Lake Analytics créés par le script. Si vous n’êtes pas familiarisé avec le portail, le guide [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md) vous aidera à démarrer.
+
 
 		package com.company;
 
@@ -255,6 +267,8 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 		        adlaParameters.setName(_adlaAccountName);
 		        adlaParameters.setProperties(adlaProperties);
 		
+				/* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+ 
 		        _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
 		    }
 		
@@ -383,10 +397,10 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 ## Voir aussi
 
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
-- Pour voir une requête plus complexe, consultez [Analyse de journaux de site web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Pour voir une requête plus complexe, consultez [Analyse de journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec les outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Pour découvrir U-SQL, consultez [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
-- Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
+- Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

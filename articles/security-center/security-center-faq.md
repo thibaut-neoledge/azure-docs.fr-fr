@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -28,7 +28,7 @@ Ce forum aux questions répond aux questions concernant le Centre de sécurité 
 Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 ### Comment obtenir le Centre de sécurité Azure ?
-Le Centre de sécurité Azure est disponible avec votre abonnement Microsoft Azure et accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). ([Connectez-vous au portail](https://portal.azure.com), sélectionnez **Parcourir**, puis faites défiler jusqu’à **Centre de sécurité**). Des recommandations de sécurité peuvent déjà apparaître dans le tableau de bord. Cela s’explique par le fait que le service peut évaluer l’état de sécurité de certains contrôles en fonction de leur configuration dans Azure. Pour activer l’ensemble des fonctionnalités de sécurité, telles que la surveillance, les recommandations et les alertes, vous devez [activer la collecte des données](#data-collection).
+Le Centre de sécurité Azure est disponible avec votre abonnement Microsoft Azure et accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). ([Connectez-vous au portail](https://portal.azure.com), sélectionnez **Parcourir**, puis faites défiler jusqu’à **Centre de sécurité**).
 
 ## Facturation
 
@@ -37,24 +37,27 @@ Pour plus d’informations, consultez [Tarification du Centre de sécurité](htt
 
 ## Collecte des données
 
-### Comment activer la collecte des données ?<a name=data-collection></a>
-Vous pouvez activer la collecte des données pour vos abonnements Azure dans la stratégie de sécurité. Pour activer la collecte des données, [connectez-vous au portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie de sécurité**. Définissez **Collecte des données** sur **Activé**, puis configurez les comptes de stockage dans lesquels vous voulez stocker les données collectées (voir la question « [Où sont stockées mes données ?](#where-is-my-data-stored) »). Quand **Collecte des données** est activé, les informations liées à la configuration et aux événements de sécurité sont automatiquement collectées sur l’ensemble des machines virtuelles prises en charge par l’abonnement.
+Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez à Security Center pour la première fois, la collecte des données est activée sur toutes les machines virtuelles de votre abonnement. La collecte des données est recommandée, mais vous pouvez refuser cette fonctionnalité en la [désactivant](#how-do-i-disable-data-collection) dans la stratégie de Security Center.
+
+### Comment désactiver la collecte des données ?
+
+Vous pouvez désactiver la **collecte des données** pour un abonnement dans la stratégie de sécurité à tout moment. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Security Center**, puis **Stratégie**.) Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre et affiche une option permettant de désactiver la **Collecte des données**. Sélectionnez l’option **Supprimer des agents** dans le ruban supérieur pour supprimer des agents des machines virtuelles existantes.
+
+> [AZURE.NOTE] Vous pouvez définir les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, mais vous devez sélectionner un abonnement pour désactiver la collecte des données.
+
+### Comment activer la collecte des données ?
+Vous pouvez activer la collecte des données pour vos abonnements Azure dans la stratégie de sécurité. Pour activer la collecte des données, [connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Security Center**, puis **Stratégie**. Définissez **Collecte des données** sur **Activé**, puis configurez les comptes de stockage dans lesquels vous voulez stocker les données collectées (voir la question « [Où sont stockées mes données ?](#where-is-my-data-stored) »). Quand **Collecte des données** est activé, les informations liées à la configuration et aux événements de sécurité sont automatiquement collectées sur l’ensemble des machines virtuelles prises en charge par l’abonnement.
 
 > [AZURE.NOTE] Bien que vous puissiez définir les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, la configuration de la collecte des données intervient uniquement au niveau de l’abonnement.
 
-### Que se passe-t-il quand j’active la collecte des données ?
-La collecte des données peut être activée via l’agent de surveillance Azure et via l’extension Surveillance de la sécurité Azure. L’extension Surveillance de la sécurité Azure analyse diverses configurations de sécurité et les envoie sous forme de traces de [suivi d’événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). En outre, le système d’exploitation crée des entrées de journal des événements. L’agent de surveillance Azure lit les entrées du journal des événements et les traces ETW, puis les copie dans votre compte de stockage pour les analyser. Le compte de stockage en question est celui que vous avez configuré dans la stratégie de sécurité. Pour plus d’informations sur les comptes de stockage, reportez-vous à la question « [Où sont stockées mes données ?](#where-is-my-data-stored) ».
+### Que se passe-t-il quand la collecte des données est activée ?
+La collecte des données peut être activée via l’agent de surveillance Azure et via l’extension Surveillance de la sécurité Azure. L’extension Surveillance de la sécurité Azure analyse différentes configurations de sécurité et les envoie sous forme de traces de [Suivi d’événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). En outre, le système d’exploitation crée des entrées de journal des événements. L’agent de surveillance Azure lit les entrées du journal des événements et les traces ETW, puis les copie dans votre compte de stockage pour les analyser. Le compte de stockage en question est celui que vous avez configuré dans la stratégie de sécurité. Pour plus d’informations sur les comptes de stockage, reportez-vous à la question « [Où sont stockées mes données ?](#where-is-my-data-stored) ».
 
 ### L’agent de surveillance et l’extension Surveillance de la sécurité ont-ils un impact sur les performances de mon serveur ?
 L’agent et l’extension utilisent une quantité minime de ressources système et n’ont donc qu’un faible impact sur les performances.
 
-### Comment désactiver la collecte des données ?
-Vous pouvez désactiver la **collecte des données** pour un abonnement dans la stratégie de sécurité. ([Connectez-vous au portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, sélectionnez **Centre de sécurité**, puis sélectionnez **Stratégie de sécurité**.) Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre et affiche une option permettant de désactiver la collecte des données. Sélectionnez l’option **Supprimer des agents** dans le ruban supérieur pour supprimer des agents des machines virtuelles existantes.
-
-> [AZURE.NOTE] Vous pouvez définir les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, mais vous devez sélectionner un abonnement pour désactiver la collecte des données.
-
-### Où sont stockées mes données ?<a name=where-is-my-data-stored></a>
-Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Ainsi, vous pouvez stocker les données dans une même région pour garantir la confidentialité et la souveraineté des données. Vous devez sélectionner le compte de stockage d’un abonnement dans la stratégie de sécurité. ([Connectez-vous au portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie de sécurité**.) Quand vous cliquez sur un abonnement, un nouveau panneau s’ouvre. Sélectionnez **Choisir un compte de stockage** pour sélectionner une région. Pour des raisons de sécurité, les données collectées sont isolées logiquement des autres données clients.
+### Où sont stockées mes données ?
+Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Ainsi, vous pouvez stocker les données dans une même région pour garantir la confidentialité et la souveraineté des données. Vous devez sélectionner le compte de stockage d’un abonnement dans la stratégie de sécurité. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Security Center**, puis **Stratégie**.) Quand vous cliquez sur un abonnement, un nouveau panneau s’ouvre. Sélectionnez **Choisir un compte de stockage** pour sélectionner une région.
 
 > [AZURE.NOTE] Bien que vous puissiez définir les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, la sélection d’une région pour votre compte de stockage intervient uniquement au niveau de l’abonnement.
 
@@ -127,4 +130,4 @@ Machines virtuelles Linux prises en charge :
 - Red Hat Enterprise Linux (RHEL) versions 6.* et 7.*
 - SUSE Linux Enterprise Server (SLES) versions 11.* et 12.*
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

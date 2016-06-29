@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/02/2016"
+   	ms.date="06/09/2016"
    	ms.author="jgao"/>
 
 
@@ -242,20 +242,31 @@ Un réseau [Azure Virtual Network](https://azure.microsoft.com/documentation/ser
     | -------------------------- | --------------------------- |
     | Une configuration de site à site vous permet de connecter plusieurs ressources de votre centre de données à Azure Virtual Network en utilisant un VPN matériel ou le service RRAS (Routing and Remote Access Service, service Routage et accès distant).<br />![diagram of site-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | Une configuration de point à site vous permet de connecter une ressource spécifique à Azure Virtual Network en utilisant un VPN logiciel.<br />![diagram of point-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
+Les clusters Windows nécessitent un réseau virtuel v1 (classique), tandis que les clusters basés sur Linux nécessitent un réseau virtuel v2 (Azure Resource Manager). Si le type de réseau est incorrect, il ne sera pas utilisable lorsque vous créerez le cluster.
+
 Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Personnalisation de clusters à l'aide de la personnalisation de cluster de HDInsight (bootstrap)
 
 Vous souhaitez parfois configurer des fichiers de configuration :
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
-Pour conserver les modifications apportées pendant la durée de vie des clusters, vous pouvez utiliser la personnalisation des clusters HDInsight au cours du processus de création ou utiliser Ambari sur les clusters Linux. Pour plus d’informations, consultez la page [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Pour conserver les modifications apportées pendant la durée de vie des clusters, vous pouvez utiliser la personnalisation des clusters HDInsight au cours du processus de création ou utiliser Ambari sur les clusters Linux. Pour plus d’informations, consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 >[AZURE.NOTE] Les clusters Windows ne peuvent pas conserver les modifications lorsqu’ils ont été réinitialisés. Pour plus d'informations, consultez la page [Redémarrages d'instances de rôles pour cause de mise à jour du système d'exploitation](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Pour conserver les modifications apportées pendant la durée de vie des clusters, vous devez utiliser la personnalisation des clusters HDInsight au cours du processus de création.
 
@@ -283,4 +294,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,17 +19,10 @@
 
 # Restaurer une base de données SQL Azure supprimée avec PowerShell
 
-
 > [AZURE.SELECTOR]
+- [Vue d'ensemble](sql-database-restore-deleted-database.md)
 - [Portail Azure](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
-
-Cet article vous montre comment restaurer une base de données SQL Azure supprimée.
-
-En cas de suppression d’une base de données, la base de données SQL Microsoft Azure permet de la restaurer au moment de cette suppression. La base de données SQL Microsoft Azure stocke la sauvegarde de base de données supprimée pendant la période de rétention de la base de données.
-
-La période de rétention d’une base de données supprimée est déterminée par le niveau de service de la base de données pendant sa période d’existence, ou le nombre de jours d’existence de la base de données. La valeur la plus faible est choisie. Pour en savoir plus sur le mécanisme de rétention de base de données, consultez la [vue d’ensemble de la continuité d’activité](sql-database-business-continuity.md).
-
 
 [AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -57,13 +50,17 @@ La période de rétention d’une base de données supprimée est déterminée p
 ## Étapes suivantes
 
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
-
-
+- [restauration d’une base de données supprimée.](sql-database-restore-deleted-database.md)
+- [Restaurer une base de données à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md)
+- [Restaurer une base de données à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
 
 ## Ressources supplémentaires
 
+- [Restauration dans le temps](sql-database-point-in-time-restore.md)
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Restauration géographique](sql-database-geo-restore.md)
+- [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

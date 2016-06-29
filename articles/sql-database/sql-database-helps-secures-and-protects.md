@@ -49,10 +49,10 @@ Accédez à la page d’accueil pour voir les autres avantages du service Base d
 
 Demandez un [abonnement Azure gratuit](https://azure.microsoft.com/get-started/) et [créez votre première base de données SQL Azure](sql-database-get-started.md).
 
-## En savoir plus
+## Ressources supplémentaires
 
 Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Migration de cache vers Redis"
+    pageTitle="Migration de cache vers Redis | Microsoft Azure"
     description="Apprenez à migrer les applications du Service de cache géré vers le Cache Redis Azure"
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"
-    manager="erikre"
+    manager="douge"
     editor="tysonn" />
 <tags 
     ms.service="cache"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="03/17/2016"
+    ms.date="06/09/2016"
     ms.author="sdanie" />
 
 # Migrer un Service de cache géré vers le Cache Redis Azure
@@ -41,7 +41,7 @@ Bien que similaires, le Service de cache géré Azure et le Cache Redis Azure im
 
 |Fonctionnalité du Service de cache géré|Prise en charge du Service de cache géré|Prise en charge du Cache Redis Azure|
 |---|---|---|
-|Caches nommés|Un cache par défaut est configuré et, dans le cache des offres Standard et Premium, vous pouvez, si vous le souhaitez, configurer jusqu’à neuf caches nommés supplémentaires.|Les caches Redis Azure disposent de 16 bases de données pouvant être utilisées pour implémenter une fonctionnalité semblable aux caches nommés. Pour plus d’informations, consultez la section [Configuration du serveur Redis par défaut](cache-configure.md#default-redis-server-configuration).|
+|Caches nommés|Un cache par défaut est configuré et, dans le cache des offres Standard et Premium, vous pouvez, si vous le souhaitez, configurer jusqu’à neuf caches nommés supplémentaires.|Les caches Redis Azure disposent d’un nombre configurable de bases de données (16 par défaut) pouvant être utilisées pour implémenter une fonctionnalité semblable aux caches nommés. Pour plus d’informations, consultez la section [Configuration du serveur Redis par défaut](cache-configure.md#default-redis-server-configuration).|
 |Haute disponibilité|Fournit une haute disponibilité pour les éléments du cache dans le cadre des offres de cache Standard et Premium. En cas de perte liée à une défaillance, les copies de sauvegarde des éléments du cache demeurent disponibles. Les écritures dans le cache secondaire sont effectuées de façon synchrone.|La fonction de haute disponibilité est incluse dans les offres de cache Standard et Premium, qui reposent sur une configuration à deux nœuds (nœud principal/réplica) où chaque partition d’un cache Premium dispose d’une paire nœud principal/réplica. Les écritures sur le réplica sont effectuées de façon asynchrone. Pour plus d’informations, consultez [Tarification - Cache Redis Azure](https://azure.microsoft.com/pricing/details/cache/).|
 |Notifications|Permet aux clients de recevoir des notifications asynchrones lorsque diverses opérations de cache sont exécutées sur un cache nommé.|Les applications clientes peuvent utiliser Redis pub/sub ou les [notifications de Keyspace](cache-configure.md#keyspace-notifications-advanced-settings) pour obtenir une fonctionnalité similaire aux notifications.|
 |Cache local|Stocke une copie des objets mis en cache en local sur le client pour un accès extrêmement rapide.|Les applications clientes doivent implémenter cette fonctionnalité à l’aide d’un dictionnaire ou d’une structure de données similaires.|
@@ -65,14 +65,7 @@ L’idéal pour commencer la migration consiste à sélectionner une taille corr
 
 ## Création d’un cache
 
-Vous pouvez créer des caches dans le Cache Redis Azure à partir du [portail Azure](https://portal.azure.com) ou à l’aide de modèles ARM, de PowerShell ou de l’interface de ligne de commande Azure.
-
--	Pour créer un cache dans le portail Azure, consultez [Créer un cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
--	Pour créer un cache à l’aide de modèles ARM, voir [Créer un cache Redis à l’aide d’un modèle](cache-redis-cache-arm-provision.md).
--	Pour créer un cache à l’aide d’Azure PowerShell, voir [Gestion du Cache Redis Azure avec Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
--	Pour créer un cache à l’aide de l’interface de ligne de commande Azure, voir [Création et gestion du cache Redis Azure à l’aide de l’interface de ligne de commande Azure (Azure CLI)](cache-manage-cli.md).
-
->[AZURE.NOTE] Pour utiliser le Cache Redis Azure, vous avez besoin d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## Configuration des clients de cache
 
@@ -118,17 +111,7 @@ Une fois que vous avez supprimé la configuration du Service de cache géré, vo
 
 ### Configuration d’un client de cache à l’aide du package NuGet Package StackExchange.Redis
 
-Les applications .NET développées dans Visual Studio peuvent utiliser le client de cache StackExchange.Redis pour accéder à leurs caches. Pour configurer une application cliente dans Visual Studio avec le package NuGet StackExchange.Redis, cliquez avec le bouton droit sur le projet dans l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**.
-
-![Cache Redis Azure - Gérer les packages NuGet](./media/cache-migrate-to-redis/IC729541.png)
-
-Entrez **StackExchange.Redis** dans la zone de texte **Rechercher en ligne**, choisissez parmi les résultats et cliquez sur **Installer**.
-
-![Cache Redis Azure - Package NuGet Stackexchange.redis](./media/cache-migrate-to-redis/IC746253.png)
-
-Le package NuGet télécharge et ajoute les références d'assembly nécessaires pour que votre application cliente puisse accéder à Cache Redis Azure avec le client du cache StackExchange.Redis.
-
-Pour plus d’informations, consultez la section [Configuration des clients de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 ## Migration du code du Service de cache géré
 
@@ -196,4 +179,4 @@ Le Cache Redis Azure dispose de fournisseurs pour l’état de session ASP.NET e
 
 Explorez la [documentation du Cache Redis Azure](https://azure.microsoft.com/documentation/services/cache/) pour accéder à des didacticiels, des exemples, des vidéos et de nombreuses autres ressources.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

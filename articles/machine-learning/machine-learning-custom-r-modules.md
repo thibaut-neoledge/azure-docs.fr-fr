@@ -26,7 +26,7 @@ Cette rubrique explique comment créer et déployer un module R personnalisé d
 ## Qu’est-ce qu’un module R personnalisé ?
 Un **module personnalisé** est un module défini par l’utilisateur, qui peut être chargé dans votre espace de travail et exécuté dans le cadre d’une expérience Azure Machine Learning. Un **module R personnalisé** est un module exécutant une fonction R définie par l’utilisateur. R est un langage de programmation utilisé pour le traitement informatique des statistiques et les graphiques. Les scientifiques des données et les statisticiens s’en servent pour implémenter des algorithmes. Actuellement, R est le seul langage pris en charge dans les modules personnalisés, mais la prise en charge de langages supplémentaires sera ajoutée ultérieurement.
 
-Les modules personnalisés présentent un **état de première classe** dans Azure Machine Learning, en ce sens qu’ils peuvent être utilisés comme n’importe quel module classique. Ils peuvent être exécutés avec d’autres modules, inclus dans les expériences publiées ou les visualisations. Les utilisateurs contrôlent l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Un module personnalisé est disponible uniquement dans l'espace de travail dans lequel il a été créé et ne peut pas être publié dans des expériences de la communauté.
+Les modules personnalisés présentent un **état de première classe** dans Azure Machine Learning, en ce sens qu’ils peuvent être utilisés comme n’importe quel module classique. Ils peuvent être exécutés avec d’autres modules, inclus dans les expériences publiées ou les visualisations. Les utilisateurs contrôlent l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Une expérience contenant un ou plusieurs modules personnalisés peut également être publiée dans la galerie Cortana Intelligence pour faciliter le partage.
 
 ## Fichiers dans un module R personnalisé
 Un module R personnalisé est défini par un fichier .zip contenant au moins deux fichiers :
@@ -108,7 +108,7 @@ L’élément **Module** est utilisé pour définir un module personnalisé dans
 
 Dans l’élément **Module**, vous pouvez spécifier un élément **Owner**, qui est incorporé dans le module, ainsi qu’un élément **Description**, qui est le texte affiché dans l’aide rapide pour le module et lorsque vous passez la souris sur le module dans l’interface utilisateur de Machine Learning.
 
-**Règles relatives aux limites de caractères dans les éléments Module** :
+**Règles relatives aux limites de caractères dans les éléments Module** :
 
 * La valeur de l’attribut **name** dans l’élément **Module** ne doit pas dépasser 64 caractères. 
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
@@ -130,7 +130,7 @@ L’élément **Language** dans votre fichier de définition XML est utilisé po
 ### Ports
 Les ports d’entrée et de sortie d’un module personnalisé sont spécifiés dans les éléments enfants de la section **Ports** du fichier de définition XML. L’ordre de ces éléments détermine la disposition rencontrée par les utilisateurs (expérience utilisateur). Le premier enfant **input** ou **output** répertorié dans l’élément **Ports** du fichier XML sera le port d’entrée le plus à gauche dans l’expérience utilisateur Machine Learning. Chaque port d’entrée et de sortie peut avoir un élément enfant **Description** facultatif qui spécifie le texte affiché lorsqu’un utilisateur passe le curseur de la souris sur le port dans l’interface utilisateur de Machine Learning.
 
-**Règles relatives aux ports** :
+**Règles relatives aux ports** :
 
 * Le nombre maximum de **ports d’entrée et de sortie** est de 8 pour chacun.
 
@@ -143,7 +143,7 @@ Les ports d'entrée permettent aux utilisateurs de transmettre des données à v
         	<Description>Input Dataset 1</Description>
        	</Input>
 
-L’attribut **id** associé à chaque port d’entrée **DataTable** doit avoir une valeur unique qui doit correspondre au paramètre nommé correspondant dans votre fonction R. Pour les ports **DataTable** facultatifs qui ne sont pas transmis comme entrée d’une expérience, la valeur **NULL** est transmise à la fonction R et les ports zip facultatifs sont ignorés si l’entrée n’est pas connectée. L’attribut **isOptional** est facultatif pour les types **DataTable** et **Zip** ; il a la valeur *false* par défaut.
+L’attribut **id** associé à chaque port d’entrée **DataTable** doit avoir une valeur unique qui doit correspondre au paramètre nommé correspondant dans votre fonction R. Pour les ports **DataTable** facultatifs qui ne sont pas transmis comme entrée d’une expérience, la valeur **NULL** est transmise à la fonction R et les ports zip facultatifs sont ignorés si l’entrée n’est pas connectée. L’attribut **isOptional** est facultatif pour les types **DataTable** et **Zip** ; il a la valeur *false* par défaut.
 	   
 **Zip :** modules personnalisés pouvant accepter un fichier .zip en entrée. Cette entrée est décompactée et placée dans le répertoire de travail R de votre fonction.
 
@@ -202,7 +202,7 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 	return (list(dataset, dataset1, dataset2)) 
 	} 
 	
-**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de port de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
+**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de port de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -221,7 +221,7 @@ Des données supplémentaires peuvent être transmises à la fonction R via les
 ### Élément Arg
 Un paramètre de module est défini à l’aide de l’élément enfant **Arg** de la section **Arguments** du fichier de définition XML. Comme dans le cas des éléments enfants de la section **Ports**, l’ordre des paramètres de la section **Arguments** définit la disposition rencontrée dans l’expérience utilisateur. Les paramètres apparaissent de haut en bas dans l’interface utilisateur dans le même ordre que celui dans lequel ils sont définis dans le fichier XML. Les types pris en charge par ML pour les paramètres sont répertoriés ci-dessous.
 
-**int** : paramètre de type entier (32 bits).
+**int** : paramètre de type entier (32 bits).
 
 		<Arg id="intValue1" name="Int Param" type="int">
 			<Properties min="0" max="100" default="0" />
@@ -230,9 +230,9 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 
 
-* *Propriétés facultatives* : **min**, **max** et **default**
+* *Propriétés facultatives* : **min**, **max** et **default**
 
-**double** : paramètre de type double.
+**double** : paramètre de type double.
 
        <Arg id="doubleValue1" name="Double Param" type="double">
            <Properties min="0.000" max="0.999" default="0.3" />
@@ -240,9 +240,9 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
        </Arg>
 
 
-* *Propriétés facultatives* : **min**, **max** et **default**
+* *Propriétés facultatives* : **min**, **max** et **default**
 
-**bool** : paramètre booléen représenté par une case à cocher dans l’expérience utilisateur.
+**bool** : paramètre booléen représenté par une case à cocher dans l’expérience utilisateur.
 
 		<Arg id="boolValue1" name="Boolean Param" type="bool">
 			<Properties default="true" />
@@ -253,7 +253,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 * *Propriétés facultatives*: **default**. False si non défini
 
-**string** : chaîne standard
+**string** : chaîne standard
 
         <Arg id="stringValue1" name="My string Param" type="string">
 		   <Properties default="Default string value." isOptional="true" />
@@ -263,7 +263,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 * *Propriétés facultatives*: **default** et **isOptional** – une chaîne facultative sans valeur par défaut est transmise avec la valeur null à la fonction R si aucune valeur n’est fournie par un utilisateur.
 
-**ColumnPicker** : paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes seront sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées.
+**ColumnPicker** : paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes seront sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées.
 
 		<Arg id="colset" name="Column set" type="ColumnPicker">	  
 		  <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -271,9 +271,9 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		</Arg>
 
 
-* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
-* *Propriétés facultatives* :
-	* **allowedTypes** : permet de filtrer les types de colonnes que l’utilisateur peut choisir. Les valeurs valides incluent : 
+* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
+* *Propriétés facultatives* :
+	* **allowedTypes** : permet de filtrer les types de colonnes que l’utilisateur peut choisir. Les valeurs valides incluent : 
 		* 	Chiffre
 		* 	Boolean
 		* 	Par catégorie
@@ -283,7 +283,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		* 	Score
 		* 	Tout
 
-	* **default** : les sélections par défaut valides pour le sélecteur de colonne sont les suivantes :
+	* **default** : les sélections par défaut valides pour le sélecteur de colonne sont les suivantes :
 		* Aucun
 		* NumericFeature
 		* NumericLabel
@@ -307,7 +307,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		* Tout
 
                             							
-**DropDown** : liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’**ID** de chaque élément **Item** doit être unique et une variable R valide avec le nom de l’élément est à la fois le texte qui apparaît aux utilisateurs et la valeur transmise à la fonction R.
+**DropDown** : liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’**ID** de chaque élément **Item** doit être unique et une variable R valide avec le nom de l’élément est à la fois le texte qui apparaît aux utilisateurs et la valeur transmise à la fonction R.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
@@ -318,8 +318,8 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
       <Description>Select a color.</Description>
     </Arg>	
 
-* *Propriétés facultatives* :
-	* **default** : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Items**.
+* *Propriétés facultatives* :
+	* **default** : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Items**.
 
 
 ### Fichiers auxiliaires
@@ -362,4 +362,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

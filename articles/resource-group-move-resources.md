@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/08/2016" 
 	ms.author="tomfitz"/>
 
 # Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
@@ -65,20 +65,18 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
 - Machines virtuelles
 - Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
-
-## Services qui prennent partiellement en charge le déplacement
-
-Les services qui prennent en charge le déplacement des ressources vers un nouveau groupe de ressources mais pas vers un nouvel abonnement sont les suivants :
-
 - Réseaux virtuels
 
 ## Services qui ne prennent pas en charge le déplacement
 
 Les services qui ne prennent actuellement pas en charge le déplacement d’une ressource sont les suivants :
 
+- Application Gateway
 - Application Insights
 - ExpressRoute
-- Virtual Networks (Classic) : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
+- Groupes identiques de machines virtuelles
+- Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+- Passerelle VPN
 
 ## Limitations d’App Service
 
@@ -96,22 +94,22 @@ Par exemple, si votre groupe de ressources contient :
 
 Vos options sont :
 
-- Déplacez **web-a**, **plan-a**, **web-b** et **plan-b**.
-- Déplacez **web-a** et **web-b**.
-- Déplacez **web-a**.
-- Déplacez **web-b**.
+- Déplacez **web-a**, **plan-a**, **web-b** et **plan-b**
+- Déplacez **web-a** et **web-b**
+- Déplacez **web-a**
+- Déplacez **web-b**
 
 Toutes les autres combinaisons impliquant le déplacement d’une ressource qui ne peut pas l’être (Application Insights) ou l’abandon d’un type de ressource qui ne peut pas l’être lors du déplacement d’un plan App Service (n’importe quel type de ressource App Service).
 
 Si votre application web réside dans un autre groupe de ressources que son plan App Service mais que vous souhaitez déplacer les deux dans un nouveau groupe de ressources, vous devez effectuer le déplacement en deux étapes. Par exemple :
 
-- **web-a** réside dans **web-group**.
-- **plan-a** réside dans **plan-group**.
-- Vous voulez que **web-a** et **plan-a** résident dans **combined-group**.
+- **web-a** réside dans **web-group**
+- **plan-a** réside dans **plan-group**
+- Vous voulez que **web-a** et **plan-a** résident dans **combined-group**
 
 Pour effectuer ce déplacement, effectuez deux opérations de déplacement distinctes dans l’ordre suivant :
 
-1. Déplacez **web-a** vers **plan-group**.
+1. Déplacez **web-a** vers **plan-group**
 2. Déplacez **web-a** et **plan-a** vers **combined-group**.
 
 ## Limitations relatives au déploiement classique
@@ -172,7 +170,7 @@ Lorsque vous déplacez des ressources déployées via le modèle classique vers 
 
 ![déplacer des ressources classiques](./media/resource-group-move-resources/edit-rg-icon.png)
 
-Sélectionnez les ressources à déplacer tout en gardant à l’esprit les [limitations relatives au déploiement du modèle Classic](#classic-deployment-limitations). Sélectionnez **OK** pour lancer le déplacement.
+Sélectionnez les ressources à déplacer tout en gardant à l’esprit les [Limitations relatives au déploiement du modèle classique](#classic-deployment-limitations). Sélectionnez **OK** pour lancer le déplacement.
 
  ![sélectionner des ressources classiques](./media/resource-group-move-resources/select-classic-resources.png)
  
@@ -271,7 +269,7 @@ Avec le corps de requête :
 ## Étapes suivantes
 - Pour plus d’informations sur les applets de commande PowerShell permettant de gérer votre abonnement, consultez [Utilisation d’Azure PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
 - Pour plus d’informations sur les commandes de l’interface de ligne de commande Azure permettant de gérer votre abonnement, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-- Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
+- Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
 - Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

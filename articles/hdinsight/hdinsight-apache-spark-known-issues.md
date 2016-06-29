@@ -65,15 +65,6 @@ Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.i
 
 Voici certains problèmes connus liés aux notebooks Jupyter.
 
-### Impossible de télécharger les blocs-notes Jupyter au format .ipynb
-
-Si vous exécutez la dernière version des blocs-notes Jupyter pour HDInsight Spark et que vous essayez de télécharger une copie du bloc-notes sous forme de fichier **.ipynb** à partir de l'interface utilisateur du bloc-notes Jupyter, une erreur interne peut apparaître.
-
-**Atténuation :**
-
-1.	Le téléchargement du bloc-notes dans un format autre que .ipynb (par exemple, .txt) réussira.  
-2.	Si vous avez besoin du fichier .ipynb, vous pouvez le télécharger à partir de votre conteneur de cluster dans votre compte de stockage sous **/HdiNotebooks**. Cela concerne uniquement la dernière version des blocs-notes Jupyter pour HDInsight, qui prend en charge les sauvegardes de bloc-notes dans le compte de stockage. Les versions précédentes des blocs-notes Jupyter pour HDInsight Spark n'ont pas ce problème.
-
 
 ### Notebooks avec des caractères non-ASCII dans les noms de fichiers
 
@@ -112,10 +103,6 @@ Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bl
     - Arrêtez les autres applications Spark à partir de YARN.
 
 2. Redémarrez le bloc-notes que vous tentiez de démarrer. Un nombre suffisant de ressources devrait désormais être disponible pour vous permettre de créer une session.
-
-### Le retour au point de contrôle peut échouer
-
-Vous pouvez créer des points de contrôle dans les notebooks Jupyter au cas où vous avez besoin de revenir à une version antérieure du notebook. Toutefois, si l’état actuel des notebooks a une requête SQL avec une visualisation automatique, le retour à un point de contrôle précédemment stocké peut entraîner une erreur.
 
 ##Voir aussi
 
@@ -159,4 +146,4 @@ Vous pouvez créer des points de contrôle dans les notebooks Jupyter au cas où
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

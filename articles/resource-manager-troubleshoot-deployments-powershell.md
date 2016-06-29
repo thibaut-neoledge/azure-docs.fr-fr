@@ -29,6 +29,8 @@ Si vous avez obtenu une erreur lors du déploiement des ressources sur Azure, vo
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
+Vous pouvez éviter certaines erreurs en validant votre modèle et votre infrastructure avant le déploiement. Vous pouvez également enregistrer des informations supplémentaires de requête et de réponse pendant le déploiement, qui pourront se révéler utiles plus tard pour la résolution des problèmes. Pour en savoir plus sur la validation et l’enregistrement d’informations de requête et de réponse, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
+
 ## Utilisation des journaux d'audit pour résoudre les problèmes
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
@@ -74,7 +76,7 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 ## Utilisation des opérations de déploiement pour résoudre les problèmes
 
-1. Pour obtenir l'état global d'un déploiement, utilisez la commande **AzureRmResourceGroupDeployment**. Vous pouvez filtrer les résultats en les restreignant aux déploiements qui ont échoué.
+1. Pour obtenir l’état global d’un déploiement, utilisez la commande **AzureRmResourceGroupDeployment**. Vous pouvez filtrer les résultats en les restreignant aux déploiements qui ont échoué.
 
         Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
         
@@ -99,7 +101,7 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 2. Chaque déploiement est généralement constitué de plusieurs opérations, chacune d’elles représentant une étape du processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
         
     Qui retourne les opérations dans le format suivant :
         
@@ -109,7 +111,7 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
                       Duration=PT2.8834832S; TrackingId=192fbfbf-a2e2-40d6-b31d-890861f78ed3; StatusCode=Conflict;
                       StatusMessage=; TargetResource=}
 
-3. Pour obtenir plus d'informations sur l'opération, récupérez l’objet **Properties**.
+3. Pour obtenir plus d’informations sur l’opération, récupérez l’objet **Properties**.
 
         (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
         
@@ -141,7 +143,7 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 ## Étapes suivantes
 
 - Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Pour en savoir plus sur l'utilisation des journaux d'audit pour surveiller d'autres types d'actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
+- Pour en savoir plus sur l’utilisation des journaux d’audit pour surveiller d’autres types d’actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
 - Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

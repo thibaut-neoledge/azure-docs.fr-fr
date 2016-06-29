@@ -82,19 +82,19 @@ Cette section fournit des instructions sur la création de chacune de ces ressou
 
 ### Créer un Azure Data Lake Store
 
-Créez un ADLS à partir du [portail Azure](http://ms.portal.azure.com). Pour en savoir plus, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à définir l’identité AAD de cluster dans le panneau **DataSource** de **Configuration facultative** décrit ici.
+Créez un ADLS à partir du [Portail Azure](http://portal.azure.com). Pour en savoir plus, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à définir l’identité AAD de cluster dans le panneau **DataSource** de **Configuration facultative** décrit ici.
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Créer un compte Azure Data Lake Analytics
-Créez un compte ADLA à partir du [portail Azure](http://ms.portal.azure.com). Pour en savoir plus, consultez [Didacticiel : Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Créez un compte ADLA à partir du [Portail Azure](http://portal.azure.com). Pour en savoir plus, consultez [Didacticiel : Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Créer un compte de stockage d’objets blob Azure
-Créez votre compte de stockage d’objets blob Azure à partir du [portail Azure](http://ms.portal.azure.com). Pour en savoir plus, consultez la section Créer un compte de stockage de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+Créez votre compte de stockage d’objets blob Azure à partir du [Portail Azure](http://portal.azure.com). Pour en savoir plus, consultez la section Créer un compte de stockage de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -640,7 +640,7 @@ Azure Machine Learning Studio peut lire des données directement à partir d’A
 
 ### Créer un cluster HDInsight Linux
 
-Créez un cluster HDInsight (Linux) à partir du [portail Azure](http://ms.portal.azure.com). Pour plus d’informations, consultez la section **Créer un cluster HDInsight ayant accès au Azure Data Lake Store** dans [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Créez un cluster HDInsight (Linux) à partir du [Portail Azure](http://portal.azure.com). Pour plus d’informations, consultez la section **Créer un cluster HDInsight ayant accès à Azure Data Lake Store** dans [Créer un cluster HDInsight avec Data Lake Store à l’aide du Portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -741,4 +741,4 @@ Le parcours d’apprentissage du [processus Cortana Analytics (CAP)](http://aka.
 - [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

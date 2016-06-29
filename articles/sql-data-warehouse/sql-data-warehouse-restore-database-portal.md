@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Restaurer une base de données dans Azure SQL Data Warehouse (Portail) | Microsoft Azure"
-   description="Tâches du portail Azure permettant de restaurer une base de données active ou supprimée dans Azure SQL Data Warehouse."
+   pageTitle="Restauration d’un Azure SQL Data Warehouse (Portail) | Microsoft Azure"
+   description="Tâches du portail Azure permettant de restaurer un Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,30 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Restaurer une base de données dans Azure SQL Data Warehouse (Portail)
+# Restauration d’un Azure SQL Data Warehouse (Portail)
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-data-warehouse-restore-database-overview.md)
-- [Portail](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Vue d'ensemble][]
+- [Portail][]
+- [PowerShell][]
+- [REST][]
 
-Tâches PowerShell permettant de restaurer une base de données active ou supprimée dans Azure SQL Data Warehouse.
-
-Tâches abordées dans cette rubrique :
-
-- restauration d’une base de données active ;
-- restauration d’une base de données supprimée.
+Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse à l’aide du portail Azure.
 
 ## Avant de commencer
 
-Vérifiez la capacité DTU de votre base de données SQL. SQL Data Warehouse effectue les restaurations vers une base de données résidant sur votre serveur SQL logique ; il est donc important de veiller à ce que le serveur SQL vers lequel vous exécutez la restauration dispose d’une capacité DTU suffisante pour prendre en charge la nouvelle base de données. Consultez ce blog pour plus d’informations sur [l’affichage et l’augmentation du quota DTU][].
+**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL logique. Ce serveur logique a une limite de capacité mesurée en DTU. Avant de pouvoir restaurer un SQL Data Warehouse, il est important de s’assurer que le serveur SQL logique qui héberge votre base de données a une capacité de DTU suffisante pour la base de données en cours de restauration. Consultez ce blog pour plus d’informations sur [l’affichage et l’augmentation du quota de DTU][].
 
 
-## restauration d’une base de données active ;
+## Restauration d’une base de données active ou en pause
 
 Pour restaurer une base de données :
 
@@ -47,7 +42,6 @@ Pour restaurer une base de données :
 5. Spécifiez un nouveau **nom de base de données**, sélectionnez un **point de restauration**, puis cliquez sur **Créer**.
 6. Le processus de restauration de la base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**.
 
-
 ## restauration d’une base de données supprimée.
 
 Pour restaurer une base de données supprimée :
@@ -57,26 +51,28 @@ Pour restaurer une base de données supprimée :
 3. Accédez à votre serveur et sélectionnez-le.
 4. Dans le panneau du serveur, faites défiler jusqu’à Opérations, puis cliquez sur la vignette **Bases de données supprimées**.
 5. Sélectionnez la base de données supprimée que vous souhaitez restaurer.
-5. Spécifiez un nouveau **nom pour la base de données** et cliquez sur **Créer**.
+5. Spécifiez un nouveau **nom de base de données**, puis cliquez sur **Créer**.
 6. Le processus de restauration de la base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**.
 
 
 ## Étapes suivantes
-Pour plus d’informations, consultez les articles [Vue d’ensemble de la continuité d’activité d’une base de données SQL Azure][] et [Vue d’ensemble de la gestion][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir la [vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité d’activité d’une base de données SQL Azure]: sql-database-business-continuity.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
+[vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
+[Portail]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 <!--Blog references-->
-[l’affichage et l’augmentation du quota DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
+[l’affichage et l’augmentation du quota de DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

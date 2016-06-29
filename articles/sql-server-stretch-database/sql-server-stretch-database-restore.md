@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Restaurer des bases de données Stretch
@@ -96,4 +96,4 @@ Après avoir restauré la base de données Azure dans une autre région, vous de
 
 [Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

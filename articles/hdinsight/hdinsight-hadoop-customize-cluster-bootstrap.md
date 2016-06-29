@@ -14,21 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/09/2016"
 	ms.author="jgao"/>
 
 # Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
 Vous pouvez parfois être amené à vouloir configurer des fichiers de configuration, notamment :
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
-Les clusters ne peuvent pas conserver les modifications lorsqu’ils ont été réimagés. Pour plus d’informations sur le réimageage, consultez la page [Redémarrages d’instances de rôle pour cause de mise à jour du système d’exploitation](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Pour conserver les modifications apportées pendant la durée de vie des clusters, vous pouvez utiliser la personnalisation de cluster HDInsight au cours du processus de création. Il s’agit de la méthode recommandée pour modifier les configurations d’un cluster et les rendre persistantes dans l’ensemble de ces événements de redémarrage et de réinitialisation Azure. Ces modifications de configuration sont appliquées avant le démarrage du service. Il n’est donc pas nécessaire de redémarrer ce dernier.
+Les clusters ne peuvent pas conserver les modifications lorsqu’ils ont été réimagés. Pour plus d’informations sur le réimageage, consultez [Redémarrages d’instances de rôle pour cause de mise à jour du système d’exploitation](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Pour conserver les modifications apportées pendant la durée de vie des clusters, vous pouvez utiliser la personnalisation de cluster HDInsight au cours du processus de création. Il s’agit de la méthode recommandée pour modifier les configurations d’un cluster et les rendre persistantes dans l’ensemble de ces événements de redémarrage et de réinitialisation Azure. Ces modifications de configuration sont appliquées avant le démarrage du service. Il n’est donc pas nécessaire de redémarrer ce dernier.
 
 Il existe 3 manières d’utiliser Bootstrap :
 
@@ -69,14 +78,14 @@ Le code PowerShell suivant permet de personnaliser une configuration Hive :
 		-HttpCredential $httpCredential `
 		-Config $config 
 
-L’[annexe A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) décrit un script PowerShell complet.
+[L’annexe A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) décrit un script PowerShell complet.
 
 **Pour vérifier la modification :**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le volet gauche, cliquez sur **Parcourir**, puis cliquez sur **Clusters HDInsight**.
 3. Cliquez sur le cluster que vous venez de créer en utilisant le script PowerShell.
-4. Cliquez sur **tableau de bord** en haut du panneau pour ouvrir l’UI Ambari.
+4. Cliquez sur **Tableau de bord** en haut du panneau pour ouvrir l’IU Ambari.
 5. Cliquez sur **Hive** dans le menu de gauche.
 6. Sous **Résumé**, cliquez sur **HiveServer2**.
 7. Sélectionnez l’onglet **Configurations**.
@@ -103,7 +112,7 @@ Pour plus d’informations, consultez le billet de blog d’Azim Uddin intitulé
 
 ## Utilisation du Kit de développement logiciel (SDK) .NET
 
-Voir [Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk#use-bootstrap).
+Consultez [Créer des clusters Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
 ## Utilisation du modèle Azure ARM
 
@@ -252,4 +261,4 @@ Ce script PowerShell permet de créer un cluster HDInsight et de personnaliser u
 
     #endregion
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

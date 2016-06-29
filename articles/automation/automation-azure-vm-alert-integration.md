@@ -3,8 +3,8 @@
     description="Cet article montre comment intégrer des alertes de machine virtuelle Azure à des runbooks Azure Automation et corriger automatiquement les problèmes"
     services="automation"
     documentationCenter=""
-    authors="csand-msft"
-    manager="stevenka"
+    authors="mgoedtel"
+    manager="jwhit"
     editor="tysonn" />    
 <tags
     ms.service="automation"
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/24/2016"
+    ms.date="06/14/2016"
     ms.author="csand;magoedte" />
 
-# Solution Azure Automation - Résoudre des alertes de machine virtuelle Azure
+# Scénario Azure Automation - Résoudre des alertes de machine virtuelle Azure
 
 Azure Automation et Azure Virtual Machines disposent d’une nouvelle fonctionnalité qui vous permet de configurer des alertes de machine virtuelle (VM) afin d’exécuter des runbooks Automation. Cette nouvelle fonctionnalité vous permet de réaliser automatiquement une correction standard en réponse aux alertes de machine virtuelle, comme le redémarrage ou l’arrêt de la machine virtuelle.
 
@@ -172,4 +172,4 @@ Lorsque vous configurez une alerte sur une machine virtuelle Azure, vous avez ma
 - Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
 - Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

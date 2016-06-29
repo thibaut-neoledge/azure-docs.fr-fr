@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/29/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Big Compute dans Azure : ressources techniques pour Batch et HPC (calcul haute performance)
@@ -34,11 +34,11 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
-* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) et référence d’API [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/) et référence d’API [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * Référence de la [bibliothèque .NET de gestion Batch](https://msdn.microsoft.com/library/mt463120.aspx)
 
-* [Didacticiel : Mise en route de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
+* Didacticiels : Mise en route de la [bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md) et le [client Batch Python](batch-python-tutorial.md)
 
 * [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch)
 
@@ -157,4 +157,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-s
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](https://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

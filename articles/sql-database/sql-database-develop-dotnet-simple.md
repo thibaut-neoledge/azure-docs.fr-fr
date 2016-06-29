@@ -37,4 +37,8 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 * [Preuve de concept sur la connexion à SQL à l’aide d’ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
 * [Se connecter de façon robuste à SQL avec ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+## Ressources supplémentaires
+
+Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

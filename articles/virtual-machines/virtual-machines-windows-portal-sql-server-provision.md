@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/08/2016"
+	ms.date="06/21/2016"
 	ms.author="jroth" />
 
 # Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure
@@ -206,7 +206,7 @@ Le tableau suivant répertorie les paramètres requis pour configurer l’intég
 |**URL du coffre de clés** |L’emplacement du coffre de clés.|https://contosokeyvault.vault.azure.net/ |
 |**Nom du principal** |Nom du principal du service Azure Active Directory Également appelé ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2|
 | **Secret du principal**|Secret du principal du service Azure Active Directory Également appelé Secret client. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Nom des informations d’identification**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.| mycred1|
+|**Nom des informations d’identification**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.| mycred1|
 
 Pour plus d’informations, consultez [Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
@@ -251,4 +251,6 @@ Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL
 
 Pour obtenir une vue d’ensemble de SQL Server sur Azure Virtual Machines, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure est la plate-forme la mieux adaptée à SQL Server 2016).
 
-<!---HONumber=AcomDC_0608_2016-->
+[Découvrez le parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) pour SQL Server sur les machines virtuelles Azure.
+
+<!---HONumber=AcomDC_0622_2016-->

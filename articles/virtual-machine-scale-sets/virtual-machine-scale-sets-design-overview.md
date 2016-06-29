@@ -37,12 +37,11 @@ Bien que cette méthode n'améliore pas les taux de réussite de l’approvision
 Si vous désactivez le sur-approvisionnement, vous pouvez obtenir un ratio plus important de machines virtuelles par compte de stockage, mais nous déconseillons d’aller au-delà de 40.
 
 
-## Limites (plateforme et personnalisée)
-Un jeu de mise à l'échelle basé sur une image de plateforme est limité à 100 machines virtuelles, et nous vous recommandons d’utiliser 5 comptes de stockage pour cette échelle. Toutefois, un jeu de mise à l'échelle basé sur une image personnalisée (créée par vous-même) doit créer tous les disques durs virtuels du système d'exploitation dans un même compte de stockage. Par conséquent, le nombre maximal de machines virtuelles dans un jeu de mise à l'échelle basé sur une image personnalisée est de 20. Si vous désactivez le sur-approvisionnement, vous pouvez aller jusqu’à 40.
+## Limites
+Un groupe identique basé sur une image personnalisée (créée par vous-même) doit créer tous les disques durs virtuels du système d'exploitation dans un même compte de stockage. Par conséquent, le nombre maximal recommandé de machines virtuelles dans un groupe identique basé sur une image personnalisée est de 20. Si vous désactivez le sur-approvisionnement, vous pouvez aller jusqu’à 40.
 
+Un groupe identique basé sur une image de plateforme est limité à 100 machines virtuelles (nous vous recommandons d’utiliser 5 comptes de stockage pour cette échelle).
 
-## Grande échelle
+Si vous souhaitez avoir plus de machines virtuelles que ne l’autorisent ces limites, vous devez déployer plusieurs groupes identiques. [Pour obtenir un exemple de la procédure à suivre, consultez ce modèle.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-Un jeu de mise à l'échelle est limité à 100 machines virtuelles pour les images de plateforme, 20 pour les images personnalisées (40 sans sur-approvisionnement). Pour obtenir plus de machines virtuelles, vous devez déployer plusieurs jeux de mise à l'échelle. Pour obtenir un exemple de la procédure à suivre, consultez ce modèle : https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale.
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

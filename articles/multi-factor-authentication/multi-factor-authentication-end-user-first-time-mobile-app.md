@@ -31,7 +31,7 @@ L’application Azure Authenticator pour [Windows Phone](http://www.windowsphone
 ![Paramétrage](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Sélectionnez Notification ou Mot de passe à usage unique et cliquez sur Configurer.
-- Sur le téléphone où l’application Azure Authenticator est installée, lancez l’application, puis cliquez sur Scanner le code-barres. Pour ajouter un compte qui a déjà l'authentification multifacteur Azure ou un compte tiers, consultez [Ajout d'un compte manuellement](#adding-an-account-manually).
+- Sur le téléphone où l’application Azure Authenticator est installée, lancez l’application, puis cliquez sur Scanner le code-barres. Pour ajouter un compte qui a déjà l'authentification multifacteur Azure ou un compte tiers, consultez [Ajout d'un compte manuellement](#Ajout-d'un-compte-manuellement).
 
 ![Paramétrage](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 

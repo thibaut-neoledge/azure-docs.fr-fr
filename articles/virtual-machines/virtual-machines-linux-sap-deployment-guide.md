@@ -843,7 +843,7 @@ Pour vérifier la disponibilité, connectez-vous à la machine virtuelle Azure a
             * Doit afficher une entrée similaire à « python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon ».
     * Assurez-vous que l’extension d’analyse Azure améliorée est installée et démarrée.
         * sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/
-    * Doit répertorier le contenu du répertoire de l’extension d’analyse Azure améliorée.
+            * Doit répertorier le contenu du répertoire de l’extension d’analyse Azure améliorée.
         * ps -ax | grep AzureEnhanced
             * Doit afficher une entrée similaire à « python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon ».
 * Installez l’agent hôte SAP comme décrit dans la note SAP 1031096 et vérifiez le résultat de saposcol.

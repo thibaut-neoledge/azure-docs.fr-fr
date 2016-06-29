@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Sélectionnez les lignes à migrer en utilisant un prédicat de filtre (Stretch Database)
@@ -567,4 +567,4 @@ Un compte compromis avec des privilèges db\_owner peut effectuer les opération
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

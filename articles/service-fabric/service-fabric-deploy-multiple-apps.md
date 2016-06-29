@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.date="06/06/2016"
+   ms.author="bscholl;mikhegn"/>
 
 
 # Déploiement de plusieurs exécutables invités
@@ -60,12 +60,14 @@ Ensuite, vous créez un package d’application pour l’application Node.js. Le
 
 Voici une description des paramètres utilisés :
 
-- **/source** : pointe vers le répertoire de l’application qui doit être empaquetée.
-- **/target** : définit le répertoire dans lequel le package doit être créé. Ce répertoire doit être différent du répertoire source.
-- **/appname** : définit le nom d’application de l’application existante. Il est important de comprendre que ce nom devient le nom du service dans le manifeste, et non celui de l’application Service Fabric.
-- **/exe** : définit l’exécutable que Service Fabric doit démarrer, dans ce cas `node.exe`.
-- **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`. `/ma:'bin/www'` indique à l’outil d’empaquetage d’utiliser `bin/ma` comme argument pour node.exe.
-- **/AppType** : définit le nom du type de l’application Service Fabric.
+- **/source** : pointe vers le répertoire de l’application qui doit être empaquetée.
+- **/target** : définit le répertoire dans lequel le package doit être créé. Ce répertoire doit être différent du répertoire source.
+- **/appname** : définit le nom d’application de l’application existante. Il est important de comprendre que ce nom devient le nom du service dans le manifeste, et non celui de l’application Service Fabric.
+- **/exe** : définit l’exécutable que Service Fabric doit démarrer, dans ce cas `node.exe`.
+- **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`. `/ma:'bin/www'` indique à l’outil d’empaquetage d’utiliser `bin/ma` comme argument pour node.exe.
+- **/AppType** : définit le nom du type de l’application Service Fabric.
+
+>[AZURE.NOTE] Vous pouvez également utiliser Visual Studio pour produire le package d’application dans le cadre d’un projet d’application. Si vous choisissez d’établir un lien vers la source dans le projet Visual Studio, lors de la création de la solution Visual Studio, assurez-vous que votre package d’application est à jour avec les modifications dans la source.
 
 Si vous accédez au répertoire spécifié dans le paramètre /target, vous constatez que l’outil a créé un package Service Fabric entièrement fonctionnel, comme illustré ci-dessous :
 
@@ -135,6 +137,8 @@ Dans PowerShell ou l’interface de commande, nous exécutons l’outil d’empa
 
 Pour ajouter MongoDB à votre package d’application Service Fabric, vous devez vous assurer que le paramètre /target pointe vers le répertoire qui contient déjà le manifeste de l’application, ainsi que l’application Node.js. Vous devez également veiller à utiliser le même nom ApplicationType.
 
+>[AZURE.NOTE] Vous pouvez également utiliser Visual Studio pour produire le package d’application dans le cadre d’un projet d’application. Si vous choisissez d’établir un lien vers la source dans le projet Visual Studio, lors de la création de la solution Visual Studio, assurez-vous que votre package d’application est à jour avec les modifications dans la source.
+
 Accédons au répertoire et examinons ce que l'outil a créé.
 
 ```
@@ -190,6 +194,8 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
+>[AZURE.NOTE] Avec Visual Studio, vous pouvez publier l’application localement en effectuant le débogage (F5) ou en utilisant l’assistant de publication.
+
 Une fois que l’application est publiée dans le cluster local, vous pouvez accéder à l’application Node.js sur le port entré dans le manifeste de service de l’application Node.js, par exemple http://localhost:3000.
 
 Dans ce didacticiel, vous avez vu comment empaqueter facilement deux applications existantes en une application Service Fabric. Vous avez également découvert comment la déployer dans Service Fabric pour qu’elle tire parti de certaines fonctionnalités de Service Fabric, telles que la haute disponibilité et l’intégration du système de contrôlé d’intégrité.
@@ -198,4 +204,4 @@ Dans ce didacticiel, vous avez vu comment empaqueter facilement deux application
 
 - Découvrez comment [empaqueter manuellement une application invitée](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

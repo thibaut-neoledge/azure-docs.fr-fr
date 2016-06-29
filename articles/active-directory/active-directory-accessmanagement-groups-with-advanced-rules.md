@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 
@@ -32,26 +32,26 @@ Le portail Azure Classic vous permet de créer des règles avancées pour active
 
 ## Construction du corps d’une règle avancée
 
-La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
+La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
 
 - Paramètre de gauche (leftParameter)
 - Opérateur binaire (binaryOperator)
 - Constante de droite (rightConstant)
 
-Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator «RightConstant»). Elle nécessite des parenthèses ouvrantes et fermantes pour l’ensemble de l’expression binaire, des guillemets doubles pour la constante de droite et l’utilisation de la syntaxe user.property pour le paramètre de gauche. Une règle avancée peut se composer de plusieurs expressions binaires séparées par les opérateurs logiques -and, -or et -not. Voici des exemples de règles avancées correctement construites :
+Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator «RightConstant»). Elle nécessite des parenthèses ouvrantes et fermantes pour l’ensemble de l’expression binaire, des guillemets doubles pour la constante de droite et l’utilisation de la syntaxe user.property pour le paramètre de gauche. Une règle avancée peut se composer de plusieurs expressions binaires séparées par les opérateurs logiques -and, -or et -not. Voici des exemples de règles avancées correctement construites :
 
 - (user.department -eq "Sales") -or (user.department -eq "Marketing")
 - (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 Pour obtenir la liste complète des paramètres et des opérateurs de règle d’expression pris en charge, consultez les sections ci-dessous.
 
-La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
+La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
 
 > [AZURE.NOTE]
-Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant $null en tant que constante. Par exemple : user.department -eq $null. Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"Sales".
+Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant $null en tant que constante. Par exemple : user.department -eq $null. Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"Sales".
 
 ## Opérateurs de règle d’expression pris en charge
-Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
+Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
 
 | Opérateur | Syntaxe |
 |-----------------|----------------|
@@ -70,14 +70,14 @@ Le tableau suivant répertorie les erreurs potentielles et la méthode pour les 
 
 | Erreur d’analyse de requête | Utilisation incorrecte | Utilisation corrigée |
 |-----------------------|-------------------|-----------------------------|
-| Erreur : attribut non pris en charge. | (user.invalidProperty -eq "Value") | (user.department -eq "value")<br/>La propriété doit correspondre à l’une de celles figurant dans la [liste des propriétés prises en charge](#supported-properties). |
-| Erreur : l’opérateur n’est pas pris en charge sur l’attribut. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true)<br/>La propriété est de type booléen. Utilisez les opérateurs pris en charge (-eq ou -ne) sur un type booléen dans la liste ci-dessus. |
-| Erreur : erreur de compilation de la requête. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>L’opérateur logique doit correspondre à l’un de ceux figurant dans la liste des propriétés prises en charge ci-dessus.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Erreur dans l’expression régulière. |
-| Erreur : l’expression binaire n’est pas au format correct. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
-| Erreur : une erreur inconnue s’est produite lors de la configuration des appartenances dynamiques. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
+| Erreur : attribut non pris en charge. | (user.invalidProperty -eq "Value") | (user.department -eq "value")<br/>La propriété doit correspondre à l’une de celles figurant dans la [liste des propriétés prises en charge](#supported-properties). |
+| Erreur : l’opérateur n’est pas pris en charge sur l’attribut. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true)<br/>La propriété est de type booléen. Utilisez les opérateurs pris en charge (-eq ou -ne) sur un type booléen dans la liste ci-dessus. |
+| Erreur : erreur de compilation de la requête. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>L’opérateur logique doit correspondre à l’un de ceux figurant dans la liste des propriétés prises en charge ci-dessus.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Erreur dans l’expression régulière. |
+| Erreur : l’expression binaire n’est pas au format correct. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
+| Erreur : une erreur inconnue s’est produite lors de la configuration des appartenances dynamiques. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
 
 ## Propriétés prises en charge
-Voici toutes les propriétés d’utilisateur que vous pouvez utiliser dans vos règles avancées :
+Voici toutes les propriétés d’utilisateur que vous pouvez utiliser dans vos règles avancées :
 
 ### Propriétés de type booléen
 
@@ -164,11 +164,11 @@ Opérateurs autorisés
 ## Attributs d’extension et attributs personnalisés
 Les attributs d’extension et les attributs personnalisés sont pris en charge dans les règles d’appartenance dynamique.
 
-Les attributs d’extension sont synchronisés à partir d’un Windows Server AD et prennent le format « ExtensionAttributeX », où X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension :
+Les attributs d’extension sont synchronisés à partir d’un Windows Server AD et prennent le format « ExtensionAttributeX », où X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension :
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Les attributs personnalisés sont synchronisés à partir d’un système AD Windows Server local ou à partir d’une application SaaS connectée et le format de la chaîne « user.extension\_[GUID]\_\_[Attribut] », où [GUID] est l’identificateur unique, dans AAD, de l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
+Les attributs personnalisés sont synchronisés à partir d’un système AD Windows Server local ou à partir d’une application SaaS connectée et le format de la chaîne « user.extension\_[GUID]\_\_[Attribut] », où [GUID] est l’identificateur unique, dans AAD, de l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
@@ -177,9 +177,9 @@ Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en
 ## Règle de collaborateurs
 Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attribut de responsable hiérarchique d’un utilisateur.
 
-**Pour configurer un groupe en tant que groupe « Responsable »**
+**Pour configurer un groupe en tant que groupe « Responsable »**
 
-1. Dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
+1. Dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 
 2. Sélectionnez l’onglet **Groupes**, puis ouvrez le groupe que vous souhaitez modifier.
 
@@ -187,11 +187,11 @@ Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attr
 
 4. Entrez la règle avec la syntaxe suivante :
 
-	Collaborateurs pour *Collaborateurs pour {ID objet\_du\_responsable}*. Voici un exemple e règle valable pour Collaborateurs :
+	Collaborateurs pour *Collaborateurs pour {ID objet\_du\_responsable}*. Voici un exemple e règle valable pour Collaborateurs :
 
 					Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
-	où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID objet se trouve dans Azure AD, dans l’**onglet Profil** de la page Utilisateur de l’utilisateur qui est responsable.
+	où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID objet se trouve dans Azure AD, dans l’**onglet Profil** de la page Utilisateur de l’utilisateur qui est responsable.
 
 3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Le remplissage initial du groupe peut prendre quelques minutes.
 
@@ -203,10 +203,10 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+* [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

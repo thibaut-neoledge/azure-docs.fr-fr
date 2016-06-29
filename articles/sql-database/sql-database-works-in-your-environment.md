@@ -29,7 +29,7 @@ La dernière chose qu’un développeur souhaite est d’avoir à acquérir de n
 
 Vous ne devriez pas avoir à apprendre un nouveau langage pour utiliser une base de données. Les bases de données SQL possèdent de nombreux exemples de code pour vous aider à commencer, adaptés à la plateforme sur laquelle vous travaillez. (Linux, Mac OS ou Windows). En outre, le portail de gestion Azure, PowerShell et les API REST vous aident à accroître la productivité lors du développement.
 
-[Lire la documentation](https://msdn.microsoft.com/library/mt654049%28v=sql.1%29.aspx)
+[Lire la documentation](sql-database-develop-overview.md)
 
 ## Des outils adaptés
 
@@ -39,7 +39,7 @@ Avec une base de données SQL, vous n’avez pas besoin d’apprendre à utilise
 
 Grâce à des ressources garanties, des didacticiels sur la création de votre première base de données SQL, des questions de dépannage et des exemples de code de démarrage rapide, vous pouvez mettre en place la base de données dont vous avez besoin sans difficulté.
 
-[Lire la documentation](sql-database-connect-central-recommendations.md)
+[Lire la documentation](sql-database-technical-overview.md)
 
 Accédez à la page d’accueil pour voir les autres avantages du service Base de données SQL. [Voyez par vous-même](https://azure.microsoft.com/services/sql-database/)
 
@@ -47,10 +47,10 @@ Accédez à la page d’accueil pour voir les autres avantages du service Base d
 
 Demandez un [abonnement Azure gratuit](https://azure.microsoft.com/get-started/) et [créez votre première base de données SQL Azure](sql-database-get-started.md).
 
-## En savoir plus
+## Ressources supplémentaires
 
 Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

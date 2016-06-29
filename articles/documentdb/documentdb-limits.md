@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="06/08/2016" 
 	ms.author="arramac"/>
 
 
@@ -25,4 +25,4 @@ Le tableau suivant décrit les quotas par défaut pour les ressources DocumentDB
 
 Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

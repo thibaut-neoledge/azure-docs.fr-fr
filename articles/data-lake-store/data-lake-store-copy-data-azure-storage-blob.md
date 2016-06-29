@@ -110,7 +110,7 @@ Par exemple :
 
 ## Considérations sur l’utilisation d’AdlCopy
 
-* AdlCopy ne prend pas en charge la copie de données à partir de sources contenant collectivement plus de 1 000 fichiers et dossiers. Une autre approche consisterait à répartir les fichiers/dossiers dans différents sous-dossiers et à utiliser comme source le chemin d'accès à ces sous-dossiers.
+* AdlCopy (pour la version 1.0.4) prend en charge la copie de données à partir de sources qui contiennent collectivement plusieurs milliers de fichiers et dossiers. Cependant, si vous rencontrez des problèmes lors de la copie d’un jeu de données volumineux, vous pouvez distribuer les fichiers/dossiers dans différents sous-dossiers et utiliser comme source le chemin d'accès à ces sous-dossiers.
 
 ## Étapes suivantes
 
@@ -118,4 +118,4 @@ Par exemple :
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

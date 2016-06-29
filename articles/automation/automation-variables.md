@@ -1,18 +1,11 @@
-<properties 
-   pageTitle="Ressources de variables dans Azure Automation | Microsoft Azure"
-   description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC d’Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique."
-   services="automation"
-   documentationCenter=""
-   authors="mgoedtel"
-   manager="stevenka"
-   editor="tysonn" />
-<tags 
+<properties pageTitle="Variable assets in Azure Automation | Microsoft Azure" description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC d’Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
+<tags  
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/24/2016"
    ms.author="magoedte;bwren" />
 
 # Ressources de variables dans Azure Automation
@@ -75,7 +68,7 @@ Les activités de workflow du tableau suivant sont utilisées pour accéder aux 
 1. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer la nouvelle variable.
 
 
-### Pour créer une variable avec Windows PowerShell
+### Pour créer une variable avec Windows PowerShell
 
 L'applet de commande [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) crée une variable et définit sa valeur initiale. Vous pouvez récupérer la valeur en utilisant [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx). Si la valeur est un type simple, ce même type est retourné. S'il s'agit d'un type complexe, un **PSCustomObject** est retourné.
 
@@ -183,9 +176,9 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 ![Obtenir une variable complexe filtrée](media/automation-variables/get-complex-variable-filter.png)
 
 
-## Articles connexes
+## Étapes suivantes
 
-- [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
- 
+- Pour en savoir plus sur la connexion d’activités lors de la création graphique, consultez [Liens lors de la création graphique](automation-graphical-authoring-intro.md#links-and-workflow).
+- Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md) 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0615_2016-->

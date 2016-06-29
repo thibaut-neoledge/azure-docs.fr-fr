@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="terrylan"/>
 
 # Gestion des recommandations de sécurité dans le Centre de sécurité Azure
@@ -38,10 +38,10 @@ Dans la section [Définition des stratégies de sécurité dans le Centre de sé
 - activer la collecte des données ;
 - choisir les recommandations à afficher dans le cadre de votre stratégie de sécurité.
 
-Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [listes de contrôle d’accès (ACL) pour les points de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de base de données SQL et les pare-feu d’applications web. L’article [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
+Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le Transparent Data Encryption de bases de données SQL et les pare-feu d’applications web. L’article [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
 
 ### Suivi des recommandations
-Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La mosaïque **Recommandations** du panneau **Centre de sécurité** vous permet de connaître le nombre total de recommandations fournies par le Centre de sécurité.
+Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La vignette **Recommandations** du panneau **Security Center** vous permet de connaître le nombre total de recommandations fournies par Security Center.
 
 ![][2]
 
@@ -51,31 +51,30 @@ Pour afficher les détails de chaque recommandation :
 
 Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
-- **DESCRIPTION** : explication de la recommandation et de la procédure à suivre pour résoudre le problème.
-- **RESSOURCES** : ressources auxquelles s’appliquent les recommandations.
-- **ÉTAT** : décrit l’état actuel de la recommandation :
-    - **Ouverte** : la recommandation n’a pas encore été prise en compte.
-    - **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-    - **Résolue** : la recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
-- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
-    - **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
-    - **Moyenne** : il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
-    - **Faible** :existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+- **DESCRIPTION** : explication de la recommandation et de la procédure à suivre pour résoudre le problème.
+- **RESSOURCE** : ressources auxquelles s’appliquent les recommandations.
+- **ÉTAT** : décrit l’état actuel de la recommandation :
+    - **Ouverte** : la recommandation n’a pas encore été prise en compte.
+    - **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+    - **Résolue** : la recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
+- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
+    - **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
+    - **Moyenne** : il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
+    - **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leurs effets.
 
-> [AZURE.NOTE] Vous devez apprendre à différencier les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) utilisés pour les ressources Azure.
+> [AZURE.NOTE] Vous devez apprendre à différencier les [modèles de déploiement de type classique et Resource Manager](../azure-classic-rm.md) utilisés pour les ressources Azure.
 
 |Recommandation|Description|
 |-----|-----|
-|Activer la collecte des données pour des machines virtuelles ou des abonnements|Recommande l’activation de la collecte des données dans la stratégie de sécurité pour chacun de vos abonnements ou certaines machines virtuelles.|
+|[Activer la collecte des données pour des abonnements](security-center-enable-data-collection.md)|Recommande l’activation de la collecte des données dans la stratégie de sécurité pour chacun de vos abonnements et toutes les machines virtuelles de vos abonnements.|
 |Résoudre une non-conformité aux règles de ligne de base|Recommande d’aligner les configurations de système d’exploitation sur les lignes de base recommandées, comme le fait de ne pas permettre l’enregistrement des mots de passe.|
-|Appliquer des mises à jour système|Recommande le déploiement des mises à jour de sécurité du système et les mises à jour critiques manquantes sur les machines virtuelles (Windows uniquement).|
-|Configurer des listes ACL pour les points de terminaison|Recommande la configuration de listes de contrôle d’accès pour restreindre l’accès entrant aux machines virtuelles (de type Classique uniquement).|
+|Appliquer des mises à jour système|Recommande le déploiement des mises à jour de sécurité du système et des mises à jour critiques manquantes sur les machines virtuelles.|
 |[Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md)|Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l’aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l’aide du modèle de déploiement classique) sont limités à l’utilisation d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique).|
 |Finaliser la configuration du pare-feu d’applications web|Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration.|
 |[Activer le logiciel anti-programme malveillant](security-center-enable-antimalware.md)|Recommande l’approvisionnement de logiciels anti-programme malveillant sur les machines virtuelles (Windows uniquement).|
-|Activer des groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau|Recommande l’activation de groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau (machines virtuelles de type Resource Manager uniquement).|
+|Activer des groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau|Recommande l’activation de groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau.|
 |Restreindre l’accès à l’aide de points de terminaison externes publics|Recommande la configuration de règles de trafic entrant pour les groupes de sécurité réseau.|
 |Activer l’audit des serveurs SQL|Recommande l’activation de l’audit pour les serveurs SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles).|
 |Activer l’audit des bases de données SQL|Recommande l’activation de l’audit pour les bases de données SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles).|
@@ -110,12 +109,12 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 ## Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-- [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) -- Découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-- [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) -- Découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) -- Découvrez comment gérer et résoudre les alertes de sécurité.
-- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) -- Découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
-- [FAQ Azure Security Center](security-center-faq.md) -- Consultez la FAQ concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) -- Lisez des billets de blog sur la sécurité et la conformité Azure.
+- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
+- [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -124,4 +123,4 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

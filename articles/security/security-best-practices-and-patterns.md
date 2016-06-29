@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Meilleures pratiques et tendances Azure relatives à la sécurité | Microsoft Azure"
-   description="Cet article décrit les meilleures pratiques et les tendances utiles pour améliorer la sécurité des déploiements Azure."
-   services="security"
+   pageTitle="Meilleures pratiques et tendances Azure relatives à la sécurité | Microsoft Azure"
+   description="Cet article fournit une introduction sur les meilleures pratiques et tendances de sécurité Azure, ainsi qu’une liste organisée de meilleures pratiques de sécurité pour les différentes ressources Azure."
+   services="azure-security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,10 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/25/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # Meilleures pratiques et tendances Azure relatives à la sécurité
+
+Nous disposons actuellement des articles suivants sur les tendances et meilleures pratiques de sécurité Azure. Veillez à consulter ce site régulièrement pour voir les mises à jour de notre liste croissante de tendances et meilleures pratiques de sécurité Azure :
+
+- [Meilleures pratiques Azure en matière de sécurité réseau](azure-security-network-security-best-practices.md)
+- [Meilleures pratiques Azure en matière de chiffrement et de sécurité des données](azure-security-data-encryption-best-practices.md)
+- [Meilleures pratiques en matière de sécurité du contrôle d’accès et de gestion des identités](azure-security-identity-management-best-practices.md)
+- [Meilleures pratiques de sécurité pour l’Internet des objets (IoT)](azure-security-iot-best-practices.md)
+- [Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
+- [Meilleures pratiques Azure en matière de sécurité des limites](../best-practices-network-security.md)
+- [Implémentation d’une architecture réseau hybride sécurisée dans Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
 Azure fournit une plateforme sécurisée sur laquelle vous pouvez créer vos solutions. Nous fournissons également un grand nombre de services et technologies que vous pouvez utiliser pour sécuriser les services que vous créez sur Azure. En raison de la multitude d’options disponibles, vous êtes nombreux à avoir demandé à Microsoft de recommander les meilleures pratiques et tendances pour améliorer la sécurité des déploiements Azure.
 
@@ -32,13 +42,6 @@ Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivan
 - Alternatives possibles à la meilleure pratique
 - Comment apprendre à utiliser la meilleure pratique
 
-Nous disposons actuellement des articles suivants sur les tendances et meilleures pratiques de sécurité Azure. Veillez à consulter ce site régulièrement pour voir les mises à jour de notre liste croissante de tendances et meilleures pratiques de sécurité Azure :
+Nous sommes impatients d’ajouter de nombreux autres articles sur l’architecture de sécurité Azure et les meilleures pratiques. Si vous souhaitez que nous incluions certaines rubriques, faites-le nous savoir dans la zone de discussion en bas de cette page.
 
-- [Meilleures pratiques en matière de sécurité réseau - Azure](azure-security-network-security-best-practices.md)
-- [Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure](azure-security-data-encryption-best-practices.md)
-- [Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités](azure-security-identity-management-best-practices.md)
-- [Internet des objets (IoT) : meilleures pratiques en matière de sécurité](azure-security-iot-best-practices.md)
-- [Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
-- [Azure Boundary Security Best Practices](../best-practices-network-security.md) (Meilleures pratiques Azure en matière de sécurité des limites)
-
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

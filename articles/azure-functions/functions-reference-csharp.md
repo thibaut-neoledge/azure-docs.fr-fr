@@ -20,17 +20,21 @@
 
 # Informations de référence pour les développeurs C# sur Azure Functions
 
+> [AZURE.SELECTOR]
+- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.JS](../articles/azure-functions/functions-reference-node.md)
+ 
 L’expérience c# pour Azure Functions repose sur le Kit de développement logiciel (SDK) Azure WebJobs. Les données circulent dans votre fonction C# via des arguments de méthode. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation.
 
 Cet article repose sur l’hypothèse que vous avez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
 
 ## Fonctionnement de .csx
 
-Le format `.csx` permet d’écrire moins « réutilisable » et de se contenter de la simple écriture d’une fonction C#. Pour Azure Functions, il suffit d’inclure les références d’assembly et les espaces de noms en haut, comme d’habitude, et au lieu d’encapsuler tous les éléments dans un espace de noms et une classe, vous pouvez simplement définir votre `Run` méthode. Si vous devez inclure toutes les classes, par exemple pour définir des objets POCO, vous pouvez inclure une classe dans le même fichier.
+Le format `.csx` permet d’écrire de façon moins « réutilisable » et de se contenter de la simple écriture d’une fonction C#. Pour Azure Functions, il suffit d’inclure les références d’assembly et les espaces de noms en haut, comme d’habitude et, au lieu d’encapsuler tous les éléments dans un espace de noms et une classe, vous pouvez simplement définir votre méthode `Run`. Si vous devez inclure toutes les classes, par exemple pour définir des objets POCO, vous pouvez inclure une classe dans le même fichier.
 
 ## Liaison aux arguments
 
-Les diverses liaisons sont liées à une fonction C# via la propriété `name` de la configuration *function.json*. Chaque liaison possède ses propres types pris en charge documentés par liaison. Par exemple, un déclencheur d’objets blob peut prendre en charge une chaîne, un objet POCO ou plusieurs autres types. Vous pouvez utiliser le type qui répond le mieux à vos besoins.
+Les diverses liaisons sont liées à une fonction C# par le biais de la propriété `name` de la configuration *function.json*. Chaque liaison possède ses propres types pris en charge documentés par liaison. Par exemple, un déclencheur d’objets blob peut prendre en charge une chaîne, un objet POCO ou plusieurs autres types. Vous pouvez utiliser le type qui répond le mieux à vos besoins.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -52,7 +56,7 @@ Pour consigner les résultats dans vos journaux de diffusion en continu en C#, v
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -160,7 +164,7 @@ Pour utiliser des packages NuGet dans une fonction C#, chargez un fichier *proje
 }
 ```
 
-Seul le .NET Framework 4.6 est pris en charge. Par conséquent, assurez-vous que votre fichier *project.json* spécifie `net46` comme indiqué ici.
+Seul .NET Framework 4.6 est pris en charge. Par conséquent, assurez-vous que votre fichier *project.json* spécifie `net46` comme indiqué ici.
 
 Lorsque vous chargez un fichier *project.json*, le runtime obtient les packages et ajoute automatiquement des références aux assemblys de packages. Vous n’êtes pas obligé d’ajouter de directives `#r "AssemblyName"`. Il suffit d’ajouter les instructions `using` requises à votre fichier *run.csx* pour utiliser les types définis dans les packages NuGet.
 
@@ -194,7 +198,7 @@ Lorsque vous chargez un fichier *project.json*, le runtime obtient les packages 
 
 ## Variables d’environnement
 
-Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme illustré dans l’exemple de code suivant :
+Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme l’illustre l’exemple de code suivant :
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -213,7 +217,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## Réutilisation du code .csx
 
-Vous pouvez utiliser des classes et des méthodes définies dans d’autres fichiers *.csx* dans votre fichier *run.csx*. Pour ce faire, utilisez les directives `#load` dans votre fichier *run.csx*, comme indiqué dans l’exemple suivant.
+Vous pouvez utiliser des classes et des méthodes définies dans d’autres fichiers *.csx* dans votre fichier *run.csx*. Pour ce faire, utilisez les directives `#load` dans votre fichier *run.csx*, comme l’indique l’exemple suivant.
 
 Exemple *run.csx* :
 
@@ -254,4 +258,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs NodeJS sur Azure Functions](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

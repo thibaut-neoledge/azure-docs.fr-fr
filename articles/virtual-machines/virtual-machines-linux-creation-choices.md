@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Différentes façons de créer une machine virtuelle Linux | Microsoft Azure"
-	description="Répertorie les différentes façons de créer une machine virtuelle Linux sur Azure et fournit des liens vers d’autres instructions."
+	description="Répertorie les différentes façons de créer une machine virtuelle Linux sur Azure et fournit des liens vers des outils et des didacticiels pour chaque méthode"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,18 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # Différentes méthodes de création de machine virtuelle Linux avec Resource Manager
 
 Microsoft Azure propose différents moyens de créer une machine virtuelle à l’aide du modèle de déploiement Azure Resource Manager, suivant les utilisateurs et les applications. Cet article résume ces différences et les options dont vous disposez pour créer vos machines virtuelles Linux.
 
-## Choix des outils
+## Interface de ligne de commande Azure 
 
-### Interface de commande : interface de ligne de commande Azure 
-
-Utilisez l’interface de ligne de commande (CLI). Consultez l’article [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md) pour en savoir plus sur l’installation de l’interface de ligne de commande Azure par le biais de npm, un conteneur Docker, ou un script d’installation. Les didacticiels suivants fournissent des exemples d’utilisation de l’interface de commande Azure :
+Consultez l’article [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md) pour en savoir plus sur l’installation de l’interface de ligne de commande Azure par le biais de npm, un conteneur Docker, ou un script d’installation. Les didacticiels suivants fournissent des exemples d’utilisation de l’interface de commande Azure :
 
 * [Créer une machine virtuelle Linux à partir de l’interface CLI Azure pour le développement et le test](virtual-machines-linux-quick-create-cli.md) 
 
@@ -33,7 +31,7 @@ Utilisez l’interface de ligne de commande (CLI). Consultez l’article [Instal
 
 * [Créer une machine virtuelle Linux de A à Z à l’aide de l’interface de ligne de commande (CLI) Azure](virtual-machines-linux-create-cli-complete.md)
 
-### Interface utilisateur graphique (GUI) : portail Azure
+## Portail Azure
 
 L’interface utilisateur graphique du [portail Azure](https://portal.azure.com) constitue un moyen simple de tester une machine virtuelle, en particulier si vous découvrez Microsoft Azure, étant donné qu’aucune installation n’est à effectuer sur votre système. Utilisez le portail Azure pour créer la machine virtuelle :
 
@@ -65,4 +63,4 @@ Si vous avez besoin de personnalisations spécifiques, vous pouvez utiliser une 
 
 * Étapes rapides pour [réinitialiser un mot de passe ou des clés SSH et gérer les utilisateurs](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

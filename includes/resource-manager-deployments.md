@@ -1,17 +1,19 @@
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+Votre modèle peut être un fichier local ou un fichier externe disponible par le biais d’un URI. Lorsque votre modèle se trouve dans un compte de stockage, vous pouvez restreindre l’accès au modèle et fournir un jeton de signature d’accès partagé (SAP) au cours du déploiement.
 
-## Incremental and complete deployments
+## Déploiements incrémentiels et complets
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+Par défaut, Resource Manager gère les déploiements sous la forme de mises à jour incrémentielles du groupe de ressources. Dans le cadre d’un déploiement incrémentiel, Resource Manager :
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
+- **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
 
-With complete deployment, Resource Manager:
+Dans le cadre d’un déploiement complet, Resource Manager :
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
+- **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
  
-You specify the type of deployment through the **Mode** property.
+Vous spécifiez le type de déploiement par le biais de la propriété **Mode**.
+
+<!---HONumber=AcomDC_0615_2016-->

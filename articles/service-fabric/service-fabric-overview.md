@@ -24,7 +24,7 @@ Service Fabric vous permet de créer et gérer des applications évolutives et f
 
 Pourquoi est-il important d’adopter une approche microservices ? Voici les deux principales raisons :
 
-1. Ils permettent de mettre à l'échelle différentes parties de votre application en fonction de ses besoins
+1. Ils permettent de mettre à l’échelle différentes parties de votre application en fonction de ses besoins.
 
 2. Les équipes de développement sont plus agiles dans le déploiement de modifications et fournissent ainsi plus vite et plus souvent des fonctionnalités à vos clients.
 
@@ -71,7 +71,7 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 
 - Développer des applications hautement évolutives avec réparation spontanée.
 
-- Développer des applications composées de microservices, à l’aide du modèle de programmation Service Fabric, ou simplement héberger des exécutables invités et d’autres infrastructures applicatives de votre choix comme ASP.NET Core 1, node.js, etc.
+- Développer des applications composées de microservices, à l’aide du modèle de programmation Service Fabric, ou simplement héberger des exécutables invités et d’autres infrastructures applicatives de votre choix comme ASP.NET Core 1, Node.js, etc.
 
 - Développer des microservices avec et sans état et les rendre très fiables.
 
@@ -83,7 +83,7 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 
 - Déployer des applications en quelques secondes.
 
-- Déployer des applications avec une densité supérieure à celle des ordinateurs virtuels, en déployant des centaines ou des milliers d'applications par ordinateur.
+- Déployer des applications avec une densité supérieure à celle des ordinateurs virtuels, en déployant des centaines ou des milliers d’applications par ordinateur.
 
 - Déployer des versions différentes de la même application côte à côte, chacune pouvant être mise à niveau indépendamment.
 
@@ -103,11 +103,11 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 ## Étapes suivantes
 
 * Pour en savoir plus :
-	* [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
-	* [Vue d'ensemble de la terminologie](service-fabric-technical-overview.md)
+    * [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
+    * [Vue d'ensemble de la terminologie](service-fabric-technical-overview.md)
 * Configuration de votre [environnement de développement](service-fabric-get-started.md) Service Fabric  
 * Choix d’une [infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

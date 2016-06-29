@@ -26,14 +26,13 @@ Cet article explique comment configurer des déclencheurs de minuteur dans Azure
 
 ## Fichier function.json pour le déclencheur de minuteur
 
-Le fichier *function.json* fournit une expression schedule et un commutateur qui indique si la fonction doit ou non se déclencher immédiatement.
+Le fichier *function.json* contient une expression de planification.
 
 ```json
 {
   "bindings": [
     {
       "schedule": "0 * * * * *",
-      "runOnStartup": true,
       "name": "myTimer",
       "type": "timerTrigger",
       "direction": "in"
@@ -54,15 +53,13 @@ Voici quelques exemples d’expressions schedule.
 Pour déclencher la fonction toutes les 5 minutes :
 
 ```json
-"schedule": "0 */5 * * * *",
-"runOnStartup": false,
+"schedule": "0 */5 * * * *"
 ```
 
-Pour déclencher la fonction immédiatement, puis toutes les deux heures par la suite :
+Pour déclencher la fonction toutes les deux heures:
 
 ```json
 "schedule": "0 0 */2 * * *",
-"runOnStartup": true,
 ```
 
 ## Exemple de code C# de déclencheur de minuteur
@@ -80,4 +77,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

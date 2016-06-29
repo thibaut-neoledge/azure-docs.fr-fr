@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/14/2016" 
+	ms.date="06/10/2016" 
 	ms.author="raynew"/>
 
 # Basculement via Microsoft Azure Site Recovery
@@ -49,8 +49,8 @@ Entre un site VMM et Microsoft Azure | Pris en charge | Pris en charge | Pris e
 Entre Microsoft Azure et le site VMM | Non pris en charge | Pris en charge | Non pris en charge 
 Entre un site Hyper-V et Microsoft Azure | Pris en charge | Pris en charge | Pris en charge
 Entre Microsoft Azure et un site Hyper-V | Non pris en charge | Pris en charge | Non pris en charge
-Entre un site VMware et Microsoft Azure | Pris en charge (scénario amélioré)<br/><br/> Non pris en charge (ancien scénario) |Ce scénario utilise la réplication continue. Il n’existe donc aucune distinction entre un basculement planifié et un basculement non planifié. Sélectionnez le type **Basculement**. | N/D
-Entre un serveur physique et Microsoft Azure | Non pris en charge | Ce scénario utilise la réplication continue. Il n’existe donc aucune distinction entre un basculement planifié et un basculement non planifié. Sélectionnez le type **Basculement**. | N/D
+Entre un site VMware et Microsoft Azure | Pris en charge (scénario amélioré)<br/><br/> Non pris en charge (ancien scénario) |Non pris en charge | Pris en charge
+Entre un serveur physique et Microsoft Azure | Pris en charge (scénario amélioré)<br/><br/> Non pris en charge (ancien scénario) | Non pris en charge | Pris en charge
 
 ## Basculement et restauration automatique
 
@@ -256,4 +256,4 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 	>[AZURE.NOTE] Si vous annulez l’opération de restauration automatique à l’étape de synchronisation des données, l’état de la machine virtuelle locale sera corrompu. En effet, la synchronisation des données copie les données les plus récentes de la machine virtuelle Azure vers les disques de données locaux, et tant que la synchronisation n’est pas terminée, l’état du disque de données risque de ne pas être cohérent. Si la machine virtuelle locale est démarrée après l’annulation de la synchronisation des données, l’opération risque d’échouer. Relancez le basculement pour terminer la synchronisation des données.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

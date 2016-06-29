@@ -19,7 +19,7 @@
 
 # Utilisation du lecteur D comme lecteur de données sur une machine virtuelle Windows 
 
-Si votre application doit utiliser le lecteur D pour stocker des données, suivez ces instructions pour utiliser une autre lettre de lecteur pour le disque temporaire. N'utilisez jamais le disque temporaire pour stocker des données à conserver.
+Si votre application doit utiliser le lecteur D pour stocker des données, suivez ces instructions pour utiliser une autre lettre de lecteur pour le disque temporaire. N'utilisez jamais le disque temporaire pour stocker des données à conserver.
 
 Si vous procédez au redimensionnement ou à l’**arrêt (désallocation)** d’une machine virtuelle, il est possible que cela déclenche le placement de la machine virtuelle sur un nouvel hyperviseur. Ce placement peut également être déclenché par un événement de maintenance planifié ou non planifié. Dans ce scénario, le disque temporaire est réaffecté à la première lettre de lecteur disponible. Si vous avez une application qui nécessite spécifiquement le lecteur D:, vous devez suivre ces étapes pour déplacer temporairement pagefile.sys, associer un nouveau disque de données et lui attribuer la lettre D, puis replacer pagefile.sys sur le disque temporaire. Lorsque vous avez terminé, Azure ne reprend pas le lecteur D: si la machine virtuelle est déplacée vers un autre hyperviseur.
 
@@ -109,6 +109,6 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 
 
 ## Étapes suivantes
-- Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en [associant un disque de données supplémentaire](virtual-machines-windows-attach-disk-portal.md).
+- Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en y [associant un disque de données supplémentaire](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

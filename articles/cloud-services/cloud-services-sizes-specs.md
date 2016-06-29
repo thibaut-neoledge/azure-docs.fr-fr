@@ -29,7 +29,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 * Les instances de machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).  
 
-*   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
+* La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
 * Les rôles web et de travail nécessitent davantage d'espace disque temporaire qu'Azure Virtual Machines en raison de la configuration système requise. Les fichiers système réservent 4 Go d'espace pour le fichier d'échange de Windows et 2 Go d'espace pour le fichier de vidage de Windows.
 
@@ -143,7 +143,6 @@ Pour les grandes bases de données, les batteries de serveurs SharePoint et les 
 | Standard\_D12\_v2 | 4 | 28 Go | Élevée | 200 Go |
 | Standard\_D13\_v2 | 8 | 56 Go | Élevée | 400 Go |
 | Standard\_D14\_v2 | 16 | 112 Go | Très élevée | 800 Go |
-| Standard\_D15\_v2 | 20 | 140 Go | Très élevée | 1 000 Go |
 
 ## Configurer les tailles pour les Cloud Services
 
@@ -157,4 +156,4 @@ Voici un exemple qui montre comment configurer un rôle avec la taille [Standard
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

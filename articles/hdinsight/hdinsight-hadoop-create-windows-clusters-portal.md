@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création de clusters Hadoop dans HDInsight | Microsoft Azure"
+   pageTitle="Création de clusters Hadoop dans HDInsight | Microsoft Azure"
    	description="Apprenez à créer des clusters pour Azure HDInsight à l'aide du portail Azure."
    services="hdinsight"
    documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/21/2016"
+   ms.date="06/10/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide du portail Azure
@@ -23,11 +23,11 @@
 
 Apprenez à créer un cluster Hadoop dans HDInsight à l'aide du portail Azure. Le [portail Azure](../azure-portal-overview.md) Microsoft permet de configurer et de gérer l'ensemble de vos ressources Azure. Le portail Azure est l'un des outils que vous pouvez utiliser pour créer un cluster Hadoop basé sur Linux ou basé sur Windows dans HDInsight. Pour accéder à d'autres outils et fonctions de création de clusters, cliquez sur l'onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-##Configuration requise :
+##Configuration requise :
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
+Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -41,19 +41,19 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 
     ![Créer un cluster dans le portail Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Créer un cluster dans le portail Azure")
 
-3. Tapez ou sélectionnez les valeurs suivantes :
+3. Tapez ou sélectionnez les valeurs suivantes :
 
-  * **Nom de cluster** : saisissez le nom du cluster. Une coche verte s‘affiche en face du nom de cluster si le nom est disponible.
-  * **Type de cluster** : sélectionnez **Hadoop**. Les autres options incluent **HBase**, **Storm** et **Spark**.
-  * **Système d’exploitation de cluster** : sélectionnez **Windows**. Pour créer un cluster basé sur Linux, sélectionnez **Linux**.
-  * **Version** : voir [Versions HDInsight](hdinsight-component-versioning.md).
-  * **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer ce cluster.
-  * **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un. Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
-  * **Informations d’identification** : configurer le nom d’utilisateur et le mot de passe de l’utilisateur Hadoop (HTTP). Si vous activez le bureau à distance du cluster, vous devrez configurer le nom d'utilisateur et le mot de passe du bureau distant, et une date d'expiration de compte. Cliquez sur **Sélectionner** au bas de l’écran pour enregistrer les modifications.
+  * **Nom de cluster** : saisissez le nom du cluster. Une coche verte s‘affiche en face du nom de cluster si le nom est disponible.
+  * **Type de cluster** : sélectionnez **Hadoop**. Les autres options incluent **HBase**, **Storm** et **Spark**.
+  * **Système d’exploitation de cluster** : sélectionnez **Windows**. Pour créer un cluster basé sur Linux, sélectionnez **Linux**.
+  * **Version** : voir [Versions HDInsight](hdinsight-component-versioning.md).
+  * **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer ce cluster.
+  * **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un. Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
+  * **Informations d’identification** : configurer le nom d’utilisateur et le mot de passe de l’utilisateur Hadoop (HTTP). Si vous activez le bureau à distance du cluster, vous devrez configurer le nom d'utilisateur et le mot de passe du bureau distant, et une date d'expiration de compte. Cliquez sur **Sélectionner** au bas de l’écran pour enregistrer les modifications.
 
 	   	![Fournir les informations d’identification du cluster](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-  * **Source de données** : créez un compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster.
+  * **Source de données** : créez un compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster.
 
    		![Panneau Source de données](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
 
@@ -62,7 +62,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
   		* **Choisir le conteneur par défaut**: utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
   		* **Emplacement**: zone géographique où se trouve le compte de stockage ou dans laquelle il sera créé. Cet emplacement détermine l'emplacement du cluster.  Le cluster et le compte de stockage par défaut doit se situer dans le même datacenter Azure.
   	
-  * **NIVEAUX DE TARIFICATION DU NŒUD** : définissez le nombre de nœuds de travail dont vous avez besoin pour le cluster. Le coût estimé du cluster s'affiche dans le panneau.
+  * **NIVEAUX DE TARIFICATION DU NŒUD** : définissez le nombre de nœuds de travail dont vous avez besoin pour le cluster. Le coût estimé du cluster s'affiche dans le panneau.
   
 
 		![Node pricing tiers blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
@@ -105,7 +105,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 
 4. Cliquez sur **Créer**. En sélectionnant l’option **Épingler au tableau d’accueil**, une vignette est ajoutée pour le cluster dans le tableau d’accueil de votre portail. L'icône indique que le cluster est en cours de création et sera modifiée pour représenter l'icône HDInsight une fois la création terminée.
 	
-    La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil ou l’entrée **NOTIFICATIONS** à gauche de la page pour vérifier le processus d’approvisionnement.
+    La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil ou l’entrée **NOTIFICATIONS** à gauche de la page pour vérifier le processus d’approvisionnement.
 	
 
 5. Une fois la création terminée, cliquez sur la vignette du cluster dans le tableau d'accueil pour lancer le panneau du cluster. Le panneau de cluster fournit des informations essentielles sur le cluster, notamment son nom, le groupe de ressources auquel il appartient, son emplacement, le système d'exploitation, l'URL vers le tableau de bord de cluster, etc.
@@ -114,21 +114,21 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 	![Panneau Cluster](./media/hdinsight-provision-clusters/HDI.Cluster.Blade.png "Propriétés du cluster")
 
 
-	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section dans la section **Bases** :
+	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section dans la section **Bases** :
 
 
-	* **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
-	* **Tableau de bord**, **Tableau de bord du cluster** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail web permettant d’exécuter des tâches sur le cluster.
-	* **Bureau à distance** : permet d’activer/de désactiver le Bureau à distance sur les nœuds de cluster.
-	* **Mise à l’échelle du cluster** : permet de modifier le nombre de nœuds de travail pour ce cluster.
-	* **Supprimer** : permet de supprimer le cluster HDInsight.
-	* **Démarrage rapide** (![icône nuage et foudre = démarrage rapide](./media/hdinsight-provision-clusters/quickstart.png)) : affiche des informations qui vous aideront à utiliser HDInsight.
-	* **Utilisateurs** (![icône d’utilisateurs](./media/hdinsight-provision-clusters/users.png)) : permet de définir des autorisations pour la _gestion au moyen du portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
+	* **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
+	* **Tableau de bord**, **Tableau de bord du cluster** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail web permettant d’exécuter des tâches sur le cluster.
+	* **Bureau à distance** : permet d’activer/de désactiver le Bureau à distance sur les nœuds de cluster.
+	* **Mise à l’échelle du cluster** : permet de modifier le nombre de nœuds de travail pour ce cluster.
+	* **Supprimer** : permet de supprimer le cluster HDInsight.
+	* **Démarrage rapide** (![icône nuage et foudre = démarrage rapide](./media/hdinsight-provision-clusters/quickstart.png)) : affiche des informations qui vous aideront à utiliser HDInsight.
+	* **Utilisateurs** (![icône d’utilisateurs](./media/hdinsight-provision-clusters/users.png)) : permet de définir des autorisations pour la _gestion au moyen du portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 	
 
 		> [AZURE.IMPORTANT] Il affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail et n’a aucun effet sur les personnes autorisées à se connecter au cluster HDInsight ou à soumettre des travaux.
 		
-	* **Balises** (![icône de balise](./media/hdinsight-provision-clusters/tags.png)) : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
+	* **Balises** (![icône de balise](./media/hdinsight-provision-clusters/tags.png)) : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
 
 ##Personnalisation des clusters
 
@@ -136,10 +136,10 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 - Consultez [Personnalisation de clusters HDInsight basés sur Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md).
 
 ##Étapes suivantes
-Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) : apprenez à utiliser votre cluster HDInsight
-* [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md) : découvrez comment envoyer des tâches par programme à HDInsight
+* [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) : apprenez à utiliser votre cluster HDInsight
+* [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md) : découvrez comment envoyer des tâches par programme à HDInsight
 * [Gérer les clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->
