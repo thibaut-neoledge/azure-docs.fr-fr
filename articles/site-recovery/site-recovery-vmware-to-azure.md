@@ -145,7 +145,7 @@ Le serveur de processus Site Recovery peut découvrir automatiquement les machin
 1.	Vérifiez que la machine utilisée pour le serveur de configuration est conforme à la [configuration requise](#configuration-server-prerequisites). Vérifiez que la machine est bien connectée à Internet conformément aux paramètres suivants :
 
 	- Autorisez l’accès à ces URL: *.hypervrecoverymanager.windowsazure.com ; *.accesscontrol.windows.net ; *.backup.windowsazure.com ; *.blob.core.windows.net ; *.store.core.windows.net
-- Autorisez l’accès à [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) pour télécharger MySQL.
+	- Autorisez l’accès à [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) pour télécharger MySQL.
 	- Autorisez la communication du pare-feu vers Azure avec les [plages IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (433).
 
 2.	Téléchargez et installez [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) sur le serveur de configuration.
