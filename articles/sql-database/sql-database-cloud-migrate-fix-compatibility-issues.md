@@ -39,10 +39,10 @@ Utilisez l’outil Codeplex de l’[assistant de migration SQL Azure](http://sql
 - [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Migrez une base de données SQL Server compatible vers une base de données SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## En savoir plus
+## Ressources supplémentaires
 
 - [Base de données SQL V12](sql-database-v12-whats-new.md)
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

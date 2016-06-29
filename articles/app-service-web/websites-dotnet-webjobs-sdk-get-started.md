@@ -79,11 +79,13 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 1. Ouvrez la fenêtre **Explorateur de serveurs** dans Visual Studio.
 
-2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**. ![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**.  
+![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Connectez-vous à l'aide de vos informations d'identification Azure.
 
-5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**. ![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**.  
+![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom correspondant au compte de stockage.
 

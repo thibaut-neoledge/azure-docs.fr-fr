@@ -454,8 +454,8 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
           credential,
           groupName",
           storageName,
-          deploymentName}",
-          subscriptionId}");
+          deploymentName,
+          subscriptionId);
         Console.ReadLine();
 
 ##Étape 7 : Ajouter le code pour supprimer les ressources
@@ -497,4 +497,4 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
 - Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md)
 - Pour apprendre à gérer la machine virtuelle que vous venez de créer, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -24,7 +24,7 @@ L’exemple suivant vous indique comment créer une instance de WebLogic Server 
 
 ##Configurer votre machine virtuelle Oracle WebLogic Server 12c dans Azure
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2.	Cliquez sur **Machines virtuelles**.
 
@@ -48,7 +48,7 @@ L’exemple suivant vous indique comment créer une instance de WebLogic Server 
 
 	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image12.png)
 
-10.	Dans la boîte de dialogue **Configure Administrator User Name and Password** :
+10.	Dans la boîte de dialogue **Configure Administrator User Name and Password** :
 
 	1.	[Facultatif] Remplacez le nom d'utilisateur **weblogic** par celui de votre choix.
 
@@ -101,7 +101,7 @@ L’exemple suivant vous indique comment créer une instance de WebLogic Server 
 
 10.	Créez un point de terminaison pour votre machine virtuelle :
 
-	1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
+	1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 	2.	Cliquez sur **Parcourir**.
 
@@ -145,7 +145,7 @@ L’exemple suivant vous indique comment créer une instance de WebLogic Server 
 
 	8.	Spécifiez un nom pour la règle, ainsi qu’une description, le cas échéant, puis cliquez sur **Terminer**.
 
-12.	Pour observer l'exécution de l'application shoppingcart sur Internet, ouvrez un navigateur et accédez à l'URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l’élément <<*unique\_domain\_name*>> dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
+12.	Pour observer l'exécution de l'application shoppingcart sur Internet, ouvrez un navigateur et accédez à l'URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l’élément <<*unique\_domain\_name*>> dans le [portail Azure](https://portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
 
 
 ##Ressources supplémentaires
@@ -159,4 +159,4 @@ Maintenant que vous avez configuré votre machine virtuelle exécutant Oracle W
 
 -	[Liste des images de machine virtuelle Oracle](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

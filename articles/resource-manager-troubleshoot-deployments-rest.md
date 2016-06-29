@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Afficher les opérations de déploiement avec l’API REST Azure Resource Manager
@@ -28,6 +28,8 @@
 Si vous avez obtenu une erreur lors du déploiement des ressources sur Azure, vous pouvez afficher plus de détails sur les opérations de déploiement qui ont été exécutées. L’API REST fournit les opérations qui vous permettent de rechercher les erreurs et de déterminer les corrections éventuelles.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+
+Vous pouvez éviter certaines erreurs en validant votre modèle et votre infrastructure avant le déploiement. Vous pouvez également enregistrer des informations supplémentaires de requête et de réponse pendant le déploiement, qui pourront se révéler utiles plus tard pour la résolution des problèmes. Pour en savoir plus sur la validation et l’enregistrement d’informations de requête et de réponse, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy-rest.md).
 
 ## Résolution des problèmes avec API REST
 
@@ -52,9 +54,9 @@ Si vous avez obtenu une erreur lors du déploiement des ressources sur Azure, vo
             }
           }
 
-    Par défaut, la valeur de **debugSetting** est **none**. Lorsque vous spécifiez la valeur **debugSetting**, prêtez attention au type d'informations que vous transmettez pendant le déploiement. En enregistrant des informations sur la requête ou la réponse, vous risquez d’exposer des données sensibles récupérées au cours des opérations de déploiement.
+    Par défaut, la valeur de **debugSetting** est **none**. Lorsque vous spécifiez la valeur **debugSetting**, prêtez attention au type d’informations que vous transmettez pendant le déploiement. En enregistrant des informations sur la requête ou la réponse, vous risquez d’exposer des données sensibles récupérées au cours des opérations de déploiement.
 
-2. Récupérez des informations sur un déploiement avec l’opération [Obtenir des informations sur le déploiement d'un modèle](https://msdn.microsoft.com/library/azure/dn790565.aspx).
+2. Récupérez des informations sur un déploiement avec l’opération [Obtenir des informations sur le déploiement d’un modèle](https://msdn.microsoft.com/library/azure/dn790565.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 
@@ -102,7 +104,7 @@ Si vous avez obtenu une erreur lors du déploiement des ressources sur Azure, vo
           }
         }
 
-4. Récupérez des événements des journaux d'audit pour le déploiement avec l’opération [Répertorier les événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+4. Récupérez des événements des journaux d’audit pour le déploiement avec l’opération [Répertorier les événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version={api-version}&$filter={filter-expression}&$select={comma-separated-property-names}
 
@@ -110,7 +112,7 @@ Si vous avez obtenu une erreur lors du déploiement des ressources sur Azure, vo
 ## Étapes suivantes
 
 - Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Pour en savoir plus sur l'utilisation des journaux d'audit pour surveiller d'autres types d'actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
+- Pour en savoir plus sur l’utilisation des journaux d’audit pour surveiller d’autres types d’actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
 - Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

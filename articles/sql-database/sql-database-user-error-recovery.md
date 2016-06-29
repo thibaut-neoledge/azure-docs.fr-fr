@@ -3,7 +3,7 @@
    description="Découvrez comment récupérer le système après une erreur d’un utilisateur, une altération accidentelle des données ou une base de données supprimée à l’aide de la fonctionnalité de limite de restauration dans le temps de la base de données SQL Microsoft Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Récupération d’une base de données SQL Microsoft Azure suite à une erreur de l’utilisateur
 
@@ -43,7 +43,7 @@ Pour effectuer une limite de restauration dans le temps, consultez les ressource
 
 En cas de suppression d’une base de données, la base de données SQL Microsoft Azure permet de la restaurer au moment de cette suppression. La base de données SQL Microsoft Azure stocke la sauvegarde de base de données supprimée pendant la période de rétention de la base de données.
 
-La période de rétention d’une base de données supprimée est déterminée par le niveau de service de la base de données pendant sa période d’existence, ou le nombre de jours d’existence de la base de données. La valeur la plus faible est choisie. Pour en savoir plus sur la rétention de base de données, consultez notre [vue d’ensemble de la fonction de continuité d’activité](sql-database-business-continuity.md).
+La période de rétention d’une base de données supprimée est déterminée par le niveau de service de la base de données pendant sa période d’existence, ou le nombre de jours d’existence de la base de données. La valeur la plus faible est choisie. Pour en savoir plus sur la rétention de base de données, consultez [Sauvegardes automatisées](sql-database-automated-backups.md).
 
 Pour restaurer une base de données supprimée :
 
@@ -57,4 +57,4 @@ Pour restaurer une base de données supprimée :
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -20,7 +20,7 @@
 
 [Revenir à la page Meilleures pratiques relatives aux limites de sécurité][HOME]
 
-Cet exemple va créer un réseau de périmètre avec un pare-feu, quatre serveurs Windows, Routage défini par l’utilisateur (UDR), Transfert IP et groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic qui explique en détail et étape par étape comment le trafic procède via les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
+Cet exemple va créer un réseau de périmètre avec un pare-feu, quatre serveurs Windows, Routage défini par l’utilisateur (UDR), Transfert IP et groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic (Traffic Scenario) qui explique en détail et étape par étape l’évolution du trafic à travers les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
 
 ![DMZ bidirectionnel avec NVA, NSG et UDR][1]
 
@@ -28,7 +28,7 @@ Cet exemple va créer un réseau de périmètre avec un pare-feu, quatre serveur
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
 - Trois services cloud : « SecSvc001 », « FrontEnd001 » et « BackEnd001 »
-- Un réseau virtuel « CorpNetwork », avec trois sous-réseaux ; « SecNet », « FrontEnd » et « BackEnd »
+- Un réseau virtuel « CorpNetwork », avec trois sous-réseaux : « SecNet », « FrontEnd » et « BackEnd »
 - Une appliance virtuelle du réseau, dans cet exemple un pare-feu, connecté au sous-réseau SecNet
 - un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
 - Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
@@ -44,7 +44,7 @@ Pour créer l’environnement :
 
 **Remarque** : la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
 
-Une fois que le script s’exécute correctement, les opérations de post-script qui suivent doivent être exécutées ;
+Une fois que le script s’exécute correctement, les opérations de post-script qui suivent doivent être exécutées :
 
 1.	Configurer les règles de pare-feu. Ce sujet est traité dans la section ci-dessous intitulée Description de règles de pare-feu.
 2.	Dans la section Références, il existe deux scripts pour configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration réseau de périmètre.
@@ -110,22 +110,22 @@ Dans cet exemple, les commandes suivantes sont utilisées pour générer la tabl
 
 2.	Une fois la table de routage créée, les itinéraires définis par l’utilisateur spécifiques peuvent être ajoutés. Dans cet extrait, tout le trafic (0.0.0.0/0) est acheminé via l’appliance virtuelle (une variable, $VMIP [0], est utilisée pour transmettre l’adresse IP affectée au moment de la création de l’équipement dans le script). Dans le script, une table correspondante est également créée dans la table frontale.
 
-		Get-AzureRouteTable $BERouteTableName |`
+		Get-AzureRouteTable $BERouteTableName | `
 		    Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
 		    -NextHopType VirtualAppliance `
 		    -NextHopIpAddress $VMIP[0]
 
 3. La saisie d’itinéraire ci-dessus remplace l’itinéraire par défaut « 0.0.0.0/0 », mais la règle de 10.0.0.0/16 par défaut existante autoriserait le trafic au sein du réseau virtuel acheminer les éléments directement vers leur destination, et non vers l’équipement de réseau virtuel. Pour corriger ce comportement, vous devez ajouter la règle suivante.
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
 	        -NextHopType VirtualAppliance `
 	        -NextHopIpAddress $VMIP[0]
 
 4. À ce stade, vous devez faire un choix. Les deux itinéraires ci-dessus acheminent tout le trafic vers le pare-feu pour évaluation, même le trafic au sein d’un sous-réseau unique. Cela peut être souhaitable, cependant, pour autoriser le trafic au sein d’un sous-réseau pour acheminer localement sans intervention du pare-feu, une troisième règle très spécifique peut être ajoutée. Cet itinéraire États déclare que n’importe quelle adresse de destination du sous-réseau local peut être acheminée directement (NextHopType = VNETLocal).
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
 	        -NextHopType VNETLocal
 
 5.	Enfin, avec la table d’itinéraires créée et renseignée à l’aide d’itinéraires définis par l’utilisateur, le tableau doit être associé à un sous-réseau. Dans le script, la table d’itinéraires du serveur principal est également liée au sous-réseau du serveur frontal. Voici le script de liaison pour le sous-réseau du serveur principal.
@@ -145,8 +145,8 @@ La configuration du transfert IP est une commande unique et peut être exécuté
 
 1.	Appelez l’instance de machine virtuelle qui est votre équipement virtuel, dans ce cas, le pare-feu, et activez le transfert IP (Remarque : tout élément en rouge contenant un signe dollar (par exemple : $VMName[0]) est une variable définie par l’utilisateur issue du script dans la section de référence de ce document. Le zéro entre crochets, [0], représente la première machine virtuelle du tableau des machines virtuelles, pour que l’exemple de script fonctionne sans modification, la première machine virtuelle (VM 0) doit être le pare-feu) :
 
-		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
-		   |Set-AzureIPForwarding -Enable
+		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+		   Set-AzureIPForwarding -Enable
 
 ## Groupes de sécurité réseau (NSG)
 Dans cet exemple, un groupe NSG est créé, puis chargé avec une seule règle. Ce groupe est ensuite lié uniquement aux sous-réseaux frontaux et principaux (et pas au SecNet). La règle suivante est générée de manière déclarative :
@@ -179,7 +179,7 @@ Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que 
  
 ![Affichage logique des règles de pare-feu][2]
 
->[AZURE.NOTE] Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, il est fait référence à un pare-feu Barracuda NextGen Firewall utilisant les ports 22, 801 et 807. Veuillez consulter la documentation du fournisseur d’appliance pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
+>[AZURE.NOTE] Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, il est fait référence à un pare-feu Barracuda NextGen Firewall utilisant les ports 22, 801 et 807. Veuillez consulter la documentation du fournisseur d’appliance pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
 
 ### Description de la logique de règle
 Dans le diagramme logique ci-dessus, le sous-réseau de sécurité n’est pas affiché car le pare-feu est la seule ressource de ce sous-réseau, et ce diagramme présente les règles de pare-feu et la façon dont elles autorisent ou refusent les flux et non les itinéraires réels. En outre, les ports externes sélectionnés pour le trafic RDP appartiennent à la plage supérieure de ports (8014 – 8026) et ont été sélectionnés pour s’aligner à peu près sur les deux derniers octets de l’adresse IP locale, pour faciliter la lecture (par exemple, l’adresse du serveur local 10.0.1.4 est associée à un port externe 8014), cependant, tous les ports supérieurs non conflictuels peuvent être utilisés.
@@ -528,7 +528,7 @@ Rappelez-vous également que les groupes de sécurité réseau sont en place pou
 Enregistrez le script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf2.xml ». Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle de pare-feu ci-dessus.
 
 #### Script complet
-Ce script, en fonction des variables définies par l’utilisateur, exécutera les actions suivantes :
+Ce script exécutera les actions suivantes en fonction des variables définies par l’utilisateur :
 
 1.	Connexion à un abonnement Azure
 2.	Création d’un nouveau compte de stockage
@@ -941,4 +941,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

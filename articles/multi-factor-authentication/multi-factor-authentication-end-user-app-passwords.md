@@ -44,9 +44,9 @@ Une fois que vous disposez d’un mot de passe d’application, vous l’utilise
 
 Mode d’utilisation de l’authentification multifacteur|Description
 :------------- | :------------- | 
-[Je l’utilise avec Office 365](#creating-and-deleting-app-passwords-with-office-365)| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Office 365.
+[Je l’utilise avec Office 365](#Création et suppression des mots de passe d’application avec Office 365)| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Office 365.
 [Je ne sais pas](#creating-and-deleting-app-passwords-with-myapps-portal)|Cela signifie que vous pouvez créer des mots de passe d’application par le biais de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-[Je l’utilise avec Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Azure.
+[Je l’utilise avec Microsoft Azure](#Création et suppression des mots de passe d’application avec Office 365avec le portail Myapps)| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Azure.
 
 ## Création et suppression des mots de passe d’application avec Office 365 
 

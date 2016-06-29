@@ -19,9 +19,9 @@
 
 # Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
 
-Lorsque vous [créez une demande de support](https://ms.portal.azure.com/#create/Microsoft.Support), l’utilitaire de téléchargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.
+Lorsque vous [créez une demande de support](https://portal.azure.com/#create/Microsoft.Support), l’utilitaire de téléchargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.
 
->[AZURE.NOTE]Pour protéger votre confidentialité, évitez d’inclure des informations personnelles dans votre téléchargement.
+>[AZURE.NOTE] Pour protéger votre confidentialité, évitez d’inclure des informations personnelles dans votre téléchargement.
 
 Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement de fichiers :
 
@@ -63,4 +63,4 @@ Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0615_2016-->

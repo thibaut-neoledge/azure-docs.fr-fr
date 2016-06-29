@@ -59,7 +59,9 @@ Lorsqu’une erreur temporaire se produit au moment de la connexion à la base d
 ## Partitionnement de données avec la mise à l’échelle élastique
 La mise à l’échelle élastique simplifie le processus d’évolutivité horizontale.
 
+[Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure]
+* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md)
 * [Prise en main de l'infrastructure élastique d’Azure SQL Database (version préliminaire)](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

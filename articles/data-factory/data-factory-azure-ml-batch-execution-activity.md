@@ -86,9 +86,9 @@ Dans ce scénario, le service web Azure Machine Learning effectue des prédictio
 	        "linkedServiceName": "MyAzureMLLinkedService",
             "typeProperties":
             {
-                "webServiceInput": "DecisionTreeInputBlob ",
+                "webServiceInput": "DecisionTreeInputBlob",
                 "webServiceOutputs": {
-                    "output1": "DecisionTreeResultBlob "
+                    "output1": "DecisionTreeResultBlob"
                 }                
             },
 	        "policy": {
@@ -242,9 +242,9 @@ Nous vous recommandons de passer en revue le didacticiel [Concevoir votre premie
 		        "linkedServiceName": "MyAzureMLLinkedService",
                 "typeProperties":
                 {
-                    "webServiceInput": "DecisionTreeInputBlob ",
+                    "webServiceInput": "DecisionTreeInputBlob",
                     "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob "
+                        "output1": "DecisionTreeResultBlob"
                     }                
                 },
 		        "policy": {
@@ -772,4 +772,4 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

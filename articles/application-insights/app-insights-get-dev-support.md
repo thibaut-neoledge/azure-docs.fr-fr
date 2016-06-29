@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Comment obtenir une assistance technique auprès de l’équipe de développement Application Insights" 
+	pageTitle="Comment obtenir une assistance technique auprès de l’équipe de développement Application Insights | Microsoft Azure" 
 	description="Si vous êtes dans une situation qui nécessite l’intervention de l’équipe de développement Application Insights, vous trouverez ici la procédure à suivre pour envoyer les détails qui vous permettront d’obtenir une assistance technique." 
 	services="application-insights" 
     documentationCenter=""
@@ -42,7 +42,7 @@ Si vous n’avez pas de plan de support, notre équipe de développement est là
 
 1. Dans le [portail Application Insights](https://portal.azure.com), cliquez sur l’émoticône situé dans l’angle supérieur droit :  
 
-    ![image](./media/app-insights-get-dev-support/01.png)
+    ![Bouton Commentaires](./media/app-insights-get-dev-support/01.png)
 
 2. Dans la zone de commentaires, veillez à spécifier **AppInsights** sur la première ligne avant d’ajouter les informations suivantes :
 
@@ -51,17 +51,16 @@ Si vous n’avez pas de plan de support, notre équipe de développement est là
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
-    email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
 
     ```   
 
-    ![image](./media/app-insights-get-dev-support/02.png)
+    ![Boîte de dialogue Commentaires](./media/app-insights-get-dev-support/02.png)
 
 3. Cochez la case « Yes, it is ok to email you » (Oui, vous pouvez me contacter par e-mail).
 
-    ![image](./media/app-insights-get-dev-support/03.png)
+    ![Section d’envoi](./media/app-insights-get-dev-support/03.png)
 
 Un ingénieur de l’équipe Application Insights vous contactera rapidement. Nous faisons de notre mieux pour vous offrir ce service ; autrement dit, aucun contrat SLA formel ne peut être établi à ce stade.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

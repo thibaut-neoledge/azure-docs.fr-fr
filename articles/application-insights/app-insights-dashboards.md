@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="awills"/>
 
 # Navigation et tableaux de bord dans le portail Application Insights
@@ -79,7 +79,7 @@ Lorsqu’une vignette se trouve sur le tableau de bord, vous pouvez l’ajuster.
 
 1. Ajoutez un graphique à la vignette. 
 2. Définissez la mesure, la dimension et le style de regroupement (tableau, graphique) d’un graphique.
-3. Définissez les propriétés de filtre et d’intervalle de temps pour les graphiques sur la vignette.
+3. Définissez les propriétés de filtre et d’intervalle de temps pour les graphiques sur la vignette. Vous pouvez définir votre propre intervalle de temps du graphique, ou utiliser l’intervalle du tableau de bord.
 4. Définissez le titre de la vignette.
 
 Les vignettes épinglées à partir des panneaux de Metrics Explorer ont davantage d’options d’édition que les vignettes épinglées à partir d’un panneau Vue d’ensemble.
@@ -110,4 +110,40 @@ Lorsque vous avez créé un tableau de bord, vous pouvez le partager avec d’au
 
 En savoir plus sur [les rôles et le contrôle d’accès](app-insights-resources-roles-access-control.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Paramètres
+
+Le bouton Paramètres du panneau de la vue d’ensemble ne se limite pas à la configuration, il permet également d’afficher plusieurs types de graphiques.
+
+* **Journaux d’audit** - Consultez les alertes et les actions qui ont été effectuées sur la ressource de votre application.
+* [Nouvelle demande de support](app-insights-get-dev-support.md) - Options permettant d’obtenir de l’aide sur tous les aspects d’Azure. Pour Application Insights, vous pouvez également obtenir de l’aide en utilisant le bouton émoticône en haut à droite de la fenêtre.
+* [Plan de l’application](app-insights-dependencies.md#application-map) - Plan actif présentant les composants de votre application, dérivé des informations de dépendance.
+* [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) - Principales mesures, avec une latence d’environ 1 seconde, pour l’analyse d’une nouvelle version.
+* **Échecs** - Demandes ayant échoué, appels de dépendance ayant échoué, et exceptions. [Panneau de mesures modifiables](app-insights-metrics-explorer.md).
+* **Performances** - Temps de réponse, temps de réponse de dépendance. [Panneau de mesures modifiables](app-insights-metrics-explorer.md).
+* [Serveurs](app-insights-web-monitor-performance.md) - Compteurs de performance. Disponible si vous [installez Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* **Navigateur** - Nombre de pages consultées et performances AJAX. Disponible si vous [instrumentez vos pages web](app-insights-javascript.md).
+* **Utilisation** : nombre de pages consultées, d’utilisateurs et de sessions. Disponible si vous [instrumentez vos pages web](app-insights-javascript.md).
+* **Prise en main** - Didacticiel en ligne.
+* **Propriétés** - Clé d’instrumentation, abonnement et ID de ressource.
+* [Disponibilité](app-insights-monitor-web-app-availability.md) - Configuration et résultats du test web.
+* [Alertes](app-insights-alerts.md) - Configuration des alertes de mesures.
+* [Exportation continue](app-insights-export-telemetry.md) - Configurez l’exportation des données de télémétrie vers le stockage Azure.
+* [Tests de performances](app-insights-monitor-web-app-availability.md#performance-tests) - Configurez une charge synthétique sur votre site web.
+* [Quota et tarification](app-insights-pricing.md) et [échantillonnage d’ingestion](app-insights-sampling.md).
+* **Accès à l’API** - Actuellement utilisé pour créer des [annotations de version](app-insights-annotations.md) et pour l’API d’accès aux données.
+* [**Éléments de travail**](app-insights-diagnostic-search.md#create-work-item) - Permet de se connecter à un système de suivi afin de créer des bogues lors de l’inspection de la télémétrie.
+* [**Utilisateurs**](app-insights-resources-roles-access-control.md) - Gérez les personnes qui ont accès à vos ressources d’application.
+* [**Rôles**](app-insights-resources-roles-access-control.md) - Gérez les actions des utilisateurs.
+* [**Balises**](..\resource-group-using-tags.md) - Organisez les ressources Azure.
+* [**Verrous**](..\resource-group-lock-resources.md) - Verrouillez les ressources Azure
+* [**Exporter un modèle**](app-insights-powershell.md) - Exportez une définition de la ressource Azure afin de l’utiliser comme modèle pour créer d’autres ressources.
+
+## Et ensuite ?
+
+||
+|---|---
+|[Metrics Explorer](app-insights-metrics-explorer.md)<br/>Filtrez et segmentez les mesures|![Exemple de recherche](./media/app-insights-dashboards/64.png)
+|[Recherche de diagnostic](app-insights-diagnostic-search.md)<br/>Recherchez et examinez des événements, les événements associés, et créez des bogues |![Exemple de recherche](./media/app-insights-dashboards/61.png)
+|[Analytics](app-insights-analytics.md)<br/>Un puissant langage de requête| ![Exemple de recherche](./media/app-insights-dashboards/63.png)
+
+<!---HONumber=AcomDC_0615_2016-->

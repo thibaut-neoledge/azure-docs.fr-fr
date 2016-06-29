@@ -20,13 +20,17 @@
 
 # Informations de référence pour les développeurs NodeJS sur Azure Functions
 
-L’expérience Node/JavaScript pour Azure Functions facilite l’exportation d’une fonction qui reçoit un objet `context` pour communiquer avec le runtime et pour recevoir et envoyer des données via des liaisons.
+> [AZURE.SELECTOR]
+- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.JS](../articles/azure-functions/functions-reference-node.md)
+
+L’expérience Node/JavaScript pour Azure Functions facilite l’exportation d’une fonction qui reçoit un objet `context` pour communiquer avec le runtime et pour recevoir et envoyer des données par le biais des liaisons.
 
 Cet article repose sur l’hypothèse que vous avez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
 
 ## Exporter une fonction
 
-Toutes les fonctions JavaScript doivent exporter un seul `function` via `module.exports` pour que le runtime trouve la fonction et l’exécute. Cette fonction doit toujours inclure un objet `context`.
+Toutes les fonctions JavaScript doivent exporter un seul `function` par le biais de `module.exports` pour que le runtime trouve la fonction et l’exécute. Cette fonction doit toujours inclure un objet `context`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -63,7 +67,7 @@ module.exports = function(context) {
 
 ## context.bindings
 
-L’objet `context.bindings` collecte toutes les données entrantes et sortantes. Les données sont ajoutées à l’objet `context.bindings` via la propriété `name` de la liaison. Par exemple, étant donné la définition de la liaison suivante dans *function.json*, vous pouvez accéder au contenu de la file d’attente via `context.bindings.myInput`.
+L’objet `context.bindings` collecte toutes les données entrantes et sortantes. Les données sont ajoutées à l’objet `context.bindings` par le biais de la propriété `name` de la liaison. Par exemple, étant donné la définition de la liaison suivante dans *function.json*, vous pouvez accéder au contenu de la file d’attente par le biais de `context.bindings.myInput`.
 
 ```json
     {
@@ -109,7 +113,7 @@ function. You can access your bindings via context.bindings */
 context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
 ```
 
-La méthode `context.log` prend en charge le même format de paramètre que celui pris en charge par la [méthode util.format](https://nodejs.org/api/util.html#util_util_format_format) Node . Ainsi, par exemple, le code suivant :
+La méthode `context.log` prend en charge le même format de paramètre que celui pris en charge par la [méthode util.format](https://nodejs.org/api/util.html#util_util_format_format) Node. Ainsi, par exemple, le code suivant :
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -142,7 +146,7 @@ Vous pouvez inclure des packages dans votre fonction en téléchargeant un fichi
 
 Vous pouvez également utiliser `npm install` dans l’interface de ligne de commande SCM (Kudu) du conteneur de fonctions :
 
-1. Accédez à : `https://<function_app_name>.scm.azurewebsites.net`.
+1. Accédez à `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Cliquez sur **Console de débogage > CMD**.
 
@@ -150,7 +154,7 @@ Vous pouvez également utiliser `npm install` dans l’interface de ligne de com
 
 4. Exécutez `npm install`.
 
-Une fois les packages nécessaires installés, vous pouvez les importer dans votre fonction de la façon habituelle (c'est-à-dire, via `require('packagename')`)
+Une fois les packages nécessaires installés, vous pouvez les importer dans votre fonction de la façon habituelle (c’est-à-dire, par le biais de `require('packagename')`)
 
 ```javascript
 // Import the underscore.js library
@@ -165,7 +169,7 @@ module.exports = function(context) {
 
 ## Variables d’environnement
 
-Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `process.env`, comme illustré dans l’exemple de code suivant :
+Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `process.env`, comme l’illustre l’exemple de code suivant :
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -196,4 +200,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

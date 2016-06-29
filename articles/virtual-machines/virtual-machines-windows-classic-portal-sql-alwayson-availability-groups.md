@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurer des groupes de disponibilité Always On (GUI) | Microsoft Azure"
+	pageTitle="Configuration de groupes de disponibilité Always On dans Azure VM - Classic"
 	description="Créez un groupe de disponibilité Always On avec Azure Virtual Machines. Ce didacticiel utilise l'interface utilisateur et des outils, plutôt que des scripts."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,23 +13,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configurer des groupes de disponibilité Always On dans Azure VM (GUI)
+# Configuration de groupes de disponibilité Always On dans Azure VM - Classic
 
 > [AZURE.SELECTOR]
-- [Portail](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager : mode automatique](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager : mode manuel](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic : interface utilisateur](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
 
 
 Ce didacticiel de bout en bout vous indique comment implémenter des groupes de disponibilité en utilisant SQL Server Always On sur des machines virtuelles Azure.
-
->[AZURE.NOTE] Dans le Portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité Always On avec un Écouteur. Elle configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité Always On. Pour plus d’informations, voir [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) (Offre Always On SQL Server dans la galerie du Portail Microsoft Azure Classic). Pour utiliser PowerShell, voir le didacticiel du même scénario : [Configurer les groupes de disponibilité Always On dans Azure avec PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
 
 À la fin du didacticiel, votre solution SQL Server Always On dans Azure comprendra les éléments suivants :
 
@@ -57,7 +57,7 @@ Ce didacticiel part des principes suivants :
 
 - Vous disposez déjà d’une connaissance approfondie des groupes de disponibilité Always On. Pour plus d’informations, voir [Groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] Si l’utilisation des groupes de disponibilité Always On avec SharePoint vous intéresse, voir également [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] Si l’utilisation des groupes de disponibilité Always On avec SharePoint vous intéresse, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
 ## Création du réseau virtuel et du serveur de contrôleur de domaine
 
@@ -548,4 +548,4 @@ Vous avez correctement implémenté SQL Server Always On en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

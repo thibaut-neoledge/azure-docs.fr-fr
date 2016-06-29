@@ -23,7 +23,7 @@ Microsoft prend en charge un large éventail de produits et services. S'assurer 
 
 - Si vous êtes un éditeur sur Azure Marketplace et développez encore votre machine virtuelle, vous devez contacter vos équipes Microsoft Onboarding ou Compute.
 
-- Si vous êtes un éditeur sur Marketplace et avez une question posée par un client, veuillez lui indiquer de demander une assistance via les liens de support à l'adresse https://ms.portal.azure.com/.
+- Si vous êtes un éditeur sur Marketplace et avez une question posée par un client, veuillez lui indiquer de demander une assistance via les liens de support à l'adresse https://portal.azure.com/.
 
 - Si vous êtes un éditeur sur Marketplace et avez une question relative à votre application ou service, poursuivez la lecture ci-dessous.
 
@@ -79,7 +79,9 @@ Décrivez le problème d'une manière aussi complète que possible et fournissez
 
 Une fois votre demande soumise, nous accuserons réception dans les 24 heures et affecterons à votre problème une priorité et une gravité. Notre équipe d'ingénieurs de support technique dédiée aidera à sa résolution en fonction des temps de réponse définis dans notre contrat de niveau de service.
 
-![Confirmation][6] + Si vous avez besoin de nous parler de votre problème, utilisez le numéro de confirmation dans toute correspondance. + Vous pouvez vous informer de la progression de votre demande à tout moment
+![Confirmation][6]
++ Si vous avez besoin de nous parler de votre problème, utilisez le numéro de confirmation dans toute correspondance.
++ Vous pouvez vous informer de la progression de votre demande à tout moment.
 
 ## Étapes suivantes
 
@@ -92,4 +94,4 @@ Pour savoir comment résoudre des problèmes de support spécifiques, visitez le
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0615_2016-->

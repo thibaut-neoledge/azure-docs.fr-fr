@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics, puissant outil de recherche d’Application Insights" 
+	pageTitle="Analytics, le puissant outil de recherche d’Application Insights | Microsoft Azure" 
 	description="Présentation d’Analytics, le puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,10 +21,9 @@
 
 [Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
  
-Une requête classique est une table *source* suivie d’une série d’*opérateurs* séparés par des `|`.
+Une requête classique est une table *source* suivie d’une série d*’opérateurs* séparés par des `|`.
 
 Par exemple, essayons de découvrir à quelle heure les citoyens de Hyderabad accèdent à notre application web. Et parallèlement, découvrons les codes de résultats qui sont retournés à leurs requêtes HTTP.
 
@@ -69,7 +68,7 @@ Le langage possède de nombreuses fonctionnalités attrayantes :
 ## Connectez-vous à vos données Application Insights
 
 
-Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
+Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
 
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics/001.png)
 
@@ -82,4 +81,4 @@ Les résultats de requête sont actuellement limités à une seule semaine de do
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="06/06/2016"
 	ms.author="cephalin"/>
 
 # Activer la journalisation des diagnostics pour les applications web dans Azure App Service
@@ -270,4 +270,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

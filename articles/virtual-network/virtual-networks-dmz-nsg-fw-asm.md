@@ -20,7 +20,7 @@
 
 [Revenir à la page Meilleures pratiques relatives aux limites de sécurité][HOME]
 
-Cet exemple crée une zone DMZ avec un pare-feu, quatre serveurs Windows et des groupes de sécurité réseau. Il passera également en revue chacune des commandes concernées pour vous apporter une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic qui explique en détail et étape par étape comment le trafic procède via les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
+Cet exemple crée une zone DMZ avec un pare-feu, quatre serveurs Windows et des groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic (Traffic Scenario) qui explique en détail et étape par étape l’évolution du trafic à travers les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
 
 ![Zone DMZ entrante avec NVA et NSG][1]
 
@@ -28,7 +28,7 @@ Cet exemple crée une zone DMZ avec un pare-feu, quatre serveurs Windows et des 
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
 - deux services cloud : « FrontEnd001 », « BackEnd001 »,
-- Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
+- Un réseau virtuel « CorpNetwork » avec deux sous-réseaux : « FrontEnd » et « BackEnd »
 - Un groupe de sécurité réseau unique qui est appliqué aux deux sous-réseaux
 - Une appliance virtuelle du réseau, dans cet exemple un pare-feu Barracuda NextGen Firewall, connectée au sous-réseau Frontend
 - un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
@@ -47,7 +47,7 @@ Pour créer l’environnement :
 
 **Remarque** : la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
 
-Une fois que le script s’exécute correctement, les opérations post-script qui suivent doivent être exécutées ;
+Une fois que le script s’exécute correctement, les opérations de post-script qui suivent doivent être exécutées :
 
 1.	Configurer les règles de pare-feu. Ce sujet est traité dans la section ci-dessous, intitulée Règles de pare-feu.
 2.	Dans la section Références, il existe deux scripts pour configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration DMZ.
@@ -214,7 +214,7 @@ Vous trouverez d’autres exemples et une vue d’ensemble des limites de sécur
 Enregistrez le script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf2.xml ». Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle de pare-feu ci-dessus.
 
 #### Script complet
-Ce script, en fonction des variables définies par l’utilisateur, exécutera les actions suivantes :
+Ce script exécutera les actions suivantes en fonction des variables définies par l’utilisateur :
 
 1.	Connexion à un abonnement Azure
 2.	Création d’un nouveau compte de stockage
@@ -566,4 +566,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

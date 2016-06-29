@@ -109,7 +109,7 @@ Si l’extension de sauvegarde rencontre toujours un échec lors de la mise à j
 
 ### Pour désinstaller l’extension
 
-1. Accédez au [portail Azure](https://ms.portal.azure.com/).
+1. Accédez au [portail Azure](https://portal.azure.com/).
 2. Localisez la machine virtuelle qui rencontre des problèmes de sauvegarde.
 3. Cliquez sur **Paramètres**.
 4. Cliquez sur **Extensions**.
@@ -132,4 +132,4 @@ Voici les causes possibles de l’échec d’une tâche de capture instantanée 
 | Forte sollicitation du processeur ou de la mémoire sur la machine virtuelle. | Si la machine virtuelle sollicite fortement le processeur (plus de 90 pour cent) ou la mémoire, la tâche de capture instantanée est mise en file d’attente et retardée, puis finit par expirer. En pareille situation, essayez de procéder à des sauvegardes à la demande. |
 |La machine virtuelle ne peut pas obtenir une adresse d’hôte/de structure du protocole DHCP.|Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne peut pas bénéficier d’adresses d’hôte/de structure de la réponse DHCP 245, elle ne peut ni télécharger, ni exécuter d’extension. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. En savoir plus sur la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

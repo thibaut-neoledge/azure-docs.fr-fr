@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
+	ms.date="06/14/2016" 
 	ms.author="rnagpal"/>
 
 # Kit SDK DocumentDB
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Notes de publication
+
+### <a name="1.8.0"/>[1\.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
+  - Ajout de la prise en charge des comptes de base de données de plusieurs régions.
 
 ### <a name="1.7.0"/>[1\.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
 - Ajout de la fonctionnalité de durée de vie (TTL) pour les documents.
@@ -80,16 +83,17 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1.7.0](#1.7.0) | 26 avril 2016 |--- 
-| [1.6.1](#1.6.1) | 8 avril 2016 |--- 
-| [1.6.0](#1.6.0) | 29 mars 2016 |--- 
-| [1.5.0](#1.5.0) | 3 janvier 2016 |--- 
-| [1.4.2](#1.4.2) | 6 octobre 2015 |--- 
-| [1.4.1](#1.4.1) | 6 octobre 2015 |--- 
-| [1.2.0](#1.2.0) | 6 août 2015 |--- 
-| [1.1.0](#1.1.0) | 9 juillet 2015 |--- 
-| [1.0.1](#1.0.1) | 25 mai 2015 |--- 
-| [1.0.0](#1.0.0) | 7 avril 2015 |--- 
+| [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 avril 2016 |--- 
+| [1\.6.1](#1.6.1) | 8 avril 2016 |--- 
+| [1\.6.0](#1.6.0) | 29 mars 2016 |--- 
+| [1\.5.0](#1.5.0) | 3 janvier 2016 |--- 
+| [1\.4.2](#1.4.2) | 6 octobre 2015 |--- 
+| [1\.4.1](#1.4.1) | 6 octobre 2015 |--- 
+| [1\.2.0](#1.2.0) | 6 août 2015 |--- 
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
+| [1\.0.1](#1.0.1) | 25 mai 2015 |--- 
+| [1\.0.0](#1.0.0) | 7 avril 2015 |--- 
 | Version préliminaire 0.9.4 | 14 janvier 2015 | 29 février 2016 
 | Version préliminaire 0.9.3 | 9 décembre 2014 | 29 février 2016 
 | Version préliminaire 0.9.2 | 25 novembre 2014 | 29 février 2016 
@@ -103,4 +107,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

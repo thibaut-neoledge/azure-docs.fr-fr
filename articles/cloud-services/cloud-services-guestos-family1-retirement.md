@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="04/19/2015"
+   ms.date="06/10/2016"
    ms.author="yuemlu"/>
 
 
@@ -81,4 +81,4 @@ Les services cloud de la famille 1 des SE invités ne sont plus pris en charge.
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

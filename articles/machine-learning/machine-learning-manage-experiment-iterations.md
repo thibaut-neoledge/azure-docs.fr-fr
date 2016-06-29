@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestion des itérations d’expériences dans Azure Machine Learning Studio | Microsoft Azure"
-	description="Gestion des itérations d'expériences dans Azure Machine Learning Studio"
+	pageTitle="Gestion des itérations d’expériences dans Azure Machine Learning Studio | Microsoft Azure"
+	description="Gestion des itérations d'expériences dans Azure Machine Learning Studio"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
-# Gestion des itérations d'expériences dans Azure Machine Learning Studio
+# Gestion des itérations d'expériences dans Azure Machine Learning Studio
 
-Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.
+Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -36,7 +36,7 @@ Supposons par exemple que vous créez une expérience et que vous exécutez des 
 
 Vous pouvez afficher toutes les précédentes exécutions d'une expérience en cliquant sur **Afficher l'historique d'exécution** d'une expérience ouverte.
 
-Supposons par exemple que vous créez une expérience à l'aide du module [Régression linéaire][linear-regression] et que vous souhaitez observer l'effet de la modification de valeur du **Taux d'apprentissage** sur les résultats de votre expérience. Vous exécutez l'expérience à plusieurs reprises en utilisant différentes valeurs pour ce paramètre, comme suit :
+Supposons par exemple que vous créez une expérience à l'aide du module [Régression linéaire][linear-regression] et que vous souhaitez observer l'effet de la modification de valeur du **Taux d'apprentissage** sur les résultats de votre expérience. Vous exécutez l'expérience à plusieurs reprises en utilisant différentes valeurs pour ce paramètre, comme suit :
 
 | Valeur du taux d'apprentissage | Heure de début de l'exécution |
 | ------------------- | -------------- |
@@ -45,7 +45,7 @@ Supposons par exemple que vous créez une expérience à l'aide du module [Régr
 | 0\.4 | 11/9/2014 16:28:36
 | 0\.5 | 11/9/2014 16:33:31
 
-Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes ces exécutions apparaîtra :
+Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes ces exécutions apparaîtra :
 
 ![Exemple d'historique d'exécution][runhistory]
 
@@ -84,4 +84,4 @@ Vous pouvez maintenant continuer à modifier et exécuter cette version de votre
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -105,7 +105,7 @@ Dans les didacticiels suivants, vous allez apprendre à [migrer une base de donn
 
 ##Développement
 
-Les didacticiels suivants fournissent des informations sur la [connectivité client à la base de données SQL Azure](sql-database-connect-central-recommendations.md) ainsi que sur l’utilisation des [bibliothèques de connectivité](sql-database-libraries.md).
+Les didacticiels suivants fournissent des informations sur le [Développement de bases de données SQL](sql-database-develop-overview.md) ainsi que sur l’utilisation des [bibliothèques de connectivité](sql-database-libraries.md).
 
 | Didacticiel | Description |
 |---|---|---|
@@ -180,4 +180,4 @@ Ce didacticiel fournit des informations relatives à la [synchronisation des don
 
 [Explorer les démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

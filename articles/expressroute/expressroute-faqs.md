@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Forum Aux Questions ExpressRoute
@@ -61,6 +61,7 @@ La plupart des services Azure sont pris en charge via ExpressRoute.
 	- CDN
 	- Test de charge Visual Studio Team Services
 	- Multi-Factor Authentication
+	- Traffic Manager
 
 ## Données et connexions
 
@@ -86,7 +87,7 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 ### Vais-je perdre ma connectivité en cas d’échec de l’un de mes liens ExpressRoute ?
 Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour prendre en charge la charge de votre réseau. Vous pouvez également créer plusieurs circuits dans un autre emplacement d’homologation pour bénéficier de la tolérance de panne.
 
-### <a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d'un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ? 
+### <a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d’un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ? 
 Non, vous n’avez besoin que d’une connexion physique si votre fournisseur de services peut établir deux circuits virtuels Ethernet sur la connexion physique. La connexion physique (par exemple, une fibre optique) s’achève sur un appareil de couche 1 (L1) (voir l'image ci-dessous). Les deux circuits virtuels Ethernet sont marqués avec des ID de VLAN différents, l’un pour le circuit principal et l’autre pour le circuit secondaire. Ces ID de VLAN se trouvent dans l’en-tête Ethernet 802.1Q externe. L’en-tête Ethernet 802.1Q interne (non illustré) est mappé à un [domaine de routage ExpressRoute](expressroute-circuit-peerings.md) spécifique.
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -125,7 +126,7 @@ Pour plus d'informations, consultez la page [Partage d'un circuit ExpressRoute e
 Non. Tous les réseaux virtuels liés à un même circuit ExpressRoute font partie du même domaine de routage et ne sont pas isolés les uns des autres, du point de vue du routage. Si vous devez isoler des itinéraires, vous devez créer un circuit ExpressRoute distinct.
 
 ### Puis-je avoir un seul réseau virtuel connecté à plusieurs circuits ExpressRoute ?
-Oui. Vous pouvez lier un seul réseau virtuel à 4 circuits ExpressRoute au plus. Ils doivent être transmis par le biais de 4 [emplacements ExpressRoute](expressroute-locations.md) différents.
+Oui. Vous pouvez lier un seul réseau virtuel à 4 circuits ExpressRoute au plus. Ils doivent être transmis par le biais de quatre [emplacements ExpressRoute](expressroute-locations.md) différents.
 
 ### Puis-je accéder à Internet à partir de mes réseaux virtuels qui sont connectés à des circuits ExpressRoute ?
 Oui. Si vous n’avez pas publié les itinéraires par défaut (0.0.0.0/0) ou les préfixes des itinéraires Internet via la session BGP, vous pouvez vous connecter à Internet à partir d’un réseau virtuel lié à un circuit ExpressRoute.
@@ -177,7 +178,7 @@ Vous pouvez mettre à jour la bande passante du circuit ExpressRoute à l’aide
 ### En quoi consiste ExpressRoute Premium ?
 ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-dessous.
 
- - Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation publique et l’homologation privée.
+ - Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation privée.
  - Augmentation du nombre de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau ci-dessous.
  - Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région. **Exemple :** vous pouvez lier un réseau virtuel créé en Europe de l’Ouest à un circuit ExpressRoute créé dans la Silicon Valley.
  - Connectivité aux services Office 365 et CRM Online.
@@ -217,6 +218,8 @@ Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit Expres
 
 ## ExpressRoute, services Office 365 et CRM Online
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 ### Comment créer un circuit ExpressRoute pour se connecter à des services Office 365 et CRM Online ?
 
 1. Consultez la [page des conditions préalables d'ExpressRoute](expressroute-prerequisites.md) pour vérifier que vous avez respecté les conditions.
@@ -248,4 +251,4 @@ Oui. Les points de terminaison du service Office 365 sont accessibles via Inter
 ### Dynamics AX est-il accessible via une connexion ExpressRoute ?
 Non, ce n’est pas pris en charge.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

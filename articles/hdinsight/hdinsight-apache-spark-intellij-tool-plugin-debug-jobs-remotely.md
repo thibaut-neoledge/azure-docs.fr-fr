@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -130,6 +130,10 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 	Vous pouvez également créer votre propre artefact en cliquant sur l’icône **+** mis en surbrillance dans la capture d’écran ci-dessus.
 
+4. Dans la boîte de dialogue **Project Structure** (Structure de projet), cliquez sur **Project** (Projet). Si le **Project SDK** (SDK du projet) est défini sur 1.8, assurez-vous que le **Project language level** (Niveau de langage du projet) est défini sur **7 - Diamonds, ARM, multi-catch, etc**.
+
+	![Définir le niveau de langage du projet](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
+
 4. Ajoutez des bibliothèques à votre projet. Pour ajouter une bibliothèque, cliquez avec le bouton droit sur le nom du projet dans l’arborescence du projet, puis cliquez sur **Open Module Settings** (Ouvrir les paramètres du module). Dans la boîte de dialogue **Structure de projet**, dans le volet gauche, cliquez sur **Bibliothèques**, cliquez sur le signe plus (+), puis cliquez sur **From Maven** (À partir de Maven).
 
 	![Ajouter une bibliothèque](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
@@ -139,7 +143,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 	* `org.scalatest:scalatest_2.10:2.2.1`
 	* `org.apache.hadoop:hadoop-azure:2.7.1`
 
-5. Copiez `yarn-site.xml` et `core-site.xml` à partir du nœud principal du cluster et ajouter-les au projet. Exécutez les commandes suivantes pour copier les fichiers. Vous pouvez utiliser [Cygwin](https://cygwin.com/install.html) pour exécuter les commandes `scp` suivantes afin de copier les fichiers à partir des nœuds principaux du cluster.
+5. Copiez `yarn-site.xml` et `core-site.xml` à partir du nœud principal du cluster et ajoutez-les au projet. Exécutez les commandes suivantes pour copier les fichiers. Vous pouvez utiliser [Cygwin](https://cygwin.com/install.html) pour exécuter les commandes `scp` suivantes afin de copier les fichiers à partir des nœuds principaux du cluster.
 
 		scp <ssh user name>@<headnode IP address or host name>://etc/hadoop/conf/core-site.xml .
 
@@ -152,7 +156,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 6. Mettez à jour le fichier `core-site.xml` pour effectuer les modifications suivantes.
 
-	1. Le fichier `core-site.xml` inclut la clé chiffrée du compte de stockage associé au cluster. Dans le fichier `core-site.xml` que vous avez ajouté au projet, remplacez la clé chiffrée par la clé de stockage réelle associée au compte de stockage par défaut. Voir [Gérer vos clés d’accès de stockage](..\storage\storage-create-storage-account.md#manage-your-storage-account).
+	1. Le fichier `core-site.xml` inclut la clé chiffrée du compte de stockage associé au cluster. Dans le fichier `core-site.xml` que vous avez ajouté au projet, remplacez la clé chiffrée par la clé de stockage réelle associée au compte de stockage par défaut. Consultez [Gérer vos clés d’accès de stockage](..\storage\storage-create-storage-account.md#manage-your-storage-account).
 
 			<property>
 	      		<name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
@@ -178,15 +182,15 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 	3. Enregistrez le fichier .
 
-7. Ajoutez la classe principale pour votre application. Dans l’**Explorateur de projets**, cliquez avec le bouton droit sur **src**, pointez sur **New** (Nouveau), puis cliquez sur **Scala class** (Classe Scala).
+7. Ajoutez la classe principale pour votre application. Dans **Project Explorer** (Explorateur de projets), cliquez avec le bouton droit sur **src**, pointez sur **New** (Nouveau), puis cliquez sur **Scala class** (Classe Scala).
 
 	![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
-8. Dans la boîte de dialogue **Create New Scala Class** (Créer une classe Scala), indiquez un nom, dans la zone **Kind** (Genre), sélectionnez **Object** (Objet), puis cliquez sur **OK**.
+8. Dans la boîte de dialogue **Create New Scala Class** (Créer une classe Scala), indiquez un nom, dans la zone **Kind**, sélectionnez **Object** (Objet), puis cliquez sur **OK**.
 
 	![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
-9. Collez le code suivant dans le fichier `MyClusterAppMain.scala`. Ce code crée le Spark contexte et lance une méthode `executeJob` à partir de l’objet `SparkSample`.
+9. Collez le code suivant dans le fichier `MyClusterAppMain.scala`. Ce code crée le contexte Spark et lance une méthode `executeJob` à partir de l’objet `SparkSample`.
 
 
 		import org.apache.spark.{SparkConf, SparkContext}
@@ -203,7 +207,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 		  }
 		}
 
-10. Répétez les étapes 7 et 8 ci-dessus pour ajouter un nouvel objet Scala appelé `SparkSample`. Ajoutez le code suivant à cette classe. Ce code lit les données du fichier HVAC.csv (disponible sur tous les clusters HDInsight Spark), récupère les lignes qui contiennent uniquement un chiffre dans la septième colonne du fichier CSV et écrit la sortie dans **/HVACOut**, sous le conteneur de stockage par défaut du cluster.
+10. Répétez les étapes 8 et 9 ci-dessus pour ajouter un nouvel objet Scala appelé `SparkSample`. Ajoutez le code suivant à cette classe. Ce code lit les données du fichier HVAC.csv (disponible sur tous les clusters HDInsight Spark), récupère les lignes qui contiennent uniquement un chiffre dans la septième colonne du fichier CSV et écrit la sortie dans **/HVACOut** sous le conteneur de stockage par défaut du cluster.
 
 		import org.apache.spark.SparkContext
 	
@@ -223,7 +227,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 		
 		}
 
-11. Répétez les étapes 7 et 8 ci-dessus pour ajouter une nouvelle classe appelée `RemoteClusterDebugging`. Cette classe implémente l’infrastructure de test Spark utilisée pour le débogage des applications. Ajoutez le code suivant à la classe `RemoteClusterDebugging`.
+11. Répétez les étapes 8 et 9 ci-dessus pour ajouter une nouvelle classe appelée `RemoteClusterDebugging`. Cette classe implémente l’infrastructure de test Spark utilisée pour le débogage des applications. Ajoutez le code suivant à la classe `RemoteClusterDebugging`.
 
 		import org.apache.spark.{SparkConf, SparkContext}
 		import org.scalatest.FunSuite
@@ -251,7 +255,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 	* Pour `setJars`, spécifiez l’emplacement où le fichier jar de l’artefact sera créé. En général, il s’agit du répertoire `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`. 
 
 
-11. Dans la classe `RemoteClusterDebugging`, cliquez avec le bouton-droit sur le mot-clé `test` et sélectionnez **Create RemoteClusterDebugging Configuration** (Créer une configuration RemoteClusterDebugging).
+11. Dans la classe `RemoteClusterDebugging`, cliquez avec le bouton droit sur le mot-clé `test` et sélectionnez **Create RemoteClusterDebugging Configuration** (Créer une configuration RemoteClusterDebugging).
 
 	![Créer une configuration distante](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
@@ -279,11 +283,11 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
 
-4. Cliquez sur l’icône (**+**) pour ajouter une surveillance, comme illustré dans l’image ci-dessous.
+4. Cliquez sur l’icône (**+**) pour ajouter une surveillance, comme l’illustre l’image ci-dessous.
 
 	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
-	Dans ce cas, étant donné que l’application s’est arrêtée avant la création de la variable `rdd1`, cette surveillance nous permet de voir les 5 premières lignes de la variable `rdd`. Appuyez sur **ENTRÉE**.
+	Dans ce cas, étant donné que l’application s’est arrêtée avant la création de la variable `rdd1`, cette surveillance nous permet de voir les cinq premières lignes de la variable `rdd`. Appuyez sur **ENTRÉE**.
 
 	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
@@ -332,12 +336,12 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

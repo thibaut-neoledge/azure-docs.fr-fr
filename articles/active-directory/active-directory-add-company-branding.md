@@ -46,9 +46,7 @@ Lorsque vous accédez à un service avec une URL indépendante du client (par ex
 
 > [AZURE.NOTE]
 >
-
 - Votre nom de domaine doit apparaître « Actif » dans la section **Active Directory** > **Répertoire** > **Domaines** du portail Azure Classic dans lequel vous avez effectué la personnalisation.
-
 - La personnalisation de la page de connexion ne s’étend pas à la page de connexion client de Microsoft. Si vous vous connectez avec un compte Microsoft personnel, vous pouvez voir une liste personnalisée de vignettes utilisateur générées par Azure AD, mais la marque de votre organisation ne s’applique pas à la page de connexion du compte Microsoft.
 
 
@@ -221,4 +219,4 @@ Couleur d’arrière-plan de la page de connexion | La couleur d’arrière-plan
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

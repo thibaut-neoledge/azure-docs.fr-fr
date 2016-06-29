@@ -27,7 +27,7 @@
 
 Les étapes suivantes vous montrent comment copier une base de données SQL avec le [portail Azure](https://portal.azure.com). L'opération de copie de base de données crée une nouvelle base de données SQL. La copie est une sauvegarde instantanée de votre base de données que vous créez sur le même serveur ou sur un autre serveur.
 
-> [AZURE.NOTE] La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance. Pour plus d'informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
+> [AZURE.NOTE] La base de données SQL Azure [crée automatiquement des sauvegardes](sql-database-automated-backups.md) pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance.
 
 Lorsque le processus de copie est terminé, la nouvelle base de données est une base de données entièrement fonctionnelle qui est indépendante de la base de données source. La nouvelle base de données est cohérente au niveau transactionnel avec la base de données source au moment où la copie s'achève. Le niveau de service et le niveau de performances (niveau de tarification) de la copie de base de données sont les mêmes que ceux de la base de données source. Une fois la copie terminée, la copie devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations peuvent être gérés indépendamment.
 
@@ -48,7 +48,7 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 
 1.	Accédez au [portail Azure](https://portal.azure.com).
 2.	Accédez à la base de données que vous souhaitez copier : Parcourir > Bases de données SQL
-3.	Dans le panneau de la base de données SQL, cliquez sur **Copier** pour ouvrir le panneau **Copier** :
+3.	Dans le panneau de la base de données SQL, cliquez sur **Copier** pour ouvrir le panneau **Copier** :
 
     ![copier une base de données][1]
 
@@ -100,4 +100,4 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

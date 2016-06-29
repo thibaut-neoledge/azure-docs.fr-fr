@@ -47,7 +47,9 @@ Pour déployer l'extension de diagnostic sur les machines virtuelles du cluster 
 
 ![Paramètre Azure Diagnostics dans le portail pour la création d’un cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-Les journaux de prise en charge sont **nécessaires** à l’équipe de support technique Azure pour traiter les demandes que vous créez. Ces journaux sont collectés en temps réel et sont stockés un des comptes de stockage créés dans le groupe de ressources. Le paramètre Diagnostics configure les événements de niveau application, notamment les événements [Actor](service-fabric-reliable-actors-diagnostics.md), les événements [Reliable Service](service-fabric-reliable-services-diagnostics.md) et certains événements de Service Fabric de niveau système à stocker dans Azure Storage. Les produits comme [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou votre propre processus peuvent récupérer les événements dans le compte de stockage. Il n’existe actuellement aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés à la table. Si aucun processus de suppression des événements de la table n’est implémenté, la table continuera à croître. Lors de la création d’un cluster à l’aide du portail, il est conseillé d’exporter le modèle une fois le déploiement terminé. Les modèles peuvent être exportés du portail par
+Les journaux de prise en charge sont **nécessaires** à l’équipe de support technique Azure pour traiter les demandes que vous créez. Ces journaux sont collectés en temps réel et sont stockés un des comptes de stockage créés dans le groupe de ressources. Le paramètre Diagnostics configure les événements de niveau application, notamment les événements [Actor](service-fabric-reliable-actors-diagnostics.md), les événements [Reliable Service](service-fabric-reliable-services-diagnostics.md) et certains événements de Service Fabric de niveau système à stocker dans Azure Storage. Les produits comme [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou votre propre processus peuvent récupérer les événements dans le compte de stockage. Il n’existe actuellement aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés à la table. Si aucun processus de suppression des événements de la table n’est implémenté, la table continuera à croître.
+
+Lors de la création d’un cluster à l’aide du portail, il est vivement recommandé de télécharger le modèle *avant de cliquer sur OK* pour créer le cluster. Pour plus de détails, voir [Configurer un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Cela vous donnera un modèle ARM utilisable pour le cluster que vous allez créer. Cela est nécessaire pour apporter des modifications ultérieurement, toutes les modifications ne sont pas possibles via le portail. Les modèles peuvent être exportés à partir du portail à l’aide de la procédure ci-dessous, mais ces modèles peuvent être plus difficiles à utiliser, car ils peuvent un certain nombre de valeurs null qui devront disposer de valeurs fournies ou qui manqueront de certaines des informations nécessaires.
 
 1. Ouvrez votre groupe de ressources.
 2. Sélectionnez Paramètres pour afficher le volet Paramètres
@@ -56,7 +58,7 @@ Les journaux de prise en charge sont **nécessaires** à l’équipe de support 
 5. Sélectionnez Exporter le modèle pour afficher le volet Modèle
 6. Sélectionnez Enregistrer dans un fichier pour exporter un fichier .zip contenant le modèle, les paramètres et les fichiers PowerShell.
 
-Après avoir exporté les fichiers, une modification est nécessaire. Modifiez le fichier **parameters.json** et supprimez l’élément **adminPassword**. Cela génère une invite pour le mot de passe lors de l’exécution du script de déploiement. Pour utiliser le modèle téléchargé afin de mettre à jour une configuration
+Après avoir exporté les fichiers, une modification est nécessaire. Modifiez le fichier **parameters.json** et supprimez l’élément **adminPassword**. Cela génère une invite pour le mot de passe lors de l’exécution du script de déploiement. Lorsque vous exécutez le script de déploiement, vous devrez peut-être corriger les valeurs de paramètre de valeur null. Pour utiliser le modèle téléchargé afin de mettre à jour une configuration
 
 1. Extrayez le contenu vers un dossier sur votre ordinateur local
 2. Modifiez le contenu afin qu’il reflète la nouvelle configuration
@@ -181,7 +183,7 @@ Après avoir modifié le fichier **template.json** comme décrit, republiez le m
 
 
 ## Mise à jour de Diagnostics pour collecter et charger des journaux depuis de nouveaux canaux EventSource
-Pour mettre à jour les diagnostics de manière à collecter des journaux à partir de nouveaux canaux EventSource représentant une nouvelle application que vous allez déployer, vous devez simplement exécuter les mêmes étapes que celles décrites dans la [section ci-dessus](#deploywadarm) relative à la configuration des diagnostics pour un cluster existant. Vous devrez mettre à jour la section *EtwEventSourceProviderConfiguration* dans le fichier **template.json** pour ajouter des entrées pour les nouveaux EventSources avant d’appliquer la mise à jour de la configuration avec la commande PowerShell *New-AzureRmResourceGroupDeployment*.
+Pour mettre à jour les diagnostics de manière à collecter des journaux à partir de nouveaux canaux EventSource représentant une nouvelle application que vous allez déployer, vous devez simplement exécuter les mêmes étapes que celles décrites dans la [section ci-dessus](#deploywadarm) relative à la configuration des diagnostics pour un cluster existant. Vous devrez mettre à jour la section *EtwEventSourceProviderConfiguration* dans le fichier **template.json** pour ajouter des entrées pour les nouveaux EventSources avant d’appliquer la mise à jour de la configuration avec la commande PowerShell *New-AzureRmResourceGroupDeployment*. Le nom de la source de l’événement est défini dans le cadre de votre code dans le fichier **ServiceEventSource.cs** généré par Visual Studio.
 
 
 ## Étapes suivantes
@@ -191,4 +193,4 @@ Vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fa
 ## Articles connexes
 * [Découvrez comment collecter des compteurs de performances ou des journaux à l’aide des extensions de diagnostic](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

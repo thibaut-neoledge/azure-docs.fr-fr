@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/27/2016"
+   ms.date="06/14/2016"
    ms.author="nitinme"/>
 
-# Scénarios de données impliquant Azure Data Lake Store
+# Utilisation d’Azure Data Lake Store pour les données volumineuses
 
 Il existe quatre étapes principales dans traitement des données Big Data :
 
@@ -24,7 +24,6 @@ Il existe quatre étapes principales dans traitement des données Big Data :
 * Traitement des données
 * Téléchargement des données
 * Visualisation des données
-
 
 Dans cet article, nous allons examiner ces étapes en ce qui concerne Azure Data Lake Store pour comprendre les options et les outils disponibles pour répondre à vos besoins en termes de Big Data.
 
@@ -81,11 +80,21 @@ La plupart des types de clusters HDInsight (Hadoop, HBase, Storm) prend en charg
 * [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)
 
+### Données stockées localement ou dans des clusters IaaS Hadoop
+
+De grandes quantités de données peuvent être stockées dans des clusters Hadoop existants, localement sur les ordinateurs à l’aide de HDFS. Les clusters Hadoop peuvent être inclus dans un déploiement sur site ou au sein d’un cluster IaaS sur Azure. Il peut être nécessaire de copier ces données dans Azure Data Lake Store afin de bénéficier d’un accès unique ou périodique. Différentes options vous permettent d’y parvenir. Voici une liste de ces options et des compromis correspondants.
+
+| Approche | Détails | Avantages | Considérations |
+|-----------|---------|--------------|-----------------|
+| Utiliser Azure Data Factory (ADF) pour copier des données directement à partir de clusters Hadoop dans Azure Data Lake Store | [ADF prend en charge HDFS comme source de données](../data-factory/data-factory-hdfs-connector.md) | ADF offre une prise en charge immédiate de HDFS ainsi qu’une gestion et une surveillance de bout en bout de premier ordre | Nécessite que la passerelle de gestion des données soit déployée localement ou dans le cluster IaaS |
+| Exportez les données depuis Hadoop sous forme de fichiers. Copiez ensuite les fichiers dans Azure Data Lake Store à l’aide du mécanisme approprié. | Vous pouvez copier des fichiers dans Azure Data Lake en utilisant : <ul><li>[Azure PowerShell pour les systèmes d’exploitation Windows](data-lake-store-get-started-powershell.md)</li><li>[la ligne de commande interplateforme Azure pour les systèmes d’exploitation non Windows](data-lake-store-get-started-cli.md)</li><li>une application personnalisée avec n’importe quel SDK Data Lake Store</li></ul> | Pour commencer. Permet des téléchargements personnalisés | Processus en plusieurs étapes qui implique différentes technologies. La gestion et la surveillance deviendront de plus en plus exigeantes au fil du temps, étant donné le caractère personnalisé des outils |
+| Utilisez Distcp pour copier les données de Hadoop dans Azure Storage. Copiez ensuite les fichiers d’Azure Storage dans Data Lake Store à l’aide du mécanisme approprié. | Vous pouvez copier les données d’Azure Storage dans Data Lake Store en utilisant : <ul><li>[Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)</li><li>[l’outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp Apache en cours d’exécution sur des clusters HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| Vous pouvez utiliser des outils open source. | Processus en plusieurs étapes qui implique différentes technologies |
+
 ### Jeux de données très volumineux
 
 Pour télécharger des jeux de données qui comptent plusieurs téraoctets, l’utilisation des méthodes décrites ci-dessus peut parfois être lente et coûteuse. Dans ce cas, vous pouvez utiliser les options suivantes.
 
-* **Téléchargement « hors connexion » des données**. Vous pouvez utiliser le [service Azure Import/Export](../storage/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers un objet blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou l’[outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour déplacer des données des objets blob Azure Storage vers Data Lake Store.
+* **Téléchargement « hors connexion » des données**. Vous pouvez utiliser le [service Azure Import/Export](../storage/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers un objet blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou l[’outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour déplacer des données des objets blob Azure Storage vers Data Lake Store.
 
 	>[AZURE.NOTE] Si vous utilisez le service Import/Export, la taille des fichiers sur les disques durs que vous envoyez au centre de données Azure ne doit pas être supérieure à 200 Go.
 
@@ -134,4 +143,4 @@ Vous pouvez utiliser une combinaison de services pour créer des représentation
 * Vous pouvez commencer par utiliser [Azure Data Factory pour déplacer les données de Data Lake Store vers Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
 * Ensuite, vous pouvez [intégrer Power BI à Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) pour créer une représentation visuelle des données.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

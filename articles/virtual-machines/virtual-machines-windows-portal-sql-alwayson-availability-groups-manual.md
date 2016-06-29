@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuration manuelle des groupes de disponibilité AlwaysOn - Azure Resource Manager (GUI) | Microsoft Azure"
-	description="Création d'un groupe de disponibilité AlwaysOn avec les machines virtuelles Azure. Ce didacticiel utilise l'interface utilisateur et des outils, plutôt que des scripts."
+	pageTitle="Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure à l’aide de Resource Manager"
+	description="Créez un groupe de disponibilité Always On avec Azure Virtual Machines. Ce didacticiel utilise l'interface utilisateur et des outils, plutôt que des scripts."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,20 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="06/09/2016"
 	ms.author="MikeRayMSFT" />
 
-# Configuration de groupes de disponibilité AlwaysOn dans Azure VM (GUI)
+# Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure à l’aide de Resource Manager
 
 > [AZURE.SELECTOR]
-- [Modèle](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Manuel](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Resource Manager : mode automatique](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager : mode manuel](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic : interface utilisateur](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-Ce didacticiel complet vous montre comment implémenter des groupes de disponibilité en utilisant SQL Server AlwaysOn sur des machines virtuelles Azure Resource Manager.
+Ce didacticiel complet vous montre comment implémenter des groupes de disponibilité SQL Server dans des machines virtuelles Azure Resource Manager.
 
-À la fin du didacticiel, votre solution SQL Server AlwaysOn dans Azure comprendra les éléments suivants :
+À la fin du didacticiel, votre solution comprendra les éléments suivants :
 
 - un réseau virtuel contenant deux sous-réseaux, notamment un sous-réseau frontal et un sous-réseau principal ;
 
@@ -36,7 +38,7 @@ Ce didacticiel complet vous montre comment implémenter des groupes de disponibi
 
 - un cluster WSFC à 3 nœuds avec le modèle de quorum Nœud majoritaire ;
 
-- un équilibreur de charge interne pour fournir une adresse IP aux groupes de disponibilité AlwaysOn ;
+- un équilibreur de charge interne pour fournir une adresse IP aux groupes de disponibilité ;
 
 - un groupe de disponibilité avec deux réplicas avec validation synchrone d'une base de données de disponibilité.
 
@@ -46,33 +48,31 @@ La figure suivante est une représentation graphique de la solution.
 
 Notez qu'il s'agit d'une configuration possible. Par exemple, vous pouvez réduire le nombre de machines virtuelles pour un groupe de disponibilité de deux réplicas, afin de faire des économies sur les heures de calcul dans Azure, en utilisant le contrôleur de domaine comme témoin de partage de fichiers du quorum dans un cluster WSFC à 2 nœuds. Cette méthode permet de se passer d’une machine virtuelle par rapport à la configuration ci-dessus.
 
->[AZURE.NOTE] L’exécution de ce didacticiel prend beaucoup de temps. Vous pouvez également générer l’ensemble cette solution automatiquement. Dans le Portail Azure, il existe une installation de la galerie pour les groupes de disponibilité AlwaysOn avec un écouteur. Cela configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité AlwaysOn. Pour plus d’informations, voir [Portail - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+>[AZURE.NOTE] L’exécution de ce didacticiel prend beaucoup de temps. Vous pouvez également générer l’ensemble cette solution automatiquement. Dans le portail Azure, il existe une installation de la galerie pour les groupes de disponibilité Always On avec un écouteur. Elle configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité. Pour plus d’informations, voir [Portail - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
 Ce didacticiel part des principes suivants :
 
 - vous disposez déjà d’un compte Azure ;
 
-- vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l'interface graphique utilisateur. Pour plus d'informations, consultez [Configuration d'une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md)
+- vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l'interface graphique utilisateur. Pour plus d’informations, consultez [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
-- Vous avez déjà une connaissance approfondie des groupes de disponibilité AlwaysOn. Pour plus d'informations, consultez [Groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- Vous disposez déjà d’une connaissance approfondie des groupes de disponibilité. Pour plus d’informations, voir [Groupes de disponibilité Always On (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] Si l'utilisation des groupes de disponibilité AlwaysOn avec SharePoint vous intéresse, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] Si l’utilisation des groupes de disponibilité avec SharePoint vous intéresse, voir également [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-## Créer un groupe de ressources, un réseau et des groupes à haute disponibilité
-
-### Se connecter à un abonnement Azure et créer un groupe de ressources
+## Créer un groupe de ressources
 
 1. Connectez-vous au [portail Azure](http://portal.azure.com). 
 
 1. Cliquez sur **+Nouveau**, puis tapez **Groupe de ressources** dans la fenêtre de recherche **Marketplace**.
 
- ![Groupe de ressources](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
+    ![Groupe de ressources](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
 
-1. Cliquez sur **Groupe de ressources**. 
+1. Cliquez sur **Groupe de ressources**.
 
- ![Nouveau groupe de ressources](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+    ![Nouveau groupe de ressources](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 
-1. Cliquez sur **Create**. 
+1. Cliquez sur **Create**.
 
 1. Dans le panneau **Groupe de ressources**, sous **Nom du groupe de ressources**, tapez **SQL-HA-RG**.
 
@@ -86,7 +86,7 @@ Ce didacticiel part des principes suivants :
 
 Azure crée le groupe de ressources et épingle un raccourci vers le groupe de ressources dans le portail.
 
-### Créer un réseau et des sous-réseaux
+## Créer un réseau et des sous-réseaux
 
 L’étape suivante consiste à créer les réseaux et les sous-réseaux dans le groupe de ressources Azure.
 
@@ -96,17 +96,17 @@ Pour créer le réseau virtuel :
 
 1. Dans le Portail Azure, cliquez sur le nouveau groupe de ressources, puis cliquez sur **+** pour ajouter un nouvel élément au groupe de ressources. Azure ouvre le panneau **Tout**. 
 
- ![Nouvel élément](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
+    ![Nouvel élément](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
 1. Recherchez **Réseau virtuel**.
 
- ![Recherche d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+    ![Recherche d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
 1. Cliquez sur **Réseau virtuel**.
 
 1. Dans le panneau **Réseau virtuel**, cliquez sur le modèle de déploiement **Resource Manager**, puis sur **Créer**.
 
- ![Création d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+    ![Création d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
  
 
  
@@ -127,7 +127,7 @@ Notez que votre espace d’adressage et votre plage d’adresses de sous-réseau
 
 Cliquez sur **Créer**
 
-   ![Configuration d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 Vous revenez au tableau de bord du portail Azure. Azure vous avertit lorsque le réseau est créé.
 
@@ -145,17 +145,17 @@ Vous revenez au tableau de bord du portail Azure. Azure vous avertit lorsque le 
 
 1. Dans le panneau **Paramètres**, cliquez sur **Sous-réseaux**.
 
-   Vous pouvez voir le sous-réseau que vous avez déjà créé.
+    Vous pouvez voir le sous-réseau que vous avez déjà créé.
 
-   ![Configuration d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
+    ![Configuration d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
 
-1. Créez un deuxième sous-réseau. Cliquez sur **+ Sous-réseau**. 
+1. Créez un deuxième sous-réseau. Cliquez sur **+ Sous-réseau**.
 
  Dans le panneau **Ajouter un sous-réseau**, configurez le sous-réseau en tapant **subnet-2** sous **Nom**. Azure spécifie automatiquement une **plage d’adresses** valide. Vérifiez que cette plage d’adresses comporte au moins 10 adresses. Dans un environnement de production, vous pouvez nécessiter davantage d’adresses.
 
 Cliquez sur **OK**.
 
-   ![Configuration d’un réseau virtuel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
    
 Voici un résumé des paramètres de configuration relatifs au réseau virtuel et aux deux sous-réseaux.
 
@@ -171,7 +171,7 @@ Voici un résumé des paramètres de configuration relatifs au réseau virtuel e
 | **Groupe de ressources** | **SQL-HA-RG** |
 | **Emplacement** | Spécifiez le même emplacement que celui choisi pour le groupe de ressources. |
 
-### Créer des groupes à haute disponibilité
+## Créer des groupes à haute disponibilité
 
 Avant de créer des machines virtuelles, vous devez créer des groupes à haute disponibilité. Les groupes à haute disponibilité réduisent le temps d’arrêt lors des événements de maintenance planifiée et non planifiée. Un groupe à haute disponibilité Azure est un groupe de ressources logique qu’Azure place dans des domaines de mise à jour et d’erreur physiques. Un domaine d’erreur garantit que les membres du groupe à haute disponibilité disposent de ressources réseau et d’alimentation distinctes. Un domaine de mise à jour permet de s’assurer que les membres du groupe à haute disponibilité ne sont pas arrêtés pour maintenance simultanément. [Gestion de la disponibilité des machines virtuelles](virtual-machines-windows-manage-availability.md).
 
@@ -190,7 +190,7 @@ Configurez deux groupes à haute disponibilité en vous basant sur les paramètr
 
 Après avoir créé les groupes à haute disponibilité, revenez au groupe de ressources dans le Portail Azure.
 
-## Créer et configurer des contrôleurs de domaine
+## Création de contrôleurs de domaine
 
 À ce stade, vous avez créé le réseau, les sous-réseaux, les groupes à haute disponibilité et un équilibreur de charge accessible par le biais d’Internet. Vous êtes prêt à créer les machines virtuelles pour les contrôleurs de domaine.
 
@@ -376,7 +376,7 @@ Les étapes suivantes configurent les comptes Active Directory (AD) pour une u
 
 Maintenant que vous avez fini de configurer Active Directory et les objets utilisateur, vous allez créer deux machines virtuelles SQL Server et une machine virtuelle de serveur témoin, puis joindre les trois machines à ce domaine.
 
-## Créer les serveurs SQL et configurer le clustering
+## Création de serveurs SQL
 
 ###Créer et configurer les machines virtuelles SQL Server
 
@@ -385,7 +385,7 @@ Créez ensuite trois machines virtuelles, dont deux machines virtuelles SQL Serv
 |Page|MV1|MV2|MV3|
 |---|---|---|---|
 |Sélectionnez l’élément de la galerie approprié.|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 SP1 Enterprise sur Windows Server 2012 R2**|**SQL Server 2014 SP1 Enterprise sur Windows Server 2012 R2**|
-| Configuration de la machine virtuelle - **De base** | **Nom** = cluster-fsw<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure | **Nom** = sqlserver-0<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure | **Nom** = sqlserver-1<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |
+| Configuration de la machine virtuelle **De base** | **Nom** = cluster-fsw<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure | **Nom** = sqlserver-0<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure | **Nom** = sqlserver-1<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!000<br/>**Abonnement** = Votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |
 |Configuration de la machine virtuelle - **Taille** |DS1 (1 cœur, 3,5 Go de mémoire)|**TAILLE** = DS 2 (2 cœurs, 7 Go de mémoire)|**TAILLE** = DS 2 (2 cœurs, 7 Go de mémoire)|
 |Configuration de la machine virtuelle - **Paramètres**|**Stockage** = Premium (SSD)<br/>**SOUS-RÉSEAUX DU RÉSEAU** = autoHAVNET<br/>**COMPTE DE STOCKAGE** = Utiliser un compte de stockage généré automatiquement<br/>**Sous-réseau** = subnet-2(10.1.1.0/24)<br/>**Adresse IP publique** = Aucune<br/>**Groupe de sécurité réseau** = Aucun<br/>**Surveillance + diagnostics** = Activé<br/>**Compte de stockage de diagnostics** = Utiliser un compte de stockage généré automatiquement<br/>**GROUPE À HAUTE DISPONIBILITÉ** = sqlAvailabilitySet<br/>|**Stockage** = Premium (SSD)<br/>**SOUS-RÉSEAUX DU RÉSEAU** = autoHAVNET<br/>**COMPTE DE STOCKAGE** = Utiliser un compte de stockage généré automatiquement<br/>**Sous-réseau** = subnet-2(10.1.1.0/24)<br/>**Adresse IP publique** = Aucune<br/>**Groupe de sécurité réseau** = Aucun<br/>**Surveillance + diagnostics** = Activé<br/>**Compte de stockage de diagnostics** = Utiliser un compte de stockage généré automatiquement<br/>**GROUPE À HAUTE DISPONIBILITÉ** = sqlAvailabilitySet<br/>|**Stockage** = Premium (SSD)<br/>**SOUS-RÉSEAUX DU RÉSEAU** = autoHAVNET<br/>**COMPTE DE STOCKAGE** = Utiliser un compte de stockage généré automatiquement<br/>**Sous-réseau** = subnet-2(10.1.1.0/24)<br/>**Adresse IP publique** = Aucune<br/>**Groupe de sécurité réseau** = Aucun<br/>**Surveillance + diagnostics** = Activé<br/>**Compte de stockage de diagnostics** = Utiliser un compte de stockage généré automatiquement<br/>**GROUPE À HAUTE DISPONIBILITÉ** = sqlAvailabilitySet<br/>
 |Configuration de la machine virtuelle - **Paramètres SQL Server**|Non applicable|**Connectivité SQL** = Privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = Désactivée<br/>**Configuration du stockage** = Générale<br/>**Mise à jour corrective automatique** = Dimanche à 2 h 00<br/>**Sauvegarde automatisée** = Désactivée</br>**Intégration Azure Key Vault** = Désactivée|**Connectivité SQL** = Privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = Désactivée<br/>**Configuration du stockage** = Générale<br/>**Mise à jour corrective automatique** = Dimanche à 2 h 00<br/>**Sauvegarde automatisée** = Désactivée</br>**Intégration Azure Key Vault** = Désactivée|
@@ -473,6 +473,8 @@ Vous utiliserez ces adresses pour configurer le service DNS pour chaque machine 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de Administrateurs**.
 
 1. Répétez les étapes ci-dessus avec **sqlserver-1** et **cluster-fsw**.
+
+## Création du cluster
 
 ### Ajoutez la fonctionnalité de **Clustering de basculement** à chaque machine virtuelle du cluster.
 
@@ -570,7 +572,7 @@ Maintenant que vous avez créé le cluster, vérifiez la configuration et ajoute
 
 1. Déconnectez-vous de la session Bureau à distance.
 
-## Configurer les groupes de disponibilité AlwaysOn
+## Configuration des groupes de disponibilité
 
 Dans cette section, vous effectuerez les opérations suivantes sur **sqlserver-0** et **sqlserver-1** :
 
@@ -578,7 +580,7 @@ Dans cette section, vous effectuerez les opérations suivantes sur **sqlserver-0
 
 - Ouvrir le pare-feu pour l’accès à distance au serveur SQL Server pour le processus SQL Server et le port de sonde
 
-- Activer la fonctionnalité de groupes de disponibilité AlwaysOn
+- Activation de la fonctionnalité de groupes de disponibilité
 
 - Modifier le compte de service SQL Server pour **CORP\\SQLSvc1** et **CORP\\SQLSvc2**, respectivement
 
@@ -618,7 +620,7 @@ Cette solution requiert deux règles de pare-feu sur chaque serveur SQL Server. 
 
 Effectuez toutes les étapes pour les deux serveurs SQL Server.
 
-### Activez la fonctionnalité Groupes de disponibilité AlwaysOn sur chaque serveur SQL Server.
+### Activation de la fonctionnalité de groupes de disponibilité sur chaque serveur SQL Server
 
 Effectuez ces étapes pour les deux serveurs SQL Server.
 
@@ -756,7 +758,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 >[AZURE.WARNING] N'essayez pas de basculer le groupe de disponibilité à partir du Gestionnaire du Cluster de basculement. Vous devez effectuer toutes les opérations de basculement à partir du **tableau de bord AlwaysOn** dans SSMS. Pour plus d’informations, consultez [Restrictions d’utilisation du Gestionnaire du cluster de basculement WSFC avec des groupes de disponibilité](https://msdn.microsoft.com/library/ff929171.aspx).
 
-## Configurer un équilibreur de charge interne dans Azure et un écouteur de groupe de disponibilité dans le cluster
+## Configuration de l’équilibreur de charge interne
 
 Pour vous connecter directement au groupe de disponibilité, vous devez configurer un équilibreur de charge interne dans Azure, puis créer l’écouteur sur le cluster. Cette section fournit une vue d’ensemble détaillée de ces étapes. Pour obtenir des instructions détaillées, voir [Configurer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn dans Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -764,7 +766,7 @@ Pour vous connecter directement au groupe de disponibilité, vous devez configur
 
 1. Dans le Portail Azure, accédez à **SQL-HA-RG**, puis cliquez sur **+ Ajouter**.
 
-1. Recherchez **l’équilibrage de charge**. Choisissez l’équilibreur de charge publié par Microsoft, puis cliquez sur **Créer**.
+1. Recherchez **l’équilibreur de charge**. Choisissez l’équilibreur de charge publié par Microsoft, puis cliquez sur **Créer**.
 
 1. Configurez les paramètres suivants pour l’équilibreur de charge.
 
@@ -861,4 +863,4 @@ Pour tester la connexion :
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

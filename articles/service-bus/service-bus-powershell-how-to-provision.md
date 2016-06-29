@@ -60,7 +60,7 @@ try
 
 catch [System.Exception]
 {
-    Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
+    Write-Error "Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script."
 }
 ```
 
@@ -163,12 +163,12 @@ La séquence de commandes suivante déplace un espace de noms d'un abonnement Az
 ```
 # Create a new resource group in target subscription
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRP' -Location 'East US'
+New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move namespace from source subscription to target subscription
 Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRP' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## Étapes suivantes
@@ -195,4 +195,4 @@ Vous pouvez également télécharger des scripts prêts à l’emploi :
 [API .NET pour Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

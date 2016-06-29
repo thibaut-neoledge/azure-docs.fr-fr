@@ -3,7 +3,7 @@
    description="Questions courantes (et les réponses associées) posées par les clients sur les fonctionnalités intégrées et facultatives pour la continuité des activités et la récupération d'urgence avec une base de données SQL Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="04/25/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # FAQ sur la continuité des activités
 
@@ -54,4 +54,4 @@ Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le 
 
 Utilisez la vue de gestion dynamique (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) pour obtenir l’heure de la dernière réplication, le dernier décalage de la réplication et d’autres informations sur le lien de réplication.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

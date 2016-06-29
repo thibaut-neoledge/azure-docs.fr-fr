@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -80,13 +80,11 @@ Il est recommandé d’utiliser le protocole HTTPS avec une SAS. Pour plus d’i
 
 Voici un exemple de chaîne de connexion incluant la SAS d’un service pour Blob Storage :
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
-Et voici un exemple de la même chaîne de connexion avec encodage de l’URL :
+Et voici un exemple de la même chaîne de connexion avec encodage de caractères spéciaux :
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 ### Exemple de SAP de compte
 
@@ -165,4 +163,4 @@ Par exemple, votre chaîne de connexion doit être similaire à celle-ci :
 - [Utilisation de l'émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md)
 - [Explorateurs du stockage Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 Cet article montre comment lancer le basculement vers une base de données SQL secondaire avec Transact-SQL. Pour configurer la géoréplication, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-transact-sql.md).
@@ -98,4 +98,4 @@ Utilisez les étapes suivantes pour lancer un basculement non planifié.
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

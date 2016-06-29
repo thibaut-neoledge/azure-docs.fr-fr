@@ -21,7 +21,7 @@ Les composants de **Tâches de bases de données élastiques** peuvent être dé
 
 ##Désinstallez les composants de Tâches de bases de données élastiques à l'aide du portail Azure
 
-1. Ouvrez le [portail Azure](https://ms.portal.azure.com/).
+1. Ouvrez le [portail Azure](https://portal.azure.com/).
 2. Accédez à l'abonnement qui contient les composants de **Tâches de bases de données élastiques**, à savoir l'abonnement dans lequel les composants de Tâches de bases de données élastiques ont été installés.
 3. Cliquez sur **Parcourir** pus sur **Groupes de ressources**.
 4. Sélectionnez le groupe de ressources intitulé « \_\_ElasticDatabaseJob ».
@@ -64,4 +64,4 @@ Pour plus d’informations concernant les tâches de bases de données élastiqu
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

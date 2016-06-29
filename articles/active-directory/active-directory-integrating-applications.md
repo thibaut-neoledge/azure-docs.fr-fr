@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/06/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin;bryanla" />
 
-# Intégration d'applications dans Azure Active Directory
+# Intégration d’applications dans Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -51,7 +51,9 @@ Si vous créez une application web qui a simplement besoin de prendre en charge 
 
 ## Mise à jour d'une application
 
-Une fois votre application enregistrée auprès d’Azure AD, il est possible qu’elle doive être mise à jour pour fournir un accès aux API web ou être mise à la disposition d’autres organisations, etc. Cette section décrit comment aller plus loin dans la configuration de votre application. Pour plus d'informations sur le fonctionnement de l'authentification dans Azure AD, consultez la section [Scénarios d'authentification pour Azure AD](active-directory-authentication-scenarios.md).
+Une fois votre application enregistrée auprès d’Azure AD, il est possible qu’elle doive être mise à jour pour fournir un accès aux API web ou être mise à la disposition d’autres organisations, etc. Cette section décrit les différents scénarios dans lesquels vous devrez peut-être configurer davantage votre application. Tout d’abord, nous allons examiner une vue d’ensemble de l’infrastructure de consentement, un élément important à comprendre si vous développez des ressources/applications API qui seront utilisées par les applications clientes créées par les développeurs de votre organisation ou d’une autre entreprise.
+
+Pour plus d'informations sur le fonctionnement de l'authentification dans Azure AD, consultez la section [Scénarios d'authentification pour Azure AD](active-directory-authentication-scenarios.md).
 
 ### Vue d’ensemble de l’infrastructure de consentement
 
@@ -109,9 +111,9 @@ Lorsqu’une application cliente est configurée pour accéder à une API web ex
 
 ### Configuration d’une application de ressources pour exposer les API web
 
-Vous pouvez développer une API web et la mettre à disposition d’applications clientes en exposant l’étendue des autorisations. Une API web correctement configurée peut être mise à disposition tout comme les autres API web Microsoft, notamment l’API Graph et les API Office 365. Les étendues d’autorisations sont exposées par le biais du manifeste de votre application, c’est-à-dire un fichier JSON représentant la configuration d’identité de votre application. Vous pouvez exposer l’étendue de vos autorisations en accédant à votre application dans le portail Azure Classic, puis en cliquant sur le bouton Manifeste d’application dans la barre de commandes.
+Vous pouvez développer une API web et la mettre à disposition d’applications clientes en exposant l’étendue d’accès. Une API web correctement configurée peut être mise à disposition tout comme les autres API web Microsoft, notamment l’API Graph et les API Office 365. Les étendues d’accès sont exposées par le biais du manifeste de votre application, c’est-à-dire un fichier JSON représentant la configuration d’identité de votre application. Vous pouvez exposer l’étendue de vos autorisations en accédant à votre application dans le portail Azure Classic, puis en cliquant sur le bouton Manifeste d’application dans la barre de commandes.
 
-#### Ajout d’étendues d’autorisation à votre application de ressources
+#### Ajout d’étendues d’accès à votre application de ressources
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 
@@ -121,7 +123,7 @@ Vous pouvez développer une API web et la mettre à disposition d’applications
 
 1. Cliquez sur le bouton **Gérer le manifeste** dans la barre de commandes, puis sélectionnez **Télécharger le manifeste**.
 
-1. Ouvrez le fichier du manifeste de l'application JSON et remplacez le nœud « oauth2Permissions » par l'extrait de code JSON suivant. Cet extrait de code illustre la manière d’exposer une étendue d’autorisation, appelée emprunt d’identité. Veillez à modifier le texte et les valeurs selon votre propre application :
+1. Ouvrez le fichier du manifeste de l'application JSON et remplacez le nœud « oauth2Permissions » par l'extrait de code JSON suivant. Cet extrait de code est un exemple montrant comment exposer une étendue appelée « emprunt d’identité », qui permet à un propriétaire de ressource d’attribuer à une application cliente un type d’accès délégué à une ressource. Veillez à modifier le texte et les valeurs selon votre propre application :
 
 		"oauth2Permissions": [
 		{
@@ -138,7 +140,7 @@ Vous pouvez développer une API web et la mettre à disposition d’applications
 
     La valeur d’ID doit être un nouveau GUID, créé à l’aide d’un [outil de génération de GUID](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) ou d’un programme. Elle représente un identificateur unique pour l’autorisation exposée par l’API web. Une fois votre client correctement configuré pour demander l’accès à votre API web et pour appeler l’API web, il présentera un jeton OAuth 2.0 JWT qui a la revendication d’étendue définie à la valeur ci-dessus, dans ce cas user\_impersonation.
 
-	>[AZURE.NOTE] Vous pouvez exposer des portées d’autorisations supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs autorisations associées à un éventail de fonctions différentes. Vous pouvez maintenant contrôler l’accès à l’API web à l’aide de la revendication d’étendue dans le jeton OAuth 2.0 JWT reçu.
+	>[AZURE.NOTE] Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Vous pouvez maintenant contrôler l’accès à l’API web à l’aide de la revendication d’étendue dans le jeton OAuth 2.0 JWT reçu.
 
 1. Enregistrez le fichier JSON mis à jour, puis chargez-le. Pour ce faire, cliquez sur le bouton **Gérer le manifeste** dans la barre de commandes, sélectionnez **Télécharger le manifeste**, accédez à votre fichier de manifeste mis à jour, puis sélectionnez-le. Une fois le fichier téléchargé, votre API web est configurée pour être utilisée par d’autres applications dans votre répertoire.
 
@@ -151,7 +153,7 @@ Vous pouvez développer une API web et la mettre à disposition d’applications
 ![Les autorisations de la liste des tâches sont affichées.](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### Informations complémentaires concernant le manifeste d’application
-Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD, y compris les étendues d’autorisation d’API dont il a été question ci-dessus. Pour plus d’informations sur l’entité Application, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). Vous y trouverez des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API :
+Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD, y compris les étendues d’accès d’API dont il a été question ci-dessus. Pour plus d’informations sur l’entité Application, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). Vous y trouverez des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API :
 
 - le membre appRoles, qui est une collection d’entités [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) pouvant être utilisée pour définir les **autorisations d’application** pour une API web ;  
 - le membre oauth2Permissions, qui est une collection d’entités [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) pouvant être utilisée pour définir les **autorisations déléguées** pour une API web.
@@ -162,7 +164,7 @@ Pour des informations plus générales sur les concepts de manifeste d’applica
 
 Comme mentionné précédemment, vous pouvez non seulement exposer des API et y accéder dans vos propres applications de ressources, mais également mettre à jour votre application cliente pour accéder aux API exposées par les ressources Microsoft. L’API Graph d’Azure AD, appelée « Azure Active Directory » dans la liste des autorisations aux autres applications, est disponible par défaut pour toutes les applications enregistrées auprès d’Azure AD. Si vous enregistrez votre application cliente dans un locataire Azure AD qui a été configuré par Office 365, vous pouvez également accéder à toutes les autorisations exposées par les API sur diverses ressources Office 365.
 
-Pour une présentation complète des étendues d’autorisation exposées par :
+Pour une présentation complète des étendues d’accès exposées par :
 
 - l’API Graph d’Azure AD, consultez l’article [Étendues d’autorisation | Concepts relatifs à l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) ;
 - les API Office 365, consultez l’article [Authentification et autorisation à l’aide de l’infrastructure commune de consentement](https://msdn.microsoft.com/office/office365/howto/application-manifest). Consultez la page [Configurer votre environnement de développement Office 365](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) pour en savoir plus sur la manière de développer une application cliente capable de s’intégrer aux API Office 365.
@@ -178,13 +180,13 @@ Il est important de noter les différences entre une application à client uniqu
 - Une application à client unique est prévue pour une utilisation dans une seule organisation. Il s’agit généralement d’une application métier écrite par un développeur de l’entreprise. Une application à client unique doit être accessible uniquement aux utilisateurs d’un annuaire et, en conséquence, ne doit être approvisionnée que dans un seul annuaire.
 - Une application mutualisée est prévue pour une utilisation dans plusieurs organisations. Il s’agit d’une application SaaS (software-as-a-service) généralement écrite par un éditeur de logiciels indépendant. Les applications mutualisées doivent être approvisionnées dans chaque annuaire dans lequel elles sont utilisées, ce qui suppose le consentement d’un utilisateur ou d’un administrateur pour les inscrire via l’infrastructure de consentement Azure AD. Notez que toutes les applications clientes natives sont mutualisées par défaut lorsqu’elles sont installées sur le périphérique du propriétaire de la ressource. Pour plus d’informations sur l’infrastructure de consentement, consultez la section Vue d’ensemble de l’infrastructure de consentement ci-dessus.
 
-#### Permettre aux utilisateurs externes d’accorder l’accès à l’application
+#### Permettre aux utilisateurs externes d’accorder à votre application l’accès à leurs ressources
 
 Si vous écrivez une application que vous souhaitez proposer à vos clients ou à des partenaires externes à votre organisation, vous devez mettre à jour la définition de l’application dans le portail Azure Classic.
 
 >[AZURE.NOTE] Lorsque vous mutualisez une application, vous devez vous assurer que l’URI ID de votre application appartient à un domaine vérifié. En outre, l'URL de renvoi doit commencer par https://. Pour plus d’informations, voir [Objets principal du service et application](active-directory-application-objects.md).
 
-##### Pour autoriser les utilisateurs externes à accéder à votre application
+Pour autoriser les utilisateurs externes à accéder à votre application :
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 
@@ -198,7 +200,7 @@ Si vous écrivez une application que vous souhaitez proposer à vos clients ou �
 
 Une fois que vous avez apporté les modifications ci-dessus, les utilisateurs et les administrateurs d’autres organisations pourront accorder à votre application l'accès à leur répertoire et à d'autres données.
 
-### Déclenchement de l’infrastructure de consentement Azure AD lors de l’exécution
+#### Déclenchement de l’infrastructure de consentement Azure AD lors de l’exécution
 
 Pour utiliser l’infrastructure de consentement, les applications clientes mutualisées doivent en demander l’autorisation avec OAuth 2.0. Des [exemples de code](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) sont disponibles pour vous montrer comment une application web, une application native ou une application serveur/démon demande des codes d’autorisation et des jetons d’accès pour appeler des API web.
 
@@ -206,11 +208,13 @@ Votre application web peut peut-être offrir également une expérience d’insc
 
 Sinon, votre application web peut également offrir une expérience permettant aux administrateurs d’« inscrire sa société ». Cette expérience redirige également l'utilisateur vers le point de terminaison d’autorisation AD OAuth Azure 2.0. Dans ce cas, vous pouvez transmettre un paramètre prompt=admin\_consent pour autoriser le point de terminaison à forcer l’expérience de consentement de l’administrateur, où l’administrateur accorde son consentement pour le compte de son organisation. Seul l’utilisateur qui s’authentifie avec un compte appartenant au rôle Administrateur général peut fournir son consentement ; les autres utilisateurs recevront un message d’erreur. En cas de consentement réussi, la réponse contiendra admin\_consent=true. Lors de l’échange d’un jeton d'accès, vous recevrez également un id\_token qui fournira des informations sur l'organisation et sur l'administrateur qui s’est inscrit à votre application.
 
-#### Activation de l’accord implicite OAuth 2.0 pour les applications à page unique
+### Activation de l’accord implicite OAuth 2.0 pour les applications à page unique
 
-Les applications à page unique (SPA) se composent généralement d’une partie frontale reposant largement sur JavaScript qui s’exécute dans le navigateur. Celle-ci appelle l’API web principale de l’application pour effectuer sa logique métier. Pour les applications à page unique hébergées dans Azure AD, l’accord implicite OAuth 2.0 permet d’authentifier l’utilisateur auprès d’Azure AD et d’obtenir un jeton qui peut servir à sécuriser les appels du client JavaScript de l’application à son API web principale. Une fois que l’utilisateur a donné son consentement, ce même protocole d’authentification peut servir à obtenir des jetons pour sécuriser les appels entre le client et d’autres ressources API web configurées pour l’application. Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applications. Vous pouvez activer un accord implicite OAuth 2.0 pour votre application en définissant la valeur `oauth2AllowImplicitFlow` dans son [manifeste d’application](active-directory-application-manifest.md) (fichier JSON représentant la configuration d’identité de votre application).
+Les applications à page unique (SPA) se composent généralement d’une partie frontale reposant largement sur JavaScript qui s’exécute dans le navigateur. Celle-ci appelle l’API web principale de l’application pour effectuer sa logique métier. Pour les applications à page unique hébergées dans Azure AD, l’accord implicite OAuth 2.0 permet d’authentifier l’utilisateur auprès d’Azure AD et d’obtenir un jeton qui peut servir à sécuriser les appels du client JavaScript de l’application à son API web principale. Une fois que l’utilisateur a donné son consentement, ce même protocole d’authentification peut servir à obtenir des jetons pour sécuriser les appels entre le client et d’autres ressources API web configurées pour l’application. Pour plus d’informations sur l’octroi d’autorisation implicite et pour vous aider à décider si cette méthode est adaptée à votre scénario d’application, consultez [Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-##### Pour activer l’accord implicite OAuth 2.0
+Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applications. Vous pouvez activer un accord implicite OAuth 2.0 pour votre application en définissant la valeur `oauth2AllowImplicitFlow` dans son [manifeste d’application](active-directory-application-manifest.md) (fichier JSON représentant la configuration d’identité de votre application).
+
+#### Pour activer l’accord implicite OAuth 2.0 
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 1. Cliquez sur l’icône **Active Directory** dans le menu de gauche, puis cliquez sur l’annuaire souhaité.
@@ -347,4 +351,4 @@ Afin de pouvoir supprimer l’accès d’une application mutualisée à votre r�
 
 - Lisez le [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

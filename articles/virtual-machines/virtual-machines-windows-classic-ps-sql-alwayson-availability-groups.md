@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurer des groupes de disponibilité Always On dans une machine virtuelle Azure | Microsoft Azure"
+	pageTitle="Configurer des groupes de disponibilité Always On dans une machine virtuelle Azure avec PowerShell"
 	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic et utilise PowerShell pour créer un groupe de disponibilité Always On dans Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,18 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configurer des groupes de disponibilité Always On dans Azure VM (PowerShell)
+# Configurer des groupes de disponibilité Always On dans une machine virtuelle Azure avec PowerShell
 
 > [AZURE.SELECTOR]
-- [Portail](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager : mode automatique](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager : mode manuel](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic : interface utilisateur](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
 
 
 Les machines virtuelles (VM) Azure permettent aux administrateurs de base de données de réduire le coût d’un système SQL Server haute disponibilité. Ce didacticiel vous indique comment implémenter un groupe de disponibilité en utilisant SQL Server Always On de bout en bout dans un environnement Azure. À la fin du didacticiel, votre solution SQL Server Always On dans Azure comprendra les éléments suivants :
@@ -534,7 +536,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
 		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Téléchargez **CreateAzureFailoverCluster.ps1** à partir de la page [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Créer le cluster WSFC pour les groupes de disponibilité Always On dans une machine virtuelle Azure) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster WSFC fonctionnel. Pour prendre connaissance d’informations importantes sur la façon dont WSFC interagit avec le réseau Azure, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
+1. Téléchargez **CreateAzureFailoverCluster.ps1** depuis la page [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Créer le cluster WSFC pour les groupes de disponibilité Always On dans une machine virtuelle Azure) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster WSFC fonctionnel. Pour prendre connaissance d’informations importantes sur la façon dont WSFC interagit avec le réseau Azure, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
 1. Passez à votre répertoire de travail et créez le cluster WSFC avec le script téléchargé.
 
@@ -629,4 +631,4 @@ Vous avez correctement implémenté SQL Server Always On en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

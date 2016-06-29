@@ -38,7 +38,7 @@ Azure App Service ne prend pas en charge tous les modules natifs et risque de ne
 
 Le fichier **package.json** permet de spécifier les dépendances de niveau supérieur requises par votre application afin que la plateforme d'hébergement puisse installer les dépendances, plutôt que de vous obliger à inclure le dossier **node\_packages** dans le déploiement. Une fois que l'application a été déployée, la commande **npm install** permet d'analyser le fichier **package.json** et d'installer toutes les dépendances répertoriées.
 
-Au cours du développement, vous pouvez utiliser les paramètres **--save**, **--save-dev** ou **--save-optional** lors de l'installation de modules afin d'ajouter automatiquement une entrée pour le module à votre fichier **package.json**. Pour plus d'informations, consultez la page [npm-install](https://npmjs.org/doc/install.html).
+Au cours du développement, vous pouvez utiliser les paramètres **--save**, **--save-dev** ou **--save-optional** lors de l'installation de modules afin d'ajouter automatiquement une entrée pour le module à votre fichier **package.json**. Pour plus d'informations, consultez la page [npm-install](https://docs.npmjs.com/cli/install).
 
 Un problème potentiel avec le fichier **package.json** est qu'il n'indique la version que pour les dépendances de niveau supérieur. Chaque module installé peut spécifier ou non la version des modules dont il dépend. Ainsi, il est possible que vous obteniez une chaîne de dépendance différente de celle utilisée en développement.
 
@@ -54,7 +54,7 @@ Pendant le déploiement sur Azure App Service, si votre fichier <b>package.json<
 
 Le fichier **npm-shrinkwrap.json** tente de résoudre les limitations de contrôle de version des modules du fichier **package.json**. Alors que le fichier **package.json** n'inclut que des versions pour les modules de niveau supérieur, le fichier **npm-shrinkwrap.json** contient les exigences de version pour l'ensemble de la chaîne de dépendance des modules.
 
-Lorsque votre application est prête pour la production, vous pouvez verrouiller les exigences de version et créer un fichier **npm-shrinkwrap.json** à l'aide de la commande **npm shrinkwrap**. Elle utilise les versions actuellement installées dans le dossier **node\_modules** et les enregistre dans le fichier **npm-shrinkwrap.json**. Une fois que l'application a été déployée vers l'environnement d'hébergement, la commande **npm install** permet d'analyser le fichier **npm-shrinkwrap.json** et d'installer toutes les dépendances répertoriées. Pour plus d'informations, consultez la page [npm-install](https://npmjs.org/doc/install.html).
+Lorsque votre application est prête pour la production, vous pouvez verrouiller les exigences de version et créer un fichier **npm-shrinkwrap.json** à l'aide de la commande **npm shrinkwrap**. Elle utilise les versions actuellement installées dans le dossier **node\_modules** et les enregistre dans le fichier **npm-shrinkwrap.json**. Une fois que l'application a été déployée vers l'environnement d'hébergement, la commande **npm install** permet d'analyser le fichier **npm-shrinkwrap.json** et d'installer toutes les dépendances répertoriées. Pour plus d’informations, consultez [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
 
 > [AZURE.NOTE]
 Pendant le déploiement sur Azure App Service, si votre fichier <b>npm-shrinkwrap.json</b> fait référence à un module natif, une erreur similaire à celle figurant ci-dessous s'affiche au moment de la publication de l'application à l'aide de Git :
@@ -78,4 +78,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/de
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de déploiement de site web personnalisés avec Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

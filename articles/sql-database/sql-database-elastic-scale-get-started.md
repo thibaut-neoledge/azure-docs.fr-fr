@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	manager="jhubbard" 
 	authors="ddove" 
-	editor="sidneyh"/>
+	editor="carlrabeler"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -55,15 +55,15 @@ Félicitations. Vous avez correctement conçu et exécuté votre première appli
 
 ### Éléments clés de l’exemple de code
 
-1. **Gestion des partitions et des cartes de partitions** : le code illustre le fonctionnement des partitions, des plages et des mappages dans le fichier **ShardMapManagerSample.cs**. Vous trouverez des informations supplémentaires à ce sujet ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).  
-2. **Routage dépendant des données** : le routage des transactions vers la partition appropriée est indiqué dans **DataDependentRoutingSample.cs**. Pour plus d’informations, consultez la page [Routage dépendant des données](http://go.microsoft.com/?linkid=9862596). 
-3. **Interrogation sur plusieurs partitions ** : l’interrogation sur plusieurs partitions est illustrée dans le fichier **MultiShardQuerySample.cs**. Pour plus d’informations, consultez la page [Interrogation de plusieurs partitions](http://go.microsoft.com/?linkid=9862597).
-4. **Ajout de partitions vides** : l’ajout itératif de nouvelles partitions vides est effectué par le code dans le fichier **AddNewShardsSample.cs**. Des informations détaillées à ce sujet sont disponibles ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).
+1. **Gestion des partitions et des cartes de partitions** : le code illustre le fonctionnement des partitions, des plages et des mappages dans le fichier **ShardMapManagerSample.cs**. Vous trouverez des informations supplémentaires à ce sujet ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).  
+2. **Routage dépendant des données** : le routage des transactions vers la partition appropriée est indiqué dans **DataDependentRoutingSample.cs**. Pour plus d’informations, consultez la page [Routage dépendant des données](http://go.microsoft.com/?linkid=9862596). 
+3. **Interrogation sur plusieurs partitions ** : l’interrogation sur plusieurs partitions est illustrée dans le fichier **MultiShardQuerySample.cs**. Pour plus d’informations, consultez la page [Interrogation de plusieurs partitions](http://go.microsoft.com/?linkid=9862597).
+4. **Ajout de partitions vides** : l’ajout itératif de nouvelles partitions vides est effectué par le code dans le fichier **AddNewShardsSample.cs**. Des informations détaillées à ce sujet sont disponibles ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).
 
 ### Autres opérations de mise à l’échelle élastique
 
-1. **Fractionnement d’une partition existante** : la fonctionnalité de fractionnement des partitions est fournie via l’**outil de fractionnement/fusion**. Vous trouverez plus d’informations sur cet outil ici : [Présentation de l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Fusion des partitions existantes** : les fusions de partitions sont également effectuées à l’aide de l’**outil de fractionnement/fusion**. Pour plus d’informations, reportez-vous à: [Présentation de l’outil de fusion et fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).   
+1. **Fractionnement d’une partition existante** : la fonctionnalité de fractionnement des partitions est fournie via l’**outil de fractionnement/fusion**. Vous trouverez plus d’informations sur cet outil ici : [Présentation de l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).
+2. **Fusion des partitions existantes** : les fusions de partitions sont également effectuées à l’aide de l’**outil de fractionnement/fusion**. Pour plus d’informations, reportez-vous à: [Présentation de l’outil de fusion et fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Coût
@@ -101,4 +101,4 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

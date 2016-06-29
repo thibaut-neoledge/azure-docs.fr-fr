@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Exécuter des requêtes avec SQLCMD | Microsoft Azure"
-   description="Découvrez comment exécuter des requêtes auprès de votre Data Warehouse avec SQLCMD."
+   pageTitle="Interroger Azure SQL Data Warehouse (sqlcmd)| Microsoft Azure"
+   description="Interrogation d’Azure SQL Data Warehouse à l’aide de l’utilitaire de ligne de commande sqlcmd."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,23 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Exécuter des requêtes avec SQLCMD
+# Interroger Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Cette procédure détaillée vous indique comment exécuter des requêtes auprès d’Azure SQL Data Warehouse à l’aide de l’utilitaire sqlcmd.exe.
+Cette procédure pas à pas utilise l’utilitaire de ligne de commande sqlcmd pour interroger un entrepôt de données Azure SQL Data Warehouse.
 
-## Configuration requise
+## Composants requis
 
-+ Pour télécharger [sqlcmd.exe][], voir [Utilitaires en ligne de commande 11 de Microsoft pour SQL Server][].
+Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-## Connecter
+-  [sqlcmd.exe][]. Pour le télécharger, voir [Utilitaires en ligne de commande 11 de Microsoft pour SQL Server][].
+
+## 1\. Connecter
 
 Pour commencer à utiliser sqlcmd, ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion doit contenir les paramètres suivants :
 
@@ -47,7 +50,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] L’option -I, qui active les identificateurs entre guillemets, est actuellement requise pour la connexion à SQL Data Warehouse.
 
-## Interroger
+## 2\. Interroger
 
 Une fois la connexion établie, vous pouvez envoyer des instructions Transact-SQL prises en charge à l’instance. Dans cet exemple, les requêtes sont soumises en mode interactif.
 
@@ -73,17 +76,14 @@ C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d A
 Pour plus d’informations sur l’ensemble des options de l’utilitaire sqlcmd, voir [Utilitaire sqlcmd][sqlcmd.exe].
 
 <!--Articles-->
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
+
 
 <!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/fr-FR/library/ms162773.aspx
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
 [Utilitaires en ligne de commande 11 de Microsoft pour SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

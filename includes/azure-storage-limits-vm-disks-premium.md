@@ -15,6 +15,15 @@ Type de disque de stockage Premium | P10 | P20 | P30
 Taille du disque | 128 Go | 512 Go | 1024 Go (1 To)
 Nb max. d'E/S par seconde par disque | 500 | 2 300 | 5 000
 Débit max. par disque | 100 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde
-Nombre maximal de disques par compte de stockage | 280 | 140 | 35
+Nombre maximal de disques par compte de stockage | 280 | 70 | 35
 
-<!---HONumber=AcomDC_0413_2016-->
+**Disques de machine virtuelle : par limites de machines virtuelles**
+
+Ressource|Limite par défaut
+---|---
+Nb max. d'E/S par seconde par machine virtuelle|80 000 E/S par seconde avec la machine virtuelle GS5<sup>1</sup>
+Débit max. par machine virtuelle|2 000 Mo/s par seconde avec la machine virtuelle GS5<sup>1</sup>
+
+<sup>1</sup>Consultez la section [Tailles de machine virtuelle](../articles/virtual-machines/virtual-machines-linux-sizes.md) pour connaître les autres limites de tailles de machine virtuelle.
+
+<!---HONumber=AcomDC_0615_2016-->

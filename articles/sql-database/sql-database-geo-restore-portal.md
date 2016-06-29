@@ -21,12 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Vue d'ensemble](sql-database-geo-restore.md)
 - [Portail Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
 Cet article vous explique comment restaurer votre base de données sur un nouveau serveur à l’aide de la géo-restauration en utilisant le portail Azure.
-
-La [géo-restauration](sql-database-geo-restore.md) permet de restaurer une base de données à partir d’une sauvegarde géo-redondante utilisée pour créer une nouvelle base de données. La base de données peut être créée sur n’importe quel serveur dans n’importe quelle région Azure. Comme elle utilise une sauvegarde géo-redondante en tant que source, vous pouvez la mettre à profit pour récupérer une base de données même si celle-ci est inaccessible en raison d’une défaillance. La géo-restauration est automatiquement activée pour tous les niveaux de service, sans coûts supplémentaires.
 
 ## Sélectionner la base de données à restaurer
 
@@ -34,7 +33,7 @@ Pour restaurer une base de données dans le portail Azure, procédez comme suit�
 
 1.	Ouvrez le [portail Azure](https://portal.azure.com).
 2.  Sur le côté gauche de l’écran, sélectionnez **Nouveau** > **Données et stockage** > **Base de données SQL**.
-3.  Sélectionnez **Sauvegarde** comme source, puis sélectionnez la sauvegarde géo-redondante à partir de laquelle vous souhaitez effectuer la récupération.
+3.  Sélectionnez **Sauvegarde** comme source, puis la sauvegarde géo-redondante à partir de laquelle vous souhaitez effectuer la récupération.
 
     ![Restaurer une base de données SQL Azure](./media/sql-database-geo-restore-portal/geo-restore.png)
 
@@ -52,4 +51,4 @@ Pour restaurer une base de données dans le portail Azure, procédez comme suit�
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

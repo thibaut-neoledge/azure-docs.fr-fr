@@ -17,12 +17,12 @@
 
 # Contacter le support Microsoft
 
-Si vous rencontrez des problèmes avec votre solution Microsoft Azure StorSimple, vous pouvez créer une demande de service pour le support technique. Lors d’une session en ligne avec votre ingénieur de support, vous devrez également démarrer une session de support sur votre appareil StorSimple. Cet article vous guide tout au long des procédures suivantes :
+Si vous rencontrez des problèmes avec votre solution Microsoft Azure StorSimple, vous pouvez créer une demande de service pour le support technique. Lors d’une session en ligne avec votre ingénieur de support, vous devrez également démarrer une session de support sur votre appareil StorSimple. Cet article vous guide tout au long des procédures suivantes :
 
 - Création d’une demande de support
 - Démarrage d’une session de support dans l’interface Windows PowerShell de votre appareil StorSimple
 
-Examinez les [informations et les contrats de niveau de service relatifs à la prise en charge de la gamme StorSimple 8000](https://msdn.microsoft.com/library/mt433077.aspx) avant de créer une demande de support.
+Examinez les [informations et les contrats de niveau de service relatifs à la prise en charge de la gamme StorSimple 8000](https://msdn.microsoft.com/library/mt433077.aspx) avant de créer une demande de support.
 
 ## Création d’une demande de support
 
@@ -34,7 +34,7 @@ Procédez comme suit pour créer une demande de support.
 
 	![Contacter le support MS via le Portail de gestion](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-2. Vous êtes redirigé vers le nouveau portail Azure (ms.portal.azure.com). Cliquez sur la mosaïque **Nouvelle demande de support**.
+2. Vous êtes redirigé vers le nouveau portail Azure (portal.azure.com). Cliquez sur la mosaïque **Nouvelle demande de support**.
 
 	![Contacter le support MS avec le nouveau portail](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
@@ -42,7 +42,7 @@ Procédez comme suit pour créer une demande de support.
 
 	![Volet Nouvelle demande de support](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
 
-3. Dans la boîte de dialogue **Bases**, procédez comme suit :
+3. Dans la boîte de dialogue **Bases**, procédez comme suit :
 	1. Dans la liste déroulante **Type de problème**, sélectionnez **Technique**.
 	2. Sélectionnez un **Abonnement** dans la liste déroulante.
 	3. Dans la liste déroulante **Service**, sélectionnez **StorSimple**. 
@@ -52,7 +52,7 @@ Procédez comme suit pour créer une demande de support.
 
 	![Volet Nouvelle demande de support](./media/storsimple-contact-microsoft-support/Ibiza5a.png)
 
-5. Dans la boîte de dialogue **Problème**, procédez comme suit :
+5. Dans la boîte de dialogue **Problème**, procédez comme suit :
 
     1.  Sélectionnez un niveau de **Gravité** dans la liste déroulante.
     2.  Sélectionnez un **Type de problème** dans la liste déroulante.
@@ -102,4 +102,4 @@ Procédez comme suit pour démarrer une session de support :
 
 > [AZURE.IMPORTANT] Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

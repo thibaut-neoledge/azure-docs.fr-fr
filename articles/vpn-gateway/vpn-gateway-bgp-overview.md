@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="06/16/2016"
    ms.author="yushwang"/>
 
 # Vue d’ensemble du protocole BGP avec les passerelles VPN Azure
@@ -35,7 +35,9 @@ Le protocole BGP offre plusieurs avantages et de nouvelles fonctionnalités :
 
 Avec le protocole BGP, il vous suffit de déclarer un préfixe minimal pour un homologue BGP spécifique sur le tunnel VPN S2S IPsec. Il peut être aussi réduit que le préfixe d’un hôte (/32) de l’adresse IP de l’homologue BGP de votre périphérique VPN local. Vous pouvez décider des préfixes de réseaux locaux à publier sur Azure, qui pourront accéder à votre réseau virtuel Azure.
 	
-Vous pouvez également publier un préfixe plus étendu, qui peut inclure certains préfixes d’adresses de votre réseau virtuel, par exemple l’itinéraire par défaut (0.0.0.0/0) ou un large espace d’adressage IP privé (par exemple, 10.0.0.0/8). Notez cependant que les préfixes ne peuvent en aucun cas être identiques à ceux de votre réseau virtuel. Les itinéraires identiques aux préfixes de votre réseau virtuel seront rejetés.
+Vous pouvez également publier un préfixe plus étendu, qui peut inclure certains préfixes d’adresses de votre réseau virtuel, par exemple un large espace d’adressage IP privé (par exemple, 10.0.0.0/8). Notez cependant que les préfixes ne peuvent en aucun cas être identiques à ceux de votre réseau virtuel. Les itinéraires identiques aux préfixes de votre réseau virtuel seront rejetés.
+
+>[AZURE.IMPORTANT] Actuellement, la publication de l’itinéraire par défaut (0.0.0.0/0) vers les passerelles VPN Azure est bloquée. Une mise à jour supplémentaire sera fournie une fois cette fonctionnalité activée.
 
 #### Prise en charge de plusieurs tunnels entre un réseau virtuel et un site local avec basculement automatique basé sur le protocole BGP
 
@@ -65,4 +67,4 @@ Le schéma suivant offre un exemple de topologie à tronçons multiples, avec pl
 
 Consultez la page [Getting started with BGP on Azure VPN gateways](./vpn-gateway-bgp-resource-manager-ps.md) (Prise en main du protocole BGP sur les passerelles VPN Azure) pour savoir comment configurer le protocole BGP pour vos connexions entre sites locaux et entre réseaux virtuels.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

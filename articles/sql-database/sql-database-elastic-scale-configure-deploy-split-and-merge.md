@@ -30,7 +30,7 @@ Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDataba
 
 ## Configuration requise
 
-1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://ms.portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
+1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 
 2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, assurez-vous que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé**. Cliquez sur l’icône « Enregistrer ».
 
@@ -166,11 +166,11 @@ Le déploiement et votre environnement peuvent être testés en exécutant les e
 
 Les fichiers de script inclus sont les suivants :
 
-1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
-2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
-3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
-4. **ShardManagement.psm1** : script d’assistance qui encapsule l’API ShardManagement
-5. **SqlDatabaseHelpers.psm1** : script d’assistance pour la création et la gestion des bases de données SQL
+1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
+2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
+3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
+4. **ShardManagement.psm1** : script d’assistance qui encapsule l’API ShardManagement
+5. **SqlDatabaseHelpers.psm1** : script d’assistance pour la création et la gestion des bases de données SQL
 
 <table style="width:100%">
   <tr>
@@ -339,4 +339,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

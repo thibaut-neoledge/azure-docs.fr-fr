@@ -22,8 +22,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Prise en main de la sécurité](sql-database-get-started-security.md)
-- [Octroi de l’accès](sql-database-manage-logins.md)
+- [Didacticiel de prise en main](sql-database-get-started-security.md)
+- [Accorder l’accès](sql-database-manage-logins.md)
 
 
 Commencez ici pour une vue d’ensemble des concepts d’accès à la base de données SQL pour les administrateurs, les non administrateurs et les rôles.
@@ -113,7 +113,7 @@ Pour donner le contrôle total de la base de données aux utilisateurs suppléme
 
 > [AZURE.NOTE] Le fait que des utilisateurs de l’authentification SQL Server aient besoin d’accéder à plusieurs bases de données constitue l’une des raisons principales derrière la création d’utilisateurs de base de données basés sur des connexions. Les utilisateurs basés sur des connexions sont liés à la connexion et seul un mot de passe est conservé pour cette connexion. Les utilisateurs de base de données contenu dans des bases de données individuelles sont des entités distinctes qui conservent leur propre mot de passe. Cela peut être source de confusion pour les utilisateurs de base de données contenu s’ils ne conservent pas un mot de passe identique.
 
-### Configuration du pare-feu du niveau de base de données
+### Configuration du pare-feu au niveau de la base de données
 
 En tant que meilleure pratique, les utilisateurs non administrateurs doivent uniquement bénéficier d’un accès via le pare-feu aux bases de données qu’ils utilisent. Au lieu d’autoriser leurs adresses IP via le pare-feu du niveau du serveur et de leur donner accès à toutes les bases de données, utilisez l’instruction [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) pour configurer le pare-feu du niveau de base de données. Le pare-feu du niveau de base de données ne peut pas être configuré à l’aide du portail.
 
@@ -137,12 +137,6 @@ Les rôles de base de données peuvent être les rôles intégrés, tels que **d
 Il existe plus de 100 autorisations qui peuvent être accordées ou refusées individuellement dans la base de données SQL. La plupart de ces autorisations sont imbriquées. Par exemple, l’autorisation `UPDATE` sur un schéma inclut l’autorisation `UPDATE` sur chaque table dans ce schéma. Comme dans la plupart des systèmes d’autorisation, le refus d’une autorisation remplace l’octroi. En raison de la nature imbriquée et du nombre d’autorisations, la plus grande attention est requise pour concevoir un système d’autorisation approprié capable de protéger correctement votre base de données. Démarrez avec la liste des autorisations sous [Autorisations (moteur de base de données)](https://msdn.microsoft.com/library/ms191291.aspx) et passez en revue les [graphiques de taille affiche](http://go.microsoft.com/fwlink/?LinkId=229142) des autorisations.
 
 
-### En savoir plus
-
-[Sécurisation de votre base de données SQL](sql-database-security.md)
-
-[Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
-
 ## Étapes suivantes
 
 [Sécurisation de votre base de données SQL](sql-database-security.md)
@@ -157,4 +151,11 @@ Il existe plus de 100 autorisations qui peuvent être accordées ou refusées in
 
 [Octroi de l’accès à un objet de base de données](https://msdn.microsoft.com/library/ms365327.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+## Ressources supplémentaires
+
+[Sécurisation de votre base de données SQL](sql-database-security.md)
+
+[Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
+
+<!---HONumber=AcomDC_0615_2016-->

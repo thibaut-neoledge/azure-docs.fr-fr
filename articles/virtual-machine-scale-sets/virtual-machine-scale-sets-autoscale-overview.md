@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Mise à l’échelle automatique et jeux de mise à l’échelle de machine virtuelle | Microsoft Azure"
-	description="En savoir plus sur l’utilisation des ressources de diagnostic et de mise à l’échelle pour mettre à l’échelle automatiquement des machines virtuelles dans un jeu de mise à l’échelle."
-	services="virtual-machine-scale-sets"
-    documentationCenter=""
+	pageTitle="Mise à l’échelle automatique et groupes identiques de machines virtuelles | Microsoft Azure"
+	description="En savoir plus sur l’utilisation des ressources de diagnostic et de mise à l’échelle pour mettre à l’échelle automatiquement des machines virtuelles dans un groupe identique."
+    services="virtual-machine-scale-sets"
+	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
 	editor=""
@@ -10,18 +10,18 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
+	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
-# Mise à l’échelle automatique et jeux de mise à l’échelle de machine virtuelle
+# Mise à l’échelle automatique et groupes identiques de machines virtuelles
 
 La mise à l’échelle automatique des machines virtuelles dans un jeu de mise à l’échelle correspond à la création ou à la suppression de machines dans le jeu en fonction des besoins d’une application pour répondre aux exigences de performances et aux contrats de niveau de service (SLA). Au fur et à mesure de l’évolution du volume de travail, une application peut nécessiter des ressources supplémentaires afin d’exécuter les tâches de manière efficace.
 
-La mise à l’échelle automatique est un processus automatisé qui facilite la gestion des surcharges en analysant en continu les performances du système, et en prenant des décisions sur l’ajout ou la suppression de ressources qui ne sont pas nécessaires. La mise à l’échelle est un processus élastique : lorsque la charge sur le système augmente, il est possible d’allouer davantage de ressources, et lorsque la demande diminue, des ressources peuvent être libérées pour réduire les coûts tout en conservant des performances adéquates et en respectant les contrats de niveau de service.
+La mise à l’échelle automatique est un processus automatisé qui allège les contraintes de gestion. Grâce à la réduction de la surcharge, il devient inutile de surveiller en continu les performances du système et de décider d’ajouter ou de supprimer des ressources. La mise à l’échelle est un processus élastique : lorsque la charge sur le système augmente, il est possible d’allouer davantage de ressources, et lorsque la demande diminue, des ressources peuvent être libérées pour réduire les coûts tout en conservant des performances adéquates et en respectant les contrats de niveau de service.
 
 Configurez la mise à l’échelle automatique dans un jeu de mise à l’échelle à l’aide d’un modèle Azure Resource Manager, à l’aide d’Azure PowerShell ou à l’aide de l’interface de ligne de commande Azure.
 
@@ -37,20 +37,20 @@ Dans le modèle, vous indiquez l’élément de capacité :
       "capacity": 3
     },
 
-La capacité correspond au nombre de machines virtuelles dans le jeu. Vous pouvez modifier manuellement la capacité en déployant un modèle avec une valeur différente. Si vous déployez un modèle simplement pour modifier la capacité, vous incluez uniquement l’élément SKU avec la capacité mise à jour.
+La capacité correspond au nombre de machines virtuelles dans le jeu. Vous pouvez modifier manuellement la capacité en déployant un modèle avec une valeur différente. Si vous déployez un modèle simplement pour modifier la capacité, vous pouvez inclure uniquement l’élément SKU avec la capacité mise à jour.
 
 Modifiez automatiquement la capacité de votre jeu de mise à l’échelle en combinant la ressource autoscaleSettings fournie par Azure Resource Manager et l’extension Azure Diagnostics installée sur les machines du jeu de mise à l’échelle.
 
 ### Configurer l’extension Azure Diagnostics
 
-La mise à l’échelle automatique peut uniquement être réalisée si la collecte de mesures est réussie sur chaque machine virtuelle du jeu de mise à l’échelle. L’extension Azure Diagnostics offre des capacités de surveillance et de diagnostic qui répondent aux besoins en matière de collecte de mesures de la ressource de mise à l’échelle. Vous pouvez installer l’extension en tant que partie du modèle Resource Manager. [Créer une machine virtuelle Windows avec surveillance et diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md) vous fournira plus d’informations sur l’utilisation de l’extension.
+La mise à l’échelle automatique peut uniquement être réalisée si la collecte de mesures est réussie sur chaque machine virtuelle du jeu de mise à l’échelle. L’extension Azure Diagnostics offre des capacités de surveillance et de diagnostic qui répondent aux besoins en matière de collecte de mesures de la ressource de mise à l’échelle. Vous pouvez installer l’extension en tant que partie du modèle Resource Manager.
 
 Cet exemple montre les variables utilisées dans le modèle pour configurer l’extension de diagnostic :
 
 	"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
 	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
 	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\Thread Count" sampleRate="PT15S" unit="Percent"><annotation displayName="Thread Count" locale="fr-FR"/></PerformanceCounterConfiguration>",
+	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\Thread Count" sampleRate="PT15S" unit="Percent"><annotation displayName="Thread Count" locale="fr-FR"/></PerformanceCounterConfiguration></PerformanceCounters>",
 	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
 	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
 	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -84,7 +84,7 @@ Cet exemple illustre la définition de l’extension dans le modèle :
 
 Lorsque l’extension de diagnostic s’exécute, les données sont collectées dans une table qui se trouve dans le compte de stockage que vous spécifiez. La table WADPerformanceCounters regroupe les données collectées. Par exemple, voici le nombre de threads collectés lorsque les machines virtuelles ont été créées pour la première fois dans un jeu de mise à l’échelle :
 
-![Capture d’écran des données du compteur de performance Windows Server avant ajout d’une charge](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
 ### Configurer la ressource autoScaleSettings
 
@@ -169,18 +169,18 @@ Dans l’exemple ci-dessus, deux règles sont créées afin de définir les acti
 - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Veillez à mettre en place une différence suffisante entre le seuil que vous définissez pour l’augmentation de la taille des instances et le seuil que vous définissez pour la diminution de la taille des instances. Si vous définissez des valeurs identiques, par exemple en paramétrant les deux valeurs sur 600 threads dans l’exemple ci-dessus, le système anticipera une augmentation et une réduction constantes de la taille du jeu et n’implémentera pas d’action de mise à l’échelle.
 - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer.
 - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
-- **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur.
+- **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du groupe identique. Cette valeur doit être définie sur 1 ou supérieur.
 - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. La valeur doit être comprise entre une minute et une semaine.
 
 En fonction du compteur de performance que vous utilisez, certains éléments de la configuration du modèle sont utilisés différemment. Dans l’exemple présenté, le compteur de performance utilisé correspond au nombre de threads et la valeur de seuil est définie sur 650 pour l’augmentation de la taille des instances et 550 pour la diminution de la taille des instances. Si vous utilisez un compteur tel que le pourcentage de temps processeur, la valeur de seuil est définie sur le pourcentage d’utilisation du processeur qui détermine une action de mise à l’échelle.
 
 Lors du déclenchement d’une action de mise à l’échelle dû à la création d’une charge sur les machines virtuelles du jeu, le nombre de machines du jeu augmente en fonction de l’élément de valeur dans le modèle. Par exemple, dans un jeu de mise à l’échelle où la capacité est définie sur 3 et la valeur d’action de mise à l’échelle est définie sur 1 :
 
-![Capture d’écran du nombre de machines dans un jeu avant la mise à l’échelle automatique](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
 Lorsque la charge est créée et fait passer le nombre moyen de threads au-dessus du seuil de 650 :
 
-![Capture d’écran des données du compteur de performance Windows Server après ajout d’une charge](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
 
 Une augmentation de la taille des instances est déclenchée et provoque l’augmentation de la capacité du jeu de 1 :
 
@@ -192,21 +192,41 @@ Une augmentation de la taille des instances est déclenchée et provoque l’aug
 
 Et une machine virtuelle est ajoutée au jeu de mise à l’échelle :
 
-![Capture d’écran du nombre de machines dans un jeu après la mise à l’échelle automatique](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
 
 Après une période de refroidissement de cinq minutes, si le nombre moyen de threads sur les machines est toujours supérieur à 600, une autre machine est ajoutée au jeu. Si le nombre moyen de threads reste inférieur à 550, la capacité du jeu de mise à l’échelle est diminuée d’une unité et une machine est supprimée du jeu.
 
+## Configuration de mise à l’échelle à l’aide d’Azure PowerShell
+
+Azure PowerShell permet de configurer la mise à l’échelle automatique pour un groupe identique. Voici un exemple d’utilisation de PowerShell pour créer les règles décrites précédemment dans cet article :
+
+    $rule1 = New-AutoscaleRule -MetricName "\Processor(_Total)\Thread Count" -MetricResourceId "/subscriptions/{subscription-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1" -Operator GreaterThan -MetricStatistic Average -Threshold 650 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"  
+ 
+    $rule2 = New-AutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/rainvmss/providers/Microsoft.Compute/virtualMachineScaleSets/rainvmss1" -Operator LessThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "2" 
+ 
+    $profile1 = New-AutoscaleProfile -DefaultCapacity "2" -MaximumCapacity "10" -MinimumCapacity "2" -Rules $rule1, $rule2 -Name "ScalePuppy" 
+ 
+    Add-AutoscaleSetting -Location "East US" -Name 'MyScaleVMSSSetting' -ResourceGroup rainvmss -TargetResourceId "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/rainvmss/providers/Microsoft.Compute/virtualMachineScaleSets/rainvmss1" -AutoscaleProfiles $profile1 
+
+## Configuration de mise à l’échelle à l’aide de l’interface de ligne de commande Azure
+
+(informations non encore disponibles)
+
 ## Examiner les actions de mise à l’échelle
 
-- [Portail Azure](https://portal.azure.com/) : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
-- [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre jeu de mise à l’échelle.
-- [Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/) : il est possible d’utiliser des applets de commande comme **Get-AzureRmResource** ou **Get-Autoscalesetting** pour obtenir des informations relatives à votre jeu de mise à l’échelle.
-- [Interface de ligne de commande Azure](../xplat-cli-azure-resource-manager.md) : utilisez la commande **azure resource show** pour obtenir des informations sur votre jeu.
+- [Portail Azure]() : vous pouvez obtenir une quantité limitée d’informations par le biais du portail.
+- [Azure Resource Explorer]() : il s’agit du meilleur outil pour déterminer l’état actuel de votre groupe identique. Suivez ce chemin d’accès suivant pour afficher la vue d’instance du groupe identique que vous avez créé : abonnements > {votre abonnement} > resourceGroups > {votre groupe de ressources} > fournisseurs > Microsoft.Compute > virtualMachineScaleSets > {votre groupe identique} > machines virtuelles
+- Azure PowerShell : utilisez cette commande pour obtenir des informations :
+
+        Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
+        
 - Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles du groupe à échelle identique pour surveiller les processus individuels.
 
 ## Étapes suivantes
 
-1. Commencez par créer votre premier jeu de mise à l’échelle en utilisant les informations contenues dans [Créer un jeu de mise à l’échelle de machine virtuelle Windows](virtual-machine-scale-sets-windows-create.md).
-2. Consultez [Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles Windows](virtual-machine-scale-sets-windows-autoscale.md) ou [Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles Linux](virtual-machine-scale-sets-linux-autoscale.md) pour voir un exemple montrant comment créer un jeu de mise à l’échelle une fois la mise à l’échelle automatique configurée.
+- Consultez [Mettre à l’échelle automatiquement des groupes identiques de machines virtuelles](virtual-machine-scale-sets-windows-autoscale.md) pour voir un exemple montrant comment créer un groupe identique une fois la mise à l’échelle automatique configurée.
+- Découvrez des exemples de fonctionnalités de surveillance Azure Insights dans les [exemples de démarrage rapide d’Azure Insights PowerShell](../azure-portal/insights-powershell-samples.md)
+- Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) et [Utiliser les journaux d’audit pour envoyer des notifications webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

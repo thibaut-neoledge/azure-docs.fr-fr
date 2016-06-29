@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/26/2016"
+   ms.date="06/06/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Connaître le manifeste d’application Azure Active Directory
@@ -37,7 +37,7 @@ Par conséquent, pour comprendre le format et les propriétés du manifeste d’
 - **Déclaration des rôles d’application (appRoles) exposées par votre application**. La propriété appRole de l’entité d’applications est une collection de type [AppRole][APPLICATION-ENTITY-APP-ROLE]. Consultez le [contrôle d’accès basé sur les rôles dans les applications de cloud avec Azure AD][RBAC-CLOUD-APPS-AZUREAD] pour obtenir un exemple d’implémentation.
 - **Déclaration des applications clientes connues (knownClientApplications)**, ce qui vous permet de lier logiquement le consentement des applications clientes spécifiées à l’API web/la ressource.
 - **Demander à Azure AD d’émettre une revendication d’appartenance au groupe** pour l’utilisateur connecté (groupMembershipClaims). REMARQUE : elle peut être configurée pour émettre des revendications au sujet des candidatures de rôle de répertoire Active Directory. Consultez l’article [Autorisation dans les applications de Cloud à l’aide de groupes Active Directory][AAD-GROUPS-FOR-AUTHORIZATION] pour obtenir un exemple d’implémentation.
-- **Permettre à votre application de prendre en charge des flux d’octroi implicites OAuth 2.0** (oauth2AllowImplicitFlow). Ce type de flux d’octroi est utilisé avec les pages web JavaScript incorporées ou les applications SPA (Single Page Applications).
+- **Permettre à votre application de prendre en charge des flux d’octroi implicites OAuth 2.0** (oauth2AllowImplicitFlow). Ce type de flux d’octroi est utilisé avec les pages web JavaScript incorporées ou les applications SPA (Single Page Applications). Pour plus d’informations sur l’octroi d’autorisation implicite, consultez [Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)][IMPLICIT-GRANT].
 - **Activer l’utilisation de certificats X509 en tant que clé secrète** (keyCredentials). Consultez l’article [Créer des applications de démon et de service dans Office 365][O365-SERVICE-DAEMON-APPS] et le [ Guide des développeurs sur Auth avec l’API d’Azure Resource Manager][DEV-GUIDE-TO-AUTH-WITH-ARM] pour obtenir des exemples d’implémentation.
 - **Ajouter un nouvel URI d’ID d’application** pour votre application (identifierURI). Les URI d’ID d’application sont utilisés pour identifier de manière unique une application dans son locataire Azure AD (ou sur plusieurs locataires Azure AD, pour les scénarios multi-locataires qualifiés via un domaine personnalisé vérifié). Ils sont utilisés lors de la demande d’autorisations d’accès à une application de ressources ou de l’acquisition d’un jeton d’accès pour une application de ressources. Lorsque vous mettez à jour cet élément, la même mise à jour est effectuée vers la collection servicePrincipalNames du principal de service correspondant, qui se trouve dans le client de base de l’application.
 
@@ -141,9 +141,10 @@ Utilisez la section commentaires DISQUS ci-dessous pour fournir des commentaires
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
+[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

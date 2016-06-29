@@ -58,7 +58,7 @@ Vous pouvez importer la bibliothèque iOS Azure Storage dans votre application 
 Vous devez inclure l’instruction d’importation suivante dans le fichier où vous souhaitez appeler l’API Azure Storage.
 
     // Include the following import statement to use blob APIs.
-    #import <Azure Storage Client Library/Azure_Storage_Client_Library.h>
+    #import <AZSClient/AZSClient.h>
 
 ## Configurer votre application pour accéder au stockage d’objets blob
 
@@ -355,4 +355,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 
 Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->
