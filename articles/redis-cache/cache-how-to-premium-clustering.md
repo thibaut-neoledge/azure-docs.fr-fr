@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="06/22/2016" 
 	ms.author="sdanie"/>
 
 # Comment configurer le clustering Redis pour un Cache Redis Azure Premium
@@ -36,13 +36,9 @@ Pour plus d’informations sur la taille, le débit et la bande passante des cac
 Dans Azure, le cluster Redis est proposé sous forme de modèle principal/réplica où chaque partition a une paire principal/réplica avec réplication gérée par le service Cache Redis Azure.
 
 ## Clustering
-La configuration du clustering s'effectue dans le panneau **Nouveau cache Redis** lors de la création du cache. Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur **Nouveau**->**Données + stockage**>**Cache Redis**.
+La configuration du clustering s'effectue dans le panneau **Nouveau cache Redis** lors de la création du cache.
 
-![Création d’un cache Redis][redis-cache-new-cache-menu]
-
-Pour configurer le clustering, sélectionnez d'abord l'un des caches **Premium** dans le panneau **Choisir un niveau tarifaire**.
-
-![Choisir un niveau tarifaire][redis-cache-premium-pricing-tier]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 La configuration du clustering s'effectue dans le panneau **Cluster Redis**.
 
@@ -57,31 +53,6 @@ Chaque partition est une paire de cache principal/réplica gérée par Azure et 
 Une fois le cache créé, vous vous y connectez et l’utilisez tout comme un cache hors cluster. Redis distribuera les données parmi les partitions de Cache. Si les diagnostics sont [activés](cache-how-to-monitor.md#enable-cache-diagnostics), les mesures sont capturées séparément pour chaque partition et peuvent être [affichées](cache-how-to-monitor.md) dans le panneau du Cache Redis.
 
 Pour accéder à un exemple de code relatif à l’utilisation du clustering avec le client StackExchange.Redis, consultez la partie [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) de l’exemple [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
-
-<a name="move-exceptions"></a>
-
->[AZURE.IMPORTANT] Lorsque vous vous connectez à un Cache Redis Azure avec le clustering activé à l’aide de StackExchange.Redis, vous pouvez rencontrer un problème et recevoir des exceptions `MOVE`. Cela se produit il faut un peu de temps au client de cache StackExchange.Redis pour collecter des informations sur les nœuds du cluster de cache. Ces exceptions peuvent se produire si vous vous connectez au cache pour la première fois et effectuez immédiatement des appels vers le cache avant que le client ait terminé la collecte de ces informations. Pour résoudre ce problème dans votre application, le plus simple consiste à vous connecter au cache et attendre une seconde avant de lancer des appels vers le cache. Pour cela, ajoutez un `Thread.Sleep(1000)` comme indiqué dans l’exemple de code suivant. Notez que le `Thread.Sleep(1000)` se produit uniquement lors de la connexion initiale au cache. Pour plus d’informations, consultez [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Un correctif pour résoudre ce problème est en cours de développement et les mises à jour seront publiées ici. **Mise à jour** : ce problème est résolu dans la dernière build [1\.1.572-alpha préliminaire](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) de StackExchange.Redis. Consultez la [page StackExchange.Redis sur NuGet](https://www.nuget.org/packages/StackExchange.Redis/) pour connaître la build la plus récente.
-
-
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-        // Connect to the Redis cache for the first time
-	    var connection =  ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-		// Wait for 1 second
-		Thread.Sleep(1000);
-
-		// Return the connected ConnectionMultiplexer
-		return connection;
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
 
 <a name="cluster-size"></a>
 ## Modifier la taille de cluster sur un cache de niveau Premium en cours d’exécution
@@ -107,6 +78,7 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 -	[Puis-je configurer le clustering pour un cache créé précédemment ?](#can-i-configure-clustering-for-a-previously-created-cache)
 -	[Puis-je configurer le clustering pour un cache De base ou Standard ?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 -	[Puis-je utiliser le clustering avec les fournisseurs d’état de session ASP.NET Redis et de mise en cache de la sortie ?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+-	[J’obtiens des exceptions MOVE lorsque j’utilise StackExchange.Redis et le clustering, que dois-je faire ?](#i-am-getting-move-exceptions-whfr-FRing-stackexchangeredis-and-clustering-what-should-i-do)
 
 ### Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?
 
@@ -170,8 +142,13 @@ Le clustering est disponible uniquement pour les caches de niveau Premium.
 
 ### Puis-je utiliser le clustering avec les fournisseurs d’état de session ASP.NET Redis et de mise en cache de la sortie ?
 
--	**Fournisseur de caches de sortie Redis** : aucune modification requise.
--	**Fournisseur d’état de session Redis** : pour utiliser le clustering, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.1 ou ultérieure, sans quoi une exception est levée. Il s’agit d’une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+-	**Fournisseur de caches de sortie Redis** : aucune modification requise.
+-	**Fournisseur d’état de session Redis** : pour utiliser le clustering, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.1 ou ultérieure, sans quoi une exception est levée. Il s’agit d’une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+
+<a name="move-exceptions"></a>
+### J’obtiens des exceptions MOVE lorsque j’utilise StackExchange.Redis et le clustering, que dois-je faire ?
+
+Si vous utilisez StackExchange.Redis et recevez des exceptions `MOVE` lors du clustering, assurez-vous que vous utilisez [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) ou version ultérieure. Pour obtenir des instructions sur la configuration de vos applications .NET afin d’utiliser StackExchange.Redis, consultez [Configuration des clients de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
@@ -181,22 +158,10 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
   
 <!-- IMAGES -->
 
-[redis-cache-new-cache-menu]: ./media/cache-how-to-premium-clustering/redis-cache-new-cache-menu.png
-
-[redis-cache-premium-pricing-tier]: ./media/cache-how-to-premium-clustering/redis-cache-premium-pricing-tier.png
-
-[NewCacheMenu]: ./media/cache-how-to-premium-clustering/redis-cache-new-cache-menu.png
-
-[CacheCreate]: ./media/cache-how-to-premium-clustering/redis-cache-cache-create.png
-
-[redis-cache-premium-pricing-group]: ./media/cache-how-to-premium-clustering/redis-cache-premium-pricing-group.png
-
-[redis-cache-premium-features]: ./media/cache-how-to-premium-clustering/redis-cache-premium-features.png
-
 [redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

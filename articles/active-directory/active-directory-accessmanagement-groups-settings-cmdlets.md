@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand"/>
 
 
@@ -96,7 +96,7 @@ Les étapes suivantes permettent de mettre à jour les paramètres au niveau du 
 
 2. Obtenez la valeur que vous souhaitez mettre à jour :
 
-	`$value = Setting.GetSettingsValue()`
+	`$value = $Setting.GetSettingsValue()`
 
 3. Mettez à jour la valeur :
 
@@ -143,4 +143,4 @@ Pour des instructions supplémentaires fournies par le responsable de programme 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

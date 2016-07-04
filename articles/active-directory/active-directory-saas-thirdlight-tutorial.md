@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à Thirdlight | Microsoft Azure" 
     description="Découvrez comment utiliser Salesforce avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Thirdlight
   
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration de l’application pour
 
 ###Pour activer l’application de l’intégration pour Thirdlight, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-thirdlight-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Thirdlight** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Thirdlight** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configurer l’authentification unique")
 
@@ -101,7 +101,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     3.  Ouvrez le fichier de métadonnées téléchargé, copiez son contenu, puis collez-le dans la zone de texte **Idp Metadata XML**.
     4.  Cliquez sur **Save SAML2 settings**.
 
-8.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+8.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configurer l’authentification unique")
 
@@ -123,7 +123,7 @@ Pour se connecter à Thirdlight, les utilisateurs d’Azure AD doivent être app
 
 6.  Cliquez sur **Create**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par Thirdlight, pour approvisionner des comptes d’utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par Thirdlight, pour approvisionner des comptes d’utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -131,7 +131,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Thirdlight, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Thirdlight**, cliquez sur **Affecter des utilisateurs**.
 
@@ -143,4 +143,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

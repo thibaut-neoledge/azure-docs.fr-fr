@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Comment installer silencieusement le connecteur du Proxy d'application Azure AD
-
-> [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Vous souhaitez pouvoir envoyer un script d’installation vers plusieurs serveurs Windows ou vers des serveurs Windows sans interface utilisateur. Cette rubrique explique comment créer un script Windows PowerShell qui active l’installation sans assistance pour installer et inscrire votre connecteur de Proxy d’application Azure AD.
 
@@ -46,14 +44,14 @@ Vous pouvez effectuer cette étape à l’aide d’une des méthodes suivantes 
 ### Inscription du connecteur à l’aide d’un objet d’informations d’identification Windows PowerShell
 
 
-1. Créez l’objet d’informations d’identification de Windows PowerShell en exécutant la commande suivante, où les valeurs « <username> » et « <password> » doivent être remplacées par le nom d’utilisateur et le mot de passe pour accéder à votre annuaire :
+1. Créez l’objet d’informations d’identification de Windows PowerShell en exécutant la commande suivante, où les valeurs « <username> » et « <password> » doivent être remplacées par le nom d’utilisateur et le mot de passe pour accéder à votre annuaire :
 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 
-2. Accédez à **C:\\Program Files\\Microsoft AAD App Proxy Connector** et exécutez le script, où $cred représente l’objet d’informations d’identification PowerShell que vous avez créé :
+2. Accédez à **C:\\Program Files\\Microsoft AAD App Proxy Connector** et exécutez le script, où $cred représente l’objet d’informations d’identification PowerShell que vous avez créé :
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
@@ -134,4 +132,4 @@ Vous pouvez effectuer cette étape à l’aide d’une des méthodes suivantes 
 
 Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

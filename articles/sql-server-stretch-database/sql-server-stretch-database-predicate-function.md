@@ -18,7 +18,7 @@
 
 # Sélectionnez les lignes à migrer en utilisant un prédicat de filtre (Stretch Database)
 
-Si vous stockez des données historiques dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. D’autre part, si votre table contient à la fois des données historiques et des données actuelles, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre est une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
+Si vous stockez des données brutes dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. Si en revanche votre table contient à la fois des données brutes et des données à chaud, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre est une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
 
 >   [AZURE.NOTE] Si vous fournissez un prédicat de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique le prédicat de filtre à la table à l’aide de l’opérateur CROSS APPLY.
 
@@ -567,4 +567,4 @@ Un compte compromis avec des privilèges db\_owner peut effectuer les opération
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

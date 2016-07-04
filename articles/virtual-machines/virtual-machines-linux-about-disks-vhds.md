@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # À propos des disques et des VHD pour les machines virtuelles Azure
@@ -31,4 +31,4 @@ Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des di
 -  [Configurer un RAID logiciel](virtual-machines-linux-configure-raid.md) pour la redondance.
 -  [Capturer une machine virtuelle Linux](virtual-machines-linux-classic-capture-image.md) afin de déployer rapidement des machines virtuelles supplémentaires.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

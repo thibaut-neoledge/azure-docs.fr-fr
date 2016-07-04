@@ -65,7 +65,7 @@ Dans ce cas, vous allez créer une expression régulière qui inclut toutes les 
  
 > [AZURE.TIP] **CDN Azure fourni par Verizon** utilise [PCRE (Perl Compatible Regular Expressions)](http://pcre.org/) comme moteur pour les expressions régulières. Vous pouvez utiliser un outil tel que [Regular Expressions 101](https://regex101.com/) pour valider votre expression régulière. Notez que le caractère « / » est valide dans les expressions régulières et n’a pas besoin d’être échappé ; toutefois, échapper ce caractère est une pratique recommandée et attendue par certains validateurs d’expression régulière.
 
-Si l’expression régulière correspond, le bord CDN de votre règle remplace l’en-tête **Access-Control-Allow-Origin** (le cas échéant) de l’origine par l’origine qui a envoyé la demande. Vous pouvez également ajouter des en-têtes CORS, comme **Access-Control-Allow-Methods**.
+Si l’expression régulière correspond, votre règle remplace l’en-tête **Access-Control-Allow-Origin** (le cas échéant) de l’origine par l’origine qui a envoyé la demande. Vous pouvez également ajouter des en-têtes CORS, comme **Access-Control-Allow-Methods**.
 
 ![Exemple de règles avec expression régulière](./media/cdn-cors/cdn-cors-regex.png)
  
@@ -81,4 +81,4 @@ Au lieu de recourir à des expressions régulières, vous pouvez créer une règ
 
 Sur les profils Azure CDN Standard, le seul mécanisme autorisant plusieurs origines sans recourir à l’origine avec caractère générique consiste à utiliser la [mise en cache de chaîne de requête](cdn-query-string.md). Vous devez activer le paramètre de chaîne de requête pour le point de terminaison CDN, puis utiliser une chaîne de requête unique pour les demandes à partir de chaque domaine autorisé. Ainsi, le CDN met en cache un objet distinct pour chaque chaîne de requête unique. Cette approche n’est pas idéale, toutefois, car plusieurs copies du même fichier sont mises en cache sur le CDN.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

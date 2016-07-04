@@ -12,21 +12,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Sauvegarder votre StorSimple Virtual Array
 
 ## Vue d'ensemble 
 
-Ce didacticiel s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016).
+Ce didacticiel s’applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016) ou des versions ultérieures.
 
 StorSimple Virtual Array est un périphérique virtuel local de stockage cloud hybride qui peut être configuré comme un serveur de fichiers ou un serveur iSCSI. Il peut créer des sauvegardes, restaurer des données à partir de sauvegardes et effectuer le basculement d'un appareil si une récupération d'urgence est nécessaire. Configuré comme serveur de fichiers, il permet également la récupération au niveau de l’élément. Ce didacticiel explique comment utiliser le portail Azure Classic ou l'interface utilisateur web StorSimple pour créer des sauvegardes planifiées et manuelles de votre StorSimple Virtual Array.
 
 
 ## Sauvegarder des partages et des volumes
 
-Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **planifiée** ou **manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
+Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **planifiée** ou **manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
 
 > [AZURE.NOTE] Dans cette version, les sauvegardes planifiées sont créées à l’aide d’une stratégie par défaut qui s'exécute tous les jours à un moment précis et sauvegarde tous les partages ou volumes sur l'appareil. Il n'est pour l’instant pas possible de créer des stratégies personnalisées pour les sauvegardes planifiées.
 
@@ -64,7 +64,7 @@ Outre les sauvegardes planifiées, vous pouvez à tout moment effectuer une sauv
 
     ![travail de sauvegarde créé](./media/storsimple-ova-backup/image7.png)
 
-3. Pour suivre la progression de la tâche, cliquez sur l’icône **Afficher la tâche**.
+3. Pour suivre la progression de la tâche, cliquez sur **Afficher la tâche**.
 
 4. Une fois le travail de sauvegarde terminé, accédez à l’onglet **Catalogue de sauvegarde**. Votre sauvegarde devrait être terminée.
 
@@ -82,7 +82,7 @@ Procédez comme suit dans le portail Azure Classic pour afficher les sauvegardes
 
 1. Dans la page du service StorSimple Manager, cliquez sur l’onglet **Catalogue de sauvegarde**.
 
-2. Sélectionnez un jeu de sauvegarde comme suit :
+2. Sélectionnez un jeu de sauvegarde comme suit :
 
     1. Sélectionnez le périphérique.
 
@@ -104,4 +104,4 @@ Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarde
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -247,8 +247,7 @@ Les surfaces de contrôle physique intermédiaires sont des surfaces où une sor
 Pour plus d’informations, reportez-vous aux articles suivants :
 
 - [SDL Threat Modeling Tool (Outil SDL de modélisation des menaces)](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-
 - [Microsoft Azure IoT reference architecture (Architecture de référence Microsoft Azure IoT)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

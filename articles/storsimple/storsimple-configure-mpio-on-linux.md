@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Configuration de MPIO sur un hôte StorSimple exécutant CentOS
@@ -29,28 +29,28 @@ La fonctionnalité de gestion multivoie vous permet de configurer plusieurs chem
 
 L’objectif de la gestion multivoie est double :
 
-- **Haute disponibilité** : elle fournit un autre chemin en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
+- **Haute disponibilité** : elle fournit un autre chemin en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
 
-- **Équilibrage de charge** : selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
+- **Équilibrage de charge** : selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
 
 
 ### À propos des composants de la gestion multivoie 
 
 Sous Linux, la gestion multivoie comprend des composants du noyau et des composants de l’espace utilisateur comme présenté ci-dessous.
 
-- **Noyau** : le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
+- **Noyau** : le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
 
-1. **Espace utilisateur** : il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
+1. **Espace utilisateur** : il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
 
-	- **Multipath** : répertorie et configure les appareils à chemins d’accès multiples.
+	- **Multipath** : répertorie et configure les appareils à chemins d’accès multiples.
 		
-	- **Multipathd** : démon qui exécute la gestion multivoie et surveille les chemins d’accès.
+	- **Multipathd** : démon qui exécute la gestion multivoie et surveille les chemins d’accès.
 	
-	- **Devmap-name** : fournit un nom d’appareil explicite vers udev pour devmaps.
+	- **Devmap-name** : fournit un nom d’appareil explicite vers udev pour devmaps.
  
-	- **Kpartx** : mappe les éléments devmaps linéaires aux partitions d’appareils pour effectuer des mappages multivoies configurables en partition.
+	- **Kpartx** : mappe les éléments devmaps linéaires aux partitions d’appareils pour effectuer des mappages multivoies configurables en partition.
 	
-	- **Multipath.conf** : fichier de configuration pour démon multivoie, utilisé pour remplacer la table de configuration intégrée.
+	- **Multipath.conf** : fichier de configuration pour démon multivoie, utilisé pour remplacer la table de configuration intégrée.
 
 ### À propos du fichier de configuration multipath.conf
 
@@ -492,4 +492,4 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 - [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guide de formation Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0622_2016-->

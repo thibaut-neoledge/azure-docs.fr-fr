@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="06/16/2016"
 	ms.author="larryfr"/>
 
 # Utilisation de Hive et HiveQL avec Hadoop dans HDInsight pour l’analyse d’un exemple de fichier Apache log4j
@@ -76,6 +76,7 @@ L’exemple de données est stocké dans le stockage d'objets blob Azure, que HD
 
 Les instructions HiveQL suivantes vont projeter des colonnes sur des données délimitées stockées dans le répertoire **wasb:///example/data** :
 
+    set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -83,6 +84,10 @@ Les instructions HiveQL suivantes vont projeter des colonnes sur des données d�
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 Dans l’exemple précédent, les instructions HiveQL effectuent les opérations suivantes :
+
+* __set hive.execution.engine=tez;__ : définit le moteur d’exécution pour utiliser Tez. L’utilisation de Tez au lieu de MapReduce peut augmenter les performances de requête. Pour plus d’informations sur Tez, consultez la section [Utilisation d’Apache Tez pour des performances améliorées](#usetez).
+
+    > [AZURE.NOTE] Cette instruction est uniquement requise lorsque vous utilisez un cluster HDInsight basé sur Windows. Tez est le moteur d’exécution par défaut pour HDInsight sous Linux.
 
 * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
 * **CREATE EXTERNAL TABLE** : crée une nouvelle table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à leur emplacement d’origine et dans leur format d’origine.
@@ -97,10 +102,11 @@ Dans l’exemple précédent, les instructions HiveQL effectuent les opérations
 
 Après avoir créé la table externe, les instructions suivantes permettent de créer une table **interne**.
 
+    set hive.execution.engine=tez;
 	CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 	STORED AS ORC;
 	INSERT OVERWRITE TABLE errorLogs
-	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
 Ces instructions effectuent les opérations suivantes :
 
@@ -206,4 +212,4 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

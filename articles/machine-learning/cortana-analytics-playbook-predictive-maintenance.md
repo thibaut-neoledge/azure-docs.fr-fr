@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="06/21/2016"
 	ms.author="fboylu" />
 
 # Manuel d’utilisation du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
@@ -346,4 +346,4 @@ Figure 8. Exemple d’architecture de solution pour la maintenance prédictive
 
 Pour plus d'informations sur chacun des composants de l'architecture, consultez la documentation [Azure](https://azure.microsoft.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/17/2016"
+   ms.date="06/15/2016"
    ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -28,6 +28,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## Nouvelles mises à jour
+
+###### **15 juin 2016**
+Le déploiement du SE invité commence le 15 juin 2016, et devrait être publié le 14 juillet 2016.
 
 ###### **17 mai 2016**
 Le déploiement du SE invité du mois de mai commence le 17 mai 2016 et devrait être publié le 10 juin 2016.
@@ -58,9 +61,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.32\_201605-01 | 10 juin 2016* | Publication 4.34 | TBD |
+| WA-GUEST-OS-4.33\_201606-01 | 14 juillet 2016* | Publication 4.35 | TBD |
+| WA-GUEST-OS-4.32\_201605-01 | 10 juin 2016 | Publication 4.34 | TBD |
 | WA-GUEST-OS-4.31\_201604-01 | 2 mai 2016 | Publication 4.33 | TBD |
-| WA-GUEST-OS-4.30\_201603-01 | 7 avril 2016 | Publication 4.32 | TBD |
+| WA-GUEST-OS-4.30\_201603-01 | 7 avril 2016 | 10 juillet 2016 | TBD |
 | WA-GUEST-OS-4.29\_201602-02 | 12 mars 2016 | 2 juin 2016 | TBD |
 | WA-GUEST-OS-4.28\_201601-01 | 12 février 2016 | 7 mai 2016 | TBD | 
 | WA-GUEST-OS-4.27\_201512-01 | 12 janvier 2016 | 12 avril 2016 | TBD |
@@ -78,15 +82,16 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 **Windows Server 2012**
 
-Prend en charge .NET 4.0, 4.5
+Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Les dates précédées de * sont susceptibles de changer.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.39\_201605-01 | 10 juin 2016* | Publication 3.41 | TBD |
+| WA-GUEST-OS-3.40\_201606-01 | 14 juillet 2016* | Publication 3.42 | TBD |
+| WA-GUEST-OS-3.39\_201605-01 | 10 juin 2016 | Publication 3.41 | TBD |
 | WA-GUEST-OS-3.38\_201604-01 | 2 mai 2016 | Publication 3.40 | TBD |
-| WA-GUEST-OS-3.37\_201603-01 | 7 avril 2016 | Publication 3.39 | TBD |
+| WA-GUEST-OS-3.37\_201603-01 | 7 avril 2016 | 10 juillet 2016 | TBD |
 | WA-GUEST-OS-3.36\_201602-02 | 12 mars 2016 | 2 juin 2016 | TBD |
 | WA-GUEST-OS-3.35\_201601-01 | 12 février 2016 | 7 mai 2016 | TBD |
 | WA-GUEST-OS-3.34\_201512-01 | 12 janvier 2016 | 12 avril 2016 | TBD |
@@ -105,15 +110,16 @@ Prend en charge .NET 4.0, 4.5
 
 **Windows Server 2008 R2 SP1**
 
-Prend en charge .NET 3.5, 4.0
+Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Les dates précédées de * sont susceptibles de changer.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.51\_201605-01 | 10 juin 2016* | Publication 2.53 | TBD |
+| WA-GUEST-OS-2.52\_201606-01 | 14 juillet 2016* | Publication 2.54 | TBD |
+| WA-GUEST-OS-2.51\_201605-01 | 10 juin 2016 | Publication 2.53 | TBD |
 | WA-GUEST-OS-2.50\_201604-01 | 2 mai 2016 | Publication 2.52 | TBD |
-| WA-GUEST-OS-2.49\_201603-01 | 7 avril 2016 | Publication 2.51 | TBD |
+| WA-GUEST-OS-2.49\_201603-01 | 7 avril 2016 | 10 juillet 2016 | TBD |
 | WA-GUEST-OS-2.48\_201602-02 | 12 mars 2016 | 2 juin 2016 | TBD |
 | WA-GUEST-OS-2.47\_201601-01 | 12 février 2016 | 7 mai 2016 | TBD |
 | WA-GUEST-OS-2.46\_201512-01 | 12 janvier 2016 | 12 avril 2016 | TBD |
@@ -142,7 +148,7 @@ La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Mic
 | 1 | Versions 1.0 et ultérieures |
 
 ## Informations de publication du SE invité
-Trois dates sont importantes à propos des publications du SE invité : la date de **publication**, la date de **désactivation** et la date d’**expiration**. Un SE invité est considéré comme disponible quand il est proposé dans le portail et qu’il peut être sélectionné comme SE invité cible. Quand un SE invité atteint la date de **désactivation**, il est supprimé du portail Azure. Toutefois, tous les services cloud qui ciblent ce SE invité continuent de fonctionner normalement.
+Trois dates sont importantes à propos des publications du SE invité : la date de **publication**, la date de **désactivation** et la date **d’expiration**. Un SE invité est considéré comme disponible quand il est proposé dans le portail et qu’il peut être sélectionné comme SE invité cible. Quand un SE invité atteint la date de **désactivation**, il est supprimé d’Azure. Toutefois, tous les services cloud qui ciblent ce SE invité continuent de fonctionner normalement.
 
 Durant la période entre la date de **désactivation** et la date d’**expiration**, vous pouvez facilement passer de votre SE invité actuel à une version plus récente. Si vous utilisez la mise à jour *automatique* pour votre SE invité, vous disposez toujours de la version la plus récente. Vous n’avez donc pas à vous soucier de la date d’expiration.
 
@@ -203,4 +209,4 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

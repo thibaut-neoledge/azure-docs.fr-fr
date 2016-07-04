@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;bradsev" />
 
 # Approvisionnement d’une machine virtuelle de science des données Linux 
@@ -177,7 +177,7 @@ Vous avez le choix entre plusieurs éditeurs de code, notamment vi/VIM, Emacs, g
 
 **VIM** et **Emacs** sont des éditeurs de texte. Sur Emacs, nous avons installé un package sous forme de module complémentaire appelé ESS (Speaks Statistics) qui facilite l’utilisation de R dans l’éditeur Emacs. Des informations supplémentaires sont disponibles [ici](http://ess.r-project.org/).
 
-**Eclipse** est un IDE open source et extensible qui prend en charge plusieurs langages. L’édition Java pour les développeurs est l’instance installée sur la machine virtuelle. Des plug-ins disponibles pour plusieurs langages courants peuvent être installés pour étendre l’environnement Eclipse. Nous avons également un plug-in installé dans Eclipse, appelé **Kit de ressources Azure pour Eclipse**, qui vous permet de facilement créer, développer, tester et déployer des applications Azure avec l’environnement de développement Eclipse qui prend en charge des langages tels que Java. Il existe également un **kit SDK Azure pour Java** qui permet d’accéder à différents services Azure à partir d’un environnement Java. Vous trouverez plus d’informations sur la page du [kit SDK Azure pour Eclipse](../azure-toolkit-for-eclipse/).
+**Eclipse** est un IDE open source et extensible qui prend en charge plusieurs langages. L’édition Java pour les développeurs est l’instance installée sur la machine virtuelle. Des plug-ins disponibles pour plusieurs langages courants peuvent être installés pour étendre l’environnement Eclipse. Nous avons également un plug-in installé dans Eclipse, appelé **Kit de ressources Azure pour Eclipse**, qui vous permet de facilement créer, développer, tester et déployer des applications Azure avec l’environnement de développement Eclipse qui prend en charge des langages tels que Java. Il existe également un **kit SDK Azure pour Java** qui permet d’accéder à différents services Azure à partir d’un environnement Java. Vous trouverez plus d’informations sur la page du [kit SDK Azure pour Eclipse](../azure-toolkit-for-eclipse.md).
 
 **LaTex** est installé par le biais du package texlive avec un package Emacs [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) sous forme de module complémentaire, ce qui simplifie la création de vos documents LaTex avec Emacs.
 
@@ -228,7 +228,7 @@ Pour accéder à **Postgres** :
 ### Outils Azure 
 Les outils Azure suivants sont installés sur la machine virtuelle :
 
-- **Interface de ligne de commande azure** : elle vous permet de créer et de gérer des ressources Azure par le biais de commandes dans un interpréteur. Pour appeler les outils Azure, tapez simplement ***azure help***. Pour plus d’informations, consultez la [page de documentation de l’interface de ligne de commande Azure](../virtual-machines-command-line-tools/).
+- **Interface de ligne de commande azure** : elle vous permet de créer et de gérer des ressources Azure par le biais de commandes dans un interpréteur. Pour appeler les outils Azure, tapez simplement ***azure help***. Pour plus d’informations, consultez la [page de documentation de l’interface de ligne de commande Azure](../virtual-machines-command-line-tools.md).
 - **Explorateur de stockage Microsoft Azure** : il s’agit d’un outil graphique qui permet de parcourir les objets stockés dans votre compte de stockage Azure et de télécharger des données vers et à partir des objets blob Azure. Vous pouvez accéder à l’Explorateur de stockage à partir de l’icône de raccourci sur le bureau. Vous pouvez l’appeler à partir d’une invite de commandes en tapant ***StorageExplorer***. Vous devez être connecté à partir d’un client X2go ou avoir configuré le transfert X11. 
 - **Bibliothèques Azure** : voici certaines des bibliothèques installées et disponibles :
 
@@ -354,7 +354,7 @@ Vous pouvez quitter Rattle et R. Vous pouvez maintenant modifier le script R gé
 Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprentissage et d'exploration.
 
 * Explorez les différents outils de science des données sur la machine virtuelle de science des données en testant les outils répertoriés dans cet article. Vous pouvez également exécuter *dsvm-plus-info* dans l’interpréteur de commandes sur la machine virtuelle pour accéder à une présentation de base et des liens vers des informations supplémentaires sur les outils installés sur la machine virtuelle.  
-* Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus de science des données](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples d’apprentissage automatique et d’analyse des données utilisant Cortana Analytics Suite. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

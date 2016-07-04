@@ -31,32 +31,28 @@ Téléchargez et installez le Conseiller de mise à niveau [ici](http://go.micro
 
 3.  Dans le panneau **Run Stretch Database Advisor (Exécuter Stretch Database Advisor)**, cliquez sur **SELECT DATABASES TO ANALYZE (Sélectionner les bases de données à analyser)**.
 
-4.  Dans le panneau **Select databases (Sélectionner des bases de données)** panneau, cliquez sur **INSTANCE SQL**.
+4.  Dans le panneau **Sélectionner des bases de données**, entrez ou sélectionnez le nom du serveur et les informations d’authentification. Cliquez sur **Connecter**.
 
-5.  Dans le panneau **Connect to SQL Instance (Connexion à l’instance SQL)**, saisissez le nom de l’instance de serveur SQL. Puis, cliquez sur **Se connecter**.
+5.  Une liste des bases de données sur le serveur sélectionné s’affiche. Sélectionnez les bases de données que vous souhaitez analyser. Cliquez sur **Sélectionner**.
 
-6.  Dans le panneau **Select databases (Sélectionner des bases de données)**, sélectionnez les bases de données à analyser. Puis cliquez sur **Select (Sélectionner)**.
-
-7.  Dans le panneau **Run Stretch Database Advisor (Exécuter Stretch Database Advisor)**, cliquez sur **run (Exécuter)**. L’analyse s’exécute.
+6.  Dans le panneau **Run Stretch Database Advisor** (Exécuter Stretch Database Advisor), cliquez sur **Run** (Exécuter). L’analyse s’exécute.
 
 ## Passer en revue les résultats.
 
-1.  Une fois l’analyse terminée, sélectionnez dans le **Stretch Database Advisor**, sélectionnez l’une des bases de données analysées pour afficher le panneau **Résultats de l’analyse**.
+1.  Une fois l’analyse terminée, dans le panneau **Analyzed databases** (Bases de données analysées), sélectionnez l’une des bases de données analysées pour afficher le panneau **Analysis results** (Résultats de l’analyse).
 
-    Le panneau **Résultats de l’analyse** répertorie les tables recommandées de la base de données qui correspondent aux critères de recommandation par défaut. Si vous le souhaitez, ajustez la taille minimale et de nombre de lignes à développer ou réduire dans la liste des tables recommandées.
+    Le panneau **Analysis results** (Résultats de l’analyse) répertorie les tables recommandées de la base de données qui correspondent aux critères de recommandation par défaut.
 
-2.  Dans la liste des tables recommandées du panneau **Résultats de l’analyse**, sélectionnez l’une des tables recommandées pour afficher le panneau **Table results (Résultats de la table)**.
+2.  Dans la liste des tables du panneau **Analysis results** (Résultats de l’analyse), sélectionnez l’une des tables recommandées pour afficher le panneau **Table results** (Résultats de la table).
 
-    Le panneau **Table results (Résultats de la table)** répertorie les problèmes de blocage de la table sélectionnée. Pour plus d’informations sur les problèmes de blocage détectés par Stretch Database Advisor, consultez [Limitations pour Stretch Database](sql-server-stretch-database-limitations.md).
+    En cas de problèmes de blocage, ceux-ci sont répertoriés dans le panneau **Table results** (Résultats de la table) de la table sélectionnée. Pour plus d’informations sur les problèmes de blocage détectés par Stretch Database Advisor, consultez [Limites de Stretch Database](sql-server-stretch-database-limitations.md).
 
-3.  Dans la liste des problèmes de blocage du panneau des **résultats de la table**, sélectionnez l’un des problèmes pour afficher le panneau **Rule result (Résultat de la règle)**.
-
-    Le panneau **Rule result (Résultat de la règle)** décrit le problème sélectionné et propose une solution pour le résoudre. Implémentez la solution suggérée si vous souhaitez configurer la table sélectionnée pour Stretch Database.
+3.  Dans la liste des problèmes de blocage dans le panneau **Table results** (Résultats de la table), sélectionnez l’un des problèmes pour afficher plus d’informations sur celui-ci et les mesures d’atténuation proposées. Implémentez la solution suggérée si vous souhaitez configurer la table sélectionnée pour Stretch Database.
 
 ## Étape suivante
 Activer Stretch Database
 
--   Pour activer Stretch Database dans une **base de données**, consultez [Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md)
+-   Pour activer Stretch Database sur une **base de données**, consultez [Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md).
 
 -   Pour activer Stretch Database sur une autre **table** lorsque Stretch est déjà activé sur la base de données, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md).
 
@@ -68,4 +64,4 @@ Activer Stretch Database
 
 [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

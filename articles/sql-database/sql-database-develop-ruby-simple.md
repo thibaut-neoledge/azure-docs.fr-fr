@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="andrela"/>
 
 
@@ -40,8 +40,14 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 
 [Preuve de concept sur la connexion à SQL à l’aide de Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* Consultez la [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
+* Plus d’informations sur le [pilote Ruby Microsoft pour SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+## Ressources supplémentaires 
+
+* [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/)
+
+<!---HONumber=AcomDC_0622_2016-->

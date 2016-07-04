@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="06/17/2016"
    ms.author="v-sharos" />
 
 # Déploiement de votre appareil StorSimple local sur Microsoft Azure Government Portal
@@ -279,4 +279,4 @@ Pour obtenir les instructions d'installation et de configuration de MPIO pour un
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

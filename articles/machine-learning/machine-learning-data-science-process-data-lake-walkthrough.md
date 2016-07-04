@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -734,11 +734,11 @@ En suivant cette procédure pas à pas, vous avez créé un environnement de sci
 
 ## Et ensuite ?
 
-Le parcours d’apprentissage du [processus Cortana Analytics (CAP)](http://aka.ms/datascienceprocess) fournit des liens vers des rubriques qui décrivent chaque étape du processus d’analyse avancée. Il existe une série de procédures pas à pas non liées au nœud **L’intégralité du processus de sciences des données en action** qui mettent en évidence l’utilisation des ressources et des services dans les différents scénarios d’analyse prédictive de la suite Cortana :
+Le parcours d’apprentissage du [processus TDSP (Team Data Science Process)](http://aka.ms/datascienceprocess) fournit des liens vers des rubriques qui décrivent chaque étape du processus d’analyse avancée. Il existe une série de procédures pas à pas détaillées à la page [Procédures pas à pas du processus TDSP (Team Data Science Process)](data-science-process-walkthroughs.md) qui mettent en évidence l’utilisation des ressources et des services dans les différents scénarios d’analyse prédictive :
 
-- [Processus d’analyse Cortana en action : Utilisation de SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [Processus d’analyse Cortana en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
-- [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md)
+- [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
+- [Processus TDSP (Team Data Science Process) : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Vue d’ensemble du processus de science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

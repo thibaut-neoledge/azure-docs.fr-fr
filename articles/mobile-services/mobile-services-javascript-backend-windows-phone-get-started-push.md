@@ -140,14 +140,14 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 Ce didacticiel explique les règles de base de l'activation d'une application Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Nous vous invitons maintenant à suivre l'un des didacticiels suivants :
 
-+ [Envoi de notifications diffusées aux abonnés](../notification-hubs/notification-hubs-windows-phone-send-breaking-news.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
++ [Envoi de notifications diffusées aux abonnés](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 
-+ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
++ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md) <br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
 
 
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
-* [Azure Notification Hubs : instructions relatives au diagnostic](../notification-hubs/notification-hubs-diagnosing.md) <br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
+* [Azure Notification Hubs : instructions relatives au diagnostic](../notification-hubs/notification-hubs-push-notification-fixer.md) <br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
@@ -176,4 +176,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 [Présentation de Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

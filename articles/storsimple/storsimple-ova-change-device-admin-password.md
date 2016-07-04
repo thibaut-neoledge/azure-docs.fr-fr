@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/02/2016"
+   ms.date="06/17/2016"
    ms.author="alkohli" />
 
 # Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array
@@ -23,7 +23,7 @@ Quand vous utilisez l’interface Windows PowerShell pour accéder à l’appare
 
 Vous pouvez également utiliser l'interface utilisateur web locale ou le portail Azure Classic pour modifier à tout moment le mot de passe administrateur une fois l'appareil déployé dans votre environnement de production. Chacune de ces procédures est décrite dans cet article.
 
-## Utilisez le portail Azure Classic pour modifier le mot de passe.
+## Utilisez le portail Azure Classic pour modifier le mot de passe.
 
 Procédez comme suit pour modifier le mot de passe d’administrateur de l’appareil via le portail Azure Classic.
 
@@ -31,7 +31,7 @@ Procédez comme suit pour modifier le mot de passe d’administrateur de l’app
 
 1. Dans le portail, cliquez sur **Appareils** > **Configuration** pour votre appareil.
 
-2. Faites défiler l’écran vers le bas jusqu’à la section **Mot de passe de l’administrateur de l’appareil**. Indiquez un mot de passe Administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison de caractères en majuscules, en minuscules, numériques et spéciaux.
+2. Faites défiler l’écran vers le bas jusqu’à la section **Mot de passe de l’administrateur de l’appareil**. Indiquez un mot de passe Administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison de caractères en majuscules, en minuscules, numériques et spéciaux.
 
 3. Confirmez le mot de passe.
 
@@ -51,7 +51,7 @@ Procédez comme suit pour modifier le mot de passe d’administrateur de l’app
 
 2. Entrez le **mot de passe actuel**.
 
-3. Fournissez un **nouveau mot de passe**. Le mot de passe doit comporter au moins 8 caractères. Il doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux.
+3. Fournissez un **nouveau mot de passe**. Le mot de passe doit comporter au moins 8 caractères. Il doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux.
 
     Notez que votre mot de passe ne peut pas être identique aux 24 derniers mots de passe.
 
@@ -69,4 +69,4 @@ Procédez comme suit pour modifier le mot de passe d’administrateur de l’app
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

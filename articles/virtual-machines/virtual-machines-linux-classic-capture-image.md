@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 
@@ -22,19 +22,18 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
 
-
 Cet article vous montre comment capturer une machine virtuelle Azure classique exécutant Linux en tant qu'image pour créer d'autres machines virtuelles. Cette image comprend le disque du système d'exploitation ainsi que les disques de données attachés à la machine virtuelle. Elle ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d'autres machines virtuelles à partir de l'image.
 
 Azure stocke l'image sous **Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, voir l’article [À propos des images de machine virtuelle dans Azure][].
 
 ## Avant de commencer
 
-Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure à l’aide du modèle de déploiement classique, configuré le système d'exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, consultez [Comment créer une machine virtuelle Linux][].
+Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure à l’aide du modèle de déploiement Classic, configuré le système d’exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, consultez [Comment créer une machine virtuelle Linux][].
 
 
 ## Capture de la machine virtuelle
 
-1. Connectez-vous à la machine virtuelle à l'aide d'un client SSH de votre choix. Pour plus d'informations, consultez [Connexion à une machine virtuelle exécutant Linux][].
+1. [Connectez-vous à la machine virtuelle](virtual-machines-linux-classic-log-on.md) à l’aide d’un client SSH de votre choix.
 
 2. Dans la fenêtre SSH, tapez la commande suivante. Notez que le résultat de `waagent` peut varier légèrement en fonction de la version utilisée :
 
@@ -55,7 +54,6 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 3. Tapez **y** pour continuer. Vous pouvez ajouter le paramètre `-force` pour éviter cette étape de confirmation.
 
 4. Tapez **Exit** pour fermer le client SSH.
-
 
 	>[AZURE.NOTE] Les étapes suivantes supposent que vous avez déjà [installé la CLI Azure](../xplat-cli-install.md) sur votre ordinateur client. Toutes les étapes ci-dessous peuvent également être effectuées dans le [portail Azure Classic][].
 
@@ -92,10 +90,9 @@ L'image est prête à être utilisée pour créer des machines virtuelles. Vous 
 **Voir aussi :** [Guide d’utilisateur de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
 [portail Azure Classic]: http://manage.windowsazure.com
-[Connexion à une machine virtuelle exécutant Linux]: virtual-machines-linux-classic-log-on.md
 [À propos des images de machine virtuelle dans Azure]: virtual-machines-linux-classic-about-images.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-linux-classic-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Comment créer une machine virtuelle Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

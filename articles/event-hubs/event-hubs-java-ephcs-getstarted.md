@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="06/16/2016"
 	ms.author="sethm"/>
 
 # Prise en main des hubs d’événements
@@ -32,14 +32,13 @@ Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
 
 + Un environnement de développement Java. Pour ce didacticiel, nous partons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
 
-+ Microsoft Visual Studio Express pour Windows
++ [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez en créer un gratuitement en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d’évaluation gratuite d’Azure</a>.
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d’évaluation gratuite d’Azure</a>.
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-java](../../includes/service-bus-event-hubs-get-started-send-java.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -47,11 +46,11 @@ Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
 
 Vous êtes maintenant prêt à exécuter les applications.
 
-1.	Exécutez le projet **Receiver** à partir de Visual Studio, puis attendez qu’il démarre les récepteurs pour toutes les partitions.
+1.	Exécutez le projet **Récepteur** à partir de Visual Studio, puis attendez qu’il démarre les récepteurs pour toutes les partitions.
 
 	![][21]
 
-2.	Exécutez le projet **Expéditeur,** appuyez sur **Entrée** dans la fenêtre de console. Les événements s’affichent dans la fenêtre du destinataire.
+2.	Exécutez le projet **Expéditeur**.
 
 	![][22]
 
@@ -67,7 +66,7 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 
 <!-- Images. -->
 [21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs2.png
+[22]: ./media/event-hubs-java-ephcs-getstarted/java-send.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
@@ -78,4 +77,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

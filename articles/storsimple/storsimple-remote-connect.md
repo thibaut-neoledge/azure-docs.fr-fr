@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/08/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Connexion à distance à votre appareil StorSimple
@@ -274,4 +274,4 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

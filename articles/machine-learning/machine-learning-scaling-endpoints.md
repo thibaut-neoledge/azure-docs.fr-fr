@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Mise à l’échelle des points de terminaison des API | Microsoft Azure" 
-	description="Mise à l’échelle de points de terminaison de service Web dans Microsoft Azure Machine Learning." 
+	description="Mise à l’échelle de points de terminaison de service Web dans Microsoft Azure Machine Learning." 
 	services="machine-learning"
 	documentationCenter="" 
 	authors="hiteshmadan" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/25/2016"
+	ms.date="05/25/2016"
 	ms.author="himad"/>
 
 
@@ -24,7 +24,7 @@ Les points de terminaison de service Web dans Azure Machine Learning ont des niv
 Pour contrôler le taux de limitation sur le point de terminaison, utilisez le curseur sur le portail Azure Classic pour définir le nombre maximum d’appels simultanés (de 20 à 200)
 
 
-Les API synchrones sont généralement utilisées dans les situations où vous souhaitez une latence faible. La latence implique ici le temps nécessaire à l’API pour compléter une demande et ne prend pas en compte les retards de réseau. Supposons que vous avez une API avec une latence de 50 millisecondes. Pour utiliser toute la capacité disponible avec le niveau de limitation élevé et le nombre maximal d’appels simultanés = 20, vous devez appeler cette API 20 * 1000 / 50 = 400 fois par seconde. De même, un nombre maximum d’appels simultanés de 200 vous permettra d’appeler l’API 4000 fois par seconde, en supposant une latence de 50 millisecondes.
+Les API synchrones sont généralement utilisées dans les situations où vous souhaitez une latence faible. La latence implique ici le temps nécessaire à l’API pour compléter une demande et ne prend pas en compte les retards de réseau. Supposons que vous avez une API avec une latence de 50 millisecondes. Pour utiliser toute la capacité disponible avec le niveau de limitation élevé et le nombre maximal d’appels simultanés = 20, vous devez appeler cette API 20 * 1000 / 50 = 400 fois par seconde. De même, un nombre maximum d’appels simultanés de 200 vous permettra d’appeler l’API 4000 fois par seconde, en supposant une latence de 50 millisecondes.
 
 Si vous envisagez d’appeler l’API avec une charge supérieure à ce que le nombre maximal d’appels simultanés de 200 prend en charge, vous devez créer plusieurs points de terminaison sur le même service Web et répartir la charge aléatoirement sur ces derniers.
 
@@ -47,4 +47,4 @@ L’interface utilisateur de gestion permet de fournir un nombre d’accès conc
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

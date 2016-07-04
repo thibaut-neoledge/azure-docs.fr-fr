@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
@@ -40,9 +40,9 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-*   **Un compte de stockage Azure** : pour créer un compte, référez-vous à la rubrique [Création d’un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut être également créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser un compte existant.
+*   **Un compte de stockage Azure** : pour créer un compte, référez-vous à la rubrique [Création d’un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut être également créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser un compte existant.
 
 
 ## Création d’une machine virtuelle pour la science des données
@@ -53,7 +53,7 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
 2.	 Cliquez sur le bouton **Créer** au bas de l’écran pour accéder à un assistant.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 Les sections suivantes fournissent les **entrées** de chacune des **5 étapes** (énumérées à droite de la figure ci-dessus) de l’Assistant utilisé pour créer la machine virtuelle de sciences de données. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
 
-  **a. Paramètres de base** :
+  **a. Paramètres de base** :
 
    - **Name** (Nom) : nom du serveur Data Science que vous créez.
    - **User Name** (Nom d’utilisateur) : identifiant de connexion du compte administrateur.
@@ -62,7 +62,7 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
    - **Resource Group** (Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
    - **Location** (Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau
 
-  **b. Taille** :
+  **b. Taille** :
 
    - Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez « View All » (Afficher tout) pour obtenir d’autres choix de tailles de machines virtuelles
 
@@ -72,11 +72,11 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
    - **Storage Account** (Compte de stockage) : vous pouvez créer un nouveau compte de stockage Azure associé à votre abonnement ou utiliser un compte existant au même *emplacement* que celui que vous avez sélectionné à l’étape de définition des paramètres de base de l’Assistant.
    - **Other parameters** (Autres paramètres) : dans la plupart des cas, vous utiliserez simplement la valeur par défaut. Si vous ne souhaitez pas utiliser les valeurs par défaut, vous pouvez survoler le lien d'informations pour obtenir de l'aide sur des champs spécifiques.
 
-  **d. Résumé** :
+  **d. Résumé** :
 
    - Vérifiez que toutes les informations que vous avez saisies sont correctes.
 
-  **e. Acheter** :
+  **e. Acheter** :
 
    - Cliquez sur **Buy** (Acheter) pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille**. 
 
@@ -144,7 +144,7 @@ Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprenti
 * Explorez les différents outils de science des données sur la machine virtuelle de science des données en cliquant sur le menu Démarrer et en consultant les outils répertoriés dans le menu.
 * Accédez à **C:\\Program Files\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** pour obtenir des exemples utilisant la bibliothèque RevoScaleR dans R qui prend en charge l’analyse des données à l’échelle de l’entreprise.  
 * Lisez l’article intitulé [Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données](http://aka.ms/dsvmtenthings).
-* Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus de science des données](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visitez la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com) pour obtenir des exemples d’apprentissage automatique et d’analyse des données utilisant Cortana Intelligence Suite. Nous avons également inclus une icône dans le menu Démarrer et sur le bureau de la machine virtuelle pour un accès aisé. 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

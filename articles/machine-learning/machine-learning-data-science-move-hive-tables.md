@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -21,7 +21,7 @@
 
 Cette rubrique présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage d’objets blob Azure. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
-Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus Cortana Analytics (CAP).
+Ce **menu** pointe vers des rubriques qui expliquent comment recevoir des données dans d’autres environnements cibles où les données peuvent être stockées et traitées pendant le processus TDSP (Team Data Science Process).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -38,7 +38,7 @@ Si vous avez créé une machine virtuelle Azure en suivant les instructions de l
 
 Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu’elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop.
 
-Si vous souhaitez vous exercer sur les _données NYC Taxi Trip_, vous devez d'abord télécharger les 24 fichiers de <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">données NYC Taxi Trip</a> (12 fichiers Trip et 12 fichiers Fare), **décompresser** ces fichiers pour obtenir des fichiers .csv, puis les charger dans le conteneur par défaut (ou le conteneur approprié) du compte Azure Storage utilisé par la procédure dans la rubrique [Personnaliser les clusters Hadoop Azure HDInsight pour le processus et la technologie d’analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md). Pour découvrir le processus qui vous permet de télécharger les fichiers .csv du conteneur par défaut sur le compte de stockage, consultez cette [page](machine-learning-data-science-process-hive-walkthrough/#upload).
+Si vous souhaitez vous exercer sur les _données NYC Taxi Trip_, vous devez d'abord télécharger les 24 fichiers de <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">données NYC Taxi Trip</a> (12 fichiers Trip et 12 fichiers Fare), **décompresser** ces fichiers pour obtenir des fichiers .csv, puis les charger dans le conteneur par défaut (ou le conteneur approprié) du compte Azure Storage utilisé par la procédure dans la rubrique [Personnaliser les clusters Hadoop Azure HDInsight pour le processus et la technologie d’analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md). Pour découvrir le processus qui vous permet de télécharger les fichiers .csv du conteneur par défaut sur le compte de stockage, consultez cette [page](machine-learning-data-science-process-hive-walkthrough.md#upload).
 
 
 ## <a name="submit"></a>Envoi de requêtes Hive
@@ -245,4 +245,4 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 
 À l’issue de cette procédure, vous devez obtenir une table immédiatement exploitable et contenant des données au format ORC.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

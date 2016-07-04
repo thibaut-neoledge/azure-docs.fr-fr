@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="06/12/2016"
 	ms.author="mikeray" />
 
 # Configuration automatique d’un groupe de disponibilité Always On dans une machine virtuelle Azure - Resource Manager
@@ -27,7 +27,6 @@
 <br/>
 
 Ce didacticiel complet vous montre comment créer un groupe de disponibilité SQL Server avec des machines virtuelles Azure Resource Manager. Il utilise des panneaux Azure pour configurer un modèle. Au cours de ce didacticiel, vous allez passer en revue les paramètres par défaut, entrer les paramètres exigés et mettre à jour les panneaux du portail.
-
 
 À la fin du didacticiel, votre solution de groupe de disponibilité SQL Server dans Azure comprendra les éléments suivants :
 
@@ -67,6 +66,9 @@ Dans ce didacticiel, nous allons utiliser le portail Azure pour :
 
 - nous connecter à l’un des contrôleurs de domaine, puis à l’un des serveurs SQL Server ;
 
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
+
+
 ## Approvisionnement du cluster à partir de la galerie
 
 Azure fournit une image de galerie pour l’ensemble de la solution. Pour localiser le modèle :
@@ -79,9 +81,9 @@ Azure fournit une image de galerie pour l’ensemble de la solution. Pour locali
 
 ### Concepts de base
 
-Cliquez sur **Fonctions de base** et configurez les paramètres suivants :
+Cliquez sur les **concepts de base** et configurez les paramètres suivants :
 
-- **Nom d’utilisateur de l’administrateur** correspond à un compte d’utilisateur doté d’autorisations d’administrateur de domaine et membre du rôle serveur fixe sysadmin SQL Server sur les deux instances de SQL Server. Pour ce didacticiel, utilisez **DomainAdmin**.
+- **Nom d’utilisateur de l’administrateur** correspond à un compte d’utilisateur doté d’autorisations d’administrateur de domaine et est membre du rôle serveur fixe sysadmin SQL Server sur les deux instances de SQL Server. Pour ce didacticiel, utilisez **DomainAdmin**.
 
 - **Mot de passe** correspond au mot de passe du compte d’administrateur de domaine. Utilisez un mot de passe complexe. Confirmez le mot de passe.
 
@@ -91,7 +93,7 @@ Cliquez sur **Fonctions de base** et configurez les paramètres suivants :
 
 - **Emplacement** correspond à la région Azure dans laquelle les ressources sont créées pour ce didacticiel. Sélectionnez une région Azure pour héberger l’infrastructure.
 
-Voici ce à quoi le panneau **Fonctions de base** va ressembler :
+Voici ce à quoi le panneau des **concepts de base** va ressembler :
 
 ![Concepts de base](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
@@ -101,7 +103,7 @@ Voici ce à quoi le panneau **Fonctions de base** va ressembler :
 
 Ce modèle de galerie Azure crée un domaine avec de nouveaux contrôleurs de domaine. Il crée également un réseau et deux sous-réseaux. Le modèle ne permet pas la création de serveurs dans un domaine ou un réseau virtuel existant. L’étape suivante consiste à configurer les paramètres de domaine et réseau.
 
-Dans le panneau **Paramètres de domaine et réseau**, examinez les valeurs prédéfinies des paramètres de domaine et de réseau :
+Dans le panneau des **paramètres de domaine et réseau**, examinez les valeurs prédéfinies des paramètres de domaine et de réseau :
 
 - **Nom de domaine racine de la forêt** correspond au nom de domaine utilisé pour le domaine Active Directory qui héberge le cluster. Pour ce didacticiel, utilisez **contoso.com**.
 
@@ -141,9 +143,9 @@ Si nécessaire, vous pouvez modifier ces valeurs. Pour ce didacticiel, utilisez 
 
 Pour **Taille de la machine virtuelle, paramètres de stockage**, choisissez une taille de machine virtuelle SQL Server et vérifiez les autres paramètres.
 
-- **Taille de la machine virtuelle SQL Server** correspond à la taille de la machine virtuelle Azure pour les deux serveurs SQL. Choisissez une taille de machine virtuelle appropriée à votre charge de travail. Si vous générez cet environnement pour le didacticiel, utilisez **DS2**. Pour des charges de travail de production, choisissez une taille de machine virtuelle pouvant gérer la charge de travail. De nombreuses charges de travail de production nécessitent **DS4** ou plus. Le modèle génère deux machines virtuelles de cette taille et installe SQL Server sur chacune d’elles. Pour plus d’informations, consultez [Tailles des machines virtuelles](virtual-machines-linux-sizes.md).
+- **Taille de la machine virtuelle SQL Server** correspond à la taille de la machine virtuelle Azure pour les deux serveurs SQL. Choisissez une taille de machine virtuelle appropriée à votre charge de travail. Si vous générez cet environnement pour le didacticiel, utilisez **DS2**. Pour des charges de travail de production, choisissez une taille de machine virtuelle pouvant gérer la charge de travail. Dans le cas d’importants volumes de charges de travail de production, **DS4** ou plus est nécessaire. Le modèle génère deux machines virtuelles de cette taille et installe SQL Server sur chacune d’elles. Pour plus d’informations, consultez [Tailles des machines virtuelles](virtual-machines-linux-sizes.md).
 
->[AZURE.NOTE]Azure installe SQL Server Enterprise Edition. Le coût dépend de l’édition et de la taille de la machine virtuelle. Pour plus d’informations sur les coûts actuels, voir la [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+>[AZURE.NOTE]Azure installe SQL Server Enterprise Edition. Le coût dépend de l’édition et de la taille de la machine virtuelle. Pour plus d’informations sur les coûts actuels, voir la [tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 - **Taille de la machine virtuelle de contrôleur de domaine** correspond à la taille de la machine virtuelle des contrôleurs de domaine. Pour ce didacticiel, utilisez **D2**.
 
@@ -257,4 +259,4 @@ Vous êtes maintenant connecté au contrôleur de domaine principal. Pour établ
 
 Vous êtes maintenant connecté avec RDP au serveur SQL Server. Vous pouvez ouvrir SQL Server Management Studio, vous connecter à l’instance par défaut de SQL Server et vérifier que le groupe de disponibilité est configuré.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

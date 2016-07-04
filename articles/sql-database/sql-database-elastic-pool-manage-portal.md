@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -105,6 +105,8 @@ Dans la liste de base de données du panneau **Database Resource Utilization** (
 
 Vous pouvez ajouter des règles à des ressources qui envoient des messages électroniques à des personnes ou des chaînes d’alertes à des points de terminaison d’URL quand la ressource atteint un seuil d’utilisation que vous configurez.
 
+> [AZURE.IMPORTANT]La surveillance de l’utilisation des ressources pour les pools élastiques subit un décalage d’au moins 20 minutes. La définition d’alertes de moins de 30 minutes pour les pools élastiques n’est actuellement pas prise en charge. Les alertes définies pour les pools élastiques sur une période (paramètre appelé « -WindowSize » dans les API PowerShell) de moins de 30 minutes peuvent ne pas se déclencher. Assurez-vous que les alertes que vous définissez pour les pools élastiques utilisent une période (WindowSize) de 30 minutes ou plus.
+
 **Pour ajouter une alerte à une ressource :**
 
 1. Cliquez sur le graphique **Utilisation des ressources** pour ouvrir le panneau **Métrique**. Cliquez sur **Ajouter une alerte**, puis remplissez les informations dans le panneau **Ajouter une règle d’alerte** (la valeur **Ressource** est automatiquement définie comme étant le pool que vous utilisez).
@@ -131,11 +133,11 @@ Vous pouvez ajouter ou supprimer des bases de données dans un pool existant. Le
 	![Cliquez sur Ajouter au pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
 	
-3. Dans le panneau **Ajouter des bases de données**, sélectionnez les bases de données à ajouter au pool. Cliquez ensuite sur **Sélectionner**.
+3. Dans le panneau **Ajouter des bases de données**, sélectionnez les bases de données à ajouter au pool. Puis cliquez sur **Sélectionner**.
 
 	![Sélectionnez les bases de données à ajouter](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
-    Le panneau **Configurer un pool** répertorie maintenant les bases de données sélectionnées à ajouter, avec leur état défini sur **En attente**.
+    Le panneau **Configurer le pool** répertorie maintenant les bases de données sélectionnées à ajouter, avec leur état défini sur **En attente**.
 
     ![Ajouts de pool en attente](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
@@ -153,7 +155,7 @@ Vous pouvez ajouter ou supprimer des bases de données dans un pool existant. Le
 
     ![liste des bases de données](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
-    Le panneau **Configurer un pool** répertorie maintenant les bases de données sélectionnées à supprimer, avec leur état défini sur **En attente**.
+    Le panneau **Configurer le pool** répertorie maintenant les bases de données sélectionnées à supprimer, avec leur état défini sur **En attente**.
     
     ![Afficher l’aperçu d’ajout et de suppression de base de données](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
@@ -163,13 +165,13 @@ Vous pouvez ajouter ou supprimer des bases de données dans un pool existant. Le
 
 ## Modifier les paramètres de performances d’un pool
 
-Lorsque vous surveillez l’utilisation des ressources d’un pool, vous pouvez constater que certains ajustements sont nécessaires. Les limites de performances ou de stockage du pool ont peut-être besoin d’être modifiées. Vous pouvez aussi vouloir modifier les paramètres des bases de données du pool. Vous pouvez modifier la configuration du pool à tout moment pour obtenir le meilleur compromis entre les performances et le coût. Pour plus d’informations, voir [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md).
+Lorsque vous surveillez l’utilisation des ressources d’un pool, vous pouvez constater que certains ajustements sont nécessaires. Les limites de performances ou de stockage du pool ont peut-être besoin d’être modifiées. Vous pouvez aussi vouloir modifier les paramètres des bases de données du pool. Vous pouvez modifier la configuration du pool à tout moment pour obtenir le meilleur compromis entre les performances et le coût. Pour plus d’informations, voir [Quand utiliser un pool de bases de données élastiques ?](sql-database-elastic-pool-guidance.md).
 
 **Pour modifier les eDTU ou les limites par pool et les eDTU par base de données :**
 
 1. Ouvrez le panneau **Configurer le pool**.
 
-    Sous **Paramètres du pool de bases de données élastique**, utilisez l’un ou l’autre des curseurs pour modifier les paramètres du pool.
+    Sous **Paramètres du pool de bases de données élastiques**, utilisez l’un ou l’autre des curseurs pour modifier les paramètres du pool.
 
     ![Utilisation des ressources du pool élastique](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
@@ -187,7 +189,7 @@ Les tâches élastiques vous permettent d'exécuter des scripts Transact-SQL, q
 
 Avant d’utiliser des tâches, installez les composants de tâches élastiques et indiquez vos informations d’identification. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 
-Consultez l’article [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
+Consultez [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
 
 
@@ -211,4 +213,4 @@ Consultez l’article [Montée en charge avec la base de données SQL Azure](sql
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

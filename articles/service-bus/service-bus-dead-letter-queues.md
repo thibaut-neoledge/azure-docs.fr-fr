@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na" 
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="clemensv;sethm"/>
 
 # Vue d’ensemble des files d’attente de lettres mortes Service Bus
@@ -45,7 +45,7 @@ Les applications peuvent définir leurs propres codes pour la propriété `DeadL
 
 ## Dépassement de MaxDeliveryCount
 
-Les files d’attente et les abonnements ont chacun une propriété [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) et [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx). La valeur par défaut est 10. Chaque fois qu’un message a été remis sous un verrou ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)), mais a été explicitement abandonné ou le verrou a expiré, la propriété [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) du message est incrémentée. Quand [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) dépasse [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), le message est déplacé vers la file d’attente de lettres mortes avec le code motif `MaxDeliveryCountExceeded`.
+Les files d’attente et les abonnements ont chacun une propriété [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) et [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx), respectivement. La valeur par défaut est 10. Chaque fois qu’un message a été remis sous un verrou ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)), mais a été explicitement abandonné ou le verrou a expiré, la propriété [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) du message est incrémentée. Quand [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) dépasse [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), le message est déplacé vers la file d’attente de lettres mortes avec le code motif `MaxDeliveryCountExceeded`.
 
 Ce comportement ne peut pas être désactivé, mais vous pouvez définir [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) sur un très grand nombre.
 
@@ -88,7 +88,7 @@ while(true)
 
 Pour plus d’informations sur les files d’attente de lettres mortes Service Bus, consultez les articles suivants :
 
+- [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 - [Comparaison des files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- Utilisation des [files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

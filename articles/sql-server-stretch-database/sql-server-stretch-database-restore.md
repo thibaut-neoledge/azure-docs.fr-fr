@@ -81,11 +81,13 @@ Après avoir restauré la base de données Azure dans une autre région, vous de
 
 	-   Indiquez s’il est nécessaire d’effectuer une copie des données distantes et de s’y connecter (recommandé).
 
-	```tsql  
-	DECLARE @credentialName nvarchar(128);   
-	SET @credentialName = N'<existing_database_scoped_credential_name>';   
-	EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 1;  
-
+    ```tsql  
+    USE <Stretch-enabled database name>;
+	GO
+	EXEC sp_rda_reauthorize_db
+	    @credential = N'<existing_database_scoped_credential_name>',
+		@with_copy = 1 ;  
+	GO
 	```  
 
 ## Voir aussi
@@ -96,4 +98,4 @@ Après avoir restauré la base de données Azure dans une autre région, vous de
 
 [Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

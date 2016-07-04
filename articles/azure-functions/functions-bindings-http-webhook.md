@@ -42,7 +42,7 @@ Propriétés de la réponse HTTP :
 - `type` : doit être défini sur *http*.
 - `direction` : doit être défini sur *out*. 
  
-Exemple de fichier *function.json* :
+Exemple de fichier *function.json* :
 
 ```json
 {
@@ -51,7 +51,7 @@ Exemple de fichier *function.json* :
       "webHookType": "",
       "name": "req",
       "type": "httpTrigger",
-      "direction": "in"
+      "direction": "in",
       "authLevel": "function"
     },
     {
@@ -201,4 +201,4 @@ module.exports = function (context, data) {
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

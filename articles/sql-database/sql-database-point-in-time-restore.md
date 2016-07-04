@@ -12,24 +12,37 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.workload="sqldb-bcdr"
+   ms.date="06/17/2016"
    ms.author="sstein"/>
 
 # Vue d’ensemble : limite de restauration dans le temps d’une base de données SQL
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-database-point-in-time-restore.md)
+- [Vue d’ensemble de la continuité des activités](sql-datbase-business-continuity.md)
+- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Restauration d’une base de données supprimée](sql-database-restore-deleted-database.md)
+- [Restauration géographique](sql-database-geo-restore.md)
+- [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+
+La limite de restauration dans le temps vous permet de restaurer une base de données existante en tant que nouvelle base de données à un point antérieur dans le temps sur le même serveur logique à l’aide de [sauvegardes automatisées de la base de données SQL](sql-database-automated-backups.md). Vous ne pouvez pas remplacer la base de données existante. Vous pouvez restaurer à un point antérieur dans le temps à l’aide du [portail Azure](sql-database-point-in-time-restore-portal.md), de [PowerShell](sql-database-point-in-time-restore-powershell.md) ou [de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+
+> [AZURE.SELECTOR]
 - [Portail Azure](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-La limite de restauration dans le temps vous permet de restaurer votre base de données à un point antérieur dans le temps à l’aide de [sauvegardes automatisées de la base de données SQL](sql-database-automated-backups.md). Vous pouvez restaurer à un point antérieur dans le temps à l’aide du [portail Azure](sql-database-point-in-time-restore-portal.md), de [PowerShell](sql-database-point-in-time-restore-powershell.md) ou [de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+La base de données peut être restaurée vers n’importe quel niveau de performance ou pool élastique. Vous devez vous assurer de disposer d’un quota DTU suffisant sur le serveur ou le pool. N’oubliez pas que la restauration crée une nouvelle base de données, et que les performances et le niveau de service de la base de données restaurée peuvent être différents de ceux de la base de données d’origine. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne, facturée aux tarifs habituels en fonction de ses performances et de son niveau de service.
 
-La base de données peut être restaurée vers n’importe quel niveau de performance ou pool élastique. Vous devez vous assurer de disposer d’un quota DTU suffisant sur le serveur ou le pool. N’oubliez pas que la restauration crée une nouvelle base de données, et que les performances et le niveau de service de la base de données restaurée peuvent être différents de ceux de la base de données d’origine. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne, facturée aux tarifs habituels en fonction de ses performances et de son niveau de service. Si vous restaurez la base de données à des fins de récupération, vous pouvez traiter la base de données restaurée comme remplacement de la base de données d’origine, ou l’utiliser pour en extraire des données afin de mettre à jour la base de données d’origine. Si la base de données restaurée est destinée à remplacer la base de données d’origine, vous devez vérifier que les performances et/ou de niveau de service sont appropriés, et effectuer une mise à l’échelle si nécessaire. Vous pouvez renommer la base de données d’origine, puis donner le nom d’origine à la base de données restaurée à l’aide de la commande ALTER DATABASE dans T-SQL. Si vous voulez récupérer des données à partir de la base de données restaurée, vous devrez écrire et exécuter séparément les scripts de récupération de données dont vous avez besoin. Bien que l’opération de restauration puisse prendre un certain temps, la base de données sera visible dans la liste de base de données pendant tout le processus. Si vous supprimez la base de données pendant la restauration, cela annule l’opération et vous ne serez pas facturé.
+Pour trouver le plus ancien point de restauration disponible, utilisez [Obtenir la base de données](https://msdn.microsoft.com/library/dn505708.aspx) (*RecoveryPeriodStartDate*) pour obtenir le plus ancien point de restauration (point de restauration sans réplication géographique).
+
+Si vous restaurez la base de données à des fins de récupération, vous pouvez traiter la base de données restaurée comme remplacement de la base de données d’origine, ou l’utiliser pour en extraire des données afin de mettre à jour la base de données d’origine. Si la base de données restaurée est destinée à remplacer la base de données d’origine, vous devez vérifier que les performances et/ou de niveau de service sont appropriés, et effectuer une mise à l’échelle si nécessaire. Vous pouvez renommer la base de données d’origine, puis donner le nom d’origine à la base de données restaurée à l’aide de la commande ALTER DATABASE dans T-SQL.
+
+Si vous voulez récupérer des données à partir de la base de données restaurée, vous devrez écrire et exécuter séparément les scripts de récupération de données dont vous avez besoin. Bien que l’opération de restauration puisse prendre un certain temps, la base de données sera visible dans la liste de base de données pendant tout le processus. Si vous supprimez la base de données pendant la restauration, cela annule l’opération et vous ne serez pas facturé.
 
 ## Durée de la récupération via la limite de restauration dans le temps
 
-Le temps nécessaire pour restaurer une base de données dépend de nombreux facteurs, notamment de la taille de la base de données, du point de restauration sélectionné et de la quantité d’activités devant être relues pour reconstruire l’état au point sélectionné. Pour une base de données de très grande taille et/ou très active, la restauration peut prendre plusieurs heures. La restauration d’une base de données crée systématiquement une nouvelle base de données sur le même serveur que la base de données d’origine. La base de données restaurée doit donc être renommée.
+Le temps nécessaire pour restaurer une base de données dépend de nombreux facteurs, notamment de la taille de la base de données, le nombre de journaux de transactions, le point de restauration sélectionné et la quantité d’activités devant être relues pour reconstruire l’état au point sélectionné. Pour une base de données de très grande taille et/ou très active, la restauration peut prendre plusieurs heures. La majorité des restaurations de bases de données se terminent dans un délai de 12 heures.
 
 ## Sauvegarde/restauration ou copie/exportation/importation
 
@@ -43,19 +56,13 @@ Les sauvegardes automatiques et la limite de restauration dans le temps protège
 
 ## Étapes suivantes
 
-- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [Limite de restauration dans le temps à l’aide du portail Azure](sql-database-point-in-time-restore-portal.md)
-- [Limite de restauration dans le temps à l’aide de](sql-database-point-in-time-restore-powershell.md)
-- [Limite de restauration dans le temps à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
-
+- Pour obtenir des instructions détaillées sur la récupération à un point dans le temps à l’aide du portail Azure, consultez [Limite de restauration dans le temps à l’aide du portail Azure](sql-database-point-in-time-restore-portal.md).
+- Pour obtenir des instructions détaillées sur la récupération à un point dans le temps à l’aide de PowerShell, consultez [Limite de restauration dans le temps à l’aide de PowerShell](sql-database-point-in-time-restore-powershell.md).
+- Pour obtenir des informations sur la récupération à un point dans le temps à l’aide de l’API REST, consultez [Limite de restauration dans le temps à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). ore.md)
+- Pour une discussion complète sur la récupération après une erreur utilisateur ou une erreur d’application, consultez [Récupération d’erreur utilisateur](sql-database-user-error-recovery.md).
 
 ## Ressources supplémentaires
 
-- [restauration d’une base de données supprimée.](sql-database-restore-deleted-database.md)
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Restauration géographique](sql-database-geo-restore.md)
-- [Géo-réplication active](sql-database-geo-replication-overview.md)
-- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -3,7 +3,7 @@
    description="Découvrez-en plus sur les sauvegardes intégrées SQL Database qui vous permettent de restaurer Azure SQL Database à une version antérieure ou de copier une base de données vers une nouvelle base de données dans une zone géographique (jusqu’à 35 jours)."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-features"
-   ms.date="06/09/2016"
-   ms.author="sstein"/>
+   ms.date="06/16/2016"
+   ms.author="carlrab"/>
 
 # Présentation : sauvegardes automatisées d’une base de données SQL
 
@@ -30,11 +30,20 @@ Microsoft Azure SQL Database fournit jusqu’à 200 % du stockage de base de do
 
 Toutes les bases de données de base, standard et premium sont protégées par des sauvegardes automatiques. Des sauvegardes complètes sont effectuées chaque semaine, des sauvegardes différentielles tous les jours, et des sauvegardes de journal toutes les 5 minutes. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Le processus dure normalement 30 minutes, mais peut prendre plus de temps. Si une base de données est déjà volumineuse, par exemple si elle a été créée en copiant ou restaurant une base de données volumineuse, la première sauvegarde complète peut prendre plus de temps. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. La programmation exacte des sauvegardes complètes et différentielles est déterminée par le système, afin d’équilibrer la charge globale. Les fichiers de sauvegarde sont stockés dans un compte de stockage géo-redondant avec accès en lecture (RA-GRS) pour garantir la disponibilité à des fins de récupération d’urgence.
 
-## Ressources supplémentaires
+## Étapes suivantes
 
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
+- [restauration d’une base de données supprimée.](sql-database-restore-deleted-database.md)
+- [Restauration dans le temps](sql-database-point-in-time-restore.md)
 - [Restauration géographique](sql-database-geo-restore.md)
 - [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Copie de base de données](sql-database-copy.md)
+
+## Ressources supplémentaires
+
+- [Récupération après une panne](sql-database-disaster-recovery.md)
+- [Récupération suite à une erreur de l'utilisateur](sql-database-user-error-recovery.md)
+- [Exécution d’un exercice de récupération d’urgence](sql-database-disaster-recovery-drills.md)
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
