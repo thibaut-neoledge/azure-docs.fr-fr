@@ -33,7 +33,7 @@ La sélection du niveau de cohérence adéquat dépend de la sémantique de votr
 3. Dans le panneau **Tous les paramètres**, cliquez sur l’entrée **Cohérence par défaut** sous **Fonctionnalité**. ![Cohérence par défaut Session][6]
 
 4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
-5. La progression de l’opération peut être contrôlée via le hub de notifications du portail Azure.
+
 
 > [AZURE.NOTE] L’application d’une modification du paramètre de cohérence par défaut dans votre compte DocumentDB peut prendre plusieurs minutes.
 
