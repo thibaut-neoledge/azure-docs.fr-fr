@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/29/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Stratégies de récupération d’urgence pour les applications utilisant le pool élastique de base de données SQL 
 
-Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes pouvaient, et allaient, se produire. La base de données SQL offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les pools élastiques et les bases de données autonomes prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
+Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes pouvaient, et allaient, se produire. La base de données SQL offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données autonomes prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
 
 Dans le cadre de cet article, nous utiliserons le modèle d’application SaaS canonique d’un ISV :
 
@@ -59,7 +59,7 @@ Si la panne est temporaire, il est possible que la région primaire soit restaur
 
 ![Figure 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-L’**avantage** majeur de cette stratégie est le faible coût de redondance des couches de données. Les sauvegardes sont automatiquement effectuées par le service de base de données SQL avec aucune réécriture de l’application et sans coût supplémentaire. Des frais s’appliquent uniquement lorsque les bases de données sont restaurées. L’**inconvénient** est que la récupération complète de toutes les bases de données client prend beaucoup de temps. Cela dépend du nombre total de restaurations que vous lancez dans la région de récupération d’urgence et de la taille globale des bases de données client. Même si vous donnez la priorité à la restauration de certains clients, vous devrez tout de même composer avec toutes les autres restaurations lancées dans la même région car le service limitera la bande passante pour minimiser l’impact global sur les bases de données des clients existants. En outre, la récupération des bases de données client ne peut pas démarrer tant que le nouveau pool élastique n’a pas été créé dans la région de récupération d’urgence.
+**L’avantage** majeur de cette stratégie est le faible coût de redondance des couches de données. Les sauvegardes sont automatiquement effectuées par le service de base de données SQL avec aucune réécriture de l’application et sans coût supplémentaire. Des frais s’appliquent uniquement lorsque les bases de données sont restaurées. **L’inconvénient** est que la récupération complète de toutes les bases de données client prend beaucoup de temps. Cela dépend du nombre total de restaurations que vous lancez dans la région de récupération d’urgence et de la taille globale des bases de données client. Même si vous donnez la priorité à la restauration de certains clients, vous devrez tout de même composer avec toutes les autres restaurations lancées dans la même région car le service limitera la bande passante pour minimiser l’impact global sur les bases de données des clients existants. En outre, la récupération des bases de données client ne peut pas démarrer tant que le nouveau pool élastique n’a pas été créé dans la région de récupération d’urgence.
 
 ## Scénario 2 Application arrivée à maturité avec un service sur plusieurs niveaux 
 
@@ -100,7 +100,7 @@ Lorsque la région primaire est restaurée par Azure *après* que vous ayez rest
 
 > [AZURE.NOTE] L’opération de basculement est asynchrone. Pour réduire le temps de récupération, il est important que vous exécutiez la commande de basculement des bases de données client pour des lots d’au moins 20 bases de données.
 
-L’**avantage** majeur de cette stratégie est qu’elle fournit le contrat SLA le plus élevé pour les clients utilisant une version payante. Elle garantit également le déblocage des nouvelles bases de données en version d’évaluation dès que le pool de récupération d’urgence des bases de données en version d’évaluation est créé. L’**inconvénient** est que cette configuration augmente le coût total des bases de données client en ajoutant le coût du pool de récupération d’urgence secondaire pour les clients utilisant une version payante. De plus, si le pool secondaire est de taille différente, les clients qui utilisent une version payante constateront une baisse des performances après le basculement, jusqu’à la fin du processus de mise à niveau du pool dans la région de récupération d’urgence.
+**L’avantage** majeur de cette stratégie est qu’elle fournit le contrat SLA le plus élevé pour les clients utilisant une version payante. Elle garantit également le déblocage des nouvelles bases de données en version d’évaluation dès que le pool de récupération d’urgence des bases de données en version d’évaluation est créé. **L’inconvénient** est que cette configuration augmente le coût total des bases de données client en ajoutant le coût du pool de récupération d’urgence secondaire pour les clients utilisant une version payante. De plus, si le pool secondaire est de taille différente, les clients qui utilisent une version payante constateront une baisse des performances après le basculement, jusqu’à la fin du processus de mise à niveau du pool dans la région de récupération d’urgence.
 
 ## Scénario 3 Application dispersée géographiquement avec un service sur plusieurs niveaux
 
@@ -161,6 +161,9 @@ Il y a tout de même des **inconvénients** :
 
 Cet article aborde les différentes stratégies de récupération d’urgence pour la couche de base de données utilisée par une application SaaS à architecture mutualisée. La stratégie choisie doit être basée sur les besoins de l’application, tels que le modèle commercial, le contrat SLA que vous souhaitez offrir à vos clients, les contraintes budgétaires, etc. Nous vous détaillons les avantages et les inconvénients de chaque stratégie afin de vous aider à prendre une décision éclairée. De plus, votre propre application inclura probablement d’autres composants Azure. Vous devez donc vérifier les recommandations associées en termes de continuité des activités et orchestrer la récupération de la couche de base de données avec ces composants. Pour en savoir plus sur la gestion de la récupération des applications de base de données dans Azure, consultez l’article [Conception de solutions cloud pour la récupération d’urgence](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
+
+## Étapes suivantes
+
 Les étapes individuelles requises pour chaque scénario impliquent des opérations sur un grand nombre de bases de données. Vous pouvez utiliser les tâches élastiques de la base de données SQL Azure pour gérer ces opérations à grande échelle. Pour plus d’informations, reportez-vous à l’article [Gestion des bases de données cloud avec montée en charge](./sql-database-elastic-jobs-overview.md). Les pages suivantes contiennent des informations sur les opérations spécifiques requises pour mettre en œuvre chaque scénario décrit dans cet article :
 
 - [Ajouter une base de données secondaire](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
@@ -169,4 +172,15 @@ Les étapes individuelles requises pour chaque scénario impliquent des opérati
 - [Déplacer une base de données](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copier une base de données](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Ressources supplémentaires
+
+- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
+- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Restauration géographique](sql-database-geo-restore.md)
+- [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
+- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
+- [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/20/2016"
 	ms.author="cjiang"/>
 
 # Utiliser votre compte Office 365 existant avec votre abonnement Azure ou vice versa
@@ -144,4 +144,7 @@ Pour plus d’informations, consultez [Comment l’abonnement à Azure est assoc
 - Les abonnements Azure sont détenus par des utilisateurs individuels dans le répertoire.
 - Les abonnements Office 365 sont détenus par le répertoire proprement dit. Les utilisateurs dans le répertoire peuvent gérer ces abonnements s’ils ont les autorisations requises.
 
-<!---HONumber=AcomDC_0518_2016-->
+##Étapes suivantes
+Dans un scénario connexe, vous aviez obtenu les deux abonnements Azure et Office 365 séparément et souhaitez désormais accéder au client Office 365 à partir de l’abonnement Azure. Pour ce faire, consultez [Associate an Office 365 tenant with an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md) (Associer un client Office 365 à un abonnement Azure).
+
+<!---HONumber=AcomDC_0622_2016-->

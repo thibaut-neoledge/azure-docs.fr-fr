@@ -15,15 +15,15 @@ Si vous avez des problèmes de connexion à une application, essayez les étapes
 
 - Redémarrez la machine virtuelle.
 - Recréez le point de terminaison, les règles de pare-feu et les règles de groupe de sécurité réseau.
-	- [Gérez les points d’extrémité de Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md).
-	- [Gérez les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+	- [Modèle Classic : gérer les points de terminaison Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Connectez-vous à partir d’un emplacement différent, tel qu’un autre réseau virtuel Azure.
 - Redéployez la machine virtuelle.
 	- [Redéployez la machine virtuelle Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md).
 	- [Redéployez la machine virtuelle Linux](../articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md).
 - Recréez la machine virtuelle.
 
-Pour plus d'informations, consultez [Résolution des problèmes de connectivité de point de terminaison (échecs RDP/SSH/HTTP, etc.)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+Pour plus d'informations, consultez [Résolution des problèmes de connectivité de point de terminaison (échecs RDP/SSH/HTTP, etc.)](https://social.msdn.microsoft.com/Forums/azure/fr-FR/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
 
 ## Vue d’ensemble détaillée de la résolution de problèmes
 
@@ -74,8 +74,8 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suiv
 - Le pare-feu de l’hôte sur la machine virtuelle cible autorise le trafic de demandes entrantes et de réponses sortantes.
 - Un logiciel de détection d’intrusion ou de surveillance réseau s’exécutant sur la machine virtuelle cible autorise le trafic.
 - Les points d’extrémité Cloud Services et les groupes de sécurité réseau autorisent le trafic.
-	- [Gérez les points d’extrémité de Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md).
-	- [Gérez les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+	- [Modèle Classic : gérer les points de terminaison Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Un composant distinct qui s’exécute dans votre réseau virtuel dans le chemin d’accès entre la machine virtuelle de test et la machine virtuelle, par exemple un équilibreur de charge ou un pare-feu, autorise le trafic.
 
 Sur une machine virtuelle Windows, utilisez le pare-feu Windows avec fonctions avancées de sécurité pour déterminer si les règles de pare-feu excluent le trafic entrant et sortant de votre application
@@ -90,12 +90,14 @@ Par exemple, si l’application est un serveur web, essayez d’accéder à la p
 
 Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suivants :
 
-- Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, que la configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
+- Pour les machines virtuelles créées à l’aide du modèle de déploiement Classic :
+	- La configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
+	- Les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet.
 	- Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-- Pour les machines virtuelles à l’aide du modèle de déploiement classique, que les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet.
-	- Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-- Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, que la configuration de la règle NAT entrante pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
-- Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes.
+	
+- Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager :
+	- La configuration de la règle NAT de trafic entrant pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
+	- Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes.
 	- Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 
 Si la machine virtuelle ou le point de terminaison est membre d’un jeu à charge équilibrée :
@@ -115,3 +117,5 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
+
+<!---HONumber=AcomDC_0622_2016-->

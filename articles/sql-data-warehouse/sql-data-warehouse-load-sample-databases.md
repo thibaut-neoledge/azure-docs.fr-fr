@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Charger des exemples de données dans SQL Data Warehouse
 
-Une fois que vous avez [créé une instance de base de données SQL Data Warehouse][create a SQL Data Warehouse database instance] l'étape suivante consiste à créer et charger des tables. Vous pouvez utiliser les exemples de scripts Adventure Works que nous avons créés pour SQL Data Warehouse pour créer et charger des tables pour la société fictive appelée Adventure Works. Ces scripts utilisent sqlcmd pour exécuter SQL et bcp pour charger les données. Si vous ne disposez pas encore de ces outils, suivez ces liens pour [installer bcp][] et [installer sqlcmd][].
+Suivez ces étapes simples pour charger et interroger l’exemple de base de données Adventure Works. Ces scripts utilisent d’abord sqlcmd pour exécuter SQL qui crée des tables et des vues. Une fois que les tables ont été créées, les scripts utilisent bcp pour charger les données. Si sqlcmd et bcp ne sont pas encore installés, suivez ces liens pour [installer bcp][] et [installer sqlcmd][].
 
-Suivez ces étapes simples pour charger l'exemple de base de données Adventure Works dans SQL DW...
+##Charger les exemples de données
 
-1. Téléchargez [Exemples de scripts Adventure Works pour SQL Data Warehouse][].
+1. Téléchargez le fichier zip [Exemples de scripts Adventure Works pour SQL Data Warehouse][].
 
 2. Extrayez les fichiers du fichier zip téléchargé dans un répertoire sur votre ordinateur local.
 
@@ -43,7 +43,7 @@ Suivez ces étapes simples pour charger l'exemple de base de données Adventure 
 	* Collecter les statistiques sur chaque colonne pour chaque table Adventure Works.
 
 
-##Interroger vos exemples de données.
+##Interrogation des données de l'exemple
 
 Lorsque vous avez chargé des exemples de données dans SQL Data Warehouse, vous pouvez exécuter rapidement quelques requêtes. Pour exécuter une requête, connectez-vous à votre base de données Adventure Works nouvellement créée Azure SQL DW avec Visual Studio et SSDT, comme décrit dans le document [de connexion][].
 
@@ -85,11 +85,10 @@ Maintenant que vous avez eu l'occasion d'essayer certaines requêtes avec des ex
 [charger]: ./sql-data-warehouse-overview-load.md
 [de connexion]: ./sql-data-warehouse-get-started-connect.md
 [migration du code]: ./sql-data-warehouse-migrate-code.md
-[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [installer bcp]: ./sql-data-warehouse-load-with-bcp.md
 [installer sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Exemples de scripts Adventure Works pour SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="chackdan"/>
 
 
@@ -36,11 +36,19 @@ Vous trouverez les fichiers suivants dans le package de téléchargement :
 |**Nom de fichier**|**Brève description**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|Le fichier CAB qui contient les fichiers binaires qui seront déployés sur chaque ordinateur du cluster.|
-|ClusterConfig.JSON|Fichier de configuration de cluster qui contient tous les paramètres pour le cluster, notamment les informations de chaque ordinateur faisant partie du cluster.|
+|ClusterConfig.Unsecure.DevCluster.JSON|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour un cluster de développement avec machine virtuelle/ordinateur unique à trois nœuds non sécurisé, notamment les informations de chaque nœud faisant partie du cluster. |
+|ClusterConfig.Unsecure.MultiMachine.JSON|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour le cluster, notamment les informations de chaque ordinateur faisant partie d’un cluster non sécurisé à plusieurs machines virtuelles/ordinateurs.|
+|ClusterConfig.Windows.DevCluster.JSON|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour un cluster de développement avec machine virtuelle/ordinateur unique à trois nœuds sécurisé, notamment les informations de chaque nœud faisant partie du cluster. Le cluster est sécurisé à l’aide d[’identités Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.Windows.MultiMachine.JSON|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour le cluster sécurisé, notamment les informations de chaque ordinateur faisant partie d’un cluster sécurisé à plusieurs machines virtuelles/ordinateurs. Le cluster est sécurisé à l’aide d[’identités Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.x509.DevCluster.JSON|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour un cluster de développement avec machine virtuelle/ordinateur unique à trois nœuds sécurisé, notamment les informations de chaque nœud faisant partie du cluster. Le cluster est sécurisé à l’aide de certificats Windows x509.|
+|ClusterConfig.x509.MultiMachine.JSON|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour le cluster sécurisé, notamment les informations de chaque ordinateur faisant partie d’un cluster sécurisé à plusieurs machines virtuelles/ordinateurs. Le cluster est sécurisé à l’aide de certificats x509.|
 |EULA.txt|Les termes du contrat de licence pour l’utilisation du package autonome Microsoft Azure Service Fabric. [Cliquez ici](http://go.microsoft.com/fwlink/?LinkID=733084) si vous souhaitez télécharger une copie du CLUF (Contrat de Licence Utilisateur Final).|
 |Readme.txt|Lien vers les notes de publication et des instructions d’installation de base. Il s’agit d’un sous-ensemble des instructions que vous trouverez sur cette page.|
 |CreateServiceFabricCluster.ps1|Script PowerShell qui crée le cluster à l’aide des paramètres figurant dans le fichier ClusterConfig.JSON.|
 |RemoveServiceFabricCluster.ps1|Script PowerShell pour la suppression d’un cluster à l’aide des paramètres figurant dans le fichier ClusterConfig.JSON.|
+|AddNode.ps1|Script PowerShell pour l’ajout d’un nœud à un cluster existant|
+|RemoveNode.ps1|Script PowerShell pour la suppression d’un nœud d’un cluster|
+
 
 ## Planification et préparation du déploiement de cluster
 Les étapes suivantes doivent être effectuées avant la création de votre cluster.
@@ -76,7 +84,7 @@ Un **domaine de mise à niveau** est une unité logique de nœuds. Pendant une m
 
 L’approche la plus simple de ces concepts consiste à considérer les domaines d’erreur comme unité de défaillance non planifiée et les domaines mise à niveau comme unité de maintenance planifiée.
 
-Lorsque vous spécifiez des domaines de mise à niveau dans *ClusterConfig.JSON*, vous choisissez le nom du domaine de mise à niveau. Par exemple, tous les éléments suivants sont autorisés :
+Lorsque vous spécifiez des domaines de mise à niveau dans *ClusterConfig*..JSON*, vous choisissez le nom du domaine de mise à niveau. Par exemple, tous les éléments suivants sont autorisés :
 
 - "upgradeDomain": "UD0"
 - "upgradeDomain": "UD1A"
@@ -96,7 +104,7 @@ Ouvrez *ClusterConfig.JSON* à partir du package que vous avez téléchargé. Vo
 
 |**Paramètres de configuration**|**Description**|
 |-----------------------|--------------------------|
-|NodeTypes|Les types de nœuds permettent de séparer vos nœuds de cluster en différents groupes. Un cluster doit comprendre au moins un NodeType. Tous les nœuds d’un groupe ont les caractéristiques communes suivantes. <br> *Name* : il s’agit du nom du type de nœud. <br> *EndPoints* : il s’agit de différents points de terminaison (ports) nommés qui sont associés à ce type de nœud. Vous pouvez utiliser n’importe quel numéro de port, tant qu’il n’entre en conflit avec aucun autre élément dans ce manifeste et n’est pas déjà en cours d’utilisation par d’autres programmes sur les ordinateurs/machines virtuelles <br> *PlacementProperties* : elles décrivent les propriétés pour ce type de nœud que vous utiliserez ensuite comme contraintes de placement pour les services système ou vos services. Ces propriétés sont des paires clé/valeur définies par l'utilisateur qui fournissent des métadonnées supplémentaires pour un nœud donné. La présence d’un disque dur ou d’une carte graphique sur le nœud, le nombre de rotations du disque dur, les noyaux et d’autres propriétés physiques sont des exemples de propriétés du nœud. <br> *Capacities* - les capacités du nœud définissent le nom et la quantité d’une ressource spécifique disponible sur un nœud particulier pour consommation. Par exemple, un nœud peut définir qu’il possède la capacité pour une mesure appelée « MemoryInMb » et qu’il dispose de 2 048 Mo de mémoire disponible par défaut. Ces capacités permettent de garantir que les services qui nécessitent une quantité spécifique de ressources sont placés sur des nœuds dans lesquels ces ressources restent disponibles au cours de l’exécution.|
+|NodeTypes|Les types de nœuds permettent de séparer vos nœuds de cluster en différents groupes. Un cluster doit comprendre au moins un NodeType. Tous les nœuds d’un groupe ont les caractéristiques communes suivantes. <br> *Name* : il s’agit du nom du type de nœud. <br>*EndPoints* : il s’agit de différents points de terminaison (ports) nommés qui sont associés à ce type de nœud. Vous pouvez utiliser n’importe quel numéro de port, tant qu’il n’entre en conflit avec aucun autre élément dans ce manifeste et n’est pas déjà en cours d’utilisation par d’autres programmes sur les ordinateurs/machines virtuelles <br> *PlacementProperties* : elles décrivent les propriétés pour ce type de nœud que vous utiliserez ensuite comme contraintes de placement pour les services système ou vos services. Ces propriétés sont des paires clé/valeur définies par l'utilisateur qui fournissent des métadonnées supplémentaires pour un nœud donné. La présence d’un disque dur ou d’une carte graphique sur le nœud, le nombre de rotations du disque dur, les noyaux et d’autres propriétés physiques sont des exemples de propriétés du nœud. <br> *Capacities* - les capacités du nœud définissent le nom et la quantité d’une ressource spécifique disponible sur un nœud particulier pour consommation. Par exemple, un nœud peut définir qu’il possède la capacité pour une mesure appelée « MemoryInMb » et qu’il dispose de 2 048 Mo de mémoire disponible par défaut. Ces capacités permettent de garantir que les services qui nécessitent une quantité spécifique de ressources sont placés sur des nœuds dans lesquels ces ressources restent disponibles au cours de l’exécution.|
 |Nœuds|Les détails de chacun des nœuds qui feront partie du cluster (type de nœud, nom de nœud, adresse IP, domaine d’erreur et domaine de mise à niveau du nœud). Les ordinateurs sur lesquels vous souhaitez créer le cluster doivent être répertoriés ici avec leur adresse IP. <br> Si vous utilisez les mêmes adresses IP pour tous les nœuds, un cluster à boîtier unique est créé. Vous pouvez l’utiliser à des fins de test. Les clusters à boîtier unique ne doivent pas servir au déploiement de charges de travail de production.|
 
 ### Étape 2 : exécuter le script de création de cluster
@@ -105,19 +113,47 @@ Une fois que vous avez modifié la configuration de cluster dans le document JSO
 Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un accès administrateur à tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster. L’ordinateur sur lequel ce script est exécuté peut faire partie du cluster ou non.
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.JSON -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
+>[AZURE.NOTE] Les journaux de déploiement sont disponibles localement sur une machine virtuelle/un ordinateur sur lequel vous avez exécuté le PowerShell CreateServiceFabricCluster. Vous le trouverez dans un sous-dossier appelé DeploymentTraces dans le dossier à partir duquel vous avez exécuté la commande PS.
+
+## Ajout de nœuds à votre cluster Service Fabric 
+
+1. Préparez la machine virtuelle ou l’ordinateur que vous voulez ajouter à votre cluster (reportez-vous à l’étape 2 de la section Planification et préparation du déploiement de cluster ci-dessus). 
+2. Prévoyez le domaine d’erreur et le domaine de mise à niveau auquel vous allez ajouter cette machine virtuelle ou cet ordinateur.
+3. [Téléchargez le package autonome de Service Fabric pour Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)et décompressez le package sur la machine virtuelle ou l’ordinateur que vous souhaitez ajouter au cluster. 
+4. Ouvrez une invite PowerShell en tant qu’administrateur, puis naviguez jusqu'à l’emplacement du package décompressé
+5. Exécutez AddNode.PS1
+
+```
+.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.52:19000 -UpgradeDomain UD1 -FaultDomain FD1
+```
+
+## Suppression de nœuds de votre cluster Service Fabric 
+
+1. TS dans la machine virtuelle ou l’ordinateur que vous souhaitez supprimer du cluster
+2. Ouvrez une invite PowerShell en tant qu’administrateur, puis naviguez jusqu'à l’emplacement du package décompressé
+5. Exécutez RemoveNode.PS1
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+## Suppression de votre cluster Service Fabric 
+1. TS dans une des machines virtuelles/ordinateurs qui dont partie du cluster
+2. Ouvrez une invite PowerShell en tant qu’administrateur, puis naviguez jusqu'à l’emplacement du package décompressé
+5. Exécutez RemoveNode.PS1
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+
 ## Étapes suivantes
-
-Après avoir créé un cluster, veillez également à le sécuriser :
-- [Sécurité des clusters](service-fabric-cluster-security.md)
-
-Lisez les informations suivantes pour démarrer le développement et de déploiement d’applications :
+- [Comprendre la sécurité du cluster](service-fabric-cluster-security.md)
 - [Kit de développement logiciel (SDK) de Service Fabric et prise en main](service-fabric-get-started.md)
 - [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-
-En savoir plus sur les clusters Azure et les clusters autonomes :
 - [Vue d’ensemble de la création de clusters autonomes et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

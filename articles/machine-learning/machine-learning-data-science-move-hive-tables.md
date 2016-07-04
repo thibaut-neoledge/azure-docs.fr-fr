@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -21,7 +21,7 @@
 
 Cette rubrique présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage d’objets blob Azure. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
-Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus Cortana Analytics (CAP).
+Ce **menu** pointe vers des rubriques qui expliquent comment recevoir des données dans d’autres environnements cibles où les données peuvent être stockées et traitées pendant le processus TDSP (Team Data Science Process).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -38,7 +38,7 @@ Si vous avez créé une machine virtuelle Azure en suivant les instructions de l
 
 Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu’elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop.
 
-Si vous souhaitez vous exercer sur les _données NYC Taxi Trip_, vous devez d'abord télécharger les 24 fichiers de <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">données NYC Taxi Trip</a> (12 fichiers Trip et 12 fichiers Fare), **décompresser** ces fichiers pour obtenir des fichiers .csv, puis les charger dans le conteneur par défaut (ou le conteneur approprié) du compte Azure Storage utilisé par la procédure dans la rubrique [Personnaliser les clusters Hadoop Azure HDInsight pour le processus et la technologie d’analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md). Pour découvrir le processus qui vous permet de télécharger les fichiers .csv du conteneur par défaut sur le compte de stockage, consultez cette [page](machine-learning-data-science-process-hive-walkthrough/#upload).
+Si vous souhaitez vous exercer sur les _données NYC Taxi Trip_, vous devez d'abord télécharger les 24 fichiers de <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">données NYC Taxi Trip</a> (12 fichiers Trip et 12 fichiers Fare), **décompresser** ces fichiers pour obtenir des fichiers .csv, puis les charger dans le conteneur par défaut (ou le conteneur approprié) du compte Azure Storage utilisé par la procédure dans la rubrique [Personnaliser les clusters Hadoop Azure HDInsight pour le processus et la technologie d’analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md). Pour découvrir le processus qui vous permet de télécharger les fichiers .csv du conteneur par défaut sur le compte de stockage, consultez cette [page](machine-learning-data-science-process-hive-walkthrough.md#upload).
 
 
 ## <a name="submit"></a>Envoi de requêtes Hive
@@ -154,19 +154,19 @@ Voici la requête Hive qui crée une table Hive.
 
 Voici les descriptions des champs que les utilisateurs doivent renseigner et d’autres opérations de configuration :
 
-- **&#60;database name>** : nom de la base de données que les utilisateurs souhaitent créer. S'ils veulent utiliser la base de données par défaut, la requête *create database...* peut être omise. 
-- **&#60;table name>** : nom de la table que les utilisateurs veulent créer dans la base de données spécifiée. S'ils veulent utiliser la base de données par défaut, la table peut être désignée directement par *&#60;table name>* sans &#60;database name>.
-- **&#60;field separator>** : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive. 
-- **&#60;line separator>** : séparateur qui délimite les lignes dans le fichier de données. 
-- **&#60;storage location>** : emplacement Azure où enregistrer les données des tables Hive. Si les utilisateurs ne spécifient pas *LOCATION &#60;storage location>*, la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si un utilisateur souhaite spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement relatif du conteneur par défaut du cluster au format *’wasb:///&#60;directory 1>/’* ou *’wasb:///&#60;directory 1>/&#60;directory 2>/’*, etc. Une fois la requête exécutée, les répertoires relatifs seront créés dans le conteneur par défaut. 
-- **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d'en-tête, les utilisateurs doivent ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête. 
+- **&#60;database name>** : nom de la base de données que les utilisateurs souhaitent créer. S'ils veulent utiliser la base de données par défaut, la requête *create database...* peut être omise. 
+- **&#60;table name>** : nom de la table que les utilisateurs veulent créer dans la base de données spécifiée. S'ils veulent utiliser la base de données par défaut, la table peut être désignée directement par *&#60;table name>* sans &#60;database name>.
+- **&#60;field separator>** : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive. 
+- **&#60;line separator>** : séparateur qui délimite les lignes dans le fichier de données. 
+- **&#60;storage location>** : emplacement Azure où enregistrer les données des tables Hive. Si les utilisateurs ne spécifient pas *LOCATION &#60;storage location>*, la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si un utilisateur souhaite spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement relatif du conteneur par défaut du cluster au format *’wasb:///&#60;directory 1>/’* ou *’wasb:///&#60;directory 1>/&#60;directory 2>/’*, etc. Une fois la requête exécutée, les répertoires relatifs seront créés dans le conteneur par défaut. 
+- **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d'en-tête, les utilisateurs doivent ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête. 
 
 ## <a name="load-data"></a>Chargement des données dans des tables Hive
 Voici la requête Hive qui charge les données dans une table Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-- **&#60;path to blob data>** : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *&#60;path to blob data>* doit être au format *’wasb:///&#60;directory in this container>/&#60;blob file name>’*. Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *&#60;path to blob data>* doit être au format *’wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>’*.
+- **&#60;path to blob data>** : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *&#60;path to blob data>* doit être au format *’wasb:///&#60;directory in this container>/&#60;blob file name>’*. Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *&#60;path to blob data>* doit être au format *’wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>’*.
 
 	>[AZURE.NOTE] Les données blob à charger dans la table Hive doivent se trouver dans le conteneur par défaut ou un autre conteneur du compte de stockage du cluster Hadoop. Sinon, la requête *LOAD DATA* ne pourra pas s'exécuter car elle n'aura pas accès aux données.
 
@@ -239,10 +239,10 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 		   FROM <database name>.<external textfile table name> 
 		   WHERE <partition variable>=<partition value>;
 
-4. Pour plus de sécurité, lorsque vous utilisez la requête suivante, il est recommandé de déplacer la table *&#60;external textfile table name>* une fois toutes les données insérées dans la table *&#60;database name>.&#60;ORC table name>* :
+4. Pour plus de sécurité, lorsque vous utilisez la requête suivante, il est recommandé de déplacer la table *&#60;external textfile table name>* une fois toutes les données insérées dans la table *&#60;database name>.&#60;ORC table name>* :
 
 		DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 À l’issue de cette procédure, vous devez obtenir une table immédiatement exploitable et contenant des données au format ORC.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

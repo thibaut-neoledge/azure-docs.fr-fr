@@ -1,7 +1,7 @@
 <properties
    pageTitle="Débogage d’applications dans un conteneur Docker local | Microsoft Azure"
    description="Découvrez comment modifier une application qui s’exécute dans un conteneur Docker local et actualiser le conteneur via la modification et l’actualisation ainsi que la définition de points d’arrêt pour le débogage"
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -33,34 +33,17 @@ Pour exécuter des conteneurs de Docker localement, vous aurez besoin d’un cli
 
 Si vous utilisez la Boîte à outils Docker, vous devrez [Configurer le client Docker](./vs-azure-tools-docker-setup.md)
 
-## Modification d’une application en cours d’exécution dans un conteneur Docker local
-Visual Studio 2015 Tools pour Docker permet aux développeurs d’applications web ASP .NET Core RC2 de tester et d’exécuter leur application dans un conteneur Docker, d’apporter des modifications à l’application dans Visual Studio et d’actualiser le navigateur pour voir les modifications appliquées à l’application en cours d’exécution dans le conteneur. Avec .NET Core et Visual Studio Tools pour Docker version 0.20, vous pouvez également définir des points d’arrêt pour le code en cours d’exécution avec le conteneur Docker.
+## 1\. Créer une application web
 
-1. Dans le menu Visual Studio, sélectionnez **Fichier > Nouveau > Projet**.
+[AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-1. Sous la section **Modèles** de la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C# > Web**.
+## 2\. Ajouter la prise en charge Docker
 
-1. Sélectionnez **ASP.NET Core Web Application (.NET Core)**.
+[AZURE.INCLUDE [Ajouter la prise en charge Docker](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-1. Donnez un nom à votre nouvelle application (ou utilisez la valeur par défaut) et cliquez sur **OK**.
 
-1. Sous **Modèles ASP.NET Core**, sélectionnez **Application web** et cliquez sur **OK**.
+## 3\. Modifier votre code et actualiser
 
-1. Désélectionnez **Héberger dans le cloud**, car vous allez utiliser Docker comme solution de déploiement.
-
-1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter > Prise en charge Docker**.
-
-	![][0]
-
-1. Les fichiers suivants sont créés sous le nœud du projet :
-
-	![][1]
-
-> [AZURE.NOTE] Si vous utilisez la [version bêta de Docker pour Windows](https://beta.docker.com), ouvrez Properties\\Docker.props et supprimez la valeur par défaut, puis redémarrez Visual Studio pour que la valeur prenne effet.
->
-> ![][2]
-
-##Modifier et actualiser
 Pour effectuer une itération rapide des modifications, vous pouvez lancer votre application au sein d’un conteneur et continuer à apporter des modifications, en les observant comme vous le feriez avec IIS Express.
 
 1. Définissez la configuration de solution sur `Debug`, puis appuyez sur **&lt;CTRL + F5 >** pour créer votre image de Docker et l’exécuter localement.
@@ -86,7 +69,8 @@ Pour effectuer une itération rapide des modifications, vous pouvez lancer votre
 
 1.	Vos modifications ont été appliquées !
 
-##Points d’arrêt pour débogage
+## 4\. Déboguer à l’aide de points d’arrêt
+
 Les modifications nécessitent souvent une inspection plus poussée, en exploitant les fonctionnalités de débogage de Visual Studio
 
 1.	Revenez à Visual Studio et ouvrez `Controllers\HomeController.cs`
@@ -106,12 +90,14 @@ Les modifications nécessitent souvent une inspection plus poussée, en exploita
 
 1.  Basculez sur Visual Studio pour afficher le point d’arrêt, puis inspectez la valeur du message.
 
-	![][3]
+	![][2]
 
 ##Résumé
+
 Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vous pouvez obtenir la productivité du travail local tout en conservant le réalisme de production du développement au sein d’un conteneur Docker.
 
 ## Résolution de problèmes
+
 [Résolution des problèmes de développement avec Docker pour Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## En savoir plus sur Docker avec Visual Studio, Windows et Azure
@@ -136,9 +122,6 @@ Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vo
 - [Introduction à ASP.NET Core @ build 2016 - Démonstration Where You At](https://channel9.msdn.com/Events/Build/2016/B810)
 - [Développement d’applications .NET dans des conteneurs, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
-[0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
-[1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
-[2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
-[3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
+[2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

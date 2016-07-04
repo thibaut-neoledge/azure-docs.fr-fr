@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Présentation de StorSimple Virtual Array
@@ -25,7 +25,7 @@ Cette présentation se concentre sur Virtual Array.
 
 - Pour une vue d'ensemble de la gamme StorSimple 8000, consultez la page [Gamme StorSimple 8000 : une solution de stockage de cloud hybride](storsimple-overview.md). 
 
-- Pour plus d'informations sur les appareils de la gamme StorSimple 5000/7000, consultez l’[aide en ligne de StorSimple](http://onlinehelp.storsimple.com/).
+- Pour plus d'informations sur les appareils de la gamme StorSimple 5000/7000, consultez l’[aide en ligne de StorSimple](http://onlinehelp.storsimple.com/).
 
 Virtual Array prend en charge le protocole iSCSI ou le protocole SMB (Server Message Block). Il s'exécute sur l'infrastructure de l'hyperviseur existante et fournit la hiérarchisation du cloud, de la sauvegarde sur le cloud, une restauration rapide, une récupération au niveau de l'élément, et des fonctionnalités de récupération d'urgence.
 
@@ -36,7 +36,7 @@ Le tableau suivant récapitule les fonctionnalités importantes de Virtual Array
 |Configuration requise | Utilise l'infrastructure de virtualisation (Hyper-V ou VMware)|
 | Availability | Nœud unique |
 | Capacité totale (y compris le cloud) |Jusqu'à 64 To de capacité utilisable par appareil virtuel |
-| Capacité locale | De 390 Go à 6,4 To de capacité utilisable par appareil virtuel (il est nécessaire de configurer de 500 Go à 8 To d'espace disque)|
+| Capacité locale | De 390 Go à 6,4 To de capacité utilisable par appareil virtuel (il est nécessaire de configurer de 500 Go à 8 To d'espace disque)|
 | Protocoles natifs | iSCSI ou SMB |
 | Objectif de délai de récupération (RTO) | iSCSI : moins de 2 minutes, quelle que soit la taille |
 | Objectif de point de récupération (RPO) | Sauvegardes quotidiennes et sauvegardes à la demande |
@@ -49,7 +49,7 @@ Le tableau suivant récapitule les fonctionnalités importantes de Virtual Array
 | Instantanés | Cohérence en cas d’incident |
 | Récupération au niveau de l'élément | Oui. Les utilisateurs peuvent restaurer à partir de partages |
 
-## Pourquoi utiliser StorSimple ?
+## Pourquoi utiliser StorSimple ?
 
 StorSimple connecte les utilisateurs et les serveurs au stockage Azure en quelques minutes, sans modification d'application.
 
@@ -57,15 +57,15 @@ Le tableau suivant décrit certains des principaux avantages offerts par la solu
 
 | Fonctionnalité | Avantage |
 |---------|---------|
-| Intégration transparente | Virtual Array prend en charge le protocole iSCSI ou le protocole SMB. Cela garantit que les données stockées dans le cloud, dans un centre de données ou sur des serveurs distants semblent être stockées dans un emplacement unique.|
-| Coûts de stockage réduits | Avec StorSimple, vous configurez un stockage local suffisant pour répondre aux besoins actuels. Lorsque les besoins de stockage augmentent, StorSimple fait passer les données vers le stockage cloud économique. Sur le cloud, il utilise la compression et la déduplication pour réduire encore davantage les besoins de stockage et les frais.|
-| Gestion simplifiée du stockage | StorSimple fournit une gestion centralisée dans le cloud. Vous pouvez utiliser les outils web pour configurer et gérer les données stockées dans Virtual Array, sur un serveur distant et dans le cloud.| 
-| Récupération d’urgence et conformité améliorées | StorSimple ne nécessite pas un long délai de récupération. Au lieu de cela, il restaure immédiatement les métadonnées et les données stockées nécessaires. Cela signifie que les opérations normales peuvent se poursuivre, avec une interruption minimale.|
+| Intégration transparente | Virtual Array prend en charge le protocole iSCSI ou le protocole SMB. Le mouvement des données entre le niveau local et le niveau cloud se fait de manière transparente.|
+| Coûts de stockage réduits | Avec StorSimple, vous configurez un stockage local suffisant pour répondre aux besoins actuels en termes de données à chaud les plus utilisées. Lorsque les besoins de stockage augmentent, StorSimple fait passer les données brutes vers le stockage cloud économique. Les données sont dédupliquées et compressées avant l’envoi vers le cloud afin de réduire davantage les dépenses en matière de stockage.|
+| Gestion simplifiée du stockage | StorSimple fournit une gestion centralisée dans le cloud à l’aide de StorSimple Manager pour gérer plusieurs appareils.| 
+| Récupération d’urgence et conformité améliorées | StorSimple facilite la récupération d’urgence plus rapide en restaurant les métadonnées immédiatement et en restaurant les données en fonction des besoins. Cela signifie que les opérations normales peuvent se poursuivre, avec une interruption minimale.|
 | Mobilité des données | Les données hiérarchisées sur le cloud sont accessibles depuis d'autres sites à des fins de récupération et de migration. Notez que vous pouvez uniquement restaurer les données vers la solution Virtual Array d'origine. Toutefois, vous utilisez les fonctionnalités de récupération d'urgence pour restaurer l'intégralité de Virtual Array vers un autre Virtual Array.|
 
 ## Flux de travail
 
-StorSimple Virtual Array est particulièrement adapté aux flux de travail suivants :
+StorSimple Virtual Array est particulièrement adapté aux flux de travail suivants :
 
 - [Gestion du stockage sur le cloud](#cloud-based-storage-management)
 - [Sauvegarde indépendante de l'emplacement](#location-independent-backup)
@@ -83,7 +83,7 @@ Avec Virtual Array, les instantanés cloud fournissent une copie indépendante d
 
 ### Récupération d'urgence et protection des données
 
-Virtual Array prend en charge les scénarios de récupération d'urgence et de protection des données suivants :
+Virtual Array prend en charge les scénarios de récupération d'urgence et de protection des données suivants :
 
 - **Restauration de volume ou de partage** – Utilisez la restauration en tant que nouveau flux de travail pour récupérer un volume ou un partage. Cette approche permet de récupérer la totalité du volume ou du partage.
 - **Récupération au niveau de l'élément** – Les partages permettent d'accéder facilement aux sauvegardes récentes. Vous pouvez facilement récupérer un fichier individuel à partir d'un dossier .backup spécial disponible dans le cloud. Cette fonctionnalité de restauration est contrôlée par l'utilisateur et aucune intervention de l'administrateur n'est nécessaire.
@@ -91,10 +91,10 @@ Virtual Array prend en charge les scénarios de récupération d'urgence et de p
 
 ## Composants de Virtual Array
 
-Virtual Array comprend les composants suivants :
+Virtual Array comprend les composants suivants :
 
 - [Virtual Array](#virtual-array) – Un appareil de stockage cloud hybride basé sur une machine virtuelle configurée dans votre hyperviseur ou environnement virtualisé.  
-- [Service StorSimple Manager](#storsimple-manager-service) – Une extension du portail Azure Classic qui vous permet de gérer un ou plusieurs appareils StorSimple à partir d'une seule interface web à laquelle vous pouvez accéder depuis divers emplacements géographiques. Vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services, afficher et gérer les appareils et les alertes, gérer les volumes, les partages et les instantanés existants.
+- [Service StorSimple Manager](#storsimple-manager-service) – Une extension du portail Azure Classic qui vous permet de gérer un ou plusieurs appareils StorSimple à partir d'une seule interface web à laquelle vous pouvez accéder depuis divers emplacements géographiques. Vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services, afficher et gérer les appareils et les alertes, gérer les volumes, les partages et les instantanés existants.
 - [Interface utilisateur web locale](#local-web-user-interface) – Une interface utilisateur web qui est utilisée pour configurer l'appareil afin qu'il puisse se connecter au réseau local, puis pour inscrire l'appareil auprès du service StorSimple Manager. 
 - [Interface de ligne de commande](#command-line-interface) – Une interface Windows PowerShell que vous pouvez utiliser pour démarrer une session de support pour Virtual Array. Les sections suivantes décrivent chacun de ces composants plus en détail, et expliquent comment la solution organise les données, alloue le stockage et facilite la gestion du stockage et la protection des données.
 
@@ -102,7 +102,7 @@ Virtual Array comprend les composants suivants :
 
 Virtual Array est une solution de stockage à nœud unique qui offre un stockage principal, gère la communication avec le stockage cloud et contribue à garantir la sécurité et la confidentialité de toutes les données stockées sur l'appareil.
 
-Virtual Array est disponible dans un modèle qui est disponible au téléchargement. Storage Array a une capacité maximale de 6,4 To sur l'appareil (avec une exigence de stockage sous-jacent de 8 To) et 64 To, y compris le stockage cloud.
+Virtual Array est disponible dans un modèle qui est disponible au téléchargement. Storage Array a une capacité maximale de 6,4 To sur l'appareil (avec une exigence de stockage sous-jacent de 8 To) et 64 To, y compris le stockage cloud.
 
 Virtual Array présente les caractéristiques suivantes :
 
@@ -116,7 +116,7 @@ Virtual Array présente les caractéristiques suivantes :
 
 ### service StorSimple Manager
 
-Microsoft Azure StorSimple fournit une interface utilisateur web (le service StorSimple Manager) qui vous permet de gérer les centres de données et le stockage cloud de manière centralisée. Vous pouvez utiliser le service StorSimple Manager pour effectuer les tâches suivantes :
+Microsoft Azure StorSimple fournit une interface utilisateur web (le service StorSimple Manager) qui vous permet de gérer les centres de données et le stockage cloud de manière centralisée. Vous pouvez utiliser le service StorSimple Manager pour effectuer les tâches suivantes :
 
 - Gérer plusieurs StorSimple Virtual Arrays à partir d'un service unique. 
 - Configurer et gérer les paramètres de sécurité pour les appareils StorSimple. (Le chiffrement dans le cloud est dépendant de l'API Microsoft Azure).
@@ -142,7 +142,7 @@ L'interface Windows PowerShell incluse vous permet de lancer une session de supp
 
 ## Technologies de gestion de stockage
 
-En plus de Virtual Array et d'autres composants, la solution StorSimple utilise les technologies logicielles suivantes pour fournir un accès rapide aux données importantes, réduire la consommation du stockage et protéger les données stockées sur votre Virtual Array :
+En plus de Virtual Array et d'autres composants, la solution StorSimple utilise les technologies logicielles suivantes pour fournir un accès rapide aux données importantes, réduire la consommation du stockage et protéger les données stockées sur votre Virtual Array :
 
 - [Hiérarchisation automatique du stockage](#automatic-storage-tiering) 
 - [Partages et volumes épinglés localement](#locally-pinned-shares-and-volumes)
@@ -151,9 +151,9 @@ En plus de Virtual Array et d'autres composants, la solution StorSimple utilise 
 
 ### Hiérarchisation automatique du stockage
 
-Virtual Array utilise un nouveau mécanisme de hiérarchisation pour gérer les données stockées dans Virtual Array et le cloud. Il n'existe que deux niveaux : Virtual Array local et le stockage cloud Azure. StorSimple Virtual Array organise automatiquement les données dans les niveaux selon une carte thermique, qui effectue le suivi de l'utilisation actuelle, l'âge et relations par rapport à d'autres données. Les données les plus actives (les plus chaudes) sont stockées localement, tandis que les données les moins actives ou inactives sont automatiquement transférées vers le cloud. (Toutes les sauvegardes sont stockées dans le cloud). StorSimple ajuste et réorganise les données et modifie les affectations de stockage conformément aux modifications du schéma d’utilisation. Par exemple, certaines informations peuvent devenir moins actives au fil du temps. Lorsque cela se produit, les données sont hiérarchisées vers le cloud. Si ces mêmes données redeviennent actives, elles sont hiérarchisées vers Storage Array.
+Virtual Array utilise un nouveau mécanisme de hiérarchisation pour gérer les données stockées dans Virtual Array et le cloud. Il n'existe que deux niveaux : Virtual Array local et le stockage cloud Azure. StorSimple Virtual Array organise automatiquement les données dans les niveaux selon une carte thermique, qui effectue le suivi de l'utilisation actuelle, l'âge et relations par rapport à d'autres données. Les données les plus actives (les plus chaudes) sont stockées localement, tandis que les données les moins actives ou inactives sont automatiquement transférées vers le cloud. (Toutes les sauvegardes sont stockées dans le cloud). StorSimple ajuste et réorganise les données et modifie les affectations de stockage conformément aux modifications du schéma d’utilisation. Par exemple, certaines informations peuvent devenir moins actives au fil du temps. Lorsque cela se produit, les données sont hiérarchisées vers le cloud. Si ces mêmes données redeviennent actives, elles sont hiérarchisées vers Storage Array.
 
-Les données d'un partage ou d'un volume spécifique à plusieurs niveaux sont sûres de disposer de leur propre espace de niveau local (environ 10 % de l'espace total mis en service pour ce partage ou ce volume). Bien que cela réduise la capacité de stockage disponible sur l'appareil virtuel pour ce partage ou volume, cela permet de garantir que la hiérarchisation pour un partage ou un volume ne sera pas affectée par les besoins de hiérarchisation d'autres partages ou volumes. Par conséquent, une charge de travail très occupée sur un partage ou un volume ne peut pas forcer toutes les autres charges de travail vers le cloud.
+Les données d'un partage ou d'un volume spécifique à plusieurs niveaux sont sûres de disposer de leur propre espace de niveau local (environ 10 % de l'espace total mis en service pour ce partage ou ce volume). Bien que cela réduise la capacité de stockage disponible sur l'appareil virtuel pour ce partage ou volume, cela permet de garantir que la hiérarchisation pour un partage ou un volume ne sera pas affectée par les besoins de hiérarchisation d'autres partages ou volumes. Par conséquent, une charge de travail très occupée sur un partage ou un volume ne peut pas forcer toutes les autres charges de travail vers le cloud.
 
 ![hiérarchisation automatique du stockage](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
@@ -161,7 +161,7 @@ Les données d'un partage ou d'un volume spécifique à plusieurs niveaux sont s
 
 ### Partages et volumes épinglés localement
 
-Vous pouvez créer des partages et volumes appropriés comme étant épinglés localement. Cette fonctionnalité garantit que les données requises par les applications critiques restent dans Virtual Array et ne sont jamais hiérarchisées vers le cloud. Les partages et volumes épinglés localement ont les fonctionnalités suivantes :
+Vous pouvez créer des partages et volumes appropriés comme étant épinglés localement. Cette fonctionnalité garantit que les données requises par les applications critiques restent dans Virtual Array et ne sont jamais hiérarchisées vers le cloud. Les partages et volumes épinglés localement ont les fonctionnalités suivantes :
 
 - Ils ne sont pas soumis aux latences de cloud ou à des problèmes de connectivité.
 - Ils bénéficient toujours des fonctionnalités de récupération d'urgence et de sauvegarde cloud de StorSimple.
@@ -184,4 +184,4 @@ Les fonctionnalités de protection des données de StorSimple permettent de cré
 
 Découvrez comment [préparer le portail Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

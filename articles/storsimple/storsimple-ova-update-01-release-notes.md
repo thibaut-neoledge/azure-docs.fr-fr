@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Notes de publication de StorSimple Virtual Array Update 0.1 | Microsoft Azure"
-   description="Décrit les problèmes critiques non résolus et les solutions possibles pour StorSimple Virtual Array exécuté sous Update 0.1."
+   pageTitle="Notes de publication sur les mises à jour de StorSimple Virtual Array | Microsoft Azure"
+   description="Décrit les problèmes critiques non résolus et les solutions possibles pour StorSimple Virtual Array exécuté sous Update 0.2 et 0.1."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,18 +12,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/27/2016"
+   ms.date="06/16/2016"
    ms.author="alkohli" />
 
-# Notes de publication de StorSimple Virtual Array Update 0.1
+# Notes de publication de StorSimple Virtual Array Update 0.2 et 0.1
 
 ## Vue d'ensemble
 
-Les notes suivantes identifient les problèmes majeurs existants et les problèmes résolus dans la version Microsoft Azure StorSimple Virtual Array Update 0.1. Microsoft Azure StorSimple Virtual Array est également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple. Cette version correspond à la version logicielle **10.0.10279.0**.
+Les notes suivantes identifient les problèmes majeurs existants et les problèmes résolus dans les mises à jour Microsoft Azure StorSimple Virtual Array. Microsoft Azure StorSimple Virtual Array est également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple.
 
 Les notes de publication sont régulièrement mises à jour ; les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Lisez les informations contenues dans les notes de publication avant de déployer votre appareil virtuel StorSimple.
 
-> [AZURE.NOTE] Update 0.1 est une mise à jour qui entraîne des perturbations et requiert le redémarrage de votre appareil. Si des E/S sont en cours, l’appareil provoquera des interruptions de service.
+Update 0.2 correspond à la version logicielle **10.0.10280.0** ; Update 0.1 correspond à la version **10.0.10279.0**. Les sections suivantes répertorient les modifications pour chaque mise à jour.
+
+> [AZURE.NOTE] Les mises à jour entraînent des perturbations et redémarrent votre appareil. Si des E/S sont en cours, l’appareil subira des interruptions de service.
+
+## Problèmes résolus dans Update 0.2
+Update 0.2 inclut toutes les modifications de Update 0.1 en plus du correctif décrit dans le tableau suivant :
+
+Fonctionnalité | Problème |
+--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Mises à jour | Dans la dernière version, les mises à jour n’étaient pas détectées automatiquement dans le portail Azure Classic, donc vous deviez utiliser l’interface utilisateur web locale pour installer les mises à jour. Ce problème a été résolu dans cette version. Après avoir installé Update 0.2, vous pouvez installer les mises à jour ultérieures à l’aide du portail Azure Classic.                       
 
 ## Nouveautés d’Update 0.1
 
@@ -81,6 +90,6 @@ Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Arr
 
 ## Étape suivante
 
-[Installation d’Update 0.1](storsimple-ova-install-update-01.md) sur StorSimple Virtual Array.
+[Installation de mises à jour](storsimple-ova-install-update-01.md) sur votre instance StorSimple Virtual Array.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

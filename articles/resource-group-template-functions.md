@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="06/16/2016"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles Azure Resource Manager
@@ -93,30 +93,6 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
     }
 
 
-<a id="length" />
-### length
-
-**length (tableau ou chaîne)**
-
-Retourne le nombre d’éléments dans un tableau ou le nombre de caractères dans une chaîne. Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-
-Vous pouvez aussi l’utiliser avec une chaîne :
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -163,6 +139,7 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#length)
 - [padLeft](#padleft)
 - [replace](#replace)
 - [split](#split)
@@ -455,7 +432,7 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 | baseUri | Oui | La chaîne d’URI de base.
 | relativeUri | Oui | La chaîne d’URI relatif à ajouter à la chaîne d’URI de base.
 
-La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez **http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est **http://contoso.com/resources/**.
+La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez ****http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est ****http://contoso.com/resources/**.
 
 L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
 
@@ -465,11 +442,96 @@ L’exemple suivant montre comment créer un lien vers un modèle imbriqué en f
 
 Resource Manager fournit les fonctions ci-après pour travailler avec des valeurs de tableau :
 
-Pour combiner plusieurs tableaux en un seul tableau, utilisez [concat](#concat).
+- [concat](#concat)
+- [length](#length)
+- [take](#take)
+- [skip](#skip)
+- [split](#split)
 
-Pour obtenir le nombre d’éléments dans un tableau, utilisez [longueur](#length).
+<a id="length" />
+### length
 
-Pour diviser une valeur de chaîne en tableau de valeurs de chaîne, utilisez [fractionnement](#split).
+**length (tableau ou chaîne)**
+
+Retourne le nombre d’éléments dans un tableau ou le nombre de caractères dans une chaîne. Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+
+Vous pouvez aussi l’utiliser avec une chaîne :
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Retourne un tableau ou une chaîne avec le nombre spécifié d’éléments ou de caractères depuis le début de la chaîne ou du tableau.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| originalValue | Oui | Le tableau ou la chaîne à partir desquels les éléments ou les caractères doivent être pris.
+| numberToTake | Oui | Le nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, un tableau ou une chaîne vide sont retournés. Si elle est supérieure à la longueur de la chaîne ou du tableau donnés, tous les éléments du tableau ou de la chaîne sont retournés.
+
+L’exemple suivant prend le nombre spécifié d’éléments du tableau.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="skip" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+Retourne un tableau ou une chaîne avec l’ensemble des éléments ou des caractères se trouvant après le nombre spécifié dans la chaîne ou le tableau.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| originalValue | Oui | Le tableau ou la chaîne à utiliser pour ignorer les éléments ou les caractères.
+| numberToSkip | Oui | Le nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments du tableau ou de la chaîne sont retournés. Si elle est supérieure à la longueur de la chaîne ou du tableau, un tableau ou une chaîne vide sont retournés. 
+
+L’exemple suivant ignore le nombre spécifié d’éléments du tableau.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## Fonctions de valeur de déploiement
 
@@ -815,4 +877,4 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

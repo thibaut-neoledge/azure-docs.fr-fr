@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2016"
+   ms.date="06/15/2016"
    ms.author="aglick"/>
 
 #Liste de contrôle de haute disponibilité
@@ -29,7 +29,7 @@ __Que se passe-t-il si vous n’utilisez pas Traffic Manager ?__ Si vous n’uti
 ###Avez-vous choisi de ne pas utiliser une machine virtuelle unique pour tous les rôles ?
 Une conception efficace permet d’éviter le point de défaillance unique. Ceci est important dans la conception de tous les services (local ou dans le cloud), mais est plus particulièrement utile dans le cloud, car vous pouvez augmenter l’évolutivité et la résilience par le biais d’une montée en charge (ajout de machines virtuelles) plutôt que par le biais d’une montée en puissance (à l’aide d’une machine virtuelle plus puissante). Si vous souhaitez obtenir des informations supplémentaires sur la conception d’applications évolutives, consultez l’article [Haute disponibilité pour les applications développées sur Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-__Que se passe-t-il si vous disposez d’une machine virtuelle unique pour un rôle ?__ Une seule machine représente un point de défaillance unique. Dans le meilleur des cas, votre application s’exécutera parfaitement, mais sa conception n’est pas résiliente et n’importe quel point de défaillance unique augmente la probabilité d’interruptions de service en cas de problème.
+__Que se passe-t-il si vous disposez d’une machine virtuelle unique pour un rôle ?__ Un même ordinateur est un point de défaillance unique et n’est pas disponible pour le [Contrat de niveau de service de machine virtuelle Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). Dans le meilleur des cas, votre application s’exécutera parfaitement, mais sa conception n’est pas résiliente, n’est pas couverte par le Contrat de niveau de service de machine virtuelle Azure, et n’importe quel point de défaillance unique augmente la probabilité d’interruptions de service en cas de problème.
 
 ###Utilisez-vous un équilibreur de charge devant les machines virtuelles accessibles sur Internet de votre application ?
 Les équilibreurs de charge permettent de répartir le trafic entrant de votre application vers un nombre arbitraire de machines. Vous pouvez ajouter des machines à votre équilibreur de charge à tout moment, ou en supprimer, ce qui fonctionne bien avec les machines virtuelles (et également avec la mise à l’échelle automatique sur des jeux de mise à l’échelle de machine virtuelle) pour vous permettre de gérer facilement les augmentations de trafic ou les défaillances de machines virtuelles. Si vous souhaitez en savoir plus sur les équilibreurs de charge, consultez la [Vue d’ensemble d’Azure Load Balancer](../load-balancer/load-balancer-overview.md) et [Exécution de plusieurs machines virtuelles sur Azure pour l’extensibilité et la disponibilité](../guidance/guidance-compute-multi-vm.md).
@@ -79,4 +79,4 @@ __Que se passe-t-il si vous n’utilisez pas de CDN ?__ Si vous n’utilisez pas
 ##Étapes suivantes :
 Si vous souhaitez en savoir plus sur la conception de vos applications pour une haute disponibilité, consultez [Haute disponibilité pour les applications développées sur Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

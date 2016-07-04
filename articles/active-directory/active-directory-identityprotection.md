@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/17/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -97,8 +97,7 @@ Certains de ces événements à risque sont disponibles via les rapports d’act
 | Connexions depuis des appareils infectés | Connexions à partir d’appareils potentiellement infectés |
 | Connexions depuis des adresses IP anonymes | Connexions à partir de sources inconnues |
 | Connexions depuis des adresses IP avec des activités suspectes |	Connexions depuis des adresses IP avec des activités suspectes |
-| Connexions depuis des emplacements non connus | - | 
-| Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
+| Connexions depuis des emplacements non connus | - | | Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
 
 Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans Azure AD Identity Protection et ne sont donc pas disponibles via Identity Protection. Ces rapports sont toujours disponibles dans le portail de gestion Azure, mais ils seront rendus obsolètes ultérieurement du fait de leur remplacement par des événements à risque dans Identity Protection.
 
@@ -109,11 +108,11 @@ Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus e
 
 Le niveau de risque d’un événement à risque est une indication (Élevé, Moyen ou Faible) de la gravité de l’événement à risque. Le niveau de risque permet aux utilisateurs du service Identity Protection de hiérarchiser les mesures qu’ils doivent prendre afin de réduire le risque pour leur organisation. Le niveau de gravité de l’événement à risque signalé représente la probabilité qu’une identité soit compromise, avec la quantité de bruit que cela implique généralement.
 
-- **Élevé** : probabilité élevée et gravité élevée de l’événement à risque. Ces événements donnent une indication forte que l’identité de l’utilisateur a été compromise et les comptes d’utilisateurs concernés doivent immédiatement faire l’objet de mesures de correction.
+- **Élevé** : probabilité élevée et gravité élevée de l’événement à risque. Ces événements donnent une indication forte que l’identité de l’utilisateur a été compromise et les comptes d’utilisateurs concernés doivent immédiatement faire l’objet de mesures de correction.
 
-- **Moyen** : sévérité élevée, mais probabilité moindre de l’événement à risque, ou inversement. Ces événements présentent des risques potentiels et les comptes d’utilisateurs concernés doivent faire l’objet de mesures de correction.
+- **Moyen** : sévérité élevée, mais probabilité moindre de l’événement à risque, ou inversement. Ces événements présentent des risques potentiels et les comptes d’utilisateurs concernés doivent faire l’objet de mesures de correction.
 
-- **Faible** : probabilité faible et gravité limitée de l’événement à risque. Cet événement peut ne pas nécessiter une action immédiate, mais l’association à d’autres événements à risque peut donner une indication forte que l’identité a été compromise.
+- **Faible** : probabilité faible et gravité limitée de l’événement à risque. Cet événement peut ne pas nécessiter une action immédiate, mais l’association à d’autres événements à risque peut donner une indication forte que l’identité a été compromise.
 
 
 ![Niveau de risque](./media/active-directory-identityprotection/01.png "Niveau de risque")
@@ -174,15 +173,15 @@ Comme les événements à risque dont l’état est défini sur **Actif** entren
 
 <br> ![Actions](./media/active-directory-identityprotection/34.png "Actions") <br>
 
-- **Résoudre** : si après avoir examiné un événement à risque, vous avez pris une mesure de correction appropriée en dehors d’Identity Protection et pensez que l’événement à risque doit être considéré comme fermé, marquez l’événement comme résolu. L’état des événements à risque résolus est défini sur Fermé et ces événements n’entrent plus dans le calcul du risque d’un utilisateur.
+- **Résoudre** : si après avoir examiné un événement à risque, vous avez pris une mesure de correction appropriée en dehors d’Identity Protection et pensez que l’événement à risque doit être considéré comme fermé, marquez l’événement comme résolu. L’état des événements à risque résolus est défini sur Fermé et ces événements n’entrent plus dans le calcul du risque d’un utilisateur.
 
-- **Marquer comme faux positif** : dans certains cas, il se peut qu’un événement à risque soit signalé à tort en tant que tel. Vous pouvez réduire le nombre de ces événements en les marquant comme faux positifs. Vous aiderez ainsi les algorithmes d’apprentissage automatique à améliorer la classification des événements similaires par la suite. L’état des événements marqués comme faux positifs est défini sur **Fermé** et ces événements n’entrent plus dans le calcul du risque de l’utilisateur.
+- **Marquer comme faux positif** : dans certains cas, il se peut qu’un événement à risque soit signalé à tort en tant que tel. Vous pouvez réduire le nombre de ces événements en les marquant comme faux positifs. Vous aiderez ainsi les algorithmes d’apprentissage automatique à améliorer la classification des événements similaires par la suite. L’état des événements marqués comme faux positifs est défini sur **Fermé** et ces événements n’entrent plus dans le calcul du risque de l’utilisateur.
 
-- **Ignorer** : si vous n’avez pris aucune mesure de correction, mais que vous souhaitez que l’événement à risque soit supprimé de la liste active, vous pouvez choisir de l’ignorer. Son état sera alors défini sur Fermé. Les événements ignorés n’entrent plus dans le calcul du risque d’un utilisateur. Cette option doit uniquement être utilisée dans des circonstances inhabituelles.
+- **Ignorer** : si vous n’avez pris aucune mesure de correction, mais que vous souhaitez que l’événement à risque soit supprimé de la liste active, vous pouvez choisir de l’ignorer. Son état sera alors défini sur Fermé. Les événements ignorés n’entrent plus dans le calcul du risque d’un utilisateur. Cette option doit uniquement être utilisée dans des circonstances inhabituelles.
 
-- **Réactiver** : les événements à risque qui ont été fermés manuellement (en choisissant **Résoudre**, **Marquer comme faux positif** ou **Ignorer**) peuvent être réactivés. Leur statut est alors défini à nouveau sur **Actif**. Les événements à risque réactivés contribuent au calcul du niveau de risque d’un utilisateur. Les événements à risque fermés à l’aide d’une mesure de correction (telle qu’une réinitialisation de mot de passe sécurisée) ne peuvent pas être réactivés.
+- **Réactiver** : les événements à risque qui ont été fermés manuellement (en choisissant **Résoudre**, **Marquer comme faux positif** ou **Ignorer**) peuvent être réactivés. Leur statut est alors défini à nouveau sur **Actif**. Les événements à risque réactivés contribuent au calcul du niveau de risque d’un utilisateur. Les événements à risque fermés à l’aide d’une mesure de correction (telle qu’une réinitialisation de mot de passe sécurisée) ne peuvent pas être réactivés.
 
-**Pour ouvrir la boîte de dialogue de configuration connexe** :
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
 1. Dans le panneau d’**Azure AD Identity Protection**, cliquez sur **Utilisateurs associés à un indicateur de risque**. <br><br> ![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/408.png "Réinitialisation manuelle du mot de passe") <br>
 
@@ -207,13 +206,13 @@ Une réinitialisation de mot de passe sécurisée est une mesure de correction e
 
 La boîte de dialogue connexe fournit deux méthodes différentes pour réinitialiser le mot de passe :
 
-**Réinitialiser le mot de passe** : sélectionnez **Demander à l’utilisateur de réinitialiser le mot de passe** pour permettre à l’utilisateur de récupérer lui-même son compte s’il s’est inscrit à l’authentification multifacteur. La prochaine fois que l’utilisateur se connectera, il devra résoudre une demande d’authentification multifacteur, puis sera obligé de changer le mot de passe. Cette option n’est pas disponible si le compte d’utilisateur n’est pas déjà inscrit à l’authentification multifacteur.
+**Réinitialiser le mot de passe** : sélectionnez **Demander à l’utilisateur de réinitialiser le mot de passe** pour permettre à l’utilisateur de récupérer lui-même son compte s’il s’est inscrit à l’authentification multifacteur. La prochaine fois que l’utilisateur se connectera, il devra résoudre une demande d’authentification multifacteur, puis sera obligé de changer le mot de passe. Cette option n’est pas disponible si le compte d’utilisateur n’est pas déjà inscrit à l’authentification multifacteur.
 
-**Mot de passe temporaire** : sélectionnez **Générer un mot de passe temporaire** pour invalider immédiatement le mot de passe existant et créer un nouveau mot de passe temporaire pour l’utilisateur. Envoyez le nouveau mot de passe temporaire à une autre adresse de messagerie de l’utilisateur ou au responsable de l’utilisateur. Étant donné que le mot de passe est temporaire, l’utilisateur sera invité à changer le mot de passe lors de la connexion.
+**Mot de passe temporaire** : sélectionnez **Générer un mot de passe temporaire** pour invalider immédiatement le mot de passe existant et créer un nouveau mot de passe temporaire pour l’utilisateur. Envoyez le nouveau mot de passe temporaire à une autre adresse de messagerie de l’utilisateur ou au responsable de l’utilisateur. Étant donné que le mot de passe est temporaire, l’utilisateur sera invité à changer le mot de passe lors de la connexion.
 
 <br> ![Stratégie](./media/active-directory-identityprotection/71.png "Stratégie") <br>
 
-**Pour ouvrir la boîte de dialogue de configuration connexe** :
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
 1. Dans le panneau d’**Azure AD Identity Protection**, cliquez sur **Utilisateurs associés à un indicateur de risque**. <br><br> ![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/408.png "Réinitialisation manuelle du mot de passe") <br>
 
@@ -263,7 +262,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 - [Flux de compte compromis bloqué](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
 
-**Pour ouvrir la boîte de dialogue de configuration connexe** :
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
 1. Dans le panneau d’**Azure AD Identity Protection**, cliquez sur **Paramètres**. <br><br> ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection/401.png "Stratégie de risque d’utilisateur") <br>
 
@@ -351,7 +350,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 
 
 
-**Pour ouvrir la boîte de dialogue de configuration connexe** :
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
 1. Dans le panneau d’**Azure AD Identity Protection**, cliquez sur **Paramètres**. <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/401.png "Inscription à MFA") <br>
 
@@ -391,7 +390,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 
 
 
-**Pour ouvrir la boîte de dialogue de configuration connexe** :
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
 1. Dans le panneau d’**Azure AD Identity Protection**, cliquez sur **Paramètres**. <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/401.png "Inscription à MFA") <br>
 
@@ -409,5 +408,6 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
  - [Flux Azure Active Directory Identity Protection](active-directory-identityprotection-flows.md)
  - [Manuel d’Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossaire d’Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
+ - [Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight
@@ -107,7 +107,7 @@ Vous pouvez lancer le notebook Jupyter à partir du portail Azure. Recherchez vo
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-Vous pouvez également naviguer jusqu’à ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** pour accéder aux notebooks Jupyter. Remplacez simplement la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Vous aurez besoin du mot de passe de votre compte d’administrateur pour accéder aux notebooks.
+Vous pouvez également naviguer jusqu’à ******https://CLUSTERNAME.azurehdinsight.net/jupyter*** pour accéder aux notebooks Jupyter. Remplacez simplement la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Vous aurez besoin du mot de passe de votre compte d’administrateur pour accéder aux notebooks.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
@@ -145,4 +145,4 @@ Maintenant que vous avez configuré un cluster HDInsight Spark et téléchargé 
 
 **Validation croisée et balayage hyperparamétrique** : consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

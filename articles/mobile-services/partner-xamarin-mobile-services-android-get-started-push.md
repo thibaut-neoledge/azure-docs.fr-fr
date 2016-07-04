@@ -72,7 +72,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Prise en main de l'authentification](mobile-services-android-get-started-users.md) <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
-* [Présentation de Notification Hubs](../notification-hubs/notification-hubs-overview.md) <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
+* [Présentation de Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md) <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
 * [Déboguer les applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
 
@@ -86,4 +86,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

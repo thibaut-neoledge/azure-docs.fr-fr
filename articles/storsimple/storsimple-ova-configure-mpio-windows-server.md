@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/22/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Configurer MPIO (Multipath I/O) sur un hôte Windows Server pour la baie virtuelle StorSimple
@@ -29,11 +29,11 @@ Procédez comme suit pour configurer MPIO :
 
 - Conditions préalables à la configuration
 
-- Étape 1 : installer MPIO sur l’hôte Windows Server
+- Étape 1 : installer MPIO sur l’hôte Windows Server
 
-- Étape 2 : configurer MPIO pour les volumes StorSimple
+- Étape 2 : configurer MPIO pour les volumes StorSimple
 
-- Étape 3 : monter des volumes StorSimple sur l’hôte
+- Étape 3 : monter des volumes StorSimple sur l’hôte
 
 Chacune des étapes ci-dessus est abordée dans les sections suivantes.
 
@@ -63,7 +63,7 @@ La figure ci-dessous illustre la configuration matérielle pour la gestion multi
 
 ![configuration matérielle mpio](./media/storsimple-ova-configure-mpio-windows-server/1200hardwareconfig.png)
 
-Comme indiqué dans la figure précédente :
+Comme indiqué dans la figure précédente :
 
 - Votre baie virtuelle StorSimple approvisionnée sur Hyper-V est un appareil actif à nœud unique configuré comme un serveur iSCSI.
 
@@ -75,20 +75,20 @@ Comme indiqué dans la figure précédente :
 
 - Deux interfaces réseau sont activées sur votre hôte Windows Server. Si les interfaces connectées pour l’hôte et la baie sont sur le même sous-réseau, 4 chemins sont disponibles. C’est le cas dans cette procédure. Toutefois, si chaque interface réseau sur la baie et l’interface de l’hôte sont sur un autre sous-réseau IP (non routable), alors seuls 2 chemins sont disponibles.
 
-## Étape 1 : installer MPIO sur l’hôte Windows Server
+## Étape 1 : installer MPIO sur l’hôte Windows Server
 
 MPIO est une fonctionnalité facultative sur Windows Server et n’est pas installé par défaut. Il doit être installé en tant que fonctionnalité via le Gestionnaire de serveur. Pour installer cette fonctionnalité sur votre hôte Windows Server, effectuez la procédure suivante.
 
 [AZURE.INCLUDE [storsimple-install-mpio-windows-server-host](../../includes/storsimple-install-mpio-windows-server-host.md)]
 
 
-## Étape 2 : configurer MPIO pour les volumes StorSimple
+## Étape 2 : configurer MPIO pour les volumes StorSimple
 
 MPIO doit être configuré afin d’identifier les volumes StorSimple. Pour configurer MPIO pour reconnaître des volumes StorSimple, procédez comme suit.
 
 [AZURE.INCLUDE [storsimple-configure-mpio-volumes](../../includes/storsimple-configure-mpio-volumes.md)]
 
-## Étape 3 : monter des volumes StorSimple sur l’hôte
+## Étape 3 : monter des volumes StorSimple sur l’hôte
 
 Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la baie StorSimple peuvent être montés et peuvent alors tirer parti de MPIO pour la redondance. Pour monter un volume, effectuez les étapes suivantes.
 
@@ -96,7 +96,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la ba
 
 1. Ouvrez la fenêtre **Propriétés de l’initiateur iSCSI** sur l’hôte Windows Server. Cliquez sur **Gestionnaire de serveur > Tableau de bord > Outils > Initiateur iSCSI**.
 2. Dans la boîte de dialogue **Propriétés de l’initiateur iSCSI**, cliquez sur l’onglet Détection, puis cliquez sur **Détecter un portail cible**.
-3. Dans la boîte de dialogue **Détecter un portail cible**, procédez comme suit :
+3. Dans la boîte de dialogue **Détecter un portail cible**, procédez comme suit :
 	
 	- Entrez l’adresse IP de la première interface réseau activée sur votre baie virtuelle StorSimple. Par défaut, il s’agit d’**Ethernet**. 
 	- Cliquez sur **OK** pour revenir à la boîte de dialogue **Propriétés de l’initiateur iSCSI**.
@@ -113,7 +113,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la ba
 
 	![mpio2](./media/storsimple-ova-configure-mpio-windows-server/mpio2.png)
 
-8. Dans la boîte de dialogue **Paramètres avancés**, procédez comme suit :
+8. Dans la boîte de dialogue **Paramètres avancés**, procédez comme suit :
 	- 	 Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
 	- 	 Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP de l’hôte.
 	- 	 Dans la liste déroulante d’adresses IP du **portail cible**, sélectionnez l’adresse IP de l’interface de la baie.
@@ -129,7 +129,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la ba
 	![mpio5](./media/storsimple-ova-configure-mpio-windows-server/mpio5.png)
 
 10. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
-11. Dans la boîte de dialogue **Paramètres avancés** :										
+11. Dans la boîte de dialogue **Paramètres avancés** :										
 	-  Dans la liste déroulante **Adaptateur local**, sélectionnez Initiateur Microsoft iSCSI.
 	-  Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à l’hôte. Dans ce cas, vous connectez deux interfaces réseau sur la baie à une seule interface réseau sur l’hôte. Par conséquent, cette interface est identique à celle fournie pour la première session.
 	-  Dans la liste déroulante d’**adresses IP du portail cible**, sélectionnez l’adresse IP de la deuxième interface de données activée sur la baie.
@@ -162,7 +162,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la ba
 
 	![Propriétés du disque](./media/storsimple-ova-configure-mpio-windows-server/mpio21.png)
 
-16. Dans la section **Nom DSM**, cliquez sur **Détails** et vérifiez que les paramètres par défaut sont définis. Les paramètres par défaut sont les suivants :
+16. Dans la section **Nom DSM**, cliquez sur **Détails** et vérifiez que les paramètres par défaut sont définis. Les paramètres par défaut sont les suivants :
 
 	- Période de vérification du chemin d’accès = 30
 	- Nombre de tentatives = 3
@@ -178,4 +178,4 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la ba
 En savoir plus sur l’[utilisation du service StorSimple Manager pour gérer votre baie virtuelle StorSimple](storsimple-ova-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

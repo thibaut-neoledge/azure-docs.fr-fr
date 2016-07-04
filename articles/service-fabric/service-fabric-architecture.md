@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="06/09/2016"
    ms.author="rsinha"/>
 
 # Architecture de Service Fabric
@@ -61,4 +61,4 @@ Ce sous-système fournit une messagerie fiable au sein du cluster et la détecti
 ## Sous-système de testabilité
 La testabilité est une suite d'outils conçus spécifiquement pour tester les services créés sur la plateforme Service Fabric. Les outils permettent à un développeur de provoquer facilement des erreurs significatives et d’exécuter des scénarios de test pour explorer et valider les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, de manière contrôlée et sécurisée. La testabilité fournit également un mécanisme permettant d’effectuer des tests de durée plus longue par itération dans le cadre de diverses défaillances possibles, sans aucune perte de disponibilité. Vous bénéficiez ainsi d’un environnement de test en production.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

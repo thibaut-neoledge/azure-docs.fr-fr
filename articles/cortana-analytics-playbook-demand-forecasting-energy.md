@@ -105,13 +105,13 @@ Le tableau suivant compare les prévisions à long terme et les prévisions à c
 
 |Attribut|Prévision de charge à court terme|Prévision de charge à long terme|
 |---|---|---|
-|Période de prévision|D’1 heure à 48 heures|D’1 semaine à 6 mois, voire plus|
+|Période de prévision|D’1 heure à 48 heures|De 1 à 6 mois ou plus|
 |Granularité des données|Toutes les heures|Toutes les heures ou chaque jour|
 |Études de cas classiques|<ul><li>Équilibrage offre/demande</li><li>Recueillir des prévisions pour l’heure</li><li>Réponse à la demande</li></ul>|<ul><li>Planification à long terme</li><li>Planification des ressources réseau</li><li>Planification des ressources</li></ul>|
 |Prévisions classiques|<ul><li>Jour ou semaine</li><li>Heure de la journée</li><li>Température toutes les heures</li></ul>|<ul><li>Mois de l’année</li><li>Jour du mois</li><li>Température et météo à long terme</li></ul>|
 |Plage de données historiques|Deux ou trois années de données|Cinq à 10 ans de données|
-|Précision classique|MAPE* de 95 % au minimum|MAPE* de 75 % au minimum|
-|Fréquence de prévision|Générée toutes les heures ou toutes les 24 heures|Générée une fois par semaine, une fois par mois ou une fois par trimestre|
+|Précision classique|MAPE* de 5 % ou moins|MAPE* de 25 % ou moins|
+|Fréquence de prévision|Générée toutes les heures ou toutes les 24 heures|Générée tous les mois, tous les trimestres ou tous les ans|
 *[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) : erreur moyenne en pourcentage
 
 Comme nous le voyons dans cette table, il est très important de distinguer les scénarios de prévision à court terme des scénarios à long terme, car ils répondent à des besoins professionnels différents et peuvent se présenter avec des modèles de déploiement et d’utilisation différents.
@@ -167,8 +167,7 @@ Dans de nombreux cas, le client peut être intéressé par la justification prof
 
 D’autre part, une personne doit avoir une bonne connaissance de la valeur pour l’entreprise de l’utilisation de la prévision de la demande d’énergie (à court ou à long terme). En fait, il est important de comprendre la valeur commerciale de chaque opération de prévision. Par exemple, une prévision de charge électrique précise pour les 24 heures à venir peut éviter la surproduction ou peut aider à empêcher les surcharges du réseau, ce qui peut se traduire par des économies au quotidien.
 
-Voici à quoi pourrait ressembler une formule de base pour le calcul de la solution de prévision de la demande :
-![Formule de base pour le calcul des avantages financiers de la solution de prévision de la demande](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Voici à quoi pourrait ressembler une formule de base pour le calcul de la solution de prévision de la demande : ![Formule de base pour le calcul des avantages financiers de la solution de prévision de la demande](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Cortana Intelligence Suite fournit un modèle de tarification par répartition, et il est donc inutile d’engager un composant de coût fixe pour cette formule. Cette formule peut être calculée sur une base quotidienne, mensuelle ou annuelle.
 
@@ -385,4 +384,4 @@ Le diagramme suivant représente une architecture Cortana Intelligence classique
 
 Pour plus d’informations sur chacun des composants et de l’architecture d’ensemble, reportez-vous au modèle Energy Solution.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

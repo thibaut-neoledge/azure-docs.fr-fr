@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création de jeux de mise à l’échelle de machine virtuelle | Microsoft Azure"
-	description="Créer un groupe identique de machine virtuelle à l’aide de PowerShell"
+	description="Création d’un groupe identique de machines virtuelles à l’aide de PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -248,7 +248,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
 1. Remplacez la valeur de **$storageProfile** par le nom que vous souhaitez utiliser pour le profil de stockage, puis créez la variable :  
 
-        $storeProfile = "storage profile name"
+        $storageProfile = "storage profile name"
         
 2. Créez les variables qui définissent l’image à utiliser :
       
@@ -264,7 +264,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
         
 4. Créez le profil de stockage :
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Jeu de mise à l’échelle de machine virtuelle
 
@@ -298,7 +298,7 @@ Utilisez ces ressources pour explorer le jeu de mise à l'échelle de machine vi
 
 - Portail Azure : une quantité limitée d’informations est disponible via le portail.
 - [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre groupe identique.
-- Azure PowerShell : utilisez cette commande pour obtenir des informations :
+- Azure PowerShell : utilisez cette commande pour obtenir des informations :
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -313,4 +313,4 @@ Utilisez ces ressources pour explorer le jeu de mise à l'échelle de machine vi
 - Vous pouvez configurer la mise à l'échelle automatique de votre groupe identique à l'aide des informations fournies dans la rubrique [Mise à l’échelle automatique et groupes identiques de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md)
 - Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des groupes identiques de machines virtuelles](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

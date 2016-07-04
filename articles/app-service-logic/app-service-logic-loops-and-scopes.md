@@ -28,10 +28,16 @@ Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme c
 
 ```
 {
+    "email_filter": {
+        "type": "query",
+        "inputs": {
+            "from": "@triggerBody()['emails']",
+            "where": "@contains(item()['email'], 'microsoft.com')
+        }
+    },
     "forEach_email": {
         "type": "foreach",
-        "foreach": "@triggerBody()['emails']",
-        "expression": "@contains(item(), 'microsoft.com')",
+        "foreach": "@body('email_filter')",
         "actions": {
             "send_email": {
                 "type": "ApiConnection",
@@ -48,6 +54,9 @@ Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme c
                 }
                 }
             }
+        },
+        "runAfter":{
+            "email_filter": [ "Succeeded" ]
         }
     }
 }
@@ -132,4 +141,4 @@ Vous pouvez grouper une série d’actions à l’aide d’une étendue. Cette o
 }
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

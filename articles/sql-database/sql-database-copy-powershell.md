@@ -21,20 +21,12 @@
 
 
 > [AZURE.SELECTOR]
-- [Portail Azure](sql-database-copy.md)
+- [Vue d'ensemble](sql-database-copy.md)
+- [Portail Azure](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-
-
-Les étapes suivantes vous montrent comment copier une base de données SQL avec PowerShell. L'opération de copie de base de données copie une base de données SQL dans une nouvelle base de données en utilisant l'applet de commande [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). La copie est une sauvegarde instantanée de votre base de données que vous créez sur le même serveur ou sur un autre serveur.
-
-> [AZURE.NOTE] La base de données SQL Azure [crée automatiquement des sauvegardes](sql-database-automated-backups.md) pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance.
-
-Lorsque le processus de copie est terminé, la nouvelle base de données est une base de données entièrement fonctionnelle qui est indépendante de la base de données source. La nouvelle base de données est cohérente au niveau transactionnel avec la base de données source au moment où la copie s'achève. Le niveau de service et le niveau de performances (niveau de tarification) de la copie de base de données sont les mêmes que ceux de la base de données source. Une fois la copie terminée, la copie devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations peuvent être gérés indépendamment.
-
-
-Lorsque vous copiez une base de données sur le même serveur logique, les mêmes connexions peuvent être utilisées sur les deux bases de données. L'élément principal de sécurité que vous utilisez pour copier la base de données devient le propriétaire de la base de données (DBO) sur la nouvelle base de données. Tous les utilisateurs de la base de données, leurs autorisations et leurs identificateurs de sécurité (SID) sont copiés vers la copie de base de données.
+Les étapes suivantes vous montrent comment copier une base de données SQL avec PowerShell sur le même serveur ou un serveur différent. L’opération de copie de la base de données utilise l’applet de commande [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx).
 
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
@@ -87,6 +79,10 @@ Après l'exécution de **Start-AzureSqlDatabaseCopy**, vous pouvez vérifier l'�
 
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
+## Résolution des connexions
+
+Pour résoudre les connexions à l’issue de l’opération de copie, consultez [Résoudre les connexions](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
+
 
 ## Exemple de script PowerShell
 
@@ -115,14 +111,18 @@ Après l'exécution de **Start-AzureSqlDatabaseCopy**, vous pouvez vérifier l'�
 
 ## Étapes suivantes
 
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
-- [Exporter la base de données vers un fichier BACPAC](sql-database-export-powershell.md)
+- Consultez la page [Copie d’une base de données SQL Azure](sql-database-copy.md) pour une vue d’ensemble de la copie d’une base de données SQL Azure.
+- Consultez la page [Copier une base de données SQL Azure à l’aide du portail Azure](sql-database-copy-portal.md) pour copier une base de données à l’aide du portail Azure.
+- Consultez la page [Copier une base de données SQL Azure à l’aide de T-SQL](sql-database-copy-transact-sql.md) pour copier une base de données à l’aide de Transact-SQL.
+- Consultez la page [Gestion de la sécurité d’une base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md) pour en savoir plus sur la gestion des utilisateurs et des connexions lors de la copie d’une base de données vers un autre serveur logique.
 
 
 ## Ressources supplémentaires
 
+- [Gérer les connexions](sql-database-manage-logins.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
+- [Exporter la base de données vers un fichier BACPAC](sql-database-export.md)
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

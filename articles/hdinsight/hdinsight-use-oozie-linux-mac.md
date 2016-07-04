@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/17/2016"
 	ms.author="larryfr"/>
 
 
-# Utilisation d'Oozie avec Hadoop pour définir et exécuter un flux de travail dans HDInsight (version préliminaire)
+# Utilisation d’Oozie avec Hadoop pour définir et exécuter un flux de travail dans HDInsight
 
 [AZURE.INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
@@ -32,9 +32,9 @@ Apache Oozie est un système de workflow/coordination qui gère les tâches Hado
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 	
 	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -64,9 +64,9 @@ Le flux de travail que vous allez implémenter en suivant les instructions de ce
 
 ##Création du répertoire de travail
 
-Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise **wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contiendra la nouvelle table Hive créée par ce flux de travail :
+Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise ****wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contiendra la nouvelle table Hive créée par ce flux de travail :
 
-	hadoop fs -mkdir -p /tutorials/useoozie/data
+	hdfs dfs -mkdir -p /tutorials/useoozie/data
 
 > [AZURE.NOTE] Le paramètre `-p` a provoqué la création de tous les répertoires dans le chemin d’accès s’ils n’existent pas déjà. Le répertoire **data** sera utilisé pour contenir les données utilisées par le script **useooziewf.hql**.
 
@@ -80,7 +80,7 @@ Si vous recevez une erreur indiquant que l’utilisateur est déjà un membre, v
 
 Étant donné que ce flux de travail utilise Sqoop pour exporter des données vers la base de données SQL, vous devez fournir une copie du pilote JDBC utilisé pour communiquer avec la base de données SQL. Pour le copier dans le répertoire de travail, utilisez la commande suivante :
 
-	hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /tutorials/useoozie/sqljdbc4.jar
+	hdfs dfs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
 Si votre flux de travail utilisait d’autres ressources, par exemple un fichier jar contenant une application MapReduce, vous devez également les ajouter.
 
@@ -114,9 +114,9 @@ Utilisez les étapes suivantes pour créer un script HiveQL qui définit une req
 
 2. Appuyez sur Ctrl+X pour quitter l’éditeur. Lorsque vous y êtes invité, sélectionnez **Y** pour enregistrer le fichier, puis sélectionnez **Entrée** pour utiliser le nom de fichier **useooziewf.hql**.
 
-3. Exécutez les commandes suivantes pour copier **useooziewf.hql** dans **wasb:///tutorials/useoozie/useooziewf.hql** :
+3. Exécutez les commandes suivantes pour copier **useooziewf.hql** dans ****wasb:///tutorials/useoozie/useooziewf.hql** :
 
-		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
+		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
 	Ces commandes stockent le fichier **useooziewf.hql** sur le compte de stockage Azure associé à ce cluster, ce qui conserve le fichier même si le cluster est supprimé. Cela vous permet de réaliser des économies en supprimant les clusters lorsqu’ils ne sont pas en cours d’utilisation, tout en conservant vos tâches et vos flux de travail.
 
@@ -130,56 +130,56 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 1. Une fois que l’éditeur nano est ouvert, entrez les informations suivantes comme contenu du fichier :
 
-		<workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
-		  <start to = "RunHiveScript"/>
-		  <action name="RunHiveScript">
-		    <hive xmlns="uri:oozie:hive-action:0.2">
-		      <job-tracker>${jobTracker}</job-tracker>
-		      <name-node>${nameNode}</name-node>
-		      <configuration>
-		        <property>
-		          <name>mapred.job.queue.name</name>
-		          <value>${queueName}</value>
-		        </property>
-		      </configuration>
-		      <script>${hiveScript}</script>
-		      <param>hiveTableName=${hiveTableName}</param>
-		      <param>hiveDataFolder=${hiveDataFolder}</param>
-		    </hive>
-		    <ok to="RunSqoopExport"/>
-		    <error to="fail"/>
-		  </action>
-		  <action name="RunSqoopExport">
-		    <sqoop xmlns="uri:oozie:sqoop-action:0.2">
-		      <job-tracker>${jobTracker}</job-tracker>
-		      <name-node>${nameNode}</name-node>
-		      <configuration>
-		        <property>
-		          <name>mapred.compress.map.output</name>
-		          <value>true</value>
-		        </property>
-		      </configuration>
-		      <arg>export</arg>
-		      <arg>--connect</arg>
-		      <arg>${sqlDatabaseConnectionString}</arg>
-		      <arg>--table</arg>
-		      <arg>${sqlDatabaseTableName}</arg>
-		      <arg>--export-dir</arg>
-		      <arg>${hiveDataFolder}</arg>
-		      <arg>-m</arg>
-		      <arg>1</arg>
-		      <arg>--input-fields-terminated-by</arg>
-		      <arg>"\t"</arg>
-		      <archive>sqljdbc4.jar</archive>
-		      </sqoop>
-		    <ok to="end"/>
-		    <error to="fail"/>
-		  </action>
-		  <kill name="fail">
-		    <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
-		  </kill>
-		  <end name="end"/>
-		</workflow-app>
+        <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
+            <start to = "RunHiveScript"/>
+            <action name="RunHiveScript">
+            <hive xmlns="uri:oozie:hive-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+                </configuration>
+                <script>${hiveScript}</script>
+                <param>hiveTableName=${hiveTableName}</param>
+                <param>hiveDataFolder=${hiveDataFolder}</param>
+            </hive>
+            <ok to="RunSqoopExport"/>
+            <error to="fail"/>
+            </action>
+            <action name="RunSqoopExport">
+            <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.compress.map.output</name>
+                    <value>true</value>
+                </property>
+                </configuration>
+                <arg>export</arg>
+                <arg>--connect</arg>
+                <arg>${sqlDatabaseConnectionString}</arg>
+                <arg>--table</arg>
+                <arg>${sqlDatabaseTableName}</arg>
+                <arg>--export-dir</arg>
+                <arg>${hiveDataFolder}</arg>
+                <arg>-m</arg>
+                <arg>1</arg>
+                <arg>--input-fields-terminated-by</arg>
+                <arg>"\t"</arg>
+                <archive>sqljdbc41.jar</archive>
+                </sqoop>
+            <ok to="end"/>
+            <error to="fail"/>
+            </action>
+            <kill name="fail">
+            <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
+            </kill>
+            <end name="end"/>
+        </workflow-app>
 
 	Deux actions sont définies dans le flux de travail :
 
@@ -187,7 +187,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 	- **RunSqoopExport** : cette action exporte les données créées à partir du script Hive vers la base de données SQL à l’aide de Sqoop. Elle n’est exécutée que si l’action **RunHiveScript** a abouti.
 
-		> [AZURE.NOTE] Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] \(pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] \(pour la version 2.1 de HDInsight).
+		> [AZURE.NOTE] Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 de HDInsight).
 
 	Notez que le flux de travail a plusieurs entrées telles que `${jobTracker}`, qui seront remplacées par les valeurs que vous utiliserez dans la définition de travail, plus loin dans ce document.
 
@@ -195,40 +195,13 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 2. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
 
-3. Utilisez la commande suivante pour copier le fichier **workflow.xml** dans **wasb:///tutorials/useoozie/workflow.xml** :
+3. Utilisez la commande suivante pour copier le fichier **workflow.xml** dans ****wasb:///tutorials/useoozie/workflow.xml** :
 
-		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
+		hdfs dfs -copyFromLocal workflow.xml /tutorials/useoozie/workflow.xml
 
 ##Création de la base de données
 
-Les étapes suivantes créent la base de données SQL Azure vers laquelle les données seront exportées.
-
-> [AZURE.IMPORTANT] Avant d’exécuter cette procédure, vous devez [installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md). Vous pouvez installer l’interface de ligne de commande et suivre les étapes de création d’une base de données à partir du cluster HDInsight ou votre station de travail locale.
-
-1. Utilisez la commande suivante pour créer un serveur de base de données SQL Azure :
-
-        azure sql server create <adminLogin> <adminPassword> <region>
-
-    Par exemple, `azure sql server create admin password "West US"`.
-
-    Quand la commande est terminée, vous recevez une réponse similaire à ce qui suit :
-
-        info:    Executing command sql server create
-        + Creating SQL Server
-        data:    Server Name i1qwc540ts
-        info:    sql server create command OK
-
-    > [AZURE.IMPORTANT] Notez le nom de serveur retourné par cette commande (**i1qwc540ts** dans l’exemple ci-dessus.) Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**. Dans l’exemple ci-dessus, le nom de domaine complet serait **i1qwc540ts.database.windows.net**.
-
-2. Utilisez la commande suivante pour créer une base de données nommée **oozietest** sur le serveur de base de données SQL :
-
-        azure sql db create [options] <serverName> oozietest <adminLogin> <adminPassword>
-
-    Un message « OK » s’affiche à la fin de l’opération.
-
-	> [AZURE.NOTE] Si vous recevez une erreur indiquant que vous n’avez pas l’accès, vous devrez peut-être ajouter l’adresse IP du système pour le pare-feu de base de données SQL à l’aide de la commande suivante :
-    >
-    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+Suivez les étapes du document [Création d’une base de données SQL](../sql-database/sql-database-get-started.md) afin de créer une base de données. Lorsque vous créez la base de données, utilisez __oozietest__ comme nom de base de données. Notez également le nom utilisé pour le serveur de base de données ; vous en aurez besoin dans la section suivante.
 
 ###Créer la table
 
@@ -240,7 +213,7 @@ Les étapes suivantes créent la base de données SQL Azure vers laquelle les do
 
 4. Une fois FreeTDS installé, utilisez la commande suivante pour vous connecter au serveur de base de données SQL créé précédemment :
 
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
 
     Le résultat ressemble à ce qui suit :
 
@@ -286,7 +259,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Enregistrez la valeur **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, car elle sera utilisée dans les prochaines étapes.
+	Enregistrez la valeur ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, car elle sera utilisée dans les prochaines étapes.
 
 2. Utilisez la commande suivante pour obtenir le nom de domaine complet du nœud principal du cluster. Il sera utilisé comme adresse du JobTracker pour le cluster. Nous nous en servirons dans le fichier de configuration dans un moment :
 
@@ -363,7 +336,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 		  </property>
 		</configuration>
 
-	* Remplacez toutes les instances de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
+	* Remplacez toutes les instances de ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
 
 	> [AZURE.WARNING] Vous devez utiliser le chemin d’accès WASB complet, avec le conteneur et le compte de stockage inclus dans le chemin d’accès. L’utilisation du format court (wasb:///) provoque l’échec de l’action RunHiveScript lorsque le travail est démarré.
 
@@ -394,7 +367,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	La partie **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
+	La partie ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
 
 2. Pour créer une variable d’environnement pour l’URL de manière à ne pas être obligé de la taper pour chaque commande :
 
@@ -481,7 +454,7 @@ Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
 1. Créez un tunnel SSH vers le cluster HDInsight. Pour plus d’informations sur la façon de procéder, consultez [Utiliser SSH Tunneling pour accéder à l’interface web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Internet](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est **https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
+2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est ****https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
 
 3. Sur le côté gauche de la page, sélectionnez **Oozie**, puis **Liens rapides**, et enfin **Interface utilisateur web Oozie**.
 
@@ -646,7 +619,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 ###Launcher ERROR (Sqoop) (Erreur du lanceur, Sqoop)
 
-**Symptômes** : l’état du travail devient **KILLED**. Dans les détails du travail, **ERROR** est affiché pour l’état de RunSqoopExport. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
+**Symptômes** : l’état du travail devient **KILLED**. Dans les détails du travail, **ERROR** est affiché pour l’état de RunSqoopExport. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
 
 	Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
@@ -658,13 +631,13 @@ Vous devez également référencer l’archive contenant le pilote de base de do
 
 Par exemple, pour le travail de ce document, vous utiliseriez les étapes suivantes :
 
-1. Copier le fichier sqljdbc4.jar dans le répertoire /tutorials/useoozie :
+1. Copier le fichier sqljdbc4.1.jar dans le répertoire /tutorials/useoozie :
 
-		 hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /tutorials/useoozie/sqljdbc4.jar
+		 hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
 
 2. Modifier workflow.xml pour ajouter les éléments suivants sur une nouvelle ligne au-dessus de `</sqoop>` :
 
-		<archive>sqljdbc4.jar</archive>
+		<archive>sqljdbc41.jar</archive>
 
 ##Étapes suivantes
 Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie et comment exécuter un travail Oozie. Pour en savoir plus sur l’utilisation de HDInsight, consultez les articles suivants :
@@ -722,4 +695,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

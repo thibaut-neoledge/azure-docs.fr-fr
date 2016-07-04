@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
 # Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager
 
-Cette rubrique décrit comment résoudre certaines des erreurs courantes que vous pouvez rencontrer lors du déploiement de ressources sur Azure. Nous espérons que vous avez obtenu un message d’erreur qui vous a été utile. Si le message d’erreur n’était pas clair ou si vous avez besoin de plus d’informations concernant l’échec de votre déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md) puis revenez dans cet article pour résoudre l’erreur.
+Cette rubrique décrit comment résoudre certaines erreurs courantes que vous pouvez rencontrer lors du déploiement de ressources sur Azure. Si vous avez besoin de plus d’informations concernant l’échec de votre déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md) puis revenez dans cet article pour résoudre l’erreur.
 
 ## Modèle ou ressource non valide
 
@@ -31,9 +31,9 @@ Si vous ne fournissez pas toutes les syntaxes correspondantes, le modèle produi
 
 Selon l’emplacement où le caractère manque dans le modèle, vous pouvez recevoir un message d’erreur indiquant que le modèle ou qu’une ressource n’est pas valide. L’erreur peut également indiquer que le processus de déploiement n’a pas été en mesure de traiter l’expression de langage de modèle. Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression.
 
-## Le nom de la ressource existe déjà
+## Le nom de la ressource existe déjà ou est déjà utilisé par une autre ressource
 
-Pour certaines ressources, notamment les comptes de stockage, les serveurs de base de données et les sites web, vous devez fournir un nom de ressource qui est unique dans l'ensemble de l’environnement Azure. Vous pouvez créer un nom unique en concaténant votre convention d’affectation de noms avec le résultat de la fonction [uniqueString](resource-group-template-functions.md#uniquestring).
+Pour certaines ressources, notamment les comptes de stockage, les serveurs de base de données et les sites web, vous devez fournir un nom de ressource qui est unique dans l’ensemble de l’environnement Azure. Vous pouvez créer un nom unique en concaténant votre convention d’affectation de noms avec le résultat de la fonction [uniqueString](resource-group-template-functions.md#uniquestring).
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -52,60 +52,73 @@ Resource Manager optimise le déploiement en créant des ressources en parallèl
       ...
     }
 
-## Emplacement non disponible pour la ressource
+## Could not find member ’copy’ on object (Impossible de trouver le membre « copy » sur l’objet)
 
-Lorsque vous spécifiez l’emplacement d’une ressource, vous devez utiliser un des emplacements prenant en charge cette ressource. Avant d'entrer un emplacement pour une ressource, utilisez une des commandes suivantes pour vérifier que l'emplacement est compatible avec le type de ressource concerné.
+Vous rencontrez cette erreur lorsque vous appliquez l’élément **copy** à une partie du modèle qui ne prend pas en charge cet élément. Vous pouvez uniquement appliquer l’élément copy à un type de ressource. Vous ne pouvez pas appliquer l’élément copy à une propriété au sein d’un type de ressource. Par exemple, vous appliquez copy à une machine virtuelle, mais ne pouvez pas l’appliquer aux disques du système d’exploitation pour une machine virtuelle. Dans certains cas, vous pouvez convertir une ressource enfant en ressource parent afin de créer une boucle de copie. Pour plus d’informations sur l’utilisation de copy, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+
+## Référence (SKU) non disponible
+
+Lors du déploiement d’une ressource (généralement une machine virtuelle), vous pouvez recevoir le message et le code d’erreur suivants :
+
+    Code: SkuNotAvailable
+    Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+
+Vous recevez cette erreur lorsque la ressource de référence (SKU) que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné. Deux options s’offrent à vous pour résoudre ce problème :
+
+1.	Connectez-vous au portail et commencez à ajouter une nouvelle ressource via l’interface utilisateur. Lorsque vous définissez les valeurs, vous verrez les références (SKU) disponibles pour cette ressource. 
+
+    ![Références (SKU) disponibles](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+2.	Si vous ne parvenez pas à trouver une référence SKU appropriée dans cette région ou une autre qui réponde aux besoins de votre entreprise, veuillez contacter le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+
+## Aucun fournisseur inscrit trouvé
+
+Lorsque vous déployez une ressource, vous pouvez recevoir le message et le code d’erreur suivants :
+
+    Dode: NoRegisteredProviderFound
+    Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
+
+Cette erreur apparaît pour l’une des trois raisons suivantes :
+
+1. L’emplacement n’est pas pris en charge pour le type de ressource.
+2. La version de l’API n’est pas prise en charge pour le type de ressource.
+3. Le fournisseur de ressources n’a pas été inscrit pour votre abonnement.
+
+Le message d’erreur doit fournir des suggestions pour les emplacements et les versions d’API pris en charge. Vous pouvez changer votre modèle en l’une des valeurs suggérées. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous. Si vous n’avez pas déjà utilisé un fournisseur de ressources spécifique, vous devrez peut-être inscrire ce dernier. Pour en savoir plus sur les fournisseurs de ressources, utilisez les commandes suivantes.
 
 ### PowerShell
 
-Utilisez **Get-AzureRmResourceProvider** pour obtenir les emplacements et les types pris en charge pour un fournisseur de ressources particulier.
+Pour afficher l’état de votre inscription, utilisez **Get-AzureRmResourceProvider**.
 
-    Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+    Get-AzureRmResourceProvider -ListAvailable
 
-Vous obtenez une liste des types de ressources pour ce fournisseur de ressources.
+Pour inscrire un fournisseur, utilisez **Register-AzureRmResourceProvider** et indiquez le nom du fournisseur de ressources que vous voulez inscrire.
 
-    ProviderNamespace RegistrationState ResourceTypes               Locations
-    ----------------- ----------------- -------------               ---------
-    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
-    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
-    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
-    ...
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
-Vous pouvez vous concentrer sur les emplacements d’un type particulier de ressource avec :
+Pour obtenir les emplacements pris en charge d’un type particulier de ressource, utilisez la commande suivante :
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
-Les emplacements pris en charge sont retournés :
+Pour obtenir les versions d’API prises en charge d’un type particulier de ressource, utilisez la commande suivante :
 
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 
 ### Interface de ligne de commande Azure
 
-Pour l’interface de ligne de commande Azure, vous pouvez utiliser **azure location list**. Étant donné que la liste des emplacements peut être longue et qu'il existe de nombreux fournisseurs, vous pouvez utiliser des outils pour examiner les fournisseurs et les emplacements avant d'utiliser un emplacement qui n'est pas encore disponible. Le script suivant utilise **jq** pour détecter les emplacements dans lesquels le fournisseur de ressources pour les machines virtuelles Azure est disponible.
+Pour voir si le fournisseur est inscrit, utilisez la commande `azure provider list`.
 
-    azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    azure provider list
+        
+Pour inscrire un fournisseur de ressources, utilisez la commande `azure provider register` et indiquez *l’espace de noms* à inscrire.
+
+    azure provider register Microsoft.Cdn
+
+Pour afficher les emplacements et les versions d’API pris en charge pour un fournisseur de ressources, utilisez la commande suivante :
+
+    azure provider show -n Microsoft.Compute --json > compute.json
     
-Les emplacements pris en charge sont retournés :
-    
-    {
-      "name": "Microsoft.Compute/virtualMachines",
-      "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
-    }
-
-### API REST
-
-Pour l'API REST, consultez [Obtention d'informations sur un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790534.aspx).
-
 ## Quota dépassé
 
 Vous pouvez rencontrer des problèmes quand un déploiement dépasse un quota qui peut concerner entre autres les groupes de ressources, les abonnements ou les comptes. Par exemple, votre abonnement peut être configuré pour limiter le nombre de cœurs dans une région. Si vous tentez de déployer une machine virtuelle avec plus de cœurs que la quantité autorisée, vous recevez une erreur indiquant que le quota a été dépassé. Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md).
@@ -158,74 +171,35 @@ Pour plus d’informations sur le contrôle d’accès en fonction du rôle, con
 
 En plus du contrôle d’accès en fonction du rôle, vos actions de déploiement peuvent être limitées par les stratégies appliquées à l’abonnement. Par le biais de stratégies, l’administrateur peut appliquer les conventions sur toutes les ressources déployées dans l’abonnement. Par exemple, un administrateur peut exiger qu’une valeur de balise particulière soit fournie pour un type de ressource. Si vous n’avez pas rempli les critères de la stratégie, vous recevez une erreur pendant le déploiement. Pour plus d’informations sur les stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
 
-## Vérifier l’inscription du fournisseur de ressources
+## Résolution des problèmes - Machines virtuelles 
 
-Les ressources sont gérées par les fournisseurs de ressources, et un compte ou un abonnement doit être inscrit pour utiliser un fournisseur particulier. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous.
+| Erreur | Articles |
+| -------- | ----------- |
+| Erreurs d’extension de script personnalisé | [Échecs d’extension de machine virtuelle Windows](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />ou<br />[Échecs d’extension de machine virtuelle Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) | 
+| Erreurs de configuration d’image de système d’exploitation | [Erreurs d’une nouvelle machine virtuelle Windows](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />ou<br />[Erreurs d’une nouvelle machine virtuelle Linux](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) | 
+| Échecs d’allocation | [Échecs d’allocation de machine virtuelle Windows](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />ou<br />[Échecs d’allocation de machine virtuelle Linux](./virtual-machines/virtual-machines-linux-allocation-failure.md) | 
+| Erreurs de Secure Shell (SSH) lors de la tentative de connexion | [Connexions Secure Shell à la machine virtuelle Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) | 
+| Erreurs de connexion à l’application s’exécutant sur la machine virtuelle | [Application s’exécutant sur une machine virtuelle Windows](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />ou<br />[Application s’exécutant sur une machine virtuelle Linux](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) | 
+| Erreurs de connexion Bureau à distance | [Connexions Bureau à distance avec une machine virtuelle Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) | 
+| Erreurs de connexion résolues par un nouveau déploiement | [Redéployer une machine virtuelle vers un nouveau nœud Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | 
+| Erreurs de service cloud | [Problèmes de déploiement de service cloud](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | 
 
-### PowerShell
+## Résolution des problèmes d’autres services 
 
-Pour afficher l’état de votre inscription, utilisez **Get-AzureRmResourceProvider**.
+Le tableau suivant ne constitue pas une liste exhaustive des rubriques de dépannage pour Azure. Au lieu de cela, il présente des problèmes liés au déploiement ou à la configuration des ressources. Si vous avez besoin d’aide pour résoudre les problèmes d’exécution d’une ressource, consultez la documentation du service Azure concerné.
 
-    Get-AzureRmResourceProvider -ListAvailable
-
-Tous les fournisseurs de ressources disponibles et l’état de votre inscription sont retournés :
-
-    ProviderNamespace               RegistrationState ResourceTypes
-    -----------------               ----------------- -------------
-    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
-    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
-    Microsoft.Batch                 Registered        {batchAccounts}
-
-Pour inscrire un fournisseur, utilisez **Register-AzureRmResourceProvider** et indiquez le nom du fournisseur de ressources que vous voulez inscrire.
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
-
-Vous êtes invité à confirmer l’inscription et un état est retourné.
-
-    Confirm
-    Are you sure you want to register the provider 'Microsoft.Cdn'
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
-
-    ProviderNamespace RegistrationState ResourceTypes
-    ----------------- ----------------- -------------
-    Microsoft.Cdn     Registering       {profiles, profiles/endpoints,...
-
-### Interface de ligne de commande Azure
-
-Pour voir si le fournisseur est enregistré pour être utilisé à l'aide de l'interface de ligne de commande Azure, utilisez la commande `azure provider list` (l'exemple de sortie ci-dessous est tronqué).
-
-    azure provider list
-        
-Tous les fournisseurs de ressources disponibles et l’état de votre inscription sont retournés :
-        
-    info:    Executing command provider list
-    + Getting ARM registered providers
-    data:    Namespace                        Registered
-    data:    -------------------------------  -------------
-    data:    Microsoft.Compute                Registered
-    data:    Microsoft.Network                Registered  
-    data:    Microsoft.Storage                Registered
-    data:    microsoft.visualstudio           Registered
-    ...
-    info:    provider list command OK
-
-Pour inscrire un fournisseur de ressources, utilisez la commande `azure provider register` et indiquez l’*espace de noms* à inscrire.
-
-    azure provider register Microsoft.Cdn
-
-### API REST
-
-Pour afficher l'état de l'inscription, consultez [Obtention d'informations sur un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790534.aspx).
-
-Pour inscrire un fournisseur, consultez [Inscription d'un abonnement auprès d'un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790548.aspx).
-
-## Erreurs d’extension de script personnalisé
-
-Si vous rencontrez une erreur au niveau d’une extension de script personnalisé lors du déploiement d’une machine virtuelle, consultez [Dépannage des échecs d’extension de machine virtuelle Windows dans Azure](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) ou [Dépannage des échecs d’extension de machine virtuelle Azure Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
-
-## Échecs d’approvisionnement et d’allocation des machines virtuelles
-
-Si vous avez rencontré une erreur d’allocation ou d’approvisionnement d’une image de système d’exploitation pendant le déploiement d’une machine virtuelle, consultez [Troubleshoot creating a new VM](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) (Résoudre les problèmes de création d’une machine virtuelle) et [Résoudre des échecs d’allocation](./virtual-machines/virtual-machines-windows-allocation-failure.md).
+| de diffusion en continu | Article |
+| -------- | -------- |
+| Automation | [Conseils de dépannage pour les erreurs courantes dans Azure Automation](./automation/automation-troubleshooting-automation-errors.md) | 
+| Azure Stack | [Dépannage de Microsoft Azure Stack](./azure-stack/azure-stack-troubleshooting.md) | 
+| Azure Stack | [Applications web et Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) | 
+| Data Factory | [Résolution des problèmes liés à Data Factory](./data-factory/data-factory-troubleshoot.md) | 
+| Service Fabric | [Résoudre les problèmes courants rencontrés pendant le déploiement de services dans Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) | 
+| Site Recovery | [Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
+| Storage | [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
+| StorSimple | [Résolution des problèmes de déploiement d’un appareil StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) | 
+| Base de données SQL | [Résoudre des problèmes de connexion à la base de données SQL Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) | 
+| SQL Data Warehouse | [Résolution des problèmes d’Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) | 
 
 ## Déterminer quand un déploiement est prêt 
 
@@ -237,7 +211,5 @@ Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement
 
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md).
-- Pour résoudre les erreurs liées au protocole RDP (Remote Desktop Protocol) sur votre machine virtuelle Windows, consultez [Connexions Bureau à distance](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Pour résoudre les erreurs liées à Secure Shell sur votre machine virtuelle Linux, consultez [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

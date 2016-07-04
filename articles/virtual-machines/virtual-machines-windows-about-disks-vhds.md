@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # À propos des disques et des VHD pour les machines virtuelles Azure
@@ -30,4 +30,4 @@ Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des di
 -  [Télécharger une image de machine virtuelle Windows dans Azure](virtual-machines-windows-upload-image.md) à utiliser lors de la création d’une machine virtuelle.
 -  [Changer la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md) pour que votre application utilise le lecteur D: pour les données.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

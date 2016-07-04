@@ -1,25 +1,25 @@
 <properties 
-    pageTitle="Écriture d’applications qui utilisent les files d’attente Service Bus | Microsoft Azure"
+    pageTitle="Écriture d’applications qui utilisent les files d’attente Service Bus | Microsoft Azure"
     description="Comment écrire une application simple basée sur la file d'attente qui utilise Service Bus."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
-# Création d'applications qui utilisent les files d'attente Service Bus
+# Création d'applications qui utilisent les files d'attente Service Bus
 
-Cette rubrique décrit les files d'attente Service Bus et montre comment écrire une application simple basée sur les files d'attente et qui utilise Service Bus.
+Cette rubrique décrit les files d'attente Service Bus et montre comment écrire une application simple basée sur les files d'attente et qui utilise Service Bus.
 
-Imaginez. Vous voilà plongé au cœur de la vente au détail. Les données de vente recueillies à partir de terminaux de point de vente (PDV) doivent être acheminées vers un système de gestion des stocks. Celui-ci utilise ces données pour déterminer le moment où il est nécessaire de renouveler les stocks. Cette solution utilise les messages Service Bus pour communiquer entre les terminaux et le système de gestion des stocks, comme illustré dans la figure suivante :
+Imaginez. Vous voilà plongé au cœur de la vente au détail. Les données de vente recueillies à partir de terminaux de point de vente (PDV) doivent être acheminées vers un système de gestion des stocks. Celui-ci utilise ces données pour déterminer le moment où il est nécessaire de renouveler les stocks. Cette solution utilise les messages Service Bus pour communiquer entre les terminaux et le système de gestion des stocks, comme illustré dans la figure suivante :
 
 ![Service-Bus-Queues-Img1](./media/service-bus-create-queues/IC657161.gif)
 
@@ -53,13 +53,13 @@ L'utilisation de files d'attente de message comme intermédiaire entre les produ
 
 La section suivante montre comment utiliser Service Bus pour créer cette application.
 
-### Inscrivez-vous à un compte et un abonnement Service Bus
+### Créer un compte Azure
 
-Vous aurez besoin d'un compte Azure pour commencer à travailler avec Service Bus. Si vous n’en avez pas, vous pouvez vous inscrire [ici](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF) pour bénéficier d’un compte gratuit.
+Vous aurez besoin d'un compte Azure pour commencer à travailler avec Service Bus. Si vous n’en avez pas, vous pouvez vous inscrire [ici](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF) pour bénéficier d’un compte gratuit.
 
 ### Création d'un espace de noms de service
 
-Une fois que vous avez un abonnement, vous pouvez créer un nouvel espace de noms. Donnez un nom unique à votre nouvel espace de noms sur tous les comptes Service Bus. Un espace de noms est un conteneur d’étendue pour un jeu d’entités Service Bus.
+Une fois que vous avez un abonnement, vous pouvez [créer un nouvel espace de noms](service-bus-create-namespace-portal.md). Un espace de noms est un conteneur d’étendue pour un jeu d’entités Service Bus. Donnez un nom unique à votre nouvel espace de noms sur tous les comptes Service Bus.
 
 ### Installez le package NuGet
 
@@ -67,7 +67,7 @@ Pour utiliser l’espace de noms Service Bus, une application doit référencer 
 
 ### Créer la file d’attente
 
-Les opérations de gestion des entités de messagerie Service Bus (rubriques files d'attente et publication/abonnement) sont effectuées via la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Service Bus utilise un modèle de sécurité basé sur une [signature d'accès partagé (SAS)](service-bus-sas-overview.md). La classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) représente un fournisseur de jetons de sécurité dont les méthodes de fabrique intégrées renvoient des fournisseurs de jetons bien connus. Nous allons utiliser une méthode [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) pour retenir les informations d'identification SAS. L'instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) est ensuite créée avec l'adresse de base de l'espace de noms Service Bus et du fournisseur de jetons.
+Les opérations de gestion des entités de messagerie Service Bus (rubriques files d'attente et publication/abonnement) sont effectuées via la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Service Bus utilise un modèle de sécurité basé sur une [signature d'accès partagé (SAS)](service-bus-sas-overview.md). La classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) représente un fournisseur de jetons de sécurité dont les méthodes de fabrique intégrées renvoient des fournisseurs de jetons bien connus. Nous allons utiliser une méthode [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) pour retenir les informations d'identification SAS. L'instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) est ensuite créée avec l'adresse de base de l'espace de noms Service Bus et du fournisseur de jetons.
 
 La classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) fournit des méthodes pour créer, énumérer et supprimer des entités de messagerie. Le code ci-dessous montre comment l'instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) est créée et utilisée pour créer la file d'attente **DataCollectionQueue**.
 
@@ -84,11 +84,11 @@ NamespaceManager namespaceManager =
 namespaceManager.CreateQueue("DataCollectionQueue");
 ```
 
-Notez qu'il existe des surcharges de la méthode [CreateQueue](https://msdn.microsoft.com/library/azure/hh322663.aspx) qui activent les propriétés de la file d'attente à paramétrer. Par exemple, vous pouvez définir la valeur par défaut de durée de vie « time-to-live » pour les messages envoyés à la file d'attente.
+Notez qu'il existe des surcharges de la méthode [CreateQueue](https://msdn.microsoft.com/library/azure/hh322663.aspx) qui activent les propriétés de la file d'attente à paramétrer. Par exemple, vous pouvez définir la valeur par défaut de durée de vie « time-to-live » pour les messages envoyés à la file d'attente.
 
 ### Envoyez des messages à la file d'attente
 
-Pour des opérations d'exécution sur les entités Service Bus ; par exemple, pour l'envoi et la réception de messages, une application doit tout d'abord créer un objet [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Semblable à la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), l'instance [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) est créée à partir de l'adresse de base de l'espace de noms et du fournisseur de jetons.
+Pour des opérations d'exécution sur les entités Service Bus ; par exemple, pour l'envoi et la réception de messages, une application doit tout d'abord créer un objet [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Semblable à la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), l'instance [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) est créée à partir de l'adresse de base de l'espace de noms et du fournisseur de jetons.
 
 ```
  BrokeredMessage bm = new BrokeredMessage(salesData);
@@ -108,14 +108,14 @@ sender.Send(bm);
 
 ### Réception de messages à partir de la file d'attente
 
-Pour recevoir des messages de la file d'attente, le plus simple consiste à utiliser un objet [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) que vous pouvez créer directement à partir de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) à l'aide de [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Les destinataires de message peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**. Le [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) est défini lorsque le destinataire du message est créé, en tant que paramètre de l'appel [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
+Pour recevoir des messages de la file d'attente, vous pouvez utiliser un objet [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) que vous créez directement à partir de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) à l'aide de [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Les destinataires de message peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**. Le [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) est défini lorsque le destinataire du message est créé, en tant que paramètre de l'appel [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
 
 
-Lors de l'utilisation du mode **ReceiveAndDelete**, la réception est exécutée une seule fois. En d'autres termes, lorsque Service Bus reçoit la demande, il marque ce message comme étant consommé et le renvoie à l'application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l'application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l'incident.
+Lors de l'utilisation du mode **ReceiveAndDelete**, la réception est exécutée une seule fois. En d'autres termes, lorsque Service Bus reçoit la demande, il marque ce message comme étant consommé et le renvoie à l'application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l'application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l'incident.
 
 En mode **PeekLock**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit la demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) pour le message reçu. Lorsque Service Bus obtient l'appel [Complet](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), il marque le message comme étant consommé.
 
-Deux autres issues sont possibles. Tout d'abord, si une application est dans l'impossibilité de traiter un message pour une raison quelconque, elle peut appeler la méthode [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) pour le message reçu (au lieu de la méthode [Complet](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Cela permet à Service Bus de déverrouiller le message et le met à disposition pour être à nouveau reçu, soit par le même consommateur, soit par un consommateur concurrent. De même, il faut savoir qu'un message verrouillé dans une file d'attente est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, en cas d'incident), Service Bus déverrouillera le message automatiquement et le rendra à nouveau disponible en réception.
+Deux autres issues sont possibles. Tout d'abord, si une application est dans l'impossibilité de traiter un message pour une raison quelconque, elle peut appeler la méthode [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) pour le message reçu (au lieu de la méthode [Complet](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Cela permet à Service Bus de déverrouiller le message et le met à disposition pour être à nouveau reçu, soit par le même consommateur, soit par un consommateur concurrent. De même, il faut savoir qu'un message verrouillé dans une file d'attente est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, en cas d'incident), Service Bus déverrouillera le message automatiquement et le rendra à nouveau disponible en réception (essentiellement en effectuant une opération [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) par défaut).
 
 Si l'application se bloque après le traitement du message, mais avant l'envoi de la demande [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), le message est à nouveau remis à l'application lorsqu'elle redémarre. On appelle cette opération *Au moins une fois*. En d'autres termes, chaque message est traité au moins une fois, mais dans certaines situations le même message peut être redistribué. Si le scénario ne peut pas tolérer un traitement dupliqué, une logique supplémentaire est nécessaire dans l'application pour détecter les doublons. Cela peut être effectué en fonction de la propriété [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) du message. La valeur de cette propriété ne change pas entre chaque tentative de remise. Cette opération est connue sous le nom de traitement *Seulement une fois*.
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Maintenant que vous avez appris les fondamentaux des files d’attente, consultez la section [Créer des applications qui utilisent des rubriques et des abonnements Service Bus](service-bus-create-topics-subscriptions.md) pour poursuivre cette discussion à l’aide des fonctions publication/abonnement des rubriques et abonnements Service Bus.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

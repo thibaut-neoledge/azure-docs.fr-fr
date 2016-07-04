@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/20/2016"
    ms.author="hanuk;jroth;aglick"/>
 
 #Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure
@@ -54,9 +54,9 @@ Considérez les contrats de niveau de service suivants associés à un service A
 
 |Service Azure|Contrat SLA |Temps d’arrêt potentiel (en minutes)/mois (30 jours)|
 |:------------|:-----|:----------------------------------------:|
-|Calcul |99,95 %|21,6 |
-|Base de données SQL |99,90 %|43,2 |
-|Storage |99,90 %|43,2 |
+|Calcul |99,95 %|21,6 minutes |
+|Base de données SQL |99,99 %|4,3 minutes |
+|Storage |99,90 %|43,2 minutes |
 
 Vous devez anticiper l’arrêt potentiel de tous les services à des moments différents. Dans cet exemple simplifié, le nombre total de minutes d’arrêt potentiel de l’application est de 108 par mois. Un mois de 30 jours comporte un total de 43 200 minutes. 108 minutes représentent 0,25 % du nombre total de minutes d’un mois de 30 jours (43 200 minutes). Ainsi, vous disposez d’une disponibilité effective de 99,75 % pour le service cloud.
 
@@ -131,4 +131,4 @@ Lorsque vous créez le plan de récupération d’urgence et de disponibilité d
 
 Cet article fait partie d’une série d’articles axés sur la récupération d’urgence et la haute disponibilité pour les applications Azure. L’article suivant de cette série est [Haute disponibilité pour les applications développées sur Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

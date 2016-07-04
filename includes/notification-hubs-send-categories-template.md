@@ -3,25 +3,25 @@ Cette section montre comment envoyer les dernières nouvelles sous forme de noti
 
 Si vous utilisez Mobile Apps, reportez-vous au didacticiel [Add push notifications for Mobile Apps](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) (Ajouter des notifications Push pour Mobile Apps).
 
-Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs depuis Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Vous pouvez envoyer des notifications à partir d’un serveur principal à l’aide de l’[interface REST de Notification Hub](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs depuis Java/PHP](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md). Vous pouvez envoyer des notifications à partir d’un serveur principal à l’aide de l’[interface REST de Notification Hub](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour l’envoi des notifications lorsque vous avez effectué la [prise en main des Notification Hubs][get-started].
+Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour l’envoi des notifications lorsque vous avez effectué la [prise en main des Notification Hubs][get-started].
 
-1. Dans Visual Studio, créez une application console Visual C# : 
+1. Dans Visual Studio, créez une application console Visual C# : 
 
    	![][13]
 
-2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
+2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
 
         Install-Package Microsoft.Azure.NotificationHubs
  	
 	Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
 
-3. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
+3. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
 
         using Microsoft.Azure.NotificationHubs;
 
-4. Dans la classe `Program`, ajoutez la méthode suivante ou remplacez-la si elle existe déjà :
+4. Dans la classe `Program`, ajoutez la méthode suivante ou remplacez-la si elle existe déjà :
 
         private static async void SendTemplateNotificationAsync()
         {
@@ -51,7 +51,7 @@ Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour l
 
 6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom de votre hub de notification et par la chaîne de connexion pour *DefaultFullSharedAccessSignature* du tableau de bord de votre hub de notifications.
 
-7. Ajoutez les lignes suivantes à la méthode **Main** :
+7. Ajoutez les lignes suivantes à la méthode **Main** :
 
          SendTemplateNotificationAsync();
 		 Console.ReadLine();
@@ -70,7 +70,7 @@ Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour l
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Use Notification Hubs to send notifications to users]: ../articles/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
@@ -78,4 +78,4 @@ Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour l
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

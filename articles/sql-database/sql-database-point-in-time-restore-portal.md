@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/09/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -45,17 +45,13 @@ Pour restaurer une base de données dans le portail Azure, procédez comme suit�
 
 ## Étapes suivantes
 
-- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [Restauration dans le temps](sql-database-point-in-time-restore.md)
-- [Limite de restauration dans le temps à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour obtenir des instructions détaillées sur la récupération à un point dans le temps à l’aide de PowerShell, consultez [Limite de restauration dans le temps à l’aide de PowerShell](sql-database-point-in-time-restore-powershell.md).
+- Pour obtenir des informations sur la récupération à un point dans le temps à l’aide de l’API REST, consultez [Limite de restauration dans le temps à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- Pour une vue d’ensemble de la limite de restauration dans le temps, consultez [Limite de restauration dans le temps](sql-database-point-in-time-restore.md). ore.md)
+- Pour une discussion complète sur la récupération après une erreur utilisateur ou une erreur d’application, consultez [Récupération d’erreur utilisateur](sql-database-user-error-recovery.md).
 
 ## Ressources supplémentaires
 
-- [restauration d’une base de données supprimée.](sql-database-restore-deleted-database.md)
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Restauration géographique](sql-database-geo-restore.md)
-- [Géo-réplication active](sql-database-geo-replication-overview.md)
-- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

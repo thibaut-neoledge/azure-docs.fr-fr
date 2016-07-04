@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 
@@ -74,10 +74,11 @@ Le réseau virtuel qui est utilisé avec votre ASE peut être un réseau que vou
 Un réseau virtuel contient quelques restrictions utilisées pour un environnement App Service :
 
 - Actuellement, seuls les réseaux virtuels « classiques » V1 sont pris en charge
-- le réseau virtuel doit être un réseau virtuel régional.
-- Les réseaux virtuels utilisés pour héberger un environnement App Service doivent utiliser des adresses RFC1918 (c’est-à-dire, des adresses privées)
+- Le réseau virtuel doit être un réseau virtuel régional.
+- Grâce à une modification récente effectuée en juin 2016, les ASE peuvent désormais être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées). Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devez créer le sous-réseau à l’avance, puis sélectionner le sous-réseau dans l’expérience utilisateur de création d’un ASE.
 - Un sous-réseau avec 8 adresses ou plus où est déployé l’ASE doit exister
 - Lorsqu’un sous-réseau est utilisé pour héberger un ASE, la plage d’adresses du sous-réseau ne peut être modifiée. Pour cette raison, il est recommandé que le sous-réseau contienne au moins 64 adresses pour la prise en charge d’ASE supplémentaires potentiels 
+- **Le sous-réseau utilisé pour héberger l’ASE ne doit contenir aucune autre ressource de calcul.**
 
 Contrairement au service hébergé qui contient l’ASE, le [réseau virtuel][virtualnetwork] et le sous-réseau sont tous les deux contrôlés par l’utilisateur. L’administration de votre réseau virtuel s’effectue via l’interface utilisateur de réseau virtuel ou Powershell.
 
@@ -143,7 +144,7 @@ Pour utiliser l’opération de mise à l’échelle sur le panneau de l’ASE, 
 
 ![][6]
 
-Pour utiliser les fonctionnalités de mise à l’échelle automatique ou manuelle dans un pool de ressources spécifique, accédez à *Paramètres > Pool frontal / Pools de travail*, selon le cas, et ouvrez le pool que vous souhaitez modifier. Accédez à *Paramètres > Augmenter la taille des instances ou Paramètres > Monter en puissance*. Le panneau *Augmenter la taille des instances* vous permet de contrôler la qualité des instances. *Monter en puissance* vous permet de contrôler la taille de la ressource.
+Pour utiliser les fonctionnalités de mise à l’échelle automatique ou manuelle dans un pool de ressources spécifique, accédez à *Paramètres > Pool frontal / Pools de travail*, selon le cas, et ouvrez le pool que vous souhaitez modifier. Accédez à *Paramètres > Augmenter la taille des instances ou Paramètres > Monter en puissance*. Le panneau *Augmenter la taille des instances* vous permet de contrôler la quantité des instances. *Monter en puissance* vous permet de contrôler la taille de la ressource.
 
 ![][7]
 
@@ -176,6 +177,7 @@ Si vous voulez supprimer un environnement App Service, utilisez simplement l'act
 ![][9]
 
 ## Prise en main
+Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
 Pour prendre en main les environnements App Service, consultez [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -208,4 +210,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

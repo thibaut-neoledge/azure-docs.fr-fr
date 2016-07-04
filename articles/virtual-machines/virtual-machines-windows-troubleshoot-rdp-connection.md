@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
@@ -141,7 +141,7 @@ La partie adresse de ce fichier RDP comporte :
 
 Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d’utilisateur est au format *AutoritéSécurité*\\*NomUtilisateur* (par exemple, CORP\\User1), la partie *AutoritéSécurité* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Lorsque votre nom d’utilisateur est au format *AutoritéSécurité*\*NomUtilisateur* (par exemple, CORP\\User1), la partie *AutoritéSécurité* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -158,8 +158,8 @@ Cause : La machine virtuelle cible ne peut pas valider le nom et le mot de passe
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\\*UserName* (par exemple : SQL1\\Admin4798).
-- Pour les comptes de domaine, utilisez la syntaxe *NomDomaine*\\*NomUtilisateur* (par exemple, CONTOSO\\johndoe).
+- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\*UserName* (par exemple : SQL1\\Admin4798).
+- Pour les comptes de domaine, utilisez la syntaxe *NomDomaine*\*NomUtilisateur* (par exemple, CONTOSO\\johndoe).
 
 Si vous avez promu votre machine virtuelle en tant que contrôleur de domaine d’une nouvelle forêt Active Directory, le compte d’administrateur local auquel vous êtes connecté est converti en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte local est alors supprimé.
 
@@ -195,4 +195,4 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -28,7 +28,10 @@ Ouvrez les affichages catalogue **sys.databases** et **sys.tables** pour affiche
 Pour afficher la quantité d’espace utilisé par une table Stretch, exécutez l’instruction suivante.
 
  ```tsql
- EXEC sp_spaceused '<table name>', 'true', 'LOCAL_ONLY';
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'LOCAL_ONLY';
+GO
  ```
 ## Gérer la migration des données
 
@@ -48,6 +51,15 @@ Pour obtenir des suggestions de dépannage, voir [Surveillance et dépannage de 
 ### <a name="RemoteInfo"></a>Obtenir des informations sur les bases de données et les tables distantes Stretch Database
 Ouvrez les affichages catalogue **sys.remote\_data\_archive\_databases** et **sys.remote\_data\_archive\_tables** pour afficher des informations sur les bases de données et les tables distantes dans lesquelles les données migrées sont stockées. Pour plus d’informations, voir [sys.remote\_data\_archive\_databases (Transact-SQL)](https://msdn.microsoft.com/library/dn934995.aspx) et [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
+Pour afficher la quantité d’espace utilisé par une table Stretch dans Azure, exécutez l’instruction suivante.
+
+ ```tsql
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'REMOTE_ONLY';
+GO
+ ```
+
 ### Supprimer les données migrées  
 Si vous souhaitez supprimer des données déjà migrées vers Azure, suivez les étapes décrites dans [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx).
 
@@ -59,7 +71,7 @@ Ne modifiez pas le schéma d’une table Azure distante qui est associée à une
 ### Rapprocher des colonnes de table  
 Si vous avez accidentellement supprimé les colonnes de la table distante, exécutez **sp\_rda\_reconcile\_columns** pour ajouter des colonnes à la table distante qui existent dans la table Stretch SQL Server, mais pas dans la table distante. Pour plus d’informations, voir [sys.sp\_rda\_reconcile\_columns](https://msdn.microsoft.com/library/mt707765.aspx).
 
-  > [! IMPORTANT] Lorsque **sp\_rda\_reconcile\_columns** recrée les colonnes que vous avez supprimées par inadvertance de la table distante, il ne restaure pas les données qui se trouvaient précédemment dans les colonnes supprimées.
+  > [!IMPORTANT] Lorsque **sp\_rda\_reconcile\_columns** recrée les colonnes que vous avez supprimées par inadvertance de la table distante, il ne restaure pas les données qui se trouvaient précédemment dans les colonnes supprimées.
 
 **sp\_rda\_reconcile\_columns** ne supprime pas les colonnes de la table distante qui existent dans la table distante, mais qui n’existent pas dans la table Stretch SQL Server. Si des colonnes de la table Azure distante n’existent plus dans la table Stretch SQL Server, ces colonnes supplémentaires n’empêchent pas Stretch Database de fonctionner normalement. Vous pouvez éventuellement supprimer manuellement les colonnes supplémentaires.
 
@@ -85,7 +97,7 @@ Lorsque vous générez, regénérez ou réorganisez un index dans une table volu
  Pour modifier l’étendue de toutes les requêtes effectuées par tous les utilisateurs, exécutez la procédure stockée **sys.sp\_rda\_set\_query\_mode**. Vous pouvez réduire la portée pour interroger uniquement les données locales, désactiver toutes les requêtes ou restaurer le paramètre par défaut. Pour plus d’informations, voir [sys.sp\_rda\_set\_query\_mode](https://msdn.microsoft.com/library/mt703715.aspx).
 
 ### <a name="queryHints"></a>Modifier l’étendue des requêtes pour une seule requête effectuée par un administrateur  
- Pour modifier l’étendue d’une seule requête effectuée par un membre du rôle db\_owner, ajoutez l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur* )** à l’instruction SELECT. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
+ Pour modifier l’étendue d’une seule requête effectuée par un membre du rôle db\_owner, ajoutez l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur*)** à l’instruction SELECT. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
  -   **LOCAL\_ONLY**. Interroge uniquement les données locales.  
 
  -   **REMOTE\_ONLY**. Interroge uniquement les données à distance.
@@ -95,11 +107,14 @@ Lorsque vous générez, regénérez ou réorganisez un index dans une table volu
 Par exemple, la requête suivante renvoie uniquement des résultats locaux.
 
  ```tsql  
-SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ...  
+ USE <Stretch-enabled database name>;
+ GO
+ SELECT * FROM <Stretch_enabled table name> WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ... ;
+ GO
 ```  
 
 ## <a name="adminHints"></a>Effectuer des mises à jour et des suppressions administratives  
- Par défaut, il est impossible de METTRE À JOUR ou de SUPPRIMER des lignes ayant été migrées ou pouvant être migrées dans une table Stretch. Lorsque vous devez résoudre un problème, un membre du rôle db\_owner peut exécuter une opération UPDATE ou DELETE en ajoutant l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur* )** à l’instruction. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
+ Par défaut, il est impossible de METTRE À JOUR ou de SUPPRIMER des lignes ayant été migrées ou pouvant être migrées dans une table Stretch. Lorsque vous devez résoudre un problème, un membre du rôle db\_owner peut exécuter une opération UPDATE ou DELETE en ajoutant l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur*)** à l’instruction. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
  -   **LOCAL\_ONLY**. Met à jour ou supprime uniquement les données locales.  
 
  -   **REMOTE\_ONLY**. Met à jour ou supprime uniquement les données distantes.
@@ -114,4 +129,4 @@ SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_O
 
 [Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,12 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/18/2016"
+   ms.date="06/21/2016"
    ms.author="yuemlu"/>
 
 # SE invité d'Azure 
 
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## SE invité juin 
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-035 | [3141780] | Mise à jour de sécurité pour .NET Framework afin de résoudre un problème de contournement de la fonctionnalité de sécurité | 4,33, 3,40, 2,52 | 14 juin 2016 |
+| Conseil | [3155527] | Mise à jour des suites de chiffrement pour FalseStart | 4\.33, 3.40 | 14 juin 2016 |
+| MS16-063 | [3163649] | Mise à jour de sécurité cumulative pour Internet Explorer | 4,33, 3,40, 2,52 | 14 juin 2016 |
+| MS16-069 | [3163640] | Mise à jour de sécurité cumulative pour JScript et VBScript | 2\.52 | 14 juin 2016 |
+| MS16-071 | [3164065] | Mise à jour de sécurité pour Microsoft Windows DNS Server | 4\.33, 3.40 | 14 juin 2016 |
+| MS16-072 | [3163622] | Mise à jour de sécurité pour la stratégie de groupe | 4,33, 3,40, 2,52 | 14 juin 2016 |
+| MS16-073 | [3164028] | Mise à jour de sécurité pour les pilotes en mode noyau | 4,33, 3,40, 2,52 | 14 juin 2016 |
+| MS16-074 | [3164036] | Mise à jour de sécurité pour le composant graphique Microsoft | 4,33, 3,40, 2,52 | 14 juin 2016 |
+| MS16-075 | [3164038] | Mise à jour de sécurité pour Windows SMB Server | 4\.33, 3.40, 2.52 | 14 juin 2016 |
+| MS16-076 | [3167691] | Mise à jour de sécurité pour Netlogon | 4\.33 | 14 juin 2016 |
+| MS16-077 | [3165191] | Mise à jour de sécurité pour WPAD | 4\.33, 3.40, 2.52 | 14 juin 2016 |
+| MS16-080 | [3164302] | Mise à jour de sécurité pour Microsoft Windows PDF | 4\.33, 3.40 | 14 juin 2016 |
+| MS16-081 | [3160352] | Mise à jour de sécurité pour Active Directory | 4\.33, 3.40, 2.52 | 14 juin 2016 |
+| | [2922223] | Vous ne pouvez pas modifier le temps système si l’entrée de Registre RealTimeIsUniversal est activée dans Windows | 2\.52 | 14 juin 2016 |
+| | [3121255] | Erreur d’arrêt « 0 x 00000024 » dans FsRtlNotifyFilterReportChange ; la copie du fichier peut échouer dans Windows | 2\.52 | 14 juin 2016 |
+| | [3125424] | Windows Server 2012 R2 ou Windows Server 2012 ne répondent pas en raison de blocages LSASS | 4\.33, 3.40 | 14 juin 2016 |
+| | [3125574] | Correctif cumulatif pratique pour Windows 7 SP1 et Windows Server 2008 R2 SP1 | 2\.52 | 14 juin 2016 |
+| | [3140245] | Mise à jour pour activer TLS 1.1 et TLS 1.2 en tant que protocoles sécurisés par défaut dans WinHTTP dans Windows | 3\.40, 2.52 | 14 juin 2016 |
+| | [3146604] | Le service WMI se bloque de façon aléatoire dans Windows Server 2012 R2 ou Windows Server 2012 | 4\.33, 3.40 | 14 juin 2016 |
+| | [3149157] | Améliorations de la fiabilité et de l’évolutivité de TCP/IP pour Windows 8.1 et Windows Server 2012 R2 | 4\.33 | 14 juin 2016 |
+| | [3156416] | Correctif cumulatif de mai 2016 pour Windows Server 2012 | 3\.40 | 14 juin 2016 |
+| | [3156418] | Correctif cumulatif de mai 2016 pour Windows RT 8.1, Windows 8.1 et Windows Server 2012 R2 | 4\.33 | 14 juin 2016 |
+| | [3153731] | Mise à jour de mai 2016 de l’heure d’été dans Windows pour l’Azerbaïdjan, le Chili, Haïti et le Maroc | 4\.33, 3.40, 2.52 | 14 juin 2016 |
+
 
 ## SE invité mai 
 
@@ -253,7 +282,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS15-014 | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité | 4\.17, 3.24, 2.36 | N/A |
 | MS15-015 | [3031432][3031432] | Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges | 4\.17, 3.24, 2.36 | N/A |
 | MS15-016 | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations | 4\.17, 3.24, 2.36 | N/A |
-| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
+| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
  
 
 ## SE invité janvier
@@ -287,6 +316,32 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A | [3007054][3007054] | Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2999802][2999802] | Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
+
+
+[3141780]: http://support.microsoft.com/kb/3141780
+[3155527]: http://support.microsoft.com/kb/3155527
+[3163649]: http://support.microsoft.com/kb/3163649
+[3163640]: http://support.microsoft.com/kb/3163640
+[3164065]: http://support.microsoft.com/kb/3164065
+[3163622]: http://support.microsoft.com/kb/3163622
+[3164028]: http://support.microsoft.com/kb/3164028
+[3164036]: http://support.microsoft.com/kb/3164036
+[3164038]: http://support.microsoft.com/kb/3164038
+[3167691]: http://support.microsoft.com/kb/3167691
+[3165191]: http://support.microsoft.com/kb/3165191
+[3164302]: http://support.microsoft.com/kb/3164302
+[3160352]: http://support.microsoft.com/kb/3160352
+[2922223]: http://support.microsoft.com/kb/2922223
+[3121255]: http://support.microsoft.com/kb/3121255
+[3125424]: http://support.microsoft.com/kb/3125424
+[3125574]: http://support.microsoft.com/kb/3125574
+[3140245]: http://support.microsoft.com/kb/3140245
+[3146604]: http://support.microsoft.com/kb/3146604
+[3149157]: http://support.microsoft.com/kb/3149157
+[3156416]: http://support.microsoft.com/kb/3156416
+[3156418]: http://support.microsoft.com/kb/3156418
+[3153731]: http://support.microsoft.com/kb/3153731
+
 
 [3155533]: http://support.microsoft.com/kb/3155533
 [3156764]: http://support.microsoft.com/kb/3156764
@@ -409,7 +464,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/kb/3042553/
+[3042553]: https://support.microsoft.com/fr-FR/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -489,4 +544,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

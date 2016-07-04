@@ -1,7 +1,7 @@
 <properties
    pageTitle="Créer des hôtes Docker dans Azure avec Docker Machine | Microsoft Azure"
    description="Décrit l'utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -33,7 +33,7 @@ Le pilote Azure nécessitera votre ID d’abonnement. Vous pouvez utiliser [l’
 - Sélectionnez Abonnements dans la page de navigation de gauche, puis copiez l’ID d’abonnement.
 
 **Utilisation de l’interface de ligne de commande Azure (CLI)**
-- Tapez ```azure account list```, puis copiez l’ID d’abonnement.
+- Saisissez ```azure account list``` et copiez l’ID d’abonnement.
 
 Saisissez `docker-machine create --driver azure` pour afficher les options et leurs valeurs par défaut. Vous pouvez également consulter la [Documentation Docker Azure pilote](https://docs.docker.com/machine/drivers/azure/) pour plus d’informations.
 
@@ -109,4 +109,4 @@ Avec docker-machine, vous pouvez facilement approvisionner des hôtes Docker dan
 
 Pour développer des applications .NET Core avec Visual Studio, consultez [Outils Docker pour Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

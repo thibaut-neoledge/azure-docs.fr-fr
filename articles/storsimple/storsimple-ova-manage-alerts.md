@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Utiliser le service StorSimple Manager pour afficher et gérer les alertes liées au StorSimple Virtual Array
+# Utiliser le service StorSimple Manager pour afficher et gérer les alertes liées au StorSimple Virtual Array
 
 ## Vue d'ensemble
 
@@ -29,9 +29,9 @@ Ce didacticiel décrit comment configurer les notifications d’alerte, les cond
 
 Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour chacun de vos appareils virtuels StorSimple. En outre, vous pouvez identifier d’autres destinataires de notification des alertes en entrant leurs adresses e-mail dans la zone **Autres destinataires du message**, séparées par des points-virgules.
 
->[AZURE.NOTE] Vous pouvez entrer un maximum de 20 adresses e-mail par appareil virtuel.
+>[AZURE.NOTE] Vous pouvez entrer un maximum de 20 adresses e-mail par appareil virtuel.
 
-Après avoir activé la notification par e-mail pour un appareil virtuel, les membres de la liste de notification reçoivent un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis *storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
+Après avoir activé la notification par e-mail pour un appareil virtuel, les membres de la liste de notification reçoivent un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis **storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
 
 #### Activation de la notification par e-mail des alertes pour un appareil virtuel
 
@@ -39,13 +39,13 @@ Après avoir activé la notification par e-mail pour un appareil virtuel, les me
 
     ![paramètres d’alerte](./media/storsimple-ova-manage-alerts/alerts2.png)
 
-2. Sous **Paramètres d’alerte**, définissez les éléments suivants :
+2. Sous **Paramètres d’alerte**, définissez les éléments suivants :
 
     1. Dans le champ **Activer la notification par e-mail**, sélectionnez **OUI**.
 
     2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs de service reçoivent les notifications d’alerte.
 
-    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil virtuel.
+    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format **someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil virtuel.
 
         ![configuration des notifications des alertes](./media/storsimple-ova-manage-alerts/alerts3.png)
 
@@ -65,23 +65,23 @@ Après avoir activé la notification par e-mail pour un appareil virtuel, les me
 
 ## Conditions d’alerte courantes
 
-Votre StorSimple Virtual Array génère des alertes en réponse à différentes conditions. Les éléments suivants constituent les types de conditions d’alerte les plus courants :
+Votre StorSimple Virtual Array génère des alertes en réponse à différentes conditions. Les éléments suivants constituent les types de conditions d’alerte les plus courants :
 
-- **Problèmes de connectivité** : ces alertes se produisent lorsque des difficultés surviennent dans le transfert de données. Des problèmes de communication peuvent survenir pendant le transfert des données vers et depuis le compte de stockage Azure ou en raison d’une absence de connectivité entre les appareils virtuels et le service StorSimple Manager. Les problèmes de communication sont les plus difficiles à résoudre, car il existe de nombreux points de défaillance. Avant toute chose, vous devez toujours vérifier que la connectivité au réseau et l'accès à Internet sont disponibles avant d’aller plus loin dans la résolution des problèmes. Pour plus d’informations sur les ports et les paramètres du pare-feu, consultez la page [Configuration système requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md). Pour obtenir de l’aide sur la résolution des problèmes, consultez la section [Dépannage avec l’applet de commande Test-Connection](storsimple-troubleshoot-deployment.md).
+- **Problèmes de connectivité** : ces alertes se produisent lorsque des difficultés surviennent dans le transfert de données. Des problèmes de communication peuvent survenir pendant le transfert des données vers et depuis le compte de stockage Azure ou en raison d’une absence de connectivité entre les appareils virtuels et le service StorSimple Manager. Les problèmes de communication sont les plus difficiles à résoudre, car il existe de nombreux points de défaillance. Avant toute chose, vous devez toujours vérifier que la connectivité au réseau et l'accès à Internet sont disponibles avant d’aller plus loin dans la résolution des problèmes. Pour plus d’informations sur les ports et les paramètres du pare-feu, consultez la page [Configuration système requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md). Pour obtenir de l’aide sur la résolution des problèmes, consultez la section [Dépannage avec l’applet de commande Test-Connection](storsimple-troubleshoot-deployment.md).
 
-- **Problèmes de performances** : ces alertes sont dues aux performances de votre système qui ne sont pas optimales, notamment lorsqu’il est soumis à des conditions de surcharge.
+- **Problèmes de performances** : ces alertes sont dues aux performances de votre système qui ne sont pas optimales, notamment lorsqu’il est soumis à des conditions de surcharge.
 
 De plus, vous pouvez afficher les alertes liées à la sécurité, aux mises à jour ou aux tâches qui ont échoué.
 
 ## Niveaux de gravité des alertes
 
-Les alertes présentent différents niveaux de gravité, en fonction de l'impact de la situation d'alerte et de la nécessité d'une réponse à cette alerte. Les niveaux de gravité des alertes sont :
+Les alertes présentent différents niveaux de gravité, en fonction de l'impact de la situation d'alerte et de la nécessité d'une réponse à cette alerte. Les niveaux de gravité des alertes sont :
 
-- **Critique** : cette alerte répond à une condition qui affecte les performances optimales de votre système. Il est nécessaire d’agir pour vous assurer que le service StorSimple n'est pas interrompu.
+- **Critique** : cette alerte répond à une condition qui affecte les performances optimales de votre système. Il est nécessaire d’agir pour vous assurer que le service StorSimple n'est pas interrompu.
 
-- **Avertissement** : cette condition peut devenir critique si elle n’est pas résolue. Vous devez examiner la situation et prendre toutes les dispositions nécessaires pour résoudre le problème.
+- **Avertissement** : cette condition peut devenir critique si elle n’est pas résolue. Vous devez examiner la situation et prendre toutes les dispositions nécessaires pour résoudre le problème.
 
-- **Information** : cette alerte contient des informations qui peuvent être utiles pour le suivi et la gestion de votre système.
+- **Information** : cette alerte contient des informations qui peuvent être utiles pour le suivi et la gestion de votre système.
 
 ## Afficher et effectuer le suivi des alertes
 
@@ -103,25 +103,25 @@ Lorsque vous cliquez sur **Effacer**, vous avez la possibilité d’insérer des
 
 Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-ova-manage-alerts/check-icon.png) pour enregistrer vos commentaires.
 
-Certains événements seront effacés par le système si un autre événement est déclenché avec de nouvelles informations. Dans ce cas, le message suivant s'affiche :
+Certains événements seront effacés par le système si un autre événement est déclenché avec de nouvelles informations. Dans ce cas, le message suivant s'affiche :
 
 ![Message de suppression de l'alerte](./media/storsimple-ova-manage-alerts/alerts8.png)
 
 ## Tri et vérification des alertes
 
-Cela peut s'avérer plus efficace d’exécuter des rapports sur les alertes afin que vous puissiez les examiner et les effacer en groupes. Par ailleurs, l’onglet **Alertes** peut afficher jusqu'à 250 alertes. Si vous avez dépassé ce nombre d'alertes, toutes les alertes ne seront pas affichées dans l’affichage par défaut. Vous pouvez combiner les champs suivants pour personnaliser les alertes qui s’affichent :
+L’onglet **Alertes** peut afficher jusqu'à 250 alertes. Si vous avez dépassé ce nombre d'alertes, toutes les alertes ne seront pas affichées dans l’affichage par défaut. Vous pouvez combiner les champs suivants pour personnaliser les alertes qui s’affichent :
 
-- **État** : vous pouvez afficher des alertes **Actives** ou **Effacées**. Les alertes actives sont toujours déclenchées dans votre système, tandis que les alertes effacées ont été effacées manuellement par un administrateur, ou elles ont été effacées par un programme, car le système a mis à jour la condition d'alerte avec de nouvelles informations.
+- **État** : vous pouvez afficher des alertes **Actives** ou **Effacées**. Les alertes actives sont toujours déclenchées dans votre système, tandis que les alertes effacées ont été effacées manuellement par un administrateur, ou elles ont été effacées par un programme, car le système a mis à jour la condition d'alerte avec de nouvelles informations.
 
-- **Gravité** : vous pouvez afficher des alertes de tous les niveaux de gravité (critique, avertissement, information), ou seulement celles d’une certaine gravité, par exemple les alertes critiques uniquement.
+- **Gravité** : vous pouvez afficher des alertes de tous les niveaux de gravité (critique, avertissement, information), ou seulement celles d’une certaine gravité, par exemple les alertes critiques uniquement.
 
-- **Source** : vous pouvez afficher les alertes de toutes les sources, ou vous limiter aux alertes qui proviennent d’un service ou d’un ou de tous les appareils virtuels.
+- **Source** : vous pouvez afficher les alertes de toutes les sources, ou vous limiter aux alertes qui proviennent d’un service ou d’un ou de tous les appareils virtuels.
 
-- **Intervalle de temps** : en spécifiant l’horodatage **De** et **À**, vous pouvez regarder les alertes pour la période qui vous intéresse.
+- **Intervalle de temps** : en spécifiant l’horodatage **De** et **À**, vous pouvez regarder les alertes pour la période qui vous intéresse.
 
 ## Référence rapide des alertes
 
-Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSimple que vous pouvez rencontrer, ainsi que des informations supplémentaires et des recommandations lorsqu'elles sont disponibles. Les alertes de l’appareil virtuel StorSimple appartiennent à l’une des catégories suivantes :
+Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSimple que vous pouvez rencontrer, ainsi que des informations supplémentaires et des recommandations lorsqu'elles sont disponibles. Les alertes de l’appareil virtuel StorSimple appartiennent à l’une des catégories suivantes :
 
 - [Alertes de connectivité au cloud](#cloud-connectivity-alerts)
 
@@ -139,36 +139,36 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|L’appareil *<device name>* n’est pas connecté au cloud.|L’appareil nommé ne peut pas se connecter au cloud. |Impossible de se connecter au cloud. La raison peut être l’une des suivantes :<ul><li>Les paramètres réseau de votre appareil présentent peut-être un problème.</li><li>Les informations d’identification du compte de stockage présentent peut-être un problème.</li></ul>Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de l’appareil.|
+|L’appareil *<device name>* n’est pas connecté au cloud.|L’appareil nommé ne peut pas se connecter au cloud. |Impossible de se connecter au cloud. La raison peut être l’une des suivantes :<ul><li>Les paramètres réseau de votre appareil présentent peut-être un problème.</li><li>Les informations d’identification du compte de stockage présentent peut-être un problème.</li></ul>Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de l’appareil.|
 
 
 ### Alertes de configuration
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|La configuration d’un appareil virtuel local n’est pas prise en charge.|Performances lentes.|La configuration actuelle peut aboutir à une dégradation des performances. Vérifiez que votre serveur répond à la configuration minimale requise. Pour plus d’informations, accédez à [Configuration requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md). 
+|La configuration d’un appareil virtuel local n’est pas prise en charge.|Performances lentes.|La configuration actuelle peut aboutir à une dégradation des performances. Vérifiez que votre serveur répond à la configuration minimale requise. Pour plus d’informations, accédez à [Configuration requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md). 
 |Vous n’avez presque plus d’espace disque approvisionné sur <*nom de l’appareil*>.|Avertissement d’espace disque.|Vous n’avez presque plus d’espace disque approvisionné. Pour libérer de l’espace, envisagez de déplacer des charges de travail vers un autre volume ou partage ou de supprimer des données.
 
 ### Alertes d'échec de tâche
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|Impossible d’effectuer la sauvegarde de <*nom de l’appareil*>.|Échec du travail de sauvegarde.|Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à l’[interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération.|
-|Impossible d’effectuer la restauration de <*nom de l’appareil*>.|Échec du travail de restauration.|La restauration à partir de la sauvegarde a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de restauration. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul>Résolvez les problèmes, effacez l’alerte et recommencez l’opération de restauration.|
-|Impossible d’effectuer le clonage de <*nom de l’appareil*>.|Échec du travail de clonage.|La création d’un clone a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de clonage. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles .</li></ul>Résolvez les problèmes, effacez l’alerte et recommencez l’opération.|
+|Impossible d’effectuer la sauvegarde de <*nom de l’appareil*>.|Échec du travail de sauvegarde.|Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à l’[interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération.|
+|Impossible d’effectuer la restauration de <*nom de l’appareil*>.|Échec du travail de restauration.|La restauration à partir de la sauvegarde a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de restauration. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul>Résolvez les problèmes, effacez l’alerte et recommencez l’opération de restauration.|
+|Impossible d’effectuer le clonage de <*nom de l’appareil*>.|Échec du travail de clonage.|La création d’un clone a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de clonage. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles .</li></ul>Résolvez les problèmes, effacez l’alerte et recommencez l’opération.|
 
 ### Alertes de performances
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|Vous rencontrez des retards inattendus dans le transfert de données.|Transfert de données lent.|Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur la résolution des problèmes de votre compte de stockage Azure, accédez à [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
-|Vous n’avez presque plus d’espace disque de réservation locale sur <*nom de l’appareil*>.|Temps de réponse lent.|10 % de la taille approvisionnée totale pour <*nom de l’appareil*> sont réservés sur l’appareil local alors qu’il n’y a presque plus d’espace réservé. La charge de travail sur <*nom de l’appareil*> génère un taux d’évolution élevé ou bien vous avez migré récemment une grande quantité de données. Les performances peuvent s’en trouver réduites. Envisagez l’une des actions suivantes pour résoudre ce problème :<ul><li>Augmentez la bande passante du cloud vers cet appareil.</li><li>Réduisez ou déplacez des charges de travail vers un autre volume ou un autre partage.</li></ul>
+|Vous rencontrez des retards inattendus dans le transfert de données.|Transfert de données lent.|Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur la résolution des problèmes de votre compte de stockage Azure, accédez à [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+|Vous n’avez presque plus d’espace disque de réservation locale sur <*nom de l’appareil*>.|Temps de réponse lent.|10 % de la taille approvisionnée totale pour <*nom de l’appareil*> sont réservés sur l’appareil local alors qu’il n’y a presque plus d’espace réservé. La charge de travail sur <*nom de l’appareil*> génère un taux d’évolution élevé ou bien vous avez migré récemment une grande quantité de données. Les performances peuvent s’en trouver réduites. Envisagez l’une des actions suivantes pour résoudre ce problème :<ul><li>Augmentez la bande passante du cloud vers cet appareil.</li><li>Réduisez ou déplacez des charges de travail vers un autre volume ou un autre partage.</li></ul>
 
 ### Alertes de sécurité
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|Le mot de passe pour <*nom de l’appareil*> expirera dans <*nombre*> jours.|Avertissement de mot de passe.| Votre mot de passe expire dans <nombre> jours. Pensez à le changer. Pour plus d’informations, accédez à [Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-ova-change-device-admin-password.md).
+|Le mot de passe pour <*nom de l’appareil*> expirera dans <*nombre*> jours.|Avertissement de mot de passe.| Votre mot de passe expire dans <nombre> jours. Pensez à le changer. Pour plus d’informations, accédez à [Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-ova-change-device-admin-password.md).
 
 ### Alertes de mise à jour
 
@@ -180,6 +180,6 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 
 ## Étapes suivantes
 
-- [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
+- [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
 
-<!----------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

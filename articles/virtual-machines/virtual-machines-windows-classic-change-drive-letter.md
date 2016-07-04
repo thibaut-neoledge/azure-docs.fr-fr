@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Utilisation du lecteur D comme lecteur de données sur une machine virtuelle Windows 
@@ -111,4 +111,4 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 ## Étapes suivantes
 - Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en y [associant un disque de données supplémentaire](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

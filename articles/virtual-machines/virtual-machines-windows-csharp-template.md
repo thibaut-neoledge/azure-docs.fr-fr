@@ -39,9 +39,9 @@ Toutes les ressources doivent être déployées dans un groupe de ressources. Po
 
 1. Obtenez la liste des emplacements disponibles où créer des ressources.
 
-	    Get-AzureLocation | sort Name | Select Name
-
-2. Remplacez la valeur de **$locName** par un emplacement de la liste, par exemple **États-Unis du Centre**. Créez la variable.
+	    Get-AzureRmLocation | sort Location | Select Location
+        
+2. Remplacez la valeur de **$locName** par un emplacement de la liste, par exemple **centralus**. Créez la variable.
 
         $locName = "location name"
         
@@ -65,13 +65,13 @@ Un compte de stockage est nécessaire pour stocker le modèle que vous allez cr�
 1. Remplacez la valeur de $stName (lettres minuscules et chiffres uniquement) par le nom du compte de stockage. Testez l’unicité du nom choisi.
 
         $stName = "storage account name"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Si cette commande renvoie **False**, le nom proposé est unique.
+    Si cette commande renvoie **True**, le nom proposé est unique.
     
 2. Maintenant, exécutez cette commande pour créer le compte de stockage.
     
-        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 3. Remplacez {storage-blob-endpoint} par le point de terminaison du Blob Storage dans votre compte. Remplacez {storageaccountname} par le nom de votre compte de stockage. Remplacez {primary-storage-key} par la touche primaire d’accès rapide. Exécutez ces commandes pour créer le conteneur stockant les fichiers. Vous pouvez obtenir les valeurs de point de terminaison et de clé sur le portail Azure.
 
@@ -497,4 +497,4 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
 - Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md)
 - Pour apprendre à gérer la machine virtuelle que vous venez de créer, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/31/2016"
+   ms.date="06/21/2016"
    ms.author="vturecek;mikhegn"/>
 
 # Débogage de votre application Service Fabric à l’aide de Visual Studio
@@ -24,7 +24,7 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
 
-2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
+2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
 
     ![Démarrer le débogage d'une application][startdebugging]
 
@@ -146,4 +146,4 @@ Vous pouvez également diffuser en continu des traces directement à partir d’
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

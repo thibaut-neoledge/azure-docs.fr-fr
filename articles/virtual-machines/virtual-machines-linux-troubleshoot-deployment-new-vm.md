@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/06/2016"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Résoudre les problèmes de déploiement Resource Manager liés à la création d’une machine virtuelle Linux dans Azure
@@ -81,4 +81,7 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
   - Créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région).
   - Ajoutez la nouvelle machine virtuelle au même réseau virtuel.
 
-<!---HONumber=AcomDC_0601_2016-->
+## Étapes suivantes
+Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Linux arrêtée ou que vous redimensionnez une machine virtuelle Linux existante dans Azure, consultez [Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
+
+<!---HONumber=AcomDC_0622_2016-->

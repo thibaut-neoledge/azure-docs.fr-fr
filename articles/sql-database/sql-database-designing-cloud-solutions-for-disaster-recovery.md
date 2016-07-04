@@ -129,7 +129,7 @@ En cas de panne dans la région secondaire, Traffic Manager marque le point de t
 
 ![Panne : base de données secondaire. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
-Ce modèle de conception offre plusieurs **avantages** :
+Ce modèle de conception offre plusieurs **avantages** :
 
 + Il évite la perte de données pendant les pannes temporaires.
 + Il ne nécessite pas le déploiement d’une application de surveillance étant donné que la récupération est déclenchée par Traffic Manager.
@@ -153,14 +153,20 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 | Déploiement actif / actif pour l’équilibrage de charge d’applications | Accès en lecture-écriture < 5 s | Temps de détection de défaillance + appel des API de basculement + modification des chaînes de connexion SQL + test de vérification des applications
 | Déploiement actif / passif pour la conservation des données | Accès en lecture seule < 5 s Accès en lecture-écriture = zéro | Accès en lecture seule = temps de détection de défaillance de connectivité + test de vérification des applications <br>Accès en lecture-écriture = temps pour atténuer la panne
 
+## Étapes suivantes
+
+- Pour plus d’informations sur l’utilisation et la configuration de la géo-réplication active pour la récupération d’urgence, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour plus d’informations sur l’utilisation de la restauration géographique pour la récupération d’urgence, consultez [Restauration géographique](sql-database-geo-restore.md)
 
 ## Ressources supplémentaires
 
-
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
+- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
+- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Restauration géographique](sql-database-geo-restore.md)
 - [Géo-réplication active](sql-database-geo-replication-overview.md)
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
+- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
 - [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Activation d'applications clientes natives de manière à ce qu'elles interagissent avec des applications proxy
-
-> [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Le proxy d'application Azure Active Directory est largement utilisé pour publier des applications de navigateur telles que SharePoint, Outlook Web Access et des applications métier personnalisées. Il peut également être utilisé pour publier des applications clientes natives, qui diffèrent des applications web, car celles-ci sont installées sur un appareil. Pour cela, la prise en charge de jetons générés par Azure AD qui sont envoyés dans des en-têtes d'autorisation HTTP standard est nécessaire.
 
@@ -36,7 +34,7 @@ Configurez votre application native comme suit :
 
 1. Connectez-vous à la version classique du portail Azure.
 2. Cliquez sur l’icône d’Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**. Si aucune application n’a été ajoutée à votre annuaire, cette page affiche uniquement le lien **Ajouter une application**. Cliquez sur le lien ou bien cliquez sur le bouton **Ajouter** dans la barre de commandes.
+3. Dans le menu supérieur, cliquez sur **Applications**. Si aucune application n’a été ajoutée à votre répertoire, cette page affiche uniquement le lien **Ajouter une application**. Cliquez sur le lien ou cliquez sur le bouton **Ajouter** dans la barre de commandes.
 4. Sur la page **Que voulez-vous faire**, cliquez sur le lien vers **Ajouter une application développée par mon organisation**.
 5. Dans la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et sélectionnez **Application cliente native**. Cliquez sur l’icône en forme de flèche pour continuer.
 6. Sur la page **Informations de l’application**, fournissez l’**URI de redirection** pour l’application cliente native, puis cliquez sur la coche pour terminer.
@@ -89,4 +87,4 @@ Pour plus d’informations sur le flux d’application native, consultez [Applic
 
 Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

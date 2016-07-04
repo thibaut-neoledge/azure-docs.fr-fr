@@ -3,7 +3,7 @@
    description="Vue d’ensemble d’Azure Resource Health"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Vue d’ensemble d’Azure Resource Health
 
@@ -59,22 +59,28 @@ Si vous cliquez sur la vignette, le panneau d’abonnement à Resource Health s�
 ![Vignette Resource Health](./media/resource-health-overview/resourceHealthTile.png)
 
 ### API Resource Health
-Pour aller au-delà du portail Azure, une API peut également être utilisée pour interroger Resource Health. L’API prend en charge les appels pour connaître l’intégrité de toutes les ressources d’un abonnement, de toutes les ressources d’un groupe de ressources ou d’une ressource spécifique.
+Pour aller au-delà du portail Azure, un ensemble d’API peut également être utilisé pour interroger Resource Health. Les API disponibles permettent aux utilisateurs de connaître l’intégrité de toutes les ressources d’un abonnement, de toutes les ressources d’un groupe de ressources ou d’une ressource spécifique.
 
-Avant d’utiliser l’API pour interroger Resource Health, l’abonnement doit être enregistré avec le service en envoyant une requête POST à l’URL suivante :
+Une autre API permet aux utilisateurs de demander l’historique d’intégrité d’une ressource. La réponse se présente sous la forme d’une collection des états d’intégrité des ressources des 14 derniers jours. Si la ressource a peut-être été affectée par une panne déclarée, l’état d’intégrité inclut une annotation appelée serviceImpactingEvents fournissant plus de détails sur la panne.
 
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+Avant d’utiliser l’API pour interroger Resource Health, l’abonnement doit être enregistré avec le service en envoyant une requête POST à l’URL suivante : volume
+ 
+        //Register the subscription with the Resource health resource provider
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 Voici des exemples d’appel de l’API Resource Health
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
 
 
 ## Que signifie mon état Resource Health ?
@@ -126,4 +132,4 @@ Resource Health indique l’état de la base de données SQL, pas du serveur SQL
 ## Commentaires
 Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

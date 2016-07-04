@@ -15,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/10/2016"
+   ms.date="06/22/2016"
    ms.author="rickbyh"/>
 
-# Configurer un pare-feu sur un serveur Azure SQL - Présentation
+# Configuration des règles de pare-feu de la base de données SQL Azure - Vue d’ensemble
 
 
 > [AZURE.SELECTOR]
@@ -68,7 +68,7 @@ Quand une application à partir d’Azure tente de se connecter à votre serveur
 
 Vous pouvez activer des connexions à partir d’Azure de deux manières :
 
-- Sur le [portail Microsoft Azure](https://portal.azure.com/), cochez la case **Autoriser les services Azure à accéder au serveur** quand vous créez un serveur.
+- Sur le [portail Microsoft Azure](https://portal.azure.com/), cochez la case **Autoriser les services Azure à accéder au serveur** quand vous créez un serveur. **Important :** cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
 
 - Sur le [portail Classic](http://go.microsoft.com/fwlink/p/?LinkID=161793), dans l’onglet **Configurer** sur un serveur, sous la section **Services autorisés**, cliquez sur **Oui** pour **Services Microsoft Azure**.
 
@@ -135,13 +135,25 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
  - Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP en tant que règles de pare-feu.
 
-## Voir aussi
+## Étapes suivantes
 
-[Configurer un pare-feu sur un serveur Azure SQL à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
+Pour obtenir des articles sur la création de règles de pare-feu au niveau du serveur et au niveau de la base de données, consultez :
 
-[Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
+- [Configurer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
+- [Configurer des règles de pare-feu au niveau du serveur et au niveau de la base de données sur une base de données SQL Azure à l’aide de T-SQL](sql-database-configure-firewall-settings-tsql.md)
+- [Configurer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide de PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [Configurer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide de l’API REST](sql-database-configure-firewall-settings-rest.md)
+
+Pour obtenir un didacticiel sur la création d’une base de données, consultez [Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md). Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx). Pour comprendre comment naviguer dans les bases de données, consultez [Gérer la sécurité d’accès et de connexion aux bases de données](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
+
+
+## Ressources supplémentaires
+
+- [Sécurisation de votre base de données](sql-database-security.md)
+- [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

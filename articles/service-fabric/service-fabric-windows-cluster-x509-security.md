@@ -56,16 +56,16 @@ Pour commencer, [téléchargez le package de cluster autonome](service-fabric-cl
 
 Cette section décrit tous les certificats dont vous aurez besoin pour la sécurisation de votre cluster Windows autonome. Activez la sécurité basée sur les certificats en définissant les valeurs des paramètres **ClusterCredentialType** et **ServerCredentialType** sur *X509*.
 
->[AZURE.NOTE] Un [Thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) est l’identité principale d’un certificat. Lisez la section [Comment récupérer l’empreinte numérique d’un certificat] (https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) pour déterminer le Thumbprint des certificats que vous créez.
+>[AZURE.NOTE] Un [Thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) est l’identité principale d’un certificat. Lisez la section [Comment récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx) pour déterminer le Thumbprint des certificats que vous créez.
 
 Le tableau suivant répertorie les certificats réels dont vous aurez besoin pour la configuration de votre cluster :
 
 |**Paramètre CertificateInformation**|**Description**|
 |-----------------------|--------------------------|
-|ClusterCertificate|Ce certificat est requis pour sécuriser les communications entre les nœuds sur un cluster. Vous pouvez utiliser deux certificats différents : un certificat principal et un certificat secondaire pour le basculement. Définissez le Thumbprint du certificat principal dans la section **Thumbprint** et celui du certificat secondaire, dans les variables **ThumbprintSecondary**.|
+|ClusterCertificate|Ce certificat est requis pour sécuriser les communications entre les nœuds sur un cluster. Vous pouvez utiliser deux certificats différents : un certificat principal et un certificat secondaire pour le basculement. Définissez le Thumbprint du certificat principal dans la section **Thumbprint**, et celui du certificat secondaire, dans les variables **ThumbprintSecondary**.|
 |ServerCertificate|Ce certificat est présenté au client lorsqu’il tente de se connecter à ce cluster. Pour plus de commodité, vous pouvez choisir d’utiliser le même certificat pour les éléments *ClusterCertificate* et *ServerCertificate*. Vous pouvez utiliser deux certificats de serveur différents : un certificat principal et un certificat secondaire pour le basculement. Définissez le Thumbprint du certificat principal dans la section **Thumbprint**, et celui du certificat secondaire, dans les variables **ThumbprintSecondary**. |
 |ClientCertificateThumbprints|Il s’agit du jeu de certificats que vous souhaitez installer sur les clients authentifiés. Il peut y avoir un certain nombre de certificats clients installés sur les machines qui seront autorisées à accéder au cluster, ainsi qu’aux applications qui s’exécutent sur ce dernier. Définissez le Thumbprint de chaque certificat dans la variable **CertificateThumbprint**. Si vous définissez le paramètre **IsAdmin** sur *true*, le client sur lequel ce certificat est installé peut effectuer diverses activités de gestion du cluster. Si le paramètre **IsAdmin** a la valeur *false*, il peut uniquement accéder aux applications exécutées sur le cluster.|
-|ClientCertificateCommonNames|Définissez le nom commun du premier certificat client pour **CertificateCommonName**. L’élément **CertificateIssuerThumbprint** est le Thumbprint relatif à l’émetteur de ce certificat. Lisez la section [Utilisation des certificats] (https://msdn.microsoft.com/library/ms731899(v=vs.110).aspx) pour en savoir plus sur les noms communs et l’émetteur.|
+|ClientCertificateCommonNames|Définissez le nom commun du premier certificat client pour **CertificateCommonName**. L’élément **CertificateIssuerThumbprint** est le Thumbprint relatif à l’émetteur de ce certificat. Lisez la section [Utilisation des certificats](https://msdn.microsoft.com/library/ms731899.aspx) pour en savoir plus sur les noms communs et l’émetteur.|
 
 
 ## Installer des certificats
@@ -112,4 +112,4 @@ Après avoir configuré la section relative à la **sécurité** du fichier Clus
 
 Lorsque le cluster Windows autonome sécurisé s’exécute correctement et que vous avez configuré les clients authentifiés pour qu’ils s’y connectent, suivez les instructions de la section [Se connecter à un cluster sécurisé avec PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) pour vous y connecter.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

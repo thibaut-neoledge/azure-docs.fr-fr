@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="06/16/2016" 
 	ms.author="billmath"/>
 
 # Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
+
+> [AZURE.IMPORTANT]  Si vous souhaitez télécharger le Kit de développement logiciel (SDK), vous devrez créer un fournisseur d’authentification multifacteur Azure, même si vous disposez de licences EMS, AAD Premium ou Azure MFA. Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous possédez déjà des licences, vous devez créer le fournisseur à l’aide du modèle **Par utilisateur activé** et lier le fournisseur au répertoire qui contient les licences EMS, Azure AD Premium ou Azure MFA. Cela garantit que vous ne serez pas facturé à moins d’avoir plus d’utilisateurs uniques utilisant le Kit de développement logiciel (SDK) que de licences possédées.
 
 Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication vous permet de vérifier les appels téléphoniques et les messages texte directement dans les processus de connexion et de transaction des applications de votre locataire Azure AD.
 
@@ -33,7 +35,7 @@ Comme les API n'ont pas accès aux utilisateurs enregistrés dans Azure Active D
 
 ## Téléchargement du SDK Azure Multi-Factor Authentication 
 
-Vous pouvez télécharger le SDK Azure Multi-Factor Authentication de deux manières différentes. Les deux sont exécutées via le portail Azure. La première consiste à gérer le fournisseur d'authentification multifacteur directement. La seconde utilise les paramètres du service. La seconde option exige un fournisseur d’authentification multifacteur ou une licence Azure MFA, Azure AD Premium ou Enterprise Mobility Suite.
+Le téléchargement du SDK Azure Multi-Factor Authentication nécessite un [fournisseur Azure Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md). Cela requiert un abonnement Azure complet, même si vous possédez des licences Azure MFA, Azure AD Premium ou Enterprise Mobility Suite. Pour télécharger le Kit de développement logiciel (SDK), vous devez accéder au portail de gestion multi-facteur soit en gérant directement le fournisseur Multi-Factor Auth, soit en cliquant sur le lien **Accéder au portail** sur la page des paramètres du MFA.
 
 
 ### Pour télécharger le SDK Azure Multi-Factor Authentication à partir du portail Azure
@@ -191,4 +193,4 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
 	    }
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

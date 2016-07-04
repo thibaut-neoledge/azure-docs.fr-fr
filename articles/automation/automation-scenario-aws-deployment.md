@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="06/21/2016"
    ms.author="tiandert; bwren" />
 
-# Solution Azure Automation – Approvisionner une machine virtuelle AWS 
+# Scénario Azure Automation – Approvisionner une machine virtuelle AWS 
 
 Dans cet article, nous allons vous montrer comment approvisionner une machine virtuelle de votre abonnement Amazon Web Services (AWS) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique – une opération appelée « tagging » (balisage) dans AWS.
 
@@ -72,14 +72,14 @@ Une fois que le module PowerShell AWS a été déployé, nous pouvons ensuite cr
 		#Sample to get the AWS VM available images
 		#Please provide the path where you have downloaded the AWS PowerShell module
 		Import-Module AWSPowerShell
-		$AWSRegion = "us-west-2"
+		$AwsRegion = "us-west-2"
 		$AwsCred = Get-Credential
 		$AwsAccessKeyId = $AwsCred.UserName
 		$AwsSecretKey = $AwsCred.GetNetworkCredential().Password
 
 		# Set up the environment to access AWS
-		Set-AWSCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
-		Set-DefaultAWSRegion -Region $AWSRegion
+		Set-AwsCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
+		Set-DefaultAWSRegion -Region $AwsRegion
 
 		Get-EC2ImageByName -ProfileName AWSProfile
 Voici les résultats qui sont retournés :<br> ![Obtenir des images AWS](./media/automation-scenario-aws-deployment/powershell-ise-output.png)  
@@ -90,7 +90,7 @@ Voici les résultats qui sont retournés :<br> ![Obtenir des images AWS](./medi
 ### Test du runbook de machine virtuelle AWS
 Avant de procéder au test du runbook, nous devons vérifier plusieurs points. Plus précisément :
 
-   -  Les ressources permettant de s’authentifier auprès d’AWS ont été créées et nommées **AWScred** ou le script a été mis à jour pour référencer le nom de votre ressource d’informations d'identification.  
+   -  Une ressource permettant de s’authentifier auprès d’AWS nommée **AWScred** a été créée ou le script a été mis à jour pour référencer le nom de votre ressource d’informations d’identification.  
    -  Le module PowerShell AWS a été importé dans Azure Automation
    -  Un runbook a été créé et les valeurs de paramètre ont été vérifiées et mises à jour lorsque c’était nécessaire
    -  Les options **Journaliser les enregistrements détaillés** et éventuellement **Journaliser les informations de progression** sous le paramètre de runbook **Journalisation et suivi** ont été définies sur **Activé**.<br> ![Journalisation et suivi de runbook](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)
@@ -107,4 +107,4 @@ Avant de procéder au test du runbook, nous devons vérifier plusieurs points. P
 -	Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 -	Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

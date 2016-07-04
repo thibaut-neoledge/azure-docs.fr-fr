@@ -43,6 +43,10 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
 
 	Vous devez envoyer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
+##Adresse de contrôle d’accès
+
+L’adresse de contrôle d’accès Media Services est https://wamsprodglobal001acs.accesscontrol.windows.net, sauf pour la Chine du Nord, où elle est https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
+
 ##Obtention d’un jeton d’accès
 
 Pour accéder à Media Services directement par le biais de l’API REST, obtenez un jeton d’accès ACS et utilisez-le lors de chaque demande HTTP adressée au service. Ce jeton est semblable aux autres jetons fournis par ACS basés sur les revendications d’accès fournies dans l’en-tête d’une demande HTTP et à l’aide du protocole OAuth v2. Il n’existe pas d’autre condition préalable pour vous connecter directement à Media Services.
@@ -173,4 +177,4 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

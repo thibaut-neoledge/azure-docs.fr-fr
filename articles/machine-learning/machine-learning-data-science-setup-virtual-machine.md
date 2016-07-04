@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure comme serveur IPython Notebook pour des analyses avancées
@@ -122,9 +122,9 @@ Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pou
 
 ## Étapes suivantes une fois votre machine virtuelle Azure prête à être utilisée
 
-Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine virtuelle est également utilisable sous la forme d’un serveur IPython Notebook pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le processus Cortana Analytics.
+Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine est également utilisable sous la forme d’un serveur Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le processus TDSP (Team Data Science Process).
 
-Les étapes suivantes du processus Cortana Analytics sont présentées dans le [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
+Les étapes suivantes du processus TDSP (Team Data Science Process) sont présentées dans le [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -142,4 +142,4 @@ Les étapes suivantes du processus Cortana Analytics sont présentées dans le [
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

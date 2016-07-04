@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à Tinfoil Security | Microsoft Azure"
     description="Découvrez comment utiliser Tinfoil Security avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Tinfoil Security
   
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ###Pour activer l’intégration d’applications pour Tinfoil Security, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-tinfoil-security-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Tinfoil Security** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Tinfoil Security** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configurer l’authentification unique")
 
@@ -80,7 +80,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 3.  Dans la zone de texte **URL de réponse de Tinfoil Security** de la page **Configurer l’URL de l’application**, entrez l’URL de votre service ACS (Assertion Consumer Service) Tinfoil Security (par exemple, « **https://www.tinfoilsecurity.com/saml/consume*", puis cliquez sur **Suivant**.
 
-    >[AZURE.NOTE]Vous devez pouvoir obtenir l’URL d’ACS dans les métadonnées de Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
+    >[AZURE.NOTE] Vous devez pouvoir obtenir l’URL d’ACS dans les métadonnées de Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configurer l’URL de l’application")
 
@@ -104,15 +104,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Sélectionnez **Enable SAML**.
     2.  Cliquez sur **Manual Configuration**.
-    3.  Dans la boîte de dialogue **Configurer l’authentification unique sur Tinfoil Security** du portail Azure, copiez la valeur de **URL SSO SAML** et collez-la dans la zone de texte **SAML Post URL**.
+    3.  Dans la boîte de dialogue **Configurer l’authentification unique sur Tinfoil Security** du portail Azure Classic, copiez la valeur de **URL d’authentification unique SAML** et collez-la dans la zone de texte **URL de publication SAML**.
     4.  Copiez la valeur de **Empreinte** dans le certificat exporté, puis collez-la dans la zone de texte **SAML Certificate Fingerprint**.  
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
     5.  Copiez **Votre ID de compte**.
     6.  Cliquez sur **Enregistrer**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configurer l’authentification unique")
 
@@ -141,7 +141,7 @@ Pour se connecter à Tinfoil Security, les utilisateurs d’Azure AD doivent êt
 
 2.  Si l’utilisateur est un utilisateur normal de SaaS Tinfoil Security, l’utilisateur peut ajouter un collaborateur à n’importe quel site de l’utilisateur. Cela déclenche l’envoi à l’adresse de messagerie spécifiée, d’une invitation à créer un compte utilisateur Tinfoil Security.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Tinfoil Security, pour approvisionner des comptes d’utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Tinfoil Security, pour approvisionner des comptes d’utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -149,7 +149,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Tinfoil Security, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Tinfoil Security**, cliquez sur **Affecter des utilisateurs**.
 
@@ -161,4 +161,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->
