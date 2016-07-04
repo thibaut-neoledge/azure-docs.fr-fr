@@ -30,9 +30,9 @@
 Pour restaurer une base de données dans le portail Azure, procédez comme suit :
 
 1.	Ouvrez le [portail Azure](https://portal.azure.com).
-2.  Sur le côté gauche de l’écran, sélectionnez **PARCOURIR** > **Serveurs SQL**.
+2.  Sur le côté gauche de l’écran, sélectionnez **PARCOURIR** > **Serveurs SQL**.
 3.  Accédez au serveur sur lequel la base de données que vous voulez restaurer est stockée, puis sélectionnez le serveur.
-4.  Faites défiler jusqu’à la section **Opérations** du panneau de votre serveur, puis sélectionnez **Bases de données supprimées** : ![Restaurer une base de données SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
+4.  Faites défiler jusqu’à la section **Opérations** du panneau de votre serveur, puis sélectionnez **Bases de données supprimées** : ![Restaurer une base de données SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
 5.  Sélectionnez la base de données supprimée que vous souhaitez restaurer.
 6.  Spécifiez un nom de base de données, puis cliquez sur OK :
 

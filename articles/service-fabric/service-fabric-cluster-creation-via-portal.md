@@ -26,7 +26,7 @@ Cette page vous aide à configurer un cluster Azure Service Fabric. Votre abonne
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Cliquez sur **+ Nouveau** pour ajouter un nouveau modèle de ressources. Recherchez votre modèle dans le **Marketplace** sous **Tout** ; il porte le nom **Cluster Service Fabric**.
+2. Cliquez sur **+ Nouveau** pour ajouter un nouveau modèle de ressources. Recherchez votre modèle dans le **Marketplace** sous **Tout** ; il porte le nom **Cluster Service Fabric**.
 
     a. Au niveau supérieur, cliquez sur **Marketplace**.
 

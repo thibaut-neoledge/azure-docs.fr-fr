@@ -145,7 +145,7 @@ Le serveur de processus Site Recovery peut découvrir automatiquement les machin
 1.	Vérifiez que la machine utilisée pour le serveur de configuration est conforme à la [configuration requise](#configuration-server-prerequisites). Vérifiez que la machine est bien connectée à Internet conformément aux paramètres suivants :
 
 	- Autorisez l’accès à ces URL: *.hypervrecoverymanager.windowsazure.com ; *.accesscontrol.windows.net ; *.backup.windowsazure.com ; *.blob.core.windows.net ; *.store.core.windows.net
-- Autorisez l’accès à [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) pour télécharger MySQL.
+	- Autorisez l’accès à [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) pour télécharger MySQL.
 	- Autorisez la communication du pare-feu vers Azure avec les [plages IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443).
 
 2.	Téléchargez et installez [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) sur le serveur de configuration. (Actuellement, les autres versions de PowerCLI ne sont pas prises en charge, y compris les versions R 6.0.)
@@ -533,7 +533,8 @@ Sur le serveur de processus, les programmes d’installation sont disponibles da
 Système d’exploitation source | Fichier d’installation du service Mobilité
 --- | ---
 Windows Server (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (64 bits seulement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
+SUSE Linux Enterprise Server 11 SP3 (64 bits seulement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -636,7 +637,7 @@ Lorsque vous activez la réplication, tous les disques de la machine sont répli
 
 	![Activer la réplication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-11. Dans **Paramètres de réplication** > ** Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
+11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
 
 12. Cochez la case **Cohérence multimachine virtuelle** pour regrouper les machines dans un groupe de réplication, et nommez le groupe. Cliquez ensuite sur **OK**. Notez les points suivants :
 
@@ -781,7 +782,7 @@ Vérifiez les [tailles recommandées pour les serveurs de processus](#size-recom
 
 	![Ajouter un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
 
-2. Dans **Type de serveur**, cliquez sur ** Process server (on-premises) (Serveur de processus (local))**.
+2. Dans **Type de serveur**, cliquez sur **Process server (on-premises) (Serveur de processus (local))**.
 
 	![Ajouter un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 

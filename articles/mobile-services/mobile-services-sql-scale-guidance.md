@@ -56,9 +56,9 @@ Il est important de comprendre les différents niveaux de bases de données à v
 
 Voici quelques recommandations pour sélectionner le niveau pour votre base de données :
 
-- **Basic** : à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
-- **Standard** : à utiliser pour les services de production, lorsque vous pensez interroger plusieurs bases de données simultanément.
-- **Premium** : à utiliser pour les grands services de production avec plusieurs requêtes simultanées, des pics de charge élevés et une faible latence pour chaque demande.
+- **Basic** : à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
+- **Standard** : à utiliser pour les services de production, lorsque vous pensez interroger plusieurs bases de données simultanément.
+- **Premium** : à utiliser pour les grands services de production avec plusieurs requêtes simultanées, des pics de charge élevés et une faible latence pour chaque demande.
 
 Pour plus d'informations sur l'utilisation de chaque niveau, consultez la rubrique [Raisons d'utiliser les nouveaux niveaux de service]
 
@@ -407,7 +407,7 @@ L’exemple suivant renvoie des informations relatives aux cinq premières requ�
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête** :
+Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête** :
 
 ![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
 

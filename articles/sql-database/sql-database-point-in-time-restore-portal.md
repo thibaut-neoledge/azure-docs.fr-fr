@@ -32,9 +32,9 @@ Cet article explique comment restaurer votre base de données à un point antér
 Pour restaurer une base de données dans le portail Azure, procédez comme suit :
 
 1.	Ouvrez le [portail Azure](https://portal.azure.com).
-2.  Sur le côté gauche de l’écran, sélectionnez **PARCOURIR** > **Bases de données SQL**.
+2.  Sur le côté gauche de l’écran, sélectionnez **PARCOURIR** > **Bases de données SQL**.
 3.  Accédez à la base de données à restaurer et sélectionnez-la.
-4.  Dans la partie supérieure du panneau de votre base de données, sélectionnez **Restaurer** :
+4.  Dans la partie supérieure du panneau de votre base de données, sélectionnez **Restaurer** :
 
     ![Restaurer une base de données SQL Azure](./media/sql-database-point-in-time-restore-portal/restore.png)
 

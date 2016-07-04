@@ -31,7 +31,7 @@ Voici le cycle de vie de développement du processus TDSP :
 ![Poster TDSP](./media/data-science-process-overview/TDSP-poster-simplified.png)
 
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage TDSP](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) et décrites ci-dessous.
 

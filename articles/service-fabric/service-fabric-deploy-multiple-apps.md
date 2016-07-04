@@ -60,12 +60,12 @@ Ensuite, vous créez un package d’application pour l’application Node.js. Le
 
 Voici une description des paramètres utilisés :
 
-- **/source** : pointe vers le répertoire de l’application qui doit être empaquetée.
-- **/target** : définit le répertoire dans lequel le package doit être créé. Ce répertoire doit être différent du répertoire source.
-- **/appname** : définit le nom d’application de l’application existante. Il est important de comprendre que ce nom devient le nom du service dans le manifeste, et non celui de l’application Service Fabric.
-- **/exe** : définit l’exécutable que Service Fabric doit démarrer, dans ce cas `node.exe`.
-- **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`. `/ma:'bin/www'` indique à l’outil d’empaquetage d’utiliser `bin/ma` comme argument pour node.exe.
-- **/AppType** : définit le nom du type de l’application Service Fabric.
+- **/source** : pointe vers le répertoire de l’application qui doit être empaquetée.
+- **/target** : définit le répertoire dans lequel le package doit être créé. Ce répertoire doit être différent du répertoire source.
+- **/appname** : définit le nom d’application de l’application existante. Il est important de comprendre que ce nom devient le nom du service dans le manifeste, et non celui de l’application Service Fabric.
+- **/exe** : définit l’exécutable que Service Fabric doit démarrer, dans ce cas `node.exe`.
+- **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`. `/ma:'bin/www'` indique à l’outil d’empaquetage d’utiliser `bin/ma` comme argument pour node.exe.
+- **/AppType** : définit le nom du type de l’application Service Fabric.
 
 >[AZURE.NOTE] Vous pouvez également utiliser Visual Studio pour produire le package d’application dans le cadre d’un projet d’application. Si vous choisissez d’établir un lien vers la source dans le projet Visual Studio, lors de la création de la solution Visual Studio, assurez-vous que votre package d’application est à jour avec les modifications dans la source. [Utilisation de Visual Studio pour empaqueter une application existante](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 

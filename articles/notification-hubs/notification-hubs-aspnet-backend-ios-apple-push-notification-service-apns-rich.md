@@ -161,7 +161,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
 
-10. Dans **imageViewController.m**, ajoutez ce qui suit à la fin de **viewDidload** :
+10. Dans **imageViewController.m**, ajoutez ce qui suit à la fin de **viewDidload** :
 
         // Display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
@@ -186,7 +186,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 
         @end
 
-13. Dans **AppDelegate**, vérifiez que votre application est inscrite aux notifications en mode silencieux dans **application: didFinishLaunchingWithOptions** :
+13. Dans **AppDelegate**, vérifiez que votre application est inscrite aux notifications en mode silencieux dans **application: didFinishLaunchingWithOptions** :
 
         // Software version
         self.iOS8 = [[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)];
@@ -371,7 +371,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 
 2. Dans l’interface utilisateur de l’application iOS, entrez un nom d’utilisateur et un mot de passe de la même valeur pour l’authentification et cliquez sur **Se connecter**.
 
-3. Cliquez sur **Envoyer des notifications Push** : une alerte dans l’application doit s’afficher. Si vous cliquez sur **Plus**, l’image que vous avez choisi d’inclure dans votre serveur principal d’application s’affiche.
+3. Cliquez sur **Envoyer des notifications Push** : une alerte dans l’application doit s’afficher. Si vous cliquez sur **Plus**, l’image que vous avez choisi d’inclure dans votre serveur principal d’application s’affiche.
 
 4. Vous pouvez également cliquer sur **Envoyer des notifications Push** et appuyer immédiatement sur le bouton Accueil de votre appareil. Dans quelques instants, vous allez recevoir une notification Push. Si vous cliquez dessus ou si vous cliquez sur Plus, votre application et le contenu d’images enrichi apparaissent.
 

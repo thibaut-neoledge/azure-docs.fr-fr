@@ -282,7 +282,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS15-014 | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité | 4\.17, 3.24, 2.36 | N/A |
 | MS15-015 | [3031432][3031432] | Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges | 4\.17, 3.24, 2.36 | N/A |
 | MS15-016 | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations | 4\.17, 3.24, 2.36 | N/A |
-| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
+| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
  
 
 ## SE invité janvier

@@ -29,28 +29,28 @@ La fonctionnalité de gestion multivoie vous permet de configurer plusieurs chem
 
 L’objectif de la gestion multivoie est double :
 
-- **Haute disponibilité** : elle fournit un autre chemin en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
+- **Haute disponibilité** : elle fournit un autre chemin en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
 
-- **Équilibrage de charge** : selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
+- **Équilibrage de charge** : selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
 
 
 ### À propos des composants de la gestion multivoie 
 
 Sous Linux, la gestion multivoie comprend des composants du noyau et des composants de l’espace utilisateur comme présenté ci-dessous.
 
-- **Noyau** : le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
+- **Noyau** : le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
 
-1. **Espace utilisateur** : il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
+1. **Espace utilisateur** : il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
 
-	- **Multipath** : répertorie et configure les appareils à chemins d’accès multiples.
+	- **Multipath** : répertorie et configure les appareils à chemins d’accès multiples.
 		
-	- **Multipathd** : démon qui exécute la gestion multivoie et surveille les chemins d’accès.
+	- **Multipathd** : démon qui exécute la gestion multivoie et surveille les chemins d’accès.
 	
-	- **Devmap-name** : fournit un nom d’appareil explicite vers udev pour devmaps.
+	- **Devmap-name** : fournit un nom d’appareil explicite vers udev pour devmaps.
  
-	- **Kpartx** : mappe les éléments devmaps linéaires aux partitions d’appareils pour effectuer des mappages multivoies configurables en partition.
+	- **Kpartx** : mappe les éléments devmaps linéaires aux partitions d’appareils pour effectuer des mappages multivoies configurables en partition.
 	
-	- **Multipath.conf** : fichier de configuration pour démon multivoie, utilisé pour remplacer la table de configuration intégrée.
+	- **Multipath.conf** : fichier de configuration pour démon multivoie, utilisé pour remplacer la table de configuration intégrée.
 
 ### À propos du fichier de configuration multipath.conf
 
@@ -58,15 +58,15 @@ Le fichier de configuration `/etc/multipath.conf` rend un grand nombre de foncti
 
 Le fichier multipath.conf comporte cinq sections :
 
-- **Valeurs par défaut au niveau système** *(defaults)* : vous pouvez remplacer les valeurs par défaut au niveau système.
+- **Valeurs par défaut au niveau système** *(defaults)* : vous pouvez remplacer les valeurs par défaut au niveau système.
 
-1. **Appareils sur liste noire** *(blacklist)* : vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
+1. **Appareils sur liste noire** *(blacklist)* : vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
 
-1. **Exceptions de la liste noire** *(blacklist\_exceptions)* : vous pouvez identifier des appareils spécifiques devant être traités en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
+1. **Exceptions de la liste noire** *(blacklist\_exceptions)* : vous pouvez identifier des appareils spécifiques devant être traités en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
 
-1. **Paramètres spécifiques au contrôleur de stockage** *(devices)* : vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
+1. **Paramètres spécifiques au contrôleur de stockage** *(devices)* : vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
 
-1. **Paramètres spécifiques aux appareils** *(multipaths)* : vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
+1. **Paramètres spécifiques aux appareils** *(multipaths)* : vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
 
 ## Configuration de la gestion multivoie sur StorSimple connecté à l’hôte Linux
 

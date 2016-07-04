@@ -46,9 +46,9 @@ Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une applic
   - Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authentification multifacteur en fonction de l’utilisateur, ce paramètre a priorité sur les règles d’authentification multifacteur par application. Cela signifie qu'un utilisateur qui a été configuré pour l'authentification multifacteur en fonction de l’utilisateur devra effectuer l'authentification multifacteur, même s’il a été exclu des règles d'authentification multifacteur de l'application. En savoir plus sur [l’authentification multifacteur et sur les paramètres pour chaque utilisateur](../multi-factor-authentication/multi-factor-authentication.md).
 
 6. Sélectionnez la règle d'accès que vous souhaitez définir :
-	- **Exiger une authentification multifacteur** : les utilisateurs auxquels s’appliquent des règles d’accès doivent effectuer l’authentification multifacteur pour accéder à l’application à laquelle la règle s’applique.
-	- **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : les utilisateurs qui tentent d’accéder à l’application à partir d’une adresse IP approuvée ne sont pas tenus d’effectuer l’authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
-	- **Bloquer l’accès quand l’utilisateur n’est pas au travail** : les utilisateurs qui tentent d’accéder à l’application en dehors de votre réseau d’entreprise ne sont pas en mesure d’accéder à l’application.
+	- **Exiger une authentification multifacteur** : les utilisateurs auxquels s’appliquent des règles d’accès doivent effectuer l’authentification multifacteur pour accéder à l’application à laquelle la règle s’applique.
+	- **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : les utilisateurs qui tentent d’accéder à l’application à partir d’une adresse IP approuvée ne sont pas tenus d’effectuer l’authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
+	- **Bloquer l’accès quand l’utilisateur n’est pas au travail** : les utilisateurs qui tentent d’accéder à l’application en dehors de votre réseau d’entreprise ne sont pas en mesure d’accéder à l’application.
 
 
 ## Configuration de l'authentification multifacteur pour les services de fédération

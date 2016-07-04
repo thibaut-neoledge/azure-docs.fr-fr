@@ -1164,7 +1164,7 @@ Durée d’exécution de la cellule ci-dessus : 25,98 secondes
 
 Le code de cette section montre comment former, évaluer et enregistrer un modèle d’arbres GBT, qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
 
-****Former et évaluer**
+**Former et évaluer**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1464,7 +1464,7 @@ Utilisez `unpersist()` pour supprimer les objets mis en cache en mémoire.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-****Imprimez le chemin des fichiers de modèle à utiliser dans le notebook de consommation.** Pour consommer et évaluer un jeu de données indépendant, vous devez copier et coller ces noms de fichiers dans le notebook de consommation.
+**Imprimez le chemin des fichiers de modèle à utiliser dans le notebook de consommation.** Pour consommer et évaluer un jeu de données indépendant, vous devez copier et coller ces noms de fichiers dans le notebook de consommation.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

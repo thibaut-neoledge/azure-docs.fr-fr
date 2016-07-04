@@ -150,6 +150,6 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, veuillez
 
 
 <!--Other Web references-->
-[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/fr-FR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 
 <!---HONumber=AcomDC_0622_2016-->

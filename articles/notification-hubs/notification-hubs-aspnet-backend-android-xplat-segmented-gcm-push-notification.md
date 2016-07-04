@@ -174,7 +174,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 	Cette classe utilise le stockage local pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s’inscrire à ces catégories.
 
 
-4. Dans la classe **MainActivity**, supprimez vos champs privés pour **NotificationHub** et **GoogleCloudMessaging**, puis ajoutez un champ pour **Notifications** :
+4. Dans la classe **MainActivity**, supprimez vos champs privés pour **NotificationHub** et **GoogleCloudMessaging**, puis ajoutez un champ pour **Notifications** :
 
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
@@ -243,7 +243,7 @@ Les étapes suivantes permettent l’inscription auprès du concentrateur de not
 > [AZURE.NOTE] Comme la valeur de registrationId affectée par Google Cloud Messaging (GCM) peut changer à n’importe quel moment, vous devez vous inscrire fréquemment aux notifications afin d’éviter les défaillances. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
 
-1. Ajoutez le code suivant à la fin de la méthode **onCreate**, dans la classe **MainActivity** :
+1. Ajoutez le code suivant à la fin de la méthode **onCreate**, dans la classe **MainActivity** :
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 

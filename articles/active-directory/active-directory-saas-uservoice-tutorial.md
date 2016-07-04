@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion de UserVoice** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.UserVoice.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion de UserVoice** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.UserVoice.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configurer l’URL de l’application")
 

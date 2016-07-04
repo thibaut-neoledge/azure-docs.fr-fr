@@ -25,7 +25,7 @@ Voici les étapes du **processus TDSP (Team Data Science Process)** :
 
 ![Flux de travail CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et décrites ci-dessous.
 

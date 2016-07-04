@@ -963,7 +963,7 @@ Durée d’exécution de la cellule ci-dessus : 49,21 secondes
 
 Le code de cette section montre comment former, évaluer et enregistrer un modèle d’arbres GBT, qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
 
-****Former et évaluer**
+**Former et évaluer**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

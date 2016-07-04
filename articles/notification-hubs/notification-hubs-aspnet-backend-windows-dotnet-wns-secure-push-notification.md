@@ -143,7 +143,7 @@ L'étape suivante consiste à créer le composant en arrière-plan pour les noti
 
 9. Dans la zone **Rechercher**, entrez **Json.net**. Installez le package **Json.NET**, puis fermez la fenêtre du Gestionnaire de package NuGet.
 
-10. Ajoutez les instructions `using` suivantes au début du fichier **PushBackgroundTask.cs** :
+10. Ajoutez les instructions `using` suivantes au début du fichier **PushBackgroundTask.cs** :
 
 		using Windows.ApplicationModel.Background;
 		using Windows.Networking.PushNotifications;

@@ -32,7 +32,7 @@ Cet article vous explique comment restaurer votre base de données sur un nouvea
 Pour restaurer une base de données dans le portail Azure, procédez comme suit :
 
 1.	Ouvrez le [portail Azure](https://portal.azure.com).
-2.  Sur le côté gauche de l’écran, sélectionnez **Nouveau** > **Données et stockage** > **Base de données SQL**.
+2.  Sur le côté gauche de l’écran, sélectionnez **Nouveau** > **Données et stockage** > **Base de données SQL**.
 3.  Sélectionnez **Sauvegarde** comme source, puis la sauvegarde géo-redondante à partir de laquelle vous souhaitez effectuer la récupération.
 
     ![Restaurer une base de données SQL Azure](./media/sql-database-geo-restore-portal/geo-restore.png)

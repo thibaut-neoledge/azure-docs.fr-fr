@@ -129,7 +129,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur la ba
 	![mpio5](./media/storsimple-ova-configure-mpio-windows-server/mpio5.png)
 
 10. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
-11. Dans la boîte de dialogue **Paramètres avancés** :										
+11. Dans la boîte de dialogue **Paramètres avancés** :										
 	-  Dans la liste déroulante **Adaptateur local**, sélectionnez Initiateur Microsoft iSCSI.
 	-  Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à l’hôte. Dans ce cas, vous connectez deux interfaces réseau sur la baie à une seule interface réseau sur l’hôte. Par conséquent, cette interface est identique à celle fournie pour la première session.
 	-  Dans la liste déroulante d’**adresses IP du portail cible**, sélectionnez l’adresse IP de la deuxième interface de données activée sur la baie.

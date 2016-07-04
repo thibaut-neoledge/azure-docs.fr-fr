@@ -11,7 +11,7 @@ Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour
 
    	![][13]
 
-2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
+2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
 
         Install-Package Microsoft.Azure.NotificationHubs
  	
@@ -51,7 +51,7 @@ Ignorez les étapes 1 à 3 si vous avez créé l’application de console pour
 
 6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom de votre hub de notification et par la chaîne de connexion pour *DefaultFullSharedAccessSignature* du tableau de bord de votre hub de notifications.
 
-7. Ajoutez les lignes suivantes à la méthode **Main** :
+7. Ajoutez les lignes suivantes à la méthode **Main** :
 
          SendTemplateNotificationAsync();
 		 Console.ReadLine();

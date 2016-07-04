@@ -42,7 +42,7 @@ Propriétés de la réponse HTTP :
 - `type` : doit être défini sur *http*.
 - `direction` : doit être défini sur *out*. 
  
-Exemple de fichier *function.json* :
+Exemple de fichier *function.json* :
 
 ```json
 {

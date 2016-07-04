@@ -31,13 +31,13 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 1. Dans MainStoryboard\_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d’objets :
 
-	+ **Étiquette** : « Envoi d’une notification Push à l’utilisateur avec Notification Hubs »
-	+ **Étiquette** : « InstallationId »
-	+ **Étiquette** : « Utilisateur »
-	+ **Zone de texte** : « Utilisateur »
-	+ **Étiquette** : « Mot de passe »
-	+ **Zone de texte** : « Mot de passe »
-	+ **Bouton** : « Connexion »
+	+ **Étiquette** : « Envoi d’une notification Push à l’utilisateur avec Notification Hubs »
+	+ **Étiquette** : « InstallationId »
+	+ **Étiquette** : « Utilisateur »
+	+ **Zone de texte** : « Utilisateur »
+	+ **Étiquette** : « Mot de passe »
+	+ **Zone de texte** : « Mot de passe »
+	+ **Bouton** : « Connexion »
 
 	À ce stade, votre storyboard a normalement l’aspect suivant :
 

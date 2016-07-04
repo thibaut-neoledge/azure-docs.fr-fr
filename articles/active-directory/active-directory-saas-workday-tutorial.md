@@ -176,7 +176,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	a. Activez **x509 Private Key Pair**.
 
-	b. Dans la zone de texte **Service Provider ID**, tapez ****http://www.workday.com**.
+	b. Dans la zone de texte **Service Provider ID**, tapez **http://www.workday.com**.
 
 	c. Sélectionnez **Enable SP Initiated SAML Authentication**.
 

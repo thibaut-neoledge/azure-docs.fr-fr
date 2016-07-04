@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à TalentLMS** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.TalentLMS.com* », puis cliquez sur**Suivant**.
+3.  Dans la zone de texte **URL de connexion à TalentLMS** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.TalentLMS.com* », puis cliquez sur**Suivant**.
 
     ![URL d’authentification](./media/active-directory-saas-talentlms-tutorial/IC777294.png "URL d’authentification")
 
@@ -106,10 +106,10 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     4.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **Remote sign-in URL** (URL de connexion à distance).
     5.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure Classic, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Remote sign-out URL** (URL de déconnexion à distance).
-    6.  Dans la zone de texte **ID ciblé**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-7.  Dans la zone de texte **Prénom**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Dans la zone de texte **Nom**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  Dans la zone de texte **Adresse de messagerie**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  Dans la zone de texte **ID ciblé**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+7.  Dans la zone de texte **Prénom**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+8.  Dans la zone de texte **Nom**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+9.  Dans la zone de texte **Adresse de messagerie**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 10. Cliquez sur **Enregistrer**.
 
 9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.

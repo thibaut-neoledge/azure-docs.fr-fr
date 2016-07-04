@@ -23,7 +23,7 @@ Dans cette section, vous allez écrire une application console Windows qui reço
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
         
-5. Ajoutez la méthode suivante à la classe **Program** :
+5. Ajoutez la méthode suivante à la classe **Program** :
    
         private async static Task ReceiveFileUploadNotificationAsync()
         {
@@ -45,7 +45,7 @@ Dans cette section, vous allez écrire une application console Windows qui reço
 
     Notez que le modèle de réception est le même que celui utilisé pour recevoir des messages cloud-à-appareil à partir de l’application de l’appareil.
 
-6. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+6. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Receive file upload notifications\n");
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);

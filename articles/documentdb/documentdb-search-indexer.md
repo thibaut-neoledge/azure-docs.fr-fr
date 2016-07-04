@@ -51,21 +51,21 @@ Le corps de la requête contient la définition de la source de données, qui do
 
 - **nom** : choisissez un nom pour représenter votre base de données DocumentDB.
 
-- **type** : utilisez `documentdb`.
+- **type** : utilisez `documentdb`.
 
-- **credentials** :
+- **credentials** :
 
-    - **connectionString** : obligatoire. Indiquez les informations de connexion à votre base de données Azure DocumentDB au format suivant : `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString** : obligatoire. Indiquez les informations de connexion à votre base de données Azure DocumentDB au format suivant : `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 
-- **container** :
+- **container** :
 
-    - **name** : obligatoire. Spécifiez l’ID de la collection DocumentDB à indexer.
+    - **name** : obligatoire. Spécifiez l’ID de la collection DocumentDB à indexer.
 
-    - **query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d'un document JSON arbitraire de manière à ce qu'Azure Search puisse procéder à l'indexation.
+    - **query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d'un document JSON arbitraire de manière à ce qu'Azure Search puisse procéder à l'indexation.
 
-- **dataChangeDetectionPolicy** : facultatif. Consultez la section [Stratégie de détection des changements de données](#DataChangeDetectionPolicy) ci-dessous.
+- **dataChangeDetectionPolicy** : facultatif. Consultez la section [Stratégie de détection des changements de données](#DataChangeDetectionPolicy) ci-dessous.
 
-- **dataDeletionDetectionPolicy** : facultatif. Consultez la section [Stratégie de détection des suppressions de données](#DataDeletionDetectionPolicy) ci-dessous.
+- **dataDeletionDetectionPolicy** : facultatif. Consultez la section [Stratégie de détection des suppressions de données](#DataDeletionDetectionPolicy) ci-dessous.
 
 Voir ci-dessous pour un [exemple de corps de la demande](#CreateDataSourceExample).
 
@@ -183,21 +183,21 @@ Vous pouvez créer un indexeur au sein d'un service Azure Search en utilisant un
 
 Le corps de la requête contient la définition de l'indexeur, qui doit inclure les champs suivants :
 
-- **name** : obligatoire. Nom de l'indexeur.
+- **name** : obligatoire. Nom de l'indexeur.
 
-- **dataSourceName** : obligatoire. Nom d'une source de données existante.
+- **dataSourceName** : obligatoire. Nom d'une source de données existante.
 
-- **targetIndexName** : obligatoire. Nom d'un index existant.
+- **targetIndexName** : obligatoire. Nom d'un index existant.
 
-- **schedule** : facultatif. Consultez la section [Planification d’indexation](#IndexingSchedule) ci-dessous.
+- **schedule** : facultatif. Consultez la section [Planification d’indexation](#IndexingSchedule) ci-dessous.
 
 ###<a id="IndexingSchedule"></a>Exécution d’indexeurs selon une planification
 
 Un indexeur peut éventuellement spécifier une planification. Si une planification est présente, l'indexeur sera exécuté périodiquement, conformément à la planification. La planification dispose des attributs suivants :
 
-- **interval** : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures.
+- **interval** : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures.
 
-- **startTime** : obligatoire. Heure UTC (temps universel coordonné) qui spécifie l'heure à laquelle l'exécution de l'indexeur doit commencer.
+- **startTime** : obligatoire. Heure UTC (temps universel coordonné) qui spécifie l'heure à laquelle l'exécution de l'indexeur doit commencer.
 
 ###<a id="CreateIndexerExample"></a>Exemple de corps de requête
 

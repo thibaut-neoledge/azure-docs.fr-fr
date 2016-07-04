@@ -87,9 +87,9 @@ Pour obtenir la valeur de connexion **connectionstring** à partir du [portail A
 
 L’objet **NotificationHubService** expose les instances d’objet suivantes pour l’envoi de notifications Push à des appareils et applications spécifiques :
 
-* **Android** : utilisez l'objet **GcmService**, qui est disponible au niveau de **notificationHubService.gcm**
-* **iOS** : utilisez l'objet **ApnsService**, qui est disponible au niveau de **notificationHubService.apns**
-* **Windows Phone** : utilisez l'objet **MpnsService**, qui est disponible au niveau de **notificationHubService.mpns**
+* **Android** : utilisez l'objet **GcmService**, qui est disponible au niveau de **notificationHubService.gcm**
+* **iOS** : utilisez l'objet **ApnsService**, qui est disponible au niveau de **notificationHubService.apns**
+* **Windows Phone** : utilisez l'objet **MpnsService**, qui est disponible au niveau de **notificationHubService.mpns**
 * **Plateforme Windows universelle** : utilisez l’objet **WnsService**, disponible au niveau de **notificationHubService.wns**
 
 ### Envoi de notifications Push à des applications Android

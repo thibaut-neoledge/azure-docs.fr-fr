@@ -16,7 +16,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
         using System.IO;
 
-4. Ajoutez la méthode suivante à la classe **Program** :
+4. Ajoutez la méthode suivante à la classe **Program** :
          
         private static async void SendToBlobAsync()
         {
