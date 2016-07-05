@@ -24,7 +24,8 @@ Dans cet article, nous allons configurer un serveur web frontal que vous pouvez 
 
 ## Composants requis
 
-[Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](container-service-connect.md). Effectuez également les étapes suivantes.[AZURE.INCLUDE [installer l’interface de ligne de commande (CLI) DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
+[Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](container-service-connect.md). Effectuez également les étapes suivantes.
+[AZURE.INCLUDE [installer l’interface de ligne de commande (CLI) DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
 
 
 ## Équilibrage de la charge

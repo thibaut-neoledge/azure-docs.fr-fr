@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/20/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Guide technique de la résilience Azure - Récupération suite à des défaillances locales dans Azure
@@ -98,7 +98,7 @@ Les services bénéficient de la réplication, simplement par l’utilisation d�
 
 ###Gestion des ressources
 
-La taille des comptes de stockage créés après le 7 juin 2012 peut être augmentée jusqu’à 200 To (contre 100 To auparavant). Si de l’espace supplémentaire est nécessaire, les applications doivent être conçues pour utiliser plusieurs comptes de stockage.
+La taille des comptes de stockage créés après le mai 2014 peut être augmentée jusqu’à 500 To (contre 200 To auparavant). Si de l’espace supplémentaire est nécessaire, les applications doivent être conçues pour utiliser plusieurs comptes de stockage.
 
 ###Disques de machines virtuelles
 
@@ -223,4 +223,4 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans le s
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

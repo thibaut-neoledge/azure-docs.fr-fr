@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/25/2016"
+	ms.date="06/20/2016"
 	ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
@@ -59,7 +59,7 @@ Cliquez sur **Résolution des problèmes** pour afficher les problèmes courants
 
 Cliquez sur **Journaux d’audit** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour plus d’informations sur l’utilisation des journaux d’audit, consultez [Affichage des événements et journaux d’audit](../azure-portal/insights-debugging-with-events.md) et [Opérations d’audit avec Resource Manager](../resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
 
-**Intégrité de la ressource** est un paramètre à l’échelle du portail Azure qui n’est actuellement pas pris en charge pour le Cache Redis Azure. Pour plus d’informations et d’instructions concernant la surveillance de l’intégrité des instances de Cache Redis Azure, consultez [Surveillance du cache Redis Azure](cache-how-to-monitor.md) et la section [Redis Cache Advisor](#redis-cache-advisor) située plus loin dans cette rubrique.
+**Resource health** surveille vos ressources et vous indique si elles s’exécutent comme prévu. Pour plus d’informations sur le service Azure Resource Health, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
 
 Cliquez sur **Nouvelle demande de support** pour ouvrir une demande de support pour votre cache.
 
@@ -259,7 +259,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Toutes les valeurs configurables, comme **max-memory-policy**, peuvent être modifiées via le portail Azure ou via des outils de gestion en ligne de commande, comme Azure CLI ou PowerShell.
+>Toutes les valeurs configurables, comme **max-memory-policy**, peuvent être modifiées via la portail Azure ou via des outils de gestion en ligne de commande, comme Azure CLI ou PowerShell.
 
 |Paramètre|Valeur par défaut|Description|
 |---|---|---|
@@ -354,4 +354,4 @@ Pour plus d’informations sur le déplacement des ressources d’un groupe de r
 ## Étapes suivantes
 -	Pour plus d'informations sur l'utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

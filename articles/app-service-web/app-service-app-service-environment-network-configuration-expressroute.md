@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Détails de la configuration réseau pour les environnements App Service avec ExpressRoute 
@@ -29,7 +29,7 @@ Les clients peuvent connecter un circuit [Azure ExpressRoute][ExpressRoute] à l
 Il existe des exigences de connectivité réseau pour les environnements App Service qui peuvent ne pas être initialement satisfaites dans un réseau virtuel connecté à ExpressRoute. Les environnements App Service requièrent tous les éléments suivants pour fonctionner correctement :
 
 
--  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier. Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
+-  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier sur les ports 80 et 443. Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
 -  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*.
 -  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*. 
 -  Connectivité réseau sortante à *ocsp.msocsp.com*, *mscrl.microsoft.com* et *crl.microsoft.com*. Cela est nécessaire pour prendre en charge la fonctionnalité SSL.
@@ -71,7 +71,7 @@ Pour plus d'informations sur la création et la configuration d'itinéraires dé
 1. Installez la toute dernière version d'Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads] (datant de juin 2015 ou version ultérieure). Sous « Outils de ligne de commande », un lien « Installer » sous « Windows Powershell » permet d'installer les dernières applets de commande Powershell.
 
 2. Nous vous recommandons de créer un sous-réseau unique pour un usage exclusif par un environnement App Service. Ceci garantit que les itinéraires définis par l'utilisateur appliqués au sous-réseau ouvriront uniquement le trafic sortant pour l'environnement App Service.
-3. **Important** : ne déployez pas l'environnement App Service **avant** d'avoir exécuté les étapes de configuration suivantes. Ceci garantit que la connectivité réseau sortante est disponible avant la tentative de déploiement d'un environnement App Service.
+3. **Important** : ne déployez pas l'environnement App Service **avant** d'avoir exécuté les étapes de configuration suivantes. Ceci garantit que la connectivité réseau sortante est disponible avant la tentative de déploiement d'un environnement App Service.
 
 **Étape 1 : Créer une table d'itinéraires nommée**
 
@@ -114,6 +114,7 @@ Une fois les étapes ci-dessus confirmées, vous devrez supprimer la machine vir
 Puis, passez à la création d'un environnement App Service !
 
 ## Prise en main
+Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
 Pour prendre en main les environnements App Service, consultez [Présentation de l'environnement App Service][IntroToAppServiceEnvironment].
 
@@ -137,4 +138,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

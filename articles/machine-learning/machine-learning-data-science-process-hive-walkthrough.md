@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Processus d’analyse Cortana en action : utiliser des clusters Hadoop | Microsoft Azure"
-	description="Utilisation du processus et de la technologie d'analyse avancée (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un jeu de données disponible publiquement."
+	pageTitle="Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop | Microsoft Azure"
+	description="Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données disponible publiquement."
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="hangzh;bradsev" />
 
 
-# Processus d’analyse Cortana en action : utilisation de clusters Hadoop HDInsight
+# Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight
 
-Dans cette procédure pas à pas, vous allez utiliser le processus d’analyse Cortana avec un scénario complet au moyen d’un [cluster Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
+Dans cette procédure pas à pas, nous allons utiliser le processus TDSP (Team Data Science Process) avec un scénario complet au moyen d’un [cluster Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
 
-Pour une procédure pas à pas qui montre comment gérer un jeu de données plus grand (1 téraoctet) avec un scénario similaire à l’aide de clusters Hadoop HDInsight pour le traitement des données, consultez [Processus d’analyse Cortana : utilisation des clusters Hadoop Azure HDInsight sur un jeu de données de 1 To](machine-learning-data-science-process-hive-criteo-walkthrough.md).
+Pour une procédure pas à pas qui montre comment gérer un jeu de données plus grand (1 téraoctet) avec un scénario similaire à l’aide de clusters Hadoop HDInsight pour le traitement des données, consultez [Processus TDSP (Team Data Science Process) : utilisation des clusters Hadoop Azure HDInsight sur un jeu de données de 1 To](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
 Il est également possible d'avoir recours à un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas au moyen du jeu de données de 1 To. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l'aide d'une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
@@ -709,7 +709,7 @@ Certains détails sur le module [Importer des données][import-data] et les para
 
 **Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
 
-**Remarque importante :** **toute table que nous souhaitons interroger à l'aide du module [Importer des données][import-data] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
+**Remarque importante :** **toute table que nous souhaitons interroger à l'aide du module [Importer des données][import-data] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
 
 À partir de l'invite du répertoire Hive, exécutez la commande :
 
@@ -731,7 +731,7 @@ Nous sommes désormais capables de passer aux phases de création et de déploie
 
 **1. Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
 
-**Apprenant utilisé :** régression logistique à deux classes
+**Apprenant utilisé :** régression logistique à deux classes
 
 a. Pour ce problème, notre étiquette (ou classe) cible est « avec pourboire ». Notre jeu de données original à l’échantillon réduit dispose de quelques colonnes qui sont des fuites cibles pour cette expérience de classification. En particulier : tip\_class, tip\_amount et total\_amount révèlent des informations sur l'étiquette cible qui n'est pas disponible au moment du test. Nous supprimons ces colonnes du compte à l'aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
@@ -749,7 +749,7 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
-**2. Classification multiclasse** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
+**2. Classification multiclasse **: pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
 **Apprenant utilisé :** régression logistique multiclasse
 
@@ -786,7 +786,7 @@ b. Pour les problèmes de régression, nous évaluons la précision de nos prév
 
 Nous voyons que le coefficient de détermination est de 0,709, ce qui signifie que 71 % environ de la variance est expliquée par nos coefficients modèles.
 
-**Remarque importante :** pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, reportez-vous à [Qu’est-ce que l'apprentissage automatique ?](machine-learning-what-is-machine-learning.md). La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) est une ressource très utile pour découvrir de nombreuses expériences d’apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une présentation approfondie des fonctionnalités d’Azure Machine Learning.
+**Remarque importante :** pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, reportez-vous à [Qu’est-ce que l'apprentissage automatique ?](machine-learning-what-is-machine-learning.md). La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) est une ressource très utile pour découvrir de nombreuses expériences d’apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une présentation approfondie des fonctionnalités d’Azure Machine Learning.
 
 ## Informations de licence
 
@@ -794,7 +794,9 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 ## Références
 
-• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
+•	[Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -808,4 +810,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

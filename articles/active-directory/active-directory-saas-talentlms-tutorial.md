@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à TalentLMS | Microsoft Azure" 
     description="Découvrez comment utiliser TalentLMS avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à TalentLMS
   
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ###Pour activer l’intégration d’applications pour TalentLMS, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-talentlms-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **TalentLMS** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **TalentLMS** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurer l’authentification unique")
 
@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à TalentLMS** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.TalentLMS.com* », puis cliquez sur**Suivant**.
+3.  Dans la zone de texte **URL de connexion à TalentLMS** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.TalentLMS.com* », puis cliquez sur**Suivant**.
 
     ![URL d’authentification](./media/active-directory-saas-talentlms-tutorial/IC777294.png "URL d’authentification")
 
@@ -99,20 +99,20 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Authentification unique")
 
     1.  Dans la liste **SSO integration type**, sélectionnez **SAML 2.0**.
-    2.  Dans la page **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **ID de fournisseur d’identité** et collez-la dans la zone de texte **Identity provider (IdP)**.
+    2.  Dans la page **Configurer l’authentification unique sur TalentLMS** du portail Azure Classic, copiez la valeur de **ID de fournisseur d’identité** et collez-la dans la zone de texte **Identity provider (IdP)**.
     3.  Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-    4.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **Remote sign-in URL**.
-    5.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Remote sign-out URL**.
-    6.  Dans la zone de texte **ID ciblé**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-7.  Dans la zone de texte **Prénom**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Dans la zone de texte **Nom**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  Dans la zone de texte **Adresse de messagerie**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    4.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **Remote sign-in URL** (URL de connexion à distance).
+    5.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure Classic, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Remote sign-out URL** (URL de déconnexion à distance).
+    6.  Dans la zone de texte **ID ciblé**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+7.  Dans la zone de texte **Prénom**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+8.  Dans la zone de texte **Nom**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+9.  Dans la zone de texte **Adresse de messagerie**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 10. Cliquez sur **Enregistrer**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777298.png "Configurer l’authentification unique")
 
@@ -133,7 +133,7 @@ Pour se connecter à TalentLMS, les utilisateurs d’Azure AD doivent être appr
     1.  Tapez les valeurs d’attribut associées du compte d’utilisateur Azure AD dans les zones de texte suivantes : **First name**, **Last name** et **Email address**.
     2.  Cliquez sur **Add User**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TalentLMS, pour approvisionner des comptes d’utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TalentLMS, pour approvisionner des comptes d’utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -141,7 +141,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à TalentLMS, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **TalentLMS**, cliquez sur **Affecter des utilisateurs**.
 
@@ -153,4 +153,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

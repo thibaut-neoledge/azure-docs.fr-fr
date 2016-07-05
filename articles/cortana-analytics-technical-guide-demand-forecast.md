@@ -277,7 +277,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 
 	-   Développez la section **Planifier l’actualisation**. Activez l’option Tenir vos données à jour.
 
-	-   Planifiez l’actualisation selon vos besoins. Pour plus d’informations, consultez la page [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
+	-   Planifiez l’a	ctualisation selon vos besoins. Pour plus d’informations, consultez la page [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
 ## **Comment supprimer votre solution**
@@ -294,4 +294,4 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 ## **Remerciements**
 Cet article a été créé par le scientifique de données Yijing Chen et l’ingénieur logiciel Min Qiu de Microsoft.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

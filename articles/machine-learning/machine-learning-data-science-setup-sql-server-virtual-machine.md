@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
@@ -251,7 +251,7 @@ Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vo
 
 ##<a name="amlconnect"></a>Se connecter au moteur de base de données à partir d’Azure Machine Learning
 
-Dans les étapes ultérieures du processus Cortana Analytics, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module **Importer les données** dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Cette rubrique est traitée plus en détail dans les liens du guide du processus Cortana Analytics. Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
+Dans les étapes ultérieures du processus TDSP (Team Data Science Process) dans le cloud, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module **Importer les données** dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Des informations détaillées sur ce sujet sont accessibles par le biais des liens du guide du processus TDSP (Team Data Science Process). Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
 
 2.	Dans le volet **Propriétés** du [module Importer les données](https://msdn.microsoft.com/library/azure/dn905997.aspx), sélectionnez **Base de données SQL Azure** dans la liste déroulante **Source de données**.
 
@@ -285,9 +285,9 @@ Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pou
 
 ## Étapes suivantes une fois votre machine virtuelle Azure SQL Server prête à être utilisée
 
-Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine est également utilisable sous la forme d’un serveur Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le processus d’analyse Cortana (CAP).
+Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine est également utilisable sous la forme d’un serveur Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le processus TDSP (Team Data Science Process).
 
-Les étapes suivantes du traitement de données avancé dans Azure sont présentées dans le [Guide d’apprentissage : traitement des données avancé dans Microsoft Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
+Les étapes suivantes du processus de science des données sont présentées dans le [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -306,4 +306,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Scénarios du processus de science des données Azure en action dans Azure Machine Learning | Microsoft Azure"
-	description="Sélectionnez les scénarios appropriés pour le processus d’analyse prédictive avancée dans Azure Machine Learning."
+	description="Sélectionnez les scénarios appropriés pour l’analyse prédictive avancée à l’aide du processus TDSP (Team Data Science Process)."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Scénarios d’analyses avancées dans Azure Machine Learning
 
-Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus Cortana Analytics. Il illustre les options disponibles dans les séquences de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
+Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus TDSP (Team Data Science Process). Le processus TDSP fournit une approche systématique permettant aux équipes de collaborer à la création d’applications intelligentes. Les scénarios présentés ici illustrent les options disponibles dans le flux de travail de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
 
 L’**arbre de décision** qui permet de sélectionner les exemples de scénarios qui conviennent dans le cas de vos données et objectifs est présenté à la dernière section.
 
@@ -296,8 +296,8 @@ Le schéma suivant résume les scénarios décrits ci-dessus et les processus de
 Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Learning qui utilisent le processus et la technologie d’analyse avancée à l’aide de jeux de données publics, consultez :
 
 
-* [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-* [Processus Cortana Analytics en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+* [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

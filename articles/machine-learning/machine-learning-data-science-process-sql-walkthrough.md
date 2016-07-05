@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Processus Cortana Analytics en action : utilisation de SQL Server | Microsoft Azure"
+	pageTitle="Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server | Microsoft Azure"
 	description="Processus d’analyse avancé et technologie en action"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev"/>
 
 
-# Processus Cortana Analytics en action : utilisation de SQL Server
+# Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 
-Dans ce didacticiel, vous allez explorer la création et le déploiement d’un modèle d’apprentissage automatique à l’aide d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
+Dans ce didacticiel, vous allez explorer la création et le déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
 
 
 ## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
@@ -716,4 +716,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

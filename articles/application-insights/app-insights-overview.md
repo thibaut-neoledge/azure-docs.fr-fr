@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyse avec Application Insights" 
+	pageTitle="Analyse avec Application Insights | Microsoft Azure" 
 	description="Analyse d’application web et d’appareil. Suivez l’utilisation et les performances de votre application web en ligne. Détection, tri et diagnostic des problèmes Surveillez et améliorez le succès auprès de vos utilisateurs en continu." 
 	services="application-insights" 
     documentationCenter=""
@@ -128,6 +128,7 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
 ## Vidéos
 
+[![Présentation animée](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -157,4 +158,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

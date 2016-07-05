@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/15/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -23,19 +23,17 @@
 - [Vue d'ensemble][]
 - [Portail][]
 - [PowerShell][]
-- [REST][]
-
-Azure SQL Data Warehouse protège vos données avec un stockage localement redondant et des sauvegardes automatisées. Les sauvegardes automatisées ne requièrent aucun coût d’administration pour protéger vos bases de données d’une corruption ou d’une suppression accidentelle. Si un utilisateur modifie ou supprime accidentellement des données, vous pouvez garantir la continuité des activités en restaurant votre base de données à un point antérieur dans le temps. SQL Data Warehouse utilise des instantanés Azure Storage Snapshots pour sauvegarder votre base de données façon transparente sans avoir besoin d’une interruption de service.
+- [REST][] s Azure SQL Data Warehouse protège vos données avec un stockage localement redondant et des sauvegardes automatisées. Les sauvegardes automatisées ne requièrent aucun coût d’administration pour protéger vos bases de données d’une corruption ou d’une suppression accidentelle. Si un utilisateur modifie ou supprime accidentellement des données, vous pouvez garantir la continuité des activités en restaurant votre base de données à un point antérieur dans le temps. SQL Data Warehouse utilise des instantanés Azure Storage Snapshots pour sauvegarder votre base de données façon transparente sans avoir besoin d’une interruption de service.
 
 ## Sauvegardes automatisées
 
 Vos bases de données **actives** sont automatiquement sauvegardées au moins toutes les 8 heures et conservées pendant 7 jours. Cela vous permet de restaurer votre base de données active à une de plusieurs points de restauration au cours des 7 derniers jours.
 
-Lorsqu’une base de données est suspendue, aucun nouvel instantané n’est créé et les instantanés précédents sont supprimés après 7 jours. Si une base de données est interrompue pendant plus de 7 jours, le dernier instantané est enregistré pour garantir que vous disposez toujours d’au moins une sauvegarde.
+Lorsqu’une base de données est suspendue, aucune nouvelle sauvegarde n’est créée et les sauvegardes précédentes sont supprimées après 7 jours. Si une base de données est interrompue pendant plus de 7 jours, la sauvegarde la plus récente est enregistrée pour garantir que vous disposez toujours d’au moins une sauvegarde.
 
-Lorsqu’une base de données est supprimée, le dernier instantané est enregistré pendant 7 jours.
+Lorsqu’une base de données est supprimée, la dernière sauvegarde est enregistrée pendant 7 jours.
 
-Exécutez cette requête lorsque la dernière sauvegarde a été effectuée sur votre instance :
+Exécutez cette requête sur votre SQL Data Warehouse actif pour voir quand la dernière sauvegarde a été effectuée :
 
 ```sql
 select top 1 *
@@ -55,12 +53,12 @@ La restauration d’un SQL Data Warehouse est une opération simple qui peut êt
 
 
 ## Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir la [vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
 [localement redondant]: ../storage/storage-redundancy.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
 [Portail]: ./sql-data-warehouse-restore-database-portal.md
@@ -72,4 +70,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

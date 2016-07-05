@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="05/12/2016"
+   ms.date="06/16/2016"
    ms.author="delhan"/>
 
 # Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure
@@ -74,4 +74,8 @@ La demande de redimensionnement de la machine virtuelle doit être exécutée su
   2. Après l’arrêt de toutes les machines virtuelles, redimensionnez la machine virtuelle souhaitée à une taille supérieure.
   3. Sélectionnez la machine virtuelle redimensionnée, cliquez sur **Démarrer**, puis démarrez chacune des machines virtuelles arrêtées.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Étapes suivantes
+
+Si vous rencontrez des problèmes lorsque vous créez une machine virtuelle Windows dans Azure, consultez [Résoudre les problèmes de déploiement avec la création d’une machine virtuelle Windows dans Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+
+<!---HONumber=AcomDC_0622_2016-->

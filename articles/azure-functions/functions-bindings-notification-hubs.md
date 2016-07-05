@@ -24,7 +24,7 @@ Cet article explique comment configurer et coder des liaisons Notification Hubs 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Vos fonctions peuvent envoyer des notifications Push à l’aide d’un concentrateur de notification Azure configuré avec très peu de lignes de code. Toutefois, le concentrateur de notification doit être configuré pour l’infrastructure Platform Notification System (PNS) que vous souhaitez utiliser. Pour plus d’informations sur la configuration d’un concentrateur de notifications Azure et sur le développement d’applications clientes qui s’inscrivent pour recevoir des notifications, consultez [Prise en main de Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) en cliquant sur votre plateforme cliente cible au début de l’article.
+Vos fonctions peuvent envoyer des notifications Push à l’aide d’un concentrateur de notification Azure configuré avec très peu de lignes de code. Toutefois, le concentrateur de notification doit être configuré pour l’infrastructure Platform Notification System (PNS) que vous souhaitez utiliser. Pour plus d’informations sur la configuration d’un Azure Notification Hubs et sur le développement d’applications clientes qui s’inscrivent pour recevoir des notifications, consultez [Prise en main de Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) en cliquant sur votre plateforme cliente cible au début de l’article.
 
 ## function.json pour les liaisons de sortie Azure Notification Hubs
 
@@ -32,7 +32,7 @@ Le fichier function.json spécifie les propriétés suivantes :
 
 - `name` : nom de variable utilisé dans le code de fonction pour le message de concentrateur de notification.
 - `type` : doit être défini sur *"notificationHub"*.
-- `tagExpression` : expressions de balise vous permettant de demander que les notifications soient remises à un ensemble d’appareils qui se sont inscrits pour la réception de notifications correspondant à l’expression de balise. Pour plus d’informations, consultez [Routage et expressions de balise](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- `tagExpression` : expressions de balise vous permettant de demander que les notifications soient remises à un ensemble d’appareils qui se sont inscrits pour la réception de notifications correspondant à l’expression de balise. Pour plus d’informations, consultez [Routage et expressions de balises](../notification-hubs/notification-hubs-tags-segment-push-message.md).
 - `hubName` : nom de la ressource de concentrateur de notification dans le portail Azure.
 - `connection` : cette chaîne de connexion doit correspondre à une chaîne de connexion **Paramètre d’application** définie sur la valeur *DefaultFullSharedAccessSignature* de votre concentrateur de notification.
 - `direction` : doit être défini sur *"out"*. 
@@ -68,7 +68,7 @@ Vous pouvez également ajouter manuellement une chaîne de connexion pour un con
 
 ## Exemple de code de concentrateur de notification Azure pour un déclencheur de minuteur Node.js 
 
-Cet exemple envoie une notification pour une [inscription de modèles](../notification-hubs/notification-hubs-templates.md) contenant `location` et `message`.
+Cet exemple envoie une notification pour une [inscription de modèles](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) contenant `location` et `message`.
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
@@ -87,7 +87,7 @@ Cet exemple envoie une notification pour une [inscription de modèles](../notifi
 
 ## Exemple de code de concentrateur de notification Azure pour un déclencheur de file d’attente C#
 
-Cet exemple envoie une notification pour une [inscription de modèles](../notification-hubs/notification-hubs-templates.md) contenant `message`.
+Cet exemple envoie une notification pour une [inscription de modèles](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) contenant `message`.
 
 
 	using System;
@@ -107,7 +107,7 @@ Cet exemple envoie une notification pour une [inscription de modèles](../notifi
 	    return templateProperties;
 	}
 
-Cet exemple envoie une notification pour une [inscription de modèles](../notification-hubs/notification-hubs-templates.md) qui contient `message` en utilisant une chaîne JSON valide.
+Cet exemple envoie une notification pour une [inscription de modèles](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) qui contient `message` en utilisant une chaîne JSON valide.
 
 	using System;
 	 
@@ -155,4 +155,4 @@ Exemple de code :
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

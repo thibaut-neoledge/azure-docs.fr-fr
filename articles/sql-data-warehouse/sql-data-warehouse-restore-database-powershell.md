@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
+   ms.date="06/17/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Restauration d’un Azure SQL Data Warehouse (PowerShell)
@@ -80,7 +80,8 @@ $RestoredDatabase.status
 
 ```
 
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
+
 
 ## restauration d’une base de données supprimée.
 
@@ -116,7 +117,8 @@ $RestoredDatabase.status
 
 ```
 
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
+
 
 ## Restauration à partir d’une région géographique Azure
 
@@ -146,14 +148,8 @@ $GeoRestoredDatabase.status
 
 ```
 
-### Configurer votre base de données après avoir effectué une géo-restauration
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
 
-Voici une liste de contrôle pour vous aider à préparer votre base de données de production récupérée.
-
-1. **Mettre à jour les chaînes de connexion** : vérifiez que les chaînes de connexion de vos outils clients pointent vers la base de données qui vient d’être récupérée.
-2. **Modifier les règles de pare-feu** : vérifiez les règles de pare-feu sur le serveur cible. Assurez-vous également que les connexions entre les ordinateurs clients ou Azure et le serveur et la base de données qui vient d’être récupérée sont activées.
-3. **Vérifier les connexions de serveur et les utilisateurs des bases de données** : vérifiez que toutes les connexions utilisées par votre application existent sur le serveur qui héberge votre base de données récupérée. Créez à nouveau les connexions manquantes et accordez-leur les autorisations appropriées sur la base de données restaurée. 
-4. **Activer l’audit** : si la fonction d’audit est nécessaire pour accéder à votre base de données, vous devez l’activer après la récupération de la base de données.
 
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
 
@@ -166,12 +162,12 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 <!--Article references-->
 [Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: sql-database-business-continuity.md
 [Finalize a recovered database]: sql-database-recovered-finalize.md
-[Finaliser une base de données récupérée]: sql-database-recovered-finalize.md
 [Installation et configuration d’Azure PowerShell]: powershell-install-configure.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
 [Portail]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Finaliser une base de données récupérée]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
@@ -183,4 +179,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

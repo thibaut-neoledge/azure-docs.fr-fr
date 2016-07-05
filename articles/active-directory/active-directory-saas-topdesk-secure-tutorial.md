@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à TOPdesk - Secure | Microsoft Azure"
     description="Découvrez comment utiliser TOPdesk - Secure avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à TOPdesk - Secure
   
@@ -39,7 +39,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ###Pour activer l’intégration d’applications pour TOPdesk - Secure, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
 
@@ -97,7 +97,7 @@ La configuration de l’authentification unique pour TOPdesk - Secure vous oblig
 
         >[AZURE.NOTE] Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
 
-6.  Dans une autre fenêtre de navigateur web, connectez-vous à votre portail **Azure Active Directory** en tant qu’administrateur.
+6.  Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail Azure Classic** en tant qu’administrateur.
 
 7.  Dans la page d’intégration d’applications **TOPdesk - Secure**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -155,7 +155,7 @@ La configuration de l’authentification unique pour TOPdesk - Secure vous oblig
     5.  Dans la zone de texte **Display name**, indiquez le nom de votre configuration.
     6.  Cliquez sur **Enregistrer**.
 
-17. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+17. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Configurer l’authentification unique")
 
@@ -190,7 +190,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à TOPdesk - Secure, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **TOPdesk - Secure**, cliquez sur **Affecter des utilisateurs**.
 
@@ -202,4 +202,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0622_2016-->

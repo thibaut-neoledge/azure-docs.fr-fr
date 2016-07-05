@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/13/2016"
     ms.author="elizapo" />
 
 
@@ -46,4 +46,4 @@ Autre exemple : Si vous souhaitez bloquer l'accès à Internet pour une applicat
 - [Stratégies Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).
 - [Stratégies Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (y compris [la personnalisation de la barre d'outils Office](https://technet.microsoft.com/library/cc179143.aspx)).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

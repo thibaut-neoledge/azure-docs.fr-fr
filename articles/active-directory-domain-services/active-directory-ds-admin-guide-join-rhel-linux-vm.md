@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/20/2016"
 	ms.author="maheshu"/>
 
 # Joindre une machine virtuelle Red Hat Enterprise Linux 7 à un domaine géré
@@ -111,7 +111,7 @@ Lorsque vous êtes connecté à la machine virtuelle, la tâche suivante consist
 
 4. **Installer Kerberos :** dans votre terminal PuTTY, saisissez la commande suivante :
 
-    sudo yum install krb5-workstation krb5-libs krb5-auth-dialog
+    sudo yum install krb5-workstation krb5-libs
 
 	![Installation de Kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
 
@@ -177,4 +177,4 @@ Reportez-vous à l’article relatif à la [résolution des problèmes de joncti
 - [Installing Kerberos (Installation de Kerberos)](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide (Red Hat Enterprise Linux 7 - Guide d’intégration à Windows)](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

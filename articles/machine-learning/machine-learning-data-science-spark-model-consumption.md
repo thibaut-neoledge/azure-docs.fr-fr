@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Noter les modèles Machine Learning créés avec Spark 
@@ -120,7 +120,7 @@ Pour plus d’informations sur les noyaux pour notebooks Jupyter et sur les « c
 
 Cette section contient le code d’une série de tâches nécessaires à la réception de l’échantillon de données à modéliser. Lire un échantillon de 0,1 % du fichier contenant les trajets et prix de taxi (stocké dans un fichier TSV), formater les données et créer une trame de données propre.
 
-Les fichiers de trajet et de prix de taxi ont été joints dans la procédure décrite dans la rubrique [Processus Cortana Analytics Process en action : Utilisation de clusters HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md).
+Les fichiers de trajet et de prix de taxi ont été joints dans la procédure décrite dans la rubrique [Processus TDSP (Team Data Science Process) en action : Utilisation de clusters HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md).
 
 	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -385,7 +385,7 @@ Le code de cette section montre comment charger un modèle de régression linéa
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
+	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -610,4 +610,4 @@ Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azur
 
 **Validation croisée et balayage hyperparamétrique** : consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

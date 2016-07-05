@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="06/15/2016"
 	ms.author="danlep"/>
 
 # Commandes de l’interface de ligne de commande Azure en mode Azure Service Management (ASM)
@@ -25,19 +25,19 @@ Cet article fournit la syntaxe et les options des commandes de l’interface de 
 
 Pour commencer, installez l’[interface de ligne de commande Azure](xplat-cli-install.md) et [connectez-vous à votre abonnement Azure](xplat-cli-connect.md).
 
-Pour la syntaxe et les options de commande courantes dans la ligne de commande en mode Service Management, tapez `azure help` ou, pour afficher de l’aide concernant une commande particulière, `azure help [command]`. Vous trouverez également des exemples d’interface CLI dans la documentation pour la création et la gestion de services Azure spécifiques.
+Pour la syntaxe et les options de commande courantes dans la ligne de commande en mode asm, tapez `azure help` ou, pour afficher de l’aide concernant une commande particulière, `azure help [command]`. Vous trouverez également des exemples d’interface CLI dans la documentation pour la création et la gestion de services Azure spécifiques.
 
 Les paramètres facultatifs sont indiqués entre crochets (par exemple, `[parameter]`). Tous les autres paramètres sont obligatoires.
 
 Outre les paramètres facultatifs propres aux commandes qui vous sont présentés dans ce document, vous pouvez utiliser trois paramètres facultatifs pour afficher une sortie détaillée, telle que les options de demande et les codes d'état. Si le paramètre `-v` fournit une sortie détaillée, le paramètre `-vv` propose des informations encore plus complètes. L’option `--json` génère le résultat au format json brut.
 
-## Configuration du mode Service Management
+## Définition du mode asm
 
-Le mode Service Management est actuellement activé par défaut lorsque vous installez l'interface CLI. Si vous en avez besoin, utilisez la commande suivante pour activer les commandes Service Management d’Azure CLI.
+Le mode asm est actuellement activé par défaut lorsque vous installez l’interface CLI. Si nécessaire, utilisez la commande suivante pour définir le mode asm.
 
 	azure config mode asm
 
->[AZURE.NOTE] Le mode Gestionnaire de ressources et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
+>[AZURE.NOTE] Le mode Azure Resource Manager de l’interface CLI et le mode asm s’excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
 
 ## Gérer vos informations de compte et les paramètres de publication
 L’interface de ligne de commande peut se servir des informations sur votre abonnement Azure pour se connecter à votre compte. (Pour d’autres options, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure](xplat-cli-connect.md).) Ces informations peuvent être obtenues depuis le portail Azure Classic dans un fichier de paramètres de publication, comme décrit dans ce document. Vous pouvez importer le fichier de paramètres de publication en tant que paramètre de configuration local persistant dont l’interface de ligne de commande se servira pour les opérations ultérieures. Vous importez vos paramètres de publication une fois pour toutes.
@@ -1879,10 +1879,8 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-e** ou **--label** &lt;étiquette> : étiquette du compte de stockage.
 + **-d** ou **--description** &lt;description> : description du compte de stockage.
 + **-l** ou **--location** &lt;nom> : région géographique où créer le compte de stockage.
-+ **-a** ou **--affinity-group** &lt;nom> : groupe d'affinités auquel associer le compte d stockage.
-+ **--kind** : type de compte (Storage ou Storage Blob) 
-+ **--sku-name** : indique le type de compte à créer, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS), soit Premium Storage (PLRS).
-+ **--access-tier** : indique le niveau de stockage (Hot ou Cool)
++ **-a** ou **--affinity-group** &lt;nom> : groupe d'affinités auquel associer le compte d stockage. 
++ **--type** : indique le type de compte à créer, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS) soit Premium Storage (PLRS).
 
 **storage account set [options] <name>**
 
@@ -1898,8 +1896,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-e** ou **--label** &lt;étiquette> : étiquette du compte de stockage.
 + **-d** ou **--description** &lt;description> : description du compte de stockage.
 + **-l** ou **--location** &lt;nom> : région géographique où créer le compte de stockage.
-+ **--sku-name** : indique le nouveau type de compte, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS), soit Premium Storage (PLRS).
-+ **--access-tier** : indique le niveau de stockage (Hot ou Cool)
++ **--type** : indique le nouveau type de compte, soit stockage Standard avec option redondance (LRS/ZRS/GRS/RAGRS) soit Premium Storage (PLRS).
 
 **storage account delete [options] <name>**
 
@@ -2353,4 +2350,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->
