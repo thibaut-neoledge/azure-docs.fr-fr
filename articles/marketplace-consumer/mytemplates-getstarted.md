@@ -33,7 +33,7 @@ Les suggestions suivantes vous aideront à tirer le meilleur parti des **Modèle
 - Un **Modèle** est une ressource d’encapsulation qui contient un modèle Resource Manager et des métadonnées supplémentaires. Il fonctionne d’une manière semblable à un élément dans Azure Marketplace. La principale différence est qu’il s’agit d’un élément privé, contrairement aux éléments Marketplace publics.
 - La bibliothèque des **Modèles** convient aux utilisateurs qui souhaitent personnaliser leurs déploiements.
 - Les **Modèles** conviennent aux utilisateurs ayant besoin d’un référentiel simple dans Azure.
-- Commencez par un modèle Resource Manager existant. Recherchez des modèles dans [github](https://github.com/Azure/azure-quickstart-templates) ou [exportez des modèles](https://azure.microsoft.com/blog/export-template/) à partir d’un groupe de ressources existant.
+- Commencez par un modèle Resource Manager existant. Recherchez des modèles dans [github](https://github.com/Azure/azure-quickstart-templates) ou [exportez des modèles](../resource-manager-export-template.md) à partir d’un groupe de ressources existant.
 - Les **Modèles** sont liés à l’utilisateur qui les publie. Le nom de cet éditeur est visible par quiconque disposant d’un accès en lecture à celui-ci.
 - Les **Modèles** sont des ressources Azure Resource Manager et ne peuvent être renommés une fois publiés.
 
@@ -44,11 +44,11 @@ Une ressource de **Modèle** peut être créée de deux manières sur le portail
 ### Méthode 1 : Créer une ressource de Modèle à partir d’un groupe de ressources en cours d’exécution
 
 1. Accédez à un groupe de ressources existant sur le portail Azure. Sélectionnez **Exporter le modèle** dans **Paramètres**.
-2. Une fois le modèle Resource Manager exporté, cliquez sur le bouton **Enregistrer le modèle** pour l’enregistrer dans le référentiel des **Modèles**. Cliquez [ici](https://azure.microsoft.com/blog/export-template/) pour obtenir des informations complètes sur l’exportation des modèles. <br /><br /> ![Exportation de groupe de ressources](media/rg-export-portal1.PNG) <br />
+2. Une fois le modèle Resource Manager exporté, cliquez sur le bouton **Enregistrer le modèle** pour l’enregistrer dans le référentiel des **Modèles**. Cliquez [ici](../resource-manager-export-template.md) pour obtenir des informations complètes sur l’exportation des modèles. <br /><br /> ![Exportation de groupe de ressources](media/rg-export-portal1.PNG) <br />
 
 3. Cliquez sur le bouton de commande **Enregistrer comme modèle**. <br /><br />
 
-4. Entrez les informations suivantes :
+4. Entrez les informations suivantes :
 
     - Nom : nom de l’objet du modèle (REMARQUE : il s’agit d’un nom Azure Resource Manager. Toutes les restrictions d’affectation de noms s’appliquent et ces derniers ne peuvent être modifiés une fois créés).
     - Description : résumé des informations du modèle.
@@ -129,6 +129,6 @@ Cliquez sur **Sélectionner**, puis **OK**. Vous pouvez à présent afficher les
 
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles](../resource-group-authoring-templates.md).
 - Pour mieux comprendre les fonctions que vous pouvez utiliser dans un modèle Resource Manager, voir [Fonctions des modèles](../resource-group-template-functions.md).
-- Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](../best-practices-resource-manager-design-templates.md).
+- Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](../best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

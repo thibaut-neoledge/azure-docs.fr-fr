@@ -3,7 +3,7 @@
    description="Power BI incorporée, ajoutez des rapports interactifs Power BI dans votre application business intelligence"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Prise en main de la version préliminaire de Microsoft Power BI Embedded
 
-**Microsoft Power BI Embedded** est un service Azure qui permet aux développeurs d'applications d’ajouter des rapports Power BI interactifs dans leurs propres applications. **Power BI Embedded** fonctionne avec les applications actuelles sans qu’il soit nécessaire de les recréer ou de modifier le mode de connexion de leurs utilisateurs.
+**Power BI Embedded** est un service Azure qui permet aux développeurs d’applications d’ajouter des rapports Power BI interactifs dans leurs propres applications. **Power BI Embedded** fonctionne avec les applications actuelles sans qu’il soit nécessaire de les recréer ou de modifier le mode de connexion de leurs utilisateurs.
 
 Pour en savoir plus sur Power BI Embedded, consultez [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md).
 
@@ -74,7 +74,7 @@ Maintenant que vous avez une instance de Power BI pour votre application, ainsi 
 
 ## Création de rapports et de jeux de données à intégrer dans une application
 
-Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Avec **Power BI Desktop**, vous vous connectez à votre source de données en important une copie des données dans **Power BI Desktop** ou directement à l'aide de **DirectQuery**.
 
@@ -104,7 +104,7 @@ Dans les étapes précédentes, vous avez créé une collection d’espaces de t
 - [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
 - [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
-- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Tarification de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->
