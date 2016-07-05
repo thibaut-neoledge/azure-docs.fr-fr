@@ -230,7 +230,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 
 
-* *Propriétés facultatives* : **min**, **max** et **default**
+* *Propriétés facultatives* : **min**, **max** et **default**
 
 **double** : paramètre de type double.
 
@@ -240,7 +240,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
        </Arg>
 
 
-* *Propriétés facultatives* : **min**, **max** et **default**
+* *Propriétés facultatives* : **min**, **max** et **default**
 
 **bool** : paramètre booléen représenté par une case à cocher dans l’expérience utilisateur.
 
@@ -271,8 +271,8 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		</Arg>
 
 
-* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
-* *Propriétés facultatives* :
+* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable* .
+* *Propriétés facultatives* :
 	* **allowedTypes** : permet de filtrer les types de colonnes que l’utilisateur peut choisir. Les valeurs valides incluent : 
 		* 	Chiffre
 		* 	Boolean
@@ -318,7 +318,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
       <Description>Select a color.</Description>
     </Arg>	
 
-* *Propriétés facultatives* :
+* *Propriétés facultatives* :
 	* **default** : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Items**.
 
 

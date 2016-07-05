@@ -68,6 +68,10 @@ Le plan de l’application fonctionne comme une aide visuelle pour découvrir le
 
 Cliquez sur la petite [x] pour réduire une sous-arborescence.
 
+Épinglez la mise en correspondance sur le [tableau de bord](app-insights-dashboards.md), où elle sera entièrement opérationnelle.
+
+[En savoir plus](app-insights-app-map.md).
+
 ## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances sur le serveur web
 
 Pour évaluer les performances des demandes au niveau de votre serveur :
@@ -150,4 +154,4 @@ Voir [Pages web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Gestion des mises à niveau propagées des applications cloud à l’aide de la géo-réplication active de la base de données SQL
@@ -120,8 +120,9 @@ Le principal **avantage** de cette option est qu’elle vous permet de mettre à
 
 Les deux méthodes de mise à niveau décrites dans cet article présentent certaines différences en termes de complexité et de coût, mais les deux visent à réduire la durée pendant laquelle l’utilisateur final est limité aux opérations en lecture seule. Cette durée dépend directement de la durée du script de mise à niveau. Elle ne dépend pas la taille de la base de données, du niveau de service que vous avez choisi, de la configuration du site web ou d’autres facteurs que vous ne pouvez pas facilement contrôler. En effet, toutes les étapes de préparation sont dissociées de la procédure de mise à niveau et peuvent être effectuées sans incidence sur l’application de production. L’efficacité du script de mise à niveau est essentiel pour déterminer l’expérience utilisateur au cours des mises à niveau. La meilleure façon de l’améliorer consiste donc à concentrer vos efforts sur la création d’un script de mise à niveau aussi efficace que possible.
 
-## Ressources supplémentaires
- Les pages suivantes contiennent des informations sur les opérations spécifiques requises pour la mise en œuvre du flux de mise à niveau :
+
+## Étapes suivantes
+Les pages suivantes contiennent des informations sur les opérations spécifiques requises pour la mise en œuvre du flux de mise à niveau :
 
 - [Ajouter une base de données secondaire](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Basculer une base de données vers une base de données secondaire](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -131,4 +132,15 @@ Les deux méthodes de mise à niveau décrites dans cet article présentent cert
 - [Copier une base de données](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Définir la base de données en lecture seule ou en lecture-écriture](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+## Ressources supplémentaires
+
+- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
+- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Restauration géographique](sql-database-geo-restore.md)
+- [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
+- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
+- [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

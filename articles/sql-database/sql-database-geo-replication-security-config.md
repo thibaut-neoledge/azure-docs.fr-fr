@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestion de la sécurité après la récupération d’urgence"
-	description="Cette rubrique décrit les éléments de sécurité concernant la gestion des scénarios de géo-réplication active pour une base de données SQL."
+	pageTitle="Gestion de la sécurité après la restauration d’une base de données vers un nouveau serveur ou le basculement d’une base de données vers une copie de base de données secondaire | Microsoft Azure"
+	description="Cette rubrique décrit les considérations de sécurité pour la gestion de la sécurité après un basculement ou une restauration de la base de données."
 	services="sql-database"
 	documentationCenter="na"
 	authors="carlrabeler"
@@ -14,10 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/10/2016"
+	ms.date="06/16/2016"
 	ms.author="carlrab" />
 
-# Gestion de la sécurité après la récupération d’urgence
+# Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence
 
 >[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) est désormais disponible pour toutes les bases de données de tous les niveaux de service.
 
@@ -27,7 +27,7 @@ Cette rubrique décrit les exigences d’authentification requises pour configur
 
 ## Récupération d’urgence avec des utilisateurs contenus
 
-Avec la [version V12 de la base de données SQL Azure](sql-database-v12-whats-new.md), la base de données SQL prend désormais en charge les utilisateurs contenus. Contrairement aux utilisateurs classiques, qui doivent être mappés sur les connexions dans la base de données master, un utilisateur contenu est géré entièrement par la base de données elle-même. Cela a deux avantages. Dans le scénario de récupération d’urgence, les utilisateurs peuvent continuer de se connecter à la nouvelle base de données primaire ou à la base de données restaurée à l’aide de la géo-restauration sans configuration supplémentaire, car c’est la base de données qui gère les utilisateurs. Du point de vue de la connexion, cette configuration présente également des possibilités de mise à l’échelle et d’amélioration des performances. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+Contrairement aux utilisateurs classiques, qui doivent être mappés sur les connexions dans la base de données master, un utilisateur contenu est géré entièrement par la base de données elle-même. Cela a deux avantages. Dans le scénario de récupération d’urgence, les utilisateurs peuvent continuer de se connecter à la nouvelle base de données primaire ou à la base de données restaurée à l’aide de la géo-restauration sans configuration supplémentaire, car c’est la base de données qui gère les utilisateurs. Du point de vue de la connexion, cette configuration présente également des possibilités de mise à l’échelle et d’amélioration des performances. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 L’inconvénient principal est que la gestion du processus de récupération d’urgence à grande échelle est plus difficile. Lorsque plusieurs de vos bases de données utilisent la même connexion, maintenir les informations d'identification avec des utilisateurs contenus dans plusieurs bases de données peut anéantir les avantages des utilisateurs contenus. Par exemple, la stratégie de rotation des mots de passe nécessite de faire les modifications de façon cohérente dans plusieurs bases de données plutôt que de modifier le mot de passe de l’identifiant de connexion une fois dans la base de données principale. Pour cette raison, si vous avez plusieurs bases de données qui utilisent le même nom d’utilisateur et le même mot de passe, l’utilisation d’utilisateurs contenus est déconseillée.
 
@@ -46,7 +46,6 @@ La préparation de l’accès utilisateur à une base de données secondaire de 
 >[AZURE.NOTE] Si vous effectuez un basculement ou une géo-restauration vers un serveur sur lequel les identifiants de connexion ne sont pas configurés correctement, l’accès à ce serveur sera limité au compte d’administrateur du serveur.
 
 La configuration des identifiants de connexion sur le serveur cible implique les trois étapes que voici :
-
 
 #### 1\. Déterminez les connexions ayant accès à la base de données principale :
 La première étape du processus consiste à déterminer les noms de connexion qui doivent être dupliqués sur le serveur cible. Pour ce faire, vous devez disposer d’une paire d’instructions SELECT, l’une dans la base de données master logique sur le serveur source et l’autre dans la base de données principale elle-même.
@@ -91,13 +90,18 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 
 - Pour plus d’informations sur la gestion de l’accès aux bases de données et des identifiants de connexion, consultez [Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données](sql-database-manage-logins.md).
 - Pour plus d’informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+- Pour plus d’informations sur l’utilisation et la configuration de la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour plus d’informations sur l’utilisation de la restauration géographique, consultez [Restauration géographique](sql-database-geo-restore.md)
 
 ## Ressources supplémentaires
 
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
+- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
+- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Restauration géographique](sql-database-geo-restore.md)
 - [Géo-réplication active](sql-database-geo-replication-overview.md)
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
+- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
 - [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

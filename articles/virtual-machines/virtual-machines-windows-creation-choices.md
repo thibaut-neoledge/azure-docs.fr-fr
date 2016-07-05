@@ -27,21 +27,24 @@ Le portail Azure constitue un moyen simple de tester une machine virtuelle, en p
 
 [Créer une machine virtuelle exécutant Windows dans le portail](virtual-machines-windows-hero-tutorial.md)
 
-## Azure PowerShell
-
-Si vous préférez travailler dans une invite de commandes, vous pouvez utiliser Azure PowerShell.
-
-- [Créer une machine virtuelle Windows à l’aide de PowerShell](virtual-machines-windows-ps-create.md)
-- [Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources](virtual-machines-windows-ps-template.md)
-
 ## Modèle
 
 Les machines virtuelles requièrent une combinaison de ressources (par exemple un groupe à haute disponibilité et des comptes de stockage). Au lieu de déployer et de gérer chaque ressource séparément, vous pouvez créer un modèle Azure Resource Manager qui déploie et approvisionne toutes les ressources en une seule opération coordonnée.
 
 - [Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources](virtual-machines-windows-ps-template.md)
 
+
+## Azure PowerShell
+
+Si vous préférez travailler dans une invite de commandes, vous pouvez utiliser Azure PowerShell.
+
+- [Créer une machine virtuelle Windows à l’aide de PowerShell](virtual-machines-windows-ps-create.md)
+
+
 ## Visual Studio
 
-[Déployer les ressources Microsoft Azure à l'aide des bibliothèques de traitement, réseau et de stockage .NET](virtual-machines-windows-csharp.md)
+Utilisez Visual Studio pour créer, gérer et déployer des machines virtuelles avec Azure Tools for Visual Studio et le Kit de développement logiciel (SDK) Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+[Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
+
+<!---HONumber=AcomDC_0622_2016-->

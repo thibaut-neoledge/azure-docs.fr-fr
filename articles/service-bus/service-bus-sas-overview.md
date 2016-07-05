@@ -13,42 +13,42 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/22/2016"
     ms.author="darosa;sethm"/>
 
 # Les signatures d’accès partagé
 
-Les *signatures d’accès partagé* (SAS) constituent le principal mécanisme de sécurité pour Service Bus, y compris les concentrateurs d’événements, la messagerie répartie (files d’attente et rubriques) et la messagerie relayée. Cet article traite des signatures d’accès partagé, leur fonctionnement et comment les utiliser de manière indépendante de la plateforme.
+Les *signatures d’accès partagé* (SAS) constituent le principal mécanisme de sécurité pour Service Bus, y compris les concentrateurs d’événements, la messagerie répartie (files d’attente et rubriques) et la messagerie relayée. Cet article traite des signatures d’accès partagé, leur fonctionnement et comment les utiliser de manière indépendante de la plateforme.
 
 ## Présentation des signatures d’accès partagé (SAS)
 
-Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Les signatures d’accès partagé sont un mécanisme extrêmement puissant qui est utilisé par tous les services Service Bus. En fait, les signatures d’accès partagé comptent deux composants : une *stratégie d’accès partagé* et une *signature d’accès partagé* (souvent appelée *jeton*).
+Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Les signatures d’accès partagé sont un mécanisme extrêmement puissant qui est utilisé par tous les services Service Bus. En fait, les signatures d’accès partagé comptent deux composants : une *stratégie d’accès partagé* et une *signature d’accès partagé* (souvent appelée *jeton*).
 
 Vous trouverez des informations plus détaillées sur les signatures d’accès partagé avec Service Bus à la page [Authentification par signature d’accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Stratégie d’accès partagé
 
-Concernant les signatures d’accès partagé, il est important de comprendre que tout commence par une stratégie. Pour chaque stratégie, vous choisissez trois éléments d’information : le **nom**, l’**étendue** et les **autorisations**. Le **nom** est un nom unique au sein de cette étendue. L’étendue est l’URI de la ressource en question. Pour un espace de noms Service Bus, l’étendue est le nom de domaine complet (FQDN), tel que **`https://<yournamespace>.servicebus.windows.net/`**.
+Concernant les signatures d’accès partagé, il est important de comprendre que tout commence par une stratégie. Pour chaque stratégie, vous choisissez trois éléments d’information : le **nom**, l’**étendue** et les **autorisations**. Le **nom** est un nom unique au sein de cette étendue. L’étendue est l’URI de la ressource en question. Pour un espace de noms Service Bus, l’étendue est le nom de domaine complet (FQDN), tel que **`https://<yournamespace>.servicebus.windows.net/`**.
 
-Les autorisations disponibles pour une stratégie sont relativement explicites :
+Les autorisations disponibles pour une stratégie sont relativement explicites :
 
   + Envoyer
   + Écouter
   + Gérer
 
-Une fois la stratégie créée, une *clé primaire* et une *clé secondaire* lui sont attribuées. Il s’agit de clés de chiffrement fortes. Ne les perdez pas et ne les divulguez pas ; elles seront toujours disponibles sur le [portail Azure Classic][]. Vous pouvez utiliser n’importe laquelle des clés générées et vous pouvez les régénérer à tout moment. Toutefois, si vous régénérez ou modifiez la clé primaire dans la stratégie, les signatures d’accès partagé créées à partir de celle-ci ne seront plus valides.
+Une fois la stratégie créée, une *clé primaire* et une *clé secondaire* lui sont attribuées. Il s’agit de clés de chiffrement fortes. Ne les perdez pas et ne les divulguez pas ; elles seront toujours disponibles sur le [portail Azure Classic][]. Vous pouvez utiliser n’importe laquelle des clés générées et vous pouvez les régénérer à tout moment. Toutefois, si vous régénérez ou modifiez la clé primaire dans la stratégie, les signatures d’accès partagé créées à partir de celle-ci ne seront plus valides.
 
-Lorsque vous créez un espace de noms Service Bus, une stratégie nommée **RootManageSharedAccessKey** est automatiquement créée pour l’espace de noms entier, qui dispose de toutes les autorisations. Étant donné que vous ne vous connectez pas en tant que **racine**, n’utilisez cette stratégie que si vous avez une très bonne raison de le faire. Vous pouvez créer des stratégies supplémentaires sous l’onglet **Configurer** pour l’espace de noms dans le portail. Il est important de noter qu’un seul niveau d’arborescence dans Service Bus (espace de noms, file d’attente, concentrateur d’événements, etc.) peut avoir jusqu’à 12 stratégies.
+Lorsque vous créez un espace de noms Service Bus, une stratégie nommée **RootManageSharedAccessKey** est automatiquement créée pour l’espace de noms entier, qui dispose de toutes les autorisations. Étant donné que vous ne vous connectez pas en tant que **racine**, n’utilisez cette stratégie que si vous avez une très bonne raison de le faire. Vous pouvez créer des stratégies supplémentaires sous l’onglet **Configurer** pour l’espace de noms dans le portail. Il est important de noter qu’un seul niveau d’arborescence dans Service Bus (espace de noms, file d’attente, concentrateur d’événements, etc.) peut avoir jusqu’à 12 stratégies.
 
 ## Signature d’accès partagé (jeton)
 
-La stratégie elle-même n’est pas le jeton d’accès pour Service Bus. C’est l’objet à partir duquel le jeton d’accès est généré, à l’aide de la clé primaire ou de la clé secondaire. Le jeton est généré suite à l’élaboration soigneuse d’une chaîne au format suivant :
+La stratégie elle-même n’est pas le jeton d’accès pour Service Bus. C’est l’objet à partir duquel le jeton d’accès est généré, à l’aide de la clé primaire ou de la clé secondaire. Le jeton est généré suite à l’élaboration soigneuse d’une chaîne au format suivant :
 
 ```
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-Où `signature-string` correspond au hachage SHA-256 de l’étendue du jeton (**étendue** telle que décrite dans la section précédente) avec un CRLF ajouté et un délai d’expiration (en secondes depuis le début de l’époque : `00:00:00 UTC` le 1er janvier 1970).
+Où `signature-string` correspond au hachage SHA-256 de l’étendue du jeton (**étendue** telle que décrite dans la section précédente) avec un CRLF ajouté et un délai d’expiration (en secondes depuis le début de l’époque : `00:00:00 UTC` le 1er janvier 1970).
 
 Le hachage est similaire au pseudo-code suivant et retourne 32 octets.
 
@@ -56,11 +56,11 @@ Le hachage est similaire au pseudo-code suivant et retourne 32 octets.
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Les valeurs non hachées se trouvent dans la chaîne **SharedAccessSignature** afin que le destinataire puisse calculer le hachage avec les mêmes paramètres, pour s’assurer qu’il renvoie le même résultat. L’URI spécifie l’étendue et le nom de la clé identifie la stratégie à utiliser pour calculer le hachage. Ceci est important du point de vue de la sécurité. Si la signature ne correspond pas à celle calculée par le destinataire (Service Bus), l’accès est refusé. À ce stade, vous pouvez être sûr que l’expéditeur avait accès à la clé et doit bénéficier des droits spécifiés dans la stratégie.
+Les valeurs non hachées se trouvent dans la chaîne **SharedAccessSignature** afin que le destinataire puisse calculer le hachage avec les mêmes paramètres, pour s’assurer qu’il renvoie le même résultat. L’URI spécifie l’étendue et le nom de la clé identifie la stratégie à utiliser pour calculer le hachage. Ceci est important du point de vue de la sécurité. Si la signature ne correspond pas à celle calculée par le destinataire (Service Bus), l’accès est refusé. À ce stade, vous pouvez être sûr que l’expéditeur avait accès à la clé et doit bénéficier des droits spécifiés dans la stratégie.
 
 ## Génération d’une signature à partir d’une stratégie
 
-Comment réellement procéder dans le code ? Examinons quelques exemples.
+Comment réellement procéder dans le code ? Examinons quelques exemples.
 
 ### NodeJS
 
@@ -167,7 +167,7 @@ private static string createToken(string resourceUri, string keyName, string key
 
 ## Utilisation de la signature d’accès partagé (au niveau HTTP)
  
-Maintenant que vous savez comment créer des signatures d’accès partagé pour les entités dans Service Bus, vous êtes prêt à effectuer une requête HTTP POST :
+Maintenant que vous savez comment créer des signatures d’accès partagé pour les entités dans Service Bus, vous êtes prêt à effectuer une requête HTTP POST :
 
 ```
 POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
@@ -192,7 +192,7 @@ Les étapes suivantes montrent comment envoyer le jeton SAP avec le protocole AM
 
 ```
 /// <summary>
-/// Send Claim Based Security (CBS) token
+/// Send claim-based security (CBS) token
 /// </summary>
 /// <param name="shareAccessSignature">Shared access signature (token) to send</param>
 private bool PutCbsToken(Connection connection, string sasToken)
@@ -259,4 +259,4 @@ Pour obtenir d’autres exemples de signature d’accès partagé en C# et JavaS
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

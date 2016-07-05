@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Restaurer à partir d’une sauvegarde de votre StorSimple Virtual Array
 
 ## Vue d'ensemble 
 
-Cet article s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016). Cet article décrit étape par étape comment effectuer une restauration à partir d'un jeu de sauvegarde de vos partages ou volumes pour votre StorSimple Virtual Array. L'article détaille également le fonctionnement de la récupération au niveau de l’élément sur votre StorSimple Virtual Array configuré comme un serveur de fichiers.
+Cet article s’applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016) ou des versions ultérieures. Cet article décrit étape par étape comment effectuer une restauration à partir d’un jeu de sauvegarde de vos partages ou volumes sur votre StorSimple Virtual Array. L'article détaille également le fonctionnement de la récupération au niveau de l’élément sur votre StorSimple Virtual Array configuré comme un serveur de fichiers.
 
 
 ## Restauration de partages à partir d’un jeu de sauvegarde
 
 
-Avant d'essayer de restaurer des partages, assurez-vous de disposer de suffisamment d'espace sur l’appareil pour terminer cette opération. Pour effectuer une restauration à partir d’une sauvegarde, procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/).
+**Avant d'essayer de restaurer des partages, assurez-vous de disposer de suffisamment d'espace sur l’appareil pour terminer cette opération.** Pour effectuer une restauration à partir d’une sauvegarde, procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/).
 
 #### Pour restaurer un partage
 
@@ -50,9 +50,9 @@ Avant d'essayer de restaurer des partages, assurez-vous de disposer de suffisamm
 
 		![](./media/storsimple-ova-restore/image9.png)
 
-1.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher le travail**. Vous accédez alors à la page **Travaux**.
+1.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher la tâche**. Vous accédez alors à la page **Tâches**.
 
-2.  Vous pouvez suivre la progression de la restauration. Une fois la restauration terminée à 100 %, accédez à la page **Partages** sur votre appareil.
+2.  Vous pouvez suivre la progression de la restauration. Lorsque la restauration est terminée à 100 %, accédez à la page **Partages** sur votre appareil.
 
 3.  Vous pouvez maintenant afficher le nouveau partage restauré dans la liste des partages sur votre appareil. Notez que la restauration est effectuée pour le même type de partage. Un partage à plusieurs niveaux est restauré comme un partage à plusieurs niveaux, et un partage épinglé localement comme un partage épinglé localement.
 
@@ -91,9 +91,9 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 1.  Cliquez sur l’icône en forme de coche ![](./media/storsimple-ova-restore/image1.png). Cette opération lance une tâche de restauration, et la notification suivante confirme que la tâche est en cours.
 
-2.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher le travail**. Vous accédez alors à la page **Travaux**.
+2.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher la tâche**. Vous accédez alors à la page **Tâches**.
 
-3.  Vous pouvez suivre la progression de la restauration. Une fois la restauration terminée à 100 %, accédez à la page **Volumes** sur votre appareil.
+3.  Vous pouvez suivre la progression de la restauration. Quand la restauration est terminée à 100 %, accédez à la page **Volumes** sur votre appareil.
 
 4.  Vous pouvez maintenant afficher le nouveau volume restauré dans la liste des volumes sur votre appareil. Notez que la restauration est effectuée pour le même type de volume. Un volume à plusieurs niveaux est restauré comme un volume à plusieurs niveaux, et un volume épinglé localement comme un volume épinglé localement.
 
@@ -107,7 +107,7 @@ Chaque partage comporte un dossier *.backups* contenant les sauvegardes les plus
 
 1.  Lorsque vous effectuez la récupération ILR, vous pouvez afficher les sauvegardes dans l'Explorateur Windows. Cliquez sur le partage spécifique pour lequel vous souhaitez afficher la sauvegarde. Sous le partage, vous verrez un dossier *.backups* contenant toutes les sauvegardes. Développez le dossier *.backups* pour afficher les sauvegardes. Le dossier affichera ensuite la vue éclatée de toute la hiérarchie de sauvegarde. La création de cette vue s’effectue à la demande et ne prend que quelques secondes.
 
-	Les 5 dernières sauvegardes apparaissent de cette manière. Cela inclut les sauvegardes planifiées par défaut et les sauvegardes manuelles.
+	Les 5 dernières sauvegardes s’affichent de cette façon et peuvent être utilisées pour effectuer une récupération au niveau de l’élément. Les 5 sauvegardes récentes incluent les sauvegardes planifiées par défaut et les sauvegardes manuelles.
 
 	
 	-   **Sauvegardes planifiées** nommées &lt;Nom de l’appareil&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
@@ -130,6 +130,6 @@ Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarde
 
 ## Étapes suivantes
 
-En savoir plus sur la [gestion de votre StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
+En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

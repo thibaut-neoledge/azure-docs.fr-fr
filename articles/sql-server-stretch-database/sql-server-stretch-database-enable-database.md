@@ -18,7 +18,7 @@
 
 # Activer Stretch Database pour une base de données
 
-Pour configurer une base de données Stretch Database, sélectionnez **Tâches | Stretch | Activer** pour une base de données dans SQL Server Management Studio pour ouvrir l’Assistant **Activer la base de données pour Stretch**. Vous pouvez également utiliser Transact-SQL pour activer Stretch Database pour une base de données.
+Pour configurer une base de données Stretch Database existante, sélectionnez **Tâches | Stretch | Activer** pour une base de données dans SQL Server Management Studio pour ouvrir l’Assistant **Activer la base de données pour Stretch**. Vous pouvez également utiliser Transact-SQL pour activer Stretch Database pour une base de données.
 
 Si vous sélectionnez **Tâches | Stretch | Activer** pour une table et que vous n’avez pas encore activé la base de données pour Stretch Database, l’Assistant configure la base de données pour Stretch Database et vous permet de configurer des tables dans le cadre du processus. Suivez les étapes décrites dans cette rubrique au lieu de celles décrites dans [Activer Stretch Database pour une table](sql-server-stretch-database-enable-database.md).
 
@@ -133,4 +133,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

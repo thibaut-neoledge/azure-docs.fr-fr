@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/14/2016"
    ms.author="tomfitz"/>
 
 # Afficher les opérations de déploiement Azure PowerShell
@@ -25,11 +25,89 @@
 - [Interface de ligne de commande Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Si vous avez obtenu une erreur lors du déploiement des ressources sur Azure, vous pouvez afficher plus de détails sur les opérations de déploiement qui ont été exécutées. Azure PowerShell fournit des applets de commande qui vous permettent de rechercher facilement les erreurs et de déterminer des corrections potentielles.
+Vous pouvez afficher les opérations d’un déploiement via Azure PowerShell. Il est plus intéressant d’afficher les opérations lorsque vous recevez une erreur lors du déploiement ; cet article porte donc sur l’affichage des opérations ayant échoué. PowerShell fournit des applets de commande qui vous permettent de rechercher facilement les erreurs et de déterminer des corrections potentielles.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 Vous pouvez éviter certaines erreurs en validant votre modèle et votre infrastructure avant le déploiement. Vous pouvez également enregistrer des informations supplémentaires de requête et de réponse pendant le déploiement, qui pourront se révéler utiles plus tard pour la résolution des problèmes. Pour en savoir plus sur la validation et l’enregistrement d’informations de requête et de réponse, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
+
+## Utilisation des opérations de déploiement pour résoudre les problèmes
+
+1. Pour obtenir l’état global d’un déploiement, utilisez la commande **Get-AzureRmResourceGroupDeployment**. Vous pouvez filtrer les résultats en les restreignant aux déploiements qui ont échoué.
+
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        
+    Qui retourne les déploiements ayant échoué dans le format suivant :
+        
+        DeploymentName          : Microsoft.Template
+        ResourceGroupName       : ExampleGroup
+        ProvisioningState       : Failed
+        Timestamp               : 6/14/2016 9:55:21 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+                    Name                Type                 Value
+                    ===============     ===================  ==========
+                    storageAccountName  String               tfstorage9855
+                    adminUsername       String               tfadmin
+                    adminPassword       SecureString
+                    dnsNameforLBIP      String               dns
+                    vmNamePrefix        String               myVM
+                    imagePublisher      String               MicrosoftWindowsServer
+                    imageOffer          String               WindowsServer
+                    imageSKU            String               2012-R2-Datacenter
+                    lbName              String               myLB
+                    nicNamePrefix       String               nic
+                    publicIPAddressName String               myPublicIP
+                    vnetName            String               myVNET
+                    vmSize              String               Standard_D1
+
+        Outputs                 :
+        DeploymentDebugLogLevel :
+
+2. Chaque déploiement est généralement constitué de plusieurs opérations, chacune d’elles représentant une étape du processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureRmResourceGroupDeploymentOperation**.
+
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName Microsoft.Template
+        
+    Cette requête retourne plusieurs opérations, chacune au format suivant :
+        
+        Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+        OperationId    : A3EB2DA598E0A780
+        Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
+                         duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
+                         serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
+        PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+                         serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
+
+3. Pour obtenir plus d’informations sur les opérations ayant échoué, récupérez les propriétés des opérations dont l’état est **Failed**.
+
+        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+        
+    Cette requête retourne toutes les opérations ayant échoué, chacune au format suivant :
+        
+        provisioningOperation : Create
+        provisioningState     : Failed
+        timestamp             : 2016-06-14T21:54:55.1468068Z
+        duration              : PT3.1449887S
+        trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+        serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+        statusCode            : BadRequest
+        statusMessage         : @{error=}
+        targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+                                Microsoft.Network/publicIPAddresses/myPublicIP;
+                                resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
+
+    Notez l’ID de suivi pour l’opération. Vous l’utiliserez à l’étape suivante afin de vous concentrer sur une opération en particulier.
+
+4. Pour obtenir le message d’état d’une opération ayant échoué, utilisez la commande suivante :
+
+        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+        
+    Résultat :
+        
+        code           message                                                                        details
+        ----           -------                                                                        -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
 ## Utilisation des journaux d'audit pour résoudre les problèmes
 
@@ -41,9 +119,9 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
-    Vous pouvez spécifier un intervalle de temps en particulier. Dans l'exemple suivant, nous examinons les actions ayant échoué durant les 14 derniers jours.
+    Vous pouvez spécifier un intervalle de temps en particulier. Dans l’exemple suivant, nous examinons les actions ayant échoué la veille.
 
-        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -Status Failed
       
     Vous pouvez également définir un début et une fin exacts pour les actions ayant échoué :
 
@@ -51,94 +129,27 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 2. Si cette commande renvoie trop d’entrées et de propriétés, vous pouvez cibler vos efforts d’audit en récupérant la propriété **Properties**. Nous allons également inclure le paramètre **DetailedOutput** pour voir les messages d’erreur.
 
-        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -DetailedOutput).Properties
         
     Qui retourne les propriétés des entrées du journal dans le format suivant :
         
         Content
         -------
-        {}
-        {[statusCode, Conflict], [statusMessage, {"Code":"Conflict","Message":"Website with given name mysite already exists...
-        {[statusCode, Conflict], [serviceRequestId, ], [statusMessage, {"Code":"Conflict","Message":"Website with given name...
+        {} 
+        {[statusCode, BadRequest], [statusMessage, {"error":{"code":"DnsRecordInUse","message":"DNS record dns.westus.clouda...
+        {[statusCode, BadRequest], [serviceRequestId, a426f689-5d5a-448d-a2f0-9784d14c900a], [statusMessage, {"error":{"code...
 
-3. Vous pouvez affiner les résultats en examinant le message d’état d’une entrée en particulier.
+3. En nous basant sur ces résultats, concentrons-nous sur le deuxième élément. Vous pouvez affiner les résultats en examinant le message d’état pour cette entrée.
 
-        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput -StartTime (Get-Date).AddDays(-1)).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
         
-    Qui retourne le message d'état dans le format suivant :
+    Résultat :
         
-        Code       : Conflict
-        Message    : Website with given name mysite already exists.
-        Target     :
-        Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-        Innererror :
+        code           message                                                                        details
+        ----           -------                                                                        -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
 
-## Utilisation des opérations de déploiement pour résoudre les problèmes
-
-1. Pour obtenir l’état global d’un déploiement, utilisez la commande **AzureRmResourceGroupDeployment**. Vous pouvez filtrer les résultats en les restreignant aux déploiements qui ont échoué.
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-        
-    Qui retourne les déploiements ayant échoué dans le format suivant :
-        
-        DeploymentName    : ExampleDeployment
-        ResourceGroupName : ExampleGroup
-        ProvisioningState : Failed
-        Timestamp         : 8/27/2015 8:03:34 PM
-        Mode              : Incremental
-        TemplateLink      :
-        Parameters        :
-        Name             Type                       Value
-        ===============  =========================  ==========
-        siteName         String                     ExampleSite
-        hostingPlanName  String                     ExamplePlan
-        siteLocation     String                     West US
-        sku              String                     Free
-        workerSize       String                     0
-        
-        Outputs           :
-
-2. Chaque déploiement est généralement constitué de plusieurs opérations, chacune d’elles représentant une étape du processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureRmResourceGroupDeploymentOperation**.
-
-        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
-        
-    Qui retourne les opérations dans le format suivant :
-        
-        Id          : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/ExampleDeployment/operations/8518B32868A437C8
-        OperationId : 8518B32868A437C8
-        Properties  : @{ProvisioningOperation=Create; ProvisioningState=Failed; Timestamp=2016-03-16T20:05:37.2638161Z;
-                      Duration=PT2.8834832S; TrackingId=192fbfbf-a2e2-40d6-b31d-890861f78ed3; StatusCode=Conflict;
-                      StatusMessage=; TargetResource=}
-
-3. Pour obtenir plus d’informations sur l’opération, récupérez l’objet **Properties**.
-
-        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
-        
-    Qui retourne les propriétés de l'opération dans le format suivant :
-        
-        ProvisioningOperation : Create
-        ProvisioningState     : Failed
-        Timestamp             : 2016-03-16T20:05:37.2638161Z
-        Duration              : PT2.8834832S
-        TrackingId            : 192fbfbf-a2e2-40d6-b31d-890861f78ed3
-        StatusCode            : Conflict
-        StatusMessage         : @{Code=Conflict; Message=Website with given name mysite already exists.; Target=;
-        Details=System.Object[]; Innererror=}
-        TargetResource        : @{Id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
-        Microsoft.Web/Sites/mysite; ResourceType=Microsoft.Web/Sites; ResourceName=mysite}
-
-4. Pour vous concentrer sur le message d'état des opérations ayant échoué, utilisez la commande suivante :
-
-        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
-        
-    Qui retourne le message d'état dans le format suivant :
-        
-        Code       : Conflict
-        Message    : Website with given name mysite already exists.
-        Target     :
-        Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-        Innererror :
 
 ## Étapes suivantes
 
@@ -146,4 +157,4 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 - Pour en savoir plus sur l’utilisation des journaux d’audit pour surveiller d’autres types d’actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
 - Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

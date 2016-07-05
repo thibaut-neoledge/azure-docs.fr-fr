@@ -16,7 +16,18 @@
 
 # Notes de publication - Outils de Developer Analytics
 ##### Analyses Application Insights et HockeyApp dans Visual Studio
-## Version 7.0.1
+## Version 7.0
+###Tendances Application Insights
+Les Tendances Application Insights sont un nouvel outil dans Visual Studio permettant d’analyser le comportement de votre application au fil du temps. Pour commencer, choisissez « Explorer les tendances de télémétrie » à partir du bouton de la barre d’outils Application Insights ou d’une fenêtre Recherche Application Insights. Sinon, choisissez « Tendances Application Insights » à partir de Vue - Autres fenêtres. Sélectionnez l’une des cinq requêtes courantes pour commencer. Vous pouvez analyser différents jeux de données en fonction des types de télémétrie, des intervalles de temps ainsi que d’autres propriétés. Pour rechercher des anomalies dans vos données, sélectionnez l’une des options d’anomalie dans la liste déroulante « Type de vue ». Les options de filtrage en bas de la fenêtre facilitent l’obtention de sous-ensembles spécifiques de votre télémétrie.
+
+![Tendances Application Insights](./media/app-insights-release-notes-vsix/Trends.PNG)
+
+###Exceptions dans CodeLens
+La télémétrie d’exception s’affiche désormais dans CodeLens. Si vous avez connecté votre projet au service Application Insights, vous verrez le nombre d’exceptions survenues dans chaque méthode en production dans les dernières 24 heures. À partir de CodeLens, vous pouvez passer à Recherche ou Tendances pour examiner les exceptions de façon plus détaillée.
+
+![Exceptions dans CodeLens](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
+
+###Prise en charge d’ASP.NET Core
 Application Insights prend désormais en charge les projets ASP.NET Core RC2 dans Visual Studio. Vous pouvez ajouter Application Insights aux nouveaux projets ASP.NET Core RC2 à partir de la boîte de dialogue Nouveau projet, ou à un projet existant en double-cliquant sur le projet dans l’Explorateur de solutions puis en sélectionnant « Ajouter la télémétrie Application Insights... »
 
 ![Prise en charge de .NET Core](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
@@ -25,11 +36,15 @@ Les projets ASP.NET 5 RC1 et ASP.NET Core RC2 sont également pris en charge dan
 
 ![Prise en charge des outils de diagnostic](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
+###HockeyApp pour les applications Windows universelles
+Outre la distribution bêta et les commentaires des utilisateurs, HockeyApp fournit des rapports d’incidents sous forme de symboles pour vos applications Windows universelles. Nous avons encore simplifié l’ajout du Kit de développement logiciel (SDK) HockeyApp : cliquez avec le bouton droit sur votre projet Windows universel, puis choisissez Application HockeyApp - Permettre l’analyse des blocages… Cette opération va installer le Kit de développement logiciel (SDK), configurer la collecte des incidents et configurer une ressource HockeyApp dans le cloud, sans charger votre application sur le service HockeyApp.
+
 Autres nouvelles fonctionnalités :
 
 * Nous avons rendu la fonction de recherche d’Application Insights plus rapide et plus intuitive en appliquant automatiquement des plages horaires et des filtres de détail à mesure que vous les sélectionnez
 * Application Insights Search propose désormais une option permettant d’accéder au code à partir de la télémétrie de la demande
 * Nous avons amélioré l’expérience de connexion HockeyApp.
+* Dans les outils de diagnostic, il existe désormais des informations de télémétrie de production affichées pour les exceptions.
 
 ## Version 5.2
 Nous avons le plaisir d’annoncer l’introduction de scénarios HockeyApp dans Visual Studio. La première intégration que nous avons activée est la distribution bêta des applications Universal Windows et Windows Forms au sein de Visual Studio.
@@ -102,13 +117,13 @@ Si vous utilisez déjà un suivi NLog, Log4Net ou System.Diagnostics, vous n'ave
 - Cliquez avec le bouton droit sur le nœud du projet, puis sélectionnez Application Insights, Configurer Application Insights. Vérifiez que l’option d'ajout de l'adaptateur approprié apparaît dans la fenêtre de configuration.
 - Ou lorsque vous générez la solution, observez la fenêtre contextuelle qui apparaît en haut à droite de l’écran et cliquez sur Configurer. ![Toast de connexion](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
-Une fois l’adaptateur d’enregistrement installé, vous pouvez exécuter votre application et vous assurer que les données apparaissent comme suit sous l’onglet Outils de diagnostic : ![Traces](./media/app-insights-release-notes-vsix/Traces.png)
+Une fois l’adaptateur d’enregistrement installé, vous pouvez exécuter votre application et vous assurer que les données apparaissent comme suit sous l’onglet Outils de diagnostic : ![Traces](./media/app-insights-release-notes-vsix/Traces.png)
 ###- L’utilisateur peut accéder/rechercher le code où la propriété d'événement de télémétrie est émise
-Avec la nouvelle version, l’utilisateur peut cliquer sur n'importe quel détail de l'événement et rechercher ainsi une chaîne correspondante dans la solution actuellement ouverte. Les résultats apparaissent dans la liste « Résultats de la recherche » de Visual Studio, comme illustré ci-dessous : ![Rechercher une correspondance](./media/app-insights-release-notes-vsix/FindMatch.png)
+Avec la nouvelle version, l’utilisateur peut cliquer sur n'importe quel détail de l'événement et rechercher ainsi une chaîne correspondante dans la solution actuellement ouverte. Les résultats apparaissent dans la liste « Résultats de la recherche » de Visual Studio, comme illustré ci-dessous : ![Rechercher une correspondance](./media/app-insights-release-notes-vsix/FindMatch.png)
 ###- Nouvel écran pour utilisateur non connecté dans la fenêtre de recherche
 Nous avons amélioré l’apparence de la fenêtre de recherche pour guider les utilisateurs dans la recherche de leurs données en production. ![Fenêtre Recherche](./media/app-insights-release-notes-vsix/SearchWindow.png)
 ###- L’utilisateur peut voir tous les événements de télémétrie associés à l'événement
-Un nouvel onglet en regard des détails de l'événement a été ajouté, contenant des requêtes prédéfinies pour afficher toutes les données associées à l'événement de télémétrie que l'utilisateur examine. Par exemple : chaque demande comporte un champ appelé ID d'opération, et chaque événement associé à cette demande aura le même ID d'opération. Par conséquent, si une exception s'est produite lors du traitement de la demande, elle affichera le même ID d'opération que la demande pour faciliter sa localisation, et ainsi de suite. Un utilisateur qui observe une requête peut donc désormais cliquer sur « Toute la télémétrie pour cette opération » pour ouvrir un nouvel onglet présentant les nouveaux résultats de la recherche. ![Éléments connexes](./media/app-insights-release-notes-vsix/RelatedItems.png)
+Un nouvel onglet en regard des détails de l'événement a été ajouté, contenant des requêtes prédéfinies pour afficher toutes les données associées à l'événement de télémétrie que l'utilisateur examine. Par exemple : chaque demande comporte un champ appelé ID d'opération, et chaque événement associé à cette demande aura le même ID d'opération. Par conséquent, si une exception s'est produite lors du traitement de la demande, elle affichera le même ID d'opération que la demande pour faciliter sa localisation, et ainsi de suite. Un utilisateur qui observe une requête peut donc désormais cliquer sur « Toute la télémétrie pour cette opération » pour ouvrir un nouvel onglet présentant les nouveaux résultats de la recherche. ![Éléments connexes](./media/app-insights-release-notes-vsix/RelatedItems.png)
 ### - Ajout d’un historique avant/après dans la recherche
 L’utilisateur peut maintenant aller et venir dans les résultats de la recherche. ![Retour](./media/app-insights-release-notes-vsix/GoBAck.png)
 
@@ -160,8 +175,8 @@ Vous n’avez plus à vous connecter à Azure pour ajouter des packages Applicat
 
 ###Prise en charge des périphériques
 
-Lors de *Connect();* 2015, nous avons [annoncé](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que notre expérience DevOps mobile pour les appareils était HockeyApp. HockeyApp vous permet de distribuer des versions bêta à vos testeurs, de recueillir, de collecter et d’analyser tous les incidents à partir de votre application et de recueillir les commentaires directement de vos clients. HockeyApp vous assiste, quelle que soit la plateforme sur laquelle vous générez votre application mobile, qu’il s’agisse d’iOS, Android ou Windows ou d’une solution multiplateforme comme Xamarin, Cordova ou Unity.
+Lors de *Connect();* 2015, nous avons [annoncé](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que notre expérience DevOps mobile pour les appareils était HockeyApp. HockeyApp vous permet de distribuer des versions bêta à vos testeurs, de recueillir, de collecter et d’analyser tous les incidents à partir de votre application et de recueillir les commentaires directement de vos clients. HockeyApp vous assiste, quelle que soit la plateforme sur laquelle vous générez votre application mobile, qu’il s’agisse d’iOS, Android ou Windows ou d’une solution multiplateforme comme Xamarin, Cordova ou Unity.
 
-Dans les versions futures de l’extension Application Insights,nous allons présenter de nouvelles fonctionnalités pour permettre une expérience davantage intégrée entre HockeyApp et Visual Studio. Pour le moment, vous pouvez commencer à utiliser HockeyApp en ajoutant simplement la référence NuGet : consultez la [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) pour plus d’informations.
+Dans les versions futures de l’extension Application Insights,nous allons présenter de nouvelles fonctionnalités pour permettre une expérience davantage intégrée entre HockeyApp et Visual Studio. Pour le moment, vous pouvez commencer à utiliser HockeyApp en ajoutant simplement la référence NuGet : consultez la [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) pour plus d’informations.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

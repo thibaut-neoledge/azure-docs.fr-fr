@@ -72,9 +72,7 @@ Une erreur d’authentification s’est produite (lors de l’authentification o
 
     Dans la liste des sites Web, si une des URL suivantes est incluse, assurez-vous que les autres le sont également :
 
-    * https://login.microsoftonline.com
-    * https://login.windows.net
-    * https://analytics.applicationinsights.io 
+    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
 ## 404 ... Ressource introuvable
@@ -126,4 +124,4 @@ Ouvrez [un ticket de support](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

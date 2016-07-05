@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Afficher et gérer les tâches StorSimple Virtual Array | Microsoft Azure"
-   description="Décrit la page Tâches du service StorSimple Manager et explique comment l’utiliser pour effectuer le suivi des tâches récentes et actuelles pour le StorSimple Virtual Array."
+   description="Décrit la page Tâches du service StorSimple Manager et explique comment l’utiliser pour effectuer le suivi des tâches récentes et actuelles pour le StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour afficher les tâches liées au StorSimple Virtual Array
@@ -23,12 +23,12 @@ La page **Tâches** est un portail centralisé unique qui permet de consulter et
 
 ![Page Tâches](./media/storsimple-ova-manage-jobs/ovajobs1.png)
 
-Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant sur les champs, à savoir :
+Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant sur les champs, à savoir :
 
 - **État** : vous pouvez rechercher la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.
 - **De et À** : les tâches peuvent être filtrées selon la date et l'heure.
 - **Type** : le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
-- **Appareils** : les tâches sont initiées sur un appareil spécifique connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
+- **Appareils** : les tâches sont initiées sur un appareil spécifique connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
 
     - **Type** : le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
 
@@ -40,9 +40,9 @@ Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant 
 
     - **Démarré le** : heure à laquelle la tâche a été lancée.
 
-    - **Progression** : pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
+    - **Progression** : pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
 
-La liste des tâches est actualisée toutes les 30 secondes.
+La liste des tâches est actualisée toutes les 30 secondes.
 
 ## Affichage des détails d’une tâche
 
@@ -72,4 +72,4 @@ Ces échecs s’appliquent aux tâches de sauvegarde, de restauration, de mise �
 
 [Découvrez comment utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 
-Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettront d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans le document [Qu’est-ce que le processus d’analyse Cortana ?](machine-learning-data-science-the-cortana-analytics-process.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
+Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettront d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans le document [Qu’est-ce que le processus TDSP (Team Data Science Process) ?](data-science-process-overview.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -47,7 +47,7 @@ Les questions logistiques concernent l’emplacement de la **source de données*
 
 4. **Les données doivent-elles être déplacées à intervalles réguliers ou modifiées pendant la migration ?** Envisagez d’utiliser Azure Data Factory (ADF) lorsque les données doivent être migrées en permanence, notamment si cela implique un scénario hybride qui accède aux ressources locales et cloud, lorsque les données sont traitées ou doivent être modifiées, ou si vous ajoutez une logique métier en cours de migration. Pour plus d’informations, référez-vous à [Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 
-5. **Quelle est la quantité de données à déplacer vers Azure ?** Si les jeux de données sont très volumineux, ils peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, reportez-vous à la rubrique sur les limites de taille pour Machine Learning Studio dans la section suivante. Dans ces cas, un échantillon de données peut servir à l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus d’analyse Cortana](machine-learning-data-science-sample-data.md).
+5. **Quelle est la quantité de données à déplacer vers Azure ?** Si les jeux de données sont très volumineux, ils peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, reportez-vous à la rubrique sur les limites de taille pour Machine Learning Studio dans la section suivante. Dans ces cas, un échantillon de données peut servir à l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus TDSP (Team Data Science Process)](machine-learning-data-science-sample-data.md).
 
 
 ## Questions sur les caractéristiques des données : type, format et taille
@@ -80,7 +80,7 @@ Pour plus d’informations sur les limitations des autres services Azure utilis�
 
 ## Questions sur la qualité des données : exploration et prétraitement
 
-1. **Que savez-vous sur vos données ?** Explorez les données lorsque vous avez besoin d’obtenir et de comprendre leurs caractéristiques de base. Par exemple les modèles ou les tendances qu’elles dévoilent, les aberrations qu’elles contiennent ou le nombre de valeurs manquantes. Cette étape est importante en vue de déterminer l’étendue du prétraitement nécessaire, de formuler des hypothèses visant à suggérer les fonctionnalités ou le type d’analyse les plus appropriés, et de planifier la collecte de données supplémentaires. Le calcul des statistiques descriptives et le tracé des visualisations sont des techniques utiles pour l’inspection des données. Pour plus d’informations sur l’exploration d’un jeu de données dans différents environnements Azure, référez-vous à [Explorer les données du processus d’analyse Cortana](machine-learning-data-science-explore-data.md).
+1. **Que savez-vous sur vos données ?** Explorez les données lorsque vous avez besoin d’obtenir et de comprendre leurs caractéristiques de base. Par exemple les modèles ou les tendances qu’elles dévoilent, les aberrations qu’elles contiennent ou le nombre de valeurs manquantes. Cette étape est importante en vue de déterminer l’étendue du prétraitement nécessaire, de formuler des hypothèses visant à suggérer les fonctionnalités ou le type d’analyse les plus appropriés, et de planifier la collecte de données supplémentaires. Le calcul des statistiques descriptives et le tracé des visualisations sont des techniques utiles pour l’inspection des données. Pour plus d’informations sur l’exploration d’un jeu de données dans différents environnements Azure, référez-vous à [Explorer les données du processus TDSP (Team Data Science Process)](machine-learning-data-science-explore-data.md).
 
 2. **Les données nécessitent-elles un prétraitement ou un nettoyage ?** Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Pour obtenir une description, référez-vous à [Tâches de préparation des données pour l’apprentissage automatique amélioré](machine-learning-data-science-prepare-data.md).
 
@@ -114,4 +114,4 @@ Une fois que vous avez répondu aux questions de la section précédente, vous �
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

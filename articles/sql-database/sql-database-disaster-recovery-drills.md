@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Exercices de récupération d'urgence de bases de données SQL" 
+   pageTitle="Exercices de récupération d’urgence de bases de données SQL | Microsoft Azure" 
    description="Découvrez des conseils et des meilleures pratiques en matière d'utilisation de la base de données Azure SQL pour effectuer des exercices de récupération d'urgence qui vous aideront à maintenir la résistance aux pannes de vos applications métier stratégiques en cas de défaillances." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="mihaelab"/>
 
 #Exécution d'un exercice de récupération d'urgence
@@ -63,4 +63,21 @@ Pour simuler la défaillance, vous pouvez désactiver l'application Web ou un or
 
 - Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Étapes suivantes
+
+- Pour plus d’informations sur l’utilisation et la configuration de la géo-réplication active pour la récupération d’urgence, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour plus d’informations sur l’utilisation de la restauration géographique pour la récupération d’urgence, consultez [Restauration géographique](sql-database-geo-restore.md)
+
+## Ressources supplémentaires
+
+- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
+- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Restauration géographique](sql-database-geo-restore.md)
+- [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
+- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
+- [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de l’explorateur de stockage Azure
@@ -47,7 +47,7 @@ Les étapes suivantes expliquent comment charger ou télécharger des données �
 
 1.  Lancez Azure Storage Explorer. 
 2.  Si le compte de stockage auquel vous souhaitez accéder ne figure pas dans Azure Storage Explorer, cliquez sur le bouton « Ajouter un compte » pour ajouter le compte. S’il est déjà ajouté, sélectionnez-le dans la liste déroulante « Sélectionner un compte de stockage ». ![Créer un espace de travail][1] <br>
-3. Entrez le nom et la clé du compte de stockage, puis cliquez sur Ajouter le compte de stockage. Vous pouvez ajouter plusieurs comptes de stockage. Chaque compte s’affiche sur un onglet. Les conteneurs de ce compte de stockage apparaissent dans le panneau gauche. Sélectionnez un conteneur pour en afficher les objets blob dans le panneau droit. ![Créer un espace de travail][2] <br> ![Créer un espace de travail][3] <br>
+3. Entrez le nom et la clé du compte de stockage, puis cliquez sur Ajouter le compte de stockage. Vous pouvez ajouter plusieurs comptes de stockage. Chaque compte s’affiche sur un onglet. Les conteneurs de ce compte de stockage apparaissent dans le panneau gauche. Sélectionnez un conteneur pour en afficher les objets blob dans le panneau droit. ![Create workspace][2] <br> ![Create workspace][3] <br>
 4. Chargez les données en cliquant sur le bouton « Charger ». Sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis cliquez sur « Ouvrir » pour lancer le chargement.
 5. Téléchargez les données en sélectionnant l’objet blob dans le conteneur correspondant et en cliquant sur le bouton « Télécharger ».
 
@@ -57,4 +57,4 @@ Les étapes suivantes expliquent comment charger ou télécharger des données �
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

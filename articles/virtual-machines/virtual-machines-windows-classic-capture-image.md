@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 #Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
@@ -28,7 +28,7 @@ Azure stocke l’image sous **Mes images**. Il s’agit de l’emplacement où s
 
 ##Avant de commencer##
 
-Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure, configuré le système d’exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, voir ces instructions :
+Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure, configuré le système d’exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, voir ces instructions :
 
 - [Création d’une machine virtuelle à partir d’une image](virtual-machines-windows-classic-createportal.md)
 - [Comment attacher un disque de données à une machine virtuelle](virtual-machines-windows-classic-attach-disk.md)
@@ -40,13 +40,13 @@ Avant de capturer une image d’une machine virtuelle Azure, nous vous recommand
 
 ##Capture de la machine virtuelle
 
-1. Dans le [portail Azure Classic](http://manage.windowsazure.com), **connectez-vous** à la machine virtuelle. Pour obtenir des instructions, consultez [Comment se connecter à une machine virtuelle exécutant Windows Server][].
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com), **connectez-vous** à la machine virtuelle. Pour obtenir des instructions, consultez [Comment se connecter à une machine virtuelle exécutant Windows Server][].
 
 2.	Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
 
 3.	Accédez au répertoire `%windir%\system32\sysprep`, puis exécutez sysprep.exe.
 
-4. 	La boîte de dialogue **Outil de préparation système** apparaît. Effectuez les actions suivantes :
+4. 	La boîte de dialogue **Outil de préparation système** apparaît. Effectuez les actions suivantes :
 
 	- Dans **Action de nettoyage du système**, sélectionnez **Enter System Out-of-Box Experience (OOBE)** et vérifiez que la case à cocher **Generalize** est activée. Pour plus d’informations sur l’utilisation de Sysprep, voir la page [Introduction à l’utilisation de Sysprep][].
 
@@ -80,7 +80,7 @@ L’image est prête à être utilisée pour créer des machines virtuelles. Pou
 
 
 
-[Comment se connecter à une machine virtuelle exécutant Windows Server]: virtual-machines-windows-classic-connect-logon.md
+[Comment se connecter à une machine virtuelle exécutant Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Introduction à l’utilisation de Sysprep]: http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Enter Sysprep.exe options]: ./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png
@@ -90,4 +90,4 @@ L’image est prête à être utilisée pour créer des machines virtuelles. Pou
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

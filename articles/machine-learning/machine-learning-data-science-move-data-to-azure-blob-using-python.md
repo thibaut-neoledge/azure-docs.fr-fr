@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de Python
@@ -129,4 +129,4 @@ L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il uti
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

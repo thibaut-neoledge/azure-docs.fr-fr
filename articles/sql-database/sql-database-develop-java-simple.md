@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/16/2016"
 	ms.author="lbosq"/>
 
 
@@ -46,10 +46,13 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
+* Visitez le [Centre de développement Java](/develop/java/).
+* Consultez la [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
+* Plus d’informations sur le [pilote JDBC Microsoft pour SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
 
-## Ressources supplémentaires
+## Ressources supplémentaires 
 
-Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

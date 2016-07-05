@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # Création d'applications qui utilisent des rubriques et des abonnements Service Bus
@@ -47,7 +47,7 @@ Avec cette configuration, chaque message provenant des terminaux de PDV est acce
 
 ## Afficher le code
 
-[Création d'applications qui utilisent des files d'attente Service Bus](service-bus-create-queues.md) décrit comment s'inscrire pour obtenir un compte Service Bus et créer un espace de noms de service. Pour utiliser l'espace de noms Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Le moyen le plus simple pour référencer des dépendances Service Bus consiste à installer le [package Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. Vous trouverez également l'assembly dans le kit de développement logiciel (SDK) d'Azure. Le téléchargement est disponible sur la [page de téléchargement du kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
+[Création d'applications qui utilisent des files d'attente Service Bus](service-bus-create-queues.md) décrit comment s'inscrire pour obtenir un compte Azure et créer un espace de noms de service. Pour utiliser l'espace de noms Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Le moyen le plus simple pour référencer des dépendances Service Bus consiste à installer le [package Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. Vous trouverez également l'assembly dans le kit de développement logiciel (SDK) d'Azure. Le téléchargement est disponible sur la [page de téléchargement du kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
 
 ### Créez la rubrique et les abonnements
 
@@ -150,4 +150,4 @@ Toutes les raisons d'utiliser la mise en file d’attente décrites dans [Créat
 
 Consultez [Création d'applications qui utilisent les files d'attente Service Bus](service-bus-create-queues.md) pour obtenir des informations sur l'utilisation des files d'attente dans le scénario de vente au détail de PDV.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

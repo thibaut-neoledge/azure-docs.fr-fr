@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="meetb"/>
 
 # Connexion à SQL Database à l’aide de Node.js
@@ -38,8 +38,14 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 
 [Preuve de concept sur la connexion à SQL à l’aide de Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* Consultez la [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
+* Plus d’informations sur le [pilote Node.js Microsoft pour SQL Server](https://msdn.microsoft.com/library/mt652093.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+## Ressources supplémentaires 
+
+* [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/)
+
+<!---HONumber=AcomDC_0622_2016-->

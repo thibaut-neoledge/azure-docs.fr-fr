@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/09/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -49,18 +49,17 @@
 
 ## Étapes suivantes
 
-- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [restauration d’une base de données supprimée.](sql-database-restore-deleted-database.md)
-- [Restaurer une base de données à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md)
-- [Restaurer une base de données à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour obtenir des instructions détaillées sur la restauration d’une base de données supprimée à l’aide du portail Azure, consultez [Restaurer une base de données supprimée à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md).
+- Pour obtenir des informations sur la restauration d’une base de données supprimée, consultez [Restaurer une base de données supprimée à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- Pour obtenir des informations détaillées sur la restauration d’une base de données supprimée, consultez [Restaurer une base de données supprimée](sql-database-restore-deleted-database.md)
+- Pour plus d’informations concernant les sauvegardes automatisées de base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 
 ## Ressources supplémentaires
 
-- [Restauration dans le temps](sql-database-point-in-time-restore.md)
+- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Restauration géographique](sql-database-geo-restore.md)
 - [Géo-réplication active](sql-database-geo-replication-overview.md)
 - [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Désactiver et supprimer un StorSimple Virtual Array
@@ -101,4 +101,4 @@ Procédez comme suit pour supprimer l’appareil :
 
 - Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre StorSimple Virtual Array](storsimple-ova-manager-service-administration.md). 
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0622_2016-->

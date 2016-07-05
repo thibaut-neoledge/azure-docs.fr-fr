@@ -131,7 +131,7 @@ Actuellement, les alias pris en charge sont les suivants :
 
 | Nom d'alias | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Les types de ressources pris en charge sont les suivants : Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Les types de ressources pris en charge sont les suivants : Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Le type de ressource pris en charge est Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Le type de ressource pris en charge est Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -140,12 +140,18 @@ Actuellement, les alias pris en charge sont les suivants :
 | Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-
-Pour obtenir plus d’informations sur les actions, consultez [RBAC - Rôles prédéfinis](active-directory/role-based-access-built-in-roles.md). Actuellement, la stratégie fonctionne uniquement sur les demandes PUT.
+Actuellement, la stratégie fonctionne uniquement sur les demandes PUT.
 
 ## Résultat
-La stratégie prend en charge trois types d'effet : **deny**, **audit** et **append**.
+La stratégie prend en charge trois types d’effet : **deny**, **audit** et **append**.
 
 - Deny génère un événement dans le journal d'audit et fait échouer la requête
 - Audit génère un événement dans le journal d'audit mais ne fait pas échouer la requête
@@ -385,7 +391,7 @@ Avec un corps de demande semblable au suivant :
     }
 
 
-La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour api-version, utilisez *2016-04-01*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2016-04-01*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Création d'une définition de stratégie à l'aide de PowerShell
 
@@ -418,7 +424,7 @@ Pour créer une affectation de stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour api-version, utilisez *2016-04-01*.
+{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2016-04-01*.
 
 Avec un corps de demande semblable au suivant :
 
@@ -462,4 +468,4 @@ Pour afficher tous les événements liés au résultat « audit », vous pouve
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

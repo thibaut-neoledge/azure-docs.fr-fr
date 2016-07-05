@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/11/2016"
+   ms.date="06/21/2016"
    ms.author="carlrab" />
 
 # Consignes et limitations générales de base de données SQL Azure
@@ -35,7 +35,7 @@ La base de données SQL Microsoft Azure ne prend pas en charge l’Agent ou les 
 
 ## Prise en charge du classement SQL Server
 
-Le classement de base de données par défaut utilisé par la base de données SQL Microsoft Azure est **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, où **LATIN1\_GENERAL** correspond à l’anglais (États-Unis) et **CP1** à la page de code 1252. La propriété **CI** indique que le classement n’est pas sensible à la casse, et **AS** qu’il respecte les accents. Il est possible de modifier le classement des bases de données V12 à l'aide de Transact-SQL. Pour plus d'informations sur la façon de définir le classement, consultez [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+Le classement de base de données par défaut utilisé par la base de données SQL Microsoft Azure est **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, où **LATIN1\_GENERAL** correspond à l’anglais (États-Unis) et **CP1** à la page de code 1252. La propriété **CI** indique que le classement n’est pas sensible à la casse, et **AS** qu’il respecte les accents. Il est impossible de modifier le classement des bases de données V12. Pour plus d'informations sur la façon de définir le classement, consultez [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## Conventions de dénomination
 
@@ -63,4 +63,4 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

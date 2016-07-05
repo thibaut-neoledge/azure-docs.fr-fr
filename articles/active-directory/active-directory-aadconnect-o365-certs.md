@@ -13,40 +13,92 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/16/2016"
 	ms.author="billmath"/>
 
 
 # Renouvellement des certificats de fédération pour Office 365 et Azure AD
 
-Si vous avez reçu un e-mail ou une notification du portail vous invitant à renouveler votre certificat pour Office 365, cet article vous explique comment procéder et éviter que le problème ne se reproduise. Ces informations reposent sur l’hypothèse que vous utilisez AD FS (services de fédération Active Directory) comme serveur de fédération.
+##Vue d'ensemble
 
->[AZURE.IMPORTANT] N’oubliez pas que l’authentification à travers votre proxy peut échouer dans Windows Server 2012 ou Windows Server 2008 R2 après l’une des actions suivantes :
+Afin d’assurer la fédération réussie entre Azure AD et AD FS, les certificats utilisés par AD FS pour signer les jetons de sécurité destinés à Azure AD doivent correspondre à la configuration d’Azure AD. Toute incompatibilité peut rompre l’approbation entre AD FS et AAD. Azure AD garantit la synchronisation de ces informations lors du déploiement d’AD FS et du proxy d’application web (pour l’accès extranet).
+
+Cet article fournit des informations supplémentaires pour gérer vos certificats de signature de jetons et les maintenir synchronisés avec Azure AD dans les scénarios suivants :
+
+* Vous ne déployez pas le proxy d’application web ; les métadonnées de fédération ne sont donc pas disponibles dans l’extranet.
+* Vous n’utilisez pas la configuration par défaut d’AD FS pour les certificats de signature de jetons.
+* Vous utilisez un fournisseur d’identité tiers.
+
+## Configuration par défaut d’AD FS pour les certificats de signature de jetons
+
+Les certificats de signature et de déchiffrement de jetons sont généralement des certificats auto-signés, valables pendant un an. La configuration par défaut d’AD FS relative aux certificats de signature et de déchiffrement de jetons comprend un processus de renouvellement automatique appelé **AutoCertificateRollover**. Si vous utilisez AD FS 2.0 ou une version ultérieure, Office 365 et Azure AD mettent automatiquement à jour votre certificat avant qu’il n’arrive à expiration.
+
+### Notification de renouvellement - Portail O365 et notification par e-mail
+
+>[AZURE.NOTE] Si vous avez reçu un e-mail ou une notification du portail vous invitant à renouveler votre certificat pour Office, vous pouvez suivre les étapes de [gestion des modifications apportées aux certificats de signature de jeton](#managecerts) ci-dessous pour savoir si une action est requise de votre part. Microsoft est conscient d’un problème pouvant faire apparaître des notifications invitant l’utilisateur à renouveler le certificat, même si aucune action n’est requise.
+
+Azure AD tente d’analyser les métadonnées de fédération et de mettre à jour les certificats de signature de jeton, comme indiqué par les métadonnées de fédération. Pour vérifier la disponibilité de nouveaux certificats, Azure AD interroge les métadonnées de fédération 30 jours avant l’expiration des certificats de signature de jeton.
+
+* Aucune notification n’est envoyée par e-mail ou ne s’affiche dans le portail O365 si Azure AD réussit à récupérer les nouveaux certificats après interrogation des métadonnées de fédération
+* Si, en revanche, les nouveaux certificats de signature de jetons ne peuvent être récupérés (les métadonnées de fédération étant inaccessibles ou la substitution automatique des certificats étant inactivée), une notification sera envoyée par e-mail et s’affichera également dans le portail O365
+
+![Notification du portail O365](./media/active-directory-aadconnect-o365-certs/notification.png)
+
+>[AZURE.IMPORTANT] Si vous utilisez AD FS, vérifiez que vos serveurs possèdent les correctifs suivants afin d’éviter les échecs d’authentification pour les problèmes connus ; la continuité des activités est ainsi assurée. Cela limite les problèmes connus du serveur proxy AD FS pour ce renouvellement ainsi que pour les périodes de renouvellement suivantes :
 >
-- Votre proxy renouvelle son jeton d’approbation après la substitution des certificats dans AD FS.
-- Vous avez remplacé manuellement vos certificats AD FS.
+>Server 2012 R2 - [Windows Server : correctif cumulatif de mai 2014](http://support.microsoft.com/kb/2955164)
 >
-Un correctif permettant de résoudre ce problème est disponible. Consultez [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446).
+>Server 2008 R2 et 2012 [Échec de l’authentification par proxy dans Windows Server 2008 R2 SP1 ou dans Windows Server 2012](http://support.microsoft.com/kb/3094446)
 
-## Vérifier si une intervention de votre part est nécessaire
+## Vérifiez si les certificats doivent être mis à jour <a name="managecerts"></a>
 
-Si vous utilisez AD FS 2.0 ou une version ultérieure, Office 365 et Azure AD mettent automatiquement à jour votre certificat avant qu’il n’arrive à expiration. Vous n’avez pas besoin de suivre de procédure manuelle ni d’exécuter de script sous la forme d’une tâche planifiée. Pour que ceci fonctionne, les deux paramètres de configuration AD FS par défaut ci-dessous doivent être en vigueur :
+### Étape 1 : vérifier l’état de AutoCertificateRollover
 
-- La propriété AD FS AutoCertificateRollover doit être définie sur True, indiquant qu’AD FS génère automatiquement de nouveaux certificats de signature de jetons et de déchiffrement de jeton avant que les anciens certificats n’arrivent à expiration.
-	- Si cette propriété est définie sur la valeur False, vous utilisez des paramètres de certificat personnalisés. Cliquez [ici](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert) pour découvrir la procédure à suivre dans ce cas.
-- Vos métadonnées de fédération doivent être accessibles par le réseau Internet public.
+Sur votre serveur AD FS, ouvrez Microsoft Powershell. Vérifiez que la valeur de AutoCertRollover est définie sur TRUE
 
-	Voici comment vérifier ce point :
+	Get-Adfsproperties
 
-	- Assurez-vous que votre installation AD FS utilise la substitution de certificat automatique en exécutant la commande suivante dans une fenêtre de commande PowerShell sur votre serveur de fédération principal :
+![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
-	`PS C:\> Get-ADFSProperties`
+[AZURE.NOTE] Si vous utilisez AD FS 2.0, vous devrez commencer par exécuter Add-Pssnapin Microsoft.Adfs.Powershell.
 
-(Notez que si vous utilisez AD FS 2.0, vous devrez commencer par exécuter Add-Pssnapin Microsoft.Adfs.Powershell.)
+### Étape 2 : vérifier que les services AD FS et Azure AD sont synchronisés
 
-Dans le résultat obtenu, recherchez le paramètre suivant :
-	
-	AutoCertificateRollover :True
+Sur votre serveur AD FS, ouvrez l’invite de commandes Azure AD Powershell et connectez-vous à Azure AD.
+
+>[AZURE.NOTE] Vous pouvez télécharger Azure AD Powershell [ici](https://technet.microsoft.com/library/jj151815.aspx) si celle-ci n’est pas déjà installée.
+
+	Connect-MsolService
+
+Vérifiez les certificats configurés dans les propriétés d’approbation d’AD FS et d’Azure AD pour le domaine spécifié.
+
+	Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+
+![Get-MsolFederationProperty](./media/active-directory-aadconnect-o365-certs/certsync.png)
+
+Si les Thumbprints des deux sorties correspondent, cela confirme que vos certificats sont synchronisés avec Azure AD.
+
+### Étape 3 : vérifier si votre certificat est sur le point d’expirer
+
+Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez la date sous « Not after ». Si la date indiquée est fixée à moins de 30 jours restants, vous devez agir en conséquence.
+
+### Étape suivante
+
+| AutoCertificateRollover | Certificats synchronisés avec Azure AD | Métadonnées de fédération accessibles publiquement | Validité | Action |
+|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
+| Oui | Oui | Oui | - | Aucune action n’est requise. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew) | | Oui | Non | - | Moins de 15 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew) | | Non | - | - | Moins de 30 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew) |
+
+[-] N’a pas d’importance
+
+## Renouveler le certificat de signature de jetons automatiquement (recommandé) <a name="autorenew"></a>
+
+Si vous avez déployé le proxy d’application web, qui peut permettre l’accès aux métadonnées de fédération de l’extranet, et que vous utilisez la configuration AD FS par défaut (avec AutoCertificateRollover activé), **aucune action manuelle ne doit être effectuée.** Vérifiez les points suivants pour confirmer qu’une mise à jour automatique du certificat est possible :
+
+**1 : la propriété AutoCertificateRollover d’AD FS doit être définie sur True**
+
+Cela indique qu’AD FS génère automatiquement de nouveaux certificats de signature de jetons et de déchiffrement de jeton avant que les anciens certificats n’arrivent à expiration.
+
+**2 : les métadonnées de fédération AD FS sont accessibles publiquement**
 
 Vérifiez que vos métadonnées de fédération sont publiquement accessibles en accédant à l’URL ci-dessous à partir d’un ordinateur relié au réseau Internet public (en dehors du réseau de l’entreprise) :
 
@@ -57,41 +109,44 @@ où `(your_FS_name) ` est remplacé par le nom d’hôte du service de fédérat
 
 Exemple : https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## Si vous décidez de mettre à jour votre certificat manuellement
-Chaque fois que vous mettez à jour vos certificats AD FS manuellement, vous devez mettre à jour votre domaine Office 365 à l’aide de la commande PowerShell Update-MsolFederatedDomain, comme indiqué dans les étapes de la section Mettez manuellement à jour les propriétés d’approbation de fédération Office 365 [ici](#if-your-metadata-is-not-publicly-accessible).
+## Renouveler le certificat de signature de jetons manuellement <a name="manualrenew"></a>
 
-## Si votre propriété AutoCertificateRollover est définie sur False
+Vous pouvez choisir le renouvellement manuel des certificats de signature de jeton. Voici certains scénarios courants dans lesquels il serait judicieux de mettre à jour les certificats de signature de jeton manuellement :
+* Les certificats de signature de jeton ne sont pas auto-signés. Le plus souvent, ceci s’explique par le fait que votre organisation gère les certificats AD FS inscrits auprès d’une autorité de certification d’organisation. 
+* La sécurité réseau ne permet pas de rendre publiques les métadonnées de fédération.
 
-Si la propriété AutoCertificateRollover est définie sur False, vous utilisez des paramètres de certificat AD FS autres que ceux par défaut. Le plus souvent, ceci s’explique par le fait que votre organisation gère les certificats AD FS inscrits auprès d’une autorité de certification d’organisation. Dans ce cas, vous devez vous-même renouveler et mettre à jour vos certificats. Suivez les instructions fournies [ici](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Dans ces scénarios, vous devez mettre à jour votre domaine Office 365 à l’aide de la commande PowerShell Update-MsolFederatedDomain à chaque fois que vous mettez à jour les certificats de signature de jeton.
 
-## Si vos métadonnées ne sont pas accessibles publiquement
-Si votre paramètre AutocertificateRollover est défini sur True, mais que vos métadonnées de fédération ne sont pas disponibles publiquement, suivez la procédure ci-dessous pour vérifier que vos certificats sont mis à jour à la fois au niveau local et dans le cloud :
+### Renouvellement du certificat de signature de jeton et mise à jour de l’approbation de fédération d’O365
 
-### Vérifier que votre système AD FS a généré un nouveau certificat
+**Étape 1 : s’assurer qu’AD FS dispose de nouveaux certificats de signature de jetons**
 
-- Vérifiez que vous êtes connecté au serveur AD FS principal.
-- Vérifiez les certificats de signature actuels dans AD FS en ouvrant une fenêtre de commande PowerShell et en exécutant la commande suivante :
+### Configuration différente de la configuration par défaut
+Si vous êtes dans une configuration différente de la configuration par défaut d’AD FS, dans laquelle **AutoCertificateRollover** est défini sur **False**, vous utilisez probablement des certificats personnalisés (pas auto-signés). Pour obtenir des instructions complètes sur la manière de renouveler les certificats de signature de jetons AD FS, voir [Conseils pour les clients qui n’utilisent pas de certificats auto-signés AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
-`PS C:\>Get-ADFSCertificate –CertificateType token-signing.`
+### Les métadonnées de fédération ne sont pas disponibles publiquement
+En revanche, si **AutoCertificateRollover** est défini sur **True** sans que vos métadonnées de fédération ne soient disponibles publiquement, assurez-vous que les nouveaux certificats de signature de jetons ont été générés par AD FS. Suivez les étapes ci-dessous pour vous assurer que vous disposez des nouveaux certificats de signature de jetons
 
-(Notez que si vous utilisez AD FS 2.0, vous devrez commencer par exécuter Add-Pssnapin Microsoft.Adfs.Powershell.)
+1. Vérifiez que vous êtes connecté au serveur AD FS principal.
+2. Vérifiez les certificats de signature actuels dans AD FS en ouvrant une fenêtre de commande PowerShell et en exécutant la commande suivante :
 
+	PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
-- Examinez les certificats répertoriés dans la sortie de la commande. Si AD FS a généré un nouveau certificat, vous devez voir deux certificats dans la sortie : l’un dont la valeur IsPrimary est définie sur True et dont la date NotAfter correspond à 5 jours, et l’autre avec une valeur IsPrimary définie sur False et une valeur NotAfter correspondant à environ un an après la date du jour.
+	>[AZURE.NOTE] Si vous utilisez AD FS 2.0, vous devrez commencer par exécuter Add-Pssnapin Microsoft.Adfs.Powershell.
 
-- Si vous ne voyez qu’un seul certificat et que la date NotAfter est définie sur 5 jours, vous devez générer un nouveau certificat en suivant la procédure ci-après.
+3. Examinez les certificats répertoriés dans la sortie de la commande. Si AD FS a généré un nouveau certificat, vous devez voir deux certificats dans la sortie : l’un dont la valeur IsPrimary est définie sur True et dont la date NotAfter correspond à 5 jours, et l’autre avec une valeur IsPrimary définie sur False et une valeur NotAfter correspondant à environ un an après la date du jour.
 
-- Pour générer un nouveau certificat, exécutez la commande ci-dessous au niveau d’une invite de commande PowerShell : `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+4. Si vous ne voyez qu’un seul certificat et que la date NotAfter est définie sur 5 jours, vous devez générer un nouveau certificat en suivant la procédure ci-après.
 
-- Vérifiez la mise à jour en ré-exécutant la commande suivante : PS C:\>Get-ADFSCertificate –CertificateType token-signing
-	- Vous devez alors voir apparaître deux certificats, dont l’un présente une date NotAfter correspondant à environ un an après la date du jour et dont la valeur IsPrimary est définie sur False.
+5. Pour générer un nouveau certificat, exécutez la commande ci-dessous au niveau d’une invite de commande PowerShell : `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
 
-- Ensuite, procédez comme suit pour mettre à jour manuellement les propriétés d’approbation de fédération Office 365.
+6. Vérifiez la mise à jour en ré-exécutant la commande suivante : PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
+Vous devez alors voir apparaître deux certificats, dont l’un présente une date NotAfter correspondant à environ un an après la date du jour et dont la valeur IsPrimary est définie sur False.
 
+**Étape 2 : mettre à jour les nouveaux certificats de signature de jeton pour l’approbation d’O365**
 
-
-### Mettez manuellement à jour les propriétés d’approbation de fédération Office 365 en procédant comme suit.
+Suivez les étapes ci-dessous pour mettre à jour O365 avec les nouveaux certificats de signature de jeton devant être utilisés pour l’approbation.
 
 1.	Ouvrez le Module Microsoft Azure Active Directory pour Windows PowerShell.
 2.	Exécutez la commande $cred=Get-Credential. Lorsque cette applet de commande vous demande des informations d’identification, tapez vos informations d’identification de compte administrateur de services cloud.
@@ -99,6 +154,13 @@ Si votre paramètre AutocertificateRollover est défini sur True, mais que vos m
 4.	Si vous exécutez ces commandes sur un ordinateur autre que le serveur de fédération principal AD FS, exécutez Set-MSOLAdfscontext -Computer <AD FS primary server>, où <AD FS primary server> est le nom de domaine complet interne du serveur AD FS principal. Cette applet de commande crée un contexte qui vous connecte à AD FS.
 5.	Exécutez Update-MSOLFederatedDomain –DomainName <domain>. Cette applet de commande met à jour les paramètres d’AD FS dans le service cloud et configure la relation d’approbation entre les deux.
 
->[AZURE.NOTE] Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur SupportMultipleDomain avec les applets de commande. Pour plus d’informations, consultez [Prise en charge de plusieurs domaines de premier niveau](active-directory-aadconnect-multiple-domains.md). Pour finir, vérifiez que tous les serveurs Proxy d’application Web sont mis à jour avec le correctif cumulatif de [mai 2014 pour Windows Server](http://support.microsoft.com/kb/2955164) ; dans le cas contraire, les proxys risquent de ne pas se mettre à jour avec le nouveau certificat, ce qui entraînera une panne.
 
-<!---HONumber=AcomDC_0504_2016-->
+>[AZURE.NOTE] Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur SupportMultipleDomain avec les applets de commande. Pour plus d’informations, consultez [Prise en charge de plusieurs domaines de premier niveau](active-directory-aadconnect-multiple-domains.md).
+
+## Réparer l’approbation Azure AD à l’aide d’AAD Connect <a name="connectrenew"></a>
+
+Si vous avez installé et configuré votre batterie de serveurs AD FS et l’approbation Azure AD à l’aide d’Azure AD Connect, vous pouvez utiliser Azure AD Connect afin de vérifier si vous devez agir ou non pour vos certificats de signature de jetons. Si vous devez renouveler les certificats, utilisez Azure AD Connect pour faire le nécessaire en quelques clics.
+
+Pour plus d’informations, voir [Réparation de l’approbation](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
+
+<!---HONumber=AcomDC_0622_2016-->

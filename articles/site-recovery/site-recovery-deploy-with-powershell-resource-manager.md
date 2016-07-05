@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="06/13/2016"
+	ms.date="06/15/2016"
 	ms.author="bsiva"/>
 
 # Réplication de machines virtuelles Hyper-V en local dans Azure avec PowerShell et Azure Resource Manager.
@@ -82,19 +82,10 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 	Si le paramètre **RegistrationState** est défini sur **Inscrit** dans la sortie de ces commandes, vous pouvez passer à l’étape 2. Dans le cas contraire, vous devez inscrire le fournisseur manquant dans votre abonnement.
 
-	Pour inscrire le fournisseur Azure pour Site Recovery, exécutez la commande suivante :
+	Pour inscrire le fournisseur Azure pour Site Recovery et Recovery Services, exécutez les commandes suivantes :
 
     	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery
-
-	De même, si vous utilisez les applets de commande Recovery Services pour la première fois dans votre abonnement, vous devez inscrire le fournisseur Azure pour Recovery Services. Avant de procéder, activez l’accès au fournisseur Recovery Services sur votre abonnement en exécutant la commande suivante :
-
-		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
-
-	>[AZURE.TIP] Après l’exécution de cette commande, vous devrez peut-être patienter jusqu’à une heure pour pouvoir activer l’accès au fournisseur Recovery Services sur votre abonnement. Les tentatives d’inscription du fournisseur Recovery Services dans votre abonnement à l’aide de la commande `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` risquent d’échouer dans l’intervalle. Dans ce cas, patientez une heure avant d’effectuer une nouvelle tentative.
-
-	Une fois l’accès au fournisseur Recovery Services activé sur votre abonnement, inscrivez le fournisseur dans votre abonnement en exécutant la commande suivante :
-
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 
 	Vérifiez que les fournisseurs ont été correctement inscrits à l’aide des commandes suivantes : `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` et `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
@@ -266,4 +257,4 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 [En savoir plus](https://msdn.microsoft.com/library/azure/mt637930.aspx) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

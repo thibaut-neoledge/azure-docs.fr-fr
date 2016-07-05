@@ -21,4 +21,4 @@ Cette section répertorie les quotas et les limites de base de Microsoft Azure E
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!----HONumber=AcomDC_0615_2016-->

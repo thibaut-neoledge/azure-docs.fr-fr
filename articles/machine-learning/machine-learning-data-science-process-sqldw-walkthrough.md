@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Processus d’analyse Cortana en action : Utilisation de SQL Data Warehouse | Microsoft Azure"
+	pageTitle="Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse | Microsoft Azure"
 	description="Processus d’analyse avancé et technologie en action"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
-# Processus d’analyse Cortana en action : Utilisation de SQL Data Warehouse
+# Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
 
-La procédure suit le flux de travail [Processus d’analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Nous montrons comment configurer un environnement de science des données, comment charger les données dans SQL DW et comment utiliser SQL DW ou un IPython Notebook pour explorer les données et les caractéristiques d’ingénierie à modéliser. Nous expliquons ensuite comment générer et déployer un modèle avec Azure Machine Learning.
+La procédure suit le flux de travail [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Nous montrons comment configurer un environnement de science des données, comment charger les données dans SQL DW et comment utiliser SQL DW ou un IPython Notebook pour explorer les données et les caractéristiques d’ingénierie à modéliser. Nous expliquons ensuite comment générer et déployer un modèle avec Azure Machine Learning.
 
 
 ## <a name="dataset"></a>Jeu de données NYC Taxi Trips
@@ -91,7 +91,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Installez Visual Studio 2015 et SQL Server Data Tools.** Pour connaître les instructions à suivre, consultez l’article [Installer Visual Studio 2015 et/ou SSDT pour SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connectez-vous à votre Azure SQL DW avec Visual Studio.** Pour connaître les instructions à suivre, consultez les étapes 1 et 2 dans [Se connecter à SQL Data Warehouse avec Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
+**Connectez-vous à votre Azure SQL DW avec Visual Studio.** Pour connaître les instructions à suivre, consultez les étapes 1 et 2 dans [Se connecter à SQL Data Warehouse avec Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 >[AZURE.NOTE] Exécutez la requête SQL suivante sur la base de données que vous avez créée dans votre SQL Data Warehouse (au lieu de la requête fournie à l’étape 3 de la rubrique de connexion) pour **créer une clé principale**.
 
@@ -920,7 +920,7 @@ La figure ci-après illustre un exemple d’expérience de notation. Quand vous 
 
 
 ## Résumé
-Pour résumer ce didacticiel pas à pas, vous avez créé un environnement de science des données Azure, manipulé un jeu de données public volumineux, depuis l’acquisition des données et la formation de modèles, via le processus d’analyse Cortana, jusqu’au déploiement d’un service web Azure Machine Learning.
+Pour résumer ce didacticiel pas à pas, vous avez créé un environnement de science des données Azure, manipulé un jeu de données public volumineux, depuis l’acquisition des données et la formation de modèles, via le processus TDSP (Team Data Science Process), jusqu’au déploiement d’un service web Azure Machine Learning.
 
 ### Informations de licence
 
@@ -964,4 +964,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

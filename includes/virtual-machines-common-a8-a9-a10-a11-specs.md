@@ -51,13 +51,10 @@ Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se
 
 * **Service cloud ou groupe à haute disponibilité** : pour vous connecter via le réseau RDMA, les machines virtuelles de taille A8 et A9 doivent être déployées dans le même service cloud (si vous utilisez le modèle de déploiement classique) ou le même groupe à haute disponibilité (si vous utilisez le modèle de déploiement Azure Resource Manager).
 
-* **Tarification** : les tailles de machine virtuelle A8 à A11 sont uniquement disponibles dans le niveau tarifaire Standard.
+* **Tarification** : les tailles de machine virtuelle A8 à A11 sont uniquement disponibles dans le niveau tarifaire Standard.
 
-* **Redimensionnement** : vous ne pouvez pas redimensionner une instance d'une taille différente de A8 à A11 pour l'une des tailles d'instance de calcul intensif (A8 à 11) et vous ne pouvez pas redimensionner une instance de calcul intensif sur une taille de calcul non intensif. Cela est dû au matériel spécialisé et aux optimisations des performances qui sont spécifiques aux instances de calcul intensif.
+* **Redimensionnement** : vous ne pouvez pas redimensionner une instance d'une taille différente de A8 à A11 pour l'une des tailles d'instance de calcul intensif (A8 à 11) et vous ne pouvez pas redimensionner une instance de calcul intensif sur une taille de calcul non intensif. Cela est dû au matériel spécialisé et aux optimisations des performances qui sont spécifiques aux instances de calcul intensif.
 
-* **Espace d'adressage réseau RDMA** : le réseau RDMA dans Azure réserve l'espace d’adressage 172.16.0.0/12. Si vous envisagez d'exécuter des applications MPI sur des instances A8 et A9 dans un réseau virtuel Azure, assurez-vous que l'espace d'adressage du réseau virtuel ne chevauche pas le réseau RDMA.
+* **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous envisagez d'exécuter des applications MPI sur des instances A8 et A9 dans un réseau virtuel Azure, assurez-vous que l'espace d'adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
-
-
-
-
+<!---HONumber=AcomDC_0622_2016-->

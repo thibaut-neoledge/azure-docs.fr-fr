@@ -30,7 +30,7 @@ Cet article suppose que vous avez :
 
 - **Un abonnement Azure** : si vous ne disposez pas déjà d’un abonnement Azure, [créez un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) et [activez vos avantages abonnés MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-- **Azure PowerShell version 1.0 ou ultérieure** : si vous ne l’avez pas déjà installé, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+- **Azure PowerShell version 1.4 ou ultérieure** : si vous ne l’avez pas déjà installé, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 - **Une machine virtuelle Windows** : il existe de nombreux outils pour créer des machines virtuelles en local. Pour obtenir des exemples, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). Pour plus d’informations sur les systèmes d’exploitation Windows pris en charge par Azure, consultez [Prise en charge du logiciel serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/kb/2721672).
 
@@ -108,7 +108,7 @@ Vous avez besoin d’un compte de stockage dans Azure pour charger l’image de 
 
 ### Pour créer ou rechercher un compte de stockage Azure à l’aide de PowerShell
 
-1. Ouvrez Azure PowerShell 1.0.x et connectez-vous à votre compte Azure.
+1. Ouvrez Azure PowerShell et connectez-vous à votre compte Azure.
 
 		Login-AzureRmAccount
 
@@ -142,7 +142,7 @@ Vous avez besoin d’un compte de stockage dans Azure pour charger l’image de 
 
 	3. Créez un compte de stockage dans ce groupe de ressources à l’aide de :
 
-			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -Type "Standard_GRS"
+			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -SkuName "Standard_GRS" -Kind "Storage"
 
 
 </br> <a id="uploadvm"></a>
@@ -261,4 +261,4 @@ Vous devez voir la machine virtuelle nouvellement créée dans le [portail Azure
 
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->
