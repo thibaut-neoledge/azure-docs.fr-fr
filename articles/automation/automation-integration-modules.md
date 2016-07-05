@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="06/24/2016"
    ms.author="magoedte" />
 
 # Modules d’intégration Azure Automation
@@ -27,6 +27,8 @@ Un module PowerShell est un groupe d’applets de commande PowerShell, telles qu
 ## Qu’est-ce qu’un module d’intégration Azure Automation ?
 
 Un module d’intégration n’est pas très différent d’un module PowerShell. Il s’agit simplement d’un module PowerShell contenant éventuellement un fichier supplémentaire : un fichier de métadonnées spécifiant un type de connexion Azure Automation à utiliser avec les applets de commande du module dans les Runbooks. Qu’ils contiennent ce fichier ou non, ces modules PowerShell peuvent être importés dans Azure Automation pour activer leurs applets de commande pour une utilisation dans les Runbooks et leurs ressources DSC disponibles au sein des configurations DSC. Dans les coulisses, Azure Automation stocke ces modules et, lors de l’exécution d’un travail de compilation de DSC ou d’une tâche de Runbook, les charge dans les bacs à sable (sandbox) Azure Automation où les Runbooks sont exécutés et les configurations DSC sont compilées. Toute ressource DSC dans les modules est automatiquement placée sur le serveur Automation DSC afin de pouvoir être extraite par les ordinateurs qui tentent d’appliquer des configurations DSC. Dans Azure Automation, nous vous fournissons un certain nombre de modules Azure PowerShell prêts à l’emploi, pour une automatisation immédiate de la gestion Azure. Vous pouvez également facilement importer des modules PowerShell pour les intégrer à tout système, service ou outil que vous souhaitez.
+
+>[AZURE.NOTE] Certains modules sont fournis en tant que « modules globaux » dans le service Automation. Ces modules globaux sont prêts à l’emploi lorsque vous créez un compte Automation. Nous les mettons parfois à jour ce qui les transfère automatiquement en dehors de votre compte Automation. Si vous ne souhaitez pas qu’ils soient mis à jour automatiquement, vous pouvez toujours importer le même module vous-même. Celui-ci primera sur la version du module global fournie dans le service.
 
 Le format dans lequel vous importez un package de module d’intégration est un fichier compressé portant le même nom que le module et une extension .zip. Il contient le module Windows PowerShell et tout fichier de prise en charge, notamment un fichier manifeste (.psd1), le cas échéant.
 
@@ -65,7 +67,7 @@ Si vous avez déjà déployé Service Management Automation et créé des packag
 
 Bien que les modules d’intégration soient essentiellement des modules PowerShell, cela ne signifie pas que nous ne disposons pas de meilleures pratiques pour leur création. Nous vous recommandons de prendre en compte certains éléments lors de la création d’un module PowerShell, pour une utilisation optimale de ce dernier dans Azure Automation. Certains d’entre eux sont propres à Azure Automation, et certains sont utiles pour améliorer le fonctionnement de vos modules dans le Workflow PowerShell, que vous utilisiez Azure Automation ou non.
 
-1. Incluez un résumé, une description et une URI d’aide pour chaque applet de commande dans le module. Dans PowerShell, vous pouvez définir certaines informations d’aide pour les applets de commande, pour que l’utilisateur puisse obtenir de l’aide quant à leur utilisation, avec l’applet de commande **Get-Help**. Par exemple, voici comment définir un synopsis et l’URI d’aide pour un module PowerShell écrit dans un fichier .psm1.<br>  
+1. Incluez un résumé, une description et une URI d’aide pour chaque applet de commande dans le module. Dans PowerShell, vous pouvez définir certaines informations d’aide pour les applets de commande, pour que l’utilisateur puisse obtenir de l’aide quant à leur utilisation, avec l’applet de commande **Get-Help**. Par exemple, voici comment définir un synopsis et l’URI d’aide pour un module PowerShell écrit dans un fichier .psm1.<br>
 
     ```
     <#
@@ -124,7 +126,7 @@ Bien que les modules d’intégration soient essentiellement des modules PowerSh
       Get-TwilioPhoneNumbers -Connection $CorpTwilio
     }
     ```
-<br> Vous pouvez activer un tel comportement pour vos applets de commande en les autorisant à accepter un objet de connexion directement en tant que paramètre, au lieu d’accepter uniquement des champs de connexion en tant que paramètres. Généralement, vous voudrez disposer d’un jeu de paramètres pour chaque élément, pour qu’un utilisateur n’utilisant pas Azure Automation puisse appeler vos applets de commande sans créer une table de hachage agissant en tant que l’objet de connexion. Le jeu de paramètres **SpecifyConnectionFields** ci-dessous permet de faire passer, une par une, les propriétés de champ de connexion. **UseConnectionObject** vous permet de transmettre directement la connexion. Comme vous pouvez le voir, l’applet de commande Send-TwilioSMS dans le [module Twilio de PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) autorise le passage dans les deux cas :
+<br> Vous pouvez activer un tel comportement pour vos applets de commande en les autorisant à accepter un objet de connexion directement en tant que paramètre, au lieu d’accepter uniquement des champs de connexion en tant que paramètres. Généralement, vous voudrez disposer d’un jeu de paramètres pour chaque élément, pour qu’un utilisateur n’utilisant pas Azure Automation puisse appeler vos applets de commande sans créer une table de hachage agissant en tant qu’objet de connexion. Le jeu de paramètres **SpecifyConnectionFields** ci-dessous permet de faire passer, une par une, les propriétés de champ de connexion. **UseConnectionObject** vous permet de transmettre directement la connexion. Comme vous pouvez le voir, l’applet de commande Send-TwilioSMS dans le [module Twilio de PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) autorise le passage dans les deux cas :
 
     ```
     function Send-TwilioSMS {
@@ -192,11 +194,11 @@ Bien que les modules d’intégration soient essentiellement des modules PowerSh
     }
     ```
 <br>
-6. Le module doit être entièrement contenu dans un package pouvant faire l’objet d’une copie Xcopy. Étant donné que les modules Azure Automation sont distribués aux bacs à sable (sandbox) lorsque les Runbooks doivent s’exécuter, ceux-ci doivent fonctionner indépendamment de l’hôte sur lequel ils s’exécutent. Cela signifie que vous devez être en mesure de compresser le package du module, le déplacer vers un autre hôte comportant une version identique ou plus récente de PowerShell, et le faire fonctionner normalement lorsqu’il est importé dans l’environnement PowerShell de cet hôte. Pour ce faire, le module ne doit pas dépendre de fichiers se trouvant à l’extérieur du dossier du module (le dossier compressé lors de l’importation dans Azure Automation), ni de seulement un jeu de paramètres unique du Registre sur un hôte, comme celui défini lors de l’installation d’un produit. Si cette meilleure pratique n’est pas respectée, le module ne sera pas utilisable dans Azure Automation.  
+6. Le module doit être entièrement contenu dans un package pouvant faire l’objet d’une copie Xcopy. Étant donné que les modules Azure Automation sont distribués aux bacs à sable (sandbox) lorsque les Runbooks doivent s’exécuter, ceux-ci doivent fonctionner indépendamment de l’hôte sur lequel ils s’exécutent. Cela signifie que vous devez être en mesure de compresser le package du module, le déplacer vers un autre hôte comportant une version identique ou plus récente de PowerShell, et le faire fonctionner normalement lorsqu’il est importé dans l’environnement PowerShell de cet hôte. Pour ce faire, le module ne doit pas dépendre de fichiers se trouvant à l’extérieur du dossier du module (le dossier compressé lors de l’importation dans Azure Automation), ni de seulement un jeu de paramètres unique du Registre sur un hôte, comme celui défini lors de l’installation d’un produit. Si cette meilleure pratique n’est pas respectée, le module ne sera pas utilisable dans Azure Automation.
 
 ## Étapes suivantes
 
-- Pour une prise en main des Runbooks de flux de travail PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md).
-- Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module] (Écrire un module Windows PowerShell) (https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
+- Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
+- Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module] \(Écrire un module Windows PowerShell) (https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->
