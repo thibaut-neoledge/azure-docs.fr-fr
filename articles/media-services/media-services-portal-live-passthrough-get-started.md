@@ -136,7 +136,7 @@ Pour plus d’informations sur les canaux directs, consultez [Vidéo en flux con
 
 	Le canal peut également ajouter, démarrer et publier un événement/programme en direct par défaut. Cet événement est configuré pour disposer de 8 heures d’archivage.
 
-	Pour ajouter davantage d’événements, appuyez sur le bouton **Live Event** (Événement en direct).
+	Pour ajouter davantage d’événements, appuyez sur le bouton **Live Event ** (Événement en direct).
 
 ##Obtenir les URL de réception
 
