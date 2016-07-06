@@ -3,7 +3,7 @@
    description="Version préliminaire de Microsoft Power BI Embedded - Code de base pour intégrer un rapport dans votre application, comment s’authentifier avec le jeton d’application Power BI Embedded, comment obtenir des rapports"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Incorporer un rapport Power BI avec un IFrame
 Cet article vous présente un code essentiel à l’utilisation de l’API REST **Power BI Embedded**, des jetons d’application, un IFrame et du code JavaScript pour intégrer ou incorporer un rapport dans votre application.
@@ -228,4 +228,4 @@ Cet article vous a présenté le code nécessaire à l’intégration d’un rap
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

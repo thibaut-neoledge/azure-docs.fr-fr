@@ -43,9 +43,16 @@ Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itiné
 
 |Propriété|Description|Contraintes|Considérations|
 |---|---|---|---|
-| Préfixe d’adresse | CIDR de destination auquel s’applique l’itinéraire, par exemple 10.1.0.0/16.|Ceci doit être une plage CIDR valide représentant des adresses sur l’Internet public, le réseau virtuel Azure ou le centre de données local.|Assurez-vous que le **préfixe d’adresse** ne contient pas l’adresse de la **valeur de tronçon suivant** ; dans le cas contraire, vos paquets entreront dans une boucle allant de la source au tronçon suivant sans jamais atteindre leur destination. |
-| Type de tronçon suivant | Type de tronçon Azure vers lequel le paquet doit être envoyé. | Il doit s’agir de l’une des valeurs suivantes : <br/> **Local**. Représente le réseau virtuel local. Par exemple, si vous avez deux sous-réseaux, 10.1.0.0/16 et 10.2.0.0/16 qui sont situés dans le même réseau virtuel, l’itinéraire de chaque sous-réseau de la table d’itinéraires a la valeur de tronçon suivant *Local*. <br/> **Passerelle VPN**. Représente une passerelle VPN de site à site Azure. <br/> **Internet**. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure. <br/> **Appliance virtuelle**. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure. <br/> **NULL**. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés.| Envisagez d’utiliser un type **NULL** afin de mettre fin au transit des packages vers une destination donnée. | 
-| Valeur de tronçon suivant | La valeur de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*.| Doit être une adresse IP accessible. | Si l’adresse IP représente une machine virtuelle, veillez à activer le [transfert IP](#IP-forwarding) dans Azure pour la machine virtuelle. |
+| Préfixe d’adresse | CIDR de destination auquel s’applique l’itinéraire, par exemple 10.1.0.0/16.|Ceci doit être une plage CIDR valide représentant des adresses sur l’Internet public, le réseau virtuel Azure ou le centre de données local.|Assurez-vous que le **préfixe d’adresse** ne contient pas l’adresse de l’**adresse de tronçon suivant** ; dans le cas contraire, vos paquets entreront dans une boucle allant de la source au tronçon suivant sans jamais atteindre leur destination. |
+| Type de tronçon suivant | Type de tronçon Azure vers lequel le paquet doit être envoyé. | Il doit s’agir de l’une des valeurs suivantes : <br/> **Réseau virtuel**. Représente le réseau virtuel local. Par exemple, si vous avez deux sous-réseaux, 10.1.0.0/16 et 10.2.0.0/16 qui sont situés dans le même réseau virtuel, l’itinéraire de chaque sous-réseau de la table d’itinéraires a la valeur de tronçon suivant *Réseau virtuel*. <br/> **Passerelle de réseau virtuel**. Représente une passerelle VPN de site à site Azure. <br/> **Internet**. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure. <br/> **Appliance virtuelle**. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure. <br/> **Aucun**. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés.| Envisagez d’utiliser un type **Aucun** afin de mettre fin au transit des packages vers une destination donnée. | 
+| Adresse du tronçon suivant | L’adresse de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*.| Doit être une adresse IP accessible. | Si l’adresse IP représente une machine virtuelle, veillez à activer le [transfert IP](#IP-forwarding) dans Azure pour la machine virtuelle. |
+
+Dans Azure PowerShell, certaines valeurs « NextHopType » ont des noms différents :
+- Le réseau virtuel est nommé VnetLocal
+- La passerelle de réseau virtuel est nommée VirtualNetworkGateway
+- L’appliance virtuelle est nommée VirtualAppliance
+- Internet est nommé Internet
+- Aucun est nommé None
 
 ### Itinéraires système
 Chaque sous-réseau créé dans un réseau virtuel est automatiquement associé à une table de routage qui comporte les règles suivantes d’itinéraires du système :
@@ -68,7 +75,7 @@ Les sous-réseaux s’appuient sur des itinéraires système jusqu’à ce qu’
 1. Itinéraire BGP (lorsque ExpressRoute est utilisé)
 1. Itinéraire du système
 
-Pour savoir comment créer des itinéraires personnalisés, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
+Pour savoir comment créer des itinéraires personnalisés, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](virtual-network-create-udr-arm-template.md).
 
 >[AZURE.IMPORTANT] Les itinéraires définis par l’utilisateur sont appliqués uniquement aux machines virtuelles et services cloud Azure. Par exemple, si vous souhaitez ajouter une appliance virtuelle de pare-feu entre votre réseau local et Azure, vous devez créer un itinéraire défini par l’utilisateur pour vos tables d’itinéraires Azure qui transmettent tout le trafic allant vers l’espace d’adressage local à l’appliance virtuelle. Toutefois, le trafic entrant à partir de l’espace d’adressage local transite de votre passerelle VPN ou circuit ExpressRoute directement vers l’environnement Azure, en ignorant l’appliance virtuelle.
 
@@ -84,7 +91,7 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 
 ## Étapes suivantes
 
-- Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](virtual-network-create-udr-arm-template.md) et les associer à des sous-réseaux. 
+- Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](virtual-network-create-udr-arm-template.md) et les associer à des sous-réseaux.
 - Découvrez comment [créer des itinéraires dans le modèle de déploiement classique](virtual-network-create-udr-classic-ps.md) et les associer à des sous-réseaux.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -114,7 +114,7 @@ Utilisation d’apt-get :
 	user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 ##### Utilisation de Tasksel
-Vous pouvez également télécharger´Tasksel, un outil Debian/Ubuntu qui installe plusieurs packages connexes en tant que tâche coordonnée sur votre système.
+Vous pouvez également télécharger Tasksel, un outil Debian/Ubuntu qui installe plusieurs packages connexes en tant que tâche coordonnée sur votre système.
 
     user@ubuntu$ sudo apt-get install tasksel
     user@ubuntu$ sudo tasksel install lamp-server
