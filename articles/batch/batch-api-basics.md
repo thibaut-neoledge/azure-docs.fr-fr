@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/17/2016"
+	ms.date="06/29/2016"
 	ms.author="marsma"/>
 
 # Présentation des fonctionnalités du service Batch pour les développeurs
@@ -89,9 +89,9 @@ Un pool est une collection de nœuds sur lesquels votre application s’exécute
 
 Les pools Azure Batch sont créés sur la plateforme de calcul principale Azure ; les pools Batch permettent l’affectation à grande échelle, l’installation d’applications et de données, le transfert de données, l’analyse de l’état, ainsi que le réglage flexible du nombre de nœuds de calcul avec un pool ([mise à l’échelle](#scaling-compute-resources)).
 
-Chaque nœud ajouté à un pool se voit attribuer un nom unique et l’adresse IP. Lorsqu’un nœud est supprimé d’un pool, toutes les modifications apportées au système d’exploitation ou aux fichiers sont perdues, et son nom et l’adresse IP sont libérés pour une utilisation ultérieure. Lorsqu’un nœud quitte un pool, sa durée de vie est terminée.
+Chaque nœud ajouté à un pool se voit attribuer un nom unique et l’adresse IP. Lorsqu’un nœud est supprimé d’un pool, toutes les modifications apportées au système d’exploitation ou aux fichiers sont perdues, et son nom et l’adresse IP sont libérés pour une utilisation ultérieure. Lorsqu’un nœud quitte un pool, sa durée de vie est terminée.
 
-Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
+Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 
 - **Système d’exploitation** et **version** de nœud de calcul
 
@@ -133,7 +133,7 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 
 	Dans la plupart des scénarios, les tâches fonctionnent indépendamment les unes des autres et n’ont pas besoin de communiquer entre elles, mais il existe certaines applications dans lesquelles des tâches doivent communiquer (telles que les [scénarios MPI](batch-mpi.md)).
 
-	Vous pouvez configurer un pool pour permettre la communication entre les nœuds qu’il contient (communication entre les nœuds). Lorsque la communication entre les nœuds est activée, les nœuds des pools de la configuration des services cloud peuvent communiquer entre eux sur les ports supérieurs à 1100 et les pools de la configuration de machine virtuelle ne limitent pas le trafic sur les ports.
+	Vous pouvez configurer un pool pour permettre la communication entre les nœuds qu’il contient (**communication entre les nœuds**). Lorsque la communication entre les nœuds est activée, les nœuds des pools de la configuration des services cloud peuvent communiquer entre eux sur les ports supérieurs à 1100 et les pools de la configuration de machine virtuelle ne limitent pas le trafic sur les ports.
 
 	Notez que l’activation de la communication entre les nœuds affecte le placement des nœuds au sein des clusters et peut également limiter le nombre maximal de nœuds dans un pool en raison des restrictions de déploiement. Si votre application ne nécessite pas la communication entre nœuds, le service Batch peut éventuellement allouer au pool un grand nombre de nœuds issus de différents centres de données ou clusters pour accroître la puissance de traitement parallèle.
 
@@ -155,11 +155,11 @@ Un travail est une collecte de données et gère comment le calcul est effectué
 
 	Le service Batch peut détecter, puis relancer des tâches ayant échoué. Le **nombre maximal de tentatives de tâche** peut être spécifié comme une contrainte, et indiquer notamment si une tâche doit *toujours* être systématiquement relancée ou ne *jamais* l’être. Lorsqu’une tâche est relancée, cela signifie qu’elle est remise en file d’attente afin d’être réexécutée.
 
-- Les tâches peuvent être ajoutées à un travail par votre application cliente, ou une [Tâche du gestionnaire de travaux](#job-manager-task) peut être spécifiée. Une tâche de gestionnaire de travaux contient les informations nécessaires à la création des tâches requises pour un travail, avec la tâche de gestionnaire de travaux qui s’exécute sur l’un des nœuds de calcul du pool. La tâche du gestionnaire de travaux est gérée spécifiquement par Batch : elle est remise en file d’attente dès que le travail est créé et elles sont relancées lorsqu’elle échoue. Une tâche de gestionnaire de travaux est *requise* pour les travaux créés dans le cadre d’une [planification de travail](#scheduled-jobs), car il s’agit du seul moyen de définir les tâches avant que le travail ne soit instancié.
+- Les tâches peuvent être ajoutées à un travail par votre application cliente, ou une [Tâche du gestionnaire de travaux](#job-manager-task) peut être spécifiée. Une tâche de gestionnaire de travaux contient les informations nécessaires à la création des tâches requises pour un travail, avec la tâche de gestionnaire de travaux qui s’exécute sur l’un des nœuds de calcul du pool. La tâche du gestionnaire de travaux est gérée spécifiquement par Batch : elle est remise en file d’attente dès que le travail est créé et elles sont relancées lorsqu’elle échoue. Une tâche de gestionnaire de travaux est *requise* pour les travaux créés dans le cadre d’une [planification de travail](#scheduled-jobs), car il s’agit du seul moyen de définir les tâches avant que le travail ne soit instancié.
 
 ### Priorité de travail
 
-Vous pouvez établir une priorité pour les travaux que vous créez dans Batch. Le service Batch utilise les valeurs de priorité du travail pour déterminer l’ordre de planification du travail dans un compte (à ne pas confondre avec le [travail planifié](#scheduled-jobs)). Les valeurs de priorité sont comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Vous pouvez mettre à jour la priorité d’un travail à l’aide de l’opération [Mettre à jour les propriétés d’un travail][rest_update_job] (Batch REST) ou en modifiant la propriété [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
+Vous pouvez établir une priorité pour les travaux que vous créez dans Batch. Le service Batch utilise les valeurs de priorité du travail pour déterminer l’ordre de planification du travail dans un compte (à ne pas confondre avec le [travail planifié](#scheduled-jobs)). Les valeurs de priorité sont comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Vous pouvez mettre à jour la priorité d’un travail à l’aide de l’opération [Mettre à jour les propriétés d’un travail][rest_update_job] \(Batch REST) ou en modifiant la propriété [CloudJob.Priority][net_cloudjob_priority] \(Batch .NET).
 
 Dans le même compte, les tâches à la priorité plus élevée ont la priorité en termes de planification sur les tâches avec une priorité plus faible. Un travail avec une priorité plus élevée dans un compte n'a pas de priorité de planification sur un autre travail avec une valeur de priorité inférieure dans un autre compte.
 
@@ -191,7 +191,7 @@ Lorsque vous créez une tâche, vous pouvez spécifier les éléments suivants :
 
 - Les **contraintes** sous lesquelles la tâche doit s’exécuter. Par exemple, la durée maximale pendant laquelle la tâche est autorisée à s’exécuter, le nombre maximal de nouvelles tentatives en cas d’échec de la tâche, ainsi que la durée maximale pendant laquelle les fichiers du répertoire de travail sont conservés.
 
-Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœud, les tâches spéciales suivantes sont également fournies par le service Batch :
+Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœud, les tâches spéciales suivantes sont également fournies par le service Batch :
 
 - [Tâche de démarrage](#start-task)
 - [Tâche du gestionnaire de travaux](#job-manager-task)
@@ -205,7 +205,7 @@ En associant une **tâche de démarrage** avec un pool, vous pouvez préparer l�
 
 Le principal avantage de la tâche de démarrage est qu’elle peut contenir toutes les informations nécessaires pour configurer un nœud de calcul et installer les applications nécessaires à l’exécution de la tâche. Par conséquent, pour augmenter le nombre de nœuds dans un pool, il suffit de spécifier un nombre de nœuds cibles. Batch dispose déjà de toutes les informations nécessaires pour configurer les nouveaux nœuds et les préparer à accepter des tâches.
 
-Comme avec n’importe quelle tâche Azure Batch, une **liste de fichiers de ressources** peut être spécifiée dans [Azure Storage][azure_storage], en plus d’une **ligne de commande** à exécuter. Batch copiera d’abord les fichiers de ressources vers le nœud à partir d’Azure Storage, puis exécutera la ligne de commande. Pour une tâche de démarrage du pool, la liste des fichiers contient généralement l’application de la tâche ainsi que ses dépendances, mais elle peut également inclure des données de référence qui seront utilisées par toutes les tâches qui s’exécutent sur les nœuds de calcul. Par exemple, la ligne de commande d’une tâche de démarrage peut effectuer une opération `robocopy` afin de copier les fichiers d’application (qui ont été spécifiés en tant que fichiers de ressources et téléchargés vers le nœud) à partir du [répertoire de travail](#files-and-directories) de la tâche de démarrage vers le [dossier partagé](#files-and-directories), puis exécuter un MSI ou `setup.exe`.
+Comme avec n’importe quelle tâche Azure Batch, une liste de **fichiers de ressources** peut être spécifiée dans [Azure Storage][azure_storage], en plus d’une **ligne de commande** à exécuter. Batch copiera d’abord les fichiers de ressources vers le nœud à partir d’Azure Storage, puis exécutera la ligne de commande. Pour une tâche de démarrage du pool, la liste des fichiers contient généralement l’application de la tâche ainsi que ses dépendances, mais elle peut également inclure des données de référence qui seront utilisées par toutes les tâches qui s’exécutent sur les nœuds de calcul. Par exemple, la ligne de commande d’une tâche de démarrage peut effectuer une opération `robocopy` afin de copier les fichiers d’application (qui ont été spécifiés en tant que fichiers de ressources et téléchargés vers le nœud) à partir du [répertoire de travail](#files-and-directories) de la tâche de démarrage vers le [dossier partagé](#files-and-directories), puis exécuter un MSI ou `setup.exe`.
 
 > [AZURE.IMPORTANT] Le service Batch prend actuellement en charge *uniquement* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Vos tâches Batch (y compris les tâches standard, de démarrage, de préparation des travaux et de validation des travaux) doivent spécifier des fichiers de ressources se trouvant *uniquement* dans les comptes de stockage à **usage général**.
 
@@ -217,7 +217,7 @@ Si une tâche de démarrage échoue sur un nœud du pool, l’état du nœud est
 
 Une **tâche de gestionnaire de tâche** est généralement pour le contrôle et/ou la surveillance de l’exécution du travail. Par exemple, la création et l’envoi des d’un travail, la détermination d’autres tâches à exécuter et la détermination du fonctionnement est complète. Une tâche de gestionnaire de travaux n’est pas limitée à ces activités ; il s’agit d’une tâche à part entière qui peut exécuter n’importe quelle action requise pour le travail. Par exemple, une tâche de gestionnaire de tâche peut télécharger un fichier spécifié en tant que paramètre, analyser le contenu de ce fichier et envoyer des tâches supplémentaires en fonction de son contenu.
 
-Une tâche de gestionnaire de tâche est démarrée avant toutes les autres tâches et offre les caractéristiques suivantes :
+Une tâche de gestionnaire de tâche est démarrée avant toutes les autres tâches et offre les caractéristiques suivantes :
 
 - Elle est automatiquement soumise en tant que tâche par le service Batch lorsque le travail est créé.
 
@@ -233,10 +233,10 @@ Une tâche de gestionnaire de tâche est démarrée avant toutes les autres tâc
 
 #### Tâches de préparation et lancement
 
-Btach fournit la tâche de préparation de travail pour le programme d’installation de l’exécution du travail préliminaire et la tâche de version de maintenance postérieure au travail ou de nettoyage.
+Batch fournit la tâche de préparation de travail pour le programme d’installation de l’exécution du travail préliminaire et la tâche de version de maintenance postérieure au travail ou de nettoyage.
 
-- **Tâche de préparation de travail** - la tâche de préparation de travail s’exécute sur tous les nœuds de calcul pour exécuter les tâches avant que les autres tâches du travail soient exécutées. Utilisez la tâche de préparation de travail pour copier des données partagées par toutes les tâches, mais unique au travail, par exemple.
-- **Tâche de validation de travail** - lorsqu’un travail est terminé, la tâche de validation s’exécute sur chaque nœud dans le pool ayant exécuté au moins une tâche. Utilisez la tâche de validation pour supprimer les données copiées par la tâche de préparation de travail, ou compresser et télécharger des données de journaux de diagnostic, par exemple.
+- **Tâche de préparation de travail** : la tâche de préparation de travail s’exécute sur tous les nœuds de calcul pour exécuter les tâches avant que les autres tâches du travail soient exécutées. Utilisez la tâche de préparation de travail pour copier des données partagées par toutes les tâches, mais unique au travail, par exemple.
+- **Tâche de validation de travail** : lorsqu’un travail est terminé, la tâche de validation s’exécute sur chaque nœud dans le pool ayant exécuté au moins une tâche. Utilisez la tâche de validation pour supprimer les données copiées par la tâche de préparation de travail, ou compresser et télécharger des données de journaux de diagnostic, par exemple.
 
 Les tâches de préparation et de validation vous permettent de spécifier une ligne de commande à exécuter lorsque la tâche est appelée et offrent des fonctionnalités telles que le téléchargement de fichiers, l’exécution élevée, les variables d’environnement personnalisées, la durée maximale d’exécution, le nombre de nouvelles tentatives et la période de rétention de fichier.
 
@@ -250,7 +250,7 @@ Pour une présentation détaillée de l’exécution des travaux MPI dans Batch 
 
 #### Dépendances de la tâche
 
-La dépendance entre tâches, comme son nom l’indique, vous permet de préciser que l’exécution d’une tâche dépend de l’achèvement préalable d’autres tâches. Cette fonctionnalité prend en charge des situations dans lesquelles une tâche « en aval » consomme le résultat d’une sortie d’une tâche « en amont », ou lorsqu’une tâche en amont effectue une initialisation requise par une tâche en aval. Pour utiliser cette fonctionnalité, vous devez d’abord activer les dépendances de tâche sur la tâche Batch. Ensuite, pour chaque tâche qui dépend d’une autre (ou de plusieurs autres), vous devez spécifier les tâches dont elle dépend.
+La [dépendance entre tâches](batch-task-dependencies.md), comme son nom l’indique, vous permet de préciser que l’exécution d’une tâche dépend de l’achèvement préalable d’autres tâches. Cette fonctionnalité prend en charge des situations dans lesquelles une tâche « en aval » consomme le résultat d’une sortie d’une tâche « en amont », ou lorsqu’une tâche en amont effectue une initialisation requise par une tâche en aval. Pour utiliser cette fonctionnalité, vous devez d’abord activer les dépendances de tâche sur la tâche Batch. Ensuite, pour chaque tâche qui dépend d’une autre (ou de plusieurs autres), vous devez spécifier les tâches dont elle dépend.
 
 Avec l’interdépendance des tâches, vous pouvez configurer des scénarios suivants :
 
@@ -258,15 +258,15 @@ Avec l’interdépendance des tâches, vous pouvez configurer des scénarios sui
 * *taskC* dépend de *taskA* et de *taskB*
 * *taskD* dépend d’une suite de tâches, notamment les tâches *1* à *10*, avant de pouvoir s’exécuter
 
-Découvrez l’exemple de code [TaskDependencies][github_sample_taskdeps] dans le référentiel GitHub [azure-batch-samples][github_samples]. Vous apprendrez grâce à lui à configurer des tâches qui dépendent d’autres tâches à l’aide de la bibliothèque [Batch .NET][batch_net_api].
+Consultez [Task dependencies in Azure Batch](batch-task-dependencies.md) (Dépendances dans Azure Batch) et l’exemple de code [TaskDependencies][github_sample_taskdeps] dans le référentiel GitHub [azure-batch-samples][github_samples] pour plus d’informations détaillées sur cette fonctionnalité.
 
 ## Paramètres d'environnement des tâches
 
 Chaque tâche qui s’exécute dans un travail Batch a accès aux variables d’environnement définies à la fois par le service Batch (définie par le service, consultez le tableau ci-dessous) et par des variables d’environnement personnalisées pouvant être configurées pour les tâches. Les applications et les scripts exécutés par des tâches sur les nœuds ont accès à ces variables d’environnement pendant leur exécution.
 
-Vous pouvez définir des variables d’environnement personnalisées au niveau de la tâche ou du travail en remplissant la propriété de *paramètres d’environnement* pour ces entités. Par exemple, consultez l’opération [Ajouter une tâche à un travail][rest_add_task] (API Batch REST) ou les propriétés [CloudTask.EnvironmentSettings][net_cloudtask_env] et [CloudJob.CommonEnvironmentSettings][net_job_env] dans Batch .NET.
+Vous pouvez définir des variables d’environnement personnalisées au niveau de la tâche ou du travail en remplissant la propriété de *paramètres d’environnement* pour ces entités. Par exemple, consultez l’opération [Ajouter une tâche à un travail][rest_add_task] \(API Batch REST) ou les propriétés [CloudTask.EnvironmentSettings][net_cloudtask_env] et [CloudJob.CommonEnvironmentSettings][net_job_env] dans Batch .NET.
 
-L’application cliente ou le service peuvent obtenir des variables d’environnement d’une tâche, à la fois définies par le service et personnalisées, à l’aide de l’opération [Obtenir des informations sur une tâche][rest_get_task_info] (Batch REST) ou en accédant à la propriété [CloudTask.EnvironmentSettings][net_cloudtask_env] (Batch .NET). Les processus qui s’exécutent sur un nœud de calcul peuvent accéder à ces dernières ainsi qu’à d’autres variables d’environnement sur le nœud, par exemple à l’aide de la syntaxe classique `%VARIABLE_NAME%` (Windows) ou la syntaxe `$VARIABLE_NAME` (Linux).
+L’application cliente ou le service peuvent obtenir des variables d’environnement d’une tâche, à la fois définies par le service et personnalisées, à l’aide de l’opération [Obtenir des informations sur une tâche][rest_get_task_info] \(Batch REST) ou en accédant à la propriété [CloudTask.EnvironmentSettings][net_cloudtask_env] \(Batch .NET). Les processus qui s’exécutent sur un nœud de calcul peuvent accéder à ces dernières ainsi qu’à d’autres variables d’environnement sur le nœud, par exemple à l’aide de la syntaxe classique `%VARIABLE_NAME%` (Windows) ou la syntaxe `$VARIABLE_NAME` (Linux).
 
 Les variables d’environnement suivantes sont définies par le service Batch et sont accessibles par vos tâches :
 
@@ -285,21 +285,21 @@ Les variables d’environnement suivantes sont définies par le service Batch et
 | `AZ_BATCH_TASK_ID` | ID de la tâche en cours. |
 | `AZ_BATCH_TASK_WORKING_DIR` | Chemin d’accès complet du répertoire de travail de la tâche du nœud. |
 
->[AZURE.IMPORTANT] Ces variables d’environnement sont uniquement disponibles pour **l’utilisateur de la tâche** ; il s’agit du compte d’utilisateur du nœud sur lequel une tâche est exécutée. Vous ne les verrez **pas** si vous vous [connectez à distance](#connecting-to-compute-nodes) sur un nœud de calcul via RDP ou SSH et listez les variables d’environnement.
+>[AZURE.IMPORTANT] Ces variables d’environnement sont uniquement disponibles pour **l’utilisateur de la tâche** ; il s’agit du compte d’utilisateur du nœud sur lequel une tâche est exécutée. Vous ne verrez **pas** ces éléments si vous vous [connectez à distance](#connecting-to-compute-nodes) à un nœud de calcul via RDP ou SSH et répertoriez les variables d’environnement, car le compte d’utilisateur utilisé pour la connexion à distance n’est pas le même que le compte utilisé par la tâche.
 
 ## Fichiers et répertoires
 
-Chaque tâche possède un répertoire de travail sous lequel elle crée zéro ou plusieurs fichiers et des répertoires pour stocker le programme exécuté par la tâche, les données qu’il traite, et le résultat du traitement exécuté par la tâche. Ces fichiers et répertoires sont ensuite disponibles pour une utilisation par d’autres tâches pendant l’exécution d’un travail. L’ensemble des tâches, fichiers et répertoires d’un nœud sont la propriété d’un seul compte d’utilisateur.
+Chaque tâche possède un *répertoire de travail* sous lequel elle crée zéro ou plusieurs fichiers et répertoires. Ce répertoire de travail peut être utilisé pour stocker le programme exécuté par la tâche, les données qu’il traite et la sortie du traitement qu’il effectue. Tous les fichiers et répertoires d’une tâche sont détenus par l’utilisateur de la tâche.
 
 Le service Batch expose une partie du système de fichiers sur un nœud en tant que répertoire racine. Le répertoire racine est disponible pour une tâche par le biais d’un accès à la variable d’environnement `AZ_BATCH_NODE_ROOT_DIR`. Pour plus d’informations sur l’utilisation de variables d’environnement, consultez la section [Paramètres d’environnement des tâches](#environment-settings-for-tasks).
 
-Le répertoire racine contient a structure de répertoires suivante :
+Le répertoire racine contient la structure de répertoires suivante :
 
 ![Structure de répertoire du nœud de calcul][1]
 
-- **Partagé** - Ce répertoire fournit l’accès en lecture/écriture à *toutes* les tâches qui s’exécutent sur un nœud. Les tâches qui s’exécutent sur le nœud peuvent créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder au répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_SHARED_DIR`.
+- **Partagé** : ce répertoire fournit l’accès en lecture/écriture à *toutes* les tâches qui s’exécutent sur un nœud. Les tâches qui s’exécutent sur le nœud peuvent créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder au répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_SHARED_DIR`.
 
-- **Démarrage** – Ce répertoire est utilisé par une tâche de démarrage en tant que répertoire de travail. Tous les fichiers téléchargés vers le nœud par la tâche de démarrage sont stockés ici. La tâche de démarrage peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder au répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_STARTUP_DIR`.
+- **Démarrage** - Ce répertoire est utilisé par une tâche de démarrage en tant que répertoire de travail. Tous les fichiers téléchargés vers le nœud par la tâche de démarrage sont stockés ici. La tâche de démarrage peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder au répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_STARTUP_DIR`.
 
 - **Tâches** - Un répertoire est créé pour chaque tâche qui s’exécute sur le nœud, accessible en référençant la variable d’environnement `AZ_BATCH_TASK_DIR`.
 
@@ -323,7 +323,7 @@ Lorsque vous créez votre solution Azure Batch, une décision de conception doit
 
 D’un côté, un pool peut être créé pour chaque travail au moment de l’envoi, et ses nœuds peuvent être supprimés dès lors que les tâches cessent de s’exécuter. Ceci permet d’optimiser l’utilisation puisque les nœuds ne sont alloués que lorsque cela est absolument nécessaire et qu’ils s’arrêtent dès qu’ils deviennent inactifs. Cela signifie que le travail doit attendre que les nœuds soient alloués, mais il est important de noter que les tâches seront planifiées sur les nœuds dès qu’elles seront individuellement disponibles, allouées, et que cette tâche de démarrage sera terminée. Batch *n’* attend pas, par exemple, que tous les nœuds d’un pool soient disponibles avant d’affecter des tâches, car cela entraînerait une faible utilisation des nœuds disponibles.
 
-À l’autre extrémité du spectre, si la priorité absolue consiste à démarrer immédiatement une tâche, un pool eut être créé avant l’heure et ses nœuds seront mis à disposition avant l’envoi de travaux. Dans ce scénario, les tâches du travail peuvent démarrer immédiatement, mais les nœuds peuvent rester inactifs en attendant les tâches à affecter.
+À l’autre extrémité du spectre, si la priorité absolue consiste à démarrer immédiatement une tâche, un pool peut être créé avant l’heure et ses nœuds seront mis à disposition avant l’envoi de travaux. Dans ce scénario, les tâches du travail peuvent démarrer immédiatement, mais les nœuds peuvent rester inactifs en attendant les tâches à affecter.
 
 Une approche combinée, généralement utilisée pour la gestion de la charge variable, mais continue, consiste à disposer d’un pool auquel plusieurs travaux sont soumis, mais à mettre à l’échelle le nombre de nœuds (dans un sens ou dans l’autre) en fonction de la charge de travail (voir [Mise à l’échelle des ressources de calcul](#scaling-compute-resources) ci-dessous). Cela peut être fait en réaction, en fonction de la charge actuelle, de façon proactive, si la charge peut être prévue.
 
@@ -335,7 +335,7 @@ Pour activer la mise à l’échelle automatique, vous devez écrire une [formul
 
 Par exemple, il se peut qu’un travail exige que vous envoyiez un grand nombre de tâches devant être exécutées. Vous pouvez attribuer au pool une formule de mise à l’échelle qui règle le nombre de nœuds du pool en fonction du nombre actuel de tâches dans la file d’attente et du degré d’achèvement des tâches dans le travail. Le service Batch évalue la formule régulièrement et redimensionne le pool en fonction de la charge de travail (ajoute des nœuds en présence de plusieurs tâches dans la file d’attente ; supprime des nœuds en cas d’absence de tâches dans la file d’attente ou en cours d’exécution) et d’autres paramètres de formule.
 
-Une formule de mise à l’échelle peut être basée sur les mesures suivantes :
+Une formule de mise à l’échelle peut être basée sur les mesures suivantes :
 
 - **Mesures temporelles** – Celles-ci sont basées sur les statistiques collectées toutes les cinq minutes dans le nombre d'heures spécifié.
 
@@ -353,18 +353,18 @@ Pour plus d’informations sur la mise à l’échelle automatique d’une appli
 
 Vous devez en principe utiliser des certificats lors du chiffrement ou du déchiffrement des informations sensibles pour les tâches, par exemple, la clé d’un [compte de stockage Azure][azure_storage]. Pour prendre en charge ces opérations, il est possible d’installer des certificats sur les nœuds. Les secrets chiffrés sont transmis aux tâches dans les paramètres de ligne de commande ou incorporés dans l’une des ressources et les certificats installés peuvent être utilisés pour les déchiffrer.
 
-Pour ajouter un certificat à un compte Batch, utilisez l’opération [Ajouter le certificat][rest_add_cert] (Batch REST) ou la méthode [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET) pour ajouter un certificat à un compte Batch. Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque (notamment les tâches de démarrage et celles du gestionnaire de travaux).
+Pour ajouter un certificat à un compte Batch, utilisez l’opération [Ajouter le certificat][rest_add_cert] \(Batch REST) ou la méthode [CertificateOperations.CreateCertificate][net_create_cert] \(Batch .NET) pour ajouter un certificat à un compte Batch. Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque (notamment les tâches de démarrage et celles du gestionnaire de travaux).
 
 ## Gestion des erreurs
 
 Il peut s’avérer utile de gérer les échecs de tâche et application au sein de votre solution Batch.
 
 ### Gestion des échecs de tâche
-Les échecs de tâche peuvent être classés suivant les catégories suivantes :
+Les échecs de tâche peuvent être classés suivant les catégories suivantes :
 
 - **Échecs de planification**
 
-	Si le transfert de fichiers spécifié pour une tâche échoue pour une raison quelconque, une « erreur de planification » est définie pour la tâche.
+	Si le transfert de fichiers spécifié pour une tâche échoue pour une raison quelconque, une « erreur de planification » est définie pour la tâche.
 
 	Les causes d’erreur de planification peuvent être dues au fait que les fichiers de ressources de la tâche ont été déplacés, que le compte de stockage est indisponible ou au fait qu’un autre problème est survenu et a empêché la copie des fichiers vers le nœud.
 
@@ -376,7 +376,7 @@ Les échecs de tâche peuvent être classés suivant les catégories suivantes 
 
 - **Échecs de contrainte**
 
-	Une contrainte peut être définie, qui spécifie la durée maximale d’exécution d’un travail ou d’une tâche, le *maxWallClockTime*. Cela peut s’avérer utile lorsqu’il s’agit de terminer les tâches « suspendues ».
+	Une contrainte peut être définie, qui spécifie la durée maximale d’exécution d’un travail ou d’une tâche, le *maxWallClockTime*. Cela peut s’avérer utile lorsqu’il s’agit de terminer les tâches « suspendues ».
 
 	Lorsque le nombre maximal de tentatives est atteint, la tâche est marquée comme *terminée*, mais le code de sortie est défini sur le `0xC000013A`, et le champ *schedulingError* est marqué comme `{ category:"ServerError", code="TaskEnded"}`.
 
@@ -402,7 +402,7 @@ Des débogages et diagnostics étendus peuvent être effectués en se connectant
 
 >[AZURE.IMPORTANT] Pour vous connecter à un nœud via RDP ou SSH, vous devez d’abord créer un utilisateur sur le nœud. Pour ce faire, utilisez le portail Azure pour [Ajouter un compte d’utilisateur à un nœud][rest_create_user] à l’aide de l’API Batch REST, appeler la méthode [ComputeNode.CreateComputeNodeUser][net_create_user] dans Batch .NET, ou appeler la méthode [add\_user][py_add_user] dans le module Python de Batch.
 
-### Résolution des problèmes de « mauvais » nœuds de calcul
+### Résolution des problèmes de « mauvais » nœuds de calcul
 
 Quand certaines de vos tâches échouent, votre application cliente Batch ou un service peut examiner les métadonnées des tâches en échec pour identifier un nœud présentant un dysfonctionnement. Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s’exécute une tâche est inclus dans les métadonnées de la tâche. Une fois que vous avez identifié un « nœud problème », vous pouvez effectuer les actions suivantes :
 
@@ -420,13 +420,13 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 
 - **Désactiver la planification des tâches sur le nœud** ([REST][rest_offline] | [.NET][net_offline])
 
-	Cette opération est efficace puisqu’elle place le nœud « hors connexion ». Ainsi, aucune tâche ultérieure ne peut lui être assignée. Toutefois, le nœud est autorisé à poursuivre son exécution et à rester dans le pool. Cela vous permet de faire une recherche approfondie sur la cause des échecs sans perdre les données de la tâche en échec et sans que le nœud n’occasionne d’autres échecs de tâche supplémentaires. Par exemple, vous pouvez désactiver la planification des tâches sur le nœud, puis vous [connecter à distance](#connecting-to-compute-nodes) pour examiner les journaux des événements de ce nœud ou encore résoudre d’autres problèmes. Une fois que vous avez terminé votre recherche, vous pouvez remettre le nœud en ligne en activant la planification des tâches ([REST][rest_online], [.NET][net_online]), ou effectuer l’une des actions ci-dessus.
+	Cette opération est efficace puisqu’elle place le nœud « hors connexion ». Ainsi, aucune tâche ultérieure ne peut lui être assignée. Toutefois, le nœud est autorisé à poursuivre son exécution et à rester dans le pool. Cela vous permet de faire une recherche approfondie sur la cause des échecs sans perdre les données de la tâche en échec et sans que le nœud n’occasionne d’autres échecs de tâche supplémentaires. Par exemple, vous pouvez désactiver la planification des tâches sur le nœud, puis vous [connecter à distance](#connecting-to-compute-nodes) pour examiner les journaux des événements de ce nœud ou encore résoudre d’autres problèmes. Une fois que vous avez terminé votre recherche, vous pouvez remettre le nœud en ligne en activant la planification des tâches ([REST][rest_online], [.NET][net_online]), ou effectuer l’une des actions ci-dessus.
 
 > [AZURE.IMPORTANT] Pour chaque action mentionnée ci-dessus (redémarrer, réinitialiser, supprimer, désactiver la planification des tâches), vous pouvez indiquer la manière dont les tâches en cours d’exécution sur le nœud sont gérées lorsque vous effectuez l’action. Par exemple, lorsque vous désactivez la planification des tâches sur un nœud avec la bibliothèque cliente Batch.NET, vous pouvez indiquer une valeur d’énumération [DisableComputeNodeSchedulingOption][net_offline_option]. Celle-ci sert à préciser s’il faut **interrompre** les tâches en cours d’exécution, les **remettre en file d’attente** pour les planifier sur d’autres nœuds ou finaliser les tâches en cours avant d’exécuter l’action (**TaskCompletion**).
 
 ## Étapes suivantes
 
-- Passez en revue un exemple d’application Batch détaillée dans [Prise en main de la bibliothèque Azure Batch pour .NET.](batch-dotnet-get-started.md) Il existe également une [version Python](batch-python-tutorial.md) du didacticiel qui exécute une charge de travail sur des nœuds de calcul Linux.
+- Passez en revue un exemple d’application Batch détaillée dans [Prise en main de la bibliothèque Azure Batch pour .NET.](batch-dotnet-get-started.md). Il existe également une [version Python](batch-python-tutorial.md) du didacticiel qui exécute une charge de travail sur des nœuds de calcul Linux.
 
 - Découvrez comment [créer des pools de nœuds de calcul Linux](batch-linux-nodes.md).
 
@@ -435,7 +435,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_forum]: https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -483,4 +483,4 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

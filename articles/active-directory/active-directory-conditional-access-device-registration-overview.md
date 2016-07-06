@@ -5,7 +5,7 @@
 	keywords="enregistrement de l’appareil, activer l’enregistrement de l’appareil, enregistrement de l’appareil et MDM"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/29/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Prise en main du service Azure Active Directory Device Registration
@@ -48,7 +48,7 @@ Vous devez activer Azure Active Directory Device Registration sur le portail Azu
 7. Sélectionnez le nombre maximal d’appareils que vous souhaitez autoriser par utilisateur.
 
 >[AZURE.NOTE]
-L’inscription auprès de Microsoft Intune ou de Mobile Device Management pour Office 365 nécessite la jonction d’espace de travail. Si vous avez configuré l’un de ces services, TOUS est sélectionné et le bouton AUCUN est désactivé.
+L’inscription auprès de Microsoft Intune ou de Mobile Device Management pour Office 365 nécessite la jonction d’espace de travail. Si vous avez configuré l’un de ces services, TOUS est sélectionné et le bouton AUCUN est désactivé.
 
 Par défaut, l’authentification à deux facteurs n’est pas activée pour le service. Elle est toutefois recommandée lors de l’inscription d’un appareil.
 
@@ -61,7 +61,7 @@ Les appareils Windows 7 et Windows 8.1 détecteront le service Device Registrati
 
 Vous devez créer un enregistrement DNS CNAME qui pointe vers l’enregistrement A associé à votre service Azure Active Directory Device Registration. L’enregistrement CNAME doit utiliser le préfixe enterpriseregistration connu suivi du suffixe UPN utilisé par les comptes d’utilisateurs au sein de votre organisation. Si votre organisation utilise plusieurs suffixes UPN, plusieurs enregistrements CNAME doivent être créés dans le DNS.
 
-Par exemple, si vous utilisez deux suffixes UPN dans votre organisation nommés @contoso.com et @region.contoso.com, vous devez créer les enregistrements DNS suivants :
+Par exemple, si vous utilisez deux suffixes UPN dans votre organisation nommés @contoso.com et @region.contoso.com, vous devez créer les enregistrements DNS suivants :
 
 | Entrée | Type | Adresse |
 |-------------------------------------------|-------|------------------------------------|
@@ -71,7 +71,7 @@ Par exemple, si vous utilisez deux suffixes UPN dans votre organisation nommés 
 ## Afficher et gérer des objets appareil dans Azure Active Directory
 1. Dans le portail d’administration Azure, vous pouvez afficher, bloquer et débloquer des appareils. Un appareil bloqué n’aura plus accès aux applications qui sont configurées de manière à n’autoriser que les appareils inscrits.
 2. Connectez-vous au portail Microsoft Azure en tant qu’administrateur.
-3. Dans le volet gauche, sélectionnez **Active Directory**.
+3. Dans le volet gauche, sélectionnez **Active Directory**.
 4. Sélectionnez votre annuaire.
 5. Cliquez sur l’onglet **Utilisateurs**. Sélectionnez ensuite un utilisateur pour afficher ses appareils.
 6. Cliquez sur l’onglet **Appareils**.
@@ -80,11 +80,11 @@ Par exemple, si vous utilisez deux suffixes UPN dans votre organisation nommés 
 
 ## Rubriques supplémentaires
 
-Le service Azure Active Directory Device Registration vous permet d’inscrire vos appareils Windows 7 et Windows 8.1 joints à un domaine. La rubrique suivante fournit des informations supplémentaires sur les conditions préalables et les étapes requises pour configurer l’inscription de l’appareil sur des appareils Windows 7 et Windows 8.1.
+Le service Azure Active Directory Device Registration vous permet d’inscrire vos appareils Windows 7 et Windows 8.1 joints à un domaine. La rubrique suivante fournit des informations supplémentaires sur les conditions préalables et les étapes requises pour configurer l’inscription de l’appareil sur des appareils Windows 7 et Windows 8.1.
 
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md)
-- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-- [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-azureadjoin-devices-group-policy.md)
+- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
+- [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->
