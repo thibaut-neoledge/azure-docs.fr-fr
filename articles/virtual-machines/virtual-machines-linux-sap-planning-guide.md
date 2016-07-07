@@ -1503,9 +1503,9 @@ Les ports de communication SAP classiques sont répertoriés dans le tableau ci-
 | Passerelle | sapgw`<nn`> voir * | 3301 | gratuit | Passerelle SAP, utilisée pour les communications CPIC et RFC |
 | Routeur SAP | sapdp99 | 3299 | gratuit | Seuls les noms de service de l’instance centrale peuvent être réaffectés dans /etc/services à une valeur arbitraire après l’installation. |
 
-**) nn = Numéro d’instance SAP
+*) nn = Numéro d’instance SAP
 
-****) sid = SAP-System-ID
+**) sid = SAP-System-ID
 
 Vous trouverez ici <http://scn.sap.com/docs/DOC-17124> plus d’informations sur les ports requis pour les différents produits ou services SAP. Ce document va vous permettre d’ouvrir des ports dédiés sur le périphérique VPN nécessaire pour les scénarios et produits SAP spécifiques.
 
