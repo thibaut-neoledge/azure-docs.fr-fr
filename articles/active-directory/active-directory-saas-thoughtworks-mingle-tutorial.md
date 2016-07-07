@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Thoughtworks Mingle **du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Thoughtworks Mingle** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL du locataire Thoughtworks Mingle** de la page **Configurer l’URL de l’application**, tapez votre URL au format « **http://company.mingle.thoughtworks.com*", puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL du locataire Thoughtworks Mingle** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *http://company.mingle.thoughtworks.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Configurer l’URL de l’application")
 
@@ -150,3 +150,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0622_2016-->
+
