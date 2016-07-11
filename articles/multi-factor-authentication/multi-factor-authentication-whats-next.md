@@ -32,7 +32,7 @@ Fonctionnalité| Description| Éléments
 [Alerte de fraude](#fraud-alert)|Alerte de fraude peut être configuré et installé de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources.|Installation, configuration et signalement d’une fraude
 [Contournement à usage unique](#one-time-bypass) |Un contournement à usage unique permet à un utilisateur de s'authentifier une seule fois en « contournant » l'authentification multifacteur.|Installation et configuration d’un contournement à usage unique
 [Messages vocaux personnalisés](#custom-voice-messages) |Les messages vocaux personnalisés vous permettent d'utiliser vos propres enregistrements ou messages d’accueil avec l'authentification multifacteur. |Installation et configuration des messages et messages d’accueil personnalisés
-[Mise en cache](#caching)|La mise en cache vous permet de définir une période spécifique pour que les tentatives d'authentification suivantes aboutissent automatiquement. |Installation et configuration de la mise en cache de l’authentification.
+[Mise en cache](#caching-in-azure-multi-factor-authentication)|La mise en cache vous permet de définir une période spécifique pour que les tentatives d'authentification suivantes aboutissent automatiquement. |Installation et configuration de la mise en cache de l’authentification.
 [Adresses IP approuvées](#trusted-ips)|Adresses IP approuvées est une fonctionnalité d'authentification multifacteur qui permet aux administrateurs d'un client géré ou fédéré de contourner l'authentification multifacteur des utilisateurs qui se connectent à partir de l'intranet local de l'entreprise.|Configurer et définir les adresses IP qui ne sont pas soumis à l'authentification multifacteur	
 [Mots de passe d'application](#app-passwords)|Mots de passe d'application permet à une application, qui ne prend pas en charge MFA, de contourner l'authentification multifacteur et de continuer à fonctionner.|Informations sur les mots de passe d'application.
 [Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés](#remember-multi-factor-authentication-for-devices-users-trust)|Vous permet de mémoriser des appareils pour un nombre défini de jours après qu’un utilisateur soit parvenu à se connecter à l’aide de MFA.|Informations sur l'activation de cette fonctionnalité et la configuration du nombre de jours.
@@ -50,7 +50,7 @@ Alerte de fraude peut être configuré et installé de manière à ce que vos ut
 3.	Dans le portail de gestion Azure Multi-Factor Authentication, cliquez sur Paramètres dans la section Configurer.
 4.	Sous la section Alerte de fraude de la page Paramètres, cochez la case Permettre aux utilisateurs d'envoyer des alertes de fraude.
 5.	Si vous souhaitez que les utilisateurs soient bloqués lorsqu'une fraude est signalée, cochez l’option Bloquer l'utilisateur lorsqu'une fraude est signalée.
-6.	Dans la zone de texte **Code permettant de signaler une fraude durant le message d'accueil initial**, saisissez un code qui peut être utilisé lors de la vérification de l'appel. Si un utilisateur saisit ce code et le signe #, à la place du signe # seul, une alerte de fraude est alors signalée. 
+6.	Dans la zone de texte **Code permettant de signaler une fraude durant le message d'accueil initial**, saisissez un code qui peut être utilisé lors de la vérification de l'appel. Si un utilisateur saisit ce code et le signe #, à la place du signe # seul, une alerte de fraude est alors signalée.
 7.	Cliquez sur Enregistrer au bas de la page.
 
 >[AZURE.NOTE]
@@ -67,7 +67,7 @@ Une alerte de fraude peut être déclarée de deux façons. À l’aide de l'app
 
 
 1. Lorsqu'une vérification est envoyée sur votre téléphone, cliquez dessus pour lancer l'application Azure Authenticator.
-2. Pour signaler une fraude, cliquez sur Annuler et Signaler une fraude. Cela fera apparaître une zone de texte qui vous indiquera que le personnel du service informatique de votre organisation va être averti d'une éventuelle fraude. 
+2. Pour signaler une fraude, cliquez sur Annuler et Signaler une fraude. Cela fera apparaître une zone de texte qui vous indiquera que le personnel du service informatique de votre organisation va être averti d'une éventuelle fraude.
 3. Cliquez sur Signaler une fraude.
 4. Dans l'application, cliquez sur Fermer.
 
@@ -194,7 +194,7 @@ En dehors du réseau d'entreprise|Pour les flux de navigateur, l'authentificatio
 5. Dans la section Authentification multifacteur, cliquez sur Gérer les paramètres de service.
 6. Dans la page Paramètres du service, sous Adresses IP approuvées, sélectionnez l'une des options suivantes :
 
-	- Pour les demandes effectuées par des utilisateurs fédérés provenant de mon intranet : tous les utilisateurs fédérés qui se connectent à partir du réseau d'entreprise contourneront l'authentification multifacteur à l'aide d'une revendication émise par AD FS. 
+	- Pour les demandes effectuées par des utilisateurs fédérés provenant de mon intranet : tous les utilisateurs fédérés qui se connectent à partir du réseau d'entreprise contourneront l'authentification multifacteur à l'aide d'une revendication émise par AD FS.
 	- Pour les demandes provenant d'une plage spécifique d'adresses IP publiques, saisissez les adresses IP dans les zones de texte à l'aide de la notation CIDR. Par exemple : xxx.xxx.xxx.0/24 pour les adresses IP dans la plage xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 pour une adresse IP unique. Vous pouvez saisir jusqu'à 50 plages d'adresses IP.
 
 7. Cliquez sur Enregistrer.
@@ -321,7 +321,7 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 
 ### Pour créer des mots de passe d'application si vous ne possédez pas d'abonnement Office 365 ou Azure
 --------------------------------------------------------------------------------
-1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. En haut de la page, sélectionnez le profil.
 3. Cliquez avec le bouton droit sur votre nom d'utilisateur et sélectionnez Vérification de sécurité supplémentaire.
 5. En haut de la page de vérification, sélectionnez les mots de passe d'application
@@ -362,8 +362,8 @@ Méthode|Description
 :------------- | :------------- | 
 [Appel vers le téléphone](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Effectue un appel vocal automatisé vers le téléphone d’authentification. L’utilisateur répond à l’appel et appuie sur la touche # du clavier du téléphone pour s’authentifier. Ce numéro de téléphone n’est pas synchronisé avec Active Directory local.
 [Message texte vers le téléphone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Envoie un message texte contenant un code de vérification à l’utilisateur. L’utilisateur est invité à répondre au SMS avec le code de vérification ou à entrer le code de vérification dans l’interface de connexion.
-[Notification via une application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l’application Azure Authenticator empêche l’accès non autorisé aux comptes et arrête les transactions frauduleuses. Cette opération est effectuée à l’aide d’une notification Push sur votre téléphone ou votre appareil inscrit. Affichez simplement la notification et si elle est légitime, sélectionnez Vérifier. Dans le cas contraire, vous pouvez choisir de refuser ou de refuser et signaler la notification frauduleuse. Pour plus d’informations sur le signalement des notifications frauduleuses, consultez la rubrique Utilisation de la fonctionnalité de refus et signalement d’une fraude pour Multi-Factor Authentication.</br></br>L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).|
-[Code de vérification de l’application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l'application Azure Authenticator peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Ce code de vérification peut ensuite être entré avec le nom d’utilisateur et un mot de passe pour fournir la deuxième forme d’authentification.</li><br><p> L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+[Notification via une application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l’application Azure Authenticator empêche l’accès non autorisé aux comptes et arrête les transactions frauduleuses. Cette opération est effectuée à l’aide d’une notification Push sur votre téléphone ou votre appareil inscrit. Affichez simplement la notification et si elle est légitime, sélectionnez Vérifier. Dans le cas contraire, vous pouvez choisir de refuser ou de refuser et signaler la notification frauduleuse. Pour plus d’informations sur le signalement des notifications frauduleuses, consultez la rubrique Utilisation de la fonctionnalité de refus et signalement d’une fraude pour Multi-Factor Authentication.</br></br>L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/fr-FR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).|
+[Code de vérification de l’application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l'application Azure Authenticator peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Ce code de vérification peut ensuite être entré avec le nom d’utilisateur et un mot de passe pour fournir la deuxième forme d’authentification.</li><br><p> L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/fr-FR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ### Comment activer/désactiver les méthodes d'authentification
 
@@ -376,4 +376,4 @@ Méthode|Description
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

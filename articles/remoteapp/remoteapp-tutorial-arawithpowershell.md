@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/05/2016"
+   ms.date="06/27/2016"
    ms.author="elizapo"/>
 
 
@@ -36,8 +36,8 @@ Vous pouvez utiliser ces étapes pour démarrer rapidement :
 
 1.	Téléchargez et installez les applets de commande [Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
 2.	Lancez Microsoft Azure PowerShell.
-3.	Exécutez **Add-AzureAccount** pour vous authentifier auprès de votre abonnement Azure. À l’invite, entrez le nom d’utilisateur et le mot de passe que vous utilisez pour vous connecter au portail Azure.  
-4.	Exécutez **Get-AzureSubscription** pour répertorier les abonnements associés à votre compte utilisateur. 
+3.	Exécutez **Add-AzureAccount** pour vous authentifier auprès de votre abonnement Azure. À l’invite, entrez le nom d’utilisateur et le mot de passe que vous utilisez pour vous connecter au portail Azure.
+4.	Exécutez **Get-AzureSubscription** pour répertorier les abonnements associés à votre compte utilisateur.
 5.	Exécutez **Select-AzureSubscription** et spécifiez le nom ou l’ID d’abonnement à utiliser dans la console PowerShell.
 
 Félicitations, votre console Azure PowerShell est configurée et opérationnelle. N'oubliez pas que vous devez répéter les étapes 2 à 5 chaque fois que vous démarrez la console Azure PowerShell.
@@ -111,4 +111,4 @@ Autres applets de commande RemoteApp :
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

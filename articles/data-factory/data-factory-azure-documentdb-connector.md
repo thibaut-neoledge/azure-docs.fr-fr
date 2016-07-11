@@ -22,14 +22,15 @@ Cet article explique comment vous pouvez utiliser l’activité de copie dans Az
 
 Les exemples suivants indiquent comment copier des données vers et depuis Azure DocumentDB et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
 
+[AZURE.NOTE] La copie de données entre Azure DocumentDB et des magasins de données locaux IaaS Azure n’est pas prise en charge actuellement. La matrice complète d’Azure DocumentDB sera également activée sous peu.
 
 ## Exemple : copie de données à partir de DocumentDB vers un objet Blob Azure
 
 L’exemple ci-dessous présente les éléments suivants :
 
 1. Un service lié de type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -170,7 +171,7 @@ L’exemple ci-dessous présente les éléments suivants :
 1. Un service lié de type [DocumentDb](#azure-documentdb-linked-service-properties).
 2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
 
 
@@ -395,20 +396,20 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, quand la source est de type **DocumentDbCollectionSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **DocumentDbCollectionSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Spécifier la requête pour lire les données. | Chaîne de requête prise en charge par DocumentDB. <br/>Exemple : SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"<br/> | Non <br/><br/>Si non spécifié, l’instruction SQL exécutée : select <columns defined in structure> from mycollection 
-| nestingSeparator | Caractère spécial pour indiquer que le document est imbriqué. | Tout caractère. <br/><br/>DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. | Non
+| query | Spécifier la requête pour lire les données. | Chaîne de requête prise en charge par DocumentDB. <br/><br/>Exemple : SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | Non <br/><br/>Si cela n’est pas précisé, l’instruction SQL qui est exécutée est : sélectionner <colonnes définies dans la structure> à partir de mycollection 
+| nestingSeparator | Caractère spécial pour indiquer que le document est imbriqué. | Tout caractère. <br/><br/>DocumentDB est une banque NoSQL de documents JSON qui autorise les structures imbriquées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. | Non
 
 **DocumentDbCollectionSink** prend en charge les propriétés suivantes :
 
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, ci-dessus : Name.First dans la table de sortie produit la structure JSON suivante dans le document DocumentDB :<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Caractère utilisé pour séparer les niveaux d’imbrication.<br/><br/>La valeur par défaut est . (point). | Caractère utilisé pour séparer les niveaux d'imbrication. <br/><br/>La valeur par défaut est . (point). | Non | 
-| writeBatchSize | Nombre de requêtes parallèles au service DocumentDB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances pendant la copie des données depuis/vers DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent lever le message d’erreur : « Le taux de requête est volumineux ».<br/><br/>La limitation est décidée par un certain nombre de facteurs, y compris la taille des documents, le nombre de termes dans les documents, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde). | Valeur entière | Non |
-| writeBatchTimeout | Temps d'attente pour que l'opération soit terminée avant d'expirer. | (Unité = intervalle de temps) Exemple : « 00:30:00 » (30 minutes). | Non |
+| nestingSeparator | Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, ci-dessus : Name.First dans la table de sortie produit la structure JSON suivante dans le document DocumentDB :<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Caractère utilisé pour séparer les niveaux d’imbrication.<br/><br/>La valeur par défaut est . (point). | Caractère utilisé pour séparer les niveaux d'imbrication. <br/><br/>La valeur par défaut est . (point). | Non | 
+| writeBatchSize | Nombre de requêtes parallèles au service DocumentDB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances pendant la copie des données depuis/vers DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent lever le message d’erreur : « Le taux de requête est volumineux ».<br/><br/>La limitation est décidée par un certain nombre de facteurs, y compris la taille des documents, le nombre de termes dans les documents, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde). | Integer | Non (valeur par défaut : 10000) |
+| writeBatchTimeout | Temps d'attente pour que l'opération soit terminée avant d'expirer. | intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). | Non |
  
 ## Annexe
 1. **Question :** l’activité de copie prend-elle en charge la mise à jour d’enregistrements existants ?
@@ -421,7 +422,7 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
  
 3. **Question :** Data Factory prend-il en charge le [partitionnement de données basé sur un intervalle ou sur le hachage](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/) ?
 
-	**Réponse :** non. 
+	**Réponse :** non.
 4. **Question :** puis-je indiquer plusieurs collections DocumentDB pour une table ?
 	
 	**Réponse :** non. Il n’est possible d’indiquer qu’une collection pour le moment.
@@ -429,4 +430,4 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

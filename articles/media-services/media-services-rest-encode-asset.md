@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -30,9 +30,9 @@ Pour fournir une vidéo numérique sur Internet, vous devez compresser le conten
 
 Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur intégré de Media Services (Media Encoder Standard). Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace. Vous pouvez spécifier les détails des tâches d’encodage à l’aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez [Présélections de tâches pour Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
-Chaque travail peut comporter une ou plusieurs tâches, en fonction du type de traitement que vous souhaitez accomplir. Via l’API REST, vous pouvez créer des travaux et les tâches associées de deux manières :
+Chaque travail peut comporter une ou plusieurs tâches, en fonction du type de traitement que vous souhaitez accomplir. Via l’API REST, vous pouvez créer des travaux et les tâches associées de deux manières :
 
-- Des tâches peuvent être définies inline via la propriété de navigation de tâches sur les entités de travail, ou 
+- Des tâches peuvent être définies inline via la propriété de navigation de tâches sur les entités de travail, ou
 - via le traitement par lots OData.
   
 
@@ -41,21 +41,21 @@ Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de 
 Si votre ressource de sortie est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md).
 
 
->[AZURE.NOTE]Avant de référencer les processeurs multimédias, vérifiez que vous disposez de l’ID de processeur multimédia approprié. Pour plus d’informations, consultez la rubrique [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md).
+>[AZURE.NOTE]Avant de référencer les processeurs multimédias, vérifiez que vous disposez de l’ID de processeur multimédia approprié. Pour plus d’informations, consultez la rubrique [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md).
 
 ##Création d’un travail avec une seule tâche d’encodage 
 
->[AZURE.NOTE] Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
+>[AZURE.NOTE] Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
 >
 >Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md).
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md).
 >
->Lors de l’utilisation de JSON et la spécification pour utiliser le mot clé ** \_\_metadata ** dans la demande (par exemple, pour fait référence à un objet lié) vous DEVEZ définir l’en-tête **Accept** au [format JSON détaillé](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) : Accept: application/json;odata=verbose.
+>Lors de l’utilisation de JSON et la spécification pour utiliser le mot clé **\_\_metadata** dans la demande (par exemple, pour fait référence à un objet lié) vous DEVEZ définir l’en-tête **Accept** au [format JSON détaillé](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) : Accept: application/json;odata=verbose.
 
 L’exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. Quand vous encodez à l’aide de Media Encoder Standard, vous pouvez utiliser les présélections de configuration de tâche spécifiées [ici](http://msdn.microsoft.com/library/mt269960).
 	
-Demande :
+Demande :
 
 	POST https://media.windows.net/API/Jobs HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -70,7 +70,7 @@ Demande :
 	
 	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
-Réponse :
+Réponse :
 	
 	HTTP/1.1 201 Created
 
@@ -78,7 +78,7 @@ Réponse :
 
 ###Définir le nom de l’élément multimédia de sortie
 
-L’exemple suivant montre comment définir l’attribut assetName :
+L’exemple suivant montre comment définir l’attribut assetName :
 
 	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
 
@@ -89,17 +89,17 @@ L’exemple suivant montre comment définir l’attribut assetName :
 - Une tâche peut comporter plusieurs ressources de sortie. Un JobOutputAsset(x) ne peut être utilisé qu’une fois en tant que résultat d’une tâche dans un travail.
 - Vous pouvez spécifier JobInputAsset ou JobOutputAsset en tant que ressource d’entrée d’une tâche.
 - Les tâches ne doivent pas former un cycle.
-- Le paramètre de valeur que vous transmettez à JobInputAsset ou à JobOutputAsset représente la valeur d’index pour une ressource. Les ressources réelles sont définies dans les propriétés de navigation InputMediaAssets et OutputMediaAssets de la définition d’entité de travail. 
-- Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur « \_\_metadata : uri ».
+- Le paramètre de valeur que vous transmettez à JobInputAsset ou à JobOutputAsset représente la valeur d’index pour une ressource. Les ressources réelles sont définies dans les propriétés de navigation InputMediaAssets et OutputMediaAssets de la définition d’entité de travail.
+- Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur « \_\_metadata : uri ».
 - InputMediaAssets mappe vers une ou plusieurs ressources que vous avez créées dans Media Services. Les OutputMediaAssets sont créés par le système. Ils ne font pas référence à une ressource existante.
-- OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset sera la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)\_NewJob ».
+- OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset sera la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)\_NewJob ».
 
 
 ##Création d’un travail avec des tâches chaînées
 
 Dans de nombreux scénarios d’application, les développeurs souhaitent créer une série de tâches de traitement. Dans Media Services, vous pouvez créer une série de tâches chaînées. Chaque tâche effectue différentes étapes de traitement et peut utiliser différents processeurs multimédias. Les tâches chaînées peuvent transférer un élément multimédia d’une tâche à une autre, en effectuant une séquence linéaire de tâches sur la ressource. Toutefois, les tâches effectuées dans un travail ne le sont pas obligatoirement dans une séquence. Quand vous créez une tâche chaînée, les objets chaînés **ITask** sont créés dans un seul objet **IJob**.
 
->[AZURE.NOTE] Il existe actuellement une limite de 30 tâches par travail. Si vous devez chaîner plus de 30 tâches, créez plusieurs travaux pour contenir les tâches.
+>[AZURE.NOTE] Il existe actuellement une limite de 30 tâches par travail. Si vous devez chaîner plus de 30 tâches, créez plusieurs travaux pour contenir les tâches.
 
 
 	POST https://media.windows.net/api/Jobs HTTP/1.1
@@ -137,14 +137,14 @@ Dans de nombreux scénarios d’application, les développeurs souhaitent créer
 
 ###Considérations
 
-Pour activer le chaînage des tâches :
+Pour activer le chaînage des tâches :
 
-- un travail doit comporter au moins 2 tâches
+- un travail doit comporter au moins 2 tâches
 - Il doit y avoir au moins une tâche dont l’entrée correspond à la sortie d’une autre tâche du travail.
 
 ## Utiliser le traitement par lots OData 
 
-L’exemple suivant illustre l’utilisation du traitement par lots OData pour créer un travail et des tâches. Pour plus d’informations sur le traitement par lots, consultez [Traitement par lots d’Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+L’exemple suivant illustre l’utilisation du traitement par lots OData pour créer un travail et des tâches. Pour plus d’informations sur le traitement par lots, consultez [Traitement par lots d’Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
  
 	POST https://media.windows.net/api/$batch HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
@@ -228,14 +228,14 @@ L’exemple suivant montre comment créer un JobTemplate avec un TaskTemplate d�
 >[AZURE.NOTE]Contrairement à d’autres entités Media Services, vous devez définir un nouvel identificateur GUID pour chaque TaskTemplate et le placer dans la propriété taskTemplateId et Id du corps de votre demande. Le schéma d’identification de contenu doit respecter le schéma décrit dans la rubrique Identifier les entités Azure Media Services. En outre, les JobTemplates ne peuvent pas être mis à jour. À la place, vous devez en créer un avec vos modifications mises à jour.
  
 
-Si l’opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 	
 	HTTP/1.1 201 Created
 	
 	. . .
 
 
-L’exemple suivant montre comment créer un travail faisant référence à un ID de JobTemplate :
+L’exemple suivant montre comment créer un travail faisant référence à un ID de JobTemplate :
 
 	POST https://media.windows.net/API/Jobs HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -250,7 +250,7 @@ L’exemple suivant montre comment créer un travail faisant référence à un I
 	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
 	 
 
-Si l’opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 	
 	HTTP/1.1 201 Created
 	
@@ -275,4 +275,4 @@ Maintenant que vous savez comment créer une tâche pour encoder un élément mu
 
 [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -12,13 +12,13 @@ Règles de groupe de sécurité réseau par groupe de sécurité réseau | 200 |
 Tables d'itinéraires définis par l'utilisateur | 100 | 200
 Itinéraires définis par l'utilisateur par table d'itinéraire | 100 | 400
 Adresses IP publiques (dynamiques) | 5 | contacter le support technique
-Adresses IP publiques réservées | 20 | contacter le support technique
+Adresses IP publiques réservées | 20 | contacter le support technique
 Adresse IP virtuelle publique par déploiement | 5 | contacter le support technique
 Adresse IP virtuelle privée (ILB) par déploiement | 1 | 1
 Listes de contrôle d'accès (ACL) par point de terminaison | 50 | 50
 
 
-#### Limites de réseau – Azure Resource Manager
+#### Limites de réseau – Azure Resource Manager
 
 Les limites suivantes s'appliquent uniquement aux ressources de réseau gérées par le biais d'Azure Resource Manager par région par abonnement.
 
@@ -34,7 +34,7 @@ Règles de groupe de sécurité réseau par groupe de sécurité réseau | 200 |
 Tables d'itinéraires définis par l'utilisateur | 100 | 400
 Itinéraires définis par l'utilisateur par table d'itinéraire | 100 | 400
 Adresses IP publiques (dynamiques) | 60 | contacter le support technique
-Adresses IP publiques réservées | 20 | contacter le support technique
+Adresses IP publiques (statiques) | 20 | contacter le support technique
 Équilibreurs de charge (internes et accessibles sur Internet) | 100 | contacter le support technique
 Règles d’équilibrage de charge par équilibreur de charge | 150 | 150
 Adresse IP frontale publique par équilibreur de charge | 5 | contacter le support technique
@@ -43,4 +43,4 @@ Passerelles d'application | 50 | 50
 
 Pour accroître les limites par défaut, contactez le support technique.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

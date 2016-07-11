@@ -14,12 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
 # Prise en charge de l’accès conditionnel des applications
-L’accès conditionnel fonctionne avec les applications mobiles et de bureau qui utilisent l’authentification moderne. Les applications avec authentification moderne peuvent afficher les pages de connexion Azure AD. Cela permet d’inviter un utilisateur à utiliser l’authentification multifacteur ou de présenter à l’utilisateur final un message lui indiquant que l’accès est bloqué. Il est important de connaître les applications prises en charge ainsi que les actions qui peuvent être nécessaires pour sécuriser les autres points d’entrée.
+
+Les règles d’accès conditionnel sont prises en charge dans les applications connectées à Azure AD, les applications SaaS fédérées préintégrées, les applications qui utilisent l’authentification unique par mot de passe, les applications métier et le proxy d’application Azure AD. Pour obtenir la liste détaillée des applications dans lesquelles vous pouvez activer l’accès conditionnel, consultez l’article [Services activés avec accès conditionnel](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). L’accès conditionnel fonctionne avec les applications mobiles et de bureau qui utilisent l’authentification moderne. Cette rubrique décrit les fonctionnalités prises en charge dans les versions mobiles et de bureau de ces applications.
+
+ Les applications avec authentification moderne peuvent afficher les pages de connexion Azure AD. Cela permet d’inviter un utilisateur à utiliser l’authentification multifacteur ou de présenter à l’utilisateur final un message lui indiquant que l’accès est bloqué. Il est important de connaître les applications prises en charge ainsi que les actions qui peuvent être nécessaires pour sécuriser les autres points d’entrée.
 
 ## Applications utilisant l’authentification moderne
 Les applications suivantes ont été testées avec l’authentification multifacteur (MFA) et la stratégie d’emplacement définie sur le service cible.
@@ -102,4 +105,4 @@ Règle 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

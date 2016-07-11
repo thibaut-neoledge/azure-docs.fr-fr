@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis un objet Blob Azure | Azure Data Factory" 
-	description="Découvrez comment déplacer des données depuis et vers le stockage d’objets blob Azure à l’aide d’Azure Data Factory." 
+	pageTitle="Apprendre à copier/déplacer des groupes de données d’objets Blob Azure | Azure Data Factory" 
+	description="Découvrez comment copier des données d’objets blob dans Azure Data Factory. Les exemples suivants indiquent comment copier des données vers et depuis Azure Blob Storage et Base de données SQL Azure." 
+    keywords="données d’objets blob, copie d’objet blob azure"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,9 +18,9 @@
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis un objet Blob Azure à l’aide d’Azure Data Factory
-Cet article décrit comment vous pouvez utiliser l'activité de copie dans Azure Data Factory pour déplacer des données vers un objet Blob Azure à partir d'un magasin de données et vice versa. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers et à partir d’un objet Blob Azure en les extrayant des données blob provenant d’un autre magasin de données. Cet article s’appuie sur l’article relatif aux activités de déplacement des données qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasin de données prises en charge.
 
-Les exemples suivants indiquent comment copier des données vers et depuis Azure Blob Storage et Base de données SQL Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+Les exemples suivants indiquent comment copier des données vers et depuis Azure Blob Storage et Base de données SQL Azure. Les données peuvent toutefois être copiées **directement** entre n’importe quelle source et l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
  
 
 ## Exemple : copie de données à partir d'un objet Blob Azure vers SQL Azure
@@ -57,7 +58,7 @@ L'exemple copie des données appartenant à une série horaire à partir d'un ob
 	  }
 	}
 
-Azure Data Factory prend en charge deux types de service lié Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
+Azure Data Factory prend en charge deux types de service lié Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
 
 **Jeu de données d'entrée d'objet Blob Azure :**
 
@@ -229,7 +230,7 @@ L'exemple copie des données appartenant à une série horaire à partir d'une t
 	  }
 	}
 
-Azure Data Factory prend en charge deux types de service lié Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
+Azure Data Factory prend en charge deux types de service lié Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
 
 
 **Jeu de données d'entrée SQL Azure :**
@@ -385,10 +386,10 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- | 
 | folderPath | Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Exemple : monconteneurblob\\mondossierblob\\ | Oui |
-| fileName | Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans folderPath pour le jeu de données d’entrée.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | Non |
+| fileName | Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans folderPath pour le jeu de données d’entrée.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la [section Utilisation de la propriété partitionedBy](#Leveraging-partitionedBy-property) ci-dessous pour obtenir plus d’informations et des exemples. | Non
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **AvroFormat**, **JsonFormat** et **OrcFormat**. La propriété **type** située sous Format doit être définie sur l’une de ces valeurs. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat), [Définition de JsonFormat](#specifying-jsonformat) et [Définition d’OrcFormat](#specifying-orcformat). Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), vous pouvez ignorer la section Format dans les deux définitions de jeu de données d’entrée et de sortie.| Non
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Notez que, pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** et **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat**, **AvroFormat**, **JsonFormat** et **OrcFormat**. La propriété **type** située sous Format doit être définie sur l’une de ces valeurs. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat), [Définition de JsonFormat](#specifying-jsonformat) et [Définition d’OrcFormat](#specifying-orcformat). Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), vous pouvez ignorer la section Format dans les deux définitions de jeu de données d’entrée et de sortie.| Non
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Notez que, pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** et **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 ### Utilisation de la propriété partitionedBy
 Comme mentionné ci-dessus, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -430,21 +431,21 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Spécifie s'il faut traiter une chaîne null ou vide en tant que valeur null. <br/><br/>Notez que lorsque la propriété **quoteChar** est spécifiée, une chaîne vide entre guillemets peut également être traitée comme une valeur Null avec cette propriété. | TRUE(valeur par défaut) <br/>FALSE | Non |
+| treatEmptyAsNull | Spécifie s'il faut traiter une chaîne null ou vide en tant que valeur null. <br/><br/>Notez que lorsque la propriété **quoteChar** est spécifiée, une chaîne vide entre guillemets peut également être traitée comme une valeur Null avec cette propriété. | TRUE (valeur par défaut) <br/>FALSE | Non |
 | skipHeaderLineCount | Indique le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d’entrée utilise **TextFormat**. | Entier compris entre 0 et Max. | Non | 
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. | True (valeur par défaut), False | Non | 
 
 
-**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Spécifie s'il faut ajouter un en-tête de définitions de colonne. | TRUE<br/>FALSE (valeur par défaut) | Non |
-| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | **PreserveHierarchy** : conserve la hiérarchie des fichiers dans le dossier cible. Autrement dit, le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy :** tous les fichiers du dossier source se trouvent dans le premier niveau du dossier cible. Les fichiers cibles ont un nom généré automatiquement. <br/><br/>**MergeFiles: (default)** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non |
+| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | **PreserveHierarchy** : conserve la hiérarchie des fichiers dans le dossier cible. Autrement dit, le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy :** tous les fichiers du dossier source se trouvent dans le premier niveau du dossier cible. Le nom des fichiers cibles est généré automatiquement. <br/><br/>**MergeFiles : (par défaut)** fusionne tous les fichiers du dossier source dans un même fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non |
 
 ### exemples de valeurs recursive et copyBehavior
 Cette section décrit le comportement résultant de l’opération de copie pour différentes combinaisons de valeurs recursive et copyBehavior.
@@ -470,4 +471,4 @@ false | mergeFiles | Pour un dossier source nommé Dossier1 avec la structure su
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

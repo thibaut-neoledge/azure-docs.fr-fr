@@ -22,11 +22,11 @@ Microsoft s’engage à déployer tous les efforts nécessaires pour vous garant
 
 Microsoft fournit un Contrat de niveau de service (SLA) pour ses services en guise d’engagement en matière de disponibilité et de connectivité. Le contrat de niveau de service des différents services Azure se trouve à la page [Contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/).
 
-Azure dispose déjà de nombreuses fonctionnalités intégrées de plateforme qui prennent en charge des applications hautement disponibles. Pour plus d’informations sur ces services, consultez [Récupération d’urgence et haute disponibilité pour les applications Azure](https://aka.ms/drtechguide).
+Azure dispose déjà de nombreuses fonctionnalités intégrées de plateforme qui prennent en charge des applications hautement disponibles. Pour plus d’informations sur ces services, consultez [Récupération d’urgence et haute disponibilité pour les applications Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 Cet article aborde un scénario réel de récupération d’urgence, dans lequel une région entière connaît une panne en raison d’une catastrophe naturelle majeure ou d’une interruption de service importante. Bien que ces cas soient rares, vous devez envisager l’éventualité d’une panne affectant l’ensemble d’une région. Si une région entière est confrontée à une interruption de service, les copies localement redondantes de vos données sont temporairement indisponibles. Si vous avez activé la géoréplication, trois copies supplémentaires de vos tables et objets blob Azure Storage sont stockées dans une autre région. En cas de panne régionale totale ou de sinistre rendant la région primaire irrécupérable, Azure remappe toutes les entrées DNS sur la région géorépliquée.
 
->[AZURE.NOTE]N’oubliez pas que vous n’avez aucun contrôle sur ce processus et qu’il ne se produit que pour les interruptions du service au niveau du centre de données. Ainsi, vous devez également vous appuyer sur d’autres stratégies de sauvegarde propres à l’application pour atteindre le plus haut niveau de disponibilité. Pour plus d’informations, consultez la section consacrée aux [stratégies de données pour une récupération d’urgence](https://aka.ms/drtechguide#DSDR). Si vous souhaitez avoir un impact sur votre propre basculement, vous pouvez envisager l’utilisation du [stockage géoredondant avec accès en lecture (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage), qui crée une copie en lecture seule de vos données dans une autre région.
+>[AZURE.NOTE]N’oubliez pas que vous n’avez aucun contrôle sur ce processus et qu’il ne se produit que pour les interruptions du service au niveau du centre de données. Ainsi, vous devez également vous appuyer sur d’autres stratégies de sauvegarde propres à l’application pour atteindre le plus haut niveau de disponibilité. Pour plus d’informations, consultez la section consacrée aux [stratégies de données pour une récupération d’urgence](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md#DSDR). Si vous souhaitez avoir un impact sur votre propre basculement, vous pouvez envisager l’utilisation du [stockage géoredondant avec accès en lecture (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage), qui crée une copie en lecture seule de vos données dans une autre région.
 
 Pour vous aider à gérer ces rares occurrences, nous vous fournissons les conseils suivants pour les machines virtuelles Azure dans le cas d’une interruption de service de l’ensemble de la région où votre application Azure Virtual Machine est déployée.
 
@@ -56,10 +56,10 @@ Cette option suppose que vous avez déjà conçu votre solution d’application 
 
 ##Étapes suivantes
 
-Pour plus d’informations sur la façon d’implémenter une stratégie de récupération d’urgence et de haute disponibilité, consultez [Récupération d’urgence et haute disponibilité pour les applications Azure](https://aka.ms/drtechguide).
+Pour plus d’informations sur la façon d’implémenter une stratégie de récupération d’urgence et de haute disponibilité, consultez [Récupération d’urgence et haute disponibilité pour les applications Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Pour une compréhension technique détaillée des fonctionnalités de la plateforme cloud, consultez le [guide technique Azure Business Continuity](https://aka.ms/bctechguide).
+Pour une compréhension technique détaillée des fonctionnalités de la plateforme cloud, consultez le [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md).
 
 Si les instructions ne sont pas claires ou que vous souhaitez que Microsoft effectue les opérations en votre nom, contactez le [service clientèle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

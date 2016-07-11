@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 
 # Directives de personnalisation des applications
 
 
-Cette rubrique décrit les directives de personnalisation que vous devez suivre lors du développement d’applications avec Azure Active Directory. Ces directives vous permettent de diriger vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire géré dans Azure AD pour s’inscrire et se connecter à votre application.
+Cette rubrique décrit les directives de personnalisation que vous devez suivre lors du développement d’applications avec Azure Active Directory (Azure AD). Ces directives vous permettent de diriger vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire géré dans Azure AD ou leur compte personnel pour s’inscrire et se connecter à votre application.
 
 ## Comptes personnels et comptes professionnels/scolaires de Microsoft
 
@@ -47,9 +47,9 @@ Dans une version antérieure de ces directives, nous recommandions d’utiliser 
 
 Votre application peut présenter des chemins distincts pour l’inscription et la connexion, et les sections suivantes fournissent des conseils visuels pour les deux scénarios.
 
-**Si votre application prend en charge l’inscription des utilisateurs finaux (par exemple, pour les modèles d’évaluation gratuits ou Premium)** : vous pouvez afficher un bouton de **connexion** qui permet aux utilisateurs d’accéder à votre application avec leur compte professionnel ou scolaire de Microsoft. Azure AD affiche une invite de consentement la première fois que les utilisateurs accèdent à votre application.
+**Si votre application prend en charge l’inscription des utilisateurs finaux (par exemple, pour les modèles d’évaluation gratuits ou Premium)** : vous pouvez afficher un bouton de **connexion** qui permet aux utilisateurs d’accéder à votre application avec leur compte professionnel ou personnel. Azure AD affiche une invite de consentement la première fois que les utilisateurs accèdent à votre application.
 
-**Si votre application nécessite des autorisations auxquelles seuls les administrateurs peuvent consentir ou si votre application requiert une licence d’entreprise** : vous devez séparer l’acquisition administrateur de la connexion utilisateur. Le **bouton « obtenir cette application »** redirige les administrateurs vers la connexion, après quoi ils sont invités à donner leur consentement pour le compte des utilisateurs de leur organisation. Cela présente l’avantage supplémentaire de supprimer de votre application les invites de consentement pour les utilisateurs finaux.
+**Si votre application nécessite des autorisations auxquelles seuls les administrateurs peuvent consentir ou si votre application requiert une licence d’entreprise** : vous devez séparer l’acquisition administrateur de la connexion utilisateur. Le **bouton « obtenir cette application »** redirige les administrateurs vers la connexion, après quoi ils sont invités à donner leur consentement pour le compte des utilisateurs de leur organisation. Cela présente l’avantage supplémentaire de supprimer de votre application les invites de consentement pour les utilisateurs finaux.
 
 ## Aide visuelle pour l’acquisition de l’application
 
@@ -60,25 +60,28 @@ Une fois que les administrateurs ont donné leur consentement à votre applicati
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
 Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de vous contenter des boutons. Par exemple :
-> *Si vous utilisez déjà Office 365 ou un autre service métier de Microsoft, vous pouvez tout simplement octroyer <your_app_name> l’accès aux données de votre organisation. Cela permet à vos utilisateurs d’y accéder à <your_app_name> l’aide de leur compte professionnel existant.*
+> *Si vous utilisez déjà Office 365 ou un autre service métier de Microsoft, vous pouvez tout simplement octroyer l’accès de <nom\_de\_votre\_application> aux données de votre organisation. Cela permet à vos utilisateurs d’accéder à <nom\_de\_votre\_application> à l’aide de leur compte professionnel existant.*
 
 
 ## Aide visuelle pour la connexion
 Votre application doit afficher un bouton de connexion qui redirige les utilisateurs vers le point de terminaison de connexion correspondant au protocole que vous utilisez pour l’intégration à Azure AD. La section suivante fournit des détails sur l’aspect recommandé pour ce bouton.
 
-### Pictogramme et « compte professionnel ou scolaire »
-C’est l’association du logo Microsoft et du terme générique « professionnel ou scolaire » qui permet de distinguer Azure AD des autres fournisseurs d’identité que votre application peut prendre en charge. Si vous n’avez pas suffisamment d’espace pour insérer « compte professionnel ou scolaire », vous pouvez abréger et utiliser « compte professionnel ».
+### Pictogramme et « Se connecter avec Microsoft »
+C’est l’association du logo Microsoft et des termes « Se connecter avec Microsoft » qui permet de distinguer Azure AD des autres fournisseurs d’identité que votre application peut prendre en charge. Si vous ne disposez pas d’espace suffisant pour « Se connecter avec Microsoft », vous pouvez utiliser l’abréviation « Se connecter ».
 
-![Types d’application et scénarios](./media/active-directory-branding-guidelines/work-or-school-account.png)
+![Types d’application et scénarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
-![Types d’application et scénarios](./media/active-directory-branding-guidelines/work-account.png)
+![Types d’application et scénarios](./media/active-directory-branding-guidelines/sign-in-light.png)
 
-Vous pouvez également fournir une explication supplémentaire pour aider les utilisateurs finaux à déterminer s’ils peuvent utiliser ce bouton :
+Vous pouvez également utiliser un modèle de couleurs sombres pour les boutons.
 
-![Types d’application et scénarios](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
+![Types d’application et scénarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+
+![Types d’application et scénarios](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
 ## Choses à faire et à éviter en matière de personnalisation
-**UTILISEZ** l’expression « compte professionnel ou scolaire » avec le logo Microsoft pour représenter les connexions avec Azure AD. Si l’espace est limité, vous pouvez dire « compte professionnel », n’utilisez **PAS** d’autres termes tels que « compte d’entreprise » ou « compte commercial ».
+
+**UTILISEZ** « compte professionnel ou scolaire » dans la combinaison avec le bouton « Se connecter avec Microsoft » pour fournir une explication supplémentaire afin d’aider les utilisateurs finaux à déterminer s’ils peuvent l’utiliser. **N’UTILISEZ PAS** de termes tels que « compte d’entreprise » ou « compte commercial ».
 
 N’utilisez **PAS** « ID Office 365 » ni « ID Azure ». Office 365 est également le nom d’une offre grand public de Microsoft qui n’utilise pas Azure AD pour l’authentification.
 
@@ -90,8 +93,4 @@ N’exposez **PAS** les utilisateurs finaux à la marque Azure ou Active Direct
 
 **FOURNISSEZ** aux utilisateurs un moyen de se déconnecter et de passer à un autre compte d’utilisateur. Bien que la plupart des gens aient un seul compte personnel Microsoft/Facebook/Google/Twitter, ils sont souvent associés à plus d’une organisation. La prise en charge de plusieurs utilisateurs connectés sera bientôt offerte.
 
-## Prise en charge d’Azure AD et des comptes Microsoft dans votre application
-
-Si votre application prend en charge Azure AD et les comptes Microsoft, vous devez y inclure deux boutons de connexion distincts. Nous travaillons actuellement sur une mise à jour qui vous permettra d’effectuer une seule intégration et de prendre en charge à la fois les comptes personnels et professionnels de Microsoft. Une fois que cette fonctionnalité sera disponible, vous serez en mesure d’afficher un seul bouton « connexion avec Microsoft » dans votre application.
-
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

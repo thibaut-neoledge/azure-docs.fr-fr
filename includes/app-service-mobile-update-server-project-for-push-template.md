@@ -1,16 +1,18 @@
-Utilisez la procédure correspondant à votre type de projet de serveur principal : [serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
+Dans cette section, vous mettez à jour le code dans votre projet backend Mobile Apps existant pour envoyer une notification push chaque fois qu’un nouvel élément est ajouté. Étant donné que les clients sont inscrits pour les notifications push à l’aide d’un modèle d’inscription, un même message de notification push peut être envoyé à toutes les plateformes clientes. Chaque inscription de modèle de client contient un paramètre *messageParam*. Lorsque la notification est envoyée, *messageParam* contient une chaîne qui représente le texte de l’élément inséré. Pour plus d’informations sur l’utilisation de modèles avec Notification Hubs, consultez [Modèles](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+
+Choisissez la procédure ci-dessous correspondant à votre type de projet backend : [backend .NET](#dotnet) ou [backend Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projet de serveur principal .NET
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
 
-3. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
+3. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 	
 
-2. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel d’**InsertAsync** :
+2. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel d’**InsertAsync** :
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -46,17 +48,15 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Ce code indique au hub de notification d'envoyer une notification modèle à toutes les inscriptions de modèle qui contiennent « messageParam ». La chaîne est insérée à la place de messageParam dans chaque PNS qui comporte une inscription à l'aide de « messageParam ». Cela vous permet d'envoyer la notification à APNS, GCM, WNS ou tout autre PNS.
-
-	Pour plus d’informations sur les modèles avec Notification Hubs, consultez [Modèles](notification-hubs-templates.md).
+	Une notification de modèle contenant item.Text est ensuite envoyée quand un nouvel élément est inséré.
 
 4. Publier à nouveau le projet de serveur
 
 ### <a name="nodejs"></a>Projet de back-end Node.js
 
-1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne du portail Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Si vous ne l’avez pas déjà fait, [téléchargez le projet backend de démarrage rapide](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne du portail Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
-2. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
+2. Remplacez le code présent dans todoitem.js par le code suivant :
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -70,7 +70,7 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam":' + context.item.text + '}'; 
+	    var payload = '{"messageParam": "' + context.item.text + '" }';  
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -97,6 +97,8 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
 
 		module.exports = table;  
 
-	Ce code envoie une notification de modèle contenant item.text quand un nouvel élément todo est inséré.
+	Une notification de modèle contenant item.text est ensuite envoyée quand un nouvel élément est inséré.
 
 2. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
+
+<!---HONumber=AcomDC_0629_2016-->

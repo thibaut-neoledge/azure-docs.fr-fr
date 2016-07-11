@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -69,6 +69,7 @@ Pour changer le nombre d’unités de diffusion en continu à l’aide du portai
 
 	 
 >[AZURE.NOTE] Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
+
 
 >[AZURE.NOTE] C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
@@ -125,6 +126,7 @@ Une fois l’intégration activée, les configurations suivantes sont désactiv�
 
 ![Activer le CDN pour le point de terminaison de diffusion en continu][streaming-endpoint-enable-cdn]
 
+>[AZURE.IMPORTANT] L’intégration d’Azure Media Services au CDN Azure est implémentée sur le **CDN Azure fourni par Verizon**. Si vous souhaitez utiliser le **CDN Azure fourni par Akamai** pour Azure Media Services, vous devez [configurer le point de terminaison manuellement](../cdn/cdn-create-new-endpoint.md). Pour plus d’informations sur les fonctionnalités du CDN Azure, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN)](../cdn/cdn-overview.md).
 
 ###Considérations supplémentaires
 
@@ -150,4 +152,4 @@ Pour plus d’informations, consultez le blog [Announcing Azure Media Services i
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

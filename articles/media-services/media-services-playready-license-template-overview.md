@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Présentation du modèle de licence PlayReady de Media Services
@@ -23,10 +23,10 @@ Azure Media Services fournit à présent un service pour la distribution de lice
 Media Services propose également des API qui vous permettent de configurer vos licences PlayReady. Les licences contiennent les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent lorsqu’un utilisateur tente de lire du contenu protégé. Voici quelques exemples des restrictions de licences PlayReady que vous pouvez spécifier :
 
 - La valeur DateTime à partir de laquelle la licence est valide.
-- La valeur DateTime à laquelle la licence expire. 
+- La valeur DateTime à laquelle la licence expire.
 - Pour que la licence soit enregistrée dans un stockage persistant sur le client. Les licences persistantes servent généralement à autoriser la lecture hors connexion du contenu.
-- Le niveau de sécurité minimal qu'un lecteur doit avoir pour pouvoir lire votre contenu. 
-- Le niveau de protection de sortie des contrôles de sortie pour du contenu audio/vidéo. 
+- Le niveau de sécurité minimal qu'un lecteur doit avoir pour pouvoir lire votre contenu.
+- Le niveau de protection de sortie des contrôles de sortie pour du contenu audio/vidéo.
 - Pour plus d'informations, consultez la section Contrôles de sortie (3.5) dans le document [Règles de conformité PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
 >[AZURE.NOTE]Actuellement, vous pouvez uniquement configurer le droit de lecture de la licence PlayReady (ce droit est requis). Le droit de lecture permet au client de lire le contenu. Il permet également de configurer les restrictions spécifiques à la lecture. Pour plus d'informations, consultez [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
@@ -311,4 +311,4 @@ Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

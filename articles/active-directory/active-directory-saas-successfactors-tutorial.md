@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="06/29/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à SuccessFactors
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ###Pour activer l’intégration d’applications pour SuccessFactors, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ Pour configurer l’authentification unique, vous devez contacter votre équipe 
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **SuccessFactors** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **SuccessFactors** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Configurer l’authentification unique")
 
@@ -84,8 +84,8 @@ Pour configurer l’authentification unique, vous devez contacter votre équipe 
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL de connexion à SuccessFactors**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SuccessFactors (ex. : « *https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-2.  Dans la zone de texte **URL de réponse SuccessFactors**, entrez **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  Dans la zone de texte **URL de connexion à SuccessFactors**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SuccessFactors (ex. : «*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+    2.  Dans la zone de texte **URL de réponse SuccessFactors**, entrez **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE] Cette valeur n’est qu’un espace réservé temporaire. La valeur réelle vous est fournie par votre équipe de support SuccessFactors. Plus loin dans ce didacticiel, vous trouverez des instructions pour contacter votre équipe de support SuccessFactors. Dans le cadre de cet échange, vous recevez votre URL de réponse SuccessFactors.
 
@@ -103,7 +103,7 @@ Pour configurer l’authentification unique, vous devez contacter votre équipe 
 
     Votre équipe de support Successfactors vous envoie l’**URL de réponse Successfactors** dont vous avez besoin pour la boîte de dialogue **Configurer l’URL de l’application**.
 
-6.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Configurer l’authentification unique")
 
@@ -119,7 +119,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à SuccessFactors, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **SuccessFactors**, cliquez sur **Affecter des utilisateurs**.
 
@@ -131,4 +131,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

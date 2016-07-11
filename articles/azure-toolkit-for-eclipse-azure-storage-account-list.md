@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -100,4 +100,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

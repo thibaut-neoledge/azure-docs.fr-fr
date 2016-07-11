@@ -23,14 +23,14 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 
 ## Pour créer un jeu d’équilibrage de charge interne pour les machines virtuelles
 
-Pour créer un jeu d'équilibrage de charge interne et les serveurs qui y enverront leur trafic, vous devez procéder comme suit :
+Pour créer un jeu d'équilibrage de charge interne et les serveurs qui y enverront leur trafic, vous devez procéder comme suit :
 
 1. Créez une instance d’équilibrage de charge qui sera le point de terminaison du trafic entrant qui devra être équilibré entre les serveurs d’un jeu d’équilibrage de charge.
 
@@ -48,7 +48,7 @@ Ce guide indique comment créer un équilibreur de charge interne selon le scén
 
 		azure config mode asm
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    New mode is asm
 
@@ -62,13 +62,13 @@ Ce guide créera un jeu d'équilibrage de charge en utilisant le port 1433 comme
 Il s'agit d'un scénario courant dans lequel vous utilisez des machines virtuelles SQL sur le serveur principal avec un équilibreur de charge interne afin de garantir que les serveurs de base de données ne soient pas exposés directement à l'aide d'une adresse IP publique.
 
 
-### Étape 1 : 
+### Étape 1 : 
 
 Créer un jeu d’équilibrage de charge interne avec `azure network service internal-load-balancer add`.
 
 	 azure service internal-load-balancer add -r mytestcloud -n ilbset -t subnet-1 -a 192.168.2.7
 
-Paramètres utilisés :
+Paramètres utilisés :
 
 **-r** - nom du service cloud<BR> **-n** - nom de l’équilibreur de charge interne<BR> **-t** - nom du sous-réseau (même sous-réseau utilisé par les machines virtuelles que vous ajouterez à l'équilibreur de charge interne)<BR> **-a** - (facultatif) ajoutez une adresse IP privée statique<BR>
 
@@ -87,24 +87,24 @@ Voici un exemple de sortie :
 	info:    service internal-load-balancer list command OK
 
 
-## Étape 2 
+## Étape 2 
 
 Vous configurez le jeu d'équilibrage de charge interne lorsque vous ajoutez le premier point de terminaison. Vous associerez le point de terminaison, la machine virtuelle et le port de sonde au jeu d'équilibrage de charge interne au cours de cette étape.
 
 	azure vm endpoint create db1 1433 -k 1433 tcp -t 1433 -r tcp -e 300 -f 600 -i ilbset
 
-Paramètres utilisés :
+Paramètres utilisés :
 
 **-k** - port de la machine virtuelle locale<BR> **-t** - port de la sonde<BR> **-r** - protocole de la sonde<BR> **-e** - intervalle de sondage en secondes<BR> **-f** -intervalle d'expiration du délai en secondes <BR> **-i** - nom de l’équilibreur de charge interne <BR>
 
 
-## Étape 3 
+## Étape 3 
 
 Vérifier la configuration de l’équilibreur de charge avec `azure vm show` *nom de la machine virtuelle*
 
 	azure vm show DB1 
 
-La sortie se présente comme suit :
+La sortie se présente comme suit :
 
 		azure vm show DB1
 	info:    Executing command vm show
@@ -165,7 +165,7 @@ Vous pouvez créer un point de terminaison de Bureau à distance pour transfére
 
 Vous pouvez supprimer une machine virtuelle d'un jeu d’équilibrage de charge interne en supprimant le point de terminaison associé. Une fois le point de terminaison supprimé, la machine virtuelle n'appartient plus au jeu d'équilibrage de charge.
 
- À l’aide de l’exemple ci-dessus, vous pouvez supprimer le point de terminaison créé pour la machine virtuelle « DB1 » de l’équilibreur de charge interne « ilbset » à l’aide de la commande `azure vm endpoint delete`.
+ À l’aide de l’exemple ci-dessus, vous pouvez supprimer le point de terminaison créé pour la machine virtuelle « DB1 » de l’équilibreur de charge interne « ilbset » à l’aide de la commande `azure vm endpoint delete`.
 
 	azure vm endpoint delete DB1 tcp-1433-1433
 
@@ -179,4 +179,4 @@ Pour plus d'informations, consultez `azure vm endpoint --help`.
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

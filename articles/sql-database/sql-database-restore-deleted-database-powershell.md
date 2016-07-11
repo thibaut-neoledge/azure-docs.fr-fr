@@ -20,9 +20,8 @@
 # Restaurer une base de données SQL Azure supprimée avec PowerShell
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-database-restore-deleted-database.md)
-- [Portail Azure](sql-database-restore-deleted-database-portal.md)
-- [PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Vue d'ensemble](sql-database-recovery-using-backups.md)
+- [Restauration d’une base de données supprimée : portail Azure](sql-database-restore-deleted-database-portal.md)
 
 [AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -49,17 +48,11 @@
 
 ## Étapes suivantes
 
-- Pour obtenir des instructions détaillées sur la restauration d’une base de données supprimée à l’aide du portail Azure, consultez [Restaurer une base de données supprimée à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md).
-- Pour obtenir des informations sur la restauration d’une base de données supprimée, consultez [Restaurer une base de données supprimée à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- Pour obtenir des informations détaillées sur la restauration d’une base de données supprimée, consultez [Restaurer une base de données supprimée](sql-database-restore-deleted-database.md)
-- Pour plus d’informations concernant les sauvegardes automatisées de base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
+- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-## Ressources supplémentaires
-
-- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Restauration géographique](sql-database-geo-restore.md)
-- [Géo-réplication active](sql-database-geo-replication-overview.md)
-- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

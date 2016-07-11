@@ -68,9 +68,7 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 1.  Accédez au **Catalogue de sauvegarde**. Filtrez par appareil et par plage horaire pour rechercher vos sauvegardes. Cliquez sur l’icône en forme de coche ![](./media/storsimple-ova-restore/image1.png) pour exécuter la requête.
 
-2.  Dans la liste des jeux de sauvegarde qui apparaît, sélectionnez un jeu de sauvegarde spécifique. Développez la sauvegarde pour afficher les différents volumes qu'elle contient. Vous devez mettre ces volumes mis hors connexion sur l’hôte et l’appareil avant leur restauration. Accédez aux volumes sur la page **Volumes** et mettez-les hors connexion.
-
-3.  Revenez à l’onglet **Catalogue de sauvegarde** et sélectionnez un jeu de sauvegarde.
+2.  Dans la liste des jeux de sauvegarde qui apparaît, sélectionnez un jeu de sauvegarde spécifique. Développez la sauvegarde pour afficher les différents volumes qu'elle contient. Sélectionnez le volume à restaurer.
 
 5.  En bas de la page, cliquez sur **Restaurer comme nouveau**. L’assistant **Restaurer comme nouveau volume** démarre.
 
@@ -79,7 +77,7 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 	1.  Vérifiez le nom de l’appareil source. Il doit s'agir de l’appareil contenant le volume que vous souhaitez restaurer. La sélection de l'appareil n'est pas disponible. Pour sélectionner un autre appareil source, vous devez quitter l'assistant et sélectionner à nouveau le jeu de sauvegarde.
 
-	2.  Spécifiez un nom de volume. Le nom du volume doit contenir entre 3 et 127 caractères.
+	2.  Fournissez un nom de volume pour le volume en cours de restauration en tant que nouveau volume. Le nom du volume doit contenir entre 3 et 127 caractères.
 
 	3.  Cliquez sur l'icône en forme de flèche.
 
@@ -91,11 +89,17 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 1.  Cliquez sur l’icône en forme de coche ![](./media/storsimple-ova-restore/image1.png). Cette opération lance une tâche de restauration, et la notification suivante confirme que la tâche est en cours.
 
-2.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher la tâche**. Vous accédez alors à la page **Tâches**.
+2.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher le travail**. Vous accédez alors à la page **Travaux**.
 
-3.  Vous pouvez suivre la progression de la restauration. Quand la restauration est terminée à 100 %, accédez à la page **Volumes** sur votre appareil.
+3.  Vous pouvez suivre la progression de la restauration. Accédez à la page **Volumes** sur votre appareil.
 
 4.  Vous pouvez maintenant afficher le nouveau volume restauré dans la liste des volumes sur votre appareil. Notez que la restauration est effectuée pour le même type de volume. Un volume à plusieurs niveaux est restauré comme un volume à plusieurs niveaux, et un volume épinglé localement comme un volume épinglé localement.
+
+5.  Une fois que le volume apparaît en ligne dans la liste des volumes, il est disponible pour utilisation. Sur l’hôte de l’initiateur iSCSI, actualisez la liste des cibles dans la fenêtre des propriétés de l’initiateur iSCSI. Une nouvelle cible qui contient le nom du volume restauré doit s’afficher comme « inactive » dans la colonne d’état.
+
+6.  Sélectionnez la cible et cliquez sur **Se connecter**. Une fois l’initiateur connecté à la cible, son état doit indiquer **Connecté**.
+
+7.  Dans la fenêtre **Gestion des disques**, les volumes montés sont affichés comme indiqué dans l’illustration suivante. Cliquez avec le bouton droit sur le volume détecté (cliquez sur le nom du disque), puis cliquez sur **En ligne**.
 
 > [AZURE.IMPORTANT] Lorsque vous tentez de restaurer un volume ou un partage à partir d’un jeu de sauvegarde, si le travail de restauration échoue, un volume ou partage cible peut toujours être créé dans le portail. Il est important de supprimer ce volume ou partage cible dans le portail pour réduire les problèmes futurs découlant de cet élément.
 
@@ -132,4 +136,4 @@ Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarde
 
 En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

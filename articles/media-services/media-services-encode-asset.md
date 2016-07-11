@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/25/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
@@ -242,4 +242,4 @@ Pour obtenir de l’aide de la part de l’équipe **Media Services**, ouvrez un
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

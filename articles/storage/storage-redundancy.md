@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="06/23/2016"
 	ms.author="tamram"/>
 
 # Réplication Azure Storage
@@ -31,7 +31,7 @@ Le tableau suivant fournit une vue d’ensemble rapide des différences entre LR
 
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
-|:-----------------------------------------------------------------------------------|:----|:----|:----|:-------|
+|:----------------------------------------------------------------------------------|:---|:---|:---|:------|
 | Les données sont répliquées entre plusieurs installations. | Non | Oui | Oui | Oui |
 | Les données peuvent être lues à partir de l’emplacement secondaire et principal. | Non | Non | Non | Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. | 3 | 3 | 6 | 6\. |
@@ -65,10 +65,42 @@ Le stockage géo-redondant (GRS) réplique vos données vers une région seconda
 
 Pour un compte de stockage avec GRS activé, une mise à jour est d’abord appliquée dans la région primaire, où elle est répliquée trois fois. La mise à jour est ensuite répliquée trois fois également dans la région secondaire, dans des domaines d’erreur et de mise à niveau distincts.
 
-
 > [AZURE.NOTE] Avec GRS, les demandes d’écriture de données sont répliquées de manière asynchrone dans la région secondaire. Le mode de stockage GRS n’affecte pas la latence des demandes formulées dans la région primaire. Toutefois, étant donné que la réplication asynchrone implique un délai, il est possible que, en cas de sinistre régional, les modifications n’ayant pas encore été répliquées dans la région secondaire soient perdues, si les données ne peuvent pas être récupérées à partir de la région primaire.
  
-Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La région secondaire est déterminée en fonction de la région primaire et ne peut pas être modifiée. Pour obtenir des informations récentes sur l’association de régions principales et secondaires, consultez [Régions Azure](https://azure.microsoft.com/regions/).
+Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La région secondaire est déterminée en fonction de la région primaire et ne peut pas être modifiée. Le tableau suivant montre les paires de régions primaires et secondaires.
+
+| Primaire | Secondaire |
+|---------------------|---------------------|
+| États-Unis - partie centrale septentrionale | États-Unis - partie centrale méridionale |
+| États-Unis - partie centrale méridionale | États-Unis - partie centrale septentrionale |
+| Est des États-Unis | Ouest des États-Unis |
+| Ouest des États-Unis | Est des États-Unis |
+| Est des États-Unis 2 | Centre des États-Unis |
+| Centre des États-Unis | Est des États-Unis 2 |
+| Europe du Nord | Europe de l'Ouest |
+| Europe de l'Ouest | Europe du Nord |
+| Asie du Sud-Est | Est de l'Asie |
+| Est de l'Asie | Asie du Sud-Est |
+| Chine orientale | Chine du Nord |
+| Chine du Nord | Chine orientale |
+| Est du Japon | Ouest du Japon |
+| Ouest du Japon | Est du Japon |
+| Sud du Brésil | États-Unis - partie centrale méridionale |
+| Est de l’Australie | Sud-est de l’Australie |
+| Sud-est de l’Australie | Est de l’Australie |
+| Sud de l'Inde | Inde-Centre |
+| Inde-Centre | Sud de l'Inde |
+| Gouvernement américain - Iowa | Gouvernement américain - Virginie |
+| Gouvernement américain - Virginie | Gouvernement américain - Iowa |
+| Centre du Canada | Est du Canada |
+| Est du Canada | Centre du Canada |
+| Nord du Royaume-Uni | Sud du Royaume-Uni 2 |
+| Sud du Royaume-Uni 2 | Nord du Royaume-Uni |
+| Centre de l’Allemagne | Nord-Est de l’Allemagne |
+| Nord-Est de l’Allemagne | Centre de l’Allemagne |
+
+
+Pour obtenir des informations récentes sur les régions prises en charge par Azure, consultez [Régions Azure](https://azure.microsoft.com/regions/).
  
 ## Stockage géo-redondant avec accès en lecture
 
@@ -81,7 +113,7 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 - [Tarification d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 - [À propos des comptes de stockage Azure](storage-create-storage-account.md)
 - [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md)
-- [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
-- [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
+- [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

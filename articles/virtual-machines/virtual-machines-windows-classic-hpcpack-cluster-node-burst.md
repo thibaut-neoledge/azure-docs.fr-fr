@@ -22,7 +22,7 @@ ms.service="virtual-machines-windows"
 
 Il vous montre comment ajouter des nœuds « d’extension » Azure (instances de rôle de travail en cours d’exécution dans un service cloud) à la demande en tant que ressources de calcul à un nœud principal HPC Pack existant dans Azure. Vous pouvez ainsi augmenter la capacité de calcul du cluster HPC dans Azure à la demande, sans avoir à gérer un ensemble de machines virtuelles à nœud de calcul préconfigurées.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ![Nœuds d’extension][burst]
 
@@ -89,4 +89,4 @@ Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, cons
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

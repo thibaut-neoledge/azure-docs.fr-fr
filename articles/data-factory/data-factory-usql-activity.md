@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Exécution d'un script U-SQL sur Azure Data Lake Analytics à partir de la fabrique d'Azure Data Factory 
@@ -257,4 +257,4 @@ Les valeurs des paramètres **@in** et **@out** dans le script U-SQL ci-dessus s
 
 Vous pouvez aussi spécifier d’autres propriétés viz. degreeOfParallelism, la priorité, etc. dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

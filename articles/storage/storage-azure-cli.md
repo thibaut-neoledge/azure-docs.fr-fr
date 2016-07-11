@@ -1,6 +1,6 @@
 <properties
     pageTitle="Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Azure"
-    description="Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure. L’interface de ligne de commande Azure est un outil multiplateforme."
+    description="Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure. L’interface de ligne de commande Azure est un outil multiplateforme. "
     services="storage"
     documentationCenter="na"
     authors="tamram"
@@ -25,7 +25,7 @@ Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne d
 
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts, qui illustrent l’utilisation de la CLI Azure avec Microsoft Azure Storage. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
 
-> [AZURE.NOTE] Ce guide fournit des exemples de commandes CLI Azure et de scripts s’exécutant en mode Azure Service Management (ASM). Pour obtenir la liste des commandes de CLI Azure pour le stockage en mode ASM, voir [Utilisation de l’interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
+> [AZURE.NOTE] Le guide fournit des exemples de commande et de script de la CLI Azure pour les comptes de stockage en mode classique. Pour obtenir la liste des commandes de CLI Azure pour les comptes de stockage en mode Resource Manager, voir [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
 
 ## Prise en main de Microsoft Azure Storage et de la CLI Azure en 5 minutes
 
@@ -74,15 +74,15 @@ Pour plus d’informations sur les abonnements Azure, consultez [Attribution de 
 
 6. Maintenant, vous devez mettre à jour les variables du script en fonction de vos paramètres de configuration.
 
-    - **<storage_account_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
+    - **<nom\_compte\_stockage>** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
 
-    - **<storage_account_key>** : clé d’accès associée à votre compte de stockage.
+    - **<clé\_compte\_stockage>** : clé d’accès associée à votre compte de stockage.
 
-    - **<container_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre conteneur.
+    - **<nom\_conteneur>** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
 
-    - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « ~/images/HelloWorld.png ».
+    - **<image\_à\_télécharger>** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « ~/images/HelloWorld.png ».
 
-    - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « ~/downloadImages ».
+    - **<dossier\_destination>** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés à partir d’Azure Storage, par exemple « ~/downloadImages ».
 
 7. Une fois que vous avez mis à jour les variables nécessaires dans vim, appuyez sur les combinaisons de touches « Échap, :, wq! » pour enregistrer le script.
 
@@ -121,7 +121,7 @@ Ensuite, copiez la chaîne de connexion de sortie, puis associez-lui la variable
 
 ## Créer et gérer des objets blob
 
-Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du stockage d’objets blob Microsoft Azure. Pour obtenir des informations détaillées, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts de service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du stockage d’objets blob Microsoft Azure. Pour obtenir des informations détaillées, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts de service Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Création d'un conteneur
 
@@ -129,7 +129,7 @@ Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouv
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour plus d’informations, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
 
 ### Charger un blob dans un conteneur.
 
@@ -221,4 +221,4 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

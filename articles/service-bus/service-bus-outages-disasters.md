@@ -79,9 +79,9 @@ En général, la réplication passive est moins onéreuse que la réplication ac
 
 Lorsque vous utilisez la réplication passive, les messages peuvent être perdus ou reçus deux fois, dans les scénarios suivants :
 
--   **Retard ou perte de message** : supposons que l'expéditeur a envoyé avec succès un message m1 à la file d'attente principale, et qu'ensuite la file d'attente devient indisponible avant que le destinataire ne reçoive m1. L'expéditeur envoie un message ultérieur m2 à la file d'attente secondaire. Si la file d'attente principale est temporairement indisponible, le destinataire reçoit m1 lorsque la file d'attente est à nouveau disponible. En cas de sinistre, le destinataire peut ne jamais recevoir m1.
+-   **Retard ou perte de message** : supposons que l'expéditeur a envoyé avec succès un message m1 à la file d'attente principale, et qu'ensuite la file d'attente devient indisponible avant que le destinataire ne reçoive m1. L'expéditeur envoie un message ultérieur m2 à la file d'attente secondaire. Si la file d'attente principale est temporairement indisponible, le destinataire reçoit m1 lorsque la file d'attente est à nouveau disponible. En cas de sinistre, le destinataire peut ne jamais recevoir m1.
 
--   **Réception de doublons** : supposons que l'expéditeur envoie un message m à la file d'attente principale. Service Bus traite m avec succès mais ne parvient pas à envoyer une réponse. Après expiration de l'opération d'envoi, l'expéditeur envoie une copie identique de m à la file d'attente secondaire. Si le destinataire peut recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire reçoit les deux copies de m approximativement au même moment. Si le destinataire ne peut pas recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire ne reçoit initialement que la deuxième copie de m, mais reçoit ensuite une deuxième copie de m lorsque la file d'attente principale devient disponible.
+-   **Réception de doublons** : supposons que l'expéditeur envoie un message m à la file d'attente principale. Service Bus traite m avec succès mais ne parvient pas à envoyer une réponse. Après expiration de l'opération d'envoi, l'expéditeur envoie une copie identique de m à la file d'attente secondaire. Si le destinataire peut recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire reçoit les deux copies de m approximativement au même moment. Si le destinataire ne peut pas recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire ne reçoit initialement que la deuxième copie de m, mais reçoit ensuite une deuxième copie de m lorsque la file d'attente principale devient disponible.
 
 L'exemple [Géo-réplication avec la messagerie répartie de Service Bus][] illustre la réplication passive des entités de messagerie.
 
@@ -98,7 +98,7 @@ Une file d'attente durable côté client conserve l'ordre des messages et protè
 Pour plus d'informations sur la récupération d'urgence, consultez les articles suivants :
 
 - [Continuité de l’activité des bases de données SQL Azure][]
-- [Guide technique Azure Business Continuity][]
+- [Guide technique de la résilience Azure][]
 
   [Authentification Service Bus]: service-bus-authentication-and-authorization.md
   [Entités de messagerie partitionnées]: service-bus-partitioning.md
@@ -109,6 +109,6 @@ Pour plus d'informations sur la récupération d'urgence, consultez les articles
   [Géo-réplication avec la messagerie répartie de Service Bus]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [Expéditeur de message durable]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuité de l’activité des bases de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
-  [Guide technique Azure Business Continuity]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+  [Guide technique de la résilience Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

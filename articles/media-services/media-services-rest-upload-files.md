@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -49,15 +49,15 @@ Une ressource est un conteneur pour plusieurs types ou ensembles d’objets dans
 
 L’une des propriétés que vous pouvez spécifier lors de la création d’un élément multimédia est **Options**. **Options** est une valeur d’énumération qui décrit les options de chiffrement permettant de créer un élément multimédia. Une valeur valide est une des valeurs de la liste ci-dessous, et non une combinaison de valeurs.
 
-- **None** = **0** : aucun chiffrement ne sera utilisé. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
+- **None** = **0** : aucun chiffrement ne sera utilisé. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option.
 
-- **StorageEncrypted** = **1** : spécifie si vous souhaitez que vos fichiers soient chiffrés avec le chiffrement AES-256 bits pour le chargement et le stockage.
+- **StorageEncrypted** = **1** : spécifie si vous souhaitez que vos fichiers soient chiffrés avec le chiffrement AES-256 bits pour le chargement et le stockage.
 
 	Si votre ressource est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md).
 
-- **CommonEncryptionProtected** = **2** : spécifie si vous téléchargez des fichiers protégés par une méthode de chiffrement commune (comme PlayReady).
+- **CommonEncryptionProtected** = **2** : spécifie si vous téléchargez des fichiers protégés par une méthode de chiffrement commune (comme PlayReady).
 
-- **EnvelopeEncryptionProtected** = **4** : indique si vous téléchargez un contenu au format HLS chiffré avec des fichiers AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+- **EnvelopeEncryptionProtected** = **4** : indique si vous téléchargez un contenu au format HLS chiffré avec des fichiers AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
 >[AZURE.NOTE]Si votre élément multimédia utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme décrit dans la rubrique suivante : [Création d’une ContentKey](media-services-rest-create-contentkey.md). Notez qu’après avoir téléchargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**.
 
@@ -233,7 +233,7 @@ Une URL SAS a le format suivant :
 Certaines considérations s’appliquent :
 
 - Vous ne pouvez avoir plus de cinq localisateurs uniques associés à une ressource donnée. Pour plus d’informations, consultez la rubrique Localisateur.
-- Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre votre ordinateur client et Media Services. De même, la valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).	
+- Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre votre ordinateur client et Media Services. De même, la valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
 - Il peut y avoir un délai de 30 à 40 secondes après la création d’un localisateur avant qu’il soit disponible. Ce problème s’applique aux localisateurs d’URL SAS et d’origine.
 
 L’exemple suivant montre comment créer un localisateur d’URL SAS, tel que défini par la propriété Type dans le corps de la demande (« 1 » pour un localisateur SAS et « 2 » pour un localisateur d’origine à la demande). La propriété **Path** retournée contient l’URL que vous devez utiliser pour télécharger votre fichier.
@@ -460,7 +460,7 @@ Si votre ressource utilise le chiffrement, vous devez créer la ContentKey à ut
  
 Propriété du corps de la demande | Description
 ---|---
-ID | ID de la ContentKey que nous générons nous-mêmes en utilisant le format suivant, « nb:kid:UUID:<NEW GUID> ».
+Id | ID de la ContentKey que nous générons nous-mêmes en utilisant le format suivant, « nb:kid:UUID:<NEW GUID> ».
 ContentKeyType | Il s’agit du type de clé de contenu en tant qu’entier pour cette clé de contenu. Nous transmettons la valeur 1 pour le chiffrement du stockage.
 EncryptedContentKey | Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une demande HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey.
 ProtectionKeyId | Il s’agit de l’ID de clé de protection pour le certificat X.509 de chiffrement de stockage qui a été utilisé pour chiffrer notre clé de contenu.
@@ -529,4 +529,4 @@ La ContentKey est associée à une ou plusieurs ressources en envoyant une deman
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -20,7 +20,7 @@
 
 Exécutez le script PowerShell de déploiement du HPC Pack IaaS sur un ordinateur client pour déployer un cluster HPC complet pour les charges de travail Linux dans les services d’infrastructure Azure (IaaS). Si vous souhaitez déployer un cluster HPC Pack dans Azure pour les charges de travail Windows, consultez [Créer un cluster HPC Windows avec le script de déploiement du HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -88,4 +88,4 @@ Le fichier de configuration suivant crée une nouvelle forêt de domaines et dé
 
 * Vous pouvez également utiliser un modèle Azure Resource Manager pour déployer un cluster HPC Pack. Pour obtenir un exemple, consultez [Création d’un cluster HPC avec des nœuds de calcul Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

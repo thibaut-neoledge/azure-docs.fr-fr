@@ -17,7 +17,7 @@
 	ms.author="bruceper"/>
 
 # Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) #
-Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](../../../../pricing/details/key-vault/).
+Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introduction  
 Ce didacticiel vous aide à démarrer avec Azure Key Vault pour créer un conteneur renforcé (un coffre) dans Azure afin de stocker et gérer les clés de chiffrement et les secrets dans Azure. Il vous guide tout au long du processus d’utilisation de l’interface de ligne de commande interplateforme Azure pour créer un coffre qui contient une clé ou un mot de passe que vous pouvez ensuite utiliser avec une application Azure. Il vous montre également comment une application peut ensuite utiliser cette clé ou ce mot de passe.
@@ -33,7 +33,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 ## Configuration requise
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](../../../pricing/free-trial) dès aujourd’hui.
+- Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial) dès aujourd’hui.
 - Interface de ligne de commande interplateforme Azure, version 0.9.1 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](../xplat-cli-install.md).
 - Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
@@ -123,8 +123,8 @@ Par exemple, si vous utilisez le nom de coffre ContosoKeyVault, le nom de groupe
 
 La sortie de cette commande affiche les propriétés du coffre de clés que vous venez de créer. Les deux propriétés les plus importantes sont :
 
-- **Nom** : dans l’exemple : ContosoKeyVault. Vous allez utiliser ce nom pour les autres applets de commande Key Vault.
-- **vaultUri** : dans l’exemple : https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+- **Nom** : dans l’exemple : ContosoKeyVault. Vous allez utiliser ce nom pour les autres applets de commande Key Vault.
+- **vaultUri** : dans l’exemple : https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce coffre de clés.
 
@@ -137,15 +137,15 @@ Si vous souhaitez qu’Azure Key Vault crée pour vous une clé protégée par l
 
 Toutefois, si vous avez une clé existante dans un fichier .pem enregistré sous la forme d’un fichier local dans un fichier nommé softkey.pem que vous souhaitez télécharger dans Azure Key Vault, tapez la commande suivante pour importer la clé à partir du fichier .PEM qui protège la clé par logiciel dans le service Key Vault :
 
-    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
+    azure keyvault key import --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour toujours obtenir la version actuelle, utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
 
 Pour ajouter un secret dans le coffre, c’est-à-dire un mot de passe nommé SQLPassword avec la valeur Pa$$w0rd dans Azure Key Vault, tapez le code suivant :
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword**pour toujours obtenir la version actuelle, utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle, utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
 
 Examinons la clé ou le secret que vous venez de créer :
 
@@ -263,4 +263,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

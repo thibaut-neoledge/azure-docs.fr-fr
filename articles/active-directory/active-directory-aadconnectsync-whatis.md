@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -51,6 +51,8 @@ Rubrique | Sujet qu’elle aborde et quand la consulter
 **Opérations et interface utilisateur** |
 [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | Décrit l’interface utilisateur de Synchronization Service Manager, notamment les onglets [Opérations](active-directory-aadconnectsync-service-manager-ui-operations.md), [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md), [Concepteur métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) et [Recherche métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 [Considérations et tâches opérationnelles](active-directory-aadconnectsync-operations.md) | Décrit les problèmes liés au fonctionnement, tels que la récupération d’urgence.
+**Procédure** |
+[Réinitialiser le compte Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md) | Décrit la réinitialisation des informations d’identification du compte de service utilisé pour se connecter à Azure AD à partir de la synchronisation d’Azure AD Connect.
 **Plus d’informations et de références** |
 [Ports](active-directory-aadconnect-ports.md) | Répertorie les ports que vous devez ouvrir entre le moteur de synchronisation, vos répertoires locaux et Azure AD.
 [Attributs synchronisés avec Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) | Répertorie tous les attributs en cours de synchronisation entre le système AD local et Azure AD.
@@ -60,4 +62,4 @@ Rubrique | Sujet qu’elle aborde et quand la consulter
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

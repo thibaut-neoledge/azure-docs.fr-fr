@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -78,7 +78,7 @@ Le plug-in [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-ma
 
 Le mode **Gratuit** du plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ne prend pas en charge l’ajout de domaines personnalisés à Web Apps. Vous devez basculer vers le mode **Partagé** ou **Standard**. Pour ce faire :
 
-* Connectez-vous au portail Azure et recherchez votre application web. 
+* Connectez-vous au portail Azure et recherchez votre application web.
 * Cliquez sur l’onglet **Passage à une édition supérieure** dans **Paramètres**.
 * Sous **Général**, sélectionnez *PARTAGÉ* ou *STANDARD*.
 * Cliquez sur **Enregistrer**.
@@ -153,4 +153,4 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1| Microsoft Azure"
-	description="Étapes pour configurer une stratégie de groupe pour que les appareils joints à un domaine Windows 8.1 s’inscrivent automatiquement auprès d’Azure AD."
+	description=" Étapes pour configurer une stratégie de groupe pour que les appareils joints à un domaine Windows 8.1 s’inscrivent automatiquement auprès d’Azure AD. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.
@@ -61,4 +61,4 @@ La stratégie de groupe autorise une tâche planifiée sur le système qui s’e
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

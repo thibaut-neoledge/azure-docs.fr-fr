@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -28,7 +28,7 @@ Dans cette rubrique, nous allons passer en revue les clients actuellement pris e
 
 Vous pouvez accéder à RemoteApp en suivant la procédure mentionnée ci-dessous si votre appareil exécute l'un des systèmes d'exploitation suivants :
 
- - Windows 10 
+ - Windows 10
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
@@ -58,7 +58,7 @@ Après avoir installé le client sur votre appareil et l'avoir lancé, passez à
 
 Une fois l'application Bureau à distance Microsoft installée à partir du Google Play Store, elle apparaît dans votre liste d'applications sous **Bureau à distance**.
 
-1. Lorsque vous lancez l'application, vous accédez à un centre de connexion vide, sauf si vous avez déjà utilisé l'application. Pour prendre en main Azure RemoteApp, cliquez sur le bouton d'ajout **""+""**, puis sur **Azure RemoteApp**.	
+1. Lorsque vous lancez l'application, vous accédez à un centre de connexion vide, sauf si vous avez déjà utilisé l'application. Pour prendre en main Azure RemoteApp, cliquez sur le bouton d'ajout **""+""**, puis sur **Azure RemoteApp**.
 
 	 ![Centre de connexion vide](./media/remoteapp-clients/Android1.png)
 
@@ -207,4 +207,4 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

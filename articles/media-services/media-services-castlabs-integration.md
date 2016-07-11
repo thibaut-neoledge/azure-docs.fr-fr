@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"  
 	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
@@ -37,10 +37,10 @@ Le diagramme suivant représente une architecture qui intègre Azure Media Servi
 
 - Le contenu multimédia est stocké dans AMS.
 - Les ID des clés de contenu sont stockées à la fois dans castLabs et AMS.
-- castLabs et AMS intègrent une authentification par jeton. Les sections suivantes décrivent les jetons d'authentification. 
+- castLabs et AMS intègrent une authentification par jeton. Les sections suivantes décrivent les jetons d'authentification.
 - Quand un client demande à diffuser en continu la vidéo, le contenu est chiffré dynamiquement par **chiffrement commun** (CENC) et empaqueté dynamiquement par AMS en Smooth Streaming ou DASH. Nous offrons également un chiffrement de flux élémentaire PlayReady M2TS pour le protocole de diffusion en continu HLS.
-- La licence PlayReady est récupérée auprès du serveur de licences AMS et licence Widevine est récupérée auprès du serveur de licences castLabs. 
-- Media Player détermine automatiquement quelles licences récupérer en fonction de la capacité de la plateforme client. 
+- La licence PlayReady est récupérée auprès du serveur de licences AMS et licence Widevine est récupérée auprès du serveur de licences castLabs.
+- Media Player détermine automatiquement quelles licences récupérer en fonction de la capacité de la plateforme client.
 
 ##Génération de jetons d'authentification pour l'obtention d'une licence
 
@@ -107,7 +107,7 @@ Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine)
 3.	Collez l'URL de diffusion en continu.
 4.	Cochez la case **Options avancées**.
 5.	Dans la liste déroulante **Protection**, sélectionnez PlayReady et/ou Widevine.
-6.	Collez le jeton que vous avez obtenu de votre STS dans la zone de texte Jeton. 
+6.	Collez le jeton que vous avez obtenu de votre STS dans la zone de texte Jeton.
 	
 	Le serveur de licences castLab n'a pas besoin du préfixe « Bearer= » devant le jeton. Par conséquent, supprimez-le avant d'envoyer le jeton.
 7.	Mettez à jour le lecteur.
@@ -122,4 +122,4 @@ Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine)
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

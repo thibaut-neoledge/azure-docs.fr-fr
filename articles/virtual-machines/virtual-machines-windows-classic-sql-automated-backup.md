@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (classiques) | Microsoft Azure"
-	description="Décrit la fonctionnalité de sauvegarde automatisée pour SQL Server s’exécutant dans Azure Virtual Machines à l’aide de Resource Manager."
+	description="Décrit la fonctionnalité de sauvegarde automatisée pour SQL Server s’exécutant dans Azure Virtual Machines à l’aide de Resource Manager. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,8 +24,8 @@
 
 La sauvegarde automatisée configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable. La sauvegarde automatisée dépend l’[extension de l’agent IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Modèle Resource Manager Pour afficher la version Resource Manager de cet article, consultez [Automated Backup for SQL Server in Azure Virtual Machines Resource Manager (Sauvegarde automatisée pour SQL Server dans les machines virtuelles SQL Server (Resource Manager))](virtual-machines-windows-sql-automated-backup.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Pour afficher la version Resource Manager de cet article, consultez [Automated Backup for SQL Server in Azure Virtual Machines Resource Manager (Sauvegarde automatisée pour SQL Server dans les machines virtuelles SQL Server (Resource Manager))](virtual-machines-windows-sql-automated-backup.md).
 
 ## Composants requis
 
@@ -117,4 +117,4 @@ Pour plus d’informations sur les autres tâches d’automatisation disponibles
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, consultez la page [Vue d’ensemble de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -23,7 +23,7 @@ ms.service="virtual-machines-windows"
 
 Si vous déployez des nœuds de rafale Azure dans votre cluster HPC Pack ou si vous créez un cluster HPC Pack dans des machines virtuelles Azure, un moyen d’augmenter ou de diminuer automatiquement le nombre de ressources de calcul Azure, comme des cœurs, en fonction de la charge de travail actuelle du cluster peut s’avérer utile. Vous pouvez ainsi utiliser vos ressources Azure plus efficacement et contrôler leurs coûts. Pour ce faire,configurez la propriété **AutoGrowShrink** du cluster HPC Pack. L’autre solution consiste à exécuter le script HPC PowerShell **AzureAutoGrowShrink.ps1** installé avec HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager De plus, actuellement, vous ne pouvez qu’augmenter ou diminuer automatiquement les nœuds de calcul HPC Pack qui exécutent un système d’exploitation Windows Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. De plus, actuellement, vous ne pouvez qu’augmenter ou diminuer automatiquement les nœuds de calcul HPC Pack qui exécutent un système d’exploitation Windows Server.
 
 ## Définir la propriété de cluster AutoGrowShrink
 
@@ -70,7 +70,7 @@ Pour exécuter ces commandes, démarrez HPC PowerShell sur le nœud principal du
 Voici les paramètres d’AutoGrowShrink que vous pouvez modifier à l’aide de la commande **Set-HpcClusterProperty**.
 
 * **EnableGrowShrink** : argument permettant d’activer ou de désactiver la propriété **AutoGrowShrink**.
-* **ParamSweepTasksPerCore** : nombre de tâches de balayage paramétrique pour augmenter un cœur. La valeur par défaut augmente d’un cœur par tâche. 
+* **ParamSweepTasksPerCore** : nombre de tâches de balayage paramétrique pour augmenter un cœur. La valeur par défaut augmente d’un cœur par tâche.
  
     >[AZURE.NOTE] HPC Pack QFE KB3134307 modifie **ParamSweepTasksPerCore** en **TasksPerResourceUnit**. Il est basé sur le type de ressource de travail et peut avoir pour valeur node, socket ou core.
     
@@ -78,9 +78,9 @@ Voici les paramètres d’AutoGrowShrink que vous pouvez modifier à l’aide de
 * **GrowInterval** : intervalle en minutes à l’issue duquel déclencher la croissance automatique. L’intervalle par défaut est de 5 minutes.
 * **ShrinkInterval** : intervalle en minutes à l’issue duquel déclencher la diminution automatique. L’intervalle par défaut est de 5 minutes.|
 * **ShrinkIdleTimes** : nombre de vérifications continues de diminution, pour indiquer que les nœuds sont inactifs. La valeur par défaut est de 3 fois Par exemple, si l’intervalle **ShrinkInterval** est de 5 minutes, HPC Pack vérifie si le nœud est inactif toutes les 5 minutes. Si les nœuds sont dans l’état inactif après 3 vérifications continues (15 minutes), HPC Pack diminue ce nœud.
-* **ExtraNodesGrowRatio** : pourcentage supplémentaire de nœuds à augmenter pour les travaux MPI (Message Passing Interface). La valeur par défaut est 1, ce qui signifie que HPC Pack augmente les nœuds de 1 % pour les travaux MPI. 
+* **ExtraNodesGrowRatio** : pourcentage supplémentaire de nœuds à augmenter pour les travaux MPI (Message Passing Interface). La valeur par défaut est 1, ce qui signifie que HPC Pack augmente les nœuds de 1 % pour les travaux MPI.
 * **GrowByMin** : argument permettant d’indiquer si la stratégie d’augmentation automatique est basée sur les ressources minimales requises pour la tâche. La valeur par défaut est false, ce qui signifie que HPC Pack augmente les nœuds des travaux basés sur les ressources maximales requises pour les tâches.
-* **SoaJobGrowThreshold** : nombre limite de demandes SOA entrantes avant le déclenchement du processus d’augmentation automatique. La valeur par défaut est 50 000.  
+* **SoaJobGrowThreshold** : nombre limite de demandes SOA entrantes avant le déclenchement du processus d’augmentation automatique. La valeur par défaut est 50 000.
     
     >[AZURE.NOTE] Ce paramètre est pris en charge dans Microsoft HPC Pack 2012 R2 Update 3.
     
@@ -179,4 +179,4 @@ L’exemple suivant configure les machines virtuelles à nœud de calcul Azure d
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

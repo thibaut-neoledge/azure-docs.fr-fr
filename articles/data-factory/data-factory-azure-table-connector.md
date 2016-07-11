@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
@@ -29,8 +29,8 @@ L’exemple ci-dessous présente les éléments suivants :
 
 1.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (utilisé pour la table et l’objet blob).
 2.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureTable](#azure-table-dataset-type-properties).
-3.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-3.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [AzureTableSource](#azure-table-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+3.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+3.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [AzureTableSource](#azure-table-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 L'exemple copie des données appartenant à la partition par défaut dans une Table Azure vers un objet Blob, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -190,8 +190,8 @@ L’exemple ci-dessous présente les éléments suivants :
 
 1.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (utilisé pour la table et l’objet blob).
 3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureTable](#azure-table-dataset-type-properties). 
-4.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [AzureTableSink](#azure-table-copy-activity-type-properties). 
+4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureTable](#azure-table-dataset-type-properties).
+4.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [AzureTableSink](#azure-table-copy-activity-type-properties).
 
 
 L'exemple copie des données appartenant à une série horaire à partir d'un objet Blob Azure vers une table dans une base de données Table Azure, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
@@ -360,7 +360,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
-| tableName | Nom de la table dans l'instance de base de données Table Azure à laquelle le service lié fait référence. | Oui
+| tableName | Nom de la table dans l'instance de base de données Table Azure à laquelle le service lié fait référence. | Oui. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
 
 ### Schéma par Data Factory
 Pour les magasins de données sans schéma comme Azure Table, le service Data Factory déduit le schéma de l’une des manières suivantes :
@@ -380,7 +380,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête de table Azure. Voir les exemples ci-dessous. | Non
+azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête de table Azure. Voir les exemples ci-dessous. | Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination.  
 azureTableSourceIgnoreTableNotFound | Indiquer si l'exception de la table n'existe pas. | TRUE<br/>FALSE | Non |
 
 ### Exemples azureTableSourceQuery
@@ -403,8 +403,8 @@ azureTableDefaultPartitionKeyValue | Valeur de clé de partition par défaut qui
 azureTablePartitionKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de partition. Si aucune valeur n'est spécifiée, AzureTableDefaultPartitionKeyValue est utilisée comme clé de partition. | Nom de colonne. | Non |
 azureTableRowKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. | Nom de colonne. | Non  
 azureTableInsertType | Le mode d'insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Notez que ce paramètre s'applique au niveau de la ligne, non au niveau de la table, et qu’aucune option ne supprimera des lignes de la table de sortie qui n'existent pas dans l'entrée. | fusionner (par défaut)<br/>remplacer | Non 
-writeBatchSize | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. | Entier compris entre 1 et 100 (unité = nombre de lignes) | Non (Valeur par défaut = 100) 
-writeBatchTimeout | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte | (Unité = intervalle de temps) Exemple : « 00:20:00 » (20 minutes) | Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes)
+writeBatchSize | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. | Integer | Non (valeur par défaut : 10000) 
+writeBatchTimeout | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte | intervalle de temps<br/><br/>Exemple : « 00: 20:00 » (20 minutes) | Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes)
 
 ### azureTablePartitionKeyName
 Vous devez mapper une colonne source sur une colonne de destination à l’aide de la propriété JSON translator pour pouvoir utiliser la colonne de destination comme azureTablePartitionKeyName.
@@ -529,4 +529,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

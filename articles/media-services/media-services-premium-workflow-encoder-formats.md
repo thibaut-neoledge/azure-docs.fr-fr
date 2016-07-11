@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako;anilmur"/>
 
 #Codecs et formats de Media Encoder Premium Workflow
@@ -82,7 +82,7 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 - Windows Media/ASF
 - AVI (8 bits/10 bits non compressé)
 - Format de fichier de diffusion en continu lisse (PIFF 1.3)
-- MPEG-TS 
+- MPEG-TS
 
 
 ###Codecs vidéo de sortie
@@ -138,4 +138,4 @@ Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multim
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

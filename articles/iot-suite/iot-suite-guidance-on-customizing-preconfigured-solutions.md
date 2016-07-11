@@ -14,7 +14,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/02/2016"
+     ms.date="06/27/2016"
      ms.author="stevehob"/>
 
 # Personnaliser une solution préconfigurée
@@ -39,9 +39,9 @@ Les trois tâches Stream Analytics et leur syntaxe sont décrites en détail dan
 Vous pouvez modifier ces tâches directement pour en modifier la logique, ou ajouter une logique spécifique à votre scénario. Pour rechercher les tâches Stream Analytics, procédez comme suit :
  
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Accédez au groupe de ressources portant le même nom que votre solution IoT. 
-3. Sélectionnez la tâche Azure Stream Analytics à modifier. 
-4. Arrêtez la tâche en sélectionnant **Arrêter** dans le jeu de commandes. 
+2. Accédez au groupe de ressources portant le même nom que votre solution IoT.
+3. Sélectionnez la tâche Azure Stream Analytics à modifier.
+4. Arrêtez la tâche en sélectionnant **Arrêter** dans le jeu de commandes.
 5. Modifiez les entrées, la requête et les sorties.
 
     Une simple modification consiste à changer la requête pour la tâche **Règles** afin d’utiliser le signe **« < »** au lieu du signe **« > »**. Le portail de solution affiche toujours **« > »** quand vous modifiez une règle, mais vous remarquerez que le comportement est inversé en raison de la modification de la tâche sous-jacente.
@@ -66,19 +66,38 @@ Le code source de la solution de surveillance à distance (référencé ci-dessu
 
 Le simulateur préconfiguré dans la solution préconfigurée de surveillance à distance est un appareil de refroidissement qui émet une télémétrie de température et d’humidité. Vous pouvez modifier le simulateur dans le projet [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) après avoir dupliqué le dépôt GitHub.
 
+### Emplacements disponibles pour les appareils simulés
+
+L’ensemble des emplacements par défaut se trouve à Seattle/Redmond, Washington, États-Unis. Vous pouvez modifier ces emplacements dans [SampleDeviceFactory.cs][lnk-sample-device-factory].
+
+
 ### Création et utilisation de votre propre appareil (physique)
 
 Les [Kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks) fournissent des bibliothèques pour la connexion de nombreux types d’appareils (langages et systèmes d’exploitation) à des solutions IoT.
+
+## Modification des limites de tableau de bord
+
+### Nombre d’appareils affichés dans la liste déroulante du tableau de bord
+
+Par défaut, la valeur est 200. Vous pouvez modifier cette valeur dans [DashboardController.cs][lnk-dashboard-controller].
+
+### Nombre d’épingles à afficher dans le contrôle de carte Bing
+
+Par défaut, la valeur est 200. Vous pouvez modifier cette valeur dans [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
+
+### Période de temps du graphique de télémétrie
+
+La valeur par défaut est 10 minutes. Vous pouvez modifier cette valeur dans [TelemetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## Configuration manuelle des rôles d’application
 
 La procédure suivante décrit comment ajouter les rôles d’application **Admin** et **ReadOnly** à une solution préconfigurée. Notez que les solutions préconfigurées provisionnées à partir du site azureiotsuite.com incluent les rôles **Admin** et **ReadOnly**.
 
-Les membres du rôle **ReadOnly** peuvent afficher le tableau de bord et la liste des appareils, mais ils ne sont pas autorisés à ajouter des appareils, à modifier les attributs de l’appareil ou à envoyer des commandes. Les membres du rôle **Admin** ont un accès complet à toutes les fonctionnalités de la solution.
+Les membres du rôle **ReadOnly** peuvent afficher le tableau de bord et la liste des appareils, mais ils ne sont pas autorisés à ajouter des appareils, modifier les attributs de l’appareil ou envoyer des commandes. Les membres du rôle **Admin** ont un accès complet à toutes les fonctionnalités de la solution.
 
 1. Connectez-vous au [Portail Azure Classic][lnk-classic-portal].
 
-2. Sélectionnez **Active Directory**.
+2. Sélectionnez **Active Directory**.
 
 3. Cliquez sur le nom du client AAD que vous avez utilisé lorsque vous avez provisionné votre solution.
 
@@ -139,6 +158,10 @@ Pour plus d’informations sur les appareils IoT, consultez le [site de dévelop
 
 [Kit SDK d’appareils IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
+[lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
+[lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25
+[lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

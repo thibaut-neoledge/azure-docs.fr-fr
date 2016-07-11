@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="06/29/2016"
 	ms.author="mohisri"/>
 
 # App Service API Apps : les nouveautés
@@ -32,7 +32,7 @@ Les fonctionnalités d’authentification clé en main existantes d’API Apps, 
 
 Pour les scénarios d’API, il existe plusieurs nouveautés utiles :
 
-- **Prise en charge pour une utilisation directe d’Azure Active Directory**, sans que le code client n’ait besoin d’échanger le jeton AAD par un jeton de session : votre client peut simplement inclure les jetons AAD dans l’en-tête d’autorisation, conformément à la spécification de jeton du porteur. Cela signifie aussi qu’aucun Kit de développement logiciel (SDK) propre à App Service n’est nécessaire côté client ou serveur. 
+- **Prise en charge pour une utilisation directe d’Azure Active Directory**, sans que le code client n’ait besoin d’échanger le jeton AAD par un jeton de session : votre client peut simplement inclure les jetons AAD dans l’en-tête d’autorisation, conformément à la spécification de jeton du porteur. Cela signifie aussi qu’aucun Kit de développement logiciel (SDK) propre à App Service n’est nécessaire côté client ou serveur.
 - **Accès de service à service ou « interne »** : si vous disposez d’un processus de démon ou de tout autre client qui aurait besoin d’accéder aux API sans interface, vous pouvez demander un jeton en utilisant un principal du service AAD et le passer à App Service pour permettre une authentification avec votre application.
 - **Autorisation différée** : il est fréquent que les applications aient des restrictions d’accès qui varient en fonction des parties de l’application. Peut-être souhaitez-vous que certaines API soient disponibles publiquement et que d’autres nécessitent une connexion ? Avec la fonctionnalité d’authentification/autorisation, c’était tout ou rien. En effet, l’ensemble du site exigeait une connexion. Cette option existe toujours, mais vous pouvez aussi autoriser le code de votre application à prendre des décisions d’accès après que l’utilisateur a été authentifié auprès d’App Service.
  
@@ -85,13 +85,13 @@ Si votre API personnalisée a été déployée vers l’ancienne version prélim
 Les étapes de redéploiement sont identiques aux étapes de déploiement d’une API web existante vers App Service. Étapes :
 
 1. Créez une application API vide. Cela est possible dans le portail via Nouveau > Application API, dans Visual Studio à partir de la publication ou à l’aide des outils Resource Manager. Si vous utilisez les outils ou les modèles Resource Manager, attribuez à **type** la valeur **api** pour le type de ressource **Microsoft.Web/sites** de façon à orienter les démarrages rapides et les paramètres du portail de gestion vers les scénarios d’API.
-2. Connectez et déployez votre projet vers l’application API en utilisant l’un des mécanismes de déploiement pris en charge par App Service. Pour en savoir plus, lisez la [documentation sur le déploiement d’Azure App Service](../app-service-web/web-sites-deploy.md). 
+2. Connectez et déployez votre projet vers l’application API en utilisant l’un des mécanismes de déploiement pris en charge par App Service. Pour en savoir plus, lisez la [documentation sur le déploiement d’Azure App Service](../app-service-web/web-sites-deploy.md).
   
 ### Authentification
 Les services d’authentification App Service prennent en charge les mêmes fonctionnalités que celles qui étaient disponibles avec l’ancien modèle API Apps. Si vous utilisez des jetons de session et que vous avez besoin de Kits de développement logiciel (SDK), utilisez les SDK client et serveur suivants :
 
 - Client : [Kit de développement logiciel Client Azure Mobile](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
-- Serveur : [Extension d’authentification .NET Microsoft Azure Mobile App](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/) 
+- Serveur : [Extension d’authentification .NET Microsoft Azure Mobile App](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
 
 Si vous utilisiez à la place les SDK alpha App Service, ceux-ci sont maintenant déconseillés :
 
@@ -122,4 +122,4 @@ Pour en savoir plus, lisez les articles de la [section Documentation de l’API 
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps)
 - [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

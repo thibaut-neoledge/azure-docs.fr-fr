@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/08/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Les flux de travail peuvent inclure la logique de décision et le branchement cl
 Exemples de flux de travail que vous pouvez créer :
 
 - Flux de travail basés sur décision qui inspectent le contenu source pour la résolution et codent uniquement les pistes de sortie souhaitées. Ceci sert à éliminer les pistes gaspillées générées par le dimensionnement par inadvertance du contenu source.
-- Des fichiers d'entrée multiples peuvent être utilisés pour prendre en charge des légendes, des superpositions et pour assembler le contenu. 
+- Des fichiers d'entrée multiples peuvent être utilisés pour prendre en charge des légendes, des superpositions et pour assembler le contenu.
 
 Cet outil permet aussi de modifier nos [flux de travail publiés](media-services-workflow-designer.md#existing_workflows).
 
@@ -90,4 +90,4 @@ Si vous avez besoin d'aide ou si vous avez des questions à propos de la créati
 
 [Vidéos de formation pour le Concepteur de flux de travail Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

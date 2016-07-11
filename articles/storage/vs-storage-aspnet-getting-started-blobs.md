@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/28/2016"
 	ms.author="tarcher"/>
 
 # Prise en main du stockage d'objets blob et des services connectés de Visual Studio (ASP.NET)
@@ -39,7 +39,7 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
 
 1. Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Azure;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Auth;
 		using Microsoft.WindowsAzure.Storage.Blob;
@@ -227,4 +227,4 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

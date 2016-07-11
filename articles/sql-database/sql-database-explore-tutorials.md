@@ -74,7 +74,7 @@ Dans les didacticiels suivants, vous apprendrez à optimiser les [performances d
 |---|---|---|
 | [Modifier les niveaux de service et de performances de votre base de données](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) | Ce didacticiel vous apprend à augmenter ou diminuer les performances d’une base de données SQL Azure à l’aide de niveaux de service. |
 | [Informations sur les performances des bases de données SQL](sql-database-performance.md#performance-overview) | Ce didacticiel explique comment ouvrir et utiliser le composant SQL Database Advisor Query Performance Insight.|
-| [SQL Database Advisor](sql-database-index-advisor.md#viewing-recommendations) | Ce didacticiel vous montre comment afficher et appliquer les recommandations de performances de SQL Database Advisor. |
+| [SQL Database Advisor](sql-database-advisor.md#viewing-recommendations) | Ce didacticiel vous montre comment afficher et appliquer les recommandations de performances de SQL Database Advisor. |
 | [Consultez les requêtes principales consommatrices d’UC](sql-database-query-performance.md#review-top-cpu-consuming-queries)| Ce didacticiel explique comment utiliser le composant SQL Database Advisor Query Performance Insight pour passer en revue les requêtes qui consomment le plus d’UC.|
 | [Affichage des détails d’une requête individuelle](sql-database-query-performance.md#viewing-individual-query-details)| Ce didacticiel explique comment utiliser le composant SQL Database Advisor Query Performance Insight pour afficher les détails de performances de chaque requête.|
 ||||
@@ -180,4 +180,4 @@ Ce didacticiel fournit des informations relatives à la [synchronisation des don
 
 [Explorer les démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

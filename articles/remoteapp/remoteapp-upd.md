@@ -26,7 +26,7 @@ Chaque UPD offre 50 Go de stockage persistant et contient à la fois les paramè
 
 Continuez votre lecture pour obtenir des détails spécifiques sur les données de profil utilisateur.
 
->[AZURE.NOTE] Vous avez besoin de désactiver le disque de profil utilisateur ? À présent, vous pouvez le faire. Consultez le billet de blog de Pavithra, [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), pour plus d’informations.
+>[AZURE.NOTE] Vous avez besoin de désactiver le disque de profil utilisateur ? À présent, vous pouvez le faire. Consultez le billet de blog de Pavithra, [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/), pour plus d’informations.
 
 
 ## Comment un administrateur peut-il accéder aux données ?
@@ -83,10 +83,10 @@ Oui, vous pouvez demander à Azure RemoteApp de désactiver les UPD d’un abonn
 Vous souhaiterez peut-être désactiver les UPD dans les situations suivantes :
 
 - Vous avez besoin d’un accès et d’un contrôle complet des données utilisateur (aux fins d’audit et de vérification ; p. ex., institutions financières).
-- Vous possédez des solutions tierces de gestion des profils utilisateur en local, et souhaitez continuer à les utiliser dans votre déploiement Azure RemoteApp joint à un domaine. Cela nécessiterait le chargement de l’agent de profil dans l’image Gold. 
+- Vous possédez des solutions tierces de gestion des profils utilisateur en local, et souhaitez continuer à les utiliser dans votre déploiement Azure RemoteApp joint à un domaine. Cela nécessiterait le chargement de l’agent de profil dans l’image Gold.
 - Vous n’avez pas besoin de stockage de données local, toutes vos données sont dans le cloud (p. ex., OneDrive Entreprise) ou dans un partage de fichiers, et vous aimeriez contrôler l’enregistrement des données en local à l’aide d’Azure RemoteApp.
 
-Consultez [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) pour plus d’informations.
+Consultez [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) pour plus d’informations.
 
 ## Puis-je empêcher les utilisateurs d’enregistrer des données sur le lecteur système ?
 
@@ -159,4 +159,4 @@ Vous pouvez également enregistrer vos informations d'identification en exécuta
 
 Vous pouvez ainsi ignorer le paramètre -Credential dans l'applet de commande New-PSDrive.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

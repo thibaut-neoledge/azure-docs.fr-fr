@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/24/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;billmath"/>
 
 # Conditions préalables pour Azure AD Connect
@@ -45,7 +45,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 - Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Une base de données SQL Server 2012 Express LocalDB (version légère de SQL Server Express) est installée par défaut et le compte du service est créé sur l'ordinateur local. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets. Si vous avez besoin de gérer un volume plus important d’objets d’annuaire, vous devez pointer l’assistant d’installation vers une autre installation de SQL Server.
 - Si vous utilisez un serveur SQL Server distinct, ces conditions s’appliquent :
     - Azure AD Connect prend en charge toutes les versions de Microsoft SQL Server à partir de SQL Server 2008 (SP4) et jusqu’à SQL Server 2014. La Base de données SQL Microsoft Azure n’est **pas prise en charge** comme base de données.
-    - Vous devez utiliser un classement SQL qui ne respecte pas la casse. Ces classements sont identifiés par un \_CI\_ dans leur nom. L’utilisation d’un classement qui respecte la casse, identifié par \_CS\_ dans le nom, n’est **pas prise en charge**.
+    - Vous devez utiliser un classement SQL qui ne respecte pas la casse. Ces classements sont identifiés par un \_CI_ dans leur nom. L’utilisation d’un classement qui respecte la casse, identifié par \_CS_ dans le nom, n’est **pas prise en charge**.
     - Vous ne pouvez avoir qu’un seul moteur de synchronisation par instance de base de données. Le partage de l’instance de base de données avec FIM/MIM Sync, DirSync ou Azure AD Sync n’est **pas pris en charge**.
 
 ### Comptes
@@ -76,7 +76,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
     </system.net>
 ```
 
-- Si votre serveur proxy nécessite une authentification, le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) doit se trouver dans le domaine et vous devez utiliser le chemin d’installation des paramètres personnalisés pour spécifier un [compte de service personnalisé](active-directory-aadconnect-get-started-custom.md#install-required-components). Vous avez également besoin d’un fichier machine.config différent. Avec cette modification dans le fichier machine.config, l'Assistant d’installation et le moteur de synchronisation répondront aux demandes d'authentification du serveur proxy. Dans toutes les pages de l'Assistant d’installation, à l'exclusion de la page de **configuration**, les informations d'identification de l’utilisateur sont utilisées. Dans la page **Configurer** à la fin de l’Assistant Installation, le contexte bascule vers le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que vous avez créé. La section machine.config doit ressembler à ceci.
+- Si votre serveur proxy nécessite une authentification, le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) doit se trouver dans le domaine, et vous devez utiliser le chemin d’installation des paramètres personnalisés pour spécifier un [compte de service personnalisé](active-directory-aadconnect-get-started-custom.md#install-required-components). Vous avez également besoin d’un fichier machine.config différent. Avec cette modification dans le fichier machine.config, l'Assistant d’installation et le moteur de synchronisation répondront aux demandes d'authentification du serveur proxy. Dans toutes les pages de l'Assistant d’installation, à l'exclusion de la page de **configuration**, les informations d'identification de l’utilisateur sont utilisées. Dans la page **Configurer** à la fin de l’Assistant Installation, le contexte bascule vers le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que vous avez créé. La section machine.config doit ressembler à ceci.
 
 ```
     <system.net>
@@ -107,15 +107,15 @@ Azure AD Connect repose sur Microsoft PowerShell et le .NET Framework 4.5.1. Cet
   - Les versions .NET Framework 4.5.1 et ultérieures sont offertes par le biais de Windows Update. Assurez-vous que vous avez installé les dernières mises à jour de Windows Server dans le Panneau de configuration.
 - Windows Server 2008 R2 et Windows Server 2012
   - La dernière version de Microsoft PowerShell est disponible dans **Windows Management Framework 4.0**, dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
-  - Le .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+  - .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
 - Windows Server 2008
   - La dernière version prise en charge de PowerShell est disponible dans **Windows Management Framework 3.0**, disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
- - Le .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+ - .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
 
 ### Activer TLS 1.2 pour Azure AD Connect
-Azure AD Connect utilise TLS 1.0 par défaut pour le chiffrement de la communication entre le serveur de moteur de synchronisation et Azure AD. Vous pouvez modifier ce comportement en configurant les applications .Net pour qu’elles utilisent TLS 1.2 par défaut sur le serveur. Vous trouverez plus d’informations sur TLS 1.2 dans l’[Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Azure AD Connect utilise TLS 1.0 par défaut pour le chiffrement de la communication entre le serveur de moteur de synchronisation et Azure AD. Vous pouvez modifier ce comportement en configurant les applications .Net pour qu’elles utilisent TLS 1.2 par défaut sur le serveur. Vous trouverez plus d’informations sur TLS 1.2 dans [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 ne peut pas être activé sur Windows Server 2008. Vous avez besoin de Windows Server 2008 R2 ou version ultérieure. Vérifiez que le correctif .Net 4.5.1 est installé pour votre système d’exploitation. Consultez l’[Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Il est possible que cette version ou une version ultérieure soit déjà installée sur votre serveur.
+1. TLS 1.2 ne peut pas être activé sur Windows Server 2008. Vous avez besoin de Windows Server 2008 R2 ou version ultérieure. Vérifiez que le correctif .Net 4.5.1 est installé pour votre système d’exploitation. Consultez [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Il est possible que cette version ou une version ultérieure soit déjà installée sur votre serveur.
 2. Si vous utilisez Windows Server 2008 R2, vérifiez que TLS 1.2 est activé. Sur le serveur Windows Server 2012 et les versions ultérieures des systèmes d’exploitation de serveur, TLS 1.2 doit déjà être activé.
 ```
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
@@ -127,7 +127,7 @@ Azure AD Connect utilise TLS 1.0 par défaut pour le chiffrement de la communica
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
 "SchUseStrongCrypto"=dword:00000001
 ```
-4. Si vous souhaitez également activer TLS 1.2 entre le serveur de moteur de synchronisation et un serveur SQL distant, vérifiez que vous avez les versions nécessaires pour la [prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+4. Si vous souhaitez également activer TLS 1.2 entre le serveur de moteur de synchronisation et un serveur SQL distant, vérifiez que vous disposez des versions requises pour la [prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
 ## Configuration requise pour l'installation et la configuration de la fédération
 
@@ -154,7 +154,7 @@ Lorsque vous utilisez Azure AD Connect pour déployer Active Directory Federat
 - Vous pouvez utiliser un certificat auto-signé sur les serveurs de fédération dans un environnement de laboratoire de test. Toutefois, pour un environnement de production, nous vous recommandons d'obtenir le certificat auprès d'une autorité de certification publique.
     - Si vous utilisez un certificat qui n'est pas approuvé publiquement, assurez-vous que le certificat installé sur chaque serveur proxy d’application web est approuvé sur le serveur local et sur tous les serveurs de fédération.
 - L’identité du certificat doit correspondre au nom du service de fédération (par exemple, sts.contoso.com).
-    - L'identité est soit une extension autre nom de l’objet (SAN) de type dNSName, soit à défaut d'entrée SAN, le nom d’objet spécifié comme nom commun.  
+    - L'identité est soit une extension autre nom de l’objet (SAN) de type dNSName, soit à défaut d'entrée SAN, le nom d’objet spécifié comme nom commun.
     - Le certificat peut contenir plusieurs entrées SAN, pour autant que l'une d'elles corresponde au nom de service de fédération.
     - Si vous envisagez d'utiliser une jonction d'espace de travail, un autre nom d’objet supplémentaire est nécessaire avec la valeur **enterpriseregistration.**, suivie du suffixe de nom d'utilisateur principal de votre organisation, par exemple, **enterpriseregistration.contoso.com**.
 - Les certificats basés sur les clés CNG (CryptoAPI Next Generation) et les fournisseurs de stockage de clés ne sont pas pris en charge. Cela signifie que vous devez utiliser un certificat basé sur un fournisseur de services de chiffrement et non sur un fournisseur de stockage de clés.
@@ -197,4 +197,4 @@ La configuration minimale requise pour les ordinateurs exécutant les services d
 ## Étapes suivantes
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

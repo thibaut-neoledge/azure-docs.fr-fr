@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/31/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
     
 # Azure RemoteApp : test de l’utilisation de votre bande passante réseau avec quelques scénarios courants
@@ -97,4 +97,4 @@ Pour évaluer la bande passante réseau par utilisateur, créez une combinaison 
 
 - [Bande passante réseau Azure RemoteApp : instructions générales (si vous ne pouvez pas tester votre propre bande passante)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

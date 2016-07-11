@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="06/24/2016"
 	ms.author="micurd"/>
 
 
@@ -32,7 +32,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 
 ## Création d’une application Node.js
 
-Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Créer et déployer une application Node.js dans Azure Cloud Service] \(avec Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
+Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Créer et déployer une application Node.js dans Azure Cloud Service] (avec Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -415,4 +415,4 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Azure Storage pour la référence de l'API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -3,7 +3,7 @@
    description="Power BI Embedded, à propos des jetons d'application pour l'authentification et d'autorisation"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # À propos du flux de jetons d’application dans Power BI Embedded
 
@@ -56,4 +56,4 @@ Après que **Power BI Embedded** envoie un rapport à l'utilisateur, ce dernier 
 - [Scénarios Microsoft Power BI Embedded Preview courants](power-bi-embedded-scenarios.md)
 - [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

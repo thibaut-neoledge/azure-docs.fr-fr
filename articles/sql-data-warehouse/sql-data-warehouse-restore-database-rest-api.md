@@ -3,7 +3,7 @@
    description="Tâches d’API REST permettant de restaurer un Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/10/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Restauration d’un Azure SQL Data Warehouse (API REST)
 
@@ -38,7 +38,7 @@ Pour restaurer une base de données :
 2. Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][].
 3. Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][].
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
 
 ## restauration d’une base de données supprimée.
 
@@ -49,7 +49,7 @@ Pour restaurer une base de données supprimée :
 3.	Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][].
 4.	Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][].
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
 
 
 ## Étapes suivantes
@@ -81,4 +81,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

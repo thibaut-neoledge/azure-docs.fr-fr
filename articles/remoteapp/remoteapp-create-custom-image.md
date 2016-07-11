@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016" 
+	ms.date="06/27/2016" 
 	ms.author="elizapo"/>
 
 # Création d’une image de modèle personnalisée pour Azure RemoteApp
@@ -142,4 +142,4 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez la t�
 - [Comment créer une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

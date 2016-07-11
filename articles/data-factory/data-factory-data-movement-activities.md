@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Activités de déplacement des données" 
-	description="Découvrez les entités Data Factory que vous pouvez utiliser dans les pipelines Data Factory pour déplacer des données." 
+	pageTitle="Activités de déplacement des données | Microsoft Azure" 
+	description="Apprenez-en plus sur le déplacement des données dans les pipelines Data Factory : migration de données entre des magasins de cloud, entre des emplacements locaux et le cloud. Utilisez l’activité de copie." 
+	keywords="déplacement des données, migration des données, copier des données, transférer des données"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,16 +17,16 @@
 	ms.date="05/31/2016" 
 	ms.author="spelluru"/>
 
-# Activités de déplacement des données
-L’[Activité de copie](#copyactivity) effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un [service disponible à l’échelle mondiale](#global) qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Le service choisit automatiquement la région la plus optimale pour effectuer le déplacement des données. La région la plus proche du magasin de données récepteur est utilisée.
- 
-Essayons de comprendre comment se produit ce déplacement de données dans différents scénarios.
+# Déplacement des données et activité de copie : migration des données vers le cloud et entre les magasins cloud
+Le déplacement des données à partir d’une source vers un récepteur (destination) est effectué par [l’activité de copie](#copyactivity) dans Azure Data Factory. L’activité de copie est effectuée par un [service globalement disponible](#global) sécurisé, fiable et évolutif. Le service choisit automatiquement la région optimale pour effectuer le déplacement des données, généralement la région la plus proche du magasin de données du récepteur.
+
+Voici comment la migration de données se produit entre deux magasins de données cloud, entre un magasin de données local et un magasin de données cloud et vers ou à partir d’un magasin de données sur une machine virtuelle IaaS Azure.
 
 ## Copie de données entre deux magasins de données cloud
 Lorsque les magasins de données source et récepteur (destination) se trouvent dans le cloud, l'activité de copie passe par les étapes suivantes pour copier/déplacer données de la source vers le récepteur. Le service qui alimente l’activité de copie effectue les opérations suivantes :
 
 1. Lit les données du magasin de données source
-2.	Effectue la sérialisation/désérialisation, la compression/décompression, le mappage des colonnes et la conversion de type en fonction de la configuration du jeu de données d'entrée, du jeu de données de sortie et de l'activité de copie 
+2.	Effectue la sérialisation/désérialisation, la compression/décompression, le mappage des colonnes et la conversion de type en fonction de la configuration du jeu de données d'entrée, du jeu de données de sortie et de l'activité de copie
 3.	Écrit les données dans le magasin de données de destination
 
 ![copie cloud-cloud](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
@@ -44,15 +45,15 @@ L'activité de copie copie les données d'un magasin de données **source** vers
 
 | sources| Récepteurs |
 |:------- | :---- |
-| <ul><li>[Objet blob Azure](data-factory-azure-blob-connector.md)</li><li>[Table Azure](data-factory-azure-table-connector.md)</li><li>[Base de données SQL Azure](data-factory-azure-sql-connector.md)</li><li>[Entrepôt de données SQL Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (voir la remarque ci-dessous)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[Serveur SQL local/IaaS Azure](data-factory-sqlserver-connector.md)</li><li>[Système de fichiers local/IaaS Azure](data-factory-onprem-file-system-connector.md)</li><li>[Base de données Oracle locale/IaaS Azure](data-factory-onprem-oracle-connector.md)</li><li>[Base de données MySQL locale/IaaS Azure](data-factory-onprem-mysql-connector.md)</li><li>[Base de données DB2 locale/IaaS Azure](data-factory-onprem-db2-connector.md)</li><li>[Base de données Teradata locale/IaaS Azure](data-factory-onprem-teradata-connector.md)</li><li>[Base de données Sybase locale/IaaS Azure](data-factory-onprem-sybase-connector.md)</li><li>[Base de données PostgreSQL locale/IaaS Azure](data-factory-onprem-postgresql-connector.md)</li><li>[Sources de données ODBC locales/IaaS Azure](data-factory-odbc-connector.md)</li><li>[Hadoop Distributed File System (HDFS) local/IaaS Azure](data-factory-hdfs-connector.md)</li><li>[Sources OData](data-factory-odata-connector.md)</li><li>[Table web](data-factory-web-table-connector.md)</li><li>[GE Historian local/IaaS Azure](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Objets blob Azure](data-factory-azure-blob-connector.md)</li><li>[Table Azure](data-factory-azure-table-connector.md)</li><li>[Base de données SQL Azure](data-factory-azure-sql-connector.md)</li><li>[Entrepôt de données SQL Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (voir la remarque ci-dessous)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[Serveur SQL local/IaaS Azure](data-factory-sqlserver-connector.md)</li><li>[Système de fichiers local/IaaS Azure](data-factory-onprem-file-system-connector.md)</li><li>[Base de données Oracle locale/IaaS Azure](data-factory-onprem-oracle-connector.md)</li></ul> |
+| <ul><li>[Objet blob Azure](data-factory-azure-blob-connector.md)</li><li>[Table Azure](data-factory-azure-table-connector.md)</li><li>[Base de données SQL Azure](data-factory-azure-sql-connector.md)</li><li>[Entrepôt de données SQL Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (voir la remarque ci-dessous)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[Serveur SQL local/IaaS Azure](data-factory-sqlserver-connector.md)</li><li>[Système de fichiers local/IaaS Azure](data-factory-onprem-file-system-connector.md)</li><li>[Base de données Oracle locale/IaaS Azure](data-factory-onprem-oracle-connector.md)</li><li>[Base de données MySQL locale/IaaS Azure](data-factory-onprem-mysql-connector.md)</li><li>[Base de données DB2 locale/IaaS Azure](data-factory-onprem-db2-connector.md)</li><li>[Base de données Teradata locale/IaaS Azure](data-factory-onprem-teradata-connector.md)</li><li>[Base de données Sybase locale/IaaS Azure](data-factory-onprem-sybase-connector.md)</li><li>[Base de données PostgreSQL locale/IaaS Azure](data-factory-onprem-postgresql-connector.md)</li><li>[Sources de données ODBC locales/IaaS Azure](data-factory-odbc-connector.md)</li><li>[Hadoop Distributed File System (HDFS) local/IaaS Azure](data-factory-hdfs-connector.md)</li><li>[Sources OData](data-factory-odata-connector.md)</li><li>[Table web (table HTML)](data-factory-web-table-connector.md)</li><li>[GE Historian local/IaaS Azure](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Objets blob Azure](data-factory-azure-blob-connector.md)</li><li>[Table Azure](data-factory-azure-table-connector.md)</li><li>[Base de données SQL Azure](data-factory-azure-sql-connector.md)</li><li>[Entrepôt de données SQL Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (voir la remarque ci-dessous)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[Serveur SQL local/IaaS Azure](data-factory-sqlserver-connector.md)</li><li>[Système de fichiers local/IaaS Azure](data-factory-onprem-file-system-connector.md)</li><li>[Base de données Oracle locale/IaaS Azure](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 
-> [AZURE.NOTE] Vous ne pouvez opérer des déplacement qu’à destination/en provenance d’Azure DocumentDB à partir de/vers d’autres services Azure comme Objet blob Azure, Table Azure, Base de données SQL Azure, Azure SQL Data Warehouse, Azure DocumentDB et Azure Data Lake Store. La matrice complète d’Azure DocumentDB sera aussi prise en charge sous peu.
+> [AZURE.NOTE] La copie de données entre Azure DocumentDB et des magasins de données locaux IaaS Azure n’est pas prise en charge actuellement. La matrice complète d’Azure DocumentDB sera également activée sous peu.
 
 Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par **l’activité de copie**, utilisez **l’activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez l’article [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
 
 ## Didacticiel
-Pour suivre un didacticiel rapide sur l'activité de copie, reportez-vous au [Didacticiel : Utilisation de l'activité de copie dans un pipeline Azure Data Factory](data-factory-get-started.md). Dans ce didacticiel, vous utiliserez l’activité de copie pour copier des données entre un stockage d'objets blob Azure et une base de données SQL Azure.
+Pour suivre un didacticiel rapide sur l'activité de copie, reportez-vous au [Didacticiel : Utilisation de l'activité de copie dans un pipeline Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Dans ce didacticiel, vous utiliserez l’activité de copie pour copier des données entre un stockage d'objets blob Azure et une base de données SQL Azure.
 
 ## <a name="copyactivity"></a>Activité de copie
 L’activité de copie permet de copier des données d’un jeu de données d’entrée (**source**) dans un jeu de données de sortie (**récepteur**). La copie des données est effectuée par lot conformément à la planification définie sur l'activité. Pour en savoir plus sur la définition des activités en général, consultez l’article [Présentation des pipelines et des activités](data-factory-create-pipelines.md).
@@ -76,8 +77,8 @@ Cloud | Cloud | **Le service cloud qui alimente l’activité de copie**. Azure 
 
 
 
-### <a name="moveonpremtocloud"></a>Déplacer des données en toute sécurité entre un emplacement local et le cloud
-Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. La passerelle de gestion des données est un agent que vous pouvez installer en local pour créer des pipelines de données hybrides.
+### <a name="moveonpremtocloud"></a>Transférer des données en toute sécurité entre un emplacement local et le cloud
+Un des défis de l’intégration de données modernes consiste à transférer en toute transparence des données entre un site local et le cloud. La passerelle de gestion des données est un agent que vous pouvez installer en local pour créer des pipelines de données hybrides.
 
 La passerelle de données offre les fonctionnalités suivantes :
 
@@ -128,8 +129,8 @@ ActivitédeCopie2 : Entrées : JeudeDonnées3 Sortie JeudeDonnées2 : JeudeDonn�
 
 Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
 
-- ActivitédeCopie2 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
-- JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.  
+- ActivitédeCopie2 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.
+- JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.
 
 
 ### Performances et optimisation de l’activité de copie 
@@ -174,7 +175,7 @@ Vous pouvez effectuer l’opération de copie une seule fois ou la répéter sel
 
 
 ### Faites un essai 
-Pour voir une procédure pas à pas rapide sur l’utilisation de l’**Assistant Data Factory Copy** afin de créer un pipeline avec une activité de copie, consultez [Didacticiel : créer un pipeline à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md).
+Pour voir une procédure pas à pas rapide sur l’utilisation de **l’Assistant Data Factory Copy** afin de créer un pipeline avec une activité de copie, consultez [Didacticiel : créer un pipeline à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md).
 
 
 ### Variables dans le chemin du dossier d’objets blob Azure
@@ -195,4 +196,4 @@ Vous pouvez également configurer une variable **custom**, comme indiqué ci-des
 
 ![Utilisation de la variable custom](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

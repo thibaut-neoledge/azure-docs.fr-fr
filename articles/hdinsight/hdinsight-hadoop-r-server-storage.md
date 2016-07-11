@@ -1,6 +1,7 @@
+
 <properties
-   pageTitle="Options d’Azure Storage pour R Server sur HDInsight (version préliminaire) | Azure"
-   description="Découvrez les différentes options de stockage disponibles pour les utilisateurs avec R Server sur HDInsight (version préliminaire)"
+   pageTitle="Options d’Azure Storage pour R Server sur HDInsight (version préliminaire) | Azure"
+   description="Découvrez les différentes options de stockage disponibles pour les utilisateurs avec R Server sur HDInsight (version préliminaire)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -20,131 +21,138 @@
 
 # Options d’Azure Storage pour R Server sur HDInsight (version préliminaire)
 
-Un serveur R sur HDInsight (version préliminaire) a accès aux objets blob Azure et à [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) comme moyen de conserver les données, le code, les objets de résultats d’analyse, etc.
+Microsoft R Server sur HDInsight (version préliminaire) a accès aux objets blob Azure et à [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) pour conserver les données, le code, les objets de résultats d’analyse, etc.
 
-Lors de la création d’un cluster Hadoop dans HDInsight, vous spécifiez un compte Azure Storage. Un conteneur de stockage d’objets blob spécifique de ce compte est désigné pour contenir le système de fichiers du cluster que vous créez, à savoir le système de fichiers distribué Hadoop (HDFS). Pour des raisons de performances, le cluster HDInsight est créé dans le même centre de données que le compte de stockage principal que vous spécifiez. Pour plus d'informations, consultez la page [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md "Utilisation du stockage d'objets blob Azure avec HDInsight").
+Lors de la création d’un cluster Hadoop dans HDInsight, vous spécifiez un compte de stockage Azure. Un conteneur de stockage d’objets blob spécifique de compte contient le système de fichiers du cluster que vous créez (par exemple, le système Hadoop Distributed File System). Pour des raisons de performances, le cluster HDInsight est créé dans le même centre de données que le compte de stockage principal que vous spécifiez. Pour plus d'informations, consultez la page [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md "Utilisation du stockage d'objets blob Azure avec HDInsight").
 
 
-## Utiliser plusieurs comptes de stockage d’objets blob Azure supplémentaires
+## Utiliser plusieurs comptes de stockage d’objets blob Azure
 
-Si nécessaire, il est possible d’accéder à plusieurs conteneurs ou comptes de stockage Azure avec votre cluster HDI. Pour cela, vous devez spécifier les comptes de stockage supplémentaires dans l’interface utilisateur au moment de la création du cluster et procéder comme suit pour les utiliser dans R.
+Si nécessaire, vous pouvez accéder à plusieurs conteneurs ou comptes de stockage Azure avec votre cluster HDI. Pour cela, vous devez spécifier les comptes de stockage supplémentaires dans l’interface utilisateur au moment de la création du cluster et procéder comme suit pour les utiliser dans R.
 
-1.	Supposons que vous créez un cluster HDInsight avec un nom de compte de stockage « storage1 » avec le conteneur par défaut « container1 ». Vous spécifiez également un compte de stockage supplémentaire appelé « stockage2 ».  
-2.	Vous maintenant copiez un fichier « mycsv.csv » dans le répertoire «/share » et vous souhaitez effectuer une analyse sur le fichier.  
+1.	Créez un cluster HDInsight avec un nom de compte de stockage **storage1** et un conteneur par défaut appelé **container1**.
+2. Spécifiez un compte de stockage supplémentaire appelé **storage2**.
+3. Copiez le fichier mycsv.csv dans le répertoire /share et effectuez une analyse sur ce fichier.
 
 ````
 hadoop fs –mkdir /share
 hadoop fs –copyFromLocal myscsv.scv /share  
 ````
 
-3.	Dans le code R, vous définissez le nœud du nom sur « default » et vous définissez le répertoire et le fichier à traiter  
+3.	Dans le code R, définissez le nœud du nom sur **par défaut** et définissez le répertoire et le fichier à traiter.
 
 ````
 myNameNode <- "default"
 myPort <- 0
 ````
 
-  Emplacement des données
+  Emplacement des données :
 
     bigDataDirRoot <- "/share"  
 
-  définir le contexte de calcul Spark
+  Définir le contexte de calcul Spark :
 
     mySparkCluster <- RxSpark(consoleOutput=TRUE)
 
-  définir le contexte de calcul
+  Définir le contexte de calcul :
 
     rxSetComputeContext(mySparkCluster)
 
-  définir le système de fichiers HDFS
+  Définir le système de fichiers Hadoop Distributed File System (HDFS) :
 
     hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
-  spécifier le fichier HDFS à analyser
+  Spécifier le fichier d’entrée à analyser dans HDFS :
 
     inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
- 
-Toutes les références de fichier et de répertoire pointent vers le compte de stockage wasb://container1@storage1.blob.core.windows.net, car il s’agit du **compte de stockage par défaut** associé au cluster HDInsight.
 
-Supposons maintenant que vous souhaitez traiter un fichier appelé « mySpecial.csv » qui se trouve dans le répertoire « /private » du conteneur « container2 », sur le nom du compte de stockage « storage2 ».
+Toutes les références de fichier et de répertoire pointent vers le compte de stockage wasb://container1@storage1.blob.core.windows.net. Il s’agit du **compte de stockage par défaut** associé au cluster HDInsight.
 
-Dans votre code R, vous modifiez la référence du nœud de nom vers le compte de stockage « storage2 ».
+Supposons maintenant que vous souhaitiez traiter un fichier appelé mySpecial.csv qui se trouve dans le répertoire /private du conteneur **container2** dans le compte de stockage **storage2**.
+
+Dans votre code R, pointez la référence du nœud de nom vers le compte de stockage **storage2**.
 
     myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
-  Emplacement des données
+  Emplacement des données :
 
     bigDataDirRoot <- "/private"
 
-  définir le contexte de calcul Spark
+  Définir le contexte de calcul Spark :
 
     mySparkCluster <- RxSpark(consoleOutput=TRUE)
 
-  définir le contexte de calcul
+  Définir le contexte de calcul :
 
     rxSetComputeContext(mySparkCluster)
 
-  définir le système de fichiers HDFS
+  Définir le système de fichiers HDFS :
 
     hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
-  spécifier le fichier HDFS à analyser
+  Spécifier le fichier d’entrée à analyser dans HDFS :
 
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
- 
-Toutes les références de répertoire et de fichier pointent maintenant vers le compte de stockage wasb://container2@storage2.blob.core.windows.net, car il s’agit du **nœud de nom** que vous avez spécifié.
 
-Notez que vous devez configurer le répertoire /user/RevoShare/<SSH username> sur le compte de stockage « storage2 » :
+Toutes les références de fichier et de répertoire pointent désormais vers le compte de stockage wasb://container2@storage2.blob.core.windows.net. Il s’agit du **nom de nœud** que vous avez spécifié.
+
+Notez que vous devez configurer le répertoire /user/RevoShare/<nom d’utilisateur SSH> sur **storage2** comme suit :
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## Utilisation d’un Azure Data Lake Store
+## Utiliser un magasin Azure Data Lake
 
-Pour utiliser des magasins Azure Data Lake avec votre compte de HDInsight, vous devez autoriser votre cluster à accéder à chaque Azure Data Lake Store que vous souhaitez utiliser, puis référencer le magasin de votre script R d’une manière similaire à l’utilisation d’un compte de stockage Azure secondaire décrite ci-dessus.
+Pour utiliser des magasins Data Lake avec votre compte HDInsight, vous devez permettre à votre cluster d’accéder à tous les magasins Azure Data Lake que vous souhaitez utiliser. Vous utilisez le magasin dans votre script R de la même manière qu’un compte de stockage secondaire (comme décrit dans la procédure précédente).
 
-## Ajout d’un accès du cluster d’accéder à vos magasins Azure Data Lake
+## Ajouter un accès de cluster à vos magasins Azure Data Lake
 
-L’accès à un Azure Data Lake Store est établi avec l’utilisation d’un principal de Service Azure Active Directory (AAD) associé à votre cluster HDInsight. Pour ajouter un principal du service lors de la création de votre cluster HDInsight, cliquez sur l’option « Identité AAD de cluster » dans l’onglet Source de données et cliquez sur l’option de création d’un principal du service. Après avoir attribué un nom et un mot de passe, un nouvel onglet s’ouvre pour vous permettre d’associer le principal du service à vos magasins Azure Data Lake.
+Vous accédez à un magasin Data Lake en utilisant un principal du service Azure Active Directory (Azure AD) associé à votre cluster HDInsight.
 
-Notez que vous pouvez également ajouter l’accès à un Azure Data Lake Store ultérieurement en ouvrant l’Azure Data Lake Store dans le portail Azure et en accédant à « Explorateur de données -> Accès ». Voici un exemple de dialogue qui montre la création d’un principal du Service et son association à l’Azure Data Lake Store « rkadl11 ».
+### Pour ajouter un principal du service
+1. Lorsque vous créez votre cluster HDInsight, sélectionnez **Identité AAD de cluster** à partir de l’onglet **Source de données**.
+2. Dans la boîte de dialogue **Identité AAD de cluster**, sous **Sélectionner un principal de service AD**, sélectionnez **Créer**.
 
-![Création du principal du service 1 pour le service ADL Store](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
+Après avoir nommé le principal du service et avoir créé un mot de passe pour celui-ci, un nouvel onglet, vous permettant d’associer le principal du service à vos magasins Data Lake, apparaît.
+
+Notez que, par la suite, vous pouvez ajouter un accès à un magasin Data Lake en ouvrant le magasin Data Lake dans le portail Azure et vous rendant dans **Explorateur de données** > **Accès**. Voici un exemple de boîte de dialogue qui montre comment créer un principal du service et comment l’associer au magasin Data Lake « rkadl11 ».
+
+![Créer le principal du service 1 pour le magasin Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
 
 
-![Création du principal du service 2 pour le service ADL Store](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png)
+![Créer le principal du service 2 pour le magasin Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png)
 
-## Utilisation d’Azure Data Lake Store avec R Server
-Une fois que vous avez donné accès à un Azure Data Lake Store à l’aide du principal du service du cluster, vous pouvez l’utiliser dans le serveur R sur HDInsight de la même manière en tant que compte de stockage secondaire. La seule différence est, par exemple, que le préfixe wasb:// devient adl://.
+## Utiliser le magasin Data Lake avec R Server
+Après avoir créé un accès au magasin Data Lake, vous pouvez utiliser le magasin dans R Server sur HDInsight de la même façon qu’un compte de stockage Azure secondaire. La seule différence est que le préfixe **wasb://** devient **adl://**, comme suit :
 
 ````
-# point to the ADL store (e.g. ADLtest) 
+# Point to the ADL store (e.g. ADLtest)
 myNameNode <- "adl://rkadl1.azuredatalakestore.net"
 myPort <- 0
 
-# Location of the data (assumes a /share directory on the ADL account) 
+# Location of the data (assumes a /share directory on the ADL account)
 bigDataDirRoot <- "/share"  
 
-# define Spark compute context
+# Define Spark compute context
 mySparkCluster <- RxSpark(consoleOutput=TRUE)
 
-# set compute context
+# Set compute context
 rxSetComputeContext(mySparkCluster)
 
-# define HDFS file system
+# Define HDFS file system
 hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
-# specify the input file in HDFS to analyze
+# Specify the input file in HDFS to analyze
 inputFile <-file.path(bigDataDirRoot,"AirlineDemoSmall.csv")
 
-# create Factors for days of the week
+# Create factors for days of the week
 colInfo <- list(DayOfWeek = list(type = "factor",
                levels = c("Monday", "Tuesday", "Wednesday", "Thursday",
                           "Friday", "Saturday", "Sunday")))
 
-# define the data source 
+# Define the data source
 airDS <- RxTextData(file = inputFile, missingValueString = "M",
                     colInfo  = colInfo, fileSystem = hdfsFS)
 
@@ -152,11 +160,11 @@ airDS <- RxTextData(file = inputFile, missingValueString = "M",
 model <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS)
 ````
 
-> [AZURE.NOTE] Voici les commandes utilisées pour configurer le compte de stockage Azure Data Lake avec le répertoire RevoShare et ajouter l’exemple de fichier CSV pour l’exemple ci-dessus :
+Voici les commandes utilisées pour configurer le compte de stockage Data Lake avec le répertoire RevoShare et pour ajouter l’exemple de fichier .csv de l’exemple précédent :
 
 ````
-hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user 
-hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare 
+hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user
+hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare
 hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare/<user>
 
 hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/share
@@ -166,18 +174,20 @@ hadoop fs -copyFromLocal /usr/lib64/R Server-7.4.1/library/RevoScaleR/SampleData
 hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 ````
 
-## Utiliser des fichiers Azure sur le nœud Edge 
+## Utiliser des fichiers Azure sur le nœud de périmètre
 
-Il existe également une option de stockage de données pratique pour une utilisation sur le nœud périphérie, appelée [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files"). Elle vous permet de créer un partage de fichiers Azure Storage dans le système de fichiers Linux. Cela peut être pratique pour stocker des fichiers de données, des scripts R et des objets de résultats qui peuvent être nécessaires ultérieurement, lorsqu’il sera judicieux d’utiliser le système de fichiers natif sur le nœud Edge plutôt que le HDFS. Un grand avantage de l’utilisation de fichiers Azure est que les partages de fichiers peuvent être montés et utilisés par n’importe quel système avec un système d’exploitation pris en charge (Windows, Linux), par exemple un autre cluster HDInsight dont vous ou une autre personne de votre équipe disposez, une machine virtuelle Azure, voire même un système local.
+Il existe également une option de stockage de données pratique pour une utilisation sur le nœud de périmètre appelée [Fichiers Azure](../storage/storage-how-to-use-files-linux.md "Azure Files"). Elle vous permet de monter un partage de fichiers Azure Storage sur le système de fichiers Linux. Cela peut être pratique pour stocker des fichiers de données, des scripts R et des objets de résultats qui peuvent être nécessaires ultérieurement, lorsqu’il sera judicieux d’utiliser le système de fichiers natif sur le nœud de périmètre plutôt que HDFS.
+
+Le principal avantage des fichiers Azure est que les partages de fichiers peuvent être montés et utilisés par tout système disposant d’un système d’exploitation pris en charge, tel que Windows ou Linux. Par exemple, ils peuvent être utilisés par un autre cluster HDInsight que vous ou un membre de votre équipe avez, par une machine virtuelle Azure ou même par un système local.
 
 
 ## Étapes suivantes
 
-Maintenant que vous savez comment créer un cluster HDInsight incluant R Server et connaissez les rudiments de l’utilisation de la console R à partir d’une session SSH, utilisez les informations suivantes pour découvrir d’autres manière d’utiliser R Server sur HDInsight.
+Maintenant que vous connaissez les principes de base pour utiliser la console R à partir d’une session SSH et que vous savez comment créer un cluster HDInsight incluant R Server, utilisez les liens suivants pour découvrir d’autres manières de travailler avec R Server sur HDInsight.
 
-- [Vue d’ensemble de R Server sur Hadoop](hdinsight-hadoop-r-server-overview.md)
+- [Vue d’ensemble : R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-overview.md)
 - [Prise en main de R Server sur Hadoop](hdinsight-hadoop-r-server-get-started.md)
 - [Ajouter RStudio Server à HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
-- [Options de contexte de calcul pour R Server sur HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md)
+- [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -7,8 +7,8 @@ Si le format est défini sur **TextFormat**, vous pouvez spécifier les proprié
 | columnDelimiter | Caractère utilisé comme séparateur de colonnes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est virgule (,). | Non |
 | rowDelimiter | Caractère utilisé comme séparateur de lignes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non |
 | escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous utilisez une virgule (,) comme séparateur de colonnes, mais que vous voulez insérer une virgule dans le texte (par exemple, « Hello, world »), définissez « $ » comme caractère d’échappement et spécifiez la chaîne « Hello$, world » dans la source.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non | 
-| quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non |
-| nullValue | Caractère(s) utilisé(s) pour représenter la valeur Null dans le contenu du fichier blob. Cette balise est facultative. La valeur par défaut est « \\N ».<br/><br/>Par exemple, selon l’exemple ci-dessus, « NaN » dans l’objet blob est converti en tant que valeur Null au moment de la copie vers SQL Server, par exemple. | Non |
+| quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : <Hello, world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non |
+| nullValue | Caractère(s) utilisé(s) pour représenter la valeur Null dans le contenu du fichier blob. Cette balise est facultative. La valeur par défaut est « \\N » et « NULL ».<br/><br/>Par exemple, selon l’exemple ci-dessus, « NaN » dans l’objet blob est converti en tant que valeur Null au moment de la copie vers SQL Server, par exemple. | Non |
 | encodingName | Spécifier le nom d'encodage. Pour obtenir une liste des noms de d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
 
 #### Exemple pour TextFormat
@@ -49,7 +49,7 @@ Si le format est défini sur **JsonFormat**, vous pouvez spécifier les proprié
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | filePattern | Indiquez le modèle des données stockées dans chaque fichier JSON. Les valeurs autorisées sont les suivantes : **setOfObjects** et **arrayOfObjects**. La valeur **par défaut** est **setOfObjects**. Pour plus d’informations sur ces modèles, consultez les sections ci-dessous.| Non |
-| encodingName | Spécifiez le nom du codage. Pour obtenir une liste des noms de d’encodage valides, consultez : propriété [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur **par défaut** est : **UTF-8**. | Non | 
+| encodingName | Spécifiez le nom du codage. Pour obtenir une liste de noms d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La **valeur par défaut** est : **UTF-8**. | Non | 
 | nestingSeparator | Caractère utilisé pour séparer les niveaux d'imbrication. La valeur **par défaut** est **. (point)**. | Non | 
 
 
@@ -214,11 +214,11 @@ Si la structure n’est pas définie, l’activité de copie aplatit la structur
 #### Structure JSON prise en charge
 Notez les points suivants :
 
-- Chaque objet avec une collection de paires nom/valeur est mappé à une seule ligne de données dans un format tabulaire. Les objets peuvent être imbriqués, et vous pouvez définir comment aplatir la structure dans un jeu de données en utilisant le séparateur d’imbrication (.) par défaut. Pour obtenir un exemple, consultez la section [Exemple pour JsonFormat](#jsonformat-example) ci-dessus.  
-- Si la structure n’est pas définie dans le jeu de données Data Factory, l’activité de copie détecte le schéma à partir du premier objet et aplatit l’objet entier. 
+- Chaque objet avec une collection de paires nom/valeur est mappé à une seule ligne de données dans un format tabulaire. Les objets peuvent être imbriqués, et vous pouvez définir comment aplatir la structure dans un jeu de données en utilisant le séparateur d’imbrication (.) par défaut. Pour obtenir un exemple, consultez la section [Exemple pour JsonFormat](#jsonformat-example) ci-dessus.
+- Si la structure n’est pas définie dans le jeu de données Data Factory, l’activité de copie détecte le schéma à partir du premier objet et aplatit l’objet entier.
 - Si l’entrée JSON contient un tableau, l’activité de copie convertit la valeur du tableau entier en une chaîne. Vous pouvez choisir d’utiliser à la place le [mappage ou filtrage de colonnes](#column-mapping-with-translator-rules).
 - S’il y a plusieurs noms identiques au même niveau, l’activité de copie sélectionne le dernier nom.
-- Les noms de propriété respectent la casse. Quand deux propriétés de même nom ont une casse différente, elles sont considérées comme deux propriétés distinctes. 
+- Les noms de propriété respectent la casse. Quand deux propriétés de même nom ont une casse différente, elles sont considérées comme deux propriétés distinctes.
 
 ### Spécification d’OrcFormat
 Si le format est défini sur OrcFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
@@ -228,10 +228,11 @@ Si le format est défini sur OrcFormat, il est inutile de spécifier des propri�
 	    "type": "OrcFormat",
 	}
 
-Notez les points suivants :
- 
--	Si vous copiez des données entre des banques de données locales et Cloud en utilisant le format ORC, mais sans copier de fichiers ORC tels quel entre la source et le récepteur, vous devez installer JRE (Java Runtime Environment) sur l’ordinateur de la passerelle. 
--	Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION)
--	Le fichier ORC a 3 [options liées à la compression](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous les formats compressés ci-dessus. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Il n’existe aucune option permettant de remplacer ce comportement pour l’instant. 
+> [AZURE.IMPORTANT] Si vous copiez des données entre des banques de données locales et cloud en utilisant le format ORC, mais sans copier de fichiers ORC tels quel entre la source et le récepteur, vous devez installer JRE 8 (Java Runtime Environment) sur votre machine passerelle pour transformer vos données dans un format adéquat. Notez que la passerelle 64 bits requiert un environnement JRE 64 bits et que la passerelle 32 bits nécessite un environnement JRE 32 bits. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605). Choisissez la version appropriée.
 
-<!---HONumber=AcomDC_0525_2016-->
+Notez les points suivants :
+
+-	Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION)
+-	Le fichier ORC a 3 [options liées à la compression](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous les formats compressés ci-dessus. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Il n’existe aucune option permettant de remplacer ce comportement pour l’instant.
+
+<!---HONumber=AcomDC_0629_2016-->

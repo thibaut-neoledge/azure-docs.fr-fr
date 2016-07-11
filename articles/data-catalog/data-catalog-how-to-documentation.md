@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="04/07/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Documentation de sources de données
@@ -48,4 +48,4 @@ Le niveau de documentation peut aller d’une simple description des caractéris
 
 La documentation des sources de données avec **Azure Data Catalog** peut créer une narration sur vos ressources de données avec le degré de détail dont vous avez besoin. À l’aide de liens, vous pouvez référencer du contenu stocké dans un référentiel de contenu existant qui rassemble vos documents et vos ressources de données existants. Une fois que vos utilisateurs accèdent aux ressources de données appropriées, ils peuvent bénéficier d’un ensemble de documentation complet.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

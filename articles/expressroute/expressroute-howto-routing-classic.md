@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="06/27/2016"
    ms.author="ganesr"/>
 
 # Créer et modifier le routage le routage pour un circuit ExpressRoute
@@ -34,7 +34,7 @@ Cet article vous guide tout au long des étapes de création et de gestion de la
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell.
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 - Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
@@ -324,4 +324,4 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 -  Pour plus d'informations sur les workflows, consultez [Workflows ExpressRoute](expressroute-workflows.md).
 -  Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

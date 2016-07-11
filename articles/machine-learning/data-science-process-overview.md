@@ -23,7 +23,7 @@ Le processus TDSP (Team Data Science Process) fournit une approche systématique
 
 Plus précisément, le processus TDSP fournit actuellement aux équipes de science des données les informations suivantes :
 
-- **Méthodologie** : décrit une séquence d’étapes qui définissent le cycle de vie de développement offrant des conseils sur la façon de définir le problème, d’analyser les données pertinentes, de créer et d’évaluer des modèles prédictifs, puis de déployer ces modèles dans les applications d’entreprise. 
+- **Méthodologie** : décrit une séquence d’étapes qui définissent le cycle de vie de développement offrant des conseils sur la façon de définir le problème, d’analyser les données pertinentes, de créer et d’évaluer des modèles prédictifs, puis de déployer ces modèles dans les applications d’entreprise.
 - **Ressources** : outils et technologies, par exemple la machine virtuelle de science de données, permettant de simplifier la configuration des environnements pour les activités de science des données et offrant des conseils pratiques pour l’intégration de nouvelles technologies.
 
 Voici le cycle de vie de développement du processus TDSP :
@@ -31,7 +31,7 @@ Voici le cycle de vie de développement du processus TDSP :
 ![Poster TDSP](./media/data-science-process-overview/TDSP-poster-simplified.png)
 
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage TDSP](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) et décrites ci-dessous.
 
@@ -47,9 +47,9 @@ Lancer un projet d’analyse en définissant des objectifs d’entreprise et une
 
 Un environnement d’analyse pour le processus TDSP (Team Data Science Process) fait appel à plusieurs composants :
 
-- **des espaces de travail de données** dans lesquels les données sont conservées pour analyse et modélisation ; 
+- **des espaces de travail de données** dans lesquels les données sont conservées pour analyse et modélisation ;
 - une **infrastructure de traitement** pour le prétraitement, l'exploration et la modélisation des données ;
-- une **infrastructure d'exécution** qui sert à faire fonctionner les modèles analytiques et à exécuter les applications clientes intelligentes qui consomment les modèles.  
+- une **infrastructure d'exécution** qui sert à faire fonctionner les modèles analytiques et à exécuter les applications clientes intelligentes qui consomment les modèles.
 
 L’infrastructure d’analyse qui doit être installée fait souvent partie d’un environnement différent des systèmes d’exploitation de base. Cependant, elle utilise généralement des données issues de plusieurs systèmes fonctionnant au sein de l’entreprise ainsi que de sources externes. L’infrastructure d’analyse peut se trouver entièrement sur le cloud, être installée en local, ou présenter un mélange des deux. Pour connaître les options, référez-vous à [Configuration d’environnements de science des données à utiliser dans le processus TDSP (Team Data Science Process)](machine-learning-data-science-environment-setup.md).
 
@@ -79,9 +79,9 @@ Les scientifiques de données construisent des modèles permettant de prévoir d
 
 Les scientifiques de données doivent choisir le modèle le mieux adapté à leur tâche de prévision, et il n’est pas rare qu’il faille associer des résultats de différents modèles pour obtenir les meilleurs résultats. Les données en entrée destinées à la modélisation sont généralement divisées aléatoirement en trois parties :
 
-- un jeu de données de formation 
-- un jeu de données de validation 
-- un jeu de données de test 
+- un jeu de données de formation
+- un jeu de données de validation
+- un jeu de données de test
 
 Les modèles sont construits avec le **jeu de données d'apprentissage**. La combinaison optimale de modèles (avec des paramètres réglés) est sélectionnée en exécutant des modèles et en mesurant les erreurs de prévision du **jeu de données de validation**. Enfin, le **jeu de données de test** sert à évaluer les performances du modèle choisi pour des données indépendantes n'ayant pas été utilisées pour la formation ou la validation du modèle. Pour connaître les procédures, référez-vous à [Évaluation des performances d'un modèle dans Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
@@ -97,11 +97,6 @@ Le [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/docu
 
 TDSP n'impose pas de types d'artefacts de **documentation** spécifiques. Cependant, il est recommandé de documenter les résultats de l'examen, de la modélisation et de l'évaluation des données et d'enregistrer le code pertinent afin que l'analyse puisse être itérée le cas échéant. Ceci permet également de réutiliser le travail d’analyse lorsque vous travaillez sur d’autres applications impliquant des données et tâches de prévision similaires.
 
-Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Consultez, par exemple :
+Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Elles sont répertoriées avec des descriptions de miniatures dans la rubrique [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) (Procédures pas à pas du processus TDSP (Team Data Science Process)).
 
-- [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
-- [Science des données avec Spark sur Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
-- [Science des données évolutive dans Azure Data Lake : une procédure de bout en bout](machine-learning-data-science-process-data-lake-walkthrough.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

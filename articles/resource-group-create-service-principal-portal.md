@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’une application Active Directory dans le Portail | Microsoft Azure"
+   pageTitle="Créer un principal du service dans le portail | Microsoft Azure"
    description="Décrit comment créer une application et un principal du service Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -16,7 +16,13 @@
    ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
-# Utiliser le portail pour créer une application Active Directory pouvant accéder aux ressources
+# Utiliser le portail pour créer une application et un principal du service Active Directory pouvant accéder aux ressources
+
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Interface de ligne de commande Azure](resource-group-authenticate-service-principal-cli.md)
+- [Portail](resource-group-create-service-principal-portal.md)
+
 
 Si un processus automatisé ou une application doit accéder à des ressources ou les modifier, vous devez configurer une application Active Directory et lui accorder les autorisations nécessaires. Cette rubrique explique comment effectuer ces étapes via le portail. Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory, puis revenir au portail Azure pour attribuer un rôle à l’application.
 
@@ -27,7 +33,7 @@ Vous avez deux options d’authentification pour votre application Active Direct
 
 Pour obtenir une explication des concepts Active Directory, consultez [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-Pour obtenir des instructions détaillées sur l’intégration d’une application dans Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
+Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## Créer une application Active Directory
 
@@ -65,7 +71,7 @@ Pour obtenir des instructions détaillées sur l’intégration d’une applicat
 
      ![nommer l’application](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Renseignez les propriétés de votre application. Pour **URL de connexion**, indiquez l’URI d’un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour **URI ID d’application**, indiquez l’URI qui identifie votre application.
+7. Renseignez les propriétés de votre application. Pour **URL de connexion**, indiquez l’URI d’un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour **URI ID d’application**, indiquez l’URI qui identifie votre application.
 
      ![propriétés de l’application](./media/resource-group-create-service-principal-portal/app-properties.png)
 
@@ -79,7 +85,7 @@ Lors d’une connexion par programmation, vous aurez besoin de l’ID de votre a
 
      ![configurer l’application](./media/resource-group-create-service-principal-portal/application-configure.png)
 
-2. Copiez l’**ID client**.
+2. Copiez **l’ID client**.
   
      ![ID de client](./media/resource-group-create-service-principal-portal/client-id.png)
 
@@ -97,7 +103,7 @@ Lors d’une connexion par programmation, vous aurez besoin de l’ID de votre a
 
 ## Obtenir l’ID de locataire
 
-Lors d’une connexion par programmation, vous devez transmettre l’ID de locataire avec votre demande d’authentification. Pour les applications web et les applications API, vous pouvez récupérer l’ID de locataire en sélectionnant **Afficher les points de terminaison** au bas de l’écran et en récupérant l’ID comme indiqué ci-dessous.
+Lors d’une connexion par programmation, vous devez transmettre l’ID de locataire avec votre demande d’authentification. Pour les applications web et les applications API, vous pouvez récupérer l’ID de locataire en sélectionnant **Afficher les points de terminaison** au bas de l’écran et en récupérant l’ID comme indiqué ci-dessous.
 
    ![ID client](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
@@ -115,11 +121,11 @@ Si votre application accède aux ressources pour le compte d’un utilisateur co
 
 1. Sélectionnez **Ajouter une application**.
 
-2. Dans la liste, sélectionnez l’**API Gestion des services Azure**. Cliquez sur l’icône Terminer.
+2. Dans la liste, sélectionnez **l’API Gestion des services Azure**. Cliquez sur l’icône Terminer.
 
       ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Dans la liste déroulante Autorisations déléguées, sélectionnez **Access Azure Service Management as organization** (Accéder à Azure Service Management en tant qu’entreprise).
+3. Dans la liste déroulante Autorisations déléguées, sélectionnez **Access Azure Service Management as organization** (Accéder à la gestion des services Azure en tant qu’organisation).
 
       ![modifier une autorisation](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -163,7 +169,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
      ![afficher](./media/resource-group-create-service-principal-portal/show-app.png)
 
-Pour plus d’informations sur l’attribution des utilisateurs, des applications et des rôles au moyen du portail, consultez la rubrique [Gérer l’accès à l’aide du portail de gestion Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+Pour plus d’informations sur l’attribution des utilisateurs, des applications et des rôles au moyen du portail, consultez la rubrique [Gérer l’accès à l’aide du portail de gestion Azure](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
 ## Obtention d'un jeton d'accès dans le code
 
@@ -173,14 +179,14 @@ Vous pouvez désormais utiliser la connexion par programmation pour votre applic
 
 - Pour obtenir des exemples .NET, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour .NET](resource-manager-net-sdk.md).
 - Pour obtenir des exemples Java, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour Java](resource-manager-java-sdk.md).
-- Pour obtenir des exemples Python, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html).
+- Pour obtenir des exemples Python, consultez [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Authentification pour la gestion des ressources avec Python).
 - Pour obtenir des exemples REST, consultez [API REST Resource Manager](resource-manager-rest-api.md).
 
-Pour obtenir des instructions détaillées sur l’intégration d’une application dans Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
+Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](./active-directory/role-based-access-control-configure.md).  
+- Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](./active-directory/role-based-access-control-configure.md).
 - Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

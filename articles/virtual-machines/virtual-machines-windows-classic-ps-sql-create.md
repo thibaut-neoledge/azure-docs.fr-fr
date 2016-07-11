@@ -22,8 +22,8 @@
 
 Cet article explique comment créer une machine virtuelle SQL Server dans Azure à l'aide des applets de commande PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Modèle Resource Manager Pour obtenir la version Resource Manager de cette rubrique, consultez [Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Resource Manager)](virtual-machines-windows-ps-sql-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Pour obtenir la version Resource Manager de cette rubrique, consultez [Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Resource Manager)](virtual-machines-windows-ps-sql-create.md).
 
 ## Installation et configuration de PowerShell
 
@@ -65,7 +65,7 @@ Votre machine virtuelle SQL Server est hébergée dans un service cloud qui se t
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE] Si vous avez besoin d’un compte de stockage, commencez par utiliser la commande New-AzureStorageAccount pour créer un nom de compte de stockage (intégralement en minuscules), comme dans l’exemple suivant : **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
+	>[AZURE.NOTE] Si vous avez besoin d’un compte de stockage, commencez par utiliser la commande New-AzureStorageAccount pour créer un nom de compte de stockage (intégralement en minuscules), comme dans l’exemple suivant : **New-AzureStorageAccount -StorageAccountName "<nom du compte de stockage>" -Location $dcLocation**
 
 1. Attribuez le nom de compte de stockage cible à **$staccount**. Utilisez ensuite **Set-AzureSubscription** pour définir l’abonnement et le compte de stockage actif.
 
@@ -173,4 +173,4 @@ Si vous voulez également savoir comment utiliser le portail Azure pour créer d
 
 Outre ces ressources, nous vous recommandons de consulter [les autres rubriques liées à l’exécution de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,7 +19,7 @@
 
 # Gérer vos machines virtuelles à l’aide d’Azure PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles en utilisant les applets de commande Azure PowerShell. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
@@ -27,12 +27,12 @@ Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la
 >[AZURE.NOTE] Si vous n’avez pas installé et configuré Azure PowerShell, vous pouvez obtenir des instructions dans l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 ## Utilisation des exemples de commandes
-Vous devrez remplacer une partie du texte des commandes par un texte approprié à votre environnement. Les symboles < and > indiquent le texte à remplacer. Lorsque vous remplacez le texte, supprimez les symboles, mais laissez les guillemets en place.
+Vous devrez remplacer une partie du texte des commandes par un texte approprié à votre environnement. Les symboles < et > indiquent le texte à remplacer. Lorsque vous remplacez le texte, supprimez les symboles, mais laissez les guillemets en place.
 
 ## Obtenir une machine virtuelle
 Il s’agit d’une tâche de base que vous utiliserez souvent. Utilisez-la pour obtenir des informations sur une machine virtuelle, effectuer des tâches sur cette dernière ou pour obtenir un résultat à stocker dans une variable.
 
-Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < and > :
+Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < et > :
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
@@ -46,10 +46,10 @@ Exécutez ces commandes :
 
 >[AZURE.NOTE] Vous pouvez obtenir le nom du service cloud et de la machine virtuelle à partir de l’affichage de la commande **Get-AzureVM**.
 >
-	$svcName="<cloud service name>"
-	$vmName="<virtual machine name>"
-	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "" + $vmname + ".rdp"
+	$svcName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile = $localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## Arrêter une machine virtuelle
@@ -73,20 +73,18 @@ Vous devez également décider d’associer un nouveau disque ou un disque exist
 
 Pour associer un nouveau disque, exécutez cette commande :
 
-    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
-              | Update-AzureVM
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM $vm | Update-AzureVM
 
 Pour associer un disque existant, exécutez cette commande :
 
-    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
-              | Update-AzureVM
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
 
 Pour attacher des disques de données à partir d’un fichier .vhd existant dans le stockage d’objets blob, exécutez la commande suivante :
 
     Add-AzureDataDisk -ImportFrom -MediaLocation `
               "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
-              -DiskLabel "<main>" -LUN <0> `
-              | Update-AzureVM
+              -DiskLabel "<main>" -LUN <0> |
+              Update-AzureVM
 
 ## Créer une machine virtuelle Windows
 
@@ -97,4 +95,4 @@ Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilis
 - une appartenance à un jeu d’équilibrage de la charge ;
 - une adresse IP statique.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

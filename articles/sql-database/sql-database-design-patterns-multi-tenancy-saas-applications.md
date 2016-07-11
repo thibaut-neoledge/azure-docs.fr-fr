@@ -34,7 +34,7 @@ Les applications mutualisées illustrent parfaitement les applications dont les 
 Nous avons trouvé des applications de ce type dans toute la gamme d’applications basées sur le cloud, notamment :
 - Les applications de base de données ISV effectuant une transition vers le cloud en tant qu’applications SaaS
 - Les applications SaaS créées pour le cloud de A à Z
-- Les applications orientées consommateur direct/utilisateur final 
+- Les applications orientées consommateur direct/utilisateur final
 - Les applications d’entreprise orientées employé
 
 Les applications SaaS du cloud et les applications SaaS incluses dans les applications de base de données ISV aboutissent généralement à des applications mutualisées. Ces applications SaaS offrent une application logicielle spécialisée en tant que service aux locataires. Les locataires ont accès au service d’application et à la pleine propriété des données associées qui sont stockées dans le cadre de l’application. Mais pour tirer parti des avantages d’une application SaaS, ses locataires doivent restituer un niveau de contrôle sur leurs propres données, en se fiant au fournisseur SaaS pour la conservation des données en lieu sûr et à l’écart des données des autres locataires. Exemples : MyOB, SnelStart, Salesforce, etc. Toutes ces applications permettent le partitionnement dans les limites des locataires et prennent donc en charge les modèles d’applications abordés dans les sections suivantes de cet article.
@@ -49,7 +49,7 @@ Les modèles de conception d’architecture mutualisée que nous explorons dans 
 
 Les développeurs d’applications cloud mutualisées doivent tenir compte des points généraux suivants :
 
--	***Isolation des locataires*** : les développeurs doivent s’assurer qu’aucun locataire n’obtient un accès indésirable aux données des autres locataires. Cette exigence d’isolation s’étend à d’autres propriétés, comme la protection vis-à-vis des voisins bruyants, la possibilité de restaurer les données d’un locataire spécifique, les personnalisations du locataire, etc. 
+-	***Isolation des locataires*** : les développeurs doivent s’assurer qu’aucun locataire n’obtient un accès indésirable aux données des autres locataires. Cette exigence d’isolation s’étend à d’autres propriétés, comme la protection vis-à-vis des voisins bruyants, la possibilité de restaurer les données d’un locataire spécifique, les personnalisations du locataire, etc.
 -	***Coût des ressources cloud*** : l’application SaaS doit être compétitive. Sur cette base, les applications SaaS des développeurs optimisent les coûts d’utilisation des ressources cloud (calcul, stockage, etc.) au moment de la conception d’applications mutualisées.
 -	***Opérations de développement facilitées*** : les fournisseurs d’applications mutualisées ont besoin de créer une isolation protectrice, d’entretenir leurs applications et le schéma des bases de données, d’analyser leur intégrité et de résoudre les problèmes des locataires. La complexité du développement et du fonctionnement des applications se traduit directement par des coûts supplémentaires et une baisse de la satisfaction des locataires.
 -	***Évolutivité*** : L’ajout incrémentiel de locataires est primordial pour un bon fonctionnement des applications SaaS, tout comme l’ajout de capacité pour les locataires individuels qui nécessitent plus de ressources.
@@ -71,7 +71,7 @@ Les pratiques de conception courantes pour placer les données des locataires su
   
 1.	***Base de données par locataire*** : cette approche place chaque locataire dans sa propre base de données. Toutes les données spécifiques des locataires sont limitées à leur base de données. Elles sont isolées des autres locataires et de leurs données.
 2.	***Base de données partagée - partitionnée*** : cette approche fait appel à plusieurs bases de données et plusieurs locataires qui partagent une base de données. Ainsi, un ensemble distinct de locataires est affecté à chaque base de données au moyen d’une stratégie de partitionnement, comme le hachage, la plage ou le partitionnement de liste. Cette stratégie de distribution des données est souvent appelée partitionnement.
-3.	***Base de données partagée - unique*** : cette approche utilise une base de données unique, et parfois volumineuse, qui contient des données permettant d’éviter toute ambiguïté à propos des locataires grâce à une colonne d’ID de locataire. 
+3.	***Base de données partagée - unique*** : cette approche utilise une base de données unique, et parfois volumineuse, qui contient des données permettant d’éviter toute ambiguïté à propos des locataires grâce à une colonne d’ID de locataire.
   
 > [AZURE.NOTE] Parfois, plusieurs locataires sont également placés dans différents schémas de base de données, et le nom du schéma permet de lever l’ambiguïté entre les différents locataires. Cette approche n’est pas recommandée, car elle requiert généralement l’utilisation de code SQL dynamique et elle n’optimise pas la mise en cache du plan. Par conséquent, la suite de cet article se concentre sur le concept de table partagée dans cette catégorie.
  
@@ -80,8 +80,8 @@ Les pratiques de conception courantes pour placer les données des locataires su
 Lors de l’évaluation de l’utilisation de ces modèles de données d’architecture mutualisés, il est important de tenir compte des compromis de conception des applications évoqués dans la section précédente.
 
 -	***Isolation*** : niveau d’isolation entre les locataires permettant de mesurer l’isolation des locataires fournie par un modèle de données
--	***Coût des ressources cloud*** : partage de ressources entre les locataires permettant d’optimiser le coût des ressources cloud. Une ressource peut être définie en fonction du coût de calcul et de stockage. 
--	***Coût des opérations de développement*** : la facilité de développement, de déploiement et de gestion des applications réduit le coût de fonctionnement global SaaS.  
+-	***Coût des ressources cloud*** : partage de ressources entre les locataires permettant d’optimiser le coût des ressources cloud. Une ressource peut être définie en fonction du coût de calcul et de stockage.
+-	***Coût des opérations de développement*** : la facilité de développement, de déploiement et de gestion des applications réduit le coût de fonctionnement global SaaS.
 
 Nous pouvons ainsi caractériser les modèles de données d’architecture mutualisés décrits précédemment et l’utilisation des bases de données avec l’espace quadrant, comme indiqué dans la Figure 2 ci-dessous. Le degré d’isolation des locataires et le partage des ressources correspondent aux axes X et Y de l’espace. La grande flèche diagonale du milieu indique le coût des opérations de développement.
 
@@ -148,6 +148,8 @@ Pour les fournisseurs d’applications mutualisées qui n’affichent aucune exi
 
 Pour obtenir un exemple d’application illustrant la bibliothèque cliente, consultez [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
+Pour visualiser un exemple d’application qui apporte une solution pour un scénario Softwware-as-a-Solution (SaaS) s’appuyant sur des pools élastiques afin d’obtenir une base de données principale économique et évolutive d’une application SaaS, consultez [Tableau de bord personnalisé du pool élastique pour SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard).
+
 Pour convertir des bases de données existantes afin d’utiliser les outils, consultez [Migrer des bases de données existantes pour la montée en charge](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Pour créer un nouveau pool, consultez le [Didacticiel de création de pool élastique](sql-database-elastic-pool-create-portal.md).
@@ -161,6 +163,7 @@ Pour surveiller et gérer un pool élastique, consultez [Surveillance et gestion
 - [Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 - [Authentification sur les applications mutualisées, avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Démarrages rapides de solutions](sql-database-solution-quick-starts.md)
 
 ## Questions et demandes de fonctionnalités
 
@@ -176,4 +179,4 @@ Pour toute question, contactez-nous sur le [forum Base de données SQL](http://s
 
 	
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

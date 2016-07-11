@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
 
@@ -37,7 +35,7 @@ Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 de l
 
 ## Demander un code d’autorisation
 
-Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize`. Dans cette requête, le client indique les autorisations qu’il doit obtenir auprès de l’utilisateur : Vous pouvez obtenir les points de terminaison OAuth 2.0 à partir de la page de votre application dans le Portail Azure Classic, à l’aide du bouton **Points de terminaison** du panneau inférieur.
+Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize`. Dans cette requête, le client indique les autorisations qu’il doit obtenir auprès de l’utilisateur : Vous pouvez obtenir les points de terminaison OAuth 2.0 à partir de la page de votre application dans le portail Azure Classic, à l’aide du bouton **Points de terminaison** du panneau inférieur.
 
 ```
 // Line breaks for legibility only
@@ -47,22 +45,22 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&resource=https%3A%2F%2Fservice.contoso.com%2F
 &state=12345
 ```
 
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | --------------- |
-| locataire | required | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client. |
-| client\_id | required | L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Il est disponible sur le Portail de gestion Azure. Cliquez sur **Active Directory**, sur le répertoire, sur l’application, puis sur **Configurer**. |
+| locataire | required | La valeur `{tenant}` dans le chemin d’accès de la demande peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client. |
+| client\_id | required | L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Il est disponible sur le Portail de gestion Azure. Cliquez successivement sur **Active Directory**, le répertoire, l’application et sur **Configurer**. |
 | response\_type | requis | Doit inclure `code` pour le flux de code d’autorisation. |
 | redirect\_uri | recommandé | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Pour les applications natives et mobiles, vous devez utiliser la valeur par défaut `urn:ietf:wg:oauth:2.0:oob`. |
-| scope | required | Liste séparée par des espaces [d’étendues](active-directory-v2-scopes.md) pour lesquelles vous souhaitez que l’utilisateur donne son consentement. |
 | response\_mode | recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Peut être `query` ou `form_post`. |
-| state | recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersites](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
-| prompt | facultatif | Indique le type d’interaction utilisateur requis. Les seules valeurs valides à ce stade sont login, none et consent. `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu'aucune invite interactive d'aucune sorte n'est présentée à l'utilisateur. Si la requête ne peut pas être exécutée en mode silencieux au moyen d'une authentification unique, le point de terminaison v2.0 renvoie une erreur. `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth après la connexion de l'utilisateur, afin de lui demander d'octroyer des autorisations à l'application. |
+| state | recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
+| resource | facultatif | URI ID d’application de l’API web (ressource sécurisée). Pour rechercher l’URI ID d’application de l’API web, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application et sur **Configurer**. |
+| prompt | facultatif | Indique le type d’interaction utilisateur requis.<p> Valeurs valides : <p> *login* : l’utilisateur doit être invité à se réauthentifier. <p> *consent* : le consentement de l’utilisateur a été accordé, mais il doit être mis à jour. L’utilisateur doit être invité à donner son consentement. <p> *admin\_consent* : un administrateur doit être invité à donner son consentement pour le compte de tous les utilisateurs de son organisation. |
 | login\_hint | facultatif | Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`. |
-| domain\_hint | facultatif | Peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par courrier électronique auquel l’utilisateur doit se soumettre sur la page de connexion v2.0, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`. |
+| domain\_hint | facultatif | Fournit une indication sur le client ou le domaine que l’utilisateur doit utiliser pour se connecter. La valeur du paramètre domain\_hint est un domaine inscrit pour le client. Si le client est fédéré sur un répertoire local, AAD redirige vers le serveur de fédération du client spécifié. |
 
 > [AZURE.NOTE] Si l’utilisateur fait partie d’une organisation, un administrateur de l’organisation peut donner son consentement ou refuser pour le compte de l’utilisateur, ou autoriser l’utilisateur à donner son consentement. L’utilisateur a la possibilité de donner son consentement uniquement lorsque l’administrateur le lui permet.
 
@@ -73,10 +71,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 Une réponse réussie se présenterait ainsi :
 
 ```
-http://localhost:12345/?
-code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA
-&state=12345
-&session_state=733ad279-b681-49c3-9215-951abf94d2c5
+GET  HTTP/1.1 302 Found
+Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
 | Paramètre | Description |
@@ -84,8 +80,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3Umph
 | admin\_consent | La valeur est True si un administrateur a donné son consentement lorsqu’il y a été invité.|
 | code | Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation pour demander un jeton d’accès pour la ressource cible. |
 | session\_state | Une valeur unique identifiant la session utilisateur actuelle. Cette valeur est un GUID, mais doit être traitée comme une valeur opaque n’ayant fait l’objet d’aucune analyse. |
-| state | Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques.
-Si un paramètre d’état est inclus dans la demande, la même valeur apparaît dans la réponse. Il est recommandé que l’application vérifie que les valeurs d’état de la demande et de la réponse sont identiques.
+| state | Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. Avant d’utiliser la réponse, il est recommandé que l’application vérifie que les valeurs d’état de la demande et de la réponse sont identiques. Cela permet de détecter les [attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery)](https://tools.ietf.org/html/rfc6749#section-10.12) menaçant le client.  
 
 ### Réponse d’erreur
 
@@ -97,6 +92,26 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
+| Paramètre | Description |
+|-----------|-------------|
+| error | Une valeur de code d’erreur définie dans la section 5.2 du document [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749) (Infrastructure d’autorisation OAuth 2.0). Le tableau suivant décrit les codes d’erreur retournés par Azure AD. |
+| error\_description | Une description plus détaillée de l’erreur. Ce message n’est pas destiné à offrir une description claire à l’utilisateur final. |
+| state | La valeur d’état est une valeur non réutilisée, générée de manière aléatoire, envoyée dans la demande et retournée dans la réponse pour empêcher les falsifications de requête intersites (CSRF, Cross Site Request Forgery). |
+
+#### Codes d’erreur pour les erreurs de point de terminaison d’autorisation
+
+Le tableau suivant décrit les différents codes d’erreur qui peuvent être retournés dans le paramètre `error` de la réponse d’erreur.
+
+| Code d'erreur | Description | Action du client |
+|------------|-------------|---------------|
+| invalid\_request | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corrigez l’erreur, puis envoyez à nouveau la demande. Il s’agit d’une erreur de développement généralement détectée lors des tests initiaux.|
+| unauthorized\_client | L’application cliente n’est pas autorisée à demander un code d’autorisation. | Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+| access\_denied | Le propriétaire de la ressource n’a pas accordé son consentement. | L’application cliente peut avertir l’utilisateur qu’elle ne peut pas continuer sans son consentement. |
+| unsupported\_response\_type | Le serveur d’autorisation ne prend pas en charge le type de réponse dans la demande. | Corrigez l’erreur, puis envoyez à nouveau la demande. Il s’agit d’une erreur de développement généralement détectée lors des tests initiaux.|
+|server\_error | Le serveur a rencontré une erreur inattendue. | relancez la requête. Ces erreurs peuvent résulter de conditions temporaires. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une erreur temporaire. |
+| temporarily\_unavailable | Le serveur est temporairement trop occupé pour traiter la demande. | relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
+| invalid\_resource |La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement.| Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+
 ## Utiliser le code d’autorisation pour demander un jeton d’accès
 
 Maintenant que vous avez acquis un code d’autorisation et que l’utilisateur vous a octroyé une autorisation, vous pouvez échanger le code contre un jeton d’accès à la ressource souhaitée, en envoyant une demande POST au point de terminaison `/token` :
@@ -107,26 +122,32 @@ Maintenant que vous avez acquis un code d’autorisation et que l’utilisateur 
 POST /{tenant}/oauth2/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
+grant_type=authorization_code
+&client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
+&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA
+&redirect_uri=https%3A%2F%2Flocalhost%2Fmyapp%2F
+&resource=https%3A%2F%2Fservice.contoso.com%2F
+&client_secret=p@ssw0rd
 
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
-&code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&grant_type=authorization_code
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: client_secret only required for web apps
+//NOTE: client_secret only required for web apps
 ```
 
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
-| locataire | required | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client. |
-| client\_id | required | L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Il est disponible sur le Portail Azure Classic. Cliquez sur **Active Directory**, sur le répertoire, sur l’application, puis sur **Configurer**. |
+| locataire | required | La valeur `{tenant}` dans le chemin d’accès de la demande peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client. |
+| client\_id | required | L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Il est disponible sur le Portail Azure Classic. Cliquez successivement sur **Active Directory**, le répertoire, l’application et sur **Configurer**. |
 | grant\_type | required | Doit être `authorization_code` pour le flux de code d'autorisation. |
-| code | required | Le `authorization_code` que vous avez obtenu dans la section précédente |
-| redirect\_uri | required | La valeur `redirect_uri` qui a été utilisée pour acquérir le `authorization_code`. |
-| client\_secret | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre le `client_secret` sur le côté serveur. |
-
+| code | required | `authorization_code` que vous avez obtenu dans la section précédente. |
+| redirect\_uri | required | Valeur `redirect_uri` qui a été utilisée pour acquérir le `authorization_code`. |
+| client\_secret | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications web et les API web, qui peuvent stocker en toute sécurité le `client_secret` sur le côté serveur. |
+| resource | requis s’il est spécifié dans la demande de code d’autorisation, facultatif dans le cas contraire | URI ID d’application de l’API web (ressource sécurisée).
+Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application et sur **Configurer**.
 
 ### Réponse correcte
+
+Azure AD renvoie un jeton d’accès dès réception d’une réponse correcte. Pour réduire le nombre d’appels réseau de l’application cliente et la latence associée, l’application cliente doit mettre en cache des jetons d’accès tout au long de la durée de vie des jetons, spécifiée dans la réponse OAuth 2.0. Pour déterminer la durée de vie des jetons, utilisez les valeurs de paramètre `expires_in` ou `expires_on`.
+
+Si une ressource de l’API web renvoie un code d’erreur `invalid_token`, cela peut indiquer que la ressource a déterminé que le jeton est arrivé à expiration. Si les temps horloge du client et de la ressource sont différents (on parle alors de « différence de temps »), la ressource peut considérer que le jeton a expiré avant que celui-ci n’ait été effacé du cache du client. Si cela se produit, effacez le jeton du cache, même si sa durée de vie calculée n’a pas expiré.
 
 Une réponse réussie se présenterait ainsi :
 
@@ -147,8 +168,10 @@ Une réponse réussie se présenterait ainsi :
 | Paramètre | Description |
 | ----------------------- | ------------------------------- |
 | access\_token | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, comme une API Web. |
-| token\_type | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez le document [OAuth 2.0 Authorization Framework: Bearer Token Usage](http://www.rfc-editor.org/rfc/rfc6750.txt) (Infrastructure d’autorisation OAuth 2.0 : utilisation des jetons du porteur) (RFC 6750). |
+| token\_type | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez le document [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) (Infrastructure d’autorisation OAuth 2.0 : Utilisation des jetons du porteur [RFC 6750]). |
 | expires\_in | La durée de validité (en secondes) du jeton d’accès. |
+| expires\_on | L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
+| resource | URI ID d’application de l’API web (ressource sécurisée).|
 | scope | Autorisations d’emprunt d’identité accordées à l’application cliente. L’autorisation par défaut est `user_impersonation`. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD.|
 | refresh\_token | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. |
 | id\_token | Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. |
@@ -178,11 +201,11 @@ Le jeton JWT dans la valeur du paramètre `id_token` peut être décodé dans le
 }.
 ```
 
-Le paramètre `id_token` inclut les types de revendication suivants. Pour plus d’informations sur les jetons web JSON, consultez le [projet de spécification JWT de l’IETF](http://go.microsoft.com/fwlink/?LinkId=392344) (en anglais). Pour plus d’informations sur les types de jeton et les revendications, consultez la page [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md).
+Le paramètre `id_token` inclut les types de revendication suivants. Pour plus d’informations sur les jetons web JSON, consultez le [projet de spécification JWT de l’IETF](http://go.microsoft.com/fwlink/?LinkId=392344). Pour plus d’informations sur les types de jeton et les revendications, consultez la page [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md).
 
 | Type de revendication | Description |
 |------------|-------------|
-| aud | Audience du jeton. Lorsque le jeton est émis à une application cliente, l’audience est le `client_id` du client.
+| aud | Audience du jeton. Lorsque le jeton est émis pour une application cliente, l’audience est le `client_id` du client.
 | exp | Heure d’expiration. L’heure d’expiration du jeton. Pour que le jeton soit valide, la date et l’heure actuelles doivent être antérieures ou identiques à la valeur `exp`. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
 | family\_name | Le nom de famille de l’utilisateur. L’application peut afficher cette valeur. |
 | given\_name | Le prénom de l’utilisateur. L’application peut afficher cette valeur. |
@@ -197,6 +220,8 @@ Le paramètre `id_token` inclut les types de revendication suivants. Pour plus d
 | ver | Version. La version du jeton JWT, généralement 1.0. |
 
 ### Réponse d’erreur
+
+Les erreurs de point de terminaison d’émission de jeton sont des codes d’erreur HTTP, étant donné que le client appelle directement le point de terminaison d’émission de jeton. Outre le code d’état HTTP, le point de terminaison d’émission de jeton Azure AD retourne également un document JSON avec des objets qui décrivent l’erreur.
 
 Une réponse d’erreur se présenterait ainsi :
 
@@ -222,9 +247,33 @@ Une réponse d’erreur se présenterait ainsi :
 | trace\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants.|
 
+#### Codes d’état HTTP
+
+Le tableau suivant répertorie les codes d’état HTTP retournés par le point de terminaison d’émission de jeton. Dans certains cas, le code d’erreur est suffisant pour décrire la réponse, mais en cas d’erreurs, vous devez analyser le document JSON joint et examiner son code d’erreur.
+
+| Code HTTP | Description |
+|-----------|-------------|
+| 400 | Code HTTP par défaut. Il est utilisé dans la plupart des cas et est généralement dû à une demande incorrecte. Corrigez l’erreur, puis envoyez à nouveau la demande. |
+| 401 | Échec d’authentification. Par exemple, la demande ne contient pas le paramètre client\_secret.|
+| 403 | Échec de l’autorisation. Par exemple, l’utilisateur n’est pas autorisé à accéder à la ressource. |
+| 500 | Une erreur interne s’est produite au niveau du service. relancez la requête. |
+
+#### Codes d’erreur pour les erreurs de point de terminaison de jeton
+
+| Code d'erreur | Description | Action du client |
+|------------|-------------|---------------|
+| invalid\_request | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corrigez l’erreur, puis envoyez à nouveau la demande. |
+| invalid\_grant | Le code d’autorisation n’est pas valide ou a expiré. | Essayez une nouvelle demande sur le point de terminaison `/authorize`. |
+| unauthorized\_client | Le client authentifié n’est pas autorisé à utiliser ce type d’octroi d’autorisation. | Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+| invalid\_client | Échec d’authentification du client. | Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification. |
+| unsupported\_grant\_type | Le serveur d’autorisation ne prend pas en charge le type d’octroi d’autorisation. | Modifiez le type d’octroi dans la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
+| invalid\_resource | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+| interaction\_required | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource. |
+| temporarily\_unavailable | Le serveur est temporairement trop occupé pour traiter la demande. | relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire.|
+
 ## Utiliser le jeton d’accès pour accéder à la ressource
 
-Maintenant que vous avez acquis un jeton `access_token`, vous pouvez l’utiliser dans des requêtes dirigées vers des API web en l’incluant dans l’en-tête `Authorization` : La spécification [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) explique comment utiliser des jetons du porteur dans les requêtes HTTP pour accéder aux ressources protégées.
+Maintenant que vous avez acquis un jeton `access_token`, vous pouvez l’utiliser dans des demandes dirigées vers des API web en l’incluant dans l’en-tête `Authorization`. La spécification [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) explique comment utiliser des jetons du porteur dans les requêtes HTTP pour accéder aux ressources protégées.
 
 ### Exemple de requête
 
@@ -234,13 +283,46 @@ Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
+### Réponse d’erreur
+
+Les ressources sécurisées qui implémentent la spécification RFC 6750 émettent des codes d’état HTTP. Si la demande n’inclut pas d’informations d’authentification ou ne contient pas le jeton, la réponse inclut un en-tête `WWW-Authenticate`. Lorsqu’une demande échoue, le serveur de ressources répond avec un code d’état HTTP et un code d’erreur.
+
+Voici un exemple de réponse qui échoue lorsque la demande du client n’inclut pas le jeton du porteur :
+
+```
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer authorization_uri="https://login.window.net/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+```
+
+#### Paramètres d’erreur
+
+| Paramètre | Description |
+|-----------|-------------|
+| authorization\_uri | L’URI (point de terminaison physique) du serveur d’autorisation. Cette valeur est également utilisée comme clé de recherche pour obtenir plus d’informations sur le serveur à partir d’un point de terminaison de détection. <p><p> Le client doit valider l’approbation du serveur d’autorisation. Lorsque la ressource est protégée par Azure AD, il suffit de vérifier que l’URL commence par https://login.windows.net ou un autre nom d’hôte pris en charge par Azure AD. Une ressource spécifique au client doit toujours retourner un URI d’autorisation spécifique au client. |
+| error | Une valeur de code d’erreur définie dans la section 5.2 du document [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749) (Infrastructure d’autorisation OAuth 2.0).|
+| error\_description | Une description plus détaillée de l’erreur. Ce message n’est pas destiné à offrir une description claire à l’utilisateur final.|
+| resource\_id | Retourne l’identificateur unique de la ressource. L’application cliente peut utiliser cet identificateur en tant que valeur du paramètre `resource` lorsqu’elle demande un jeton pour la ressource. <p><p> Il est très important pour l’application cliente de vérifier cette valeur. Sinon, un service malveillant peut être en mesure de provoquer une attaque **par élévation de privilèges**. <p><p> La stratégie recommandée pour empêcher une attaque consiste à vérifier que le `resource_id` correspond à la base de l’URL de l’API web accessible. Par exemple, si https://service.contoso.com/data fait l’objet d’un accès, le `resource_id` peut être htttps://service.contoso.com/. L’application cliente doit rejeter un `resource_id` qui ne commence pas par l’URL de base sauf s’il existe une autre façon fiable de vérifier l’ID. |
+
+#### Codes d’erreur du schéma de porteur
+
+La spécification RFC 6750 définit les erreurs suivantes pour les ressources qui utilisent l’en-tête WWW-Authenticate et le schéma de porteur dans la réponse.
+
+| Code d’état HTTP | Code d'erreur | Description | Action du client |
+|------------------|------------|-------------|---------------|
+| 400 | invalid\_request | La demande n’est pas correcte. Par exemple, un paramètre est manquant ou elle utilise deux fois le même paramètre. | Corrigez l’erreur et relancez la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
+| 401 | invalid\_token | Le jeton d’accès est manquant, non valide ou révoqué. La valeur du paramètre error\_description fournit des détails supplémentaires. | Demandez un nouveau jeton auprès du serveur d’autorisation. Si le nouveau jeton échoue, une erreur inattendue s’est produite. Envoyez un message d’erreur à l’utilisateur et effectuez une nouvelle tentative après un délai aléatoire. |
+| 403 | insufficient\_scope | Le jeton d’accès ne contient pas les autorisations d’emprunt d’identité requises pour accéder à la ressource. | Envoyez une nouvelle demande d’autorisation au point de terminaison d’autorisation. Si la réponse contient le paramètre d’étendue, utilisez la valeur d’étendue dans la demande à la ressource. |
+| 403 | insufficient\_access | Le sujet du jeton n’a pas les autorisations requises pour accéder à la ressource. | Invitez l’utilisateur à utiliser un compte différent ou à demander des autorisations pour la ressource spécifiée. |
+
 ## Actualisation des jetons d’accès
 
 Les jetons d’accès présentent une durée de vie courte. Après leur expiration, vous devez les actualiser afin de pouvoir continuer à accéder aux ressources. Pour actualiser le `access_token`, envoyez une nouvelle requête `POST` au point de terminaison `/token` en fournissant l’élément `refresh_token` au lieu de l’élément `code`.
 
-La durée de vie d’un jeton d’actualisation n’est pas fournie. Elle varie en fonction des paramètres de stratégie et de l’heure à laquelle le code d’autorisation est révoqué par Azure AD. Votre application doit envisager et gérer les situations d’échec des demandes de nouveau jeton d’accès. Elle doit alors revenir au code qui demande un nouveau jeton d’accès.
+Les jetons d’actualisation n’ont pas de durée de vie spécifiée. En règle générale, leur durée de vie est relativement longue. Toutefois, dans certains cas, les jetons d’actualisation expirent, sont révoqués ou ne disposent pas de privilèges suffisants pour l’action souhaitée. Votre application doit envisager et gérer correctement les erreurs retournées par le point de terminaison d’émission de jeton.
 
-Voici un exemple de requête au point de terminaison **spécifique au client** (vous pouvez également utiliser le point de terminaison **commun**) pour obtenir un nouveau jeton d’accès à l’aide d’un jeton d’actualisation :
+Lorsque vous recevez une réponse avec une erreur de jeton d’actualisation, ignorez le jeton d’actualisation actuel et demandez un nouveau code d’autorisation ou un nouveau jeton d’accès. C’est particulièrement le cas lorsque vous utilisez un jeton d’actualisation dans le flux d’octroi de code d’autorisation : si vous recevez une réponse avec le code d’erreur `interaction_required` ou `invalid_grant`, ignorez le jeton d’actualisation et demandez un nouveau code d’autorisation.
+
+Voici un exemple de demande au point de terminaison **propre au client** (vous pouvez également utiliser le point de terminaison **commun**) pour obtenir un nouveau jeton d’accès à l’aide d’un jeton d’actualisation :
 
 ```
 // Line breaks for legibility only
@@ -263,7 +345,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | refresh\_token | Un nouveau jeton d’actualisation OAuth 2.0 pouvant être utilisé pour demander de nouveaux jetons d’accès lorsque celui de cette réponse expire. |
 | resource | Identifie la ressource sécurisée accessible à l’aide du jeton d’accès. |
 | scope | Autorisations d’emprunt d’identité accordées à l’application cliente native. L’autorisation par défaut est **user\_impersonation**. Le propriétaire de la ressource cible peut enregistrer des valeurs alternatives dans Azure AD. |
-| token\_type | Le type de jeton. La seule valeur possible est **Bearer**. |
+| token\_type | Le type de jeton. La seule valeur prise en charge est **bearer**. |
 
 ### Réponse correcte
 
@@ -297,4 +379,15 @@ Une réponse d’erreur se présenterait ainsi :
 }
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+| Paramètre | Description |
+| ----------------------- | ------------------------------- |
+| error | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
+| error\_description | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
+| error\_codes | Liste des codes d’erreur STS spécifiques pouvant être utiles dans les tests de diagnostic. |
+| timestamp | Heure à laquelle l’erreur s’est produite. |
+| trace\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
+| correlation\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants.|
+
+Pour obtenir une description des codes d’erreur et connaître l’action client recommandée, consultez [Codes d’erreur pour les erreurs de point de terminaison de jeton](#error-codes-for-token-endpoint-errors).
+
+<!---HONumber=AcomDC_0629_2016-->

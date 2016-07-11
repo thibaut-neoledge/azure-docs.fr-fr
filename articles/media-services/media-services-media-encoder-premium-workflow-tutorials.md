@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Didacticiels de workflows avancés Media Encoder Premium
@@ -27,7 +27,7 @@ Ce document contient des procédures pas à pas qui montrent comment personnalis
 Cet article contient les rubriques suivantes :
 
 - [Encodage du fichier MXF au format MP4 à débit binaire unique](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-	- [Démarrage d’un nouveau workflow](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+	- [Démarrage d’un nouveau workflow](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
 	- [Utilisation du composant Media File Input](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
 	- [Inspection des flux multimédias](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
 	- [Ajout d’un encodeur vidéo pour la génération de fichiers MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
@@ -77,7 +77,7 @@ Le nouveau workflow affiche 3 éléments :
 
 - Fichier source principal
 - Fichier XML de liste de séquences
-- Fichier/élément multimédia de sortie  
+- Fichier/élément multimédia de sortie
 
 ![Nouveau workflow d’encodage](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
@@ -791,7 +791,7 @@ Nous avons utilisé pour cela des opérations normales de manipulation de chaîn
 
 *Consignation de la liste de séquences obtenue*
 
-Effectuez une série de tests pour voir la manière dont les flux vidéo et audio ont été découpés. Lorsque vous effectuerez plusieurs séries de tests avec des valeurs différentes pour les points de découpage, vous remarquerez que ceux ne seront pas pris en compte ! Ceci s’explique par le fait que le concepteur, contrairement à l’exécution Azure, n’écrase PAS le fichier XML de liste de séquences à chaque exécution. Autrement dit, le fichier XML ne sera transformé que la première fois où vous définissez les points d’entrée et de sortie. Toutes les autres fois, notre clause de garde (if(clipListXML.indexOf("<trim>") == -1)) empêchera le workflow d’ajouter un autre élément de découpage si un autre est déjà présent.
+Effectuez une série de tests pour voir la manière dont les flux vidéo et audio ont été découpés. Lorsque vous effectuerez plusieurs séries de tests avec des valeurs différentes pour les points de découpage, vous remarquerez que ceux ne seront pas pris en compte ! Ceci s’explique par le fait que le concepteur, contrairement à l’exécution Azure, n’écrase PAS le fichier XML de liste de séquences à chaque exécution. Autrement dit, le fichier XML ne sera transformé que la première fois où vous définissez les points d’entrée et de sortie. Toutes les autres fois, notre clause de garde (if(clipListXML.indexOf(«<trim>») == -1)) empêchera le workflow d’ajouter un autre élément de découpage si un autre est déjà présent.
 
 Pour faciliter le test en local de notre workflow, le mieux est d’ajouter du code d’entretien qui vérifie la présence préalable d’un élément de découpage. Si tel est le cas, nous pouvons supprimer cet élément avant de modifier le fichier XML avec les nouvelles valeurs. Au lieu d’utiliser de simples manipulations de chaînes, il est probablement plus prudent de procéder à une analyse du modèle d’objet XML réel.
 
@@ -986,4 +986,4 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

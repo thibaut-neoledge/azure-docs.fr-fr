@@ -25,9 +25,9 @@ Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en
 
 Il est essentiel que chaque client veille à élaborer son propre plan de récupération d’urgence. L’effort de récupération suite à une panne de stockage implique généralement l’intervention du personnel opérationnel ainsi que l’application de procédures automatisées afin de rétablir le bon fonctionnement de vos applications. Reportez-vous à la documentation Azure ci-dessous pour créer votre propre plan de récupération d’urgence :
 
--   [Récupération d’urgence et haute disponibilité pour les applications Azure](https://msdn.microsoft.com/library/azure/dn251004.aspx)
+-   [Récupération d’urgence et haute disponibilité pour les applications Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
--   [Guide technique Azure Business Continuity](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+-   [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md)
 
 -   [Service Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
@@ -81,4 +81,4 @@ Il existe certaines approches recommandées pour sauvegarder régulièrement vos
 
 -   Fichiers : utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) pour copier vos fichiers vers un autre compte de stockage dans une autre région.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

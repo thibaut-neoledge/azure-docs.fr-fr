@@ -23,7 +23,7 @@
 
 <BR>
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
 
 ## Configurer l’équilibreur de charge interne pour les services cloud
@@ -34,9 +34,9 @@ La configuration d’équilibreur de charge interne doit être définie lors de 
 
 >[AZURE.IMPORTANT] Un réseau virtuel déjà créé pour le déploiement de cloud est requis pour exécuter les étapes ci-dessous. Pour créer l’équilibrage de charge interne, vous avez besoin du nom du réseau virtuel et du nom de sous-réseau.
 
-### Étape 1
+### Étape 1
 
-Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement cloud dans Visual Studio et ajoutez la section suivante pour créer l’équilibrage de charge interne sous l’élément « `</Role>` » pour la configuration du réseau.
+Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement cloud dans Visual Studio et ajoutez la section suivante pour créer l’équilibrage de charge interne sous l’élément « `</Role>` » pour la configuration du réseau.
 
 
 
@@ -50,7 +50,7 @@ Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement c
 	</NetworkConfiguration>
 
 
-Nous allons ajouter les valeurs pour le fichier de configuration du réseau pour que vous voyiez à quoi il ressemble. Dans l'exemple, supposons que vous avez créé un sous-réseau appelé « test\_vnet » avec un sous-réseau 10.0.0.0/24 appelé test\_subnet et une adresse IP statique 10.0.0.4. L'équilibrage de charge sera nommé testLB.
+Nous allons ajouter les valeurs pour le fichier de configuration du réseau pour que vous voyiez à quoi il ressemble. Dans l'exemple, supposons que vous avez créé un sous-réseau appelé « test\_vnet » avec un sous-réseau 10.0.0.0/24 appelé test\_subnet et une adresse IP statique 10.0.0.4. L'équilibrage de charge sera nommé testLB.
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
@@ -62,7 +62,7 @@ Nous allons ajouter les valeurs pour le fichier de configuration du réseau pour
 
 Vous trouverez d’autres informations sur le schéma d’équilibreur de charge sous [Ajouter un équilibrage de charge](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-### Étape 2
+### Étape 2
 
 
 Modifiez le fichier de définition de service (.csdef) pour ajouter des points de terminaison à l’équilibrage de charge interne. Au moment où une instance de rôle est créée, le fichier de définition de service ajoute les instances de rôle à l’équilibrage de charge interne.
@@ -91,4 +91,4 @@ Le trafic réseau est équilibré à l’aide de l’équilibrage de charge test
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

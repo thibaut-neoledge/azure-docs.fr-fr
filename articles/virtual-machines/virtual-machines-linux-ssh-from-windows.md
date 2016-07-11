@@ -56,10 +56,10 @@ Voici les scénarios de déploiement et les types de fichiers que vous utilisez 
 
 [La section](#What-SSH-and-key-creation-programs-do-you-need) ci-dessus répertorie plusieurs utilitaires comprenant `ssh-keygen` et `openssl` pour Windows. Voici quelques exemples :
 
-###Utilisation de GitHub pour Windows###
+###Utiliser Git pour Windows###
 
-1.	Téléchargez et installez GitHub pour Windows à partir de l’emplacement suivant : [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Exécutez Git Bash à partir du menu Démarrer > Toutes les applications > GitHub
+1.	Téléchargez et installez Git pour Windows à partir de l’emplacement suivant : [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+2.	Exécutez Git Bash à partir du menu Démarrer > Toutes les applications > Git Shell
 
 > [AZURE.NOTE] L'erreur suivante peut être générée lors de l'exécution des commandes `openssl` ci-dessus :
 
@@ -166,4 +166,4 @@ Le moyen le plus simple de résoudre le problème est de définir la variable d�
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

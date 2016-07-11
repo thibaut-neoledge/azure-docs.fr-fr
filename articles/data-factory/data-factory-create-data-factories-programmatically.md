@@ -40,11 +40,11 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 		<li>Cliquez sur <b>OK</b> pour créer le projet.</li>
 	</ol>
 2. Cliquez sur <b>Outils</b>, pointez sur <b>Gestionnaire de package NuGet</b>, puis cliquez sur <b>Console du gestionnaire de package</b>.
-3.	Dans la fenêtre <b>Console du gestionnaire de package</b>, exécutez les commandes suivantes une par une.</b>. 
+3.	Dans la fenêtre <b>Console du gestionnaire de package</b>, exécutez les commandes suivantes une par une.</b>.
 
 		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-6. Ajoutez la section **appSettings** suivante au fichier **App.config**. Ces valeurs sont utilisées par la méthode d'assistance **GetAuthorizationHeader**. 
+6. Ajoutez la section **appSettings** suivante au fichier **App.config**. Ces valeurs sont utilisées par la méthode d'assistance **GetAuthorizationHeader**.
 
 	Remplacez les valeurs de **SubscriptionId** et **ActiveDirectoryTenantId** par votre ID d'abonnement et votre ID de locataire Azure. Vous pouvez obtenir ces valeurs en exécutant **Get-AzureAccount** à partir d'Azure PowerShell (vous devrez peut-être commencer par vous connecter via Add-AzureAccount).
  
@@ -71,7 +71,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Ajoutez à la méthode **Main** le code suivant, qui crée une instance de la classe **DataPipelineManagementClient**. Cet objet vous permet de créer une fabrique de données, un service lié, les jeux de données d’entrée et de sortie, ainsi qu’un pipeline. Cet objet vous permet également d’analyser les tranches d’un jeu de données au moment de l’exécution.    
+6. Ajoutez à la méthode **Main** le code suivant, qui crée une instance de la classe **DataPipelineManagementClient**. Cet objet vous permet de créer une fabrique de données, un service lié, les jeux de données d’entrée et de sortie, ainsi qu’un pipeline. Cet objet vous permet également d’analyser les tranches d’un jeu de données au moment de l’exécution.
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -123,7 +123,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                 }
             }
         );
-9. Ajoutez à la méthode **Main** le code suivant, qui crée des **jeux de données d’entrée et de sortie**. 
+9. Ajoutez à la méthode **Main** le code suivant, qui crée des **jeux de données d’entrée et de sortie**.
 
 	Notez que le paramètre **FolderPath** de l'objet blob d'entrée a la valeur **adftutorial/**, où **adftutorial** est le nom du conteneur dans votre stockage d'objets blob. Si ce conteneur n'existe pas dans votre stockage d'objets blob Azure, créez un conteneur nommé **adftutorial** et chargez un fichier texte sur celui-ci.
 	
@@ -263,7 +263,7 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 
 	
 
-12. Ajoutez à la classe **Program** la méthode d'assistance suivante utilisée par la méthode **Main**. Cette méthode affiche une boîte de dialogue qui vous permet de fournir un **nom d’utilisateur** et un **mot de passe** de connexion au portail Azure. 
+12. Ajoutez à la classe **Program** la méthode d'assistance suivante utilisée par la méthode **Main**. Cette méthode affiche une boîte de dialogue qui vous permet de fournir un **nom d’utilisateur** et un **mot de passe** de connexion au portail Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -366,17 +366,17 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
         Console.ReadKey();
 
 15. Dans l’Explorateur de solutions, développez le projet (**DataFactoryAPITestApp**), cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence**. Cochez la case de l’assembly **System.Configuration**, puis cliquez sur **OK**.
-16. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**. 
+16. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**.
 16. Vérifiez qu'il existe au moins un fichier dans le conteneur adftutorial de votre stockage d'objets blob Azure. Si ce n'est pas le cas, créez le fichier Emp.txt dans le bloc-notes avec le contenu suivant, puis chargez-le sur le conteneur adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
-18. Utilisez le portail Azure pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants : 
-	- Service lié : **LinkedService\_AzureStorage** 
+17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
+18. Utilisez le portail Azure pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants :
+	- Service lié : **LinkedService\_AzureStorage**
 	- Jeu de données : **DatasetBlobSource** et **DatasetBlobDestination**.
-	- Pipeline : **PipelineBlobSample** 
+	- Pipeline : **PipelineBlobSample**
 18. Vérifiez qu'un fichier de sortie est créé dans le dossier **apifactoryoutput** du conteneur **adftutorial**.
 
 
@@ -385,7 +385,7 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 
 
 [data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
+[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
@@ -393,4 +393,4 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

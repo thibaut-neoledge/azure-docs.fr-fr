@@ -20,8 +20,8 @@
 
 Décrit comment trouver, ajouter, modifier ou supprimer des extensions de machines virtuelles Windows ou Linux dans Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Mode Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

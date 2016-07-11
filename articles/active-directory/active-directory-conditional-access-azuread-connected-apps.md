@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS| Microsoft Azure"
-	description="L’accès conditionnel dans Azure AD vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé."
+	description="L’accès conditionnel dans Azure AD vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
-# Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS
+# Prise en main de l’accès conditionnel à Azure AD  
 
-L’accès conditionnel Azure pour les applications SaaS est disponible pour la version préliminaire publique. La version préliminaire vous permet de configurer des règles d’accès pour l’authentification multifacteur (MFA) pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé.
+Azure Active Directory Conditional Access pour les applications SaaS et les applications connectées à Azure AD est disponible en version préliminaire publique. Cette version préliminaire vous permet de configurer un accès conditionnel en fonction du groupe, de l’emplacement et du critère de diffusion des applications.
 
-Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur. Ces fonctionnalités sont disponibles pour les clients qui ont acheté une licence Azure Active Directory Premium.
+Vous pouvez appliquer des règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Avec un accès conditionnel basé sur le critère de diffusion des applications, vous pouvez définir des règles d’accès MFA (Multi-Factor Authentication) par application, ce qui permet de bloquer l’accès des utilisateurs qui ne sont pas sur un réseau approuvé. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
+
+Ces fonctionnalités sont disponibles pour les clients qui ont acheté une licence Azure Active Directory Premium.
 
 ## Configuration requise pour le scénario
 * Une licence Azure Active Directory Premium
@@ -37,7 +39,7 @@ Cette version préliminaire s’applique aux applications SaaS fédérées préi
 Cette section décrit comment configurer des règles d’accès par application.
 
 1. Connectez-vous au portail Azure Classic à l’aide d’un compte Administrateur général pour Azure AD.
-2. Dans le volet gauche, sélectionnez **Active Directory**.
+2. Dans le volet gauche, sélectionnez **Active Directory**.
 3. Sous l’onglet Annuaire, sélectionnez votre annuaire.
 4. Sélectionnez l’onglet **Applications**.
 5. Sélectionnez l’application pour laquelle vous souhaitez définir la règle.
@@ -64,11 +66,11 @@ Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authe
 ### Options de règle d’accès
 La version préliminaire actuelle prend en charge les options suivantes :
 
-* **Exiger l’authentification multifacteur** : avec cette option, les utilisateurs auxquels les règles d’accès s’appliquent doivent effectuer une authentification multifacteur avant d’accéder à l’application à laquelle la stratégie s’applique.
+* **Exiger une authentification multifacteur** : avec cette option, les utilisateurs auxquels les règles d’accès s’appliquent doivent effectuer une authentification multifacteur avant d’accéder à l’application à laquelle la stratégie s’applique.
 
-* **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : avec cette option, un utilisateur provenant d’une adresse IP approuvée n’est pas obligé d’effectuer une authentification multifacteur. Les plages d’adresses IP approuvées peuvent être configurées sur la page des paramètres de l’authentification multifacteur ou à l’aide des plages d’adresses IP publiques sous l’onglet Configuration de l’annuaire.
+* **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : avec cette option, un utilisateur disposant d’une adresse IP approuvée n’est pas tenu d’effectuer une authentification multifacteur. Les plages d’adresses IP approuvées peuvent être configurées sur la page des paramètres de l’authentification multifacteur ou à l’aide des plages d’adresses IP publiques sous l’onglet Configuration de l’annuaire.
 
-* **Bloquer l’accès quand l’utilisateur n’est pas au travail** : avec cette option, un utilisateur qui ne provient pas d’une adresse IP approuvée est bloqué. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
+* **Bloquer l’accès quand l’utilisateur n’est pas au travail** : avec cette option, un utilisateur qui ne dispose pas d’une adresse IP approuvée est bloqué. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
 
 ### Définition de l’état des règles
 L’état des règles d’accès permet l’activation ou la désactivation des règles. Quand les règles d’accès sont désactivées, l’obligation d’authentification multifacteur n’est pas appliquée.
@@ -79,7 +81,7 @@ Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une applic
 
 Pour les clients fédérés, l’authentification multifacteur (MFA) peut être effectuée par Azure Active Directory ou par le serveur local AD FS.
 
-Par défaut, l’authentification multifacteur a lieu sur une page hébergée par Azure Active Directory. Pour configurer l’authentification multifacteur localement, vous devez affecter la valeur **true** à la propriété –SupportsMFA dans Azure Active Directory à l’aide du module Azure AD pour Windows PowerShell.
+Par défaut, l’authentification multifacteur a lieu sur une page hébergée par Azure Active Directory. Pour configurer MFA localement, vous devez affecter la valeur **true** à la propriété –SupportsMFA dans Azure Active Directory à l’aide du module Azure AD pour Windows PowerShell.
 
 L’exemple suivant montre comment activer l’authentification multifacteur localement à l’aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le client contoso.com :
 
@@ -92,4 +94,4 @@ En plus de définir cet indicateur, vous devez configurer l’instance AD FS du 
 - [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](active-directory-conditional-access.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

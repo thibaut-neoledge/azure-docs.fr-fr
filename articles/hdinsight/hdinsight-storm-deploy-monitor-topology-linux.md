@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="06/22/2016"
    ms.author="larryfr"/>
 
 # Déploiement et gestion des topologies Apache Storm sur HDInsight Linux
@@ -24,15 +24,19 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 ## Configuration requise
 
-- **Un cluster Storm Linux sur HDInsight** : consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
+* **Un cluster Storm Linux sur HDInsight** : consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
-- **Des connaissances en SSH et SCP** : pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
-    - **Clients Linux, Unix ou OS X** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-    - **Clients Windows** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Des connaissances en SSH et SCP** : pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
 
-- **Un client SCP** : il est fourni avec tous les systèmes Linux, Unix et OS X. Pour les clients Windows, nous vous recommandons PSCP, disponible dans la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+    * **Clients Linux, Unix ou OS X** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+    * **Clients Windows** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+* **Un client SCP** : il est fourni avec tous les systèmes Linux, Unix et OS X. Pour les clients Windows, nous vous recommandons PSCP, disponible dans la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## Démarrage d’une topologie Storm
+
+### À l’aide de SSH et de la commande Storm
 
 1. Utilisez SSH pour vous connecter au cluster HDInsight. Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
 
@@ -40,9 +44,9 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
     Pour plus d’informations sur l’utilisation de SSH pour se connecter à votre cluster HDInsight, consultez les documents suivants :
     
-        - **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-        
-        - **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    
+    * **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Utilisez la commande suivante pour démarrer un exemple de topologie :
 
@@ -53,6 +57,10 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
     > [AZURE.NOTE] Pendant l’envoi de la topologie au cluster, vous devez d’abord copier le fichier jar contenant le cluster avant d’utiliser la commande `storm`. Pour ce faire, vous pouvez utiliser la commande `scp` à partir du client où se trouve le fichier. Par exemple, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > L’exemple WordCount et d’autres exemples de Storm Starter sont déjà inclus dans votre cluster sous `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+
+### Par programmation
+
+Vous pouvez, par programmation, déployer une topologie vers Storm sur HDInsight en communiquant avec le service Nimbus hébergé dans votre cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fournit un exemple d’application Java qui montre comment déployer et démarrer une topologie via le service Nimbus.
 
 ##Surveillance et gestion à l’aide de la commande storm
 
@@ -94,7 +102,7 @@ Le rééquilibrage d’une topologie permet au système de réviser le parallél
 
 ##Surveillance et gestion à l’aide de l’interface utilisateur Storm
 
-L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, ouvrez un navigateur web et accédez à __https://CLUSTERNAME.azurehdinsight.net/stormui__, où __CLUSTERNAME__ est le nom de votre cluster.
+L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, utilisez un navigateur Web pour ouvrir __https://CLUSTERNAME.azurehdinsight.net/stormui__, où __CLUSTERNAME\_\_ est le nom de votre cluster.
 
 > [AZURE.NOTE] Si vous êtes invité à fournir un nom d’utilisateur et un mot de passe, entrez l’administrateur de cluster (admin) et le mot de passe que vous avez utilisé pour la création du cluster.
 
@@ -102,38 +110,56 @@ L’interface utilisateur Storm fournit une interface web incluse dans votre clu
 ### Page principale
 
 La page principale de l’interface utilisateur de Storm fournit les informations suivantes :
-- **Résumé du cluster** : des informations de base sur le cluster Storm.
-- **Résumé de la topologie** : une liste des topologies en cours d’exécution. Utilisez les liens de cette section pour afficher plus d’informations sur les topologies spécifiques.
-- **Résumé du superviseur**: des informations sur le superviseur Storm.
-- **Configuration Nimbus** : configuration Nimbus du cluster.
+
+* **Résumé du cluster** : des informations de base sur le cluster Storm.
+
+* **Résumé de la topologie** : une liste des topologies en cours d’exécution. Utilisez les liens de cette section pour afficher plus d’informations sur les topologies spécifiques.
+
+* **Résumé du superviseur**: des informations sur le superviseur Storm.
+
+* **Configuration Nimbus** : configuration Nimbus du cluster.
 
 ### Résumé de la topologie
 
 La sélection d’un lien de la section **Résumé de la topologie** affiche les informations suivantes sur la topologie :
-- **Résumé de la topologie** :des informations de base sur la topologie.
-- **Actions de la topologie** : les actions de gestion que vous pouvez effectuer sur la topologie.
-  - **Activer** : reprend le traitement d’une topologie arrêtée.
-  - **Désactiver** : suspend une topologie en cours d’exécution.
-  - **Rééquilibrer**: ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation ou la diminution du nombre de nœuds du cluster.
 
-      Pour plus d’informations, consultez la rubrique <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Présentation du parallélisme d’une topologie Storm</a>.
+* **Résumé de la topologie** :des informations de base sur la topologie.
 
-  - **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
+* **Actions de la topologie** : les actions de gestion que vous pouvez effectuer sur la topologie.
 
-- **Topology stats** : statistiques relatives à la topologie. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
-- **Spouts** : les spouts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des spouts spécifiques.
-- **Bolts** : les bolts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des bolts spécifiques.
-- **Configuration de la topologie** : configuration de la topologie sélectionnée.
+  * **Activer** : reprend le traitement d’une topologie arrêtée.
+
+  * **Désactiver** : suspend une topologie en cours d’exécution.
+
+  * **Rééquilibrer**: ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation ou la diminution du nombre de nœuds du cluster.
+
+    Pour plus d’informations, consultez la rubrique <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Présentation du parallélisme d’une topologie Storm</a>.
+
+  * **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
+
+* **Topology stats** : statistiques relatives à la topologie. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
+
+* **Spouts** : les spouts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des spouts spécifiques.
+
+* **Bolts** : les bolts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des bolts spécifiques.
+
+* **Configuration de la topologie** : configuration de la topologie sélectionnée.
 
 ### Résumé relatif aux spouts et aux bolts
 
 La sélection d’un spout à partir de la section **Spouts** ou **Bolts** affiche les informations suivantes sur l’élément sélectionné :
-- **Résumé du composant** : des informations de base sur le spout ou le bolt.
-- **Statistiques du spout/bolt** : des statistiques relatives au spout ou au bolt. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
-- **Statistiques d’entrée** (bolt uniquement) : des informations sur les flux d’entrée consommés par le bolt.
-- **Statistiques de sortie** : des informations sur les flux de données émis par ce spout ou ce bolt.
-- **Exécuteurs** : informations sur les instances du spout ou du bolt. Sélectionnez l’entrée **Port** d’un exécuteur spécifique afin d’afficher le journal des informations de diagnostic généré pour cette instance.
-- **Erreurs** : les informations d’erreur pour ce spout ou ce bolt.
+
+* **Résumé du composant** : des informations de base sur le spout ou le bolt.
+
+* **Statistiques du spout/bolt** : des statistiques relatives au spout ou au bolt. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
+
+* **Statistiques d’entrée** (bolt uniquement) : des informations sur les flux d’entrée consommés par le bolt.
+
+* **Statistiques de sortie** : des informations sur les flux de données émis par ce spout ou ce bolt.
+
+* **Exécuteurs** : informations sur les instances du spout ou du bolt. Sélectionnez l’entrée **Port** d’un exécuteur spécifique afin d’afficher le journal des informations de diagnostic généré pour cette instance.
+
+* **Erreurs** : les informations d’erreur pour ce spout ou ce bolt.
 
 ## API REST
 
@@ -150,9 +176,10 @@ L’URI de base de l’API REST sur les clusters HDInsight basés sur Linux est 
 Vous trouverez le nom de domaine complet (FQDN) du nœud principal du cluster de plusieurs façons différentes :
 
 * __À partir d’une session SSH__ : utilisez la commande `headnode -f` à partir d’une session SSH vers le cluster.
+
 * __À partir d’Ambari Web__ : sélectionnez __Services__ en haut de la page, puis sélectionnez __Storm__. Sous l’onglet __Résumé__, sélectionnez __Serveur de l’interface utilisateur de Storm__. Le nom de domaine complet du nœud que l’interface utilisateur de Storm et l’API REST exécutent figure en haut de la page.
-* __À partir de l’API REST d’Ambari__ : utilisez la commande `curl -u admin:PASSWORD -G "https://CLUSTERNAME
-.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` pour extraire des informations sur le nœud sur lequel l’interface utilisateur de Storm et l’API REST s’exécutent. Remplacez __PASSWORD__ par le mot de passe de l’administrateur du cluster. Remplacez __CLUSTERNAME__ par le nom du cluster. Dans la réponse, l’entrée « host\_name » contient le nom de domaine complet du nœud.
+
+* __À partir de l’API REST d’Ambari__ : utilisez la commande `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` pour extraire des informations sur le nœud sur lequel l’interface utilisateur de Storm et l’API REST s’exécutent. Remplacez __PASSWORD__ par le mot de passe de l’administrateur du cluster. Remplacez __CLUSTERNAME__ par le nom du cluster. Dans la réponse, l’entrée « host\_name » contient le nom de domaine complet du nœud.
 
 ### Authentification
 
@@ -170,4 +197,4 @@ Maintenant que vous avez appris à déployer et surveiller des topologies à l�
 
 Pour accéder à une liste d’exemples supplémentaires de topologies, consultez la rubrique [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

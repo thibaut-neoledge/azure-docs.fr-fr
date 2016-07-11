@@ -3,7 +3,7 @@
    description="Vue d’ensemble des options de restauration de base de données pour la récupération d’une base de données dans Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/15/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 
 # Restauration d’un Azure SQL Data Warehouse (Vue d’ensemble)
@@ -23,7 +23,9 @@
 - [Vue d'ensemble][]
 - [Portail][]
 - [PowerShell][]
-- [REST][] s Azure SQL Data Warehouse protège vos données avec un stockage localement redondant et des sauvegardes automatisées. Les sauvegardes automatisées ne requièrent aucun coût d’administration pour protéger vos bases de données d’une corruption ou d’une suppression accidentelle. Si un utilisateur modifie ou supprime accidentellement des données, vous pouvez garantir la continuité des activités en restaurant votre base de données à un point antérieur dans le temps. SQL Data Warehouse utilise des instantanés Azure Storage Snapshots pour sauvegarder votre base de données façon transparente sans avoir besoin d’une interruption de service.
+- [REST][]
+
+Azure SQL Data Warehouse protège vos données avec un stockage localement redondant et des sauvegardes automatisées. Les sauvegardes automatisées ne requièrent aucun coût d’administration pour protéger vos bases de données d’une corruption ou d’une suppression accidentelle. Si un utilisateur modifie ou supprime accidentellement des données, vous pouvez garantir la continuité des activités en restaurant votre base de données à un point antérieur dans le temps. SQL Data Warehouse utilise des instantanés Azure Storage Snapshots pour sauvegarder votre base de données façon transparente sans avoir besoin d’une interruption de service.
 
 ## Sauvegardes automatisées
 
@@ -53,12 +55,12 @@ La restauration d’un SQL Data Warehouse est une opération simple qui peut êt
 
 
 ## Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir la [vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
 [localement redondant]: ../storage/storage-redundancy.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
 [Portail]: ./sql-data-warehouse-restore-database-portal.md
@@ -70,4 +72,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

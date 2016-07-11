@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 # Dépannage de l’erreur « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement »
@@ -39,4 +39,4 @@ Cette erreur se produit lorsque la base de données Azure est déplacée (ou rec
 - Si vous recevez une erreur différente, consultez le [message d’erreur](sql-database-develop-error-messages.md) pour obtenir des indices sur la cause.
 - Si le problème persiste, consultez les instructions dans [Résolution des problèmes de connexion courants à Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

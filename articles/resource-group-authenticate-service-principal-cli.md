@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Créer une application AD avec l’interface de ligne de commande Azure | Microsoft Azure"
-   description="Décrit comment utiliser l’interface de ligne de commande Azure pour créer une application Active Directory et lui accorder l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
+   pageTitle="Créer un principal du service avec l’interface de ligne de commande (CLI) Azure | Microsoft Azure"
+   description="Explique comment utiliser l’interface de ligne de commande (CLI) Azure pour créer une application et un principal du service Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Utiliser l’interface de ligne de commande Azure pour créer une application Active Directory pour accéder aux ressources
+# Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -149,7 +149,7 @@ Dans cette section, vous suivrez la procédure vous permettant de créer le prin
 Dans votre script, vous allez transmettre trois valeurs nécessaires pour vous connecter en tant que principal du service. Vous aurez besoin de ce qui suit :
 
 - ID d’application
-- ID client 
+- ID client
 - Empreinte de certificat
 
 Vous avez vu l’ID d’application et l’empreinte de certificat lors des étapes précédentes. Toutefois, si vous avez besoin de récupérer ces valeurs ultérieurement, les commandes requises sont indiquées ci-dessous, ainsi que la commande permettant d’obtenir l’ID client.
@@ -183,10 +183,10 @@ Vous êtes maintenant authentifié en tant que principal du service pour l’app
 ## Étapes suivantes
   
 - Pour obtenir des exemples d’authentification .NET, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour .NET](resource-manager-net-sdk.md).
-- Pour obtenir des exemples d’authentification Java, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour Java](resource-manager-java-sdk.md). 
+- Pour obtenir des exemples d’authentification Java, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour Java](resource-manager-java-sdk.md).
 - Pour obtenir des exemples d’authentification Python, consultez [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Authentification Resource Management pour Python).
 - Pour obtenir des exemples d’authentification REST, consultez [API REST Resource Manager](resource-manager-rest-api.md).
 - Pour obtenir des instructions détaillées sur l’intégration d’une application dans Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
-- Pour obtenir des informations supplémentaires sur l’utilisation de certificats et de l’interface de ligne de commande Azure, consultez la page [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Authentification par certificat à l’aide de principaux du service Azure à partir de la ligne de commande Linux). 
+- Pour obtenir des informations supplémentaires sur l’utilisation de certificats et de l’interface de ligne de commande Azure, consultez la page [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Authentification par certificat à l’aide de principaux du service Azure à partir de la ligne de commande Linux).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

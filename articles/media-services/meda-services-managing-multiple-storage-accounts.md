@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 À partir de Microsoft Azure Media Services 2.2, vous pouvez associer plusieurs comptes de stockage à un seul compte Media Services. L’option d’association de plusieurs comptes de stockage à un compte Media Services offre les avantages suivants :
 
 - Gestion de vos éléments multimédias sur plusieurs comptes de stockage.
-- Mais aussi, mise à l'échelle de Media Services pour traiter de grandes quantités de contenu (car actuellement un compte de stockage unique est limité à un maximum de 500 To). 
+- Mais aussi, mise à l'échelle de Media Services pour traiter de grandes quantités de contenu (car actuellement un compte de stockage unique est limité à un maximum de 500 To).
 
 Cette rubrique montre comment associer plusieurs comptes de stockage à un compte Media Services à l’aide de l’API REST de gestion des services Azure. Elle montre également comment spécifier différents comptes de stockage lors de la création d'éléments multimédias à l'aide du Kit de développement logiciel (SDK) Media Services.
 
@@ -32,7 +32,7 @@ Quand vous associez plusieurs comptes de stockage à votre compte Media Services
 
 - Tous les comptes de stockage associés à un compte Media Services doivent être dans le même centre de données que le compte Media Services.
 - Actuellement, une fois qu'un compte de stockage est associé au compte Media Services spécifié, il ne peut pas en être dissocié.
-- Le compte de stockage principal est celui indiqué au moment de la création du compte Media Services. Actuellement, vous ne pouvez pas modifier le compte de stockage par défaut. 
+- Le compte de stockage principal est celui indiqué au moment de la création du compte Media Services. Actuellement, vous ne pouvez pas modifier le compte de stockage par défaut.
 
 Autres points à considérer :
 
@@ -259,4 +259,4 @@ Le code suivant utilise le dernier Kit de développement logiciel (SDK) Media Se
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

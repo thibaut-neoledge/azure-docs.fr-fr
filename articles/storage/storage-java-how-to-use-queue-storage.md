@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Utilisation du stockage de files d'attente à partir de Java
@@ -392,4 +392,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 [API REST des services d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

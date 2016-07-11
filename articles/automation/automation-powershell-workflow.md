@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/24/2016"
    ms.author="bwren" />
 
 # Apprentissage du workflow Windows PowerShell
@@ -239,12 +239,41 @@ L'exemple suivant copie plusieurs fichiers vers un emplacement réseau et défin
 		Write-Output "All files copied."
 	}
 
+Étant donné que les informations d’identification de nom d’utilisateur ne sont pas conservées après l’appel de l’activité [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou après le dernier point de contrôle, vous devez définir les informations d’identification sur « null », puis les extraire à nouveau du magasin de ressources après l’activité **Suspend-Workflow** ou après l’appel du point de contrôle. À défaut, vous risquez de rencontrer le message d’erreur suivant : *Impossible de reprendre la tâche de workflow, soit parce que les données de persistance n’ont pas pu être enregistrées en totalité, soit parce que les données de persistance enregistrées ont été endommagées. Vous devez redémarrer le workflow.*
+
+Le même code ci-dessous montre comment traiter ce problème dans vos Runbooks de workflow PowerShell.
+
+       
+    workflow CreateTestVms
+    {
+       $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+       $null = Add-AzureRmAccount -Credential $Cred
+
+       $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+
+       foreach ($VmName in $VmsToCreate)
+         {
+          # Do work first to create the VM (code not shown)
+        
+          # Now add the VM
+          New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+
+          # Checkpoint so that VM creation is not repeated if workflow suspends
+          $Cred = $null
+          Checkpoint-Workflow
+          $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+          $null = Add-AzureRmAccount -Credential $Cred
+         }
+     } 
+
+
+Cette procédure n’est pas nécessaire si vous vous authentifiez à l’aide d’un compte d’identification configuré avec un service principal.
 
 Pour plus d'informations sur les points de contrôle, consultez [Ajout de points de contrôle à un workflow de script](http://technet.microsoft.com/library/jj574114.aspx).
 
 
 ## Étapes suivantes
 
-- Pour une prise en main des Runbooks de flux de travail PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md). 
+- Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

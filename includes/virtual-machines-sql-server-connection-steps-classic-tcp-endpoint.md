@@ -1,22 +1,25 @@
 ### Création d'un point de terminaison TCP pour la machine virtuelle
 
-Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
+Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
 >[AZURE.NOTE] Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d'informations, consultez [Scénarios de connexion](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 
-1. Dans le portail de gestion Azure, cliquez sur **VIRTUAL MACHINES**.
-	
-2. Cliquez sur la machine virtuelle que vous venez de créer. Les informations relatives à la machine virtuelle sont affichées.
-	
-3. En haut de la page, sélectionnez la page **POINTS DE TERMINAISON**, puis en bas de la page, cliquez sur **AJOUTER**.
-	
-4. Dans la page **Ajouter un point de terminaison à la machine virtuelle**, cliquez sur **Ajouter un point de terminaison autonome**, puis sur la flèche Suivant.
-	
-5. Sur la page **Specify the details of the endpoint**, entrez les informations suivantes.
+1. Dans le portail Azure, sélectionnez **Machines virtuelles (classiques)**.
 
-	- Dans la zone **NAME**, entrez un nom pour le point de terminaison.
-	- Dans la zone **PROTOCOL**, sélectionnez **TCP**. Vous pouvez taper la valeur **57500** dans la zone **PORT PUBLIC**. De la même façon, vous pouvez indiquer le port d’écoute par défaut de SQL Server **1433** dans la zone **Port privé**. Notez que plusieurs organisations sélectionnent différents numéros de ports pour éviter les attaques de sécurité. 
+2. Sélectionnez ensuite une machine virtuelle SQL Server.
 
-6. Cliquez sur la coche pour continuer. Le point de terminaison est créé.
+3. Sélectionnez **Points de terminaison**, puis cliquez sur le bouton **Ajouter** bouton en haut du panneau Points de terminaison.
 
-<!---HONumber=AcomDC_0323_2016-->
+	![Étapes pour la création d’un point de terminaison sur le portail](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
+
+4. Dans le panneau **Ajouter un point de terminaison** panneau, fournissez un **Nom**, par exemple SQLEndpoint.
+
+5. Sélectionnez **TCP** pour le **Protocole**.
+
+6. Pour **Port public**, spécifiez un numéro de port comme **57500**.
+
+7. Pour **Port privé**, spécifiez le port d’écoute de SQL Server, par défaut **1433**.
+
+6. Cliquez sur **OK** pour créer le point de terminaison.
+
+<!---HONumber=AcomDC_0629_2016-->

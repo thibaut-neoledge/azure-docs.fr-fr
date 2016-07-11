@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Activité de procédure stockée SQL Server
@@ -21,9 +21,9 @@
 Vous pouvez utiliser l’activité de procédure stockée SQL Server dans un [pipeline](data-factory-create-pipelines.md) Data Factory pour appeler une procédure stockée dans l’un des magasins de données suivants.
 
 
-- Base de données SQL Azure 
-- Azure SQL Data Warehouse  
-- Base de données SQL Server dans votre machine virtuelle d’entreprise ou Azure. Vous devez installer la passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales ou des sources de données hébergées dans des machines virtuelles Azure à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md). 
+- Base de données SQL Azure
+- Azure SQL Data Warehouse
+- Base de données SQL Server dans votre machine virtuelle d’entreprise ou Azure. Vous devez installer la passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales ou des sources de données hébergées dans des machines virtuelles Azure à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
 
 Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
@@ -62,7 +62,7 @@ storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure
 ### Exemple de table et de procédure stockée
 > [AZURE.NOTE] Cet exemple utilise la base de données SQL Azure mais fonctionne de la même manière pour un entrepôt Azure SQL Data Warehouse et une base de données SQL Server.
 
-1. Créez la **table** suivante dans votre base de données SQL Azure à l’aide de SQL Server Management Studio ou d’un autre outil que vous maîtrisez. La colonne datetimestamp affiche la date et l’heure auxquelles l’ID correspondant est généré. 
+1. Créez la **table** suivante dans votre base de données SQL Azure à l’aide de SQL Server Management Studio ou d’un autre outil que vous maîtrisez. La colonne datetimestamp affiche la date et l’heure auxquelles l’ID correspondant est généré.
 
 		CREATE TABLE dbo.sampletable
 		(
@@ -90,10 +90,10 @@ storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure
 	
 ### Créer une fabrique de données  
 4. Après la connexion au [portail Azure](https://portal.azure.com/), procédez comme suit :
-	1.	Cliquez sur **NOUVEAU** dans le menu de gauche. 
+	1.	Cliquez sur **NOUVEAU** dans le menu de gauche.
 	2.	Cliquez sur **Analyse des données** dans le panneau **Créer**.
 	3.	Cliquez sur **Data Factory** dans le panneau **Données + analyse**.
-4.	Dans le panneau **Nouvelle fabrique de données**, entrez **SProcDF** dans le champ Nom. Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
+4.	Dans le panneau **Nouvelle fabrique de données**, entrez **SProcDF** dans le champ Nom. Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique.
 3.	Si vous n’avez pas créé de groupe de ressources, vous devez en créer un. Pour ce faire :
 	1.	Cliquez sur **NOM DU GROUPE DE RESSOURCES**.
 	2.	Sélectionnez **Créer un groupe de ressources** dans le panneau **Groupe de ressources**.
@@ -106,8 +106,8 @@ storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure
 ### Créer un service lié Azure SQL  
 Après avoir créé la fabrique de données, vous créez un service lié Azure SQL qui relie votre base de données SQL Azure à la fabrique de données. Il s’agit de la base de données qui contient la table sampletable et la procédure stockée sp\_sample.
 
-7.	Cliquez sur **Créer et déployer** dans le panneau **DATA FACTORY** pour **SProcDF**. Cette action lance l'éditeur Data Factory Editor. 
-2.	Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **SQL Azure**. Le script JSON de création d’un service lié Azure SQL doit apparaître dans l’éditeur. 
+7.	Cliquez sur **Créer et déployer** dans le panneau **DATA FACTORY** pour **SProcDF**. Cette action lance l'éditeur Data Factory Editor.
+2.	Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **SQL Azure**. Le script JSON de création d’un service lié Azure SQL doit apparaître dans l’éditeur.
 4. Remplacez **servername** par le nom de votre serveur de base de données SQL Azure, **databasename** par la base de données dans laquelle vous avez créé la table et la procédure stockée, **username@servername** par le compte d’utilisateur qui a accès à la base de données et **password** par le mot de passe du compte d’utilisateur.
 5. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
@@ -129,13 +129,13 @@ Après avoir créé la fabrique de données, vous créez un service lié Azure S
 				}
 			}
 		}
-7. Cliquez sur **Déployer** dans la barre de commandes pour déployer le jeu de données. 
+7. Cliquez sur **Déployer** dans la barre de commandes pour déployer le jeu de données.
 
 ### Créer un pipeline avec une activité SqlServerStoredProcedure
 Nous allons maintenant créer un pipeline avec une activité SqlServerStoredProcedure.
  
-9. Cliquez sur **... (points de suspension)** dans la barre de commandes et sur **Nouveau pipeline**. 
-9. Copiez-collez l’extrait de code JSON suivant. **storedProcedureName** a la valeur **sp\_sample**. Le nom et la casse du paramètre **DateTime** doivent correspondre à ceux du paramètre dans la définition de procédure stockée.  
+9. Cliquez sur **... (points de suspension)** dans la barre de commandes et sur **Nouveau pipeline**.
+9. Copiez-collez l’extrait de code JSON suivant. **storedProcedureName** a la valeur **sp\_sample**. Le nom et la casse du paramètre **DateTime** doivent correspondre à ceux du paramètre dans la définition de procédure stockée.
 
 		{
 		    "name": "SprocActivitySamplePipeline",
@@ -166,13 +166,13 @@ Nous allons maintenant créer un pipeline avec une activité SqlServerStoredProc
 		        "isPaused": false
 		    }
 		}
-9. Cliquez sur **Déployer** dans la barre d’outils pour déployer le pipeline.  
+9. Cliquez sur **Déployer** dans la barre d’outils pour déployer le pipeline.
 
 ### Surveiller le pipeline
 
 6. Cliquez sur **X** pour fermer les panneaux de l’éditeur Data Factory Editor et pour revenir au panneau Data Factory, puis cliquez sur**Schéma**.
-7. Dans la vue schématique, une vue d'ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche. 
-8. Dans la vue schématique, double-cliquez sur le jeu de données **sprocsampleout**. Les tranches s’affichent avec l’état Prêt. Il doit y avoir 24 tranches, car il se produit une tranche par heure entre le 02/01/2015 et le 03/01/2015. 
+7. Dans la vue schématique, une vue d'ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
+8. Dans la vue schématique, double-cliquez sur le jeu de données **sprocsampleout**. Les tranches s’affichent avec l’état Prêt. Il doit y avoir 24 tranches, car il se produit une tranche par heure entre le 02/01/2015 et le 03/01/2015.
 10. Quand une tranche est en état **Prêt**, exécutez une requête **select * from sampledata** sur la base de données SQL Azure pour vérifier que les données ont été insérées dans la table par la procédure stockée.
 
 	![Données de sortie](./media/data-factory-stored-proc-activity/output.png)
@@ -207,4 +207,4 @@ Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité
 		}
 	}
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l'aide du modèle de déploiement classique](load-balancer-get-started-internet-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l'aide du modèle de déploiement classique](load-balancer-get-started-internet-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -35,7 +35,7 @@ Nous allons aborder la séquence de tâches individuelles qui doivent être exé
 
 Vous devez créer et configurer les objets suivants pour déployer un équilibreur de charge :
 
-- Configuration d’adresses IP frontales : contient les adresses IP publiques pour le trafic réseau entrant. 
+- Configuration d’adresses IP frontales : contient les adresses IP publiques pour le trafic réseau entrant.
 
 - Pool d’adresses principales : contient des interfaces réseau (NIC) pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
 
@@ -54,7 +54,7 @@ Assurez-vous que vous disposez de la dernière version de production du module A
 
 ### Étape 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 Vous devez indiquer vos informations d’identification.<BR>
 
@@ -62,20 +62,20 @@ Vous devez indiquer vos informations d’identification.<BR>
 
 Vérifiez les abonnements associés au compte
 
-		PS C:\> Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 ### Étape 3 
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
-		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
+		Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### Étape 4
 
 Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
 
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Créez un réseau virtuel et une adresse IP publique pour le pool d’adresses IP frontales
@@ -181,7 +181,7 @@ Créez une carte réseau nommée *lb-nic2-be*, puis associez-la à la deuxième 
 Vérifiez les cartes réseau.
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Sortie attendue :
 
@@ -248,7 +248,7 @@ Charger la ressource d'équilibrage de charge dans une variable (si vous ne l'av
 
 Charger la configuration du serveur principal dans une variable.
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### Étape 3 
 
@@ -260,13 +260,13 @@ Charger l'interface réseau déjà créée dans une variable. Le nom de la varia
 
 Modifier la configuration du serveur principal sur l'interface réseau.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Étape 5 
 
 Enregistrer l'objet d'interface réseau.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Une fois l’interface réseau ajoutée au pool principal d'équilibreurs de charge, elle commence à recevoir le trafic réseau selon la règles d'équilibrage de charge pour cette ressource d’équilibreur de charge.
 
@@ -308,4 +308,4 @@ Utilisez la commande `Remove-AzureLoadBalancer` pour supprimer un équilibreur d
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibreur de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

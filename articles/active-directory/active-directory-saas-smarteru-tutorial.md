@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à SmarterU | Microsoft Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à SmarterU | Microsoft Azure" 
     description="Découvrez comment utiliser SmarterU avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à SmarterU
   
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ###Pour activer l’intégration d’applications pour SmarterU, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-smarteru-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **SmarterU** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **SmarterU** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Configurer l’authentification unique")
 
@@ -99,7 +99,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     5.  Copiez le contenu du fichier de métadonnées téléchargé et collez-le dans la zone de texte **Okta Metadata**.
     6.  Cliquez sur **Enregistrer**.
 
-7.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+7.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Configurer l’authentification unique")
 
@@ -122,7 +122,7 @@ Pour se connecter à SmarterU, les utilisateurs d’Azure AD doivent être appro
     3.  Cliquez sur**Active**.
     4.  Cliquez sur **Enregistrer**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par SmarterU, pour approvisionner des comptes utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par SmarterU, pour approvisionner des comptes utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -130,7 +130,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à SmarterU, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **SmarterU**, cliquez sur **Affecter des utilisateurs**.
 
@@ -142,4 +142,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

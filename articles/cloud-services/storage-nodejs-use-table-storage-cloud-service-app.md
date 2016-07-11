@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Application Web Node.js utilisant le stockage
@@ -70,7 +70,7 @@ Procédez comme suit pour extraire les informations d'identification de stockage
 
 ### Installation de modules supplémentaires
 
-2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
+2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
@@ -241,7 +241,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 ### Modification de app.js
 
-1. Dans le répertoire **WebRole1**, ouvrez le fichier **app.js** dans un éditeur de texte. 
+1. Dans le répertoire **WebRole1**, ouvrez le fichier **app.js** dans un éditeur de texte.
 
 2. Au début du fichier, ajoutez ce qui suit pour charger le module azure, et définissez le nom de la table et la clé de partition :
 
@@ -403,4 +403,4 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
  
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

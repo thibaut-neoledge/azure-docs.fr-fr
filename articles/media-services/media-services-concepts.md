@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Concepts Azure Media Services 
@@ -31,7 +31,7 @@ Un élément multimédia est mappé à un conteneur d’objets blob dans le comp
 Lors du choix du contenu multimédia à télécharger et à stocker dans un élément multimédia, vous devez prendre en compte les considérations suivantes :
 
 - Un élément multimédia doit contenir une seule et unique instance de contenu multimédia. Par exemple, une seule version d’un épisode d’une série TV, d’un film ou d’une publicité.
-- Un élément multimédia ne doit pas contenir plusieurs rendus ou versions d’un fichier audiovisuel. Une tentative d’enregistrement de plusieurs épisodes d’une série TV, plusieurs publicités ou plusieurs angles de caméra à partir d’une production unique dans un élément multimédia constitue un exemple d’utilisation incorrect d’un élément multimédia. Le stockage de plusieurs rendus ou versions d’un fichier audiovisuel dans un élément multimédia peut entraîner des difficultés lors de l’envoi des travaux d’encodage, de la diffusion en continu et de la sécurisation de la remise de l’élément multimédia ultérieurement dans le flux de travail.  
+- Un élément multimédia ne doit pas contenir plusieurs rendus ou versions d’un fichier audiovisuel. Une tentative d’enregistrement de plusieurs épisodes d’une série TV, plusieurs publicités ou plusieurs angles de caméra à partir d’une production unique dans un élément multimédia constitue un exemple d’utilisation incorrect d’un élément multimédia. Le stockage de plusieurs rendus ou versions d’un fichier audiovisuel dans un élément multimédia peut entraîner des difficultés lors de l’envoi des travaux d’encodage, de la diffusion en continu et de la sécurisation de la remise de l’élément multimédia ultérieurement dans le flux de travail.
 
 ###Fichier d’élément multimédia 
 Un [AssetFile](https://msdn.microsoft.com/library/azure/hh974275.aspx) représente un fichier vidéo ou audio réel stocké dans un conteneur d’objets blob. Un fichier d’élément multimédia est toujours associé à un élément multimédia et un élément multimédia peut contenir un ou plusieurs fichiers La tâche de Media Services Encoder échoue si un objet de fichier de ressources n’est pas associé à un fichier numérique dans un conteneur d’objets blob.
@@ -44,17 +44,17 @@ Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob 
 
 Selon le type de contenu que vous souhaitez télécharger, stocker et remettre, Media Services met à votre disposition différentes options de chiffrement.
 
-**None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage.
+**None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage.
 
 Si vous prévoyez de remettre du contenu MP4 via un téléchargement progressif, utilisez cette option pour télécharger votre contenu.
 
-**StorageEncrypted** : utilisez cette option pour chiffrer votre contenu localement à l’aide du chiffrement AES 256 bits, puis chargez-le vers Azure Storage où il est stocké au repos sous forme chiffrée. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d’utilisation du chiffrement de stockage concerne la sécurisation des fichiers multimédias d’entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
+**StorageEncrypted** : utilisez cette option pour chiffrer votre contenu localement à l’aide du chiffrement AES 256 bits, puis chargez-le vers Azure Storage où il est stocké au repos sous forme chiffrée. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d’utilisation du chiffrement de stockage concerne la sécurisation des fichiers multimédias d’entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
 
 Pour fournir un élément multimédia avec chiffrement de stockage, vous devez configurer la stratégie de remise de l'élément multimédia afin que Media Services sache comment vous souhaitez remettre votre contenu. Pour que votre élément multimédia puisse être diffusé en continu, le serveur de diffusion supprime le chiffrement de stockage et diffuse votre contenu à l'aide de la stratégie de remise spécifiée (par exemple AES, PlayReady ou aucun chiffrement).
 
-**CommonEncryptionProtected** : utilisez cette option si vous souhaitez chiffrer du contenu (ou charger du contenu déjà chiffré) avec Common Encryption ou PlayReady DRM (par exemple Smooth Streaming protégé par PlayReady DRM).
+**CommonEncryptionProtected** : utilisez cette option si vous souhaitez chiffrer du contenu (ou charger du contenu déjà chiffré) avec Common Encryption ou PlayReady DRM (par exemple Smooth Streaming protégé par PlayReady DRM).
 
-**EnvelopeEncryptionProtected** : utilisez cette option si vous souhaitez protéger du contenu (ou charger du contenu déjà protégé) HTTP Live Streaming (HLS) chiffré avec AES (Advanced Encryption Standard). Notez que si vous téléchargez du contenu HLS déjà chiffré avec AES, il doit avoir été chiffré par Transform Manager.
+**EnvelopeEncryptionProtected** : utilisez cette option si vous souhaitez protéger du contenu (ou charger du contenu déjà protégé) HTTP Live Streaming (HLS) chiffré avec AES (Advanced Encryption Standard). Notez que si vous téléchargez du contenu HLS déjà chiffré avec AES, il doit avoir été chiffré par Transform Manager.
 
 ###Stratégie d’accès 
 
@@ -116,9 +116,9 @@ Dans Azure Media Services, un canal représente un pipeline de traitement du con
 
 ###Canal
 
-Dans Media Services, les [canaux](https://msdn.microsoft.com/library/azure/dn783458.aspx) sont responsables du traitement du contenu de vidéo en flux continu. Un canal fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un transcodeur dynamique. Le canal reçoit des flux d’entrée dynamiques en provenance du transcodeur et les met à disposition pour la diffusion en continu via un ou plusieurs StreamingEndpoints. Les canaux fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires.
+Dans Media Services, les [canaux](https://msdn.microsoft.com/library/azure/dn783458.aspx) sont responsables du traitement du contenu de vidéo en flux continu. Un canal fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un transcodeur live. Le canal reçoit des flux d’entrée live en provenance du transcodeur et les met à disposition pour la diffusion en continu via un ou plusieurs StreamingEndpoints. Les canaux fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires.
 
-Vous pouvez obtenir l’URL de réception et l’URL d’aperçu lors de la création du canal. Pour obtenir ces URL, il n’est pas obligatoire que le canal soit à l’état démarré. Lorsque vous êtes prêt à commencer l’envoi de données à partir d’un transcodeur dynamique dans le canal, celui-ci doit être démarré. Une fois que le transcodeur dynamique a commencé l’ingestion des données, vous pouvez prévisualiser votre flux.
+Vous pouvez obtenir l’URL de réception et l’URL d’aperçu lors de la création du canal. Pour obtenir ces URL, il n’est pas obligatoire que le canal soit à l’état démarré. Lorsque vous êtes prêt à commencer l’envoi de données à partir d’un transcodeur live dans le canal, celui-ci doit être démarré. Une fois que le transcodeur live a commencé l’ingestion des données, vous pouvez prévisualiser votre flux.
 
 Chaque compte Media Services peut contenir plusieurs canaux, plusieurs programmes et plusieurs StreamingEndpoints. Selon les besoins en matière de bande passante et de sécurité, les services StreamingEndpoint peuvent être affectés à un ou plusieurs canaux. N’importe quel StreamingEndpoint peut assurer l’extraction à partir de n’importe quel canal.
 
@@ -138,7 +138,7 @@ Pour plus d’informations, consultez :
 
 - [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 - [Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md)
-- [Quotas et limitations](media-services-quotas-and-limitations.md)  
+- [Quotas et limitations](media-services-quotas-and-limitations.md)
 
 ##Protection du contenu
 
@@ -252,4 +252,4 @@ La liste suivante décrit les différents formats de diffusion en continu et don
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

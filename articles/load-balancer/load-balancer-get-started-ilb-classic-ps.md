@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -82,7 +82,7 @@ Si vous avez spécifié l’adresse IP lors de la création de l’instance d’
 
 
 
-Pour utiliser ces commandes, renseignez les valeurs et supprimez les < and >. Voici un exemple :
+Pour utiliser ces commandes, renseignez les valeurs et supprimez < et >. Voici un exemple :
 
 	$svc="mytestcloud"
 	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
@@ -139,7 +139,7 @@ Pour supprimer une machine virtuelle en tant que point de terminaison d’une in
 	$epname="<Name of the endpoint>"
 	Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
-Pour utiliser ces commandes, renseignez les valeurs et supprimez les < and >.
+Pour utiliser ces commandes, renseignez les valeurs et supprimez < et >.
 
 Voici un exemple :
 
@@ -153,7 +153,7 @@ Pour supprimer une instance d’équilibreur de charge interne depuis un service
 	$svc="<Cloud service name>"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
-Pour utiliser ces commandes, renseignez les valeurs et supprimez les < and >.
+Pour utiliser ces commandes, renseignez les valeurs et supprimez < et >.
 
 Voici un exemple :
 
@@ -181,4 +181,4 @@ Pour obtenir plus d’informations sur les applets de commande d’équilibrage 
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0629_2016-->

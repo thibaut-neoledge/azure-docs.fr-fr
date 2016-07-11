@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Schéma d’un modèle de clé secrète de coffre de clés
@@ -40,11 +40,11 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 | Nom | Valeur |
 | ---- | ---- | 
-| type | Enum<br />Requis<br />**secrets** (si déployé comme une ressource enfant d’un coffre de clés) ou <br /> **Microsoft.KeyVault/vaults/secrets** (si déployé comme une ressource de niveau supérieur)<br /><br />The Type de ressource à créer. |
-| apiVersion | Enum<br />Requis<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />La version de l’API à utiliser pour la création de la ressource. | 
+| type | Enum<br />Requis<br />**secrets** (si déployé comme une ressource enfant d’un coffre de clés) ou<br /> **Microsoft.KeyVault/vaults/secrets** (si déployé comme une ressource de niveau supérieur)<br /><br />Type de ressource à créer. |
+| version\_api | Enum<br />Requis<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />Version de l’API à utiliser pour la création de la ressource. | 
 | name | String<br />Requis<br />Mot unique si déployé comme une ressource enfant d’un coffre de clés, ou au format **{key-vault-name}/{secret-name}** si déployé comme une ressource de niveau supérieur à ajouter à un coffre de clés existant.<br /><br />Nom de la clé secrète à créer. |
-| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui spécifie la valeur de la clé secrète à créer. |
-| dependsOn | Array<br />Facultatif<br />Une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.<br /><br />La collection de ressources dont dépend ce lien. Si le coffre de clés pour la clé secrète est déployé dans le même modèle, ajoutez le nom du coffre de clés à cet élément pour vous assurer qu'il est d'abord déployé. |
+| properties | Object<br />Requis<br />[Objet properties](#properties)<br /><br />Objet qui spécifie la valeur de la clé secrète à créer. |
+| dependsOn | Array<br />Facultatif<br />Liste de noms de ressource ou d’identificateurs de ressource uniques séparés par des virgules.<br /><br />Collection de ressources dont dépend ce lien. Si le coffre de clés pour la clé secrète est déployé dans le même modèle, ajoutez le nom du coffre de clés à cet élément pour vous assurer qu'il est d'abord déployé. |
 
 <a id="properties" />
 ### objet propriétés
@@ -71,13 +71,13 @@ Le premier exemple déploie une clé secrète comme une ressource enfant d'un co
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -227,4 +227,4 @@ Le deuxième exemple déploie la clé secrète comme une ressource de niveau sup
 - Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
 - Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

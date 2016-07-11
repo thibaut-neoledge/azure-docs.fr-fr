@@ -30,24 +30,22 @@ Dans cet article, vous allez découvrir l’architecture du kit de développemen
 
 ## Architecture du kit de développement logiciel (SDK)
 
-Vous trouverez le **kit de développement logiciel (SDK) d’appareil Azure IoT pour C** dans le dépôt GitHub suivant :
+Vous pouvez trouver le **Kit de développement logiciel Azure IoT device SDK pour C** dans le référentiel GitHub [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) (Kits de développement logiciel (SDK) Microsoft Azure IoT) et consulter les détails de l’API dans [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html) (Référence sur l’API C).
 
-[azure-iot-sdks](https://github.com/Azure/azure-iot-sdks)
-
-Vous trouverez la dernière version des bibliothèques dans la branche **maître** de ce dépôt :
+Vous trouverez la dernière version des bibliothèques dans la branche **maître** de ce référentiel :
 
   ![](media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
 
-Le dépôt contient l’ensemble des kits de développement logiciel d’appareils Azure IoT. Cependant, cet article concerne plus particulièrement le Kit Azure IoT device SDK *pour C*, qui se trouve dans le dossier **c**.
+Le dépôt contient l’ensemble des kits de développement logiciel d’appareils Azure IoT. Toutefois, cet article concerne plus particulièrement le Kit de développement logiciel Azure IoT device SDK *pour C*, qui se trouve dans le dossier **c**.
 
   ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
-* L’implémentation de base du Kit de développement logiciel (SDK) se trouve dans le dossier **iothub\_client** qui contient l’implémentation de la couche d’API la plus basse du SDK : la bibliothèque **IoTHubClient**. La bibliothèque **IoTHubClient** contient des API implémentant des messages bruts permettant d’envoyer des messages à IoT Hub et de recevoir des messages de ce dernier. Quand vous utilisez cette bibliothèque, vous êtes chargé de l’implémentation de la sérialisation des messages (en utilisant éventuellement l’exemple de sérialiseur décrit ci-dessous), mais d’autres détails concernant la communication avec IoT Hub sont automatiquement gérés.
+* L’implémentation de base du Kit de développement logiciel (SDK) se trouve dans le dossier **iothub\_client** qui contient l’implémentation de la couche d’API la plus basse du Kit de développement logiciel (SDK) : la bibliothèque **IoTHubClient**. La bibliothèque **IoTHubClient** contient des API implémentant des messages bruts permettant d’envoyer des messages à IoT Hub et de recevoir des messages de ce dernier. Quand vous utilisez cette bibliothèque, vous êtes chargé de l’implémentation de la sérialisation des messages (en utilisant éventuellement l’exemple de sérialiseur décrit ci-dessous), mais d’autres détails concernant la communication avec IoT Hub sont automatiquement gérés.
 * Le dossier **serializer** contient des fonctions d’assistance et des exemples montrant comment sérialiser des données avant d’effectuer un envoi à Azure IoT Hub à l’aide de la bibliothèque cliente. Notez que l’utilisation du sérialiseur n’est pas obligatoire et est fournie uniquement à titre de commodité. Lorsque vous utilisez la bibliothèque **serializer**, vous commencez par définir un modèle désignant les événements que vous souhaitez envoyer à IoT Hub, ainsi que les messages que vous attendez de sa part. Une fois le modèle défini, le Kit de développement logiciel (SDK) vous fournit une surface d’API qui vous permet de travailler facilement avec des événements et des messages, sans vous soucier des détails de la sérialisation. La bibliothèque dépend d’autres bibliothèques open source qui implémentent le transport en utilisant plusieurs protocoles (AMQP, MQTT).
 * La bibliothèque **IoTHubClient** dépend d’autres bibliothèques open source :
-   * La bibliothèque de l’[utilitaire partagé Azure C](https://github.com/Azure/azure-c-shared-utility) qui fournit des fonctionnalités communes pour les tâches de base (comme la manipulation de chaînes ou de listes, les E/S, etc.) nécessaires dans plusieurs Kits de développement logiciel (SDK) C liés à Azure.
-   * La bibliothèque [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) qui est l’implémentation côté client du protocole AMQP optimisée pour les appareils avec contraintes de ressources.
-   * La bibliothèque [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) qui est une bibliothèque à usage général implémentant le protocole MQTT et optimisée pour les appareils avec contraintes de ressources.
+   * La bibliothèque de l’[utilitaire partagé Azure C](https://github.com/Azure/azure-c-shared-utility), qui fournit des fonctionnalités communes pour les tâches de base (comme la manipulation de chaînes ou de listes, les E/S, etc.) nécessaires dans plusieurs Kits de développement logiciel (SDK) C liés à Azure.
+   * La bibliothèque [Azure uAMQP](https://github.com/Azure/azure-uamqp-c), qui est l’implémentation côté client du protocole AMQP optimisée pour les appareils avec contraintes de ressources.
+   * La bibliothèque [Azure uMQTT](https://github.com/Azure/azure-umqtt-c), qui est une bibliothèque à usage général implémentant le protocole MQTT et optimisée pour les appareils avec contraintes de ressources.
 
 Un exemple de code permet de mieux comprendre le processus. Les sections suivantes vous guident à travers quelques-uns des exemples d’applications inclus dans le kit de développement logiciel. Cela devrait vous donner une idée des différentes fonctionnalités des couches architecturales du kit de développement logiciel (SDK) et vous initier au fonctionnement de l’API.
 
@@ -57,17 +55,17 @@ Avant de pouvoir exécuter les exemples du Kit de développement logiciel Azure�
 * Préparer votre environnement de développement
 * Obtenir les informations d’identification de l’appareil
 
-Si vous devez créer une instance d’Azure IoT Hub sur votre abonnement Azure, suivez les instructions mentionnées [ici](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
+Si vous devez créer une instance d’Azure IoT Hub dans votre abonnement Azure, suivez les instructions mentionnées [ici](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
 
-Le [fichier Lisez-moi](https://github.com/Azure/azure-iot-sdks/tree/master/c) inclus avec le Kit de développement logiciel (SDK) fournit des instructions pour préparer votre environnement de développement et obtenir les informations d’identification de l’appareil. et les sections suivantes contiennent des commentaires supplémentaires sur ces instructions.
+Le [fichier readme (Lisez-moi)](https://github.com/Azure/azure-iot-sdks/tree/master/c) inclus avec le Kit de développement logiciel (SDK) fournit des instructions pour préparer votre environnement de développement et obtenir les informations d’identification de l’appareil. et les sections suivantes contiennent des commentaires supplémentaires sur ces instructions.
 
 ### Préparation de votre environnement de développement
 
 Même si les packages sont fournis pour certaines plateformes (telles que NuGet pour Windows ou apt\_get pour Debian et Ubuntu) et que les exemples utilisent ces packages quand ils sont disponibles, les instructions ci-dessous expliquent comment générer la bibliothèque et les exemples directement à partir du code.
 
-Tout d’abord, vous devez obtenir un exemplaire du kit de développement logiciel (SDK) à partir de GitHub, puis générer la source. Vous devez obtenir une copie de la source à partir de la branche **principale** du [dépôt GitHub](https://github.com/Azure/azure-iot-sdks) :
+Tout d’abord, vous devez obtenir un exemplaire du kit de développement logiciel (SDK) à partir de GitHub, puis générer la source. Vous devez obtenir une copie de la source à partir de la branche **maître** du [référentiel GitHub](https://github.com/Azure/azure-iot-sdks) :
 
-Après avoir téléchargé une copie de la source, vous devez effectuer les étapes décrites dans l’article du SDK [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md).
+Après avoir téléchargé une copie de la source, vous devez effectuer les étapes décrites dans l’article du Kit de développement logiciel (SDK) [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) (Préparez votre environnement de développement).
 
 
 Voici quelques conseils pour vous aider à exécuter la procédure décrite dans le guide de préparation :
@@ -92,13 +90,13 @@ Voici quelques conseils pour vous aider à exécuter la procédure décrite dans
   		![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
 
-Quand vous avez terminé toutes les étapes décrites dans la page [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md), vous êtes prêt à compiler les exemples d’applications.
+Quand vous avez terminé toutes les étapes décrites dans la page [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) (Préparez votre environnement de développement), vous êtes prêt à compiler les exemples d’applications.
 
 ### Obtention des informations d’identification d’appareil
 
 Maintenant que votre environnement de développement est configuré, vous devez à présent obtenir un ensemble d’informations d’identification d’appareils. Pour pouvoir accéder à un hub IoT, vous devez d’abord ajouter l’appareil au registre d’appareils du hub IoT. Lorsque vous ajoutez votre périphérique, vous obtenez un jeu d’informations d’identification dont vous avez besoin pour permettre au périphérique de se connecter au hub IoT. Les exemples d’application qui figurent dans la section qui suit attendent ces informations d’identification sous la forme de **chaîne de connexion de périphérique**.
 
-Le référentiel open source du Kit de développement logiciel (SDK) fournit deux outils permettant de gérer le IoT Hub. L’un est une application Windows appelée Explorateur d’appareils. Le second est un outil d’interface de ligne de commande (CLI) interplateforme basé sur node.js appelé iothub-explorer. Pour obtenir plus d’informations sur ces outils, cliquez [ci](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
+Le référentiel open source du Kit de développement logiciel (SDK) fournit deux outils permettant de gérer le IoT Hub. L’un est une application Windows appelée Explorateur d’appareils. Le second est un outil d’interface de ligne de commande (CLI) interplateforme basé sur node.js appelé iothub-explorer. Pour obtenir plus d’informations sur ces outils, cliquez [ici](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
 
 Comme nous allons passer en revue l’exécution des exemples sur Windows dans cet article, nous utilisons l’outil Explorateur d’appareils. Mais vous pouvez également utiliser iothub-explorer si vous préférez les outils de l’interface de ligne de commande (CLI).
 
@@ -106,7 +104,7 @@ L’outil [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/tr
 
 Si vous n’êtes pas déjà familiarisé avec la procédure, la procédure qui suit explique comment utiliser l’Explorateur de périphérique pour ajouter un périphérique et obtenir une chaîne de connexion d’appareil.
 
-Un programme d’installation Windows de l’outil Explorateur d’appareils est disponible dans la [page de publication du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks/releases). Mais vous pouvez également exécuter l’outil directement à partir de son code en ouvrant **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** dans **Visual Studio 2015** et en générant la solution.
+Un programme d’installation Windows de l’outil Explorateur d’appareils est disponible sur la [page de publication du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks/releases). Mais vous pouvez également exécuter l’outil directement à partir de son code en ouvrant **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** dans **Visual Studio 2015** et en générant la solution.
 
 Au moment d’exécuter le programme, vous allez voir cette interface :
 
@@ -128,7 +126,7 @@ Une fois l’appareil créé, la liste des appareils est actualisée avec tous l
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-Si vous choisissez l’option **Copier la chaîne de connexion de l’appareil sélectionné**, la chaîne en question est copiée dans le Presse-papiers. Conservez une copie de la chaîne de connexion. Vous en aurez besoin au moment d’exécuter les exemples d’application décrits dans les prochaines sections.
+Si vous choisissez l’option **Copier la chaîne de connexion de l’appareil sélectionné**, la chaîne de connexion en question est copiée dans le Presse-papiers. Conservez une copie de la chaîne de connexion. Vous en aurez besoin au moment d’exécuter les exemples d’application décrits dans les prochaines sections.
 
 Une fois que vous avez effectué les opérations ci-dessus, vous êtes prêt à commencer l’exécution du code. En haut du fichier source principal, les deux exemples décrits ci-dessous contiennent une constante qui permet d’entrer une chaîne de connexion. Par exemple, la ligne correspondante de l’application **iothub\_client\_sample\_amqp** se présente comme suit.
 
@@ -140,7 +138,7 @@ Si vous souhaitez poursuivre l’opération, saisissez la chaîne de connexion d
 
 ## IoTHubClient
 
-Le dossier **iothub\_client** du référentiel azure-iot-sdks contient un dossier **samples** contenant une application appelée **iothub\_client\_sample\_amqp**.
+Dans le dossier **iothub\_client** du référentiel azure-iot-sdks se trouve un dossier **samples** contenant une application appelée **iothub\_client\_sample\_amqp**.
 
 La version Windows de l’application **iothub\_client\_sample\_ampq** contient la solution Visual Studio suivante :
 
@@ -153,7 +151,7 @@ Cette solution inclut un seul projet : Il est important de noter que cette solu
 - Microsoft.Azure.IoTHub.IoTHubClient
 - Microsoft.Azure.uamqp
 
-Quand vous travaillez avec le kit de développement logiciel (SDK), vous devez toujours utiliser le package **Microsoft.Azure.C.SharedUtility**. Étant donné que cet exemple s’appuie sur AMQP, vous devez également inclure les packages **Microsoft.Azure.uamqp** et **Microsoft.Azure.IoTHub.AmqpTransport** (il existe des packages équivalents pour HTTP et MQTT). Comme l’exemple utilise la bibliothèque **IoTHubClient**, vous devez également inclure le package **Microsoft.Azure.IoTHub.IoTHubClient** dans votre solution.
+Quand vous travaillez avec le Kit de développement logiciel (SDK), vous devez toujours utiliser le package **Microsoft.Azure.C.SharedUtility**. Étant donné que cet exemple s’appuie sur AMQP, vous devez également inclure les packages **Microsoft.Azure.uamqp** et **Microsoft.Azure.IoTHub.AmqpTransport** (il existe des packages équivalents pour HTTP et MQTT). Comme l’exemple utilise la bibliothèque **IoTHubClient**, vous devez également inclure le package **Microsoft.Azure.IoTHub.IoTHubClient** dans votre solution.
 
 L’implémentation de l’exemple d’application est disponible dans le fichier source **iothub\_client\_sample\_amqp.c**.
 
@@ -317,7 +315,7 @@ Les événements et les actions définis dans le modèle définissent une surfac
 
 ### Envoi des événements
 
-Ce modèle définit les événements que vous pouvez envoyer à IoT Hub. Dans cet exemple, cela correspond à l’un des deux événements définis à l’aide de la macro **WITH\_DATA**. Par exemple, si vous souhaitez envoyer un événement **WindSpeed** à IoT Hub, vous devez exécuter quelques opérations. La première consiste à définir les données que vous souhaitez envoyer :
+Ce modèle définit les événements que vous pouvez envoyer à IoT Hub. Dans cet exemple, cela correspond à l’un des deux événements définis à l’aide de la macro **WITH\_DATA**. Par exemple, si vous souhaitez envoyer un événement **WindSpeed** à un concentrateur IoT, vous devez exécuter quelques opérations. La première consiste à définir les données que vous souhaitez envoyer :
 
 ```
 myWeather->WindSpeed = 15;
@@ -467,8 +465,8 @@ Chacune de ces trois fonctions s’aligne sur les trois fonctions d’initialisa
 
 ## Étapes suivantes
 
-Cet article a abordé les principes fondamentaux de l’utilisation des bibliothèques dans le **Kit de développement logiciel Azure IoT device SDK pour C**. Il vous a fourni suffisamment d’informations pour comprendre ce qui est inclus dans le Kit de développement logiciel (SDK), son architecture et la manière d’utiliser les exemples Windows. Le prochain article poursuit la description du kit de développement logiciel en approfondissant les explications relatives à [la bibliothèque IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
+Cet article a abordé les principes de base de l’utilisation des bibliothèques dans le **Kit de développement logiciel Azure IoT device SDK pour C**. Il vous a fourni suffisamment d’informations pour comprendre ce qui est inclus dans le Kit de développement logiciel (SDK), son architecture et la manière d’utiliser les exemples Windows. Le prochain article poursuit la description du kit de développement logiciel en approfondissant les explications relatives à [la bibliothèque IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-Pour savoir comment utiliser les fonctionnalités de gestion des appareils dans le **Kit de développement logiciel Azure IoT device SDK pour C**, consultez [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md) (Présentation de la bibliothèque de gestion des appareils Azure IoT Hub pour C).
+Pour savoir comment utiliser les fonctionnalités de gestion des appareils dans le **Kit de développement logiciel Azure IoT device SDK pour C**, consultez [Présentation de la bibliothèque de gestion d’appareils Azure IoT Hub pour C](iot-hub-device-management-library.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

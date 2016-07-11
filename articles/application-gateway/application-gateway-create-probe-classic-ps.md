@@ -22,8 +22,7 @@
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](application-gateway-create-probe-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle de gestionnaire de ressources](application-gateway-create-probe-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -154,7 +153,7 @@ Modifiez les valeurs entre parenthèses pour les éléments de configuration. En
 
 L’exemple suivant montre comment utiliser un fichier de configuration pour configurer la passerelle d’application en vue d’équilibrer la charge du trafic HTTP sur le port public 80 et d’orienter le trafic réseau vers le port 80 principal entre deux adresses IP en utilisant une sonde personnalisée.
 
->[AZURE.IMPORTANT] L’élément de protocole Http ou Https respecte la casse.
+>[AZURE.IMPORTANT] L’élément de protocole Http ou Https est sensible à la casse.
 
 
 Un nouvel élément de configuration <Probe> est ajouté pour configurer les sondes personnalisées.
@@ -163,10 +162,10 @@ Les paramètres de configuration sont :
 
 - **Nom** : nom de référence de la sonde personnalisée.
 - **Protocole** : protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).
-- **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l'instance. Par exemple, pour un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les analyses de sonde reçoivent une réponse HTTP positive.
-- **Intervalle** : configure les intervalles d’analyse de sonde en secondes.
-- **Délai d’expiration** : définit le délai d’expiration de sonde pour une vérification de réponse HTTP.
-- **Seuil de défaillance sur le plan de l’intégrité** : nombre de réponses HTTP en échec nécessaires pour marquer l’instance de serveur principal comme étant *défectueuse*.
+- **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l’instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
+- **Intervalle** : configure les vérifications d’intervalle de sonde en secondes.
+- **Délai d’expiration** : définit le délai d’expiration d’un contrôle de réponse HTTP.
+- **Seuil de défaillance sur le plan de l’intégrité** : le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme *défectueuse*.
 
 Le nom de la sonde est référencé dans la configuration <BackendHttpSettings> pour affecter le pool principal qui va utiliser les paramètres de sonde personnalisée.
 
@@ -223,4 +222,4 @@ Si vous voulez configurer le déchargement SSL (Secure Sockets Layer), consultez
 
 Si vous voulez configurer une passerelle d’application à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->
