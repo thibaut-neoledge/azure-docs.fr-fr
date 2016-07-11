@@ -183,7 +183,7 @@ Un répertoire fournit une structure hiérarchique facultative pour un partage d
 
         azure storage directory create myshare myDir
 
-Remarque : ce chemin d’accès au répertoire peut inclure plusieurs niveaux, *par exemple* : **a/b**. Cependant, vous devez vous assurer que tous les répertoires parents existent. Par exemple, pour le chemin d’accès **a/b**, vous devez créer le répertoire **a**, puis le répertoire **b**.
+Remarque : ce chemin d’accès au répertoire peut inclure plusieurs niveaux, *par exemple* : **a/b**. Cependant, vous devez vous assurer que tous les répertoires parents existent. Par exemple, pour le chemin d’accès **a/b**, vous devez créer le répertoire **a**, puis le répertoire **b**.
 
 ### Charger un fichier local vers le répertoire
 

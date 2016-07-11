@@ -8,7 +8,13 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="06/23/2016"
+<tags 
+ms.service="active-directory" 
+ms.workload="identity" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="06/23/2016"
 
 	ms.author="femila"/>
 
@@ -42,7 +48,7 @@ Les entreprises peuvent fournir des comptes gérés sur le cloud uniquement aux 
 ### Configuration requise
 **Au niveau de l’entreprise (administrateur)**
 
-*	Abonnement Azure avec Azure Active Directory
+*	Abonnement Azure avec Azure Active Directory  
 
 **Au niveau de l’utilisateur**
 

@@ -85,9 +85,9 @@ Après que le serveur principal sera mis à jour, vous serez en mesure d’utili
 <!-- URLs. -->
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[Ajout de l’authentification à votre application]: app-service-mobile-cordova-get-started-users.md
 
 [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Query object documentation]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
+[documentation de l’objet Query]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
 
 <!---HONumber=AcomDC_0629_2016-->

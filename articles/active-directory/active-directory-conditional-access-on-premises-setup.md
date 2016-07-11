@@ -122,7 +122,7 @@ Cela va vous aider à intégrer le client Azure AD au répertoire Active Direc
   3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
   
   > [AZURE.NOTE] 
-  Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
+  > Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
 
 
 ## Mettre à niveau le schéma des services de domaine Active Directory

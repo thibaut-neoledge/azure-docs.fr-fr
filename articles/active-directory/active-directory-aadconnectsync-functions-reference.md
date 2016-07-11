@@ -160,12 +160,12 @@ Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été
 
 **Syntaxe :**`str ConvertFromBase64(str source)` - Part du principe que l’encodage utilisé est Unicode<br> `str ConvertFromBase64(str source, enum Encoding)`
 
-- source : chaîne encodée Base64
+- source : chaîne encodée Base64  
 - En codage : Unicode, ASCII, UTF8
 
 **Exemple** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Les deux exemples renvoient « *Hello world!* »
+Les deux exemples renvoient « *Hello world!* »
 
 ----------
 ### ConvertFromUTF8Hex
@@ -406,7 +406,7 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ### IsEmpty
 
-**Description : ** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
+**Description :** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
 
 **Syntaxe :** `bool IsEmpty(var Expression)`
 

@@ -50,7 +50,7 @@ Le script PowerShell ci-dessous crée un service cloud nommé *FTPService*, puis
 	| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
 ## Récupération des informations d’adresse ILPIP pour une machine virtuelle
-Pour visualiser les informations d’adresse ILPIP concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *PublicIPAddress* et *PublicIPName* :
+Pour visualiser les informations d’adresse ILPIP concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *PublicIPAddress* et *PublicIPName* :
 
 	Get-AzureVM -Name FTPInstance -ServiceName FTPService
 
