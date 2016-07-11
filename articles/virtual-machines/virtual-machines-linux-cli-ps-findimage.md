@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Parcourir et sélectionner des images de machines virtuelles Linux | Microsoft Azure"
+   pageTitle="Sélectionner des images de VM Linux avec l’interface de ligne de commande Azure | Microsoft Azure"
    description="Découvrez comment déterminer l’éditeur, l’offre et la référence SKU pour des images quand vous créez une machine virtuelle Linux avec le modèle de déploiement de Resource Manager."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -18,7 +18,7 @@
    ms.date="06/06/2016"
    ms.author="rasquill"/>
 
-# Parcourir et sélectionner des images de machines virtuelles Linux dans Azure avec l’interface CLI ou PowerShell
+# Sélectionner des images de VM Linux avec l’interface de ligne de commande Azure
 
 Cette rubrique décrit comment rechercher des éditeurs, des offres, des références SKU et des versions pour chaque emplacement vers lequel vous souhaitez effectuer un déploiement. À titre d’exemple, voici certaines images de machines virtuelles Linux couramment utilisées :
 
@@ -38,4 +38,4 @@ Cette rubrique décrit comment rechercher des éditeurs, des offres, des référ
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

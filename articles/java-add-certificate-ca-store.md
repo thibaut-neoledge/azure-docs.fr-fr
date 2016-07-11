@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Ajout d'un certificat au magasin de certificats d'autorité de certification Java
@@ -56,4 +56,4 @@ Pour plus d'informations sur les certificats racines utilisés par Azure, consul
 
 Pour plus d’informations sur Java, consultez le [Centre pour développeurs Java](/develop/java/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

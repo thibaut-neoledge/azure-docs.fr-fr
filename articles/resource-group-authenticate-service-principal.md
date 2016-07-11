@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Créer une application AD à l’aide de PowerShell | Microsoft Azure"
-   description="Décrit l’utilisation d’Azure PowerShell pour créer une application Active Directory et lui accorder l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
+   pageTitle="Créer un principal du service Azure avec PowerShell | Microsoft Azure"
+   description="Explique comment utiliser Azure PowerShell pour créer une application et un principal du service Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Cet article montre comment authentifier l’application avec un mot de passe ou un certificat."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Utiliser Azure PowerShell pour créer une application Active Directory pour accéder aux ressources
+# Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -115,7 +115,7 @@ Vous avez créé une application Active Directory et un principal du service pou
 
 Dans cette section, vous allez effectuer la procédure permettant de créer une application AD avec un certificat.
 
-1. Vous pouvez créer un certificat auto-signé. Si vous disposez de Windows 10 ou de Windows Server 2016 Technical Preview, exécutez la commande suivante : 
+1. Vous pouvez créer un certificat auto-signé. Si vous disposez de Windows 10 ou de Windows Server 2016 Technical Preview, exécutez la commande suivante :
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -161,7 +161,7 @@ Dans cette section, vous allez effectuer la procédure permettant de créer une 
         ReplyUrls               : {}    
 
 
-### Créer un principal du service et lui affecter un rôle
+### Créer un principal du service et lui assigner un rôle
 
 1. Créez un principal du service pour votre application en transmettant l’ID d’application de l’application Active Directory.
 
@@ -176,7 +176,7 @@ Dans cette section, vous allez effectuer la procédure permettant de créer une 
 Dans votre script, vous allez transmettre trois valeurs nécessaires pour vous connecter en tant que principal du service. Vous aurez besoin de ce qui suit :
 
 - ID d’application
-- ID client 
+- ID client
 - Empreinte de certificat
 
 Vous avez vu l’ID d’application et l’empreinte de certificat lors des étapes précédentes. Toutefois, si vous devez récupérer ces valeurs ultérieurement, les commandes requises sont indiquées ci-dessous, ainsi que la commande permettant d’obtenir l’ID client.
@@ -210,9 +210,9 @@ Vous êtes maintenant authentifié en tant que principal du service pour l’app
 ## Étapes suivantes
   
 - Pour obtenir des exemples d’authentification .NET, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour .NET](resource-manager-net-sdk.md).
-- Pour obtenir des exemples d’authentification Java, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour Java](resource-manager-java-sdk.md). 
+- Pour obtenir des exemples d’authentification Java, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour Java](resource-manager-java-sdk.md).
 - Pour obtenir des exemples d’authentification Python, consultez [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Authentification Resource Management pour Python).
 - Pour obtenir des exemples d’authentification REST, consultez [API REST Resource Manager](resource-manager-rest-api.md).
 - Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

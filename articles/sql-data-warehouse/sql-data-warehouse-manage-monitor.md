@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="06/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -31,7 +31,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ## Analyse de l'exécution des requêtes
 Pour surveiller l’exécution des requêtes, commencez par [sys.dm\_pdw\_exec\_requests][]. Cette vue contient les requêtes en cours, ainsi que l’historique des requêtes qui se sont terminées récemment. L’ID de requête (request\_id) identifie de manière unique chaque requête. Il s’agit de la clé principale pour cette vue. L’ID de requête (request\_id) est assignée de façon séquentielle pour chaque nouvelle requête. En interrogeant cette table pour un ID de session (session\_id) donné, vous obtenez toutes les requêtes pour une connexion donnée.
 
-Si vous souhaitez enquêter sur l’exécution d’une requête particulière, voici la procédure courante à suivre.
+Voici les étapes à suivre pour analyser les heures et les plans d’exécution des requêtes pour une requête spécifique.
 
 ### ÉTAPE 1: rechercher la requête à analyser
 
@@ -162,4 +162,4 @@ Pour plus d’informations sur les vues de gestion dynamique (DMV), consultez [V
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

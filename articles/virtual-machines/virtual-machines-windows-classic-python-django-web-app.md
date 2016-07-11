@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Application web Python avec Django | Microsoft Azure"
-	description="Ce didacticiel vous explique comment héberger un site web Django dans Azure avec une machine virtuelle Windows Server 2012 R2 Datacenter à l’aide du modèle de déploiement classique."
+	description="Ce didacticiel vous explique comment héberger un site web Django dans Azure avec une machine virtuelle Windows Server 2012 R2 Datacenter à l’aide du modèle de déploiement classique."
 	services="virtual-machines-windows"
 	documentationCenter="python"
 	authors="huguesv"
@@ -27,12 +27,12 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
 
-Ce didacticiel explique comment héberger un site web Django dans Microsoft Azure en utilisant une machine virtuelle Windows Server. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce didacticiel, vous disposerez d’une application Django fonctionnelle dans le cloud.
+Ce didacticiel explique comment héberger un site web Django dans Microsoft Azure en utilisant une machine virtuelle Windows Server. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce didacticiel, vous disposerez d’une application Django fonctionnelle dans le cloud.
 
-Vous apprendrez à :
+Vous apprendrez à :
 
 * Configurez une machine virtuelle Azure pour héberger Django. Ce didacticiel explique comment réaliser cette opération sous Windows Server, mais elle peut également être accomplie sur une machine virtuelle Linux hébergée dans Azure.
 * Créer une application Django à partir de Windows.
@@ -47,30 +47,30 @@ Une capture d’écran de l’application terminée va s’afficher.
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1. Suivez les instructions disponibles [ici](virtual-machines-windows-classic-tutorial.md) pour créer une machine virtuelle Azure de la distribution Windows Server 2012 R2 Datacenter.
+1. Suivez les instructions disponibles [ici](virtual-machines-windows-classic-tutorial.md) pour créer une machine virtuelle Azure de la distribution Windows Server 2012 R2 Datacenter.
 
-1. Indiquez à Azure de diriger le trafic du port 80 à partir du web vers le port 80 de la machine virtuelle :
+1. Indiquez à Azure de diriger le trafic du port 80 à partir du web vers le port 80 de la machine virtuelle :
  - Accédez à votre machine virtuelle nouvellement créée dans le portail Azure Classic et cliquez sur l’onglet **POINTS DE TERMINAISON**.
  - Cliquez sur le bouton **AJOUTER** au bas de l’écran. ![Ajouter un point de terminaison](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-addendpoint.png)
 
- - Ouvrez le **PORT PUBLIC 80** du protocole **TCP** en tant que **PORT PRIVÉ 80**. ![][port80]
-1. Dans l'onglet **TABLEAU DE BORD**, cliquez sur **CONNECTER** pour utiliser le **Bureau à distance** pour vous connecter à distance à la machine virtuelle Azure que vous venez de créer.  
+ - Ouvrez le **PORT PUBLIC 80** du protocole **TCP** en tant que **PORT PRIVÉ 80**. ![][port80]
+1. Dans l'onglet **TABLEAU DE BORD**, cliquez sur **CONNECTER** pour utiliser le **Bureau à distance** pour vous connecter à distance à la machine virtuelle Azure que vous venez de créer.
 
-**Remarque importante :** toutes les instructions ci-dessous partent du principe que vous vous êtes correctement connecté à la machine virtuelle et que vous émettez les commandes depuis celle-ci et non depuis votre ordinateur local.
+**Remarque importante :** toutes les instructions ci-dessous partent du principe que vous vous êtes correctement connecté à la machine virtuelle et que vous émettez les commandes depuis celle-ci et non depuis votre ordinateur local.
 
 ## <a id="setup"> </a>Installation de Python, Django et WFastCGI
 
-**Remarque** : pour le téléchargement à l’aide d’Internet Explorer, vous devrez peut-être configurer les paramètres IE ESC (Démarrer/Outils d’administration/Gestionnaire de serveur/Serveur local, puis cliquez sur **Configuration de sécurité renforcée d’Internet Explorer** et désactivez cette option).
+**Remarque** : pour le téléchargement à l’aide d’Internet Explorer, vous devrez peut-être configurer les paramètres IE ESC (Démarrer/Outils d’administration/Gestionnaire de serveur/Serveur local, puis cliquez sur **Configuration de sécurité renforcée d’Internet Explorer** et désactivez cette option).
 
 1. Installez la dernière version de Python 2.7 ou 3.4 depuis [python.org][].
 1. Installez les packages wfastcgi et django packages à l'aide de pip.
 
-    Pour Python 2.7, utilisez la commande suivante.
+    Pour Python 2.7, utilisez la commande suivante.
 
         c:\python27\scripts\pip install wfastcgi
         c:\python27\scripts\pip install django
 
-    Pour Python 3.4, utilisez la commande suivante.
+    Pour Python 3.4, utilisez la commande suivante.
 
         c:\python34\scripts\pip install wfastcgi
         c:\python34\scripts\pip install django
@@ -83,32 +83,32 @@ Une capture d’écran de l’application terminée va s’afficher.
 
 ## Création d'une application Django
 
-1.  Dans *C:\\inetpub\\wwwroot*, entrez la commande suivante pour créer un projet Django :
+1.  Dans *C:\\inetpub\\wwwroot*, entrez la commande suivante pour créer un projet Django :
 
-    Pour Python 2.7, utilisez la commande suivante.
+    Pour Python 2.7, utilisez la commande suivante.
 
 		C:\Python27\Scripts\django-admin.exe startproject helloworld
 
-    Pour Python 3.4, utilisez la commande suivante.
+    Pour Python 3.4, utilisez la commande suivante.
 
 		C:\Python34\Scripts\django-admin.exe startproject helloworld
 
 	![Résultat de la commande New-AzureService](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-cmd-new-azure-service.png)
 
-1.  La commande **django-admin** crée une structure de base pour les sites web Django :
+1.  La commande **django-admin** crée une structure de base pour les sites web Django :
 
-  -   **helloworld\\manage.py** vous permet de lancer et d'interrompre l'hébergement de votre site web Django.
-  -   **helloworld\\helloworld\\settings.py** contient les paramètres Django de votre application.
+  -   **helloworld\\manage.py** vous permet de lancer et d'interrompre l'hébergement de votre site web Django.
+  -   **helloworld\\helloworld\\settings.py** contient les paramètres Django de votre application.
   -   **helloworld\\helloworld\\urls.py** contient le code de mappage entre chaque URL et sa vue.
 
-1.  Créez un fichier nommé **views.py** dans le répertoire *C:\\inetpub\\wwwroot\\helloworld\\helloworld*. Celui-ci contiendra la vue qui affiche la page « Hello World ». Ouvrez votre éditeur et entrez ce qui suit :
+1.  Créez un fichier nommé **views.py** dans le répertoire *C:\\inetpub\\wwwroot\\helloworld\\helloworld*. Celui-ci contiendra la vue qui affiche la page « Hello World ». Ouvrez votre éditeur et entrez ce qui suit :
 
 		from django.http import HttpResponse
 		def home(request):
     		html = "<html><body>Hello World!</body></html>"
     		return HttpResponse(html)
 
-1.  Remplacez le contenu du fichier urls.py par ce qui suit :
+1.  Remplacez le contenu du fichier urls.py par ce qui suit :
 
 		from django.conf.urls import patterns, url
 		urlpatterns = patterns('',
@@ -123,17 +123,17 @@ Une capture d’écran de l’application terminée va s’afficher.
 
 1. Activez WFastCGI. Cela ajoute une application au fichier applicationhost.config global qui fait référence à votre interpréteur Python exécutable et au script wfastcgi.py.
 
-    Python 2.7 :
+    Python 2.7 :
 
         c:\python27\scripts\wfastcgi-enable
 
-    Python 3,4 :
+    Python 3,4 :
 
         c:\python34\scripts\wfastcgi-enable
 
 1. Créez un fichier web.config dans *C:\\inetpub\\wwwroot\\helloworld*. La valeur de l'attribut `scriptProcessor` doit correspondre à la sortie de l'étape précédente. Consultez la page sur [wfastcgi][] sur PyPi pour en savoir plus sur les paramètres wfastcgi.
 
-    Python 2.7 :
+    Python 2.7 :
 
         <configuration>
           <appSettings>
@@ -148,7 +148,7 @@ Une capture d’écran de l’application terminée va s’afficher.
           </system.webServer>
         </configuration>
 
-    Python 3,4 :
+    Python 3,4 :
 
         <configuration>
           <appSettings>
@@ -184,4 +184,4 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

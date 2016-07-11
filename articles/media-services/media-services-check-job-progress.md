@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 #Procédure : vérification de la progression des tâches
@@ -119,7 +119,7 @@ Un scénario courant pour écouter les notifications Media Services se présente
 Considérez les éléments suivants lors du développement d’applications Media Services qui utilisent les files d’attente de stockage Azure.
 
 - Le service de files d’attente ne garantit pas une remise dans l’ordre d’arrivée (FIFO). Pour plus d'informations, consultez [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-- Les files d’attente de stockage Azure ne constituent pas un service de type Push ; vous devez interroger les files d’attente. 
+- Les files d’attente de stockage Azure ne constituent pas un service de type Push ; vous devez interroger les files d’attente.
 - Le nombre de files d’attente est illimité. Pour plus d'informations, consultez [API REST du service de file d'attente](https://msdn.microsoft.com/library/azure/dd179363.aspx).
 - Les files d'attente de stockage Azure présentent certaines limitations et spécificités décrites dans l'article suivant : [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx)
 
@@ -132,10 +132,10 @@ L’exemple de code de cette section permet d’effectuer les opérations suivan
 1. Créer la file d’attente qui recevra les messages de notification concernant la tâche d’encodage.
 1. Créer le point de terminaison de notification mappé à la file d’attente.
 1. Associer le point de terminaison de notification à la tâche et soumettre la tâche d’encodage. Vous pouvez avoir plusieurs points de terminaison de notification associés à une tâche.
-1. Dans cet exemple, comme seuls les derniers états du traitement de la tâche nous intéressent, nous transmettons **NotificationJobState.FinalStatesOnly** à la méthode **AddNew**. 
+1. Dans cet exemple, comme seuls les derniers états du traitement de la tâche nous intéressent, nous transmettons **NotificationJobState.FinalStatesOnly** à la méthode **AddNew**.
 		
 		job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-1. Si vous transmettez NotificationJobState.All, vous obtiendrez des notifications de modification pour tous les états : En attente -> Planifié -> Traitement en cours -> Terminé. Toutefois, comme indiqué précédemment, le service de files d’attente de stockage Azure ne garantit pas une remise dans l’ordre d’arrivée. Vous pouvez utiliser la propriété Timestamp (définie sur le type EncodingJobMessage dans l’exemple ci-dessous) pour ordonner les messages. Il est possible que vous receviez des messages de notification en double. Utilisez la propriété ETag (définie sur le type EncodingJobMessage) pour rechercher les éventuels doublons. Notez qu’il se peut également que certaines notifications de modification d’état soient ignorées. 
+1. Si vous transmettez NotificationJobState.All, vous obtiendrez des notifications de modification pour tous les états : En attente -> Planifié -> Traitement en cours -> Terminé. Toutefois, comme indiqué précédemment, le service de files d’attente de stockage Azure ne garantit pas une remise dans l’ordre d’arrivée. Vous pouvez utiliser la propriété Timestamp (définie sur le type EncodingJobMessage dans l’exemple ci-dessous) pour ordonner les messages. Il est possible que vous receviez des messages de notification en double. Utilisez la propriété ETag (définie sur le type EncodingJobMessage) pour rechercher les éventuels doublons. Notez qu’il se peut également que certaines notifications de modification d’état soient ignorées.
 1. Attendre que la tâche atteigne l’état Terminé en vérifiant la file d’attente toutes les 10 secondes. Supprimer les messages une fois qu’ils ont été traités.
 1. Supprimer la file d’attente et le point de terminaison de notification.
 
@@ -436,4 +436,4 @@ L’exemple ci-dessus produit le résultat suivant. Vos valeurs varieront.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

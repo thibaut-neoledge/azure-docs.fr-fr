@@ -3,7 +3,7 @@
 	description="Découvrez comment effectuer des tâches courantes de gestion des services par programme à partir de Python."
 	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="lmazuel"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="huvalo"/>
+	ms.date="06/22/2016"
+	ms.author="lmazuel"/>
 
 # Utilisation de la gestion des services à partir de Python
 
@@ -433,6 +433,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[service cloud]: https://azure.microsoft.com/documentation/services/cloud-services/
+[service cloud]: https://azure.microsoft.com/fr-FR/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

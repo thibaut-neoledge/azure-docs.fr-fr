@@ -91,7 +91,7 @@ Avant de déployer l'extension, déterminez la dernière version de l'extension 
               "fileUris": [
                   "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
               ],
-              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+              "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1"
           },
           "protectedSettings": {
             "storageAccountName": "yourStorageAccountName",
@@ -118,10 +118,10 @@ Reportez-vous à CustomScript version 1.4 pour la description du paramètre. La 
                 "fileUris": [
                     "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
                 ],
-                "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+                "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1"
             },
             "protectedSettings": {
-              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1",
+              "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
               "storageAccountName": "yourStorageAccountName",
               "storageAccountKey": "yourStorageAccountKey"
             }
@@ -365,4 +365,4 @@ Voici un exemple de modèle de machine virtuelle complet avec l’extension de s
 
 [Extension de script personnalisé sur une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

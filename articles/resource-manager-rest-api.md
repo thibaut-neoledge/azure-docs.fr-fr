@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="06/23/2016"
    ms.author="navale;tomfitz;"/>
    
 # API REST Resource Manager
@@ -25,15 +25,15 @@ Cet article ne traitera pas chaque API exposée dans Azure, mais en utilise cert
 L’authentification pour ARM est gérée par Azure Active Directory (AD). Pour vous connecter à une API quelconque, vous devez tout d’abord vous authentifier auprès d’Azure AD pour recevoir un jeton d’authentification que vous pouvez transmettre à chaque requête. Comme nous décrivons un appel direct pur des API REST, nous supposerons également que vous ne souhaitez pas vous authentifier avec un mot de passe/nom d’utilisateur normal lorsqu’une fenêtre contextuelle s’ouvre pour vous demander un nom d’utilisateur et un mot de passe ou peut-être même avec d’autres mécanismes d’authentification utilisés dans des scénarios d’authentification à deux facteurs. Pour cette raison, nous allons créer ce que l’on appelle une application Azure AD et un principal du service qui seront utilisés pour la connexion. Mais n’oubliez pas qu’Azure AD prend en charge plusieurs procédures d’authentification et qu’elles peuvent toutes être utilisées pour récupérer le jeton d’authentification dont nous avons besoin pour les requêtes API ultérieures. Référez-vous à [Création de l’application Active Directory et du principal du service](./resource-group-create-service-principal-portal.md) pour obtenir des instructions étape par étape.
 
 ### Génération d’un jeton d’accès 
-L’authentification auprès d’Azure AD est effectuée en appelant Azure AD à l’adresse login.microsoftonline.com. Vous devez disposer des informations suivantes pour vous authentifier :
+L’authentification auprès d’Azure AD est effectuée en appelant Azure AD à l’adresse login.microsoftonline.com. Vous devez disposer des informations suivantes pour vous authentifier :
 
-* l’ID de client Azure AD (le nom de l’Azure AD que vous utilisez pour vous connecter, souvent celui de votre entreprise, mais pas nécessairement) ;
-* l’ID de l’application (récupéré au cours de l’étape de création de l’application Azure AD) ;
+* l’ID de client Azure AD (le nom de l’Azure AD que vous utilisez pour vous connecter, souvent celui de votre entreprise, mais pas nécessairement) ;
+* l’ID de l’application (récupéré au cours de l’étape de création de l’application Azure AD) ;
 * le mot de passe (que vous avez choisi lors de la création de l’application Azure AD).
 
 Dans la requête HTTP ci-dessous, veillez à remplacer l’« Azure AD Tenant ID (ID de client Azure AD) », l’« Application ID (ID de l’application) » et le « Password (Mot de passe) » par des valeurs correctes.
 
-**Requête HTTP générique :**
+**Requête HTTP générique :**
 
 ```HTTP
 POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
@@ -44,7 +44,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&client_id=<Application ID>&client_secret=<Password>
 ```
 
-... générera (une fois l’authentification réussie) une réponse similaire à celle-ci :
+... générera (une fois l’authentification réussie) une réponse similaire à celle-ci :
 
 ```json
 {
@@ -71,7 +71,7 @@ Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.c
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
-La réponse contient un jeton d’accès, des informations sur la durée de validité du jeton est valide et sur la ressource pour laquelle vous pouvez utiliser ce jeton. Le jeton d’accès que vous avez reçu dans le précédent appel HTTP doit être transmis à toutes les requêtes à l’API ARM en tant qu’en-tête nommé « Authorization (Autorisation) » avec la valeur « Bearer YOUR\_ACCESS\_TOKEN ». Notez l’espace entre « Bearer » et votre jeton d’accès.
+La réponse contient un jeton d’accès, des informations sur la durée de validité du jeton est valide et sur la ressource pour laquelle vous pouvez utiliser ce jeton. Le jeton d’accès que vous avez reçu dans le précédent appel HTTP doit être transmis à toutes les requêtes à l’API ARM en tant qu’en-tête nommé « Authorization (Autorisation) » avec la valeur « Bearer YOUR\_ACCESS\_TOKEN ». Notez l’espace entre « Bearer » et votre jeton d’accès.
 
 Comme vous pouvez le voir à partir du résultat HTTP ci-dessus, le jeton est valide pendant un délai spécifique au cours duquel vous devez mettre en cache et réutiliser ce même jeton. Même s’il est possible de s’authentifier auprès d’Azure AD pour chaque appel d’API, cette procédure serait peu efficace.
 
@@ -158,7 +158,7 @@ La réponse dépend de la définition ou non de groupes de ressources définis e
 
 ### Créer un groupe de ressources
 
-Jusqu’à présent, nous avons uniquement interrogé les API ARM pour obtenir des informations. Il est temps de plutôt créer des ressources, et nous allons commencer par la plus simple de toutes : un groupe de ressources. La requête HTTP suivante crée un nouveau groupe de ressources dans une région/un emplacement de votre choix et lui ajoute une ou plusieurs balises (l’exemple ci-dessous n’ajoute en fait qu’une balise).
+Jusqu’à présent, nous avons uniquement interrogé les API ARM pour obtenir des informations. Il est temps de plutôt créer des ressources, et nous allons commencer par la plus simple de toutes : un groupe de ressources. La requête HTTP suivante crée un nouveau groupe de ressources dans une région/un emplacement de votre choix et lui ajoute une ou plusieurs balises (l’exemple ci-dessous n’ajoute en fait qu’une balise).
 
 (Remplacez YOUR\_ACCESS\_TOKEN, SUBSCRIPTION\_ID et RESOURCE\_GROUP\_NAME par votre jeton d’accès réel, votre ID d’abonnement et nom du groupe de ressources à créer)
 
@@ -192,7 +192,7 @@ Si l’opération réussit, vous obtiendrez une réponse similaire à celle-ci
 }
 ```
 
-Vous avez créé un groupe de ressources dans Azure ! Félicitations !
+Vous avez créé un groupe de ressources dans Azure ! Félicitations !
 
 ### Déployer des ressources dans un groupe de ressources à l’aide d’un modèle ARM
 
@@ -240,4 +240,4 @@ Content-Type: application/json
 
 La réponse JSON, qui est assez longue pour cette requête, a été omise afin d’améliorer la lisibilité de cette documentation. La réponse contient des informations sur le déploiement basé sur un modèle que vous venez de créer.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

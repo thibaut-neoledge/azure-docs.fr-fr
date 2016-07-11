@@ -3,7 +3,7 @@
    description="Forum Aux Questions de Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/01/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Forum Aux Questions de Power BI Embedded
 
@@ -54,8 +54,7 @@
 
     Power BI Embedded est actuellement disponible comme service Azure en version préliminaire, sans contrat SLA particulier. Un contrat SLA sera fourni au moment de la mise en disponibilité générale de ce service.
 
-<a name="price"/>
-10.	**Comment ce service sera-t-il facturé ?**
+10. <a name="price"/>**Comment ce service sera-t-il facturé ?**
 
     Power BI Embedded est actuellement en version préliminaire et restera disponible gratuitement jusqu’au 1er mai 2016. À partir du 1er mai 2016, le service sera facturé au rendu. Les clients pourront acheter le service via deux options de licence principales : le programme d’abonnement en ligne Microsoft (MOSP) ou le programme de licence en volume Enterprise.
 
@@ -64,7 +63,7 @@
 
    ![](media\power-bi-embedded-faq\price.png)
 
-11.	**Qu’est-ce qu’un rendu et comment est-il facturé ?**
+11. **Qu’est-ce qu’un rendu et comment est-il facturé ?**
 
     Un rendu correspond à une visualisation qui s’affiche à un utilisateur final en réponse à une requête adressée au service. Le service Power BI tente systématiquement de mettre en cache le contenu rendu pour réduire le nombre de rendus pour lesquels votre application sera facturée. Toutefois, certaines actions de l’utilisateur, telles que le filtrage, peuvent déclencher l’envoi d’une requête à notre service, ce qui constitue un nouveau rendu.
 
@@ -72,43 +71,43 @@
 
     Les rendus sont facturés par tranches de 1 000 unités. Pour les quantités de rendus inférieures à 1 000, la facturation est établie au pro rata. Les clients reçoivent 1 000 rendus gratuits par mois. Les clients qui achètent le service via des contrats de licence en volume doivent consulter leur partenaire ou revendeur Microsoft pour obtenir les informations de tarification.
 
-12.	**Fournissez-vous des outils ou une assistance pour m’aider à estimer le nombre de rendus ? Comment suivre le nombre de rendus réalisés ?**
+12. **Fournissez-vous des outils ou une assistance pour m’aider à estimer le nombre de rendus ? Comment suivre le nombre de rendus réalisés ?**
 
     Vous trouverez sur le portail Azure la facturation détaillée des rendus comptabilisés dans le cadre de votre abonnement.
 
-13.	**Ai-je besoin d’un abonnement Power BI pour développer des applications avec Power BI Embedded ? Comment démarrer ?**
+13. **Ai-je besoin d’un abonnement Power BI pour développer des applications avec Power BI Embedded ? Comment démarrer ?**
 
     En tant que développeur d’applications, vous n’avez pas besoin d’abonnement Power BI pour créer les rapports et les visualisations que vous souhaitez incorporer dans votre application. Vous avez besoin d’un abonnement Microsoft Azure et de l’application gratuite Power BI Desktop.
 
     Consultez notre documentation sur le service Power BI Embedded pour en savoir plus sur son utilisation.
 
-14.	**J’ai un abonnement Azure. Puis-je utiliser Power BI Embedded dans le cadre de cet abonnement ?**
+14. **J’ai un abonnement Azure. Puis-je utiliser Power BI Embedded dans le cadre de cet abonnement ?**
 
     Oui. Vous pouvez utiliser votre abonnement Azure existant pour approvisionner et utiliser le service Microsoft Power BI Embedded.
 
-15.	**Les utilisateurs de mon application ont-ils besoin d’une licence Power BI ?**
+15. **Les utilisateurs de mon application ont-ils besoin d’une licence Power BI ?**
 
     Non. Les utilisateurs finaux de votre application n’ont pas besoin d’acheter un abonnement Power BI spécifique pour afficher les visualisations de données incorporées à votre application. Dans le modèle Power BI Embedded, l’utilisation du service est facturée au fournisseur de l’application sur la base de l’indicateur de consommation Azure. Pour plus d’informations, consultez la [page sur les licences et la tarification](http://go.microsoft.com/fwlink/?LinkId=760527).
 
-16.	**Comment les utilisateurs sont-ils authentifiés par Power BI Embedded ?**
+16. **Comment les utilisateurs sont-ils authentifiés par Power BI Embedded ?**
 
-    Le service Power BI Embedded utilise des jetons d’application pour l’authentification et l’autorisation des utilisateurs finaux. Il n’utilise pas l’authentification explicite. Dans ce modèle de jetons d’application, votre application gère l’authentification et l’autorisation de vos utilisateurs finaux. Ensuite, quand cela est nécessaire, votre application crée et envoie les jetons d’application à notre service pour lui indiquer d’afficher le rendu du rapport demandé. Avec cette conception, votre application peut gérer l’authentification et l’autorisation des utilisateurs sans passer par Azure Active Directory. Cette option est toutefois possible. Pour plus d’informations sur les jetons d’application, consultez la page [Jetons d’application](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started-sample/#key-flow) dans notre documentation.
+    Le service Power BI Embedded utilise des jetons d’application pour l’authentification et l’autorisation des utilisateurs finaux. Il n’utilise pas l’authentification explicite. Dans ce modèle de jetons d’application, votre application gère l’authentification et l’autorisation de vos utilisateurs finaux. Ensuite, quand cela est nécessaire, votre application crée et envoie les jetons d’application à notre service pour lui indiquer d’afficher le rendu du rapport demandé. Avec cette conception, votre application peut gérer l’authentification et l’autorisation des utilisateurs sans passer par Azure Active Directory. Cette option est toutefois possible. Pour plus d’informations sur les jetons d’application, consultez la page [Jetons d’application](https://azure.microsoft.com/fr-FR/documentation/articles/power-bi-embedded-get-started-sample/#key-flow) dans notre documentation.
 
-17.	**Quelles sont les sources de données actuellement prises en charge avec Power BI Embedded ?**
+17. **Quelles sont les sources de données actuellement prises en charge avec Power BI Embedded ?**
 
     Dans la version préliminaire publique du service, nous prenons en charge l’accès aux sources de données cloud qui utilisent des informations d’identification de base via une requête directe. Cela signifie que les sources telles que SQL DB, HDInsight Spark et Azure SQL DW sont prises en charge dès à présent. Nous allons étendre la prise en charge d’autres sources de données et types d’accès dans les prochains mois. Nous indiquerons les nouvelles sources de données prises en charge sur le site de développement Power BI à l’adresse [http://dev.powerbi.com](http://dev.powerbi.com/).
 
-18.	**Comment le modèle d’architecture cliente fonctionne-t-il pour Power BI Embedded ?**
+18. **Comment le modèle d’architecture cliente fonctionne-t-il pour Power BI Embedded ?**
 
     Le modèle Power BI Embedded n’impose pas explicitement que vos utilisateurs soient dans des clients Azure Active Directory (Azure AD). Vous avez le choix d’exiger ou non Azure AD pour vos clients. Vous devez donc déterminer le modèle d’architecture cliente nécessaire pour Power BI Embedded par rapport à l’architecture de votre application et de votre infrastructure.
 
-    Les développeurs ou employés qui conçoivent ou utilisent votre application doivent avoir un compte d’utilisateur Azure AD pour pouvoir gérer votre abonnement Azure et les collections d’espaces de travail via le portail Azure. Les API de programmation utilisées par les développeurs pour importer des rapports, modifier des chaînes de connexion et obtenir des URL incorporées se servent de jetons d’application pour l’authentification. Elles ne nécessitent donc pas Azure AD. Vous trouverez plus de détails sur l’utilisation de nos API et du portail Azure sur la [page de documentation de Power BI Embedded sur Azure.com](https://azure.microsoft.com/documentation/services/power-bi-embedded/).
+    Les développeurs ou employés qui conçoivent ou utilisent votre application doivent avoir un compte d’utilisateur Azure AD pour pouvoir gérer votre abonnement Azure et les collections d’espaces de travail via le portail Azure. Les API de programmation utilisées par les développeurs pour importer des rapports, modifier des chaînes de connexion et obtenir des URL incorporées se servent de jetons d’application pour l’authentification. Elles ne nécessitent donc pas Azure AD. Vous trouverez plus de détails sur l’utilisation de nos API et du portail Azure sur la [page de documentation de Power BI Embedded sur Azure.com](https://azure.microsoft.com/fr-FR/documentation/services/power-bi-embedded/).
 
-19.	**Où en savoir plus ?**
+19. **Où en savoir plus ?**
 
     Vous pouvez consulter la [page de documentation de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkId=760526). Vous pouvez aussi rester informé des dernières actualités concernant ce service en consultant le [blog des développeurs Power BI](http://blogs.msdn.com/powerbidev) ou le centre de développement Power BI à l’adresse dev.powerbi.com. Vous pouvez également poser vos questions sur le site [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
-20.	**Comment démarrer ?**
+20. **Comment démarrer ?**
 
     Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement Azure, vous pouvez approvisionner Power BI Embedded directement à partir du portail Azure. Si vous n’en avez pas, vous pouvez créer votre [compte Azure gratuit](https://azure.microsoft.com/free/). Une fois que vous avez approvisionné le service Power BI Embedded, vous pouvez facilement utiliser directement les API REST de Power BI ou utiliser le SDK disponible sur [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Plusieurs exemples sont fournis pour vous aider à utiliser le Kit SDK.
 
@@ -117,4 +116,4 @@
 - [Présentation de Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

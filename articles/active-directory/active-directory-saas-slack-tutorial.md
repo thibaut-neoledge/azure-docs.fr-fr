@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à Slack | Microsoft Azure" 
     description="Découvrez comment utiliser Slack avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD avec Slack
   
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ###Pour activer l’intégration d’applications pour Slack, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-slack-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Slack** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Slack** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-slack-tutorial/IC794982.png "Configurer l’authentification unique")
 
@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-slack-tutorial/IC794983.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à Slack** de la page **Configurer l’URL de l’application**, tapez l’URL de votre locataire Slack (par exemple, « **https://azuread.slack.com*") puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Slack** de la page **Configurer l’URL de l’application**, tapez l’URL de votre client Slack (par exemple, « **https://azuread.slack.com*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-slack-tutorial/IC794984.png "Configurer l’URL de l’application")
 
@@ -100,11 +100,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![SAML Settings](./media/active-directory-saas-slack-tutorial/IC794988.png "SAML Settings")
 
-    1.  Dans la page **Configurer l’authentification unique sur Slack** du portail Azure, copiez la valeur de **URL SSO SAML** et collez-la dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)**.
-    2.  Dans la page **Configurer l’authentification unique sur Slack** du portail Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
+    1.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Slack** du portail Azure Classic, copiez la valeur **URL SSO SAML** et collez-la dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)**.
+    2.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Slack** du portail Azure Classic, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
     3.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
     
-        >[AZURE.TIP]Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     4.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat public**.
     5.  Décochez la case **Autoriser les utilisateurs à modifier leur adresse de messagerie**.
@@ -112,7 +112,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     7.  Dans **L’authentification de votre équipe doit être utilisée par**, sélectionnez **C’est facultatif**.
     8.  Cliquez sur **Enregistrer la configuration**.
 
-9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-slack-tutorial/IC794989.png "Configurer l’authentification unique")
 
@@ -128,7 +128,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Slack, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Slack**, cliquez sur **Affecter des utilisateurs**.
 
@@ -140,4 +140,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

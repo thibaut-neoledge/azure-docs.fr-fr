@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Vue d’ensemble d’Azure Media Services Analytics"
-	description="Azure Media Services propose Azure Media Analytics en version préliminaire publique. Cet ensemble de services de reconnaissance vocale et de vision par ordinateur destinés aux entreprises répondent aux exigences de conformité, de sécurité et de portée globale. Les services Azure Media Analytics reposent sur les principaux composants de la plateforme Azure Media Services et sont donc immédiatement à même de traiter des données multimédias à l’échelle souhaitée."
+	pageTitle="Vue d’ensemble d’Azure Media Services Analytics | Microsoft Azure"
+	description="Azure Media Services propose Azure Media Analytics en version préliminaire publique. Cet ensemble de services de reconnaissance vocale et de vision par ordinateur destinés aux entreprises répondent aux exigences de conformité, de sécurité et de portée globale. Les services Azure Media Analytics reposent sur les principaux composants de la plateforme Azure Media Services et sont donc immédiatement à même de traiter les données multimédias à l’échelle souhaitée. "
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"   
+	ms.date="06/27/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
 # Vue d’ensemble d’Azure Media Services Analytics
@@ -43,6 +43,9 @@ Le diagramme suivant montre **Media Analytics** et d’autres parties principale
  
 - **Synthèse de vidéo** : ce service peut vous aider à créer des synthèses de longues vidéos en sélectionnant automatiquement les extraits les plus intéressants de la vidéo source. Elle est utile quand vous voulez offrir une présentation rapide de ce qui se trouve dans une vidéo longue. Pour obtenir des informations détaillées et des exemples, consultez [Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo](media-services-video-summarization.md).
 
+- **Reconnaissance optique de caractères** - Azure Media Analytics OCR (reconnaissance optique de caractères) vous permet de convertir le contenu texte de fichiers vidéo en un texte numérique modifiable et pouvant faire l’objet d’une recherche. Vous pouvez ainsi automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia.
+ 
+ 
 ## Scénarios courants
 
 Voici quelques scénarios où Azure Media Analytics peut aider les organisations et entreprises de différents secteurs à mieux exploiter et cibler leurs contenus vidéo pour susciter l’intérêt de leurs employés et clients, ainsi qu’à améliorer la gestion des gros volumes de contenus vidéo :
@@ -52,6 +55,73 @@ Voici quelques scénarios où Azure Media Analytics peut aider les organisations
 - **Modération du contenu généré par l’utilisateur** : des médias d’information aux services de police, de nombreuses organisations ont des portails publics sur lesquels est publié du contenu multimédia généré par l’utilisateur, comme des vidéos et des images. Le volume de contenu peut fortement augmenter en raison d’événements inattendus. Dans ce type de scénario, il est presque impossible de vérifier manuellement et correctement la pertinence de tout le contenu. Les clients peuvent déléguer cette tâche au service de modération du contenu pour se concentrer sur le contenu approprié.
 
 - **Surveillance** : le développement des caméras IP a fait exploser le nombre de vidéos de surveillance. L’examen manuel des vidéos de surveillance est long et sujet aux erreurs humaines. Azure Media Analytics fournit plusieurs services, tels que la détection de mouvement, la détection des visages et Hyperlapse, pour faciliter l’examen, la gestion et la création d’éléments dérivés.
+
+## Processeurs multimédia Media Services Analytics 
+
+Cette section répertorie tous les processeurs multimédia Media Services Analytics (MP) et montre comment utiliser .NET ou REST pour obtenir un objet MP.
+
+### Noms MP
+
+
+- Vue d’ensemble d’Azure Media Indexer 2
+- Azure Media Indexer
+- Azure Media Hyperlapse
+- Détecteur de visage Azure Media
+- Détecteur de mouvement Azure Media
+- Miniatures vidéo Azure Media
+- Azure Media OCR
+
+### .NET
+
+La fonction suivante sélectionne un des noms MP spécifiés et retourne un objet NP.
+
+    static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors
+            .Where(p => p.Name == mediaProcessorName)
+            .ToList()
+            .OrderBy(p => new Version(p.Version))
+            .LastOrDefault();
+
+        if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor",
+                                                       mediaProcessorName));
+
+        return processor;
+    }
+
+
+## REST
+
+Demande :
+
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json
+	Accept-Charset: UTF-8
+	User-Agent: Microsoft ADO.NET Data Services
+	Authorization: Bearer <token>
+	x-ms-version: 2.12
+	Host: media.windows.net
+	
+Réponse :
+		
+	. . .
+	
+	{  
+	   "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+	   "value":[  
+	      {  
+	         "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",
+	         "Description":"Azure Media OCR",
+	         "Name":"Azure Media OCR",
+	         "Sku":"",
+	         "Vendor":"Microsoft",
+	         "Version":"1.1"
+	      }
+	   ]
+	}
 
 ##Démonstrations
 
@@ -74,4 +144,4 @@ Voici quelques scénarios où Azure Media Analytics peut aider les organisations
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

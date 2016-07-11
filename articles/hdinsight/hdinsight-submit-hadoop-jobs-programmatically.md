@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Envoi de tâches Hadoop dans HDInsight
@@ -26,4 +26,4 @@ Consultez l'article :
 - [Utiliser Sqoop dans HDInsight](hdinsight-use-sqoop.md)
 - [Utiliser Oozie dans HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

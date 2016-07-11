@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ Pour vous connecter à Media Services par programme, vous devez avoir précédem
 
 - Votre clé de compte Media Services.
 
-Pour obtenir ces valeurs, accédez au portail de gestion Azure, sélectionnez votre compte Media Service, puis cliquez sur l'icône « **GÉRER LES CLÉS** » en bas de la fenêtre du portail. Cliquer sur l’icône en regard de chaque zone de texte copie la valeur dans le presse-papiers du système.
+Pour obtenir ces valeurs, accédez au portail de gestion Azure, sélectionnez votre compte Media Service, puis cliquez sur l'icône **« GÉRER LES CLÉS en bas »** de la fenêtre du portail. Cliquer sur l'icône en regard de chaque zone de texte copie la valeur dans le Presse-papiers du système.
 
 
 ## Création d’une instance CloudMediaContext
@@ -196,4 +196,4 @@ Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

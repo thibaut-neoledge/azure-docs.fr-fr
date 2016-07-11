@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services" 
+	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services" 
 	description="En savoir plus sur la licence du kit de portage Smooth Streaming client Microsoft®." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"     
+	ms.date="06/22/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
-#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services
+#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services
 
 ##Mots-clés
  
@@ -159,7 +159,7 @@ Elles ont un impact direct sur le coût de distribution de la licence si vous ut
 
 
 
-1. Abonnement mensuel : utiliser une licence permanente et un mappage clé à ressource 1 à plusieurs. Par exemple, pour tous les films pour enfant, nous utilisons une clé de contenu unique pour le chiffrement. Dans ce cas : 
+1. Abonnement mensuel : utiliser une licence permanente et un mappage clé à ressource 1 à plusieurs. Par exemple, pour tous les films pour enfant, nous utilisons une clé de contenu unique pour le chiffrement. Dans ce cas :
 
 	Nombre total de licences requis pour tous les films/appareils = 1
 
@@ -209,7 +209,7 @@ Lors de l’exécution, le flux se présente comme suit :
 1. au moment de l’authentification de l’utilisateur, un jeton JWT est généré ;
 1. L’une des revendications contenues dans le jeton JWT est une revendication de type « groupes » qui contient l’ID d’objet de groupe de « EntitledUserGroup ». Cette revendication sera utilisée pour le réussir la « vérification des droits ».
 1. Le lecteur charge le manifeste client d’un contenu protégé CENC et « voit » le texte suivant :
-	1. ID de clé, 
+	1. ID de clé,
 	1. le contenu est protégé par CENC
 	1. URL d’acquisition de licence.
 
@@ -223,7 +223,7 @@ La mise en œuvre comprend les étapes suivantes :
 
 1. Préparer des ressources de test : coder/regrouper une vidéo de test dans un MP4 fragmenté à plusieurs vitesses dans Azure Media Services. Cet actif n’est pas protégé par DRM. La protection DRM sera assurée par le biais d’une protection dynamique ultérieurement.
 1. Créez l’ID de clé et une clé de contenu (éventuellement à partir d’une amorce de clé). Dans le cas présent, le système de gestion de clés n’est pas nécessaire dans la mesure où nous avons affaire à un seul ensemble d’ID de clés et de clé contenu pour plusieurs ressources de test ;
-1. utilisez l’API AMS pour configurer les services de distribution de licence multi-DRM pour l’élément de test. Si vous utilisez des serveurs de licence personnalisés par le biais de votre société ou les fournisseurs de votre société et non les services de licence d’Azure Media Services, vous pouvez ignorer cette étape et spécifier les URL d’acquisition de licence lors de l’étape de configuration de la remise de la licence. L’API AMS sert à spécifier certaines configurations détaillées, comme la restriction de la stratégie d’autorisation, les modèles de réponse de licence des différents services de licence DRM, etc. À ce stade, le portail Azure ne fournit pas encore l’interface utilisateur nécessaire pour cette configuration. Vous pouvez trouver des informations de niveau API et un exemple de code dans le document de Julia Kornich intitulé : [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md). 
+1. utilisez l’API AMS pour configurer les services de distribution de licence multi-DRM pour l’élément de test. Si vous utilisez des serveurs de licence personnalisés par le biais de votre société ou les fournisseurs de votre société et non les services de licence d’Azure Media Services, vous pouvez ignorer cette étape et spécifier les URL d’acquisition de licence lors de l’étape de configuration de la remise de la licence. L’API AMS sert à spécifier certaines configurations détaillées, comme la restriction de la stratégie d’autorisation, les modèles de réponse de licence des différents services de licence DRM, etc. À ce stade, le portail Azure ne fournit pas encore l’interface utilisateur nécessaire pour cette configuration. Vous pouvez trouver des informations de niveau API et un exemple de code dans le document de Julia Kornich intitulé : [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md).
 1. Utilisez l’API AMS pour configurer une stratégie de distribution des éléments multimédia pour le test des éléments multimédia. Vous pouvez trouver des informations de niveau API et un exemple de code dans le document de Julia Kornich intitulé : [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md).
 1. créer et modifier un client Azure Active Directory dans Azure ;
 1. créer plusieurs comptes d’utilisateurs et groupes dans votre client Azure Active Directory : vous devez créer au moins un groupe « EntitledUser » et ajouter un utilisateur à ce groupe. Les utilisateurs de ce groupe qui réussiront la vérification des droits lors de l’acquisition de licence et les utilisateurs n’appartenant pas à ce groupe échoueront au contrôle d’authentification et ne pourront pas acquérir de licence. L’appartenance à un groupe « EntitledUser » est une revendication de « groupes » du jeton JWT délivré par AD Azure. Cette exigence de revendication doit être spécifiée pendant l’opération de configuration de services de distribution de licence multi-DRM.
@@ -255,7 +255,7 @@ Pour plus d’informations, sur Azure Active Directory :
 
 La mise en œuvre peut présenter certains « pièges ». Nous espérons que la liste des « pièges » qui suit vous aidera à résoudre d’éventuels problèmes.
 
-1. L’URL de l’**émetteur** URL doit se terminer par **« / »**.  
+1. L’URL de l’**émetteur** URL doit se terminer par **« / »**.
 
 	**Public** doit correspondre à l’ID client d’application de lecteur et vous devez également ajouter des **« / »** à la fin de l’URL de l’émetteur.
 
@@ -317,7 +317,7 @@ Il s’agit d’un point important de votre implémentation à prendre en compte
 
 Azure AD utilise une norme standard pour établir une relation de confiance entre lui-même et les applications à l’aide d’Azure AD. Azure AD utilise plus particulièrement une clé de signature se composant d’une paire clé publique-clé privée. Lorsqu’Azure AD crée un jeton de sécurité contenant des informations sur l’utilisateur, ce jeton est signé par Azure AD à l’aide de sa clé privée avant d’être renvoyé à l’application. Pour vérifier que le jeton est valide et provient bien d’Azure AD, l’application doit valider la signature du jeton à l’aide de la clé publique exposée par Azure AD contenue dans le document de métadonnées de fédération du client. Cette clé publique (et la clé de signature d’où elle dérive) est la même que celle qui est utilisée pour tous les clients dans Azure AD.
 
-Vous trouverez des informations détaillées sur la substitution de la clé Azure AD dans le document intitulé [Informations importantes sur la substitution des clés de signature dans Azure AD](http://msdn.microsoft.com/library/azure/dn641920.aspx/).
+Vous trouverez des informations détaillées sur la substitution de la clé Azure AD dans le document intitulé [Informations importantes sur la substitution des clés de signature dans Azure AD](../active-directory/active-directory-signing-key-rollover.md).
 
 Dans la [paire de clés publique-privée](https://login.windows.net/common/discovery/keys/),
 
@@ -361,15 +361,15 @@ Nous devons inscrire et configurer l’application de « pointeur » dans Azur
 
 1.	Dans le client Azure AD
 
-	- ajouter une application (ressource) avec l’URL de connexion : 
+	- ajouter une application (ressource) avec l’URL de connexion :
 
 	https://[resource_name].azurewebsites.net/ et
 
-	- URL d’ID d’application : 
+	- URL d’ID d’application :
 	
-	https://[aad_tenant_name].onmicrosoft.com/[resource_name] ; 
+	https://[aad_tenant_name].onmicrosoft.com/[resource_name] ;
 2.	Ajoutez une clé à l’application de ressource ;
-3.	Mettez à jour le fichier manifeste d’application afin que la propriété groupMembershipClaims se voie attribuer la valeur suivante : groupMembershipClaims » : « All »  
+3.	Mettez à jour le fichier manifeste d’application afin que la propriété groupMembershipClaims se voie attribuer la valeur suivante : groupMembershipClaims » : « All »
 4.	Dans l’application Azure AD qui pointe vers l’application web de lecteur, dans la section « autorisations pour d’autres applications », ajoutez l’application de ressource ajoutée à l’étape 1 ci-dessus. Sous « autorisations déléguées », cliquez sur la coche « Accès [nom\_ressource] ». Cette opération donne à l’application web l’autorisation de créer des jetons d’accès pour accéder l’application de ressource. Vous devez procéder ainsi à la fois pour la version locale et la version déployée de l’application web si vous procédez à un développement avec une application web Visual Studio et Azure.
 	
 Le jeton JWT émis par Azure AD est donc le jeton d’accès servant à accéder à cette ressource de type « pointeur ».
@@ -386,7 +386,7 @@ Il est bien connu que pour diffuser en continu dans les Azure Media Services, vo
 
 Souvent, les clients investissent dans une batterie de serveurs qu’ils hébergent dans leur propre centre de données ou chez des fournisseurs de service DRM. Heureusement, la protection de contenu Azure Media Services vous permet de fonctionner en mode hybride : le contenu est hébergé et dynamiquement protégé dans Azure Media Services, tandis que des licences DRM sont fournies par des serveurs en dehors d’Azure Media Services. Dans ce cas, il faut envisager les modifications suivantes :
 
-1. Le service STS (Service d’émission de jeton de sécurité - Secure Token Service) doit émettre des jetons acceptables et pouvant être vérifiés par la batterie de serveurs de licence. Par exemple, les serveurs de licences Widevine fournis par Axinom exigent un jeton JWT spécifique contenant le message « message d’octroi de droit ». Par conséquent, vous devez disposer d’un STS pour émettre ce jeton JWT. Les auteurs ont effectué cette implémentation et vous pouvez trouver les détails dans le document suivant dans le [Centre de Documentation Azure](https://azure.microsoft.com/documentation/) : [Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services](media-services-axinom-integration.md). 
+1. Le service STS (Service d’émission de jeton de sécurité - Secure Token Service) doit émettre des jetons acceptables et pouvant être vérifiés par la batterie de serveurs de licence. Par exemple, les serveurs de licences Widevine fournis par Axinom exigent un jeton JWT spécifique contenant le message « message d’octroi de droit ». Par conséquent, vous devez disposer d’un STS pour émettre ce jeton JWT. Les auteurs ont effectué cette implémentation et vous pouvez trouver les détails dans le document suivant dans le [Centre de Documentation Azure](https://azure.microsoft.com/documentation/) : [Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services](media-services-axinom-integration.md).
 1. Vous n’avez plus besoin de configurer le service de distribution de licence (ContentKeyAuthorizationPolicy) dans Azure Media Services. Vous devez alors fournir les URL d’acquisition de la licence (pour PlayReady, Widevine et FairPlay) au moment où vous configurez AssetDeliveryPolicy dans Configuration CENC avec multi-DRM.
  
 ### Que se passe-t-il si je souhaite utiliser un STS personnalisé ?
@@ -522,4 +522,4 @@ Dans ce document, nous avons abordé les sujets des DRM natives multiples, et un
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

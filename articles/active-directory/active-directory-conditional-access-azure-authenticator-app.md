@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Azure Authenticator pour Android
@@ -37,13 +37,13 @@ Les instructions suivantes sont applicables aux téléphones Samsung GS3 et sup�
 
 1. Dans l’écran d’accueil de l’application, acceptez le Contrat de Licence Utilisateur Final (CLUF).
 2. Dans l’écran Activer un compte, cliquez sur le menu contextuel sur la droite et sélectionnez **Compte professionnel**.
-3. Sur l’écran Ajouter un compte, sélectionnez **Compte professionnel**.
+3. Dans l’écran Ajouter un compte, sélectionnez **Compte professionnel**.
 4. Sur l’écran Activer l’administrateur de l’appareil, cliquez sur **Activer**.
 5. Dans l’écran Politique de confidentialité, cochez la case et cliquez sur **Confirmer**.
 6. Sur l’écran Jonction d’espace de travail, entrez l’ID utilisateur fourni par votre organisation et cliquez sur **Joindre**.
 7. Pour vous connecter à l’application Azure Authenticator, entrez votre compte et votre mot de passe d’organisation, puis cliquez sur **Connecter**.
 8. L’écran suivant qui affiche des informations sur l’authentification multifacteur concerne des éléments de sécurité supplémentaires et est facultatif. Vous verrez cet écran si votre entreprise ou votre établissement scolaire requiert une authentification de second facteur pour la création d’un compte professionnel. Il fournit des instructions pour vérifier votre compte de façon plus avancée.
-9. L’écran Jonction d’espace de travail affiche le message « **Jonction d’espace de travail en cours** ». L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail.
+9. L’écran Workplace Join affiche le message **Jonction d’espace de travail en cours**. L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail.
 10. Vous devez normalement voir le message « Joint à l’espace de travail » sur l’écran suivant.
 
 >[AZURE.NOTE]
@@ -72,7 +72,7 @@ Un seul compte professionnel est autorisé sur votre appareil.
 
 Après avoir installé l’application Azure Authenticator, vous pouvez également créer un compte professionnel à partir du Gestionnaire de compte Android.
 
-1. Dans le menu Paramètres, accédez à **Comptes** et cliquez sur **Ajouter un compte**.
+1. Dans le menu **Paramètres**, accédez à Comptes et cliquez sur **Ajouter un compte**.
 2. Suivez les étapes 2 à 7 de la procédure « Ajout du compte professionnel via l’écran d’accueil de l’application » pour ajouter un compte professionnel.
 
 ### Recherche de la version installée
@@ -85,7 +85,7 @@ Après avoir installé l’application Azure Authenticator, vous pouvez égaleme
 
 1. Suivez les instructions du support technique Microsoft pour signaler un incident avec l’application Azure Authentificator, pour obtenir un numéro d’incident et pour envoyer des fichiers journaux avec le numéro d’incident attribué :
 2. Dans le menu contextuel, cliquez sur **Journalisation**.
-3. Si vous avez un incident ouvert avec le support technique Microsoft, notez le numéro de l’incident (vous en aurez besoin à une étape ultérieure). Si vous n’avez pas encore créé un incident de support et que vous voulez obtenir de l’aide, suivez les instructions du [Support technique Microsoft](https://support.microsoft.com/en-us/contactus) pour ouvrir un nouvel incident.
+3. Si vous avez un incident ouvert avec le support technique Microsoft, notez le numéro de l’incident (vous en aurez besoin à une étape ultérieure). Si vous n’avez pas encore créé un incident de support et que vous voulez obtenir de l’aide, suivez les instructions du [Support technique Microsoft](https://support.microsoft.com/fr-FR/contactus) pour ouvrir un nouvel incident.
 4. Dans l’écran de journalisation, cliquez sur **Envoyer maintenant**.
 5. Sélectionnez le fournisseur de messagerie à utiliser.
 7. Si vous disposez déjà d’un incident de support technique Microsoft ouvert, contactez l’ingénieur de support affecté à votre problème pour savoir comment envoyer les données du journal et comment les associer à votre incident. L’ingénieur du support vous fournira les informations nécessaires pour l’adresse de messagerie et la ligne de l’objet du message. Si vous n’avez pas encore créé un incident de support, suivez les instructions du support technique Microsoft pour ouvrir un nouvel incident.
@@ -111,10 +111,10 @@ Il est recommandé de ne pas utiliser l’option Supprimer le compte pour suppri
 
 Sur un appareil Android Samsung, des privilèges d’administrateur d’application doivent être supprimés comme suit avant de désinstaller l’application.
 1. Dans **Paramètres**, sous **Système**, sélectionnez **Sécurité**.
-2. Dans Administration de l’appareil, cliquez sur **Administrateurs de l’appareil**. Vérifiez que la case en regard de **Azure Authentificator** est décochée.
+2. Dans **Administration de l’appareil**, cliquez sur **Administrateurs de l’appareil**. Vérifiez que la case en regard de **Azure Authentificator** est décochée.
 
-##Résolution des problèmes
+##Résolution de problèmes
 
 Si vous voyez l’**erreur Keystore**, la raison peut en être que votre écran de verrouillage n’est pas configuré avec un code confidentiel. Pour contourner ce problème, désinstallez l’application Azure Authentificator, configurez un code confidentiel pour votre écran de verrouillage et réinstallez l’application.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

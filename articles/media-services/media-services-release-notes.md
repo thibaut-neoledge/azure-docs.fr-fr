@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -47,8 +47,8 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 - [Version d’août 2014](#august_changes_14)
 - [Version de juillet 2014](#july_changes_14)
 - [Version de mai 2014](#may_changes_14)
-- [Version d’avril 2014](#april_changes_14) 
-- [Versions de janvier/février 2014](#jan_feb_changes_14) 
+- [Version d’avril 2014](#april_changes_14)
+- [Versions de janvier/février 2014](#jan_feb_changes_14)
 - [Version de décembre 2013](#december_changes_13)
 - [Version de novembre 2013](#november_changes_13)
 - [Version d’août 2013](#august_changes_13)
@@ -116,9 +116,9 @@ Pour plus d’informations, consultez :
 
 - Le blog [Kit de développement logiciel (SDK) Microsoft Azure Media Services pour PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 - Les [exemples de code](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) suivants pour vous aider à commencer rapidement :
-	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
-	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
-	- **scale\_encoding\_units.php** : fichier PHP qui indiquant comment mettre à l’échelle l’unité réservée d’encodage.
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
+	- **scale\_encoding\_units.php** : fichier PHP qui indiquant comment mettre à l’échelle l’unité réservée d’encodage.
 
 
 ##<a id="nov_changes_15"></a>Version de novembre 2015
@@ -189,7 +189,7 @@ La version du Kit de développement logiciel (SDK) .NET Azure Media Services est
 Le Kit de développement logiciel (SDK) Azure Media Services en est maintenant à la version 3.3.0.0. Les fonctionnalités suivantes ont été ajoutées dans cette version :
 
 - prise en charge de la spécification OpenId Connect Discovery,
-- prise en charge de la gestion du renouvellement de clés côté fournisseur d’identité. 
+- prise en charge de la gestion du renouvellement de clés côté fournisseur d’identité.
 
 Si vous utilisez un fournisseur d'identité qui expose le document de découverte OpenID Connect (comme les fournisseurs suivants : Azure Active Directory, Google et Salesforce), vous pouvez demander à Azure Media Services d’obtenir des clés de signature pour la validation des jetons JWT provenant de la spécification de découverte OpenID Connect.
 
@@ -395,7 +395,7 @@ Les améliorations suivantes sont incluses dans la version 3.0.0.5 du Kit de d�
 
 * Améliorations apportées à la logique de nouvelle tentative et à la gestion des exceptions temporaires :
 
-	* La détection des erreurs temporaires et la logique de nouvelle tentative ont été améliorées pour les exceptions déclenchées par l'interrogation, l'enregistrement des modifications et le chargement ou téléchargement de fichiers. 
+	* La détection des erreurs temporaires et la logique de nouvelle tentative ont été améliorées pour les exceptions déclenchées par l'interrogation, l'enregistrement des modifications et le chargement ou téléchargement de fichiers.
 	
 	* En cas d'exceptions Web (par exemple, lors d'une demande de jeton ACS), vous noterez que les erreurs irrécupérables échouent plus rapidement maintenant.
 
@@ -430,7 +430,7 @@ Pour plus d’informations sur les modifications, consultez : [Kit de développ
 
 Les modifications suivantes ont été apportées à la version 3.0.0.3 :
 
-* Dépendances du stockage Azure mises à niveau pour utiliser la version 3.0.3.0. 
+* Dépendances du stockage Azure mises à niveau pour utiliser la version 3.0.3.0.
 
 * Problème de compatibilité descendante résolu pour les versions 3.0*.*.
 
@@ -461,7 +461,7 @@ Le package Extensions du Kit de développement logiciel (SDK) Media Services pou
 
 Les cmdlets PowerShell de Media Services suivantes sont désormais incluses dans [azure-sdk-tools].
 
-* Get-AzureMediaServices 
+* Get-AzureMediaServices
 
 	Par exemple, `Get-AzureMediaServicesAccount`.
 
@@ -483,7 +483,7 @@ Les cmdlets PowerShell de Media Services suivantes sont désormais incluses dans
 
 Les changements mentionnés dans cette section correspondent aux mises à jour incluses dans les versions de Media Services de juin 2013.
 
-* Possibilité de lier plusieurs comptes de stockage à un compte Media Service. 
+* Possibilité de lier plusieurs comptes de stockage à un compte Media Service.
 
 	StorageAccount
 	
@@ -666,4 +666,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

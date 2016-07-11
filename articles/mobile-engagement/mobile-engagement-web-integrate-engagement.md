@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Intégration du SDK web Azure Mobile Engagement | Microsoft Azure"
-	description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) web pour Azure Mobile Engagement"
+	description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) web Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -16,7 +16,7 @@
 	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
-#Intégration d’Engagement dans une application web
+#Intégration d’Azure Mobile Engagement dans une application web
 
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
@@ -24,32 +24,30 @@
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-Cette procédure décrit la méthode la plus simple pour activer les fonctions d’analyse et de surveillance d’Engagement dans votre application web.
+Les procédures de cet article décrivent la méthode la plus simple pour activer les fonctions d’analyse et de surveillance d’Azure Mobile Engagement dans votre application web.
 
-Les étapes suivantes suffisent à activer la création de journaux nécessaires au calcul de l'ensemble des statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les éléments techniques. Le rapport des journaux nécessaire pour calculer d’autres statistiques telles que les événements, les erreurs et les tâches, doit être généré manuellement à l’aide de l’API Engagement (consultez la rubrique [Utilisation de l’API de balisage Mobile Engagement avancé dans une application web](mobile-engagement-web-use-engagement-api.md)) étant donné que ces statistiques dépendent de l’application.
+Suivez ces étapes afin d’activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. Pour les statistiques liées à l’application, telles que les événements, erreurs et tâches, vous devez activer manuellement les journaux à l’aide de l’API Azure Mobile Engagement. Pour plus d’informations, consultez [Utilisation de l’API avancée de balisage de Mobile Engagement dans votre application web](mobile-engagement-web-use-engagement-api.md).
 
 ## Introduction
 
-Téléchargez le kit de développement logiciel (SDK) web [ici](http://aka.ms/P7b453). Le Kit de développement logiciel (SDK) est fourni sous la forme d’un seul fichier JavaScript nommé **azure-engagement.js** à inclure dans chaque page de votre site ou de votre application web.
+[Téléchargez le Kit de développement logiciel (SDK) web Azure Mobile Engagement](http://aka.ms/P7b453). Le Kit de développement logiciel (SDK) web Mobile Engagement est fourni sous la forme d’un seul fichier JavaScript, azure-engagement.js, à inclure dans chaque page de votre site ou de votre application web.
 
-Ce script **DOIT** être chargé **APRÈS** un script ou un extrait de code écrit par vous pour configurer Engagement pour votre application.
+> [AZURE.IMPORTANT] Avant d’exécuter ce script, vous devez exécuter un script ou un extrait de code écrit par vous pour configurer Mobile Engagement pour votre application.
 
 ## Compatibilité des navigateurs
 
-Le Kit de développement logiciel (SDK) web d’Engagement utilise un codage/décodage JSON natif et des requêtes AJAX interdomaines (reposant sur la spécification W3C CORS).
+Le Kit de développement logiciel (SDK) web Mobile Engagement utilise un codage/décodage JSON natif en complément de requêtes AJAX interdomaines (reposant sur la spécification W3C CORS). Il est compatible avec les navigateurs suivants :
 
-* Edge 12+
-* IE 10+
+* Microsoft Edge 12+
+* Internet Explorer 10+
 * Firefox 3.5+
 * Chrome 4+
 * Safari 6+
 * Opera 12+
 
-## Configurer Engagement
+## Configuration de Mobile Engagement
 
-Écrivez un script qui crée un objet JavaScript **azureEngagement** global comme suit.
- 
-Dans la mesure où votre site peut contenir plusieurs pages, cet exemple suppose que ce script est également inclus dans chaque page. Nous le nommerons `azure-engagement-conf.js` dans cette procédure.
+Écrivez un script qui crée un objet JavaScript `azureEngagement` global comme dans l’exemple suivant. Étant donné que votre site peut comporter plusieurs pages, cet exemple suppose que ce script est inclus dans chaque page. Dans cet exemple, l’objet JavaScript est nommé `azure-engagement-conf.js`.
 
 	window.azureEngagement = {
 	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
@@ -57,11 +55,12 @@ Dans la mesure où votre site peut contenir plusieurs pages, cet exemple suppose
 	  appVersionCode: 1
 	};
 
-L’élément `connectionString` de votre application s’affiche sur le Portail Azure.
+La valeur `connectionString` de votre application s’affiche sur le portail Azure.
 
-> [AZURE.NOTE] `appVersionName` et `appVersionCode` sont facultatifs. Il est recommandé de les configurer de manière à ce que l’analyse traite les informations de version.
+> [AZURE.NOTE] Les valeurs `appVersionName` et `appVersionCode` sont facultatives. Toutefois, nous vous recommandons de les configurer pour que les analyses puissent traiter les informations de version.
 
-## Inclure des scripts d’Engagement dans vos pages
+## Inclure des scripts Mobile Engagement dans vos pages
+Ajoutez des scripts Mobile Engagement à vos pages de l’une des manières suivantes :
 
 	<head>
 	  ...
@@ -70,7 +69,7 @@ L’élément `connectionString` de votre application s’affiche sur le Portail
 	  ...
 	</head>
 
-Ou
+Ou cela :
 
 	<body>
 	  ...
@@ -81,9 +80,9 @@ Ou
 
 ## Alias
 
-Une fois chargé, le script du Kit de développement logiciel crée l’alias **engagement** pour accéder aux API du SDK (il ne peut pas être utilisé pour définir la configuration du SDK). Cet alias est utilisé comme référence dans cette documentation.
+Une fois le script du Kit de développement (SDK) web Mobile Engagement chargé, il crée l’alias **engagement** pour accéder aux API du Kit de développement logiciel (SDK). Vous ne pouvez pas utiliser cet alias pour définir la configuration du Kit de développement logiciel (SDK). Cet alias est utilisé comme référence dans cette documentation.
 
-Notez que si l’alias par défaut est en conflit avec une autre variable globale de votre page, vous pouvez le redéfinir dans la configuration avant de charger le Kit de développement logiciel comme suit :
+Notez que si l’alias par défaut est en conflit avec une autre variable globale de votre page, vous pouvez le redéfinir comme suit dans la configuration avant de charger le Kit de développement logiciel (SDK) web Mobile Engagement :
 
 	window.azureEngagement = {
 	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
@@ -94,13 +93,15 @@ Notez que si l’alias par défaut est en conflit avec une autre variable global
 
 ## Génération de rapports de base
 
+La section Génération de rapports de base de Mobile Engagement présente les statistiques au niveau de la session, notamment les statistiques sur les utilisateurs, les sessions, les activités et les incidents.
+
 ### Suivi de session
 
-Une session d’Engagement est divisée en une séquence d’activités identifiées par un nom.
+Une session Mobile Engagement est divisée en une séquence d’activités, chacune identifiée par un nom.
 
-Dans un site web classique, nous vous recommandons de déclarer une autre activité sur chaque page de votre site. Avec un site ou une application web qui ne change jamais la page en cours, vous pouvez suivre les activités de façon plus fine.
+Dans un site web classique, nous vous recommandons de déclarer une autre activité sur chaque page de votre site. Pour une site ou une application web dans lesquels la page actuelle ne change jamais, vous pouvez suivre les activités à une plus petite échelle, par exemple au niveau de la page.
 
-Dans les deux cas, pour démarrer ou modifier l’activité utilisateur en cours, appelez la fonction `engagement.agent.startActivity` comme dans cet exemple :
+Dans les deux cas, pour démarrer ou modifier l’activité utilisateur en cours, appelez la fonction `engagement.agent.startActivity`. Par exemple :
 
 	<body onload="yourOnload()">
 
@@ -111,27 +112,27 @@ Dans les deux cas, pour démarrer ou modifier l’activité utilisateur en cours
       engagement.agent.startActivity('welcome');
 	};
 
-Une session ouverte sera automatiquement terminée par le serveur d’Engagement dans un délai de 3 minutes après la fermeture de la page de l’application.
+Le serveur Mobile Engagement termine automatiquement une session ouverte dans un délai de trois minutes après la fermeture de la page de l’application.
 
-Sinon, vous pouvez également terminer une session manuellement en appelant `engagement.agent.endActivity`. Ceci définira l’activité utilisateur en cours comme étant « inactive » et mettra fin à la session 10 secondes après, sauf si un nouvel appel à `engagement.agent.startActivity` reprend la session dans l’intervalle.
- 
-Ce délai de 10 secondes peut être configuré dans l’objet **engagement** global :
+Ou vous pouvez terminer une session manuellement en appelant `engagement.agent.endActivity`. Cette opération définit l’activité de l’utilisateur en cours sur « Idle » (inactive). La session se terminera 10 secondes plus tard, sauf si un nouvel appel à `engagement.agent.startActivity` reprend la session.
+
+Vous pouvez configurer le délai de 10 secondes dans l’objet Engagement global, comme suit :
 
 	engagement.sessionTimeout = 2000; // 2 seconds
 	// or
 	engagement.sessionTimeout = 0; // end the session as soon as endActivity is called
 
-> [AZURE.NOTE] `engagement.agent.endActivity` ne peut pas être utilisé dans le rappel `onunload` puisque les appels Ajax ne sont pas possibles à ce stade.
+> [AZURE.NOTE] Vous ne pouvez pas utiliser `engagement.agent.endActivity` dans le rappel `onunload` car vous ne pouvez pas effectuer d’appels AJAX à ce stade.
 
 ## Génération de rapports avancés
 
-Éventuellement, si vous voulez signaler des éléments `events`, `errors` et `jobs` de l’application spécifiques, vous devez utiliser l’API Engagement par le biais de l’objet `engagement.agent`.
+Éventuellement, si vous voulez signaler des événements, des erreurs et des tâches de l'application spécifiques, vous devez utiliser l'API Mobile Engagement. Vous accédez à l’API Mobile Engagement sur mobile via l’objet `engagement.agent`.
 
-L’API Engagement permet d’utiliser toutes les fonctionnalités avancées d’Engagement. Elle est détaillée dans la section [Utilisation de l’API de balisage Mobile Engagement avancé dans une application web](mobile-engagement-web-use-engagement-api.md).
+Vous pouvez accéder à toutes les fonctionnalités avancées d’Engagement Mobile dans l’API Engagement Mobile. L’API est détaillée dans l’article [Utilisation de l’API avancée de balisage de Mobile Engagement dans votre application web](mobile-engagement-web-use-engagement-api.md).
 
 ## Personnaliser les URL utilisées pour les appels AJAX
 
-Vous pouvez personnaliser les URL utilisées par le Kit de développement logiciel (SDK). Par exemple, pour redéfinir l’URL de connexion (point de terminaison du kit de développement logiciel pour l’enregistrement), vous pouvez remplacer la configuration comme suit :
+Vous pouvez personnaliser les URL utilisées par le Kit de développement logiciel (SDK) web Mobile Engagement. Par exemple, pour redéfinir l’URL de connexion (le point de terminaison du kit de développement logiciel pour l’enregistrement), vous pouvez remplacer la configuration comme suit :
 
 	window.azureEngagement = {
 	  ...
@@ -143,9 +144,7 @@ Vous pouvez personnaliser les URL utilisées par le Kit de développement logici
 	  }
 	};
 
-Si vos fonctions URL renvoient une chaîne commençant par `/`, `//`, `http://` ou `https://`, le schéma par défaut n’est pas utilisé.
-
-Par défaut, le schéma `https://` est utilisé pour ces URL. Si vous voulez personnaliser le schéma par défaut, remplacez la configuration par ceci :
+Si vos fonctions URL renvoient une chaîne commençant par `/`, `//`, `http://` ou `https://`, le schéma par défaut n’est pas utilisé. Par défaut, le schéma `https://` est utilisé pour ces URL. Si vous voulez personnaliser le schéma par défaut, remplacez la configuration par ceci :
 
 	window.azureEngagement = {
 	  ...
@@ -155,4 +154,4 @@ Par défaut, le schéma `https://` est utilisé pour ces URL. Si vous voulez per
 	  }
 	};
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

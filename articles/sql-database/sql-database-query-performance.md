@@ -21,8 +21,8 @@
 
 La gestion et le réglage des performances des bases de données relationnelles est une tâche complexe qui nécessite une réelle expertise et un investissement en temps. Query Performance Insight vous permet de passer moins de temps à résoudre les problèmes de performances des bases de données en fournissant :
 
-- Une meilleure compréhension de la consommation des ressources des bases de données (DTU). 
-- Les requêtes principales consommatrices d’UC peuvent être réglées pour améliorer les performances. 
+- Une meilleure compréhension de la consommation des ressources des bases de données (DTU).
+- Les requêtes principales consommatrices d’UC peuvent être réglées pour améliorer les performances.
 - La possibilité d’examiner les détails d’une requête.
 
 ## Composants requis
@@ -35,7 +35,7 @@ La gestion et le réglage des performances des bases de données relationnelles 
 
 Les autorisations [de contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md) suivantes sont requises pour utiliser Query Performance Insight :
 
-- Les autorisations **Reader**, **Owner**, **Contributor**, **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher les requêtes et graphiques consommant le plus de ressources. 
+- Les autorisations **Reader**, **Owner**, **Contributor**, **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher les requêtes et graphiques consommant le plus de ressources.
 - Les autorisations **Owner**, **Contributor**, **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher le texte de requête.
 
 
@@ -44,9 +44,9 @@ Les autorisations [de contrôle d’accès en fonction du rôle](../active-direc
 
 Query Performance Insight est simple d’utilisation :
 
-- Passez en revue la liste des requêtes consommant le plus de ressources. 
+- Passez en revue la liste des requêtes consommant le plus de ressources.
 - Sélectionnez une requête pour en afficher les détails.
-- Ouvrez [SQL Database Advisor](sql-database-index-advisor.md), puis regardez si des recommandations sont disponibles.
+- Ouvrez [SQL Database Advisor](sql-database-advisor.md), puis regardez si des recommandations sont disponibles.
 - Zoomez pour obtenir des informations détaillées.
 
     ![tableau de bord des performances](./media/sql-database-query-performance/performance.png)
@@ -59,7 +59,7 @@ Query Performance Insight est simple d’utilisation :
 
 Dans le [portail](http://portal.azure.com), procédez comme suit :
 
-1. Accédez à une base de données SQL et cliquez sur **Tous les paramètres** > **Performances** > **Requêtes**. 
+1. Accédez à une base de données SQL et cliquez sur **Tous les paramètres** > **Performances** > **Requêtes**.
 
     ![Query Performance Insight][1]
 
@@ -71,7 +71,7 @@ Dans le [portail](http://portal.azure.com), procédez comme suit :
 
     Le tableau du bas contient des informations agrégées concernant les requêtes visibles.
 
-    -	ID de requête – identificateur unique de la requête dans la base de données. 
+    -	ID de requête – identificateur unique de la requête dans la base de données.
     -	UC par requête pendant l’intervalle observable (dépend de la fonction d’agrégation).
     -	Durée par requête (dépend de la fonction d’agrégation).
     -	Nombre total d’exécutions pour une requête particulière.
@@ -113,7 +113,7 @@ Pendant l’utilisation de Query Performance Insight, vous pouvez rencontrer les
 Ces messages s’affichent généralement lorsque le magasin de requêtes ne peut plus collecter de données supplémentaires. Pour résoudre ce problème, vous avez trois options :
 
 -	Modifier la stratégie de rétention et de capture du magasin de requêtes
--	Augmenter la taille du magasin de requêtes 
+-	Augmenter la taille du magasin de requêtes
 -	Supprimer le contenu du magasin de requêtes
 
 ### Stratégie de rétention et de capture recommandée
@@ -121,7 +121,7 @@ Ces messages s’affichent généralement lorsque le magasin de requêtes ne peu
 Il existe deux types de stratégies de rétention :
 
 - Basée sur la taille : si la valeur AUTO est définie, les données sont automatiquement supprimées quand la taille maximale est proche.
-- Basée sur le temps : la période par défaut est de 30 jours. Ainsi, si le magasin de requêtes manque d’espace, il supprimera les informations liées aux requêtes de plus de 30 jours. 
+- Basée sur le temps : la période par défaut est de 30 jours. Ainsi, si le magasin de requêtes manque d’espace, il supprimera les informations liées aux requêtes de plus de 30 jours.
 
 La stratégie de capture peut avoir les valeurs suivantes :
 
@@ -159,7 +159,7 @@ Query Performance Insight vous permet de comprendre l’impact de votre charge d
 
 ## Étapes suivantes
 
-Pour obtenir d’autres recommandations concernant l’amélioration des performances de votre base de données SQL, cliquez sur [SQL Database Advisor](sql-database-index-advisor.md) dans le panneau **Query Performance Insight**.
+Pour obtenir d’autres recommandations concernant l’amélioration des performances de votre base de données SQL, cliquez sur [SQL Database Advisor](sql-database-advisor.md) dans le panneau **Query Performance Insight**.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
@@ -169,4 +169,4 @@ Pour obtenir d’autres recommandations concernant l’amélioration des perform
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

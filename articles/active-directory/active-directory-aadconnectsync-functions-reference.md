@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -160,12 +160,12 @@ Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été
 
 **Syntaxe :**`str ConvertFromBase64(str source)` - Part du principe que l’encodage utilisé est Unicode<br> `str ConvertFromBase64(str source, enum Encoding)`
 
-- source : chaîne encodée Base64  
+- source : chaîne encodée Base64
 - En codage : Unicode, ASCII, UTF8
 
 **Exemple** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Les deux exemples renvoient « *Hello world!* »
+Les deux exemples renvoient « *Hello world!* »
 
 ----------
 ### ConvertFromUTF8Hex
@@ -406,7 +406,7 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ### IsEmpty
 
-**Description :** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
+**Description : ** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
 
 **Syntaxe :** `bool IsEmpty(var Expression)`
 
@@ -525,7 +525,7 @@ Retourne une valeur Null si l’index est hors limites.
 
 **Syntaxe :** `str LCase(str value)`
 
-**Exemple :** `LCase("TeSt")` Retourne « Test ».
+**Exemple :** `LCase("TeSt")` Retourne « test ».
 
 ----------
 ### Left
@@ -653,7 +653,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 ----------
 ### PCase
 
-**Description :** La fonction PCase met en majuscule le premier caractère de chaque mot délimité par un espace dans une chaîne et tous les autres caractères sont convertis en minuscules.
+**Description :** La fonction PCase met en majuscule le premier caractère de chaque mot délimité par un espace dans une chaîne, et tous les autres caractères sont convertis en minuscules.
 
 **Syntaxe :** `String PCase(string)`
 
@@ -697,7 +697,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 - \\r – Retour chariot
 - \\t – Tabulation
 
-**Exemple :** `Replace([address],"\r\n",", ")` Remplace CRLF par une virgule et un espace et peut générer « One Microsoft Way, Redmond, WA, USA »
+**Exemple :** `Replace([address],"\r\n",", ")` Remplace CRLF par une virgule et un espace, et peut générer « One Microsoft Way, Redmond, WA, USA ».
 
 ----------
 ### ReplaceChars
@@ -814,7 +814,7 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 ----------
 ### Trim
 
-**Description :** La fonction Trim supprime les espaces blancs à gauche et à droite d’une chaîne.
+**Description :** La fonction Trim supprime les espaces blancs de début et de fin d’une chaîne.
 
 **Syntaxe :** `str Trim(str value)` `mvstr Trim(mvstr value)`
 
@@ -829,7 +829,7 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 
 **Syntaxe :** `str UCase(str string)`
 
-**Exemple :** `UCase("TeSt")` Retourne « Test ».
+**Exemple :** `UCase("TeSt")` Retourne « TEST ».
 
 ----------
 ### Word
@@ -859,4 +859,4 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

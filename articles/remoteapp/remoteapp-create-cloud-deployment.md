@@ -20,7 +20,7 @@
 
 Il existe deux types de [collections Azure RemoteApp](remoteapp-collections.md) :
 
-- Cloud : réside complètement dans Azure. Vous pouvez soit enregistrer toutes les données dans le cloud (la collection se trouve uniquement dans le cloud), soit connecter votre collection à un réseau virtuel et enregistrer vos données dans celui-ci.   
+- Cloud : réside complètement dans Azure. Vous pouvez soit enregistrer toutes les données dans le cloud (la collection se trouve uniquement dans le cloud), soit connecter votre collection à un réseau virtuel et enregistrer vos données dans celui-ci.
 - Hybride : inclut un réseau virtuel pour l’accès local (nécessite Azure AD et un environnement Active Directory local).
 
 Ce didacticiel vous guide dans la procédure de création d'une collection cloud. Il se compose de quatre étapes :
@@ -35,9 +35,9 @@ Ce didacticiel vous guide dans la procédure de création d'une collection cloud
 
 Avant de créer la collection, vous devez effectuer les étapes suivantes :
 
-- [S'inscrire](https://azure.microsoft.com/services/remoteapp/) à Azure RemoteApp. 
+- [S'inscrire](https://azure.microsoft.com/services/remoteapp/) à Azure RemoteApp.
 - Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs.
-- Cette procédure part du principe que vous allez utiliser les images de modèle fournies dans le cadre de votre abonnement ou que vous avez déjà téléchargé l'image de modèle à utiliser. Si vous devez télécharger une autre image de modèle, rendez-vous sur la page Images de modèle. Il vous suffit de cliquer sur **télécharger une image de modèle** et de suivre les étapes de l'Assistant. 
+- Cette procédure part du principe que vous allez utiliser les images de modèle fournies dans le cadre de votre abonnement ou que vous avez déjà téléchargé l'image de modèle à utiliser. Si vous devez télécharger une autre image de modèle, rendez-vous sur la page Images de modèle. Il vous suffit de cliquer sur **télécharger une image de modèle** et de suivre les étapes de l'Assistant.
 - Vous souhaitez utiliser l’image d’Office 365 ProPlus ? Pour plus d’informations, cliquez [ici](remoteapp-officesubscription.md).
 - Vous voulez fournir des applications personnalisées ou des programmes métier ? Créez une [image](remoteapp-imageoptions.md) et utilisez-la dans votre collection cloud.
 - Déterminez si vous devez vous connecter à un réseau virtuel. Si vous choisissez de vous connecter à un réseau virtuel, vérifiez qu’il respecte les [instructions de dimensionnement](remoteapp-vnetsizing.md) et qu’il [peut se connecter à RemoteApp](remoteapp-vnet.md). Pour plus d'informations, passez en revue l'article sur la [planification d'un réseau virtuel](remoteapp-planvnet.md).
@@ -52,7 +52,7 @@ Pour **créer une collection uniquement dans le cloud**, procédez comme suit :
 2. Cliquez sur **Nouveau > Création rapide**.
 3. Entrez le nom de votre collection et sélectionnez votre région.
 4. Choisissez le plan que vous souhaitez utiliser (de base ou standard).
-5. Choisissez le modèle à utiliser pour cette collection. 
+5. Choisissez le modèle à utiliser pour cette collection.
 
 	**Conseil :** votre abonnement à RemoteApp s'accompagne d'[images de modèle](remoteapp-images.md) qui contiennent des programmes Office 365 ou Office 2013 (à des fins d'évaluation), certains étant publiés (tels que Word) et d'autres étant prêts pour la publication. Vous pouvez également créer une [image](remoteapp-imageoptions.md) et l'utiliser dans votre collection cloud.
 
@@ -66,7 +66,7 @@ Après avoir créé votre collection Azure RemoteApp, double-cliquez sur son nom
 Pour créer une **collection dans le cloud et dans un réseau virtuel**, procédez comme suit :
 
 1. Accédez à la page RemoteApp du portail de gestion.
-2. Cliquez sur **Nouveau** > **Créer avec un réseau virtuel**.
+2. Cliquez sur **Nouveau** > **Créer avec un réseau virtuel**.
 3. Entrez un nom pour votre collection.
 4. Choisissez le plan que vous souhaitez utiliser (de base ou standard).
 5. Choisissez le réseau virtuel que vous avez déjà créé. Vous ne savez pas comment faire ? Pour l’instant, les étapes se trouvent dans la rubrique [hybride](remoteapp-create-hybrid-deployment.md).
@@ -76,7 +76,7 @@ Pour créer une **collection dans le cloud et dans un réseau virtuel**, procéd
 
 ## Étape 2 : configuration de la synchronisation d'annuaires Active Directory (facultatif) ##
 
-Si vous souhaitez utiliser Active Directory, Azure RemoteApp requiert une synchronisation d’annuaires entre Azure Active Directory et votre Active Directory local afin de synchroniser les utilisateurs, contacts et mots de passe dans votre locataire Azure Active Directory. Consultez [Configuration d'Active Directory pour Azure RemoteApp](remoteapp-ad.md) pour obtenir des informations sur la planification. Vous pouvez également accéder directement à [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) pour obtenir des informations.
+Si vous souhaitez utiliser Active Directory, Azure RemoteApp requiert une synchronisation d’annuaires entre Azure Active Directory et votre Active Directory local afin de synchroniser les utilisateurs, contacts et mots de passe dans votre locataire Azure Active Directory. Consultez [Configuration d'Active Directory pour Azure RemoteApp](remoteapp-ad.md) pour obtenir des informations sur la planification. Vous pouvez également accéder directement à [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) pour obtenir des informations.
 
 ## Étape 3: publier des applications ##
 
@@ -90,7 +90,7 @@ Vous pouvez publier plusieurs applications dans votre collection RemoteApp. Dans
 
 Maintenant que vous avez créé votre collection, vous devez ajouter les utilisateurs qui seront autorisés à utiliser vos ressources distantes. Si vous utilisez Active Directory, les utilisateurs auxquels vous accordez l’accès doivent exister dans le locataire Active Directory associé à l’abonnement utilisé pour créer cette collection.
 
-1.	Sur la page Démarrage rapide, cliquez sur **Configurer l'accès utilisateur**. 
+1.	Sur la page Démarrage rapide, cliquez sur **Configurer l'accès utilisateur**.
 2.	Entrez le compte professionnel (à partir d'Active Directory) ou le compte Microsoft auquel vous souhaitez accorder l'accès.
 
 	**Remarques :**
@@ -109,4 +109,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection cl
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

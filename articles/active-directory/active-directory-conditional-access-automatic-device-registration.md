@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
@@ -34,7 +34,7 @@ Déployez AD FS et connectez-vous à Azure Active Directory à l’aide d’Azu
 4. Sous l’onglet **Règles de transformation d’émission**, sélectionnez **Ajouter une règle**.
 5. Sélectionnez **Envoyer les revendications en utilisant une règle personnalisée** dans la zone de liste déroulante **Règle de revendication**. Sélectionnez **Suivant**.
 6. Tapez *Règle de revendication de méthode d’authentification* dans la zone de texte **Nom de la règle de revendication :**.
-7. Tapez la règle de revendication suivante dans la zone de texte **Règle de revendication** :
+7. Tapez la règle de revendication suivante dans la zone de texte **Règle de revendication** :
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
@@ -48,7 +48,7 @@ Sur votre serveur de fédération, ouvrez une fenêtre de commande Windows Power
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-Où <RPObjectName> est le nom de l'objet de partie de confiance pour votre objet d'approbation de partie de confiance Azure Active Directory. Cet objet est généralement nommé plateforme d’identité Microsoft Office 365.
+Où <RPObjectName> est le nom de l’objet de partie de confiance de votre objet d’approbation de partie de confiance Azure Active Directory. Cet objet est généralement nommé plateforme d’identité Microsoft Office 365.
 
 Stratégie d’authentification globale d’AD FS
 -----------------------------------------------------------------------------
@@ -105,4 +105,4 @@ Pour en savoir plus sur le déploiement de l'inscription d'appareils avec AD FS
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

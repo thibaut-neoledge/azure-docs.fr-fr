@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/03/2016"
+	ms.date="06/22/2016"
 	ms.author="cenkdin;anilmur;juliako"/>
 
 #Utiliser l’encodeur Elemental Live pour envoyer un flux live à débit binaire unique
@@ -70,24 +70,24 @@ Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-serv
 
 Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le reste de cette section décrit la procédure de configuration plus en détail.
 
-**Vidéo** :
+**Vidéo** :
  
-- Codec : H.264 
-- Profil : Élevé (niveau 4.0) 
-- Débit binaire : 5 000 kbit/s 
-- Image clé : 2 secondes (60 secondes) 
+- Codec : H.264
+- Profil : Élevé (niveau 4.0)
+- Débit binaire : 5 000 kbit/s
+- Image clé : 2 secondes (60 secondes)
 - Fréquence d’images : 30
  
-**Audio** :
+**Audio** :
 
-- Codec : AAC (LC) 
-- Débit binaire : 192 kbit/s 
+- Codec : AAC (LC)
+- Débit binaire : 192 kbit/s
 - Taux d’échantillonnage : 44,1 kHz
 
 
 ####Configuration
 
-1. Accédez à l’interface web **Elemental Live** et configurez l’encodeur pour la diffusion en continu **UDP/TS**. 
+1. Accédez à l’interface web **Elemental Live** et configurez l’encodeur pour la diffusion en continu **UDP/TS**.
 
 2. Une fois qu’un nouvel événement a été créé, faites défiler l’écran jusqu’aux groupes de sortie et ajoutez le groupe de sortie **UDP/TS**.
 
@@ -98,17 +98,17 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 	>[AZURE.NOTE] Il est recommandé que le code horaire de l’événement Elemental soit défini sur Horloge système pour aider l’encodeur à se reconnecter en cas d’échec d’un flux.
 
 4. Maintenant que la sortie a été créée, cliquez sur **Add Stream**. Vous pouvez à présent configurer les paramètres de sortie.
-5. Faites défiler l’écran jusqu’au flux « Stream 1 » qui vient d’être créé, cliquez sur l’onglet **Video** à gauche et développez la section de paramètres **Advanced**. 
+5. Faites défiler l’écran jusqu’au flux « Stream 1 » qui vient d’être créé, cliquez sur l’onglet **Video** à gauche et développez la section de paramètres **Advanced**.
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
 
 	Même si Elemental Live offre un large éventail de possibilités de personnalisation, les paramètres suivants sont recommandés pour commencer la diffusion en continu vers AMS.
 	
-	- Resolution : 1280 x 720 
-	- Framerate : 30 
-	- GOP Size : 60 frames 
-	- Interlace Mode : Progressive 
-	- Bitrate : 5000000 bit/s (cette valeur peut être ajustée en fonction des limitations du réseau) 
+	- Resolution : 1280 x 720
+	- Framerate : 30
+	- GOP Size : 60 frames
+	- Interlace Mode : Progressive
+	- Bitrate : 5000000 bit/s (cette valeur peut être ajustée en fonction des limitations du réseau)
 	
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
@@ -135,7 +135,7 @@ Une fois que le flux a été exécuté pendant 30 secondes, revenez à l’outi
 
 ###Tester la lecture
   
-1. Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.  
+1. Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
@@ -145,18 +145,18 @@ Si vous recevez une erreur, vous devrez réinitialiser le canal et ajuster les p
 
 ###Créer un programme
 
-1. Une fois que vous avez vérifié que la lecture fonctionne sur le canal, créez un programme. Sous l’onglet **Live** de l’outil AMSE, cliquez avec le bouton droit dans la zone des programmes et sélectionnez **Créer un programme**.  
+1. Une fois que vous avez vérifié que la lecture fonctionne sur le canal, créez un programme. Sous l’onglet **Live** de l’outil AMSE, cliquez avec le bouton droit dans la zone des programmes et sélectionnez **Créer un programme**.
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
 2. Nommez le programme et, si nécessaire, ajustez la **longueur de la fenêtre d’archive** (qui est de 4 heures par défaut). Vous pouvez également spécifier un emplacement de stockage ou conserver la valeur par défaut.
 3. Cochez la case **Démarrer le programme maintenant**.
-4. Cliquez sur **Créer le programme**.  
+4. Cliquez sur **Créer le programme**.
   
 	Remarque : la création d’un programme prend moins de temps que la création d’un canal.
  
 5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)**, puis sélectionnez **avec Azure Media Player**.
-6. Après confirmation, cliquez à nouveau avec le bouton droit sur le programme et sélectionnez **Copier l’URL de sortie dans le Presse-papiers** (ou obtenez cette information à l’aide de l’option **Informations et paramètres du programme** du menu). 
+6. Après confirmation, cliquez à nouveau avec le bouton droit sur le programme et sélectionnez **Copier l’URL de sortie dans le Presse-papiers** (ou obtenez cette information à l’aide de l’option **Informations et paramètres du programme** du menu).
 
 Le flux est maintenant prêt à être incorporé dans un lecteur ou distribué à une audience pour un affichage en direct.
 
@@ -173,4 +173,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

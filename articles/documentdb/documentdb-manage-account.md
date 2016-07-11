@@ -33,7 +33,7 @@ La sélection du niveau de cohérence adéquat dépend de la sémantique de votr
 3. Dans le panneau **Tous les paramètres**, cliquez sur l’entrée **Cohérence par défaut** sous **Fonctionnalité**. ![Cohérence par défaut Session][6]
 
 4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
-
+5. La progression de l’opération peut être contrôlée via le hub de notifications du portail Azure.
 
 > [AZURE.NOTE] L’application d’une modification du paramètre de cohérence par défaut dans votre compte DocumentDB peut prendre plusieurs minutes.
 
@@ -86,13 +86,9 @@ Il inclut également des clés en lecture seule pour permettre aux utilisateurs 
 
 ### Affichage et copie d’une touche d’accès rapide dans le portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB. 
-
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB.
 2. Dans la barre **Essentials** du panneau **Compte DocumentDB**, cliquez sur **Clés**.
-
-3. Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
-
-  ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/documentdb-manage-account/copykeys.png)
+3. Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier. ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/documentdb-manage-account/copykeys.png)
 
 ### Régénération de clés d'accès
 
@@ -114,6 +110,7 @@ Si certains de vos services cloud ou applications utilisent le compte DocumentDB
 
 6. Régénérez la clé d’accès secondaire.
 
+
 > [AZURE.NOTE] Il faut parfois attendre plusieurs minutes avant de pouvoir utiliser une clé qui vient d’être générée pour accéder à votre compte DocumentDB.
 
 ## <a id="delete"></a> Supprimer un compte DocumentDB
@@ -123,11 +120,8 @@ Pour supprimer un compte DocumentDB dont vous ne vous servez plus dans le portai
 
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez au compte DocumentDB à supprimer.
-
 2. Dans le panneau **Compte DocumentDB**, cliquez sur la commande **Supprimer le compte**.
-
 3. Dans le volet de confirmation qui s'affiche, entrez le nom du compte DocumentDB afin pour confirmer que vous souhaitez le supprimer.
-
 4. Dans le panneau de confirmation, cliquez sur le bouton **Supprimer**.
 
 ## <a id="next"></a>Étapes suivantes
@@ -148,7 +142,7 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/fr-FR/regions/#services
+[offers]: https://azure.microsoft.com/fr-FR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

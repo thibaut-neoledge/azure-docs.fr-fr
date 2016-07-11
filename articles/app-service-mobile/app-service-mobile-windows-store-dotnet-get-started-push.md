@@ -34,7 +34,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Apps. Avant de comme
 
 Pour pouvoir envoyer des notifications Push vers des applications Windows à partir d’Azure, vous devez soumettre votre application au Windows Store. Vous pouvez ensuite configurer votre projet de serveur pour l’intégrer à WNS.
 
-1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet d’application UWP, puis cliquez sur **Store** > **Associer l’application au Windows Store...**. 
+1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet d’application UWP, puis cliquez sur **Store** > **Associer l’application au Windows Store...**.
 
     ![Associer une application au Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
     
@@ -42,7 +42,7 @@ Pour pouvoir envoyer des notifications Push vers des applications Windows à par
 
 3. Une fois l’inscription de l’application créée, sélectionnez le nouveau nom d’application, cliquez sur **Suivant**, puis sur **Associer**. Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.
 
-7. Accédez au [Centre de développement Windows](https://dev.windows.com/fr-FR/overview), connectez-vous à l'aide de votre compte Microsoft, cliquez sur la nouvelle inscription d'application dans **Mes applications**, puis développez **Services** > **Notifications Push**.
+7. Accédez au [Centre de développement Windows](https://dev.windows.com/fr-FR/overview), connectez-vous à l'aide de votre compte Microsoft, cliquez sur la nouvelle inscription d'application dans **Mes applications**, puis développez **Services** > **Notifications Push**.
 
 8. Sur la page **Notifications Push**, cliquez sur **Site des services Live** sous **Microsoft Azure Mobile Services**.
 
@@ -71,7 +71,7 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 
-3. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel à **InsertAsync** :
+3. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel à **InsertAsync** :
 
 	    // Get the settings for the server project.
 	    HttpConfiguration config = this.Configuration;
@@ -168,7 +168,7 @@ Ensuite, votre application doit s’inscrire pour les notifications Push au dém
 		using System.Threading.Tasks;
         using Windows.Networking.PushNotifications;
 
-2. Dans le même fichier, ajoutez la définition de la méthode **InitNotificationsAsync** à la classe **App** :
+2. Dans le même fichier, ajoutez la définition de la méthode **InitNotificationsAsync** à la classe **App** :
 
         private async Task InitNotificationsAsync()
         {
@@ -200,10 +200,21 @@ Ensuite, votre application doit s’inscrire pour les notifications Push au dém
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 
-##<a id="more"></a>En savoir plus
+##<a id="more"></a>Étapes suivantes
 
-* Les modèles vous apportent la souplesse nécessaire pour envoyer des notifications push multiplateformes et localisées. La rubrique [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) vous montre comment inscrire des modèles.
-* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. La rubrique [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) vous montre comment ajouter des balises à l’installation d’un appareil.
+Apprenez-en plus sur les notifications Push :
+
+* [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) Les modèles vous apportent la souplesse nécessaire pour envoyer des notifications push multiplateformes et localisées. Apprenez à inscrire des modèles.
+
+* [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. Apprenez à ajouter des balises à l’installation d’un appareil.
+
+* [Diagnostiquer les problèmes de notification Push](../notification-hubs/notification-hubs-push-notification-fixer.md) Il existe différentes raisons pour lesquelles les notifications peuvent être perdues ou n’arrivent pas sur les appareils. Cette rubrique vous explique comment analyser et déterminer la cause première des défaillances de notification Push.
+
+Vous pouvez poursuivre avec l’un des didacticiels suivants :
+
++ [Ajouter l’authentification à votre application](app-service-mobile-windows-store-dotnet-get-started-users.md) Apprenez à authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+
++ [Activer la synchronisation hors connexion pour votre application](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un serveur principal d’applications mobiles. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau.
 
 <!-- Anchors. -->
 
@@ -211,6 +222,5 @@ Ensuite, votre application doit s’inscrire pour les notifications Push au dém
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
-))) )
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

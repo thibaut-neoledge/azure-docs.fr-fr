@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Définition de dépendances dans les modèles Azure Resource Manager
@@ -101,11 +101,11 @@ La fonction de référence permet à une expression de tirer sa valeur d’un au
 
 Vous pouvez utiliser cet élément ou l’élément dependsOn pour spécifier les dépendances, mais il est inutile d’utiliser les deux pour la même ressource dépendante. Le guide consiste à utiliser la référence implicite pour éviter le risque qu’un élément dependsOn arrête par inadvertance le moteur de déploiement et l’empêche de réaliser certains aspects du déploiement en parallèle.
 
-Pour plus d’informations, consultez la [fonction de référence](../resource-group-template-functions/#reference).
+Pour plus d’informations, consultez la [fonction de référence](resource-group-template-functions.md#reference).
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md). 
+- Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

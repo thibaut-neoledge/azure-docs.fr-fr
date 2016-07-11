@@ -24,7 +24,7 @@
 
 Le [stockage Premium Azure](../storage/storage-premium-storage.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) IaaS.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
@@ -96,7 +96,7 @@ La commande **New-AzureStorageAccountPowerShell** suivante avec le **Type** « P
 
 ### Paramètres de cache des disques durs virtuels
 
-La principale différence avec la création de disques faisant partie d'un compte de stockage Premium est le paramètre de cache des disques. Pour les disques de volume de données SQL Server, il est recommandé d'utiliser le paramètre de cache de lecture '**Read Caching**'. Pour les volumes de journaux de transactions, le paramètre de cache des disques doit être défini sur '**None**'. Il s'agit d'une différence par rapport aux recommandations pour les comptes de stockage Standard.
+La principale différence avec la création de disques faisant partie d'un compte de stockage Premium est le paramètre de cache des disques. Pour les disques de volume de données SQL Server, il est recommandé d’utiliser le paramètre de cache de lecture **Read Caching**. Pour les volumes de journaux de transactions, le paramètre de cache des disques doit être défini sur **None**. Il s'agit d'une différence par rapport aux recommandations pour les comptes de stockage Standard.
 
 Une fois les disques durs virtuels connectés, le paramètre de cache ne peut pas être modifié. Vous devez déconnecter puis reconnecter le disque dur virtuel avec un paramètre de cache mis à jour.
 
@@ -279,7 +279,7 @@ Ce scénario vous montre où sont placées les images personnalisées existantes
 
 
 #### Étape 3 : utilisation d’une image existante
-Vous pouvez utiliser une image existante. Vous pouvez [prendre l'image d'une machine existante](virtual-machines-windows-classic-capture-image.md). Notez que cette machine n'a pas besoin d'être une machine DS*. Une fois l'image créée, les étapes suivantes indiquent comment la copier dans le compte de stockage Premium à l'aide de l'applet de commande PowerShell **Start-AzureStorageBlobCopy**.
+Vous pouvez utiliser une image existante. Vous pouvez [prendre l'image d'une machine existante](virtual-machines-windows-classic-capture-image.md). Notez que cette machine n’a pas besoin d’être une machine DS*. Une fois l’image créée, les étapes suivantes indiquent comment la copier dans le compte de stockage Premium à l’aide de l’applet de commande PowerShell **Start-AzureStorageBlobCopy**.
 
     #Get storage account keys:
     #Standard Storage account
@@ -410,7 +410,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 1. Une fois la validation réussie, démarrez tous les services SQL Server.
 1. Sauvegardez les journaux des transactions et restaurez les bases de données utilisateur.
 1. Ajoutez de nouveaux nœuds au groupe de disponibilité Always On et définissez la réplication sur **Synchrone**.
-1. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource **adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+1. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de [l’annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource **adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Basculement vers un des nouveaux nœuds.
 1. Configurez les nouveaux nœuds en tant que partenaires de basculement automatique puis testez les basculements.
 1. Supprimez les nœuds d'origine du groupe de disponibilité.
@@ -484,7 +484,7 @@ Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud 
 - Pour ce scénario, utilisez l'applet de commande Azure **Start-AzureStorageBlobCopy**, qui est asynchrone. Il n'existe aucun contrat SLA à la fin de la copie. Le temps de copie varie selon la durée d'attente dans la file et de la quantité de données à transférer. Le temps de copie augmente si le transfert est destiné à un autre centre de données Azure prenant en charge le stockage Premium dans une autre région. Si vous avez seulement 2 nœuds, prévoyez une atténuation au cas où la copie prend plus de temps que lors du test. Dans ce cas, suivez ces conseils.
 	- Ajoutez un 3e nœud SQL Server temporaire pour la haute disponibilité avant la migration, avec un temps d'arrêt convenu.
 	- Exécutez la migration en dehors de la maintenance Azure planifiée.
-	- Vérifiez que vous avez correctement configuré votre quorum de cluster.  
+	- Vérifiez que vous avez correctement configuré votre quorum de cluster.
 
 ##### Étapes de haut niveau
 
@@ -608,7 +608,7 @@ Cet exemple décrit la conversion d'un ELB en ILB. L'ELB étant disponible avant
     $destcloudsvc = "danNewSvcAms"
     New-AzureService $destcloudsvc -Location $location
 
-#### Étape 2 : augmenter le niveau des échecs autorisés sur les ressources <Optional>
+#### Étape 2 : augmenter le niveau des échecs autorisés sur les ressources <Facultatif>
 Sur certaines ressources appartenant à votre groupe de disponibilité Always On, il existe des limites concernant le nombre d’erreurs qui peuvent se produire dans une période où le service de cluster tente de redémarrer le groupe de ressources. Il est recommandé d'augmenter cette valeur au cours de cette procédure car si vous n'effectuez pas manuellement les basculements en arrêtant les machines, vous risquez de vous rapprocher de cette limite.
 
 Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le Gestionnaire du cluster de basculement, puis accédez aux propriétés du groupe de ressources Always On :
@@ -617,7 +617,7 @@ Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le 
 
 Modifiez le nombre maximal d'échecs à 6.
 
-#### Étape 3 : ajouter une ressource d’adresse IP au groupe de clusters <Optional>
+#### Étape 3 : ajouter une ressource d’adresse IP au groupe de clusters <Facultatif>
 
 Si vous n'avez qu'une seule adresse IP pour le groupe de clusters et qu'elle est alignée sur le sous-réseau cloud, prenez garde car si vous mettez hors ligne accidentellement tous les nœuds de cluster du cloud sur ce réseau, la ressource IP du cluster et le nom du réseau cluster ne pourront pas être mis en ligne. Dans ce cas, cela empêcherait les mises à jour d'autres ressources de cluster.
 
@@ -1148,4 +1148,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

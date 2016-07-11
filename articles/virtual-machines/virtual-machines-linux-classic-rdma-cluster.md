@@ -18,7 +18,7 @@ ms.service="virtual-machines-linux"
 
 # Configuration d’un cluster Linux RDMA pour exécuter des applications MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Apprenez comment configurer un cluster Linux RDMA dans Azure avec [des machines virtuelles de taille A8 et A9](virtual-machines-linux-a8-a9-a10-a11-specs.md) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez un cluster de machines virtuelles de taille A8 et A9 pour exécuter une distribution HPC Linux et une implémentation MPI prise en charge, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA) .
@@ -101,7 +101,7 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
 
 >[AZURE.IMPORTANT]Microsoft Azure ne fournit pas d'accès racine aux machines virtuelles Linux. Pour obtenir un accès administratif lorsque vous êtes connecté en tant qu'utilisateur à la machine virtuelle, exécutez les commandes avec `sudo`.
 
-* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS.  
+* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS.
 
     >[AZURE.IMPORTANT]Si vous avez déployé une machine virtuelle HPC SLES 12, à l’heure actuelle, nous vous recommandons de ne pas appliquer les mises à jour du noyau, qui peuvent provoquer des problèmes avec les pilotes RDMA Linux.
     >
@@ -127,9 +127,9 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
 
         <User or group name> soft    memlock <memory required for your application in KB>
 
-    >[AZURE.NOTE]À des fins de test, vous pouvez également définir memlock comme illimité. Par exemple : `<User or group name> hard memlock unlimited.
+    >[AZURE.NOTE]À des fins de test, vous pouvez également définir memlock comme illimité. Par exemple : <nom d’utilisateur ou du groupe> hard memlock unlimited.
 
-* **Clés SSH pour les machines virtuelles SLES 12** : générez des clés SSH pour établir l’approbation de votre compte utilisateur entre tous les nœuds de calcul du cluster HPC SLES 12 lors de l’exécution des travaux MPI. (Si vous avez déployé une machine virtuelle HPC basée sur CentOS, ne suivez pas cette étape. Consultez les instructions de la suite de cet article pour définir une confiance SSH sans mot de passe entre les nœuds du cluster une fois que vous avez capturé l’image et déployé le cluster).
+* **Clés SSH pour les machines virtuelles SLES 12** : générez des clés SSH pour établir l’approbation de votre compte utilisateur entre tous les nœuds de calcul du cluster HPC SLES 12 lors de l’exécution des travaux MPI. (Si vous avez déployé une machine virtuelle HPC basée sur CentOS, ne suivez pas cette étape. Consultez les instructions de la suite de cet article pour définir une confiance SSH sans mot de passe entre les nœuds du cluster une fois que vous avez capturé l’image et déployé le cluster).
 
     Exécutez la commande suivante pour créer des clés SSH. Appuyez sur Entrée pour générer les clés dans l'emplacement par défaut sans définir une phrase secrète.
 
@@ -234,9 +234,9 @@ Ensuite, exécutez le script à l’aide de trois paramètres : le nom d’util
 
 Ce script effectue les opérations suivantes :
 
-* Crée sur le nœud hôte un répertoire nommé .ssh, qui est requis pour la connexion sans mot de passe. 
-* Crée un fichier de configuration dans le répertoire .ssh qui indique à la méthode de connexion sans mot de passe d’autoriser la connexion à partir de n’importe quel nœud du cluster. 
-* Crée des fichiers contenant les noms et adresses IP de chacun des nœuds du cluster. Ces fichiers sont conservés une fois que le script est exécuté à titre de référence par l’utilisateur. 
+* Crée sur le nœud hôte un répertoire nommé .ssh, qui est requis pour la connexion sans mot de passe.
+* Crée un fichier de configuration dans le répertoire .ssh qui indique à la méthode de connexion sans mot de passe d’autoriser la connexion à partir de n’importe quel nœud du cluster.
+* Crée des fichiers contenant les noms et adresses IP de chacun des nœuds du cluster. Ces fichiers sont conservés une fois que le script est exécuté à titre de référence par l’utilisateur.
 * Crée une paire de clés privée et publique pour chaque nœud du cluster, y compris le nœud hôte, partage les informations sur la paire de clés et crée une entrée dans le fichier authorized\_keys.
 
 >[AZURE.WARNING]L’exécution de ce script peut créer un risque de sécurité potentiel. Veuillez vous assurer que les informations de clé publique dans ~/.ssh ne sont pas distribuées.
@@ -398,4 +398,4 @@ Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel
 
 * Essayez un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) pour créer un cluster Intel Lustre en utilisant une image HPC basée sur CentOS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # Afficher, modifier, créer et charger des documents JSON à l’aide de l’Explorateur de documents DocumentDB
 
 Cet article fournit une vue d’ensemble de l’Explorateur de documents [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui vous permet d’afficher, de modifier, de créer, de charger et de filtrer des documents JSON avec DocumentDB.
+
+Sachez que l’Explorateur de documents n’est pas activé sur les comptes DocumentDB prenant en charge les protocoles pour MongoDB. Cette page sera mise à jour lorsque cette fonctionnalité sera activée.
 
 ## Lancer l’Explorateur de documents
 
@@ -41,11 +43,11 @@ Cet article fournit une vue d’ensemble de l’Explorateur de documents [Micros
 
 2. Dans le panneau **Explorateur de documents**, cliquez sur **Créer un document**.
 
-    Un extrait de code JSON minimal est fourni dans le panneau **Document**.
+    Un extrait de code JSON minimal est fourni dans le panneau **Document**.
 
 	![Capture d’écran de la création de documents dans l’Explorateur de documents où vous pouvez afficher et modifier du code JSON](./media/documentdb-view-JSON-document-explorer/createdocument.png)
 
-2. Dans le panneau **Document**, tapez ou collez le contenu du document JSON que vous souhaitez créer, puis cliquez sur **Enregistrer** pour valider votre document dans la base de données et la collection spécifiées dans le panneau **Explorateur de documents**.
+2. Dans le panneau **Document**, tapez ou collez le contenu du document JSON que vous souhaitez créer, puis cliquez sur **Enregistrer** pour valider votre document dans la base de données et la collection spécifiées dans le panneau **Explorateur de documents**.
 
 	![Capture d’écran de la commande Enregistrer de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
@@ -69,7 +71,7 @@ Cet article fournit une vue d’ensemble de l’Explorateur de documents [Micros
 
 1. [Lancez l’Explorateur de documents](#launch-document-explorer).
 
-2. Dans l’**Explorateur de documents**, sélectionnez le document, cliquez sur **Supprimer**, puis confirmez la suppression. Après la confirmation, le document est immédiatement supprimé de la liste de l’Explorateur de documents.
+2. Dans **l’Explorateur de documents**, sélectionnez le document, cliquez sur **Supprimer**, puis confirmez la suppression. Après la confirmation, le document est immédiatement supprimé de la liste de l’Explorateur de documents.
 
 	![Capture d’écran de la commande Supprimer de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/deletedocument.png)
 
@@ -104,7 +106,7 @@ Par défaut, l’Explorateur de documents charge les 100 premiers documents dan
 
 	![Capture d’écran du panneau Paramètres de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
 
-	L’Explorateur de documents actualise automatiquement les résultats avec les documents qui correspondent à la requête de filtre. Pour plus d’informations sur la grammaire SQL DocumentDB, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez l’[Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md).
+	L’Explorateur de documents actualise automatiquement les résultats avec les documents qui correspondent à la requête de filtre. Pour plus d’informations sur la grammaire SQL DocumentDB, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez [l’Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md).
 
     Vous pouvez utiliser les zones de liste déroulante **Base de données** et **Collection** pour modifier facilement la collection à partir de laquelle les documents sont affichés actuellement sans avoir à fermer, puis à relancer l’Explorateur de documents.
 
@@ -134,7 +136,7 @@ L’Explorateur de documents prend en charge l’ingestion en bloc d’un ou de 
 
     Le panneau **Charger un document** s’ouvre.
 
-2. Cliquez sur le bouton Parcourir pour ouvrir une fenêtre de l’Explorateur de fichiers, sélectionnez un ou plusieurs documents JSON à charger, puis cliquez sur **Ouvrir**.
+2. Cliquez sur le bouton Parcourir pour ouvrir une fenêtre de l’Explorateur de fichiers, sélectionnez un ou plusieurs documents JSON à charger, puis cliquez sur **Ouvrir**.
 
 	![Capture d’écran du processus d’ingestion en bloc de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/uploaddocument2.png)
 
@@ -148,14 +150,14 @@ L’Explorateur de documents prend en charge l’ingestion en bloc d’un ou de 
 
 ## Utiliser des documents JSON en dehors du portail
 
-L’Explorateur de documents du portail Azure permet simplement d’utiliser des documents dans DocumentDB. Vous pouvez également utiliser des documents à l’aide de l’[API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou des [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md). Pour obtenir un exemple de code, consultez les [exemples de document du Kit de développement logiciel (SDK) .NET](documentdb-dotnet-samples.md#document-examples) et les [exemples de document du Kit de développement logiciel (SDK) Node.js](documentdb-nodejs-samples.md#document-examples).
+L’Explorateur de documents du portail Azure permet simplement d’utiliser des documents dans DocumentDB. Vous pouvez également utiliser des documents à l’aide de [l’API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou des [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md). Pour obtenir un exemple de code, consultez les [exemples de document du Kit de développement logiciel (SDK) .NET](documentdb-dotnet-samples.md#document-examples) et les [exemples de document du Kit de développement logiciel (SDK) Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Si vous devez importer ou migrer des fichiers provenant d’une autre source (fichiers JSON, MongoDB, SQL Server, fichiers CSV, stockage de tables Azure, Amazon DynamoDB ou HBase), vous pouvez utiliser l’[outil de migration de données](documentdb-import-data.md) de DocumentDB pour importer rapidement vos données dans DocumentDB.
+Si vous devez importer ou migrer des fichiers provenant d’une autre source (fichiers JSON, MongoDB, SQL Server, fichiers CSV, stockage de tables Azure, Amazon DynamoDB ou HBase), vous pouvez utiliser [l’outil de migration de données](documentdb-import-data.md) de DocumentDB pour importer rapidement vos données dans DocumentDB.
 
 ## Étapes suivantes
 
-Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans l’Explorateur de documents, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez l’[Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md).
+Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans l’Explorateur de documents, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez [l’Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md).
 
 Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider lorsque vous en apprenez plus sur DocumentDB.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

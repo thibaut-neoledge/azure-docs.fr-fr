@@ -1,6 +1,6 @@
 <properties
  pageTitle="Machines virtuelles de calcul Linux dans un cluster HPC Pack | Microsoft Azure"
- description="Apprenez à créer et à utiliser un cluster HPC Pack dans Azure pour des charges de travail de calcul haute performance (HPC) Linux."
+ description="Apprenez à créer et à utiliser un cluster HPC Pack dans Azure pour des charges de travail de calcul haute performance (HPC) Linux"
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="03/21/2016"
+ ms.date="06/23/2016"
  ms.author="danlep"/>
 
 # Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure
@@ -23,43 +23,49 @@ Configurez un cluster Microsoft HPC Pack dans Azure contenant un nœud principal
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 
-Le schéma général suivant illustre le cluster HPC Pack que vous allez créer et utiliser.
+Le schéma général suivant illustre le cluster HPC Pack que vous allez créer et utiliser.
 
-![Cluster HPC Pack avec nœuds Linux][scenario]
+![Cluster HPC Pack avec nœuds Linux][scenario]
 
->[AZURE.TIP]Si vous êtes intéressé par l’utilisation de nœuds Linux dans un cluster HPC Pack local, consultez les [conseils TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 ## Déployer un cluster HPC Pack avec des nœuds de calcul Linux
 
-Voici deux méthodes recommandées pour créer un cluster HPC Pack dans Azure avec des nœuds de calcul Linux :
+Voici deux méthodes recommandées pour créer un cluster HPC Pack dans Azure avec des nœuds de calcul Linux :
 
-* **Modèle Azure Resource Manager** : utilisez un modèle issu d’Azure Marketplace ou un modèle de la galerie de la communauté pour automatiser la création du cluster dans le modèle de déploiement Resource Manager. Par exemple, le [cluster HPC Pack pour charges de travail Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/), qui se trouve dans Azure Marketplace, permet de créer un cluster HPC Pack complet constitué notamment du réseau virtuel Azure, d’un nœud principal avec des bases de données SQL locales, d’une forêt de domaines Active Directory (avec le nœud principal configuré en tant que contrôleur de domaine) et de plusieurs nœuds de calcul exécutant une distribution Linux prise en charge.
+* **Modèle Azure Resource Manager** : utilisez un modèle issu d’Azure Marketplace ou un modèle de démarrage rapide issu de la communauté pour automatiser la création du cluster dans le modèle de déploiement Resource Manager. Par exemple, le modèle [cluster HPC Pack pour les charges de travail Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) dans Azure Marketplace crée une infrastructure de cluster HPC Pack complète pour les charges de travail HPC Linux.
 
-* **Script PowerShell** : utilisez le [script de déploiement Microsoft HPC Pack  IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (**New-HpcIaaSCluster.ps1**) pour automatiser le déploiement de cluster dans le modèle de déploiement classique. Ce script Azure PowerShell utilise une image de machine virtuelle HPC Pack d’Azure Marketplace pour un déploiement rapide, et fournit un ensemble complet de paramètres de configuration pour rendre le déploiement facile et flexible. Le script déploie le réseau virtuel Azure, les comptes de stockage, les services cloud, le contrôleur de domaine, le serveur de base de données SQL Server distinct facultatif, le nœud principal du cluster, les nœuds de calcul, les nœuds de service Broker, les nœuds Azure PaaS (« rafale ») et les nœuds de calcul Linux.
+* **Script PowerShell** : utilisez le [script de déploiement Microsoft HPC Pack  IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (**New-HpcIaaSCluster.ps1**) pour automatiser le déploiement de cluster complet dans le modèle de déploiement classique. Ce script Azure PowerShell utilise une image de machine virtuelle HPC Pack d’Azure Marketplace pour un déploiement rapide, et fournit un ensemble complet de paramètres de configuration pour déployer les nœuds de calcul Linux.
 
-Pour obtenir une vue d’ensemble des options de déploiement de cluster HPC Pack, consultez le [guide de prise en main pour HPC Pack 2012 R2 et HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx) et [Options pour créer et gérer un cluster HPC (High Performance Computing) dans Azure avec Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+Pour obtenir une vue d’ensemble des options de déploiement dans Azure, consultez les [Options pour créer et gérer un cluster HPC (High Performance Computing) dans Azure avec Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
 ### Composants requis
 
-* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous n’avez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
+* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour augmenter un quota, ouvrez [une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour augmenter un quota, ouvrez une demande de service clientèle en ligne gratuitement.
 
-* **Distributions Linux** : HPC Pack prend actuellement en charge les distributions Linux suivantes pour les nœuds de calcul : Ubuntu Server 14.04, CentOS 6.6 ou 7.0, Red Hat Enterprise Linux 6.7 ou 7.2 et SUSE Linux Enterprise Server 12. Vous pouvez utiliser les versions Marketplace de ces distributions dans la mesure où elles sont disponibles, ou fournissez la vôtre.
+* **Distributions Linux** : actuellement, HPC Pack prend en charge les distributions Linux suivantes pour les nœuds de calcul. Vous pouvez utiliser les versions Marketplace de ces distributions dans la mesure où elles sont disponibles, ou fournissez la vôtre.
 
-    >[AZURE.TIP]Pour utiliser le réseau Azure RDMA avec des machines virtuelles de nœud de calcul de taille A8 et A9, spécifiez le nom d’image de calcul SUSE Linux Enterprise Server 12, qui est optimisée pour des performances élevées, dans Marketplace. Selon les besoins de votre application, vous devrez installer et configurer une bibliothèque MPI prise en charge sur les nœuds après le déploiement du cluster. Pour trouver un exemple, voir [Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+    * Basée sur centOS : 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, HPC 6.5, HPC 7.1
+    * Red Hat Enterprise Linux : 6.7, 6.8, 7.2
+    * SUSE Linux Enterprise Server : SLES 12, SLES 12 (Premium), SLES 12 pour HPC, SLES 12 pour HPC (Premium)
+    * Ubuntu Server : 14.04 LTS, 16.04 LTS
 
-Autres conditions préalables à respecter pour un déploiement du cluster à l’aide du script de déploiement HPC Pack IaaS :
 
-* **Ordinateur client** : vous aurez besoin d’un ordinateur client Windows pour exécuter le script de déploiement de cluster.
 
-* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+    >[AZURE.TIP]Pour utiliser le réseau Azure RDMA avec des machines virtuelles de nœud de calcul de taille A8 et A9, spécifiez l’une des images HPC SUSE Linux Enterprise Server 12 ou HPC basé sur CentOS, dans Marketplace. Pour plus d’informations, consultez [À propos des instances nécessitant beaucoup de ressources système A8, A9, A10 et A11](virtual-machines-linux-a8-a9-a10-a11-specs.md).
 
-* **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 ou ultérieure du script.
+Autres conditions préalables à respecter pour un déploiement du cluster à l’aide du script de déploiement HPC Pack IaaS :
 
-### Scénario de déploiement 1 : Utilisation d’un modèle Marketplace
+* **Ordinateur client** : vous aurez besoin d’un ordinateur client Windows pour exécuter le script de déploiement de cluster.
 
-1. Accédez au modèle [Cluster HPC Pack pour charges de travail Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) dans Azure Marketplace, puis cliquez sur **Déployer**.
+* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+
+* **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `.\New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.1 ou ultérieure du script.
+
+### Option de déploiement 1. Utiliser un modèle Resource Manager
+
+1. Accédez au modèle [Cluster HPC Pack pour charges de travail Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) dans Azure Marketplace, puis cliquez sur **Déployer**.
 
 2. Dans le portail Azure, passez en revue les informations, puis cliquez sur **Créer**.
 
@@ -71,18 +77,18 @@ Autres conditions préalables à respecter pour un déploiement du cluster à l�
 
     >[AZURE.NOTE]Le paramètre facultatif **Post-configuration script URL** (URL du script de post-configuration) permet de spécifier le script Windows PowerShell accessible au public que vous voulez exécuter sur la machine virtuelle du nœud principal une fois qu’il est en cours d’exécution.
     
-5. Dans le panneau **Compute node settings** (Paramètres du nœud de calcul), sélectionnez un modèle d’affectation de noms pour les nœuds, le nombre et la taille des nœuds, ainsi que l’image de la distribution Linux à déployer.
+5. Dans le panneau **Compute node settings** (Paramètres du nœud de calcul), sélectionnez un modèle d’affectation de noms pour les nœuds, le nombre et la taille des nœuds, ainsi que la distribution Linux à déployer.
 
 6. Dans le panneau **Infrastructure settings** (Paramètres d’infrastructure), entrez les noms du réseau virtuel et du domaine Active Directory du cluster, les informations d’identification d’administrateur de domaine et de machine virtuelle, ainsi qu’un modèle d’affectation de noms pour les comptes de stockage nécessaires au cluster.
 
-    >[AZURE.NOTE]HPC Pack utilise le domaine Active Directory pour authentifier les utilisateurs du cluster.
+    >[AZURE.NOTE]HPC Pack utilise le domaine Active Directory pour authentifier les utilisateurs du cluster.
 
-7. Une fois que vous avez exécuté les tests de validation et que vous êtes prêt pour le déploiement, cliquez sur **Créer**.
+7. Après avoir exécuté les tests de validation et passé en revue les conditions d’utilisation, cliquez sur **Acheter**.
 
 
-### Scénario de déploiement 2 : Utilisation du script de déploiement IaaS
+### Option de déploiement 2. Utilisation du script de déploiement IaaS
 
-Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. L’exemple de fichier de configuration suivant déploie un petit cluster constitué d’un nœud principal et de deux nœuds de calcul Linux CentOS 7 de taille A7. Modifiez le fichier en fonction des besoins de votre environnement et de la configuration de cluster souhaitée. Pour plus d’informations sur les éléments du fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (Créer un cluster HPC avec le script de déploiement HPC Pack IaaS).
+Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. L’exemple de fichier de configuration suivant déploie un petit cluster constitué d’un nœud principal HPC Pack et de deux nœuds de calcul Linux CentOS 7.0 de taille A7. Modifiez le fichier en fonction des besoins de votre environnement et de la configuration de cluster souhaitée, et enregistrez-le avec un nom similaire à HPCDemoConfig.xml. Par exemple, vous devez fournir votre nom d’abonnement, un nom de compte de stockage unique et le nom du service cloud. Vous pouvez également sélectionner une autre image Linux prise en charge pour les nœuds de calcul. Pour plus d’informations sur les éléments du fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (Créer un cluster HPC avec le script de déploiement HPC Pack IaaS).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -106,7 +112,7 @@ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration X
   <HeadNode>
     <VMName>CentOS7RDMA-HN</VMName>
     <ServiceName>centos7rdma-je</ServiceName>
-  <VMSize>A4</VMSize>
+  <VMSize>ExtraLarge</VMSize>
   <EnableRESTAPI />
   <EnableWebPortal />
   </HeadNode>
@@ -130,7 +136,7 @@ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration X
     cd E:\IaaSClusterScript
     ```
 
-3. Exécutez la commande suivante pour déployer le cluster HPC Pack. Cet exemple part du principe que le fichier de configuration se trouve dans E:\\HPCDemoConfig.xml.
+3. Exécutez la commande suivante pour déployer le cluster HPC Pack. Cet exemple part du principe que le fichier de configuration se trouve dans E:\\HPCDemoConfig.xml
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -140,11 +146,11 @@ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration X
 
     a. Étant donné que le paramètre **AdminPassword** n’est pas spécifié dans la commande ci-dessus, vous serez invité à entrer le mot de passe pour l’utilisateur *MyAdminName*.
 
-    b. Le script commence ensuite à valider le fichier de configuration. Selon la connexion réseau, cette opération peut durer de quelques dizaines de secondes à plusieurs minutes.
+    b. Le script commence ensuite à valider le fichier de configuration. Selon la connexion réseau, cette opération peut durer plusieurs minutes.
 
     ![Validation][validate]
 
-    c. Une fois les validations réussies, le script répertorie les ressources qui seront créées pour le cluster HPC. Tapez *Y* pour continuer.
+    c. Une fois les validations réussies, le script répertorie les ressources qui seront créées pour le cluster HPC. Tapez *Y* pour continuer.
 
     ![Ressources][resources]
 
@@ -156,7 +162,7 @@ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration X
 
 À l’issue du déploiement, [connectez-vous via le Bureau à distance au nœud principal](virtual-machines-windows-connect-logon.md) en utilisant les informations d’identification du domaine que vous avez fournies au moment où vous avez déployé le cluster (par exemple, *hpc\\admin\_cluster*).
 
-Sur le nœud principal, démarrez HPC Cluster Manager pour vérifier l’état du cluster HPC Pack. Vous pouvez gérer et surveiller les nœuds de calcul Linux de la même façon que les nœuds de calcul Windows. Par exemple, les nœuds Linux sont répertoriés dans **Gestion des ressources** (ces nœuds sont déployés avec le modèle **LinuxNode**).
+Sur le nœud principal, démarrez HPC Cluster Manager pour vérifier l’état du cluster HPC Pack. Vous pouvez gérer et surveiller les nœuds de calcul Linux de la même façon que les nœuds de calcul Windows. Par exemple, les nœuds Linux sont répertoriés dans **Gestion des ressources** (ces nœuds sont déployés avec le modèle **LinuxNode**).
 
 ![Gestion des nœuds][management]
 
@@ -168,28 +174,28 @@ Les nœuds Linux figurent aussi dans la vue **Carte thermique**.
 
 Vous avez plusieurs possibilités pour déplacer des données entre des nœuds de Linux et le nœud principal Windows du cluster. Voici trois méthodes courantes.
 
-* **Azure File** : expose un partage de fichiers SMB géré pour stocker les fichiers de données dans le stockage Azure. Les nœuds Windows et les nœuds Linux peuvent monter un partage Azure File comme un lecteur ou un dossier en même temps, même s’ils sont déployés dans des réseaux virtuels différents.
+* **Azure File** : expose un partage de fichiers SMB géré pour stocker les fichiers de données dans le stockage Azure. Les nœuds Windows et les nœuds Linux peuvent monter un partage Azure File comme un lecteur ou un dossier en même temps, même s’ils sont déployés dans des réseaux virtuels différents.
 
-* **Head node SMB share** : monte un dossier partagé Windows standard du nœud principal sur des nœuds Linux.
+* **Head node SMB share** : monte un dossier partagé Windows standard du nœud principal sur des nœuds Linux.
 
-* **Head node NFS server** : fournit une solution de partage de fichiers pour un environnement mixte Windows et Linux.
+* **Head node NFS server** : fournit une solution de partage de fichiers pour un environnement mixte Windows et Linux.
 
 ### Présentation du stockage de fichiers
 
-Le service [Azure File](https://azure.microsoft.com/services/storage/files/) expose les partages de fichiers en utilisant le protocole SMB 2.1 standard. Les machines virtuelles et les services cloud Azure peuvent partager les données des fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données des fichiers d’un partage via l’API de stockage de fichiers.
+Le service [Azure File](https://azure.microsoft.com/services/storage/files/) expose les partages de fichiers en utilisant le protocole SMB 2.1 standard. Les machines virtuelles et les services cloud Azure peuvent partager les données des fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données des fichiers d’un partage via l’API de stockage de fichiers.
 
-Pour obtenir des instructions détaillées sur la création d’un partage de fichiers Azure et sur son montage sur le nœud principal, consultez [Prise en main du stockage de fichiers Azure sur Windows](../storage/storage-dotnet-how-to-use-files.md). Pour monter le partage de fichiers Azure sur les nœuds Linux, consultez [Utilisation du stockage de fichiers Azure avec Linux](../storage/storage-how-to-use-files-linux.md). Pour configurer des connexions persistantes, consultez [Connexions persistantes à Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Pour obtenir des instructions détaillées sur la création d’un partage de fichiers Azure et sur son montage sur le nœud principal, consultez [Prise en main du stockage de fichiers Azure sur Windows](../storage/storage-dotnet-how-to-use-files.md). Pour monter le partage de fichiers Azure sur les nœuds Linux, consultez [Utilisation du stockage de fichiers Azure avec Linux](../storage/storage-how-to-use-files-linux.md). Pour configurer des connexions persistantes, consultez [Connexions persistantes à Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
-Dans cet exemple, nous créons un partage Azure File nommé rdma sur notre compte de stockage allvhdsje. Pour monter le partage sur le nœud principal, ouvrez une invite de commandes et entrez les commandes suivantes :
+Dans l’exemple suivant, créez un partage de fichiers Azure sur un compte de stockage. Pour monter le partage sur le nœud principal, ouvrez une invite de commandes et entrez les commandes suivantes :
 
 ```
 > cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccountkey>
 > net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-Dans cet exemple, allvhdsje est le nom de compte de stockage, storageaccountkey est la clé du compte de stockage et rdma est le nom du partage Azure File. Le partage Azure File est monté sur Z: sur votre nœud principal.
+Dans cet exemple, allvhdsje est le nom de compte de votre compte de stockage, storageaccountkey est la clé de votre compte de stockage et rdma est le nom du partage de fichiers Azure. Le partage Azure File est monté sur Z: sur votre nœud principal.
 
-Pour monter le partage Azure File sur des nœuds Linux, exécutez une commande **clusrun** sur le nœud principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** est un outil HPC Pack utile pour effectuer des tâches d’administration sur plusieurs nœuds. (Voir aussi [CLusrun pour les nœuds Linux](#CLusrun-for-Linux-nodes) dans cet article.)
+Pour monter le partage Azure File sur des nœuds Linux, exécutez une commande **clusrun** sur le nœud principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** est un outil HPC Pack utile pour effectuer des tâches d’administration sur plusieurs nœuds. (Voir aussi [Clusrun pour les nœuds Linux](#Clusrun-for-Linux-nodes) dans cet article.)
 
 Ouvrez une fenêtre Windows PowerShell et entrez les commandes suivantes.
 
@@ -201,7 +207,7 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 
 La première commande crée un dossier nommé /rdma sur tous les nœuds dans le groupe LinuxNodes. La deuxième commande monte le partage Azure File allvhdsjw.file.core.windows.net/rdma sur le dossier /rdma avec les bits de mode de répertoire et de fichier définis sur 777. Dans la deuxième commande, allvhdsje est le nom de votre compte de stockage et storageaccountkey est la clé de votre compte de stockage.
 
->[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (virgule) est une partie de la commande.
+>[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (virgule) est une partie de la commande.
 
 ### Partage du nœud principal
 
@@ -223,14 +229,14 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /open
 
 La première commande crée un dossier nommé /openfoam sur tous les nœuds du groupe LinuxNodes. La deuxième commande monte le dossier partagé //CentOS7RDMA-HN/OpenFOAM sur le dossier avec les bits de mode de répertoire et de fichier définis sur 777. Le nom d’utilisateur et le mot de passe dans la commande doivent être le nom d’utilisateur et le mot de passe d’un utilisateur du cluster sur le nœud principal. (Consultez la page [Add or Remove Cluster Users](https://technet.microsoft.com/library/ff919330.aspx) (Ajouter ou supprimer des utilisateurs du cluster).)
 
->[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (virgule) est une partie de la commande.
+>[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (virgule) est une partie de la commande.
 
 
 ### Serveur NFS
 
-Le service NFS vous permet de partager et de migrer des fichiers entre des ordinateurs exécutant le système d’exploitation Windows Server 2012 utilisant le protocole SMB et des ordinateurs Linux utilisant le protocole NFS. Le serveur NFS et tous les autres nœuds doivent être déployés dans le même réseau virtuel. Il offre une meilleure compatibilité avec les nœuds Linux qu’un partage SMB ; par exemple, il prend en charge les liens de fichiers.
+Le service NFS vous permet de partager et de migrer des fichiers entre des ordinateurs exécutant le système d’exploitation Windows Server 2012 utilisant le protocole SMB et des ordinateurs Linux utilisant le protocole NFS. Le serveur NFS et tous les autres nœuds doivent être déployés dans le même réseau virtuel. Il offre une meilleure compatibilité avec les nœuds Linux qu’un partage SMB ; par exemple, il prend en charge les liens de fichiers.
 
-1. Pour installer et configurer un serveur NFS, suivez les étapes indiquées dans [Server for Network File System First Share End-to-End](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx) (en anglais).
+1. Pour installer et configurer un serveur NFS, suivez les étapes indiquées dans [Server for Network File System First Share End-to-End](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx) (en anglais).
 
     Par exemple, créez un partage NFS nommé nfs avec les propriétés suivantes.
 
@@ -252,7 +258,7 @@ Le service NFS vous permet de partager et de migrer des fichiers entre des ordin
   La première commande crée un dossier nommé /nfsshared sur tous les nœuds du groupe LinuxNodes. La deuxième commande monte le partage NFS CentOS7RDMA-HN:/nfs sur le dossier. Ici, CentOS7RDMA-HN:/nfs est le chemin d’accès distant de votre partage NFS.
 
 ## Comment soumettre des travaux
-Il existe plusieurs façons de soumettre des travaux au cluster HPC Pack.
+Il existe plusieurs façons de soumettre des travaux au cluster HPC Pack.
 
 * Gestionnaire de cluster HPC ou interface graphique utilisateur du Gestionnaire de travaux HPC
 
@@ -260,13 +266,13 @@ Il existe plusieurs façons de soumettre des travaux au cluster HPC Pack.
 
 * API REST
 
-La soumission de travaux au cluster via les outils de l’interface graphique utilisateur HPC Pack et via le portail web HPC est la même que pour les nœuds de calcul Windows. Consultez [HPC Pack Job Manage](https://technet.microsoft.com/library/ff919691.aspx) (Gestionnaire de travaux HPC Pack) et [How to submit jobs from an on-premises client computer](virtual-machines-windows-hpcpack-cluster-submit-jobs.md) (Comment soumettre des travaux à partir d’un ordinateur client local).
+La soumission de travaux au cluster via les outils de l’interface graphique utilisateur HPC Pack et via le portail web HPC est la même que pour les nœuds de calcul Windows. Consultez [HPC Pack Job Manage](https://technet.microsoft.com/library/ff919691.aspx) (Gestionnaire de travaux HPC Pack) et [How to submit jobs from an on-premises client computer](virtual-machines-windows-hpcpack-cluster-submit-jobs.md) (Comment soumettre des travaux à partir d’un ordinateur client local).
 
-Pour soumettre des travaux via l’API REST, consultez [Création et soumission de travaux à l’aide de l’API REST dans Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Reportez-vous également à l'exemple Python dans le [Kit de développement logiciel (SDK) HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) pour soumettre des travaux à partir d'un client Linux.
+Pour soumettre des travaux via l’API REST, consultez [Création et soumission de travaux à l’aide de l’API REST dans Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Reportez-vous également à l'exemple Python dans le [Kit de développement logiciel (SDK) HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) pour soumettre des travaux à partir d'un client Linux.
 
 ## Clusrun pour les nœuds Linux
 
-L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des nœuds Linux via une invite de commandes ou HPC Cluster Manager. Voici quelques exemples de base.
+L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des nœuds Linux via une invite de commandes ou HPC Cluster Manager. Voici quelques exemples de base.
 
 * Afficher les noms des utilisateurs actuels de tous les nœuds du cluster
 
@@ -274,7 +280,7 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des nœ
     > clusrun whoami
     ```
 
-* Installez l’outil de débogage **gdb** avec **yum** sur tous les nœuds du groupe linuxnodes, puis redémarrez les nœuds après 10 minutes.
+* Installez l’outil de débogage **gdb** avec **yum** sur tous les nœuds du groupe linuxnodes, puis redémarrez les nœuds après 10 minutes.
 
     ```
     > clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
@@ -286,13 +292,15 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des nœ
     > clusrun /interleaved /nodegroup:linuxnodes echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
->[AZURE.NOTE] Il peut être nécessaire d’utiliser certains caractères d’échappement dans les commandes **clusrun**. Comme indiqué dans cet exemple, utilisez ^ dans une invite de commandes comme caractère d’échappement pour le symbole « > ».
+>[AZURE.NOTE] Il peut être nécessaire d’utiliser certains caractères d’échappement dans les commandes **clusrun**. Comme indiqué dans cet exemple, utilisez ^ dans une invite de commandes comme caractère d’échappement pour le symbole « > ».
 
 ## Étapes suivantes
 
 * Essayez de mettre à l’échelle du cluster à un plus grand nombre de nœuds, ou exécutez une charge de travail Linux en sur le cluster. Pour trouver un exemple, consultez [Exécuter NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md).
 
 * Essayez un cluster avec des nœuds d’une taille [A8 ou A9](virtual-machines-windows-a8-a9-a10-a11-specs.md) pour exécuter des charges de travail MPI. Pour trouver un exemple, consultez [Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+
+* Si vous êtes intéressé par l’utilisation de nœuds Linux dans un cluster HPC Pack local, consultez les [conseils TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
@@ -309,4 +317,4 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des nœ
 [nfsperm]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

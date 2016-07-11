@@ -14,6 +14,8 @@ Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dan
 
 3. Entrez un nom DNS. Il s’agit d’un enregistrement A qui peut être utilisé pour la connexion à votre machine virtuelle SQL Server par nom plutôt que directement par l’adresse IP.
 
+4. Cliquez sur le bouton **Enregistrer**.
+
 	![nom dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Connexion au moteur de base de données à partir d'un autre ordinateur
@@ -31,3 +33,5 @@ Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dan
 7. Cliquez sur **Connecter**.
 
 	![connecter ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+<!---HONumber=AcomDC_0629_2016-->

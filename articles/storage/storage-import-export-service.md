@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/22/2016"
 	ms.author="renash"/>
 
 
@@ -62,8 +62,8 @@ Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un s
 
 Lorsque vous créez une tâche, vous avertissez le service Import/Export que vous allez expédier un ou plusieurs disques durs vers un centre de données Azure.
 
-- Dans le cas d’un travail d’importation, vous expédiez des disques durs contenant vos données. 
-- Dans le cas d’un travail d’exportation, vous expédiez des disques durs vides. 
+- Dans le cas d’un travail d’importation, vous expédiez des disques durs contenant vos données.
+- Dans le cas d’un travail d’exportation, vous expédiez des disques durs vides.
 - Vous pouvez expédier jusqu’à 10 disques durs par travail.
 
 Vous pouvez créer un travail d’importation ou d’exportation à l’aide du [portail Azure Classic](https://manage.windowsazure.com/) ou de [l’API REST Azure Storage Import/Export](http://go.microsoft.com/fwlink/?LinkID=329099).
@@ -174,16 +174,15 @@ Globalement, un travail d’importation comprend les opérations suivantes :
 
 - Déterminez les données à importer et le nombre de disques dont vous avez besoin.
 - Identifiez les objets blob de destination de vos données dans Blob Storage.
-- Utilisez l’outil Azure Import/Export pour copier vos données sur un ou plusieurs disques durs et les chiffrez à l’aide de BitLocker.  
+- Utilisez l’outil Azure Import/Export pour copier vos données sur un ou plusieurs disques durs et les chiffrez à l’aide de BitLocker.
 - Créez un travail d’importation dans votre compte de stockage classique cible à l’aide du portail Azure Classic ou de l’API REST Import/Export. Si vous utilisez le portail Azure Classic, téléchargez les fichiers journaux du disque.
 - Indiquez l’adresse de retour et le numéro de compte de transporteur à utiliser pour le retour des disques.
 - Envoyez les disques durs à l’adresse d’expédition indiquée lors de la création du travail.
 - Mettez à jour le numéro de suivi et envoyez le travail d’importation.
-- Les disques sont réceptionnés et traités dans le centre de données Azure. 
+- Les disques sont réceptionnés et traités dans le centre de données Azure.
 - Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
 
-<!-- save this until you have usable images -->
-<!--	![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png) -->
+	![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/importjob.png)
 
 
 ### Dans un travail d’exportation
@@ -197,12 +196,11 @@ Globalement, un travail d’exportation comprend les opérations suivantes :
 - Indiquez l’adresse de retour et le numéro de compte de transporteur à utiliser pour le retour des disques.
 - Envoyez les disques durs à l’adresse d’expédition indiquée lors de la création du travail.
 - Mettez à jour le numéro de suivi et envoyez le travail d’exportation.
-- Les disques sont réceptionnés et traités dans le centre de données Azure. 
-- Les disques sont chiffrés à l’aide de BitLocker et les clés sont disponibles via le portail Azure Classic.  
+- Les disques sont réceptionnés et traités dans le centre de données Azure.
+- Les disques sont chiffrés à l’aide de BitLocker et les clés sont disponibles via le portail Azure Classic.
 - Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
 
-<!-- save this until you have usable images -->
-<!--	![Figure 1:Export job flow](./media/storage-import-export-service/exportjob.png) -->
+	![Figure 2 : flux d’exportation de travail](./media/storage-import-export-service/exportjob.png)
 
 ### Affichage de l’état de votre travail
 
@@ -226,7 +224,7 @@ Le temps de traitement d’un travail d’importation/exportation varie en fonct
 
 **Frais de manipulation de disque**
 
-Des frais de manipulation sont appliqués pour chaque disque traité dans le cadre de votre travail d’importation/exportation. Pour plus d’informations, consultez [Tarification Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/).
+Des frais de manipulation sont appliqués pour chaque disque traité dans le cadre de votre travail d’importation/exportation. Pour plus d’informations, consultez [Tarification d’Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/).
 
 **Frais d’expédition**
 
@@ -234,7 +232,7 @@ Lorsque vous envoyez des disques à Azure, vous payez le coût d’expédition a
 
 **Frais de transaction**
 
-Aucun frais de transaction ne s’applique pour l’importation de données dans Blob Storage. Des frais de sortie standard s’appliquent lorsque les données sont exportées depuis Blob Storage. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
+Aucun frais de transaction ne s’applique pour l’importation de données dans Blob Storage. Des frais de sortie standard s’appliquent lorsque les données sont exportées depuis Blob Storage. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## Quick Start
 
@@ -250,7 +248,7 @@ Créez un travail d’importation pour copier les données de vos disques durs d
 
 Lors de l’importation des données à l’aide du service Azure Import/Export, la première étape consiste à préparer vos disques à l’aide de l’outil client Azure Import/Export). Suivez la procédure ci-dessous pour préparer vos disques :
 
-1.	Identifiez les données à importer. Il peut s’agir de répertoires et de fichiers autonomes sur le serveur local ou sur un partage de réseau.  
+1.	Identifiez les données à importer. Il peut s’agir de répertoires et de fichiers autonomes sur le serveur local ou sur un partage de réseau.
 
 2.	Déterminez le nombre de disques nécessaires en fonction de la taille totale des données. Procurez-vous le nombre requis de disques durs SATA II/III de 3,5 pouces.
 
@@ -260,7 +258,7 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
 
 5.	Utilisez [l’outil Azure Import/Export](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) pour copier vos données sur un ou plusieurs disques durs.
 	
-	- L’outil Azure Import/Export crée des sessions pour copier vos données sur les disques durs. Au cours d’une session de copie, l’outil peut copier un répertoire et ses sous-répertoires, ou un seul fichier. 
+	- L’outil Azure Import/Export crée des sessions pour copier vos données sur les disques durs. Au cours d’une session de copie, l’outil peut copier un répertoire et ses sous-répertoires, ou un seul fichier.
 
 	- Plusieurs sessions sont nécessaires si votre source de données comprend plusieurs répertoires.
 
@@ -308,7 +306,7 @@ Pour une description étape par étape, consultez [Exemple de flux de travail po
 
 ### Création de la tâche d’importation
 
-1.	Après avoir préparé votre disque, accédez à votre compte de stockage sur le [portail Azure Classic](https://manage.windowsazure.com) et affichez le tableau de bord. Sous **Quick Glance**, cliquez sur **Create an Import Job**. Vérifiez les étapes et cochez la case pour indiquer que vous avez préparé votre disque et que son fichier journal est disponible.
+1.	Après avoir préparé votre disque, accédez à votre compte de stockage sur le [portail Classic](https://manage.windowsazure.com) et affichez le tableau de bord. Sous **Quick Glance**, cliquez sur **Create an Import Job**. Vérifiez les étapes et cochez la case pour indiquer que vous avez préparé votre disque et que son fichier journal est disponible.
 
 2.	À l’étape 1, indiquez les coordonnées de la personne responsable de ce travail d’importation ainsi qu’une adresse de retour valide. Pour enregistrer des données de journal détaillées pour la tâche d'importation, activez l'option **Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'**.
 
@@ -324,7 +322,7 @@ Pour une description étape par étape, consultez [Exemple de flux de travail po
 
 	Si vous possédez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'importation une fois mon colis envoyé**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
 
 6. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre travail dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 
@@ -342,13 +340,13 @@ Créez une tâche d’exportation pour avertir le service Import/Export que vous
 
 Les vérifications préalables suivantes sont recommandées pour préparer vos disques en vue d’un travail d’exportation :
 
-1. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. 
+1. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser.
 
 2. Vérifiez que le disque dur expédié en vue de la tâche d’exportation est accessible en lecture/écriture.
 
 ### Création du travail d’importation
 
-1. 	Pour créer un travail d’exportation, accédez à votre compte de stockage sur le [portail Azure Classic](https://manage.windowsazure.com), puis affichez le tableau de bord. Sous **Aperçu rapide**, cliquez sur **Créer un travail d’exportation**, puis parcourez les étapes de l’Assistant.
+1. 	Pour créer un travail d’exportation, accédez à votre compte de stockage sur le [portail Classic](https://manage.windowsazure.com), puis affichez le tableau de bord. Sous **Aperçu rapide**, cliquez sur **Créer un travail d’exportation**, puis parcourez les étapes de l’Assistant.
 
 2. 	À l’étape 2, fournissez les coordonnées de la personne responsable de cette tâche d’exportation. Pour enregistrer des données de journal détaillées pour la tâche d'exportation, activez l'option **Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'**.
 
@@ -503,4 +501,4 @@ Consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](..
 
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

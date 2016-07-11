@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Créer votre première fabrique de données Azure | Microsoft Azure"
-	description="Ce didacticiel vous montre comment créer une fabrique de données avec un pipeline de données qui transforme des données avec Azure HDInsight."
+	pageTitle="Didacticiel Data Factory : premier pipeline de données | Microsoft Azure"
+	description="Ce didacticiel Azure Data Factory vous montre comment créer et planifier une fabrique de données qui traite les données à l’aide du script Hive sur un cluster Hadoop."
 	services="data-factory"
+	keywords="didacticiel azure data factory, cluster hadoop, hadoop hive"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="data-factory"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
-# Didacticiel : Créer votre première fabrique de données (vue d’ensemble)
+# Didacticiel Azure Data Factory : créer un pipeline de données qui traite les données à l’aide du cluster Hadoop 
 > [AZURE.SELECTOR]
 - [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md)
 - [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +25,7 @@
 - [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-Cet article vous permet de créer votre première fabrique de données Azure.
+Dans ce didacticiel, vous allez générer votre première fabrique de données Azure avec un pipeline de données qui traite les données en exécutant le script Hive sur un cluster Azure HDInsight (Hadoop).
 
 > [AZURE.NOTE] Cet article ne fournit pas de vue d’ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
@@ -43,14 +44,14 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 
-1.	Créer la **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines de données qui déplacent et traitent des données. 
-2.	Créer le **service lié**. Vous créez un service lié pour lier un magasin de données ou un service de calcul à la fabrique de données. Un magasin de données comme Azure Storage conserve les données d’entrée/de sortie d’activités dans le pipeline. Un service de calcul comme Azure HDInsight traite/transforme des données.    
+1.	Créer la **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines de données qui déplacent et traitent des données.
+2.	Créer le **service lié**. Vous créez un service lié pour lier un magasin de données ou un service de calcul à la fabrique de données. Un magasin de données comme Azure Storage conserve les données d’entrée/de sortie d’activités dans le pipeline. Un service de calcul comme Azure HDInsight traite/transforme des données.
 3.	Créer des **jeux de données** d’entrée et de sortie. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité.
 3.	Créer le **pipeline**. Un pipeline peut avoir une ou plusieurs activités, comme l’activité de copie pour copier des données à partir d’une source vers une destination (ou) l’activité Hive d’HDInsight pour transformer les données d’entrée à l’aide d’un script Hive pour produire des données de sortie. Cet exemple utilise l’activité Hive d’HDInsight, qui exécute un script Hive. Le script crée d’abord une table externe qui fait référence aux données de journaux web bruts stockées dans le stockage d’objets blob Azure, puis partitionne les données brutes par année et par mois.
 
 Votre premier pipeline, appelé **MyFirstPipeline**, utilise une activité Hive pour transformer et analyser un journal web que vous allez charger dans le dossier **inputdata** du conteneur **adfgetstarted** (adfgetstarted/inputdata) dans votre stockage d’objets blob Azure.
  
-![Vue schématique](./media/data-factory-build-your-first-pipeline/diagram-view.png)
+![Vue Diagramme dans le didacticiel Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
 Dans ce didacticiel, adfgetstarted (conteneur) => inputdata (dossier) contient un fichier nommé input.log. Ce fichier journal contient des entrées de trois mois : janvier, février et mars 2014. Voici les échantillons de lignes pour chaque mois du fichier d’entrée.
@@ -73,11 +74,11 @@ En premier lieu, vous devez préparer le compte de stockage Azure et ses fichier
 Dans cette section, vous allez effectuer les tâches suivantes :
 
 2. Charger le fichier de requête Hive (HQL) dans le dossier **script** du conteneur **adfgetstarted**.
-3. Charger le fichier d’entrée dans le dossier **inputdata** du conteneur **adfgetstarted**. 
+3. Charger le fichier d’entrée dans le dossier **inputdata** du conteneur **adfgetstarted**.
 
 ### Créer le fichier de script HQL 
 
-1. Lancez le **Bloc-notes** et collez le script HQL suivant. Ce script Hive crée deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** dans le menu et sélectionnez **Enregistrer sous**. Accédez au dossier **C:\\adfgetstarted** de votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.  
+1. Lancez le **Bloc-notes** et collez le script HQL suivant. Ce script Hive crée deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** dans le menu et sélectionnez **Enregistrer sous**. Accédez au dossier **C:\\adfgetstarted** de votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -189,7 +190,7 @@ Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’[Exp
 	 
 2. Pour préparer le stockage Azure en vue du didacticiel, procédez comme suit :
 	1. Téléchargez la [dernière version d’**AzCopy**](http://aka.ms/downloadazcopy) ou la [dernière version Preview](http://aka.ms/downloadazcopypr). Consultez l’article [Utilisation d’AzCopy](../storage/storage-use-azcopy.md) pour obtenir des instructions sur l’utilisation de l’utilitaire.
-	2. Après l’installation d’AzCopy, vous pouvez l’ajouter au chemin système en exécutant la commande suivante à une invite de commandes. 
+	2. Après l’installation d’AzCopy, vous pouvez l’ajouter au chemin système en exécutant la commande suivante à une invite de commandes.
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
@@ -209,7 +210,7 @@ Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’[Exp
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Exécutez la commande suivante pour charger le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Voici la commande : 
+	1. Exécutez la commande suivante pour charger le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Voici la commande :
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -220,6 +221,6 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur un des ongl
 - Portail Azure (Data Factory Editor)
 - Azure PowerShell
 - Visual Studio
-- Modèles Azure Resource Manager 
+- Modèles Microsoft Azure Resource Manager
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

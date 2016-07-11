@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/20/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Principes de conception Azure AD Connect
@@ -37,7 +37,7 @@ La valeur de l’attribut doit respecter les règles suivantes :
 
 - sa longueur doit être inférieure à 60 caractères
     - Les caractères autres que a-z, A-Z ou 0-9 seront codés et comptabilisées comme 3 caractères.
-- elle ne doit pas contenir un caractère spécial : &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_
+- elle ne doit pas contenir les caractères spéciaux suivants : &#92; ! # $ % & * + / = ? ^ &#96; { }| ~ < > ( ) ' ; : , [ ] " @ _
 - elle doit être globalement unique
 - elle doit être une chaîne, un entier ou une valeur binaire
 - elle ne doit pas être basée sur le nom de l'utilisateur, celui-ci est susceptible de changer
@@ -81,16 +81,16 @@ Dans la configuration rapide, le choix supposé de l’attribut est userPrincipa
 ### État du domaine personnalisé et UPN
 Il est important de s’assurer qu’il existe un domaine vérifié pour le suffixe UPN.
 
-John est un utilisateur de contoso.com. Vous souhaitez que John utilise l’UPN local john@contoso.com pour se connecter à Azure une fois que vous avez synchronisé les utilisateurs sur votre annuaire Azure AD azurecontoso.onmicrosoft.com. Pour ce faire, vous devez ajouter et vérifier contoso.com comme domaine personnalisé dans Azure AD avant de commencer la synchronisation des utilisateurs. Si le suffixe UPN de John, contoso.com, ne correspond pas à un domaine vérifié dans Azure AD, Azure AD remplace le suffixe UPN par azurecontoso.onmicrosoft.com et John devra utiliser john@azurecontoso.onmicrosoft.com pour se connecter à Azure.
+John est un utilisateur de contoso.com. Vous souhaitez que John utilise l’UPN local john@contoso.com pour se connecter à Azure une fois que vous avez synchronisé les utilisateurs sur votre annuaire Azure AD azurecontoso.onmicrosoft.com. Pour ce faire, vous devez ajouter et vérifier contoso.com comme domaine personnalisé dans Azure AD avant de commencer la synchronisation des utilisateurs. Si le suffixe UPN de John, contoso.com, ne correspond pas à un domaine vérifié dans Azure AD, Azure AD remplace le suffixe UPN par azurecontoso.onmicrosoft.com, et John devra utiliser john@azurecontoso.onmicrosoft.com pour se connecter à Azure.
 
 ### Domaines locaux non routables et UPN pour Azure AD
 Certaines organisations ont des domaines non routables, comme contoso.local, ou simplement des domaines à étiquette unique, comme contoso. Dans Azure AD, vous ne pourrez pas vérifier un domaine non routable. Azure AD Connect peut uniquement se synchroniser sur un domaine vérifié dans Azure AD. Lorsque vous créez un annuaire Azure AD, il crée un domaine routable qui devient le domaine par défaut de votre Azure AD, par exemple contoso.onmicrosoft.com. Par conséquent, il devient nécessaire de vérifier tous les autres domaines routables dans un scénario de ce type, si vous ne souhaitez pas effectuer de synchronisation avec le domaine par défaut .onmicrosoft.com.
 
-Lisez [Ajouter votre nom de domaine personnalisé à Azure Active Directory](active-directory-add-domain.md) pour plus d’informations sur l’ajout et la vérification de domaines.
+Pour plus d’informations sur l’ajout et la vérification de domaines, lisez [Ajout de votre nom de domaine personnalisé à Azure Active Directory](active-directory-add-domain.md).
 
-Azure AD Connect détecte si vous exécutez un environnement de domaine non routable et vous avertit en temps utile si vous tentez de poursuivre la configuration rapide. Si votre domaine n’est pas routable, il est probable que l’UPN des utilisateurs ait également un suffixe non routable. Par exemple, si votre domaine est contoso.local, Azure AD Connect vous propose d’utiliser des paramètres personnalisés plutôt que la configuration rapide. Avec les paramètres personnalisés, vous serez en mesure de spécifier l’attribut à utiliser comme UPN pour la connexion à Azure une fois les utilisateurs synchronisés avec Azure AD. Consultez **Sélection d’un attribut pour le nom d’utilisateur principal dans Azure AD** ci-dessous pour plus d’informations.
+Azure AD Connect détecte si vous exécutez un environnement de domaine non routable et vous avertit en temps utile si vous tentez de poursuivre la configuration rapide. Si votre domaine n’est pas routable, il est probable que l’UPN des utilisateurs ait également un suffixe non routable. Par exemple, si votre domaine est contoso.local, Azure AD Connect vous propose d’utiliser des paramètres personnalisés plutôt que la configuration rapide. Avec les paramètres personnalisés, vous serez en mesure de spécifier l’attribut à utiliser comme UPN pour la connexion à Azure une fois les utilisateurs synchronisés avec Azure AD. Pour plus d’informations, consultez **Sélection d’un attribut pour le nom d’utilisateur principal dans Azure AD**.
 
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

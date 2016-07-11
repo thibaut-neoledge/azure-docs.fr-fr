@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
@@ -27,7 +27,7 @@ Dans le Kit de ressources Azure pour Eclipse, vous pouvez activer l'affinité 
 ## Pour activer l'affinité de session pour votre rôle ##
 
 1. Cliquez avec le bouton droit sur le rôle dans l'Explorateur de projet Eclipse, cliquez sur **Azure**, puis sur **Équilibrage de charge**.
-1. Dans la boîte de dialogue **Propriétés d'équilibrage de charge pour WorkerRole1** :
+1. Dans la boîte de dialogue **Propriétés d'équilibrage de charge pour WorkerRole1** :
     1. Cochez **Activer l'affinité de session HTTP (sessions temporaires) pour ce rôle.**
     1. Pour le **point de terminaison d'entrée à utiliser**, sélectionnez un point de terminaison d'entrée à utiliser, par exemple, **http (public:80, private:8080)**. Votre application doit utiliser ce point de terminaison en tant que point de terminaison HTTP. Vous pouvez activer plusieurs points de terminaison pour votre rôle, mais vous ne pouvez en sélectionner qu'un seul pour prendre en charge des sessions temporaires.
     1. Régénérez votre application.
@@ -69,4 +69,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

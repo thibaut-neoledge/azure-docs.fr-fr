@@ -3,8 +3,8 @@
    description="Scénarios Microsoft Power BI Embedded courants"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
-   manager="NA"
+   authors="minewiskan"
+   manager="mblythe"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
-   ms.author="jocaplan"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Scénarios Microsoft Power BI Embedded courants
 
@@ -32,4 +32,4 @@ Voici quelques scénarios d'utilisation de **Power BI Embedded** dans vos applic
 - [Prise en main de l'exemple](power-bi-embedded-get-started.md)
 - [Développer Power BI avec des éléments visuels personnalisés](https://powerbi.microsoft.com/custom-visuals/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

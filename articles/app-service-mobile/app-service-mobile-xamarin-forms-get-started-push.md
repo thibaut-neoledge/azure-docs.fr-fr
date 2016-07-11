@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajouter des notifications Push à votre application Xamarin.Forms à l’aide d’Azure App Service"
-	description="Découvrez comment utiliser Azure App Service pour envoyer des notifications Push à votre application Xamarin.Forms."
+	pageTitle="Ajout de notifications Push à votre application Xamarin.Forms | Microsoft Azure"
+	description="Découvrez comment utiliser les services Azure pour envoyer des notifications Push multiplateforme à vos applications Xamarin.Forms."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="wesmc7777"
@@ -13,39 +13,30 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/20/2016"
 	ms.author="wesmc"/>
 
 # Ajout de notifications Push à votre application Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##Vue d’ensemble
+##Vue d'ensemble
 
-Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md), que vous devez effectuer en premier. Vous ajouterez la prise en charge des notifications Push pour chacun des projets que vous souhaitez prendre en charge dans le projet de démarrage rapide Xamarin.Forms. Chaque fois qu’un enregistrement est inséré, une notification Push est transmise.
+Ce didacticiel vous montre comment utiliser les services Azure pour envoyer des notifications Push aux applications Xamarin.Forms exécutées sur différentes plateformes d’appareils natives, Android, iOS et Windows. Les notifications Push sont envoyées à partir d’un serveur principal d’applications mobiles Azure à l’aide d’Azure Notification Hubs. Les inscriptions de modèle sont utilisées afin que le même message puisse être envoyé aux appareils exécutés sur toutes les plateformes à l’aide des différents services de notifications Push (PNS). Pour plus d’informations sur l’envoi des notifications Push multiplateforme, consultez la documentation [Azure Notification Hubs](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+
+Vous ajoutez des notifications Push à chaque projet pris en charge par votre application Xamarin.Forms. Une notification Push est transmise à chaque fois qu’un enregistrement est inséré dans le serveur principal.
+
+##Composants requis
+
+Pour obtenir les meilleurs résultats avec ce didacticiel, nous vous recommandons de commencer par suivre le didacticiel [Créer une application Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Après avoir terminé ce didacticiel, vous disposerez d’un projet Xamarin.Forms qui est une application TodoList multiplateforme.
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Le [simulateur iOS ne prend pas en charge les notifications push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), vous devez donc utiliser un appareil iOS physique. Vous devrez également vous inscrire au [programme pour développeurs Apple](https://developer.apple.com/programs/ios/).
+L’envoi de notifications Push aux appareils iOS requiert [l’abonnement au programme pour développeurs Apple](https://developer.apple.com/programs/ios/). Vous devez également utiliser un appareil iOS physique, car le [simulateur iOS ne prend pas en charge les notifications Push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
-##Configuration requise
+##<a name="create-hub"></a>Créer un hub de notification
 
-* Effectuez le didacticiel [Créer une application Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md) qui répertorie les autres composants requis. Cet article utilise l’application exécutée à partir de ce didacticiel.
-
-* Un appareil iOS physique. Les notifications Push ne sont pas prises en charge par le simulateur iOS.
-
-##Créer un Concentrateur de notification De base pour votre application mobile
-
-Pour configurer l’envoi des notifications sur votre application, créez un Notification Hub et configurez-le pour les services de notification de plateforme que vous utiliserez.
-
-Cette procédure vous amène à créer un Notification Hub. Si vous en avez déjà un, il vous suffit de le sélectionner.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Applications mobiles** > votre serveur principal > **Paramètres** > **Mobile** > **Notifications Push** > **Hub de notification** > **+ Hub de notification**, fournissez un nom et un espace de noms associés à un nouveau Notification Hub, puis cliquez sur le bouton **OK**.
-
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
-
-2. Dans le panneau Créer un concentrateur de notification, cliquez sur **Créer**.
-
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ##Mettre à jour le projet de serveur pour l'envoi de notifications Push
 
@@ -54,31 +45,29 @@ Cette procédure vous amène à créer un Notification Hub. Si vous en avez déj
 
 ##(Facultatif) Configurer et exécuter le projet Android
 
-Cette section s’applique à l’exécution du projet Xamarin pour Android. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Android.
+Terminez cette section pour activer les notifications Push pour le projet Android Xamarin.Forms pour Android.
 
 
-####Activation de Google Cloud Messaging (GCM)
-
+###Activation de Google Cloud Messaging (GCM)
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
+###Configurer le serveur principal d’application mobile pour l’envoi de demandes de notifications Push à l’aide de GCM
 
-####Configurer le Notification Hub pour GCM
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Applications mobiles** > votre application mobile > **Paramètres** > **Notifications Push** > **Google (GCM)**. Collez la clé d’API serveur créée précédemment, puis cliquez sur **Enregistrer**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur Android.
+###Ajouter les notifications Push au projet Android
 
-	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
+Avec le serveur principal configuré pour utiliser Google Cloud Messaging (GCM), nous pouvons ajouter les composants et le code au client qui permet à l’application de s’inscrire auprès de GCM, de s’inscrire pour les notifications Push avec Azure Notification Hubs via le serveur principal d’applications mobiles et de recevoir des notifications.
 
+1. Dans le projet **Android**, cliquez avec le bouton droit sur le dossier **Composants**, cliquez sur **Obtenir d’autres composants…**, recherchez le composant **Client Google Cloud Messaging** et ajoutez-le au projet. Ce composant prend en charge les notifications Push pour un projet Xamarin Android.
 
-####Ajouter les notifications Push au projet Android
-
-1. Cliquez avec le bouton droit sur le dossier Composants, cliquez sur Obtenir d’autres composants, recherchez le composant **Client Google Cloud Messaging** et ajoutez-le au projet. Ce composant facilite l’utilisation des notifications Push avec un projet Android Xamarin.
 
 2. Ouvrez le fichier projet MainActivity.cs et ajoutez l’instruction using suivante au début du fichier :
 
 		using Gcm.Client;
 
-3. Ajoutez le code suivant à la méthode `OnCreate` après l’appel à `LoadApplication`.
+3. Ajoutez le code suivant à la méthode **OnCreate** après l’appel à **LoadApplication** :
 
 	    try
 	    {
@@ -92,7 +81,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 	    }
 	    catch (Java.Net.MalformedURLException)
 	    {
-	        CreateAndShowDialog("There was an error creating the Mobile Service. Verify the URL", "Error");
+	        CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
 	    }
 	    catch (Exception e)
 	    {
@@ -100,7 +89,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 	    }
 
 
-4. Ajoutez le code suivant pour la méthode d’assistance `CreateAndShowDialog`.
+4. Ajoutez une nouvelle méthode d’assistance **CreateAndShowDialog**, comme suit :
 
 		private void CreateAndShowDialog(String message, String title)
 		{
@@ -112,7 +101,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		}
 
 
-5. Dans la classe `MainActivity`, ajoutez le code suivant pour exposer l’élément `MainActivity` actuel, de manière à ce que nous puissions exécuter certains éléments d’interface utilisateur sur le thread principal d’interface utilisateur :
+5. Ajoutez le code suivant à la classe **MainActivity** :
 
 		// Create a new instance field for this activity.
 		static MainActivity instance = null;
@@ -126,41 +115,40 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		    }
 		}
 
-6. Initialisez l’élément `instance`, variable au début de la méthode `MainActivity.OnCreate`.
+	Cela expose l’instance **MainActivity** actuelle afin que nous puissions exécuter sur le thread de l’interface utilisateur principale.
+
+6. Initialisez l’élément `instance`, la variable au début de la méthode **OnCreate**, comme suit.
 
 		// Set the current instance of MainActivity.
 		instance = this;
 
-7. Ajoutez un nouveau fichier de classe au projet **Android**. Nommez le nouveau fichier de classe **GcmService**.
+2. Ajoutez un nouveau fichier de classe au projet **Android** nommé `GcmService.cs`, et assurez-vous que les instructions **using** suivantes figurent en haut du fichier :
 
-8. Assurez-vous que les instructions `using` suivantes sont incluses au début du fichier.
-
-		using Gcm.Client;
-		using Microsoft.WindowsAzure.MobileServices;
 		using Android.App;
 		using Android.Content;
+		using Android.Media;
+		using Android.Support.V4.App;
+		using Android.Util;
+		using Gcm.Client;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
+		using System;
 		using System.Collections.Generic;
 		using System.Diagnostics;
-		using Android.Util;
-		using Newtonsoft.Json.Linq;
 		using System.Text;
-		using System.Linq;
-		using Android.Support.V4.App;
-		using Android.Media;
 
 
-9. Ajoutez les demandes d’autorisation suivantes au début du fichier, après les instructions `using` et avant la déclaration `namespace`.
+9. Ajoutez les demandes d’autorisation suivantes au début du fichier, après les instructions **using** et avant la déclaration **d’espace de noms**.
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-
-		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
-		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
+		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
+		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
+		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
 
-10. Ajoutez la définition de classe suivante à l’espace de noms. Remplacez **<PROJECT_NUMBER>** par le numéro de projet noté précédemment.
+10. Ajoutez la définition de classe suivante à l’espace de noms.
 
 		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -171,7 +159,9 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 		}
 
-11. Mettez à jour votre classe `GcmService` afin d’utiliser le nouveau récepteur de diffusion.
+	>[AZURE.NOTE]Remplacez **<PROJECT\_NUMBER>** par le numéro de projet noté précédemment.
+
+11. Remplacez la classe **GcmService** vide par le code suivant, qui utilise le nouveau récepteur de diffusion :
 
 		 [Service]
 		 public class GcmService : GcmServiceBase
@@ -183,9 +173,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		 }
 
 
-12. Ajoutez le code suivant à la classe GcmService qui remplace le gestionnaire d’événements OnRegistered et implémente une méthode `Register`.
-
-	Ce code inscrira un corps de modèle pour recevoir les notifications de modèle à l’aide du paramètre `messageParam`. Les notifications de modèle vous permettent d’envoyer des notifications multiplateformes. Pour plus d’informations, consultez [Modèles](https://msdn.microsoft.com/library/azure/dn530748.aspx).
+12. Ajoutez le code suivant à la classe **GcmService** qui remplace le gestionnaire d’événements **OnRegistered** et implémente une méthode **Register**.
 
 		protected override void OnRegistered(Context context, string registrationId)
 		{
@@ -219,7 +207,9 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
             }
         }
 
-13. Vous devez implémenter `OnMessage` pour gérer une notification Push entrante. Dans ce code, nous allons gérer la notification et l’envoyer au gestionnaire de notifications.
+		Note that this code uses the `messageParam` parameter in the template registration. 
+
+13. Ajoutez le code suivant qui implémente **OnMessage** :
 
 		protected override void OnMessage(Context context, Intent intent)
 		{
@@ -286,7 +276,9 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
             notificationManager.Notify(1, notification);
         }
 
-14. Vous devez également implémenter des gestionnaires `OnUnRegistered` et `OnError` pour le récepteur.
+	Cela gère les notifications entrantes et les envoie dans le Gestionnaire de notifications pour les afficher.
+
+14. **GcmServiceBase** requiert également la mise en œuvre des méthodes d’assistance **OnUnRegistered** et **OnError** que vous pouvez effectuer comme suit :
 
 		protected override void OnUnRegistered(Context context, string registrationId)
 		{
@@ -298,27 +290,30 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 			Log.Error("PushHandlerBroadcastReceiver", "GCM Error: " + errorId);
 		}
 
+Vous êtes maintenant prêt à tester les notifications Push dans l’application exécutée sur un appareil Android ou sur l’émulateur.
 
+###Tester les notifications Push dans votre application Android
 
-####Tester les notifications Push dans votre application Android
+Les deux premières étapes sont requises uniquement lorsque vous testez sur un émulateur.
+
+1. Assurez-vous de procéder au déploiement ou au débogage sur un périphérique virtuel sur lequel les API Google sont définis comme cible, comme indiqué dans le Gestionnaire d’appareil virtuel Android (AVD).
+
+2. Ajoutez un compte Google à l’appareil Android en cliquant sur **Applications** > **Paramètres** > **Ajouter un compte**, puis suivez les invites pour utiliser Ajouter un compte Google existant à l’appareil pour en créer un nouveau.
 
 1. Dans Visual Studio ou Xamarin Studio, cliquez avec le bouton droit sur le projet **Android**, puis cliquez sur **Définir comme projet de démarrage**.
 
-2. Appuyez sur le bouton **Exécuter** pour générer le projet et lancer l’application sur votre appareil Android.
+2. Appuyez sur le bouton **Exécuter** pour générer le projet et lancer l’application sur votre appareil ou émulateur Android.
 
 3. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
 
 4. Vérifiez qu’une notification est reçue lorsqu’un élément est ajouté.
 
 
-
-
-
 ##(Facultatif) Configurer et exécuter le projet iOS
 
 Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appareils iOS. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils iOS.
 
-[AZURE.INCLUDE [Concentrateur de notification de base Xamarin - Activation des notifications Push Apple](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [notification-hubs-xamarin-enable-apple-push-notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
 
 ####Configurer le Notification Hub pour APNS
@@ -419,11 +414,9 @@ L’application est mise à jour et prend en charge les notifications Push.
 4. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
 
+##(Facultatif) Configurer et exécuter les projets Windows
 
-
-##(Facultatif) Configurer et exécuter le projet Windows
-
-Cette section s’applique à l’exécution du projet WinApp Xamarin pour les appareils Windows. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Windows.
+Cette section s’applique à l’exécution des projets Xamarin.Forms WinApp et WinPhone81 pour les appareils Windows. Ces étapes prennent également en charge les projets de plateforme Windows universelle (UWP). Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Windows.
 
 
 ####Inscrire votre application Windows pour les notifications Push avec WNS
@@ -438,26 +431,26 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 
 ####Ajouter des notifications Push à votre application Windows
 
-1. Dans Visual Studio, ouvrez **App.xaml.cs** dans le projet **WinApp**. Ajoutez les instructions `using` suivantes.
+1. Dans Visual Studio, ouvrez le fichier **App.xaml.cs** dans un projet Windows, et ajoutez les instructions **using** suivantes.
 
+		using Newtonsoft.Json.Linq;
+		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
-		using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+		using <your_TodoItemManager_portable_class_namespace>;
 
-	Ajoutez également une instruction `using` pour l’espace de noms dans votre projet portable qui contient la classe `TodoItemManager`.
-
-		using <Your namespace for the TodoItemManager class>;
+	Remplacez `<your_TodoItemManager_portable_class_namespace>` par l’espace de noms de votre projet portable qui contient la classe `TodoItemManager`.
  
 
-2. Dans App.xaml.cs, ajoutez la méthode `InitNotificationsAsync` suivante. Cette méthode récupère le canal des notifications Push et inscrit un modèle pour recevoir les notifications de modèle à partir du Notification Hub. Un modèle de notification prenant en charge `messageParam` sera transmis à ce client.
+2. Dans le fichier App.xaml.cs, ajoutez la méthode **InitNotificationsAsync** suivante :
 
         private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            const string templateBodyWNS = "<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
+            const string templateBodyWNS = 
+				"<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
 
             JObject headers = new JObject();
             headers["X-WNS-Type"] = "wns/toast";
@@ -466,58 +459,29 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
             templates["genericMessage"] = new JObject
 			{
 				{"body", templateBodyWNS},
-				{"headers", headers} // Only needed for WNS & MPNS
+				{"headers", headers} // Needed for WNS.
 			};
 
-            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush()
+				.RegisterAsync(channel.Uri, templates);
         }
 
-3. Dans App.xaml.cs, mettez à jour le gestionnaire d’événements `OnLaunched` avec l’attribut `async`, puis ajoutez un appel à `InitNotificationsAsync` au bas de la méthode.
+	Cette méthode récupère le canal des notifications Push et inscrit un modèle pour recevoir les notifications de modèle à partir de votre Notification Hub. Un modèle de notification prenant en charge *messageParam* sera transmis à ce client.
 
-        protected async override void OnLaunched(LaunchActivatedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
+3. Dans App.xaml.cs, mettez à jour la définition de méthode du gestionnaire d’événements **OnLaunched** en ajoutant le modificateur `async`, puis ajoutez la ligne de code suivante à la fin de la méthode :
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
-            {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
-                // Set the default language
-                rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
-                rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e);
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    //TODO: Load state from previously suspended application
-                }
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
-            }
+        await InitNotificationsAsync();
 
-            if (rootFrame.Content == null)
-            {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
-            }
-            // Ensure the current window is active
-            Window.Current.Activate();
-
-            await InitNotificationsAsync();
-        }
+	Cela permet de s’assurer que l’inscription aux notifications Push est créée ou actualisée à chaque lancement de l’application. Il est important d’effectuer cette opération pour vous assurer que le canal Push WNS est toujours actif.
 
 4. Dans l’Explorateur de solutions pour Visual Studio, ouvrez le fichier **Package.appxmanifest**, puis définissez **Compatible toast** sur **Oui** sous **Notifications**.
 
-5. Générez l’application et vérifiez l’absence d’erreurs. Votre application cliente doit désormais s’inscrire pour les notifications de modèle du serveur principal d’application mobile.
+5. Générez l’application et vérifiez l’absence d’erreurs. Votre application cliente doit désormais s’inscrire pour les notifications de modèle du serveur principal d’application mobile. Répétez cette section pour chaque projet Windows dans votre solution.
 
 
 ####Tester les notifications Push dans votre application Windows
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **WinApp**, puis cliquez sur **Définir comme projet de démarrage**.
-
+1. Dans Visual Studio, cliquez avec le bouton droit sur un projet Windows, puis cliquez sur **Définir comme projet de démarrage**.
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application.
 
@@ -525,7 +489,19 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 
 4. Vérifiez qu’une notification est reçue lorsque l’élément est ajouté.
 
+##Étapes suivantes
 
+Apprenez-en plus sur les notifications Push :
+
+* [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) Les balises vous permettent de cibler des clients segmentés avec des notifications Push. Apprenez à ajouter des balises à l’installation d’un appareil.
+
+* [Diagnostiquer les problèmes de notification Push](../notification-hubs/notification-hubs-push-notification-fixer.md) Il existe différentes raisons pour lesquelles les notifications peuvent être perdues ou n’arrivent pas sur les appareils. Cette rubrique vous explique comment analyser et déterminer la cause première des défaillances de notification Push.
+
+Vous pouvez poursuivre avec l’un des didacticiels suivants :
+
+* [Ajouter l’authentification à votre application ](app-service-mobile-xamarin-forms-get-started-users.md) Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+
+* [Activer la synchronisation hors connexion pour votre application](app-service-mobile-xamarin-forms-get-started-offline-data.md) Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un serveur principal d’applications mobiles. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau.
 
 <!-- Images. -->
 
@@ -534,4 +510,4 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

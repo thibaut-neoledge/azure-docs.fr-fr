@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="06/05/2016"
    ms.author="elizapo"/>
 
 # Mise à jour d’une collection dans Azure RemoteApp
@@ -34,4 +34,4 @@ Comment mettre à jour votre collection ? C’est simple :
 
 1. Cochez la case pour lancer la mise à jour.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

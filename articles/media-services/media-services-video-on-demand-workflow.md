@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -33,8 +33,8 @@ Le diagramme suivant présente les principaux composants de la plateforme Media 
 
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
 	
-	Il est recommandé d’appliquer une option de chiffrement de stockage à votre ressource afin de protéger votre contenu lors du téléchargement et lorsqu’il est au repos, lors du stockage. 
-1. Encodez-la sous forme de jeu de fichiers MP4 à débit adaptatif. 
+	Il est recommandé d’appliquer une option de chiffrement de stockage à votre ressource afin de protéger votre contenu lors du téléchargement et lorsqu’il est au repos, lors du stockage.
+1. Encodez-la sous forme de jeu de fichiers MP4 à débit adaptatif.
 
 	Il est recommandé d’appliquer une option de chiffrement de stockage à la ressource de sortie afin de protéger votre contenu lorsqu’il est au repos.
 	
@@ -58,7 +58,7 @@ Pour pouvoir utiliser le chiffrement dynamique, vous devez obtenir au moins une 
 2. Configurez la stratégie d’autorisation de clé de contenu.
 1. Configurez la stratégie de remise de ressources (utilisée par l’empaquetage dynamique et le chiffrement dynamique).
 1. Publiez la ressource en créant un localisateur à la demande.
-1. Diffusez le contenu publié. 
+1. Diffusez le contenu publié.
 
 ###Indexer le contenu
 
@@ -101,4 +101,4 @@ Pour connaître les concepts liés à la diffusion de votre contenu à la demand
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

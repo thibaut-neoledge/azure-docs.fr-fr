@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
@@ -225,14 +225,14 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | -------- | ----------- | -------- | 
 | type | Le type de propriété doit être défini sur : **OnPremisesOdbc**. | Oui |
 | connectionString | Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Voir les exemples ci-dessous. | Oui
-| credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote, par exemple “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | Non
+| credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote, par exemple “Uid=<ID utilisateur>;Pwd=<mot de passe>;RefreshToken=<jeton secret d’actualisation>;”. | Non
 | authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont : Anonyme et De base. | Oui | 
 | username | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Non | 
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Non | 
 | gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au magasin de données ODBC. | Oui |
 
 
-Pour en savoir plus sur la définition des informations d’identification pour un magasin de données ODBC local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Pour en savoir plus sur la définition des informations d’identification pour un magasin de données ODBC local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ### Utilisation de l’authentification de base
 
@@ -253,7 +253,7 @@ Pour en savoir plus sur la définition des informations d’identification pour 
 	}
 
 ### Utilisation de l’authentification de base avec des informations d’identification chiffrées
-Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).
+Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).
 
 	{
 	    "name": "odbc",
@@ -293,7 +293,7 @@ Vous pouvez chiffrer les informations d’identification à l’aide de l’appl
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **RelationalTable** (qui inclut le jeu de données ODBC) présente les propriétés suivantes.
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **RelationalTable** (qui inclut le jeu de données ODBC) présente les propriétés suivantes
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
@@ -305,7 +305,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, quand la source est de type **RelationalSource** (ce qui inclut ODBC), les propriétés suivantes sont disponibles dans la section typeProperties :
+Dans le cas d’une activité de copie, quand la source est de type **RelationalSource** (ce qui inclut ODBC), les propriétés suivantes sont disponibles dans la section typeProperties :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -320,7 +320,7 @@ Comme mentionné dans l’article consacré aux [activités de déplacement des 
 1. Conversion de types natifs source en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
 
-Lors du déplacement de données à partir de magasins de données ODBC, les types de données ODBC sont mappés aux types .NET, comme indiqué dans la rubrique [Mappages de types de données ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
+Lors du déplacement de données à partir de magasins de données ODBC, les types de données ODBC sont mappés aux types .NET, comme indiqué dans la rubrique [Mappages de types de données ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
@@ -346,7 +346,7 @@ Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Hi
 	    }
 	}
 
-Vous devez installer la passerelle de gestion des données sur un ordinateur local et enregistrer la passerelle auprès du portail. La passerelle installée sur votre ordinateur local utilise le pilote ODBC pour GE Historian afin de se connecter au magasin de données GE Historian. Par conséquent, installez le pilote s’il n'est pas déjà installé sur l'ordinateur passerelle. Consultez la section [Activation de la connectivité](#enabling-connectivity) pour plus d'informations.
+Vous devez installer la passerelle de gestion des données sur un ordinateur local et enregistrer la passerelle auprès du portail. La passerelle installée sur votre ordinateur local utilise le pilote ODBC pour GE Historian afin de se connecter au magasin de données GE Historian. Par conséquent, installez le pilote s’il n'est pas déjà installé sur l'ordinateur passerelle. Consultez la section [Activation de la connectivité](#enabling-connectivity) pour plus d’informations.
 
 Avant d'utiliser le magasin GE Historian dans une solution Data Factory, vérifiez que la passerelle peut se connecter au magasin de données en suivant les instructions de la section suivante.
 
@@ -355,17 +355,17 @@ Lisez l'article depuis le début pour une présentation détaillée de l'utilisa
 ## Résoudre les problèmes de connectivité
 Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** du **Gestionnaire de configuration de la passerelle de gestion des données**.
 
-1. Lancez le **Gestionnaire de configuration de la passerelle de gestion des données**. Vous pouvez exécuter directement « C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe » (ou) rechercher **Passerelle** pour trouver un lien vers l’application **Passerelle de gestion des données de Microsoft**, comme l’illustre l’image suivante. 
+1. Lancez le **Gestionnaire de configuration de la passerelle de gestion des données**. Vous pouvez exécuter directement « C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe » (ou) rechercher **Passerelle** pour trouver un lien vers l’application **Passerelle de gestion des données de Microsoft**, comme l’illustre l’image suivante.
 
 	![Rechercher la passerelle](./media/data-factory-odbc-connector/search-gateway.png)
 2. Basculez vers l’onglet **Diagnostics**.
 
-	![Diagnostics de la passerelle](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
-3. Sélectionnez le **type** de magasin de données (service lié). 
-4. Spécifiez l’**authentification** et entrez les **informations d’identification** (ou) entrez la **chaîne de connexion** pour vous connecter au magasin de données. 
-5. Cliquez sur **Tester la connexion** pour tester la connexion au magasin de données. 
+	![Diagnostics de la passerelle](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+3. Sélectionnez le **type** de magasin de données (service lié).
+4. Spécifiez **l’authentification** et entrez les **informations d’identification** (ou) entrez la **chaîne de connexion** pour vous connecter au magasin de données.
+5. Cliquez sur **Tester la connexion** pour tester la connexion au magasin de données.
 
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

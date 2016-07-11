@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 # Protocole SAML d’authentification unique
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Cet article vous permet de vous familiariser avec les demandes et réponses d’authentification SAML 2.0 prises en charge par Azure Active Directory (Azure AD) dans le cadre de l’authentification unique.
 
@@ -46,7 +44,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ID | required | Azure AD utilise cet attribut pour compléter l’attribut `InResponseTo` de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, `id6c1c178c166d486687be4aaf5e482730` est un ID valide. |
 | Version | required | Il doit s’agir de **2.0**.|
 | IssueInstant | required | Chaîne DateTime associée à une valeur UTC et comportant le [format aller-retour (« o »)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD attend une valeur DataTime de ce type, mais n’évalue ni n’utilise cette valeur. |
-| AssertionConsumerServiceUrl | facultatif | Si ce paramètre fourni, il doit correspondre à l’élément `RedirectUri` du service cloud dans Azure AD. |
+| AssertionConsumerServiceUrl | facultatif | Si ce paramètre est fourni, il doit correspondre à l’élément `RedirectUri` du service cloud dans Azure AD. |
 | ForceAuthn | facultatif | S’il est fourni, il doit être défini sur false. Toute autre valeur générera une erreur.|
 | IsPassive | facultatif | S’il est fourni, il doit être défini sur false. Toute autre valeur générera une erreur. |  
 
@@ -68,7 +66,7 @@ Voici un exemple d’extrait de code SAML contenant l’élément `Issuer` :
 
 Cet élément demande un format d’ID de nom particulier dans la réponse et est facultatif dans les éléments `AuthnRequest` envoyés à Azure AD.
 
-Exemple d’élément `NameIdPolicy` :
+Voici à quoi ressemble un exemple d’élément `NameIdPolicy` :
 
 ```
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
@@ -303,4 +301,4 @@ Cet élément déclare que le sujet de l’assertion a été authentifié par un
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="dastrock"/>
 
 # Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 
 L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web. Avec la mise en œuvre du modèle d’application v2.0 d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l'une de nos bibliothèques open source.
 
-<!-- TODO: Need link to libraries -->	
+<!-- TODO: Need link to libraries -->
 
 > [AZURE.NOTE]
 	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
@@ -96,6 +96,20 @@ error=access_denied
 | error | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error\_description | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
+#### Codes d’erreur pour les erreurs de point de terminaison d’autorisation
+
+Le tableau suivant décrit les différents codes d’erreur qui peuvent être retournés dans le paramètre `error` de la réponse d’erreur.
+
+| Code d'erreur | Description | Action du client |
+|------------|-------------|---------------|
+| invalid\_request | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corrigez l’erreur, puis envoyez à nouveau la demande. Il s’agit d’une erreur de développement généralement détectée lors des tests initiaux.|
+| unauthorized\_client | L’application cliente n’est pas autorisée à demander un code d’autorisation. | Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+| access\_denied | Le propriétaire de la ressource n’a pas accordé son consentement. | L’application cliente peut avertir l’utilisateur qu’elle ne peut pas continuer sans son consentement. |
+| unsupported\_response\_type | Le serveur d’autorisation ne prend pas en charge le type de réponse dans la demande. | Corrigez l’erreur, puis envoyez à nouveau la demande. Il s’agit d’une erreur de développement généralement détectée lors des tests initiaux.|
+|server\_error | Le serveur a rencontré une erreur inattendue. | relancez la requête. Ces erreurs peuvent résulter de conditions temporaires. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une erreur temporaire. |
+| temporarily\_unavailable | Le serveur est temporairement trop occupé pour traiter la demande. | relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
+| invalid\_resource |La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement.| Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+
 ## Demander un jeton d’accès
 Maintenant que vous avez acquis un code d'autorisation (authorization\_code) et que l'utilisateur vous a octroyé une autorisation, vous pouvez échanger `code` contre un élément `access_token` sur la ressource souhaitée, en envoyant une demande `POST` au point de terminaison `/token` :
 
@@ -114,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Essayez d'exécuter cette requête dans Postman ! (N'oubliez pas de remplacer la valeur `code`) [![Exécuter dans Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [AZURE.TIP] Essayez d'exécuter cette requête dans Postman ! (N’oubliez pas de remplacer la valeur `code`) [![Exécuter dans Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
@@ -173,6 +187,19 @@ Les réponses d’erreur se présentent comme suit :
 | trace\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
+#### Codes d’erreur pour les erreurs de point de terminaison de jeton
+
+| Code d'erreur | Description | Action du client |
+|------------|-------------|---------------|
+| invalid\_request | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corrigez l’erreur, puis envoyez à nouveau la demande. |
+| invalid\_grant | Le code d’autorisation n’est pas valide ou a expiré. | Essayez une nouvelle demande sur le point de terminaison `/authorize` |
+| unauthorized\_client | Le client authentifié n’est pas autorisé à utiliser ce type d’octroi d’autorisation. | Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+| invalid\_client | Échec d’authentification du client. | Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification. |
+| unsupported\_grant\_type | Le serveur d’autorisation ne prend pas en charge le type d’octroi d’autorisation. | Modifiez le type d’octroi dans la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
+| invalid\_resource | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+| interaction\_required | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource. |
+| temporarily\_unavailable | Le serveur est temporairement trop occupé pour traiter la demande. | relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire.|
+
 ## Utiliser le jeton d’accès
 Maintenant que vous avez acquis un jeton `access_token`, vous pouvez l'utiliser dans des requêtes dirigées vers des API Web en l'incluant dans l'en-tête `Authorization` :
 
@@ -202,7 +229,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh	  // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Essayez d'exécuter cette requête dans Postman ! (N'oubliez pas de remplacer la valeur `refresh_token`) [![Exécuter dans Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [AZURE.TIP] Essayez d'exécuter cette requête dans Postman ! (N’oubliez pas de remplacer la valeur `refresh_token`) [![Exécuter dans Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | -------- |
@@ -259,4 +286,6 @@ Une réponse de jeton réussie se présente ainsi :
 | trace\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation\_id | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
-<!---HONumber=AcomDC_0608_2016-->
+Pour obtenir une description des codes d’erreur et connaître l’action client recommandée, consultez [Codes d’erreur pour les erreurs de point de terminaison de jeton](#error-codes-for-token-endpoint-errors).
+
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Appeler des programmes MapReduce à partir de Data Factory
@@ -31,7 +31,7 @@ Dans la définition JSON de l’activité HDInsight :
 1. Affectez au **type** de l’**activité** la valeur **HDInsight**.
 3. Spécifiez le nom de la classe pour la propriété **className**.
 4. Spécifiez le chemin d’accès du fichier JAR, ainsi que le nom de fichier, pour la propriété **jarFilePath**.
-5. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService**.   
+5. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService**.
 6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l'exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l'infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d'utiliser l’option et la valeur en tant qu'arguments comme indiqué dans l'exemple suivant (- s,--entrée - sortie etc. sont des options immédiatement suivies par leurs valeurs).
 
 		{
@@ -215,8 +215,8 @@ Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark s
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: data-factory-get-started.md
-[adfgetstartedmonitoring]: data-factory-get-started.md#monitor-pipelines
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[adfgetstartedmonitoring]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
@@ -228,4 +228,4 @@ Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark s
 - [Appeler des programmes Spark](data-factory-spark.md)
 - [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

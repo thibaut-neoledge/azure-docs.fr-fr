@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Référence technique : accès conditionnel aux applications Azure AD
@@ -55,13 +55,14 @@ Les règles d’accès conditionnel qui utilisent un réseau Au bureau s’appui
 
 Options pour la spécification des réseaux Au bureau
 
-1. Configurez les plages d’adresses IP approuvées sur la [page des paramètres de l’authentification multifacteur](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La stratégie d’accès conditionnel utilisera les plages configurées sur chaque demande d’authentification et l’émission de jetons pour l’évaluation des règles. 
+1. Configurez les plages d’adresses IP approuvées sur la [page des paramètres de l’authentification multifacteur](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La stratégie d’accès conditionnel utilisera les plages configurées sur chaque demande d’authentification et l’émission de jetons pour l’évaluation des règles.
 2. Configurez l’utilisation de la revendication Au sein du réseau d’entreprise (cette option peut être utilisée avec des répertoires fédérés) à l’aide d’AD FS. [Plus d’informations sur les revendications Au sein du réseau d’entreprise](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 3. Configurez des plages d’adresses IP publiques. Dans l’onglet Configuration de votre annuaire, vous pouvez définir des adresses IP publiques. L’accès conditionnel utilisera ces adresses comme des adresses IP Au bureau, ce qui permet de configurer des plages supplémentaires, au-dessus de la limite des 50 adresses IP appliquée à la page des paramètres d’authentification multifacteur.
 
 
 
-## Règles par application
+## Règles basées sur le critère de diffusion des applications
+
 Les règles sont configurées par application, permettant ainsi aux services à valeur élevée d’être sécurisé sans affecter l’accès à d’autres services. Les règles d’accès conditionnel peuvent être configurées dans l’onglet **Configurer** de l’application.
 
 Règles actuellement proposées :
@@ -81,4 +82,4 @@ Règles actuellement proposées :
 - [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](active-directory-conditional-access.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

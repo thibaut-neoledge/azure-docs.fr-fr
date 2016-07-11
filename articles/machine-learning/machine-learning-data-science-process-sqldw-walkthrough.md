@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/24/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -56,9 +56,9 @@ La **clé unique** utilisée pour joindre trip\_data et trip\_fare se compose de
 
 Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amount* pour illustrer trois genres de tâches de modélisation :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
 
-2. **Classification multiclasse** : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
+2. **Classification multiclasse** : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -66,7 +66,7 @@ Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amou
 		Class 3 : tip_amount > $10 and tip_amount <= $20
 		Class 4 : tip_amount > $20
 
-3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
+3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 
 ## <a name="setup"></a>Configurer l’environnement de science des données Azure pour l’analyse avancée
@@ -84,7 +84,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Approvisionnez votre instance Azure SQL DW.** Suivez les étapes indiquées dans [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) pour approvisionner une instance SQL Data Warehouse. Assurez-vous de prendre note des informations d’identification suivantes de SQL Data Warehouse dont vous aurez besoin dans les étapes ultérieures.
 
-  - **Nom du serveur** : <server Name>.database.windows.net
+  - **Nom du serveur** : <Nom du serveur>.database.windows.net
   - **Nom SQL DW (base de données)**
   - **Nom d’utilisateur**
   - **Mot de passe**
@@ -93,7 +93,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Connectez-vous à votre Azure SQL DW avec Visual Studio.** Pour connaître les instructions à suivre, consultez les étapes 1 et 2 dans [Se connecter à SQL Data Warehouse avec Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
->[AZURE.NOTE] Exécutez la requête SQL suivante sur la base de données que vous avez créée dans votre SQL Data Warehouse (au lieu de la requête fournie à l’étape 3 de la rubrique de connexion) pour **créer une clé principale**.
+>[AZURE.NOTE] Exécutez la requête SQL suivante sur la base de données que vous avez créée dans votre SQL Data Warehouse (au lieu de la requête fournie à l’étape 3 de la rubrique connexion) pour **créer une clé principale**.
 
 	BEGIN TRY
 	       --Try to create the master key
@@ -314,13 +314,18 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
 			)
 			;
 
+L’emplacement géographique de vos comptes de stockage a une incidence sur les délais de chargement.
+
 >[AZURE.NOTE] Selon l’emplacement géographique de votre compte de stockage privé d’objets blob, le processus de copie des données d’un objet blob public vers votre compte de stockage privé peut prendre environ 15 minutes, voire plus, tandis que le processus de chargement des données de votre compte de stockage vers votre Azure SQL DW peut prendre 20 minutes ou plus.
+
+Vous devez décider ce que vous souhaitez faire si vous avez des fichiers source et de destination en double.
 
 >[AZURE.NOTE] Si les fichiers .csv à copier de l’espace de stockage public d’objets blob vers votre compte de stockage privé d’objets blob existent déjà dans ce dernier, AzCopy vous demande si vous souhaitez les remplacer. Si vous ne le souhaitez pas, entrez **n** à l’invite. Si vous souhaitez les remplacer **tous**, entrez **a** à l’invite. Vous pouvez également entrer **y** pour remplacer les fichiers .csv un par un.
 
 ![Diagramme n°21][21]
 
->[AZURE.TIP] **Utilisez vos propres données :** si vos données sont stockées sur votre ordinateur local dans votre application réelle, vous pouvez toujours utiliser AzCopy pour charger les données locales sur l’espace de stockage privé d’objets blob Azure. Vous devez uniquement modifier l’emplacement **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, dans la commande AzCopy du fichier de script PowerShell et le remplacer par le répertoire local qui contient vos données.
+Vous pouvez utiliser vos propres données. Si vos données sont stockées sur votre ordinateur sur site dans votre application réelle, vous pouvez toujours utiliser AzCopy pour charger les données locales vers l’espace de stockage privé d’objets blob Azure. Vous devez uniquement modifier l’emplacement **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, dans la commande AzCopy du fichier de script PowerShell et le remplacer par le répertoire local qui contient vos données.
+
 
 >[AZURE.TIP] Si vos données figurent déjà dans votre espace de stockage privé d’objets blob Azure de votre application réelle, vous pouvez ignorer l’étape AzCopy dans le script PowerShell et charger directement les données vers Azure SQL DW. Pour effectuer cette opération, vous devez modifier le script afin de l’adapter au format de vos données.
 
@@ -626,7 +631,7 @@ Voici la chaîne de connexion qui crée la connexion à la base de données.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### Afficher le nombre de lignes et de colonnes de la table <nyctaxi_trip>
+### Afficher le nombre de lignes et de colonnes de la table <nyctaxi\_trip>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -642,10 +647,10 @@ Voici la chaîne de connexion qui crée la connexion à la base de données.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Nombre total de lignes = 173 179 759  
+- Nombre total de lignes = 173 179 759
 - Nombre total de colonnes = 14
 
-### Afficher le nombre de lignes et de colonnes de la table <nyctaxi_fare>
+### Afficher le nombre de lignes et de colonnes de la table <nyctaxi\_fare>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -661,7 +666,7 @@ Voici la chaîne de connexion qui crée la connexion à la base de données.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Nombre total de lignes = 173 179 759  
+- Nombre total de lignes = 173 179 759
 - Nombre total de colonnes = 11
 
 ### Lire un petit échantillon de données de la base de données SQL Data Warehouse
@@ -838,11 +843,11 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 
 Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes à être utilisées dans tous les problèmes de prédiction identifiés précédemment, à savoir :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
 
-2. **Classification multiclasse** : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
+2. **Classification multiclasse** : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
 
-3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
+3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 
 
@@ -964,4 +969,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->
