@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -32,23 +32,23 @@ Microsoft Azure Media Services permet la distribution du contenu dans les format
 Pour en savoir plus :
 
 - [Azure Media Player](http://aka.ms/ampinfo)
-- [Documentation d’Azure Media Player](http://aka.ms/ampdocs) 
+- [Documentation d’Azure Media Player](http://aka.ms/ampdocs)
 - [Blog de prise en main d’Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Inscrivez-vous pour vous tenir informé des dernières informations concernant Azure Media Player](http://aka.ms/ampsignup)
-- [Ajouter de nouvelles demandes de fonctionnalités, des idées et des commentaires](http://aka.ms/ampuservoice) 
+- [Ajouter de nouvelles demandes de fonctionnalités, des idées et des commentaires](http://aka.ms/ampuservoice)
 
 
 ##Autres outils pour la création d’applications de lecteur
 
 Vous pouvez également utiliser un des Kits de développement logiciel (SDK) suivants :
 
-- [Kit de développement logiciel (SDK) de client de diffusion en continu lisse](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+- [Kit de développement logiciel (SDK) de client de diffusion en continu lisse](http://www.iis.net/downloads/microsoft/smooth-streaming)
 - [Didacticiel d’application Windows Store de diffusion en continu lisse](media-services-build-smooth-streaming-apps.md)
-- [Plateforme multimédia Microsoft : infrastructure de lecteur](http://playerframework.codeplex.com/) 
-- [Documentation de l’infrastructure de lecteur HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [Plug-in de diffusion en continu lisse Microsoft pour OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licence du kit de portage du client de diffusion en continu lisse Microsoft®](http://aka.ms/sspk) 
-- [Développement d’applications vidéo pour XBOX](http://xbox.create.msdn.com/) 
+- [Plateforme multimédia Microsoft : infrastructure de lecteur](http://playerframework.codeplex.com/)
+- [Documentation de l’infrastructure de lecteur HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation)
+- [Plug-in de diffusion en continu lisse Microsoft pour OSMF](https://www.microsoft.com/download/details.aspx?id=36057)
+- [Licence du kit de portage du client de diffusion en continu lisse Microsoft®](http://aka.ms/sspk)
+- [Développement d’applications vidéo pour XBOX](http://xbox.create.msdn.com/)
  
 
 ##Publicité
@@ -81,4 +81,4 @@ Pour en savoir plus sur la prise en charge du sous-titrage et des publicités da
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

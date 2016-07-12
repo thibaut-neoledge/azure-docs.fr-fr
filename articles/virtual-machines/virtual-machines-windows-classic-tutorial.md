@@ -27,7 +27,7 @@
 
 <!-- HHTML comment in to break between the selector and the note in the include below-->
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-hero-tutorial.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle de déploiement de gestionnaire de ressources](virtual-machines-windows-hero-tutorial.md).
 
 Ce didacticiel vous montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows dans le portail Azure Classic. Nous allons utiliser une image Windows Server comme exemple, mais il s’agit simplement d’un des nombreux types d’images proposés par Azure. Notez que votre choix en matière d’images dépend de votre abonnement. Par exemple, les images de bureau Windows peuvent être accessibles aux abonnés MSDN.
 
@@ -56,4 +56,4 @@ Cette section vous montre comment utiliser l’option **À partir de la galerie*
 
 - Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez [Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique](virtual-machines-windows-classic-attach-disk.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

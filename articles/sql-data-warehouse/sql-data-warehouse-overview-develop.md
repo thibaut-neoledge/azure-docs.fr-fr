@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Choix de conception et techniques de codage pour SQL Data Warehouse
@@ -42,8 +42,6 @@ Ces articles mettent l’accent sur des techniques de codage spécifiques, des c
 - [tables temporaires][]
 - [SQL dynamique][]
 - [bouclage][]
-- [modification des noms d’objets][]
-- [glissement de données][]
 - [regrouper par options][]
 - [attribution de variables][]
 
@@ -61,7 +59,6 @@ Une fois que vous avez consulté les articles sur le développement, accédez à
 [clés de distribution par hachage]: sql-data-warehouse-develop-hash-distribution-key.md
 [étiquettes]: sql-data-warehouse-develop-label.md
 [bouclage]: sql-data-warehouse-develop-loops.md
-[glissement de données]: sql-data-warehouse-develop-pivot-unpivot.md
 [statistiques]: sql-data-warehouse-develop-statistics.md
 [procédures stockées]: sql-data-warehouse-develop-stored-procedures.md
 [conception de tables]: sql-data-warehouse-develop-table-design.md
@@ -75,8 +72,8 @@ Une fois que vous avez consulté les articles sur le développement, accédez à
 [informations de référence sur Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[modification des noms d’objets]: https://msdn.microsoft.com/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

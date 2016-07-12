@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Charger une application web Java personnalisée dans Azure
@@ -30,7 +30,7 @@ Voici les paramètres prévus pour les applications web Java personnalisées dan
 - Tous les ports d'écoute autres que le seul écouteur HTTP doivent être désactivés. Dans Tomcat, cela inclut le port d'arrêt ainsi que les ports HTTPS et AJP.
 - Le conteneur doit être configuré pour le trafic IPv4 uniquement.
 - La commande **startup** pour l'application doit être définie dans la configuration.
-- Les applications qui requièrent des répertoires accessibles en écriture doivent être situées dans le répertoire de contenu de l’application web Azure, soit **D:\\home**. La variable d’environnement `HOME` fait référence à D:\\home.  
+- Les applications qui requièrent des répertoires accessibles en écriture doivent être situées dans le répertoire de contenu de l’application web Azure, soit **D:\\home**. La variable d’environnement `HOME` fait référence à D:\\home.
 
 Vous pouvez définir les variables d'environnement comme requis dans le fichier web.config.
 
@@ -49,7 +49,7 @@ Exemples (avec **processPath** inclus) :
     arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 
 
-**processPath** : chemin d'accès à l'exécutable ou au script qui démarre un processus d'écoute des requêtes HTTP.
+**processPath** : chemin d'accès à l'exécutable ou au script qui démarre un processus d'écoute des requêtes HTTP.
 
 Exemples :
 
@@ -257,4 +257,4 @@ Pour plus d’informations sur Java, consultez le [Centre pour développeurs Jav
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

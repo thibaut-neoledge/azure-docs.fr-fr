@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(Version préliminaire)* : Activer la synchronisation du mot de passe pour les services de domaine Azure AD
@@ -40,7 +40,7 @@ Vous devez installer la dernière version recommandée d’Azure AD Connect sur
 
 **[Télécharger Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Version minimale recommandée : **1.1.130.0** (publiée le 12 avril 2016).
+Version minimale recommandée : **1.1.189.0** (publiée le 3 juin 2016).
 
   > [AZURE.WARNING] Vous DEVEZ installer la dernière version recommandée d’Azure AD Connect pour que les informations d’identification de mot de passe héritées (nécessaires pour l’authentification NTLM et Kerberos) puissent être synchronisées avec votre locataire Azure AD. Cette fonctionnalité n’est pas disponible dans les versions antérieures d’Azure AD Connect ou avec l’outil DirSync hérité.
 
@@ -80,4 +80,4 @@ En fonction de la taille de votre annuaire (nombre d’utilisateurs, de groupes,
 
 - [Joindre une machine virtuelle Linux Red Hat Enterprise à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

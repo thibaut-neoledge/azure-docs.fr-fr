@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(Version préliminaire)* : Créer ou sélectionner un réseau virtuel
@@ -70,4 +70,4 @@ Effectuez les étapes de configuration suivantes pour créer un réseau virtuel 
 ## Tâche 3 : activer les services de domaine Azure AD
 La tâche de configuration suivante consiste à [activer les services de domaine Azure AD](active-directory-ds-getting-started-enableaadds.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

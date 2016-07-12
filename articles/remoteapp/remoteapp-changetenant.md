@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -47,4 +47,4 @@ Si vous souhaitez utiliser un autre locataire, suivez ces étapes pour modifier 
 
 Vous pouvez à présent utiliser le client Azure AD pour contrôler l’accès à l’abonnement Azure et configurer l’accès utilisateur dans Azure RemoteApp.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

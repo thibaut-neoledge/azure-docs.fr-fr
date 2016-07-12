@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git" 
-	description="Didacticiel expliquant comment créer une application web PHP stockant les données dans Base de données SQL Azure et comment utiliser un déploiement Git dans Azure App Service." 
+	pageTitle="Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git" 
+	description="Didacticiel expliquant comment créer une application web PHP stockant les données dans Base de données SQL Azure et comment utiliser un déploiement Git dans Azure App Service." 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
 	authors="rmcmurray" 
@@ -13,32 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
-# Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git
+# Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git
 
-Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
+Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
 
 > [AZURE.NOTE]
 Vous pouvez installer et configurer PHP, SQL Server Express et les pilotes Microsoft SQL Server pour PHP via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
-Vous apprendrez à effectuer les opérations suivantes :
+Vous apprendrez à effectuer les opérations suivantes :
 
-* Création d’une application web Azure et d’une base de données SQL à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). (PHP étant activé par défaut dans App Service Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
+* Création d’une application web Azure et d’une base de données SQL à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). (PHP étant activé par défaut dans App Service Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publication et republication de votre application dans Azure en utilisant Git.
  
-En suivant ce didacticiel, vous allez générer une application Web d'inscription simple dans PHP. L'application est hébergée dans un site web Azure. Voici une capture d’écran de l’application terminée :
+En suivant ce didacticiel, vous allez générer une application Web d'inscription simple dans PHP. L'application est hébergée dans un site web Azure. Voici une capture d’écran de l’application terminée :
 
 ![Azure PHP Web Site](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ##Création d’une application web Azure et configuration de la publication Git
 
-Suivez cette procédure pour créer une application web Azure et une base de données SQL :
+Suivez cette procédure pour créer une application web Azure et une base de données SQL :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -50,9 +50,9 @@ Suivez cette procédure pour créer une application web Azure et une base de don
 
 5. Après avoir lu la description de l’application web et de l’application SQL, sélectionnez **Créer**.
 
-6. Cliquez sur chaque partie (**Groupe de ressources**, **Application web**, **Base de données** et **Abonnement**), puis saisissez ou sélectionnez des valeurs pour les champs obligatoires :
+6. Cliquez sur chaque partie (**Groupe de ressources**, **Application web**, **Base de données** et **Abonnement**), puis saisissez ou sélectionnez des valeurs pour les champs obligatoires :
 	
-	- Entrez le nom d’URL de votre choix.	
+	- Entrez le nom d’URL de votre choix.
 	- Configuration des informations d’identification du serveur de bases de données
 	- Sélectionnez la région la plus proche de vous.
 
@@ -78,7 +78,7 @@ Suivez cette procédure pour créer une application web Azure et une base de don
 
 ##Obtention des informations de connexion à la base de données SQL
 
-Pour établir la connexion à l’instance de base de données SQL liée à votre application web, vous avez besoin des informations de connexion que vous avez spécifiées lors de la création de la base de données. Procédez comme suit pour les obtenir :
+Pour établir la connexion à l’instance de base de données SQL liée à votre application web, vous avez besoin des informations de connexion que vous avez spécifiées lors de la création de la base de données. Procédez comme suit pour les obtenir :
 
 1. Revenez au panneau du groupe de ressources, puis cliquez sur l’icône de base de données SQL.
 
@@ -86,25 +86,25 @@ Pour établir la connexion à l’instance de base de données SQL liée à votr
 
 	![Afficher les propriétés de base de données](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
-3. Dans la section **PHP** de la boîte de dialogue qui s’affiche, notez les valeurs de `Server`, `SQL Database` et `User Name`. Vous utiliserez ces valeurs ultérieurement lors de la publication de votre application web PHP sur Azure App Service.
+3. Dans la section **PHP** de la boîte de dialogue qui s’affiche, notez les valeurs de `Server`, `SQL Database` et `User Name`. Vous utiliserez ces valeurs ultérieurement lors de la publication de votre application web PHP sur Azure App Service.
 
 ##Génération et test de votre application localement
 
-L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une instance de base de données SQL. L’application se compose de deux fichiers (dont le code est disponible ci-dessous pour un copier/coller) :
+L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une instance de base de données SQL. L’application se compose de deux fichiers (dont le code est disponible ci-dessous pour un copier/coller) :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
-* **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
 
-Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et SQL Server Express sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][pdo-sqlsrv].
+Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et SQL Server Express sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][pdo-sqlsrv].
 
-1. Créez une base de données SQL Server nommée `registration`. Pour cela, utilisez l’invite de commandes `sqlcmd` avec ces commandes :
+1. Créez une base de données SQL Server nommée `registration`. Pour cela, utilisez l’invite de commandes `sqlcmd` avec ces commandes :
 
 		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
 		1> create database registration
 		2> GO	
 
 
-2. Dans le répertoire racine de votre application, créez deux fichiers : un fichier nommé `createtable.php` et un autre nommé `index.php`.
+2. Dans le répertoire racine de votre application, créez deux fichiers : un fichier nommé `createtable.php` et un autre nommé `index.php`.
 
 3. Ouvrez le fichier `createtable.php` dans un éditeur de texte ou un environnement de développement intégré (IDE), puis ajoutez le code suivant. Ce code permet de créer la table `registration_tbl` dans la base de données `registration`.
 
@@ -131,13 +131,13 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces éta
 		echo "<h3>Table created.</h3>";
 		?>
 
-	Vous devrez mettre à jour les valeurs de <code>$user</code> et de <code>$pwd</code> avec votre nom d’utilisateur et votre mot de passe SQL Server locaux.
+	Vous devrez mettre à jour les valeurs de <code>$user</code> et de <code>$pwd</code> avec votre nom d’utilisateur et votre mot de passe SQL Server locaux.
 
 4. Sur un terminal dans le répertoire racine de l'application, tapez la commande suivante :
 
 		php -S localhost:8000
 
-4. Ouvrez un navigateur web et accédez à ****http://localhost:8000/createtable.php**. La table `registration_tbl` est créée dans la base de données.
+4. Ouvrez un navigateur web et accédez à **http://localhost:8000/createtable.php**. La table `registration_tbl` est créée dans la base de données.
 
 5. Ouvrez le fichier **index.php** dans un éditeur de texte ou un IDE et ajoutez les codes HTML et CSS de base pour la page (le code PHP sera ajouté plus tard).
 
@@ -233,11 +233,11 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces éta
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Vous pouvez à présent accéder à ****http://localhost:8000/index.php** pour tester l'application.
+Vous pouvez à présent accéder à **http://localhost:8000/index.php** pour tester l'application.
 
 ##Publication de votre application
 
-Une fois votre application testée en local, vous pouvez la publier dans App Service Web Apps à l’aide de Git. Cependant, vous devez d’abord mettre à jour les informations de connexion à la base de données dans l’application. En utilisant les informations de connexion à la base de données obtenues précédemment (dans la section **Obtention des informations de connexion à la base de données SQL**), mettez à jour les informations suivantes dans les **deux** fichiers `createdatabase.php` et `index.php` avec les valeurs appropriées :
+Une fois votre application testée en local, vous pouvez la publier dans App Service Web Apps à l’aide de Git. Cependant, vous devez d’abord mettre à jour les informations de connexion à la base de données dans l’application. En utilisant les informations de connexion à la base de données obtenues précédemment (dans la section **Obtention des informations de connexion à la base de données SQL**), mettez à jour les informations suivantes dans les **deux** fichiers `createdatabase.php` et `index.php` avec les valeurs appropriées :
 
 	// DB connection info
 	$host = "tcp:<value of Server>";
@@ -255,7 +255,7 @@ Tout est prêt pour configurer la publication Git et publier l’application.
 Cette procédure est identique à celle indiquée à la fin de la section **Création d’une application web Azure et configuration de la publication Git** précédente.
 
 
-1. Ouvrez GitBash (ou un terminal, si Git figure dans votre `PATH`), remplacez les répertoires par le répertoire racine de votre application (le répertoire **d’enregistrement**, puis exécutez les commandes suivantes :
+1. Ouvrez GitBash (ou un terminal, si Git figure dans votre `PATH`), remplacez les répertoires par le répertoire racine de votre application (le répertoire **d’enregistrement**, puis exécutez les commandes suivantes :
 
 		git init
 		git add .
@@ -272,10 +272,10 @@ Après la publication de votre application, vous pouvez y apporter des modificat
 
 ##Publication des modifications apportées à votre application
 
-Pour publier des modifications apportées à votre application, procédez comme suit :
+Pour publier des modifications apportées à votre application, procédez comme suit :
 
 1. Modifiez votre application en local.
-2. Ouvrez GitBash (ou un terminal, si Git est dans votre `PATH`), remplacez les répertoires du répertoire racine de votre application, puis exécutez les commandes suivantes :
+2. Ouvrez GitBash (ou un terminal, si Git est dans votre `PATH`), remplacez les répertoires du répertoire racine de votre application, puis exécutez les commandes suivantes :
 
 		git add .
 		git commit -m "comment describing changes"
@@ -286,7 +286,7 @@ Pour publier des modifications apportées à votre application, procédez comme 
 3. Accédez à **http://[web app name].azurewebsites.net/index.php** pour voir vos modifications.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 
 
@@ -298,4 +298,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

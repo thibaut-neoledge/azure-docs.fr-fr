@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Activer Stretch Database pour une table
@@ -22,7 +22,7 @@ Pour configurer une table pour Stretch Database, sélectionnez **Stretch | Activ
 
 -   Si vous stockez des données brutes dans une table distincte, vous pouvez migrer la table entière.
 
--   Si votre table contient à la fois des données brutes et des données à chaud, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer.
+-   Si votre table contient à la fois des données brutes et des données à chaud, vous pouvez spécifier une fonction de filtre pour sélectionner les lignes à transférer.
 
 **Conditions préalables**. Si vous sélectionnez **Stretch | Activer** pour une table et que vous n’avez pas encore activé Stretch Database pour la base de données, l’Assistant configure d’abord la base de données pour Stretch Database. Suivez les étapes fournies dans [Commencez par exécuter l’Assistant Activer la base de données pour Stretch](sql-server-stretch-database-wizard.md) au lieu des étapes décrites dans cette rubrique.
 
@@ -43,11 +43,11 @@ Examinez l’objectif de l’Assistant et les conditions préalables.
 
 Vérifiez que la table que vous souhaitez activer est affichée et sélectionnée.
 
-Vous pouvez migrer une table entière ou spécifier un prédicat de filtre simple dans l’Assistant. Si vous souhaitez utiliser un type différent de prédicat de filtre pour sélectionner les lignes à migrer, effectuez l’une des opérations suivantes.
+Vous pouvez migrer une table entière ou spécifier une fonction de filtre simple dans l’Assistant. Si vous souhaitez utiliser un type différent de fonction de filtre pour sélectionner les lignes à migrer, effectuez l’une des opérations suivantes.
 
--   Quittez l'assistant et exécutez l'instruction ALTER TABLE pour activer Stretch pour la table et spécifier un prédicat.
+-   Quittez l'assistant et exécutez l'instruction ALTER TABLE pour activer Stretch pour la table et spécifier une fonction de filtre.
 
--   Exécutez l'instruction ALTER TABLE pour spécifier un prédicat une fois que vous avez quitté l'assistant. Pour connaître les étapes requises, reportez-vous à [Ajouter un prédicat de filtre après avoir exécuté l’Assistant](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Exécutez l'instruction ALTER TABLE pour spécifier une fonction de filtre une fois que vous avez quitté l'assistant. Pour connaître les étapes requises, reportez-vous à [Ajouter une fonction de filtre après avoir exécuté l’Assistant](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 La syntaxe ALTER TABLE est décrite plus loin dans cette rubrique.
 
@@ -65,9 +65,9 @@ Vous pouvez activer Stretch Database sur une table existante ou créez une nouve
 ### Options
 Utilisez les options suivantes lorsque vous exécutez CREATE TABLE ou ALTER TABLE pour activer Stretch Database sur une table.
 
--   Si vous le souhaitez, utilisez la clause `FILTER_PREDICATE = <predicate>` pour spécifier un prédicat pour sélectionner les lignes à migrer si la table contient à la fois des données brutes et des données à chaud. Le prédicat doit appeler une fonction table inline. Pour plus d’informations, consultez [Sélection des lignes à migrer à l’aide d’un prédicat de filtre](sql-server-stretch-database-predicate-function.md). Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
+-   Si vous le souhaitez, utilisez la clause `FILTER_PREDICATE = <function>` pour spécifier une fonction pour sélectionner les lignes à migrer si la table contient à la fois des données brutes et des données à chaud. Le prédicat doit appeler une fonction table inline. Pour plus d’informations, consultez [Sélection des lignes à migrer à l’aide d’une fonction de filtre](sql-server-stretch-database-predicate-function.md). Si vous ne spécifiez pas de fonction de filtre, la table entière est migrée.
 
-    >   [AZURE.NOTE] Si vous fournissez un prédicat de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique le prédicat de filtre à la table à l’aide de l’opérateur CROSS APPLY.
+    >   [AZURE.NOTE] Si vous fournissez une fonction de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique la fonction de filtre à la table à l’aide de l’opérateur CROSS APPLY.
 
 -   Spécifiez `MIGRATION_STATE = OUTBOUND` pour démarrer la migration des données immédiatement, ou `MIGRATION_STATE = PAUSED` pour reporter le début de la migration des données.
 
@@ -83,7 +83,7 @@ ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
 GO
 ```
-Voici un exemple qui migre uniquement les lignes identifiées par la fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur le prédicat de filtre, consultez [Sélection des lignes à migrer à l’aide d’un prédicat de filtre](sql-server-stretch-database-predicate-function.md).
+Voici un exemple qui migre uniquement les lignes identifiées par la fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur la fonction de filtre, consultez [Sélection des lignes à migrer à l’aide d’une fonction de filtre](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -111,7 +111,7 @@ CREATE TABLE <table name>
 GO
 ```
 
-Voici un exemple qui migre uniquement les lignes identifiées par la fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur le prédicat de filtre, consultez [Sélection des lignes à migrer à l’aide d’un prédicat de filtre](sql-server-stretch-database-predicate-function.md).
+Voici un exemple qui migre uniquement les lignes identifiées par la fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur la fonction de filtre, consultez [Sélection des lignes à migrer à l’aide d’une fonction de filtre](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -133,4 +133,4 @@ Pour plus d’informations, consultez [CREATE TABLE (Transact-SQL)](https://msdn
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

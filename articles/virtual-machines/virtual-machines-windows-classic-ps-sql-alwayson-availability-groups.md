@@ -26,8 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
-
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Les machines virtuelles (VM) Azure permettent aux administrateurs de base de données de réduire le coût d’un système SQL Server haute disponibilité. Ce didacticiel vous indique comment implémenter un groupe de disponibilité en utilisant SQL Server Always On de bout en bout dans un environnement Azure. À la fin du didacticiel, votre solution SQL Server Always On dans Azure comprendra les éléments suivants :
 
@@ -563,7 +562,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. Créez une base de données sur **ContosoSQL1** nommée **MyDB1**, faites une sauvegarde complète et une sauvegarde de fichier journal, puis restaurez-les sur **ContosoSQL2** avec l’option WITH NORECOVERY.
+1. Créez une base de données sur **ContosoSQL1** nommée **MyDB1**, faites une sauvegarde complète et une sauvegarde de fichier journal, puis restaurez-les sur **ContosoSQL2** avec l’option **WITH NORECOVERY**.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -631,4 +630,4 @@ Vous avez correctement implémenté SQL Server Always On en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+   ms.workload="sqldb-bcdr"
     ms.date="06/14/2016"
     ms.author="sstein"/>
 
@@ -26,7 +26,7 @@
 
 Cet article vous montre comment configurer la géoréplication active pour Base de données SQL à l’aide de PowerShell.
 
-Pour lancer un basculement, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure](sql-database-geo-replication-failover-powershell.md).
+Pour lancer un basculement avec PowerShell, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec PowerShell](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
 
@@ -34,7 +34,7 @@ Pour lancer un basculement, consultez [Lancer un basculement planifié ou non pl
 
 Pour configurer la géoréplication active à l’aide de PowerShell, vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. 
+- Un abonnement Azure.
 - Une base de données SQL Azure : la base de données primaire que vous souhaitez répliquer.
 - Azure PowerShell 1.0 ou version ultérieure. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
 
@@ -143,24 +143,9 @@ La commande suivante récupère l’état du lien de réplication entre la base 
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
-  
-
 ## Étapes suivantes
 
-- [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure](sql-database-geo-replication-failover-powershell.md)
-- [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
+- Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
 
-
-
-
-## Ressources supplémentaires
-
-- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
-- [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Géo-réplication active](sql-database-geo-replication-overview.md)
-- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

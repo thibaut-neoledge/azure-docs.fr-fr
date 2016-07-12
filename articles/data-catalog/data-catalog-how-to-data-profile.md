@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="04/07/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Profilage de données dans des sources de données
@@ -91,4 +91,4 @@ Le profilage des données fournit des statistiques et des informations sur les r
 -	[Inscription de sources de données](data-catalog-how-to-register.md)
 -	[Prise en main d’Azure Data Catalog](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

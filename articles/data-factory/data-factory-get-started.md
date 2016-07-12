@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure"
-	description="Ce didacticiel vous montre comment utiliser l'activité de copie dans un pipeline Azure Data Factory pour copier des données depuis un objet blob Azure vers une base de données SQL Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+<properties pageTitle="Copie de données de Blob Storage vers une base de données SQL | Microsoft Azure" description="Ce didacticiel vous montre comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Blob Storage vers une base de données SQL." Keywords: "blob sql, blob storage, copie de données" services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -13,10 +6,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/01/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
-# Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure
+# Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory 
 > [AZURE.SELECTOR]
 - [Vue d’ensemble du didacticiel](data-factory-get-started.md)
 - [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -24,7 +17,7 @@
 - [Utilisation de Visual Studio](data-factory-get-started-using-vs.md)
 - [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
-Ce didacticiel crée une fabrique de données Azure et un pipeline avec une activité de copie pour copier des données d’un stockage d’objets blob Azure dans une base de données SQL Azure.
+Dans ce didacticiel, vous allez créer une fabrique de données avec un pipeline afin de copier des données entre Blob Storage et la base de données SQL.
 
 L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
@@ -36,7 +29,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Abonnement Azure**. Si vous n'êtes pas abonné, vous pouvez créer un compte d'essai gratuit en quelques minutes. Consultez l'article [Essai gratuit][azure-free-trial] pour plus d'informations.
 - **Compte Azure Storage**. Dans le cadre de ce didacticiel, le stockage d'objets blob est utilisé comme magasin de données **source**. Si vous n'avez pas de compte de stockage Azure, consultez l'article [Créer un compte de stockage][data-factory-create-storage] pour découvrir comment en créer un.
 - **Base de données SQL Azure**. Vous allez utiliser une base de données SQL Azure comme magasin de données **cible** dans ce didacticiel. Si vous n'avez pas de base de données SQL Azure pouvant être utilisée pour le didacticiel, consultez [Comment créer et configurer une base de données SQL Azure][data-factory-create-sql-database] pour en créer une.
-- **SQL Server 2012/2014 ou Visual Studio 2013**. Vous allez utiliser SQL Server Management Studio ou Visual Studio pour créer un exemple de base de données et afficher les données de résultat dans la base de données.  
+- **SQL Server 2012/2014 ou Visual Studio 2013**. Vous allez utiliser SQL Server Management Studio ou Visual Studio pour créer un exemple de base de données et afficher les données de résultat dans la base de données.
 
 ### Collecter le nom et la clé de votre compte de stockage Azure
 Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre compte de stockage Azure. Notez le **nom** et la **clé** de votre compte de stockage Azure en suivant les instructions ci-dessous :
@@ -45,7 +38,7 @@ Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre co
 2. Cliquez sur le hub **PARCOURIR** situé à gauche et sélectionnez **Comptes de stockage**.
 3. Dans le panneau **Comptes de stockage**, sélectionnez le **compte de stockage Azure** que vous souhaitez utiliser dans ce didacticiel.
 4. Dans le panneau **STOCKAGE**, cliquez sur la vignette **CLÉS**.
-5. Dans le panneau **Gérer les clés**, cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **NOM DU COMPTE DE STOCKAGE** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).  
+5. Dans le panneau **Gérer les clés**, cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **NOM DU COMPTE DE STOCKAGE** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).
 6. Répétez l'étape précédente pour copier ou noter la **CLÉ D'ACCÈS PRIMAIRE**.
 7. Fermez tous les panneaux en cliquant sur **X**.
 
@@ -53,7 +46,7 @@ Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre co
 Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, de la base de données et de l'utilisateur. Notez les noms du **serveur**, de la **base de données** et de l'**utilisateur** pour votre base de données SQL Azure en suivant les instructions ci-dessous :
 
 1. Dans le **portail Azure**, cliquez sur **PARCOURIR** dans le volet gauche et sélectionnez **Bases de données SQL**.
-2. Dans le panneau **Bases de données SQL**, sélectionnez la **base de données** que vous souhaitez utiliser dans le cadre de ce didacticiel. Notez le **nom de la base de données**.  
+2. Dans le panneau **Bases de données SQL**, sélectionnez la **base de données** que vous souhaitez utiliser dans le cadre de ce didacticiel. Notez le **nom de la base de données**.
 3. Dans le panneau **BASE DE DONNÉES SQL**, cliquez sur la vignette **PROPRIÉTÉS**.
 4. Notez les valeurs de **NOM DU SERVEUR** et de **CONNEXION D'ADMINISTRATEUR DU SERVEUR**.
 5. Fermez tous les panneaux en cliquant sur **X**.
@@ -77,8 +70,8 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 
 2. Utilisez des outils tels que l'[Explorateur Azure Storage](https://azurestorageexplorer.codeplex.com/) pour créer le conteneur **adftutorial** et charger le fichier **emp.txt** vers ce dernier.
 
-    ![Azure Storage Explorer](./media/data-factory-get-started/getstarted-storage-explorer.png)
-3. Utilisez le script SQL suivant pour créer la table **emp** dans votre base de données SQL Azure.  
+    ![Azure Storage Explorer. Copie de données Blob Storage vers une base de données SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+3. Utilisez le script SQL suivant pour créer la table **emp** dans votre base de données SQL Azure.
 
 
         CREATE TABLE dbo.emp
@@ -116,4 +109,4 @@ Pour plus d’informations sur l’activité de copie dans Azure Data Factory, c
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

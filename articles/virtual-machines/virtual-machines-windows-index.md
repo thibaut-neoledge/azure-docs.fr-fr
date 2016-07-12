@@ -22,7 +22,7 @@
 
 Recherchez tous les documents dont vous avez besoin pour créer et gérer des machines virtuelles Windows dans le modèle de déploiement Classic.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ## Vue d'ensemble
@@ -162,7 +162,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [MySQL](virtual-machines-windows-classic-mysql-2008r2.md)
 
-[Oracle](virtual-machines-windows-classic-oracle.md)
+[Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md)
 
@@ -192,4 +192,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -21,7 +21,7 @@
 
 ## WinRM dans Azure Service Management par rapport à Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modèle de déploiement classique
 
 * Pour obtenir une vue d’ensemble d’Azure Resource Manager, consultez cet [article](../resource-group-overview.md)
 * Pour connaître les différences entre Azure Service Management et Azure Resource Manager, consultez cet [article](../resource-manager-deployment-model.md)
@@ -50,7 +50,7 @@ Vous pouvez créer un certificat auto-signé à l’aide de ce script PowerShell
 ```
 $certificateName = "somename"
 
-$thumbprint = (New-SelfSignedCertificate -DnsName "$certificateName" -CertStoreLocation Cert:\CurrentUser\My -KeySpec KeyExchange).Thumbprint
+$thumbprint = (New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation Cert:\CurrentUser\My -KeySpec KeyExchange).Thumbprint
 
 $cert = (Get-ChildItem -Path cert:\CurrentUser\My\$thumbprint)
 
@@ -65,7 +65,7 @@ Avant de charger le certificat dans le coffre de clés créé à l’étape 1, v
 
 ```
 $fileName = "<Path to the .pfx file>"
-$fileContentBytes = get-content $fileName -Encoding Byte
+$fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
 $jsonObject = @"
@@ -80,7 +80,7 @@ $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
-Set-AzureRmKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
+Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
 ## Étape 4 : obtenir l’URL de votre certificat auto-signé dans le coffre de clés
@@ -106,7 +106,7 @@ Vous pouvez obtenir cette URL à l’aide de la commande PowerShell ci-dessous
 
 #### Modèles Azure Resource Manager
 
-Lorsque vous créez une machine virtuelle par le biais de modèles, le certificat est référencé dans la section des clés secrètes et la section winRM comme suit
+Lorsque vous créez une machine virtuelle par le biais de modèles, le certificat est référencé dans la section des clés secrètes et la section winRM comme suit :
 
 	"osProfile": {
           ...
@@ -142,14 +142,14 @@ Lorsque vous créez une machine virtuelle par le biais de modèles, le certifica
 
 Vous trouverez un exemple de modèle pour machine virtuelle dans [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
 
-Pour obtenir le code source pour ce modèle, consultez [Github](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
+Pour obtenir le code source pour ce modèle, consultez [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### PowerShell
 
 	$vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
 	$credential = Get-Credential
 	$secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-	$vm = Set-AzureRmVMOperatingSystem -VM $vm  -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+	$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
 	$sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
 	$CertificateStore = "My"
 	$vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
@@ -165,4 +165,4 @@ Une fois l’installation terminée, vous pouvez vous connecter à la machine vi
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

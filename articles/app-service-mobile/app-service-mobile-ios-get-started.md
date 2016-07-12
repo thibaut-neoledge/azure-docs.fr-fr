@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="04/19/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 #Création d'une application iOS
@@ -29,7 +29,7 @@ Ce didacticiel présente l’ajout d’[Azure Mobile Apps](app-service-mobile-va
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
-* Un PC avec [Visual Studio Community 2013] ou version ultérieure. 
+* Un PC avec [Visual Studio Community 2013] ou version ultérieure.
 * Un Mac avec Xcode 7.3 ou version ultérieure
 
 ## Étape I : créer un serveur principal d’applications mobiles Azure
@@ -52,4 +52,4 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

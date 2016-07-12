@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -160,9 +160,9 @@ Application/x-javascript : la ressource est affichée dans une balise HTML <**sc
 
 Application/x-shockwave-flash : la ressource est affichée dans un lecteur Flash.
 
-**<IFrameResource>** décrit une ressource HTML qui peut être affichée dans un IFrame. **<HTMLResource>** décrit un fragment de code HTML qui peut être inséré dans une page web. **<TrackingEvents>** spécifient les événements de suivi et l’URI à demander lorsque l’événement se produit. Dans cet exemple, les événements acceptInvitation et de réduction (collapse) font l’objet d’un suivi. Pour plus d'informations sur l’élément **<NonLinearAds>** et ses enfants, consultez IAB.NET/VAST. Notez que l’élément **<TrackingEvents>** est situé au sein de l’élément **<NonLinearAds>** plutôt que dans l’élément **<NonLinear>**.
+**<IFrameResource>** décrit une ressource HTML qui peut être affichée dans un IFrame. **<HTMLResource>** décrit un fragment de code HTML qui peut être inséré dans une page web. **<TrackingEvents>** spécifient les événements de suivi et l’URI à demander lorsque l’événement se produit. Dans cet exemple, les événements acceptInvitation et de réduction (collapse) font l’objet d’un suivi. Pour plus d'informations sur l’élément **<NonLinearAds>** et ses enfants, consultez IAB.NET/VAST. Notez que l’élément **<TrackingEvents>** se trouve dans l’élément **<NonLinearAds>** plutôt que dans l’élément **<NonLinear>**.
 
-Les publicités d'accompagnement sont définies dans un élément <CompanionAds>. L’élément <CompanionAds> peut contenir un ou plusieurs éléments <Companion>. Chaque élément <Companion> décrit une publicité d'accompagnement et peut contenir un <StaticResource>, <IFrameResource> ou <HTMLResource>, lesquels sont spécifiés de la même manière que dans une publicité non linéaire. Un fichier VAST peut contenir plusieurs publicités d’accompagnement ; il revient alors à l’application de type lecteur de choisir la publicité la plus appropriée à afficher. Pour plus d'informations sur VAST, consultez [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Les publicités d'accompagnement sont définies dans un élément <CompanionAds>. L’élément <CompanionAds> peut contenir un ou plusieurs éléments <Companion>. Chaque élément <Companion> décrit une publicité d'accompagnement et peut contenir un élément <StaticResource>, <IFrameResource> ou <HTMLResource>, spécifié de la même manière que dans une publicité non linéaire. Un fichier VAST peut contenir plusieurs publicités d’accompagnement ; il revient alors à l’application de type lecteur de choisir la publicité la plus appropriée à afficher. Pour plus d'informations sur VAST, consultez [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
 ###Utilisation d’un fichier VMAP (Video Multiple Ad Playlist)
 
@@ -230,9 +230,9 @@ L’élément <**AdBreak**> peut renfermer un élément <**AdSource**>. L’él�
 
 L’élément <**AdSource**> fournit au lecteur une réponse publicitaire insérée ou une référence à une réponse publicitaire. Il peut contenir l’un des éléments suivants :
 
-- <VASTAdData> : indique qu’une réponse publicitaire VAST est incorporée au sein du fichier VMAP.
-- <AdTagURI> : URI qui fait référence à une réponse publicitaire émanant d’un autre système.
-- <CustomAdData> : chaîne arbitraire qui représente une réponse non-VAST.
+- <VASTAdData> : indique qu’une réponse publicitaire VAST est incorporée au sein du fichier VMAP
+- <AdTagURI> : URI qui fait référence à une réponse publicitaire émanant d’un autre système
+- <CustomAdData> : chaîne arbitraire qui représente une réponse non-VAST
 
 Dans cet exemple, une réponse publicitaire insérée est spécifiée avec un élément <VASTAdData> qui contient une réponse publicitaire VAST. Pour plus d’informations sur les autres éléments, consultez [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
@@ -316,7 +316,7 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 
 Un fichier MAST commence par un élément **<MAST>** qui contient un élément **<triggers>**. L’élément <triggers> contient un ou plusieurs éléments **<trigger>** qui définissent le moment où une publicité doit être affichée.
 
-L’élément **<trigger>** contient un élément **<startConditions>** qui spécifie quand la diffusion d’une publicité doit commencer. L’élément **<startConditions>** contient un ou plusieurs éléments <condition>. Quand chaque <condition> prend la valeur True, un déclencheur est lancé ou révoqué, selon que la <condition> est contenue respectivement dans un élément **<startConditions**> ou **<endConditions>**. En présence de plusieurs éléments <condition>, ces derniers sont traités comme une condition OR implicite ; autrement dit, toute condition prenant la valeur True entraîne le lancement du déclencheur. Les éléments <condition> peuvent être imbriqués. Lorsque des éléments <condition> enfants sont prédéfinis, ils sont traités comme une condition AND implicite ; autrement dit, toutes les conditions doivent prendre la valeur True pour que le déclencheur soit lancé. L’élément <condition> contient les attributs suivants qui définissent la condition :
+L’élément **<trigger>** contient un élément **<startConditions>** qui spécifie quand la diffusion d’une publicité doit commencer. L’élément **<startConditions>** contient un ou plusieurs éléments <condition>. Quand chaque <condition> prend la valeur True, un déclencheur est lancé ou révoqué, selon que la <condition> est contenue respectivement dans un élément **<startConditions**> ou **<endConditions>**, respectivement. En présence de plusieurs éléments <condition>, ces derniers sont traités comme une condition OR implicite ; autrement dit, toute condition prenant la valeur True entraîne le lancement du déclencheur. Les éléments <condition> peuvent être imbriqués. Lorsque des éléments <condition> enfants sont prédéfinis, ils sont traités comme une condition AND implicite ; autrement dit, toutes les conditions doivent prendre la valeur True pour que le déclencheur soit lancé. L’élément <condition> contient les attributs suivants qui définissent la condition :
 
 1. **type** : spécifie le type de condition, d’événement ou de propriété.
 1. **name** : nom de la propriété ou de l’événement à utiliser au cours de l’évaluation.
@@ -813,4 +813,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

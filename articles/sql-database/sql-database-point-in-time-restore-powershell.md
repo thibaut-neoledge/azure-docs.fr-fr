@@ -19,9 +19,8 @@
 # Restaurer une base de données SQL Azure à un point dans le temps avec PowerShell
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-database-point-in-time-restore.md)
-- [Portail Azure](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Vue d'ensemble](sql-database-recovery-using-backups.md)
+- [Limite de restauration dans le temps : portail Azure](sql-database-point-in-time-restore-portal.md)
 
 Cet article explique comment restaurer votre base de données à un point antérieur dans le temps à partir de [sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md) à l’aide de PowerShell.
 
@@ -48,15 +47,14 @@ Cet article explique comment restaurer votre base de données à un point antér
     
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID –ElasticPoolName "elasticpool01"
 
+
 ## Étapes suivantes
 
-- Pour obtenir des instructions détaillées sur la récupération à un point dans le temps à l’aide du portail Azure, consultez [Limite de restauration dans le temps à l’aide du portail Azure](sql-database-point-in-time-restore-portal.md).
-- Pour obtenir des informations sur la récupération à un point dans le temps à l’aide de l’API REST, consultez [Limite de restauration dans le temps à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- Pour une vue d’ensemble de la limite de restauration dans le temps, consultez [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
-- Pour une discussion complète sur la récupération après une erreur utilisateur ou une erreur d’application, consultez [Récupération d’erreur utilisateur](sql-database-user-error-recovery.md).
+- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-## Ressources supplémentaires
-
-- [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

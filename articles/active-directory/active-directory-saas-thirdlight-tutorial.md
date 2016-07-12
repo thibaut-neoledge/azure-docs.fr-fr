@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à Thirdlight** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Thirdlight (par ex., « **http://azuresso2.thirdlight.com/*")), puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Thirdlight** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Thirdlight (par ex., « *http://azuresso2.thirdlight.com/*")), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configurer l’URL de l’application")
 

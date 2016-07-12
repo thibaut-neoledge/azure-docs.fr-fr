@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(Version préliminaire)* : Activer les services de domaine Azure AD
@@ -94,4 +94,4 @@ Au cours de cette tâche, vous activerez les services de domaine Azure AD pour v
 ## Tâche 4 : mettre à jour les paramètres DNS pour le réseau virtuel Azure
 La tâche de configuration suivante consiste à [mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-dns.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

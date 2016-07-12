@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="06/24/2016"
    ms.author="toddabel"/>
 
 
@@ -192,5 +192,6 @@ Vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fa
 
 ## Articles connexes
 * [Découvrez comment collecter des compteurs de performances ou des journaux à l’aide des extensions de diagnostic](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Solution Service Fabric dans Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

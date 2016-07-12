@@ -18,7 +18,7 @@
 
 # Guide du développeur pour l’authentification avec l’API Azure Resource Manager
 
-Si vous êtes un développeur de logiciels souhaitant intégrer une application dans Microsoft Azure, ou gérer les ressources Azure de votre client, cette rubrique vous explique comment effectuer l’authentification avec les API Azure Resource Manager.
+Si vous êtes un développeur de logiciels souhaitant intégrer une application dans Microsoft Azure ou gérer les ressources Azure de votre client, cette rubrique vous explique comment effectuer l’authentification avec les API Azure Resource Manager.
 
 Votre application peut accéder à ces API de différentes manières :
 
@@ -86,7 +86,7 @@ Vous commencez au moment où l’utilisateur décide de connecter son abonnement
 
 Vous devez lui demander deux éléments :
 
-1. **Nom de domaine Active Directory**: nom de domaine de l’instance Azure Active Directory associée à l’abonnement Azure de l’utilisateur. La demande d’autorisation OAuth 2.0 doit être envoyée à cette instance Azure AD. L’utilisateur peut rechercher le nom de domaine de son instance Azure AD en accédant au portail Azure et en sélectionnant le compte dans l’angle supérieur droit de la fenêtre. Vous pouvez fournir des instructions visuelles à l’utilisateur, par exemple : 
+1. **Nom de domaine Active Directory**: nom de domaine de l’instance Azure Active Directory associée à l’abonnement Azure de l’utilisateur. La demande d’autorisation OAuth 2.0 doit être envoyée à cette instance Azure AD. L’utilisateur peut rechercher le nom de domaine de son instance Azure AD en accédant au portail Azure et en sélectionnant le compte dans l’angle supérieur droit de la fenêtre. Vous pouvez fournir des instructions visuelles à l’utilisateur, par exemple :
 
      ![](./media/resource-manager-api-authentication/show-directory.png)
    
@@ -98,7 +98,7 @@ Votre application redirige ensuite l’utilisateur vers Azure AD avec une requê
 
 Envoyez une demande d’autorisation Open ID Connect/OAuth2.0 au point de terminaison d’autorisation Azure AD :
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
 
 Les paramètres de chaîne de requête qui sont disponibles pour cette requête sont décrits dans la rubrique [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
@@ -125,7 +125,7 @@ Les paramètres de chaîne de requête de la demande d’autorisation OAuth2.0 s
 | resource | Identificateur codé URL des API de gestion des services Azure : https://management.core.windows.net/ |
 | scope | openid+profile
 | nonce | Élément de données permettant de lier la demande d’autorisation au paramètre id\_token renvoyé pour garantir que la demande d’autorisation est demandée et n’est pas réexécutée.
-| domain\_hint | live.com <br />**Remarque** : utilisez uniquement le paramètre domain\_hint si l’utilisateur gère son abonnement Azure via un compte Microsoft.
+| domain\_hint | live.com <br />**Remarque :** utilisez uniquement le paramètre domain\_hint si l’utilisateur gère son abonnement Azure via un compte Microsoft.
 | state | Si vous le souhaitez, spécifiez toutes les données d’état que le logiciel Azure AD doit renvoyer avec la réponse.
 
 Exemple de demande Open ID Connect :
@@ -142,11 +142,11 @@ Exemple de réponse Open ID Connect :
 
 Avant de connecter l’utilisateur, l’application doit valider le paramètre id\_token. La validation du jeton est un sujet important. Vous êtes invité à utiliser la bibliothèque de gestionnaire de jetons web JSON standard de votre plateforme de développement (consultez le [code source du gestionnaire JWT .NET Azure AD](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/System.IdentityModel.Tokens.Jwt/JwtSecurityTokenHandler.cs)). Ceci dit, la sécurité de votre application est votre responsabilité. Assurez-vous que la bibliothèque que vous utilisez pour gérer correctement le paramètre id\_token valide correctement les aspects suivants du jeton :
 
-- **Minutage du jeton** : vérifiez les revendications nbf et exp pour vous assurer que le jeton n’est ni trop récent, ni obsolète. En général, une période de 5 minutes est prévue pour la prise en compte du décalage horaire éventuel.
-- **Émetteur** : vérifiez la revendication iss, afin de vous assurer que l’émetteur du jeton est bien Azure Active Directory : https://sts.windows.net/{tenant_id_of_the_directory}
-- **Public** : vérifiez la revendication aud pour vous assurer que le jeton a été a été réalisé conformément à votre application. La valeur doit correspondre à l’ID client de votre application.
-- **Nonce** : vérifiez la revendication nonce par rapport aux données nonce envoyée dans la demande d’autorisation, afin de vous assurer que la réponse a été demandée par votre application et que le jeton n’est pas en cours de réexécution.
-- **Signature** : votre application doit vérifier que le jeton a été signé par Azure Active Directory. Les clés de signature AD Azure sont modifiées fréquemment. De ce fait, votre application doit interroger le système pour obtenir les clés actualisées quotidiennement ou renvoyer une erreur concernant les clés actualisées en cas d’échec de la validation de la signature. Pour en savoir plus, voir [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
+- **Minutage du jeton** : vérifiez les revendications nbf et exp pour vous assurer que le jeton n’est ni trop récent, ni obsolète. En général, un intervalle de 5 minutes est prévu pour la prise en compte du décalage horaire éventuel.
+- **Émetteur** : vérifiez la revendication iss afin de vous assurer que l’émetteur du jeton est bien Azure Active Directory : https://sts.windows.net/{tenant_id_of_the_directory}
+- **Public** : vérifiez la revendication aud pour vous assurer que le jeton a été réalisé conformément à votre application. La valeur doit correspondre à l’ID client de votre application.
+- **Nonce** : vérifiez la revendication nonce par rapport aux données nonce envoyées dans la demande d’autorisation afin de vous assurer que la réponse a été demandée par votre application et que le jeton n’est pas en cours de réexécution.
+- **Signature** : votre application doit vérifier que le jeton a été signé par Azure Active Directory. Les clés de signature AD Azure sont modifiées fréquemment. De ce fait, votre application doit interroger le système pour obtenir les clés actualisées quotidiennement ou renvoyer une erreur concernant les clés actualisées en cas d’échec de la validation de la signature. Pour en savoir plus, consultez [Informations importantes sur la substitution des clés de signature dans Azure AD](active-directory/active-directory-signing-key-rollover.md).
 
 Une fois le paramètre **id\_token** validé, utilisez la valeur de revendication oid en tant qu’identificateur non modifiable et non réutilisable de l’utilisateur. Utilisez la revendication **unique\_name** ou upn/email comme nom d’affichage contrôlable de visu de l’utilisateur. Vous pouvez également utiliser les revendications given\_name/family\_name facultatives à des fins d’affichage.
 
@@ -154,7 +154,7 @@ Une fois le paramètre **id\_token** validé, utilisez la valeur de revendicatio
 
 Maintenant que votre application a reçu le code d’autorisation d’Azure AD, il est temps d’obtenir le jeton d’accès pour Azure Resource Manager. Publiez une demande de jeton d’octroi de code OAuth2.0 au point de terminaison de jeton Azure AD :
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
 Les paramètres de chaîne de requête qui sont disponibles pour cette requête sont décrits dans la rubrique [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
@@ -167,9 +167,9 @@ L’exemple suivant illustre une demande de jeton d’octroi de code avec les in
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Lorsque vous utilisez des informations d’identification de certificat, créez une clé d’authentification web JSON (JWT) et effectuez la signature (RSA SHA256) à l’aide de la clé privée des informations d’identification du certificat de votre application. Les types de revendication du jeton sont affichés dans la rubrique [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx). Référez-vous également au code [Active Directory Authentication Library (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/master/src/ADAL.NET/CryptographyHelper.cs) pour la signature des jetons JWT d’assertion du client.
+Lorsque vous utilisez des informations d’identification de certificat, créez une clé d’authentification web JSON (JWT) et effectuez la signature (RSA SHA256) à l’aide de la clé privée des informations d’identification du certificat de votre application. Les types de revendication du jeton sont indiqués dans la rubrique [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx). Reportez-vous également au [code Active Directory Authentication Library (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/master/src/ADAL.NET/CryptographyHelper.cs) pour la signature des jetons JWT d’assertion du client.
 
-Pour en savoir plus sur l’authentification du client, reportez-vous aux [spécifications d’Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). Voici une [exemple de jeton JWT d’assertion du client](https://www.authnauthz.com/OAuth/ParseJWTToken?token=eyJhbGciOiJSUzI1NiIsIng1dCI6IlFwcXdKZnJNZ003ekJ4M1hkM2NSSFdkYVFsTSJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcL2FhbHRlc3RzLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyODk2Mjk5MSwiaXNzIjoiOTA4M2NjYjgtOGE0Ni00M2U3LTg0MzktMWQ2OTZkZjk4NGFlIiwianRpIjoiMmYyMjczMzQtZGQ3YS00NzZkLWFlOTYtYzg4NDQ4YTkxZGM0IiwibmJmIjoxNDI4OTYyMzkxLCJzdWIiOiI5MDgzY2NiOC04YTQ2LTQzZTctODQzOS0xZDY5NmRmOTg0YWUifQ.UXQE9H-FlwxYQmRVG0-p7pAX9TFgiRXcYr7GhbcC7ndIPHKpZ5tfHWPEgBl3ZVRvF2l8uA7HEV86T7t2w7OHhHwLBoW7XTgj-17hnV1CY21MwjrebPjaPIVITiilekKiBASfW2pmss3MjeOYcnBV2MuUnIgt4A_iUbF_-opRivgI4TFT4n17_3VPlChcU8zJqAMpt3TcAxC3EXXfh10Mw0qFfdZKqQOQxKHjnL8y7Of9xeB9BBD_b22JNRv0m7s0cYRx2Cz0cUUHw-ipHhWaW7YwhVRMfK6BMkaDUgaie4zFkcgHb7rm1z0rM1CvzIqP-Mwu3oEqYpY9cYo8nEjMyA).
+Pour en savoir plus sur l’authentification du client, consultez les [spécifications d’Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). Voici un [exemple de jeton JWT d’assertion du client](https://www.authnauthz.com/OAuth/ParseJWTToken?token=eyJhbGciOiJSUzI1NiIsIng1dCI6IlFwcXdKZnJNZ003ekJ4M1hkM2NSSFdkYVFsTSJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcL2FhbHRlc3RzLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyODk2Mjk5MSwiaXNzIjoiOTA4M2NjYjgtOGE0Ni00M2U3LTg0MzktMWQ2OTZkZjk4NGFlIiwianRpIjoiMmYyMjczMzQtZGQ3YS00NzZkLWFlOTYtYzg4NDQ4YTkxZGM0IiwibmJmIjoxNDI4OTYyMzkxLCJzdWIiOiI5MDgzY2NiOC04YTQ2LTQzZTctODQzOS0xZDY5NmRmOTg0YWUifQ.UXQE9H-FlwxYQmRVG0-p7pAX9TFgiRXcYr7GhbcC7ndIPHKpZ5tfHWPEgBl3ZVRvF2l8uA7HEV86T7t2w7OHhHwLBoW7XTgj-17hnV1CY21MwjrebPjaPIVITiilekKiBASfW2pmss3MjeOYcnBV2MuUnIgt4A_iUbF_-opRivgI4TFT4n17_3VPlChcU8zJqAMpt3TcAxC3EXXfh10Mw0qFfdZKqQOQxKHjnL8y7Of9xeB9BBD_b22JNRv0m7s0cYRx2Cz0cUUHw-ipHhWaW7YwhVRMfK6BMkaDUgaie4zFkcgHb7rm1z0rM1CvzIqP-Mwu3oEqYpY9cYo8nEjMyA).
 
 L’exemple suivant illustre une demande de jeton d’octroi de code avec les informations d’identification de certificat :
 
@@ -190,7 +190,7 @@ Exemple de réponse de jeton d’octroi de code :
 
 Une réponse de jeton correcte contient le jeton d’accès (user + app) associé à Azure Resource Manager. Votre application utilise ce jeton d’accès pour accéder à Resource Manager pour le compte de l’utilisateur. La durée de vie des jetons d’accès émis par Azure AD est d’une heure. Il est peu probable que votre application web ait besoin de renouveler le jeton d’accès (user + app). Cependant, si tel est le cas, vous pouvez utiliser le jeton d’actualisation que votre application reçoit dans la réponse du jeton. Publiez une demande de jeton OAuth2.0 au point de terminaison du jeton Azure AD :
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
 Les paramètres à utiliser avec la demande d’actualisation sont décrits dans la rubrique [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
@@ -203,19 +203,19 @@ L’exemple suivant indique comment utiliser le jeton d’actualisation :
 
     grant_type=refresh_token&refresh_token=AAABAAAAiL9Kn2Z****55j-sjnyYgAA&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Remarque : bien que les jetons d’actualisation puissent être utilisés pour obtenir de nouveaux jetons d’accès pour Azure Resource Manager, ils ne sont pas adaptés à un accès hors connexion par votre application. La durée de vie des jetons d’actualisation est limitée ; ils sont liés à l’utilisateur. Si ce dernier quitte l’organisation, l’application utilisant le jeton d’actualisation ne bénéficie plus d’un accès. Cette approche n’est pas adaptée aux applications qui sont utilisées par les équipes pour gérer leurs ressources Azure.
+Remarque : bien que les jetons d’actualisation puissent être utilisés pour obtenir de nouveaux jetons d’accès pour Azure Resource Manager, ils ne sont pas adaptés à un accès hors connexion par votre application. Les jetons d’actualisation ont une durée de vie limitée ; ils sont liés à l’utilisateur. Si ce dernier quitte l’organisation, l’application utilisant le jeton d’actualisation ne bénéficie plus d’un accès. Cette approche n’est pas adaptée aux applications qui sont utilisées par les équipes pour gérer leurs ressources Azure.
 
 ## Liste des abonnements disponibles
 
 Votre application bénéficie désormais d’un jeton permettant d’accéder à Microsoft Azure Resource Manager pour le compte de l’utilisateur.
 
-L’étape suivante consiste à autoriser l’utilisateur à connecter son abonnement Azure à votre application, afin que cette dernière puisse gérer cet abonnement même lorsqu’il n’est pas présent (accès hors connexion à long terme). À l’attention de l’utilisateur, affichez une liste des abonnements Azure pour lesquels il peut gérer l’accès et autorisez-le à affecter directement un rôle RBAC à l’identité de votre application.
+L’étape suivante consiste à autoriser l’utilisateur à connecter son abonnement Azure à votre application, afin que cette dernière puisse gérer cet abonnement même lorsqu’il n’est pas présent (accès hors connexion à long terme). Montrez à l’utilisateur la liste des abonnements Azure pour lesquels il peut gérer l’accès et autorisez-le à affecter directement un rôle RBAC à l’identité de votre application.
 
 ![Authentification ARM - Exemple d’application Ux 4](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-4-full.png)
 
 ### Liste des abonnements auxquels l’utilisateur a accès
 
-Nous allons commencer par appeler l’API [de la liste des abonnements Resource Manager](https://msdn.microsoft.com/library/azure/dn790531.aspx) pour répertorier tous les abonnements auxquels l’utilisateur a accès, quelle que soit la nature de cet accès. Ensuite, nous identifierons ceux dont l’utilisateur peut gérer les accès.
+Nous allons commencer par appeler l’API de [liste des abonnements Resource Manager](https://msdn.microsoft.com/library/azure/dn790531.aspx) pour répertorier tous les abonnements auxquels l’utilisateur a accès, quelle que soit la nature de cet accès. Ensuite, nous identifierons ceux dont l’utilisateur peut gérer les accès.
 
 La méthode [GetUserSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L79) de l’exemple d’application MVC ASP.net implémente cet appel.
 
@@ -233,7 +233,7 @@ Voici un exemple de réponse à une demande de liste d’abonnements :
 
 ### Obtenir les autorisations de l’utilisateur concernant les abonnements
 
-L’action de connexion/déconnexion doit être affichée uniquement pour les abonnements pour lesquels l’utilisateur peut gérer les accès. Pour chaque abonnement, vous allez appeler l’API des [autorisations de liste Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx), afin de déterminer si l’utilisateur bénéficie de droits de gestion des accès concernant l’abonnement.
+L’action de connexion/déconnexion doit être affichée uniquement pour les abonnements pour lesquels l’utilisateur peut gérer les accès. Pour chaque abonnement, vous allez appeler l’API de [liste des autorisations Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx) afin de déterminer si l’utilisateur bénéficie de droits de gestion des accès concernant l’abonnement.
 
 La méthode [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L132) de l’exemple d’application MVC ASP.net implémente cet appel.
 
@@ -291,7 +291,7 @@ Vous disposez d’un jeton d’accès pour Azure Resource Manager uniquement. Il
 <a id="app-azure-ad-graph">
 ### Obtenir un jeton d’accès d’application uniquement pour l’API Microsoft Azure AD Graph
 
-Pour authentifier votre application et obtenir un jeton à l’API Microsoft Azure AD Graph, envoyez une demande de jeton de flux OAuth2.0 pour l’octroi d’informations d’identification du client au point de terminaison de jeton Azure AD (**http://login.microsoftonline.com/{nom\_domaine\_répertoire}/OAuth2/Token**).
+Pour authentifier votre application et obtenir un jeton à l’API Microsoft Azure AD Graph, envoyez une demande de jeton de flux OAuth2.0 pour l’octroi d’informations d’identification du client au point de terminaison de jeton Azure AD (**https://login.microsoftonline.com/{nom\_domaine\_répertoire}/OAuth2/Token**).
 
 Les lignes 73-77 de la méthode [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L73) de l’exemple d’application MVC ASP.net permettent d’obtenir un jeton d’accès d’application uniquement pour l’API Graph, via la bibliothèque d’authentification Active Directory Authentication Library (ADAL) pour .NET.
 
@@ -301,8 +301,8 @@ Les données de la demande de jeton d’octroi d’informations d’identificati
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | ID client de votre application
-| resource | Identificateur codé URL de la ressource pour laquelle le jeton d’accès est demandé. Dans ce cas, l’identificateur de l’API Azure AD Graph est le suivant : **https://graph.windows.net/** 
-| clé\_secrète\_client or type\_assertion\_client + assertion\_client | Si votre application utilise des informations d’identification de mot de passe, utilisez la valeur clé\_secrète\_client. Si votre application utilise des informations d’identification de certificat, utilisez la valeur assertion\_client.
+| resource | Identificateur codé URL de la ressource pour laquelle le jeton d’accès est demandé. Dans ce cas, l’identificateur de l’API Azure AD Graph : **https://graph.windows.net/**
+| client\_secret ou client\_assertion\_type + client\_assertion | Si votre application utilise des informations d’identification de mot de passe, utilisez la valeur client\_secret. Si votre application utilise des informations d’identification de certificat, utilisez la valeur assertion\_client.
 
 Voici un exemple de demande de jeton d’octroi d’informations d’identification du client :
 
@@ -319,7 +319,7 @@ Voici un exemple de réponse à une demande de jeton d’octroi d’informations
 
 ### Obtenir le principal de service d’application ObjectId dans l’instance Azure AD de l’utilisateur
 
-À présent, utilisez le jeton d’accès d’application uniquement pour interroger l’API des [principaux du service Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ServicePrincipalEntity), afin de déterminer l’ID objet du principal du service de l’application dans le répertoire.
+À présent, utilisez le jeton d’accès d’application uniquement pour interroger l’API des [principaux du service Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ServicePrincipalEntity) afin de déterminer l’ID objet du principal du service de l’application dans le répertoire.
 
 La méthode [GetObjectIdOfServicePrincipalInOrganiation](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L66) de l’exemple d’application MVC ASP.net implémente cet appel.
 
@@ -344,11 +344,11 @@ Le rôle RBAC approprié pour votre application :
 - Si votre application surveille uniquement l’abonnement sans apporter de modifications, elle requiert des autorisations de lecture sur l’abonnement uniquement. Affectez le rôle **Lecteur**.
 - Si votre application gère l’abonnement dans Azure, ainsi que la création, la modification et la suppression d’entités, elle nécessite l’une des autorisations de collaborateur.
   - Pour gérer un type particulier de ressource, affectez des rôles de collaborateur spécifiques de la ressource (de type contributeur de machines virtuelles, collaborateur de réseau virtuel, collaborateur de compte de stockage, etc.).
-  - Pour gérer tout type de ressource, vous devez attribuer le rôle **Contributeur**.
+  - Pour gérer tout type de ressource, vous devez affecter le rôle **Contributeur**.
 
 L’attribution d’un rôle à votre application est visible pour les utilisateurs. Pour cette raison, vous devez sélectionner le privilège présentant le niveau requis le moins élevé.
 
-Appelez l’[API de définition de rôle Resource Manager](https://msdn.microsoft.com/library/azure/dn906879.aspx) pour répertorier tous les rôles RBAC Azure et recherchez, puis itérez le résultat, afin de rechercher la définition du rôle souhaité par son nom.
+Appelez [l’API de définition de rôle Resource Manager](https://msdn.microsoft.com/library/azure/dn906879.aspx) pour répertorier tous les rôles RBAC Azure et recherchez, puis itérez le résultat, afin de rechercher la définition du rôle souhaité par son nom.
 
 La méthode [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L354) de l’exemple d’application MVC ASP.net implémente cet appel.
 
@@ -384,7 +384,7 @@ Voici les GUID réservés des rôles intégrés couramment utilisés :
 
 ### Attribuer un rôle RBAC à l’application
 
-Vous disposez à présent de tous les éléments requis pour attribuer le rôle RBAC approprié au principal de service de votre application sur l’abonnement sélectionné, à l’aide de l’[API d’attribution de rôle Resource Manager](https://msdn.microsoft.com/library/azure/dn906887.aspx).
+Vous disposez à présent de tous les éléments requis pour attribuer le rôle RBAC approprié au principal de service de votre application sur l’abonnement sélectionné, à l’aide de l’API [d’attribution de rôle Resource Manager](https://msdn.microsoft.com/library/azure/dn906887.aspx).
 
 La méthode [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L269) de l’exemple d’application MVC ASP.net implémente cet appel.
 
@@ -415,7 +415,7 @@ La réponse présente le format suivant :
 
 ### Obtenir un jeton d’accès d’application uniquement pour Azure Resource Manager
 
-L’étape suivante consiste à vérifier que l’application bénéficier du type d’accès requis sur l’abonnement. Pour ce faire, vous devez exécuter une tâche de test sur l’abonnement à l’aide d’un jeton d’application uniquement pour Azure Resource Manager. La tâche de test doit vérifier que votre application bénéficie bien de l’accès souhaité à l’abonnement, afin de pouvoir effectuer la gestion/surveillance hors connexion.
+L’étape suivante consiste à vérifier que l’application bénéficie du type d’accès requis sur l’abonnement. Pour ce faire, vous devez exécuter une tâche de test sur l’abonnement à l’aide d’un jeton d’application uniquement pour Azure Resource Manager. La tâche de test doit vérifier que votre application bénéficie bien de l’accès souhaité à l’abonnement, afin de pouvoir effectuer la gestion/surveillance hors connexion.
 
 Pour obtenir un jeton d’accès d’application uniquement pour Azure Resource Manager, suivez la procédure de la section [Obtenir un jeton d’accès d’application uniquement pour l’API Microsoft Azure AD Graph](#app-azure-ad-graph), en utilisant une valeur différente pour le paramètre de ressource :
 
@@ -425,7 +425,7 @@ Les lignes 210-214 de la méthode [ServicePrincipalHasReadAccessToSubscription](
 
 #### Obtenir les autorisations de l’application concernant l’abonnement
 
-Pour vérifier que votre application dispose de l’accès désiré à un abonnement Azure, vous pouvez également appeler l’API [d’autorisations Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx), de la même manière que vous avez déterminé si l’utilisateur bénéficiait de droits de gestion des accès pour l’abonnement. Cette fois, cependant, appelez l’API d’autorisations avec le jeton d’accès d’application uniquement que vous avez reçu au cours de l’étape précédente.
+Pour vérifier que votre application dispose de l’accès désiré à un abonnement Azure, vous pouvez également appeler l’API de [liste des autorisations Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx), de la même manière que vous avez déterminé si l’utilisateur bénéficiait de droits de gestion des accès pour l’abonnement. Cette fois, cependant, appelez l’API d’autorisations avec le jeton d’accès d’application uniquement que vous avez reçu au cours de l’étape précédente.
 
 La méthode [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) de l’exemple d’application MVC ASP.NET implémente cet appel.
 
@@ -444,4 +444,4 @@ La méthode [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/du
 
 Ça y est, les utilisateurs peuvent désormais se connecter et gérer facilement leurs abonnements Azure avec votre application.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

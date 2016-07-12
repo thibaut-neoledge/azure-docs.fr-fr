@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Activer Stretch Database pour une base de données
 
 Pour configurer une base de données Stretch Database existante, sélectionnez **Tâches | Stretch | Activer** pour une base de données dans SQL Server Management Studio pour ouvrir l’Assistant **Activer la base de données pour Stretch**. Vous pouvez également utiliser Transact-SQL pour activer Stretch Database pour une base de données.
 
-Si vous sélectionnez **Tâches | Stretch | Activer** pour une table et que vous n’avez pas encore activé la base de données pour Stretch Database, l’Assistant configure la base de données pour Stretch Database et vous permet de configurer des tables dans le cadre du processus. Suivez les étapes décrites dans cette rubrique au lieu de celles décrites dans [Activer Stretch Database pour une table](sql-server-stretch-database-enable-database.md).
+Si vous sélectionnez **Tâches | Stretch | Activer** pour une table individuelle et que vous n’avez pas encore activé la base de données pour Stretch Database, l’Assistant configure la base de données pour Stretch Database et vous permet de sélectionner des tables dans le cadre du processus. Suivez les étapes décrites dans cette rubrique au lieu de celles décrites dans [Activer Stretch Database pour une table](sql-server-stretch-database-enable-database.md).
 
 L’activation de Stretch Database sur une table ou une base de données nécessite des autorisations db\_owner. L’activation de Stretch Database sur une base de données nécessite également des autorisations CONTROL DATABASE.
 
@@ -32,9 +32,9 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 
 -   Stretch Database migre les données vers Azure. Vous devez donc avoir un compte Azure et un abonnement pour la facturation. Pour obtenir un compte Azure, [cliquez ici](http://azure.microsoft.com/pricing/free-trial/).
 
--   Recueillez les informations dont vous avez besoin pour créer une base de données distante ou sélectionner une base de données distante existante, et pour créer une règle de pare-feu qui autorise votre serveur local à communiquer avec le serveur distant.
+-   Ayez à portée de main les informations relatives à la connexion et les informations d’identification nécessaires pour créer un nouveau serveur Azure ou pour sélectionner un serveur Azure existant.
 
-## <a name="EnableTSQLServer"></a>Condition préalable : Autorisation pour activer Stretch Database sur le serveur
+## <a name="EnableTSQLServer"></a>Condition préalable : activer Stretch Database sur le serveur
 Avant de pouvoir activer Stretch Database sur une base de données ou une table, vous devez l’activer sur le serveur local. Cette opération nécessite des autorisations sysadmin ou serveradmin.
 
 -   Si vous disposez des autorisations d’administration nécessaires, l’Assistant **Activer la base de données pour Stretch** configure le serveur pour Stretch.
@@ -59,18 +59,21 @@ Avant de pouvoir activer Stretch Database sur des tables spécifiques, vous deve
 
 L’activation de Stretch Database sur une table ou une base de données nécessite des autorisations db\_owner. L’activation de Stretch Database sur une base de données nécessite également des autorisations CONTROL DATABASE.
 
-1.  Avant de commencer, choisissez un serveur Azure existant pour les données migrées par Stretch Database, ou créez un serveur.
+1.  Avant de commencer, choisissez un serveur Azure existant pour les données migrées par Stretch Database, ou créez un serveur Azure.
 
-2.  Sur le serveur Azure, créez une règle de pare-feu avec l’adresse IP (ou plage d’adresses IP) de l’ordinateur SQL Server qui autorise SQL Server à communiquer avec le serveur distant.
+2.  Sur le serveur Azure, créez une règle de pare-feu avec la plage d’adresses IP de l’ordinateur SQL Server qui autorise SQL Server à communiquer avec le serveur distant.
 
-3.  Pour configurer une base de données SQL Server pour Stretch Database, il faut que la base de données ait une clé principale de base de données. Celle-ci sécurise les informations d’identification utilisées par Stretch Database pour se connecter à la base de données distante. Pour créer manuellement la clé principale de base de données, consultez [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) et [Créer une clé principale de base de données](https://msdn.microsoft.com/library/aa337551.aspx).
+3.  Pour configurer une base de données SQL Server pour Stretch Database, il faut que la base de données ait une clé principale de base de données. Celle-ci sécurise les informations d’identification utilisées par Stretch Database pour se connecter à la base de données distante. Voici un exemple qui crée une nouvelle clé principale de base de données.
 
     ```tsql
-    USE <database>
+    USE <database>;
     GO
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>';
+	GO
     ```
+
+    Pour plus d’informations sur la clé principale de base de données, consultez [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) et [Création d’une clé principale de base de données](https://msdn.microsoft.com/library/aa337551.aspx).
 
 4.  Quand vous configurez une base de données pour Stretch Database, vous devez fournir les informations d’identification que Stretch Database doit utiliser pour les communications entre l’ordinateur SQL Server local et le serveur Azure distant. Deux options s’offrent à vous.
 
@@ -78,15 +81,17 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 
         -   Si vous activez Stretch Database en exécutant l’Assistant, vous pouvez créer les informations d’identification à ce moment-là.
 
-        -   Si vous activez Stretch Database en exécutant **ALTER DATABASE**, vous devez créer manuellement les informations d’identification avant d’activer Stretch Database.
+        -   Si vous envisagez d’activer Stretch Database en exécutant **ALTER DATABASE**, vous devez créer manuellement les informations d’identification avant d’exécuter **ALTER DATABASE** pour activer Stretch Database.
 
-        Pour créer manuellement les informations d’identification, consultez [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). La création des informations d’identification nécessite des autorisations ALTER ANY CREDENTIAL.
+		Voici un exemple qui crée de nouvelles informations d’identification.
 
         ```tsql
         CREATE DATABASE SCOPED CREDENTIAL <db_scoped_credential_name>
-            WITH IDENTITY = '<identity>' , SECRET = '<secret>'
+            WITH IDENTITY = '<identity>' , SECRET = '<secret>';
         GO
         ```
+
+		Pour plus d’informations sur les informations d’identification, consultez [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). La création des informations d’identification nécessite des autorisations ALTER ANY CREDENTIAL.
 
     -   Vous pouvez utiliser un compte de service fédéré pour que l’ordinateur SQL Server communique avec le serveur Azure distant quand les conditions suivantes sont remplies.
 
@@ -111,12 +116,10 @@ L’activation de Stretch Database sur une table ou une base de données nécess
                 SERVER = '<server_name>',
                 CREDENTIAL = <db_scoped_credential_name>
             ) ;
-    GO;
+    GO
     ```
 
 ## Étapes suivantes
-Activer des tables supplémentaires pour Stretch Database. Surveiller la migration des données et gérer des tables et des bases de données Stretch.
-
 -   [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) pour activer des tables supplémentaires.
 
 -   [Surveiller Stretch Database](sql-server-stretch-database-monitor.md) pour connaître l’état de migration des données.
@@ -133,4 +136,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

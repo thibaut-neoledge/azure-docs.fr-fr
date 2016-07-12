@@ -5,7 +5,7 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services=""
+	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -90,7 +90,7 @@ Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de
 
     Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure Classic, il est utilisé par défaut par le portail Classic et par la page de téléchargement. Une fois qu'un paramètre par défaut a été défini, le texte « __cliquez ici pour revenir à la page de sélection__ » apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
 
-* Exécutez la commande suivante **pour importer le fichier de paramètres de publication** :
+* Exécutez la commande suivante **pour importer le fichier de paramètres de publication** :
 
 		azure account import <path to your .publishsettings file>
 
@@ -153,4 +153,4 @@ Si les abonnements associés au compte étaient authentifiés uniquement avec Ac
 
 * Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

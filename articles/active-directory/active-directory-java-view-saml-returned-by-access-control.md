@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm" />
 
 # Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
@@ -196,4 +196,4 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

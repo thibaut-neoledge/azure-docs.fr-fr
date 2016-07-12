@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 # Utiliser MongoChef avec un compte DocumentDB prenant en charge le protocole MongoDB
@@ -28,15 +28,19 @@ Pour vous connecter à un compte DocumentDB prenant en charge le protocole Mongo
 
 Pour ajouter votre compte DocumentDB prenant en charge le protocole MongoDB au gestionnaire de connexions MongoChef, procédez comme suit.
 
-1. Cliquez sur **Connexion** pour ouvrir le gestionnaire de connexions, puis cliquez sur **Nouvelle connexion**.
+1. Récupérez votre compte DocumentDB avec les informations de connexion pour la prise en charge du protocole MongoDB à l’aide de [ces instructions](documentdb-connect-mongodb-account.md).
+
+	![Capture d’écran du panneau Chaîne de connexion](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+
+2. Cliquez sur **Connexion** pour ouvrir le gestionnaire de connexions, puis cliquez sur **Nouvelle connexion**.
 
 	![Capture d’écran du Gestionnaire de connexions MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. Sous l’onglet **Serveur** de la fenêtre **Nouvelle connexion**, entrez le nom de domaine complet du compte DocumentDB prenant en charge le protocole MongoDB et le port.
+2. Sous l’onglet **Serveur** de la fenêtre **Nouvelle connexion**, entrez l’HÔTE (FQDN) du compte DocumentDB prenant en charge le protocole MongoDB et le PORT.
 	
 	![Capture d’écran de l’onglet Serveur du Gestionnaire de connexions MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. Dans la fenêtre **Nouvelle connexion**, sous l’onglet **Authentification**, choisissez le mode d’authentification **Standard (MONGODB-CR ou SCARM-SHA-1)** et entrez les nom d’utilisateur et mot de passe. Acceptez la base de données d’authentification par défaut (admin) ou indiquez votre propre valeur.
+3. Dans la fenêtre **Nouvelle connexion**, sous l’onglet **Authentification**, choisissez le mode d’authentification **Standard (MONGODB-CR ou SCARM-SHA-1)** et entrez les NOM D’UTILISATEUR et MOT DE PASSE. Acceptez la base de données d’authentification par défaut (admin) ou indiquez votre propre valeur.
 
 	![Capture d’écran de l’onglet Authentification du Gestionnaire de connexions MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
@@ -128,4 +132,4 @@ Pour créer une base de données, une collection et des documents à l’aide de
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

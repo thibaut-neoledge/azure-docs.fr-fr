@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/13/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service
 
-La [base de données SQL Azure](sql-database-technical-overview.md) dispose de plusieurs niveaux de service pour gérer les différentes charges de travail. Vous pouvez modifier les niveaux de service à tout moment sans interrompre le fonctionnement de votre application. Vous pouvez également [créer une base de données unique](sql-database-get-started.md) avec des caractéristiques et une tarification définies. Vous pouvez également gérer plusieurs bases de données en [créant un pool de bases de données élastiques](sql-database-elastic-pool-create-portal.md). Dans les deux cas, les niveaux **De base**, **Standard** et **Premium** sont inclus. Les options de base de données de ces niveaux sont similaires pour les bases de données uniques et les pools élastiques. Toutefois, d’autres considérations sont à prendre en compte pour les pools élastiques. Cet article donne des détails sur les niveaux de service des bases de données uniques et élastiques.
+La [base de données SQL Azure](sql-database-technical-overview.md) dispose de plusieurs niveaux de service pour gérer les différentes charges de travail. Vous pouvez [modifier les niveaux de service](sql-database-scale-up.md) à tout moment avec un temps d’arrêt minimal de votre application (généralement sous les 4 secondes environ). Vous pouvez également [créer une base de données unique](sql-database-get-started.md) avec des caractéristiques et une tarification définies. Vous pouvez également gérer plusieurs bases de données en [créant un pool de bases de données élastiques](sql-database-elastic-pool-create-portal.md). Dans les deux cas, les niveaux **De base**, **Standard** et **Premium** sont inclus. Les options de base de données de ces niveaux sont similaires pour les bases de données uniques et les pools élastiques. Toutefois, d’autres considérations sont à prendre en compte pour les pools élastiques. Cet article donne des détails sur les niveaux de service des bases de données uniques et élastiques.
 
 ## Niveaux de service et options de base de données
 Les niveaux de service De base, Standard et Premium proposent un contrat SLA garantissant un temps d'activité de 99,99 %. Par ailleurs, ils proposent des performances prévisibles, des options de continuité d'activité d'entreprise professionnelles, des fonctionnalités de gestion de la sécurité et une facturation à l'heure. Le tableau suivant fournit des exemples de niveaux adaptés à différentes charges de travail d'application.
@@ -33,7 +33,7 @@ Les niveaux de service De base, Standard et Premium proposent un contrat SLA ga
 >[AZURE.NOTE] Les éditions Web et Business ont été retirées. Si vous souhaitez continuer d’utiliser ces éditions, reportez-vous à la section [FAQ Sunset](https://azure.microsoft.com/pricing/details/sql-database/web-business/).
 
 ## Niveau de service et niveau de performances d’une base de données unique
-Il existe plusieurs niveaux de performances au sein de chaque niveau de service pour les bases de données uniques. Vous avez la possibilité de choisir le niveau qui répond le mieux aux besoins de votre charge de travail. Si vous avez besoin de faire monter le système en puissance ou de réduire son échelle, vous pouvez très simplement modifier ses niveaux **sans occasionner de coupure de service pour votre application.** Pour en savoir plus, voir [Modification des niveaux de service et de performances de base de données](sql-database-scale-up.md).
+Il existe plusieurs niveaux de performances au sein de chaque niveau de service pour les bases de données uniques. Vous avez la possibilité de choisir le niveau qui répond le mieux aux besoins de votre charge de travail. Si vous avez besoin de faire monter ou descendre le système en puissance, vous pouvez très facilement modifier ses niveaux. Pour en savoir plus, voir [Modification des niveaux de service et de performances de base de données](sql-database-scale-up.md).
 
 Les caractéristiques de performances répertoriées ici s’appliquent aux bases de données créées à l’aide de [SQL Database V12](sql-database-v12-whats-new.md). Lorsque le matériel sous-jacent d’Azure héberge plusieurs bases de données SQL, votre base de données obtient toujours un ensemble de ressources garanti. Les caractéristiques de performance attendues de la base de données ne sont pas affectées.
 
@@ -66,6 +66,6 @@ Chaque base de données au sein d'un pool respecte également les caractéristiq
 
 ## Ressources supplémentaires
 
-Pour plus d’informations sur les modèles d’architecture de données courants pour les applications de base de données SaaS (software as a service) mutualisées, voir [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

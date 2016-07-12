@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/29/2016"
 	ms.author="jeedes"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory à SilkRoad Life Suite
 
-L’objectif de ce didacticiel est de vous montrer comment intégrer SilkRoad Life Suite avec Azure Active Directory (Azure AD).<br>L’intégration de SilkRoad Life Suite avec Azure AD vous offre les avantages suivants :
+L’objectif de ce didacticiel est de vous montrer comment intégrer SilkRoad Life Suite à Azure Active Directory (Azure AD). L’intégration de SilkRoad Life Suite à Azure AD offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à SilkRoad Life Suite. 
+- Dans Azure AD, vous pouvez contrôler qui a accès à SilkRoad Life Suite.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SilkRoad Life Suite (via l’authentification unique) avec leur compte Azure AD.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -40,13 +40,13 @@ Pour configurer l’intégration d’Azure AD avec SilkRoad Life Suite, vous av
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. <br> Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de SilkRoad Life Suite à partir de la galerie 
+1. Ajout de SilkRoad Life Suite à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -55,21 +55,37 @@ Pour configurer l’intégration de SilkRoad Life Suite dans Azure AD, vous dev
 
 **Pour ajouter SilkRoad Life Suite à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+
+	![Active Directory][1]
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
-4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
-6. Dans la zone Rechercher, entrez **SilkRoad Life Suite**.<br><br> ![Applications][5]<br>
-7. Dans le volet de résultats, sélectionnez **SilkRoad Life Suite**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>![Applications][50]<br>
+3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+
+	![Applications][2]
+
+4. Cliquez sur **Ajouter** en bas de la page.
+
+	![Applications][3]
+
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+
+	![Applications][4]
+
+6. Dans la zone de recherche, tapez **SilkRoad Life Suite**.
+
+	![Applications][5]
+
+7. Dans le volet de résultats, sélectionnez **SilkRoad Life Suite**, puis cliquez sur **Terminer** pour ajouter l’application.
+
+	![Applications][50]
 
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec SilkRoad Life Suite avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD a besoin de savoir qui est l’utilisateur SilkRoad Life Suite équivalent dans Azure AD. En d’autres termes, un lien entre un utilisateur Azure AD et l’utilisateur SilkRoad Life Suite associé doit être établi.<br> Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD en tant que valeur du **nom d’utilisateur** dans SilkRoad Life Suite.
+Pour que l’authentification unique fonctionne, Azure AD a besoin de savoir qui est l’utilisateur SilkRoad Life Suite équivalent dans Azure AD. En d’autres termes, un lien entre un utilisateur Azure AD et l’utilisateur SilkRoad Life Suite associé doit être établi. Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD en tant que valeur du **nom d’utilisateur** dans SilkRoad Life Suite.
  
 Pour configurer et tester l’authentification unique Azure AD avec SilkRoad Life Suite, vous devez suivre les indications des sections suivantes :
 
@@ -81,38 +97,52 @@ Pour configurer et tester l’authentification unique Azure AD avec SilkRoad Li
 
 ### Configuration de l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application SilkRoad Life Suite.<br>
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application SilkRoad Life Suite.
 
 **Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, procédez comme suit :**
 
-5. Connectez-vous à votre site d’entreprise SilkRoad en tant qu’administrateur. 
+5. Connectez-vous à votre site d’entreprise SilkRoad en tant qu’administrateur.
 
 
     > [AZURE.NOTE] Pour obtenir l’accès à l’application d’authentification SilkRoad Life Suite pour configurer la fédération avec Microsoft Azure AD, contactez le support technique SilkRoad ou votre représentant SilkRoad Services.
 
 
-6. Accédez à **Service Provider** (Fournisseur de services), puis cliquez sur **Federation Details** (Informations sur la fédération). <br><br>![Authentification unique Azure AD][10] <br>
+6. Accédez à **Service Provider** (Fournisseur de services), puis cliquez sur **Federation Details** (Informations sur la fédération).
+
+	![Authentification unique Azure AD][10]
 
 
-1. Cliquez sur **Download Federation Metadata**, puis enregistrez le fichier de métadonnées sur votre ordinateur. <br><br>![Authentification unique Azure AD][11] <br>
+1. Cliquez sur **Download Federation Metadata** (Télécharger les métadonnées de fédération), puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-3. Dans le portail Azure AD, sur la page d’intégration des applications **SilkRoad Life Suite**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+	![Authentification unique Azure AD][11]
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à SilkRoad Life Suite**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.<br><br> ![Authentification unique Azure AD][7] <br>
+3. Dans le portail Azure Classic, dans la page d’intégration d’applications **SilkRoad Life Suite**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-3. Dans la page **Configurer les paramètres d’application** de la boîte de dialogue, procédez comme suit : <br><br>![Authentification unique Azure AD][8] <br>
+	![Configurer l’authentification unique][6]
+
+2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à SilkRoad Life Suite**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+
+	![Authentification unique Azure AD][7]
+
+3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
+
+	![Authentification unique Azure AD][8]
  
-    a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site SilkRoad Life Suite (par ex. : **https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site SilkRoad Life Suite (par ex. : *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
 
     b. Ouvrez le fichier de métadonnées **Silkroad** téléchargé.
 
-    c. Recherchez la balise **AssertionConsumerService**, puis copiez l’attribut **Location**. <br><br>![Authentification unique Azure AD][21] <br>
+    c. Recherchez la balise **AssertionConsumerService**, puis copiez l’attribut **Location**.
+
+	![Authentification unique Azure AD][21]
    
     d. Collez la valeur dans la zone de texte **URL de réponse**.
  
     e. Cliquez sur **Next**.
  
-4. Dans la page **Configurer l’authentification unique sur SilkRoad Life Suite**, procédez comme suit : <br><br>![Authentification unique Azure AD][9] <br>
+4. Dans la page **Configurer l’authentification unique sur SilkRoad Life Suite**, procédez comme suit :
+
+	![Authentification unique Azure AD][9]
 
     a. Cliquez sur Télécharger le certificat, puis enregistrez le fichier sur votre ordinateur.
 
@@ -121,15 +151,21 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 
-1. Dans votre application **SilkRoad**, cliquez sur **Authentication Sources**. <br><br>![Authentification unique Azure AD][12] <br>
+1. Dans votre application **SilkRoad**, cliquez sur **Authentication Sources** (Sources d’authentification).
+
+	![Authentification unique Azure AD][12]
 
 
 
-1. Cliquez sur **Add Authentication Source**. <br><br>![Authentification unique Azure AD][13] <br>
+1. Cliquez sur **Add Authentication Source** (Ajouter une source d’authentification).
+
+	![Authentification unique Azure AD][13]
 
 
 
-1. Dans la section **Add Authentication Source**, procédez comme suit : <br><br>![Authentification unique Azure AD][14] <br>
+1. Dans la section **Add Authentication Source** (Ajouter une source d’authentification), procédez comme suit :
+
+	![Authentification unique Azure AD][14]
 
     a. Sous **Option 2 - Metadata File**, cliquez sur **Browse** pour charger le fichier de métadonnées que vous avez téléchargé.
 
@@ -137,10 +173,14 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 
-1. Dans la section **Authentication Sources**, cliquez sur **Edit**. <br><br>![Authentification unique Azure AD][15] <br>
+1. Dans la section **Authentication Sources** (Sources d’authentification), cliquez sur **Edit** (Modifier).
+
+	![Authentification unique Azure AD][15]
 
 
-1. Dans la boîte de dialogue **Edit Authentication Source**, procédez comme suit : <br><br>![Authentification unique Azure AD][16] <br>
+1. Dans la boîte de dialogue **Edit Authentication Source** (Modifier la source d’authentification), procédez comme suit :
+
+	![Authentification unique Azure AD][16]
 
     a. Pour l’option **Enabled**, sélectionnez **Yes**.
 
@@ -151,27 +191,43 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     d. Cliquez sur **Enregistrer**.
 
 
-6. Désactivez toutes les autres sources d’authentification. <br><br>![Authentification unique Azure AD][17]<br>
+6. Désactivez toutes les autres sources d’authentification.
 
-7. Dans le portail Azure AD, dans la page **Confirmation de l’authentification unique**, cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][18]
+	![Authentification unique Azure AD][17]
 
-1. Dans la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][19]
+7. Dans le portail Azure Classic, dans la page **Confirmation de l’authentification unique**, cliquez sur **Suivant**.
+
+	![Authentification unique Azure AD][18]
+
+1. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
+
+	![Authentification unique Azure AD][19]
 
 
 ### Création d’un utilisateur de test Azure AD
-L'objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
+
+![Créer un utilisateur Azure AD][20]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation de gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png) <br> 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png)
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) <br>
- 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) <br>
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png) <br>
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png)
+ 
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils inférieure.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png)
+
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -179,7 +235,9 @@ L'objectif de cette section est de créer un utilisateur de test appelé Britta 
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) <br>
+6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png)
  
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
@@ -189,9 +247,13 @@ L'objectif de cette section est de créer un utilisateur de test appelé Britta 
 
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**. e. Cliquez sur **Next**.
 
-7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) <br>
+7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png)
  
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png) <br>
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png)
   
     a. Notez la valeur du **Nouveau mot de passe**.
 
@@ -211,22 +273,35 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 ### Affectation de l’utilisateur de test Azure AD
 
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à SilkRoad Life Suite. <br><br>![Affecter des utilisateurs][200] <br>
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à SilkRoad Life Suite.
+
+![Affecter des utilisateurs][200]
 
 **Pour attribuer Britta Simon à SilkRoad Life Suite, procédez comme suit :**
 
-1. Dans la vue répertoire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
-2. Dans la liste des applications, sélectionnez **SilkRoad Life Suite**. <br><br>![Affecter des utilisateurs][202] <br>
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.<br> <br>![Affecter des utilisateurs][203]<br>
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+
+	![Affecter des utilisateurs][201]
+
+2. Dans la liste des applications, sélectionnez **SilkRoad Life Suite**.
+
+	![Affecter des utilisateurs][202]
+
+1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+
+	![Affecter des utilisateurs][203]
+
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils inférieure, cliquez sur **Attribuer**.
+
+	![Affecter des utilisateurs][205]
 
 
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du panneau d’accès.<br> Lorsque vous cliquez sur la vignette SilkRoad Life Suite dans le panneau d’accès, vous devez être connecté automatiquement à votre application SilkRoad Life Suite.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette SilkRoad Life Suite dans le panneau d’accès, vous devez être connecté automatiquement à votre application SilkRoad Life Suite.
 
 
 ## Ressources supplémentaires
@@ -271,4 +346,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

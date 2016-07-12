@@ -55,7 +55,7 @@ Voici comment configurer la restauration :
 
 Vous devez installer un serveur vContinuum en local et le pointer vers le serveur de configuration.
 
-1.  [Téléchargez vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
+1.  [Téléchargez vContinuum](http://go.microsoft.com/fwlink/?linkid=526305).
 2.  Téléchargez ensuite la version [mise à jour vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
 3. Installez la dernière version de vContinuum. Dans la page **d’accueil**, cliquez sur **Suivant**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  Dans la première page de l’Assistant, spécifiez l’adresse IP et le port du serveur CX. Sélectionnez **Utiliser HTTPS**.
@@ -223,7 +223,7 @@ Avant d’appliquer ces modifications, assurez-vous que vous avez terminé la se
 3. Connectez-vous à la machine virtuelle du serveur cible maître Linux à l’aide d’un client ssh de votre choix.
 4. Si vous êtes connecté au réseau Azure sur lequel est déployé votre serveur cible maître Linux via une connexion VPN, utilisez l’adresse IP interne du serveur que vous pouvez trouver dans l’onglet **Tableau de bord** de la machine virtuelle, ainsi que le port 22, pour vous connecter au serveur cible maître Linux à l’aide de Secure Shell.
 5. Si vous vous connectez au serveur cible maître Linux via une connexion Internet publique, utilisez l’adresse IP virtuelle publique du serveur cible maître Linux (de l’onglet **Tableau de bord** des machines virtuelles) et le point de terminaison public créé pour ssh.
-6. Extrayez les fichiers de l’archive tar du programme d’installation du serveur cible maître Linux compressée en exécutant **tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64** dans le répertoire qui contient le fichier du programme d’installation.
+6. Extrayez les fichiers de l’archive tar du programme d’installation du serveur cible maître Linux compressée en exécutant *tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\* dans le répertoire qui contient le fichier du programme d’installation.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
@@ -266,7 +266,7 @@ Vous devez protéger les machines virtuelles sur le site local avant de procéde
 Le basculement d’une machine virtuelle vers Microsoft Azure ajoute un lecteur temporaire associé au fichier de page. Il s’agit d’un lecteur supplémentaire qui n’est généralement pas requis par votre machine virtuelle basculée, dans la mesure où bien souvent, elle présente déjà un lecteur dédié au fichier de page. Avant de commencer à inverser la protection des machines virtuelles, vérifiez que le lecteur n’est plus en ligne, et qu’il n’est ainsi plus protégé. Procédez comme suit :
 
 1.  Ouvrez Gestion de l’ordinateur, puis sélectionnez Gestion du stockage, de manière à ce que les disques en ligne soient répertoriés et associés à la machine.
-2.  Sélectionnez le disque temporaire attaché à la machine, et configurez sa mise hors ligne. 
+2.  Sélectionnez le disque temporaire attaché à la machine, et configurez sa mise hors ligne.
 
 ### Protéger les machines virtuelles
 
@@ -325,7 +325,7 @@ Le basculement d’une machine virtuelle vers Microsoft Azure ajoute un lecteur
 
 #### Configurer des paramètres NAT
 
-1. Pour activer la protection des machines virtuelles, vous devez établir deux canaux de communication. Le premier canal doit être défini entre la machine virtuelle et le serveur de processus. Ce canal collecte les données de la machine virtuelle et les envoie au serveur de processus qui les envoie à son tour au serveur cible maître. Si le serveur de processus et la machine virtuelle à protéger sont sur le même réseau virtuel Azure, il n’est pas nécessaire de recourir aux paramètres NAT. Dans le cas contraire, spécifiez les paramètres NAT. Affichez l’adresse IP publique du serveur de processus dans Azure. 
+1. Pour activer la protection des machines virtuelles, vous devez établir deux canaux de communication. Le premier canal doit être défini entre la machine virtuelle et le serveur de processus. Ce canal collecte les données de la machine virtuelle et les envoie au serveur de processus qui les envoie à son tour au serveur cible maître. Si le serveur de processus et la machine virtuelle à protéger sont sur le même réseau virtuel Azure, il n’est pas nécessaire de recourir aux paramètres NAT. Dans le cas contraire, spécifiez les paramètres NAT. Affichez l’adresse IP publique du serveur de processus dans Azure.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image28.png)
 
@@ -428,4 +428,4 @@ Une fois la restauration automatique effectuée, vous souhaiterez probablement r
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Autoriser l’accès externe à une machine virtuelle Linux | Microsoft Azure"
+   pageTitle="Ouvrir des ports ou des points de terminaison pour une machine virtuelle Linux | Microsoft Azure"
    description="Découvrez comment ouvrir un port / créer un point de terminaison qui permet un accès externe à votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager et de l’interface de ligne de commande Azure"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -16,11 +16,11 @@
    ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# Autoriser l’accès externe à votre machine virtuelle
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+# Ouverture des ports et des points de terminaison
+Pour ouvrir un port ou créer un point de terminaison dans Azure, vous créez un filtre réseau qui autorise le trafic vers le port choisi sur un sous-réseau ou une interface réseau de machine virtuelle. Ces filtres, qui contrôlent le trafic entrant et sortant, sont placés dans un groupe de sécurité réseau et associés à la ressource qui reçoit le trafic. Nous allons utiliser un exemple courant de trafic web sur le port 80.
 
 ## Commandes rapides
-Pour créer un groupe de sécurité de réseau et des règles, vous avez besoin de l’[interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource manager (`azure config mode arm`).
+Pour créer un groupe de sécurité de réseau et des règles, vous avez besoin de [l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource manager (`azure config mode arm`).
 
 Créez votre groupe de sécurité réseau en entrant votre nom et votre emplacement en conséquence :
 
@@ -52,7 +52,7 @@ Les commandes rapides vous permettent d’être opérationnel avec le trafic ent
 
 Les groupes de sécurité réseau et les règles ACL peuvent également être définis dans le cadre de modèles Azure Resource Manager. En savoir plus sur la [création de groupes de sécurité réseau avec des modèles](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, vous devez utiliser un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d'un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, vous devez utiliser un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d’un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## Étapes suivantes
 Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HTTP. Vous trouverez plus d’informations sur la création d’environnements plus détaillés dans les articles suivants :
@@ -61,4 +61,4 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 - [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 - [Présentation d’Azure Resource Manager Overview pour les équilibreurs de charge](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

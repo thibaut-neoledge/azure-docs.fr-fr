@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Spécification d'une version Node.js dans une application Azure
@@ -22,13 +22,13 @@ Pendant l'hébergement d'une application Node.js, vous pouvez vous assurer que v
 
 ##Versions par défaut
 
-Les versions de Node.js fournies par Azure sont constamment mises à jour. Sauf indication contraire, la dernière version disponible sera utilisée.
+Les versions de Node.js fournies par Azure sont constamment mises à jour. Sauf indication contraire, la version par défaut spécifiée dans la variable d’environnement `WEBSITE_NODE_DEFAULT_VERSION` sera utilisée. Pour remplacer cette valeur par défaut, suivez les étapes décrites dans les sections ci-après.
 
 > [AZURE.NOTE] Si vous hébergez votre application dans un service cloud Azure (rôle Web ou de travail) et que c'est la première fois que vous la déployez, Azure essaiera d'utiliser la même version de Node.js que celle que vous avez installée dans votre environnement de développement si elle correspond à l'une des versions par défaut disponibles dans Azure.
 
 ##Contrôle de version avec package.json
 
-Vous pouvez spécifier la version de Node.js à utiliser en ajoutant ce qui suit dans votre fichier **package.json** :
+Vous pouvez spécifier la version de Node.js à utiliser en ajoutant ce qui suit dans votre fichier **package.json** :
 
 	"engines":{"node":version}
 
@@ -77,7 +77,7 @@ Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez u
 
 	Enregistrez le fichier **node.exe** dans le dossier **bin** créé précédemment.
 
-5. Créez un fichier **iisnode.yml** dans le même répertoire que le fichier **server.js**, puis ajoutez le contenu suivant au fichier **iisnode.yml** :
+5. Créez un fichier **iisnode.yml** dans le même répertoire que le fichier **server.js**, puis ajoutez le contenu suivant au fichier **iisnode.yml** :
 
 		nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
 
@@ -102,4 +102,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 [utiliser des modules]: nodejs-use-node-modules-azure-apps.md
 [créer et déployer un site Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(Version préliminaire)* : Activer la synchronisation du mot de passe pour les services de domaine Azure AD
@@ -63,4 +63,4 @@ Une fois que les utilisateurs ont modifié leur mot de passe, le nouveau mot de 
 
 - [Joindre une machine virtuelle Linux Red Hat Enterprise à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

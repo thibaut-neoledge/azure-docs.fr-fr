@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -38,9 +38,9 @@ Le didacticiel se compose de quatre leçons :
 
 Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) :
 
-- [Leçon 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) : un lecteur multimédia Smooth Streaming pour Windows 8, 
-- [Leçon 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) : un lecteur multimédia simple Smooth Streaming pour Windows 8 doté d’une fonction de contrôle avec barre de curseur, 
-- [Leçon 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) : un lecteur multimédia Smooth Streaming pour Windows 8 avec sélection de flux,  
+- [Leçon 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) : un lecteur multimédia Smooth Streaming pour Windows 8,
+- [Leçon 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) : un lecteur multimédia simple Smooth Streaming pour Windows 8 doté d’une fonction de contrôle avec barre de curseur,
+- [Leçon 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) : un lecteur multimédia Smooth Streaming pour Windows 8 avec sélection de flux,
 - [Leçon 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) : un lecteur multimédia Smooth Streaming pour Windows 8 avec sélection des pistes.
 
 ##Leçon 1 : créer une application Windows Store de diffusion en continu lisse de base
@@ -83,7 +83,7 @@ Nom|Valeur
 Groupe de référence|Windows/Extensions
 Référence|Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++
 	
-3.	Cliquez sur **OK**. 
+3.	Cliquez sur **OK**.
 
 Après l'ajout des références, vous devez sélectionner la plateforme ciblée (x64 ou x86). L'ajout de références ne fonctionne pas pour les configurations de plateforme CPU. Dans l'Explorateur de solutions, un symbole d'avertissement jaune s'affiche pour indiquer les références ajoutées.
 
@@ -212,10 +212,10 @@ Le fichier code-behind terminé doit ressembler à ceci :
 
 1.	Dans le menu **Build**, cliquez sur **Gestionnaire de configuration**.
 2.	Modifiez l'option **Plateforme de la solution active** en fonction de votre plateforme de développement.
-3.	Appuyez sur **F6** pour compiler le projet. 
+3.	Appuyez sur **F6** pour compiler le projet.
 4.	Appuyez sur **F5** pour exécuter l'application.
-5.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente. 
-6.	Cliquez sur **Définir la source**. Étant donné que la fonctionnalité **Lecture automatique** est activée par défaut, le fichier multimédia est lu automatiquement. Vous pouvez contrôler le fichier multimédia à l'aide des boutons **Lecture**, **Pause** et **Arrêt**. Vous pouvez contrôler le volume du fichier multimédia à l'aide du curseur vertical. Cependant, le curseur horizontal permettant de contrôler la progression du fichier multimédia n'est pas encore complètement implémenté. 
+5.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente.
+6.	Cliquez sur **Définir la source**. Étant donné que la fonctionnalité **Lecture automatique** est activée par défaut, le fichier multimédia est lu automatiquement. Vous pouvez contrôler le fichier multimédia à l'aide des boutons **Lecture**, **Pause** et **Arrêt**. Vous pouvez contrôler le volume du fichier multimédia à l'aide du curseur vertical. Cependant, le curseur horizontal permettant de contrôler la progression du fichier multimédia n'est pas encore complètement implémenté.
 
 Vous avez terminé la leçon 1. Dans cette leçon, vous avez utilisé un contrôle MediaElement pour lire du contenu de diffusion en continu lisse. Dans la leçon suivante, vous allez ajouter un curseur pour contrôler la progression du contenu de diffusion en continu lisse.
 
@@ -229,7 +229,7 @@ Les sources multimédias sont des objets qui produisent des données multimédia
 
 Cette leçon aborde les procédures suivantes :
 
-1.	Enregistrement du gestionnaire de diffusion en continu lisse 
+1.	Enregistrement du gestionnaire de diffusion en continu lisse
 2.	Ajout de gestionnaires d'événements au niveau d'AdaptiveSourceManager
 3.	Ajout de gestionnaires d'événements au niveau de la source adaptative
 4.	Ajout de gestionnaires d'événements MediaElement
@@ -484,10 +484,10 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
 
 **Pour compiler et tester l'application**
 
-1. Appuyez sur **F6** pour compiler le projet. 
+1. Appuyez sur **F6** pour compiler le projet.
 2.	Appuyez sur **F5** pour exécuter l'application.
-3.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente. 
-4.	Cliquez sur **Définir la source**. 
+3.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente.
+4.	Cliquez sur **Définir la source**.
 5.	Testez la barre de curseur.
 
 Vous avez terminé la leçon 2. Dans cette leçon, vous avez ajouté un curseur à l'application.
@@ -757,10 +757,10 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 **Pour compiler et tester l'application**
 
-1. Appuyez sur **F6** pour compiler le projet. 
+1. Appuyez sur **F6** pour compiler le projet.
 2.	Appuyez sur **F5** pour exécuter l'application.
-3.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente. 
-4.	Cliquez sur **Définir la source**. 
+3.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente.
+4.	Cliquez sur **Définir la source**.
 5.	La langue par défaut est audio\_eng. Essayez de basculer entre audio\_eng et audio\_es. Vous devez cliquer sur le bouton Envoyer chaque fois que vous sélectionnez un nouveau flux.
 
 Vous avez terminé la leçon 3. Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des flux.
@@ -960,10 +960,10 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 
 **Pour compiler et tester l'application**
 
-1. Appuyez sur **F6** pour compiler le projet. 
+1. Appuyez sur **F6** pour compiler le projet.
 2.	Appuyez sur **F5** pour exécuter l'application.
-3.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente. 
-4.	Cliquez sur **Définir la source**. 
+3.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente.
+4.	Cliquez sur **Définir la source**.
 5.	Par défaut, toutes les pistes du flux vidéo sont sélectionnées. Pour tester l'effet des modifications de débit, vous pouvez sélectionner le débit le plus bas disponible, puis sélectionner le débit le plus élevé disponible. Vous devez cliquer sur Envoyer après chaque modification. Vous pouvez dès lors constater les modifications de la qualité vidéo.
 
 Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des pistes.
@@ -986,4 +986,4 @@ Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctio
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

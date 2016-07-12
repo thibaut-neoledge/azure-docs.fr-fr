@@ -13,43 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
-   ms.author="mausher;sonyama;barbkess"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Résolution des problèmes d’Azure SQL Data Warehouse
 Cette rubrique répertorie certains des problèmes les plus courants auxquels vous pourriez être confronté avec Azure SQL Data Warehouse.
 
-## Connectivité
-Exemples de problèmes de connectivité courants :
 
-- Les règles du pare-feu ne sont pas définies
-- Les outils/protocoles ne sont pas pris en charge
+##Échecs de connexion
+
+Si vous avez des problèmes de connexion, vous trouverez ci-dessous les problèmes les plus couramment signalés par les clients.
+
+### Erreur CTAIP
+Cette erreur peut se produire lorsqu’un identifiant de connexion a été créé sur la base de données principale du serveur SQL, mais pas sur la base de données SQL Data Warehouse. Si vous rencontrez cette erreur, consultez l’article [Vue d’ensemble de la sécurité][]. Cet article explique comment créer un identifiant de connexion sur la base de données principale, puis comment créer un utilisateur dans la base de données SQL Data Warehouse.
 
 ### Règles de pare-feu
 Les bases de données SQL Azure sont protégées par des pare-feu au niveau du serveur et de la base de données pour s’assurer que seules les adresses IP connues ont accès à une base de données. Les pare-feu sont sécurisés par défaut, ce qui signifie que vous devez activer explicitement une adresse IP ou une plage d’adresses avant de vous connecter. Pour configurer votre pare-feu pour l’accès, suivez les étapes décrites dans la section de [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client][] des [instructions d’approvisionnement][].
 
-### Les outils/protocoles ne sont pas pris en charge
+### Outils/protocoles non pris en charge
 SQL Data Warehouse recommande l’utilisation de [Visual Studio 2013 ou 2015][] pour interroger vos données. Pour la connectivité client, il est recommandé d’utiliser [SQL Server Native Client 10/11 (ODBC)][]. SQL Server Management Studio (SSMS) n’est pas encore pris en charge et, bien qu’elle fonctionne partiellement, l’arborescence de l’Explorateur d’objets ne fonctionne pas avec SQL Data Warehouse ; la requête peut également s’exécuter si vous ignorez certains messages d’erreur.
 
-## Performances des requêtes
 
-Vous pouvez apporter quelques modifications de base à votre conception de base de données pour obtenir des performances de requête optimales avec votre instance SQL Data Warehouse. Pour bien comprendre les performances de vos requêtes, vous pouvez consulter l’article relatif à la [surveillance de vos requêtes][]. Pour accélérer l’exécution d’une requête, il suffit parfois simplement d’ajouter davantage de puissance de calcul à vos requêtes en procédant à une [mise à l’échelle de votre base de données SQL Data Warehouse][]. Nous vous invitons à lire l’article [Meilleures pratiques relatives à SQL Data Warehouse][], qui décrit l’ensemble de ces solutions d’optimisation.
+## Problèmes de performances
 
-Voici quelques-unes des causes les plus courantes des problèmes de performances de requêtes.
+L’article [Meilleures pratiques relatives à SQL Data Warehouse][] est le meilleur point de départ pour apprendre à améliorer les performances des requêtes. Si vous tentez de dépanner une requête spécifique, vous pouvez également consulter l’article relatif à la [surveillance de vos requêtes][]. Pour accélérer l’exécution d’une requête, il suffit parfois simplement d’ajouter davantage de puissance de calcul à vos requêtes en procédant à une [mise à l’échelle de votre base de données SQL Data Warehouse][].
 
-### Statistiques
-
-Les [statistiques][] de vos tables contiennent des informations sur la plage et la fréquence de valeurs dans une colonne ou une combinaison de colonnes de base de données. Le moteur de requête utilise ces statistiques pour optimiser l'exécution des requêtes et améliorer leurs performances. Contrairement à SQL Server ou la base de données SQL, SQL Data Warehouse ne prend pas en charge les statistiques de création ou de mise à jour automatiques. Les statistiques doivent être manuellement gérées sur toutes les tables. Pour savoir comment gérer vos statistiques et identifier des tables qui requièrent des statistiques, consultez l’article [Gérer des statistiques dans SQL Data Warehouse][].
-
-### Conception de tables
-
-Lors de la conception de votre base de données SQL Data Warehouse, vous devez principalement veiller à [choisir une clé de distribution par hachage adaptée à votre table][] et à choisir la [conception de vos tables][]. Dès que vous serez bien familiarisé avec SQL Data Warehouse et que vous chercherez à en optimiser les performances, veillez à comprendre les concepts présentés dans ces articles.
-
-### Qualité du segment Columnstore en cluster
+## Qualité du segment Columnstore en cluster
 
 La qualité du segment Columnstore en cluster est importante pour garantir des performances de requête optimales au niveau des tables Columnstore en cluster. La qualité du segment peut être mesurée par le nombre de lignes dans un groupe de lignes compressé. La requête suivante identifiera les tables comportant un segment d’index Columnstore dégradé et générera le code T-SQL pour recréer l'index Columnstore sur ces tables. La première colonne de ce résultat de requête vous donnera le code T-SQL pour reconstruire chaque index. La seconde colonne fournira une recommandation concernant la classe minimum de ressources à utiliser pour optimiser la compression.
  
-**ÉTAPE 1 :** exécuter cette requête sur chaque base de données SQL Data Warehouse afin d’identifier tous les index Columnstore en cluster non optimaux. Si aucune ligne n'est renvoyée, cette régression ne vous a pas affecté et aucune autre action n'est nécessaire.
+**ÉTAPE 1 :** exécuter cette requête sur chaque base de données SQL Data Warehouse afin d’identifier tous les index Columnstore en cluster non optimaux. Si aucune ligne n’est renvoyée, aucune action supplémentaire n’est nécessaire.
 
 ```sql
 SELECT 
@@ -104,26 +97,40 @@ La recommandation concernant la classe de ressource minimum pour les charges de 
 
 
 ## Étapes suivantes
-Consultez l’article [Meilleures pratiques relatives à SQL Data Warehouse][] pour plus d’informations sur la façon d’optimiser votre solution SQL Data Warehouse.
+
+Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à votre problème, voici d’autres ressources que vous pouvez consulter.
+
+- [Blogs]
+- [Demandes de fonctionnalités]
+- [Vidéos]
+- [Blogs de l’équipe CAT (Customer Advisory Team)]
+- [Création d’un ticket de support]
+- [Forum MSDN]
+- [Forum Stack Overflow]
+- [Twitter]
 
 <!--Image references-->
 
 <!--Article references-->
+[Vue d’ensemble de la sécurité]: ./sql-data-warehouse-overview-manage-security.md
+[Création d’un ticket de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [mise à l’échelle de votre base de données SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
-[conception de vos tables]: ./sql-data-warehouse-develop-table-design.md
-[choisir une clé de distribution par hachage adaptée à votre table]: ./sql-data-warehouse-develop-hash-distribution-key
-[development overview]: ./sql-data-warehouse-overview-develop.md
 [surveillance de vos requêtes]: ./sql-data-warehouse-manage-monitor.md
-[Gérer des statistiques dans SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
 [instructions d’approvisionnement]: ./sql-data-warehouse-get-started-provision.md
 [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 ou 2015]: ./sql-data-warehouse-get-started-connect.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[statistiques]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 
-<!--Other web references-->
+<!--Other Web references-->
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Blogs de l’équipe CAT (Customer Advisory Team)]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Forum MSDN]: https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureSQLDataWarehouse
+[Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

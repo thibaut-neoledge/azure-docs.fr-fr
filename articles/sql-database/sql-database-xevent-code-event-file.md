@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="genemi"/>
 
 
@@ -292,7 +292,7 @@ Le script PowerShell a affiché quelques valeurs nommées à la fin de son exéc
 &nbsp;
 
 
-> [AZURE.WARNING] La valeur de clé SAS générée par le script PowerShell précédent pourrait commencer par un « ? » (point d’interrogation). Lorsque vous utilisez la clé SAS dans le script T-SQL suivant, vous devez supprimer « ? » au début.
+> [AZURE.WARNING] La valeur de clé SAS générée par le script PowerShell précédent pourrait commencer par un « ? » (point d’interrogation). Lorsque vous utilisez la clé SAS dans le script T-SQL suivant, vous devez *supprimer « ? » au début*. Dans le cas contraire, vos efforts peuvent être bloqués par la sécurité.
 
 
 &nbsp;
@@ -512,9 +512,9 @@ GO
 ## Sortie
 
 
-Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event\_data\_XML**. Un élément **<event>** s’affiche, avec une instruction UPDATE.
+Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event\_data\_XML**. Un élément **<événement>** s’affiche, avec une instruction UPDATE.
 
-Voici un élément **<event>** ayant été généré pendant le test :
+Voici un élément **<événement<** ayant été généré pendant le test :
 
 
 &nbsp;
@@ -559,9 +559,17 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
+&nbsp;
 
 
+Le script Transact-SQL précédent a utilisé la fonction système suivante pour lire le fichier d’événement :
 
+- [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+
+
+Une explication des options avancées de l’affichage des données d’événements étendus est disponible dans :
+
+- [Affichage avancée des données cibles à partir d’événements étendus](http://msdn.microsoft.com/library/mt752502.aspx)
 
 &nbsp;
 
@@ -585,20 +593,15 @@ Vous voulez maintenant exécuter l’exemple de code Transact-SQL précédent su
 ## Plus d’informations
 
 
-La rubrique suivante fournit des informations essentielles au sujet des événements étendus dans Azure SQL Database :
-
-- [Événements étendus dans SQL Database](sql-database-xevent-db-diff-from-svr.md).
- - Cette rubrique décrit les différences à prendre en compte entre les événements étendus dans Azure SQL Database et ceux dans Microsoft SQL Server.
-
-
-- [Code cible de la mémoire tampon en anneau pour les événements étendus dans SQL Database](sql-database-xevent-code-ring-buffer.md) : cette rubrique fournit un exemple de code analogue, simple et rapide à utiliser, mais qui est plus approprié pour les tests rapides et moins efficace pour les opérations de plus grande ampleur.
-
-
 Pour plus d’informations sur les comptes et les conteneurs du service Azure Storage, consultez :
 
 - [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Utilisation du conteneur racine](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [Leçon 1 : Créer une stratégie d’accès stockée et une signature d’accès partagé sur un conteneur Azure](http://msdn.microsoft.com/library/dn466430.aspx)
+    - [Leçon 2 : Créer des informations d’identification SQL Server à l’aide d’une signature d’accès partagé](http://msdn.microsoft.com/library/dn466435.aspx)
+
+
 
 
 <!--
@@ -607,4 +610,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -62,7 +62,7 @@ L’exemple suivant illustre les attributions de rôle dans le groupe *pharma-sa
 
 ###	Répertorier les affectations de rôles d'un utilisateur, notamment les rôles affectés à des groupes d'utilisateurs
 
-L’exemple suivant montre les attributions de rôles octroyées à l’utilisateur **sameert@aaddemo.com*. Cela inclut les rôles attribués directement à l’utilisateur, mais également les rôles hérités des groupes.
+L’exemple suivant montre les attributions de rôles octroyées à l’utilisateur *sameert@aaddemo.com*. Cela inclut les rôles attribués directement à l’utilisateur, mais également les rôles hérités des groupes.
 
 ![Ligne de commande Azure RBAC - liste des affectations de rôle azure par utilisateur - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -74,7 +74,7 @@ Une fois que vous avez identifié le rôle que vous souhaitez affecter, utilisez
 ###	Affectation d'un rôle à un groupe pour l'abonnement
 Pour affecter un rôle à un groupe pour l'abonnement, utilisez :
 
-	azure role assignment create --objId  <group's object id> --role <name of role> --scope <subscription/subscription id>
+	azure role assignment create --objectId  <group's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 L'exemple suivant affecte le rôle *Lecteur* à l'*équipe de Christine Koch* pour l'*abonnement*.
 
@@ -83,7 +83,7 @@ L'exemple suivant affecte le rôle *Lecteur* à l'*équipe de Christine Koch* po
 ###	Affectation d'un rôle à une application pour l'abonnement
 Pour affecter un rôle à une application pour l'abonnement, utilisez :
 
-    azure role assignment create --objId  <applications's object id> --role <name of role> --scope <subscription/subscription id>
+    azure role assignment create --objectId  <applications's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 L'exemple suivant affecte le rôle *Collaborateur* à une application *Azure AD* pour l'abonnement sélectionné.
 
@@ -92,16 +92,16 @@ L'exemple suivant affecte le rôle *Collaborateur* à une application *Azure AD*
 ###	Affectation d'un rôle à un utilisateur pour le groupe de ressources
 Pour affecter un rôle à un utilisateur pour le groupe de ressources, utilisez :
 
-	azure role assignment create --signInName  <user's email address> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
 
-L'exemple suivant affecte le rôle *Collaborateur de machine virtuelle* à l'utilisateur **samert@aaddemo.com* au groupe de ressources *Pharma-Sales-ProjectForcast*.
+L’exemple suivant affecte le rôle *Collaborateur de machine virtuelle* à l’utilisateur *samert@aaddemo.com* au groupe de ressources *Pharma-Sales-ProjectForcast*.
 
 ![Ligne de commande Azure RBAC - création d’affectation de rôle azure par utilisateur - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ###	Affectation d'un rôle à un groupe au niveau des ressources
 Pour affecter un rôle à un groupe au niveau des ressources, utilisez :
 
-    azure role assignment create --objId  <group id> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+    azure role assignment create --objectId  <group id> --subscription <subscription> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
 L'exemple suivant affecte le rôle *Collaborateur de machine virtuelle* à un groupe *Azure AD* dans un *sous-réseau*.
 
@@ -110,9 +110,9 @@ L'exemple suivant affecte le rôle *Collaborateur de machine virtuelle* à un gr
 ##	Suppression d'accès
 Pour supprimer une affectation de rôle
 
-    azure role assignment delete --objId <object id to from which to remove role> --roleName <role name>
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName <role name>
 
-L'exemple suivant supprime l'affectation du rôle *Collaborateur de machine virtuelle* pour le groupe de ressources **sammert@aaddemo.com* *Pharma-Sales-ProjectForcast*. Il supprime ensuite l'affectation de rôle du groupe pour l'abonnement.
+L’exemple suivant supprime l’affectation du rôle *Collaborateur de machine virtuelle* pour le groupe de ressources *sammert@aaddemo.com* *Pharma-Sales-ProjectForcast*. Il supprime ensuite l'affectation de rôle du groupe pour l'abonnement.
 
 ![Ligne de commande Azure RBAC - suppression d’affectation de rôle - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
@@ -162,4 +162,4 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Implémentation d’un scénario de basculement de diffusion en continu
@@ -22,10 +22,10 @@ Cette procédure pas à pas montre comment copier le contenu (objets blob) d'une
 
 1. Configurez un compte Media Services dans le « Centre de données A ».
 1. Téléchargez un fichier mezzanine dans une ressource source.
-1. Encodez la ressource en fichiers MP4 à débit binaire multiple. 
+1. Encodez la ressource en fichiers MP4 à débit binaire multiple.
 1. Créez un localisateur SAP en lecture seule pour la ressource source afin d’avoir accès en lecture au conteneur du compte de stockage associé à la ressource source.
 1. Obtenez le nom du conteneur de la ressource source à partir du localisateur SAP en lecture seule créé à l'étape précédente. Ces informations sont nécessaires pour la copie des objets blob entre les comptes de stockage (procédure expliquée plus loin dans cette rubrique.)
-1. Créez un localisateur d'origine pour la ressource créée par la tâche d'encodage. 
+1. Créez un localisateur d'origine pour la ressource créée par la tâche d'encodage.
 
 Ensuite, pour gérer le basculement :
 
@@ -33,17 +33,17 @@ Ensuite, pour gérer le basculement :
 1. Créez une ressource vide cible dans le compte Media Services cible.
 1. Créez un localisateur SAP en écriture pour la ressource vide cible afin d’avoir accès en écriture au conteneur du compte de stockage associé à la ressource cible.
 1. Utilisez Azure Storage SDK pour copier des objets blob (fichiers de ressources) du compte de stockage source du « Centre de données A » vers le compte de stockage cible du « Centre de données B » (ces comptes de stockage sont associés aux ressources correspondantes.)
-1. Associez les objets blob (fichiers de ressources) qui ont été copiés vers le conteneur d'objets blob cible avec la ressource cible. 
-1. Créez un localisateur d'origine pour la ressource dans le « Centre de données B » et spécifiez l’ID de localisateur qui a été généré pour la ressource dans le « Centre de données A ». 
-1. Cela vous donne les URL de diffusion en continu dans lesquelles les chemins d'accès relatifs des URL sont identiques (seules les URL de base sont différentes). 
+1. Associez les objets blob (fichiers de ressources) qui ont été copiés vers le conteneur d'objets blob cible avec la ressource cible.
+1. Créez un localisateur d'origine pour la ressource dans le « Centre de données B » et spécifiez l’ID de localisateur qui a été généré pour la ressource dans le « Centre de données A ».
+1. Cela vous donne les URL de diffusion en continu dans lesquelles les chemins d'accès relatifs des URL sont identiques (seules les URL de base sont différentes).
  
 Ensuite, pour gérer les éventuelles pannes, vous pouvez créer un CDN par-dessus ces localisateurs d'origine.
 
 Les considérations suivantes s'appliquent :
 
 - La version actuelle de Media Services SDK ne prend pas en charge la création d'un localisateur avec un ID de localisateur spécifié. Pour effectuer cette tâche, nous utiliserons Media Services REST API.
-- La version actuelle de Media Services SDK ne prend pas en charge la génération automatique des informations IAssetFile permettant d’associer une ressource à des fichiers de ressources. Pour effectuer cette tâche, nous utiliserons l'API REST CreateFileInfos Media Services. 
-- Les ressources de stockage chiffrées (AssetCreationOptions.StorageEncrypted) ne sont pas prises en charge pour la réplication (dans la mesure où la clé de chiffrement sera différente dans les deux comptes Media Services). 
+- La version actuelle de Media Services SDK ne prend pas en charge la génération automatique des informations IAssetFile permettant d’associer une ressource à des fichiers de ressources. Pour effectuer cette tâche, nous utiliserons l'API REST CreateFileInfos Media Services.
+- Les ressources de stockage chiffrées (AssetCreationOptions.StorageEncrypted) ne sont pas prises en charge pour la réplication (dans la mesure où la clé de chiffrement sera différente dans les deux comptes Media Services).
 - Si vous souhaitez tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité réservée de diffusion en continu à la demande. Pour plus d'informations, consultez [Empaquetage dynamique de ressources](media-services-dynamic-packaging-overview.md).
  
 
@@ -61,7 +61,7 @@ Les considérations suivantes s'appliquent :
 Dans cette section, vous aller créer et configurer un projet d'application console C#.
 
 1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. Entrez le nom HandleRedundancyForOnDemandStreaming, puis cliquez sur OK.
-1. Créez le dossier SupportFiles au même niveau que le fichier de projet HandleRedundancyForOnDemandStreaming.csproj. Sous le dossier SupportFiles, créez les dossiers OutputFiles et MP4Files. Copiez un fichier .mp4 dans le dossier MP4Files (dans cet exemple, le fichier BigBuckBunny.mp4 est utilisé). 
+1. Créez le dossier SupportFiles au même niveau que le fichier de projet HandleRedundancyForOnDemandStreaming.csproj. Sous le dossier SupportFiles, créez les dossiers OutputFiles et MP4Files. Copiez un fichier .mp4 dans le dossier MP4Files (dans cet exemple, le fichier BigBuckBunny.mp4 est utilisé).
 1. Utilisez **Nuget** pour ajouter des références aux DLL associées à Media Services. Dans le menu principal de Visual Studio, sélectionnez OUTILS -> Gestionnaire de package de bibliothèques -> Console du Gestionnaire de package. Dans la fenêtre de la console, tapez Install-Package windowsazure.mediaservices, puis appuyez sur Entrée.
 1. Ajoutez les autres références requises pour ce projet : System.Configuration, System.Runtime.Serialization et System.Web.
 1. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
@@ -972,4 +972,4 @@ Vous pouvez désormais utiliser un gestionnaire de trafic pour acheminer les dem
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

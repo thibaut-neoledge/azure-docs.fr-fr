@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Gestion et dépannage de Stretch Database
@@ -35,8 +35,8 @@ GO
  ```
 ## Gérer la migration des données
 
-### Vérifier le prédicat de filtre appliqué à une table
-Ouvrez l’affichage catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate** pour identifier la fonction que Stretch Database utilise pour sélectionner les lignes à migrer. Si la valeur est null, la table entière est éligible à la migration. Pour plus d’informations, voir [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+### Vérifier la fonction de filtre appliquée à une table
+Ouvrez l’affichage catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate** pour identifier la fonction que Stretch Database utilise pour sélectionner les lignes à migrer. Si la valeur est null, la table entière est éligible à la migration. Pour plus d’informations, consultez [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx) et [Sélection des lignes à migrer à l’aide d’une fonction de filtre](sql-server-stretch-database-predicate-function.md).
 
 ### <a name="Migration"></a>Vérifier l’état de la migration des données
 Sélectionnez **Tâches | Stretch | Surveiller** pour une base de données dans SQL Server Management Studio pour surveiller la migration des données dans Stretch Database Monitor. Pour plus d’informations, voir [Surveillance et dépannage de la migration de données (Stretch Database)](sql-server-stretch-database-monitor.md).
@@ -98,7 +98,7 @@ Lorsque vous générez, regénérez ou réorganisez un index dans une table volu
 
 ### <a name="queryHints"></a>Modifier l’étendue des requêtes pour une seule requête effectuée par un administrateur  
  Pour modifier l’étendue d’une seule requête effectuée par un membre du rôle db\_owner, ajoutez l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur*)** à l’instruction SELECT. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
- -   **LOCAL\_ONLY**. Interroge uniquement les données locales.  
+ -   **LOCAL\_ONLY**. Interroge uniquement les données locales.
 
  -   **REMOTE\_ONLY**. Interroge uniquement les données à distance.
 
@@ -115,7 +115,7 @@ Par exemple, la requête suivante renvoie uniquement des résultats locaux.
 
 ## <a name="adminHints"></a>Effectuer des mises à jour et des suppressions administratives  
  Par défaut, il est impossible de METTRE À JOUR ou de SUPPRIMER des lignes ayant été migrées ou pouvant être migrées dans une table Stretch. Lorsque vous devez résoudre un problème, un membre du rôle db\_owner peut exécuter une opération UPDATE ou DELETE en ajoutant l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur*)** à l’instruction. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
- -   **LOCAL\_ONLY**. Met à jour ou supprime uniquement les données locales.  
+ -   **LOCAL\_ONLY**. Met à jour ou supprime uniquement les données locales.
 
  -   **REMOTE\_ONLY**. Met à jour ou supprime uniquement les données distantes.
 
@@ -129,4 +129,4 @@ Par exemple, la requête suivante renvoie uniquement des résultats locaux.
 
 [Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

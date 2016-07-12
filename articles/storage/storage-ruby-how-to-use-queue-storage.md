@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -57,20 +57,20 @@ Le module Azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et
 	Azure.config.storage_access_key = "<your Azure storage access key>"
 
  
-Pour obtenir ces valeurs à partir d’un compte de stockage classique ou ARM sur le portail Azure :
+Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resource Manager sur le portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
-4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux. 
-5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers. 
+4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux.
+5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers.
 
-Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Classic :
+Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Azure Classic :
 
-1. Connectez-vous au [portail Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Cliquez sur **GÉRER LES CLÉS D’ACCÈS** en bas du volet de navigation.
-4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire. 
+4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
 5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers.
 
 ## Création d'une file d'attente
@@ -162,4 +162,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 Pour obtenir une comparaison entre le service de File d’attente Azure abordé dans cette rubrique et les files d’attente Azure Service Bus abordées dans la rubrique [Utilisation des files d’attente Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d’attente Microsoft Azure et files d’attente Azure Service Bus - comparaison et différences](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

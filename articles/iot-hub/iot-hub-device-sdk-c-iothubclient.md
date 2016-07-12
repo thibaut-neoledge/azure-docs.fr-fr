@@ -26,6 +26,8 @@ Cet article conclut en abordant des sujets divers, notamment les informations d�
 
 Nous allons utiliser les exemples du kit de développement logiciel (SDK) **IoTHubClient** pour illustrer ces rubriques. Si vous souhaitez assurer le suivi, consultez les applications **iothub\_client\_sample\_http** et **iothub\_client\_sample\_amqp** incluses dans le Kit de développement logiciel (SDK) d’appareils Azure IoT pour C. Les détails décrits dans les sections suivantes sont illustrés dans ces exemples.
 
+Vous pouvez trouver le **Kit de développement logiciel Azure IoT device SDK pour C** dans le référentiel GitHub [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) (Kits de développement logiciel (SDK) Microsoft Azure IoT) et consulter les détails de l’API dans [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html) (Référence sur l’API C).
+
 ## API de niveau inférieur
 
 L’article précédent traitait du fonctionnement de base d’**IotHubClient** dans le contexte de l’application **iothub\_client\_sample\_amqp**. Par exemple, il expliquait comment initialiser la bibliothèque à l’aide de ce code.
@@ -278,4 +280,4 @@ L’option de traitement par lot est importante. Par défaut, la bibliothèque i
 
 Cet article décrit en détail le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **Kit de développement logiciel (SDK) d’appareils Azure IoT pour C**. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Le [prochain article](iot-hub-device-sdk-c-serializer.md) fournit des détails similaires sur la bibliothèque **sérialiseur**.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

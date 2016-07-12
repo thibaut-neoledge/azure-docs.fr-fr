@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 
@@ -43,7 +43,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 		// Load the XML (or JSON) from the local file.
 	    string configuration = File.ReadAllText(fileName);  
-- Ajout d’une tâche d’encodage au travail. 
+- Ajout d’une tâche d’encodage au travail.
 - Spécification de l’élément multimédia d’entrée à encoder.
 - Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
@@ -980,7 +980,7 @@ L'exemple suivant décrit comment générer une présélection pour concaténer 
 - L'extrait de code et la présélection JSON montrent un exemple de concaténation de deux fichiers vidéo. Vous pouvez l'étendre à plus de deux vidéos en :
 
 	1. Appelant task.InputAssets.Add() à plusieurs reprises pour ajouter d’autres vidéos, dans l'ordre.
-	2. Apportant les modifications correspondantes à l'élément « Sources » dans le JSON, en ajoutant d’autres entrées, dans le même ordre. 
+	2. Apportant les modifications correspondantes à l'élément « Sources » dans le JSON, en ajoutant d’autres entrées, dans le même ordre.
 
 
 ###Code .NET
@@ -1086,4 +1086,4 @@ Mettez à jour votre présélection personnalisée avec les ID des éléments mu
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

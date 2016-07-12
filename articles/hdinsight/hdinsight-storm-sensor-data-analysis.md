@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analyse des données de capteur avec Apache Storm et HBase | Microsoft Azure"
-   description="Découvrez comment vous connecter à Apache Storm à l’aide d’un réseau virtuel. Utilisez Storm avec HBase pour traiter des données de capteur à partir d'un hub d'événements et les visualiser avec D3.js."
+   description="Découvrez comment vous connecter à Apache Storm à l’aide d’un réseau virtuel. Utilisez Storm avec HBase pour traiter des données de capteur à partir d'un hub d'événements et les visualiser avec D3.js."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
-# Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
+# Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
 
-Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les données de capteur à partir d'Azure Event Hub et les visualiser à l'aide de D3.js. Ce document décrit également comment utiliser un réseau virtuel Azure pour connecter Storm sur HDInsight avec HBase sur HDInsight et stocker les données de la topologie dans HBase.
+Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les données de capteur à partir d'Azure Event Hub et les visualiser à l'aide de D3.js. Ce document décrit également comment utiliser un réseau virtuel Azure pour connecter Storm sur HDInsight avec HBase sur HDInsight et stocker les données de la topologie dans HBase.
 
-> [AZURE.NOTE] Les informations de ce document sont basées sur l'utilisation d'un cluster Storm Windows sur HDInsight. Pour plus d'informations sur l'utilisation d'Azure Event Hub avec Storm Linux sur HDInsight, consultez [Traitement d'événements à partir d'Azure Event Hubs avec Storm dans HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+> [AZURE.NOTE] Les informations de ce document sont basées sur l’utilisation d’un cluster Storm Windows sur HDInsight version 3.2. Pour plus d'informations sur l'utilisation d'Azure Event Hub avec Storm Linux sur HDInsight, consultez [Traitement d'événements à partir d'Azure Event Hubs avec Storm dans HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ## Configuration requise
 
 * Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Un [cluster Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+* Un [cluster Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-* [Node.js](http://nodejs.org/): utilisé pour le tableau de bord Web et pour envoyer des données de capteur à Event Hub.
+* [Node.js](http://nodejs.org/): utilisé pour le tableau de bord Web et pour envoyer des données de capteur à Event Hub.
 
-* [Java et le Kit de développement Java (JDK) 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java et le Kit de développement Java (JDK) 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 * [Maven](http://maven.apache.org/what-is-maven.html)
 
@@ -42,17 +42,17 @@ Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les donnée
 
 ![Diagramme d'architecture](./media/hdinsight-storm-sensor-data-analysis/devicesarchitecture.png)
 
-Cet exemple est constitué des composants suivants :
+Cet exemple est constitué des composants suivants :
 
-* **Azure Event Hub** : fournit des données collectées à partir des capteurs. Pour cet exemple, une application est fournie pour générer des données fictives.
+* **Azure Event Hub** : fournit des données collectées à partir des capteurs. Pour cet exemple, une application est fournie pour générer des données fictives.
 
-* **Storm sur HDInsight** : fournit le traitement en temps réel des données à partir d’Event Hub.
+* **Storm sur HDInsight** : fournit le traitement en temps réel des données à partir d’Event Hub.
 
-* **HBase sur HDInsight** (facultatif) : fournit un magasin de données NoSQL persistant.
+* **HBase sur HDInsight** (facultatif) : fournit un magasin de données NoSQL persistant.
 
-* **Service Azure Virtual Network** (facultatif, requis si vous utilisez HBase) : permet des communications sécurisées entre le Storm sur HDInsight et les clusters HBase sur HDInsight.
+* **Service Azure Virtual Network** (facultatif, requis si vous utilisez HBase) : permet des communications sécurisées entre le Storm sur HDInsight et les clusters HBase sur HDInsight.
 
-* **Site web de tableau de bord** : un exemple de tableau de bord qui suit des données en temps réel.
+* **Site web de tableau de bord** : un exemple de tableau de bord qui suit des données en temps réel.
 
 	* Le site web est implémenté dans Node.js, donc il peut s'exécuter sur n'importe quel système d'exploitation de client de test, ou il peut être déployé sur des sites web Azure.
 
@@ -66,40 +66,40 @@ La topologie lit les données à partir du hub d'événements à l'aide de la cl
 
 Le cas échéant, la communication avec HBase s'effectue à l'aide de la classe [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) qui est fournie dans le cadre de Storm.
 
-Voici un schéma de cette solution :
+Voici un schéma de cette solution :
 
 ![diagramme de topologie](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
 
-> [AZURE.NOTE] Il s'agit d'un affichage très simplifié de la topologie. Au moment de l'exécution, une instance de chaque composant est créée pour chaque partition pour le hub d'événements en cours de lecture. Ces instances sont réparties entre les nœuds du cluster et les données sont acheminées entre eux comme suit :
+> [AZURE.NOTE] Il s'agit d'un affichage très simplifié de la topologie. Au moment de l'exécution, une instance de chaque composant est créée pour chaque partition pour le hub d'événements en cours de lecture. Ces instances sont réparties entre les nœuds du cluster et les données sont acheminées entre eux comme suit :
 >
 > * Les données du spout vers l'analyseur sont disposent d’un équilibrage de charges.
 > * Les données de l'analyseur vers le tableau de bord et HBase (si utilisé) sont regroupées par ID de périphérique afin que les messages issus du même périphérique passe toujours par le même composant.
 
 ### Composants
 
-* **Spout Event Hub** : spout fourni dans le cadre des [exemples HDInsight Storm](https://github.com/hdinsight/hdinsight-storm-examples) sur GitHub.
+* **Spout Event Hub** : spout fourni dans le cadre des [exemples HDInsight Storm](https://github.com/hdinsight/hdinsight-storm-examples) sur GitHub.
 
 * **ParserBolt.java**: les données émises par le spout sont JSON brut, et parfois, plusieurs événements sont émis à la fois. Ce bolt montre comment lire les données émises par le spout et les émet à un nouveau stream sous forme de tuple contenant plusieurs champs.
 
-* **DashboardBolt.java** : cela montre comment utiliser la bibliothèque client Socket.io pour Java pour envoyer des données en temps réel au tableau de bord web.
+* **DashboardBolt.java** : cela montre comment utiliser la bibliothèque client Socket.io pour Java pour envoyer des données en temps réel au tableau de bord web.
 
 ## Préparation de votre environnement
 
-Avant d'utiliser cet exemple, vous devez créer un hub d'événements Azure, qui peut être lu par la topologie Storm. Vous devez également créer une topologie Storm sur HDInsight, car le composant utilisé pour lire les données à partir d’Event Hub est uniquement disponible dans le cluster.
+Avant d'utiliser cet exemple, vous devez créer un hub d'événements Azure, qui peut être lu par la topologie Storm. Vous devez également créer une topologie Storm sur HDInsight, car le composant utilisé pour lire les données à partir d’Event Hub est uniquement disponible dans le cluster.
 
-> [AZURE.NOTE] Le spout Event Hub sera disponible à partir de Maven.
+> [AZURE.NOTE] Le spout Event Hub sera disponible à partir de Maven.
 
 ### Configuration du hub d'événements
 
 Le hub d'événements est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau hub d'événements.
 
-1. À partir du [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU | Service Bus | Event Hub | Création personnalisée**.
+1. Depuis le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Nouveau| Service Bus | Event Hub | Custom Create**.
 
-2. Dans la boîte de dialogue **Ajouter un nouveau hub d'événements**, entrez un **Nom de hub d'événements**, sélectionnez la **Région** dans laquelle créer le hub, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la flèche pour continuer.
+2. Dans la boîte de dialogue **Ajouter un nouvel hub d'événements**, entrez un **Nom du hub d'événements**, sélectionnez la **Région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la flèche pour continuer.
 
-2. Dans la boîte de dialogue **Configurer un hub d'événements**, entrez les valeurs pour **Nombre de partitions** et **Conservation des messages**. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages.
+2. Dans la boîte de dialogue **Configurer un hub d'événements**, entrez les valeurs pour **Nombre de partitions** et **Conservation des messages**. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages.
 
-3. Une fois le hub d'événements créé, sélectionnez l'espace de noms, puis **Hubs d'événements**. Enfin, sélectionnez le hub d'événements créé précédemment.
+3. Une fois le concentrateur d'événements créé, sélectionnez l'espace de noms, puis **Concentrateurs d'événements**. Enfin, sélectionnez le hub d'événements créé précédemment.
 
 4. Sélectionnez **Configurer**, puis créez deux nouvelles stratégies d'accès à l’aide des informations suivantes.
 
@@ -123,7 +123,7 @@ Le hub d'événements est la source de données pour cet exemple. Procédez comm
 
 4. Sur la page **Détails du cluster**, entrez le nom du nouveau cluster, puis sélectionnez **Storm** pour le **Type de cluster**. Cliquez sur la flèche pour continuer.
 
-5. Entrez 1 pour la valeur de **Nœuds de données** à utiliser pour ce cluster.
+5. Entrez 1 pour la valeur de **Nœuds de données** à utiliser pour ce cluster.
 
 	> [AZURE.NOTE] Pour réduire les coûts du cluster utilisé pour cet article, réduisez la **Taille du cluster** sur 1, puis supprimez le cluster après avoir fini de l'utiliser.
 
@@ -159,7 +159,7 @@ Une fois la commande terminée, vous aurez la structure de répertoire suivante 
 
 > [AZURE.NOTE] Ce document ne détaille pas le code inclus dans cet exemple ; toutefois, le code est entièrement commenté.
 
-Ouvrez le fichier **Config.properties** et ajoutez les informations utilisées précédemment lors de la création du hub d'événements. Enregistrez le fichier après avoir ajouté ces informations.
+Ouvrez le fichier **Config.properties** et ajoutez les informations utilisées précédemment lors de la création du concentrateur d'événements. Enregistrez le fichier après avoir ajouté ces informations.
 
 	eventhubspout.username = storm
 
@@ -192,11 +192,11 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
 
 		node server.js
 
-	Un message similaire à celui ci-dessous doit s'afficher :
+	Un message similaire à celui ci-dessous doit s'afficher :
 
 		Server listening at port 3000
 
-2. Ouvrez un navigateur web et entrez ****http://localhost:3000/** comme adresse. Une page similaire à celle ci-dessous doit s'afficher :
+2. Ouvrez un navigateur web et entrez **http://localhost:3000/** comme adresse. Une page similaire à celle ci-dessous doit s'afficher :
 
 	![tableau de bord web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -211,7 +211,7 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
 
 		npm install
 
-2. Ouvrez le fichier **app.js** dans un éditeur de texte et ajoutez les informations du hub d'événements obtenues précédemment :
+2. Ouvrez le fichier **app.js** dans un éditeur de texte et ajoutez les informations du concentrateur d'événements obtenues précédemment :
 
 		// ServiceBus Namespace
 		var namespace = 'servicebusnamespace';
@@ -225,7 +225,7 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
 
 		node app.js
 
-	Vous devez normalement voir plusieurs lignes de sortie contenant les données envoyées au hub d'événements. Les informations se présentent alors comme suit :
+	Vous devez normalement voir plusieurs lignes de sortie contenant les données envoyées au hub d'événements. Les informations se présentent alors comme suit :
 
 		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":0,"Temperature":7}
 		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":1,"Temperature":39}
@@ -260,7 +260,7 @@ Dans votre environnement de développement, procédez comme suit pour exécuter 
 
 1. Pour déployer le tableau de bord sur un site Web Azure, suivez les étapes de la section [Création et déploiement d’un site Web Node.js dans Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Notez l'URL du site Web, qui doit être similaire à **mywebsite.azurewebsites.net**.
 
-2. Une fois le site web créé, accédez au site via le portail Azure Classic et sélectionnez l’onglet **Configurer**. Activez les **ports Web**, puis cliquez sur **Enregistrer** en bas de la page.
+2. Une fois le site web créé, accédez au site via le portail Azure Classic et sélectionnez l’onglet **Configurer**. Activez les **ports Web**, puis cliquez sur **Enregistrer** en bas de la page.
 
 2. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** et modifiez la ligne suivante pour pointer vers l'URL du tableau de bord publié :
 
@@ -278,7 +278,7 @@ Dans votre environnement de développement, procédez comme suit pour exécuter 
 
 2. Suivez les étapes de la section [Déploiement et gestion des topologies Storm](hdinsight-storm-deploy-monitor-topology.md) pour télécharger et démarrer la topologie sur votre Storm sur le cluster HDInsight à l'aide du **tableau de bord Storm**.
 
-3. Une fois la topologie lancée, ouvrez un navigateur vers le site web que vous avez publié sur Azure, puis utiliser la commande `node app.js` pour envoyer des données au hub d'événements. Vous devez mettre à jour le tableau de bord Web pour afficher les informations.
+3. Une fois la topologie lancée, ouvrez un navigateur vers le site Web que vous avez publié sur Azure, puis utiliser la commande `node app.js` pour envoyer des données au concentrateur d'événements. Vous devez mettre à jour le tableau de bord Web pour afficher les informations.
 
 	![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
@@ -294,17 +294,17 @@ Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un résea
 
 2. Dans le bas de la page, cliquez sur **+NOUVEAU** > **Services de réseau** > **Réseau virtuel** > **Création rapide**.
 
-3. Tapez ou sélectionnez les valeurs suivantes :
+3. Tapez ou sélectionnez les valeurs suivantes :
 
-	- **Nom** : nom de votre réseau virtuel.
+	- **Nom** : nom de votre réseau virtuel.
 
-	- **Espace d’adressage** : choisissez un espace d’adressage pour le réseau virtuel qui soit suffisamment grand pour fournir des adresses à tous les nœuds du cluster. Si ce n'est pas le cas, l'approvisionnement échouera.
+	- **Espace d’adressage** : choisissez un espace d’adressage pour le réseau virtuel qui soit suffisamment grand pour fournir des adresses à tous les nœuds du cluster. Si ce n'est pas le cas, l'approvisionnement échouera.
 
-	- **Nombre maximal de machines virtuelles** : choisissez l’un des nombres maximaux de machines virtuelles.
+	- **Nombre maximal de machines virtuelles** : choisissez l’un des nombres maximaux de machines virtuelles.
 
-	- **Emplacement** : l’emplacement doit être le même que celui du cluster HBase que vous allez créer.
+	- **Emplacement** : l’emplacement doit être le même que celui du cluster HBase que vous allez créer.
 
-	- **Serveur DNS** : étant donné que cet article utilise le serveur DNS interne fourni par Azure, vous pouvez choisir **Aucun**. Des configurations de réseau plus avancées avec des serveurs DNS personnalisés sont également prises en charge. Pour obtenir des instructions détaillées, consultez la page [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+	- **Serveur DNS** : étant donné que cet article utilise le serveur DNS interne fourni par Azure, vous pouvez choisir **Aucun**. Des configurations de réseau plus avancées avec des serveurs DNS personnalisés sont également prises en charge. Pour obtenir des instructions détaillées, consultez la page [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 4. Cliquez sur **Créer un réseau virtuel**. Le nom du nouveau réseau virtuel apparaît dans la liste. Attendez que la valeur **Créé** apparaisse dans la colonne Statut.
 
@@ -318,7 +318,7 @@ Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un résea
 
 9. En bas de la page, le nom du sous-réseau par défaut est **Sous-réseau-1**. Utilisez le bouton **Ajouter un sous-réseau** pour ajouter **Subnet-2**. Ces sous-réseaux vont héberger les clusters Storm et HBase.
 
-	> [AZURE.NOTE] Dans cet article, nous allons utiliser des clusters avec un seul nœud. Si vous créez des clusters multi-nœuds, vous devez vérifier la valeur de **CIDR (NOMBRE D'ADRESSES)** du sous-réseau qui sera utilisé pour le cluster. Le nombre d’adresses doit être supérieur au nombre de nœuds de travail plus 7 (passerelle : 2, nœud principal : 2, Zookeeper : 3). Par exemple, si vous avez besoin d'un cluster HBase à 10 nœuds, le nombre d'adresses pour le sous-réseau doit être supérieur à 17 (10+7). Si ce n'est pas le cas, le déploiement échouera.
+	> [AZURE.NOTE] Dans cet article, nous allons utiliser des clusters avec un seul nœud. Si vous créez des clusters multi-nœuds, vous devez vérifier la valeur de **CIDR (NOMBRE D'ADRESSES)** du sous-réseau qui sera utilisé pour le cluster. Le nombre d’adresses doit être supérieur au nombre de nœuds de travail plus 7 (passerelle : 2, nœud principal : 2, Zookeeper : 3). Par exemple, si vous avez besoin d'un cluster HBase à 10 nœuds, le nombre d'adresses pour le sous-réseau doit être supérieur à 17 (10+7). Si ce n'est pas le cas, le déploiement échouera.
 	>
 	> Il est vivement recommandé de désigner un seul sous-réseau pour un cluster.
 
@@ -334,9 +334,9 @@ Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un résea
 
 4. Sur la page **Détails du cluster**, entrez le nom du nouveau cluster, puis sélectionnez **Storm** pour le **Type de cluster**. Cliquez sur la flèche pour continuer.
 
-5. Entrez 1 pour la valeur de **Nœuds de données** à utiliser pour ce cluster. Pour **Région/Réseau virtuel**, sélectionnez le réseau virtuel Azure créé précédemment. Pour **Sous-réseaux du réseau virtuel**, sélectionnez **Subnet-1**.
+5. Entrez 1 pour la valeur de **Nœuds de données** à utiliser pour ce cluster. Pour **Région/Réseau virtuel**, sélectionnez le réseau virtuel Azure créé précédemment. Pour **Sous-réseaux du réseau virtuel**, sélectionnez **Subnet-1**.
 
-	> [AZURE.NOTE] Pour réduire les coûts du cluster utilisé pour cet article, réduisez la **Taille du cluster** sur 1, puis supprimez le cluster après avoir fini de l'utiliser.
+	> [AZURE.NOTE] Pour réduire les coûts du cluster utilisé pour cet article, réduisez la **Taille du cluster** sur 1, puis supprimez le cluster après avoir fini de l'utiliser.
 
 6. Entrez le **Nom d'utilisateur** d'administrateur et un **Mot de passe**, puis cliquez sur la flèche pour continuer.
 
@@ -346,7 +346,7 @@ Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un résea
 
 	* **Type de cluster**: sélectionnez **HBase**
 
-	* **Sous-réseaux du réseau virtuel** : sélectionnez **Subnet-2**.
+	* **Sous-réseaux du réseau virtuel** : sélectionnez **Subnet-2**.
 
 	* **Compte de stockage**: nous vous conseillons d’utiliser un autre conteneur que celui utilisé pour le cluster Storm.
 
@@ -356,7 +356,7 @@ Pour écrire sur HBase à partir du cluster Storm, vous devez utiliser le nom de
 
 	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-Dans les données JSON renvoyées, recherchez l’entrée **« host\_name »**. Elle contient le nom de domaine qualifié complet des nœuds du cluster, par exemple :
+Dans les données JSON renvoyées, recherchez l’entrée **« host\_name »**. Elle contient le nom de domaine qualifié complet des nœuds du cluster, par exemple :
 
 	...
 	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -387,11 +387,11 @@ Avant d'exécuter la topologie, vous devez préparer HBase pour accepter les don
 
 1. Connectez-vous au cluster HBase en utilisant le Bureau à distance.
 
-2. À partir du bureau, démarrez la ligne de commande HDInsight, puis entrez les commandes suivantes :
+2. À partir du bureau, démarrez la ligne de commande HDInsight, puis entrez les commandes suivantes :
 
     cd %HBASE\_HOME% bin\\hbase shell
 
-3. À partir de l'environnement de ligne de commande HBase, entrez la commande suivante pour créer une table dans laquelle seront stockées les données du capteur :
+3. À partir de l'environnement de ligne de commande HBase, entrez la commande suivante pour créer une table dans laquelle seront stockées les données du capteur :
 
     create 'SensorData', 'cf'
 
@@ -419,7 +419,7 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 * Pour plus d’informations sur Socket.io, consultez le site [socket.io](http://socket.io/).
 
-* Pour plus d'informations sur D3.js, consultez la page [D3.js : documents pilotés par les données](http://d3js.org/).
+* Pour plus d'informations sur D3.js, consultez la page [D3.js : documents pilotés par les données](http://d3js.org/).
 
 * Pour plus d'informations sur la création de topologies en Java, consultez [Développement de topologies Java pour Apache Storm sur HDInsight](hdinsight-storm-develop-java-topology.md).
 
@@ -427,4 +427,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

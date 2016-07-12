@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Prise en main d’Azure Scheduler dans le portail Azure
@@ -21,7 +21,7 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 
 ## Création d’un travail
 
-1.  Connectez-vous au [portail Azure](https://portal.azure.com/).  
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2.  Cliquez sur **+Nouveau**, entrez _Scheduler_ dans la zone de recherche, sélectionnez **Scheduler** dans la liste de résultats, puis cliquez sur **Créer**.
 
@@ -29,7 +29,7 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 
 3.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur**, entrez les informations suivantes :
 
-    1.  **Nom :** `getmicrosoft`  
+    1.  **Nom :** `getmicrosoft`
 
     2.  **Abonnement **: votre abonnement Azure
 
@@ -37,7 +37,7 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 
 4.  Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
 
-    1.  **Type d’action :** ` HTTP`  
+    1.  **Type d’action :** ` HTTP`
 
     2.  **Méthode :** `GET`
 
@@ -63,7 +63,7 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 
 Une fois créé, le travail apparaît dans le tableau de bord principal d’Azure. Cliquez sur le travail pour ouvrir une nouvelle fenêtre avec les onglets suivants :
 
-1.  Propriétés  
+1.  Propriétés
 
 2.  Paramètres d’action
 
@@ -111,7 +111,7 @@ Vous pouvez modifier la date et l'heure de début, la planification de périodic
 
 L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution du travail dans le système pour le travail sélectionné. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
 
-1.  Statut  
+1.  Statut
 
 2.  Détails
 
@@ -182,4 +182,4 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion pr�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

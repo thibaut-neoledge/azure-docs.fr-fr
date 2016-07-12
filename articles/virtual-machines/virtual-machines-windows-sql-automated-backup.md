@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager) | Microsoft Azure"
-	description="Décrit la fonctionnalité de sauvegarde automatisée pour SQL Server s’exécutant dans Azure Virtual Machines à l’aide de Resource Manager."
+	description="Décrit la fonctionnalité de sauvegarde automatisée pour SQL Server s’exécutant dans Azure Virtual Machines à l’aide de Resource Manager. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -29,7 +29,7 @@ modèle de déploiement classique. Pour plus d’informations, consultez [Sauveg
 
 ## Composants requis
 
-Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
+Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation** :
 
@@ -40,8 +40,8 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
-- SQL Server 2016 Standard
-- SQL Server 2016 Enterprise
+- SQL Server 2016 Standard
+- SQL Server 2016 Enterprise
 
 **Configuration de la base de données** :
 
@@ -51,7 +51,7 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 
 - [Installez les dernières commandes Azure PowerShell](../powershell-install-configure.md) si vous projetez de configurer la sauvegarde automatisée avec PowerShell.
 
->[AZURE.NOTE] La sauvegarde automatisée utilise l’extension de l’agent IaaS de SQL Server. Les images actuelles de la galerie de machines virtuelles SQL ajoutent cette extension par défaut. Pour plus d’informations, consultez [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) (Extension de l’agent IaaS SQL Server).
+>[AZURE.NOTE] La sauvegarde automatisée utilise l’extension de l’agent IaaS de SQL Server. Les images actuelles de la galerie de machines virtuelles SQL ajoutent cette extension par défaut. Pour plus d’informations, consultez [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) (Extension de l’agent IaaS SQL Server).
 
 ## Paramètres
 
@@ -117,4 +117,4 @@ Pour plus d’informations sur les autres tâches d’automatisation disponibles
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, consultez la page [Vue d’ensemble de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

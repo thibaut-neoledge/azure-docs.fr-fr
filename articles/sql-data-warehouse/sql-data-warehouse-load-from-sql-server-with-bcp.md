@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -136,7 +136,7 @@ DateId |CalendarQuarter |FiscalQuarter
 
 ## 4\. Create statistics
 
-SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour plus d’informations sur les statistiques, voir [Gérer des statistiques dans SQL Data Warehouse][].
+SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour plus d’informations sur les statistiques, voir [Statistiques][].
 
 Exécutez la commande suivante pour créer des statistiques sur la table nouvellement chargée.
 
@@ -182,16 +182,16 @@ Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier.
 Vous pouvez utiliser la fonction **queryout** de l’utilitaire bcp pour exporter les résultats d’une requête plutôt que d’exporter la table entière.
 
 ## Étapes suivantes
-Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][]. Consultez la page [Conception de tables dans SQL Data Warehouse][] ou la syntaxe [CREATE TABLE][] pour plus d’informations sur la création d’une table dans SQL Data Warehouse.
+Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][]. Consultez la page [Table Overview][] (Vue d’ensemble des tables dans SQL Data Warehouse) ou la syntaxe [CREATE TABLE][] pour plus d’informations sur la création d’une table dans SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Chargement de données dans SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Vue d’ensemble sur le développement SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Conception de tables dans SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
-[Gérer des statistiques dans SQL Data Warehouse]: sql-data-warehouse-develop-statistics.md
+[Chargement de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistiques]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -200,4 +200,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

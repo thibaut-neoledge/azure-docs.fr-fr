@@ -22,7 +22,7 @@
 
 Si vous ne pouvez pas vous connecter à une machine virtuelle Linux sur Azure en raison d'un mot de passe oublié, d'une clé SSH (Secure Shell) incorrecte ou d'un problème lié à la configuration SSH, utilisez l'extension VMAccessForLinux avec l'interface de ligne de commande Azure pour réinitialiser le mot de passe ou la clé SSH, corriger la configuration SSH et vérifier la cohérence des disques.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
 Grâce à l’interface de ligne de commande Azure, vous pouvez utiliser la commande **azure vm extension set** à partir de votre interface de ligne de commande (interpréteur de commandes (Bash), terminal, invite de commandes) pour accéder aux commandes associées. Exécutez **azure help vm extension set** pour utiliser l’extension détaillée.
 
@@ -122,7 +122,7 @@ Si la configuration SSH se trouve dans un état non souhaité, vous pouvez égal
 
 Si vous souhaitez supprimer un compte utilisateur sans vous connecter directement à la machine virtuelle, vous pouvez utiliser ce script.
 
-1. Créez un fichier appelé PrivateConf.json avec ces éléments, en remplaçant le nom d’utilisateur à supprimer par &#60;nomd’utilisateuràsupprimer&#62;. 
+1. Créez un fichier appelé PrivateConf.json avec ces éléments, en remplaçant le nom d’utilisateur à supprimer par &#60;nomd’utilisateuràsupprimer&#62;.
 
         {
         "remove_user":"<usernametoremove>"
@@ -142,7 +142,7 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 
 Pour exécuter la commande fsck sur tous les disques de votre machine virtuelle Linux, vous devez effectuer les opérations suivantes :
 
-1. Créez un fichier nommé PublicConf.json avec ces éléments. Vérifiez que le disque prend une valeur booléenne pour vérifier les disques attachés à votre machine virtuelle ou non. 
+1. Créez un fichier nommé PublicConf.json avec ces éléments. Vérifiez que le disque prend une valeur booléenne pour vérifier les disques attachés à votre machine virtuelle ou non.
 
         {   
         "check_disk": "true"
@@ -156,7 +156,7 @@ Pour exécuter la commande fsck sur tous les disques de votre machine virtuelle 
 
 Pour réparer les disques qui ne se montent pas ou dont la configuration de montage présente des erreurs, utilisez l’extension VMAccess pour réinitialiser la configuration de montage sur votre machine virtuelle Linux. Remplacez le nom de votre disque par &#60;votredisque&#62;.
 
-1. Créez un fichier nommé PublicConf.json avec ces éléments. 
+1. Créez un fichier nommé PublicConf.json avec ces éléments.
 
         {
         "repair_disk":"true",
@@ -171,10 +171,10 @@ Pour réparer les disques qui ne se montent pas ou dont la configuration de mont
 
 ## Étapes suivantes
 
-* Si vous souhaitez utiliser des applets de commande Azure PowerShell ou des modèles Azure Resource Manager pour réinitialiser le mot de passe ou la clé SSH, corrigez la configuration SSH et vérifiez la cohérence des disques, consultez la [documentation de l’extension VMAccess sur GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
+* Si vous souhaitez utiliser des applets de commande Azure PowerShell ou des modèles Azure Resource Manager pour réinitialiser le mot de passe ou la clé SSH, corrigez la configuration SSH et vérifiez la cohérence des disques, consultez la [documentation de l’extension VMAccess sur GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
 * Vous pouvez également utiliser le [portail Azure](https://portal.azure.com) pour réinitialiser le mot de passe ou la clé SSH d’une machine virtuelle Linux déployée dans le modèle de déploiement Classic. Vous ne pouvez pas utiliser actuellement le portail dans ce but pour une machine virtuelle Linux déployée dans le modèle de déploiement Resource Manager.
 
 * Consultez la page [À propos des extensions et des fonctionnalités des machines virtuelles](virtual-machines-linux-extensions-features.md) pour plus d’informations sur l’utilisation des extensions de machine virtuelle pour les machines virtuelles Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

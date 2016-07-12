@@ -17,7 +17,8 @@ Ces étapes supposent que vous êtes connecté à la base de données SQL dans l
 3. Dans la fenêtre de la requête, modifiez et utilisez l'instruction Transact-SQL suivante pour créer un utilisateur contenu dans votre base de données utilisateur.
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
      ![SQL Server Management Studio : se connecter à un serveur de base de données SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

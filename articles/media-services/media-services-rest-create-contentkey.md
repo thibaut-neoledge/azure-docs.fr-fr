@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -35,11 +35,11 @@ Les ressources chiffrées doivent être associées à des **ContentKey**. Cet ar
 
 Voici les étapes générales pour la génération de clés de contenu que vous allez associer à des ressources devant être chiffrées.
 
-1. Générez de façon aléatoire une clé AES de 16 octets (pour le chiffrement commun et d’enveloppe) ou AES de 32 octets (chiffrement de stockage). 
+1. Générez de façon aléatoire une clé AES de 16 octets (pour le chiffrement commun et d’enveloppe) ou AES de 32 octets (chiffrement de stockage).
 
-	Il s’agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement. 
+	Il s’agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement.
 2.	Appelez les méthodes [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
-3.	Chiffrez votre clé de contenu avec la clé publique du certificat X.509. 
+3.	Chiffrez votre clé de contenu avec la clé publique du certificat X.509.
 
 	Le Kit de développement logiciel (SDK) Media Services pour .NET utilise RSA avec OAEP lorsque vous effectuez le chiffrement. Vous trouverez un exemple dans la [fonction EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Créez une valeur de somme de contrôle (basée sur l’algorithme de somme de contrôle de clé AES PlayReady), calculée à l’aide de l’identificateur de clé et de la clé de contenu. Pour plus d’informations, consultez la section relative à l’algorithme de somme de contrôle de clé AES PlayReady du document décrivant l’objet d’en-tête PlayReady situé [ici](http://www.microsoft.com/playready/documents/).
@@ -262,4 +262,4 @@ Réponse :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

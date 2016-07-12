@@ -24,30 +24,30 @@ Cet article propose des conseils pour la résolution des problèmes d'utilisatio
 ### Erreur : l'abonnement n'est pas enregistré pour utiliser l'espace de noms « Microsoft.DataFactory »
 Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azure Data Factory n'a pas été enregistré sur votre ordinateur. Voici les étapes à suivre :
 
-1. Lancez Azure PowerShell. 
-2. Connectez-vous à votre compte Azure à l’aide de la commande suivante. Login-AzureRmAccount 
+1. Lancez Azure PowerShell.
+2. Connectez-vous à votre compte Azure à l’aide de la commande suivante. Login-AzureRmAccount
 3. Exécutez la commande suivante pour enregistrer le fournisseur Azure Data Factory. Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 
 ### Problème : erreur non autorisée lors de l’exécution d’une applet de commande Data Factory
 Vous n’utilisez probablement pas le compte ou l’abonnement Azure correct pour Azure PowerShell. Utilisez les applets de commande suivantes pour sélectionner le compte et l’abonnement Azure corrects à utiliser avec Azure PowerShell.
 
 1. Login-AzureRmAccount - Utilisez l’ID d’utilisateur et le mot de passe corrects.
-2. Get-AzureRmSubscription - Affichez tous les abonnements du compte. 
-3. Select-AzureRmSubscription <subscription name> - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
+2. Get-AzureRmSubscription - Affichez tous les abonnements du compte.
+3. Select-AzureRmSubscription <nom de l’abonnement> - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
 
 ### Problème : échec du lancement de l’installation rapide de la passerelle de gestion des données à partir du portail Azure
 L’installation rapide de la passerelle de gestion des données nécessite Internet Explorer ou un navigateur web compatible avec Microsoft ClickOnce. Si le programme d'installation rapide ne démarre pas, effectuez l'une des opérations suivantes :
 
 - Utilisez Internet Explorer ou un navigateur web compatible Microsoft ClickOnce.
 
-	Si vous utilisez Chrome, accédez à [Chrome Web Store](https://chrome.google.com/webstore/), faites une recherche sur le mot-clé « ClickOnce », choisissez l’une des extensions ClickOnce, puis installez-la.
+	Si vous utilisez Chrome, accédez au [Chrome Web Store](https://chrome.google.com/webstore/), faites une recherche sur le mot-clé « ClickOnce », choisissez l’une des extensions ClickOnce, puis installez-la.
 	
 	Vous devez en faire autant pour Firefox (installez un complément). Cliquez sur le bouton du menu dans la barre d’outils (trois lignes horizontales en haut à droite), cliquez sur Modules complémentaires, effectuez une recherche avec le mot-clé « ClickOnce », choisissez l’une des extensions de ClickOnce et installez le programme.
 
-- Utilisez le lien **Installation manuelle** affiché sur le même panneau sur le portail pour télécharger le fichier d'installation et l'exécuter manuellement. Une fois l'installation effectuée, vous verrez s’afficher la boîte de dialogue Configuration de la passerelle de gestion des données. Copiez la **clé** sur l'écran du portail et utilisez-la dans le gestionnaire de configuration pour enregistrer manuellement la passerelle auprès du service.
+- Utilisez le lien **Installation manuelle** affiché sur le même panneau sur le portail pour télécharger le fichier d’installation et l’exécuter manuellement. Une fois l'installation effectuée, vous verrez s’afficher la boîte de dialogue Configuration de la passerelle de gestion des données. Copiez la **clé** sur l’écran du portail et utilisez-la dans le gestionnaire de configuration pour enregistrer manuellement la passerelle auprès du service.
 
 ### Problème : échec de la connexion à un serveur SQL local 
-Lancez le **Gestionnaire de configuration de la passerelle de gestion des données** sur l'ordinateur passerelle et utilisez l’onglet **Résolution des problèmes** pour tester la connexion à SQL Server à partir de l'ordinateur passerelle. Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour plus d'informations.
+Lancez le **Gestionnaire de configuration de la passerelle de gestion des données** sur l’ordinateur passerelle et utilisez l’onglet **Résolution des problèmes** pour tester la connexion à SQL Server à partir de l’ordinateur passerelle. Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour plus d’informations.
  
 
 ### Problème : l’état des tranches d’entrée est En attente depuis longtemps
@@ -56,7 +56,7 @@ Les segments peuvent avoir l’état **En attente** pour plusieurs raisons, par 
 
 Consultez l’exemple suivant pour l’utilisation de la propriété **external**. Vous pouvez éventuellement spécifier **externalData*** quand vous affectez à la propriété external la valeur true.
 
-Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour plus d'informations sur cette propriété.
+Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour plus d’informations sur cette propriété.
 	
 	{
 	  "name": "CustomerTable",
@@ -82,10 +82,10 @@ Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour p
 	  }
 	}
 
- Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
+Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
 ### Problème : échec de l’opération de copie hybride
-Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour savoir comment résoudre les problèmes de copie à partir de/vers un magasin de données local avec la passerelle de gestion des données.
+Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour savoir comment résoudre les problèmes de copie depuis/vers un magasin de données local avec la passerelle de gestion des données.
 
 ### Problème : échec de l’approvisionnement HDInsight à la demande
 Lorsque vous utilisez un service lié de type HDInsightOnDemand, vous devez spécifier un linkedServiceName qui pointe vers un stockage d’objets blob Azure. Le service Data Factory utilise ce stockage pour stocker les journaux et les fichiers d’accompagnement pour votre cluster HDInsight à la demande. Parfois, l’approvisionnement d'un cluster HDInsight à la demande échoue avec l'erreur suivante :
@@ -97,7 +97,7 @@ Cette erreur indique généralement que l’emplacement du compte de stockage sp
 En outre, il existe une seconde propriété JSON additionalLinkedServiceNames avec laquelle les comptes de stockage supplémentaires peuvent être spécifiés dans HDInsight à la demande. Ces comptes de stockage supplémentaires liés doivent avoir le même emplacement que le cluster HDInsight, ou l’approvisionnement échouera avec la même erreur.
 
 ### Problème : échec de l’activité .NET personnalisée
-Consultez la page [Déboguer un pipeline avec une activité personnalisée](data-factory-use-custom-activities.md#debug-the-pipeline) pour des instructions détaillées.
+Consultez la page [Déboguer un pipeline avec une activité personnalisée](data-factory-use-custom-activities.md#debug-the-pipeline) pour obtenir des instructions détaillées.
 
 ## Utilisation du portail Azure pour résoudre les problèmes 
 
@@ -110,12 +110,11 @@ Consultez [Surveiller et gérer les pipelines Data Factory à l’aide de l’ap
 ## Utiliser Azure PowerShell pour résoudre les problèmes
 
 ### Utiliser Azure PowerShell pour résoudre une erreur  
-Consultez la page [Surveiller les pipelines Data Factory à l'aide d'Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) pour plus d'informations.
+Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) pour plus d’informations.
 
 
-[adfgetstarted]: data-factory-get-started.md
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -144,4 +143,4 @@ Consultez la page [Surveiller les pipelines Data Factory à l'aide d'Azure Power
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

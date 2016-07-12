@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -121,7 +121,8 @@ Cela va vous aider à intégrer le client Azure AD au répertoire Active Direc
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
   
-  > [AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
+  > [AZURE.NOTE] 
+  > Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
 
 
 ## Mettre à niveau le schéma des services de domaine Active Directory
@@ -155,7 +156,7 @@ Il s’agit d’une opération ponctuelle que vous devez effectuer pour prépare
 
 1. Sur votre serveur de fédération, ouvrez la console de gestion AD FS et accédez à **AD FS** > **Stratégies d'authentification**.
 2. Sélectionnez **Modifier l'authentification principale globale** dans le volet **Actions**.
-3. Cochez **Activer l'authentification des appareils**, puis sélectionnez **OK**.
+3. Cochez **Enable device authentication (Activer l’authentification des appareils)**, puis sélectionnez **OK**.
 4. Par défaut, AD FS supprime régulièrement les appareils non utilisés d’Active Directory. Vous devez désactiver cette tâche pendant l’utilisation du service Azure Active Directory Device Registration afin que les appareils puissent être gérés dans Azure.
 
 
@@ -189,7 +190,7 @@ Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Nous 
 4. Quand vous y êtes invité, connectez-vous avec vos informations d’identification. L’appareil est à présent joint.
 
 ###Joindre un appareil Windows 7 à l’aide du service Azure Active Directory Device Registration
-Pour inscrire des appareils joints à un domaine Windows 7, vous devez déployer le package logiciel d’inscription de l’appareil. Le package logiciel, appelé « Jonction au lieu de travail » pour Windows 7, est disponible en téléchargement sur le [site web Microsoft Connect](https://connect.microsoft.com/site1164). Les instructions relatives à l’utilisation du package sont disponibles dans [Configurer l’inscription automatique des appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md).
+Pour inscrire des appareils joints à un domaine Windows 7, vous devez déployer le package logiciel d’inscription de l’appareil. Le package logiciel, appelé Jonction au lieu de travail pour Windows 7, est disponible en téléchargement sur le [site web Microsoft Connect](https://connect.microsoft.com/site1164). Les instructions relatives à l’utilisation du package sont disponibles dans [Configurer l’inscription automatique des appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Joindre un appareil Android à l’aide du service Azure Active Directory Device Registration
 
@@ -230,14 +231,14 @@ Sur votre serveur de fédération, ouvrez une fenêtre de commande Windows Power
     Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
 Vous devez inscrire votre appareil avant d'accéder à cette application.
 
-**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
+**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
 
     a href='https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
 
 Joindre cet appareil iOS à votre espace de travail.
 
 
-**Si vous utilisez un appareil Windows 8.1**, vous pouvez joindre votre appareil en accédant à **Paramètres du PC** > **Réseau** > **Espace de travail**.
+**Si vous utilisez un appareil Windows 8.1**, vous pouvez joindre votre appareil en accédant à **Paramètres du PC**> **Réseau** > **Espace de travail**.
 
 
 Où « **relying party trust name** » correspond au nom de l'objet d'approbation de la partie de confiance de vos applications dans AD FS. Où **yourdomain.com** correspond au nom du domaine que vous avez configuré avec Azure Active Directory. Par exemple, contoso.com. Assurez-vous de supprimer les sauts de ligne (le cas échéant) dans le contenu HTML que vous transmettez à l'applet de commande **Set-AdfsRelyingPartyWebContent**.
@@ -251,4 +252,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

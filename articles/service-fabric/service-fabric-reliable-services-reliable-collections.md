@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/14/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric
@@ -27,7 +27,7 @@ La principale différence entre les Collections fiables et d'autres technologies
 
 ![Image de l'évolution des collections.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
-Les Collections fiables peuvent être considérées comme l’évolution naturelle des classes **System.Collections** : un nouveau jeu de collections qui sont conçues pour les applications cloud et les applications pour plusieurs ordinateurs sans accroître la complexité pour les développeurs. En tant que telles, les Collections fiables sont :
+Les Collections fiables peuvent être considérées comme l’évolution naturelle des classes **System.Collections** : un nouveau jeu de collections qui sont conçues pour les applications cloud et les applications pour plusieurs ordinateurs sans accroître la complexité pour les développeurs. En tant que telles, les Collections fiables sont :
 
 - Répliquées : les modifications d'état sont répliquées pour une haute disponibilité.
 - Persistantes : les données sont conservées sur le disque pour la durabilité contre les pannes à grande échelle (par exemple, une panne de courant dans un centre de données).
@@ -119,10 +119,11 @@ Voici quelques points à retenir :
 ## Étapes suivantes
 
 - [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
+- [Notifications Reliable Services](service-fabric-reliable-services-notifications.md)
 - [Sauvegarde et restauration de Reliable Services (récupération d’urgence)](service-fabric-reliable-services-backup-restore.md)
 - [Configuration du Gestionnaire d’état fiable](service-fabric-reliable-services-configuration.md)
 - [Prise en main des services API Web de Fabric Service](service-fabric-reliable-services-communication-webapi.md)
 - [Utilisation avancée du modèle de programmation de services fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

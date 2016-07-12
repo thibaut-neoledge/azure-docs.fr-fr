@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #<a id="monitormediaservicesaccount"></a>Comment surveiller un compte Media Services
@@ -26,7 +26,7 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
 ##<a id="configuremonitoring"></a>Procédure : surveillance d'un compte Media Services
 
-1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Media Services**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord. 
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Media Services**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord.
 
 	![MediaServices\_Dashboard][dashboard]
 
@@ -62,7 +62,7 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
 ##Fournir des commentaires
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]Workflow de streaming à la demande](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)] Workflow de streaming à la demande](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -71,4 +71,4 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

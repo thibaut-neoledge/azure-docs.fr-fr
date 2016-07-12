@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Configurer des serveurs DNS entre deux réseaux virtuels Azure
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Configurer la connectivité VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configurer DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configurer la réplication HBase](hdinsight-hbase-geo-replication.md) 
+- [Configurer la réplication HBase](hdinsight-hbase-geo-replication.md)
 
 
 Découvrez comment ajouter et configurer des serveurs DNS sur des réseaux virtuels Azure pour gérer la résolution de nom au sein de réseaux virtuels et entre eux.
@@ -67,8 +67,8 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 2.	Choisissez **Windows Server 2012 R2 Datacenter**.
 3.	Entrez :
 	- **NOM DE LA MACHINE VIRTUELLE** : Contoso-DNS-EU
-	- **NOUVEAU NOM D'UTILISATEUR** : 
-	- **NOUVEAU MOT DE PASSE** : 
+	- **NOUVEAU NOM D'UTILISATEUR** :
+	- **NOUVEAU MOT DE PASSE** :
 4.	Entrez :
 	- **SERVICE CLOUD** : créez un service cloud
 	- **RÉGION/GROUPE D'AFFINITÉ/RÉSEAU VIRTUEL** : (sélectionnez Contoso-VNet-EU)
@@ -77,8 +77,8 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	
 		Le nom du service cloud est identique au nom de la machine virtuelle. Dans ce cas, il s’agit de Contoso-DNS-UE. Pour les machines virtuelles suivantes, il est possible d’utiliser le même service cloud. Toutes les machines virtuelles sous le même service cloud partagent le même réseau virtuel et le même suffixe de domaine.
 
-		Le compte de stockage est utilisé pour stocker le fichier d’image de la machine virtuelle. 
-	- **POINTS DE TERMINAISON** : (faites défiler vers le bas et sélectionnez **DNS**) 
+		Le compte de stockage est utilisé pour stocker le fichier d’image de la machine virtuelle.
+	- **POINTS DE TERMINAISON** : (faites défiler vers le bas et sélectionnez **DNS**)
 
 Une fois la machine virtuelle créée, recherchez les adresses IP interne et externe.
 
@@ -105,7 +105,7 @@ Les serveurs DNS doivent avoir des adresses IP statiques. Cette étape ne peut p
 **Pour configurer une adresse IP statique pour les deux machines virtuelles**
 
 1. Ouvrez Windows PowerShell ISE.
-2. Exécutez les applets de commande suivantes :  
+2. Exécutez les applets de commande suivantes :
 
 		Add-AzureAccount
 		Select-AzureSubscription [YourAzureSubscriptionName]
@@ -122,7 +122,7 @@ Les serveurs DNS doivent avoir des adresses IP statiques. Cette étape ne peut p
 
 **Pour ajouter le rôle Serveur DNS pour Contoso-DNS-EU**
 
-1.	Dans le portail Azure Classic, cliquez sur **Machines virtuelles** à gauche. 
+1.	Dans le portail Azure Classic, cliquez sur **Machines virtuelles** à gauche.
 2.	Cliquez sur **Contoso-DNS-EU**.
 3.	Cliquez sur **TABLEAU DE BORD** en haut.
 4.	Cliquez sur **CONNECTER** en bas et suivez les instructions pour vous connecter à la machine virtuelle via RDP.
@@ -134,7 +134,7 @@ Les serveurs DNS doivent avoir des adresses IP statiques. Cette étape ne peut p
 7.	Sélectionnez votre machine virtuelle DNS (elle doit être mise en surbrillance), puis cliquez sur **Suivant**.
 8.	Vérifiez le **Serveur DNS** :
 9.	Cliquez sur **Ajouter des fonctionnalités**, puis sur **Continuer**.
-10.	Cliquez sur **Suivant** trois fois de suite, puis sur **Installer**. 
+10.	Cliquez sur **Suivant** trois fois de suite, puis sur **Installer**.
 
 **Pour ajouter le rôle Serveur DNS pour Contoso-DNS-US**
 
@@ -184,7 +184,7 @@ Pour configurer le redirecteur conditionnel, vous devez connaître les suffixes 
 1. Ouvrez une session RDP sur **Contoso-DNS-EU**.
 2. Ouvrez la console Windows PowerShell ou une invite de commandes.
 3. Exécutez **ipconfig** et notez le **suffixe DNS propre à la connexion**.
-4. Ne fermez pas la session RDP, vous en aurez encore besoin. 
+4. Ne fermez pas la session RDP, vous en aurez encore besoin.
 5. Répétez ces étapes pour déterminer le **suffixe DNS propre à la connexion** de **Contoso-DNS-US**.
 
 
@@ -199,7 +199,7 @@ Pour configurer le redirecteur conditionnel, vous devez connaître les suffixes 
 	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-US.
 6.	Appuyez sur **Entrée**, puis cliquez sur **OK**. Maintenant, vous pouvez résoudre l'adresse IP de Contoso-DNS-US à partir de Contoso-DNS-EU.
 7.	Répétez les étapes pour ajouter un redirecteur DNS au service DNS sur la machine virtuelle de Contoso-DNS-US avec les valeurs suivantes :
-	- **Domaine DNS** : entrez le suffixe DNS de Contoso-DNS-EU. 
+	- **Domaine DNS** : entrez le suffixe DNS de Contoso-DNS-EU.
 	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-EU.
 
 ##Tester la résolution de noms sur les réseaux virtuels
@@ -222,4 +222,4 @@ Dans ce didacticiel, vous avez vu comment configurer la résolution de noms sur 
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

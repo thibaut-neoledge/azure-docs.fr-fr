@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="06/27/2016" 
 	ms.author="stefsch"/>
 
 # Détails de la configuration réseau pour les environnements App Service avec ExpressRoute 
@@ -29,13 +29,15 @@ Les clients peuvent connecter un circuit [Azure ExpressRoute][ExpressRoute] à l
 Il existe des exigences de connectivité réseau pour les environnements App Service qui peuvent ne pas être initialement satisfaites dans un réseau virtuel connecté à ExpressRoute. Les environnements App Service requièrent tous les éléments suivants pour fonctionner correctement :
 
 
--  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier sur les ports 80 et 443. Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
--  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*.
--  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*. 
+-  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier sur les ports 80 et 443. Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.
+-  Connectivité réseau sortante au service de fichiers Azure sur le port 445.
+-  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*. Cela suppose d’ouvrir l’accès aux ports 1433, 11000-11999 et 14000-14999. Pour plus d’informations, consultez [cet article portant sur l’utilisation du port V12 de la base de données SQL](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+-  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*.
 -  Connectivité réseau sortante à *ocsp.msocsp.com*, *mscrl.microsoft.com* et *crl.microsoft.com*. Cela est nécessaire pour prendre en charge la fonctionnalité SSL.
 -  La configuration DNS pour le réseau virtuel doit être capable de résoudre tous les points de terminaison et les domaines mentionnés dans les points précédents. Si ces points de terminaison ne peuvent pas être résolus, les tentatives de création d'environnement App Service échoueront et les environnements App Service existants seront marqués comme non intègres.
--  S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau contenant l'environnement App Service. 
--  Le chemin d'accès réseau sortant ne peut pas traverser des proxys d'entreprise internes et il ne peut pas non plus être tunnelé de force en local. Ceci modifie l'adresse NAT réelle du trafic réseau sortant à partir de l'environnement App Service. La modification de l'adresse NAT du trafic réseau sortant d'un environnement App Service entraînera des échecs de connectivité vers plusieurs des points de terminaison répertoriés ci-dessus. Cela entraîne des échecs de création d'environnement App Service, ainsi que la désignation comme non intègres des environnements App Service précédemment considérés comme intègres.  
+-  L’accès sortant sur le port 53 est nécessaire pour la communication avec des serveurs DNS.
+-  S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau contenant l'environnement App Service.
+-  Le chemin d'accès réseau sortant ne peut pas traverser des proxys d'entreprise internes et il ne peut pas non plus être tunnelé de force en local. Ceci modifie l'adresse NAT réelle du trafic réseau sortant à partir de l'environnement App Service. La modification de l'adresse NAT du trafic réseau sortant d'un environnement App Service entraînera des échecs de connectivité vers plusieurs des points de terminaison répertoriés ci-dessus. Cela entraîne des échecs de création d'environnement App Service, ainsi que la désignation comme non intègres des environnements App Service précédemment considérés comme intègres.
 -  L'accès réseau entrant vers les ports requis pour les environnements App Service doit être autorisé, comme décrit dans cet [article][requiredports].
 
 La configuration DNS requise peut être satisfaite en garantissant qu'une infrastructure DNS valide est configurée et gérée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d'un redémarrage d'un environnement propagé à l'aide de l'icône « Redémarrer » située en haut du panneau de gestion de l'environnement App Service du [portail Azure][NewPortal] force l'environnement à récupérer la nouvelle configuration DNS.
@@ -71,7 +73,7 @@ Pour plus d'informations sur la création et la configuration d'itinéraires dé
 1. Installez la toute dernière version d'Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads] (datant de juin 2015 ou version ultérieure). Sous « Outils de ligne de commande », un lien « Installer » sous « Windows Powershell » permet d'installer les dernières applets de commande Powershell.
 
 2. Nous vous recommandons de créer un sous-réseau unique pour un usage exclusif par un environnement App Service. Ceci garantit que les itinéraires définis par l'utilisateur appliqués au sous-réseau ouvriront uniquement le trafic sortant pour l'environnement App Service.
-3. **Important** : ne déployez pas l'environnement App Service **avant** d'avoir exécuté les étapes de configuration suivantes. Ceci garantit que la connectivité réseau sortante est disponible avant la tentative de déploiement d'un environnement App Service.
+3. **Important** : ne déployez pas l'environnement App Service **avant** d'avoir exécuté les étapes de configuration suivantes. Ceci garantit que la connectivité réseau sortante est disponible avant la tentative de déploiement d'un environnement App Service.
 
 **Étape 1 : Créer une table d'itinéraires nommée**
 
@@ -106,8 +108,8 @@ La dernière étape de configuration consiste à associer la table d'itinéraire
 Une fois que la table d'itinéraires est liée au sous-réseau, nous vous recommandons de tester et confirmer le résultat souhaité. Par exemple, déployez une machine virtuelle sur le sous-réseau et vérifiez que :
 
 
-- Le trafic sortant vers des points de terminaison Azure et non Azure mentionné précédemment dans cet article n'est **pas** transmis vers le circuit ExpressRoute. Il est très important de vérifier ce comportement, car si le trafic sortant à partir du sous-réseau est toujours tunnelisé de force sur site, la création d'un environnement App Service échouera toujours. 
-- Les recherches DNS de points de terminaison mentionnées plus haut se résolvent toutes correctement. 
+- Le trafic sortant vers des points de terminaison Azure et non Azure mentionné précédemment dans cet article n'est **pas** transmis vers le circuit ExpressRoute. Il est très important de vérifier ce comportement, car si le trafic sortant à partir du sous-réseau est toujours tunnelisé de force sur site, la création d'un environnement App Service échouera toujours.
+- Les recherches DNS de points de terminaison mentionnées plus haut se résolvent toutes correctement.
 
 Une fois les étapes ci-dessus confirmées, vous devrez supprimer la machine virtuelle car le sous-réseau doit être « vide » au moment de la création de l'environnement App Service.
  
@@ -138,4 +140,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

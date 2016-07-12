@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d'Azure Active Directory B2C : FAQ
@@ -34,7 +34,7 @@ Azure AD B2C ne peut pas être utilisé avec Microsoft Office 365. En généra
 
 Dans un client Azure AD, chaque utilisateur (à l’exception des utilisateurs avec des comptes Microsoft existants) se connecte avec une adresse de messagerie sous la forme `<xyz>@<tenant domain>`, où `<tenant domain>` est l’un des domaines vérifiés dans le client ou le domaine `<...>.onmicrosoft.com` initial. Ce type de compte est un compte professionnel ou scolaire.
 
-Dans un client Azure AD B2C, la plupart des applications veulent que l’utilisateur se connecte avec n’importe quelle adresse de messagerie arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com)). Ce type de compte est un compte local. Aujourd’hui, nous prenons également en charge les noms d’utilisateur arbitraires (chaînes simples) en tant que comptes locaux (par exemple, joe, bob, sarah ou jim). Vous pouvez choisir l’un de ces deux types de comptes locaux dans le service Azure AD B2C.
+Dans un client Azure AD B2C, la plupart des applications veulent que l’utilisateur se connecte avec n’importe quelle adresse de messagerie arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Ce type de compte est un compte local. Aujourd’hui, nous prenons également en charge les noms d’utilisateur arbitraires (chaînes simples) en tant que comptes locaux (par exemple, joe, bob, sarah ou jim). Vous pouvez choisir l’un de ces deux types de comptes locaux dans le service Azure AD B2C.
 
 ### Quels fournisseurs d’identité sociaux prenez-vous en charge maintenant ? Lesquels envisagez-vous de prendre en charge à l'avenir ?
 
@@ -102,15 +102,17 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. Notez é
 
 Procédez comme suit pour supprimer votre client Azure AD B2C :
 
-- Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
+- Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
+- Accédez aux panneaux **Applications**, **Fournisseurs d’identité** et **Toutes les stratégies**, et supprimez toutes les entrées dans chacun d’eux.
+- À présent, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
 - Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C.
+- Cliquez sur l’onglet **Users**.
+- Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur que vous utilisez actuellement pour la connexion, par exemple, l’administrateur d’abonnement). Cliquez sur **Supprimer** en bas de la page et sur **OUI** lorsque vous y êtes invité.
 - Cliquez sur l’onglet **Applications**.
 - Sélectionnez **Applications que ma société possède** dans la liste déroulante **Afficher** et cochez la case.
 - Une application appelée **b2c-extensions-app** apparaît dans la liste. Cliquez sur **Supprimer** en bas de la page et sur **OUI** lorsque vous y êtes invité.
 - Accédez à nouveau à l’extension Active Directory et sélectionnez votre client B2C.
 - Cliquez sur **Supprimer** en bas de la page. Suivez les instructions à l’écran pour terminer le processus.
-
-Si vous avez déjà créé des **Utilisateurs**, des **Applications** ou d’autres objets dans votre client B2C, vous devez les supprimer avant d’effectuer les étapes ci-dessus.
 
 ### Puis-je obtenir Azure AD B2C dans le cadre d’Enterprise Mobility Suite ?
 
@@ -128,4 +130,4 @@ Nous ne pouvons fournir aucune informations sur la date de disponibilité pour l
 
 Vous pouvez également consulter les [Limites, restrictions et contraintes actuelles de la version préliminaire](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

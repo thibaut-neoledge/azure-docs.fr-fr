@@ -58,7 +58,7 @@ Notre objectif est de simplifier encore davantage la gestion des applications et
 Dans le service Azure AD d’origine, une application peut se comporter comme une **ressource**, ou un destinataire de jetons. Une ressource peut définir plusieurs **étendues** ou **oAuth2Permissions** qu’elle comprend, permettant ainsi aux applications clientes de demander des jetons pour cette ressource pour un ensemble d’étendues donné. Prenez comme exemple de ressource l’API Graph d’Azure AD :
 
 - Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
-- Étendues, ou `OAuth2Permissions` : `Directory.Read`, `Directory.Write`, etc.  
+- Étendues, ou `OAuth2Permissions` : `Directory.Read`, `Directory.Write`, etc.
 
 Tout ceci vaut pour le point de terminaison v2.0. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la façon dont un client demande ces autorisations a changé. Dans le passé, une demande d’autorisation OAuth 2.0 à Azure AD pouvait ressembler à ceci :
 
@@ -72,7 +72,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 où le paramètre de **ressource** indiquait la ressource pour laquelle l’application cliente demandait une autorisation. Azure AD calculait les autorisations requises par l’application en fonction de la configuration statique définie dans le portail Azure, puis émettait les jetons en conséquence. Désormais, la même demande d’autorisation OAuth 2.0 ressemble à ceci :
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -94,7 +94,7 @@ Les autorisations requises par une application étaient configurées **statiquem
 Avec le point de terminaison v2.0, vous pouvez spécifier les autorisations dont votre application a besoin **dynamiquement**, lors de l’exécution, pendant l’utilisation régulière de votre application. Pour ce faire, vous pouvez spécifier les étendues nécessaires à votre application, à un moment donné, en les incluant dans le paramètre `scope` d’une demande d’autorisation :
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -132,4 +132,4 @@ Pour en savoir plus sur les demandes spécifiques émises dans les jetons v2.0, 
 ## Limites
 Il existe quelques restrictions à connaître lors de l’utilisation du point v2.0. Consultez le [document relatif aux limites v2.0](active-directory-v2-limitations.md) pour voir si ces restrictions s’appliquent à votre scénario particulier.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

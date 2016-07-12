@@ -21,17 +21,17 @@
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel (VHD) qui contient le système d’exploitation FreeBSD, ce qui vous permet de l’utiliser comme votre image personnelle pour créer des machines virtuelles dans Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Composants requis##
 Cet article part du principe que vous disposez des éléments suivants :
 
-- **Un abonnement Azure** : si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'essai gratuit](https://azure.microsoft.com/pricing/free-trial/).  
+- **Un abonnement Azure** : si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Outils Microsoft Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez l’applet de commande [Téléchargements Azure](https://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
+- **Outils Microsoft Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez l’applet de commande [Téléchargements Azure](https://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
 
-- **Un système d’exploitation FreeBSD installé dans un fichier .vhd** : vous avez installé un système d’exploitation FreeBSD pris en charge dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
+- **Un système d’exploitation FreeBSD installé dans un fichier .vhd** : vous avez installé un système d’exploitation FreeBSD pris en charge dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [AZURE.NOTE] Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l’aide du Gestionnaire Hyper-V ou de l’applet de commande [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
@@ -213,7 +213,7 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Important** : utilisez Linux comme type de système d’exploitation pour le moment, car la version actuelle de Microsoft Azure PowerShell accepte uniquement le paramètre « Linux » ou « Windows ».
+    **Important** : utilisez Linux comme type de système d’exploitation pour le moment, car la version actuelle de Microsoft Azure PowerShell accepte uniquement le paramètre « Linux » ou « Windows ».
 
 2. À l’issue de ces étapes, la nouvelle image apparaît sous l’onglet **Images** du portail Azure Classic.
 
@@ -227,4 +227,4 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
 	![image FreeBSD dans Microsoft Azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

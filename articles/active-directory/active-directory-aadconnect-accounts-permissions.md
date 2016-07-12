@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/19/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -107,7 +107,7 @@ Si vous utilisez la configuration rapide, un compte à utiliser pour la synchron
 ![Compte AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Comptes de service de synchronisation d'Azure AD Connect
-Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte a pour préfixe **AAD\_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Si vous utilisez un serveur distant exécutant SQL Server ou bien un proxy qui nécessite une authentification, le compte de service **AAD\_** doit se trouver dans le domaine.
+Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte a pour préfixe **AAD_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Si vous utilisez un serveur distant exécutant SQL Server ou bien un proxy qui nécessite une authentification, le compte de service **AAD_** doit se trouver dans le domaine.
 
 ![Compte de service de synchronisation](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -134,4 +134,4 @@ Le compte de service est créé avec un mot de passe long et complexe qui n’ex
 
 En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

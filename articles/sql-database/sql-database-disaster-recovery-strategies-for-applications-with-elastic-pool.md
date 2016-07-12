@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="sqldb-bcdr" 
    ms.date="06/16/2016"
    ms.author="sashan"/>
 
@@ -36,9 +36,9 @@ Pour répondre au besoin de simplicité, vous devez déployer toutes les bases d
 
 En cas de panne dans la région primaire, les étapes de récupération à suivre pour remettre votre application en ligne sont illustrées dans le schéma suivant.
 
-- Basculez immédiatement les bases de données de gestion (2) vers la région de récupération d’urgence. 
+- Basculez immédiatement les bases de données de gestion (2) vers la région de récupération d’urgence.
 - Modifiez la chaîne de connexion de l’application pour la diriger vers la région de récupération d’urgence. Tous les nouveaux comptes et bases de données client seront créés dans la région de récupération d’urgence. Les données des clients existants seront temporairement indisponibles.
-- Créez le pool élastique en utilisant la même configuration que le pool d’origine (3). 
+- Créez le pool élastique en utilisant la même configuration que le pool d’origine (3).
 - Utilisez la géo-restauration pour créer des copies des bases de données client (4). Vous pouvez envisager de déclencher les restaurations individuelles via les connexions de l’utilisateur final ou utiliser d’autres schémas de priorité spécifiques à l’application.
 
 À ce stade, votre application est à nouveau en ligne dans la région de récupération d’urgence, mais certains clients accéderont moins rapidement à leurs données.
@@ -47,12 +47,12 @@ En cas de panne dans la région primaire, les étapes de récupération à suivr
 
 Si la panne est temporaire, il est possible que la région primaire soit restaurée par Azure avant que toutes les restaurations soient terminées dans la région de récupération d’urgence. Dans ce cas, vous devez orchestrer le déplacement de l’application dans la région primaire. Les étapes du processus sont illustrées dans le schéma suivant.
  
-- Annulez toutes les requêtes de géo-restauration en attente.   
-- Basculez les bases de données de gestion vers la région primaire (5). Remarque : après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Les rôles seront à nouveau permutés. 
-- Modifiez la chaîne de connexion de l’application pour la diriger vers la région primaire. Désormais, tous les nouveaux comptes et bases de données client seront créés dans la région primaire. Les données de certains clients existants seront temporairement indisponibles.   
-- Définissez toutes les bases de données du pool de récupération d’urgence en lecture seule pour vous assurer qu’elles ne pourront pas être modifiées dans la région de récupération d’urgence (6). 
-- Pour chaque base de données du pool de récupération d’urgence qui a été modifiée depuis la récupération, renommez ou supprimez la base de données correspondante dans le pool principal (7). 
-- Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (8). 
+- Annulez toutes les requêtes de géo-restauration en attente.
+- Basculez les bases de données de gestion vers la région primaire (5). Remarque : après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Les rôles seront à nouveau permutés.
+- Modifiez la chaîne de connexion de l’application pour la diriger vers la région primaire. Désormais, tous les nouveaux comptes et bases de données client seront créés dans la région primaire. Les données de certains clients existants seront temporairement indisponibles.
+- Définissez toutes les bases de données du pool de récupération d’urgence en lecture seule pour vous assurer qu’elles ne pourront pas être modifiées dans la région de récupération d’urgence (6).
+- Pour chaque base de données du pool de récupération d’urgence qui a été modifiée depuis la récupération, renommez ou supprimez la base de données correspondante dans le pool principal (7).
+- Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (8).
 - Supprimez le pool de récupération d’urgence (9).
 
 À ce stade, votre application sera en ligne dans la région primaire avec toutes les bases de données client disponibles dans le pool principal.
@@ -79,9 +79,9 @@ En cas de panne dans la région primaire, les étapes de récupération à suivr
 
 - Basculez immédiatement les bases de données de gestion vers la région de récupération d’urgence (3).
 - Modifiez la chaîne de connexion de l’application pour la diriger vers la région de récupération d’urgence. Tous les nouveaux comptes et bases de données client seront désormais créés dans la région de récupération d’urgence. Les données des clients utilisant une version d’évaluation seront temporairement indisponibles.
-- Basculez les bases de données des clients utilisant une version payante vers le pool de la région de récupération d’urgence afin de restaurer immédiatement leur disponibilité (4). Le basculement est un processus de modification rapide au niveau des métadonnées. Vous pouvez envisager d’optimiser le processus en permettant le déclenchement à la demande des basculements individuels via les connexions de l’utilisateur final. 
-- Si le nombre d’eDTU de votre pool secondaire était inférieur à celui de votre pool principal car les bases de données secondaires n’avaient besoin que d’une capacité limitée pour traiter les journaux des modifications en tant que bases de données secondaires, vous devez immédiatement augmenter la capacité du pool pour prendre en charge la charge de travail globale de tous les clients (5). 
-- Créez le nouveau pool élastique avec le même nom et la même configuration dans la région de récupération d’urgence pour les bases de données des clients utilisant une version d’évaluation (6). 
+- Basculez les bases de données des clients utilisant une version payante vers le pool de la région de récupération d’urgence afin de restaurer immédiatement leur disponibilité (4). Le basculement est un processus de modification rapide au niveau des métadonnées. Vous pouvez envisager d’optimiser le processus en permettant le déclenchement à la demande des basculements individuels via les connexions de l’utilisateur final.
+- Si le nombre d’eDTU de votre pool secondaire était inférieur à celui de votre pool principal car les bases de données secondaires n’avaient besoin que d’une capacité limitée pour traiter les journaux des modifications en tant que bases de données secondaires, vous devez immédiatement augmenter la capacité du pool pour prendre en charge la charge de travail globale de tous les clients (5).
+- Créez le nouveau pool élastique avec le même nom et la même configuration dans la région de récupération d’urgence pour les bases de données des clients utilisant une version d’évaluation (6).
 - Une fois le pool créé pour les clients utilisant une version d’évaluation, utilisez la géo-restauration pour restaurer chaque base de données client en version d’évaluation dans le nouveau pool (7). Vous pouvez envisager de déclencher les restaurations individuelles via les connexions de l’utilisateur final ou utiliser d’autres schémas de priorité spécifiques à l’application.
 
 À ce stade, votre application est à nouveau en ligne dans la région de récupération d’urgence. Tous les clients utilisant une version payante auront accès à leurs données à tout moment, tandis que les clients utilisant une version d’évaluation accéderont moins rapidement à leurs données.
@@ -90,13 +90,13 @@ Lorsque la région primaire est restaurée par Azure *après* que vous ayez rest
  
 ![Figure 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
-- Annulez toutes les requêtes de géo-restauration en attente.   
-- Basculez les bases de données de gestion (8). Après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Celles-ci redeviennent désormais les bases de données primaires.  
-- Basculez les bases de données des clients utilisant une version payante (9). Là encore, après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Celles-ci redeviennent désormais les bases de données primaires. 
+- Annulez toutes les requêtes de géo-restauration en attente.
+- Basculez les bases de données de gestion (8). Après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Celles-ci redeviennent désormais les bases de données primaires.
+- Basculez les bases de données des clients utilisant une version payante (9). Là encore, après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Celles-ci redeviennent désormais les bases de données primaires.
 - Définissez les bases de données d’évaluation restaurées qui ont été modifiées dans la région de récupération d’urgence en lecture seule (10).
-- Pour chaque base de données du pool de récupération d’urgence des clients utilisant une version d’évaluation qui a été modifiée depuis la restauration, renommez ou supprimez la base de données correspondante dans le pool principal de ces clients (11). 
-- Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (12). 
-- Supprimez le pool de récupération d’urgence (13). 
+- Pour chaque base de données du pool de récupération d’urgence des clients utilisant une version d’évaluation qui a été modifiée depuis la restauration, renommez ou supprimez la base de données correspondante dans le pool principal de ces clients (11).
+- Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (12).
+- Supprimez le pool de récupération d’urgence (13).
 
 > [AZURE.NOTE] L’opération de basculement est asynchrone. Pour réduire le temps de récupération, il est important que vous exécutiez la commande de basculement des bases de données client pour des lots d’au moins 20 bases de données.
 
@@ -122,9 +122,9 @@ Le schéma suivant illustre les étapes de récupération à suivre en cas de pa
 
 - Basculez immédiatement les bases de données de gestion vers la région B (3).
 - Modifiez la chaîne de connexion de l’application pour la diriger vers les bases de données de gestion dans la région B. Modifiez les bases de données de gestion pour vous assurer que les nouveaux comptes et bases de données client seront créés dans la région B et que les bases de données client existantes s’y trouveront également. Les données des clients utilisant une version d’évaluation seront temporairement indisponibles.
-- Basculez les bases de données des clients utilisant la version payante vers le pool 2 de la région B afin de restaurer immédiatement leur disponibilité (4). Le basculement est un processus de modification rapide au niveau des métadonnées. Vous pouvez envisager d’optimiser le processus en permettant le déclenchement à la demande des basculements individuels via les connexions de l’utilisateur final. 
-- Étant donné que le pool 2 contient désormais uniquement les bases de données primaires, la charge de travail totale dans le pool va augmenter. Vous devez donc immédiatement augmenter le nombre d’eDTU du pool (5). 
-- Créez le nouveau pool élastique avec le même nom et la même configuration dans la région B pour les bases de données des clients utilisant une version d’évaluation (6). 
+- Basculez les bases de données des clients utilisant la version payante vers le pool 2 de la région B afin de restaurer immédiatement leur disponibilité (4). Le basculement est un processus de modification rapide au niveau des métadonnées. Vous pouvez envisager d’optimiser le processus en permettant le déclenchement à la demande des basculements individuels via les connexions de l’utilisateur final.
+- Étant donné que le pool 2 contient désormais uniquement les bases de données primaires, la charge de travail totale dans le pool va augmenter. Vous devez donc immédiatement augmenter le nombre d’eDTU du pool (5).
+- Créez le nouveau pool élastique avec le même nom et la même configuration dans la région B pour les bases de données des clients utilisant une version d’évaluation (6).
 - Une fois le pool créé, utilisez la géo-restauration pour restaurer chaque base de données client en version d’évaluation dans le pool (7). Vous pouvez envisager de déclencher les restaurations individuelles via les connexions de l’utilisateur final ou utiliser d’autres schémas de priorité spécifiques à l’application.
 
 
@@ -136,26 +136,26 @@ Après la récupération de la région A, vous devez décider si vous souhaitez 
  
 ![Figure 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-- Annulez toutes les requêtes de géo-restauration en attente pour le pool de récupération d’urgence des bases de données en version d’évaluation.   
-- Basculez les bases de données de gestion (8). Après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Celles-ci redeviennent désormais les bases de données primaires.  
-- Choisissez les bases de données des clients utilisant la version payante qui seront restaurées dans le pool 1 et initiez le basculement vers les bases de données secondaires (9). Après la récupération de la région, toutes les bases de données du pool 1 sont automatiquement devenues bases de données secondaires. Désormais, 50 % d’entre elles redeviennent des bases de données primaires. 
+- Annulez toutes les requêtes de géo-restauration en attente pour le pool de récupération d’urgence des bases de données en version d’évaluation.
+- Basculez les bases de données de gestion (8). Après la récupération de la région, les anciennes bases de données primaires sont automatiquement devenues bases de données secondaires. Celles-ci redeviennent désormais les bases de données primaires.
+- Choisissez les bases de données des clients utilisant la version payante qui seront restaurées dans le pool 1 et initiez le basculement vers les bases de données secondaires (9). Après la récupération de la région, toutes les bases de données du pool 1 sont automatiquement devenues bases de données secondaires. Désormais, 50 % d’entre elles redeviennent des bases de données primaires.
 - Réduisez la taille du pool 2 en rétablissant le nombre d’eDTU d’origine (10).
 - Définissez toutes les bases de données d’évaluation restaurées de la région B en lecture seule (11).
-- Pour chaque base de données du pool de récupération d’urgence des versions d’évaluation qui a été modifiée depuis la récupération, renommez ou supprimez la base de données correspondante dans le pool principal des versions d’évaluation (12). 
-- Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (13). 
-- Supprimez le pool de récupération d’urgence (14). 
+- Pour chaque base de données du pool de récupération d’urgence des versions d’évaluation qui a été modifiée depuis la récupération, renommez ou supprimez la base de données correspondante dans le pool principal des versions d’évaluation (12).
+- Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (13).
+- Supprimez le pool de récupération d’urgence (14).
 
 Cette stratégie a plusieurs **avantages** :
 
-- Elle offre le contrat SLA le plus agressif pour les clients utilisant la version payante de l’application, car elle protège au moins 50 % des bases de données client en cas de panne. 
-- Elle garantit le déblocage des nouvelles bases de données en version d’évaluation dès que le pool de récupération d’urgence des bases de données en version d’évaluation est créé lors de la récupération. 
+- Elle offre le contrat SLA le plus agressif pour les clients utilisant la version payante de l’application, car elle protège au moins 50 % des bases de données client en cas de panne.
+- Elle garantit le déblocage des nouvelles bases de données en version d’évaluation dès que le pool de récupération d’urgence des bases de données en version d’évaluation est créé lors de la récupération.
 - Elle permet une utilisation plus efficace de la capacité du pool car 50 % des bases de données secondaires des pools 1 et 2 sont systématiquement moins actives que les bases de données primaires.
 
 Il y a tout de même des **inconvénients** :
 
 - Les opérations CRUD exécutées sur les bases de données de gestion ont une latence plus faible pour les utilisateurs finaux connectés à la région A que pour ceux connectés à la région B, car elles sont exécutées au niveau des bases de données de gestion primaires.
-- Cette stratégie requiert une conception plus complexe des bases de données de gestion. Par exemple, chaque enregistrement de locataire devra disposer d’une balise d’emplacement qui devra être modifiée pendant le basculement et la restauration.  
-- Les clients qui utilisent la version payante de l’application peuvent constater une baisse des performances jusqu’à la fin du processus de mise à niveau du pool dans la région B. 
+- Cette stratégie requiert une conception plus complexe des bases de données de gestion. Par exemple, chaque enregistrement de locataire devra disposer d’une balise d’emplacement qui devra être modifiée pendant le basculement et la restauration.
+- Les clients qui utilisent la version payante de l’application peuvent constater une baisse des performances jusqu’à la fin du processus de mise à niveau du pool dans la région B.
 
 ## Résumé
 
@@ -164,23 +164,10 @@ Cet article aborde les différentes stratégies de récupération d’urgence po
 
 ## Étapes suivantes
 
-Les étapes individuelles requises pour chaque scénario impliquent des opérations sur un grand nombre de bases de données. Vous pouvez utiliser les tâches élastiques de la base de données SQL Azure pour gérer ces opérations à grande échelle. Pour plus d’informations, reportez-vous à l’article [Gestion des bases de données cloud avec montée en charge](./sql-database-elastic-jobs-overview.md). Les pages suivantes contiennent des informations sur les opérations spécifiques requises pour mettre en œuvre chaque scénario décrit dans cet article :
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-- [Ajouter une base de données secondaire](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
-- [Basculer une base de données vers une base de données secondaire](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Géo-restaurer une base de données](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
-- [Déplacer une base de données](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-- [Copier une base de données](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-
-## Ressources supplémentaires
-
-- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
-- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
-- [Restauration géographique](sql-database-geo-restore.md)
-- [Géo-réplication active](sql-database-geo-replication-overview.md)
-- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
-- [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Charge de travail de l’entrepôt de données"
-   description="La flexibilité de SQL Data Warehouse vous permet d’accroître, de réduire ou d’interrompre la puissance de calcul en valorisant une mise à l’échelle de glissement d’unités d’entrepôt de données (DWU). Cet article vous présente les mesures associées à l’entrepôt de données le rôle des unités DWU."
+   description="La flexibilité de SQL Data Warehouse vous permet d’accroître, de réduire ou d’interrompre la puissance de calcul en valorisant une mise à l’échelle de glissement d’unités d’entrepôt de données (DWU). Cet article vous présente les mesures associées à l’entrepôt de données le rôle des unités DWU. "
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/01/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -48,7 +48,7 @@ Les requêtes de rapports et d’analyse sont bien souvent classées en tant que
 ### Gestion des données
 La gestion des données est essentielle, plus particulièrement si vous prévoyez de manquer d’espace disque dans l’avenir proche. Les entrepôts de données répartissent généralement les données en plages pertinentes, qui sont stockées en tant que partitions dans une table. Tous les produits basés sur SQL Server prennent en charge l’extraction et l’ajout de partitions dans les tables. Grâce à ce déplacement de partitions, vous êtes en mesure de déplacer des données plus anciennes vers un modèle de stockage moins coûteux et de conserver les données les plus récentes sur l’espace de stockage en ligne.
 
-- Les index Columnstore prennent en charge les tables partitionnées. Le cas échéant, les tables partitionnées sont utilisées pour la gestion et l’archivage des données. Dans les tables stockées ligne par ligne, les partitions jouent un rôle plus important dans l’amélioration des performances des requêtes.  
+- Les index Columnstore prennent en charge les tables partitionnées. Le cas échéant, les tables partitionnées sont utilisées pour la gestion et l’archivage des données. Dans les tables stockées ligne par ligne, les partitions jouent un rôle plus important dans l’amélioration des performances des requêtes.
 
 - PolyBase est essentiel à la gestion des données. Si vous recourez à PolyBase, vous avez la possibilité d’archiver des données plus anciennes sur Hadoop ou dans des objets Blob Microsoft Azure. Les données étant dans ce cas conservées en ligne, vous disposez d’un nombre conséquent d’options. La récupération des données de Hadoop peut prendre davantage de temps, mais les économies de stockage réalisées surpassent cet inconvénient.
 
@@ -59,18 +59,16 @@ Un des moyens de rendre les données disponibles pour les rapports et l’analys
 - Pour l’analyse, vous pouvez générer un cube d’analyse sur l’entrepôt de données puis exécuter l’analyse dans l’entrepôt de données, ou procéder au pré-traitement des données avant de les exporter vers le serveur d’analyse.
 
 ## Étapes suivantes
-Pour commencer à développer votre entrepôt de données, consultez la [vue d’ensemble sur le développement][].
-
-## Documentation
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) de Karthik Ramachandran, Istvan Szededi et Richard L. Saltzer (Manning Publications). [Chapitre 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][] et [charger des exemples de données][].
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
+[charger des exemples de données]: ./sql-data-warehouse-load-sample-databases.md
+[créer rapidement un SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

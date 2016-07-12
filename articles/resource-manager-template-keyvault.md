@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Schéma d’un modèle de coffre de clés
@@ -60,11 +60,11 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 | Nom | Valeur |
 | ---- | ---- | 
-| type | Enum<br />Requis<br />**Microsoft.KeyVault/vaults**<br /><br />Le type de ressource à créer. |
-| apiVersion | Enum<br />Requis<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />La version de l’API à utiliser pour la création de la ressource. | 
-| name | String<br />requis<br />Un nom unique dans Azure.<br /><br />Le nom du coffre de clés à créer. Envisagez d’utiliser la fonction [uniqueString](resource-group-template-functions.md#uniquestring) avec votre convention d’affectation de noms afin de créer un nom unique, comme illustré dans l’exemple ci-dessous. |
-| location | String<br />Requis<br />Une région valide pour les coffres de clés. Pour déterminer les régions valides, consultez [Régions prises en charge](resource-manager-supported-services.md#supported-regions).<br /><br />Région dans laquelle héberger le coffre de clés. |
-| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui spécifie le type de coffre de clés à créer. |
+| type | Enum<br />Requis<br />**Microsoft.KeyVault/vaults**<br /><br />Type de ressource à créer. |
+| version\_api | Enum<br />Requis<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />Version de l’API à utiliser pour créer la ressource. | 
+| name | String<br />Requis<br />Nom unique dans Azure.<br /><br />Nom du coffre de clés à créer. Vous pouvez utiliser la fonction [uniqueString](resource-group-template-functions.md#uniquestring) avec votre convention d’affectation de noms afin de créer un nom unique, comme illustré dans l’exemple ci-dessous. |
+| location | String<br />Requis<br />Région valide pour les coffres de clés. Pour déterminer les régions valides, consultez [Régions prises en charge](resource-manager-supported-services.md#supported-regions).<br /><br />Région dans laquelle héberger le coffre de clés. |
+| properties | Object<br />Requis<br />[Objet properties](#properties)<br /><br />Objet qui spécifie le type de coffre de clés à créer. |
 | les ressources | Array<br />Facultatif<br />Valeurs autorisées : [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Ressources enfants pour le coffre de clés. |
 
 <a id="properties" />
@@ -75,33 +75,33 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 | enabledForDeployment | Boolean<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour le déploiement d’une machine virtuelle ou Service Fabric. |
 | enabledForTemplateDeployment | Boolean<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour une utilisation dans les déploiements de modèle Resource Manager. Pour plus d'informations, consultez [Passage de valeurs sécurisés pendant le déploiement](resource-manager-keyvault-parameter.md) |
 | enabledForVolumeEncryption | Boolean<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour le chiffrement de volume. |
-| tenantId | String<br />Requis<br />**Globally-unique identifier**<br /><br />L'identificateur de locataire pour l'abonnement. Vous pouvez le récupérer à l’aide de l’applet de commande PowerShell [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) ou de la ligne de commande Azure CLI **azure account show**. |
-| accessPolicies | Array<br />Requis<br />[accessPolicies object](#accesspolicies)<br /><br />Un tableau contenant jusqu’à 16 objets spécifiant les autorisations de l'utilisateur ou du principal du service. |
-| sku | Object<br />Requis<br />[sku object](#sku)<br /><br />Référence (SKU) du coffre de clés. |
+| tenantId | String<br />Requis<br />**Identificateur global unique (GUID)**<br /><br />Identificateur de client pour l’abonnement. Vous pouvez le récupérer à l’aide de l’applet de commande [PowerShell Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) ou de la commande d’interface de ligne de commande (CLI) Azure **azure account show**. |
+| accessPolicies | Array<br />Requis<br />[Objet accessPolicies](#accesspolicies)<br /><br />Tableau contenant jusqu’à 16 objets qui spécifient les autorisations de l’utilisateur ou du principal du service. |
+| sku | Object<br />Requis<br />[Objet sku](#sku)<br /><br />Référence (SKU) du coffre de clés. |
 
 <a id="accesspolicies" />
 ### Objet properties.accessPolicies
 
 | Nom | Valeur |
 | ---- | ---- | 
-| tenantId | String<br />Requis<br />**Globally-unique identifier**<br /><br />Identificateur du locataire Azure Active Directory contenant le paramètre **objectId** de cette stratégie d'accès |
-| objectId | String<br />Requis<br />**Globally-unique identifier**<br /><br />Identificateur d'objet de l'utilisateur ou du principal de service Azure Active Directory qui aura accès au coffre. Vous pouvez récupérer la valeur à l’aide de l’applet de commande PowerShell [Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) ou [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx), ou de l’interface de ligne de commande CLI **azure ad user** ou **azure ad sp**. |
-| Autorisations | Object<br />Requis<br />[permissions object](#permissions)<br /><br />Les autorisations accordées pour ce coffre à l'objet Active Directory. |
+| tenantId | String<br />Requis<br />**Identificateur global unique (GUID)**<br /><br />Identificateur du client Azure Active Directory contenant le paramètre **objectId** de cette stratégie d’accès. |
+| objectId | String<br />Requis<br />**Identificateur global unique (GUID)**<br /><br />Identificateur d’objet de l’utilisateur ou du principal de service Azure Active Directory qui aura accès au coffre. Vous pouvez récupérer la valeur à l’aide de l’applet de commande PowerShell [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) ou [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx), ou de la commande d’interface de ligne de commande (CLI) Azure **azure ad user** ou **azure ad sp**. |
+| Autorisations | Object<br />Requis<br />[Objet permissions](#permissions)<br /><br />Autorisations accordées pour ce coffre à l’objet Active Directory. |
 
 <a id="permissions" />
 ### Objet properties.accessPolicies.permissions
 
 | Nom | Valeur |
 | ---- | ---- | 
-| clés | Array<br />Requis<br />**tout**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Les autorisations accordées à cet objet Active Directory pour les clés de ce coffre. Cette valeur doit être spécifiée comme un tableau d'une ou plusieurs valeurs autorisées. |
-| secrets | Array<br />Requis<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Les autorisations accordées à cet objet Active Directory pour les clés secrètes de ce coffre. Cette valeur doit être spécifiée comme un tableau d'une ou plusieurs valeurs autorisées. |
+| clés | Array<br />Requis<br />**tout**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Autorisations accordées à cet objet Active Directory pour les clés de ce coffre. Cette valeur doit être spécifiée comme un tableau d'une ou plusieurs valeurs autorisées. |
+| secrets | Array<br />Requis<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Autorisations accordées à cet objet Active Directory pour les clés secrètes de ce coffre. Cette valeur doit être spécifiée comme un tableau d'une ou plusieurs valeurs autorisées. |
 
 <a id="sku" />
 ### Objet properties.sku
 
 | Nom | Valeur |
 | ---- | ---- | 
-| name | Enum<br />Requis<br />**standard**, ou **premium** <br /><br />Le niveau de service du coffre de clés à utiliser. Supports standard des clés secrètes et clés protégées par un logiciel Le niveau Premium ajoute la prise en charge pour les clés protégées par HSM. |
+| name | Enum<br />Requis<br />**standard** ou **premium** <br /><br />Niveau de service du coffre de clés à utiliser. Supports standard des clés secrètes et clés protégées par un logiciel Le niveau Premium ajoute la prise en charge pour les clés protégées par HSM. |
 | famille | Enum<br />Requis<br />**A** <br /><br />Famille de référence (SKU) à utiliser. |
  
 	
@@ -122,13 +122,13 @@ L'exemple suivant déploie un coffre de clés et la clé secrète.
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -245,4 +245,4 @@ Le modèle de démarrage rapide suivant déploie un coffre de clés.
 - Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
 - Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

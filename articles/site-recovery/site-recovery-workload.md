@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?" 
+	pageTitle="Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?" 
 	description="Azure Site Recovery protège vos charges de travail et applications en coordonnant la réplication, le basculement et la récupération des machines virtuelles et serveurs physiques locaux sur Azure, ou sur un site local secondaire." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/27/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
-# Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
+# Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
 
 Cet article décrit les charges de travail et les applications que vous pouvez protéger avec Azure Site Recovery.
@@ -39,7 +39,7 @@ Site Recovery contribue à la protection des applications et à la récupératio
 - Réplication presque synchrone avec des RPO de 30 secondes pour répondre aux besoins des applications professionnelles les plus critiques.
 - Captures instantanées cohérentes de l’application pour les applications uniques ou multiniveau.
 - Intégration avec SQL Server AlwaysOn et partenariat avec d’autres technologies de réplication au niveau des applications, y compris la réplication AD, SQL AlwaysOn, les groupes de disponibilité de base de données (DAG) Exchange et Oracle Data Guard.
-- Plans de récupération flexibles qui vous permettent de récupérer une pile de l’application entière en un seul clic, et incluent les scripts externes et des actions manuelles. 
+- Plans de récupération flexibles qui vous permettent de récupérer une pile de l’application entière en un seul clic, et incluent les scripts externes et des actions manuelles.
 - Gestion réseau avancée dans Site Recovery et Azure simplifiant la configuration réseau requise pour une application, notamment la réservation d’adresses IP, la configuration de l’équilibrage de charge et l’intégration d’Azure Traffic Manager pour les commutations réseau à RTO faible.
 -  Une bibliothèque d’automatisation avancée qui fournit des scripts spécifiques d’application prêts pour la production, qui peuvent être téléchargés et intégrés avec des plans de récupération.
 
@@ -52,15 +52,15 @@ Site Recovery peut répliquer toute application en cours d’exécution sur une 
 **Charge de travail** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure**
 ---|---|---|---|---
 Active Directory, DNS | O | O | O | O 
-Applications web (IIS, SQL) | O | O | O | O
+Applications web (IIS, SQL) | O | O | O | O
 SCOM | O | O | O | O
 SharePoint | O | O | O | O
 SAP<br/><br/>Réplication d’un site SAP vers Microsoft Azure (aucun cluster) | O (opération testée par Microsoft) | O (opération testée par Microsoft) | O (opération testée par Microsoft) | O (opération testée par Microsoft)
-Microsoft Exchange (aucun DAG) | O | Bientôt disponible | O | O
+Microsoft Exchange (aucun DAG) | O | Bientôt disponible | O | O
 Bureau à distance/VDI | O | O | O | N/A 
 Linux (système d’exploitation et applications) | O (opération testée par Microsoft) | O (opération testée par Microsoft) | O (opération testée par Microsoft) | O (opération testée par Microsoft) 
-Dynamics AX | O | O | O | O
-Dynamics CRM | O | Bientôt disponible | O | Bientôt disponible
+Dynamics AX | O | O | O | O
+Dynamics CRM | O | Bientôt disponible | O | Bientôt disponible
 Oracle | O (opération testée par Microsoft) | O (opération testée par Microsoft) | O (opération testée par Microsoft) | O (opération testée par Microsoft)
 Serveur de fichiers Windows | O | O | O | O
 
@@ -77,7 +77,7 @@ Une infrastructure DNS et Active Directory sont essentiels pour la plupart des a
 
 SQL Server fournit une base pour les services de données pour de nombreuses applications professionnelles dans un centre de données local. Site Recovery peut être utilisé avec les technologies SQL Server HA/DR pour protéger les applications d’entreprise multiniveau utilisant SQL Server. Site Recovery présente les caractéristiques suivantes :
 
-- Solution de récupération d’urgence simple et économique pour SQL Server. Réplication de plusieurs versions et éditions de serveurs et clusters autonomes SQL Server vers Azure ou un site secondaire.  
+- Solution de récupération d’urgence simple et économique pour SQL Server. Réplication de plusieurs versions et éditions de serveurs et clusters autonomes SQL Server vers Azure ou un site secondaire.
 - Intégration avec les groupes de disponibilité SQL AlwaysOn pour gérer le basculement et la restauration automatique avec les plans de récupération Azure Site Recovery.
 - Plans de récupération de bout en bout pour tous les niveaux d’une application, y compris les bases de données SQL Server.
 - Mise à l’échelle de SQL Server pour les charges maximales à l’aide de Site Recovery par « éclatement » en tailles de machines virtuelles IaaS plus volumineuses dans Azure.
@@ -149,4 +149,4 @@ Utilisez Site Recovery pour protéger votre déploiement SAP comme suit :
 
 [Préparer](site-recovery-best-practices.md) le déploiement de Site Recovery
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

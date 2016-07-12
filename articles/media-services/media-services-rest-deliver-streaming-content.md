@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -42,10 +42,10 @@ Pour créer le localisateur de diffusion en continu à la demande et obtenir les
 
    1. Si le contenu est chiffré, définissez une stratégie d'accès.
    2. Création d’un localisateur de diffusion en continu à la demande.
-   3. Si vous envisagez de diffuser en continu, obtenez le fichier manifeste de diffusion en continu (.ism) dans la ressource. 
+   3. Si vous envisagez de diffuser en continu, obtenez le fichier manifeste de diffusion en continu (.ism) dans la ressource.
    		
-	Si vous souhaitez télécharger progressivement, obtenez les noms des fichiers MP4 dans la ressource. 
-   4. Création d’URL vers le fichier manifeste ou les fichiers MP4. 
+	Si vous souhaitez télécharger progressivement, obtenez les noms des fichiers MP4 dans la ressource.
+   4. Création d’URL vers le fichier manifeste ou les fichiers MP4.
    5. Notez que vous ne pouvez créer un localisateur de diffusion en continu en utilisant une stratégie d’accès qui inclut des autorisations d’écriture ou de suppression.
 
 
@@ -191,4 +191,4 @@ exemple :
 
 [Configurer une stratégie de distribution d’éléments multimédias](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->
