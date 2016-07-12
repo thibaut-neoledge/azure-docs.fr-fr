@@ -164,7 +164,7 @@ Ensuite, vous devez vérifier que votre carte Edison peut se connecter à l’ap
     Discovery stopped
     ```
 
-6. Connectez-vous à votre appareil SensorTag à l’aide de son adresse MAC en entrant **connect <MAC address>**. Notez que l’exemple de sortie ci-dessous est abrégé :
+6. Connectez-vous à votre appareil SensorTag à l’aide de son adresse MAC en entrant **connect <adresse MAC>**. Notez que l’exemple de sortie ci-dessous est abrégé :
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -185,7 +185,7 @@ Ensuite, vous devez vérifier que votre carte Edison peut se connecter à l’ap
     
     Remarque : vous pouvez de nouveau répertorier les caractéristiques GATT de l’appareil à l’aide de la commande **list-attributes**.
 
-7. Vous pouvez vous déconnecter de l’appareil à l’aide de la commande **disconnect**, puis utilisez la commande **quit** pour quitter le shell Bluetooth :
+7. Vous pouvez maintenant vous déconnecter de l’appareil à l’aide de la commande **disconnect**, puis utilisez la commande **quit** pour quitter le shell Bluetooth :
     
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
@@ -207,12 +207,12 @@ Lors de la rédaction du présent article, le Kit de développement logiciel (SD
 
 ### Configuration de deux exemples d’appareils dans votre IoT Hub
 
-- [Créez un IoT Hub][lnk-create-hub] dans votre abonnement Azure. Vous aurez besoin du nom de votre hub pour effectuer cette procédure pas à pas. Si vous ne possédez pas déjà d’abonnement Azure, vous pouvez obtenir un [compte gratuit][lnk-free-trial].
-- Ajoutez un appareil nommé **SensorTag\_01** à votre IoT Hub et prenez note de son ID et de sa clé d’appareil. Vous pouvez utiliser les outils [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter cet appareil au hub IoT que vous avez créé à l'étape précédente et récupérer ainsi sa clé. Vous allez mapper cet appareil à l’appareil SensorTag lors de la configuration de la passerelle.
+- [Créez un concentrateur IoT][lnk-create-hub] dans votre abonnement Azure (vous aurez besoin du nom de votre concentrateur pour effectuer cette procédure pas à pas). Si vous ne possédez pas déjà d’abonnement Azure, vous pouvez obtenir un [compte gratuit][lnk-free-trial].
+- Ajoutez un appareil nommé **SensorTag\_01** à votre concentrateur IoT et notez son ID et sa clé d’appareil. Vous pouvez utiliser les outils [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter cet appareil au concentrateur IoT que vous avez créé à l’étape précédente et récupérer ainsi sa clé. Vous allez mapper cet appareil à l’appareil SensorTag lors de la configuration de la passerelle.
 
 ### Génération du Kit de développement logiciel (SDK) de passerelle sur votre appareil Edison
 
-La version **git** sur l’appareil Edison ne prend pas en charge les modules secondaires. Vous disposez de deux options pour télécharger la source complète du Kit de développement logiciel (SDK) de passerelle sur l’appareil Edison :
+La version de **git** sur l’appareil Edison ne prend pas en charge les modules secondaires. Vous disposez de deux options pour télécharger la source complète du Kit de développement logiciel (SDK) de passerelle sur l’appareil Edison :
 
 - Option 1 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] sur votre appareil Edison, puis clonez manuellement le référentiel pour chaque module secondaire.
 - Option 2 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] sur un ordinateur de bureau où **git** prend en charge les modules secondaires, puis copiez le référentiel complet avec les modules secondaires sur votre appareil Edison.
@@ -238,10 +238,9 @@ Lorsque vous avez une copie complète du référentiel du Kit de développement 
 
 ### Configuration et exécution de l’exemple BLE sur votre appareil Edison
 
-Pour démarrer et exécuter l’exemple, vous devez configurer chaque module qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules participants. Le référentiel contient un exemple de fichier JSON nommé **gateway\_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **ble\_gateway\_hl/samples/src** dans la copie locale du référentiel du Kit de développement logiciel (SDK) de passerelle.
+Pour démarrer et exécuter l’exemple, vous devez configurer chaque module qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules participants. Le référentiel contient un exemple de fichier JSON nommé **gateway\_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **samples/ble\_gateway\_hl/src** dans la copie locale du référentiel du Kit de développement logiciel (SDK) de passerelle.
 
 Les sections suivantes décrivent comment modifier ce fichier de configuration pour l’exemple BLE et supposent que le référentiel du Kit de développement logiciel (SDK) de passerelle se trouve dans le dossier **/home/root/azure-iot-gateway-sdk/** sur votre appareil Edison. Si le référentiel se trouve ailleurs, vous devez ajuster les chemins d’accès en conséquence :
-
 
 #### Configuration de l’enregistreur
 
@@ -357,7 +356,7 @@ Ajoutez l’adresse MAC de votre appareil SensorTag, ainsi que l’ID et la clé
 }
 ```
 
-Pour exécuter l’exemple, vous exécutez le fichier binaire **ble\_gateway\_hl** en transférant le chemin d’accès au fichier de configuration JSON. Si vous avez utilisé le fichier **gateway\_sample.json**, la commande à exécuter ressemble à ceci :
+Pour exécuter l’exemple, vous exécutez le fichier binaire **ble\_gateway\_hl** en transférant le chemin d’accès au fichier de configuration JSON. Si vous avez utilisé le fichier **gateway\_sample.json**, la commande à exécuter ressemble à cela :
 
 ```
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
@@ -369,7 +368,7 @@ Lorsque vous exécutez l’exemple, vous pouvez exécuter l’outil [Explorateur
 
 ## Envoi de messages cloud vers appareil
 
-Le module BLE prend également en charge l’envoi d’instructions à partir d’IoT Hub Azure vers l’appareil. Vous pouvez utiliser l’[Explorateur d’appareils Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’[Explorateur IoT Hub] https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE. Par exemple, si vous utilisez l’appareil Texas Instruments SensorTag, vous pouvez envoyer les messages JSON suivants à l’appareil à partir d’IoT Hub.
+Le module BLE prend également en charge l’envoi d’instructions à partir d’IoT Hub Azure vers l’appareil. Vous pouvez utiliser l’[Explorateur d’appareils Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’[Explorateur IoT Hub] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE. Par exemple, si vous utilisez l’appareil Texas Instruments SensorTag, vous pouvez envoyer les messages JSON suivants à l’appareil à partir d’IoT Hub.
 
 - Réinitialiser tous les voyants et l’alarme sonore (les mettre hors tension)
 
@@ -442,4 +441,4 @@ Pour plus d’informations, consultez [Kit de développement logiciel (SDK) de p
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

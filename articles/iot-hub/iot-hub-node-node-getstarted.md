@@ -76,7 +76,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
 
     ```
     var device = new iothub.Device(null);
-    device.deviceId = 'myFirstDevice';
+    device.deviceId = 'myFirstNodeDevice';
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -201,10 +201,10 @@ Dans cette section, vous allez créer une application console Node.js qui simule
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil. Remplacez la chaîne **{youriothubname}** par le nom de votre IoT Hub, et les chaînes **{yourdeviceid}** et **{yourdevicekey}** par les valeurs d’appareil que vous avez générées dans la section *Création d’une identité d’appareil* :
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil. Remplacez la chaîne **{youriothubname}** par le nom de votre IoT Hub, et **{yourdevicekey}** par la valeur clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -232,11 +232,11 @@ Dans cette section, vous allez créer une application console Node.js qui simule
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
             var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
             var message = new Message(data);
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
-        }, 2000);
+        }, 1000);
       }
     };
     ```
@@ -306,4 +306,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

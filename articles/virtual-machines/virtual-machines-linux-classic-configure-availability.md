@@ -19,8 +19,8 @@
 
 # Configuration d’un groupe à haute disponibilité pour des machines virtuelles dans le modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager Vous pouvez également configurer des groupes à haute disponibilité dans des déploiements Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Vous pouvez également configurer des groupes à haute disponibilité dans des déploiements Resource Manager.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

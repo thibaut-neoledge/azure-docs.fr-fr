@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth"/>
 
 # Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles (Resource Manager)
@@ -39,9 +39,8 @@ Si vous approvisionnez une nouvelle machine virtuelle SQL Server avec Resource M
 
 Consultez la procédure pas à pas détaillée de l’approvisionnement dans l’article [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Si vous devez activer l’intégration d’AKV sur une machine virtuelle existante, vous pouvez utiliser un modèle. Pour plus d’informations, consultez l’article [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup) (Modèle de démarrage rapide d’Azure pour l’intégration d’Azure Key Vault).
-
+Si vous devez activer l’intégration d’AKV sur une machine virtuelle existante, vous pouvez utiliser un modèle. Pour plus d’informations, consultez l’article [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update) (Modèle de démarrage rapide d’Azure pour l’intégration d’Azure Key Vault).
 
 [AZURE.INCLUDE [Étapes suivantes de l’intégration du coffre de clés Azure](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

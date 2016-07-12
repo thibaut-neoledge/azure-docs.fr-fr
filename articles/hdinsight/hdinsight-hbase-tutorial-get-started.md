@@ -48,25 +48,25 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 2. Cliquez sur **Nouveau** ou sur le symbole **+** en haut à gauche, puis cliquez sur **Données + analyse**, **HDInsight**.
 3. Saisissez les valeurs suivantes :
 
-	- **Nom du cluster** : entrez un nom permettant d’identifier ce cluster.
+	- **Nom du cluster** : entrez un nom permettant d’identifier ce cluster.
 	- **Type de cluster**: sélectionnez **HBase**.
-	- **Système d’exploitation de cluster** : sélectionnez **Windows**. Pour créer un cluster HBase sur Linux, consultez [Didacticiel HBase : prise en main d’Apache HBase avec Hadoop dans HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
-	- **Version** : sélectionnez une version de HBase.
-	- **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer ce cluster.
-	- **Groupe de ressources** : créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md).
-	- **Informations d’identification** : pour les clusters basés sur Windows, vous pouvez créer un utilisateur de cluster (utilisateur HTTP, utilisateur de service web HTTP) et un utilisateur du Bureau à distance. Cliquez sur **Activer le Bureau à distance** pour ajouter les informations d’identification de l’utilisateur du Bureau à distance. La section suivante requiert RDP.
-	- **Source de données** : créez un nouveau compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster. L’emplacement du compte de stockage par défaut détermine l’emplacement du cluster. Le compte de stockage par défaut et le cluster doivent se situer dans le même datacenter.
-	- **Niveaux tarifaires des nœuds** : sélectionnez le nombre de serveurs de région pour le cluster HBase.
+	- **Système d’exploitation de cluster** : sélectionnez **Windows**. Pour créer un cluster HBase sur Linux, consultez [Didacticiel HBase : prise en main d’Apache HBase avec Hadoop dans HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
+	- **Version** : sélectionnez une version de HBase.
+	- **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer ce cluster.
+	- **Groupe de ressources** : créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md).
+	- **Informations d’identification** : pour les clusters basés sur Windows, vous pouvez créer un utilisateur de cluster (utilisateur HTTP, utilisateur de service web HTTP) et un utilisateur du Bureau à distance. Cliquez sur **Activer le Bureau à distance** pour ajouter les informations d’identification de l’utilisateur du Bureau à distance. La section suivante requiert RDP.
+	- **Source de données** : créez un nouveau compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster. L’emplacement du compte de stockage par défaut détermine l’emplacement du cluster. Le compte de stockage par défaut et le cluster doivent se situer dans le même datacenter.
+	- **Niveaux tarifaires des nœuds** : sélectionnez le nombre de serveurs de région pour le cluster HBase.
 
-		> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
+		> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
 		> Si vous commencez à découvrir HBase, sélectionnez toujours 1 pour la taille de cluster, puis supprimez le cluster après chaque utilisation pour réduire les coûts.
 
-	- **Configuration facultative** : configurez un réseau virtuel Azure, configurez des actions de script et ajoutez des comptes de stockage supplémentaires.
+	- **Configuration facultative** : configurez un réseau virtuel Azure, configurez des actions de script et ajoutez des comptes de stockage supplémentaires.
 
 4. Cliquez sur **Create**.
 
->[AZURE.NOTE] Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même compte de stockage par défaut et du conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine.
+>[AZURE.NOTE] Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même compte de stockage par défaut et du conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine. Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster.
 
 ## Créer des tables et insérer des données
 
@@ -163,7 +163,7 @@ Vous pouvez interroger les données stockées dans HBase à l’aide de Hive. Ce
 
 **Ouverture du tableau de bord de cluster**
 
-1. Accédez à **https://<HDInsight Cluster Name>.azurehdinsight.net/**.
+1. Accédez à **https://<Nom du cluster HDInsight>.azurehdinsight.net/**.
 5. Entrez le nom d'utilisateur et le mot de passe du compte d'utilisateur Hadoop. Le nom d’utilisateur par défaut est **admin** et le mot de passe est celui que vous avez entré pendant le processus de création. Un nouvel onglet de navigateur s'ouvre.
 6. Cliquez sur **Éditeur Hive** en haut de la page. L'éditeur Hive se présente comme suit :
 
@@ -294,8 +294,7 @@ Pour ouvrir cette interface utilisateur web, vous devez ouvrir une session RDP d
 Un lien vers le nœud principal HBase actif qui héberge l'interface utilisateur web est disponible dans un cluster haute disponibilité.
 
 ##Suppression du cluster
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster. [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## Et ensuite ?
@@ -335,4 +334,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

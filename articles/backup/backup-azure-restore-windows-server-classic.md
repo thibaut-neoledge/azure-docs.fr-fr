@@ -29,7 +29,7 @@ Cet article présente les étapes requises pour effectuer deux types d’opérat
 
 Dans les deux cas, les données sont récupérées à partir de l’archivage Azure Backup.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Récupération des données sur le même ordinateur
 Si vous avez supprimé accidentellement un fichier et que vous voulez le restaurer sur le même ordinateur (à partir duquel la sauvegarde est effectuée), les étapes suivantes vous aident à récupérer les données.
@@ -74,9 +74,9 @@ Si votre serveur entier est perdu, vous pouvez toujours récupérer les données
 
 Les termes ci-après sont utilisés pour cette procédure :
 
-- *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
-- *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
-- *Exemple d’archivage* : archivage de sauvegarde dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
+- *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
+- *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
+- *Exemple d’archivage* : archivage de sauvegarde dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
 
 > [AZURE.NOTE] Les sauvegardes effectuées à partir d’un ordinateur ne peuvent pas être restaurées sur un ordinateur qui exécute une version antérieure du système d’exploitation. Par exemple, si les sauvegardes sont effectuées à partir d’un ordinateur Windows 7, elles peuvent être restaurées sur un ordinateur Windows 8 ou supérieur. Toutefois l’inverse n’est pas vrai.
 
@@ -123,4 +123,4 @@ Les termes ci-après sont utilisés pour cette procédure :
 - [Sauvegarde des machines virtuelles Azure](backup-azure-vms-introduction.md)
 - [Sauvegarde des charges de travail Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

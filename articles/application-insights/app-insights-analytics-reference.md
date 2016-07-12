@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Référence d’Analytics dans Application Insights | Microsoft Azure" 
-	description="Référence pour les instructions dans Analytics, le puissant outil de recherche d’Application Insights." 
+	description="Référence pour les instructions dans Analytics, le puissant outil de recherche d’Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -22,7 +22,11 @@
 
 ## Index
 
-**Requêtes et opérateurs** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [clause let](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [directive render](#render-directive) | [clause restrict](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Let et set** [let](#let-clause) | [set](#set-clause)
+
+
+**Requêtes et opérateurs** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
 
 **Agrégations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -38,7 +42,85 @@
 
 
 
+## Let et set
 
+### clause let
+
+**Clause let tabulaire - nommer une table**
+
+    let recentReqs = requests | where timestamp > ago(3d); 
+    recentReqs | count
+
+**Clause let scalaire - nommer une valeur**
+
+    let interval = 3d; 
+    requests | where timestamp > ago(interval)
+
+**Clause let lambda - nommer une fonction**
+
+    let Recent = 
+       (interval:timespan) { requests | where timestamp > ago(interval) };
+    Recent(3h) | count
+
+    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+
+Une clause let associe un [nom](#names) à un résultat tabulaire, une valeur scalaire ou une fonction. La clause est un préfixe d’une requête tandis que la portée de la liaison correspond à cette requête. (La clause let ne permet pas de nommer des objets que vous pourrez utiliser ultérieurement dans votre session.)
+
+**Syntaxe**
+
+    let name = scalar_constant_expression ; query
+
+    let name = query ; query
+
+    let name = (parameterName : type [, ...]) { plain_query }; query
+
+    let name = (parameterName : type [, ...]) { scalar_expression }; query
+
+* *type :* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *plain\_query :* requête non précédée d’une clause let.
+
+**Exemples**
+
+    let rows(n:long) = range steps from 1 to n step 1;
+    rows(10) | ...
+
+
+Jointure réflexive :
+
+    let Recent = events | where timestamp > ago(7d);
+    Recent | where name contains "session_started" 
+    | project start = timestamp, session_id
+    | join (Recent 
+        | where name contains "session_ended" 
+        | project stop = timestamp, session_id)
+      on session_id
+    | extend duration = stop - start 
+
+### Clause Set
+
+La clause set définit une option pour la durée de la requête. Les options de requête contrôlent la manière dont une requête s’exécute et retourne les résultats. Les options de requête peuvent être des indicateurs booléens (désactivés par défaut), ou avoir une valeur entière. Une requête peut contenir zéro, une ou plusieurs instructions set. Les instructions set affectent uniquement les instructions avec une expression sous forme de tableau et un suivi dans l’ordre du programme.
+
+    set OptionName [= OptionValue] ; query
+
+
+|Nom | Implication si la valeur est définie sur true
+|---|---
+|querytrace| Augmente le niveau des traces de débogage générées par une requête. 
+|noexecute| Désactive l’exécution réelle de la requête (seule la phase de planification de la requête est exécutée). 
+|perftrace| Active le suivi des performances. 
+|notruncation| Désactive la troncation de l’ensemble de résultats. 
+|truncationmaxsize| Limiter la taille de données des résultats de requête (en octets). 
+|truncationmaxrecords| Limitez le nombre d’enregistrements des résultats de requête. 
+|nostreaming |Désactive le flux de l’ensemble de résultats. 
+
+**Exemple**
+
+```
+
+    set querytrace;
+    requests | take 100
+```
 
 ## Requêtes et opérateurs
 
@@ -56,7 +138,7 @@ Chaque filtre précédé de la barre verticale `|` est une instance d’un *opé
 
 Les requêtes peuvent contenir des sauts de ligne uniques, mais se terminent par une ligne vide. Elles peuvent contenir des commentaires entre `//` et la fin de la ligne.
 
-Une requête peut être précédée d’une ou plusieurs [clauses let](#let-clause), qui définissent des valeurs scalaires, des tables ou des fonctions utilisables dans la requête.
+Une requête peut être précédée d’une ou de plusieurs [clauses let](#let-clause), qui définissent des valeurs scalaires, des tables ou des fonctions utilisables dans la requête.
 
 ```AIQL
 
@@ -119,7 +201,7 @@ Une copie de la table d’entrée, avec les colonnes supplémentaires spécifié
 **Conseils**
 
 * Préférez [`project`](#project-operator) si vous souhaitez également supprimer ou renommer des colonnes.
-* N’utilisez pas seulement `extend` si vous souhaitez obtenir un nom plus court à utiliser dans une expression longue. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* N’utilisez pas seulement `extend` si vous souhaitez obtenir un nom plus court à utiliser dans une expression longue. `...| extend x = anonymous_user_id_from_client | ... func(x) ...`
 
     Les colonnes d’origine de la table ont été indexées. Votre nouveau nom définit une colonne supplémentaire qui n’est pas indexée, c’est pourquoi la requête risque de s’exécuter plus lentement.
 
@@ -155,7 +237,7 @@ Fusionne les lignes de deux tables en faisant correspondre les valeurs de la col
 Une table avec :
 
 * Une colonne pour chaque colonne dans chacune des deux tables, y compris les clés correspondantes. Les colonnes du côté droit seront automatiquement renommées en cas de conflit de nom.
-* Une ligne pour chaque correspondance entre les tables d’entrée. Une correspondance est une ligne sélectionnée dans une table, dont tous les champs `on` ont la même valeur qu’une ligne dans l’autre table. 
+* Une ligne pour chaque correspondance entre les tables d’entrée. Une correspondance est une ligne sélectionnée dans une table, dont tous les champs `on` ont la même valeur qu’une ligne dans l’autre table.
 
 * `Kind` non spécifié
 
@@ -179,7 +261,7 @@ Si plusieurs lignes comportent les mêmes valeurs pour ces champs, des lignes s�
 
 Pour un résultat optimal :
 
-* Utilisez `where` et `project` pour réduire le nombre de lignes et de colonnes dans les tables d’entrée, avant le `join`. 
+* Utilisez `where` et `project` pour réduire le nombre de lignes et de colonnes dans les tables d’entrée, avant le `join`.
 * Si une table est toujours plus petite que l’autre, utilisez-la pour le côté gauche de la jointure.
 * Les colonnes de la correspondance de jointure doivent avoir le même nom. Utilisez l’opérateur project si nécessaire pour renommer une colonne dans l’une des tables.
 
@@ -200,53 +282,6 @@ Obtenez les activités étendues d’un journal dans lequel certaines entrées m
 
 ```
 
-### clause let
-
-**Clause let tabulaire - nommer une table**
-
-    let recentReqs = requests | where timestamp > ago(3d); 
-    recentReqs | count
-
-**Clause let scalaire - nommer une valeur**
-
-    let interval = 3d; 
-    requests | where timestamp > ago(interval)
-
-**Clause let lambda - nommer une fonction**
-
-    let Recent = 
-       (interval:timespan) { requests | where timestamp > ago(interval) };
-    Recent(3h) | count
-
-Une clause let associe un [nom](#names) à un résultat tabulaire, une valeur scalaire ou une fonction. La clause est un préfixe d’une requête tandis que la portée de la liaison correspond à cette requête. (La clause let ne permet pas de nommer des objets que vous pourrez utiliser ultérieurement dans votre session.)
-
-**Syntaxe**
-
-    let name = scalar_constant_expression ; query
-
-    let name = query ; query
-
-    let name = (parameterName : type [, ...]) { plain_query }; query
-
-* *type :* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
-* *plain\_query :* requête non précédée d’une clause let.
-
-**Exemples**
-
-    let rows(n:long) = range steps from 1 to n step 1;
-    rows(10) | ...
-
-
-Jointure réflexive :
-
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
 
 ### opérateur limit
 
@@ -307,7 +342,7 @@ Voici le résultat :
 
 **Arguments**
 
-* *ColumnName :* dans le résultat, les tableaux dans la colonne nommée sont développés en plusieurs lignes. 
+* *ColumnName :* dans le résultat, les tableaux dans la colonne nommée sont développés en plusieurs lignes.
 * *ArrayExpression :* expression produisant un tableau. Si ce formulaire est utilisé, une nouvelle colonne est ajoutée et la colonne existante est conservée.
 * *Name :* nom de la nouvelle colonne.
 * *Typename :* convertit l’expression développée en un type spécifique.
@@ -322,7 +357,7 @@ La colonne développée est toujours de type dynamique. Utilisez une conversion 
 Deux modes de développement de conteneurs de propriétés sont pris en charge :
 
 * `bagexpansion=bag` : les conteneurs de propriétés sont développés en conteneurs de propriétés à entrée unique. Il s’agit du développement par défaut.
-* `bagexpansion=array` : les conteneurs de propriétés sont développés en des structures de tableau `[`*clé*`,`*valeur*`]` à deux éléments, permettant un accès uniforme aux clés et valeurs (par exemple, pour effectuer une agrégation de comptage des différents noms de propriété). 
+* `bagexpansion=array` : les conteneurs de propriétés sont développés en des structures de tableau `[`*clé*`,`*valeur*`]` à deux éléments, permettant un accès uniforme aux clés et valeurs (par exemple, pour effectuer une agrégation de comptage des différents noms de propriété).
 
 **Exemples**
 
@@ -357,14 +392,14 @@ Extrait les valeurs d’une chaîne. Peut utiliser une correspondance d’expres
 **Arguments**
 
 * `T` : table d’entrée.
-* `kind` : 
+* `kind` :
  * `simple` (par défaut) : les chaînes `Match` sont des chaînes de texte brut.
- * `relaxed` : si le texte n’est pas analysé comme le type d’une colonne, la colonne prend l’état null et l’analyse continue. 
+ * `relaxed` : si le texte n’est pas analysé comme le type d’une colonne, la colonne prend l’état null et l’analyse continue.
  * `regex` : les chaînes `Match` sont des expressions régulières.
 * `Text` : colonne ou autre expression pouvant être calculée ou convertie en une chaîne.
 * *Match :* fait correspondre la partie suivante de la chaîne et la rejette.
 * *Column :* affecte la partie suivante de la chaîne à cette colonne. La colonne est créée si elle n’existe pas.
-* *Type :* analyse la partie suivante de la chaîne comme le type spécifié (par exemple, int, date ou double). 
+* *Type :* analyse la partie suivante de la chaîne comme le type spécifié (par exemple, int, date ou double).
 
 
 **Retourne**
@@ -475,7 +510,7 @@ Sélectionnez les colonnes à inclure, renommer ou supprimer, puis insérez les 
 
 * *T :* table d’entrée.
 * *ColumnName :* nom d’une colonne à afficher dans la sortie. S’il n’y a aucune *Expression*, une colonne portant ce nom doit apparaître dans l’entrée. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des traits de soulignement (\_). Utilisez `['...']` ou `["..."]` pour entourer les mots-clés ou les noms avec d’autres caractères.
-* *Expression :* expression scalaire facultative faisant référence aux colonnes d’entrée. 
+* *Expression :* expression scalaire facultative faisant référence aux colonnes de l’entrée.
 
     Il est possible de retourner une nouvelle colonne calculée portant le même nom qu’une colonne figurant dans l’entrée.
 
@@ -485,7 +520,7 @@ Une table contenant les colonnes nommées en tant qu’arguments, et autant de l
 
 **Exemple**
 
-L’exemple suivant présente plusieurs types de manipulations possibles à l’aide de l’opérateur `project`. La table d’entrée `T` comporte trois colonnes de type `int` : `A`, `B` et `C`.
+L’exemple suivant présente plusieurs types de manipulations pouvant être effectuées à l’aide de l’opérateur `project`. La table d’entrée `T` comporte trois colonnes de type `int` : `A`, `B` et `C`.
 
 ```AIQL
 T
@@ -527,7 +562,7 @@ Génère une table de valeurs à une seule colonne. Notez qu’elle ne comporte 
 * *ColumnName :* nom de la seule colonne dans la table de sortie.
 * *Start :* plus petite valeur de la sortie.
 * *Stop :* valeur la plus élevée générée dans la sortie (ou limite de la valeur la plus élevée, si *step* dépasse cette valeur).
-* *Step :* différence entre deux valeurs consécutives. 
+* *Step :* différence entre deux valeurs consécutives.
 
 Les arguments doivent être des valeurs de type numérique, date ou durée. Ils ne peuvent pas faire référence aux colonnes d’une table. (Si vous souhaitez calculer la plage d’après une table d’entrée, utilisez la [*fonction* range](#range), éventuellement avec l’[opérateur mvexpand](#mvexpand-operator).)
 
@@ -580,7 +615,7 @@ Tente de regrouper des enregistrements similaires. Pour chaque groupe, l’opér
 **Arguments**
 
 * *ColumnName :* colonne à examiner. Cette valeur doit être de type chaîne.
-* *Threshold :* valeur dans la plage {0 à 1}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas. 
+* *Threshold :* valeur dans la plage {0 à 1}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas.
 
 **Retourne**
 
@@ -667,7 +702,7 @@ Une table indiquant le nombre d’éléments ayant un prix dans chaque intervall
 
 * *Column :* nom facultatif d’une colonne de résultats. Prend par défaut un nom dérivé de l’expression. Les [noms](#names) respectent la casse et peuvent contenir des caractères alphabétiques, numériques ou des traits de soulignement (\_). Utilisez `['...']` ou `["..."]` pour entourer les mots-clés ou les noms avec d’autres caractères.
 * *Aggregation :* appel d’une fonction d’agrégation telle que `count()` ou `avg()`, avec des noms de colonnes comme arguments. Voir [Agrégations](#aggregations).
-* *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou de `bin()` avec une colonne numérique ou horaire en tant qu’argument. 
+* *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou de `bin()` avec une colonne numérique ou horaire en tant qu’argument.
 
 Si vous fournissez une expression numérique ou horaire sans utiliser `bin()`, Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
 
@@ -731,7 +766,7 @@ Produit des résultats hiérarchiques, où chaque niveau est inférieur au nivea
 **Arguments**
 
 * N:int : nombre de lignes à retourner ou à passer au niveau suivant. Dans une requête à trois niveaux où N est 5, 3 et 3, le nombre total de lignes sera 45.
-* COLONNE : colonne d’après laquelle regrouper pour l’agrégation. 
+* COLONNE : colonne d’après laquelle regrouper pour l’agrégation.
 * AGRÉGATION : [fonction d’agrégation](#aggregations) à appliquer à chaque groupe de lignes. Les résultats de ces agrégations déterminent les principaux groupes à afficher.
 
 
@@ -753,7 +788,7 @@ Prend deux tables ou plus et retourne les lignes de toutes les tables.
  *  Nom d’une table, tel que `requests`, ou table définie dans une [clause let](#let-clause), ou
  *  Expression de requête, telle que `(requests | where success=="True")`
  *  Ensemble de tables spécifié par un caractère générique. Par exemple, `e*` unirait toutes les tables définies dans les clauses let précédentes, dont le nom commence par « e », ainsi que les tables « exceptions ».
-* `kind` : 
+* `kind` :
  * `inner` : le résultat contient les colonnes communes à toutes les tables d’entrée.
  * `outer` : le résultat contient toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée prennent la valeur `null`.
 * `withsource=`*ColumnName :* si cet élément est spécifié, la sortie contient une colonne nommée *ColumnName*, dont la valeur indique la table source correspondant à chaque ligne.
@@ -996,9 +1031,9 @@ Le schéma s’apparente à un sous-ensemble d’annotations de type TypeScript,
 
 Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`. Si *Predicate* n’est pas spécifié, renvoie le nombre total d’enregistrements dans le groupe.
 
-**Conseil pour optimiser les performances** : utilisez `summarize count(filter)` plutôt que `where filter | summarize count()`.
+**Conseil pour optimiser les performances** : utilisez `summarize count(filter)` plutôt que `where filter | summarize count()`
 
-> [AZURE.NOTE] Évitez d'utiliser count() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand l’[échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données dans Application Insights est inférieur au nombre d’événements. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
+> [AZURE.NOTE] Évitez d'utiliser count() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données dans Application Insights est inférieur au nombre d’événements. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
 ### countif
 
@@ -1006,9 +1041,9 @@ Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`. Si *
 
 Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`.
 
-**Conseil pour optimiser les performances** : utilisez `summarize countif(filter)` plutôt que `where filter | summarize count()`.
+**Conseil pour optimiser les performances** : utilisez `summarize countif(filter)` plutôt que `where filter | summarize count()`
 
-> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand l’[échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
+> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
 ### dcount
 
@@ -1183,7 +1218,7 @@ L’agrégation de centiles fournit une valeur approximative au moyen de [T-Dige
 
 Voici quelques points importants :
 
-* Les limites de l’erreur d’estimation dépendent de la valeur du centile demandé. Les extrémités de l’échelle [0..100] offrent la meilleure précision, les centiles 0 et 100 étant les valeurs minimale et maximale exactes de la distribution. La précision diminue progressivement vers le milieu de l’échelle. Elle est la plus dégradée à la valeur médiane et est limitée à 1 %. 
+* Les limites de l’erreur d’estimation dépendent de la valeur du centile demandé. Les extrémités de l’échelle [0..100] offrent la meilleure précision, les centiles 0 et 100 étant les valeurs minimale et maximale exactes de la distribution. La précision diminue progressivement vers le milieu de l’échelle. Elle est la plus dégradée à la valeur médiane et est limitée à 1 %.
 * Les limites d’erreur sont observées sur le classement, et non sur la valeur. Supposons que percentile(X, 50) retourne la valeur Xm. L’estimation garantit qu’au moins 49 % et au plus 51 % des valeurs de X sont inférieures à Xm. Il n’existe aucune limite théorique quant à la différence entre Xm et la valeur médiane réelle de X.
 
 ### stdev
@@ -1467,8 +1502,8 @@ Alias `floor`.
 
 **Arguments**
 
-* *value :* nombre, date ou intervalle de temps. 
-* *roundTo :* « taille du compartiment ». Nombre, date ou intervalle de temps qui divise *value*. 
+* *value :* nombre, date ou intervalle de temps.
+* *roundTo :* « taille de l’emplacement ». Nombre, date ou intervalle de temps qui divise *value*.
 
 **Retourne**
 
@@ -1518,8 +1553,8 @@ Alias de [`bin()`](#bin).
 
 Générateur de nombres aléatoires.
 
-* `rand()` : nombre réel compris entre 0,0 et 1,0.
-* `rand(n)` : entier compris entre 0 et n-1.
+* `rand()` : nombre réel compris entre 0,0 et 1,0
+* `rand(n)` : entier compris entre 0 et n-1
 
 
 
@@ -1538,8 +1573,8 @@ Fonction racine carrée.
 
 **Retourne**
 
-* Nombre positif tel que `sqrt(x) * sqrt(x) == x`.
-* `null` si l’argument est négatif ou n’est pas convertible en une valeur `real`. 
+* Nombre positif tel que `sqrt(x) * sqrt(x) == x`
+* `null` si l’argument est négatif ou n’est pas convertible en une valeur `real`.
 
 
 
@@ -1677,14 +1712,14 @@ Numéro ordinal du jour du mois.
 
 **Arguments**
 
-* `a_date`: `datetime`.
+* `a_date` : `datetime`.
 
 
 ### dayofweek
 
     dayofweek(datetime("2015-12-14")) == 1d  // Monday
 
-Nombre (entier) de jours écoulés depuis le dimanche précédent, en tant que `timespan`.
+Nombre entier de jours écoulés depuis le dimanche précédent, en tant que `timespan`.
 
 **Syntaxe**
 
@@ -1898,7 +1933,7 @@ Compte les occurrences d’une sous-chaîne dans une chaîne. Les correspondance
 
 * *text :* chaîne de caractères.
 * *search :* chaîne simple ou expression régulière à rechercher dans *text*.
-* *kind :* `"normal"|"regex"` (valeur par défaut : `normal`). 
+* *kind :* `"normal"|"regex"` (valeur par défaut : `normal`).
 
 **Retourne**
 
@@ -1933,7 +1968,7 @@ Obtient une correspondance pour une [expression régulière](#regular-expression
 * *regex :* [expression régulière](#regular-expressions).
 * *captureGroup :* constante `int` positive identifiant le groupe de capture à extraire. Les valeurs sont 0 pour la correspondance entière, 1 pour la valeur mise en correspondance par la première '('parenthèse')' dans l’expression régulière, 2 ou plus pour les parenthèses suivantes.
 * *text :* `string` à rechercher.
-* *typeLiteral :* littéral de type facultatif (par exemple, `typeof(long)`). Si elle est fournie, la sous-chaîne extraite est convertie dans ce type. 
+* *typeLiteral :* littéral de type facultatif (par exemple, `typeof(long)`). Si elle est fournie, la sous-chaîne extraite est convertie dans ce type.
 
 **Retourne**
 
@@ -1943,7 +1978,7 @@ Si aucune correspondance n’est trouvée ou si la conversion de type échoue : 
 
 **Exemples**
 
-Une définition de `Duration` est recherchée dans l’exemple de chaîne `Trace`. La correspondance est convertie en `real`, qui est ensuite multipliée par une constante de temps (`1s`) pour que `Duration` soit de type `timespan`. Dans cet exemple, elle est égale à 123,45 secondes :
+Une définition de `Duration` est recherchée dans l’exemple de chaîne `Trace`. La correspondance est convertie en `real`, puis multipliée par une constante de temps (`1s`) pour que `Duration` soit de type `timespan`. Dans cet exemple, elle est égale à 123,45 secondes :
 
 ```AIQL
 ...
@@ -2006,7 +2041,7 @@ Remplace toutes les correspondances d’expression régulière par une autre cha
 
 **Arguments**
 
-* *regex :* [expression régulière](https://github.com/google/re2/wiki/Syntax) utilisée pour rechercher *text*. Elle peut contenir des groupes de capture entre '('parenthèses')'. 
+* *regex :* [expression régulière](https://github.com/google/re2/wiki/Syntax) utilisée pour rechercher *text*. Elle peut contenir des groupes de capture entre '('parenthèses')'.
 * *rewrite :* expression régulière de remplacement pour toute correspondance trouvée par *matchingRegex*. Utilisez `\0` pour faire référence à la correspondance complète, `\1` pour le premier groupe de capture, `\2` et ainsi de suite pour les groupes de capture suivants.
 * *text :* chaîne de caractères.
 
@@ -2051,7 +2086,7 @@ Fractionne une chaîne donnée en fonction d’un délimiteur donné et retourne
 
 * *source* : chaîne source à fractionner en fonction du délimiteur donné.
 * *delimiter* : délimiteur utilisé pour fractionner la chaîne source.
-* *requestedIndex* : index de base zéro facultatif `int`. S’il est fourni, le tableau de chaînes retourné contient la sous-chaîne demandée si elle existe. 
+* *requestedIndex* : index de base zéro facultatif `int`. S’il est fourni, le tableau de chaînes retourné contient la sous-chaîne demandée si elle existe.
 
 **Retourne**
 
@@ -2096,7 +2131,7 @@ Extrait une sous-chaîne d’une chaîne source donnée à partir d’un index d
 
 * *source :* chaîne source dont la sous-chaîne sera extraite.
 * *startingIndex :* position du caractère de départ (base zéro) de la sous-chaîne demandée.
-* *length :* paramètre facultatif qui permet de spécifier le nombre de caractères demandés dans la sous-chaîne. 
+* *length :* paramètre facultatif qui permet de spécifier le nombre de caractères demandés dans la sous-chaîne.
 
 **Retourne**
 
@@ -2145,7 +2180,7 @@ Voici le résultat d’une requête sur une exception d’Application Insights. 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Mais utilisez `arraylength` et d’autres fonctions Analytics (pas « .length » !).
+* Mais utilisez `arraylength` et d’autres fonctions Analytics (pas « .length » !)
 
 **Conversion** Parfois, il est nécessaire de convertir un élément que vous extrayez d’un objet, car son type pourrait varier. Par exemple, `summarize...to` a besoin d’un type spécifique :
 
@@ -2215,10 +2250,10 @@ Résultat :
 
 Pour créer un littéral dynamique, utilisez `parsejson` (alias `todynamic`) avec un argument de chaîne JSON :
 
-* `parsejson('[43, 21, 65]')` : tableau de nombres.
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
-* `parsejson('21')` : valeur unique de type dynamique qui contient un nombre.
-* `parsejson('"21"')` : valeur unique de type dynamique qui contient une chaîne.
+* `parsejson('[43, 21, 65]')` : tableau de nombres
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
+* `parsejson('21')` : valeur unique de type dynamique qui contient un nombre
+* `parsejson('"21"')` : valeur unique de type dynamique qui contient une chaîne
 
 Notez que, contrairement à JavaScript, JSON impose l’utilisation de guillemets (`"`) autour des chaînes. Ainsi, il est généralement plus facile de placer les littéraux de chaîne en langage JSON entre des apostrophes (`'`).
 
@@ -2236,8 +2271,8 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| Vrai s’il existe un élément de *array* qui est égal à *value*<br/>`where City in ('London', 'Paris', 'Rome')`.
-| *value* `!in` *array*| Vrai s’il n’existe aucun élément de *array* qui est égal à *value*.
+| *value* `in` *array*| Vrai s’il existe un élément de *array* qui est égal à *value*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *value* `!in` *array*| Vrai s’il n’existe aucun élément de *array* qui est égal à *value*
 |[`arraylength(`array`)`](#arraylength)| Null si ce n’est pas un tableau
 |[`extractjson(`path,object`)`](#extractjson)|Utilise le chemin pour accéder à l’objet.
 |[`parsejson(`source`)`](#parsejson)| Convertit une chaîne JSON en un objet dynamique.
@@ -2323,7 +2358,7 @@ La notation entre [crochets] et la notation sous forme de points sont équivalen
 
 **Conseils sur les performances**
 
-* Appliquez les clauses where avant d’utiliser `extractjson()`.
+* Appliquez les clauses where avant d’utiliser `extractjson()`
 * Utilisez plutôt une correspondance d’expression régulière avec [extract](#extract). L’exécution peut être beaucoup plus rapide, et elle est efficace si le JSON est généré à partir d’un modèle.
 * Utilisez `parsejson()` si vous avez besoin d’extraire plusieurs valeurs de JSON.
 * Envisagez d’analyser le JSON lors de l’ingestion en déclarant le type de la colonne comme étant dynamique.
@@ -2387,7 +2422,7 @@ La fonction `range()` (à ne pas confondre avec l’opérateur `range`) génère
 
 **Arguments**
 
-* *start :* valeur du premier élément dans le tableau obtenu. 
+* *start :* valeur du premier élément dans le tableau obtenu.
 * *stop :* valeur du dernier élément dans le tableau obtenu, ou valeur minimale supérieure au dernier élément du tableau obtenu et correspondant à un multiple entier de *step* à partir de *start*.
 * *step :* différence entre deux éléments consécutifs du tableau.
 
@@ -2458,4 +2493,4 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/02/2016"   
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -26,8 +26,8 @@ Cet article donne une vue d'ensemble du chiffrement de stockage AMS et vous mont
 - Créez une clé de contenu.
 - Créez une ressource. Définissez AssetCreationOption sur StorageEncryption lors de la création de la ressource.
 
-	Les ressources chiffrées doivent être associées à des clés de contenu.
-- Liez la clé de contenu à la ressource.  
+	 Les ressources chiffrées doivent être associées à des clés de contenu.
+- Liez la clé de contenu à la ressource.
 - Définissez les paramètres liés au chiffrement sur les entités AssetFile.
  
 >[AZURE.NOTE]Si vous souhaitez remettre une ressource à chiffrement de stockage, vous devez configurer la stratégie de remise de la ressource. Avant de pouvoir diffuser votre ressource en continu, le serveur de diffusion supprime le chiffrement de stockage et transmet en continu votre contenu à l’aide de la stratégie de remise spécifiée. Pour plus d'informations, consultez [Configuration des stratégies de distribution de ressources](media-services-rest-configure-asset-delivery-policy.md).
@@ -53,11 +53,11 @@ Les ressources chiffrées doivent être associées à une clé de chiffrement du
 
 Voici les étapes générales pour la génération de clés de contenu que vous allez associer à des ressources devant être chiffrées.
 
-1. Pour le chiffrement du stockage, générez de façon aléatoire une clé AES de 32 octets. 
+1. Pour le chiffrement du stockage, générez de façon aléatoire une clé AES de 32 octets.
 
-	Il s’agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement. 
+	Il s’agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement.
 2.	Appelez les méthodes [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
-3.	Chiffrez votre clé de contenu avec la clé publique du certificat X.509. 
+3.	Chiffrez votre clé de contenu avec la clé publique du certificat X.509.
 
 	Le Kit de développement logiciel (SDK) Media Services pour .NET utilise RSA avec OAEP lorsque vous effectuez le chiffrement. Vous trouverez un exemple .NET dans la [fonction EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Créez une valeur de somme de contrôle calculée à l'aide de l'identificateur de clé et de la clé de contenu. L’exemple .NET suivant calcule la somme de contrôle à l’aide de la partie GUID de l’identificateur de clé et de la clé de contenu en clair.
@@ -97,7 +97,7 @@ Voici les étapes générales pour la génération de clés de contenu que vous 
 	 
 	Propriété du corps de la demande | Description
 	---|---
-	ID | L’ID de la ContentKey que nous générons nous-mêmes en utilisant le format suivant, « nb:kid:UUID:<NEW GUID> ».
+	Id | ID de la ContentKey que nous générons nous-mêmes en utilisant le format suivant, « nb:kid:UUID:<NEW GUID> ».
 	ContentKeyType | Il s’agit du type de clé de contenu en tant qu’entier pour cette clé de contenu. Nous transmettons la valeur 1 pour le chiffrement du stockage.
 	EncryptedContentKey | Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une demande HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey. À titre d’exemple, consultez le code .NET suivant : la méthode **EncryptSymmetricKeyData** définie [ici](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 	ProtectionKeyId | Il s’agit de l’ID de clé de protection pour le certificat X.509 de chiffrement de stockage qui a été utilisé pour chiffrer notre clé de contenu.
@@ -375,4 +375,4 @@ Après avoir téléchargé le fichier multimédia numérique dans un conteneur d
 	   "ContentChecksum":null
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

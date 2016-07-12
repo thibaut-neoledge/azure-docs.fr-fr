@@ -33,8 +33,8 @@ Utilisez les étapes suivantes pour vous connecter à une base de données SQL A
       ![SQL Server Management Studio : se connecter à un serveur de base de données SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Dépannage des échecs de connexion
+## Dépannage des échecs de connexion
 
 Les échecs de connexion les plus courants sont dus à des erreurs dans le nom du serveur (rappelez-vous que <*nom\_serveur*> est le nom du serveur logique et non celui de la base de données), dans le nom d’utilisateur ou dans le mot de passe, ou quand le serveur n’autorise pas les connexions pour des raisons de sécurité.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

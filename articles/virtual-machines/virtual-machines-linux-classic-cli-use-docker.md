@@ -19,7 +19,7 @@
 
 # Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 
@@ -176,4 +176,4 @@ Le démon Docker sur l’hôte est configuré pour écouter et authentifier les 
  
 [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

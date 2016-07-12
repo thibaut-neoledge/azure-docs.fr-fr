@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="06/30/2016"
    ms.author="sumukhs"/>
 
 # Configuration de services fiables (Reliable Services) avec état
@@ -162,4 +162,4 @@ Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble po
  - [Déboguer votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
  - [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

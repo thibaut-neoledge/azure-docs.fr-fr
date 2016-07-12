@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Ce didacticiel de bout en bout vous indique comment implémenter des groupes de disponibilité en utilisant SQL Server Always On sur des machines virtuelles Azure.
@@ -88,8 +88,8 @@ Vous commencez avec un nouveau compte d'essai Azure. Une fois que vous avez ter
 	|Page|Paramètres|
 |---|---|
 |Sélection du système d’exploitation de la machine virtuelle|Windows Server 2012 R2 Datacenter|
-|Configuration de la machine virtuelle|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoDC<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (2 cœurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
-|Configuration de la machine virtuelle|**CLOUD SERVICE** = Créer un service cloud<br/>**CLOUD SERVICE DNS NAME** = Un nom de service cloud unique<br/>**DNS NAME** = Un nom unique (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = (None)|
+|Configuration de la machine virtuelle|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoDC<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (2 coeurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
+|Configuration de la machine virtuelle|**CLOUD SERVICE** = Créer un service cloud unique<br/>**CLOUD SERVICE DNS NAME** = Un nom de service cloud unique<br/>**DNS NAME** = Un nom unique (ex : ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = (Aucun)|
 |Options de la machine virtuelle|Utilisation des valeurs par défaut|
 
 Une fois que vous avez configuré la nouvelle machine virtuelle, attendez que l'ordinateur virtuel soit provisionné. Ce processus prend du temps, et si vous cliquez sur l’onglet **Virtual Machine** dans le portail Azure Classic, vous pouvez voir le cycle des états ContosoDC allant de **Départ (approvisionnement)** à **Arrêté**, **Départ**, **En cours d’exécution (approvisionnement)** et enfin **En cours d’exécution**.
@@ -197,8 +197,8 @@ Créez ensuite trois machines virtuelles, dont un nœud de cluster WSFC et deu
 |Page|MV1|MV2|MV3|
 |---|---|---|---|
 |Sélection du système d’exploitation de la machine virtuelle|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
-|Configuration de la machine virtuelle|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoWSFCNode<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (2 cœurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL1<br/>**TIER** = STANDARD<br/>**SIZE** = A3 (4 cœurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL2<br/>**TIER** = BASIC<br/>**SIZE** = A3 (4 cœurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
-|Configuration de la machine virtuelle|**CLOUD SERVICE** = Nom DNS de service cloud unique créé auparavant (ex : ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = Créer un groupe à haute disponibilité<br/>**AVAILABILITY SET NAME** = SQLHADR|**CLOUD SERVICE** = Nom DNS de service cloud unique créé auparavant (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = SQLHADR (Vous pouvez également configurer le groupe à haute disponibilité après la création de la machine. Les trois machines doivent être assignées au groupe à haute disponibilité SQLHADR.)|**CLOUD SERVICE** = Nom DNS de service cloud unique créé auparavant (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = SQLHADR (Vous pouvez également configurer le groupe à haute disponibilité après la création de la machine. Les trois machines doivent être assignées au groupe à haute disponibilité SQLHADR.)|
+|Configuration de la machine virtuelle|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoWSFCNode<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (2 coeurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL1<br/>**TIER** = STANDARD<br/>**SIZE** = A3 (4 coeurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (dernière version)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL2<br/>**TIER** = STANDARD<br/>**SIZE** = A3 (4 coeurs)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
+|Configuration de la machine virtuelle|**CLOUD SERVICE** = Nom DNS de service cloud unique créé auparavant (ex : ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET <br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = Créer un groupe à haute disponibilité<br/>**AVAILABILITY SET NAME** = SQLHADR|**CLOUD SERVICE** = Nom DNS de service cloud unique créé auparavant (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = SQLHADR (Vous pouvez également configurer le groupe à haute disponibilité après la création de la machine. Les trois machines doivent être assignées au groupe à haute disponibilité SQLHADR.)|**CLOUD SERVICE** = Nom DNS de service cloud unique créé auparavant (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Utiliser un compte de stockage généré automatiquement<br/>**AVAILABILITY SET** = SQLHADR (Vous pouvez également configurer le groupe à haute disponibilité après la création de la machine. Les trois machines doivent être assignées au groupe à haute disponibilité SQLHADR.)|
 |Options de la machine virtuelle|Utilisation des valeurs par défaut|Utilisation des valeurs par défaut|Utilisation des valeurs par défaut|
 
 <br/>
@@ -445,7 +445,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 1. Lancez le fichier RDP pour **ContosoSQL1** et connectez-vous en tant que **CORP\\Install**.
 
-1. Dans l'**Explorateur de fichiers**, sous **C:**, créez un répertoire appelé **sauvegarde**. Vous utiliserez ce répertoire pour sauvegarder et restaurer votre base de données.
+1. Dans **l’Explorateur de fichiers**, sous *C:*, créez un répertoire appelé **sauvegarde**. Vous utiliserez ce répertoire pour sauvegarder et restaurer votre base de données.
 
 1. Cliquez avec le bouton droit sur le nouveau répertoire, pointez sur **Partager avec**, puis cliquez sur **Des personnes spécifiques**, comme illustré ci-dessous.
 
@@ -491,7 +491,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 ### Création du groupe de disponibilité :
 
-1. Retournez à la session Bureau à distance de **ContosoSQL1**. Dans l’**Explorateur d’objets** dans SSMS, cliquez avec le bouton droit sur **Haute disponibilité Always On**, puis sur **Assistant Nouveau groupe de disponibilité**, comme illustré ci-dessous.
+1. Retournez à la session Bureau à distance de **ContosoSQL1**. Dans **l’Explorateur d’objets** dans SSMS, cliquez avec le bouton droit sur **Haute disponibilité Always On**, puis sur **Assistant Nouveau groupe de disponibilité**, comme illustré ci-dessous.
 
 	![Lancer l'Assistant Nouveau groupe de disponibilité](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 
@@ -527,7 +527,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Assistant Nouveau groupe de disponibilité, résultats](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
 
-1. Dans l’**Explorateur d’objets**, développez **Haute disponibilité Always On**, puis **Groupes de disponibilité**. Vous devez maintenant voir le nouveau groupe de disponibilité dans ce conteneur. Cliquez avec le bouton droit sur **AG1 (principal)**, puis cliquez sur **Afficher le tableau de bord**.
+1. Dans **l’Explorateur d’objets**, développez **Haute disponibilité Always On**, puis **Groupes de disponibilité**. Vous devez maintenant voir le nouveau groupe de disponibilité dans ce conteneur. Cliquez avec le bouton droit sur **AG1 (principal)**, puis cliquez sur **Afficher le tableau de bord**.
 
 	![Afficher le tableau de bord de groupe de disponibilité](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
@@ -548,4 +548,4 @@ Vous avez correctement implémenté SQL Server Always On en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

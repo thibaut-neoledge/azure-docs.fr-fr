@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="06/30/2016" 
 	ms.author="sdanie"/>
 
 # Création d’une application web avec le Cache Redis
@@ -82,7 +82,7 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 
 ### Ajouter le modèle
 
-1. Cliquez avec le bouton droit sur **Modèles** dans l’**Explorateur de solutions** et sélectionnez **Ajouter**, **Classe**. 
+1. Cliquez avec le bouton droit sur **Modèles** dans l’**Explorateur de solutions** et sélectionnez **Ajouter**, **Classe**.
 
     ![Ajouter un modèle][cache-model-add-class]
 
@@ -190,7 +190,7 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 
 ### Ajouter le contrôleur
 
-1. Appuyez sur **F6** pour générer le projet. 
+1. Appuyez sur **F6** pour générer le projet.
 2. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Contrôleurs**. Cliquez ensuite sur **Ajouter**, puis sur **Contrôleur**.
 
     ![Ajouter un contrôleur][cache-add-controller]
@@ -268,7 +268,7 @@ Dans cette section du didacticiel, vous allez configurer l’exemple d’applica
 
 ### Configurer l’application pour utiliser StackExchange.Redis
 
-1. Pour configurer une application cliente dans Visual Studio avec le package NuGet StackExchange.Redis, cliquez avec le bouton droit sur le projet dans l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. 
+1. Pour configurer une application cliente dans Visual Studio avec le package NuGet StackExchange.Redis, cliquez avec le bouton droit sur le projet dans l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**.
 
     ![Manage NuGet packages][redis-cache-manage-nuget-menu]
 
@@ -456,7 +456,7 @@ Dans cet exemple, les statistiques d’équipe peuvent être récupérées à pa
 	    }
 
 
-    La méthode `GetFromList` lit les statistiques d’équipe à partir du cache en tant que `List<Team>` sérialisé. En cas d’absence dans le cache, les statistiques d’équipe sont lues à partir de la base de données, puis stockées dans le cache pour la prochaine fois. Dans cet exemple, nous utilisons la sérialisation JSON.NET pour sérialiser les objets .NET vers et depuis le cache. Pour plus d’informations, consultez la rubrique [Utilisation des objets .NET dans le cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    La méthode `GetFromList` lit les statistiques d’équipe à partir du cache en tant que `List<Team>` sérialisé. En cas d’absence dans le cache, les statistiques d’équipe sont lues à partir de la base de données, puis stockées dans le cache pour la prochaine fois. Dans cet exemple, nous utilisons la sérialisation JSON.NET pour sérialiser les objets .NET vers et depuis le cache. Pour plus d’informations, consultez la rubrique [Utilisation des objets .NET dans le cache Redis Azure](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
         List<Team> GetFromList()
         {
@@ -756,7 +756,7 @@ Le tableau suivant décrit chaque lien d’action de l’exemple d’application
 
 Cliquez sur certaines actions et essayez de récupérer les données de différentes sources. Notez que le temps nécessaire pour récupérer les données à partir de la base de données et du cache varie selon la méthode utilisée.
 
-## Supprimer les ressources une fois terminée la procédure liée à l’application
+## Supprimer les ressources une fois la procédure liée à l’application terminée
 
 Lorsque vous avez terminé avec l’exemple d’application du didacticiel, vous pouvez supprimer les ressources Azure utilisées afin de réduire les coûts et de préserver les ressources. Si vous utilisez le bouton **Déployer dans Azure** dans la section [Approvisionner les ressources Azure](#provision-the-azure-resources) et que toutes vos ressources se trouvent dans le même groupe de ressources, vous pouvez les supprimer en une seule opération en supprimant le groupe de ressources.
 
@@ -846,4 +846,4 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

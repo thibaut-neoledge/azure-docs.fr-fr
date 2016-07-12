@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Ajouter une application Java dans Azure App Service Web Apps
@@ -22,8 +22,8 @@ Une fois que vous avez initialisé votre application web Java dans [Azure App Se
 
 Le chemin d’accès au dossier **webapps** varie en fonction de la configuration de votre instance Web Apps.
 
-- Si vous configurez votre application web à l’aide d’Azure Marketplace, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\bin\\serveur\_applications\\webapps**, où **serveur\_applications** est le nom du serveur d’applications de votre instance Web Apps. 
-- Si vous configurez votre application web à l’aide de l’interface utilisateur d’Azure, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\webapps**. 
+- Si vous configurez votre application web à l’aide d’Azure Marketplace, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\bin\\serveur\_applications\\webapps**, où **serveur\_applications** est le nom du serveur d’applications de votre instance Web Apps.
+- Si vous configurez votre application web à l’aide de l’interface utilisateur d’Azure, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\webapps**.
 
 Notez que vous pouvez utiliser le contrôle de code source pour télécharger votre application ou vos pages Web, y compris dans des scénarios d’intégration continue. Les instructions d’utilisation du contrôle de code source avec votre application web sont disponibles dans la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md). Le protocole FTP permet également de télécharger votre application ou des pages web.
 
@@ -40,4 +40,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

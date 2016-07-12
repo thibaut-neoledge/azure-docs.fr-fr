@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"    
+ 	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -1447,4 +1447,4 @@ Veillez à mettre à jour le code suivant pour pointer vers le dossier où se tr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

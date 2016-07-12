@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
- 	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -57,7 +57,7 @@ Pour préparer un élément multimédia pour sa diffusion en continu dynamique, 
 
 OU
  
-1. Chargez des fichiers MP4 pré-encodés. 
+1. Chargez des fichiers MP4 pré-encodés.
 
 	>[AZURE.NOTE] Cette option n’est pas recommandée.
 	
@@ -80,4 +80,4 @@ Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaqu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

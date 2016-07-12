@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 #Unités de requête dans DocumentDB
@@ -64,6 +64,9 @@ Pour aider les clients à affiner leurs estimations de débit, il existe une [ca
 - Créations (écritures) de documents
 - Lectures de documents
 - Suppressions de documents
+- Mises à jour de documents
+
+L’outil inclut également la prise en charge de l’estimation des besoins de stockage de données en fonction des exemples de documents que vous fournissez.
 
 L’utilisation de l’outil est simple :
 
@@ -71,11 +74,13 @@ L’utilisation de l’outil est simple :
 
 	![Charger les documents vers la calculatrice d’unités de demande][2]
 
-2. Entrez le nombre d’opérations de création, lecture et suppression de documents dont vous avez besoin (par seconde).
+2. Pour estimer les besoins de stockage, entrez le nombre total de documents que vous voulez stocker.
+
+3. Entrez le nombre d’opérations de création, lecture, mise à jour et suppression de documents dont vous avez besoin (par seconde). Pour estimer les frais d’unités de requête des opérations de mise à jour de documents, chargez une copie du document de l’étape 1 comprenant des mises à jour de champs types. Par exemple, si les mises à jour de document comprennent généralement la modification de deux propriétés nommées lastLogi et userVisits, copiez le document, mettez à jour les valeurs de ces deux propriétés, puis chargez le document copié.
 
 	![Entrez les exigences de débit dans la calculatrice d’unités de demande][3]
 
-3. Cliquez sur Calculer et examinez les résultats.
+4. Cliquez sur Calculer et examinez les résultats.
 
 	![Résultats de la calculatrice d’unités de demande][4]
 
@@ -92,7 +97,7 @@ Ainsi, une méthode permettant d’estimer la quantité de débit réservé requ
 
 Par exemple :
 
-1. Enregistrer les frais d’unités de requête de création (insertion) d’un document par défaut. 
+1. Enregistrer les frais d’unités de requête de création (insertion) d’un document par défaut.
 2. Enregistrer les frais d’unités de requête de lecture d’un document par défaut.
 3. Enregistrer les frais d’unités de requête de mise à jour d’un document par défaut.
 3. Enregistrer les frais d’unités de requête des requêtes de documents standard courantes.
@@ -185,7 +190,7 @@ Sélectionner les 10 premiers|15|150 Total|155|1275
 Dans ce cas, nous estimons l’exigence de débit moyen à 1275 unités de requête par seconde. Arrondi à la centaine la plus proche, nous devons approvisionner 1 300 unités de requête par seconde pour la collection de cette application.
 
 ##Dépassement des limites de débit réservé
-Souvenez-vous que la consommation d’unités de requête est évaluée en fonction d’un taux par seconde. Pour les applications qui dépassent le taux d’unités de requête configuré pour une collection, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la demande de manière préventive avec RequestRateTooLarge (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
+Souvenez-vous que la consommation d’unités de requête est évaluée en fonction d’un taux par seconde. Pour les applications qui dépassent le taux d’unités de requête configuré pour une collection, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la demande de manière préventive avec RequestRateTooLargeException (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
 
 	HTTP Status 429
 	Status Line: RequestRateTooLarge
@@ -200,7 +205,7 @@ Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de r
 Pour en savoir plus sur le débit réservé avec Azure DocumentDB, explorez ces ressources :
  
 - [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-- [Gestion de la capacité de DocumentDB](documentdb-manage.md) 
+- [Gestion de la capacité de DocumentDB](documentdb-manage.md)
 - [Modélisation des données dans DocumentDB](documentdb-modeling-data.md)
 - [Niveaux de performances dans DocumentDB](documentdb-partition-data.md)
 
@@ -215,4 +220,4 @@ Pour commencer avec le test des performances et de la mise à l’échelle avec 
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

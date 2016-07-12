@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
 # Utilisation de Pig avec Hadoop sur HDInsight
@@ -33,9 +33,9 @@ Au lieu de vous obliger à utiliser uniquement le mappage et des fonctions de r�
 
 Le langage Pig Latin vous permet de décrire le flux de données provenant d’une entrée brute, via une ou plusieurs transformations, pour produire le résultat souhaité. Les programmes Pig Latin suivent le modèle général suivant :
 
-- **Chargement** : lecture des données à manipuler dans le système de fichiers
-- **Transformation** : manipulation des données
-- **Sortie ou stockage** : affichage du résultat à l'écran ou stockage pour traitement
+- **Chargement** : lecture des données à manipuler dans le système de fichiers
+- **Transformation** : manipulation des données
+- **Sortie ou stockage** : affichage du résultat à l'écran ou stockage pour traitement
 
 Pig Latin prend également en charge les fonctions définies par l'utilisateur (UDF), ce qui vous permet d'appeler des composants externes qui implémentent la logique qui est difficile à modéliser dans Pig Latin.
 
@@ -65,7 +65,7 @@ L’exemple de données est stocké dans le module de stockage d'objets blob Azu
 
 Étant donné que WASB est le stockage par défaut pour HDInsight, vous pouvez également accéder au fichier en utilisant **/example/data/sample.log** depuis Pig Latin.
 
-> [AZURE.NOTE] La syntaxe, **wasb:///**, permet d’accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d’autres comptes de stockage lors de l’approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l’adresse du compte de stockage, par exemple : **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] La syntaxe, **wasb:///**, permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d’autres comptes de stockage pendant l’approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l’adresse du compte de stockage, par exemple : **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 
 ##<a id="job"></a>À propos de l'exemple de tâche
@@ -148,4 +148,4 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

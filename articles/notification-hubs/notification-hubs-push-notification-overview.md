@@ -2,7 +2,7 @@
 	pageTitle="Azure Notification Hubs"
 	description="Découvrez comment utiliser les notifications Push dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET."
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="hero-article"
-	ms.date="02/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 
@@ -171,4 +171,4 @@ Les références d’API managées .NET pertinentes pour les notifications Push 
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

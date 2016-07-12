@@ -21,7 +21,7 @@
 
 Toutes les machines virtuelles Linux créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Cet article est également disponible pour les [machines virtuelles Windows](virtual-machines-windows-classic-setup-endpoints.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Lorsque vous créez une machine virtuelle Linux sur le portail Azure Classic, un point de terminaison pour Secure Shell (SSH) est en général créé automatiquement pour vous. Vous pouvez configurer des points de terminaison supplémentaires lors de la création de la machine virtuelle, ou ultérieurement si nécessaire.
  
@@ -34,4 +34,4 @@ Lorsque vous créez une machine virtuelle Linux sur le portail Azure Classic, un
 
 * Si vous avez créé une machine virtuelle dans le modèle de déploiement Resource Manager, vous pouvez utiliser l’interface de ligne de commande Azure en mode Resource Manager pour [créer des groupes de sécurité réseau](../virtual-network/virtual-networks-create-nsg-arm-cli.md) afin de contrôler le trafic vers la machine virtuelle.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

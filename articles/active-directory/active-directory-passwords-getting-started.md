@@ -195,7 +195,7 @@ Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, v
 
 
 ### Étape 1 : téléchargement de la dernière version d’Azure AD Connect
-L’écriture différée de mot de passe est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0419.0911**. L’écriture différée de mot de passe avec déverrouillage de compte automatique est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0485.0222**. Si vous exécutez une version antérieure, veuillez procéder à la mise à niveau vers cette version ou une version ultérieure avant de continuer. [Cliquez ici pour télécharger la dernière version d’Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+L’écriture différée de mot de passe est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0419.0911**. L’écriture différée de mot de passe avec déverrouillage de compte automatique est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0485.0222**. Si vous exécutez une version antérieure, veuillez procéder à la mise à niveau vers cette version ou une version ultérieure avant de continuer. [Cliquez ici pour télécharger la dernière version d’Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Pour vérifier la version d’Azure AD Sync
 1.	Accédez à **%ProgramFiles%\\Azure Active Directory Sync**.
@@ -232,7 +232,8 @@ Lorsque vous avez téléchargé l’outil Azure AD Connect, vous pouvez activer 
 4.	Obtenez l’état actuel de l’écriture différée pour le connecteur actuel en exécutant l’applet de commande suivante : `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	Activez l’écriture différée de mot de passe en exécutant l’applet de commande : `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE] Si vous êtes invité à vous identifier, assurez-vous que le compte d’administrateur que vous indiquez pour AzureADCredential est un **compte d’administrateur cloud (créé dans Azure AD)** et non pas un compte fédéré (créé dans un AD local et synchronisé dans Azure AD).[AZURE.NOTE] Pour désactiver l’écriture différée de mot de passe via PowerShell, il vous suffit de répéter les instructions précédentes en transmettant `$false` à cette étape ou en définissant le paramètre **Écriture différée de mot de passe sur le répertoire local** sur **Non** dans la section **Stratégie de réinitialisation du mot de passe utilisateur** de l’onglet **Configurer** de votre répertoire dans le [portail de gestion Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Si vous êtes invité à vous identifier, assurez-vous que le compte d’administrateur que vous indiquez pour AzureADCredential est un **compte d’administrateur cloud (créé dans Azure AD)** et non pas un compte fédéré (créé dans un AD local et synchronisé dans Azure AD).
+> [AZURE.NOTE] Pour désactiver l’écriture différée de mot de passe via PowerShell, il vous suffit de répéter les instructions précédentes en transmettant `$false` à cette étape ou en définissant le paramètre **Écriture différée de mot de passe sur le répertoire local** sur **Non** dans la section **Stratégie de réinitialisation du mot de passe utilisateur** de l’onglet **Configurer** de votre répertoire dans le [portail de gestion Azure](https://manage.windowsazure.com).
 
 #### Vérification de la réussite de la configuration
 Une fois la configuration terminée, un message indiquant la réussite de l’activation de l’écriture différée de mot de passe s’affiche dans la fenêtre Windows PowerShell ou dans l’interface utilisateur de configuration.
@@ -264,7 +265,7 @@ Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface util
 
 #### Pour configurer les autorisations appropriées pour l’écriture différée
 
-1.	Ouvrez **Utilisateurs et ordinateurs Active Directory** avec un compte ayant les autorisations d’administration de domaine appropriées.
+1.	Ouvrez **Utilisateurs et ordinateurs Active Directory ** avec un compte ayant les autorisations d’administration de domaine appropriées.
 2.	Dans **Menu Affichage**, assurez-vous que l’option **Fonctionnalités avancées** est activée.
 3.	Dans le volet gauche, cliquez avec le bouton droit sur l’objet représentant la racine du domaine.
 4.	Cliquez sur l’onglet **Sécurité**.
@@ -302,7 +303,9 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
     ![][031]
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
@@ -351,4 +354,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---------HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

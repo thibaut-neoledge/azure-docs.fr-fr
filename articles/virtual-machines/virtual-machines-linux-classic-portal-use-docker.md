@@ -20,7 +20,7 @@
 
 # Utilisation de l’extension Docker VM avec le portail Azure Classic
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l’extension Docker VM sur l’[agent Linux Azure] afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure.
@@ -147,4 +147,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Exécution de Docker avec https]: http://docs.docker.com/articles/https/
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

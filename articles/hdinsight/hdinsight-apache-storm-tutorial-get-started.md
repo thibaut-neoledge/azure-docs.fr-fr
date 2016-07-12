@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="06/22/2016"
    ms.author="larryfr"/>
 
 
@@ -81,7 +81,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	Utilisez __Sélectionner__ pour enregistrer les informations de __Niveaux de tarification de nœud__.
 
-8. Sélectionnez __Configuration facultative__. Ce panneau permet de sélectionner la version de cluster et de configurer d’autres paramètres facultatifs (connexion à un __réseau virtuel__, configuration d’un __metastore externe__ pour conserver les données Hive et Oozie, etc.).
+8. Sélectionnez __Configuration facultative__. Ce panneau vous permet de sélectionner la version de cluster et de configurer d’autres paramètres facultatifs (par exemple, rejoindre un __Réseau virtuel__).
 
 	![Panneau Configuration facultative](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
@@ -245,4 +245,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 
 ## Articles et référence relatifs aux protocoles d’authentification
 
-- [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) : découvrez le rythme de substitution des clés de signature d’Azure AD, les modifications que vous pouvez effectuer pour mettre la clé à jour automatiquement et une description de la mise à jour des scénarios d’application les plus courants.
+- [Informations importantes sur la substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md) : découvrez le rythme de substitution des clés de signature d’Azure AD, les modifications que vous pouvez effectuer pour mettre la clé à jour automatiquement et une description de la mise à jour des scénarios d’application les plus courants.
 
 
 - [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md) : découvrez les revendications des jetons émis par Azure AD.
@@ -55,4 +55,4 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

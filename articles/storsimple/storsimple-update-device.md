@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/12/2016"
+   ms.date="06/28/2016"
    ms.author="v-sharos" />
 
 # Mettre à jour votre appareil StorSimple 8000 Series
@@ -42,7 +42,7 @@ Les mises à jour ordinaires s’effectuent sans interruption du service et peuv
 
 ### Mises à jour en mode Maintenance
 
-Les mises à jour en mode Maintenance provoquent une interruption du service. Il s’agit, par exemple, des mises à niveau du microprogramme du disque ou des mises à niveau du microprogramme USM. Ces mises à jour nécessitent que l’appareil soit placé en mode Maintenance. Pour plus d’informations, consultez l’[Étape 2 : Passage en mode Maintenance](#step2). Vous ne pouvez pas utiliser le portail Azure Classic pour installer des mises à jour en mode Maintenance. Vous devez utiliser Windows PowerShell pour StorSimple.
+Les mises à jour en mode Maintenance provoquent une interruption du service. Il s’agit, par exemple, des mises à niveau du microprogramme du disque. Ces mises à jour nécessitent que l’appareil soit placé en mode Maintenance. Pour plus d’informations, consultez l’[Étape 2 : Passage en mode Maintenance](#step2). Vous ne pouvez pas utiliser le portail Azure Classic pour installer des mises à jour en mode Maintenance. Vous devez utiliser Windows PowerShell pour StorSimple.
 
 Pour plus d’informations sur l’installation des mises à jour en mode Maintenance, voir la section [Installer les mises à jour en mode Maintenance via Windows PowerShell pour StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -70,7 +70,7 @@ Si vous devez appliquer des mises à jour en mode Maintenance, vous recevez une 
 
 > [AZURE.IMPORTANT] 
 > 
-> - Avant de passer en mode Maintenance, vérifiez que les deux contrôleurs d’appareil sont intègres en vérifiant le **Statut matériel** sur la page **Maintenance** du portail Azure Classic. Si le contrôleur n’est pas sain, contactez le support technique Microsoft pour connaître les étapes suivantes. Pour plus d’informations, accédez à Contacter le support technique Microsoft. 
+> - Avant de passer en mode Maintenance, vérifiez que les deux contrôleurs d’appareil sont intègres en vérifiant le **Statut matériel** sur la page **Maintenance** du portail Azure Classic. Si le contrôleur n’est pas sain, contactez le support technique Microsoft pour connaître les étapes suivantes. Pour plus d’informations, accédez à Contacter le support technique Microsoft.
 > - En mode Maintenance, vous devez appliquer la mise à jour d’abord à un contrôleur, puis à l’autre contrôleur.
 
 ### Étape 1 : Connexion à la console série <a name="step1">
@@ -101,8 +101,8 @@ Pour finir, quittez le mode Maintenance.
 
 Contrairement aux mises à jour pour Microsoft Azure StorSimple, les correctifs logiciels sont installés à partir d’un dossier partagé. Comme pour les mises à jour, il existe deux types de correctifs :
 
-- Correctifs logiciels ordinaires 
-- Correctifs logiciels en mode Maintenance  
+- Correctifs logiciels ordinaires
+- Correctifs logiciels en mode Maintenance
 
 Les procédures suivantes expliquent comment utiliser Windows PowerShell pour StorSimple pour installer les correctifs logiciels ordinaires et en mode Maintenance.
 
@@ -119,4 +119,4 @@ Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à
 - En savoir plus sur [l’utilisation de Windows PowerShell pour StorSimple pour administrer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour administrer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,7 +19,7 @@
 
 #Déployer une application LAMP à l’aide de l’extension CustomScript Azure pour Linux#
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 L’extension CustomScript Microsoft Azure pour Linux vous permet de personnaliser vos machines virtuelles en exécutant du code arbitraire écrit dans n’importe quel langage de script pris en charge par la machine virtuelle (par exemple Python et Bash). Cela fournit un moyen très souple pour automatiser le déploiement d'application sur plusieurs machines.
@@ -96,7 +96,7 @@ Vous pouvez vérifier l’exécution du script personnalisé en examinant le fic
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-Après avoir exécuté l’extension CustomScript, vous pouvez accéder à la page PHP que vous avez créée pour plus d’informations. La page PHP de l’exemple de cet article est **http://lamp-vm.cloudapp.net/phpinfo.php*.
+Après avoir exécuté l’extension CustomScript, vous pouvez accéder à la page PHP que vous avez créée pour plus d’informations. La page PHP de l’exemple de cet article est *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
 ## Ressources supplémentaires
 
@@ -110,4 +110,4 @@ Voici quelques ressources supplémentaires pour l’interface de ligne de comman
 
 [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="solution de sauvegarde ; service de sauvegarde"/>
+   keywords="solution de sauvegarde ; service de sauvegarde"/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="07/01/2016"
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
 # Version préliminaire publique du service Azure Backup - FAQ
@@ -43,4 +43,4 @@ La version préliminaire publique introduit le coffre Recovery Services et la pr
 
 **Q1. Existe-t-il des limites à la prise en charge ARM pour les machines virtuelles Azure ?** <br/> R1. Les applets de commande PowerShell pour ARM ne sont pas disponibles actuellement. Vous devez utiliser l’interface utilisateur du portail Azure pour ajouter des ressources à un groupe de ressources.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

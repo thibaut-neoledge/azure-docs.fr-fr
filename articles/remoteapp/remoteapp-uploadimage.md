@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016"
+    ms.date="06/12/2016"
     ms.author="ericor" />
 
 
@@ -49,6 +49,6 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 
 - Veillez à utiliser Windows PowerShell, et non Azure PowerShell. Vous devez installer le module Azure PowerShell, car certains modules sont nécessaires pour le processus de téléchargement.
 - Ne modifiez jamais le script, les validations sont pensées pour vous faciliter la tâche.
-- Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
+- Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

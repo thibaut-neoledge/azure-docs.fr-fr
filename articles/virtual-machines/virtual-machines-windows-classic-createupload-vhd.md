@@ -22,7 +22,7 @@
 Cet article vous montre comment télécharger un disque dur virtuel avec un système d'exploitation pour que vous puissiez l'utiliser comme image de base afin de créer des machines virtuelles. Pour en savoir plus sur les disques et les disques durs virtuels dans Microsoft Azure, consultez la rubrique [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md).
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager Vous pouvez également [capturer](virtual-machines-windows-capture-image.md) et [télécharger](virtual-machines-windows-upload-image.md) une machine virtuelle à l'aide du modèle Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Vous pouvez également [capturer](virtual-machines-windows-capture-image.md) et [télécharger](virtual-machines-windows-upload-image.md) une machine virtuelle à l'aide du modèle Resource Manager.
 
 ## Composants requis
 
@@ -76,7 +76,7 @@ Vous avez besoin d’un compte de stockage dans Azure afin d’avoir un emplacem
 
  - Sous **URL**, entrez un nom de sous-domaine à utiliser dans l'URL du compte de stockage. L’entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d’hôte contenu dans l’URL utilisée pour accéder à des ressources d’objet blob, de files d’attente et de tables pour l’abonnement.
  - Sélectionnez **l’emplacement ou le groupe d’affinités** pour le compte de stockage. Un groupe d’affinités vous permet de mettre vos services cloud et de stockage sur le cloud dans le même centre de données.
- - Indiquez si vous souhaitez utiliser la **géo-réplication** pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers cet emplacement en cas de panne sur l’emplacement principal. L'emplacement secondaire est attribué automatiquement. Vous ne pouvez pas le modifier. Si vous avez besoin de disposer d’un contrôle accru sur l’emplacement de votre stockage reposant sur le cloud du fait d’exigences juridiques ou de la stratégie de l’organisation, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-réplication par la suite, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d’un transfert unique. Vous pouvez bénéficier d’une réduction pour les services de stockage sans géo-réplication. Pour plus de détails, consultez [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account/#replication-options).
+ - Indiquez si vous souhaitez utiliser la **géo-réplication** pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers cet emplacement en cas de panne sur l’emplacement principal. L'emplacement secondaire est attribué automatiquement. Vous ne pouvez pas le modifier. Si vous avez besoin de disposer d’un contrôle accru sur l’emplacement de votre stockage reposant sur le cloud du fait d’exigences juridiques ou de la stratégie de l’organisation, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-réplication par la suite, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d’un transfert unique. Vous pouvez bénéficier d’une réduction pour les services de stockage sans géo-réplication. Pour plus de détails, consultez [Création, gestion ou suppression d’un compte de stockage](../storage/storage-create-storage-account.md#replication-options).
 
       ![Entrer les détails du compte de stockage](./media/virtual-machines-windows-classic-createupload-vhd/Storage-create-account.png)
 
@@ -203,4 +203,4 @@ Pour plus d’informations sur la cmdlet Add-AzureVhd, voir [Add-AzureVhd](http:
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

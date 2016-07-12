@@ -16,14 +16,14 @@
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
-# Récupération d’une base de données SQL Microsoft Azure suite à une erreur de l’utilisateur
+# Récupération d’une base de données SQL Azure suite à une erreur
 
 La base de données SQL Microsoft Azure offre deux fonctionnalités essentielles pour effectuer une récupération suite à une erreur de l’utilisateur ou à la modification involontaire de données.
 
-- [Restauration dans le temps](sql-database-point-in-time-restore.md) 
-- [Restauration d’une base de données supprimée](sql-database-restore-deleted-database.md)
+- [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Restauration d’une base de données supprimée](sql-database-recovery-using-backups.md#deleted-database-restore)
 
-La base de données SQL Azure effectue toujours les restaurations vers une nouvelle base de données. Ces fonctions de restauration sont proposées pour toutes les bases de données, quel que soit leur niveau (niveau de base, Standard et Premium).
+La base de données SQL Azure restaure toujours sur une nouvelle base de données lors de l’exécution de la limite de restauration dans le temps, mais elle peut restaurer sur le même nom de base de données lors de la restauration à partir d’une base de données supprimée. Ces fonctions de restauration sont proposées pour toutes les bases de données, quel que soit leur niveau (niveau de base, Standard et Premium).
 
 ##Restauration dans le temps
 
@@ -35,7 +35,7 @@ Pour effectuer une limite de restauration dans le temps, consultez les ressource
 
 - [Limite de restauration dans le temps avec le portail Azure](sql-database-point-in-time-restore-portal.md)
 - [Limite de restauration dans le temps avec PowerShell](sql-database-point-in-time-restore-powershell.md)
-- [Limite de restauration dans le temps avec l’API REST (createmode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
+- [Limite de restauration dans le temps avec l’API REST (createmode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 
 ## restauration d’une base de données supprimée.
@@ -53,18 +53,10 @@ Pour restaurer une base de données supprimée :
 
 ## Étapes suivantes
 
-- Pour plus d’informations sur l’utilisation et la configuration de la géo-réplication active pour la récupération d’urgence, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
-- Pour plus d’informations sur l’utilisation de la restauration géographique pour la récupération d’urgence, consultez [Restauration géographique](sql-database-geo-restore.md)
+- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour plus d’informations sur l’utilisation de la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 
-## Ressources supplémentaires
-
-- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
-- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
-- [Restauration géographique](sql-database-geo-restore.md)
-- [Géo-réplication active](sql-database-geo-replication-overview.md)
-- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
-- [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

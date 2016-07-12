@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Sauvegarder et restaurer Reliable Services et Reliable Actors
@@ -64,7 +64,7 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Une demande de sauvegarde incrémentielle peut échouer en générant l’exception **FabricFullBackupMissingException**, qui indique que le réplica n’a jamais fait l’objet d’une sauvegarde complète ou qu’une partie des enregistrements du journal écrits depuis cette dernière sauvegarde est tronquée. Les utilisateurs peuvent modifier le taux de troncation en modifiant le paramètre **CheckpointThresholdInMB**.
+Une demande de sauvegarde incrémentielle peut échouer en générant l’exception **FabricMissingFullBackupException**, qui indique que le réplica n’a jamais fait l’objet d’une sauvegarde complète ou qu’une partie des enregistrements du journal écrits depuis cette dernière sauvegarde est tronquée. Les utilisateurs peuvent modifier le taux de troncation en modifiant le paramètre **CheckpointThresholdInMB**.
 
 **BackupInfo** fournit des informations sur la sauvegarde, notamment l’emplacement du dossier où le runtime l’a enregistrée (**BackupInfo.Directory**). La fonction peut déplacer **BackupInfo.Directory** vers un magasin externe ou un autre emplacement. Cette fonction renvoie également une valeur booléenne qui indique si elle a été en mesure de déplacer correctement le dossier de sauvegarde vers son emplacement cible.
 
@@ -133,7 +133,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-La fonction **RestoreDescription** transférée à l’appel **RestoreContext.RestoreAsync** contient un membre appelé **BackupFolderPath**. Lorsque vous restaurez une seule sauvegarde complète, ce membre **BackupFolderPath** doit être défini sur le chemin d’accès local du dossier qui contient votre sauvegarde complète. Lorsque vous restaurez une sauvegarde complète ainsi qu’un certain nombre de sauvegardes incrémentielles, **BackupFolderPath** doit être défini sur le chemin d’accès local du dossier qui contient à la fois la sauvegarde complète et l’ensemble des sauvegardes incrémentielles. L’appel **RestoreAsync** peut lever une exception **FabricFullBackupMissingException** si le **BackupFolderPath** fourni ne contient pas de sauvegarde complète. Il peut également lever l’exception **ArgumentException** si **BackupFolderPath** contient une chaîne de sauvegardes incrémentielles interrompue. Par exemple, s’il contient la sauvegarde complète, les première et troisième sauvegardes incrémentielles, mais pas la deuxième sauvegarde incrémentielle.
+La fonction **RestoreDescription** transférée à l’appel **RestoreContext.RestoreAsync** contient un membre appelé **BackupFolderPath**. Lorsque vous restaurez une seule sauvegarde complète, ce membre **BackupFolderPath** doit être défini sur le chemin d’accès local du dossier qui contient votre sauvegarde complète. Lorsque vous restaurez une sauvegarde complète ainsi qu’un certain nombre de sauvegardes incrémentielles, **BackupFolderPath** doit être défini sur le chemin d’accès local du dossier qui contient à la fois la sauvegarde complète et l’ensemble des sauvegardes incrémentielles. L’appel **RestoreAsync** peut lever une exception **FabricMissingFullBackupException** si le **BackupFolderPath** fourni ne contient pas de sauvegarde complète. Il peut également lever l’exception **ArgumentException** si **BackupFolderPath** contient une chaîne de sauvegardes incrémentielles interrompue. Par exemple, s’il contient la sauvegarde complète, les première et troisième sauvegardes incrémentielles, mais pas la deuxième sauvegarde incrémentielle.
 
 >[AZURE.NOTE] Par défaut, RestorePolicy est défini sur Sécurisé. Cela signifie que l’API **RestoreAsync** va échouer avec ArgumentException si elle détecte que le dossier de sauvegarde contient un état antérieur ou égal à l’état contenu dans ce réplica. **RestorePolicy.Force** permet d’ignorer cette vérification de sécurité. Cela est spécifié dans le cadre de **RestoreDescription**.
 
@@ -193,4 +193,10 @@ Le gestionnaire d’état fiable permet de restaurer une sauvegarde à l’aide 
 
 La méthode **RestoreAsync** supprime d’abord tout état existant dans le réplica principal sur lequel elle a été appelée. Le gestionnaire d’état fiable crée ensuite tous les objets fiables qui existent dans le dossier de sauvegarde. Les objets fiables sont alors invités à procéder à une restauration à partir de leurs points de contrôle dans le dossier de sauvegarde. Enfin, le gestionnaire d’état fiable récupère son propre état à partir d’enregistrements de journal dans le dossier de sauvegarde, puis effectue la récupération. Dans le cadre de la récupération, les opérations commençant à partir du point de départ qui ont validé des enregistrements de journal dans le dossier de sauvegarde sont relues dans les objets fiables. Cette étape garantit que l’état récupéré est cohérent.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Étapes suivantes
+
+- [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
+- [Notifications Reliable Services](service-fabric-reliable-services-notifications.md)
+- [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+
+<!---HONumber=AcomDC_0629_2016-->

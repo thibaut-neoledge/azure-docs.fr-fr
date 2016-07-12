@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Débogage d’une application web Node.js dans Azure Web Service
@@ -34,7 +34,7 @@ Pour activer la journalisation des flux stdout et stderr, vous devez créer un f
 
 Cela active la journalisation de stderr et stdout à partir de votre application Node.js.
 
-Le fichier **IISNode.yml** peut également être utilisé pour contrôler si les erreurs conviviales ou les erreurs de développement sont renvoyées au navigateur lorsqu'un échec se produit. Pour activer les erreurs de développement, ajoutez la ligne suivante au fichier **IISNode.yml** :
+Le fichier **IISNode.yml** peut également être utilisé pour contrôler si les erreurs conviviales ou les erreurs de développement sont renvoyées au navigateur lorsqu'un échec se produit. Pour activer les erreurs de développement, ajoutez la ligne suivante au fichier **IISNode.yml** :
 
 	devErrorsEnabled: true
 
@@ -46,7 +46,7 @@ Si le fichier **IISNode.yml** n’existe pas dans votre application, vous devez 
 
 > [AZURE.NOTE] Si votre application Web a été créée à l’aide des outils de ligne en commande Azure ou des applets de commande Azure PowerShell, un fichier **IISNode.yml** par défaut est automatiquement créé.
 
-Pour redémarrer l’application web, sélectionnez-la dans le [portail Azure](https://portal.azure.com), puis cliquez sur le bouton **REDÉMARRER** :
+Pour redémarrer l’application web, sélectionnez-la dans le [portail Azure](https://portal.azure.com), puis cliquez sur le bouton **REDÉMARRER** :
 
 ![bouton redémarrer][restart-button]
 
@@ -126,4 +126,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

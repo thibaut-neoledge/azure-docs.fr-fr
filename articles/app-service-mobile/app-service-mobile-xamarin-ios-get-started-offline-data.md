@@ -123,7 +123,7 @@ Dans cette section, vous allez modifier le projet client pour simuler un scénar
 
 Dans cette section, vous allez reconnecter l'application au backend mobile, ce qui simule le retour de l'application à un état en ligne. Quand vous effectuez le mouvement d'actualisation, les données sont synchronisées avec votre backend mobile.
 
-1. Ouvrez `QSTodoService.cs`. Corrigez les paramètres `applicationURL` et `gatewayURL` pour les faire pointer vers les URL correctes.
+1. Ouvrez `QSTodoService.cs`. Corrigez le paramètre `applicationURL` de manière à ce qu’il pointe vers l’URL correcte.
 
 2. Régénérez et exécutez l’application cliente. Après son lancement, l’application tente une synchronisation avec le backend d’application Azure Mobile App. Vérifiez qu’aucune exception n’est consignée dans la console de débogage.
 
@@ -135,7 +135,7 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]\(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 <!-- ##Summary
 
@@ -156,4 +156,4 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

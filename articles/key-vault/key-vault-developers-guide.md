@@ -1,6 +1,6 @@
 <properties
    pageTitle="Guide du développeur de coffre de clés | Microsoft Azure"
-   description="Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l'environnement Microsoft Azure."
+   description="Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l'environnement Microsoft Azure. "
    services="key-vault"
    documentationCenter=""
    authors="BrucePerlerMS"
@@ -87,6 +87,13 @@ Les articles et scénarios suivants fournissent des conseils spécifiques sur l�
 
 Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles ARM de Ryan Jones pour le coffre de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
 
+## Intégration avec Key Vault
+
+Ces articles concernent d’autres scénarios et services qui utilisent ou intègrent Key Vault.
+
+- [Azure Disk Encryption](../azure-security-disk-encryption.md) s’appuie sur la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) de Windows et la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données. La solution est intégrée à Azure Key Vault pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets de votre abonnement au coffre de clés, tout en vous assurant que toutes les données des disques virtuels sont chiffrées au repos dans le stockage Azure.
+
+
 ## Bibliothèques connexes
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) fournit les interfaces `IKey` et `IKeyResolver` pour localiser des clés à partir d’identificateurs et effectuer des opérations avec des clés.
@@ -97,4 +104,4 @@ Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation a
 - [Blog de Key Vault](http://aka.ms/kvblog)
 - [Forum de Key Vault](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

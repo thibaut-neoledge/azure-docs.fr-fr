@@ -4,9 +4,7 @@ Si vous souhaitez vous connecter à SQL Server via Internet, vous devez configur
 
 1. Dans le portail, sélectionnez **Machines virtuelles**, puis sélectionnez votre machine virtuelle SQL Server.
 
-2. Cliquez sur le lien **Tous les paramètres**.
-
-3. Développez la section **Interfaces réseau**.
+3. Sélectionnez alors les **Interfaces réseau**.
 
 	![interface réseau](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
@@ -24,7 +22,7 @@ Si vous souhaitez vous connecter à SQL Server via Internet, vous devez configur
 
 7. Modifiez le **protocole** sur **TCP**.
 
-8. Spécifiez 1433 pour la **plage de ports de destination** (ou le port d'écoute de votre Instance SQL Server).
+8. Spécifiez 1433 pour la **plage de ports de destination** (ou le port d’écoute de votre Instance SQL Server).
 
 9. Vérifiez que la propriété **Action** est définie sur **Autoriser**. La boîte de dialogue de la règle de sécurité doit être similaire au contenu de la capture d'écran suivante.
 
@@ -32,4 +30,4 @@ Si vous souhaitez vous connecter à SQL Server via Internet, vous devez configur
 
 9. Cliquez sur **OK** pour enregistrer la règle pour votre machine virtuelle.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0629_2016-->

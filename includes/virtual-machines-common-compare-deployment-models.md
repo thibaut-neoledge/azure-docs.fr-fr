@@ -85,12 +85,8 @@ Les quotas pour les machines virtuelles, les réseaux virtuels et les comptes de
 
 Toutes les automatisations et tous les scripts que vous avez créés continueront à fonctionner pour les machines virtuelles et les réseaux virtuels existants créés en mode Gestion des services Azure. Cependant, les scripts doivent être mis à jour afin qu’ils utilisent le nouveau schéma pour créer les mêmes ressources via le nouveau mode Gestionnaire de ressources Azure.
 
-**Les réseaux virtuels créés avec les nouvelles API Gestionnaire de ressources Azure peuvent-ils être connectés à mon circuit Express Route ?**
-
-Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connecter les réseaux virtuels créés avec les nouvelles API Gestionnaire de ressources Azure à un circuit Express Route. Cette opération sera possible à l’avenir.
-
 **Où puis-je trouver des exemples de modèles Azure Resource Manager ?**
 
 Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

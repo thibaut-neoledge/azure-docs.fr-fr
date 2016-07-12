@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="05/19/2016"
+    ms.date="06/27/2016"
     ms.author="andkjell"/>
 
 # Topologies pour Azure AD Connect
@@ -187,4 +187,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

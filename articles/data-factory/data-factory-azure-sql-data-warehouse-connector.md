@@ -29,7 +29,7 @@ Les exemples suivants indiquent comment copier des données vers et depuis Azure
 > [AZURE.NOTE] 
 Pour obtenir une vue d’ensemble du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md).
 > 
-> Cet article fournit des exemples JSON, mais ne fournit pas d’instructions détaillées pour la création une fabrique de données. Consultez le [Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-get-started.md) pour une brève procédure pas à pas de l’utilisation de l’activité de copie dans Azure Data Factory.
+> Cet article fournit des exemples JSON, mais ne fournit pas d’instructions détaillées pour la création une fabrique de données. Consultez le [Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une brève procédure pas à pas de l’utilisation de l’activité de copie dans Azure Data Factory.
 
 
 ## Exemple : copie de données depuis Azure SQL Data Warehouse vers un objet Blob Azure
@@ -37,8 +37,8 @@ Pour obtenir une vue d’ensemble du service Azure Data Factory, consultez [Pré
 L’exemple ci-dessous présente les éléments suivants :
 
 1. Un service lié de type [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties). 
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties).
 4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -464,8 +464,8 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize | Nombre entier. (unité = nombre de lignes) | Non (Valeur par défaut = 10000) |
-| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. | (Unité = intervalle de temps) Exemple : « 00:30:00 » (30 minutes). | Non | 
+| writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize | Integer | Non (valeur par défaut : 10000) |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. | intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). | Non | 
 | sqlWriterCleanupScript | Requête spécifiée par l'utilisateur pour exécuter l'activité de copie de sorte que les données d'un segment spécifique seront nettoyées. Consultez la section de répétition ci-dessous pour plus de détails. | Une instruction de requête. | Non |
 | allowPolyBase | Indique s’il faut utiliser PolyBase (le cas échéant) au lieu du mécanisme BULKINSERT pour charger des données dans Azure SQL Data Warehouse. <br/><br/>Notez que seul le jeu de données **objet blob Azure** dont le **format** est défini sur **TextFormat** comme jeu de données source est pris en charge pour le moment. La prise en charge des autres types de source sera bientôt disponible. <br/><br/>Reportez-vous à la section [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) pour connaître les contraintes et les détails. | True <br/>False (par défaut) | Non |  
 | polyBaseSettings | Groupe de propriétés pouvant être spécifié lorsque la propriété **allowPolybase** est définie sur **true**. | &nbsp; | Non |  
@@ -485,7 +485,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
     }
 
 ## Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse.
-L’utilisation de **PolyBase** est une solution efficace de chargement de grandes quantités de données dans Azure SQL Data Warehouse avec un débit élevé. Vous pouvez profiter d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut.
+L’utilisation de **PolyBase** est un moyen efficace de charger de grandes quantités de données dans Azure SQL Data Warehouse avec un débit élevé. Vous pouvez profiter d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut.
 
 Définissez la propriété **allowPolyBase** sur **true** comme indiqué dans l’exemple suivant pour Azure Data Factory pour utiliser PolyBase afin de copier les données à partir du stockage d’objets Blob Azure vers Azure SQL Data Warehouse. Lorsque vous définissez allowPolyBase sur true, vous pouvez spécifier des propriétés PolyBase spécifiques à l’aide du groupe de propriétés **polyBaseSettings**. Reportez-vous à la section [SqlDWSink](#SqlDWSink) ci-dessus pour plus d’informations sur les propriétés que vous pouvez utiliser avec polyBaseSettings.
 
@@ -508,12 +508,12 @@ Si vos données source répondent aux critères suivants, vous pouvez les copier
 
 Notez qu’Azure Data Factory contrôle les paramètres et rétablit automatiquement le mécanisme BULKINSERT pour le déplacement des données si les conditions ne sont pas remplies.
 
-1.	Le **service lié source** est de type : **Azure Storage** et il n’est pas configuré pour utiliser l’authentification SAP (signature d’accès partagé). Pour plus d’informations, consultez [Service lié Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service).  
+1.	Le **service lié source** est de type : **Azure Storage** et il n’est pas configuré pour utiliser l’authentification SAP (signature d’accès partagé). Pour plus d’informations, consultez [Service lié Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 2. Le **jeu de données d’entrée** est de type : **Azure Blob** et le type de format dans les propriétés de type est **OrcFormat** ou **TextFormat** avec les configurations ci-dessous :
-	1. **rowDelimiter** doit être **\\n**. 
-	2. **nullValue** est défini sur **une chaîne vide** (""). 
-	3. **encodingName** est défini sur **utf-8**, qui est la valeur **par défaut**. Ne la définissez pas sur une autre valeur. 
-	4. **escapeChar** et **quoteChar** ne sont pas spécifiés. 
+	1. **rowDelimiter** doit être **\\n**.
+	2. **nullValue** est défini sur **une chaîne vide** ("").
+	3. **encodingName** est défini sur **utf-8**, qui est la valeur **par défaut**. Ne la définissez pas sur une autre valeur.
+	4. **escapeChar** et **quoteChar** ne sont pas spécifiés.
 	5. **Compression** n’a pas la valeur **BZIP2**.
 	 
 			"typeProperties": {
@@ -530,14 +530,14 @@ Notez qu’Azure Data Factory contrôle les paramètres et rétablit automatique
 	                "level": "Optimal"  
     	        }  
 			},
-3.	Il n’y a aucun paramètre **skipHeaderLineCount** sous **BlobSource** pour l’activité de copie dans le pipeline. 
+3.	Il n’y a aucun paramètre **skipHeaderLineCount** sous **BlobSource** pour l’activité de copie dans le pipeline.
 4.	Il n’y a aucun paramètre **sliceIdentifierColumnName** sous **SqlDWSink** pour l’activité de copie dans le pipeline. (PolyBase garantit que toutes les données sont mises à jour ou que rien n’est mis à jour en une seule exécution. Pour définir la **répétabilité**, vous pouvez utiliser **sqlWriterCleanupScript**.
-5.	Il n’y a pas de **columnMapping** utilisé dans l’activité de copie associée. 
+5.	Il n’y a pas de **columnMapping** utilisé dans l’activité de copie associée.
 
 ### Copie intermédiaire à l’aide de PolyBase
 Si vous données source ne répondent pas aux critères présentés dans la section ci-dessus, vous pouvez activer la copie des données par le biais d’une instance du stockage d’objets blob Azure intermédiaire, auquel cas Azure Data Factory effectue les transformations nécessaires sur les données pour faire en sorte qu’elles répondent aux exigences de PolyBase en matière de format de données, avant d’utiliser PolyBase pour charger les données dans SQL Data Warehouse. Consultez la rubrique [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) pour plus d’informations sur le fonctionnement général de la copie des données par le biais d’un Blob Azure.
 
-> [AZURE.IMPORTANT] Si vous copiez des données à partir d’un magasin de données local dans Azure SQL Data Warehouse à l’aide de PolyBase pour une copie intermédiaire, vous devez installer JRE (Java Runtime Environment) sur votre ordinateur passerelle qui sera utilisé pour transformer vos données source dans un format correct. Notez que la passerelle 64 bits requiert un environnement JRE 64 bits et que la passerelle 32 bits nécessite un environnement JRE 32 bits. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605). Choisissez la version appropriée.
+> [AZURE.IMPORTANT] Si vous copiez des données à partir d’un magasin de données local dans Azure SQL Data Warehouse à l’aide de PolyBase pour une copie intermédiaire, vous devez installer JRE 8 (Java Runtime Environment) sur votre ordinateur passerelle qui sera utilisé pour transformer vos données source dans un format correct. Notez qu’une passerelle 64 bits requiert un environnement JRE 64 bits et qu’une passerelle 32 bits nécessite un environnement JRE 32 bits. Téléchargez la version appropriée à partir de [l’emplacement de téléchargements Java](http://go.microsoft.com/fwlink/?LinkId=808605).
 
 Pour utiliser cette fonctionnalité, vous devez créer un [service lié Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) qui fait référence au compte de stockage Azure qui comprend le stockage d’objets blob intermédiaire, puis spécifier les propriétés **enableStaging** et **stagingSettings** de l’activité de copie, comme indiqué ci-dessous :
 
@@ -654,4 +654,4 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -63,7 +63,7 @@ Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus�
 • Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jeton JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
-> [AZURE.IMPORTANT] Azure AD utilise le chiffrement à clé publique pour signer les jetons et vérifier leur validité. Consultez la rubrique [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) pour plus d’informations sur la logique dont vous devez disposer dans votre application pour vous assurer qu’elle est systématiquement mise à jour avec les clés les plus récentes.
+> [AZURE.IMPORTANT] Azure AD utilise le chiffrement à clé publique pour signer les jetons et vérifier leur validité. Consultez la rubrique [Informations importantes sur la substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md) pour plus d’informations sur la logique dont vous devez disposer dans votre application pour vous assurer qu’elle est systématiquement mise à jour avec les clés les plus récentes.
 
 
 • Le flux de demandes et réponses du processus d’authentification est déterminé par le protocole d’authentification utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Ces protocoles sont présentés plus en détail dans la rubrique [Protocoles d’authentification d’Azure Active Directory](active-directory-authentication-protocols.md) et dans les sections ci-dessous.
@@ -464,8 +464,8 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
 
-[Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+[Informations importantes sur la substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

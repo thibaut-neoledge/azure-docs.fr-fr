@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Protocole SAML de déconnexion unique
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Azure Active Directory (Azure AD) prend en charge le profil de déconnexion unique du navigateur web SAML 2.0. Pour que le processus de déconnexion unique puisse fonctionner correctement, Azure AD doit enregistrer ses URL de métadonnées au cours de l’inscription de l’application. Azure AD obtient l’URL de déconnexion et la clé de signature du service cloud à partir des métadonnées. Azure AD utilise la clé de signature pour vérifier la signature sur le LogoutRequest entrant, et utilise l’élément LogoutURL pour rediriger les utilisateurs une fois qu’ils sont déconnectés.
 
@@ -44,7 +42,7 @@ Le service cloud envoie un message `LogoutRequest` à Azure AD pour indiquer qu�
 
 L’élément `LogoutRequest` envoyé à Azure AD requiert les attributs suivants :
 
-- `ID` : identifie la demande de déconnexion. La valeur de `ID` ne doit pas commencer par un chiffre. La méthode classique consiste à ajouter **id** à la représentation sous forme de chaîne d’un GUID.
+- `ID` : identifie la demande de déconnexion. La valeur `ID` ne doit pas commencer par un chiffre. La méthode classique consiste à ajouter **id** à la représentation sous forme de chaîne d’un GUID.
 
 - `Version` : définissez la valeur de cet élément sur **2.0**. Cette valeur est obligatoire.
 
@@ -54,14 +52,14 @@ L’élément `LogoutRequest` envoyé à Azure AD requiert les attributs suivant
 
 ### Émetteur
 
-L’élément `Issuer` dans `LogoutRequest` doit correspondre exactement à l’un des **ServicePrincipalNames** du service cloud dans Azure AD. En règle générale, il est défini sur **l’URI de l’ID d’application** spécifié au moment de l’inscription de l’application.
+L’élément `Issuer` dans `LogoutRequest` doit correspondre exactement à l’un des **ServicePrincipalNames** du service cloud dans Azure AD. En règle générale, il est défini sur **l’URI ID d’application** spécifié au moment de l’inscription de l’application.
 
 ### NameID
 
 La valeur de l’élément `NameID` doit correspondre exactement à la valeur `NameID` de l’utilisateur déconnecté.
 ## LogoutResponse
 
-Azure AD envoie un `LogoutResponse` en réponse à un élément `LogoutRequest`. L’extrait suivant illustre un exemple d’élément `LogoutResponse`.
+Azure AD envoie une `LogoutResponse` en réponse à un élément `LogoutRequest`. L’extrait suivant illustre un exemple d’élément `LogoutResponse`.
 
 ```
 <samlp:LogoutResponse ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -74,16 +72,16 @@ Azure AD envoie un `LogoutResponse` en réponse à un élément `LogoutRequest`.
 
 ### LogoutResponse
 
-Azure AD définit les valeurs `ID`, `Version` et `IssueInstant` dans l’élément `LogoutResponse`. Il définit également l’élément `InResponseTo` sur la valeur de l’attribut `ID` du `LogoutRequest` qui a obtenu la réponse.
+Azure AD définit les valeurs `ID`, `Version` et `IssueInstant` dans l’élément `LogoutResponse`. Il définit également l’élément `InResponseTo` sur la valeur de l’attribut `ID` de l’élément `LogoutRequest` qui a obtenu la réponse.
 
 ### Émetteur
 
-Azure AD définit cette valeur sur `https://login.microsoftonline.com/<TenantIdGUID>/`, où <TenantIdGUID> correspond à l’ID client du client Azure AD.
+Azure AD définit cette valeur sur `https://login.microsoftonline.com/<TenantIdGUID>/` où <TenantIDGUID> correspond à l’ID client du client Azure AD.
 
-Pour évaluer la valeur de l’élément `Issuer`, utilisez la valeur de **l’URI d’ID d’application** spécifiée lors de l’inscription de l’application.
+Pour évaluer la valeur de l’élément `Issuer`, utilisez la valeur de **l’URI ID d’application** spécifiée lors de l’inscription de l’application.
 
 ### Statut
 
 Azure AD utilise l’élément `StatusCode` dans l’élément `Status` pour indiquer la réussite ou l’échec de la déconnexion. En cas d’échec de la tentative de déconnexion, l’élément `StatusCode` peut également contenir des messages d’erreur personnalisés.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

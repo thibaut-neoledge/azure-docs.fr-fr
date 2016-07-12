@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
@@ -48,7 +48,7 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
  
 		PS C:\> cd node
 
-4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
+4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -170,4 +170,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
   
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

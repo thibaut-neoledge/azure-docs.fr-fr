@@ -18,8 +18,7 @@
 
 # Business Intelligence de SQL Server dans les machines virtuelles Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 La galerie de machines virtuelles Microsoft Azure inclut des images qui contiennent des installations de SQL Server. Les éditions de SQL Server prises en charge dans les images de la galerie sont les mêmes fichiers d’installation que vous pouvez installer sur les ordinateurs locaux et sur les machines virtuelles. Cette rubrique résume les fonctionnalités de SQL Server Business Intelligence (BI) installées sur les images, et les étapes de configuration requises après la configuration d’une machine virtuelle. Elle décrit également les topologies de déploiement prises en charge pour les fonctionnalités et les meilleures pratiques en matière de décisionnel (BI).
 
@@ -176,13 +175,13 @@ Il existe deux flux de travail courants pour la connexion à une machine virtuel
 
 **Démarrez le Gestionnaire de configuration Reporting Services.**
 
-1. Dans **Windows Server 2012** :
+1. Dans **Windows Server 2012** :
 
 1. Dans l’écran de **démarrage**, tapez **Reporting Services** pour afficher une liste d’applications.
 
 1. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 
-1. Dans **Windows Server 2008 R2** :
+1. Dans **Windows Server 2008 R2** :
 
 1. Cliquez sur **Démarrer**, puis sur **Tous les programmes**.
 
@@ -290,9 +289,9 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 	Pour plus d’informations, consultez [Démarrer le Générateur de rapports](https://msdn.microsoft.com/library/ms159221.aspx).
 
-- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
+- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
 
-- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
+- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
 
 	![propriétés de projet ssdt pour un projet SSRS](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 
@@ -316,7 +315,7 @@ Pour installer les services supplémentaires de SQL Server, tels que Analysis Se
 
 1. Cliquez sur **Centre d’installation SQL Server**.
 
-Vous pouvez également exécuter C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe ou C:\\SQLServer\_11.0\_full\\setup.exe
+Vous pouvez également exécuter C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer\__12.0_full\\setup.exe ou C:\\SQLServer_11.0\_full\\setup.exe
 
 >[AZURE.NOTE] La première fois que vous exécutez l’installation de SQL Server, davantage de fichiers d’installation peuvent être téléchargés et nécessiter un redémarrage de la machine virtuelle et un redémarrage de l’installation de SQL Server.
 >
@@ -334,7 +333,7 @@ Les étapes de cette section **résument** l’installation d’Analysis Service
 
 1. Dans l’Assistant Installation de SQL Server, cliquez sur **Installation** dans le volet gauche, puis cliquez sur **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante**.
 
-	- Si vous voyez **Rechercher un dossier**, accédez à c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full ou c:\\SQLServer\_11.0\_full, puis cliquez sur **OK**.
+	- Si vous voyez **Rechercher un dossier**, accédez à c:\\SQLServer\_13.0_full, c:\\SQLServer_12.0_full ou c:\\SQLServer_11.0\_full, puis cliquez sur **OK**.
 
 1. Dans la page des mises à jour du produit, cliquez sur **Suivant**.
 
@@ -437,4 +436,4 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 - [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

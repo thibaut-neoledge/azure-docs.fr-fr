@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Application Web Node.js avec le service de Table Azure
@@ -72,7 +72,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 
 ### Installation express et création de la structure
 
-1. À l’aide de la ligne de commande, créez un répertoire nommé **tasklist** et accédez-y.  
+1. À l’aide de la ligne de commande, créez un répertoire nommé **tasklist** et accédez-y.
 
 2. Entrez la commande suivante pour installer le module Express.
 
@@ -423,7 +423,7 @@ Dans le dossier **views**, ouvrez le fichier **layout.jade** et remplacez son co
 
 ### Création d’un fichier de configuration
 
-Pour exécuter l'application localement, nous allons copier les informations d'identification d’Azure Storage dans un fichier de configuration. Créez un fichier nommé **config.json* *à l’aide du code JSON suivant :
+Pour exécuter l'application localement, nous allons copier les informations d'identification d’Azure Storage dans un fichier de configuration. Créez un fichier nommé **config.json* * à l’aide du code JSON suivant :
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -497,6 +497,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 	Cette commande lance un navigateur et accède à la page de téléchargement. Si vous y êtes invité, connectez-vous avec le compte associé à votre abonnement Azure.
 
 	<!-- ![The download page][download-publishing-settings] -->
+
 	Le téléchargement du fichier se lance automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement. Enregistrez le fichier et notez le chemin d'accès.
 
 2. Entrez la commande suivante pour importer les paramètres :
@@ -544,7 +545,7 @@ Dans cette étape, vous allez ajouter des variables d'environnement à la config
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Remplacez **<storage account name>** par le nom du compte de stockage créé, puis remplacez **<storage access key>** par la clé d'accès primaire de votre compte de stockage. (Utilisez les mêmes valeurs que le fichier config.json que vous avez créé précédemment).
+Remplacez **<storage account name>** par le nom du compte de stockage créé, puis remplacez **<storage access key>** par la clé d’accès primaire de votre compte de stockage. (Utilisez les mêmes valeurs que le fichier config.json que vous avez créé précédemment).
 
 L’autre possibilité consiste à définir les variables d'environnement dans le [Portail Azure](https://portal.azure.com/) :
 
@@ -636,4 +637,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0629_2016-->

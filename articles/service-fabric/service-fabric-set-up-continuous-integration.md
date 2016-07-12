@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/29/2016"
+   ms.date="06/28/2016"
    ms.author="mthalman" />
 
 # Configuration de l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services
@@ -401,7 +401,7 @@ Si une build précédente n’a pas nettoyé après avoir terminé (par exemple,
     |Nom du fichier de script|Cliquez sur le bouton **...** et accédez au répertoire **Scripts** à l’intérieur de votre projet d’application. Sélectionnez `Deploy-FabricApplication.ps1`.|
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] Un moyen simple de créer un fichier xml de profil de publication de travail consiste à le créer dans Visual Studio, comme illustré ici : https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] Un moyen simple de créer un fichier xml de profil de publication de travail consiste à le créer dans Visual Studio, comme illustré ici : https://azure.microsoft.com/fr-FR/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] Si vous souhaitez prendre en charge le déploiement de l’application sur un cluster en remplaçant l’application existante au lieu de la mettre à niveau, ajoutez cet argument Powershell: ’-OverwriteBehavior SameAppTypeAndVersion’. En outre, assurez-vous que le profil de publication sélectionné n’est pas configuré pour permettre une mise à niveau. Cela supprimera d’abord tout ApplicationType existant avant d’installer la version la plus récente.
 
@@ -437,4 +437,4 @@ Pour en savoir plus sur l’intégration continue avec les applications de Servi
  - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

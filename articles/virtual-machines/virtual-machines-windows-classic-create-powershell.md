@@ -26,7 +26,7 @@
 <br>
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-ps-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-windows-ps-create.md).
 
 
 Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerShell en vue de créer et de préconfigurer une machine virtuelle Azure basée sur Windows à l'aide d'une approche modulaire. À l'aide de cette procédure, vous pouvez créer rapidement un jeu de commandes pour une nouvelle machine virtuelle basée sur Windows et étendre un déploiement existant, ou créer plusieurs jeux de commandes qui génèrent rapidement un environnement personnalisé de développement/test ou destiné aux professionnels de l'informatique.
@@ -37,14 +37,14 @@ Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur l
 
 ## Étape 1 : Ajouter votre compte
 
-1. À l’invite PowerShell, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**. 
-2. Tapez l’adresse de messagerie associée à votre abonnement Azure, puis cliquez sur **Continuer**. 
-3. Tapez le mot de passe de votre compte. 
+1. À l’invite PowerShell, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**.
+2. Tapez l’adresse de messagerie associée à votre abonnement Azure, puis cliquez sur **Continuer**.
+3. Tapez le mot de passe de votre compte.
 4. Cliquez sur **Se connecter**.
 
 ## Étape 2 : configurer votre abonnement et votre compte de stockage
 
-Pour configurer votre abonnement et votre compte de stockage Azure, exécutez ces commandes à l’invite de commandes Windows PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Pour configurer votre abonnement et votre compte de stockage Azure, exécutez ces commandes à l’invite de commandes Windows PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < et >, par les noms appropriés.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -82,7 +82,7 @@ Si vous trouvez l'image appropriée avec cette commande, ouvrez une nouvelle ins
 
 ## Étape 4 : générer votre jeu de commandes
 
-Créez le reste de votre jeu de commandes en copiant le jeu de blocs approprié ci-dessous dans votre nouveau fichier texte ou ISE, puis en renseignant les valeurs des variables et en supprimant les caractères < and >. Pour avoir une idée du résultat final, consultez les deux [exemples](#examples) figurant à la fin de cet article.
+Créez le reste de votre jeu de commandes en copiant le jeu de blocs approprié ci-dessous dans votre nouveau fichier texte ou ISE, puis en renseignant les valeurs des variables et en supprimant les caractères < et >. Pour avoir une idée du résultat final, consultez les deux [exemples](#examples) figurant à la fin de cet article.
 
 Pour commencer, choisissez l'un des deux blocs de commandes suivants (obligatoire).
 
@@ -168,7 +168,7 @@ Option 2 : créez la machine virtuelle dans un service cloud et un réseau vir
 
 ## Étape 5 : exécuter votre jeu de commandes
 
-Passez en revue le jeu de commandes Azure PowerShell que vous avez créé dans votre éditeur de texte ou dans l’environnement d’écriture de scripts intégré de PowerShell (ISE), constitué de plusieurs blocs de commandes de l’étape 4. Vérifiez que vous avez spécifié toutes les variables nécessaires et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < and >.
+Passez en revue le jeu de commandes Azure PowerShell que vous avez créé dans votre éditeur de texte ou dans l’environnement d’écriture de scripts intégré de PowerShell (ISE), constitué de plusieurs blocs de commandes de l’étape 4. Vérifiez que vous avez spécifié toutes les variables nécessaires et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < et >.
 
 Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Windows PowerShell ouverte. Vous émettez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Vous pouvez également exécuter le jeu de commandes dans PowerShell ISE.
 
@@ -260,4 +260,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 Si vous avez besoin d’un disque de système d’exploitation supérieur à 127 Go, vous pouvez [étendre le lecteur du système d’exploitation](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

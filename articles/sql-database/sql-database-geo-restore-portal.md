@@ -21,9 +21,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-database-geo-restore.md)
-- [Portail Azure](sql-database-geo-restore-portal.md)
-- [PowerShell](sql-database-geo-restore-powershell.md)
+- [Vue d'ensemble](sql-database-recovery-using-backups.md)
+- [Restauration géographique : PowerShell](sql-database-geo-restore-powershell.md)
 
 Cet article vous explique comment restaurer votre base de données sur un nouveau serveur à l’aide de la géo-restauration en utilisant le portail Azure.
 
@@ -32,21 +31,21 @@ Cet article vous explique comment restaurer votre base de données sur un nouvea
 Pour restaurer une base de données dans le portail Azure, procédez comme suit :
 
 1.	Ouvrez le [portail Azure](https://portal.azure.com).
-2.  Sur le côté gauche de l’écran, sélectionnez **Nouveau** > **Données et stockage** > **Base de données SQL**.
+2.  Sur le côté gauche de l’écran, sélectionnez **Nouveau** > **Données et stockage** > **Base de données SQL**.
 3.  Sélectionnez **Sauvegarde** comme source, puis la sauvegarde géo-redondante à partir de laquelle vous souhaitez effectuer la récupération.
 
     ![Restaurer une base de données SQL Azure](./media/sql-database-geo-restore-portal/geo-restore.png)
 
 4.  Spécifiez un nom de base de données et le serveur sur lequel restaurer la base de données, puis cliquez sur Créer :
 
+
 ## Étapes suivantes
 
-- Pour obtenir des instructions détaillées sur la restauration d’une base de données SQL Azure à l’aide du portail Azure à partir d’une sauvegarde géo-redondante, consultez [Géo-restauration à l’aide du portail Azure](sql-database-geo-restore-portal.md)
-- Pour obtenir des informations détaillées concernant la restauration d’une base de données SQL Azure à partir d’une sauvegarde géo-redondante, consultez [Géo-restauration à l’aide de PowerShell](sql-database-geo-restore.md)
-- Pour une discussion complète sur la récupération après une panne, consultez [Récupération après une panne](sql-database-disaster-recovery.md)
+- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-## Ressources supplémentaires
-
-- [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

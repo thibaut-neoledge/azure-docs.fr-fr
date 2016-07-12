@@ -20,7 +20,7 @@
 
 #Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Vue d'ensemble
@@ -116,4 +116,4 @@ Connectez-vous avec le `user` et le `password` de votre machine virtuelle Linux,
 ##Suivant
 Pour plus d’informations sur l’utilisation de xrdp, voir [ici](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

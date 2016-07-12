@@ -77,7 +77,7 @@ Nous allons ensuite importer la configuration dans le compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
-4. Dans le panneau **Configurations DSC, cliquez sur **Ajouter une configuration**.
+4. Dans le panneau **Configurations DSC**, cliquez sur **Ajouter une configuration**.
 
 5. Dans le panneau **Importer la configuration**, recherchez le fichier `TestConfig.ps1` sur votre ordinateur.
     
@@ -96,7 +96,7 @@ Après avoir importé une configuration, vous pouvez l’afficher dans le portai
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
-4. Dans le panneau **Configurations DSC, cliquez sur **TestConfig** (il s’agit du nom de la configuration que vous avez importée dans la procédure précédente).
+4. Dans le panneau **Configurations DSC**, cliquez sur TestConfig** (il s’agit du nom de la configuration que vous avez importée dans la procédure précédente).
 
 5. Dans le panneau **Configuration de TestConfig**, cliquez sur **Afficher la source configuration**.
 
@@ -114,7 +114,7 @@ Avant de pouvoir appliquer un état souhaité à un nœud, vous devez compiler u
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
-4. Dans le panneau **Configurations DSC, cliquez sur **TestConfig** (le nom de la configuration que vous avez précédemment importée).
+4. Dans le panneau **Configurations DSC**, cliquez sur TestConfig** (le nom de la configuration que vous avez précédemment importée).
 
 5. Dans le panneau **Configuration de TestConfig**, cliquez sur **Compiler** puis sur **Oui**. Une tâche de compilation démarre.
     
@@ -132,7 +132,7 @@ Après avoir démarré une compilation, vous pouvez l’afficher dans la mosaïq
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
-4. Dans le panneau **Configurations DSC, cliquez sur **TestConfig** (le nom de la configuration que vous avez précédemment importée).
+4. Dans le panneau **Configurations DSC** , cliquez sur TestConfig** (le nom de la configuration que vous avez précédemment importée).
 
 5. Sur la mosaïque **Tâches de compilation** du panneau **Configuration de TestConfig**, cliquez sur l’une des tâches répertoriées. Un panneau **Tâche de compilation** s’ouvre en indiquant la date de démarrage de la tâche de compilation.
 
@@ -215,7 +215,7 @@ Le panneau d’un rapport vous permet d’accéder aux informations d’état su
 - L’heure de début de la vérification de cohérence.
 - Le temps total d’exécution de la vérification de cohérence.
 - Le type de vérification de cohérence.
-- Toute erreur rencontrée, avec code d’erreur et message d’erreur. 
+- Toute erreur rencontrée, avec code d’erreur et message d’erreur.
 - Toutes les ressources DSC utilisées dans la configuration, ainsi que l’état de chaque ressource (si le nœud est à l’état souhaité pour cette ressource) : vous pouvez cliquer sur chaque ressource pour obtenir des informations plus détaillées sur cette ressource.
 - Le nom, l’adresse IP et le mode de configuration du nœud.
 
@@ -266,4 +266,4 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

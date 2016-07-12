@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="04/12/2016"
-	ms.author="sethm;nberdy"/>
+	ms.author="sethm"/>
 
 # Nouveautés des concentrateurs d'événements Azure ?
 
@@ -45,4 +45,4 @@ Pour obtenir des informations détaillées sur les concentrateurs d'événements
 [didacticiel des concentrateurs d'événements]: event-hubs-csharp-ephcs-getstarted.md
 [exemple d'application complet qui utilise des concentrateurs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

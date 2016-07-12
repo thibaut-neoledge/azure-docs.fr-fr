@@ -19,7 +19,7 @@
 
 # Comment utiliser docker avec swarm
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Cette rubrique montre un moyen très simple d’utiliser [docker](https://www.docker.com/) avec [swarm](https://github.com/docker/swarm) pour créer un cluster géré par swarm dans Microsoft Azure. Quatre machines virtuelles sont créées dans Azure, une en tant que gestionnaire d'essaim et trois dans le cadre du cluster d'hôtes docker. Quand vous avez terminé, vous pouvez utiliser swarm pour voir le cluster, puis commencer à utiliser docker sur celui-ci. Par ailleurs, les appels de l’interface de ligne de commande Microsoft Azure de cette rubrique utilisent le mode de gestion de services Azure (Azure Service Management, asm).
@@ -65,7 +65,7 @@ La dernière ligne est l'id de cluster ; copiez-le quelque part, car vous le r�
 
 > [AZURE.NOTE] Pour dissiper tout doute, nous utilisons notre installation docker locale pour nous connecter à la machine virtuelle **swarm-master** dans Microsoft Azure et l'instruction **swarm-master** pour télécharger, installer et exécuter la commande **create**, qui retourne l'ID de cluster que nous utilisons ultérieurement à des fins de découverte.
 <!-- -->
-> Pour vérifier cela, exécutez `docker -H tcp://`*&lt;hostname&gt;*` images` pour répertorier les processus conteneur sur la machine **swarm-master** et sur un autre nœud à des fins de comparaison (comme nous avons exécuté la commande précédente swarm avec le commutateur **--rm**, le conteneur a été supprimé à la fin de la commande et l’utilisation de la commande **docker ps -a** ne renvoie rien) :
+> Pour vérifier cela, exécutez `docker -H tcp://`*&lt;hostname&gt;* ` images` pour répertorier les processus conteneur sur la machine **swarm-master** et sur un autre nœud à des fins de comparaison (comme nous avons exécuté la commande précédente swarm avec le commutateur **--rm**, le conteneur a été supprimé à la fin de la commande et l’utilisation de la commande **docker ps -a** ne renvoie rien) :
 
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images
@@ -137,4 +137,4 @@ Expérimentez votre essaim. Si vous êtes en manque d’inspiration, consultez l
 [docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

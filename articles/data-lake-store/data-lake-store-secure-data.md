@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Sécurisation des données stockées dans Azure Data Lake Store | Azure" 
+   pageTitle="Sécurisation des données stockées dans Azure Data Lake Store | Microsoft Azure" 
    description="Apprenez à sécuriser les données dans Azure Data Lake Store à l'aide de groupes et de listes de contrôle d'accès" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="06/22/2016"
    ms.author="nitinme"/>
 
 # Sécurisation des données stockées dans Azure Data Lake Store
@@ -26,9 +26,11 @@ La sécurisation des données dans Azure Data Lake Store se fait en trois étape
 
 3. Affectez les groupes de sécurité AAD comme listes de contrôle d'accès (ACL) sur le système de fichiers Data Lake Store.
 
-Cet article explique comment utiliser le portail Azure pour effectuer les tâches ci-dessus.
+4. En outre, vous pouvez définir une plage d’adresses IP pour les clients pouvant accéder aux données de Data Lake Store.
 
-## Configuration requise
+Cet article explique comment utiliser le portail Azure pour effectuer les tâches ci-dessus. Pour obtenir des informations détaillées sur la manière dont le Data Lake Store implémente la sécurité au niveau du compte et des données, consultez [Sécurité dans Azure Data Lake Store](data-lake-store-security-overview.md).
+
+## Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -88,7 +90,9 @@ Lorsque vous affectez des utilisateurs ou des groupes de sécurité aux comptes 
 
 ## <a name="filepermissions"></a>Affecter des utilisateurs ou un groupe de sécurité comme ACL au système de fichiers Azure Data Lake Store
 
-En affectant des groupes de sécurité ou des utilisateurs au système de fichiers Azure Data Lake, vous définissez un contrôle d'accès aux données stockées dans Azure Data Lake Store. Dans la version actuelle, vous pouvez définir des ACL uniquement au nœud racine de votre système de fichiers.
+En affectant des groupes de sécurité ou des utilisateurs au système de fichiers Azure Data Lake, vous définissez un contrôle d'accès aux données stockées dans Azure Data Lake Store.
+
+>[AZURE.NOTE] Dans la version actuelle, vous pouvez définir des ACL uniquement au nœud racine de votre compte Data Lake Store. En outre, seuls les utilisateurs ayant le rôle Propriétaire peuvent ajouter/modifier des listes de contrôle d’accès.
 
 1. Dans le panneau de votre compte Data Lake Store, cliquez sur **Explorateur de données**.
 
@@ -102,8 +106,8 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 
 	![Lister les accès standard et personnalisés](./media/data-lake-store-secure-data/adl.acl.2.png "Lister les accès standard et personnalisés")
 
-	* L’**accès standard** est l’accès de type UNIX, où vous spécifiez la lecture, l’écriture et l’exécution (rwx) pour trois classes d’utilisateurs distinctes : propriétaire, groupe et autres.
-	* L’**accès personnalisé** correspond aux listes de contrôle d’accès (ACL) POSIX, et vous permet de définir des autorisations pour des utilisateurs ou des groupes nommés spécifiques, et pas seulement pour le propriétaire du fichier ou le groupe. 
+	* **L’accès standard** est l’accès de type UNIX, où vous spécifiez la lecture, l’écriture et l’exécution (rwx) pour trois classes d’utilisateurs distinctes : propriétaire, groupe et autres.
+	* **L’accès personnalisé** correspond aux listes de contrôle d’accès (ACL) POSIX, et vous permet de définir des autorisations pour des utilisateurs ou des groupes nommés spécifiques, et pas seulement pour le propriétaire du fichier ou le groupe.
 	
 	Pour plus d'informations, consultez la page [ACL HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
 
@@ -117,9 +121,9 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 
 	Les autorisations peuvent être comprises comme suit :
 
-	* **Lecture** : si cette autorisation est définie sur un répertoire, elle donne la possibilité de lire les noms des fichiers dans le répertoire.
+	* **Lire** : si cette autorisation est définie sur un répertoire, elle donne la possibilité de lire les noms des fichiers dans le répertoire.
 	* **Écrire** : si cette autorisation est définie sur un répertoire, elle donne la possibilité de modifier les entrées dans le répertoire, comme créer un fichier, supprimer un fichier ou renommer un fichier.
-	* **Exécuter** : si cette autorisation est définie sur un répertoire, elle donne la possibilité d’accéder au contenu du fichier dans le répertoire. Elle donne également accès aux métadonnées du fichier, si le nom de fichier est connu. Cependant, cette autorisation ne vous autorise pas à répertorier les fichiers dans le répertoire, sauf si l’autorisation **Lecture** est également définie.
+	* **Exécuter** : si cette autorisation est définie sur un répertoire, elle donne la possibilité d’accéder au contenu du fichier dans le répertoire. Elle donne également accès aux métadonnées du fichier, si le nom de fichier est connu. Cependant, cette autorisation ne vous autorise pas à répertorier les fichiers dans le répertoire, sauf si l’autorisation **Lire** est également définie.
 
 	>[AZURE.NOTE] L’autorisation **Lire + Exécuter** est requise pour l’énumération des répertoires, et elle est souvent requise quand vous fournissez un accès en lecture seule aux données à un utilisateur ou à un groupe.
 
@@ -131,6 +135,12 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 	> [AZURE.IMPORTANT] Dans la version actuelle, vous pouvez avoir seulement 9 entrées sous **Accès personnalisé**. Si vous souhaitez ajouter plus de 9 utilisateurs, vous devez créer des groupes de sécurité, ajouter les utilisateurs aux groupes de sécurité et fournir à ces groupes de sécurité un accès au compte Data Lake Store.
 
 7. Si nécessaire, vous pouvez également modifier les autorisations d'accès après avoir ajouté le groupe. Cochez ou décochez la case de chaque type d'autorisation (lecture, écriture, exécution) selon que vous souhaitez retirer ou affecter cette autorisation au groupe de sécurité. Cliquez sur **Enregistrer** pour enregistrer les modifications, ou sur **Ignorer** pour annuler les modifications.
+
+## Définir la plage d’adresses IP pour accéder aux données
+
+Azure Data Lake Store vous permet de mieux verrouiller l’accès à votre magasin de données au niveau du réseau. Vous pouvez activer le pare-feu, spécifier une adresse IP ou définir une plage d’adresses IP pour vos clients approuvés. Une fois qu’il est activé, seuls les clients qui possédant des adresses IP dans la plage définie peuvent se connecter au magasin.
+
+![Paramètres de pare-feu et accès IP](./media/data-lake-store-secure-data/firewall-ip-access.png "Paramètres de pare-feu et adresse IP")
 
 ## Supprimer les groupes de sécurité d'un compte Azure Data Lake Store
 
@@ -174,4 +184,4 @@ Lorsque vous supprimez des ACL de groupes de sécurité du système de fichiers 
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

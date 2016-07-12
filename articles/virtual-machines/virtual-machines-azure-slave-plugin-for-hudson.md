@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
@@ -202,4 +202,4 @@ Hudson crée ensuite un nœud subordonné à l'aide du modèle créé dans la se
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

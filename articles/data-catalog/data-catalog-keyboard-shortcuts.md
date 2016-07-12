@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="03/31/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Raccourcis clavier pour Azure Data Catalog
@@ -92,4 +92,4 @@
 |Activer/désactiver le menu **Ouvrir dans** | ALT + O
 |Explorer le conteneur, si la ressource est un conteneur | ALT + L
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

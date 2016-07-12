@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Concepts, terminologie et hiérarchie d’entités de Scheduler
@@ -45,7 +45,7 @@ Il existe plusieurs types de travaux : les travaux HTTP (notamment les travaux H
 
 À un niveau de base, un travail planifié comporte plusieurs éléments :
 
-- L'action à effectuer lorsque le travail se déclenche  
+- L'action à effectuer lorsque le travail se déclenche
 
 - (Facultatif) L'heure d'exécution du travail
 
@@ -109,7 +109,7 @@ Le code suivant fournit un exemple complet d’un exemple de tâche planifiée. 
 
 Comme indiqué dans l’exemple de travail de Scheduler ci-dessus, une définition de travail comporte plusieurs éléments :
 
-- Heure de début (« startTime »)  
+- Heure de début (« startTime »)
 
 - Action (« action »), qui inclut l'action d'erreur (« errorAction »)
 
@@ -160,7 +160,7 @@ Voici un exemple d’action de file d’attente Service Bus.
 
 La récurrence comporte plusieurs parties :
 
-- La fréquence (frequency) : minute, heure, jour, semaine, mois, année  
+- La fréquence (frequency) : minute, heure, jour, semaine, mois, année
 
 - L'intervalle (interval) : intervalle à la fréquence donnée pour la récurrence
 
@@ -214,4 +214,4 @@ L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval*
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

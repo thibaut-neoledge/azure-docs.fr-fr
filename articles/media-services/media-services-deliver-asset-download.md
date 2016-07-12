@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Fourniture d’un élément multimédia par téléchargement
@@ -87,4 +87,4 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
 
 [de diffusion de contenu en continu](media-services-deliver-streaming-content.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

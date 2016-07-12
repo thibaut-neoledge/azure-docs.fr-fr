@@ -18,7 +18,7 @@
 
 # Transactions dans SQL Data Warehouse
 
-Comme vous le savez, SQL Data Warehouse propose la prise en charge de l’ensemble des propriétés transactionnelles. Toutefois, pour garantir que les performances de SQL Data Warehouse sont maintenues à l’échelle, certaines fonctionnalités sont limitées, par rapport à SQL Server. Cet article identifie les différences et répertorie les autres éléments disponibles.
+Comme vous le savez, SQL Data Warehouse prend en charge les transactions dans le cadre de la charge de travail de l’entrepôt de données. Toutefois, pour garantir que les performances de SQL Data Warehouse sont maintenues à l’échelle, certaines fonctionnalités sont limitées, par rapport à SQL Server. Cet article identifie les différences et répertorie les autres éléments disponibles.
 
 ## Niveaux d’isolation des transactions
 SQL Data Warehouse implémente les transactions ACID. Toutefois, l’isolation de la prise en charge des transactions se limite à `READ UNCOMMITTED`. Ce paramètre ne peut pas être modifié. Vous pouvez implémenter un certain nombre de méthodes de codage pour éviter les lectures erronées des données, si le problème se pose. Les méthodes les plus populaires reposent sur la commande CTAS et le basculement des partitions de table (souvent appelé « modèle de fenêtre glissante ») afin d’empêcher les utilisateurs d’interroger les données en cours de préparation. On utilise également des vues qui appliquent un filtre préliminaire aux données.
@@ -28,7 +28,7 @@ Une transaction de modification de données unique est limitée en taille. Aujou
 
 Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 
-* Une distribution égale des données s’est produite 
+* Une distribution égale des données s’est produite
 * La longueur de ligne moyenne est de 250 octets
 
 | DWU | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
@@ -127,6 +127,7 @@ Les voici :
 - Les transactions distribuées ne sont pas acceptées.
 - Les transactions imbriquées ne sont pas autorisées.
 - Les points de sauvegarde ne sont pas acceptés.
+- Aucune prise en charge de DDL comme `CREATE TABLE` dans une transaction définie par l’utilisateur
 
 ## Étapes suivantes
 Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
@@ -141,4 +142,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

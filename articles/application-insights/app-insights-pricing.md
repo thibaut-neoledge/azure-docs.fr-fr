@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="06/22/2016" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -48,7 +48,7 @@ Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite
 
 ## Quota mensuel
 
-* Chaque mois calendaire, votre application peut envoyer une quantité spécifique de données de télémétrie à Application Insights. Actuellement, le quota pour le niveau tarifaire gratuit est de 5 millions de points de données par mois, et beaucoup plus pour les autres schémas. Vous pouvez en acheter plus si vous atteignez le quota. Consultez le [mécanisme de tarification][pricing] pour les nombres réels. 
+* Chaque mois calendaire, votre application peut envoyer une quantité spécifique de données de télémétrie à Application Insights. Actuellement, le quota pour le niveau tarifaire gratuit est de 5 millions de points de données par mois, et beaucoup plus pour les autres schémas. Vous pouvez en acheter plus si vous atteignez le quota. Consultez le [mécanisme de tarification][pricing] pour les nombres réels.
 * Le quota varie selon le niveau de tarification que vous avez choisi.
 * Le quota est calculé à partir de minuit (UTC), le premier jour de chaque mois.
 * Le graphique de points de données indique la quantité de quota utilisée ce mois-ci.
@@ -64,7 +64,7 @@ Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite
  * Chaque mesure brute d’une [métrique](app-insights-metrics-explorer.md), comme un compteur de performances. (Les points que vous voyez sur les graphiques sont généralement des agrégats de plusieurs points de données brutes).
  * Chaque point sur un graphique de disponibilité web est également un agrégat de plusieurs points de données.
 * Vous pouvez également inspecter des points de données individuels à la source pendant le débogage :
- * Si vous exécutez votre application en mode débogage dans Visual Studio, les points de données sont enregistrés dans la fenêtre Sortie. 
+ * Si vous exécutez votre application en mode débogage dans Visual Studio, les points de données sont enregistrés dans la fenêtre Sortie.
  * Pour afficher les points de données clients, ouvrez le volet de débogage de votre navigateur (généralement, F12), puis ouvrez l’onglet Réseau.
 * Le débit de données peut (par défaut) être réduit par un [échantillonnage adaptatif](app-insights-sampling.md). Autrement dit, lorsque l’utilisation de votre application augmente, le taux de télémétrie n’augmente pas autant que vous pouviez le penser.
 
@@ -119,7 +119,7 @@ Si vous rencontrez les seuils de limitation, voici quelques opérations à effec
 * Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche.
 * [Limitez le nombre d’appels Ajax qui peuvent être signalés](app-insights-javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
 * Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
-* Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
 
 ## Échantillonnage
@@ -145,10 +145,11 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
 ## Limites de nom
 
-1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les métriques comprennent les données envoyées via TrackMetric, ainsi que des mesures sur d’autres types de données tels que des événements. Les [noms de mesure et de propriété][api] sont globaux pour chaque clé d’instrumentation et ne s’étendent pas au type de données.
-2.	Les [propriétés][apiproperties] peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
-3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
+1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les métriques comprennent les données envoyées via TrackMetric, ainsi que des mesures sur d’autres types de données tels que des événements. Les [noms de mesure et de propriété][api] sont globaux pour chaque clé d’instrumentation.
+2.	Les [propriétés][apiproperties] peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Une fois que le nombre de valeurs uniques dépasse 100, vous pouvez encore rechercher la propriété, mais vous ne pouvez plus l’utiliser pour les filtres ou le regroupement.
+3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». Les valeurs d’origine peuvent toujours être utilisées pour une recherche en texte intégral et pour le filtrage.
 
+Si vous constatez que votre application dépasse ces limites, envisagez de fractionner vos données entre différentes clés d’instrumentation, c’est-à-dire de [créer des ressources Application Insights](app-insights-create-new-resource.md) et d’envoyer des données aux nouvelles clés d’instrumentation. Vous constaterez peut-être que le résultat est mieux structuré. Vous pouvez utiliser les [tableaux de bord](app-insights-dashboards.md#dashboards) pour rassembler les différentes mesures sur le même écran, donc cette approche ne restreint pas votre capacité à les comparer.
 
 ## Synthèse des limites
 
@@ -164,4 +165,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 
 Cette rubrique explique comment exécuter des tâches d’encodage avancé avec Media Encoder Standard. La présente rubrique décrit [comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). Elle présente également la procédure à suivre pour attribuer des paramètres personnalisés et prédéfinis à la tâche d’encodage. Pour obtenir une description des éléments utilisés par les présélections, consultez [ce document](https://msdn.microsoft.com/library/mt269962.aspx).
 
-Il présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes :
+Il présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes :
 
 - [Génération de miniatures](media-services-custom-mes-presets-with-dotnet.md#thumbnails)
 - [Rognage d’une vidéo (extrait)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
@@ -34,7 +34,7 @@ Il présente les présélections personnalisées qui exécutent les tâches d’
 
 ##<a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
-Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
+Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
 - Création d’une tâche d’encodage.
 - Obtention d’une référence à l’encodeur Media Encoder Standard.
@@ -42,7 +42,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Ajout d’une tâche d’encodage au travail. 
+- Ajout d’une tâche d’encodage au travail.
 - Spécification de l’élément multimédia d’entrée à encoder.
 - Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
@@ -425,21 +425,21 @@ Assurez-vous d’examiner la section [Considérations](media-services-custom-mes
 
 ###Considérations
 
-Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
-- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
+- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
+- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
 
-	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
-	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
-	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
+	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
+	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
+	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
 
 	Vous pouvez combiner et apparier les notations à votre guise.
 	
-	En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
+	En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
 	
-	- La configuration par défaut est « Start:{Best} ».
-- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+	- La configuration par défaut est « Start:{Best} ».
+- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 ##<a id="trim_video"></a>Découpage d’une vidéo (extrait)
 
@@ -688,7 +688,7 @@ Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES
 
 ##<a id="overlay"></a>Création d’une superposition
 
-Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
+Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
 
 Après avoir défini un fichier de présélection, vous devez également indiquer à Media Services quel fichier de la ressource représente l’image de superposition et quel fichier représente la vidéo source sur laquelle vous souhaitez superposer l’image. Le fichier vidéo doit être le fichier **principal**.
 
@@ -844,7 +844,7 @@ L’exemple .NET ci-dessus définit deux fonctions : **UploadMediaFilesFromFolde
 
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupera les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
-Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
+Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
 
 Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et apporter la modification suivante :
 
@@ -959,4 +959,4 @@ Cette section présente deux présélections MES audio uniquement : Audio AAC et
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

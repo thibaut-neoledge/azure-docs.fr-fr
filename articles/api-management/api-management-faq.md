@@ -37,7 +37,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 -	[Quelle méthode de routage la gestion des API utilise-t-elle lors du déploiement sur plusieurs emplacements géographiques ?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[Puis-je créer une instance de service de gestion des API à l’aide d’un modèle ARM ?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[Puis-je utiliser un certificat SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
-
+-	[Pourquoi l’authentification échoue-t-elle lors de la tentative de clonage du référentiel GIT ?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 
 
 ### Comment puis-je poser une question à l’équipe de gestion des API ?
@@ -75,7 +75,7 @@ Oui, vous pouvez la gérer à l’aide de [l’API REST Gestion des API](https:/
 
 Vous pouvez suivez les étapes ci-dessous :
 
-1. Connectez-vous au nouveau [Portail Azure](https://portal.azure.com) 
+1. Connectez-vous au nouveau [Portail Azure](https://portal.azure.com)
 2. Accédez au groupe de ressources qui contient l’instance de gestion des API souhaitée
 3. Ajoutez l’utilisateur souhaité au rôle « collaborateur de gestion des API »
 
@@ -142,8 +142,12 @@ Oui, consultez les modèles de démarrage rapide [Service Gestion des API Azure]
 
 Oui. Suivez les étapes ci-dessous :
 
-1. Créez une entité [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) à l’aide de l’API de gestion.
+1. Créez une entité [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) à l’aide de l’API de gestion
 2. Affectez la valeur true à la propriété skipCertificateChainValidation.
 3. Lorsque vous ne souhaitez plus autoriser le certificat auto-signé, vous pouvez supprimer l’entité Backend ou affecter la valeur false à la propriété skipCertificateChainValidation.
 
-<!---HONumber=AcomDC_0601_2016-->
+### Pourquoi l’authentification échoue-t-elle lors de la tentative de clonage du référentiel GIT ? 
+
+Si vous utilisez le Gestionnaire d’informations d’identification GIT ou si vous essayez de cloner le référentiel via Visual Studio, il est possible que vous rencontriez un problème connu dans la boîte de dialogue d’informations d’identification Windows, qui limite la longueur du mot de passe à 127 caractères seulement et tronque, par conséquent, le mot de passe que nous générons. Nous travaillons au raccourcissement du mot de passe. Pour l’instant, utilisez GIT Bash pour le clonage.
+
+<!---HONumber=AcomDC_0629_2016-->

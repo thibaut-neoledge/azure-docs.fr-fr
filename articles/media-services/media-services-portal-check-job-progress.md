@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Procédure : vérification de la progression des tâches
@@ -26,7 +26,7 @@
 ##Utilisation du portail pour vérifier l’état de la tâche
 
 1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Media Services**, puis sur le nom du compte Media Services.
-2. Sélectionnez la page **TÂCHES**. 
+2. Sélectionnez la page **TÂCHES**.
 
 	Sur cette page, vous pouvez voir l’état de toutes vos tâches. Vous pouvez également filtrer par état, heure ou ID de tâche.
 
@@ -50,4 +50,4 @@ Publiez votre contenu. Pour plus d'informations, consultez [Procédure : encoda
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

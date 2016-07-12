@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/01/2016"
+   ms.date="06/22/2016"
    ms.author="carlrab"/>
 
 # Explorer les démarrages rapides de la solution de base de données SQL Azure
@@ -30,7 +30,7 @@ Ce démarrage rapide apporte une solution pour la collecte et l’analyse de l�
 
 Ce démarrage rapide apporte une solution pour un scénario software as a solution (SaaS) qui s’appuie sur des pools élastiques pour obtenir une base de données principale économique et évolutive d’une application SaaS. Dans cette solution, nous vous guiderons dans l’implémentation d’une application web qui vous permettra de visualiser la charge créée sur un pool élastique par un générateur de charge à l’aide d’un tableau de bord personnalisé en complément du portail Azure.
 
-[Saas-scenario-with-elastic-pools](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) dans le référentiel GitHub d’exemples SQL Server fournit un générateur de charge et une application web de surveillance, ainsi que la documentation de son rôle et de son utilisation.
+Le [tableau de bord personnalisé du pool élastique pour SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) dans le référentiel GitHub d’exemples SQL Server fournit un générateur de charge et une application web de surveillance, ainsi que la documentation de son rôle et de son utilisation.
 
 ## Création d’une base de données SQL Azure à l’aide d’Entity Framework et le développement Code First
 
@@ -52,4 +52,4 @@ Cet exemple est une application web multi-locataires, appelée Surveys, qui perm
 
 [Exploration des didacticiels relatifs à la base de données SQL Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

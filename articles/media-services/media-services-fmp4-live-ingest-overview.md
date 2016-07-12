@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"    
+	ms.date="06/22/2016"     
 	ms.author="cenkdin;juliako"/>
 
 #Spécification d'ingestion en direct au format MP4 fragmenté Azure Media Services
@@ -52,7 +52,7 @@ Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquen
 5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox (’mfra’) qui PEUT être envoyée à la fin de la réception en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser l'[arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
 6. La durée du fragment MP4 DOIT être une constante, afin de réduire la taille des manifestes du client et d'améliorer les heuristiques de téléchargement client via l'utilisation de balises de répétition. La durée PEUT varier pour compenser les fréquences d'images non entières.
 7. La durée du fragment MP4 DOIT être comprise entre environ 2 et 6 secondes.
-8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment\_absolute\_time et fragment\_index) DOIVENT normalement arriver dans l’ordre croissant. Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
+8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment_ absolute_ time and fragment\_index) DOIVENT normalement arriver dans l’ordre croissant. Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
 
 ##4\. Format de protocole – HTTP
 
@@ -66,9 +66,9 @@ Voici les spécifications détaillées :
 
 1. L'encodeur DOIT démarrer la diffusion en envoyant une requête HTTP POST avec un « corps » vide (longueur de contenu nulle) à l'aide de la même URL d'ingestion. Cela peut aider à détecter rapidement si le point de terminaison d'ingestion en direct est valide et s'il existe une authentification ou d'autres conditions requises. Conformément au protocole HTTP, le serveur n'est pas capable de renvoyer une réponse HTTP tant que la requête entière, y compris le corps POST, n'est pas reçue. Étant donné la longue durée d'un événement en direct, sans cette étape, l'encodeur risque de ne pas pouvoir détecter d'éventuelles erreurs tant qu'il n'a pas terminé d'envoyer toutes les données.
 2. Le codeur DOIT gérer toutes les erreurs ou demandes d'authentification suite à (1). Si (1) réussit avec une réponse 200, continuez.
-3. L'encodeur DOIT démarrer une nouvelle requête HTTP POST avec le flux MP4 fragmenté. La charge utile DOIT commencer par les zones d'en-tête suivies des fragments. Notez que la zone « ftyp », « Live Server Manifest Box » et « moov » (dans cet ordre) DOIT être envoyée avec chaque requête, même si l'encodeur doit se reconnecter, car la requête précédente a été interrompue avant la fin du flux. 
+3. L'encodeur DOIT démarrer une nouvelle requête HTTP POST avec le flux MP4 fragmenté. La charge utile DOIT commencer par les zones d'en-tête suivies des fragments. Notez que la zone « ftyp », « Live Server Manifest Box » et « moov » (dans cet ordre) DOIT être envoyée avec chaque requête, même si l'encodeur doit se reconnecter, car la requête précédente a été interrompue avant la fin du flux.
 4. L'encodeur DOIT utiliser l'encodage de transfert en bloc pour le téléchargement, puisqu'il est impossible de prédire la longueur totale du contenu de l'événement en direct.
-5. Quand l'événement est terminé, après l'envoi du dernier fragment, l'encodeur DOIT gracieusement mettre fin à la séquence de message de l'encodage de transfert en bloc (la plupart des piles de client HTTP gère cela automatiquement). L'encodeur DOIT attendre que le service retourne le code de réponse finale, puis mettre fin à la connexion. 
+5. Quand l'événement est terminé, après l'envoi du dernier fragment, l'encodeur DOIT gracieusement mettre fin à la séquence de message de l'encodage de transfert en bloc (la plupart des piles de client HTTP gère cela automatiquement). L'encodeur DOIT attendre que le service retourne le code de réponse finale, puis mettre fin à la connexion.
 6. L’encodeur NE DOIT PAS utiliser le nom Events() comme décrit à la section 9.2 dans [1] pour l’ingestion en direct dans Microsoft Azure Media Services.
 7. Si la requête HTTP POST se termine ou arrive à expiration avant la fin du flux avec une erreur TCP, l'encodeur DOIT émettre une nouvelle requête POST à l'aide d'une nouvelle connexion et suivre les spécifications ci-dessus en plus de respecter l'exigence supplémentaire stipulant que l'encodeur DOIT renvoyer les deux fragments MP4 précédents pour chaque piste dans le flux, puis reprendre sans introduire de discontinuités dans la chronologie du média. Le renvoi des deux derniers fragments MP4 pour chaque piste garantit l'absence de perte de données. En d'autres termes, si un flux contient à la fois une piste audio et vidéo, et si la requête POST en cours échoue, l'encodeur doit se reconnecter et renvoyer les deux derniers fragments de la piste audio, lesquels ont déjà été envoyés correctement, ainsi que les deux derniers fragments de la piste vidéo, lesquels ont déjà été envoyés correctement, pour garantir l'absence de perte de données. L'encodeur DOIT conserver un tampon « de transfert » des fragments multimédias, qu'il renvoie lors de la reconnexion.
 
@@ -119,8 +119,8 @@ Ce qui précède ne constitue PAS la liste exhaustive de toutes les options d'in
 Dans cette section, nous aborderons les scénarios de basculement du service. Le cas échéant, la défaillance se produit quelque part au sein du service et se traduit par une erreur de réseau. Voici quelques recommandations sur l'implémentation de l'encodeur pour gérer le basculement du service :
 
 
-1. Utilisez un délai d'expiration de 10 secondes pour établir la connexion TCP. Si une tentative d'établissement de la connexion prend plus de 10 secondes, abandonnez l'opération et réessayez. 
-2. Utilisez un court délai d'expiration pour l'envoi des fragments de message de la requête HTTP. Si la durée du fragment MP4 cible s'élève à N secondes, utilisez un délai d'expiration d'envoi compris entre N et 2N secondes. Par exemple, utilisez un délai d'expiration compris entre 6 et 12 secondes si la durée du fragment MP4 est de 6 secondes. En cas d'expiration, réinitialisez la connexion, ouvrez une nouvelle connexion et reprenez l'ingestion du flux sur la nouvelle connexion. 
+1. Utilisez un délai d'expiration de 10 secondes pour établir la connexion TCP. Si une tentative d'établissement de la connexion prend plus de 10 secondes, abandonnez l'opération et réessayez.
+2. Utilisez un court délai d'expiration pour l'envoi des fragments de message de la requête HTTP. Si la durée du fragment MP4 cible s'élève à N secondes, utilisez un délai d'expiration d'envoi compris entre N et 2N secondes. Par exemple, utilisez un délai d'expiration compris entre 6 et 12 secondes si la durée du fragment MP4 est de 6 secondes. En cas d'expiration, réinitialisez la connexion, ouvrez une nouvelle connexion et reprenez l'ingestion du flux sur la nouvelle connexion.
 3. Conservez un tampon de substitution contenant les deux derniers fragments, pour chaque piste, qui ont été correctement et complètement envoyés au service. Si la requête HTTP POST d'un flux est arrêtée ou arrive à expiration avant la fin du flux, ouvrez une nouvelle connexion et commencez une autre requête HTTP POST, renvoyez les en-têtes du flux, renvoyez les deux derniers fragments de chaque piste et reprenez le flux sans introduire de discontinuités dans la chronologie du média. Les risques de perte de données sont ainsi réduits.
 4. Il est recommandé que l'encodeur ne limite PAS le nombre de nouvelles tentatives de connexion ou de reprise de la diffusion en continu suite à une erreur TCP.
 5. Après une erreur TCP :
@@ -144,7 +144,7 @@ Voici les attentes du point de terminaison d'ingestion en direct en cas de bascu
 3. La requête POST du nouvel encodeur DOIT inclure les mêmes zones d'en-tête MP4 fragmenté que l'instance défaillante.
 4. Le nouvel encodeur DOIT être correctement synchronisée avec tous les autres encodeurs en cours d'exécution pour la même présentation en direct pour générer des échantillons audio/vidéo synchronisés avec des limites de fragments alignées.
 5. Le nouveau flux DOIT être sémantiquement équivalent au flux précédent et interchangeables au niveau de l'en-tête et du fragment.
-6. Le nouvel encodeur DOIT tenter de minimiser les pertes de données. Les valeurs fragment\_absolute\_time et fragment\_index des fragments multimédias DOIVENT augmenter à partir du point où l'encodeur s'est arrêté la dernière fois. Les valeurs fragment\_absolute\_time et fragment\_index DOIVENT augmenter de façon continue, mais il est possible d'introduire une discontinuité si besoin. Azure Media Services ignore les fragments déjà reçus et traités. Une erreur du côté du renvoi des fragments est donc préférable à l'introduction de discontinuités dans la chronologie du média. 
+6. Le nouvel encodeur DOIT tenter de minimiser les pertes de données. Les valeurs fragment\_absolute\_time et fragment\_index des fragments multimédias DOIVENT augmenter à partir du point où l'encodeur s'est arrêté la dernière fois. Les valeurs fragment\_absolute\_time et fragment\_index DOIVENT augmenter de façon continue, mais il est possible d'introduire une discontinuité si besoin. Azure Media Services ignore les fragments déjà reçus et traités. Une erreur du côté du renvoi des fragments est donc préférable à l'introduction de discontinuités dans la chronologie du média.
 
 ##9\. Redondance de l'encodeur 
 
@@ -177,12 +177,12 @@ Voici une implémentation recommandée pour l'ingestion d'une piste partiellemen
 3. Dans la zone « Live Server Manifest Box », manifestOutput DOIT avoir la valeur « true ».
 4. Étant donné la nature partiellement allouée de l'événement de signalisation, voici ce que nous recommandons :
 	1. Au début de l'événement en direct, l'encodeur envoie les zones d'en-tête initiales au service, ce qui permet au service d'enregistrer la piste partiellement allouée dans le manifeste du client.
-	2. L'encodeur DOIT mettre fin à la requête HTTP POST quand les données ne sont pas envoyées. Une requête HTTP POST de longue durée qui n'envoie pas de données peut empêcher Azure Media Services de se déconnecter rapidement de l'encodeur en cas de mise à jour du service ou de redémarrage du serveur, puisque le serveur multimédia est temporairement bloqué dans une opération de réception sur le socket. 
-	3. Pendant que les données de signalisation ne sont pas disponibles, l'encodeur DOIT fermer la requête HTTP POST. Pendant que la requête POST est active, l'encodeur DOIT envoyer des données. 
+	2. L'encodeur DOIT mettre fin à la requête HTTP POST quand les données ne sont pas envoyées. Une requête HTTP POST de longue durée qui n'envoie pas de données peut empêcher Azure Media Services de se déconnecter rapidement de l'encodeur en cas de mise à jour du service ou de redémarrage du serveur, puisque le serveur multimédia est temporairement bloqué dans une opération de réception sur le socket.
+	3. Pendant que les données de signalisation ne sont pas disponibles, l'encodeur DOIT fermer la requête HTTP POST. Pendant que la requête POST est active, l'encodeur DOIT envoyer des données.
 	4. Lors de l'envoi de fragments partiellement alloués, l'encodeur peut définir un en-tête Content-Length explicite s'il est disponible.
 	5. Lors de l'envoi d'un fragment partiellement alloué avec une nouvelle connexion, l'encodeur DOIT commencer par envoyer les zones d'en-tête, puis les nouveaux fragments. Cette recommandation permet de gérer le cas où le basculement a eu lieu entre temps et où la nouvelle connexion est établie avec un nouveau serveur qui n'a pas vu la piste partiellement allouée auparavant.
 	6. Le fragment de piste partiellement allouée devient disponible pour le client quand le fragment de piste parent correspondant dont la valeur d'horodatage est égale ou supérieure est mis à la disposition du client. Par exemple, si le fragment partiellement alloué a un horodatage de t=1000, il est attendu après que le client visualise le fragment vidéo (en supposant que le nom de la piste parent est une vidéo) 1000 ou au-delà. Il peut télécharger le fragment partiellement alloué t=1000. Notez que le signal réel peut très bien servir à un autre emplacement dans la chronologie de la présentation pour sa fonction désignée. Dans l'exemple ci-dessus, le fragment partiellement alloué de t=1000 peut avoir une charge utile XML pour insérer une publicité à un emplacement situé quelques secondes plus tard.
-	7. La charge utile du fragment de piste partiellement alloué peut être dans différents formats (par exemple, XML, texte ou binaire, etc.) en fonction de différents scénarios. 
+	7. La charge utile du fragment de piste partiellement alloué peut être dans différents formats (par exemple, XML, texte ou binaire, etc.) en fonction de différents scénarios.
 
 
 ###Piste audio redondante
@@ -198,7 +198,7 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 
 1. Envoyez chaque piste audio unique dans un flux toute seule. Envoyez également un flux redondant pour chacun de ces flux de piste audio, où le deuxième flux diffère du premier uniquement par l'identificateur inclus dans l'URL HTTP POST : {protocole}://{adresse du serveur}/{chemin du point de publication}/Streams({identificateur}).
 2. Utilisez des flux distincts pour envoyer les deux débits binaires vidéo les plus bas. Chacun de ces flux DOIT également contenir une copie de chaque piste audio unique. Par exemple, quand plusieurs langues sont prises en charge, ces flux DOIVENT contenir des pistes audio pour chaque langue.
-3. Utilisez des instances de serveur (encodeur) distinctes pour encoder et envoyer les flux redondants mentionnés dans (1) et (2). 
+3. Utilisez des instances de serveur (encodeur) distinctes pour encoder et envoyer les flux redondants mentionnés dans (1) et (2).
 
 
 
@@ -221,4 +221,4 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

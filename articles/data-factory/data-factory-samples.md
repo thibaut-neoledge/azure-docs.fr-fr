@@ -42,7 +42,7 @@ Le [dépôt GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory
 ## Exemples dans le portail Azure
 Vous pouvez utiliser la vignette **exemples de pipelines** figurant dans la page d’accueil de votre fabrique de données pour déployer des exemples de pipelines et les entités associées (ensembles de données et services liés) dans votre fabrique de données.
 
-1. Créez une nouvelle fabrique de données ou ouvrez une fabrique de données existante. Consultez la page [Prise en main d’Azure Data Factory](data-factory-get-started.md#CreateDataFactory) pour connaître les étapes de la création d’une fabrique de données.
+1. Créez une nouvelle fabrique de données ou ouvrez une fabrique de données existante. Consultez la page [Prise en main d’Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#CreateDataFactory) pour connaître les étapes de la création d’une fabrique de données.
 2. Dans le panneau **DATA FACTORY** pour la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
 
 	![Vignette Exemples de pipelines](./media/data-factory-samples/SamplePipelinesTile.png)
@@ -61,7 +61,7 @@ Vous pouvez utiliser la vignette **exemples de pipelines** figurant dans la page
 	![État du déploiement](./media/data-factory-samples/DeploymentStatus.png)
 
 6. Lorsque vous voyez le message **Déploiement réussi** sur la vignette de l’exemple, fermez le panneau **Exemples de pipelines**.
-5. Dans le panneau **DATA FACTORY**, vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
+5. Dans le panneau **DATA FACTORY**, vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.
 
 	![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
@@ -77,31 +77,31 @@ Les composants suivants doivent être installés sur votre ordinateur :
 
 ### Utilisation de modèles de fabrique de données
 
-1. Cliquez sur **Fichier** dans le menu, pointez sur **Nouveau**, puis cliquez sur **Projet**. 
-2. Dans la boîte de dialogue **Nouveau projet**, procédez comme suit : 
-	1. Sous **Modèles**, sélectionnez **DataFactory**. 
-	2. Dans le volet droit, sélectionnez **Modèles de fabrique de données**. 
-	3. Entrez un **nom** pour le projet. 
-	4. Sélectionnez un **emplacement** pour le projet. 
-	5. Cliquez sur **OK**. 
+1. Cliquez sur **Fichier** dans le menu, pointez sur **Nouveau**, puis cliquez sur **Projet**.
+2. Dans la boîte de dialogue **Nouveau projet**, procédez comme suit :
+	1. Sous **Modèles**, sélectionnez **DataFactory**.
+	2. Dans le volet droit, sélectionnez **Modèles de fabrique de données**.
+	3. Entrez un **nom** pour le projet.
+	4. Sélectionnez un **emplacement** pour le projet.
+	5. Cliquez sur **OK**.
 
 	![Boîte de dialogue Nouveau projet](./media/data-factory-samples/vs-new-project-adf-templates.png)
-6. Dans la boîte de dialogue **Modèles de fabrique de données**, sélectionnez l’exemple de modèle dans la section **Modèles de cas d’utilisation**, puis cliquez sur **Suivant**. La procédure suivante décrit l’utilisation du modèle **Analyse des profils des clients**. Les étapes sont similaires pour les autres exemples. 
+6. Dans la boîte de dialogue **Modèles de fabrique de données**, sélectionnez l’exemple de modèle dans la section **Modèles de cas d’utilisation**, puis cliquez sur **Suivant**. La procédure suivante décrit l’utilisation du modèle **Analyse des profils des clients**. Les étapes sont similaires pour les autres exemples.
 
-	![Boîte de dialogue Modèles de fabrique de données](./media/data-factory-samples/vs-data-factory-templates-dialog.png) 
+	![Boîte de dialogue Modèles de fabrique de données](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 7. Dans la boîte de dialogue **Configuration de Data Factory**, cliquez sur **Suivant** dans la page **Principes de base de Data Factory**.
-8. Dans la page **Configurer une fabrique de données**, procédez comme suit : 
+8. Dans la page **Configurer une fabrique de données**, procédez comme suit :
 	1. Pour les besoins de cette procédure pas à pas, sélectionnez **Créer une fabrique de données**. Vous pouvez également sélectionner **Utiliser une fabrique de données existante**.
 	2. Entrez un **nom** pour la fabrique de données.
-	3. Sélectionnez l’**abonnement Azure** dans lequel vous voulez créer la fabrique de données. 
+	3. Sélectionnez l’**abonnement Azure** dans lequel vous voulez créer la fabrique de données.
 	4. Sélectionnez le **groupe de ressources** pour la fabrique de données.
 	5. Sélectionnez **États-Unis de l’Ouest**, **États-Unis de l’Est** ou **Europe du Nord** pour la **région**.
-	6. Cliquez sur **Next**. 
-9. Dans la page **Configurer des banques de données**, spécifiez une **base de données SQL Azure** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant. 
-10. Dans la page **Configurer le calcul**, sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**. 
-11. Dans la page **Résumé**, passez en revue tous les paramètres, puis cliquez sur **Suivant**. 
+	6. Cliquez sur **Next**.
+9. Dans la page **Configurer des banques de données**, spécifiez une **base de données SQL Azure** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant.
+10. Dans la page **Configurer le calcul**, sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**.
+11. Dans la page **Résumé**, passez en revue tous les paramètres, puis cliquez sur **Suivant**.
 12. Dans la page **État du déploiement** , patientez jusqu’à ce que le déploiement soit terminé, puis cliquez sur **Terminer**.
-13. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**. 
+13. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 19. Si la boîte de dialogue **Connectez-vous à votre compte Microsoft** s'affiche, entrez vos informations d'identification pour le compte qui dispose de l'abonnement Azure, puis cliquez sur **Se connecter**.
 20. La boîte de dialogue suivante doit s’afficher :
 
@@ -109,12 +109,12 @@ Les composants suivants doivent être installés sur votre ordinateur :
 
 21. Dans la page **Configurer une fabrique de données**, procédez comme suit :
 	1. Confirmez l’option **Utiliser une fabrique de données existante**.
-	2. Sélectionnez la **fabrique de données** que vous aviez sélectionnée en utilisant le modèle ci-dessus. 
-	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (utilisez la touche **TABULATION** pour passer au champ Nom si le bouton **Suivant** est désactivé.) 
-23. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.     
+	2. Sélectionnez la **fabrique de données** que vous aviez sélectionnée en utilisant le modèle ci-dessus.
+	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (utilisez la touche **TABULATION** pour passer au champ Nom si le bouton **Suivant** est désactivé.)
+23. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.
 24. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l’**état du déploiement**.
-25. Dans la page **État du déploiement**, vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer. 
+25. Dans la page **État du déploiement**, vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer.
 
 Pour plus d’informations sur l’utilisation de Visual Studio pour créer des entités Data Factory et les publier sur Azure, consultez [Créer votre première fabrique de données (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

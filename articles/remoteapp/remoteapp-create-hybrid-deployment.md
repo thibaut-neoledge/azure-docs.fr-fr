@@ -20,7 +20,7 @@
 
 Il existe deux types de collection Azure RemoteApp :
 
-- Cloud : réside complètement dans Azure . Vous pouvez soit enregistrer toutes les données dans le cloud (la collection se trouve uniquement dans le cloud), soit connecter votre collection à un réseau virtuel et enregistrer vos données dans celui-ci.   
+- Cloud : réside complètement dans Azure . Vous pouvez soit enregistrer toutes les données dans le cloud (la collection se trouve uniquement dans le cloud), soit connecter votre collection à un réseau virtuel et enregistrer vos données dans celui-ci.
 - Hybride : inclut un réseau virtuel pour l'accès local (nécessite Azure AD et un environnement Active Directory local).
 
 Vous ne savez pas de quoi vous avez besoin ? Consultez [De quel type de collection avez-vous besoin pour Azure RemoteApp ?](remoteapp-collections.md)
@@ -112,7 +112,7 @@ En cas d'association d'une image de modèle existante, il vous suffit de spécif
 
 Azure RemoteApp exige que vous intégriez Azure Active Directory soit 1) en configurant la synchronisation Azure Active Directory avec l’option de synchronisation de mot de passe ou 2) en configurant Azure Active Directory sans option de synchronisation de mot de passe, mais à l’aide d’un domaine fédéré à AD FS.
 
-Consultez [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx). Cet article vous permet de configurer l'intégration de répertoires en 4 étapes.
+Consultez [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/). Cet article vous permet de configurer l'intégration de répertoires en 4 étapes.
 
 Pour plus d'informations sur la planification, consultez la rubrique [Programme de synchronisation d'annuaires](http://msdn.microsoft.com//library/azure/hh967642.aspx).
 
@@ -149,4 +149,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 ### Vos commentaires nous aideront à mieux vous servir
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

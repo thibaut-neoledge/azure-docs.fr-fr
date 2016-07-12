@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Forum aux Questions
@@ -35,8 +35,8 @@ Consultez la [page de tarification de Data Factory][adf-pricing-details] pour pl
 ### comment prendre en main Azure Data Factory ?
 
 - Pour obtenir une vue d'ensemble d'Azure Data Factory, consultez [Présentation d'Azure Data Factory](data-factory-introduction.md).
-- Pour obtenir un didacticiel sur la façon de **copier/déplacer des données** au moyen de l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-get-started.md).
-- Pour obtenir un didacticiel sur la façon de **transformer des données** au moyen de l’activité Hive de HDInsight, Consultez [Traiter des données en exécutant un script Hive sur un cluster Hadoop](data-factory-build-your-first-pipeline.md). 
+- Pour obtenir un didacticiel expliquant comment **copier/déplacer des données** au moyen de l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Pour obtenir un didacticiel sur la façon de **transformer des données** au moyen de l’activité Hive de HDInsight, Consultez [Traiter des données en exécutant un script Hive sur un cluster Hadoop](data-factory-build-your-first-pipeline.md).
   
 ### dans quelle région sera disponible Data Factory ?
 Data Factory est disponible dans les régions **Ouest des États-Unis** et **Europe du Nord**. Les services de calcul et de stockage utilisés par les fabriques de données peuvent être proposés dans d'autres régions. Consultez [Régions prises en charge](data-factory-introduction.md#supported-regions).
@@ -73,7 +73,7 @@ Oui. Utilisez le bouton **Déplacer** sur votre panneau Data Factory comme indiq
 ### Quels sont les différents types d’activités que vous pouvez utiliser dans un pipeline Data Factory ? 
 
 - [Activités de déplacement des données](data-factory-data-movement-activities.md) pour déplacer les données.
-- [Activités de transformation des données](data-factory-data-transformation-activities.md) pour traiter/transformer les données. 
+- [Activités de transformation des données](data-factory-data-transformation-activities.md) pour traiter/transformer les données.
 
 ### Quand une activité s'exécute-t-elle ?
 Les paramètres de configuration de la **disponibilité** présents dans la table de données de sortie déterminent quand l'activité doit être exécutée. L'activité vérifie si toutes les dépendances de données d'entrée sont satisfaites (par exemple, l’état **Prêt**) avant de s'exécuter si des jeux de données d’entrée sont spécifiés.
@@ -81,6 +81,11 @@ Les paramètres de configuration de la **disponibilité** présents dans la tabl
 ## Activité de copie - Forum Aux Questions
 ### Est-il préférable d'avoir un pipeline avec plusieurs activités ou un pipeline distinct pour chaque activité ? 
 Les pipelines sont censés regrouper des activités connexes. Logiquement, vous pouvez conserver les activités dans un seul pipeline si les tables qui les relient ne sont pas utilisées par d'autres activités extérieures au pipeline. De cette façon, vous n'aurez pas besoin de relier les périodes actives du pipeline pour qu'elles s'accordent les unes avec les autres. En outre, l'intégrité des données dans les tables internes au pipeline est mieux préservée lors de la mise à jour du pipeline. La mise à jour d'un pipeline arrête toutes les activités du pipeline, les supprime et les crée de nouveau. En termes de création, il peut être plus facile de voir le flux de données au sein des activités connexes dans un seul fichier JSON pour le pipeline.
+
+### Où est effectuée l’opération de copie ? 
+
+Consultez la section relative au [déplacement des données disponibles à l’échelle mondiale](data-factory-data-movement-activities.md#global) pour plus d’informations. En bref, lorsqu’il s’agit d’un magasin de données local, l’opération de copie est effectuée par la passerelle de gestion des données dans votre environnement local. Lorsque le déplacement des données se fait entre deux magasins cloud, l’opération de copie est effectuée dans la région la plus proche de l’emplacement du récepteur dans la même zone géographique.
+
 
 ## Activité de HDInsight - Forum Aux Questions
 
@@ -119,7 +124,7 @@ Dans l'exemple ci-dessus, otherLinkedServiceName1 et otherLinkedServiceName2 rep
 
 ## Tranches - Forum Aux Questions
 
-### Pourquoi mes tranches d’entrée ne sont-elles pas à l’état Prêt ? 
+### Pourquoi mes tranches d’entrée ne sont-elles pas à l’état Prêt ?  
 L’une des erreurs les plus courantes est de ne pas définir la propriété **external** sur **true** dans le jeu de données d’entrée quand les données d’entrée sont externes à la fabrique de données (c’est-à-dire qu’elles n’ont pas été générées par celle-ci).
 
 Dans l’exemple suivant, vous devez uniquement définir **external** sur true pour **dataset1**.
@@ -142,14 +147,14 @@ Utilisez la propriété **offset** pour spécifier l’heure à laquelle la tran
 	    "offset": "06:00:00"
 	}
 
-Les tranches quotidiennes sont générées à **6 h** au lieu de minuit, qui est l’heure par défaut.
+Les tranches quotidiennes commencent à **6 h** au lieu de minuit, qui est l’heure par défaut.
 
 ### Comment puis-je réexécuter une tranche ?
 Vous pouvez réexécuter une tranche de l'une des manières suivantes :
 
-- Utilisez l’application Surveiller et gérer pour réexécuter une fenêtre d’activité ou une tranche. Pour obtenir des instructions, consultez [Réexécuter les fenêtres d’activité sélectionnées](data-factory-monitor-manage-app.md#re-run-selected-activity-windows).   
+- Utilisez l’application Surveiller et gérer pour réexécuter une fenêtre d’activité ou une tranche. Pour obtenir des instructions, consultez [Réexécuter les fenêtres d’activité sélectionnées](data-factory-monitor-manage-app.md#re-run-selected-activity-windows).
 - Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail.
-- Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté la valeur **En attente** à l’état de la tranche.   
+- Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté la valeur **En attente** à l’état de la tranche.
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
@@ -163,9 +168,9 @@ Vous pouvez également faire ce qui suit dans le portail Azure :
 1. Cliquez sur la vignette **Jeux de données** dans le panneau **DATA FACTORY** de votre fabrique de données.
 2. Cliquez sur le jeu de données spécifique dans le panneau **Jeux de données**.
 3. Sélectionnez la tranche qui vous intéresse dans la liste **Tranches récentes** située dans le panneau **TABLE**.
-4. Cliquez sur l'exécution dans la liste **Exécutions d'activité** située dans le panneau **TRANCHE DE DONNÉES**. 
-5. Cliquez sur la vignette **Propriétés** dans le panneau **DÉTAILS DE L'EXÉCUTION D'ACTIVITÉ**. 
-6. Une valeur doit apparaître dans le champ **DURÉE**. Il s'agit du temps nécessaire pour traiter la tranche.   
+4. Cliquez sur l'exécution dans la liste **Exécutions d'activité** située dans le panneau **TRANCHE DE DONNÉES**.
+5. Cliquez sur la vignette **Propriétés** dans le panneau **DÉTAILS DE L'EXÉCUTION D'ACTIVITÉ**.
+6. Une valeur doit apparaître dans le champ **DURÉE**. Il s'agit du temps nécessaire pour traiter la tranche.
 
 ### Comment arrêter une tranche en cours d'exécution ?
 Si vous devez arrêter l’exécution du pipeline, vous pouvez utiliser l’applet de commande [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
@@ -187,4 +192,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

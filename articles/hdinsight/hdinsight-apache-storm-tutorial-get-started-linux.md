@@ -34,9 +34,9 @@ Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel St
 
 - **Des connaissances en SSH et SCP**. Pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
 
-    - **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    - **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	- **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+	- **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Créer un cluster Storm
 
@@ -44,13 +44,13 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.2 (Storm ve
 
 1. Cliquez sur l’image suivante pour ouvrir un modèle ARM dans le portail Azure.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/fr-FR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Le modèle ARM est situé dans un conteneur blob public, **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
+    Le modèle ARM est situé dans un conteneur blob public, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
 2. À partir du panneau Paramètres, saisissez les informations suivantes :
 
-    - **ClusterName** : entrez un nom pour le cluster Hadoop que vous allez créer.
+    - **ClusterName** : entrez un nom pour le cluster Hadoop que vous allez créer.
     - **Nom d’utilisateur et mot de passe de cluster** : le nom de connexion par défaut est admin.
     - **Nom d’utilisateur et mot de passe SSH**.
     
@@ -119,25 +119,25 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
 	Cette page fournit les informations suivantes :
 
-	* **Statistiques de topologie** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
+	* **Statistiques de topologie** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
 
 		> [AZURE.NOTE] La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
 
-	* **Spouts** : informations de base sur les spouts, y compris la dernière erreur retournée par chaque spout.
+	* **Spouts** : informations de base sur les spouts, y compris la dernière erreur retournée par chaque spout.
 
-	* **Bolts** : informations de base sur les bolts.
+	* **Bolts** : informations de base sur les bolts.
 
-	* **Configuration de la topologie** : informations détaillées sur la configuration de la topologie.
+	* **Configuration de la topologie** : informations détaillées sur la configuration de la topologie.
 
 	Cette page présente également les actions qui peuvent être effectuées sur la topologie :
 
-	* **Activer** : reprend le traitement d’une topologie désactivée.
+	* **Activer** : reprend le traitement d’une topologie désactivée.
 
-	* **Désactiver** : suspend une topologie en cours d’exécution.
+	* **Désactiver** : suspend une topologie en cours d’exécution.
 
-	* **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, consultez la rubrique [Présentation du parallélisme d’une topologie Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, consultez la rubrique [Présentation du parallélisme d’une topologie Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-	* **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
+	* **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
 
 3. À partir de cette page, sélectionnez une entrée dans la section **Spouts** ou **Bolts**. Vous obtiendrez des informations relatives au composant sélectionné.
 
@@ -145,17 +145,17 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
 	Cette page affiche les informations suivantes :
 
-	* **Statistiques du spout/bolt** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
+	* **Statistiques du spout/bolt** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
 
 		> [AZURE.NOTE] La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
 
 	* **Statistiques d’entrée** (bolt uniquement) : informations sur les composants qui produisent des données consommées par le bolt.
 
-	* **Statistiques de sortie** : informations sur les données émises par ce bolt.
+	* **Statistiques de sortie** : informations sur les données émises par ce bolt.
 
-	* **Exécuteurs** : informations sur les instances de ce composant.
+	* **Exécuteurs** : informations sur les instances de ce composant.
 
-	* **Erreurs** : erreurs générées par ce composant.
+	* **Erreurs** : erreurs générées par ce composant.
 
 4. Lorsque vous affichez les détails d’un spout ou d’un bolt, sélectionnez une entrée depuis la colonne **Port** située dans la section **Exécuteurs** pour afficher les détails d’une instance spécifique du composant.
 
@@ -192,4 +192,4 @@ Si vous êtes déjà familiarisé avec le développement de topologies basées s
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -199,6 +199,6 @@ Bien que les modules d’intégration soient essentiellement des modules PowerSh
 ## Étapes suivantes
 
 - Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
-- Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module] \(Écrire un module Windows PowerShell) (https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
+- Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module(Écrire un module Windows PowerShell)](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
 
 <!---HONumber=AcomDC_0629_2016-->

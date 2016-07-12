@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Copie d'un objet blob existant dans un élément multimédia Media Services
@@ -31,19 +31,19 @@ Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/
 ##Composants requis
 
 - Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md).
-- Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
-- .NET Framework 4.5.
-- Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
+- Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
+- .NET Framework 4.5.
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
 
 ##Configuration de votre projet
 
 Dans cette section, vous aller créer et configurer un projet d'application console C#.
 
-1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. 
+1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#.
 2. Entrez CopyExistingBlobsIntoAsset pour le nom, puis cliquez sur OK.
 1. Utilisez Nuget pour ajouter des références aux DLL associées à Media Services. Dans le menu principal de Visual Studio, sélectionnez OUTILS -> Gestionnaire de package de bibliothèques -> Console du Gestionnaire de package. Dans la fenêtre de la console, tapez Install-Package windowsazure.mediaservices, puis appuyez sur Entrée.
-1. Ajoutez les autres références requises pour ce projet : System.Configuration.
-1. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
+1. Ajoutez les autres références requises pour ce projet : System.Configuration.
+1. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
 		
 		using System;
 		using System.Linq;
@@ -74,10 +74,10 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
 
 ##Copie d'objets blob à partir d'un compte de stockage dans un élément multimédia Media Services
 
-L'exemple de code ci-dessous effectue les tâches suivantes :
+L'exemple de code ci-dessous effectue les tâches suivantes :
 
-1. Crée l'instance CloudMediaContext. 
-1. Crée des instances CloudStorageAccount : \_sourceStorageAccount et \_destinationStorageAccount.
+1. Crée l'instance CloudMediaContext.
+1. Crée des instances CloudStorageAccount : \_sourceStorageAccount et \_destinationStorageAccount.
 1. Télécharge des fichiers Smooth Streaming depuis un répertoire local vers un conteneur d'objets blob qui se trouve dans \_sourceStorageAccount.\_
 1. Crée un nouvel élément multimédia. Le conteneur d'objets blob qui est créé pour cet élément multimédia se trouve dans \_destinationStorageAccount.
 1. Utilise le Kit de développement logiciel (SDK) Azure Storage pour copier les objets blob spécifiés dans le conteneur associé à l'élément multimédia.
@@ -85,7 +85,7 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 	>[AZURE.NOTE]L'opération de copie ne lève pas d'exception si le localisateur a expiré.
 
 1. Étant donné que, dans cet exemple, nous copions des fichiers Smooth Streaming, l’exemple montre comment définir le fichier .ism comme fichier principal. Si, par exemple, nous avions copié un fichier .mp4, c’est ce fichier mp4 qui serait défini comme fichier principal.
-1. Crée l'URL Smooth Streaming pour le localisateur OnDemandOrigin associé à l'élément multimédia. 
+1. Crée l'URL Smooth Streaming pour le localisateur OnDemandOrigin associé à l'élément multimédia.
 			
 		class Program
 	        {
@@ -322,4 +322,4 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

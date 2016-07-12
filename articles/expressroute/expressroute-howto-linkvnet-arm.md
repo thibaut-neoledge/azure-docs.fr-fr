@@ -34,9 +34,9 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
 
 - Vous devez utiliser la dernière version des modules Azure PowerShell (au moins la version 1.0). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 - Vous devez examiner les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
-- Vous devez disposer d’un circuit ExpressRoute actif. 
-	- Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de service de connectivité. 
-	- Vérifiez que l’homologation privée Azure est configurée pour votre circuit. Pour obtenir des instructions de routage, consultez l'article sur la [configuration du routage](expressroute-howto-routing-arm.md). 
+- Vous devez disposer d’un circuit ExpressRoute actif.
+	- Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de service de connectivité.
+	- Vérifiez que l’homologation privée Azure est configurée pour votre circuit. Pour obtenir des instructions de routage, consultez l'article sur la [configuration du routage](expressroute-howto-routing-arm.md).
 	- Vérifiez que l’homologation privée Azure est être configurée, et que l’homologation BGP entre votre réseau et Microsoft est être opérationnelle pour pouvoir activer la connectivité de bout en bout.
 	- Vérifiez qu’un réseau virtuel et une passerelle de réseau virtuel ont été créés et entièrement approvisionnés. Suivez les instructions pour créer une [passerelle VPN](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), mais assurez-vous d’utiliser `-GatewayType ExpressRoute`.
 
@@ -75,10 +75,10 @@ Le propriétaire du circuit crée une autorisation. Cela entraîne la création 
 L’extrait de code d’applet de commande ci-dessous montre comment créer une autorisation :
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
-	Set-AzureRmExpressRouteCircuit -Circuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 		
 
 La réponse contient la clé d’autorisation et le statut :
@@ -97,7 +97,7 @@ La réponse contient la clé d’autorisation et le statut :
 Le propriétaire du circuit peut vérifier toutes les autorisations émises sur un circuit donné en exécutant l’applet de commande suivante :
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
+	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 	
 
 #### Ajout d'autorisations
@@ -105,11 +105,11 @@ Le propriétaire du circuit peut vérifier toutes les autorisations émises sur 
 Le propriétaire du circuit peut ajouter des autorisations à l’aide de l’applet de commande suivante :
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
-	Set-AzureRmExpressRouteCircuit -Circuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
+	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 	
 #### Suppression des autorisations
@@ -117,7 +117,7 @@ Le propriétaire du circuit peut ajouter des autorisations à l’aide de l’ap
 Le propriétaire du circuit peut révoquer/supprimer les autorisations accordées à l’utilisateur en exécutant l’applet de commande suivante :
 
 	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-	Set-AzureRmExpressRouteCircuit -Circuit $circuit	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
 
 ### Opérations de l’utilisateur du circuit
 
@@ -138,4 +138,4 @@ Vous pouvez libérer une autorisation en supprimant la connexion qui lie le circ
 
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

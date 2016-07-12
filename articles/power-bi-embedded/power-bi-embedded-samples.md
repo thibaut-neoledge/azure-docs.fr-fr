@@ -3,8 +3,8 @@
    description="Exemples Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
-   manager="NA"
+   authors="minewiskan"
+   manager="mblythe"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Exemples
 
@@ -34,4 +34,4 @@ Pour faciliter vos premiers pas, nous avons créé un exemple d'application web 
 - [Présentation de Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

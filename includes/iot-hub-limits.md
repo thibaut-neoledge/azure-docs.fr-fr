@@ -23,6 +23,8 @@ Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT H
 | Nombre maximal de remises pour les messages de commentaire <br/> en réponse à un message cloud-à-appareil | 100 |
 | Durée de vie maximale des messages de commentaire <br/> en réponse à un message cloud-à-appareil | 2 jours |
 
+> [AZURE.NOTE] Si vous avez besoin de plus de 10 IoT hubs dans un abonnement Azure, veuillez contacter le support technique Microsoft.
+
 Le service IoT Hub limite les demandes cas de dépassement des quotas suivants :
 
 | Limitation | Valeur par hub |
@@ -33,4 +35,4 @@ Le service IoT Hub limite les demandes cas de dépassement des quotas suivants 
 | Envois cloud-à-appareil | 100/min/unité |
 | Réceptions cloud-à-appareil | 1 000/min/unité |
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Kit de développement logiciel (SDK) Resource Manager pour .Net| Microsoft Azure"
-   description="Une vue d’ensemble des exemples d’authentification et de cas d’utilisation du Kit de développement logiciel (SDK) Resource Manager pour .Net"
+   pageTitle="Kit de développement logiciel (SDK) Resource Manager pour .NET | Microsoft Azure"
+   description="Vue d’ensemble de l’authentification du Kit de développement logiciel (SDK) Resource Manager pour .NET et exemples d’utilisation"
    services="azure-resource-manager"
    documentationCenter="na"
    authors="navalev"
@@ -16,42 +16,47 @@
    ms.date="06/21/2016"
    ms.author="navale;tomfitz;"/>
 
-# Kit de développement logiciel (SDK) Azure Resource Manager pour .Net  
-Des Kits de développement logiciel (SDK) Azure Resource Manager en version préliminaire sont disponibles en plusieurs langues sur plusieurs plates-formes. Chacune de ces langue est disponible à travers leurs gestionnaires de package d’écosystème et GitHub.
+# Kit de développement logiciel (SDK) Azure Resource Manager pour .NET  
+Des Kits de développement logiciel (SDK) Azure Resource Manager en version préliminaire sont disponibles en plusieurs langues sur plusieurs plates-formes. Chacune de ces langues est disponible via le gestionnaire de package d’écosystème correspondant et GitHub.
 
-Le code dans chaque kit de développement logiciel (SDK) est généré à partir de [spécifications de l’API Azure RESTful](https://github.com/azure/azure-rest-api-specs). Ces spécifications sont open source et basées sur la spécification Swagger v2. Le code de kit de développement logiciel (SDK) est généré par le biais d’un projet open source appelé [AutoRest](https://github.com/azure/autorest). AutoRest transforme ces spécifications d’API RESTful en bibliothèques clientes dans plusieurs langues. Si vous souhaitez améliorer des aspects du code généré dans les kits de développement logiciel, l’ensemble des outils permettant de créer les kits de développement logiciels sont ouverts, disponibles gratuitement et basés sur le format de spécification API largement adopté.
+Le code dans chaque kit de développement logiciel (SDK) est généré à partir de [spécifications de l’API Azure RESTful](https://github.com/azure/azure-rest-api-specs). Disponibles en open source, ces spécifications sont basées sur la spécification Swagger 2.0. Le code des Kits de développement logiciel (SDK) est généré par le biais d’un projet open source appelé [AutoRest](https://github.com/azure/autorest). AutoRest transforme ces spécifications d’API RESTful en bibliothèques clientes dans plusieurs langues. Si vous souhaitez améliorer des aspects du code généré dans les Kits de développement logiciel (SDK), l’ensemble des outils permettant de créer les Kits de développement logiciel (SDK) sont ouverts, disponibles gratuitement et basés sur un format de spécification d’API largement répandu.
 
-Le [Kit de développement logiciel (SDK) pour .Net](https://azure.microsoft.com/downloads/) est fourni comme un ensemble de packages NuGet qui vous permet d’appeler la plupart des API exposées par Azure Resource Manager. Si le kit de développement logiciel (SDK) n’expose pas les fonctionnalités nécessaires, vous pouvez facilement le combiner à des appels habituels de l’API REST ARM en arrière-plan.
+Le [Kit de développement logiciel (SDK) pour .NET](https://azure.microsoft.com/downloads/) est un ensemble de packages NuGet qui vous permet d’appeler la plupart des API Azure Resource Manager. Si leKkit de développement logiciel (SDK) ne fournit pas les fonctionnalités nécessaires, vous pouvez facilement le combiner à des appels habituels de l’API REST Resource Manager en arrière-plan.
 
-Cette documentation n’est pas destinée à décrire tous les aspects du Kit de développement logiciel (SDK) Azure .NET, les API Azure ARM ou Visual Studio. Son objectif est plutôt de permettre une familiarisation rapide.
+Cet article n’a pas pour objet de décrire tous les aspects du Kit de développement logiciel (SDK) Azure pour .NET, les API Azure Resource Manager ou Visual Studio. Il vise à permettre une familiarisation rapide.
 
-Vous pouvez trouver [ici](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net) un exemple de projet complet téléchargeable à partir de l’endroit d’où proviennent tous les extraits de code figurant ci-dessous.
+Tous les extraits de code ci-après proviennent d’un [exemple de projet téléchargeable](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net).
 
 ## Installer les packages NuGet
 
-Les exemples de cette rubrique requièrent deux packages NuGet (outre le Kit de développement logiciel (SDK) Azure pour .NET). Dans Visual Studio, cliquez avec le bouton droit sur votre projet et sélectionnez **Gérer les packages NuGet**.
+Les exemples de cet article requièrent deux packages NuGet (outre le Kit de développement logiciel (SDK) Azure pour .NET). Pour les installer :
 
-1. Recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory** et installez la dernière version stable du package.
-2. Recherchez **Microsoft.Azure.Management.ResourceManager** et sélectionnez **Inclure la version préliminaire**. Installez la version préliminaire la plus récente (par exemple, la version 1.1.2).
+1. Dans Visual Studio, cliquez avec le bouton droit sur votre projet et sélectionnez **Gérer les packages NuGet**.
+2. Recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory** et installez la dernière version stable du package.
+3. Recherchez **Microsoft.Azure.Management.ResourceManager** et sélectionnez **Inclure la version préliminaire**. Installez la version préliminaire la plus récente (par exemple, la version 1.1.2).
 
-## Authentification
-L’authentification pour Resource Manager est gérée par Azure Active Directory (AD). Pour vous connecter à une API quelconque, vous devez tout d’abord vous authentifier auprès d’Azure AD pour recevoir un jeton d’authentification que vous pouvez transmettre à chaque requête. Pour obtenir ce jeton, vous devez d’abord créer ce que l’on appelle une application Azure AD et un principal du service qui seront utilisés pour la connexion. Pour obtenir des instructions détaillées, consultez l’un des articles suivants : [Utiliser Azure PowerShell pour créer une application Active Directory pour accéder aux ressources](resource-group-authenticate-service-principal.md), [Utiliser l’interface de ligne de commande Azure pour créer une application Active Directory pour accéder aux ressources](resource-group-authenticate-service-principal-cli.md), ou [Utiliser le portail pour créer une application Active Directory pouvant accéder aux ressources](resource-group-create-service-principal-portal.md).
+## Authentifier
+Azure Active Directory (Azure AD) gère l’authentification pour Resource Manager. Pour vous connecter à une API quelconque, vous devez tout d’abord vous authentifier auprès d’Azure AD pour recevoir un jeton d’accès que vous pouvez transmettre à chaque requête. Pour obtenir ce jeton, vous devez créer une application Azure AD et un principal du service qui seront utilisés pour la connexion. Pour obtenir des instructions détaillées, consultez l’un de ces articles :
 
-Une fois le principal du service créé, vous devez avoir les éléments suivants :
+- [Utiliser Azure PowerShell pour créer une application Active Directory pour accéder aux ressources](resource-group-authenticate-service-principal.md)
+- [Utiliser l’interface de ligne de commande Azure pour créer une application Active Directory pour accéder aux ressources](resource-group-authenticate-service-principal-cli.md)
+- [Utiliser le portail Azure pour créer une application Active Directory pouvant accéder aux ressources](resource-group-create-service-principal-portal.md)
+
+Une fois le principal du service créé, vous devez disposer des éléments suivants :
 
 - ID client ou ID d’application (GUID)
 - Clé secrète client ou mot de passe (chaîne)
-- ID client (GUID) ou nom de domaine (chaîne de caractères)
+- ID client (GUID) ou nom de domaine (chaîne)
 
-### Réception du jeton d’accès (AccessToken) à partir du code
-Le jeton d’authentification peut facilement être acquis avec les lignes de code ci-dessous, en transmettant uniquement votre ID client Azure AD, votre ID de client de l’application Azure AD et la clé secrète client de l’application Azure AD. Enregistrez le jeton pour plusieurs requêtes, car il est valide pendant 1 heure par défaut.
+### Recevoir le jeton d’accès à partir du code
+Vous pouvez acquérir le jeton d’authentification à l’aide des lignes de code suivantes, en transmettant uniquement l’ID client Azure AD, l’ID client de l’application Azure AD et la clé secrète client de l’application Azure AD. Enregistrez le jeton pour plusieurs requêtes, car il est valide pendant une heure par défaut.
 
 ```csharp
 private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenantId, string clientId, string clientSecret)
 {
-    Console.WriteLine("Aquiring Access Token from Azure AD");
+    Console.WriteLine("Acquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
-        ("https://login.windows.net/" /* AAD URI */
+        ("https://login.windows.net/" /* Azure AD URI */
             + $"{tenantId}" /* Tenant ID */);
 
     var credential = new ClientCredential(clientId, clientSecret);
@@ -63,23 +68,23 @@ private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenan
 }
 ```
 
-Au lieu d’utiliser l’ID client pour la connexion, vous pouvez utiliser le domaine Active Directory, comme indiqué ci-dessous. Cette approche nécessite de modifier la signature de méthode pour inclure le nom de domaine au lieu de l’ID client.
+Au lieu d’utiliser l’ID client pour la connexion, vous pouvez utiliser le domaine Azure AD, comme indiqué dans le code suivant. Cette approche nécessite de modifier la signature de méthode de manière qu’elle inclue le nom de domaine au lieu de l’ID client.
 
 ```csharp
 AuthenticationContext authContext = new AuthenticationContext
-    ("https://login.windows.net/" /* AAD URI */
+    ("https://login.windows.net/" /* Azure AD URI */
     + $"{domain}.onmicrosoft.com");
 ```
 
-Vous pouvez obtenir le jeton d’accès pour une application Active Directory utilisant un certificat pour l’authentification à l’aide du code suivant :
+Vous pouvez obtenir le jeton d’accès pour une application Azure AD utilisant un certificat pour l’authentification à l’aide du code suivant :
 
 ```csharp
 private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(string tenantId, string clientId, string certName)
 {
-    Console.WriteLine("Aquiring Access Token from Azure AD");
+    Console.WriteLine("Acquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
-        ("https://login.windows.net/" /* AAD URI */
-        + $"{tenantId}" /* Tenant ID or AAD domain */);
+        ("https://login.windows.net/" /* Azure AD URI */
+        + $"{tenantId}" /* Tenant ID or Azure AD domain */);
 
     X509Certificate2 cert = null;
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
@@ -105,10 +110,10 @@ private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(stri
 }
 ```
 
-### Interrogation des abonnements Azure associés à l’application authentifiée
-L’une des premières étapes que vous devriez accomplir est l’interrogation des abonnements Azure associés à l’application venant d’être authentifiée. L’ID d’abonnement pour votre abonnement cible devra être obligatoirement transmis à chaque appel d’API que vous effectuerez par la suite.
+### Interroger les abonnements Azure associés à l’application authentifiée
+Il peut être judicieux d’interroger les abonnements Azure associés à l’application venant d’être authentifiée. L’ID d’abonnement pour votre abonnement cible devra être obligatoirement transmis à chaque appel d’API que vous effectuerez par la suite.
 
-L’exemple de code ci-dessous interroge les API Azure directement à l’aide de l’API REST, et non à l’aide de fonctionnalités dans le Kit de développement logiciel (SDK) Azure pour .NET.
+L’exemple de code suivant interroge directement les API Azure à l’aide de l’API REST. Autrement dit, il n’utilise aucune fonctionnalité du Kit de développement logiciel (SDK) Azure pour .NET.
 
 ```csharp
 async private static Task<List<string>> GetSubscriptionsAsync(string token)
@@ -138,25 +143,25 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
 }
 ```
 
-Notez que JSON envoie une réponse depuis Azure à partir de laquelle les ID d’abonnement sont extraits afin de retourner une liste d’ID. Tous les appels vers les API d’Azure Resource Manager qui suivent dans cette documentation utilisent un seul ID d’abonnement Azure ; si votre application est associée à plusieurs abonnements, choisissez simplement celui qui vous convient, puis utilisez-le en tant que paramètre à l’avenir.
+Notez que vous obtenez une réponse JSON d’Azure. Vous extrayez ensuite l’ID d’abonnement de cette réponse afin de renvoyer une liste d’ID. Tous les appels vers des API Azure Resource Manager dans la suite de cet article utilisent un seul ID d’abonnement Azure. Si votre application est associée à plusieurs abonnements, choisissez simplement celui qui vous convient, puis utilisez-le en tant que paramètre à l’avenir.
 
-À partir de là, chaque appel des API Azure utiliseront le Kit de développement logiciel (SDK) Azure pour .NET. Le code sera donc légèrement différent.
+À partir de maintenant, tous les appels des API Azure utiliseront le Kit de développement logiciel (SDK) Azure pour .NET. Par conséquent, le code sera un peu différent.
 
-### Encapsulage du jeton en tant qu’objet TokenCredentials
-Tous les appels d’API suivants nécessiteront le jeton que vous avez reçu d’Azure AD au format d’un objet « TokenCredentials ». Un tel objet est créé facilement en transmettant simplement le jeton brut en tant que paramètre au constructeur de la classe.
+### Encapsuler le jeton en tant qu’objet TokenCredentials
+Tous les appels d’API suivants nécessiteront le jeton que vous avez reçu d’Azure AD au format d’un objet TokenCredentials. Vous pouvez créer un tel objet en transmettant le jeton brut en tant que paramètre au constructeur de la classe.
 
 ```csharp
 var credentials = new TokenCredentials(token);
 ```
 
-Si vous disposez d’une version antérieure du package NuGet de Resource Manager (nommé **Microsoft.Azure.Management.Resources**), vous devez utiliser le code suivant :
+Si vous disposez d’une version antérieure du package NuGet de Resource Manager (nommé Microsoft.Azure.Management.Resources), vous devez utiliser le code suivant :
 
 ```csharp
 var credentials = new TokenCloudCredentials(subscriptionId, token.AccessToken);
 ```
 
-## Création d’un groupe de ressources
-Tous les éléments dans Azure se concentrent sur les groupes de ressources. Nous allons donc commencer par en créer un. Les ressources générales et les groupes de ressources sont gérés par le *ResourceManagementClient* et, comme pour tout client de gestion plus spécialisé que nous utiliserons par la suite, vous devez fournir vos informations d’identification, ainsi qu’un ID d’abonnement pour identifier l’abonnement avec lequel vous souhaitez travailler.
+## Créer un groupe de ressources
+Tous les éléments dans Azure se concentrent sur les groupes de ressources. Nous allons donc en créer un. *ResourceManagementClient* gère les ressources générales et les groupes de ressources. Pour tout client de gestion plus spécialisé que vous utiliserez par la suite, vous devez fournir vos informations d’identification et un ID d’abonnement afin d’identifier l’abonnement avec lequel vous souhaitez travailler.
 
 ```csharp
 private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location)
@@ -171,39 +176,39 @@ private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentia
 }
 ```
 
-## Création de ressources manuellement ou à l’aide de modèles
-Il existe différentes manières d’interagir avec les API de l’Azure Resource Manager, mais voici les deux méthodes principales :
+## Créer des ressources manuellement ou à l’aide de modèles
+Il existe plusieurs manières d’interagir avec les API Azure Resource Manager, mais voici les deux méthodes principales :
 
-* Manuellement, en appelant des fournisseurs de ressources spécifiques manuellement ou
-* en utilisant un modèle Azure Resource Manager (c’est-à-dire un modèle ARM)
+* Manuellement, en appelant des fournisseurs de ressources spécifiques
+* En utilisant un modèle Azure Resource Manager
 
-L’utilisation de modèles ARM présente les avantages suivants :
+L’utilisation d’un modèle Resource Manager présente les avantages suivants :
 
-* vous spécifiez de façon déclarative le résultat final que vous souhaitez obtenir plutôt que la manière dont il doit être obtenu ;
-* vous n’êtes pas obligé de traiter manuellement l’exécution parallèle de vos déploiements. ARM exécute cette opération pour vous ;
-* vous n’êtes pas obligé d’apprendre C# ou tout autre langage afin de déployer un modèle ARM, même si vous pouvez utiliser n’importe quel langage pour démarrer un déploiement basé sur un modèle ;
-* Le langage de domaine spécifique, DSL, qui est utilisé dans les modèles, est conçu à l’aide de JSON et suffisamment facile à comprendre par toute personne ayant travaillé avec JSON.
+* Vous spécifiez de façon déclarative le résultat que vous souhaitez obtenir plutôt que la manière dont il doit être obtenu.
+* Vous n’êtes pas obligé de traiter manuellement l’exécution parallèle de vos déploiements. Resource Manager exécute cette opération pour vous.
+* Vous n’êtes pas obligé d’apprendre C# ou tout autre langage afin de déployer un modèle Resource Manager, même si vous pouvez utiliser n’importe quel langage pour démarrer un déploiement basé sur un modèle.
+* Le langage spécifique au domaine (DSL) qui est utilisé dans les modèles est créé via JSON. Si vous avez déjà travaillé avec JSON, vous ne devriez pas rencontrer de difficultés.
 
 Même si les modèles permettent de profiter de tous ces avantages, nous allons commencer par vous montrer comment appeler les API manuellement.
 
-### Création d’une machine virtuelle élément par élément
-Nous disposons maintenant de notre abonnement et de notre groupe de ressources. Si nous souhaitons déployer une machine virtuelle, nous devons déterminer les éléments faisant réellement partie d’une machine virtuelle. Et ils sont nombreux :
+### Créer une machine virtuelle élément par élément
+Vous disposez de votre abonnement et de votre groupe de ressources. Si vous souhaitez déployer une machine virtuelle, vous devez savoir de quels éléments elle est constituée :
 
-* 1 ou plusieurs comptes de stockage, pour le stockage de disques persistants
-* 1 ou plusieurs adresses IP publiques (PIP) pour l’accessibilité depuis Internet (comprenant un nom DNS)
-* 1 ou plusieurs réseaux virtuels (VNET) pour la communication interne entre vos ressources
-* 1 ou plusieurs cartes d’interface réseau (NIC) pour permettre à la machine virtuelle de communiquer
-* 1 ou plusieurs machines virtuelles (VM) pour exécuter nos logiciels
+* Un ou plusieurs comptes de stockage, pour le stockage de disques persistants
+* Une ou plusieurs adresses IP publiques, pour rendre vos ressources dans Azure accessibles depuis Internet (inclut un nom DNS)
+* Un ou plusieurs réseaux virtuels, pour la communication interne entre vos ressources
+* Une ou plusieurs cartes réseau, pour permettre aux machines virtuelles de communiquer
+* Une ou plusieurs machines virtuelles, pour exécuter les logiciels
 
-Il est également intéressant de noter que certaines de ces ressources peuvent être créées en parallèle alors que d’autres ne le peuvent pas. Par exemple :
+Certaines de ces ressources peuvent être créées en parallèle, mais d’autres non. Par exemple :
 
-* les cartes d’interface réseau dépendent des adresses IP publiques et des réseaux virtuels ;
-* les machines virtuelles dépendent des cartes d’interface réseau et des comptes de stockage.
+* Les cartes réseau dépendent des adresses IP publiques et des réseaux virtuels.
+* Les machines virtuelles dépendent des cartes réseau et des comptes de stockage.
 
-Vous devez vous assurer que vous n’essayez pas d’instancier des ressources avant que les dépendances nécessaires n’aient été créées. [L’exemple](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net) complet fourni avec cette documentation montre comment vous pouvez créer efficacement vos ressources en parallèle tout en suivant ce que vous avez déjà créé.
+N’essayez pas d’instancier des ressources avant que les dépendances nécessaires aient été créées. [L’exemple](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net) complet montre comment vous pouvez créer efficacement vos ressources en parallèle tout en suivant ce que vous avez déjà créé.
 
-#### Création du compte de stockage
-Vous avez besoin d’un compte de stockage pour stocker les disques durs virtuels pour votre machine virtuelle. Si vous avez un compte de stockage existant, vous pouvez l’utiliser pour plusieurs machines virtuelles. Mais n’oubliez pas de répartir la charge sur plusieurs comptes de stockage afin de ne pas atteindre les limites. N’oubliez pas que le type de compte de stockage et son emplacement peuvent entraîner une limitation de la taille de la machine virtuelle que vous pouvez choisir dans la mesure où toutes les tailles de machines virtuelles ne sont pas disponibles dans toutes les régions et/ou pour tous les types de compte de stockage.
+#### Créer le compte de stockage
+Vous avez besoin d’un compte de stockage pour stocker les disques durs virtuels destinés à votre machine virtuelle. Si vous possédez déjà un compte de stockage, vous pouvez l’utiliser pour plusieurs machines virtuelles. Cependant, pensez à répartir la charge entre plusieurs comptes de stockage afin de ne pas atteindre les limites. Ayez également à l’esprit que le type de compte de stockage et son emplacement peuvent entraîner une limitation de la taille de la machine virtuelle sélectionnable, car toutes les tailles de machines virtuelles ne sont pas disponibles dans toutes les régions ou pour tous les types de compte de stockage.
 
 ```csharp
 private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string storageAccountName, AccountType accountType = AccountType.StandardLRS)
@@ -219,8 +224,8 @@ private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredent
 }
 ```
 
-#### Création d’une adresse IP publique (PIP)
-L’adresse IP publique est ce qui rend vos ressources dans Azure accessibles depuis Internet. Un nom de domaine qualifié complet (FQDN) vous sera affecté en même temps que l’adresse IP. Vous pouvez l’utiliser pour faciliter l’accès.
+#### Créer une adresse IP publique
+L’adresse IP publique permet de rendre vos ressources dans Azure accessibles depuis Internet. Un nom de domaine qualifié complet (FQDN) vous sera affecté en même temps que l’adresse IP. Vous pouvez l’utiliser pour faciliter l’accès.
 
 ```csharp
 private static Task<PublicIPAddress> CreatePublicIPAddressAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string pipAddressName, string pipDnsName)
@@ -232,15 +237,15 @@ private static Task<PublicIPAddress> CreatePublicIPAddressAsync(TokenCredentials
         {
             Location = location,
             DnsSettings = new PublicIPAddressDnsSettings { DomainNameLabel = pipDnsName },
-            PublicIPAllocationMethod = "Dynamic" // This sample doesn't support Static IP Addresses but could be extended to do so
+            PublicIPAllocationMethod = "Dynamic" // This sample doesn't support static IP addresses but can be extended to do so
         });
 
     return createPipTask;
 }
 ```
 
-#### Création du réseau virtuel (VNet)
-Chaque machine virtuelle créée avec les API ARM doit faire partie d’un réseau virtuel, même si elle est l’unique élément qu’il contient. Le réseau virtuel doit contenir au moins un sous-réseau, mais vous pouvez en avoir un plus grand nombre pour diviser et protéger vos ressources dans plusieurs sous-réseaux.
+#### Créer un réseau virtuel
+Chaque machine virtuelle créée avec les API Azure Resource Manager doit faire partie d’un réseau virtuel, même si elle est le seul élément de ce réseau. Le réseau virtuel doit contenir au moins un sous-réseau, mais vous pouvez utiliser plusieurs sous-réseaux pour diviser et protéger vos ressources.
 
 ```csharp
 private static Task<VirtualNetwork> CreateVirtualNetworkAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string vNetName, string vNetAddressPrefix, Subnet[] subnets)
@@ -259,8 +264,8 @@ private static Task<VirtualNetwork> CreateVirtualNetworkAsync(TokenCredentials c
 }
 ```
 
-#### Création de la carte d’interface réseau (NIC)
-La carte d’Interface réseau (NIC) permet de connecter votre machine virtuelle au réseau virtuel dans lequel elle réside. Une machine virtuelle peut disposer de nombreuses cartes d’interface réseau, et donc être associée à plusieurs réseaux virtuels. Cet exemple suppose que vous associez vos machines virtuelles à un seul réseau virtuel.
+#### Créer la carte réseau
+La carte réseau permet de connecter votre machine virtuelle au réseau virtuel dans lequel elle réside. Une machine virtuelle peut disposer de nombreuses cartes réseau, et donc être associée à plusieurs réseaux virtuels. Cet exemple suppose que vous associez vos machines virtuelles à un seul réseau virtuel.
 
 ```csharp
 private static Task<NetworkInterface> CreateNetworkInterfaceAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string nicName, string nicIPConfigName, PublicIPAddress pip, Subnet subnet)
@@ -286,8 +291,8 @@ private static Task<NetworkInterface> CreateNetworkInterfaceAsync(TokenCredentia
 }
 ```
 
-#### Création de la machine virtuelle
-Enfin, il est temps de créer la machine virtuelle elle-même. La machine virtuelle dépend directement ou indirectement de toutes les ressources créées aux étapes précédentes. Par conséquent, vous devez attendre que tous les éléments traités précédemment soient prêts avant d’essayer d’approvisionner une machine virtuelle. L’approvisionnement d’une machine virtuelle est ce qui prend le plus de temps par rapport aux autres ressources. Vous devez donc vous attendre à ce que votre application ait besoin d’un certain temps pour cette opération.
+#### Créer la machine virtuelle
+Enfin, il est temps de créer la machine virtuelle. La machine virtuelle dépend (directement ou indirectement) de toutes les ressources créées aux étapes précédentes. Par conséquent, vous devez attendre que toutes les ressources soient prêtes avant d’essayer d’approvisionner une machine virtuelle. L’approvisionnement d’une machine virtuelle prend plus de temps que la création des autres ressources. Vous devez donc vous attendre à ce que votre application ait besoin d’un certain temps pour cette opération.
 
 ```csharp
 private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location, string storageAccountName, string vmName, string vmSize, string vmAdminUsername, string vmAdminPassword, string vmImagePublisher, string vmImageOffer, string vmImageSku, string vmImageVersion, string vmOSDiskName, string nicId)
@@ -329,10 +334,10 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 }
 ```
 
-### Utilisation d’un déploiement basé sur un modèle
-Veuillez lire et suivre les indications du didacticiel [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](./virtual-machines/virtual-machines-windows-csharp-template.md) pour obtenir des instructions détaillées sur la manière de déployer un modèle.
+### Déploiement d’un modèle
+Pour obtenir des instructions détaillées sur le déploiement d’un modèle, consultez l’article [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](./virtual-machines/virtual-machines-windows-csharp-template.md).
 
-En bref, le déploiement d’un modèle est beaucoup plus facile que l’approvisionnement manuel des ressources. Et le code ci-dessous montre comment le faire en pointant sur les URI dans lesquelles se trouvent le modèle et un fichier de paramètres.
+Pour résumer, il est beaucoup plus facile de déployer un modèle que d’approvisionner manuellement les ressources. Le code suivant montre comment le faire en indiquant les URI où se trouvent le modèle et un fichier de paramètres.
 
 ```csharp
 private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCredentials credentials, string subscriptionId, string resourceGroup, string templateUri, string parametersUri)
@@ -350,8 +355,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
 }
 ```
 
-
- 
-   
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

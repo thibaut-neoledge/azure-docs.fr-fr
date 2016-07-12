@@ -36,7 +36,7 @@ Le package NuGet du fournisseur de caches de sortie Redis a une dépendance sur 
 Le package NuGet télécharge et ajoute les références d’assembly nécessaires et la section suivante au fichier web.config qui contient la configuration requise permettant à l’application ASP.NET d’utiliser le fournisseur de caches de sortie Redis.
 
     <caching>
-      <outputCachedefaultProvider="MyRedisOutputCache">
+      <outputCachedefault Provider="MyRedisOutputCache">
         <providers>
           <!--
           <add name="MyRedisOutputCache"
@@ -50,7 +50,7 @@ Le package NuGet télécharge et ajoute les références d’assembly nécessair
             operationTimeoutInMilliseconds = "5000" [number]
           />
           -->
-          <add name="MyRedisOutputCache"type="Microsoft.Web.Redis.RedisOutputCacheProvider"host="127.0.0.1"accessKey="" ssl="false"/>
+          <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
         </providers>
       </outputCache>
     </caching>
@@ -59,15 +59,15 @@ La section commentée fournit un exemple d’attributs et de paramétrage pour c
 
 Configurez les attributs avec les valeurs du panneau de votre cache sur le portail Microsoft Azure et configurez les autres valeurs selon votre choix. Pour obtenir des instructions sur l’accès aux propriétés de votre cache, consultez la section [Configuration des paramètres de cache Redis](cache-configure.md#configure-redis-cache-settings).
 
--	**host** : spécifiez le point de terminaison de votre cache.
--	**port** : utilisez votre port non SSL ou votre port SSL, selon les paramètres ssl.
--	**accessKey** : utilisez la clé primaire ou secondaire pour votre cache.
--	**ssl** : choisissez « true » si vous souhaitez sécuriser les communications cache/client avec ssl ; sinon, choisissez « false ». Veillez à spécifier le port approprié.
+-	**host** : spécifiez le point de terminaison de votre cache.
+-	**port** : utilisez votre port non SSL ou votre port SSL, selon les paramètres ssl.
+-	**accessKey** : utilisez la clé primaire ou secondaire pour votre cache.
+-	**ssl** : choisissez « true » si vous souhaitez sécuriser les communications cache/client avec ssl ; sinon, choisissez « false ». Veillez à spécifier le port approprié.
 	-	Le port non SSL est désactivé par défaut pour les nouveaux caches. Spécifiez true pour utiliser le port SSL pour ce paramètre. Pour plus d’informations sur l’activation du port non SSL, consultez la section relative aux [ports d’accès](cache-configure.md#access-ports) dans la rubrique [Configuration d’un cache](cache-configure.md).
--	**databaseId** : spécifiez la base de données à utiliser pour les données de sortie du cache. Si ce champ n’est pas spécifié, la valeur 0 sera utilisée par défaut.
--	**applicationName** : les clés sont stockées dans redis sous <AppName>\_<SessionId>\_Data. Cela permet à plusieurs applications de partager la même clé. Ce paramètre est facultatif. Si vous n’indiquez aucune valeur, une valeur par défaut sera utilisée.
--	**connectionTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre connectTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut connectTimeout 5000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
--	**operationTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre syncTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut syncTimeout 1000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+-	**databaseId** : spécifiez la base de données à utiliser pour les données de sortie du cache. Si ce champ n’est pas spécifié, la valeur 0 sera utilisée par défaut.
+-	**applicationName** : les clés sont stockées dans redis sous <AppName>\_<SessionId>\_Data. Cela permet à plusieurs applications de partager la même clé. Ce paramètre est facultatif. Si vous n’indiquez aucune valeur, une valeur par défaut sera utilisée.
+-	**connectionTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre connectTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut connectTimeout 5000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+-	**operationTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre syncTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut syncTimeout 1000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 
 Ajoutez une directive OutputCache à chaque page pour laquelle vous voulez mettre en cache la sortie.
 
@@ -81,4 +81,4 @@ Une fois ces étapes effectuées, votre application est configurée pour utilise
 
 Consultez la page [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md) (en anglais).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/04/2016"
+   ms.date="06/27/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Configuration d’un cluster Service Fabric à l’aide de Visual Studio
@@ -39,14 +39,15 @@ Avant de déployer le modèle pour créer le cluster, vous devez fournir les val
 
 |Nom du paramètre |Description|
 |-----------------------  |--------------------------|
+|adminUsername |Nom du compte de l’administrateur pour les machines Service Fabric (nœuds).|
 |certificateThumbprint |Empreinte numérique du certificat qui sécurisera le cluster.|
 |sourceVaultResourceId |*ID de ressource* du coffre de clés où est stocké le certificat qui sécurise le cluster.|
 |certificateUrlValue |URL du certificat de sécurité du cluster.|
 
-Le modèle Resource Manager Service Fabric Visual Studio crée un cluster sécurisé, qui est protégé par un certificat. Ce certificat est identifié par les trois derniers paramètres du modèle (`certificateThumbprint`, `sourceVaultValue` et `certificateUrlValue`) et doit être présent dans **Azure Key Vault**. Pour plus d’informations sur la création du certificat de sécurité du cluster, consultez l’article [Sécurisation du cluster Service Fabric à l’aide de certificats](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
+Le modèle Resource Manager Service Fabric Visual Studio crée un cluster sécurisé, qui est protégé par un certificat. Ce certificat est identifié par les trois derniers paramètres du modèle (`certificateThumbprint`, `sourceVaultValue` et `certificateUrlValue`) et doit être présent dans **Azure Key Vault**. Pour plus d’informations sur la création du certificat de sécurité du cluster, consultez l’article [Scénarios de sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md#x509-certificates-and-service-fabric).
 
 ## Facultatif : modifier le nom du cluster
-Chaque cluster Service Fabric dispose d’un nom. Lors de la création d’un cluster Fabric dans Azure, le nom de cluster détermine (avec la région Azure) le nom du système DNS (Domain Name System) pour le cluster. Par exemple, si vous nommez votre cluster `myBigCluster` et que le paramètre `clusterLocation` est défini sur États-Unis de l’Est, le nom DNS du cluster devient `myBigCluster.eastus.cloudapp.azure.com`.
+Chaque cluster Service Fabric dispose d’un nom. Lors de la création d’un cluster Fabric dans Azure, le nom de cluster détermine (avec la région Azure) le nom du système DNS (Domain Name System) pour le cluster. Par exemple, si vous nommez votre cluster `myBigCluster`, et que l’emplacement (région Azure) du groupe de ressources qui hébergera le nouveau cluster est États-Unis de l'Est, le nom DNS du cluster sera `myBigCluster.eastus.cloudapp.azure.com`.
 
 Par défaut, le nom du cluster est généré automatiquement et rendu unique en associant un suffixe aléatoire à un préfixe « cluster ». Cela permet d’utiliser très facilement le modèle comme un élément d’un système d’**intégration continue** (CI). Si vous souhaitez utiliser un nom spécifique (qui a un sens pour vous) pour votre cluster, définissez la valeur de la variable `clusterName` dans le fichier de modèle Resource Manager (`ServiceFabricCluster.json`) avec le nom de votre choix. Il s’agit de la première variable définie dans ce fichier.
 
@@ -99,7 +100,7 @@ Vous pouvez également souhaiter modifier les ports d’application publics pour
 Si les applications que vous envisagez de déployer sur le cluster ont besoin de davantage de ports, vous pouvez les ajouter en créant des définitions de règle de sonde et d’équilibrage de charge supplémentaires. Pour plus d’informations sur l’utilisation de l’équilibreur de charge Azure par le biais des modèles Resource Manager, consultez [Prise en main de la création d’un équilibreur de charge interne à l’aide d’un modèle](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
 
 ## Déploiement du modèle à l’aide de Visual Studio
-Une fois que vous avez enregistré toutes les valeurs de paramètres requises dans le fichier `ServiceFabricCluster.param.dev.json`, vous êtes prêt à déployer le modèle et à créer votre cluster Service Fabric. Cliquez avec le bouton droit sur le projet de groupe de ressources dans l’Explorateur de solutions Visual Studio, puis sélectionnez **Déployer**. Visual Studio affiche la boîte de dialogue **Déployer vers le groupe de ressources** qui vous invite à vous authentifier auprès d’Azure, si nécessaire :
+Une fois que vous avez enregistré toutes les valeurs de paramètres requises dans le fichier `ServiceFabricCluster.param.dev.json`, vous êtes prêt à déployer le modèle et à créer votre cluster Service Fabric. Cliquez avec le bouton droit sur le projet de groupe de ressources dans l’Explorateur de solutions Visual Studio, puis sélectionnez **Déployer | Nouveau déploiement...**. Visual Studio affiche la boîte de dialogue **Déployer vers le groupe de ressources**, vous demandant de vous authentifier auprès d’Azure si nécessaire :
 
 ![Boîte de dialogue Déployer vers le groupe de ressources][3]
 
@@ -115,7 +116,7 @@ Vous pouvez surveiller la progression du processus de déploiement dans la fenê
 
 Si des erreurs se produisent, accédez au [portail Azure](https://portal.azure.com/) et ouvrez le groupe de ressources utilisé pour le déploiement. Cliquez sur **Tous les paramètres**, puis sur **Déploiements** dans le panneau Paramètres. Un déploiement de groupe de ressources ayant échoué laisse des informations de diagnostic détaillées.
 
->[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Il est donc généralement déconseillé d’arrêter toutes les machines du cluster, sauf si vous avez d’abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
+>[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Par conséquent, il est généralement déconseillé d’arrêter tous les ordinateurs du cluster, sauf si vous avez d’abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
 
 ## Étapes suivantes
 - [En savoir plus sur la configuration de cluster Service Fabric à l’aide du portail Azure](service-fabric-cluster-creation-via-portal.md)
@@ -126,4 +127,4 @@ Si des erreurs se produisent, accédez au [portail Azure](https://portal.azure.c
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

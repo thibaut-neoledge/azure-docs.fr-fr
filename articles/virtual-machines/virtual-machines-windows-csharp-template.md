@@ -14,26 +14,22 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/24/2016"
 	ms.author="davidmu"/>
 
 # Déployer une machine virtuelle Azure à l’aide de C# et d’un modèle Resource Manager
 
 Grâce aux modèles et aux groupes de ressources, vous pouvez gérer ensemble toutes les ressources qui prennent en charge votre application. Cet article vous montre comment configurer l’authentification et le stockage avec Azure PowerShell, puis comment générer et déployer un modèle avec C# pour créer des ressources Azure.
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Vous devez d’abord vous assurer que vous avez fait ceci :
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-- [Un jeton d’authentification](../resource-group-authenticate-service-principal.md)
+- Installez [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
+- Vérifiez l’installation de [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
+- Obtenir un [jeton d’authentification](../resource-group-authenticate-service-principal.md)
 
 Ces étapes prennent environ 30 minutes.
-
-## Étape 1 : installer Azure PowerShell
-
-Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment installer la dernière version d’Azure PowerShell, sélectionner l’abonnement à utiliser et vous connecter à votre compte Azure.
     
-## Étape 2 : Créer un groupe de ressources pour stocker le modèle
+## Étape 1 : Créer un groupe de ressources pour stocker le modèle
 
 Toutes les ressources doivent être déployées dans un groupe de ressources. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
@@ -58,7 +54,7 @@ Toutes les ressources doivent être déployées dans un groupe de ressources. Po
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
     
-## Étape 3 : Créer un compte de stockage et le conteneur de modèles
+## Étape 2 : Créer un compte de stockage et le conteneur de modèles
 
 Un compte de stockage est nécessaire pour stocker le modèle que vous allez créer et déployer.
 
@@ -83,7 +79,7 @@ Un compte de stockage est nécessaire pour stocker le modèle que vous allez cr�
 
 ### Créer le fichier de modèle
 
-Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des ressources Azure en même temps à l’aide d’une description JSON des ressources et des paramètres de déploiement associés. Le modèle que vous créez dans ce didacticiel est similaire à un modèle qui se trouve dans la galerie de modèles. Pour en savoir plus, consultez [Déployer une machine virtuelle Windows simple dans l’Ouest des États-Unis](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/).
+Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des ressources Azure en même temps à l’aide d’une description JSON des ressources et des paramètres de déploiement associés.
 
 Dans Visual Studio, procédez comme suit :
 
@@ -330,7 +326,7 @@ Les packages NuGet sont le moyen le plus simple pour installer les bibliothèque
 
 2. Entrez *Active Directory* dans la zone de recherche, cliquez sur **Installer** pour le package de la bibliothèque d’authentification Active Directory, puis suivez les instructions pour installer le package.
 
-4. En haut de la page, sélectionnez **Inclure la version préliminaire**. Tapez *Microsoft.Azure.Management.Resources* dans la zone de recherche, cliquez sur **Installer** pour les bibliothèques Microsoft Azure Resource Management, puis suivez les instructions pour installer le package.
+4. En haut de la page, sélectionnez **Inclure la version préliminaire**. Tapez *Microsoft.Azure.Management.ResourceManager* dans la zone de recherche, cliquez sur **Installer** pour les bibliothèques Microsoft Azure Resource Management, puis suivez les instructions pour installer le package.
 
 Vous êtes maintenant prêt à utiliser les bibliothèques permettant de créer votre application.
 
@@ -342,33 +338,30 @@ L’application Azure Active Directory est créée et la bibliothèque d’authe
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Azure.Management.Resources;
-        using Microsoft.Azure.Management.Resources.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.Azure.Management.ResourceManager.Models;
         using Microsoft.Rest;
 
 2.	Ajoutez la méthode suivante à la classe Program pour obtenir le jeton nécessaire à la création des informations d’identification :
 
-        private static string GetAuthorizationHeader()
+        private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token.");
           }
-
-          string token = result.Result.AccessToken;
-
           return token;
         }
 
-    Remplacez {application-id} par l’identificateur d’application que vous avez enregistré précédemment, {password} par le mot de passe que vous avez choisi pour l’application AD et {tenant-id} par l’identificateur de client de votre abonnement. Pour trouver l’ID de client, exécutez Get-AzureRmSubscription.
+    Remplacez {client-id} par l’identificateur d’application Azure Active Directory, {client-secret} par la clé d’accès de l’application AD et {tenant-id} par l’identificateur de client de votre abonnement. Pour trouver l’ID de client, exécutez Get-AzureRmSubscription. Vous pouvez trouver la clé d’accès à l’aide du portail Azure.
 
 3. Ajoutez le code suivant à la méthode Main dans le fichier Program.cs pour créer les informations d’identification :
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 4. Enregistrez le fichier Program.cs.
 
@@ -380,10 +373,6 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
 
         var groupName = "resource group name";
         var storageName = "storage account name";
-        var vmName = "virtual machine name";  
-        var deploymentName = "deployment name";
-        var adminName = "administrator account name";
-        var adminPassword = "administrator account password";
         var location = "location name";
         var subscriptionId = "subsciption id";
 
@@ -391,34 +380,32 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
     
 2. Ajoutez la méthode suivante à la classe Program pour créer un groupe de ressources :
 
-        public static void CreateResourceGroup(
+        public static async Task<ResourceGroup> CreateResourceGroupAsync(
           TokenCredentials credential,
           string groupName,
           string subscriptionId,
           string location)
         {
           Console.WriteLine("Creating the resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var resourceGroup = new ResourceGroup {
-            Location = location
-          };
-          var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
-          Console.WriteLine(rgResult.Properties.ProvisioningState);
+          var resourceManagementClient = new ResourceManagementClient(credential) 
+            { SubscriptionId = subscriptionId };
+          var resourceGroup = new ResourceGroup { Location = location };
+          return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
 
 2. Ajoutez le code suivant à la méthode Main pour appeler la méthode que vous venez d’ajouter :
 
-        CreateResourceGroup(
+        var rgResult = CreateResourceGroupAsync(
           credential,
           groupName,
           subscriptionId,
           location);
+        Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 3. Ajoutez la méthode suivante à la classe Program pour déployer les ressources dans le groupe de ressources en utilisant le modèle que vous avez défini :
 
-        public static void CreateTemplateDeployment(
+        public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
           TokenCredentials credential,
           string groupName,
           string storageName,
@@ -439,23 +426,23 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
               Uri = "https://" + storageName + ".blob.core.windows.net/templates/Parameters.json"
             }
           };
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var dpResult = resourceManagementClient.Deployments.CreateOrUpdate(
+          var resourceManagementClient = new ResourceManagementClient(credential) 
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
             groupName,
             deploymentName,
             deployment);
-          Console.WriteLine(dpResult.Properties.ProvisioningState);
         }
 
 4. Ajoutez le code suivant à la méthode Main pour appeler la méthode que vous venez d’ajouter :
 
-        CreateTemplateDeployment(
+        var dpResult = CreateTemplateDeploymentAsync(
           credential,
           groupName",
           storageName,
           deploymentName,
           subscriptionId);
+        Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 ##Étape 7 : Ajouter le code pour supprimer les ressources
@@ -464,25 +451,28 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
 
 1.	Ajoutez la méthode suivante à la classe Program pour supprimer le groupe de ressources :
 
-        public static void DeleteResourceGroup(
+        public static async void DeleteResourceGroupAsync(
           TokenCredentials credential,
-          string groupName)
+          string groupName,
+          string subscriptionId)
         {
           Console.WriteLine("Deleting resource group...");
-          var resourceGroupClient = new ResourceManagementClient(credential);
-          resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
 2.	Ajoutez le code suivant à la méthode Main pour appeler la méthode que vous venez d’ajouter :
 
-        DeleteResourceGroup(
+        DeleteResourceGroupAsync(
           credential,
-          groupName);
+          groupName,
+          subscriptionId);
         Console.ReadLine();
 
 ##Étape 8 : Exécuter l’application console
 
-1.	Pour exécuter l’application console, cliquez sur **Démarrer** dans Visual Studio, puis connectez-vous à Microsoft Azure AD en utilisant les mêmes nom d’utilisateur et mot de passe que vous utilisez avec votre abonnement.
+1.	Pour exécuter l’application de console, cliquez sur **Démarrer** dans Visual Studio, puis connectez-vous à Azure AD en utilisant les mêmes nom d’utilisateur et mot de passe que vous utilisez avec votre abonnement.
 
 2.	Appuyez sur **Entrée** lorsque l’état Accepté s’affiche.
 
@@ -494,7 +484,7 @@ Dans cette étape, utilisez les classes [ResourceGroup](https://msdn.microsoft.c
 
 ## Étapes suivantes
 
-- Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Pour apprendre à gérer la machine virtuelle que vous venez de créer, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
+- Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Pour apprendre à gérer la machine virtuelle que vous venez de créer, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-csharp-manage.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

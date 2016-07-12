@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/07/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -39,7 +39,7 @@ Exemples de données qui peuvent résider dans le profil par défaut à copier d
 Points clés :
 
 - Ne stockez jamais de données sensibles qui peuvent être perdues sur l'image lors de la création d'une image personnalisée.
-- Les données sensibles doivent toujours résider sur un serveur de fichiers distinct, sur une machine virtuelle Azure séparée, sur le cloud. Elles doivent toujours être externes aux instances de machines virtuelles qui hébergent vos applications au sein d’Azure RemoteApp. 
+- Les données sensibles doivent toujours résider sur un serveur de fichiers distinct, sur une machine virtuelle Azure séparée, sur le cloud. Elles doivent toujours être externes aux instances de machines virtuelles qui hébergent vos applications au sein d’Azure RemoteApp.
 - Les données utilisateur sont enregistrées et conservées dans le disque de profil utilisateur (UPD)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

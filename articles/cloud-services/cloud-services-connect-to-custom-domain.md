@@ -1,6 +1,6 @@
 <properties
   pageTitle="Connexion d’un service cloud à un contrôleur de domaine personnalisé | Microsoft Azure"
-  description="Découvrez comment connecter vos rôles web/de travail à un domaine Active Directory personnalisé à l'aide de Powershell et l'extension de domaine Active Directory"
+  description="Découvrez comment connecter vos rôles web/de travail à un domaine Active Directory personnalisé à l’aide de Powershell et de l’extension de domaine Active Directory"
   services="cloud-services"
   documentationCenter=""
   authors="Thraka"
@@ -22,7 +22,7 @@ Nous allons tout d’abord définir un réseau virtuel (VNet) dans Azure. Nous a
 
 Avant de commencer, quelques aspects à prendre en compte :
 
-1.	Ce didacticiel utilise Powershell. Par conséquent, vérifiez que vous disposez d'Azure Powershell installé et prêt à l'emploi. Pour obtenir de l'aide sur la configuration d'Azure Powershell, consultez l'article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
+1.	Ce didacticiel utilise Powershell. Par conséquent, vérifiez qu’Azure Powershell est installé et prêt à l’emploi. Pour obtenir de l’aide sur la configuration d’Azure Powershell, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 2.	Vos instances de contrôleur de domaine AD et de rôle web/de travail doivent se trouver dans le réseau virtuel.
 
@@ -56,14 +56,14 @@ $vnetStr =
 "@;
 
 $vnetConfigPath = "<path-to-vnet-config>"
-Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath;
+Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## Création d'une machine virtuelle
 
 Une fois que vous avez terminé la configuration du réseau virtuel, vous devrez créer un contrôleur de domaine Active Directory. Pour ce didacticiel, nous configurerons un contrôleur de domaine Active Directory sur une machine virtuelle Azure.
 
-Pour ce faire, créez une machine virtuelle via Powershell à l'aide des commandes ci-dessous.
+Pour ce faire, créez une machine virtuelle via Powershell à l’aide des commandes ci-dessous :
 
 ```powershell
 # Initialize variables
@@ -78,7 +78,7 @@ $affgrp = '<your- affgrp>'
 
 # Create a VM and add it to the Virtual Network
 
-New-AzureQuickVM -Windows -ServiceName $vmsvc1 -name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
+New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
 ```
 
 ## Promotion de votre machine virtuelle vers un contrôleur de domaine
@@ -129,7 +129,7 @@ Générez ensuite votre projet de services cloud et déployez-le dans Azure. Pou
 
 ## Connexion de vos rôles web/de travail au domaine
 
-Une fois votre projet de service cloud déployé sur Azure, connectez vos instances de rôle pour le domaine Active Directory personnalisé à l'aide de l'extension de domaine Active Directory. Pour ajouter l'extension de domaine Active Directory à votre déploiement de services cloud existants et rejoindre le domaine personnalisé, exécutez les commandes suivantes dans Powershell :
+Une fois votre projet de service cloud déployé sur Azure, connectez vos instances de rôle pour le domaine Active Directory personnalisé à l'aide de l'extension de domaine Active Directory. Pour ajouter l’extension de domaine Active Directory à votre déploiement de services cloud existant et rejoindre le domaine personnalisé, exécutez les commandes suivantes dans Powershell :
 
 ```powershell
 # Initialize domain variables
@@ -147,7 +147,7 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 
 Et c’est terminé !
 
-Vos services cloud doivent désormais être joints à votre contrôleur de domaine personnalisé. Si vous souhaitez en savoir plus sur les différentes options disponibles pour la configuration de l'extension de domaine Active Directory, utilisez l'aide de la commande PS comme indiqué ci-dessous.
+Vos services cloud doivent désormais être joints à votre contrôleur de domaine personnalisé. Si vous souhaitez en savoir plus sur les différentes options disponibles pour la configuration de l’extension de domaine Active Directory, utilisez l’aide PowerShell comme indiqué ci-dessous.
 
 ```powershell
 help Set-AzureServiceADDomainExtension
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 Nous aimerions également connaître votre avis sur l'utilité pour vous d'avoir une extension qui promeut une machine virtuelle vers un contrôleur de domaine. Si vous pensez que cela peut vous être utile, merci de nous l'indiquer dans la section des commentaires.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -23,7 +23,7 @@
 
 Recherchez tous les documents dont vous avez besoin pour créer et gérer des machines virtuelles Linux dans le modèle de déploiement Classic.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Prise en main
 - [Présentation de Linux sous Azure](virtual-machines-linux-intro-on-azure.md)
@@ -57,7 +57,6 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 ### Docker
 - [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](virtual-machines-linux-classic-cli-use-docker.md)
 - [Utilisation de l’extension Docker VM avec le portail Azure](virtual-machines-linux-classic-portal-use-docker.md)
-- [Prise en main rapide de Docker dans Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [Comment utiliser docker-machine sur Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
@@ -113,8 +112,8 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 ## Résolution de problèmes
 - [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
-- [Résoudre les problèmes de déploiement Classic liés à la création d’une machine virtuelle Linux dans Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)  
-- [Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md) 
+- [Résoudre les problèmes de déploiement Classic liés à la création d’une machine virtuelle Linux dans Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)
+- [Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
 
 
 ## Référence
@@ -188,8 +187,6 @@ Les liens ci-après se rapportent aux blogs Microsoft, aux pages Technet et à d
 - [Blog : Configuration d’état souhaité PowerShell pour Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 - [GitHub : Configuration d’état souhaité du client Docker](https://github.com/anweiss/DockerClientDSC)
 
-- [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
-
 - [Plug-in Packer pour Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

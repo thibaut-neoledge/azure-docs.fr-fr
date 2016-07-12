@@ -32,7 +32,7 @@ Cette option est idéale pour les applications dotées des caractéristiques sui
 
 + Instance active dans une seule région Azure
 + Forte dépendance à l’accès aux données en lecture-écriture (RW)
-+ Connectivité dans plusieurs régions entre la logique d’application et la base de données non acceptable en raison de la latence et du coût du trafic    
++ Connectivité dans plusieurs régions entre la logique d’application et la base de données non acceptable en raison de la latence et du coût du trafic
 
 Dans ce cas, la topologie de déploiement d’applications est optimisée pour la gestion des sinistres régionaux lorsque tous les composants d’application sont concernés et doivent être basculés en tant qu’unité. Pour la redondance géographique, la logique d’application et la base de données sont toutes deux répliquées vers une autre région, mais elles ne sont pas utilisées pour la charge de travail de l’application dans des conditions normales. L’application dans la région secondaire doit être configurée pour utiliser une chaîne de connexion SQL sur la base de données secondaire. Traffic Manager est configuré pour utiliser la [méthode de routage du trafic par basculement](../traffic-manager/traffic-manager-configure-failover-routing-method.md).
 
@@ -76,9 +76,9 @@ Le principal **inconvénient** est que l’instance d’application redondante d
 Cette option de récupération d’urgence cloud est idéale pour les applications dotées des caractéristiques suivantes :
 
 + Ratio élevé de lectures de base de données par rapport aux écritures.
-+ La latence d’écriture de base de données n’affecte pas l’expérience de l’utilisateur final.  
++ La latence d’écriture de base de données n’affecte pas l’expérience de l’utilisateur final.
 + La logique de lecture seule peut être séparée de la logique de lecture-écriture à l’aide d’une chaîne de connexion différente.
-+ La logique de lecture seule ne dépend pas de la synchronisation intégrale des données avec les dernières mises à jour.  
++ La logique de lecture seule ne dépend pas de la synchronisation intégrale des données avec les dernières mises à jour.
 
 Si vos applications possèdent ces caractéristiques, l’équilibrage de charge des connexions de l’utilisateur final entre plusieurs instances d’application dans différentes régions peut améliorer les performances et l’expérience de l’utilisateur final. Pour ce faire, chaque région doit disposer d’une instance active de l’application avec la logique de lecture-écriture (RW) connectée à la base de données primaire dans la région primaire. La logique de lecture seule (RO) doit être connectée à une base de données secondaire dans la même région que l’instance d’application. Traffic Manager doit être configuré pour utiliser [le routage de tourniquet (round robin)](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md) ou le [routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md) avec la [surveillance du point de terminaison](../traffic-manager/traffic-manager-monitoring.md) activée pour chaque instance d’application.
 
@@ -103,7 +103,7 @@ L’**avantage** clé de ce modèle de conception est que vous pouvez mettre à 
 
 + Les connexions de lecture-écriture entre les instances de l’application et la base de données présentent des latences et des coûts variables.
 + Les performances de l’application sont affectées pendant une panne.
-+ Les instances de l’application sont nécessaires pour modifier dynamiquement la chaîne de connexion SQL après le basculement de la base de données.  
++ Les instances de l’application sont nécessaires pour modifier dynamiquement la chaîne de connexion SQL après le basculement de la base de données.
 
 > [AZURE.NOTE] Une approche similaire peut être utilisée pour décharger les charges de travail spécialisées telles que les travaux de création de rapports, les outils d’analyse décisionnelle ou les sauvegardes. En général, ces charges de travail consomment des ressources importantes de la base de données. Il est donc recommandé de désigner l’une des bases de données secondaires pour celles-ci, en mettant en correspondance le niveau de performances avec la charge de travail attendue.
 
@@ -129,7 +129,7 @@ En cas de panne dans la région secondaire, Traffic Manager marque le point de t
 
 ![Panne : base de données secondaire. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
-Ce modèle de conception offre plusieurs **avantages** :
+Ce modèle de conception offre plusieurs **avantages** :
 
 + Il évite la perte de données pendant les pannes temporaires.
 + Il ne nécessite pas le déploiement d’une application de surveillance étant donné que la récupération est déclenchée par Traffic Manager.
@@ -156,17 +156,14 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 ## Étapes suivantes
 
 - Pour plus d’informations sur l’utilisation et la configuration de la géo-réplication active pour la récupération d’urgence, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
-- Pour plus d’informations sur l’utilisation de la restauration géographique pour la récupération d’urgence, consultez [Restauration géographique](sql-database-geo-restore.md)
+- Pour plus d’informations sur l’utilisation de la restauration géographique pour la récupération d’urgence, consultez [Restauration géographique](sql-database-recovery-using-backups.md#geo-restore)
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-- [Continuité des activités et récupération d’urgence d’une base de données SQL Azure](sql-database-business-continuity.md)
-- [Limite de restauration dans le temps](sql-database-point-in-time-restore.md)
-- [Restauration géographique](sql-database-geo-restore.md)
-- [Géo-réplication active](sql-database-geo-replication-overview.md)
-- [Conception d'applications pour la récupération d'urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finaliser la base de données SQL Microsoft Azure restaurée](sql-database-recovered-finalize.md)
-- [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md)
-- [FAQ sur la continuité d’activité et la récupération d’urgence des bases de données SQL](sql-database-bcdr-faq.md)
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

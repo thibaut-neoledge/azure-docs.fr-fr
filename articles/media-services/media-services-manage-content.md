@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -40,14 +40,14 @@ Cette rubrique explique comment effectuer les opérations suivantes directement 
 
 
 1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Media Services**, puis sur le nom du compte Media Services.
-2. Sélectionnez la page CONTENU. 
-3. Cliquez sur le bouton **Télécharger** disponible sur cette page ou en bas du portail. 
+2. Sélectionnez la page CONTENU.
+3. Cliquez sur le bouton **Télécharger** disponible sur cette page ou en bas du portail.
 4. Dans la boîte de dialogue **Télécharger le contenu**, accédez au fichier correspondant à l’élément multimédia de votre choix. Cliquez sur le fichier, puis sur **Ouvrir**, ou appuyez sur **Entrée**.
 
 	![UploadContentDialog][uploadcontent]
 
 5. Dans la boîte de dialogue Télécharger le contenu, cliquez sur le bouton de vérification pour accepter le nom du fichier et du contenu.
-6. Le téléchargement démarre et vous pouvez suivre la progression en bas du portail.  
+6. Le téléchargement démarre et vous pouvez suivre la progression en bas du portail.
 
 	![JobStatus][status]
 
@@ -125,7 +125,7 @@ Si vous souhaitez que Media Services chiffre dynamiquement votre ressource avec 
 
 - encoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites dans la section [Encodage](#encode)).
 - obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-manage-origins.md#scale_streaming_endpoints/).
-- Configurez « stratégie de service de clé en clair aes par défaut » ou « stratégie de service de licence playready par défaut ». Pour plus d’informations, consultez la page [Configuration de la stratégie d’autorisation de clé de contenu](media-services-portal-configure-content-key-auth-policy.md).  
+- Configurez « stratégie de service de clé en clair aes par défaut » ou « stratégie de service de licence playready par défaut ». Pour plus d’informations, consultez la page [Configuration de la stratégie d’autorisation de clé de contenu](media-services-portal-configure-content-key-auth-policy.md).
 
 
 	Lorsque vous êtes prêt à activer le chiffrement, appuyez sur le bouton **CRYPTAGE** au bas de la page **CONTENU**.
@@ -179,8 +179,8 @@ Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[AP
 
 Pour utiliser le portail pour publier un élément multimédia, procédez comme suit :
 
-1. Sélectionnez l’élément multimédia. 
-2. Puis, cliquez sur le bouton Publier. 
+1. Sélectionnez l’élément multimédia.
+2. Puis, cliquez sur le bouton Publier.
 	
  ![PublishedContent][publishedcontent]
 
@@ -222,4 +222,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

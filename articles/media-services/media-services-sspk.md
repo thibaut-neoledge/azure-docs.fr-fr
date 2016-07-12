@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="xpouyat,vsood" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xpouyat"/>
 
 #Licence du kit de portage du client de diffusion en continu lisse Microsoft®
@@ -30,19 +30,19 @@ Vous trouverez ci-après une architecture de haut niveau, et le package du kit d
 
 SSPK est concédé sous licence selon des conditions représentant une excellente valeur pour l’entreprise. La licence SSPK offre au secteur :
 
-- Source de kit de portage Smooth Streaming en C++ 
+- Source de kit de portage Smooth Streaming en C++
   - implémente la fonctionnalité Client Smooth Streaming
   - ajoute une analyse de format, heuristique, une logique de mise en mémoire tampon, etc.
-- API d’application joueur 
+- API d’application joueur
   -	interfaces de programmation pour une interaction avec une application de lecteur multimédia
-- Interface de couche d’abstraction de plateforme (PAL) 
+- Interface de couche d’abstraction de plateforme (PAL)
   -	interfaces de programmation pour l‘interaction avec le système d‘exploitation (threads, sockets)
-- Interface de couche d’abstraction matérielle 
+- Interface de couche d’abstraction matérielle
   -	interfaces de programmation pour l‘interaction avec les décodeurs A/V matériels (décodage, rendu)
-- Interface de gestion de droits numériques (Digital Rights Management - DRM) 
+- Interface de gestion de droits numériques (Digital Rights Management - DRM)
   -	interfaces de programmation pour la gestion des DRM via la couche Abstraction DRM (DAL)
   -	Le kit de portage PlayReady Microsoft est fourni séparément, mais s’intègre via cette interface. Pour plus d‘informations sur les licences pour appareil Microsoft PlayReady cliquez [ici](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
-- Échantillons de l’implémentation 
+- Échantillons de l’implémentation
   -	exemple d‘implémentation PAL pour Linux
   -	exemple d‘implémentation HAL pour GStreamer
 
@@ -71,7 +71,7 @@ Le produit client final de Smooth Streaming est proposé selon un modèle soumis
 
 - 0,10 $ par implémentation de périphérique expédiés
 - La redevance est limitée à 50 000 dollars chaque année
-- Pas de redevance pour les 10 000 premières implémentations de périphérique chaque année 
+- Pas de redevance pour les 10 000 premières implémentations de périphérique chaque année
 
 ##Procédure d’achat de licence et accès à SSPK
 
@@ -164,4 +164,4 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

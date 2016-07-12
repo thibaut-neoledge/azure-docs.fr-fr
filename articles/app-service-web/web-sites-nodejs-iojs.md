@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm" />
 
 # Utilisation de io.js avec Azure App Service Web Apps
@@ -60,4 +60,4 @@ Dans cet article, vous avez appris à utiliser io.js avec App Service Web Apps, 
 [io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

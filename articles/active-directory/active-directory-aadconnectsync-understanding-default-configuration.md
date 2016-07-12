@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
 	ms.topic="article"
-    ms.date="04/25/2016"
+    ms.date="06/27/2016"
     ms.author="andkjell"/>
 
 # Azure AD Connect Sync : comprendre la configuration par défaut
@@ -240,4 +240,4 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

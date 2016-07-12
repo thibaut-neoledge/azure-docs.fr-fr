@@ -13,13 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Détails relatifs à la migration vers Premium Storage
 Le logiciel SQL Data Warehouse a récemment proposé pour la première fois la fonctionnalité [Premium Storage, afin d’optimiser la prévisibilité des performances][]. Nous sommes maintenant prêts à migrer des entrepôts de données figurant actuellement sur le stockage standard vers Premium Storage. Poursuivez votre lecture pour savoir de quelle manière et à quel moment les migrations automatiques s’exécutent, et pour savoir comment effectuer la migration vous-même si vous souhaitez déterminer à quel moment le temps d’arrêt doit survenir.
 
 Si vous disposez de plusieurs entrepôts de données, utilisez les instructions de la section [Planification de la migration automatique][] ci-dessous pour déterminer à quel moment ils doivent également être migrés.
+
+## Déterminer le type de stockage
+Si vous avez créé un entrepôt de données avant les dates ci-dessous, cela signifie que vous utilisez actuellement le stockage standard. En outre, chaque entrepôt de données sur le stockage Standard qui sera migré sera accompagné d’une information dans le [portail Azure][] en haut du panneau de l’entrepôt de données indiquant « *Une prochaine mise à niveau de Premium Storage entraînera une indisponibilité. En savoir plus->* ».
+
+| **Région** | **Entrepôt de données créé avant cette date** |
+| :------------------ | :-------------------------------- |
+| Est de l’Australie | Premium Storage non disponible pour l’instant |
+| Sud-est de l’Australie | Premium Storage non disponible pour l’instant |
+| Sud du Brésil | Premium Storage non disponible pour l’instant |
+| Centre du Canada | 25 mai 2016 |
+| Est du Canada | 26 mai 2016 |
+| Centre des États-Unis | 26 mai 2016 |
+| Chine orientale | Premium Storage non disponible pour l’instant |
+| Chine du Nord | Premium Storage non disponible pour l’instant |
+| Asie de l'Est | 25 mai 2016 |
+| Est des États-Unis | 26 mai 2016 |
+| Est des États-Unis 2 | 27 mai 2016 |
+| Inde-Centre | 27 mai 2016 |
+| Sud de l'Inde | 26 mai 2016 |
+| Inde-Ouest | Premium Storage non disponible pour l’instant |
+| Est du Japon | Premium Storage non disponible pour l’instant |
+| Ouest du Japon | Premium Storage non disponible pour l’instant |
+| États-Unis - partie centrale septentrionale | Premium Storage non disponible pour l’instant |
+| Europe du Nord | Premium Storage non disponible pour l’instant |
+| Centre-Sud des États-Unis | 27 mai 2016 |
+| Asie du Sud-Est | 24 mai 2016 |
+| Europe de l'Ouest | 25 mai 2016 |
+| Ouest des États-Unis | 26 mai 2016 |
 
 ## Détails sur la migration automatique
 Par défaut, nous allons migrer votre base de données pour vous entre 18:00 et 6 heures du matin (heure locale de votre région) à un moment donné lors de la [planification de la migration automatique][] (voir section ci-dessous). Lors de la migration, l’entrepôt de données existant est inutilisable. Nous estimons que la migration dure environ 1 heure par To de stockage, pour chaque entrepôt de données. Nous allons également nous assurer que vous n’êtes facturé à aucun moment de la migration.
@@ -49,12 +77,12 @@ La migration automatique se produit entre 18:00 et 6 heures du matin (heure loca
 | Sud du Brésil | Pas encore déterminée | Pas encore déterminée |
 | Centre du Canada | 23 juin 2016 | 1er juillet 2016 |
 | Est du Canada | 23 juin 2016 | 1er juillet 2016 |
-| Centre des États-Unis | 23 juin 2016 | 1er juillet 2016 |
+| Centre des États-Unis | 23 juin 2016 | 4 juillet 2016 |
 | Chine orientale | Pas encore déterminée | Pas encore déterminée |
 | Chine du Nord | Pas encore déterminée | Pas encore déterminée |
 | Asie de l'Est | 23 juin 2016 | 1er juillet 2016 |
-| Est des États-Unis | 23 juin 2016 | 1er juillet 2016 |
-| Est des États-Unis 2 | 23 juin 2016 | 1er juillet 2016 |
+| Est des États-Unis | 23 juin 2016 | 11 juillet 2016 |
+| Est des États-Unis 2 | 23 juin 2016 | 8 juillet 2016 |
 | Inde-Centre | 23 juin 2016 | 1er juillet 2016 |
 | Sud de l'Inde | 23 juin 2016 | 1er juillet 2016 |
 | Inde-Ouest | Pas encore déterminée | Pas encore déterminée |
@@ -62,44 +90,15 @@ La migration automatique se produit entre 18:00 et 6 heures du matin (heure loca
 | Ouest du Japon | Pas encore déterminée | Pas encore déterminée |
 | États-Unis - partie centrale septentrionale | Pas encore déterminée | Pas encore déterminée |
 | Europe du Nord | Pas encore déterminée | Pas encore déterminée |
-| Centre-Sud des États-Unis | 23 juin 2016 | 1er juillet 2016 |
+| Centre-Sud des États-Unis | 23 juin 2016 | 2 juillet 2016 |
 | Asie du Sud-Est | 23 juin 2016 | 1er juillet 2016 |
-| Europe de l'Ouest | 23 juin 2016 | 1er juillet 2016 |
-| Ouest des États-Unis | 23 juin 2016 | 1er juillet 2016 |
+| Europe de l'Ouest | 23 juin 2016 | 8 juillet 2016 |
+| Ouest des États-Unis | 23 juin 2016 | 7 juillet 2016 |
 
 ## Migration ponctuelle vers Premium Storage
 Si vous souhaitez déterminer à quel moment le temps d’arrêt doit se produire, vous pouvez suivre la procédure ci-après, qui permet de migrer un entrepôt de données existant sur un stockage standard vers Premium Storage. Si vous optez pour une migration ponctuelle, vous devez effectuer cette opération avant le début de la migration automatique effectuée dans cette région, afin d’éviter tout conflit généré par cette dernière (consultez [Planification de la migration automatique][]).
 
 > [AZURE.NOTE] Actuellement, le logiciel SQL Data Warehouse associé à Premium Storage n’est pas géo-redondant. Cela signifie qu’une fois que votre entrepôt de données est migré vers Premium Storage, les données résident uniquement dans votre région actuelle. Lorsqu’elles sont disponibles, les géo-sauvegardes copient votre entrepôt de données toutes les 24 heures dans la [région Azure associée][], ce qui vous permet d’effectuer la restauration depuis une géo-sauvegarde vers une région quelconque dans Azure. Lorsque la fonctionnalité de géo-sauvegarde est disponible pour les migrations ponctuelles, un message d’information est affiché sur le [site de documentation principal][]. En revanche, les migrations automatiques ne sont pas soumises à cette limitation.
-
-### Déterminer le type de stockage
-Si vous avez créé un entrepôt de données avant les dates ci-dessous, cela signifie que vous utilisez actuellement le stockage standard.
-
-| **Région** | **Entrepôt de données créé avant cette date** |
-| :------------------ | :-------------------------------- |
-| Est de l’Australie | Premium Storage non disponible pour l’instant |
-| Sud-est de l’Australie | Premium Storage non disponible pour l’instant |
-| Sud du Brésil | Premium Storage non disponible pour l’instant |
-| Centre du Canada | 25 mai 2016 |
-| Est du Canada | 26 mai 2016 |
-| Centre des États-Unis | 26 mai 2016 |
-| Chine orientale | Premium Storage non disponible pour l’instant |
-| Chine du Nord | Premium Storage non disponible pour l’instant |
-| Asie de l'Est | 25 mai 2016 |
-| Est des États-Unis | 26 mai 2016 |
-| Est des États-Unis 2 | 27 mai 2016 |
-| Inde-Centre | 27 mai 2016 |
-| Sud de l'Inde | 26 mai 2016 |
-| Inde-Ouest | Premium Storage non disponible pour l’instant |
-| Est du Japon | Premium Storage non disponible pour l’instant |
-| Ouest du Japon | Premium Storage non disponible pour l’instant |
-| États-Unis - partie centrale septentrionale | Premium Storage non disponible pour l’instant |
-| Europe du Nord | Premium Storage non disponible pour l’instant |
-| Centre-Sud des États-Unis | 27 mai 2016 |
-| Asie du Sud-Est | 24 mai 2016 |
-| Europe de l'Ouest | 25 mai 2016 |
-| Ouest des États-Unis | 26 mai 2016 |
-
 
 ### Instructions relatives à la migration ponctuelle
 Si vous souhaitez déterminer le temps d’arrêt de votre système, vous pouvez migrer votre entrepôt de données de manière ponctuelle, à l’aide de la fonction de sauvegarde/restauration. L’opération de restauration de la migration doit durer environ 1 heure par To de stockage, pour chaque entrepôt de données. Si vous souhaitez conserver le même nom une fois la migration terminée, suivez les étapes ci-dessous, qui détaillent une [solution de contournement pour le changement de nom][].
@@ -150,6 +149,7 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, veuillez
 
 
 <!--Other Web references-->
-[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/fr-FR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"virtual
    ms.author="yurid"/>
 
 #Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
@@ -66,17 +66,17 @@ Chaque recommandation dispose d'un ensemble d'actions qui peuvent être effectu�
 
 Le panneau **Mises à jour système manquantes** affiche un tableau incluant les informations suivantes :
 
-- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
-- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
-- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
-- **ÉTAT** : état actuel de la recommandation :
-	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
-	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
-- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
-	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
-	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
-	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
+- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
+- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
+- **ÉTAT** : état actuel de la recommandation :
+	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
+	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
+- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
+	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
+	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
+	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Pour afficher des informations détaillées sur les recommandations, cliquez sur le nom de la machine virtuelle concernée. Un nouveau panneau s’ouvre pour cette machine virtuelle et affiche la liste des mises à jour manquantes, comme indiqué ci-dessous.
 
@@ -97,8 +97,21 @@ Dans l’exemple ci-dessus, une machine virtuelle est associée à une recommand
 
 Ce panneau comporte les détails de la sécurité pour la machine virtuelle. L’action recommandée et le niveau de gravité de chaque recommandation sont affichés en bas du panneau.
 
-###Surveillance des réseaux virtuels
-Lorsque vous cliquez sur **Réseaux** dans la mosaïque **Intégrité des ressources**, le panneau **Réseaux** s’ouvre et affiche des informations détaillées, comme le montre l’illustration ci-dessous :
+#### Section Cloud services (version préliminaire)
+L’état d’intégrité des services cloud est inclus dans la vignette relative à l’intégrité de sécurité des machines virtuelles. Une recommandation est créée lorsque la version du système d’exploitation est obsolète comme indiqué ci-dessous :
+
+![Services cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+
+Vous devez suivre les étapes de la recommandation pour mettre à jour la version du système d’exploitation. Par exemple, si vous cliquez sur l’alerte rouge dans un des rôles Web (exécute Windows Server avec votre application web automatiquement déployée sur IIS) ou des rôles de travail (exécute Windows Server avec votre application web automatiquement déployée sur IIS) un nouveau panneau s’ouvre et affiche des informations détaillées, comme le montre l’illustration ci-dessous :
+
+![Détails du service cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
+
+Pour voir une explication plus normative concernant cette recommandation, cliquez sur **Update OS version** (Mettre à jour la version du système d’exploitation) sous la colonne **DESCRIPTION **. Le panneau **Update OS version (Preview)** (Mettre à jour la version du système d’exploitation (Version préliminaire)) s’ouvre et affiche des informations détaillées.
+
+![Recommandations de Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
+
+### Surveillance des réseaux virtuels
+Lorsque vous cliquez sur **Réseaux** dans la vignette **Intégrité des ressources**, le panneau **Réseaux** s’ouvre et affiche des informations détaillées, comme le montre l’illustration ci-dessous :
 
 ![Mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -118,7 +131,7 @@ Lorsque vous cliquez sur l’une de ces recommandations, un nouveau panneau incl
 
 ![Limiter le point de terminaison](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-Dans cet exemple, le panneau **Configure Missing Network Security Groups for Subnets** (Configurer les groupes de sécurité réseau manquants pour les sous-réseaux) contient une liste de sous-réseaux et de machines virtuelles sur lesquels la protection des groupe de sécurité réseau fait défaut. Un autre panneau s’ouvre lorsque vous cliquez sur le sous-réseau auquel vous souhaitez appliquer le groupe de sécurité réseau.
+Dans cet exemple, le panneau **Configure Missing Network Security Groups for Subnets** (Configurer les groupes de sécurité réseau manquants pour les sous-réseaux) contient une liste de sous-réseaux et de machines virtuelles sur lesquels la protection des groupes de sécurité réseau fait défaut. Un autre panneau s’ouvre lorsque vous cliquez sur le sous-réseau auquel vous souhaitez appliquer le groupe de sécurité réseau.
 
 Dans le panneau **Choisir un groupe de sécurité réseau**, vous devez sélectionner le groupe de sécurité réseau le mieux adapté à votre sous-réseau, mais vous pouvez également créer un nouveau groupe de sécurité réseau.
 
@@ -129,7 +142,7 @@ La section **Internet facing endpoints** (Points de terminaison accessibles sur 
 ![Points de terminaison accessibles sur Internet](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
 
 Ce tableau indique le nom du point de terminaison qui représente la machine virtuelle, l’adresse IP Internet et l’état de gravité actuel du groupe de sécurité réseau et du pare-feu de nouvelle génération. Ce tableau est trié par niveau de gravité, comme indiqué ci-dessous :
-- Rouge (en haut) : priorité élevée ; doivent être traités immédiatement 
+- Rouge (en haut) : priorité élevée ; doivent être traités immédiatement
 - Orange : priorité moyenne ; doivent être traités dès que possible
 - Vert (le dernier) : état d’intégrité
 
@@ -140,7 +153,7 @@ La section **Networking topology** (Topologie de mise en réseau) contient une v
 ![Topologie de mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 Ce tableau est trié (machines virtuelles et sous-réseaux) par niveau de gravité, comme indiqué ci-dessous :
-- Rouge (en haut) : priorité élevée ; doivent être traités immédiatement 
+- Rouge (en haut) : priorité élevée ; doivent être traités immédiatement
 - Orange : priorité moyenne ; doivent être traités dès que possible
 - Vert (le dernier) : état d’intégrité
 
@@ -151,7 +164,7 @@ Dans cette topologie, le premier niveau se décompose comme suit : [Réseaux vir
 La partie inférieure de ce panneau regroupe les recommandations pour cette machine virtuelle, comme décrit ci-dessus. Vous pouvez cliquer sur une recommandation pour en savoir plus, ou appliquer la configuration ou le contrôle de sécurité nécessaire.
 
 ###Surveillance des ressources SQL
-Lorsque vous cliquez sur l’option **SQL** de la mosaïque **Intégrité des ressources**, le panneau SQL s’ouvre et affiche des recommandations relatives aux problèmes, par exemple la désactivation de la fonction d’audit ou du chiffrement transparent des données. Il contient également des recommandations pour l’état général de la base de données.
+Lorsque vous cliquez sur l’option **SQL** de la vignette **Intégrité des ressources**, le panneau SQL s’ouvre et affiche des recommandations relatives aux problèmes, par exemple la désactivation de la fonction d’audit ou du chiffrement transparent des données. Il contient également des recommandations pour l’état général de la base de données.
 
 ![Intégrité des ressources SQL](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -174,7 +187,7 @@ Lorsque vous cliquez sur la base de données pour donner suite à cette recomman
 Pour activer l’audit, sélectionnez simplement **ACTIVÉ** sous **Audit**, puis cliquez sur **Enregistrer**.
 
 ###Surveillance des applications
-Si votre charge de travail Azure comprend des applications situées sur des [machines virtuelles Resource Manager](../resource-manager-deployment-model.md) ayant des ports web exposés (ports TCP 80 et 443), le Centre de sécurité peut les surveiller pour identifier les problèmes de sécurité potentiels et recommander des étapes de résolution. Lorsque vous cliquez sur la mosaïque **Applications**, le panneau **Applications** s’ouvre et affiche des recommandations dans la section Étapes de prévention. Il montre également la répartition des applications par hôte/IP virtuelle, comme indiqué ci-dessous.
+Si votre charge de travail Azure comprend des applications situées sur des [machines virtuelles Resource Manager](../resource-manager-deployment-model.md) ayant des ports web exposés (ports TCP 80 et 443), le Centre de sécurité peut les surveiller pour identifier les problèmes de sécurité potentiels et recommander des étapes de résolution. Lorsque vous cliquez sur la vignette **Applications**, le panneau **Applications** s’ouvre et affiche des recommandations dans la section Étapes de prévention. Il montre également la répartition des applications par hôte/IP virtuelle, comme indiqué ci-dessous.
 
 ![État de sécurité des applications](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -191,8 +204,8 @@ Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveill
 
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) – Découvrez comment configurer des paramètres de sécurité dans le Centre de sécurité Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
-- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) -- Découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

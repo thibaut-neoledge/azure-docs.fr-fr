@@ -24,8 +24,8 @@
 
 La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, les mises à jour système et les redémarrages associés ont ainsi lieu au meilleur moment possible pour la base de données. La mise à jour corrective automatisée utilise l’[extension de l’agent IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Modèle Resource Manager Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](virtual-machines-windows-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](virtual-machines-windows-sql-automated-patching.md).
 
 ## Composants requis
 
@@ -103,4 +103,4 @@ Pour plus d’informations sur les autres tâches d’automatisation disponibles
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, consultez la page [Vue d’ensemble de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->
