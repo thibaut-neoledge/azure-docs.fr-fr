@@ -229,7 +229,7 @@ Ce didacticiel vous accompagne tout au long des étapes de création d'un client
 
 Vous êtes maintenant prêt à exécuter les applications.
 
-1.	Dans Visual Studio, dans l’explorateur de solutions, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis **Démarrer** en tant qu’action pour les projets **ProcessDeviceToCloudMessages** et **SimulatedDevice**.
+1.	Dans Visual Studio, dans l’explorateur de solutions, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis **Démarrer** en tant qu’action pour les projets **ReadDeviceToCloudMessages** et **SimulatedDevice**.
 
    	![Propriétés de démarrage de projet][41]
 
@@ -277,4 +277,4 @@ Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail, pu
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

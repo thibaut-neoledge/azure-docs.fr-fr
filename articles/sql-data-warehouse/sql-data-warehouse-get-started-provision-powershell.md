@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Création de SQL Data Warehouse à l'aide de Powershell
@@ -55,11 +55,11 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 Cette applet de commande requiert les paramètres suivants :
 
-- **RequestedServiceObjectiveName** : quantité de DWU que vous demandez, sous la forme « DWXXX ». DWU représente une allocation de ressources d’UC et de mémoire. Chaque valeur DWU représente une augmentation linéaire de ces ressources. Les valeurs actuellement prises en charge sont : 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
-- **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
-- **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
-- **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
-- **Edition** : vous devez définir l'édition sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
+- **RequestedServiceObjectiveName** : quantité de [DWU][] que vous demandez. Valeurs prises en charge sont : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, et DW2000.
+- **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
+- **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
+- **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
+- **Edition** : vous devez définir l'édition sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
 
 Pour plus d’informations sur les options de paramètre, consultez [Créer une base de données (Azure SQL Data Warehouse)][]. Pour accéder aux informations de référence sur la commande, consultez [New-AzureRmSqlDatabase][].
 
@@ -71,12 +71,12 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 <!--Image references-->
 
 <!--Article references-->
-
-[migrer]: sql-data-warehouse-overview-migrate.md
-[développer]: sql-data-warehouse-overview-develop.md
-[charger]: sql-data-warehouse-load-with-bcp.md
-[charger les données d’exemple]: sql-data-warehouse-get-started-load-sample-databases.md
-[applets de commande PowerShell et des API REST]: sql-data-warehouse-reference-powershell-cmdlets.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[migrer]: ./sql-data-warehouse-overview-migrate.md
+[développer]: ./sql-data-warehouse-overview-develop.md
+[charger]: ./sql-data-warehouse-load-with-bcp.md
+[charger les données d’exemple]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[applets de commande PowerShell et des API REST]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [Installation et configuration d’Azure PowerShell]: ../powershell/powershell-install-configure.md
@@ -96,4 +96,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

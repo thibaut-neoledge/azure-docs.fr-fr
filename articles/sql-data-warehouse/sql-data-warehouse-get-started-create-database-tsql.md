@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Créer une base de données SQL Data Warehouse à l’aide de Transact-SQL (TSQL).
@@ -52,15 +52,13 @@ Vous pouvez également exécuter la même commande avec sqlcmd. Pour cela, exéc
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Les paramètres **MAXSIZE** et **SERVICE\_OBJECTIVE** spécifient l’espace maximal que la base de données peut utiliser sur le disque et les ressources de calcul allouées à votre instance Data Warehouse. L’objectif de service est essentiellement une allocation de ressources d’UC et de mémoire mise à l’échelle de façon linéaire avec la taille de DWU.
-
-Le paramètre MAXSIZE peut être compris entre 250 Go et 240 To. L’objectif de service peut être compris entre DW100 et DW2000. Pour obtenir la liste complète des valeurs valides des paramètres MAXSIZE et SERVICE\_OBJECTIVE, consultez les sections sur l’instruction [CREATE DATABASE][] dans la documentation MSDN. Les paramètres MAXSIZE et SERVICE\_OBJECTIVE peuvent également être modifiés avec une commande T-SQL [ALTER DATABASE][]. Modifiez le paramètre SERVICE\_OBJECTIVE avec prudence car cela entraîne un redémarrage des services, qui annule toutes les requêtes en cours. La modification du paramètre MAXSIZE ne redémarre pas les services car il s’agit d’une simple opération de métadonnées.
+Le paramètre `MAXSIZE` peut être compris entre 250 Go et 240 To. Le paramètre `SERVICE_OBJECTIVE` peut être compris entre DW100 et DW2000 [DWU][]. Pour obtenir la liste de toutes les valeurs valides, consultez la documentation MSDN pour [CREATE DATABASE][]. Les paramètres MAXSIZE et SERVICE\_OBJECTIVE peuvent également être modifiés avec une commande T-SQL [ALTER DATABASE][]. Modifiez le paramètre SERVICE\_OBJECTIVE avec prudence car cela entraîne un redémarrage des services, qui annule toutes les requêtes en cours. La modification du paramètre MAXSIZE ne redémarre pas les services car il s’agit d’une simple opération de métadonnées.
 
 ## Étapes suivantes
 Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger][] ou [migrer][].
 
 <!--Article references-->
-
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
 [Se connecter à SQL Data Warehouse avec Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [migrer]: ./sql-data-warehouse-overview-migrate.md
@@ -82,4 +80,4 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

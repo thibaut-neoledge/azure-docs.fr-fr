@@ -64,7 +64,7 @@ App Service propose une solution clé en main pour une partie des besoins d’au
 
 ## Mettez automatiquement à l’échelle votre application en fonction de la demande
 
-Ensuite, nous allons effectuer la mise à l’échelle automatique de votre application pour que celle-ci ajuste automatiquement sa capacité pour répondre à la demande. Pour plus d’informations, voir [Changement de niveau de tarification dans Azure App Service](app-service-scale) et [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md).
+Ensuite, nous allons effectuer la mise à l’échelle automatique de votre application pour que celle-ci ajuste automatiquement sa capacité pour répondre à la demande. Pour plus d’informations, voir [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md) et [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md).
 
 En bref, vous pouvez adapter la taille de votre application web de deux manières :
 
@@ -73,7 +73,7 @@ En bref, vous pouvez adapter la taille de votre application web de deux manière
 
 Sans plus attendre, préparons à présent la mise à l’échelle automatique.
 
-1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > **Mettre à l’échelle, (Plan App Service)**. ![Monter en puissance - panneau Paramètres](./media/app-service-web-get-started/scale-up-settings.png)
+1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Mettre à l’échelle, (Plan App Service)**. ![Monter en puissance - panneau Paramètres](./media/app-service-web-get-started/scale-up-settings.png)
 
 2. Faites défiler la page, puis sélectionnez le niveau **S1 Standard** (le plus bas niveau prenant en charge la mise à l’échelle automatique, encerclé dans la capture d’écran), puis cliquez sur **Sélectionner**. ![Monter en puissance - choisir un niveau](./media/app-service-web-get-started/scale-up-select.png)
 
@@ -81,7 +81,7 @@ Sans plus attendre, préparons à présent la mise à l’échelle automatique.
     
     >[AZURE.IMPORTANT] Ce niveau épuise votre crédit d’essai gratuit. Si vous avez un compte de paiement à l’utilisation, il occasionne des frais pour votre compte.
     
-3. Ensuite, nous allons configurer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > **Mettre à l’échelle (Plan App Service)**. ![Augmenter la taille des instances - panneau Paramètres](./media/app-service-web-get-started/scale-out-settings.png)
+3. Ensuite, nous allons configurer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Mettre à l’échelle (Plan App Service)**. ![Augmenter la taille des instances - panneau Paramètres](./media/app-service-web-get-started/scale-out-settings.png)
 
 4. Changez **Mettre à l’échelle selon** sur **Pourcentage UC**. Les curseurs sous la liste déroulante se mettent à jour en conséquence. Ensuite, définissez une plage d’**Instances** comprise entre **1** et **2** et une **Plage cible** entre **40** et **80**. Pour ce faire, effectuez une saisie dans les zones ou déplacez les curseurs. ![Augmenter la taille des instances - configurer la mise à l’échelle automatique](./media/app-service-web-get-started/scale-out-configure.png)
     
@@ -99,7 +99,7 @@ Vous avez peut-être remarqué que vous pouvez en faire beaucoup plus dans le pa
 - la mise à l’échelle automatique selon un calendrier prévu ;
 - le réglage du comportement de mise à l’échelle automatique pour un événement ultérieur.
 
-Pour plus d’informations sur la mise à l’échelle de votre application, consultez [Changement de niveau de tarification dans Azure App Service](../app-service/app-service-scale.md). Pour plus d’informations sur l’augmentation de la taille des instances, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md).
+Pour plus d’informations sur la mise à l’échelle de votre application, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](../app-service-web/web-sites-scale.md). Pour plus d’informations sur l’augmentation de la taille des instances, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md).
 
 ## Recevoir des alertes pour votre application
 
@@ -128,13 +128,13 @@ Pendant la configuration de l’alerte, vous avez peut-être remarqué un import
 En outre, découvrez comment en faire plus avec l’application déployée. Voici une liste partielle :
 
 - [Acheter et configurer un nom de domaine personnalisé](custom-dns-web-site-buydomains-web-app.md) : achetez un domaine attrayant pour votre application web à la place du domaine *.azurewebsites.net. Ou utilisez un domaine que vous possédez déjà.
-- [Configurer des environnements intermédiaires](web-sites-staged-publishing.md) : déployez votre application vers une URL intermédiaire avant de la mettre en production. Mettez à jour votre application web en ligne en toute confiance. Configurez une solution DevOps élaborée avec plusieurs emplacements de déploiement. 
+- [Configurer des environnements intermédiaires](web-sites-staged-publishing.md) : déployez votre application vers une URL intermédiaire avant de la mettre en production. Mettez à jour votre application web en ligne en toute confiance. Configurez une solution DevOps élaborée avec plusieurs emplacements de déploiement.
 - [Configurer le déploiement continu](web-sites-publish-source-control.md) : intégrez le déploiement d’applications à votre système de contrôle de code source. Effectuez le déploiement vers Azure avec chaque validation.
 - [Accéder à des ressources locales](web-sites-hybrid-connection-get-started.md) : accédez à une base de données locale ou un système CRM existants.
 - [Sauvegarder votre application](web-sites-backup.md) : définissez la sauvegarde et la restauration de votre application web. Anticipez les défaillances inattendues et récupérez vos données après leur survenue.
 - [Activer les journalisation des données](web-sites-enable-diagnostic-log.md) : consultez les journaux IIS dans Azure ou dans les traces de votre application. Lisez-les dans un flux, téléchargez-les ou déplacez-les dans [Application Insights](../application-insights/app-insights-overview.md) pour une analyse clé en main.
 - [Analyser votre application à la recherche de vulnérabilités](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) : analysez votre application pour la protéger contre les menaces modernes à l’aide du service fourni par [Tinfoil Security](https://www.tinfoilsecurity.com/).
 - [Exécuter des travaux en arrière-plan](../azure-functions/functions-overview.md) : exécutez des tâches pour le traitement de données, la création de rapports, etc.
-- [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md) 
+- [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>J'utilise Mobile Services. Comment App Service peut-il m'aider ?
@@ -61,4 +61,4 @@ Sauvegardez automatiquement votre backend et votre base de données. Votre code 
 
 Vous pouvez commencer à tirer parti d’*App Service* pour votre application Mobile Service existante en suivant ce [didacticiel](app-service-mobile-migrating-from-mobile-services.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

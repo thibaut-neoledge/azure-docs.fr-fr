@@ -17,7 +17,7 @@
 	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
-# Liste des connecteurs gérés
+# Liste de connecteurs
 
 >[AZURE.NOTE] Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Liste des connecteurs](../app-service-logic/app-service-logic-connectors-list.md).
 
@@ -25,21 +25,28 @@ Pour plus d’informations sur la tarification et une liste de ce qui est inclus
 
 > [AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
+## Connecteurs standard
+
 Sélectionnez une icône afin d’apprendre rapidement à tirer parti de ces connecteurs pour créer des applications qui appellent ces services. Ces connecteurs peuvent servir à créer des applications logiques, des applications PowerApps et des flux.
 
 |Connecteurs||||
 |-----------|-----------|-----------|-----------|
-|[![Icône API][blobicon]<br/>**Objet blob Azure**][azureblobdoc]|[![Icône API][boxicon]<br/>**Zone**][boxDoc]|[![Icône API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icône API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Icône API][blobicon]<br/>**Objets blob Azure**][azureblobdoc]|[![Icône API][boxicon]<br/>**Box**][boxDoc]|[![Icône API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icône API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Icône API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icône API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icône API][githubicon]<br/>**GitHub**][githubdoc]|[![Icône API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Icône API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icône API][microsofttranslatoricon]<br/>**Traducteur**][microsofttranslatordoc]|[![Icône API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icône API][office365icon]<br/>**Office 365**<br/>**Utilisateurs**][office365usersdoc]|
-|[![Icône API][office365icon]<br/>**Office 365**<br/>**Vidéo**][office365videodoc]|[![Icône API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icône API][onedriveicon]<br/>**OneDrive<br/> Entreprise**][onedriveforbusinessdoc]|[![Icône API][outlookicon]<br/>**Outlook**][outlookdoc]|
+|[![Icône API][office365icon]<br/>**Office 365**<br/>**Vidéo**][office365videodoc]|[![Icône API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icône API][onedriveicon]<br/>**OneDrive<br/>Entreprise**][onedriveforbusinessdoc]|[![Icône API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Icône API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icône API][rssicon]<br/>**RSS**][rssdoc]|[![Icône API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icône API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
 |[![Icône API][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![Icône API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icône API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icône API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Icône API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icône API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icône API][trelloicon]<br/>**Trello**][trellodoc]|[![Icône API][twilioicon]<br/>**Twilio**][twiliodoc]|
-|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
-[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] Si vous avez créé des applications logiques en utilisant le schéma 2014-12-01-preview, vous remarquerez que les connecteurs d’intégration d’entreprise tels que ceux de BizTalk ne sont pas répertoriés ci-dessus. Nous savons ces outils sont importants et nous travaillons dur pour vous les fournir dans les meilleurs délais. Bien que nous n’ayons pas de date de disponibilité exacte à vous communiquer, soyez sûr que vous les fournir fait partie de nos priorités. En attendant, vous avez accès à nos [API v1 et BizTalk depuis Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Merci de votre compréhension. Restez connecté !
+## Connecteurs Enterprise Integration Pack (EIP)
+Les connecteurs EIP permettent de créer des applications logiques pour les scénarios B2B incluant EAI et EDI.
+ 
+|Connecteurs EIP ||||
+|-----------|-----------|-----------|-----------|
+|[![Icône API][as2icon]<br/>**AS2</br>encodage/décodage**][as2doc]|[![Icône API][x12icon]<br/>**X12</br>encodage/décodage**][x12Doc]|[![Icône API][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc]|[![Icône API][xmltransformicon]<br/>**XML<br/> transformation**][xmltransformdoc]|
+|[![Icône API][flatfileicon]<br/>**Flat file</br>encodage**][flatfiledoc]|[![Icône API][flatfiledecodeicon]<br/>**Fichier plat</br>décodage**][flatfiledecodedoc]|||
 
 
 ### Les connecteurs peuvent être des déclencheurs
@@ -55,10 +62,7 @@ Il existe deux types de déclencheurs :
 Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applications. Les actions sont utiles pour rechercher des données qui peuvent ensuite être utilisées lors de l'exécution de votre application. Par exemple, vous devrez peut-être rechercher des données client à partir d'une base de données SQL lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une table de destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
 
 
-[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md)  
-[Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md) 
+[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connectez-vous à un objet blob Azure pour gérer les fichiers de votre conteneur d'objets blob."
@@ -95,6 +99,12 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [twitterdoc]: ./connectors-create-api-twitter.md "Se connecte à Twitter et permet notamment de consulter des fils d’actualité et de publier des tweets."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Tenez votre vie à jour."
 [yammerdoc]: ./connectors-create-api-yammer.md "Se connecte à Yammer pour publier des messages et obtenir de nouveaux messages."
+[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Découvrez l’intégration d’entreprise AS2."
+[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Découvrez l’intégration d’entreprise X12."
+[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Découvrez la validation XML d’intégration d’entreprise."
+[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise."
 
 <!--Icon references-->
 [blobicon]: ./media/apis-list/blobicon.png
@@ -128,5 +138,11 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
+[as2icon]: ./media/apis-list/as2new.png
+[x12icon]: ./media/apis-list/x12new.png
+[flatfileicon]: ./media/apis-list/flatfileencoding.png
+[flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
+[xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
+[xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

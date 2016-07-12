@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="04/04/2016"
+	 ms.date="07/01/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Service Azure Backup – Forum aux questions
@@ -182,7 +182,7 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 **Q3. Quelle est la longueur minimale de la clé de chiffrement utilisée pour chiffrer les données de sauvegarde ?** <br/> R3. La clé de chiffrement doit contenir au moins 16 caractères.
 
-**Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.
+**Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.  
 
 ## Cache de sauvegarde
 
@@ -221,4 +221,4 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 Le dossier du cache et les métadonnées de disque dur virtuel ne doivent pas avoir les attributs ci-dessus pour que l’agent Azure Backup puisse fonctionner correctement.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Prise en main d’Azure AD Privileged Identity Management
@@ -29,15 +29,16 @@ Avant d'utiliser Azure AD Privileged Identity Management, vous devez ajouter l'a
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre répertoire.
 2. Si votre organisation possède plusieurs répertoires, cliquez sur votre nom d'utilisateur dans le coin supérieur droit du portail Azure, puis sélectionnez le répertoire où vous allez utiliser PIM.
-3. Sélectionnez l’icône **Nouveau** dans le volet de navigation à gauche.
-4. Sélectionnez **Sécurité + Identité**.
-5. Sélectionnez **Azure AD Privileged Identity Management**.
-6. Cochez **Épingler au tableau de bord**, puis cliquez sur le bouton **Créer**. L’application Privileged Identity Management s’ouvre.
+3. Sélectionnez **Nouveau** > **Sécurité + Identité** > **Azure AD Privileged Identity Management**.
+
+    ![Activer PIM dans le portail][1]
+
+4. Cochez **Épingler au tableau de bord**, puis cliquez sur **Créer**. L’application Privileged Identity Management s’ouvre.
 
 
 Si vous êtes la première personne à utiliser Azure AD Privileged Identity Management dans votre répertoire, l’[Assistant sécurité](active-directory-privileged-identity-management-security-wizard.md) vous guidera à travers l'expérience de l'attribution initiale. Vous deviendrez alors automatiquement le premier **Administrateur de la sécurité** et **administrateur de rôle privilégié** du répertoire. Seul un administrateur de rôle privilégié peut accéder à cette application pour gérer l’accès des autres administrateurs.
 
-Sinon, si vous avez été affecté à un ou plusieurs rôles par un autre administrateur de rôle privilégié, vous aurez le choix du rôle à activer. Si vous êtes vous-même dans un rôle d’administrateur de rôle privilégié, vous verrez également un choix de **Gestion des identités**.
+Si vous avez été affecté à un ou plusieurs rôles, vous disposez de l’option **Activer mes rôles**. Si vous êtes un administrateur de rôle privilégié, vous disposez également de l’option **Gérer les rôles privilégiés**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,4 +48,8 @@ La [vue d’ensemble Azure AD Privileged Identity Management](active-directory-p
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
+
+<!---HONumber=AcomDC_0706_2016-->

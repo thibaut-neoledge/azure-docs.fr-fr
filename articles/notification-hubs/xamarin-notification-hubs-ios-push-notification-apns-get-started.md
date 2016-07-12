@@ -4,8 +4,8 @@
 	services="notification-hubs"
     keywords="notifications push iOS, messages push, notifications push, envoi de messages"
 	documentationCenter="xamarin"
-	authors="ysxu"
-	manager="dwrede"
+	authors="wesmc7777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/15/2016"
-	ms.author="yuaxu"/>
+	ms.date="06/29/2016"
+	ms.author="wesmc"/>
 
 # Notifications Push iOS à l’aide des hubs de notification pour applications Xamarin
 
@@ -328,4 +328,4 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

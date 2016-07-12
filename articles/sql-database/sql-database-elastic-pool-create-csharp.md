@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
+    ms.date="07/05/2016"
     ms.author="srinia"/>
 
 # Créer un pool de base de données élastique avec C&#x23;
@@ -28,15 +28,13 @@ Découvrez comment créer un [pool de base de données élastique](sql-database-
 
 Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md)
 
-Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
-
-Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), vous devez installer cette dernière. Vous pouvez l’installer en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
+Les exemples ci-dessous utilisent la [bibliothèque SQL Database pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), de sorte que vous devez l’installer avant de continuer si elle n’est pas déjà installée. Vous pouvez installer cette bibliothèque en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## Créer un pool
 
-Créez une instance [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) à l’aide de valeurs issues d’[Azure Active Directory](sql-database-client-id-keys.md). Créez une instance [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) et appelez la méthode [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate). Les valeurs correspondant au nombre d’eDTU par pool, ainsi qu’au nombre de DTU minimal et maximal, sont limitées par la valeur de niveau de service (de base, standard ou premium). Consultez [Limites relatives aux eDTU et au stockage pour les pools et bases de données élastiques](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Créez une instance [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) à l’aide de valeurs issues d’[Azure Active Directory](sql-database-client-id-keys.md). Créez une instance [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) et appelez la méthode [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate). Les valeurs correspondant au nombre d’eDTU par pool, ainsi qu’au nombre de DTU minimal et maximal, sont limitées par la valeur de niveau de service (de base, standard ou premium). Consultez l’article [Limites relatives aux eDTU et au stockage pour les pools et bases de données élastiques](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
@@ -74,14 +72,14 @@ Créez une instance [DataBaseCreateorUpdateProperties](https://msdn.microsoft.co
 
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
-Pour déplacer une base de données existante vers un pool, consultez [Déplacer une base de données dans un pool élastique](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
+Pour déplacer une base de données existante vers un pool, consultez l’article [Déplacer une base de données dans un pool élastique](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
 ## Exemple : Création d’un pool à l’aide de C&#x23
 
 Cet exemple crée un groupe de ressources Azure, une instance de serveur SQL Azure et un pool élastique.
  
 
-Les bibliothèques suivantes sont requises pour l’exécution de cet exemple. Vous pouvez les installer en exécutant les commandes suivantes dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**).
+Les bibliothèques suivantes sont requises pour l’exécution de cet exemple. Vous pouvez les installer en exécutant les commandes suivantes dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio : (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**).
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -244,11 +242,11 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 
 - [Gérer votre pool](sql-database-elastic-pool-manage-csharp.md)
 - [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
-- [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge.
+- [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge.
 
 ## Ressources supplémentaires
 
 - [Base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->
