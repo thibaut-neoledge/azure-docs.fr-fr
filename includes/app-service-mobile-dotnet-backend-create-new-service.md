@@ -4,10 +4,9 @@
 
 3. Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un nouveau (en utilisant le même nom que votre application.)
  
+	Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau de tarification et à l’emplacement souhaité, voir [Présentation détaillée des plans Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
- Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau de tarification et à l’emplacement souhaité, voir [Présentation détaillée des plans Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-
-4. Pour le **plan App Service**, le plan par défaut (du [niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez également sélectionner un autre plan, ou en [créer un](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application. 
+4. Pour le **plan App Service**, le plan par défaut (du [niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez également sélectionner un autre plan, ou en [créer un](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application.
 
 	Après avoir choisi le plan, cliquez sur **Créer**. Cette action crée le serveur principal Mobile App.
 	
@@ -25,3 +24,5 @@
 
 <!-- URLs. -->
 [Portail Azure]: https://portal.azure.com/
+
+<!---HONumber=AcomDC_0706_2016-->

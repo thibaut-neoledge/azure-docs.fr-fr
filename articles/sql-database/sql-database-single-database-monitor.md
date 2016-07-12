@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/15/2016"
+	ms.date="07/06/2016"
 	ms.author="carlrab"/>
 
 # Analyse des performances d’une base de données dans une base de données SQL Azure
@@ -24,10 +24,10 @@ L’analyse des performances d’une base de données SQL dans Azure démarre pa
 
 Dans le [portail Azure](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Analyse**. Une fenêtre **Mesure** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
-- Pourcentage UC
+- Pourcentage UC
 - Pourcentage DTU
-- Pourcentage E/S données
-- Pourcentage de stockage
+- Pourcentage E/S des données
+- Pourcentage de la taille de la base de données
 
 Une fois que vous avez ajouté ces mesures, vous pouvez continuer à les afficher dans le graphique **Analyse** avec plus de détails dans la fenêtre **Mesure**. Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez l’article concernant les [niveaux de service](sql-database-service-tiers.md) pour plus d’informations sur les DTU.
 
@@ -47,4 +47,4 @@ Les mêmes mesures exposées dans le portail sont également disponibles via des
 
 Pour les pools de base de données élastiques, vous pouvez surveiller des bases de données dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour en savoir plus, consultez [Surveiller et gérer un pool élastique de bases de données](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

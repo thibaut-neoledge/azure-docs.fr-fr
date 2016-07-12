@@ -21,7 +21,7 @@ Skype Entreprise a différentes charges de travail nécessitant un traitement Qo
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] La configuration requise pour QoS ne s’applique qu’à l’homologation Microsoft.
+>[AZURE.NOTE] La configuration requise pour QoS ne s’applique qu’à l’homologation Microsoft. Les valeurs DSCP de votre trafic réseau reçues sur l’homologation publique Azure et l’homologation privée Azure seront remises à 0.
 
 Le tableau suivant fournit la liste des marquages DSCP utilisés par Skype Entreprise. Pour plus d’informations, voir [Gestion de QoS pour Skype Entreprise](https://technet.microsoft.com/library/gg405409.aspx).
 
@@ -50,4 +50,4 @@ Le tableau suivant fournit la liste des marquages DSCP utilisés par Skype Entre
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

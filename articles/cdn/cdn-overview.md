@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 # Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
@@ -33,7 +33,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache les ressources de s
 
 ![Présentation du CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple `<endpointname>.azureedge.net`. Le DNS achemine la demande à l’emplacement du point de présence (POP) le plus performant. Il s’agit en général du point du présence le plus proche géographiquement de l'utilisateur.
+1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple `<endpointname>.azureedge.net`. Le DNS achemine la demande à l’emplacement du point de présence (POP) le plus performant. Il s’agit en général du point de présence le plus proche géographiquement de l'utilisateur.
 
 2. Si les serveurs Edge du point de présence ne disposent pas du fichier dans leur cache, le serveur Edge demande le fichier à l'origine. L'origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
 
@@ -78,6 +78,8 @@ Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points d
 
 Pour voir le CDN à l’œuvre, regardez la [vidéo de notre session Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
+Apprenez à automatiser Azure CDN avec [.NET](./cdn-app-dev-net.md) ou [Node.js](./cdn-app-dev-node.md).
+
 Pour plus d’informations sur la tarification, voir [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

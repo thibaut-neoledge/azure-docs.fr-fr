@@ -19,17 +19,21 @@
    
 # Forum Aux Questions (FAQ) relatives à IoT Suite
 
-### Quelle est la différence entre la suppression d’un groupe de ressources dans le portail Azure et un clic sur l’option supprimer d’une solution préconfigurée dans azureiotsuite.com ?
+### Quelle est la différence entre la suppression d’un groupe de ressources dans le portail Azure et un clic sur l’option supprimer d’une solution préconfigurée dans azureiotsuite.com ?
 
-- Si vous supprimez la solution préconfigurée dans [azureiotsuite.com][lnk-azureiotsuite], vous supprimez toutes les ressources qui ont été configurées lors de la création de la solution préconfigurée ; si vous avez ajouté des ressources supplémentaires au groupe de ressources, elles sont également supprimées.
+- Si vous supprimez la solution préconfigurée dans [azureiotsuite.com][lnk-azureiotsuite], vous supprimez toutes les ressources qui ont été configurées lors de la création de la solution préconfigurée ; si vous avez ajouté des ressources supplémentaires au groupe de ressources, elles sont également supprimées.
 
 - Si vous supprimez le groupe de ressources dans le [portail Azure][lnk-azure-portal], vous supprimez uniquement les ressources présentes dans ce groupe de ressources. Vous devrez également supprimer l’application Azure Active Directory associée à la solution préconfigurée dans le [portail Azure Classic][lnk-classic-portal].
 
-### Combien d’instances de DocumentDB puis-je configurer dans un abonnement ?
+### Combien d’instances d’IoT Hub puis-je configurer dans un abonnement ? 
 
-Cinquante. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez provisionner que cinquante instances de DocumentDB par abonnement. Par conséquent, vous pouvez configurer au maximum cinq solutions de surveillance à distance préconfigurées dans un abonnement.
+Dix. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que dix IoT Hub par abonnement, comme indiqué dans [Limites d’abonnement Azure][link-azuresublimits]. Par conséquent, étant donné que chaque solution préconfigurée approvisionne un nouvel IoT Hub, vous ne pouvez configurer que dix solutions préconfigurées maximum dans un abonnement.
 
-### Combien d’API Bing Maps gratuites puis-je configurer dans un abonnement ?
+### Combien d’instances de DocumentDB puis-je configurer dans un abonnement ?
+
+Cinquante. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que cinquante instances de DocumentDB par abonnement.
+
+### Combien d’API Bing Maps gratuites puis-je configurer dans un abonnement ?
 
 Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - Niveau 1 pour les plans d’entreprise dans un abonnement Azure. La solution de surveillance à distance est configurée par défaut avec le plan Transactions internes - Niveau 1. Par conséquent, vous pouvez configurer au maximum deux solutions de surveillance à distance préconfigurées sans modification.
 
@@ -39,7 +43,7 @@ Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - N
  2. Cliquez sur Tous les paramètres, puis sur Gestion des clés.
  3. Vous remarquerez la présence de deux clés : MasterKey et QueryKey. Copiez la valeur de QueryKey.
 
-     > [AZURE.NOTE] Vous n’avez aucun compte Bing Maps API pour Entreprise ? Créez-le sur le [portail Azure][lnk-azure-portal] en cliquant sur + Nouveau, en recherchant API Bing Maps API pour Entreprise et en suivant la procédure.
+     > [AZURE.NOTE] Vous n’avez aucun compte Bing Maps API pour Entreprise ? Créez-le sur le [portail Azure][lnk-azure-portal] en cliquant sur + Nouveau, en recherchant Bing Maps API pour Entreprise et en suivant la procédure.
 
 2. Déroulez le code le plus récent dans [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
 
@@ -54,11 +58,12 @@ Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - N
 ### Puis-je créer une solution préconfigurée si je dispose de Microsoft Azure pour DreamSpark ?
 Pour le moment, il est impossible de créer une solution préconfigurée avec un compte [Microsoft Azure pour DreamSpark][lnk-dreamspark]. Vous pouvez toutefois créer en quelques minutes un [compte d’évaluation Azure gratuit][lnk-30daytrial], que vous pourrez utiliser pour créer une solution préconfigurée.
 
-### Comment supprimer un client AAS ?
+### Comment supprimer un client AAS ?
 
 Consultez billet de blog de Eric Golpe [Procédure pas à pas de la suppression d’un client Azure AD][lnk-delete-aad-tennant].
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[link-azuresublimits]: https://azure.microsoft.com/fr-FR/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -67,4 +72,4 @@ Consultez billet de blog de Eric Golpe [Procédure pas à pas de la suppression 
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

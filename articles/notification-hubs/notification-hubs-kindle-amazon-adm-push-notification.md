@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="02/29/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Prendre en main Notification Hubs pour les applications Kindle
@@ -79,7 +79,7 @@ Dans le portail, ajoutez la clé secrète client et l’ID client à l’onglet 
 Ajoutez les bibliothèques ADM à votre projet Eclipse :
 
 1. Pour obtenir la bibliothèque ADM, [téléchargez le Kit de développement logiciel (SDK)]. Extrayez le fichier zip du Kit de développement logiciel (SDK).
-2. Dans Eclipse, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Propriétés**. Sélectionnez **Java Build Path** sur la gauche, puis l’onglet **Libraries** en haut de l’écran. Cliquez sur **Add External Jar** et sélectionnez le fichier `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dans le répertoire dans lequel vous avez extrait le Kit de développement logiciel (SDK) Amazon.
+2. Dans Eclipse, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Propriétés**. Sélectionnez **Java Build Path** sur la gauche, puis l’onglet **Bibliothèques ** en haut de l’écran. Cliquez sur **Add External Jar** et sélectionnez le fichier `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dans le répertoire dans lequel vous avez extrait le Kit de développement logiciel (SDK) Amazon.
 3. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs (lien).
 4. Décompressez le package, puis faites glisser le fichier `notification-hubs-sdk.jar` dans le dossier `libs` dans Eclipse.
 
@@ -281,4 +281,4 @@ Pour envoyer un message avec .NET :
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->
