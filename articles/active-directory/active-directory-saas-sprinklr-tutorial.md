@@ -81,7 +81,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sprinklr-tutorial/IC782904.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à Sprinklr** de la page **Configuration l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.Sprinklr.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Sprinklr** de la page **Configuration l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.Sprinklr.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-sprinklr-tutorial/IC782905.png "Configurer l’URL de l’application")
 
@@ -188,4 +188,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->
