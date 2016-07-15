@@ -31,15 +31,14 @@ Sélectionnez une icône afin d’apprendre rapidement à tirer parti de ces con
 
 |Connecteurs||||
 |-----------|-----------|-----------|-----------|
-|[![Icône API][blobicon]<br/>**Objets blob Azure**][azureblobdoc]|[![Icône API][boxicon]<br/>**Box**][boxDoc]|[![Icône API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icône API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Icône API][blobicon]<br/>**Objets<br/>blob Azure**][azureblobdoc]|[![Icône API][boxicon]<br/>**Box**][boxDoc]|[![Icône API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icône API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Icône API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icône API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icône API][githubicon]<br/>**GitHub**][githubdoc]|[![Icône API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Icône API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icône API][microsofttranslatoricon]<br/>**Traducteur**][microsofttranslatordoc]|[![Icône API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icône API][office365icon]<br/>**Office 365**<br/>**Utilisateurs**][office365usersdoc]|
 |[![Icône API][office365icon]<br/>**Office 365**<br/>**Vidéo**][office365videodoc]|[![Icône API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icône API][onedriveicon]<br/>**OneDrive<br/>Entreprise**][onedriveforbusinessdoc]|[![Icône API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Icône API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icône API][rssicon]<br/>**RSS**][rssdoc]|[![Icône API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icône API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
 |[![Icône API][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![Icône API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icône API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icône API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Icône API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icône API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icône API][trelloicon]<br/>**Trello**][trellodoc]|[![Icône API][twilioicon]<br/>**Twilio**][twiliodoc]|
-|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
-[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 ## Connecteurs Enterprise Integration Pack (EIP)
 Les connecteurs EIP permettent de créer des applications logiques pour les scénarios B2B incluant EAI et EDI.
@@ -150,3 +149,4 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
 <!---HONumber=AcomDC_0706_2016-->
+
