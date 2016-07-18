@@ -1,4 +1,4 @@
-* [Mise à l'échelle d'Azure App Service](../articles/app-service/app-service-scale.md)
+* [Mise à l'échelle d'Azure App Service](../articles/app-service-web/web-sites-scale.md)
 	* Présentation de la fiabilité et la redondance
 	* Applications avec état et sans état
 		* [Configuration de votre application sans état](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
@@ -14,4 +14,4 @@
 * Distribution géographique
 	* [Utilisation de Traffic Manager pour l'archivage à l'échelle mondiale](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory
@@ -416,7 +416,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 ### SqlDWSource
 
-Dans le cas d’une activité de copie, quand la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -654,4 +654,4 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

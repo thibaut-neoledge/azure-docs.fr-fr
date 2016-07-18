@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Sécurité
@@ -47,4 +47,4 @@ Comme pour les autres entités, les opérations Notification Hubs sont autorisé
 
 Notification Hubs accepte les revendications accordées par les jetons de contrôle d'accès Microsoft Azure et les jetons de signature générés avec des clés partagées configurées directement sur le concentrateur de notification.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

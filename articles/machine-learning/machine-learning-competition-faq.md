@@ -34,7 +34,7 @@ Utilisez notre [forum Microsoft Azure Machine Learning](https://social.msdn.micr
 
 Accédez à la page d’accueil des concours via la galerie Cortana Intelligence. Cette page contient tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.
 
-1. Recherchez le concours auquel que vous voulez participer dans la galerie Cortana Intelligence, lisez toutes les instructions et regardez le didacticiel vidéo, puis cliquez sur le bouton « Participer au concours » pour copier l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.   
+1. Recherchez le concours auquel que vous voulez participer dans la galerie Cortana Intelligence, lisez toutes les instructions et regardez le didacticiel vidéo, puis cliquez sur le bouton « Participer au concours » pour copier l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.
 
 2. Créez une expérience prédictive avec le modèle formé en dehors de votre expérience de démarrage. Ensuite, ajustez soigneusement les schémas d’entrée et de sortie du service web pour vous assurer qu’ils sont conformes aux exigences spécifiées dans la documentation du concours. Le didacticiel contient généralement des instructions détaillées sur la procédure à suivre. Vous pouvez également regarder la vidéo du didacticiel, si elle est disponible.
 
@@ -115,4 +115,4 @@ La plateforme de concours ne prend actuellement en charge que les contributions 
 
 Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

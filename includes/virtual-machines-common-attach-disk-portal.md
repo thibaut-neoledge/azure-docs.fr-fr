@@ -3,19 +3,19 @@
 
 ## Recherchez la machine virtuelle.
 
-1. Connectez-vous au portail Azure.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Dans le menu hub, cliquez sur **Machines virtuelles**.
+2. Dans le menu Hub, cliquez sur **Machines virtuelles**.
 
 3.	Sélectionnez la machine virtuelle dans la liste.
 
-4. À droite, sous **Essentials**, cliquez sur **Tous les paramètres**, puis sur **Disques**.
+4. Dans le panneau Machines virtuelles, dans **Essentials**, cliquez sur **Tous les paramètres** > **Disques**.
 
 	![Ouverture des paramètres d’un disque](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
 Continuez en suivant les instructions pour attacher un disque nouveau ou existant.
 
-## Option 1 : attacher un nouveau disque
+## Option 1 : attacher un nouveau disque
 
 1.	Dans le panneau **Disques**, cliquez sur **Attacher un nouveau disque**.
 
@@ -25,7 +25,7 @@ Continuez en suivant les instructions pour attacher un disque nouveau ou existan
 
 3.	Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
-## Option 2 : attacher un disque existant
+## Option 2 : attacher un disque existant
 
 1.	Dans le panneau **Disques**, cliquez sur **Attacher un disque existant**.
 
@@ -43,4 +43,4 @@ Continuez en suivant les instructions pour attacher un disque nouveau ou existan
 
 6.	Après qu’Azure a attaché le disque à la machine virtuelle, le disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

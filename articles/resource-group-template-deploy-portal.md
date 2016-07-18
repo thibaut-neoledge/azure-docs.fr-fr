@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tomfitz"/>
 
 # Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
@@ -22,13 +22,16 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
 - [Portail](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
 Cette rubrique montre comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](resource-group-overview.md) pour déployer vos ressources Azure. Pour en savoir plus sur la gestion de vos ressources, consultez [Gérer des ressources Azure avec le portail](./azure-portal/resource-group-portal.md).
 
-Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, consultez [Graphique de la disponibilité du Portail Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, consultez [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Créer un groupe de ressources
 
@@ -120,4 +123,4 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
 - Pour résoudre des problèmes liés à un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le Portail Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Pour récupérer un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

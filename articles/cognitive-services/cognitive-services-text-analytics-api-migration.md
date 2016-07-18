@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Mise à niveau vers la Version 2 de l’API Analyse de texte #
 
-Ce guide vous accompagne à travers le processus de mise à niveau de votre code, de la [première version de l’API](../machine-learning-apps-text-analytics/) à la seconde version.
+Ce guide vous accompagne à travers le processus de mise à niveau de votre code, de l’utilisation de la [première version de l’API](../machine-learning/machine-learning-apps-text-analytics.md) à l’utilisation de la seconde version.
 
 Si vous n’avez pas utilisé l’API et que vous souhaitez en savoir plus, vous pouvez **[en savoir plus sur l’API ici](//go.microsoft.com/fwlink/?LinkID=759711)** ou **[suivre le guide de démarrage rapide](//go.microsoft.com/fwlink/?LinkID=760860)**. Pour la référence technique, reportez-vous à la **[définition d’API](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
 ### Partie 1. Obtenir une nouvelle clé ###
 
-Tout d’abord, vous devez obtenir une nouvelle clé d’API à partir du **portail Azure** :
+Tout d’abord, vous devez obtenir une nouvelle clé d’API à partir du **portail Azure** :
 
 1. Accédez au service d’analyse de texte via la [galerie Cortana Intelligence](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Vous y trouverez également des liens vers la documentation et des exemples de code.
 
@@ -308,4 +308,4 @@ Une fois que l’API de rubriques a terminé, l’état `succeeded` est renvoyé
 
 Vous devriez être fin prêt ! Testez votre code avec un petit exemple pour vous assurer que vous pouvez traiter vos données.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

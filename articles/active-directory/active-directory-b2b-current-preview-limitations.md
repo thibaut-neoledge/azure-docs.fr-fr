@@ -25,7 +25,7 @@
 - Les invitations envoyées aux adresses e-mail grand public (telles que hotmail.com, Gmail.com ou comcast.net) ne sont pas prises en charge pour le moment.
 - L’accès des utilisateurs externes aux applications locales n’a pas été testé.
 - Les utilisateurs externes ne sont pas automatiquement nettoyés quand l’utilisateur réel est supprimé de leur annuaire.
-- L’envoi d’invitations à des listes de distribution n’est pas pris en charge.
+- Les invitations aux listes de distribution ne sont pas prises en charge.
 - 2 000 enregistrements au maximum peuvent être téléchargés par le biais de la fonctionnalité CSV.
 
 ## Articles connexes
@@ -39,4 +39,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 - [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

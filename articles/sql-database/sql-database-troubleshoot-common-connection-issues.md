@@ -53,7 +53,7 @@ Si votre application connaît des erreurs temporaires, consultez les rubriques s
 
 ## Résoudre les erreurs persistantes (erreurs non temporaires)
 
-Si l’application échoue de façon permanente à se connecter SQL Azure Database, cela indique généralement un problème avec l’un des éléments suivants :
+Si l’application échoue de façon permanente à se connecter à la base de données SQL Azure, cela indique généralement un problème avec l’un des éléments suivants :
 
 - Configuration du pare-feu. Le pare-feu Azure SQL Database ou côté client bloque les connexions à SQL Azure Database.
 - Reconfiguration du réseau côté client : par exemple, une nouvelle adresse IP ou un nouveau serveur proxy.
@@ -99,6 +99,6 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 - [Aide générale sur le traitement des erreurs temporaires](../best-practices-retry-general.md)
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 - [Parcours d’apprentissage pour l’utilisation de la base de données SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-- [Parcours d’apprentissage pour l’utilisation des outils et fonctionnalités des bases de données élastiques](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
+- [Parcours d’apprentissage pour l’utilisation des outils et fonctionnalités des bases de données élastiques](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

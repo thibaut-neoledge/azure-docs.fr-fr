@@ -19,6 +19,16 @@
 
 # Prise en main de la détection de menaces
 
+> [AZURE.SELECTOR]
+- [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
+- [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
+- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
+- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
+- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 ## Vue d'ensemble
 
 Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. Threat Detection est disponible en version préliminaire et est pris en charge pour SQL Data Warehouse.
@@ -89,4 +99,4 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

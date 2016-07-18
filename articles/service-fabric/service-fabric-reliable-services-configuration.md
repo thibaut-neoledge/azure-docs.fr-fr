@@ -56,7 +56,7 @@ SharedLogSizeInMB spécifie la quantité d’espace disque à préallouer pour l
 ## Configuration spécifiques à un service
 Vous pouvez modifier la configuration par défaut des Reliable Services avec état par le biais du package de configuration (Config) ou l'implémentation du service (Code).
 
-+ **Config** : vous pouvez réaliser la configuration par le biais du package de configuration en modifiant le fichier Settings.xml généré dans la racine du package Microsoft Visual Studio, dans le dossier Config de chaque service dans l'application.
++ **Config** : vous pouvez réaliser la configuration par le biais du package de configuration en modifiant le fichier Settings.xml généré dans la racine du package Microsoft Visual Studio, dans le dossier Config de chaque service dans l'application.
 + **Code** - La configuration par l’intermédiaire du code est obtenue en créant un ReliableStateManager à l’aide d’un objet ReliableStateManagerConfiguration avec les options appropriées définies.
 
 Par défaut, le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans le fichier Settings.xml et utilise les valeurs de configuration pendant la création des composants runtime sous-jacents.
@@ -93,7 +93,7 @@ ReplicatorConfig
 |MaxRecordSizeInKB|Ko|1024|Taille maximale de l'enregistrement que le réplicateur peut écrire dans le journal. Cette valeur doit être un multiple de 4 et supérieure à 16.|
 |SharedLogId|GUID|""|Spécifie un GUID unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogId est spécifié, SharedLogPath doit l'être aussi.|
 |SharedLogPath|Nom de chemin complet|""|Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi.|
-
+|SlowApiMonitoringDuration|Secondes|300|Définit l’intervalle de surveillance pour les appels d’API gérées. Exemple : fonction de rappel de sauvegarde fournie par l’utilisateur. Une fois l’intervalle écoulé, un rapport d’intégrité Warning sera adressé au Gestionnaire d’intégrité.|
 
 ### Exemple de configuration au moyen du code
 ```csharp
@@ -162,4 +162,4 @@ Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble po
  - [Déboguer votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
  - [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

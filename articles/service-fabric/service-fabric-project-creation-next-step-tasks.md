@@ -47,7 +47,7 @@ Quand vous ajoutez un nouvel acteur fiable (Reliable Actor), Visual Studio ajout
 Le projet d’acteur fournit des méthodes pour la définition et l’obtention de la valeur d’un compteur qui persiste de manière fiable au sein de l’état de l’acteur. Le projet d'interface fournit une interface que les autres services peuvent utiliser pour appeler l'acteur.
 
 ### API web sans état
-Le projet d’API web sans état fournit un service web de base que vous pouvez utiliser pour ouvrir votre application à des clients externes. Pour plus d’informations sur la structure du projet, consultez [Prise en main : services de l’API Web Service Fabric avec auto-hébergement OWIN](service-fabric-reliable-services-communication-webapi).
+Le projet d’API web sans état fournit un service web de base que vous pouvez utiliser pour ouvrir votre application à des clients externes. Pour plus d’informations sur la structure du projet, consultez [Prise en main : services de l’API Web Service Fabric avec auto-hébergement OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 ## Étapes suivantes
 ### Création d’un cluster Azure
@@ -80,4 +80,4 @@ Pour savoir comment configurer un processus d’intégration continue pour votre
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

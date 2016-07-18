@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Transfert d’un abonnement Azure | Microsoft Azure"
+   pageTitle="Transfert de propriété d’un abonnement Azure | Microsoft Azure"
    description="Transfert d’un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure"
    services="billing"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="04/14/2016"
+   ms.date="07/04/2016"
    ms.author="genli"/>
 
-# Transfert d’un abonnement Azure
+# Transfert de propriété d’un abonnement Azure
 
 Souhaitez-vous :
 
@@ -27,7 +27,16 @@ Souhaitez-vous :
 
 Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes Microsoft Azure pour les abonnements de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark. Nous avons ajouté une fonction permettant de transférer votre abonnement vers un autre utilisateur. En d'autres termes, vous pouvez maintenant modifier l'administrateur de compte pour n'importe quel abonnement de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark dont vous êtes titulaire, quel que soit le pays dans lequel vous travaillez. Nous prenons désormais en charge le transfert d’achats Azure Marketplace pour ces types d’abonnements également.
 
-## Transfert d’un abonnement Azure
+**Remarque** Vous devez être l’administrateur du compte pour effectuer un transfert de propriété. Vous pouvez vérifier qui est l’administrateur du compte de l’abonnement comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans le menu Hub, sélectionnez **Abonnement**.
+3. Sélectionnez l’abonnement que vous souhaitez vérifier, puis sélectionnez **Paramètres**. ![paramètres](./media/billing-subscription-transfer/settings.png)
+4. Sélectionnez **Propriétés**. L’administrateur du compte de l’abonnement s’affiche dans la zone **ADMINISTRATEUR DE COMPTE**. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+
+## Transfert de propriété d’un abonnement Azure
+
+> [AZURE.VIDEO transfer-an-azure-subscription]
 
 1.  Connectez-vous à <https://account.windowsazure.com/Subscriptions>.
 
@@ -59,9 +68,8 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 
     Le transfert n’a aucune incidence sur le service. Il annule l’abonnement de l’administrateur de compte actuel et en crée un nouveau sous le compte du destinataire, mais associe les services Azure sous-jacents avec ce nouvel abonnement. L’ID de l’abonnement reste inchangé.
 
--   **Comment utiliser ce mécanisme pour modifier le répertoire d'abonnement ?**-   
-    Un abonnement Azure est créé dans le répertoire auquel le compte administrateur appartient. Par conséquent, pour modifier le répertoire, il suffit de transférer l'abonnement à un compte d'utilisateur situé dans le répertoire cible. Lorsque cet utilisateur exécute les étapes pour accepter le transfert, l'abonnement se déplace automatiquement vers le répertoire cible.
-   
+-   **Comment utiliser ce mécanisme pour modifier le répertoire d'abonnement ?**- Un abonnement Azure est créé dans le répertoire auquel le compte administrateur appartient. Par conséquent, pour modifier le répertoire, il suffit de transférer l'abonnement à un compte d'utilisateur situé dans le répertoire cible. Lorsque cet utilisateur exécute les étapes pour accepter le transfert, l'abonnement se déplace automatiquement vers le répertoire cible.
+
 -   **Si je deviens titulaire d’un abonnement d’une autre organisation, cette dernière aura-t-elle toujours accès à mes ressources ?**
 
     Si l’abonnement est transféré à un autre client, les utilisateurs associés au client précédent perdront l’accès à l’abonnement. Même si un utilisateur n’est plus administrateur ou coadministrateur des services, il pourra toujours accéder à l’abonnement via d’autres mécanismes de sécurité. Il s’agit des actions suivantes :
@@ -71,7 +79,7 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 
     Cette liste n’est pas exhaustive. Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour comme suit :
 
-    1.   Accédez au portail Azure : [*https://portal.azure.com*](https://portal.azure.com)
+    1.   Accédez au portail Azure : [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Cliquez sur Parcourir tout -&gt; Toutes les ressources.
 
@@ -115,4 +123,4 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

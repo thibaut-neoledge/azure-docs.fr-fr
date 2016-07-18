@@ -29,7 +29,7 @@ Le placement de votre offre dans l'environnement intermédiaire vous permet de t
 1.	Connexion au [portail de publication](https://publish.windowsazure.com)
 2.	Sélectionnez **DATA SERVICES** dans la fenêtre de navigation de gauche
 3.	Sélectionnez l’offre que vous voulez placer dans l'environnement intermédiaire. L'écran ci-dessus apparaît.
-4.	Cliquez sur le bouton **PUSH TO STAGING**.  
+4.	Cliquez sur le bouton **PUSH TO STAGING**.
 5.	Si des problèmes liés à l'offre doivent être résolus avant que l’offre ne passe dans l'environnement intermédiaire, la liste de ces problèmes s’affichera. Corrigez-les en cliquant sur chaque élément de la liste. Une fois toutes les corrections effectuées, cliquez de nouveau sur le bouton **PUSH TO STAGING**.
 
 Si votre offre ne présente aucun problème, vous verrez la fenêtre contextuelle ci-dessous.
@@ -42,7 +42,7 @@ Coupez et collez votre ID d'abonnement, puis cliquez sur la coche pour continuer
 
   ![dessin](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
-> [AZURE.NOTE]Ces ID d'abonnement Azure sont uniquement requis pour le test et l’environnement intermédiaire dans le [portail de gestion Azure](https://manage.windowsazure.com). Ils ne sont pas nécessaires pour le test dans Azure Marketplace.
+> [AZURE.NOTE] Ces ID d'abonnement Azure sont uniquement requis pour le test et l’environnement intermédiaire dans le [portail de gestion Azure](https://manage.windowsazure.com). Ils ne sont pas nécessaires pour le test dans Azure Marketplace.
 
 L'écran suivant montre que la publication a lieu en affichant l'icône « En cours » en surbrillance jaune ci-dessous. Le transfert de l’offre vers l’environnement intermédiaire prend entre 10 à 15 minutes. Si l’opération prend plus de temps, actualisez d’abord votre navigateur (appuyez sur F5 dans Internet Explorer). Dans les rares cas où votre offre est toujours en cours de transfert vers l'environnement intermédiaire après une heure, cliquez sur le lien de contact pour nous avertir du problème.
 
@@ -74,7 +74,7 @@ Testez ou vérifiez chacun des 12 éléments marqués ci-dessus pour vous assure
 
 Enfin, vérifiez que le service fonctionnera dans Datamarket en cliquant sur le lien « Explorer ce jeu de données ». Une nouvelle fenêtre s'ouvrira dans l'outil que nous appelons « Explorateur de service », vous permettant de prévisualiser les résultats d'une requête sur votre service. Dans cette fenêtre, vous pouvez entrer les paramètres nécessaires et afficher les résultats d'une requête sur votre service. Vous y verrez également l'URL de votre requête.
 
-> [AZURE.NOTE]Veillez à consulter la description textuelle du service affichée en haut. Si votre offre se compose de plusieurs appels de services, cliquez sur les onglets en bas pour basculer vers le service suivant afin de le vérifier et de le tester.
+> [AZURE.NOTE] Veillez à consulter la description textuelle du service affichée en haut. Si votre offre se compose de plusieurs appels de services, cliquez sur les onglets en bas pour basculer vers le service suivant afin de le vérifier et de le tester.
 
 
 
@@ -86,4 +86,4 @@ Si vous êtes satisfait et prêt à publier votre offre, consultez la documentat
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

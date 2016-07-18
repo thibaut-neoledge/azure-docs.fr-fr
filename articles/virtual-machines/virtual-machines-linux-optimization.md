@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/21/2016"
 	ms.author="rclaus"/>
 
 # Optimiser votre machine virtuelle Linux sur Azure
@@ -59,7 +59,7 @@ Vous devez rechercher et modifier deux entrées spécifiques dans le fichier **/
 Vous devez les modifier comme suit :
 
 * ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={taille en Mo en fonction de vos besoins} 
+* ResourceDisk.SwapSizeMB={taille en Mo en fonction de vos besoins}
 
 Une fois que vous avez effectué les modifications, vous devez redémarrer waagent ou votre machine virtuelle Linux afin de refléter ces modifications. Vous pouvez vérifier que ces modifications ont été implémentées et qu’un fichier d’échange a été créé en utilisant la commande `free` pour visualiser l’espace disponible. L’exemple ci-dessous correspond à la création d’un fichier d’échange de 512 Mo suite à la modification du fichier waagent.conf.
 
@@ -126,4 +126,4 @@ Voici quelques liens utiles vous permettant d’accéder à des ressources suppl
 - [Optimisation des performances MySQL sur les machines virtuelles Linux Azure](virtual-machines-linux-classic-optimize-mysql.md)
 - [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

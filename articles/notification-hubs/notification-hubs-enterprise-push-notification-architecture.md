@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Guide architectural des notifications Push d’entreprise
@@ -45,15 +45,15 @@ L'élément clé de ce diagramme architectural est Azure Service Bus, qui fourni
 ###Avantages :
 
 1. Le découplage entre l’expéditeur (les systèmes principaux) et le récepteur (application/service mobile via Notification Hub) permet à des systèmes principaux supplémentaires d’être intégrés, et ce avec un minimum de modifications.
-2. Cela permet également à plusieurs applications mobiles de recevoir des événements à partir d’un ou plusieurs systèmes principaux.  
+2. Cela permet également à plusieurs applications mobiles de recevoir des événements à partir d’un ou plusieurs systèmes principaux.
 
 ## Exemple :
 
 ###Composants requis
 Vous devez suivre les didacticiels suivants pour vous familiariser avec les concepts et les étapes habituelles de création et de configuration :
 
-1. [Programmation Service Bus Pub/Sub] : cette page présente l'utilisation des rubriques/abonnements Service Bus, la création d'un espace de noms pour contenir des rubriques/abonnements, ainsi que l'envoi et la réception de messages à partir de ceux-ci.
-2. [Notification Hubs : didacticiel Windows Universal] : cette rubrique explique comment configurer une application Windows Store et Notification Hubs pour vous inscrire et recevoir des notifications.
+1. [Programmation Service Bus Pub/Sub] : cette page présente l'utilisation des rubriques/abonnements Service Bus, la création d'un espace de noms pour contenir des rubriques/abonnements, ainsi que l'envoi et la réception de messages à partir de ceux-ci.
+2. [Notification Hubs : didacticiel Windows Universal] : cette rubrique explique comment configurer une application Windows Store et Notification Hubs pour vous inscrire et recevoir des notifications.
 
 ###Exemple de code
 
@@ -224,7 +224,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
 	b. Assurez-vous que la réception des notifications toast est activée dans votre application.
 
-	c. Assurez-vous que le code d'inscription suivant de Notification Hubs est appelé au démarrage de l'application (après avoir remplacé *HubName* et *DefaultListenSharedAccessSignature*) :
+	c. Assurez-vous que le code d'inscription suivant de Notification Hubs est appelé au démarrage de l'application (après avoir remplacé *HubName* et *DefaultListenSharedAccessSignature*) :
 
         private async void InitNotificationsAsync()
         {
@@ -271,4 +271,4 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 [Notification Hubs : didacticiel Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

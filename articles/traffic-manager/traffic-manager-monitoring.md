@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="jtuliani" />
 
 # Surveillance et basculement des points de terminaison Traffic Manager
@@ -175,4 +175,4 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 
 [Résolution des problèmes liés à l’état Détérioré](traffic-manager-troubleshooting-degraded.md) sur un point de terminaison Traffic Manager
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

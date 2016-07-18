@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Prise en main du kit de développement logiciel Azure CDN pour Node.js
+# Prise en main du développement Azure CDN
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.JS](cdn-app-dev-node.md)
 
 Vous pouvez utiliser le [kit de développement logiciel Azure CDN pour Node.js](https://www.npmjs.com/package/azure-arm-cdn) pour automatiser la création et la gestion des points de terminaison et profils CDN. Ce didacticiel présente la création d’une application console Node.js simple, qui exécute plusieurs des opérations disponibles. Il n’a pas vocation à décrire en détail tous les aspects du kit de développement logiciel Azure CDN pour Node.js.
 
 Pour suivre ce didacticiel, vous devez avoir au préalable installé et configuré [Node.js](http://www.nodejs.org) **4.x.x** ou version ultérieure. Vous pouvez utiliser n’importe quel éditeur de texte pour créer votre application Node.js. Pour écrire ce didacticiel, j’ai utilisé [Visual Studio Code](https://code.visualstudio.com).
 
-Vous trouverez un exemple de ce didacticiel [ici](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+> [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) est disponible en téléchargement sur MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -107,7 +111,7 @@ Ouvrez *app.js* dans votre éditeur pour commencer à écrire la structure de ba
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
 	```
 
-	Veillez à remplacer les éléments entre **&lt;chevrons;** par les informations appropriées. Pour `<redirect URI>`, utilisez l’URI de redirection que vous avez entré lorsque vous avez inscrit l’application dans Azure AD.
+	Veillez à remplacer les éléments entre **&lt;chevrons&gt;** par les informations appropriées. Pour `<redirect URI>`, utilisez l’URI de redirection que vous avez entré lorsque vous avez inscrit l’application dans Azure AD.
 	
 
 4.  Notre application console Node.js va prendre quelques paramètres de ligne de commande. Vérifions qu’au moins un des paramètres a été transmis.
@@ -337,7 +341,7 @@ function cdnDelete() {
 
 Nous pouvons à présent exécuter notre programme Node.js à l’aide de notre débogueur favori ou sur la console.
 
-> [AZURE.TIP] Si vous utilisez Visual Studio Code comme débogueur, vous devez configurer votre environnement pour transmettre les paramètres de ligne de commande. Code Visual Studio utilise le fichier **lanuch.json** à cette fin. Recherchez une propriété nommée **args** et ajoutez un tableau de valeurs de chaîne pour vos paramètres, afin d’obtenir un résultat semblable à ce qui suit : `"args": ["list", "profiles"]`.
+> [AZURE.TIP] Si vous utilisez Visual Studio Code comme débogueur, vous devez configurer votre environnement pour transmettre les paramètres de ligne de commande. Visual Studio Code utilise le fichier **lanuch.json** à cette fin. Recherchez une propriété nommée **args** et ajoutez un tableau de valeurs de chaîne pour vos paramètres, afin d’obtenir un résultat semblable à ce qui suit : `"args": ["list", "profiles"]`.
 
 Commençons par répertorier nos profils.
 
@@ -363,4 +367,4 @@ Pour voir la référence du kit de développement logiciel Azure CDN pour Node.j
 
 Pour rechercher une documentation supplémentaire sur le kit de développement logiciel Azure pour Node.js, consultez la [référence complète](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

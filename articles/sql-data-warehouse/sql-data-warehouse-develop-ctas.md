@@ -101,7 +101,7 @@ DROP TABLE FactInternetSales_old;
 ## SELECT .. INTO
 L’instruction `SELECT..INTO` peut apparaître à de nombreux emplacements dans votre solution.
 
-Vous trouverez ci-dessous un exemple d’instruction `SELECT..INTO` :
+Vous trouverez ci-dessous un exemple d’instruction `SELECT..INTO` :
 
 ```sql
 SELECT *
@@ -232,7 +232,7 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ## Remplacement d’instructions MERGE
 Vous pouvez remplacer les instructions MERGE, du moins partiellement, à l’aide de `CTAS`. Vous pouvez consolider les instructions `INSERT` et `UPDATE` dans une seule et même instruction. Tous les enregistrements supprimés doivent être isolés dans une seconde instruction.
 
-Voici un exemple d’utilisation d’une instruction consolidée `UPSERT` :
+Voici un exemple d’utilisation d’une instruction consolidée `UPSERT` :
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -426,11 +426,11 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
-[Statistiques]: ./sql-data-warehouse-develop-statistics.md
+[Statistiques]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

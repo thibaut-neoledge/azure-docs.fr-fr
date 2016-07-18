@@ -18,6 +18,16 @@
 
 # Sécuriser une base de données dans SQL Data Warehouse
 
+> [AZURE.SELECTOR]
+- [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
+- [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
+- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
+- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
+- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 Cet article présente les principes de base de la sécurisation de votre base de données Microsoft Azure SQL Data Warehouse. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la limitation de l’accès, à la protection des données et à la surveillance des activités sur une base de données.
 
 ## Sécurité de la connexion
@@ -53,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure][]. Pour plus de détails sur l’utilisation de la version préléminaire d’Azure AD pour SQL Data Warehouse, consultez [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][].
+Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure][]. Pour plus de détails sur l’utilisation de la version préliminaire d’Azure AD pour SQL Data Warehouse, consultez [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][].
 
 
 ## Autorisation
@@ -115,4 +125,4 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

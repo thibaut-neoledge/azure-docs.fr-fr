@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/30/2016"
 	ms.author="dariagrigoriu"/>
     
 # Meilleures pratiques pour Azure App Service
@@ -39,4 +39,10 @@ Pour plus d’informations sur les applications « sans état » et « avec éta
 ## <a name="socketresources"></a>Quand les ressources de socket sont épuisées
 L’utilisation des bibliothèques clientes constitue une raison courante de l’épuisement des connexions TCP sortantes ; ces bibliothèques ne sont pas implémentées pour la réutilisation des connexions TCP ou, dans le cas d’un protocole de niveau supérieur tel que HTTP, la logique de connexion persistante n’est pas utilisée. Veuillez consulter la documentation pour chacune des bibliothèques référencées par les applications dans votre plan App Service afin de vous assurer que celles-ci sont configurées ou accessibles dans votre code pour une réutilisation efficace des connexions sortantes. Suivez également les instructions de la documentation des bibliothèques pour une création et une mise en production appropriées ainsi que pour un nettoyage servant à éviter la fuite des connexions. Lorsque les examens des bibliothèques clientes sont en cours d’exécution, leur impact peut être atténué en augmentant la taille des instances.
 
-<!---HONumber=AcomDC_0525_2016-->
+## <a name="appbackup"></a>La sauvegarde de votre application échoue
+Les deux raisons les plus courantes qui entraînent l'échec de la sauvegarde d'une application sont les suivantes : des paramètres de stockage non valides et une configuration de base de données non valide. Ces échecs se produisent généralement lorsque des modifications ont été appliquées à des ressources de stockage ou de base de données, ou lorsque la méthode d'accès à ces ressources a changé (par exemple en cas de mise à jour des informations d’identification pour accéder à la base de données sélectionnée dans les paramètres de sauvegarde). En général, les sauvegardes s'exécutent de façon planifiée et requièrent l’accès au stockage (pour générer les fichiers sauvegardés) et aux bases de données (pour copier et lire le contenu à inclure dans la sauvegarde). L'incapacité à accéder à l'une de ces ressources entraîne une erreur de sauvegarde permanente.
+
+Lorsque des échecs de sauvegarde se produisent, veuillez consulter les résultats les plus récents pour comprendre quel type d'échec se produit. Si vous ne parvenez pas à accéder au stockage, examinez et mettez à jour les paramètres de stockage utilisés dans la configuration de la sauvegarde. Si vous ne parvenez pas à accéder à la base de données, examinez et mettez à jour vos chaînes de connexion dans les paramètres de l’application, puis mettez à jour la configuration de votre sauvegarde afin d’inclure correctement les bases de données requises. Pour plus d’informations sur la sauvegarde d’une application, consultez la documentation [Sauvegarder une application web dans Azure App Service](web-sites-backup.md).
+  
+
+<!---HONumber=AcomDC_0706_2016-->

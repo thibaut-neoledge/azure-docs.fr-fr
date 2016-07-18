@@ -34,17 +34,17 @@ Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous 
 
 Si vous ne pouvez pas résoudre le problème avec les conseils ci-dessous, vous pouvez contacter nos ingénieurs de support. Lorsque vous les contactez, il est recommandé de fournir les informations suivantes :
 
- - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
- - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
- - **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
- - **Code de support** : quel était le code de support généré lorsque l’erreur s’est produite (pour le trouver, reproduisez l’erreur, puis cliquez sur le lien Code de support en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu). 
+ - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
+ - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
+ - **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
+ - **Code de support** : quel était le code de support généré lorsque l’erreur s’est produite (pour le trouver, reproduisez l’erreur, puis cliquez sur le lien Code de support en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu).
    - Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
 
     ![][001]
 
- - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com)?)
- - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L’utilisateur dispose-t-il d’une licence AAD Premium ou AAD Basic ?
- - **Journal des événements de l’application** : si vous utilisez l’écriture différée de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez compresser une copie du journal des événements de l’application provenant de votre serveur Azure AD Connect et l’envoyer avec votre demande.
+ - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
+ - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L’utilisateur dispose-t-il d’une licence AAD Premium ou AAD Basic ?
+ - **Journal des événements de l’application** : si vous utilisez l’écriture différée de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez compresser une copie du journal des événements de l’application provenant de votre serveur Azure AD Connect et l’envoyer avec votre demande.
 
 Ces informations nous aideront à résoudre votre problème aussi rapidement que possible.
 
@@ -102,7 +102,7 @@ Si vous rencontrez une erreur lors de la configuration de la réinitialisation d
             </td>
             <td>
               <p>De nombreux éléments de l’interface utilisateur sont masqués jusqu’à ce qu’ils soient nécessaires. Essayez d’activer toutes les options de la page pour les afficher.</p>
-              <p>Consultez la rubrique <a href="../active-directory-passwords-customize#password-management-behavior">Personnalisation de la stratégie de réinitialisation du mot de passe utilisateur</a> pour plus d’informations sur tous les contrôles qui sont à votre disposition.</p>
+              <p>Consultez la rubrique <a href="active-directory-passwords-customize.md#password-management-behavior">Comportement de la gestion des mots de passe</a> pour plus d’informations sur tous les contrôles qui sont à votre disposition.</p>
             </td>
           </tr>
           <tr>
@@ -114,7 +114,7 @@ Si vous rencontrez une erreur lors de la configuration de la réinitialisation d
             </td>
             <td>
               <p>Cette option est visible uniquement si vous avez téléchargé Azure AD Connect et configuré l’écriture différée de mot de passe. Après cela, cette option apparaît et vous permet d’activer ou de désactiver l’écriture différée depuis le cloud.</p>
-              <p>Consultez la rubrique <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Activation ou désactivation de l’écriture différée de mot de passe</a> pour plus d’informations sur la procédure à suivre.</p>
+              <p>Consultez la rubrique <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Activation de l’écriture différée de mot de passe dans Azure AD Connect</a> pour plus d’informations sur la procédure à suivre.</p>
             </td>
           </tr>
         </tbody></table>
@@ -289,7 +289,7 @@ Si vous rencontrez une erreur lors de la réinitialisation d’un mot de passe p
               <p>Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place.</p>
             </td>
             <td>
-              <p>Assurez-vous que l’utilisateur dispose de données de contact correctes dans l’annuaire avant de poursuivre. Consultez la rubrique <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a> pour plus d’informations sur la configuration des informations d’authentification dans l’annuaire afin que les utilisateurs ne voient pas cette erreur.</p>
+              <p>Assurez-vous que l’utilisateur dispose de données de contact correctes dans l’annuaire avant de poursuivre. Consultez la rubrique <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a> pour plus d’informations sur la configuration des informations d’authentification dans l’annuaire afin que les utilisateurs ne voient pas cette erreur.</p>
             </td>
           </tr>
           <tr>
@@ -305,7 +305,7 @@ Si vous rencontrez une erreur lors de la réinitialisation d’un mot de passe p
               <p>Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place.</p>
             </td>
             <td>
-              <p>Avant de continuer, vérifiez que l’utilisateur a configuré correctement au moins deux méthodes de contact (par exemple, un téléphone mobile et un téléphone fixe). Consultez la rubrique <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a> pour plus d’informations sur la configuration des informations d’authentification dans l’annuaire afin que les utilisateurs ne voient pas cette erreur.</p>
+              <p>Avant de continuer, vérifiez que l’utilisateur a configuré correctement au moins deux méthodes de contact (par exemple, un téléphone mobile et un téléphone fixe). Consultez la rubrique <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a> pour plus d’informations sur la configuration des informations d’authentification dans l’annuaire afin que les utilisateurs ne voient pas cette erreur.</p>
             </td>
           </tr>
           <tr>
@@ -327,7 +327,7 @@ Si vous rencontrez une erreur lors de la réinitialisation d’un mot de passe p
               <p>L’utilisateur clique sur le lien pour recevoir un SMS ou être appelé, mais ne reçoit jamais rien.</p>
             </td>
             <td>
-              <p>Cela peut être dû à un numéro de téléphone mal formé dans l’annuaire. Assurez-vous que le numéro de téléphone est au format «&#160;+ccc xxxyyyzzzzXeeee&#160;». Pour en savoir plus sur le format des numéros de téléphone à utiliser avec la réinitialisation des mots de passe, consultez la rubrique <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a>.</p>
+              <p>Cela peut être dû à un numéro de téléphone mal formé dans l’annuaire. Assurez-vous que le numéro de téléphone est au format «&#160;+ccc xxxyyyzzzzXeeee&#160;». Pour en savoir plus sur le format des numéros de téléphone à utiliser avec la réinitialisation des mots de passe, consultez la rubrique <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a>.</p>
               <p>Si vous avez besoin d’orienter l’utilisateur vers un poste particulier, notez que la réinitialisation de mot de passe ne prend pas en charge les numéros de poste, même si vous en spécifiez un dans l’annuaire (ils sont supprimés avant la distribution de l’appel). Essayez d’utiliser un nombre sans numéro de poste ou d’intégrer le numéro de poste dans le numéro de téléphone dans votre PBX.</p>
             </td>
           </tr>
@@ -340,7 +340,7 @@ Si vous rencontrez une erreur lors de la réinitialisation d’un mot de passe p
             </td>
             <td>
               <p>La cause la plus probable de ce problème est que le message est rejeté par un filtre antispam. Consultez votre dossier de courrier indésirable ou d’éléments supprimés pour y rechercher le message électronique.</p>
-              <p>Vérifiez également que vous êtes bien en train de vérifier la bonne adresse&#160;: beaucoup de gens ont des adresses de messagerie très similaires et se trompent de boîte de réception. Si aucune de ces options ne fonctionne, il est également possible que l’adresse de messagerie soit mal formée dans l’annuaire. Vérifiez que l’adresse de messagerie est correcte et réessayez. Pour en savoir plus sur le format des adresses de messagerie à utiliser avec la réinitialisation des mots de passe, consultez la rubrique <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a>.</p>
+              <p>Vérifiez également que vous êtes bien en train de vérifier la bonne adresse&#160;: beaucoup de gens ont des adresses de messagerie très similaires et se trompent de boîte de réception. Si aucune de ces options ne fonctionne, il est également possible que l’adresse de messagerie soit mal formée dans l’annuaire. Vérifiez que l’adresse de messagerie est correcte et réessayez. Pour en savoir plus sur le format des adresses de messagerie à utiliser avec la réinitialisation des mots de passe, consultez la rubrique <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Données utilisées par la réinitialisation de mot de passe</a>.</p>
             </td>
           </tr>
           <tr>
@@ -519,7 +519,7 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>Après avoir pu réinitialiser leurs mots de passe pendant un certain temps, les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe ne parviennent plus à réinitialiser leurs mots de passe.</p>
             </td>
             <td>
-              <p>Dans certains cas rares, le service d’écriture différée des mots de passe peut ne pas réussir à redémarrer quand Azure AD Connect a redémarré. Dans ce cas, commencez par vérifier si l’écriture différée des mots de passe est activée localement. Pour cela, utilisez l’Assistant Azure AD Connect ou PowerShell (voir les procédures ci-dessus). Si la fonctionnalité semble être activée, essayez de l’activer ou de la désactiver de nouveau par le biais de l’interface utilisateur ou de PowerShell. Consultez la rubrique «&#160;Étape&#160;2&#160;: activer l’écriture différée des mots de passe sur votre ordinateur de synchronisation d’annuaires &amp; configurer des règles de pare-feu &#160;» dans <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Comment activer/désactiver l’écriture différée des mots de passe</a> pour plus d’informations sur la procédure à suivre.</p>
+              <p>Dans certains cas rares, le service d’écriture différée des mots de passe peut ne pas réussir à redémarrer quand Azure AD Connect a redémarré. Dans ce cas, commencez par vérifier si l’écriture différée des mots de passe est activée localement. Pour cela, utilisez l’Assistant Azure AD Connect ou PowerShell (voir les procédures ci-dessus). Si la fonctionnalité semble être activée, essayez de l’activer ou de la désactiver de nouveau par le biais de l’interface utilisateur ou de PowerShell. Consultez la rubrique «&#160;Étape&#160;2&#160;: activer l’écriture différée des mots de passe sur votre ordinateur de synchronisation d’annuaires &amp; configurer des règles de pare-feu &#160;» dans <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Comment activer/désactiver l’écriture différée des mots de passe</a> pour plus d’informations sur la procédure à suivre.</p>
               <p>
                 
               </p>
@@ -563,7 +563,7 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
                 <li>
 										Vous essayez à présent d’activer/de désactiver l’écriture différée des mots de passe. L’Assistant crée le nom du connecteur en utilisant les informations d’identification, telles que «&#160;abc.onmicrosoft.com – AAD&#160;», puis le passe à l’applet de commande d’écriture différée des mots de passe. Cette opération échoue, car il n’existe aucun connecteur créé portant ce nom.&lt;br>&lt;br></li>
               </ol>
-              <p>Ce problème a été résolu dans nos versions les plus récentes. Si vous possédez une version plus ancienne, une solution de contournement consiste à utiliser l’applet de commande PowerShell pour activer ou désactiver la fonctionnalité. Consultez la rubrique «&#160;Étape&#160;2&#160;: activer l’écriture différée des mots de passe sur votre ordinateur de synchronisation d’annuaires &amp; configurer des règles de pare-feu &#160;» dans <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Comment activer/désactiver l’écriture différée des mots de passe</a> pour plus d’informations sur la procédure à suivre.</p>
+              <p>Ce problème a été résolu dans nos versions les plus récentes. Si vous possédez une version plus ancienne, une solution de contournement consiste à utiliser l’applet de commande PowerShell pour activer ou désactiver la fonctionnalité. Consultez la rubrique «&#160;Étape&#160;2&#160;: activer l’écriture différée des mots de passe sur votre ordinateur de synchronisation d’annuaires &amp; configurer des règles de pare-feu &#160;» dans <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Comment activer/désactiver l’écriture différée des mots de passe</a> pour plus d’informations sur la procédure à suivre.</p>
             </td>
           </tr>
           <tr>
@@ -638,7 +638,7 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>Lorsque vous essayez de réinitialiser un mot de passe pour le compte d’un utilisateur à partir du portail de gestion Azure, un message tel que celui ci-dessous s’affiche&#160;: «&#160;Le service de réinitialisation du mot de passe de votre environnement local ne prend pas en charge la réinitialisation des mots de passe utilisateur par les administrateurs. Pour résoudre ce problème, veuillez procéder à une mise à niveau vers la dernière version d’Azure AD Connect&#160;».</p>
             </td>
             <td>
-              <p>Cela se produit lorsque la version du moteur de synchronisation ne prend pas en charge l’opération d’écriture différée de mot de passe qui a été utilisée. Les versions d’Azure AD Connect ultérieures à la version 1.0.0419.0911 prennent en charge toutes les opérations de gestion des mots de passe, dont l’écriture différée de réinitialisation du mot de passe, l’écriture différée de modification du mot de passe et l’écriture différée de réinitialisation du mot de passe initialisée par l’administrateur à partir du portail de gestion Azure.&#160; Les versions de DirSync ultérieures à la version&#160;1.0.6862 prennent en charge uniquement l’écriture différée de réinitialisation du mot de passe. Il est fortement recommandé d’installer la dernière version d’Azure AD Connect ou d’Azure Active Directory Connect (pour plus d’informations, consultez la rubrique <a href="../active-directory-aadconnect#download-azure-ad-connect">Outils d’intégration d’annuaires</a>) pour résoudre ce problème et tirer le meilleur parti de l’écriture différée de mot de passe dans votre organisation.</p>
+              <p>Cela se produit lorsque la version du moteur de synchronisation ne prend pas en charge l’opération d’écriture différée de mot de passe qui a été utilisée. Les versions d’Azure AD Connect ultérieures à la version 1.0.0419.0911 prennent en charge toutes les opérations de gestion des mots de passe, dont l’écriture différée de réinitialisation du mot de passe, l’écriture différée de modification du mot de passe et l’écriture différée de réinitialisation du mot de passe initialisée par l’administrateur à partir du portail de gestion Azure.&#160; Les versions de DirSync ultérieures à la version&#160;1.0.6862 prennent en charge uniquement l’écriture différée de réinitialisation du mot de passe. Il est fortement recommandé d’installer la dernière version d’Azure AD Connect ou d’Azure Active Directory Connect (pour plus d’informations, consultez la rubrique <a href="active-directory-aadconnect">Outils d’intégration d’annuaires</a>) pour résoudre ce problème et tirer le meilleur parti de l’écriture différée de mot de passe dans votre organisation.</p>
             </td>
           </tr>
         </tbody></table>
@@ -1284,7 +1284,7 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Cet événement indique que le compte de service de l’agent de gestion n’a pas les autorisations appropriées sur le compte en question pour définir un nouveau mot de passe. Assurez-vous que le compte de l’agent de gestion dans la forêt de l’utilisateur possède des autorisations de réinitialisation et modification de mot de passe sur tous les objets de la forêt. Pour plus d’informations sur la façon de procéder, consultez la section <a href="../active-directory-passwords-getting-started#step-4-set-up-the-appropriate-active-directory-permissions">Étape&#160;4&#160;: définition des autorisations Active Directory appropriées</a>.</p>
+              <p>Cet événement indique que le compte de service de l’agent de gestion n’a pas les autorisations appropriées sur le compte en question pour définir un nouveau mot de passe. Assurez-vous que le compte de l’agent de gestion dans la forêt de l’utilisateur possède des autorisations de réinitialisation et modification de mot de passe sur tous les objets de la forêt. Pour plus d’informations sur la façon de procéder, consultez la section <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Étape&#160;4&#160;: définition des autorisations Active Directory appropriées</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1416,11 +1416,12 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
             </td>
           </tr>
         </tbody></table>
+		
 ## Résolution des problèmes de connectivité de l’écriture différée de mot de passe
 
 Si vous rencontrez des interruptions de service avec le composant d’écriture différée de mot de passe d’Azure AD Connect, voici quelques mesures rapides à prendre pour résoudre le problème :
 
- - [Redémarrer le service de synchronisation Azure AD Connect](#restart-the-azure-AD-sync-service)
+ - [Redémarrer le service de synchronisation Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
  - [Désactiver et réactiver la fonctionnalité d’écriture différée de mot de passe](#disable-and-re-enable-the-password-writeback-feature)
  - [Installer la dernière version d’Azure AD Connect](#install-the-latest-azure-ad-connect-release)
  - [Résoudre les problèmes d’écriture différée de mot de passe](#troubleshoot-password-writeback)
@@ -1465,7 +1466,7 @@ Si la désactivation et la réactivation de la fonctionnalité d’écriture dif
 ### Installer la dernière version d’Azure AD Connect
 La réinstallation du package Azure AD Connect peut résoudre les problèmes de configuration susceptibles d’affecter votre capacité à vous connecter à nos services cloud ou à gérer les mots de passe de votre environnement Active Directory local. Il est préférable d’effectuer cette étape uniquement après avoir tenté les deux premières étapes décrites ci-dessus.
 
- 1.	Téléchargez la dernière version d’Azure AD Connect [ici](active-directory-aadconnect.md#download-azure-ad-connect).
+ 1.	Téléchargez la dernière version d’Azure AD Connect [ici](active-directory-aadconnect.md#install-azure-ad-connect).
  2.	Puisque vous avez déjà installé Azure AD Connect, il vous suffit d’effectuer une mise à niveau sur place pour mettre à jour votre installation d’Azure AD Connect vers la dernière version.
  3.	Exécutez le package téléchargé et suivez les instructions à l’écran pour mettre à jour votre ordinateur Azure AD Connect. Aucune opération manuelle supplémentaire n’est requise, sauf si vous avez personnalisé les règles de synchronisation par défaut, auquel cas vous devez **les sauvegarder avant de procéder à la mise à niveau et les déployer à nouveau manuellement une fois que vous avez terminé**.
 
@@ -1481,14 +1482,14 @@ Si cela ne résout pas votre problème, nous vous recommandons de consulter la r
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
-* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
-* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
-* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
-* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
-* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
-* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
-* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
+* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
+* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
+* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
+* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
+* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
+* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
 
 
@@ -1497,4 +1498,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

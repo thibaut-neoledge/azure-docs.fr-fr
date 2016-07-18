@@ -39,13 +39,13 @@ Pour plus de conseils sur la gestion, consultez la [présentation de la gestion]
 <!--Image references-->
 
 <!--Article references-->
-[Recherche de requêtes longues]: sql-data-warehouse-manage-find-long-running-queries.md
-[Gestion de la concurrence et des charges de travail]: sql-data-warehouse-develop-concurrency.md
-[présentation de la gestion]: sql-data-warehouse-overview-manage.md
+[Recherche de requêtes longues]: ./sql-data-warehouse-manage-monitor.md
+[Gestion de la concurrence et des charges de travail]: ./sql-data-warehouse-develop-concurrency.md
+[présentation de la gestion]: ./sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

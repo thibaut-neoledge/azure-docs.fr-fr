@@ -3,7 +3,7 @@
 	description="Découvrez comment envoyer des notifications Push sécurisées dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET."
 	documentationCenter="windows"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Notifications Push sécurisées avec Azure Notification Hubs
@@ -49,11 +49,11 @@ Ce didacticiel sur les notifications Push sécurisées montre comment envoyer un
 
 ## Modification du projet Windows Phone
 
-1. Dans le projet **NotifyUserWindowsPhone**, ajoutez le code suivant à App.xaml.cs afin d'enregistrer la tâche en arrière-plan pour les notifications Push. Ajoutez la ligne de code ci-après à la fin de la méthode `OnLaunched()` :
+1. Dans le projet **NotifyUserWindowsPhone**, ajoutez le code suivant à App.xaml.cs afin d'enregistrer la tâche en arrière-plan pour les notifications Push. Ajoutez la ligne de code ci-après à la fin de la méthode `OnLaunched()` :
 
 		RegisterBackgroundTask();
 
-2. Toujours dans App.xaml.cs, ajoutez le code ci-dessous juste après la méthode `OnLaunched()` :
+2. Toujours dans App.xaml.cs, ajoutez le code ci-dessous juste après la méthode `OnLaunched()` :
 
 		private async void RegisterBackgroundTask()
         {
@@ -186,4 +186,4 @@ Pour exécuter l'application, procédez comme suit :
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

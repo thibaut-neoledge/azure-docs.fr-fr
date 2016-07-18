@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis Sybase à l’aide d’Azure Data Factory 
@@ -246,7 +246,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Sybase), les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Sybase), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
@@ -270,4 +270,4 @@ Sybase prend en charge les types T-SQL et T-SQL. Pour une table de mappage de ty
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

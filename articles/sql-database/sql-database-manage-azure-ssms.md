@@ -76,7 +76,7 @@ La base de données **master** effectue le suivi des connexions et indique celle
 
 -   Pour fournir à connexion1 des autorisations d’accès à une base de données appelée **maBDTest**, procédez comme suit :
 
- 1.  Pour actualiser l'Explorateur d'objets de façon à voir la base de données **myTestDB** que vous venez de créer, cliquez avec le bouton droit sur le nom du serveur dans l'Explorateur d'objets, puis cliquez sur **Actualiser**.  
+ 1.  Pour actualiser l'Explorateur d'objets de façon à voir la base de données **myTestDB** que vous venez de créer, cliquez avec le bouton droit sur le nom du serveur dans l'Explorateur d'objets, puis cliquez sur **Actualiser**.
 
      Si vous avez fermé la connexion, vous pouvez vous reconnecter en sélectionnant **Connecter l’Explorateur d’objets** dans le menu Fichier.
 
@@ -151,4 +151,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
  
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -47,7 +47,7 @@
 
 ###<a name="1.6.0"/>1.6.0</a>
 
-- Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md). 
+- Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md).
 
 ###<a name="1.5.6"/>1.5.6</a>
 
@@ -55,23 +55,23 @@
 
 ###<a name="1.5.5"/>1.5.5</a>
 
-- Résout hashParitionResolver resolveForRead() : levait une exception si aucune clé de partition n’était fournie, au lieu de renvoyer une liste de tous les liens enregistrés.
+- Résout hashParitionResolver resolveForRead() : levait une exception si aucune clé de partition n’était fournie, au lieu de renvoyer une liste de tous les liens enregistrés.
 
 ###<a name="1.5.4"/>1.5.4</a>
 
-- Résolution du problème [n° 100](https://github.com/Azure/azure-documentdb-node/issues/100) : Agent HTTPS dédié : éviter de modifier l’agent global pour DocumentDB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
+- Résolution du problème [# 100](https://github.com/Azure/azure-documentdb-node/issues/100) : Agent HTTPS dédié : éviter de modifier l’agent global pour DocumentDB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
 
 ###<a name="1.5.3"/>1.5.3</a>
 
-- Résolution du problème [n° 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestion correcte des tirets dans les ID de média.
+- Résolution du problème [# 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestion correcte des tirets dans les ID de média.
 
 ###<a name="1.5.2"/>1.5.2</a>
 
-- Résolution du problème [n° 95](https://github.com/Azure/azure-documentdb-node/issues/95) : avertissement de fuite de l’écouteur EventEmitter.
+- Résolution du problème [# 95](https://github.com/Azure/azure-documentdb-node/issues/95) : avertissement de fuite de l’écouteur EventEmitter.
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Résolution du problème [n° 92](https://github.com/Azure/azure-documentdb-node/issues/90) : dossier Hash renommé en hash pour les systèmes respectant la casse.
+- Résolution du problème [# 92](https://github.com/Azure/azure-documentdb-node/issues/90) : dossier Hash renommé en hash pour les systèmes respectant la casse.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
@@ -79,7 +79,7 @@
 
 ### <a name="1.4.0"/>1.4.0</a>
 
-- Implémentation de l’opération Upsert. Nouvelles méthodes upsertXXX sur documentClient. 
+- Implémentation de l’opération Upsert. Nouvelles méthodes upsertXXX sur documentClient.
 
 ### <a name="1.3.0"/>1.3.0</a>
 
@@ -93,12 +93,12 @@
 ### <a name="1.2.1"/>1.2.1</a>
 
 - Implémentation du routage basé sur l’ID.
-- Résolution du problème [n° 49](https://github.com/Azure/azure-documentdb-node/issues/49) - propriété actuelle en conflit avec la méthode current().
+- Résolution du problème [# 49](https://github.com/Azure/azure-documentdb-node/issues/49) - propriété actuelle en conflit avec la méthode current().
 
 ### <a name="1.2.0"/>1.2.0</a>
 
 - Ajout de la prise en charge de l’index géospatial.
-- Validation de la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, &#47;&#47; ou se terminer par un espace. 
+- Validation de la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, &#47;&#47; ou se terminer par un espace.
 - Ajout du nouvel en-tête « progression de la transformation de l’index » à ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
@@ -107,7 +107,7 @@
 
 ### <a name="1.0.3"/>1.0.3</a>
 
-- Problème [n° 40](https://github.com/Azure/azure-documentdb-node/issues/40) : implémentation des configurations eslint et grunt dans le Kit de développement logiciel (SDK) principal et de promesse.
+- Problème [# 40](https://github.com/Azure/azure-documentdb-node/issues/40) : implémentation des configurations eslint et grunt dans le Kit de développement logiciel (SDK) principal et de promesse.
 
 ### <a name="1.0.2"/>1.0.2</a>
 
@@ -117,7 +117,7 @@
 
 - Implémentation de la possibilité de créer une requête pour les conflits en ajoutant readConflicts, readConflictAsync et queryConflicts.
 - Mise à jour de la documentation de l’API.
-- Problème [n° 41](https://github.com/Azure/azure-documentdb-node/issues/41) : Erreur client.createDocumentAsync
+- Problème [# 41](https://github.com/Azure/azure-documentdb-node/issues/41) : Erreur client.createDocumentAsync
 
 ### <a name="1.0.0"/>1.0.0</a>
 
@@ -171,4 +171,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

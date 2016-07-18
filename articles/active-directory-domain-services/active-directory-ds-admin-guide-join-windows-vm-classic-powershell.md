@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 
@@ -42,7 +42,7 @@ Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur l
 
 ## Étape 2 : configurer votre abonnement et votre compte de stockage
 
-Pour configurer votre abonnement et votre compte de stockage Azure, exécutez ces commandes à l’invite de commandes Windows PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Pour configurer votre abonnement et votre compte de stockage Azure, exécutez ces commandes à l’invite de commandes Windows PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < et >, par les noms appropriés.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -147,4 +147,4 @@ Voici l'exemple de script complet pour créer la machine virtuelle Windows et la
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

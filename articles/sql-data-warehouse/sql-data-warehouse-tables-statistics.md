@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gérer des statistiques dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à la gestion de statistiques dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   pageTitle="Gestion des statistiques sur les tables dans SQL Data Warehouse | Microsoft Azure"
+   description="Prise en main des statistiques sur les tables dans Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,46 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
-   ms.author="jrj;barbkess;sonyama;nicw"/>
+   ms.date="06/30/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
-# Gérer des statistiques dans SQL Data Warehouse
- SQL Data Warehouse s’appuie sur des statistiques pour évaluer le coût de différentes méthodes d’exécution d’une requête distribuée. Lorsque les statistiques sont précises, l’optimiseur de requête peut générer des plans de requête de haute qualité, qui améliorent les performances des requêtes.
+# Gestion des statistiques sur les tables dans SQL Data Warehouse
 
-La création et la mise à jour des statistiques sont des étapes importantes pour l’amélioration des performances des requêtes prévue par la conception du logiciel SQL Data Warehouse. Ce guide présente les différentes statistiques et vous indique comment effectuer les opérations suivantes :
+> [AZURE.SELECTOR]
+- [Vue d'ensemble][]
+- [Types de données][]
+- [Distribuer][]
+- [Index][]
+- [Partition][]
+- [Statistiques][]
+- [Temporaire][]
 
-- créer des statistiques dans le cadre de la conception de la base de données ;
-- mettre à jour ces statistiques lors de la maintenance de la base de données ;
-- afficher les statistiques grâce à des fonctions et vues système.
+Plus SQL Data Warehouse connaît vos données, plus il peut exécuter des requêtes sur celles-ci rapidement. Vous fournissez des informations sur vos données à SQL Data Warehouse en collectant des statistiques les concernant. Disposer de statistiques sur vos données est l’une des actions les plus importantes pour optimiser vos requêtes. Les statistiques aident SQL Data Warehouse à créer le plan le plus optimal pour vos requêtes, car l’optimiseur de requêtes SQL Data Warehouse est un optimiseur basé sur les coûts. Autrement dit, il compare le coût de différents plans de requête, puis choisit le plan avec le coût le plus bas, qui doit également être le plan dont l’exécution est la plus rapide.
 
-## Présentation des statistiques
+Les statistiques peuvent être créées sur une colonne unique, sur plusieurs colonnes ou sur un index d’une table. Les statistiques sont stockées dans un histogramme qui capture la plage et la sélectivité des valeurs. Cela peut s’avérer particulièrement utile lorsqu’il a besoin d’évaluer des classes WHERE, JOIN, GROUP BY et HAVING dans une requête. Par exemple, si l’optimiseur estime que la date que vous filtrez dans votre requête va renvoyer 1 ligne, il peut choisir un plan très différent de s’il estime que la date que avez sélectionnée va renvoyer 1 million de lignes. La création de statistiques est extrêmement importante, mais il est tout aussi important que les statistiques reflètent *précisément* l’état actuel de la table. Disposer de statistiques à jour garantit qu’un plan approprié est sélectionné par l’optimiseur. Les plans créés par l’optimiseur sont aussi bons que les statistiques sur vos données.
 
-Les statistiques sur une colonne sont des objets contenant des informations sur la plage et la fréquence de valeurs dans une colonne unique. L’optimiseur de requête utilise cet histogramme pour estimer le nombre de lignes figurant dans le résultat de la requête. Cette évaluation a un impact direct sur le choix du mode d’optimisation associé à la requête.
+Actuellement, la création et la mise à jour des statistiques sont des processus manuels, mais très simples à réaliser. Cela diffère de SQL Server qui crée et met à jour automatiquement les statistiques sur les colonnes uniques et les index. En utilisant les informations ci-dessous, vous pouvez considérablement automatiser la gestion des statistiques sur vos données.
 
-Les statistiques sur plusieurs colonnes sont des données créées sur un ensemble de colonnes. Elles incluent les statistiques sur une colonne sur la première colonne de cet ensemble, en ajoutant certaines informations de corrélation entre les différentes colonnes, appelées « densités ». Les statistiques sur plusieurs colonnes peuvent améliorer les performances des requêtes lors de certaines opérations, comme les clauses « group by » et les associations composites.
+## Prise en main des statistiques
 
-Pour en savoir plus, consultez la section [DBCC SHOW\_STATISTICS][] de MSDN.
+ La création de statistiques échantillonnées est un bon moyen de se familiariser avec la notion de statistiques. Étant donné qu’il est tout aussi important de tenir à jour les statistiques, une méthode plus classique serait peut-être de mettre à jour vos statistiques quotidiennement ou après chaque charge. Lorsque vous créez et mettez des statistiques à jour, vous devez toujours faire un compromis entre les performances et les coûts. Si vous trouvez que la mise à jour de toutes vos statistiques est trop longue, vous souhaiterez peut-être sélectionner les colonnes qui possèdent des statistiques ou celles nécessitant une mise à jour fréquente. Par exemple, vous pouvez mettre à jour les colonnes de date quotidiennement, à mesure que de nouvelles valeurs sont ajoutées, plutôt qu’après chaque charge. Là encore, vous bénéficierez de performances optimales en lançant des statistiques sur les colonnes impliquées dans les opérations JOIN, GROUP BY, HAVING et les clauses WHERE. Si vous avez une table avec un grand nombre de colonnes qui sont uniquement utilisées dans la clause SELECT, les statistiques sur ces colonnes peuvent ne pas être utiles. S’efforcer davantage d’identifier uniquement les colonnes où les statistiques seront utiles peut réduire le temps de maintenance de vos statistiques.
 
-## Pourquoi les statistiques sont-elles nécessaires ?
-Si les statistiques utilisées ne sont pas pertinentes, vous ne pourrez pas atteindre les performances prévues par la conception de SQL Data Warehouse. Dans les tables et colonnes, les statistiques ne sont pas automatiquement générées par SQL Data Warehouse ; vous devez les créer vous-même. Il est judicieux de les créer en même temps que la table, puis de les mettre à jour une fois cette dernière remplie.
+## Statistiques sur plusieurs colonnes
 
-> [AZURE.NOTE] Si vous l’utilisez, vous pouvez demander à SQL Server de créer et de mettre à jour des statistiques sur une colonne pour vous, le cas échéant. À ce niveau, SQL Data Warehouse fonctionne différemment. Comme les données sont distribuées, SQL Data Warehouse ne rassemble pas automatiquement les statistiques sur l’ensemble des données distribuées. Il se contente de générer des statistiques agrégées lorsque vous créez et mettez ces statistiques à jour.
+Outre la création de statistiques sur des colonnes uniques, vous découvrirez peut-être que vos requêtes tireront parti de statistiques sur plusieurs colonnes. Les statistiques sur plusieurs colonnes sont des données créées sur un ensemble de colonnes. Elles incluent les statistiques sur une colonne sur la première colonne de cet ensemble, en ajoutant certaines informations de corrélation entre les différentes colonnes, appelées « densités ». Par exemple, si vous disposez d’une table qui se joint à une autre sur deux colonnes, vous constaterez peut-être que SQL Data Warehouse peut mieux optimiser le plan s’il comprend la relation entre deux colonnes. Les statistiques sur plusieurs colonnes peuvent améliorer les performances des requêtes lors de certaines opérations, comme les clauses « group by » et les associations composites.
 
-## À quel moment faut-il créer les statistiques ?
-SQL Data Warehouse requiert avant tout un ensemble cohérent de données à jour. Il est donc important de créer des statistiques lors de la conception de vos tables.
+## Mettre à jour les statistiques
 
-Le processus de création de statistiques sur une colonne dans chaque colonne est un bon moyen de se familiariser avec la notion de statistiques. Toutefois, lorsque vous créez et mettez des statistiques à jour, vous devez toujours faire un compromis entre les performances et les coûts. Si vous créez des statistiques sur une colonne sur toutes les colonnes, avant de constater que la mise à jour de l’ensemble de ces statistiques prend trop de temps, vous pouvez toujours ignorer une partie d’entre elles ou isoler un sous-ensemble, que vous mettrez à jour plus souvent.
-
-Les statistiques sur plusieurs colonnes sont uniquement utilisées par l’optimiseur de requête lorsque les colonnes sont des associations composites ou des clauses « group by ». Actuellement, les filtres composites ne bénéficient pas de statistiques sur plusieurs colonnes.
-
-Pour cette raison, au démarrage de votre développement SQL Data Warehouse, il peut être pertinent d’implémenter le modèle suivant :
-- Création de statistiques sur une colonne sur chaque colonne de chaque table
-- Création de statistiques sur plusieurs colonnes sur les colonnes utilisées par les requêtes dans les clauses « join » et « group by »
-
-Lorsque vous choisissez le mode d’interrogation des données, vous pouvez être amené à affiner ce modèle, notamment en cas de tables volumineuses. Pour obtenir des informations sur une méthode plus avancée, voir [Implémentation de fonctions de gestion des statistiques](##Implémentation de fonctions de gestion des statistiques).
-
-## À quel moment doit-on mettre à jour les statistiques ?
-Il est important d’inclure la mise à jour des statistiques dans votre routine de gestion de base de données. Lorsque la distribution des données change dans la base de données, les statistiques doivent être mises à jour. Sinon, les performances des requêtes risquent d’être moins élevées et les efforts de dépannage plus avancés de la requête, peu pertinents.
+Mettre à jour les statistiques est une composante importante de votre routine de gestion des bases de données. Lorsque la distribution des données change dans la base de données, les statistiques doivent être mises à jour. Les statistiques obsolètes entraînent des performances de requêtes non optimales.
 
 Une meilleure pratique consiste à mettre à jour les statistiques sur les colonnes de date à chaque fois qu’une date est ajoutée. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes. À l’inverse, vous n’aurez peut-être jamais à mettre à jour les statistiques d’une colonne de pays dans une table des clients, car la distribution des valeurs change rarement. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données indique un seul pays et si vous importez des données d’un nouveau pays, ce qui entraîne donc le stockage de données de plusieurs pays, il est indispensable de mettre à jour les statistiques de la colonne de pays.
 
@@ -62,8 +53,8 @@ Or, vous ne pouvez pas répondre à cette question en vous appuyant sur l’âge
 
 Pour référence, **SQL Server** (et non SQL Data Warehouse) met automatiquement à jour les statistiques dans les cas suivants :
 
-- Si votre table ne comporte aucune ligne, lorsque vous ajoutez une ou plusieurs lignes, les statistiques sont automatiquement mises à jour
-- Lorsque vous ajoutez 500 lignes ou plus à une table qui contient à l’origine moins de 500 lignes (par exemple, votre table compte initialement 499 lignes, puis vous ajoutez 500 lignes pour un total de 999 lignes), la mise à jour se fait automatiquement 
+- Si votre table ne comporte aucune ligne, lorsque vous ajoutez des lignes, les statistiques sont automatiquement mises à jour
+- Lorsque vous ajoutez 500 lignes ou plus à une table qui contient à l’origine moins de 500 lignes (par exemple, votre table compte initialement 499 lignes, puis vous ajoutez 500 lignes pour un total de 999 lignes), la mise à jour se fait automatiquement
 - Dès que vous avez dépassé 500 lignes, vous devez ajouter 500 lignes supplémentaires + 20 % de la taille de la table avant d’obtenir une mise à jour automatique sur les statistiques
 
 Dans la mesure où il n’existe aucune vue de gestion dynamique pour déterminer si les données de la table ont changé depuis la dernière mise à jour des statistiques, le fait de connaître l’ancienneté de vos statistiques peut vous donner un petit aperçu. Vous pouvez utiliser la requête suivante pour déterminer la date de la dernière mise à jour des statistiques sur chaque table.
@@ -155,7 +146,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 ### C. Créer des statistiques sur une colonne en spécifiant la taille de l’échantillon
 
-Vous pouvez également spécifier cette taille sous la forme d’un pourcentage :
+Vous pouvez également spécifier cette taille sous la forme d’un pourcentage :
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
@@ -353,9 +344,9 @@ UPDATE STATISTICS dbo.table1;
 
 Cette instruction est facile à utiliser. N’oubliez pas que cette action met à jour toutes les statistiques dans la table et, par conséquent, peut effectuer davantage de tâches que nécessaire. Si les performances ne sont pas un problème, il s’agit sans aucun doute de la méthode la plus simple et la plus exhaustive pour garantir que les statistiques sont à jour.
 
-> [AZURE.NOTE] Lors de la mise à jour de toutes les statistiques d’une table, SQL Data Warehouse procède à une analyse pour échantillonner la table, afin de rechercher chaque statistique. Si la table est volumineuse et comprend un grand nombre de colonnes et de statistiques, il peut s’avérer plus efficace de mettre à jour les statistiques au niveau individuel, en fonction des besoins.
+> [AZURE.NOTE] Lors de la mise à jour de toutes les statistiques d’une table, SQL Data Warehouse procède à une analyse pour échantillonner la table, afin de rechercher chaque statistique. Si la table est volumineuse et comprend un grand nombre de colonnes et de statistiques, il peut s’avérer plus efficace de mettre à jour les statistiques individuellement, en fonction des besoins.
 
-Pour en savoir plus sur l’implémentation d’une procédure `UPDATE STATISTICS`, consultez l’article relatif aux [tables temporaires]. La méthode d’implémentation est légèrement différente de celle de la procédure `CREATE STATISTICS` ci-dessus, mais le résultat final est le même.
+Pour en savoir plus sur l’implémentation d’une procédure `UPDATE STATISTICS`, consultez l’article [Tables temporaires][Temporary]. La méthode d’implémentation est légèrement différente de celle de la procédure `CREATE STATISTICS` ci-dessus, mais le résultat final est le même.
 
 Pour accéder à la syntaxe complète, consultez la section [UPDATE STATISTICS][] de MSDN.
 
@@ -473,17 +464,27 @@ La fonction DBCC SHOW\_STATISTICS() est implémentée de manière plus stricte d
 4. Vous ne pouvez pas utiliser les noms de colonnes pour identifier les objets de statistiques.
 5. L’erreur personnalisée 2767 n’est pas prise en charge.
 
-
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse][].
+
+Pour en savoir plus, consultez la section [DBCC SHOW\_STATISTICS][] de MSDN. Pour plus d’informations, consultez les articles [Table Overview][Overview] (Vue d’ensemble des tables), [Table Data Types ][Data Types] (Types de données de table), [Distributing a Table][Distribute] (Distribution d’une table), [Indexing a Table][Index] (Indexation d’une table), [Partitioning a Table][Partition] (Partitionnement d’une table) et [Tables temporaires][Temporary]. Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
 
 <!--Image references-->
 
-<!--Link references--In actual articles, you only need a single period before the slash.-->
-[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[tables temporaires]: ./sql-data-warehouse-develop-temporary-tables.md
+<!--Article references-->
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Vue d'ensemble]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Types de données]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Distribuer]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Temporaire]: ./sql-data-warehouse-tables-temporary.md
+[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
-<!-- External Links -->
+<!--MSDN references-->  
 [Évaluation de la cardinalité]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
@@ -498,4 +499,6 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!--Other Web references-->  
+
+<!---HONumber=AcomDC_0706_2016-->

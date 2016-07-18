@@ -47,7 +47,7 @@ Les représentations Classic et Resource Manager des ressources sont décrites d
 | Itinéraires définis par l’utilisateur (UDR) | Itinéraires définis par l’utilisateur (UDR) | Les Itinéraires définis par l’utilisateur associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. Notez que l’itinéraire défini par l’utilisateur dans le modèle de déploiement Classic n’est pas supprimé lors de la migration. Toutefois, les opérations du plan de gestion relatives à l’itinéraire défini par l’utilisateur sont bloquées pendant le processus de migration. | | |
 | Propriété de transfert IP sur la configuration réseau d’une machine virtuelle | Propriété de transfert IP sur la carte d’interface réseau (NIC) | La propriété de transfert IP sur une machine virtuelle est convertie en propriété sur l’interface réseau pendant la migration. | | |
 | Équilibreur de charge avec plusieurs adresses IP | Équilibreur de charge avec plusieurs ressources d’adresses IP publiques | Chaque adresse IP publique associée à l’équilibreur de charge est convertie en ressource d’adresse IP publique et associée à l’équilibreur de charge après la migration. | | |
-| Noms DNS internes sur la machine virtuelle | Noms DNS internes sur la carte réseau | Pendant la migration, les suffixes DNS internes sont mis à jour afin de correspondre aux suffixes du modèle de déploiement Resource Manager. Notez que la résolution de noms continue de fonctionner après la migration. Toutefois, les suffixes associés aux machines virtuelles sont modifiés. | | |
+| Noms DNS internes sur la machine virtuelle | Noms DNS internes sur la carte réseau | Pendant la migration, les suffixes DNS internes pour les machines virtuelles sont migrés vers une propriété en lecture seule nommée « InternalDomainNameSuffix » sur la carte réseau. Le suffixe reste inchangé après la migration, et la résolution des machines virtuelles doit continuer à fonctionner comme auparavant. | | |
 
 ## Illustration d’une procédure pas à pas de migration simple
 
@@ -64,4 +64,4 @@ Les exemples de captures d’écran suivants sont une représentation d’un ser
 - [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

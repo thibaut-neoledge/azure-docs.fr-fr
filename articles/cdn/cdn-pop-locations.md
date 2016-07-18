@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 
@@ -38,4 +38,7 @@ Cette rubrique répertorie les emplacements POP du **CDN Azure fourni par Verizo
 | Afrique | | **&#x2713;*** |
 | Australie et Nouvelle Zélande | Melbourne, Australie<br />Sydney, Australie | **&#x2713;*** |
 
-<!---HONumber=AcomDC_0629_2016-->
+## Voir aussi
+* [Azure CDN à partir des plages d’adresses IP des serveurs Edge Verizon](https://msdn.microsoft.com/library/mt757330.aspx)
+
+<!---HONumber=AcomDC_0706_2016-->

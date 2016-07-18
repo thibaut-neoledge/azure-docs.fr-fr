@@ -52,6 +52,9 @@ Lorsque vous utilisez un port ouvert dans le pare-feu au niveau du serveur, les 
 Pour une procédure pas à pas de la connexion à l’aide de SQL Server Management Studio, voir [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 
 
+> [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Comptes spéciaux supplémentaires
 La base de données SQL fournit deux rôles d’administrateur restreints dans la base de données master virtuelle à laquelle des comptes d’utilisateur peuvent être ajoutés.
 
@@ -90,7 +93,7 @@ Désormais, l’utilisateur peut se connecter à la base de données master virt
 
 ### Gestionnaires de connexion
 
-Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base. Cela n’est pas nécessaire dans la plupart des cas, car Microsoft recommande d’avoir recours aux utilisateurs de base de données contenu qui s’authentifient au niveau de la base de données plutôt que des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base de données master virtuelle. Cela n’est pas nécessaire dans la plupart des cas, car Microsoft recommande d’avoir recours aux utilisateurs de base de données contenu qui s’authentifient au niveau de la base de données plutôt que des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Utilisateurs non administrateurs
 
@@ -158,4 +161,4 @@ Il existe plus de 100 autorisations qui peuvent être accordées ou refusées in
 
 [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

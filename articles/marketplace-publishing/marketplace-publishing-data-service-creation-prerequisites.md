@@ -66,4 +66,4 @@ Ou, si vous souhaitez passer en revue le processus global et les articles respec
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -36,7 +36,7 @@ Adventure Works Cycles souhaite créer une application de magasin en ligne dans 
 	- un sous-réseau frontal pour les serveurs web
 	- un sous-réseau principal pour les serveurs d’applications, le cluster MongoDB et les contrôleurs de domaine
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Diagramme de différentes couches pour l’infrastructure d’applications](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
 La charge du trafic Web entrant sécurisé doit être répartie sur les serveurs web lorsque les clients parcourent le magasin en ligne. Le trafic de traitement des commandes sous la forme de requêtes HTTP depuis les serveurs web doit être réparti sur les serveurs d’applications. En outre, l’infrastructure doit être conçue pour la haute disponibilité.
 
@@ -115,11 +115,11 @@ Adventure Works Cycles a donné les noms suivants à ses machines virtuelles Azu
 
 Voici la configuration obtenue.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Infrastructure d’applications finale déployée dans Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
 Cette configuration comprend :
 
-- un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
+- un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
 - deux comptes de stockage ;
 - quatre groupes à haute disponibilité, un pour chaque niveau du magasin en ligne
 - les machines virtuelles pour les quatre niveaux ;
@@ -132,4 +132,4 @@ Cette configuration comprend :
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -19,7 +19,7 @@
 # Créer des clusters Service Fabric autonomes sur un serveur Windows Server ou Linux
 Azure Service Fabric permet la création de clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement, que ce soit en local ou avec un fournisseur cloud, où vous avez un ensemble d’ordinateurs Windows Server ou Linux interconnectés.
 
-**Remarque** : la création d’un cluster dans Azure doit être effectuée via un modèle Azure Resource Manager ou le portail Azure. Pour plus d’informations, consultez les articles [Créer un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) or [Créer un cluster Service Fabric à partir du portail Azure](service-fabric-cluster-creation-via-portal.md).
+**Remarque** : la création d’un cluster dans Azure doit être effectuée via un modèle Azure Resource Manager ou le portail Azure. Pour plus d’informations, consultez les articles [Créer un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) or [Créer un cluster Service Fabric à partir du portail Azure](service-fabric-cluster-creation-via-portal.md).
 
 Service Fabric fournit un package d’installation pour créer ces clusters Service Fabric autonomes en local. L’avantage est qu’il n’existe aucune obligation en termes de fournisseur lorsque vous générez une application à l’aide de Service Fabric dans la mesure où vous choisissez où ces applications s’exécutent. Cela augmente également votre capacité à atteindre un ensemble plus large de clients, étant donné que des clients différents peuvent avoir des exigences différentes pour les environnements où ils souhaitent exécuter vos applications. Par exemple, les clients du secteur financier et du secteur de la santé peuvent avoir des besoins différents de ceux d’un constructeur automobile ou d’une agence de voyages.
 
@@ -52,9 +52,9 @@ L’exécution de clusters Service Fabric sur Azure offre des avantages par rapp
 * **Portail Azure :** facilite la création et la gestion de clusters.
 
 * **Azure Resource Manager :** l’utilisation d’Azure Resource Manager permet de faciliter la gestion de toutes les ressources utilisées par le cluster en tant qu’unité et de simplifier le suivi des coûts et la facturation.
-* **Cluster Service Fabric en tant que ressource Azure :** un cluster Service Fabric est une ressource ARM, que vous pouvez modeler comme d’autres ressources ARM dans Azure.
-* **Intégration à l’infrastructure Azure :** Service Fabric se coordonne avec l’infrastructure Azure sous-jacente pour que le système d’exploitation, le réseau et d’autres mises à niveau améliorent la disponibilité et la fiabilité de vos applications.  
-* **Diagnostics :** dans Azure, nous proposons l’intégration d’Azure Diagnostics et d’Operational Insights.
+* **Cluster Service Fabric en tant que ressource Azure :** un cluster Service Fabric est une ressource ARM, que vous pouvez modeler comme d’autres ressources ARM dans Azure.
+* **Intégration à l’infrastructure Azure :** Service Fabric se coordonne avec l’infrastructure Azure sous-jacente pour que le système d’exploitation, le réseau et d’autres mises à niveau améliorent la disponibilité et la fiabilité de vos applications.
+* **Diagnostics :** dans Azure, nous proposons l’intégration d’Azure Diagnostics et de Log Analytics.
 * **Mise à l’échelle automatique :** pour les clusters sur Azure, nous fournissons une fonctionnalité de mise à l’échelle automatique intégrée provenant des jeux de mise à l’échelle de machine virtuelle. Dans des environnements locaux ou d’autres environnements cloud, vous devrez créer votre propre fonctionnalité de mise à l’échelle automatique ou mettre à l’échelle manuellement à l’aide des API que Service Fabric expose pour la mise à l’échelle des clusters.
 
 ## Étapes suivantes
@@ -62,4 +62,4 @@ Créer un cluster sur des machines virtuelles ou des ordinateurs exécutant Wind
 
 Créer un cluster sur des machines virtuelles ou des ordinateurs exécutant Linux : [Service Fabric sur Linux](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

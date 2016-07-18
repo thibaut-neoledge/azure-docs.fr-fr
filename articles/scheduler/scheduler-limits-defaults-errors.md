@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="04/18/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Limites et valeurs par défaut de Scheduler
@@ -46,4 +46,4 @@ Si une requête échoue constamment et que vous avez vérifié qu'elle est formu
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

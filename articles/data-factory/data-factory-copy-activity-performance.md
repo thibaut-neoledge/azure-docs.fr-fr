@@ -245,15 +245,15 @@ Si vous copiez des données entre **Azure Blob Storage** et **Azure SQL Data War
 ### Magasins de données basés sur un fichier
 *(Incluant les objets Blob Azure, Azure Data Lake et le système de fichiers local)*
 
-- **Taille moyenne de fichier et nombre de fichiers** : l’activité de copie transfère des données fichier par fichier. Pour une même quantité de données à déplacer, le débit global sera plus lent si les données se composent d’un grand nombre de petits fichiers plutôt que d’un petit nombre de fichiers plus volumineux, en raison de la phase d’amorçage nécessaire pour chaque fichier. Par conséquent, vous devez autant que possible combiner plusieurs petits fichiers en fichiers plus volumineux pour augmenter le débit.
-- **Format de fichier et compression** : pour d’autres méthodes permettant d’améliorer les performances, voir les sections [Considérations sur la sérialisation/désérialisation](#considerations-on-serializationdeserialization) et [Considérations sur la compression](#considerations-on-compression).
+- **Taille moyenne de fichier et nombre de fichiers** : l’activité de copie transfère des données fichier par fichier. Pour une même quantité de données à déplacer, le débit global sera plus lent si les données se composent d’un grand nombre de petits fichiers plutôt que d’un petit nombre de fichiers plus volumineux, en raison de la phase d’amorçage nécessaire pour chaque fichier. Par conséquent, vous devez autant que possible combiner plusieurs petits fichiers en fichiers plus volumineux pour augmenter le débit.
+- **Format de fichier et compression** : pour d’autres méthodes permettant d’améliorer les performances, voir les sections [Considérations sur la sérialisation/désérialisation](#considerations-on-serializationdeserialization) et [Considérations sur la compression](#considerations-on-compression).
 - En outre, pour le scénario de **système de fichiers local** où l’utilisation d’une **passerelle de gestion des données** est requise, voir la section [Considérations sur la passerelle](#considerations-on-data-management-gateway).
 
 ### Bases de données relationnelles
 *(Incluant Base de données SQL Azure, Azure SQL Data Warehouse, Base de données SQL Server, Base de données Oracle, Base de données MySQL, Base de données DB2, Base de données Teradata, Base de données Sybase et Base de données PostgreSQL)*
 
-- **Modèle de données** : le schéma de table a une incidence sur le débit de copie. Pour copier une même quantité de données, une taille de ligne importante produit de meilleures performances qu’une petite taille, car la base de données peut extraire plus efficacement moins de lots de données contenant moins de lignes.
-- **Requête ou procédure stockée** : optimisez la logique de la requête ou de la procédure stockée que vous spécifiez dans la source d’activité de copie, afin d’extraire les données plus efficacement.
+- **Modèle de données** : le schéma de table a une incidence sur le débit de copie. Pour copier une même quantité de données, une taille de ligne importante produit de meilleures performances qu’une petite taille, car la base de données peut extraire plus efficacement moins de lots de données contenant moins de lignes.
+- **Requête ou procédure stockée** : optimisez la logique de la requête ou de la procédure stockée que vous spécifiez dans la source d’activité de copie, afin d’extraire les données plus efficacement.
 - En outre, pour des **bases de données relationnelles locales**, telles que SQL Server et Oracle, où l’utilisation d’une **passerelle de gestion des données** est requise, consultez la section [Considérations sur la passerelle](#considerations-on-data-management-gateway).
 
 ## Considérations sur le récepteur
@@ -269,19 +269,19 @@ Si vous copiez des données entre **Azure Blob Storage** et **Azure SQL Data War
 ### Magasins de données basés sur un fichier
 *(Incluant les objets Blob Azure, Azure Data Lake et le système de fichiers local)*
 
-- **Comportement de copie** : si vous copiez des données d’un autre magasin de données basé sur un fichier, l’activité de copie fournit trois types de comportements via la propriété « copyBehavior » : conserver la hiérarchie, aplatir la hiérarchie et fusionner les fichiers. La conservation ou l’aplanissement de la hiérarchie entraîne peu ou pas de surcharge de performances, tandis que la fusion de fichiers entraîne une surcharge supplémentaire.
-- **Format de fichier et compression** : pour d’autres méthodes permettant d’améliorer les performances, voir les sections [Considérations sur la sérialisation/désérialisation](#considerations-on-serializationdeserialization) et [Considérations sur la compression](#considerations-on-compression).
+- **Comportement de copie** : si vous copiez des données d’un autre magasin de données basé sur un fichier, l’activité de copie fournit trois types de comportements via la propriété « copyBehavior » : conserver la hiérarchie, aplatir la hiérarchie et fusionner les fichiers. La conservation ou l’aplanissement de la hiérarchie entraîne peu ou pas de surcharge de performances, tandis que la fusion de fichiers entraîne une surcharge supplémentaire.
+- **Format de fichier et compression** : pour d’autres méthodes permettant d’améliorer les performances, voir les sections [Considérations sur la sérialisation/désérialisation](#considerations-on-serializationdeserialization) et [Considérations sur la compression](#considerations-on-compression).
 - Pour les **objets blob Azure**, nous ne prenons en charge actuellement que les objets blob de blocs pour l’optimisation du transfert et du débit de données.
 - En outre, pour les scénarios de **système de fichiers local** où l’utilisation d’une **passerelle de gestion des données** est requise, voir la section [Considérations sur la passerelle](#considerations-on-data-management-gateway).
 
 ### Bases de données relationnelles
 *(Incluant Base de données SQL Azure, Azure SQL Data Warehouse et Base de données SQL Server)*
 
-- **Comportement de copie** : selon les propriétés configurées pour « sqlSink », l’activité de copie écrit des données dans la base de données de destination de différentes façons :
+- **Comportement de copie** : selon les propriétés configurées pour « sqlSink », l’activité de copie écrit des données dans la base de données de destination de différentes façons :
 	- Par défaut, le service de déplacement de données utilise une API de copie en bloc pour insérer des données en mode Append, ce qui optimise les performances.
 	- Si vous configurez une procédure stockée dans le récepteur, la base de données applique les données ligne par ligne, au lieu de les charger en bloc, ce qui entraîne une baisse sensible des performances. Si la taille des données est importante, autant que possible, songez à utiliser plutôt la propriété « sqlWriterCleanupScript » (voir ci-dessous).
 	- Si vous configurez la propriété « sqlWriterCleanupScript », pour chaque exécution d’une activité de copie, le service déclenche d’abord le script, puis utilise l’API de copie en bloc pour insérer les données. Par exemple, pour remplacer les données de la table entière par les dernières données, vous pouvez spécifier un script qui supprime tous les enregistrements avant de charger en bloc les nouvelles données à partir de la source.
-- **Modèle de données et taille de lot** :
+- **Modèle de données et taille de lot** :
 	- Le schéma de table a une incidence sur le débit de copie. Pour copier une même quantité de données, une taille de ligne importante produit de meilleures performances qu’une petite taille, car la base de données peut valider plus efficacement moins de lots de données.
 	- L’activité de copie insère les données dans une série de lots dont le nombre de lignes peut être défini à l’aide de la propriété de « writeBatchSize ». Si vos données comportent des lignes de petite taille, vous pouvez définir la propriété « writeBatchSize » sur une valeur plus élevée pour réduire la surcharge de traitement par lots et augmenter le débit. Si la taille de ligne de vos données est importante, soyez prudent en augmentant la valeur de writeBatchSize, car une valeur élevée peut faire échouer la copie en raison d’une surcharge de la base de données.
 - En outre, pour des **bases de données relationnelles locales**, telles que SQL Server et Oracle, où l’utilisation d’une **passerelle de gestion des données** est requise, consultez la section [Considérations sur la passerelle](#considerations-on-data-management-gateway).
@@ -290,10 +290,10 @@ Si vous copiez des données entre **Azure Blob Storage** et **Azure SQL Data War
 ### Magasins NoSQL
 *(Incluant table Azure et Azure DocumentDB)*
 
-- Pour **Table Azure** :
-	- **Partition** : l’écriture de données en partitions entrelacées réduit considérablement les performances. Vous pouvez classer vos données sources par clé de partition afin qu’elles soient insérées efficacement partition après partition, ou ajuster la logique pour écrire les données dans une seule partition.
-- Pour **Azure DocumentDB** :
-	- **Taille de lot** : la propriété de « writeBatchSize » indique le nombre de demandes parallèles adressées au service DocumentDB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur « writeBatchSize », car davantage de demandes parallèles sont envoyées à DocumentDB. Toutefois, prenez garde à la limitation lors de l’écriture dans DocumentDB (message d’erreur « Le taux de demandes est élevé »). Une limitation peut se produire en raison de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection (par exemple, S3).
+- Pour **Table Azure** :
+	- **Partition** : l’écriture de données en partitions entrelacées réduit considérablement les performances. Vous pouvez classer vos données sources par clé de partition afin qu’elles soient insérées efficacement partition après partition, ou ajuster la logique pour écrire les données dans une seule partition.
+- Pour **Azure DocumentDB** :
+	- **Taille de lot** : la propriété de « writeBatchSize » indique le nombre de demandes parallèles adressées au service DocumentDB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur « writeBatchSize », car davantage de demandes parallèles sont envoyées à DocumentDB. Toutefois, prenez garde à la limitation lors de l’écriture dans DocumentDB (message d’erreur « Le taux de demandes est élevé »). Une limitation peut se produire en raison de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection (par exemple, S3).
 
 ## Considérations sur la sérialisation/désérialisation.
 Une sérialisation et une désérialisation peuvent se produire quand le jeu de données d’entrée ou sortie est un fichier. L’activité de copie prend actuellement en charge les formats de données Avro et texte (par exemple, CSV et TSV).
@@ -385,11 +385,11 @@ Quand la taille des fichiers individuels est supérieure à plusieurs dizaines d
 ## Référence sur le réglage des performances des magasins de données
 Voici quelques références relatives à la surveillance et au réglage des performances pour quelques magasins de données pris en charge :
 
-- Azure Storage (y compris les objets blob Azure et la table Azure) : [Objectifs d’évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../storage//storage-performance-checklist.md)
+- Azure Storage (y compris les objets blob Azure et la table Azure) : [Objectifs d’évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../storage//storage-performance-checklist.md)
 - Base de données SQL Azure : vous pouvez [surveiller les performances](../sql-database/sql-database-service-tiers.md#monitoring-performance) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
 - Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU). Voir [Performances et mise à l’échelle élastiques avec SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 - Azure DocumentDB : [Niveaux de performances dans DocumentDB](../documentdb/documentdb-performance-levels.md).
 - SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx).
 - Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

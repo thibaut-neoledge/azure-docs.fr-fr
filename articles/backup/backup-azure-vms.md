@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/01/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -183,4 +183,4 @@ Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuel
 - [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

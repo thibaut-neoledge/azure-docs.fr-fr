@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/05/2016"
 	ms.author="tarcher"/>
 
 # Ajouter des propriétaires et des utilisateurs à un laboratoire
@@ -31,7 +31,7 @@ L'accès à votre labo s'accorde selon deux rôles :
 -  **Utilisateur DevTest Labs** : les utilisateurs affectés au rôle **Utilisateur DevTest Labs** peuvent créer des machines virtuelles dans le laboratoire spécifié, et consulter toutes les ressources du laboratoire, telles que les machines virtuelles, les stratégies ou les réseaux virtuels. Les utilisateurs peuvent être *internes* (membres d'Azure Active Directory pour l'abonnement) ou *externes* (utilisateurs non membres d'Azure AD, par exemple membres d'une organisation partenaire).
 	-  Un rôle **Utilisateur DevTest Labs** doit être affecté via les vignettes **Ajouter des utilisateurs** du laboratoire.
 	-  Les utilisateurs du rôle **Utilisateur DevTest Labs** peuvent effectuer ces opérations seulement au sein du laboratoire auquel ils sont affectés. Par exemple, un **Utilisateur DevTest Labs** ne peut pas créer une machine virtuelle avec le service Virtual Machines de l’abonnement. La création d’une machine virtuelle est autorisée seulement à partir du compte DevTest Labs.
-	- Les utilisateurs *externes* doivent posséder un compte dans l'un des domaines de compte Microsoft (@hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com ou une variante spécifique d'un pays).
+	- Les utilisateurs *externes* sont des utilisateurs avec un compte Microsoft (MSA).
  
 Une fois qu’une machine virtuelle est créée, l’utilisateur qui l’a créée est automatiquement affecté au rôle **Propriétaire** sur la machine virtuelle créée, ce qui lui permet d’effectuer toutes les actions proposées dans le laboratoire.
 
@@ -92,7 +92,7 @@ Pour ajouter un utilisateur DevTest Labs à votre laboratoire, procédez comme s
 
 1. Dans le panneau **Sélectionner un rôle**, sélectionnez **Utilisateur DevTest Labs**
 
-1. Dans le panneau **Ajouter des utilisateurs** :
+1. Dans le panneau **Ajouter des utilisateurs** :
 
 	1. Le panneau **Ajouter des utilisateurs** affiche la liste des utilisateurs intégrés. Si l'utilisateur souhaité est déjà dans la liste, vous pouvez simplement sélectionner sa ligne pour le sélectionner. Une coche s'affiche à gauche de l'utilisateur pour indiquer que l'utilisateur a été sélectionné. Pour sélectionner plusieurs utilisateurs, maintenez la touche **<Ctrl>** enfoncée tout en sélectionnant chaque utilisateur. Pour désélectionner un utilisateur, maintenez la touche **<Ctrl>** enfoncée et sélectionnez l’utilisateur. Un compteur en bas du panneau indique le nombre d'utilisateurs sélectionnés.
 
@@ -104,4 +104,4 @@ Pour ajouter un utilisateur DevTest Labs à votre laboratoire, procédez comme s
 
 1. Le panneau **Utilisateurs** affiche les rôles et les utilisateurs ajoutés.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

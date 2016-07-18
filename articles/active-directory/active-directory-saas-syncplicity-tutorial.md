@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à Syncplicity | Microsoft Azure" 
     description="Découvrez comment utiliser Syncplicity avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Syncplicity
   
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ###Pour activer l’intégration d’applications pour Syncplicity, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-syncplicity-tutorial/IC700993.png "Active Directory")
 
@@ -64,13 +64,13 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
     ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769533.png "Syncplicity")
 
-##Configuration de l’authentification unique
+##Configuration de l'authentification unique
   
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Syncplicity avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Syncplicity** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Syncplicity** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-syncplicity-tutorial/IC769534.png "Configurer l’authentification unique")
 
@@ -80,7 +80,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 3.  Dans la zone de texte **URL de connexion à Syncplicity** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent taper pour se connecter à votre application Syncplicity, puis cliquez sur **Suivant**.
 
-    L’URL de l’application est celle de votre locataire Syncplicity (par exemple, **http://company.Syncplicity.com*) :
+    L’URL de l’application est celle de votre locataire Syncplicity (par exemple, *http://company.Syncplicity.com*) :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-syncplicity-tutorial/IC769536.png "Configurer l’URL de l’application")
 
@@ -100,13 +100,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de texte **Custom Domain**, entrez le nom de votre domaine.
     2.  Sélectionnez **Enabled** dans **Single Sign-On Status**.
-    3.  Dans la page **Configurer l’authentification unique sur Syncplicity** du portail Microsoft Azure, copiez la valeur de **ID de l’entité** et collez-la dans la zone de texte **Entity Id**.
-    4.  Dans la page **Configurer l’authentification unique sur Syncplicity** du portail Microsoft Azure, copiez la valeur de **URL du service d’authentification unique** et collez-la dans la zone de texte **Sign-in page URL**.
-    5.  Dans la page **Configurer l’authentification unique sur Syncplicity** du portail Microsoft Azure, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Logout page URL**.
-    6.  Dans **Identity Provider Certificate**, cliquez sur **Choose file**, puis chargez le certificat que vous avez téléchargé à partir du portail Microsoft Azure.
-    7.  Cliquez sur **Save Changes**.
+    3.  Dans la page **Configurer l’authentification unique sur Syncplicity** du portail Azure Classic, copiez la valeur de **ID de l’entité** et collez-la dans la zone de texte **Entity Id**.
+    4.  Sur la page **Configurer l’authentification unique sur Syncplicity** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Sign-in page URL**.
+    5.  Dans la page **Configurer l’authentification unique sur Syncplicity** du portail Azure Classic, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Logout page URL**.
+    6.  Dans **Certificat du fournisseur d’identité**, cliquez sur **Choisir un fichier**, puis chargez le certificat que vous avez téléchargé à partir du portail Azure Classic.
+    7.  Cliquez sur **Enregistrer les modifications**.
 
-8.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+8.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Confirmation](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Confirmation")
 
@@ -116,7 +116,7 @@ Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisi
 
 ###Pour approvisionner un compte d’utilisateur dans Syncplicity, procédez comme suit :
 
-1.  Connectez-vous à votre locataire **Syncplicity** (par exemple : **https://company.Syncplicity.com*).
+1.  Connectez-vous à votre locataire **Syncplicity** (par exemple : *https://company.Syncplicity.com*).
 
 2.  Cliquez sur **Admin** et sélectionnez **user accounts**.
 
@@ -128,19 +128,19 @@ Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisi
 
     ![Informations sur le compte](./media/active-directory-saas-syncplicity-tutorial/IC769765.png "Informations sur le compte")
 
-    >[AZURE.NOTE]Le détenteur du compte AAD reçoit un message électronique contenant un lien pour confirmer et activer le compte.
+    >[AZURE.NOTE] Le détenteur du compte AAD reçoit un message électronique contenant un lien pour confirmer et activer le compte.
 
 5.  Sélectionnez un groupe dans votre société dont votre nouvel utilisateur doit devenir membre, puis cliquez sur **Next**.
 
     ![Appartenance au groupe](./media/active-directory-saas-syncplicity-tutorial/IC769772.png "Appartenance au groupe")
 
-    >[AZURE.NOTE]Si aucun groupe n’est répertorié, il suffit de cliquer sur **Next**.
+    >[AZURE.NOTE] Si aucun groupe n’est répertorié, il suffit de cliquer sur **Next**.
 
 6.  Sélectionnez les dossiers que vous souhaitez placer sous le contrôle de Syncplicity sur l’ordinateur de l’utilisateur, puis cliquez sur **Next**.
 
     ![Dossiers Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769773.png "Dossiers Syncplicity")
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Syncplicity, pour approvisionner des comptes utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Syncplicity, pour approvisionner des comptes utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -148,7 +148,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Syncplicity, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Syncplicity**, cliquez sur **Affecter des utilisateurs**.
 
@@ -160,4 +160,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

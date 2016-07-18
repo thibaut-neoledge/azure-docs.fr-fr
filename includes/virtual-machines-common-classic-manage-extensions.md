@@ -3,7 +3,7 @@
 
 ##Utilisation d'extensions de machines virtuelles
 
-Les extensions de machines virtuelles Azure mettent en œuvre des comportements ou des fonctionnalités grâce auxquels d’autres programmes peuvent fonctionner sur des machines virtuelles Azure (par exemple, l’extension **WebDeployForVSDevTest** permet à Visual Studio de déployer des solutions web sur votre machine virtuelle Azure) ou interagir avec votre machine virtuelle pour prendre en charge un autre comportement (par exemple, vous pouvez utiliser les extensions d’accès à la machine virtuelle à partir de PowerShell, l’interface de ligne de commande Azure et des clients REST pour réinitialiser ou modifier des valeurs d’accès à distance de votre machine virtuelle Azure).
+Les extensions de machines virtuelles Azure mettent en œuvre des comportements ou des fonctionnalités grâce auxquels d’autres programmes peuvent fonctionner sur des machines virtuelles Azure (par exemple, l’extension **WebDeployForVSDevTest** permet à Visual Studio de déployer des solutions web sur votre machine virtuelle Azure) ou d’interagir avec votre machine virtuelle pour prendre en charge un autre comportement (par exemple, vous pouvez utiliser les extensions d’accès à la machine virtuelle à partir de PowerShell, l’interface de ligne de commande Azure et des clients REST pour réinitialiser ou modifier des valeurs d’accès à distance de votre machine virtuelle Azure).
 
 >[AZURE.IMPORTANT] Pour obtenir une liste complète des extensions selon les fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md). Étant donné que chaque extension de machine virtuelle prend en charge une fonctionnalité spécifique, elle détermine ce que vous pouvez et ne pouvez pas faire avec une extension. Par conséquent, avant de modifier votre machine virtuelle, assurez-vous d'avoir bien lu la documentation relative à l'extension de machine virtuelle que vous souhaitez utiliser. La suppression de certaines extensions de machine virtuelle n'est pas prise en charge. D'autres ont des propriétés qui peuvent être définies et qui modifient radicalement le comportement de la machine virtuelle.
 
@@ -22,12 +22,12 @@ Les tâches les plus courantes sont :
 Vous pouvez localiser l’extension et obtenir des informations étendues en utilisant :
 
 -   PowerShell
--   Interface multiplateforme Azure (Azure CLI)
+-   Interface de ligne de commande interplateforme Azure (Azure CLI)
 -   API REST de gestion de service
 
 ###Azure PowerShell
 
-Certaines extensions disposent d'applets de commande Powershell spécifiques, ce qui simplifie leur configuration à partir de PowerShell. Mais les applets de commande suivantes fonctionnent pour toutes les extensions de machine virtuelle.
+Certaines extensions disposent d’applets de commande PowerShell spécifiques, ce qui simplifie leur configuration à partir de PowerShell. Mais les applets de commande suivantes fonctionnent pour toutes les extensions de machine virtuelle.
 
 Vous pouvez utiliser les applets de commande suivantes pour obtenir des informations sur les extensions disponibles :
 
@@ -36,9 +36,7 @@ Vous pouvez utiliser les applets de commande suivantes pour obtenir des informat
 
      Par exemple, le code qui suit montre comment obtenir les informations sur l'extension **IaaSDiagnostics** avec PowerShell.
 
-        PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
-        VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
-        VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
+        PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
 
         Publisher                   : Microsoft.Azure.Diagnostics
         ExtensionName               : IaaSDiagnostics
@@ -64,7 +62,7 @@ Vous pouvez utiliser les applets de commande suivantes pour obtenir des informat
 
 Certaines extensions ont leurs propres commandes Azure CLI (par exemple, l'extension de machine virtuelle Docker), ce qui peut faciliter leur configuration. Mais les commandes suivantes fonctionnent pour toutes les extensions de machines virtuelles.
 
-La commande **azure vm extension list** permet d’obtenir des informations sur les extensions disponibles et l’option **–-json** permet d’afficher toutes les informations disponibles sur une ou plusieurs extensions. Si vous n'utilisez pas de nom d'extension, la commande renvoie une description json de toutes les extensions disponibles.
+La commande **azure vm extension list** permet d’obtenir des informations sur les extensions disponibles et l’option **–-json** permet d’afficher toutes les informations disponibles sur une ou plusieurs extensions. Si vous n’utilisez pas de nom d’extension, la commande renvoie une description JSON de toutes les extensions disponibles.
 
 Ainsi, l’exemple de code suivant montre comment répertorier les informations relatives à l’extension **IaaSDiagnostics** à l’aide de la commande Azure CLI **azure vm extension list** et utilise l’option **–-json** pour renvoyer des informations complètes.
 
@@ -119,4 +117,4 @@ Vous pouvez utiliser les API REST suivantes pour savoir si une extension nécess
 
 >[AZURE.NOTE]Des extensions peuvent également utiliser des configurations définies avec JSON. En cas d'utilisation de ces types d'extension, seul l'élément **SampleConfig** est utilisé.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

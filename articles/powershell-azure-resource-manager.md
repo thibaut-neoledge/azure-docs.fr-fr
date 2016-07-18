@@ -19,8 +19,14 @@
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Portail](azure-portal/resource-group-portal.md)
 - [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 Azure Resource Manager contribue à initier une réflexion entièrement nouvelle concernant vos ressources Azure. Au lieu de créer et gérer des ressources à un niveau individuel, commencez à imaginer une solution globale, telle qu’un blog, une galerie de photos, un portail SharePoint ou un wiki. Vous utilisez un modèle, c’est-à-dire une représentation déclarative de la solution, pour créer un groupe de ressources contenant toutes les ressources dont vous avez besoin pour prendre en charge de la solution. Vous pouvez ensuite gérer et déployer ce groupe de ressources sous la forme d’une unité logique.
 
@@ -31,7 +37,7 @@ Ce didacticiel vous apprend à utiliser Azure PowerShell avec Azure Resource Man
 - des règles de pare-feu, pour permettre à l’application Web de se connecter à la base de données ;
 - un plan App Service, pour définir les fonctionnalités et le coût de l’application Web ;
 - un site Web, pour l’exécution de l’application Web ;
-- une configuration Web, pour le stockage de la chaîne de connexion à la base de données. 
+- une configuration Web, pour le stockage de la chaîne de connexion à la base de données.
 - Règles d'alerte - pour analyser les performances et les erreurs
 - App Insights - pour les paramètres de mise à l’échelle automatique
 
@@ -40,9 +46,9 @@ Ce didacticiel vous apprend à utiliser Azure PowerShell avec Azure Resource Man
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un compte Azure
-  + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
+  + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
   
-  + Vous pouvez [activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+  + Vous pouvez [activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 - Azure PowerShell 1.0. Pour plus d’informations sur cette version et la méthode d’installation, voir [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 
 Ce didacticiel s’adresse aux utilisateurs novices de PowerShell, mais il repose sur l’hypothèse que vous comprenez les concepts fondamentaux (modules, applets de commande et sessions).
@@ -121,7 +127,7 @@ Cette rubrique n’explique pas comment créer votre modèle, de même qu’elle
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
-Vous devez spécifier le groupe de ressources et l’emplacement du modèle. Si votre modèle est un fichier local, vous utilisez le paramètre **- TemplateFile** et spécifiez le chemin d'accès au modèle. Vous pouvez affecter au paramètre **-Mode** la valeur **Incremental** ou **Complete**. Par défaut, Resource Manager effectue une mise à jour incrémentielle pendant le déploiement. Il n’est donc pas obligatoire de définir **-Mode** avec la valeur **Incremental** si vous souhaitez effectuer une mise à jour incrémentielle. Pour comprendre les différences entre ces modes de déploiement, consultez [Déployer une application avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
+Vous devez spécifier le groupe de ressources et l’emplacement du modèle. Si votre modèle est un fichier local, vous utilisez le paramètre **- TemplateFile** et spécifiez le chemin d’accès au modèle. Vous pouvez affecter au paramètre **-Mode** la valeur **Incremental** ou **Complete**. Par défaut, Resource Manager effectue une mise à jour incrémentielle pendant le déploiement. Il n’est donc pas obligatoire de définir **-Mode** avec la valeur **Incremental** si vous souhaitez effectuer une mise à jour incrémentielle. Pour comprendre les différences entre ces modes de déploiement, consultez [Déployer une application avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
 ###Paramètres de modèle dynamiques
 
@@ -134,7 +140,7 @@ Au moment d'entrer la commande, vous êtes invité à saisir le paramètre oblig
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-Si le modèle inclut un paramètre avec un nom correspondant à l’un des paramètres de la commande pour déployer le modèle (par exemple, en incluant un paramètre nommé **ResourceGroupName** dans votre modèle, qui est le même que le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), vous serez invité à fournir une valeur pour un paramètre avec le suffixe **FromTemplate** (tel que **ResourceGroupNameFromTemplate**). En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec le même nom que les paramètres utilisés pour les opérations de déploiement.
+Si le modèle inclut un paramètre avec un nom correspondant à l’un des paramètres de la commande pour déployer le modèle (par exemple, en incluant un paramètre nommé **ResourceGroupName** dans votre modèle, qui est le même que le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), vous serez invité à fournir une valeur de paramètre avec le suffixe **FromTemplate** (par exemple, **ResourceGroupNameFromTemplate**). En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec le même nom que les paramètres utilisés pour les opérations de déploiement.
 
 La commande s’exécute et renvoie des messages au fur et à mesure que les ressources sont créées. Vous obtenez à la fin le résultat de votre déploiement.
 
@@ -171,7 +177,7 @@ Il nous a suffi de quelques étapes seulement pour créer et déployer les resso
 
 ### Informations de débogage de journal
 
-Lorsque vous déployez un modèle, vous pouvez consigner des informations supplémentaires sur la requête et la réponse en spécifiant le paramètre **-DeploymentDebugLogLevel** lors de l'exécution de **New-AzureRmResourceGroupDeployment**. Ces informations peuvent vous aider à corriger des erreurs de déploiement. La valeur par défaut est **Aucun**, ce qui signifie qu’aucun contenu de requête ou de réponse n’est consigné. Vous pouvez spécifier le contenu à consigner à partir de la requête, de la réponse, ou des deux. Pour plus d’informations sur la résolution des problèmes liés aux déploiements et sur la consignation des informations de débogage, consultez l’article [Résolution des problèmes liés aux déploiements de groupes de ressources avec Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). L'exemple suivant consigne le contenu de la requête et le contenu de la réponse pour le déploiement.
+Lorsque vous déployez un modèle, vous pouvez consigner des informations supplémentaires sur la requête et la réponse en spécifiant le paramètre **-DeploymentDebugLogLevel** lors de l’exécution de **New-AzureRmResourceGroupDeployment**. Ces informations peuvent vous aider à corriger des erreurs de déploiement. La valeur par défaut est **Aucun**, ce qui signifie qu’aucun contenu de requête ou de réponse n’est consigné. Vous pouvez spécifier le contenu à consigner à partir de la requête, de la réponse, ou des deux. Pour plus d’informations sur la résolution des problèmes liés aux déploiements et sur la consignation des informations de débogage, consultez l’article [Résolution des problèmes liés aux déploiements de groupes de ressources avec Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). L'exemple suivant consigne le contenu de la requête et le contenu de la réponse pour le déploiement.
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
@@ -182,7 +188,7 @@ Lorsque vous déployez un modèle, vous pouvez consigner des informations suppl�
 
 Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de commande du module Gestionnaire de ressources pour gérer vos groupes de ressources.
 
-- Pour obtenir un groupe de ressources de votre abonnement, utilisez l’applet de commande **Get-AzureRmResourceGroup** :
+- Pour obtenir un groupe de ressources de votre abonnement, utilisez l’applet de commande **Get-AzureRmResourceGroup** :
 
 		Get-AzureRmResourceGroup -ResourceGroupName TestRG1
 	
@@ -380,4 +386,4 @@ Les exemples de déploiement précédents de cette rubrique ne présentaient que
 - Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

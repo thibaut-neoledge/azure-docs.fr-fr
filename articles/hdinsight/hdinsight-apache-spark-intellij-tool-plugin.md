@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="07/06/2016"
 	ms.author="nitinme"/>
 
 
@@ -40,14 +40,7 @@ Vous pouvez également visionner une vidéo [ici](https://mix.office.com/watch/1
 
 ## Installer le plug-in Outils HDInsight pour IntelliJ IDEA
 
-1. Si vous vous trouvez de nouveau dans l’écran d’accueil IntelliJ IDEA, cliquez sur **Configure** (Configurer), puis sur **Plugins**.
-
-2. Dans l’écran suivant, cliquez sur **Browse Repositories** (Parcourir les référentiels) dans le coin inférieur gauche. Dans la boîte de dialogue **Browse Repositories** (Parcourir les référentiels) qui s’ouvre, recherchez **HDInsight**, sélectionnez **Microsoft Azure HDInsight Tools for IntelliJ**, puis cliquez sur **Install** (Installer). Le plug-in est dépendant du plug-in Scala ; par conséquent, si le plug-in Scala n’est pas installé, vous serez également invité à installer ce dernier.
-
-	![Installer le plug-in HDInsight](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
-
-3. Quand vous y êtes invité, cliquez sur le bouton **Restart IntelliJ IDEA** (Redémarrer IntelliJ IDEA) pour redémarrer l’environnement de développement intégré (IDE).
-
+Le plug-in Outils HDInsight pour IntelliJ IDEA est disponible dans le cadre du kit de ressources Azure pour IntelliJ. Pour obtenir des instructions sur l’installation du kit de ressources Azure, voir [Installation du kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
 ## Exécuter une application Scala Spark sur un cluster HDInsight Spark
 
@@ -92,7 +85,7 @@ Vous pouvez également visionner une vidéo [ici](https://mix.office.com/watch/1
 
 		![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-	2. Dans la boîte de dialogue **Create New Scala Class** (Créer une classe Scala), indiquez un nom, dans la zone **Kind**, sélectionnez **Object** (Objet), puis cliquez sur **OK**.
+	2. Dans la boîte de dialogue **Create New Scala Class** (Créer une classe Scala), indiquez un nom, dans la zone **Kind** (Genre), sélectionnez **Object** (Objet), puis cliquez sur **OK**.
 
 		![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
@@ -197,7 +190,7 @@ Vous pouvez utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin d’ex�
 
 ### Configuration requise
 
-Quand vous exécutez l’application Spark Scala locale sur un ordinateur Windows, vous pouvez obtenir une exception liée à l’absence d’un fichier WinUtils.exe sur Windows, comme l’explique le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Pour résoudre cette erreur, vous devez [télécharger le fichier exécutable ici](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\\WinUtils\\bin**. Vous devez ensuite ajouter une variable d’environnement **HADOOP\_HOME** et définir la valeur de la variable sur **C\\WinUtils**.
+Quand vous exécutez l’application Spark Scala locale sur un ordinateur Windows, vous pouvez obtenir une exception liée à l’absence d’un fichier WinUtils.exe sur Windows, comme l’explique le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Pour résoudre cette erreur, vous devez [télécharger le fichier exécutable à partir d’ici](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\\WinUtils\\bin**. Vous devez ensuite ajouter une variable d’environnement **HADOOP\_HOME** et définir la valeur de la variable sur **C\\WinUtils**.
 
 ### Exécuter une application Spark Scala locale	 
 
@@ -213,11 +206,11 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
 
 	* Fournissez un nom de projet et un emplacement de projet.
 	* Pour **Project SDK** (Kit de développement logiciel (SDK) de projet), prenez soin d’indiquer une version de Java supérieure à la version 7.
-	* Pour **Scala SDK** (Kit de développement logiciel (SDK) de Scala), cliquez sur **Create** (Créer), cliquez sur **Download** (Télécharger), puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
+	* Pour **Scala SDK** (Kit de développement logiciel de Scala (SDK)), cliquez sur **Create** (Créer), cliquez sur **Download** (Télécharger), puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
 
 		![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* Pour le **Kit de développement logiciel (SDK) Spark**, téléchargez et utilisez le Kit de développement logiciel (SDK) disponible [ici](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Vous pouvez également ignorer ce dernier et utiliser le [Référentiel Spark Maven](http://mvnrepository.com/search?q=spark) à la place. Toutefois, vérifiez que vous disposez du référentiel Maven approprié pour développer vos applications Spark. (Par exemple, vous devez vous assurer que le module Spark Streaming est installé si vous utilisez la fonctionnalité de diffusion en continu de Spark. En outre, vérifiez que vous utilisez le référentiel libellé Scala 2.10 ; n’utilisez pas le référentiel Scala 2.11.)
+	* Pour le **Kit de développement logiciel (SDK) Spark**, téléchargez et utilisez le Kit de développement logiciel (SDK) disponible [ici](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Vous pouvez également ignorer ce dernier et utiliser le [référentiel Spark Maven](http://mvnrepository.com/search?q=spark) à la place. Toutefois, vérifiez que vous disposez du référentiel Maven approprié pour développer vos applications Spark. (Par exemple, vous devez vous assurer que le module Spark Streaming est installé si vous utilisez la fonctionnalité de diffusion en continu de Spark. En outre, vérifiez que vous utilisez le référentiel libellé Scala 2.10 ; n’utilisez pas le référentiel Scala 2.11.)
 
 		![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-create-project.png)
 
@@ -307,6 +300,8 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
+* [Utilisation du plug-in Outils HDInsight pour Eclipse pour créer des applications Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -321,4 +316,4 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

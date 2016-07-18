@@ -1,7 +1,7 @@
 
 ## Démarrer votre session PowerShell
 
-Tout d’abord, [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (version 1.0 ou ultérieure) doit être installé et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
+Tout d’abord, la dernière version d’[Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
 
 
 >[AZURE.NOTE] Parmi les nouvelles fonctionnalités de la Base de données SQL, plusieurs sont uniquement prises en charge avec le [modèle de déploiement Azure Resource Manager](../articles/resource-group-overview.md). Les exemples cités utilisent donc des [applets de commande PowerShell de base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) pour Resource Manager. Les [applets de commande de base de données SQL Azure (classique)](https://msdn.microsoft.com/library/azure/dn546723.aspx) du modèle de déploiement existant sont prises en charge à des fins de compatibilité descendante. Cependant, nous vous recommandons l’utilisation d’applets de commande Resource Manager.
@@ -15,3 +15,4 @@ Si vous avez plusieurs abonnements, utilisez l’applet de commande [**Set-Azure
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
+<!---HONumber=AcomDC_0706_2016-->

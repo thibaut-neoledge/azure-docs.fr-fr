@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Attachement d’un disque de données à une machine virtuelle Linux dans le portail Azure
@@ -34,4 +34,4 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 
 Une fois le disque ajouté, vous devez le préparer pour utilisation. Voir la section « Initialisation d’un nouveau disque de données dans Linux » dans cet [article](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux) pour le système d’exploitation de la machine virtuelle.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

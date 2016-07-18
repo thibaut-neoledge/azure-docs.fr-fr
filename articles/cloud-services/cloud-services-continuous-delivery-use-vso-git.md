@@ -3,7 +3,7 @@
 	description="Découvrez comment configurer vos projets d'équipe Visual Studio Team Services afin d’utiliser Git pour les générer et les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des Cloud Services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="TomArcher"
+	authors="mlearned"
 	manager="douge"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
-	ms.author="tarcher"/>
+	ms.date="07/06/2016"
+	ms.author="mlearned"/>
 
 # Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git
 
@@ -131,9 +131,9 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	![][27]
 
-1. Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés de publication dans Azure se trouvent dans la section **Déploiement** ; vous devrez peut-être configurer également les paramètres MSBuild. Exemple : dans un projet de service cloud, pour spécifier la configuration d’un autre service que « Cloud », configurez les paramètres MSbuild avec `/p:TargetProfile=[YourProfile]` où *[YourProfile]* correspond à un fichier de configuration de service avec un nom tel que ServiceConfiguration.*YourProfile*.cscfg.
+1. Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés de publication dans Azure se trouvent dans la section **Déploiement** ; vous devrez peut-être configurer également les paramètres MSBuild. Exemple : dans un projet de service cloud, pour spécifier la configuration d’un autre service que « Cloud », configurez les paramètres MSbuild avec `/p:TargetProfile=[YourProfile]` où *[YourProfile]* correspond à un fichier de configuration de service avec un nom tel que ServiceConfiguration.*YourProfile*.cscfg.
 
-	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
+	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
 
 	|Propriété|Valeur par défaut|
 	|---|---|
@@ -224,7 +224,7 @@ Lorsque vous utilisez Git, vous apportez généralement des modifications à un
 
 ## Étapes suivantes
 
-Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Team Services, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Team Services pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../app-service-web/web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Team Services, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Team Services pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../app-service-web/web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -272,4 +272,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

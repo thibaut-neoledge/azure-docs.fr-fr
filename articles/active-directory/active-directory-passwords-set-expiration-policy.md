@@ -32,7 +32,7 @@ Pour utiliser des applets de commande Windows PowerShell, vous devez commencer p
 
 - [Définir un mot de passe pour qu’il expire](#set-a-password-to-expire)
 
-- [Définir un mot de passe pour qu’il n’expire pas](#set-a-password-not-to-expire)
+- [Définir un mot de passe pour qu’il n’expire pas](#set-a-password-to-never-expire)
 
 ## Vérifier la stratégie d’expiration pour un mot de passe
 
@@ -64,4 +64,4 @@ Pour utiliser des applets de commande Windows PowerShell, vous devez commencer p
 
 	- Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils n’expirent jamais, utilisez l’applet de commande suivante : `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

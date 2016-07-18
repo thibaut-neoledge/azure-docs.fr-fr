@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="genli"/>
 
 # Impossible de me connecter pour gérer mon abonnement Azure
 
-> [AZURE.NOTE]Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409), puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure sur le [site de support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 Cet article vous aidera à résoudre certains problèmes de connexion courants.
 
@@ -43,7 +43,7 @@ Si votre compte est associé à un compte professionnel, sélectionnez l’optio
 - Si vous vous êtes connecté avec un compte Microsoft, vous pouvez ajouter d’autres comptes Microsoft uniquement en tant que coadministrateur. Pour des raisons de sécurité, il importe d'empêcher les comptes autres que les comptes professionnels d’identifier si certains comptes (par exemple janedoe@contoso.com) sont des comptes valides.
 - Si vous vous êtes connecté avec un compte professionnel, vous pouvez ajouter d’autres comptes de société de votre société en tant que coadministrateur. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services ou coadministrateur, mais ne peut pas ajouter john@notcontoso.com. Les utilisateurs connectés avec des comptes professionnels peuvent également ajouter des utilisateurs de compte Microsoft en tant qu’administrateur de services ou coadministrateur.
 
-Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de services (SA) et Coadministrateur (CA) :
+Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de services (SA) et Coadministrateur (CA) :
 
 | Méthode de connexion| Ajouter un compte Microsoft en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société de la même société en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société d’une autre société en tant que coadministrateur ou administrateur de services ?
 | ------------- | ------------- |---------------|---------------|
@@ -54,4 +54,4 @@ Il est désormais possible de se connecter à Azure avec un compte professionnel
 
 Essayez de supprimer le cache/les cookies en utilisant IE en mode de navigation InPrivate et en utilisant également un autre navigateur
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

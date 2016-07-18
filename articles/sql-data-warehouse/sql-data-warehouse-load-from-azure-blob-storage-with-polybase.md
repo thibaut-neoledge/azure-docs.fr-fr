@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -85,7 +85,7 @@ Passez à l’étape 2.
 
 ### 1\.2. Créer la source de données externe
 
-Utilisez la commande [CREATE EXTERNAL DATA SOURCE] [] pour stocker l’emplacement des données et le type de données.
+Utilisez la commande [CREATE EXTERNAL DATA SOURCE][] pour stocker l’emplacement des données et le type de données.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -100,7 +100,7 @@ WITH
 
 ## 2\. Configurer le format des données
 
-Les données sont stockées dans des fichiers texte dans le stockage d’objets blob Azure, et chaque champ est séparé par un délimiteur. Exécutez cette commande [CREATE EXTERNAL FILE FORMAT] [] pour spécifier le format des données dans les fichiers texte. Les données Contoso ne sont pas compressées et elles sont séparées par des barres verticales.
+Les données sont stockées dans des fichiers texte dans le stockage d’objets blob Azure, et chaque champ est séparé par un délimiteur. Exécutez cette commande [CREATE EXTERNAL FILE FORMAT][] pour spécifier le format des données dans les fichiers texte. Les données Contoso ne sont pas compressées et elles sont séparées par des barres verticales.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +264,7 @@ WHERE r.label = 'CTAS : Load [cso].[DimProduct]             '
 
 ## 5\. Optimiser la compression columnstore
 
-Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore. Cela peut être dû à diverses raisons. Pour plus d’informations, consultez … .
+Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore. Cela peut être dû à diverses raisons. Pour plus d’informations, consultez [manage columnstore indexes][] (Gérer les index columnstore).
 
 Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes.
 
@@ -276,7 +276,7 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Pour plus d’informations sur la maintenance des index columnstore, consultez l’article [manage columnstore indexes][].
+Pour plus d’informations sur la maintenance des index columnstore, consultez l’article [manage columnstore indexes][] (Gérer les index columnstore).
 
 ## 6\. Optimiser les statistiques
 
@@ -351,16 +351,17 @@ Pour charger l’ensemble des données de l’entrepôt de données Contoso Reta
 <!--Image references-->
 
 <!--Article references-->
-[Créer un entrepôt de données SQL]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Vue d’ensemble sur le développement SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[gérer les index columnstore] :
-[statistiques]: sql-data-warehouse-develop-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
+[Créer un entrepôt de données SQL]: ./sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[manage columnstore indexes]: ./sql-data-warehouse-tables-index.md
+[statistiques]: ./sql-data-warehouse-tables-statistics.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[label]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: [CREATE EXTERNAL FILE FORMAT]:
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/fr-FR/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/fr-FR/library/dn935026.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
@@ -368,4 +369,4 @@ Pour charger l’ensemble des données de l’entrepôt de données Contoso Reta
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -32,7 +32,11 @@ Cet article montre comment lancer le basculement vers une base de données SQL s
 Pour lancer le basculement, vous avez besoin des éléments suivants :
 
 - Une connexion qui est DBManager sur le serveur principal, a la propriété db\_ownership de la base de données locale que vous allez géo-répliquer et est DBManager sur le ou les serveurs partenaires sur lesquels vous allez configurer la géoréplication.
-- La version la plus récente de SQL Server Management Studio. Pour obtenir la version la plus récente de SQL Server Management Studio (SSMS), accédez à [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Pour plus d’informations sur l’utilisation de SQL Server Management Studio dans la gestion des serveurs logiques et des bases de données SQL Azure, consultez [Gestion de base de données SQL à l’aide de SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+
+> [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 
 
@@ -98,4 +102,4 @@ Utilisez les étapes suivantes pour lancer un basculement non planifié.
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

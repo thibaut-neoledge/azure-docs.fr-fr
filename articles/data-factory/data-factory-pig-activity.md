@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/15/2016" 
 	ms.author="spelluru"/>
 
 # Activité pig
@@ -98,7 +98,7 @@ Pour exécuter ce script pig dans un pipeline Data Factory, vous devez effectuer
 1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
 2.	Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
 3.	Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « PigSampleIn » et le jeu de données de sortie « PigSampleOut ».
-4.	Copiez la requête pig en tant que fichier vers le stockage d'objets blob Azure configuré à l'étape 2 ci-dessus. Si le service lié pour l'hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service de stockage Azure lié distinct et référencez-le dans la configuration de l'activité. Utilisez **scriptPath** pour spécifier le chemin d'accès au fichier de requête pig et à **scriptLinkedService** afin de spécifier le stockage Azure qui contient le fichier de script.
+4.	Copiez la requête pig en tant que fichier vers le stockage d'objets blob Azure configuré à l'étape 2 ci-dessus. Si le service lié pour l'hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service de stockage Azure lié distinct et référencez-le dans la configuration de l'activité. Utilisez **scriptPath** pour spécifier le chemin d’accès au fichier de requête pig et à **scriptLinkedService** afin de spécifier le stockage Azure qui contient le fichier de script.
 	
 	> [AZURE.NOTE] Vous pouvez également fournir le script en ligne pig dans la définition d'activité à l'aide de la propriété **script**, mais cela n'est pas recommandé car tous les caractères spéciaux du script au sein du document JSON doivent être placés dans une séquence d'échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.
 5. Créez le pipeline ci-dessous avec l'activité HDInsightPig pour traiter les données.
@@ -133,7 +133,7 @@ Pour exécuter ce script pig dans un pipeline Data Factory, vous devez effectuer
 		    ]
 		  }
 		} 
-6. Déployez le pipeline. Consultez l’article [Création de pipelines](data-factory-create-pipelines.md) pour plus de détails. 
+6. Déployez le pipeline. Consultez l’article [Création de pipelines](data-factory-create-pipelines.md) pour plus de détails.
 7. Surveillez le pipeline à l'aide des vues de gestion et de surveillance Data Factory. Consultez l’article [Surveillance et gestion des pipelines Data Factory](data-factory-monitor-manage-pipelines.md) pour plus d'informations.
 
 ## Spécification des paramètres d’un script pig à l’aide de l’élément defines
@@ -194,4 +194,4 @@ Pour paramétrer le script pig, procédez comme suit :
 - [Appeler des programmes Spark](data-factory-spark.md)
 - [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

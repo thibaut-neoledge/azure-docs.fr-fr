@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler  
@@ -132,7 +132,7 @@ Le tableau suivant décrit les éléments _schedule_ en détail.
 |:---|:---|:---|
 |**minutes**|Minutes de l'heure auxquelles le travail sera exécuté|<ul><li>Entier ou</li><li>Tableau d'entiers</li></ul>|
 |**hours**|Heures de la journée auxquelles le travail sera exécuté|<ul><li>Entier ou</li><li>Tableau d'entiers</li></ul>|
-|**weekDays**|Jours de la semaine auxquels le travail sera exécuté Peut uniquement être spécifié avec une fréquence hebdomadaire.|<ul><li>« Monday », « Tuesday », « Wednesday », « Thursday », « Friday », « Saturday » ou « Sunday »</li><li>Tableau d'une des valeurs ci-dessus (taille de tableau maximale 7)</li></ul>\_Ne\_ respectant pas la casse|
+|**weekDays**|Jours de la semaine auxquels le travail sera exécuté Peut uniquement être spécifié avec une fréquence hebdomadaire.|<ul><li>« Monday », « Tuesday », « Wednesday », « Thursday », « Friday », « Saturday » ou « Sunday »</li><li>Tableau d’une des valeurs ci-dessus (taille de tableau maximale 7)</li></ul>_Ne_ respectant pas la casse|
 |**monthlyOccurrences**|Détermine les jours du mois pour l'exécution du travail. Peut uniquement être spécifié avec une fréquence mensuelle.|<ul><li>Tableau d'objets monthlyOccurence :</li></ul> <pre>{« day » : _day_,<br /> « occurrence » : _occurrence_<br />}</pre><p> _day_ est le jour de la semaine pour l'exécution du travail. Par exemple, {Sunday} correspond à tous les dimanches du mois. Obligatoire.</p><p>Occurrence est l'_occurrence_ du jour au cours du mois. Par exemple, {Sunday, -1} est le dernier dimanche du mois. Facultatif.</p>|
 |**monthDays**|Jour du mois auquel le travail sera exécuté. Peut uniquement être spécifié avec une fréquence mensuelle.|<ul><li>Toute valeur <= -1 et >= -31.</li><li>Toute valeur >= 1 et <= 31.</li><li>Un tableau des valeurs ci-dessus</li></ul>|
 
@@ -197,4 +197,4 @@ Les planifications ci-dessous supposent toutes que la valeur _interval_ est déf
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

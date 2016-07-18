@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Mise à l’échelle d’une application web dans Microsoft Azure App Service" 
-	description="Apprenez à mettre à l’échelle une application web dans Azure App Service, notamment avec la fonction d’ajustement automatique." 
+	pageTitle="Montée en puissance d’une application dans Azure" 
+	description="Découvrez comment activer la montée en puissance d’une application dans Azure App Service pour ajouter des capacités et des fonctionnalités." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -13,124 +13,66 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="07/05/2016" 
 	ms.author="cephalin"/>
 
-# Mise à l’échelle d’une application web dans Microsoft Azure App Service #
+# Montée en puissance d’une application dans Azure #
 
-Si vous souhaitez améliorer les performances et le débit de vos applications web sur Microsoft Azure, vous pouvez utiliser le [portail Azure](http://portal.azure.com) pour faire évoluer votre plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) du mode **Gratuit** vers le mode **Partagé**, **De base**, **Standard** ou **Premium**.
+Cet article décrit la mise à l’échelle d’une application web dans Azure App Service. Il existe deux flux de travail pour la mise à l’échelle. Cet article aborde le premier flux de travail (montée en puissance) :
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+- [Montée en puissance](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : vous offre plus de capacité d’UC, de mémoire et d’espace disque. Obtenez également davantage de fonctionnalités, telles que des machines virtuelles dédiées, des domaines et des certificats personnalisés, des emplacements intermédiaires, la mise à l’échelle automatique et bien plus encore. Pour augmenter la taille des instances, changez le niveau tarifaire du plan App Service auquel appartient votre application.
+- [Augmentation de la taille des instances](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : augmente le nombre d’instances de machine virtuelle exécutant votre application. Ce nombre peut atteindre 20 instances, en fonction de votre niveau tarifaire. L’utilisation [d’App Service Environments](../app-service/app-service-app-service-environments-readme.md) dans le niveau **Premium** permet de renforcer l’augmentation de la taille des instances jusqu’à 50 instances. Pour plus d’informations sur l’augmentation de la taille des instances, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md). Vous y trouverez comment utiliser la mise à l’échelle automatique, qui permet de mettre à l’échelle le nombre d’instances automatiquement en fonction des planifications et des règles prédéfinies.
 
-La montée en puissance des applications web Azure implique deux actions associées : évolution du mode de votre plan App Service vers un niveau de service supérieur et configuration de certains paramètres après le passage à ce niveau de service supérieur. Cet article décrit ces deux étapes. Les niveaux de service supérieurs comme les modes **Standard** et **Premium** augmentent la robustesse et la souplesse dont vous disposez pour déterminer le mode d’utilisation de vos ressources sur Azure.
+Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications de votre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Ils ne nécessitent pas de modifier votre code ou de redéployer votre application.
 
-Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications web de votre plan App Service. Vous ne devez pas modifier votre code ni redéployer vos applications.
+Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
 
-Pour plus d’informations sur les plans App Service, consultez les pages [Qu’est-ce qu’un plan App Service ?](../app-service/app-service-how-works-readme.md) et [Présentation approfondie des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
+> [AZURE.NOTE] Avant de modifier le mode **Gratuit** d’un plan App Service, commencez par supprimer les [limites de dépenses](/pricing/spending-limits/) en place pour votre abonnement Azure. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
-> [AZURE.NOTE] Avant de faire évoluer une application web du mode **Gratuit** vers le mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
+<a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
-## Évolution vers le mode Partagé ou De base
-<!-- ===================================== -->
+## Montée en puissance de votre niveau de tarification
 
 1. Dans votre navigateur, ouvrez le [portail Azure][portal].
 	
-2. Dans le panneau de votre application web, cliquez sur **Tous les paramètres**, puis cliquez sur **Mise à l’échelle supérieure**.
+2. Dans le panneau de votre application, cliquez sur **Tous les paramètres**, puis cliquez sur **Monter en puissance**.
 	
-	![Choisir un plan][ChooseWHP]
+	![Accédez à la montée en puissance pour votre application Azure.][ChooseWHP]
 	
-4. Dans le panneau **Choisir un niveau de tarification**, choisissez un mode **Partagé** ou **De base**, puis cliquez sur **Sélectionner**.
-	
+4. Faites défiler la page et choisissez votre niveau, puis cliquez sur **Sélectionner**.
+
 	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
 	
-5. Dans Paramètres, cliquez sur **Augmentation de la taille des instances**, sélectionnez *nombre d'instances choisi manuellement* dans la liste déroulante, faites glisser la barre **Instance** de gauche à droite pour augmenter le nombre d'instances, puis cliquez sur **Enregistrer** dans la barre de commandes. L’option de taille des instances n’est pas disponible en mode **Partagé**. Pour plus d’informations sur ces tailles d’instance, consultez la page [Service d’application Tarification][vmsizes].
-	
-	![Taille des instances en mode De base][ChooseBasicInstances]
-	
-	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
-	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
-## Évolution vers le mode Standard ou Premium
-<!-- ================================= -->
-
-> [AZURE.NOTE] Avant de faire passer un plan App Service en mode **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Microsoft Azure App Service. Dans le cas contraire, votre application web risque de devenir inaccessible si vous atteignez ce plafond avant la fin de la période de facturation. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
-
-1. Pour évoluer vers le mode **Standard** ou **Premium**, suivez les mêmes étapes initiales que pour le passage au mode **Partagé** ou **De base**, choisissez un mode **Standard** ou **Premium** dans **Choisir votre niveau de tarification**, puis cliquez sur **Sélectionner**. 
-	
-	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée, et la **Mise à l’échelle automatique** est activée.
-	
-	![Évoluer vers le mode Standard ou Premium][ScaleStandard]
-	
-	Vous pouvez encore faire glisser la barre **Instance** pour configurer manuellement plus d’instances, comme dans le mode **De base** ci-dessus. Toutefois, vous apprendrez ici à mettre à l’échelle automatiquement votre application.
-	
-2. Dans **Mise à l’échelle par**, sélectionnez **règles de performances et de planification** pour mettre à l'échelle votre application.
-	
-	![Mode de mise à l’échelle automatique défini sur Performance][Autoscale]
-	
-3. Dans **Paramètres**, cliquez sur **Par défaut, échelle 1-1**, déplacez les deux curseurs pour définir le nombre minimal et le nombre maximal d’instances à mettre à l’échelle automatiquement pour le plan App Service. Pour ce didacticiel, placez le curseur maximal sur **6** instances.
-	
-4. Cliquez sur **OK**.
-	
-4. Dans **Paramètres**, cliquez sur **Pourcentage UC > 80 (augmenter le nombre de 1)** pour configurer les règles de mise à l'échelle automatique à la métrique par défaut.
-	
-	![Définir les métriques cibles][SetTargetMetrics]
-	
-	Vous pouvez configurer des règles de mise à l'échelle automatique pour différentes métriques de performances, y compris le processeur, la mémoire, la file d'attente du disque, la file d'attente HTTP et le flux de données. Ici, vous allez configurer une mise à l'échelle automatique pour le pourcentage UC qui effectue les opérations suivantes :
-	
-	- Augmentation de 1 instance si l'utilisation de l'UC dépasse 80 % au cours des 10 dernières minutes
-	- Augmentation de 3 instances si l'utilisation de l'UC dépasse 90 % au cours des 5 dernières minutes
-	- Diminution de 1 instance si l'utilisation de l'UC est inférieure à 50 % au cours des 30 dernières minutes 
-	
-	
-4. Conservez **Pourcentage UC** dans la liste déroulante **Nom de métrique**.
-	
-5. Dans **Règles de mise à l’échelle supérieure**, configurez la première règle en définissant **Opérateur** sur **Supérieur à**, **Seuil** sur **70** (%), **Durée** sur **10** (minutes), **Agrégation de temps** sur Moyenne, **Action** sur **Augmenter le nombre de** **1** (instance), et **Refroidissement** sur **10** (minutes).
-	
-	![Définir la première règle de mise à l’échelle automatique][SetFirstRule]
-	
-	>[AZURE.NOTE] Le paramètre **Délai d’attente** spécifie le temps que cette règle doit attendre après une mise à l’échelle pour pouvoir effectuer une nouvelle mise à l’échelle.
-	
-6. Dans **Ajouter une règle**, configurez la seconde règle en définissant **Opérateur** sur **Supérieur à**, **Seuil** sur **90** (%), **Durée** sur **1** (minute), **Agrégation de temps** sur Moyenne, **Action** sur **Augmenter le nombre de**, **Valeur** sur **3** (instances), et **Refroidissement** sur **1** (minute).
-
-7. Cliquez sur **OK**.
-	
-	![Définir la deuxième règle de mise à l’échelle automatique][SetSecondRule]
-	
-5. Dans **Paramètres**, cliquez sur **Ajouter une règle** pour configurer la troisième règle en définissant **Opérateur** sur **Inférieur à**, **Seuil** sur **50** (%), **Durée** sur **30** (minutes), **Agrégation de temps** sur **Moyenne**, **Action** sur **Diminuer le nombre de**, **Valeur** sur **1** (instance), et **Refroidissement** sur **60** (minutes).
-	
-	![Définir la troisième règle de mise à l’échelle automatique][SetThirdRule]
-	
-7. Cliquez sur **OK**. Votre règle de mise à l’échelle automatique doit maintenant être répercutée dans le panneau **Paramètre de mise à l’échelle**.
-	
-	![Définir le résultat de la règle de mise à l’échelle automatique][SetRulesFinal]
-
 <a name="ScalingSQLServer"></a>
-##Mise à l'échelle d'une base de données SQL Server connectée à votre application web
-Si vous disposez d'une ou de plusieurs bases de données SQL Server liées à votre application web (quel que soit le mode de plan App Service utilisé), vous pouvez rapidement les mettre à l'échelle selon vos besoins.
+##Mise à l’échelle des ressources associées
+Si votre application dépend d’autres services, tels que Azure SQL Database ou Azure Storage, vous pouvez également faire monter en puissance ces ressources selon vos besoins. Ces ressources ne sont pas mises à l’échelle avec le plan App Service et doivent être mises à l’échelle séparément.
 
-1. Pour faire évoluer l’une des bases de données liées, ouvrez le panneau de votre application web dans le [portail Azure][portal]. Dans la liste déroulante réductible **Essentials**, cliquez sur le lien **Groupe de ressources**. Ensuite, dans la partie **Résumé** du panneau de groupe de ressources, cliquez sur l’une des bases de données liées.
+1. Dans **Essentials**, cliquez sur le lien **Groupe de ressources**.
 
-	![Base de données liée][ResourceGroup]
-	
-2. Dans le panneau de votre base de données SQL liée, cliquez sur la partie **Paramètres** > **Niveau tarifaire**, sélectionnez l’un des niveaux en fonction des performances requises, puis cliquez sur **Sélectionner**.
-	
-	![Mettre à l’échelle votre base de données SQL][ScaleDatabase]
-	
-3. Vous pouvez également configurer une géo-réplication pour augmenter les capacités de récupération d'urgence et de haute disponibilité de votre base de données SQL. Pour ce faire, cliquez sur la partie **Géo-réplication**.
-	
-	![Configurer la géo-réplication pour la base de données SQL][GeoReplication]
+	![Montée en puissance des ressources connexes de votre application Azure](./media/web-sites-scale/RGEssentialsLink.png)
+
+2. Ensuite, dans la partie **Résumé** du panneau de groupe de ressources, cliquez sur l’une des ressources à mettre à l’échelle. La capture d’écran ci-dessous illustre une ressource de base de données SQL et une ressource de stockage Azure.
+
+	![Accédez au panneau du groupe de ressources pour activer la montée en puissance de votre application Azure](./media/web-sites-scale/ResourceGroup.png)
+
+3. Pour une ressource de base de données SQL, cliquez sur **Paramètres** > **Niveau de tarification** pour mettre à l’échelle le niveau de tarification.
+
+	![Montée en puissance de la base de données SQL principale pour votre application Azure](./media/web-sites-scale/ScaleDatabase.png)
+
+	Vous pouvez également activer la [géo-réplication](../sql-database/sql-database-geo-replication-overview.md) pour votre base de données SQL.
+
+    Pour une ressource de stockage Azure, cliquez sur **Paramètres** > **Configuration** pour faire évoluer vos options de stockage.
+
+    ![Montée en puissance du compte de stockage Azure utilisé par votre application Azure](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="devfeatures"></a>
 ## Fonctionnalités pour développeur
-Selon le mode de l’application web, les fonctionnalités orientées développeur disponibles sont les suivantes :
+Selon le niveau de tarification, les fonctionnalités orientées développeur disponibles sont les suivantes :
 
 ### Nombre de bits ###
 
 - Les modes **De base**, **Standard** et **Premium** prennent en charge les applications 64 bits et 32 bits.
-- Les modes **Gratuit** et **Partagé** ne prennent en charge que les applications 32 bits.
+- Les niveaux de plan **Gratuit** et **Partagé** prennent uniquement en charge des applications 32 bits.
 
 ### Prise en charge du débogueur ###
 
@@ -140,11 +82,7 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 <a name="OtherFeatures"></a>
 ## Autres fonctionnalités
 
-### Surveillance de point de terminaison Web ###
-
-- La surveillance des points de terminaison web est disponible dans les modes **De base**, **Standard** et **Premium**. Pour plus d’informations sur la surveillance des points de terminaison web, consultez la page [Surveillance des applications web](web-sites-monitor.md).
-
-- Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment la tarification et les fonctionnalités intéressant tous les utilisateurs (y compris les développeurs), consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
+- Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment concernant la tarification et les fonctionnalités présentant de l’intérêt pour tous les utilisateurs (y compris les développeurs), consultez la page [Détails de la tarification - App Service](/pricing/details/web-sites/).
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -153,31 +91,29 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 
 - Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](/pricing/free-trial/).
 - Pour plus d'informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants.
-	
+
 	[Détails de la tarification – Transferts de données](/pricing/details/data-transfers/)
-	
+
 	[Plans de support Microsoft Azure](/support/plans/)
-	
+
 	[Contrats de niveau de service](/support/legal/sla/)
-	
+
 	[Tarification – Base de données SQL](/pricing/details/sql-database/)
-	
+
 	[Tailles de machines virtuelles et services cloud pour Microsoft Azure][vmsizes]
-	
-	[Détails de la tarification – App Service](/pricing/details/web-sites/)
-	
+
+	[Détails de la tarification – App Service](/pricing/details/app-service/)
+
 	[Détails de la tarification – App Service - Connexions SSL](/pricing/details/web-sites/#ssl-connections)
 
 - Pour plus d’informations sur les meilleures pratiques liées à Azure App Service, notamment la création d’une architecture évolutive et résiliente, consultez la page [Meilleures pratiques : Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
-- Vidéos sur l’évolution des applications web :
-	
+- Vidéos sur la mise à l’échelle des applications App Service :
+
 	- [Quand mettre à l’échelle Sites Web Azure - avec Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	- [Mise à l’échelle automatique de Sites Web Azure, unité centrale ou planification - avec Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
 	- [Mise à l’échelle de Sites Web Azure - avec Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- LINKS -->
 [vmsizes]: /pricing/details/app-service/
@@ -202,4 +138,4 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

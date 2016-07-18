@@ -79,4 +79,8 @@ Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquem
 
 Oui. Pour créer rapidement une machine virtuelle Linux de test, consultez [Création d’une machine virtuelle Linux sur Azure à l’aide du portail](virtual-machines-linux-quick-create-portal.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Puis-je ajouter une carte réseau à ma machine virtuelle après sa création ?
+
+Non. Actuellement, cela n’est possible qu’au moment de la création.
+
+<!---HONumber=AcomDC_0706_2016-->

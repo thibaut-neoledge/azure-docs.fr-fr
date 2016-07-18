@@ -21,7 +21,7 @@ Vous devez inclure la solution dans son ensemble dans le modèle de menace et vo
 
 - Les fonctionnalités de sécurité et de confidentialité
 - Les fonctionnalités dont les échecs relèvent de la sécurité
-- Les fonctionnalités qui touchent une délimitation d’approbation 
+- Les fonctionnalités qui touchent une délimitation d’approbation
 
 ### Qui doit réaliser le modèle de menace
 
@@ -40,9 +40,9 @@ Le processus de modélisation des menaces est composé des quatre étapes suivan
 
 Vous devez garder à l’esprit trois règles élémentaires lorsque vous créez un modèle de menace :
 
-1. Créez un diagramme de l’architecture de référence. 
+1. Créez un diagramme de l’architecture de référence.
 2. Commencez par la logique de largeur. Obtenez d’abord une vue d’ensemble du système pour le comprendre avant de l’explorer en profondeur. Cette façon de procéder garantit que vous explorez en profondeur les bons emplacements.
-3. C’est vous qui conduisez le processus, et non l’inverse. Si vous rencontrez un problème lors de la phase de modélisation et souhaitez l’examiner, n’hésitez pas ! Ne vous sentez pas obligé de suivre ces étapes à la lettre.  
+3. C’est vous qui conduisez le processus, et non l’inverse. Si vous rencontrez un problème lors de la phase de modélisation et souhaitez l’examiner, n’hésitez pas ! Ne vous sentez pas obligé de suivre ces étapes à la lettre.
 
 #### Menaces
 
@@ -172,17 +172,17 @@ Voici quelques exemples de menaces existant dans cette catégorie :
 
 Usurpation d’identité : une personne malveillante peut extraire les éléments de clé de chiffrement d’un périphérique, au niveau logiciel ou matériel, et par la suite, accéder au système avec un autre périphérique physique ou virtuel sous l’identité du périphérique dont elle a pris les éléments de clé.
 
-**Déni de service** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
+**Déni de service ** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
 
-**Falsification** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
 
 **Falsification** : une caméra de surveillance qui affiche une image (en spectre visible) d’un couloir vide peut être forcée à afficher une photo de ce couloir. Un capteur de détection de fumée ou d’incendie peut signaler la présence d’une personne utilisant un briquet. Dans les deux cas, le périphérique peut s’avérer techniquement tout à fait fiable pour le système, alors qu’il rapporte des informations manipulées.
 
 **Falsification** : une personne malveillante peut tirer parti des éléments de clé extraits pour intercepter et supprimer des données de l’appareil sur le chemin de communication et les remplacer par des données erronées authentifiées avec les éléments de clé volés.
 
-**Falsification** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
    
-**Divulgation d’informations** : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
+**Divulgation d’informations ** : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
 
 **Divulgation d’informations**: une personne malveillante peut tirer parti des éléments de clé extraits pour les injecter dans le chemin de communication entre l’appareil et un contrôleur, une passerelle de champ ou une passerelle cloud afin de détourner des informations.
 
@@ -224,9 +224,9 @@ Chaque passerelle de périphérique et de champ dispose d’une certaine forme d
 
 | **Composant** | **Menace** | **Atténuation** | **Risque** | **Implémentation** |
 |------------------------------------------|------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Stockage du périphérique | TRID | Chiffrement du stockage, signature des journaux. | Lecture des données de l’espace de stockage (données d’identification personnelles PII), falsification des données de télémétrie. Falsification des données de contrôle de commande en file d’attente ou mises en cache. Falsification des packages de configuration ou de mise à jour de microprogramme alors que des données en cache ou en file d’attente peuvent entraîner la compromission des composants du système d’exploitation et/ou des composants système. | Chiffrement, code d’authentification de message (MAC) ou signature numérique. Si possible, contrôle d’accès renforcé via des listes de contrôle d’accès aux ressources (ACL) ou des autorisations. |
+| Stockage du périphérique | TRID | Chiffrement du stockage, signature des journaux. | Lecture des données de l’espace de stockage (données d’identification personnelles PII), falsification des données de télémétrie. Falsification des données de contrôle de commande en file d’attente ou mises en cache. La falsification des packages de configuration ou de mise à jour de microprogramme alors que des données sont mises en cache ou en file d’attente peut entraîner la compromission des composants du système d’exploitation et/ou des composants système | Chiffrement, code d’authentification de message (MAC) ou signature numérique. Si possible, contrôle d’accès renforcé via des listes de contrôle d’accès aux ressources (ACL) ou des autorisations. |
 | Image de système d’exploitation de périphérique | TRID | | Falsification du système d’exploitation/remplacement des composants du système d’exploitation. | Partition du système d’exploitation en lecture seule, image du système d’exploitation signée, chiffrement. |
-| Stockage de passerelle de champ (mise en file d’attente des données) | TRID | Chiffrement du stockage, signature des journaux. | Lecture des données de l’espace de stockage (données d’identification personnelles PII), falsification des données de télémétrie, falsification des données de contrôle de commande en file d’attente ou mises en cache. Falsification des packages de configuration ou de mise à jour de microprogramme (destinés aux périphériques ou à la passerelle de champ) alors que des données en cache ou en file d’attente localement peuvent entraîner la compromission des composants du système d’exploitation et/ou des composants système. | BitLocker |
+| Stockage de passerelle de champ (mise en file d’attente des données) | TRID | Chiffrement du stockage, signature des journaux. | Lecture des données de l’espace de stockage (données d’identification personnelles PII), falsification des données de télémétrie, falsification des données de contrôle de commande en file d’attente ou mises en cache. La falsification des packages de configuration ou de mise à jour de microprogramme (destinés aux appareils ou à la passerelle de champ) alors que des données sont mises en cache ou en file d’attente peut entraîner la compromission des composants du système d’exploitation et/ou des composants système | BitLocker |
 | Image de système d’exploitation de passerelle de champ | TRID | | Falsification du système d’exploitation/remplacement des composants du système d’exploitation. | Partition du système d’exploitation en lecture seule, image du système d’exploitation signée, chiffrement. |
 
 ### Périphérique et traitement des événements/zone de passerelle cloud
@@ -250,4 +250,4 @@ Pour plus d’informations, reportez-vous aux articles suivants :
 - [Microsoft Azure IoT reference architecture (Architecture de référence Microsoft Azure IoT)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

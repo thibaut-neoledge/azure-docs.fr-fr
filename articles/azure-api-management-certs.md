@@ -32,19 +32,24 @@ Vous pouvez également utiliser [Azure Active Directory](/services/active-direct
 Une fois le certificat de gestion créé (fichier .cer contenant uniquement la clé publique). Vous pouvez charger ce dernier dans le portail. Lorsque le certificat est disponible dans le portail, toute personne dotée du certificat correspondant (clé privée) peut se connecter via l’API de gestion et accéder aux ressources de l’abonnement associé.
 
 1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
-2. Cliquez sur **Paramètres** sur le côté gauche du portail (vous devrez peut-être faire défiler la page vers le bas). 
+
+2. Veillez à bien sélectionner l’abonnement auquel vous souhaitez associer un certificat. Appuyez sur le texte **Abonnements** dans l’angle supérieur droit du portail.
+
+	![Paramètres](./media/azure-api-management-certs/subscription.png)
+
+3. Une fois l’abonnement approprié sélectionné, appuyez sur **Paramètres** sur le côté gauche du portail (vous devrez peut-être faire défiler la page vers le bas).
     
     ![Paramètres](./media/azure-api-management-certs/settings.png)
 
-3. Cliquez sur **Certificats de gestion**.
+4. Appuyez sur l’onglet **Certificats de gestion**.
 
     ![Paramètres](./media/azure-api-management-certs/certificates-tab.png)
     
-4. Cliquez sur le bouton **Télécharger**.
+5. Appuyez sur le bouton **Télécharger**.
 
     ![Paramètres](./media/azure-api-management-certs/upload.png)
     
-5. Complétez la boîte de dialogue et cliquez sur la **coche** Terminé.
+6. Complétez la boîte de dialogue et appuyez sur la **coche** Terminé.
 
     ![Paramètres](./media/azure-api-management-certs/upload-dialog.png)
 
@@ -52,4 +57,4 @@ Une fois le certificat de gestion créé (fichier .cer contenant uniquement la c
 
 Un certificat de gestion étant désormais associé à un abonnement, vous pouvez (après avoir installé le certificat correspondant localement) vous connecter par programmation à l’[API REST de Service Management](https://msdn.microsoft.com/library/azure/mt420159.aspx) et automatiser les différentes ressources Azure associées à cet abonnement.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

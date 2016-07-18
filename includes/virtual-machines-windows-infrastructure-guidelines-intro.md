@@ -1,1 +1,3 @@
-This article is part of a wider series to provide you with design considerations and guidelines as you build out an application infrastructure in Azure. You can [view the additional topics in the series](#next-steps). Although you can build out a dev/test environment in Azure very quickly, there are additional considerations when it comes to implementing a production-ready, highly-available, and secure environment.
+Cet article fait partie d’une série plus vaste vous proposons des instructions et des points de conception à prendre en compte lorsque que vous créez une infrastructure d’application dans Azure. Vous pouvez [voir les rubriques supplémentaires dans la série](#next-steps). Même si pouvez créer très rapidement un environnement de développement et de test dans Azure, il existe des points supplémentaires à considérer lors de l’implémentation d’un environnement sécurisé, hautement disponible et prêt pour la production.
+
+<!---HONumber=AcomDC_0706_2016-->

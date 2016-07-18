@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="larryfr"/>
 
 # Installation et utilisation de R sur des clusters HDInsight Hadoop
@@ -38,8 +38,8 @@ L’action de script utilisée pour installer R sur votre cluster HDInsight ins
 
 Les packages RHadoop suivants, qui assurent l’intégration à MapReduce et à HDFS, sont également installés :
 
-* [rmr2](https://github.com/RevolutionAnalytics/rmr2) : permet aux développeurs R d’utiliser Hadoop MapReduce.
-* [rhdfs](https://github.com/RevolutionAnalytics/rhdfs) : permet aux développeurs R d’utiliser HDFS Hadoop (WASB pour HDInsight).
+* [rmr2](https://github.com/RevolutionAnalytics/rmr2) : permet aux développeurs R d’utiliser Hadoop MapReduce.
+* [rhdfs](https://github.com/RevolutionAnalytics/rhdfs) : permet aux développeurs R d’utiliser HDFS Hadoop (WASB pour HDInsight).
 
 Les packages R suivants sont également installés :
 
@@ -146,4 +146,4 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

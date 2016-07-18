@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/15/2016" 
 	ms.author="spelluru"/>
 
 # Résolution des problèmes liés à Data Factory
@@ -143,4 +143,4 @@ Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure P
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->
