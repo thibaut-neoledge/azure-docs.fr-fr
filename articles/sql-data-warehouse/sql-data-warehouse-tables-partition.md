@@ -187,7 +187,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 > [AZURE.NOTE] En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, voir [Gérer des statistiques dans SQL Data Warehouse][].
 
-Nous pouvons ensuite rechercher le nombre de lignes exploitant la vue de catalogue `sys.partitions` :
+Nous pouvons ensuite rechercher le nombre de lignes exploitant la vue de catalogue `sys.partitions` :
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -350,7 +350,7 @@ Grâce à cette méthode, le code faisant l’objet d’un contrôle de code sou
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez les articles [Table Overview][Overview] (Vue d’ensemble des tables), [Table Data Types][Data Types] (Types de données de table), [Distributing a Table][Distribute] (Distribution d’une table), [Indexing a Table][Index] (Indexation d’une table), [Maintaining Table Statistics][Statistics] (Maintenance des statistiques de table) et [Tables temporaires][Temporary]. Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
+Pour plus d’informations, consultez les articles [Table Overview][Overview] \(Vue d’ensemble des tables), [Table Data Types][Data Types] (Types de données de table), [Distributing a Table][Distribute] (Distribution d’une table), [Indexing a Table][Index] (Indexation d’une table), [Maintaining Table Statistics][Statistics] (Maintenance des statistiques de table) et [Tables temporaires][Temporary]. Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
 
 <!--Image references-->
 

@@ -40,7 +40,7 @@ Ensuite, vous mettrez à jour l’application cliente pour demander des ressourc
 
 L'application est mise à jour de manière à demander aux utilisateurs de cliquer sur le bouton **Se connecter** et de s'authentifier avant que les données ne s'affichent.
 
-1. Ajoutez le code suivant à la classe **TodoActivity** :
+1. Ajoutez le code suivant à la classe **TodoActivity** :
 
 	    // Define a authenticated user.
 	    private MobileServiceUser user;

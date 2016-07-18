@@ -131,7 +131,7 @@ Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches 
 
 5. Cliquez sur le bouton **Exécuter** au bas de **l’Éditeur de requête** pour démarrer la requête. Une section **Résultats du processus de requête** doit apparaître en dessous de **l’Éditeur de requête** et afficher des informations sur le travail.
 
-6. Une fois la requête terminée, la section **Résultats du processus de requête** affiche les résultats de l’opération. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
+6. Une fois la requête terminée, la section **Résultats du processus de requête** affiche les résultats de l’opération. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
 
 7. Lancez la requête suivante pour vérifier que la table a été créée.
 
@@ -260,7 +260,7 @@ Dans cette section, vous utilisez le bloc-notes Jupyter disponible avec les clus
 
 	Le fichier de données (**HVAC.csv**) sera copié dans un dossier **/hvac** du compte Data Lake Store.
 
-4. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
+4. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 

@@ -133,7 +133,7 @@ Le tableau suivant indique le langage autorisé dans les modèles :
 
 Les expressions peuvent avoir n’importe laquelle des formes précédentes.
 
-Lors de l’utilisation de la concaténation, l’expression toute entière doit être placée entre {}. Par exemple, {$(prop) + ' - ' + $(prop2)}. |
+Lors de l’utilisation de la concaténation, l’expression toute entière doit être placée entre {}. Par exemple, {$(prop) + ' - ' + $(prop2)}. |
 
 
 Par exemple, le modèle suivant n’est pas un modèle XML valide :

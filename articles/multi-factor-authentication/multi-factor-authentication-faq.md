@@ -121,7 +121,7 @@ Azure Active Directory n'est pas requis en cas d'utilisation des modèles de fac
 Si vous avez configuré un téléphone de secours, réessayez en sélectionnant ce téléphone sur la page de connexion. Si vous n'avez pas d’autre méthode configurée, contactez votre administrateur et demandez-lui de mettre à jour le numéro attribué à votre téléphone principal : mobile ou de bureau.
 
 
-**Q : Que faire si un utilisateur dont le compte a été verrouillé me contacte (administrateur) ?**
+**Q : Que faire si un utilisateur dont le compte a été verrouillé me contacte (administrateur) ?**
 
 Vous pouvez réinitialiser l'utilisateur en lui faisant effectuer le processus d'inscription à nouveau. Pour ce faire, consultez [Gestion des paramètres utilisateur et des appareils avec Azure Multi-Factor Authentication dans le cloud](multi-factor-authentication-manage-users-and-devices.md)
 

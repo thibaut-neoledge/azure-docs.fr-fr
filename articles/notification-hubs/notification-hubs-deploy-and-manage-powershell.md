@@ -95,10 +95,10 @@ Pour approvisionner un hub de notification, utilisez l’[API .NET pour Notifica
 
 Dans cette partie du script, nous allons créer quatre variables locales supplémentaires.
 
-1. `$Namespace` : définissez cette variable sur le nom de l’espace de noms dans lequel vous souhaitez créer un hub de notification.
-2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification. Par exemple, « MonConcentrateur ».
-3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey` : définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace` : définissez cette variable sur le nom de l’espace de noms dans lequel vous souhaitez créer un hub de notification.
+2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification. Par exemple, « MonConcentrateur ».
+3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+4. `$WnsSecretkey` : définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
 Ces variables sont utilisées pour la connexion à votre espace de noms et la création d’un nouveau hub de notification configuré pour gérer les notifications Windows Notification Services (WNS) avec les informations d’identification WNS pour une application Windows. Pour plus d’informations sur l’obtention du SID du package et de la clé secrète, consultez le didacticiel [Prise en main de Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 

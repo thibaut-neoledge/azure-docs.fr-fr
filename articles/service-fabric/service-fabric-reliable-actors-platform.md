@@ -157,7 +157,7 @@ static class Program
 
 #### Implémentation d’une sauvegarde et restauration d’acteur
 
- Dans l’exemple suivant, le service d’acteur personnalisé expose une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService` :
+ Dans l’exemple suivant, le service d’acteur personnalisé expose une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService` :
 
 ```csharp
 public interface IMyActorService : IService

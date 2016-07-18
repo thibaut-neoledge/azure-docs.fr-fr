@@ -35,9 +35,9 @@ Privileged Identity Management vous permet d’affecter des utilisateurs à des 
 
 - **Administrateur général** (également connu sous le nom d’administrateur d’entreprise) : a accès à toutes les fonctionnalités d’administration. Vous pouvez avoir plus d’un administrateur général dans votre organisation. La personne qui s’inscrit pour acheter Office 365 devient automatiquement un administrateur général.
 - **Administrateur de rôle privilégié** : gère Azure AD PIM et met à jour les attributions de rôles pour d’autres utilisateurs.
-- **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
-- **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mot de passe sont limités à la réinitialisation des mots de passe des utilisateurs.
-- **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
+- **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
+- **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mot de passe sont limités à la réinitialisation des mots de passe des utilisateurs.
+- **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
 
   > [AZURE.NOTE] Si vous utilisez Office 365, avant d’affecter le rôle d’administrateur de service à un utilisateur, commencez par affecter les autorisations d’administrateur à un service, comme Exchange Online.
 

@@ -32,7 +32,7 @@ L’Assistant Migration crée un rapport d’analyse visant à déceler tout pro
 
 -	Liaisons de port : Web Apps prend uniquement en charge le port 80 pour le trafic HTTP et le port 443 pour le trafic HTTPS. Toute autre configuration de port est ignorée, et le trafic est alors redirigé vers les ports 80 ou 443.
 -	Authentification : Web Apps prend en charge l’authentification anonyme par défaut et l’authentification par formulaire lorsqu’une application le spécifie. L'authentification Windows peut être utilisée uniquement en cas d'intégration à Azure Active Directory et ADFS. Aucune des autres formes d’authentification, telles que l’authentification de base, n’est prise en charge pour l’instant.
--	Global Assembly Cache (GAC) : GAC n’est pas pris en charge dans Web Apps. Si votre application fait référence à des assemblys que vous déployez en règle générale vers GAC, vous devrez déployer le dossier Bin de l’application dans Web Apps.
+-	Global Assembly Cache (GAC) : GAC n’est pas pris en charge dans Web Apps. Si votre application fait référence à des assemblys que vous déployez en règle générale vers GAC, vous devrez déployer le dossier Bin de l’application dans Web Apps.
 -	Mode de compatibilité IIS5 : non pris en charge dans Web Apps.
 -	Pools d’applications : dans Web Apps, chaque site et ses applications enfants s’exécutent dans le même pool d’applications. Si votre site comporte plusieurs applications enfants utilisant différents pools d’applications, regroupez-les dans un seul pool d’applications en optant pour les paramètres courants ou effectuez la migration de chaque application vers une application web distincte.
 -	Composants COM : Web Apps n’autorise pas l’inscription de composants COM sur la plateforme. Si vos sites web ou applications utilisent des composants COM, vous devez les réécrire en code managé et les déployer avec le site web ou l’application.
@@ -55,7 +55,7 @@ L’Assistant Migration crée un rapport d’analyse visant à déceler tout pro
 -	La migration ne concerne pas les autres composants comme SharePoint, les extensions serveur FrontPage (FPSE), les serveurs FTP et les certificats SSL.
 
 ## Utilisation de l’Assistant Migration Web Apps ##
-Cette section présente pas à pas un exemple de migration de sites web qui utilisent une base de données SQL Server et s'exécutent sur un serveur local sous Windows Server 2003 R2 (IIS 6.0) :
+Cette section présente pas à pas un exemple de migration de sites web qui utilisent une base de données SQL Server et s'exécutent sur un serveur local sous Windows Server 2003 R2 (IIS 6.0) :
 
 1.	Sur le serveur IIS ou votre ordinateur client, accédez à [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/).
 

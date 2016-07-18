@@ -44,7 +44,7 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
 1. Si vous développez le **Kit de ressources Azure pour Eclipse**, les éléments suivants apparaissent :
 
-    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
+    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
     * **Azure Access Control Services Filter** : ce composant prend en charge l’authentification des utilisateurs de l’application avec Azure ACS, permettant les scénarios d’authentification unique et l’externalisation de la logique d’identité hors de l’application.
     * **Azure Common Plugin** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.
     * **Azure Explorer for Eclipse** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.

@@ -69,7 +69,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 		using System.IO.IsolatedStorage;
 		using System.Windows;
 
-3. Ajoutez le code suivant dans la nouvelle classe **Notifications** :
+3. Ajoutez le code suivant dans la nouvelle classe **Notifications** :
 
         private NotificationHub hub;
 
@@ -244,7 +244,7 @@ Les étapes suivantes permettent l’inscription auprès du hub de notification 
 
 	Cette opération garantit que chaque fois que l’application démarre, elle récupère les catégories du stockage local et demande une inscription pour ces catégories.
 
-2. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant, qui implémente la méthode **OnNavigatedTo** :
+2. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant, qui implémente la méthode **OnNavigatedTo** :
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{

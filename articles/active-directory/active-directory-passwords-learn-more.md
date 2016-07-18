@@ -73,10 +73,10 @@ Le tableau ci-dessous décrit les scénarios pris en charge pour les différente
 ### Modèle de sécurité de l’écriture différée des mots de passe
 L’écriture différée des mots de passe est un service hautement sécurisé et robuste. Pour garantir la protection de vos informations, nous activons un modèle de sécurité à quatre niveaux, décrit ci-dessous.
 
-- **Relais Service Bus spécifique du client** : lorsque vous configurez le service, nous définissons un relais Service Bus spécifique au client et protégé par un mot de passe fort généré de manière aléatoire, auquel Microsoft n’a jamais accès.
-- **Clé de chiffrement de mot de passe forte et verrouillée** : une fois le relais Service Bus créé, nous créons une paire de clés asymétriques forte qui nous permet de chiffrer le mot de passe lorsqu’il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, qui est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
-- **Sécurité de couche de transport (TLS) standard** : lorsqu’une opération de réinitialisation ou de modification de mot de passe a lieu dans le cloud, nous prenons le mot de passe et nous le chiffrons avec votre clé publique. Ensuite, nous insérons cela dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré à l’aide de certificats SSL Microsoft. Une fois ce message arrivé dans Service Bus, votre agent local sort de veille, s’authentifie auprès de Service Bus à l’aide du mot de passe fort généré précédemment, récupère le message chiffré, le déchiffre à l’aide de la clé privée que nous avons générée et essaie ensuite de définir le mot de passe via l’API SetPassword AD DS. C’est cette étape qui nous permet d’appliquer votre stratégie de mot de passe Active Directory local (complexité, âge, historique, filtres, etc.) dans le cloud.
-- **Stratégies d’expiration de message** : pour finir, si pour une raison quelconque le message reste dans Service Bus car votre service local est arrêté, le message est supprimé après quelques minutes, afin d’accroître encore davantage la sécurité.
+- **Relais Service Bus spécifique du client** : lorsque vous configurez le service, nous définissons un relais Service Bus spécifique au client et protégé par un mot de passe fort généré de manière aléatoire, auquel Microsoft n’a jamais accès.
+- **Clé de chiffrement de mot de passe forte et verrouillée** : une fois le relais Service Bus créé, nous créons une paire de clés asymétriques forte qui nous permet de chiffrer le mot de passe lorsqu’il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, qui est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
+- **Sécurité de couche de transport (TLS) standard** : lorsqu’une opération de réinitialisation ou de modification de mot de passe a lieu dans le cloud, nous prenons le mot de passe et nous le chiffrons avec votre clé publique. Ensuite, nous insérons cela dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré à l’aide de certificats SSL Microsoft. Une fois ce message arrivé dans Service Bus, votre agent local sort de veille, s’authentifie auprès de Service Bus à l’aide du mot de passe fort généré précédemment, récupère le message chiffré, le déchiffre à l’aide de la clé privée que nous avons générée et essaie ensuite de définir le mot de passe via l’API SetPassword AD DS. C’est cette étape qui nous permet d’appliquer votre stratégie de mot de passe Active Directory local (complexité, âge, historique, filtres, etc.) dans le cloud.
+- **Stratégies d’expiration de message** : pour finir, si pour une raison quelconque le message reste dans Service Bus car votre service local est arrêté, le message est supprimé après quelques minutes, afin d’accroître encore davantage la sécurité.
 
 ## Fonctionnement du portail de réinitialisation de mot de passe
 Quand un utilisateur accède au portail de réinitialisation de mot de passe, un flux de travail est lancé pour déterminer si ce compte d’utilisateur est valide, l’organisation à laquelle cet utilisateur appartient, où est géré le mot de passe de cet utilisateur et si l’utilisateur dispose d’une licence pour utiliser la fonctionnalité. Lisez les étapes ci-dessous pour en savoir plus sur la logique sous-jacente à la page de réinitialisation de mot de passe.
@@ -279,7 +279,7 @@ Les champs suivants sont accessibles avec Azure AD PowerShell et l'API Graph 
 * E-mail d’authentification
 
 ####Données définissables avec l’interface utilisateur d’inscription uniquement
-Les champs suivants sont uniquement accessibles via l'interface utilisateur d'inscription SSPR (https://aka.ms/ssprsetup) :
+Les champs suivants sont uniquement accessibles via l'interface utilisateur d'inscription SSPR (https://aka.ms/ssprsetup) :
 
 * Questions et réponses de sécurité
 
@@ -365,14 +365,14 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
-* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
-* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
-* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
-* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
-* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
-* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
-* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
+* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
+* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
+* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
+* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
+* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
+* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
 
 
 

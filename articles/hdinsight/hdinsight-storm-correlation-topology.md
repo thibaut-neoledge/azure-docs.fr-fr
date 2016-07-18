@@ -135,7 +135,7 @@ Ce téléchargement contient les projets C# suivants :
 
 2.	Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **CorrelationTopology**, puis sélectionnez les propriétés.
 
-3.	Dans la fenêtre des propriétés, sélectionnez **Paramètres** et fournissez les informations suivantes. Les cinq premières valeurs doivent être similaires à celles utilisées par le projet **SessionInfo** :
+3.	Dans la fenêtre des propriétés, sélectionnez **Paramètres** et fournissez les informations suivantes. Les cinq premières valeurs doivent être similaires à celles utilisées par le projet **SessionInfo** :
 
 	- 	HBaseClusterURL : URL vers votre cluster HBase. Par exemple, https://myhbasecluster.azurehdinsight.net
 

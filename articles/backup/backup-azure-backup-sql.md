@@ -100,7 +100,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 
     >[AZURE.NOTE] Il est conseillé de disposer de plusieurs points de récupération à court terme sur disque pour une récupération rapide. Cette opération est appelée « Récupération opérationnelle ». Azure constitue un bon emplacement hors site, avec des contrats de niveau de service supérieurs et une disponibilité garantie.
 
-    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela active, la dernière sauvegarde de disque doit être copiée vers Azure.
+    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela active, la dernière sauvegarde de disque doit être copiée vers Azure.
 
 13. Cliquez sur la planification de stratégie de rétention. Les détails du fonctionnement de la stratégie de rétention sont fournis dans la section [Utilisation d'Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 

@@ -36,9 +36,9 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 * **Des connaissances en SSH et SCP**. Pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
 
-    * **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ##Création du projet
 
@@ -58,7 +58,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Mise à jour du modèle d'objet du projet
 
-1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
+1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
 
 		<dependency>
       	  <groupId>org.apache.hbase</groupId>
@@ -148,7 +148,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 		scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
@@ -353,7 +353,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 	Ceci télécharge le fichier dans le répertoire de base de votre compte d’utilisateur SSH.
 
-	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
@@ -361,7 +361,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 

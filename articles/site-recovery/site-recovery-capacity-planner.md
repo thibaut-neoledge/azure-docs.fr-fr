@@ -27,8 +27,8 @@ Utilisez l’outil Azure Site Recovery Capacity Planner pour analyser votre envi
 
 Vous pouvez exécuter l’outil de deux manières :
 
-- **Planification rapide** : exécutez l’outil dans ce mode pour obtenir des projections réseau et serveur sur la base de la quantité moyenne de machines virtuelles, de disques et de stockage, et sur le taux de changement moyen.
-- **Planification détaillée** : exécutez l’outil dans ce mode et fournissez des détails de chaque charge de travail au niveau de la machine virtuelle. Analysez la compatibilité de machine virtuelle et obtenez des projections réseau et serveur.
+- **Planification rapide** : exécutez l’outil dans ce mode pour obtenir des projections réseau et serveur sur la base de la quantité moyenne de machines virtuelles, de disques et de stockage, et sur le taux de changement moyen.
+- **Planification détaillée** : exécutez l’outil dans ce mode et fournissez des détails de chaque charge de travail au niveau de la machine virtuelle. Analysez la compatibilité de machine virtuelle et obtenez des projections réseau et serveur.
 
 ## Avant de commencer
 
@@ -87,7 +87,7 @@ Avant d’exécuter l’outil :
 	- Dans **Allocation de mémoire en Mo**, spécifiez la taille de la mémoire RAM d’un serveur source.
 	- Le **nombre de cartes réseau** spécifie le nombre de cartes réseau sur un serveur source.
 	-  Dans **Stockage total (en Go)**, spécifiez la taille totale du stockage de machine virtuelle. Par exemple, si le serveur source contient trois disques de 500 Go chacun, la taille de stockage totale est de 1 500 Go.
-	-  Dans **Nombre de disques rattaché** : spécifiez le nombre total de disques d’un serveur source.
+	-  Dans **Nombre de disques rattaché** : spécifiez le nombre total de disques d’un serveur source.
 	-  Dans **Taux d’utilisation de capacité de disque**, spécifiez son utilisation moyenne.
 	-  Dans **Taux de modification par jour (%)**, spécifiez le taux de modification de données par jour d’un serveur source.
 	-  Dans **Taille du mappage d’Azure**, entrez la taille de machine virtuelle Azure que vous souhaitez mapper. Si vous ne souhaitez pas effectuer cette opération manuellement, cliquez sur **Calcul de machines virtuelles IaaS**. Notez que si vous entrez un paramètre manuel puis cliquez sur Calcul des machines virtuelles IaaS, votre paramètre manuel peut être remplacé, car le processus de calcul identifie automatiquement la meilleure correspondance sur la taille de la machine virtuelle Azure.

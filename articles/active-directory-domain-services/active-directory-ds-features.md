@@ -37,7 +37,7 @@ Les fonctionnalités suivantes sont disponibles dans la version préliminaire de
 
 - **Prise en charge des liaisons LDAP et des lectures LDAP :** vous pouvez utiliser des applications qui reposent sur les liaisons LDAP pour authentifier les utilisateurs dans des domaines pris en charge par les services de domaine Azure AD. En outre, les applications qui utilisent des opérations de lecture LDAP pour interroger les attributs des utilisateurs ou ordinateurs à partir de l’annuaire peuvent également fonctionner auprès des services de domaine Azure AD.
 
-- **LDAP sécurisé (LDAPS) :** vous pouvez activer l’accès au répertoire via LDAP sécurisé (LDAPS). L’accès LDAP sécurisé est disponible au sein du réseau virtuel par défaut. Toutefois, vous pouvez activer également l’accès LDAP sécurisé via internet.
+- **LDAP sécurisé (LDAPS) :** vous pouvez activer l’accès au répertoire via LDAP sécurisé (LDAPS). L’accès LDAP sécurisé est disponible au sein du réseau virtuel par défaut. Toutefois, vous pouvez activer également l’accès LDAP sécurisé via internet.
 
 - **Stratégie de groupe :** vous pouvez vous servir d’un seul objet de stratégie de groupe intégré pour les conteneurs des utilisateurs et des ordinateurs afin d’imposer la conformité aux stratégies de sécurité nécessaires pour les comptes d’utilisateur, ainsi que pour les ordinateurs joints au domaine.
 

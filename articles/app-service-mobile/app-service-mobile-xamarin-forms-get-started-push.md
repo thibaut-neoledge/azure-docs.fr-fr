@@ -318,7 +318,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
 
 ####Configurer le Notification Hub pour APNS
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Mobile Apps** > votre application mobile > **Paramètres** > **Notifications Push** > **Apple (APNS)** > **Télécharger un certificat**. Chargez le fichier de certificat Push p12 exporté plus tôt. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, sélectionnez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Mobile Apps** > votre application mobile > **Paramètres** > **Notifications Push** > **Apple (APNS)** > **Télécharger un certificat**. Chargez le fichier de certificat Push p12 exporté plus tôt. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, sélectionnez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -352,7 +352,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. Dans **AppDelegate**, ajoutez également la substitution suivante pour le Gestionnaire d’événements **DidReceivedRemoteNotification** :
+5. Dans **AppDelegate**, ajoutez également la substitution suivante pour le Gestionnaire d’événements **DidReceivedRemoteNotification** :
 
         public override void DidReceiveRemoteNotification(UIApplication application, 
 			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)

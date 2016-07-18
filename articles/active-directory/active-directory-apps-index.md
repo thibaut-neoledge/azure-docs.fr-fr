@@ -160,7 +160,7 @@ Si votre organisation développe ou gère des applications métiers, ou que vous
 | Comment les fournisseurs d’application peuvent ajouter leurs applications à la galerie d’applications Azure AD | [Affichage de votre application dans la galerie d’applications Azure Active Directory](active-directory-app-gallery-listing) |
 | Comment gérer l’accès aux applications développées à l’aide d’Azure Active Directory | [Comment activer l’affectation d’utilisateurs pour les applications développées](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Affectation d’utilisateurs à votre application](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Affectation d’un groupe à votre application](active-directory-applications-guiding-developers-assigning-groups.md) |
 
-Si vous développez des applications orientées consommateurs, pensez à utiliser [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) ; ainsi, vous n’êtes pas obligé de développer votre propre système d’identité pour gérer vos utilisateurs. [En savoir plus](../active-directory-b2c/active-directory-b2c-overview.md).
+Si vous développez des applications orientées consommateurs, pensez à utiliser [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) ; ainsi, vous n’êtes pas obligé de développer votre propre système d’identité pour gérer vos utilisateurs. [En savoir plus](../active-directory-b2c/active-directory-b2c-overview.md).
 
 
 ##Gestion de l’accès aux applications

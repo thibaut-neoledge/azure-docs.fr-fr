@@ -30,7 +30,7 @@ Pour plus de questions, de réponses et d’instructions sur le déploiement et 
 ### Quel type de base de données est DocumentDB ?
 DocumentDB est une base de données NoSQL orientée documents qui stocke les données au format JSON. DocumentDB prend en charge les structures imbriquées et autonomes qui peuvent être interrogées grâce à une [syntaxe de requête SQL](documentdb-sql-query.md) DocumentDB enrichie. DocumentDB offre un traitement transactionnel haute performance JavaScript côté serveur par le biais de [procédures stockées, de déclencheurs et de fonctions définies par l’utilisateur](documentdb-programming.md). La base de données prend également en charge des niveaux de cohérence ajustables avec les [niveaux de performances](documentdb-performance-levels.md) associés.
  
-### Les bases de données DocumentDB ont-elles des tables comme une base de données relationnelle (SGBDR) ?
+### Les bases de données DocumentDB ont-elles des tables comme une base de données relationnelle (SGBDR) ?
 Non, DocumentDB stocke les données dans des collections sous forme de documents JSON. Pour plus d’informations sur les ressources de DocumentDB, consultez la rubrique [Modèle de ressource et concepts de DocumentDB](documentdb-resources.md). Pour plus d’informations sur les différences entre les solutions NoSQL comme DocumentDB et les solutions relationnelles, consultez [NoSQL et SQL](documentdb-nosql-vs-sql.md).
 
 ### Les bases de données DocumentDB prennent-elles en charge les données sans schéma ?

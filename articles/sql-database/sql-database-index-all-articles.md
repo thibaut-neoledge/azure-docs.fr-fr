@@ -173,7 +173,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
-| 89 | [Développement de base de données en C# : créer et configurer un pool de base de données élastique pour une base de données SQL](sql-database-elastic-pool-csharp.md) | Utilisez les techniques de développement de bases de données C# pour créer un pool de base de données élastique SQL Azure afin de pouvoir partager des ressources entre plusieurs bases de données. |
+| 89 | [Développement de base de données en C# : créer et configurer un pool de base de données élastique pour une base de données SQL](sql-database-elastic-pool-csharp.md) | Utilisez les techniques de développement de bases de données C# pour créer un pool de base de données élastique SQL Azure afin de pouvoir partager des ressources entre plusieurs bases de données. |
 | 90 | [Créer un pool de base de données élastique avec C#](sql-database-elastic-pool-create-csharp.md) | Utilisez les techniques de développement de bases de données C# pour créer un pool de base de données élastique évolutif dans la base de données SQL Azure afin de pouvoir partager des ressources entre plusieurs bases de données. |
 | 91 | [Créer un pool de base de données élastique avec PowerShell](sql-database-elastic-pool-create-powershell.md) | Découvrez comment utiliser PowerShell pour augmenter la taille des instances de ressources de Base de données SQL Azure en créant un pool de base de données élastique évolutif afin de gérer plusieurs bases de données. |
 | 92 | [Informations sur la tarification et la facturation du pool de base de données élastique](sql-database-elastic-pool-price.md) | Informations de tarification propres aux pools de bases de données élastiques. |
@@ -351,7 +351,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | 180 | [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md) | Cette page décrit certaines limites de ressources courantes pour une base de données SQL Azure. |
 | 181 | [Différences dans le langage Transact-SQL Azure SQL Database.](sql-database-transact-sql-information.md) | Instructions Transact-SQL qui ne sont pas entièrement prises en charge dans Azure SQL Database |
 | 182 | [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md) | Répertorie le numéro de version minimal pour chaque pilote que les programmes clients peuvent utiliser lors de la connexion à Azure SQL Database ou à Microsoft SQL Server. Un lien est fourni pour les informations sur les versions des pilotes publiés par la communauté, et non par Microsoft. |
-| 183 | [Recherche avec des filtres](https://azure.microsoft.com/fr-FR/documentation/articles/?service=sql-database) | Rechercher avec des filtres des articles de la documentation sur la base de données SQL Azure. |
+| 183 | [Recherche avec des filtres](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Rechercher avec des filtres des articles de la documentation sur la base de données SQL Azure. |
 
 
 ## Divers

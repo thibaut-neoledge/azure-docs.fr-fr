@@ -53,7 +53,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Mise à jour du modèle d'objet du projet
 
-1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
+1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
 
         <dependency>
           <groupId>org.apache.hbase</groupId>

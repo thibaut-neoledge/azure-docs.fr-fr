@@ -75,22 +75,22 @@ Certaines distributions Linux n’incluant pas la mise en cache par défaut, il 
 
 Un certain nombre de packages de mise en cache DNS différents sont disponibles, par exemple, dnsmasq. Voici les étapes pour installer dnsmasq sur les distributions les plus courantes :
 
-- **Ubuntu (utilise resolvconf)** :
+- **Ubuntu (utilise resolvconf)** :
 	- installez simplement le package dnsmasq (« sudo apt-get install dnsmasq »).
-- **SUSE (utilise netconf)** :
+- **SUSE (utilise netconf)** :
 	- installez le package dnsmasq (« sudo zypper install dnsmasq »)
 	- activez le service dnsmasq (« systemctl enable dnsmasq.service »)
 	- démarrez le service dnsmasq (« systemctl start dnsmasq.service »)
 	- modifiez « /etc/sysconfig/network/config » et remplacez NETCONFIG\_DNS\_FORWARDER="" par « dnsmasq »
 	- mettez à jour resolv.conf (netconfig update) pour définir le cache en tant que programme de résolution DNS local
-- **OpenLogic (utilise NetworkManager)** :
+- **OpenLogic (utilise NetworkManager)** :
 	- installez le package dnsmasq (« sudo yum install dnsmasq »)
 	- activez le service dnsmasq (« systemctl enable dnsmasq.service »)
 	- démarrez le service dnsmasq (« systemctl start dnsmasq.service »)
 	- ajoutez « prepend domain-name-servers 127.0.0.1; » à « /etc/dhclient-eth0.conf »
 	- redémarrez le service réseau (« service network restart ») pour définir le cache en tant que programme de résolution DNS local
 
-> [AZURE.NOTE] : le package 'dnsmasq' constitue l’un des nombreux caches DNS disponibles pour Linux. Avant de l’utiliser, vérifiez son adéquation à vos besoins et assurez-vous qu’aucun autre cache n’est installé.
+> [AZURE.NOTE] : le package 'dnsmasq' constitue l’un des nombreux caches DNS disponibles pour Linux. Avant de l’utiliser, vérifiez son adéquation à vos besoins et assurez-vous qu’aucun autre cache n’est installé.
 
 **Nouvelles tentatives côté client :**
 
@@ -105,13 +105,13 @@ Pour vérifier les paramètres actuels sur une machine virtuelle Linux, accédez
 
 Le fichier resolv.conf est généralement généré automatiquement et ne doit pas être modifié. Les étapes spécifiques pour l’ajout de la ligne 'options' varient selon la distribution :
 
-- **Ubuntu** (utilise resolvconf) :
+- **Ubuntu** (utilise resolvconf) :
 	- ajoutez la ligne 'options' à '/etc/resolveconf/resolv.conf.d/head'
 	- exécutez 'resolvconf -u' pour mettre à jour
-- **SUSE** (utilise netconf) :
+- **SUSE** (utilise netconf) :
 	- ajoutez 'timeout:1 attempts:5' au paramètre NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" dans '/etc/sysconfig/network/config'
 	- exécutez 'netconfig update' pour mettre à jour
-- **OpenLogic** (utilise NetworkManager) :
+- **OpenLogic** (utilise NetworkManager) :
 	- ajoutez 'echo "options timeout:1 attempts:5"' à '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- exécutez 'service network restart' pour mettre à jour
 

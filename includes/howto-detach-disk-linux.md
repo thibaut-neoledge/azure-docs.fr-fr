@@ -10,7 +10,7 @@ Avant de pouvoir détacher un disque d'une machine virtuelle, vous devez recherc
 1. 	Ouvrez l'interface de ligne de commande Azure, puis [connectez-vous à votre abonnement Azure](../articles/xplat-cli-connect.md). Assurez-vous que vous êtes en mode Azure Service Management (`azure config mode asm`).
 
 2. 	Recherchez les disques attachés à votre machine virtuelle à l'aide de la commande`azure vm disk list
-	<virtual-machine-name>` :
+	<virtual-machine-name>` :
 
 		$azure vm disk list UbuntuVM
 		info:    Executing command vm disk list

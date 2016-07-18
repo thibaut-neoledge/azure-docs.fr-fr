@@ -259,7 +259,7 @@ L’URL HTTP de demande d’envoi de hub de notification est ajoutée avec une c
 ##<a name="complete-tutorial"></a>Suivi du didacticiel
 Vous pouvez à présent terminer le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal Python.
 
-Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) :
+Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) :
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
@@ -374,7 +374,7 @@ Notez que l’en-tête HTTP de format change et que le corps de charge utile est
 Dans cette rubrique, nous vous avons montré comment créer un client REST Python simple pour Notification Hubs. À ce stade, vous pouvez :
 
 * télécharger l'intégralité de l'[exemple de wrapper REST Python], qui contient tout le code ci-dessus ;
-* poursuivre l'apprentissage de la fonctionnalité de balisage de Notification Hubs dans le [didacticiel Nouvelles de dernière minute] ;
+* poursuivre l'apprentissage de la fonctionnalité de balisage de Notification Hubs dans le [didacticiel Nouvelles de dernière minute] ;
 * poursuivre l'apprentissage de la fonctionnalité des modèles de Notification Hubs dans le [didacticiel de localisation des dernières nouvelles].
 
 <!-- URLs -->

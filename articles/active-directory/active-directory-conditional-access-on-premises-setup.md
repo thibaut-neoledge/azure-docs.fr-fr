@@ -121,8 +121,7 @@ Cela va vous aider à intégrer le client Azure AD au répertoire Active Direc
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
   
-  > [AZURE.NOTE] 
-  Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
+  > [AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
 
 
 ## Mettre à niveau le schéma des services de domaine Active Directory
@@ -231,7 +230,7 @@ Sur votre serveur de fédération, ouvrez une fenêtre de commande Windows Power
     Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
 Vous devez inscrire votre appareil avant d'accéder à cette application.
 
-**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
+**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
 
     a href='https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
 

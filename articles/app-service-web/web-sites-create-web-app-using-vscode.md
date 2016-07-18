@@ -31,7 +31,7 @@ ASP.NET 5 est une nouvelle conception significative d'ASP.NET. ASP.NET 5 est une
 ## Composants requis  
 
 * Installation de [VS Code](http://code.visualstudio.com/Docs/setup).
-* Installation de [Node.js](http://nodejs.org) : Node.js est une plateforme permettant la création d’applications de serveur rapides et évolutives à l’aide de JavaScript. Node est le runtime (Node), et [npm](http://www.npmjs.com/) est le gestionnaire de package pour les modules Node. Vous utiliserez npm pour structurer une application Web ASP.NET 5 dans ce didacticiel.
+* Installation de [Node.js](http://nodejs.org) : Node.js est une plateforme permettant la création d’applications de serveur rapides et évolutives à l’aide de JavaScript. Node est le runtime (Node), et [npm](http://www.npmjs.com/) est le gestionnaire de package pour les modules Node. Vous utiliserez npm pour structurer une application Web ASP.NET 5 dans ce didacticiel.
 * Installation de Git - vous pouvez l'installer depuis l’un de ces emplacements : [Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads). Si vous n’êtes pas familiarisé avec Git, choisissez [git-scm.com](http://git-scm.com/downloads) et sélectionnez l’option vous permettant d’**utiliser Git à partir de l’invite de commandes Windows**. Une fois Git installé, vous devrez également définir le nom d'utilisateur et l’adresse de messagerie Git qui vous seront ultérieurement demandés dans ce didacticiel (lorsque vous effectuerez une validation à partir de VS Code).
 
 ## Installer ASP.NET 5 et DNX

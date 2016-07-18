@@ -77,7 +77,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
         ReceiveC2dAsync();
 
-> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
+> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
 
 ## Envoi d’un message cloud-à-appareil à partir du serveur principal de l’application
 
@@ -95,7 +95,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette opération lance le téléchargement, l’installation et ajoute une référence au [package Azure IoT - Service SDK NuGet].
 
-4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
+4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
 		using Microsoft.Azure.Devices;
 
@@ -104,7 +104,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 		private async static Task SendCloudToDeviceMessageAsync()
         {
@@ -114,7 +114,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette méthode envoie un nouveau message cloud-à-appareil à l’appareil avec l’ID `myFirstDevice`. Modifiez ce paramètre en conséquence, au cas où vous avez modifié celui utilisé dans [Prise en main d’Azure IoT Hub].
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Send Cloud-to-Device message\n");
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
@@ -161,7 +161,7 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** de
 
         ReceiveFeedbackAsync();
 
-3. Pour obtenir des commentaires sur la remise de votre message cloud-à-appareil, vous devez spécifier une propriété dans la méthode **SendCloudToDeviceMessageAsync**. Ajoutez la ligne suivante, immédiatement après la ligne `var commandMessage = new Message(...);` :
+3. Pour obtenir des commentaires sur la remise de votre message cloud-à-appareil, vous devez spécifier une propriété dans la méthode **SendCloudToDeviceMessageAsync**. Ajoutez la ligne suivante, immédiatement après la ligne `var commandMessage = new Message(...);` :
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
@@ -169,7 +169,7 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** de
 
     ![Application recevant le message][22]
 
-> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
+> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
 
 ## Étapes suivantes
 

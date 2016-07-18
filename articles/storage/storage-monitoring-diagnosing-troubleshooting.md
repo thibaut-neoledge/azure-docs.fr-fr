@@ -153,7 +153,7 @@ La section « [Instructions pour la résolution des problèmes] » de ce guide
 
 Pour analyser les performances de vos services de stockage, vous pouvez utiliser les métriques suivantes des tables de métriques horaires ou par minute.
 
-- Les valeurs des colonnes **AverageE2ELatency** et **AverageServerLatency** indiquent le temps moyen nécessaire au service de stockage ou à l’opération API pour traiter les demandes. **AverageE2ELatency** est une mesure de la latence de bout en bout, qui inclut le temps nécessaire pour lire la demande et envoyer la réponse, en plus du temps nécessaire pour traiter la demande (elle inclut donc la latence réseau lorsque la demande parvient au service de stockage) ; **AverageServerLatency** est une mesure du seul temps de traitement et n'inclut donc aucune latence réseau associée à la communication avec le client. Voir la section « [Les métriques indiquent une valeur AverageE2ELatency élevée et une valeur AverageServerLatency faible] » plus bas dans ce guide pour examiner les raisons d'une éventuelle différence importante entre ces deux valeurs.
+- Les valeurs des colonnes **AverageE2ELatency** et **AverageServerLatency** indiquent le temps moyen nécessaire au service de stockage ou à l’opération API pour traiter les demandes. **AverageE2ELatency** est une mesure de la latence de bout en bout, qui inclut le temps nécessaire pour lire la demande et envoyer la réponse, en plus du temps nécessaire pour traiter la demande (elle inclut donc la latence réseau lorsque la demande parvient au service de stockage) ; **AverageServerLatency** est une mesure du seul temps de traitement et n'inclut donc aucune latence réseau associée à la communication avec le client. Voir la section « [Les métriques indiquent une valeur AverageE2ELatency élevée et une valeur AverageServerLatency faible] » plus bas dans ce guide pour examiner les raisons d'une éventuelle différence importante entre ces deux valeurs.
 - Les valeurs dans les colonnes **TotalIngress** et **TotalEgress** indiquent le volume total des données (en octets) entrant dans et sortant de votre service de stockage, ou via une opération API spécifique.
 - Les valeurs dans la colonne **TotalRequests** indiquent le nombre total de demandes que le service de stockage de l'opération API reçoit. **TotalRequests** est le nombre total de demandes que le service de stockage reçoit.
 
@@ -565,7 +565,7 @@ de8b1c3c-...| Exception levée pendant l’opération : Le serveur distant a re
 de8b1c3c-... | La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur : (404) Not Found.
 e2d06d78-... | La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur : (409) Conflict.
 
-Dans cet exemple, le journal indique que le client entrelace les demandes de la méthode **CreateIfNotExists** (ID de demande e2d06d78…) avec les demandes de la méthode **UploadFromStream** (de8b1c3c-...) ; cela est dû au fait que l'application cliente appelle ces méthodes de façon asynchrone. Vous devez modifier le code asynchrone dans le client de façon à ce qu'il crée le conteneur avant de tenter de charger des données dans un objet blob de ce conteneur. Idéalement, vous devriez créer tous vos conteneurs à l’avance.
+Dans cet exemple, le journal indique que le client entrelace les demandes de la méthode **CreateIfNotExists** (ID de demande e2d06d78…) avec les demandes de la méthode **UploadFromStream** (de8b1c3c-...) ; cela est dû au fait que l'application cliente appelle ces méthodes de façon asynchrone. Vous devez modifier le code asynchrone dans le client de façon à ce qu'il crée le conteneur avant de tenter de charger des données dans un objet blob de ce conteneur. Idéalement, vous devriez créer tous vos conteneurs à l’avance.
 
 #### <a name="SAS-authorization-issue"></a>Problème d’autorisation de signature d’accès partagé (SAP)
 
@@ -766,9 +766,9 @@ Cette annexe explique brièvement comment configurer Fiddler pour capturer le tr
 Après avoir lancé Fiddler, il commence à capturer le trafic HTTP et HTTPS de votre ordinateur local. Voici quelques commandes utiles pour contrôler Fiddler :
 
 - Arrêt et démarrage de la capture du trafic. Dans le menu principal, accédez à **File**, puis cliquez sur **Capture Traffic** pour activer et désactiver la capture.
-- Enregistrement des données de trafic capturées. Dans le menu principal, accédez à **File**, cliquez sur **Save**, puis sur **All Sessions** : cela vous permet d’enregistrer le trafic dans un fichier d’archive de la session. Vous pouvez charger à nouveau ultérieurement un fichier Session Archive à des fins d’analyse, ou l’envoyer, si nécessaire, au support Microsoft.
+- Enregistrement des données de trafic capturées. Dans le menu principal, accédez à **File**, cliquez sur **Save**, puis sur **All Sessions** : cela vous permet d’enregistrer le trafic dans un fichier d’archive de la session. Vous pouvez charger à nouveau ultérieurement un fichier Session Archive à des fins d’analyse, ou l’envoyer, si nécessaire, au support Microsoft.
 
-Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des filtres que vous configurez dans l'onglet **Filters**. La capture d'écran suivante illustre un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage **contosoemaildist.table.core.windows.net** :
+Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des filtres que vous configurez dans l'onglet **Filters**. La capture d'écran suivante illustre un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage **contosoemaildist.table.core.windows.net** :
 
 ![][5]
 
@@ -805,7 +805,7 @@ Vous pouvez utiliser l’analyseur de message Microsoft pour capturer le trafic 
 
 #### Configuration d'une nouvelle session de suivi Web à l'aide de l'analyseur de message Microsoft
 
-Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS à l'aide de l'analyseur de message Microsoft, exécutez l'application Analyseur de message Microsoft et, dans le menu **Fichier**, cliquez sur **Capture/Trace**. Dans la liste des scénarios de suivi disponibles, sélectionnez **Web Proxy**. Ensuite, dans le panneau **Trace Scenario Configuration**, dans la zone de texte **HostnameFilter**, ajoutez les noms de vos points de terminaison de stockage (ces noms figurent dans le [portail Azure](https://portal.azure.com)). Par exemple, si le nom de votre compte de stockage Azure est **contosodata**, vous devez ajouter ce qui suit dans la zone de texte **HostnameFilter** :
+Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS à l'aide de l'analyseur de message Microsoft, exécutez l'application Analyseur de message Microsoft et, dans le menu **Fichier**, cliquez sur **Capture/Trace**. Dans la liste des scénarios de suivi disponibles, sélectionnez **Web Proxy**. Ensuite, dans le panneau **Trace Scenario Configuration**, dans la zone de texte **HostnameFilter**, ajoutez les noms de vos points de terminaison de stockage (ces noms figurent dans le [portail Azure](https://portal.azure.com)). Par exemple, si le nom de votre compte de stockage Azure est **contosodata**, vous devez ajouter ce qui suit dans la zone de texte **HostnameFilter** :
 
     contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 

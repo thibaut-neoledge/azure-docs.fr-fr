@@ -31,13 +31,13 @@ Utilisez les boutons **temps**, **action** et **rôle** boutons pour trier le jo
 ## Liste du journal d’audit
 Les colonnes dans la liste du journal d’audit sont les suivantes :
 
-- **Demandeur** : personne qui a demandé l’activation de rôle ou la modification. Si la valeur est « Système Azure », consultez le journal d'audit Azure pour plus d'informations.
-- **Utilisateur** : l'utilisateur qui active un rôle ou y est affecté.
-- **Rôle** : le rôle affecté ou activé par l'utilisateur.
-- **Action** : les mesures prises par le demandeur. Ceci peut inclure l'attribution, la non-attribution, l’activation ou la désactivation.
-- **Heure** : heure à laquelle l’action s’est produite.
-- **Motif** : tout texte éventuellement entré dans le champ de motif pendant l’activation.
-- **Expiration** : concerne uniquement l'activation de rôles.
+- **Demandeur** : personne qui a demandé l’activation de rôle ou la modification. Si la valeur est « Système Azure », consultez le journal d'audit Azure pour plus d'informations.
+- **Utilisateur** : l'utilisateur qui active un rôle ou y est affecté.
+- **Rôle** : le rôle affecté ou activé par l'utilisateur.
+- **Action** : les mesures prises par le demandeur. Ceci peut inclure l'attribution, la non-attribution, l’activation ou la désactivation.
+- **Heure** : heure à laquelle l’action s’est produite.
+- **Motif** : tout texte éventuellement entré dans le champ de motif pendant l’activation.
+- **Expiration** : concerne uniquement l'activation de rôles.
 
 ## Filtrer le journal d’audit
 

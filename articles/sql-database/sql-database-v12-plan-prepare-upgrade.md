@@ -44,7 +44,7 @@ Les sous-sections suivantes décrivent les connaissances nécessaires et les dé
 ### Clarification de version
 
 
-Ce document concerne la mise à niveau de Microsoft Azure SQL Database de la version V11 à la version V12. De manière plus formelle, les numéros de version sont proches des deux valeurs suivantes, comme indiqué par l’instruction Transact-SQL **SELECT @@version;** :
+Ce document concerne la mise à niveau de Microsoft Azure SQL Database de la version V11 à la version V12. De manière plus formelle, les numéros de version sont proches des deux valeurs suivantes, comme indiqué par l’instruction Transact-SQL **SELECT @@version;** :
 
 
 - 12\.0.2000.8 *(ou légèrement supérieure, version 12)*

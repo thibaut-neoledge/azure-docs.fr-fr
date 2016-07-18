@@ -171,7 +171,7 @@ Un moyen simple d’identifier une table ayant subi un décalage consiste à uti
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Toutefois, si vous interrogez les vues de gestion dynamique (DMV) Azure SQL Data Warehouse, vous pouvez effectuer une analyse plus détaillée. Pour commencer, créez la vue [dbo.vTableSizes][] à l’aide de SQL à partir de l’article [Table Overview][Overview] (Vue d’ensemble des tables). Une fois la vue créée, exécutez cette requête pour identifier les tables dont le décalage des données est supérieur à 10 %.
+Toutefois, si vous interrogez les vues de gestion dynamique (DMV) Azure SQL Data Warehouse, vous pouvez effectuer une analyse plus détaillée. Pour commencer, créez la vue [dbo.vTableSizes][] à l’aide de SQL à partir de l’article [Table Overview][Overview] \(Vue d’ensemble des tables). Une fois la vue créée, exécutez cette requête pour identifier les tables dont le décalage des données est supérieur à 10 %.
 
 ```sql
 select *

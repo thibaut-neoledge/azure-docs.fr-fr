@@ -49,11 +49,11 @@ Ce didacticiel sur les notifications Push sécurisées montre comment envoyer un
 
 ## Modification du projet Windows Phone
 
-1. Dans le projet **NotifyUserWindowsPhone**, ajoutez le code suivant à App.xaml.cs afin d'enregistrer la tâche en arrière-plan pour les notifications Push. Ajoutez la ligne de code ci-après à la fin de la méthode `OnLaunched()` :
+1. Dans le projet **NotifyUserWindowsPhone**, ajoutez le code suivant à App.xaml.cs afin d'enregistrer la tâche en arrière-plan pour les notifications Push. Ajoutez la ligne de code ci-après à la fin de la méthode `OnLaunched()` :
 
 		RegisterBackgroundTask();
 
-2. Toujours dans App.xaml.cs, ajoutez le code ci-dessous juste après la méthode `OnLaunched()` :
+2. Toujours dans App.xaml.cs, ajoutez le code ci-dessous juste après la méthode `OnLaunched()` :
 
 		private async void RegisterBackgroundTask()
         {
@@ -143,7 +143,7 @@ L'étape suivante consiste à créer le composant en arrière-plan pour les noti
 
 9. Dans la zone **Rechercher**, entrez **Json.net**. Installez le package **Json.NET**, puis fermez la fenêtre du Gestionnaire de package NuGet.
 
-10. Ajoutez les instructions `using` suivantes au début du fichier **PushBackgroundTask.cs** :
+10. Ajoutez les instructions `using` suivantes au début du fichier **PushBackgroundTask.cs** :
 
 		using Windows.ApplicationModel.Background;
 		using Windows.Networking.PushNotifications;

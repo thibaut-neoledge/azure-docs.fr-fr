@@ -28,7 +28,7 @@ Cet article se concentre sur la compréhension des étapes de planification néc
 
 Décisions :
 
-- Quel type de réseau virtuel devez-vous pour héberger votre charge de travail ou votre infrastructure informatique (cloud ou intersite) ?
+- Quel type de réseau virtuel devez-vous pour héberger votre charge de travail ou votre infrastructure informatique (cloud ou intersite) ?
 - Pour les réseaux virtuels intersite, de quelle taille d’espace adressage avez-vous besoin pour héberger les sous-réseaux et les machines virtuelles maintenant et pour une extension future raisonnable ?
 - Allez-vous créer des réseaux virtuels centralisés ou plutôt des réseaux virtuels pour chaque groupe de ressources ?
 
@@ -95,7 +95,7 @@ Vous pouvez appliquer des règles de filtrage pour le trafic qui transite via vo
 
 
 ## Composants réseau supplémentaires
-Comme avec une infrastructure de réseau local physique, un réseau virtuel Windows Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
+Comme avec une infrastructure de réseau local physique, un réseau virtuel Microsoft Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
 
 - [Des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) : connectez des réseaux virtuels Azure à d’autres réseaux virtuels Azure, sur les réseaux locaux via une connexion VPN de site à site, fournissez aux utilisateurs un accès direct avec les connexions VPN point à site ou implémentez des connexions Express Route pour des connexions dédiées et sécurisées.
 - [Un équilibreur de charge](../load-balancer/load-balancer-overview.md) - fournit l’équilibrage de la charge du trafic pour le trafic externe et interne de la façon dont vous le souhaitez.

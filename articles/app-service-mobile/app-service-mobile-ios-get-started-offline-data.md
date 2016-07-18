@@ -38,7 +38,7 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
 
     Pour obtenir une référence à une table de synchronisation, utilisez la méthode `syncTableWithName`. Pour supprimer la fonctionnalité de synchronisation hors connexion, utilisez plutôt `tableWithName`.
 
-2. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Voici le code approprié dans la méthode `QSTodoService.init` :
+2. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Voici le code approprié dans la méthode `QSTodoService.init` :
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -225,7 +225,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 <!-- URLs. -->
 

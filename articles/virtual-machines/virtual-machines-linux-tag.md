@@ -31,7 +31,7 @@ Vous pouvez afficher toutes les propriétés d’une machine virtuelle donnée, 
 
         azure vm show -g MyResourceGroup -n MyTestVM
 
-Pour ajouter une nouvelle balise de machine virtuelle via l'interface de ligne de commande Azure, vous pouvez utiliser la commande `azure vm set` avec le paramètre de balise **-t** :
+Pour ajouter une nouvelle balise de machine virtuelle via l'interface de ligne de commande Azure, vous pouvez utiliser la commande `azure vm set` avec le paramètre de balise **-t** :
 
         azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 

@@ -82,7 +82,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-7. Ensuite, remplacez l'ID et le **t**ype de partition de l'ID par défaut « 83 » (Linux) par l'ID « fd » (raid auto Linux) :
+7. Ensuite, remplacez l'ID et le **t**ype de partition de l'ID par défaut « 83 » (Linux) par l'ID « fd » (raid auto Linux) :
 
 		Command (m for help): t
 		Selected partition 1
@@ -111,7 +111,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 		# sudo mkfs -t ext3 /dev/md127
 
-	**SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
+	**SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
@@ -121,7 +121,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 ## Ajout du nouveau système de fichiers à /etc/fstab
 
-**Attention** : si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+**Attention** : si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
 
 1. Créez le point de montage désiré pour le nouveau système de fichiers. Par exemple :
 
@@ -137,7 +137,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	Sur **SLES 11 et openSUSE** :
+	Sur **SLES 11 et openSUSE** :
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -161,7 +161,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 	De nombreuses distributions comprennent les paramètres de montage `nobootwait` ou `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d'informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
 
-	Exemple (Ubuntu) :
+	Exemple (Ubuntu) :
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
 

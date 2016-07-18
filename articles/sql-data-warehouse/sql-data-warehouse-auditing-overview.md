@@ -51,9 +51,9 @@ Vous pouvez configurer l'audit pour les catégories d'événements suivantes :
 **SQL ordinaire** et **SQL paramétré** pour lesquels les journaux d'audit collectés sont classés comme
 
 - **accès aux données ;**
-- **modifications de schéma (DDL) ;**
-- **modifications de données (DML) ;**
-- **comptes, rôles et autorisations (DCL) ;**
+- **modifications de schéma (DDL) ;**
+- **modifications de données (DML) ;**
+- **comptes, rôles et autorisations (DCL) ;**
 - **Procédure stockée**, **connexion** et **Gestion des transactions**.
 
 Pour chaque catégorie d'événements, les audits des opérations **Succès** et **Échec** sont configurées séparément.

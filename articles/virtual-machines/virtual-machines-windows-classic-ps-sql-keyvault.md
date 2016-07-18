@@ -45,9 +45,9 @@ Le tableau suivant répertorie les paramètres requis pour exécuter le script P
 |**$akvURL**|**L'URL du coffre de clés**|« https://contosokeyvault.vault.azure.net/ »|
 |**$spName**|**Nom du principal du service**|« fde2b411-33d5-4e11-af04eb07b669ccf2 »|
 |**$spSecret**|**Secret du principal du service**|« 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= »|
-|**$credName**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.|« mycred1 »|
-|**$vmName**|**Nom de machine virtuelle** : le nom d’une machine virtuelle SQL créée précédemment.|« myvmname »|
-|**$serviceName**|**Nom du service** : le nom du service Cloud associé à la machine virtuelle SQL.|« mycloudservicename »|
+|**$credName**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.|« mycred1 »|
+|**$vmName**|**Nom de machine virtuelle** : le nom d’une machine virtuelle SQL créée précédemment.|« myvmname »|
+|**$serviceName**|**Nom du service** : le nom du service Cloud associé à la machine virtuelle SQL.|« mycloudservicename »|
 
 ### Activation d'AKV Integration avec PowerShell
 L'applet de commande **New-AzureVMSqlServerKeyVaultCredentialConfig** crée un objet de configuration pour la fonctionnalité Azure Key Vault Integration. **Set-AzureVMSqlServerExtension** configure cette intégration avec le paramètre **KeyVaultCredentialSettings**. Les étapes suivantes indiquent comment utiliser ces commandes.

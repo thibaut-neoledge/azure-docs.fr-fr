@@ -124,7 +124,7 @@ Vérifiez que MS\_MobileServiceName est défini si vous effectuez l’étape ci-
 
 #### Dénomination
 
-Dans le Kit de développement logiciel (SDK) serveur Azure Mobile Services, les propriétés système contiennent toujours un préfixe constitué de deux traits de soulignement (`__`) :
+Dans le Kit de développement logiciel (SDK) serveur Azure Mobile Services, les propriétés système contiennent toujours un préfixe constitué de deux traits de soulignement (`__`) :
 
 - \_\_createdAt
 - \_\_updatedAt
@@ -148,7 +148,7 @@ Les modifications apportées aux noms des propriétés système signifient qu’
 
 Si une application cliente est mise à niveau depuis Mobile Services vers Mobile Apps alors qu’il existe des modifications hors connexion en attente dans la file d’attente des opérations, alors la base de données système doit être mise à jour pour utiliser les nouveaux noms de colonne. Sur iOS, cette mise à jour est possible en utilisant de légères migrations pour modifier les noms de colonne. Sur Android et le client géré .NET, vous devez écrire du code SQL personnalisé pour renommer les colonnes de vos tables d’objets de données.
 
-Sur iOS, vous devez modifier votre schéma de base de données principal pour vos entités de données afin qu’il corresponde à ce qui suit. Notez que les propriétés `createdAt`, `updatedAt` et `version` n’ont plus de préfixe `ms_` :
+Sur iOS, vous devez modifier votre schéma de base de données principal pour vos entités de données afin qu’il corresponde à ce qui suit. Notez que les propriétés `createdAt`, `updatedAt` et `version` n’ont plus de préfixe `ms_` :
 
 | Attribut | Type | Remarque |
 |---------- |  ------ | -----------------------------------------------------|
@@ -227,7 +227,7 @@ Toutes les instances de l’attribut `[AuthorizeLevel(AuthorizationLevel.User)]`
 
 ### Obtention d’informations utilisateur supplémentaires
 
-Vous pouvez obtenir des informations utilisateur supplémentaires, notamment des jetons d’accès par le biais de la méthode `GetAppServiceIdentityAsync()` :
+Vous pouvez obtenir des informations utilisateur supplémentaires, notamment des jetons d’accès par le biais de la méthode `GetAppServiceIdentityAsync()` :
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
 
@@ -274,7 +274,7 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [Utilisation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[tarification App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
+[tarification App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Présentation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 <!---HONumber=AcomDC_0706_2016-->

@@ -2,14 +2,14 @@
 
 Un nouveau serveur principal ASP.NET WebAPI est créé dans les sections qui suivent, et a trois objectifs principaux :
 
-1. **Authentification des clients** : un gestionnaire de messages sera ajouté ultérieurement pour authentifier les demandes des clients et associer l’utilisateur à la demande.
-2. **Inscriptions aux notifications des clients** : ensuite, vous ajouterez un contrôleur pour gérer les nouvelles inscriptions afin qu’un appareil client puisse recevoir des notifications. Le nom d’utilisateur authentifié est automatiquement ajouté à l’inscription en tant que [balise](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Envoi de notifications aux clients** : plus tard, vous ajouterez également un contrôleur permettant à un utilisateur de déclencher une notification Push sécurisée pour les appareils et les clients associés à la balise.
+1. **Authentification des clients** : un gestionnaire de messages sera ajouté ultérieurement pour authentifier les demandes des clients et associer l’utilisateur à la demande.
+2. **Inscriptions aux notifications des clients** : ensuite, vous ajouterez un contrôleur pour gérer les nouvelles inscriptions afin qu’un appareil client puisse recevoir des notifications. Le nom d’utilisateur authentifié est automatiquement ajouté à l’inscription en tant que [balise](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+3. **Envoi de notifications aux clients** : plus tard, vous ajouterez également un contrôleur permettant à un utilisateur de déclencher une notification Push sécurisée pour les appareils et les clients associés à la balise.
 
 Les étapes suivantes montrent comment créer le serveur principal ASP.NET WebAPI :
 
 
-> [AZURE.NOTE] **Important** : avant d’entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
+> [AZURE.NOTE] **Important** : avant d’entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
 > 
 > ![][B4]
 
@@ -104,7 +104,7 @@ Dans cette section, vous allez créer une classe de gestionnaire de messages nom
 	        }
 	    }
 
-	> [AZURE.NOTE] **Note de sécurité** : la classe `AuthenticationTestHandler` n’offre pas de véritable authentification. Elle sert uniquement à simuler l’authentification de base et n’est pas sécurisée. Vous devez mettre en œuvre un mécanisme d’authentification sécurisé dans vos applications de production et vos services.
+	> [AZURE.NOTE] **Note de sécurité** : la classe `AuthenticationTestHandler` n’offre pas de véritable authentification. Elle sert uniquement à simuler l’authentification de base et n’est pas sécurisée. Vous devez mettre en œuvre un mécanisme d’authentification sécurisé dans vos applications de production et vos services.
 
 4. Ajoutez le code suivant à la fin de la méthode `Register` dans la classe **App\_Start/WebApiConfig.cs** pour inscrire le gestionnaire de messages :
 
@@ -135,7 +135,7 @@ Dans cette section, nous allons ajouter un nouveau contrôleur au serveur princi
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Remplacez la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre hub de notification et le nom du hub (disponible dans le [portail Azure Classic](http://manage.windowsazure.com)) :
+6. Remplacez la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre hub de notification et le nom du hub (disponible dans le [portail Azure Classic](http://manage.windowsazure.com)) :
 
 		public class Notifications
         {
@@ -286,7 +286,7 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
         using System.Threading.Tasks;
         using System.Web;
 
-3. Ajoutez la méthode suivante à la classe **NotificationsController** :
+3. Ajoutez la méthode suivante à la classe **NotificationsController** :
 
 	Ce code envoie un type de notification basé sur le paramètre `pns` du service de notification de plateforme. La valeur de `to_tag` permet de définir la balise *username* sur le message. Cette balise doit correspondre à une balise de nom d’utilisateur d’une inscription de hub de notification active. Le message de notification est extrait du corps de la demande POST et mis en forme pour le PNS cible.
 

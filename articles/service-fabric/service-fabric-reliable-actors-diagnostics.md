@@ -58,7 +58,7 @@ Pour la catégorie `Service Fabric Actor`, les noms d'instance de compteur ont l
 
 *ActorRuntimeInternalID* est la représentation sous forme de chaîne d'un entier 64 bits généré par le runtime Fabric Actors pour son usage interne. Il est inclus dans le nom de l'instance de compteur de performances pour garantir l'unicité et éviter tout conflit avec d'autres noms d'instance de compteur de performances. Les utilisateurs ne doivent pas tenter d'interpréter cette partie du nom de l'instance de compteur de performances.
 
-Voici un exemple de nom d'instance de compteur pour un compteur appartenant à la catégorie `Service Fabric Actor` :
+Voici un exemple de nom d'instance de compteur pour un compteur appartenant à la catégorie `Service Fabric Actor` :
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
@@ -77,7 +77,7 @@ Pour la catégorie `Service Fabric Actor Method`, les noms d'instance de compteu
 
 *ActorRuntimeInternalID* est la représentation sous forme de chaîne d'un entier 64 bits généré par le runtime Fabric Actors pour son usage interne. Il est inclus dans le nom de l'instance de compteur de performances pour garantir l'unicité et éviter tout conflit avec d'autres noms d'instance de compteur de performances. Les utilisateurs ne doivent pas tenter d'interpréter cette partie du nom de l'instance de compteur de performances.
 
-Voici un exemple de nom d'instance de compteur pour un compteur appartenant à la catégorie `Service Fabric Actor Method` :
+Voici un exemple de nom d'instance de compteur pour un compteur appartenant à la catégorie `Service Fabric Actor Method` :
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 

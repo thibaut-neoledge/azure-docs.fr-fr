@@ -197,7 +197,7 @@ Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’
 
 La taille d’un nœud est uniquement sélectionnable lors de la création du cluster. Vous trouverez une liste des différentes tailles de machines virtuelles disponibles pour HDInsight, y compris le noyau, la mémoire et le stockage local pour chacune, sur la [page Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide du [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
+Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide du [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
 
 * **Portail Azure** : lorsque vous créez un cluster, vous avez la possibilité de définir la taille (niveau tarifaire) des nœuds principaux, des nœuds de travail et (s’ils sont utilisés par le type de cluster) des nœuds ZooKeeper pour le cluster :
 

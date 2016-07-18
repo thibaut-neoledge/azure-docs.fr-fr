@@ -27,9 +27,9 @@ Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fou
 
 ##Configuration requise
 
-* [cURL](http://curl.haxx.se/) : cURL est un utilitaire multiplateforme utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
-* [jq](https://stedolan.github.io/jq/) : jq est un utilitaire de ligne de commande multiplateforme conçu pour travailler avec des documents JSON. Dans ce document, il est utilisé pour analyser les documents JSON renvoyés par l'API REST d'Ambari.
-* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
+* [cURL](http://curl.haxx.se/) : cURL est un utilitaire multiplateforme utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
+* [jq](https://stedolan.github.io/jq/) : jq est un utilitaire de ligne de commande multiplateforme conçu pour travailler avec des documents JSON. Dans ce document, il est utilisé pour analyser les documents JSON renvoyés par l'API REST d'Ambari.
+* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 

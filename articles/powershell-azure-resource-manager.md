@@ -46,9 +46,9 @@ Ce didacticiel vous apprend à utiliser Azure PowerShell avec Azure Resource Man
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un compte Azure
-  + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
+  + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
   
-  + Vous pouvez [activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+  + Vous pouvez [activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 - Azure PowerShell 1.0. Pour plus d’informations sur cette version et la méthode d’installation, voir [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 
 Ce didacticiel s’adresse aux utilisateurs novices de PowerShell, mais il repose sur l’hypothèse que vous comprenez les concepts fondamentaux (modules, applets de commande et sessions).

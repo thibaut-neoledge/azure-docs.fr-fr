@@ -51,11 +51,11 @@ Ce scénario protège vos charges de travail en sauvegardant les machines virtue
 
 Les composants inclus dans ce scénario sont les suivants :
 
-- **Machines virtuelles locales** : vos serveurs Hyper-V locaux gérés dans des clouds privés VMM contiennent des machines virtuelles que vous souhaitez protéger.
-- **Serveurs VMM locaux** : vous pouvez avoir un ou plusieurs serveurs VMM sur le site primaire que vous souhaitez protéger et sur le site secondaire.
-- **Stockage SAN** : un groupe SAN sur le site primaire et un sur le site secondaire.
--  **Coffre Azure Site Recovery** : le coffre coordonne et orchestre le réplica, le basculement et la récupération des données entre vos sites locaux.
-- **Fournisseur Azure Site Recovery** : le fournisseur est installé sur chaque serveur VMM.
+- **Machines virtuelles locales** : vos serveurs Hyper-V locaux gérés dans des clouds privés VMM contiennent des machines virtuelles que vous souhaitez protéger.
+- **Serveurs VMM locaux** : vous pouvez avoir un ou plusieurs serveurs VMM sur le site primaire que vous souhaitez protéger et sur le site secondaire.
+- **Stockage SAN** : un groupe SAN sur le site primaire et un sur le site secondaire.
+-  **Coffre Azure Site Recovery** : le coffre coordonne et orchestre le réplica, le basculement et la récupération des données entre vos sites locaux.
+- **Fournisseur Azure Site Recovery** : le fournisseur est installé sur chaque serveur VMM.
 
 ## Avant de commencer
 
@@ -145,9 +145,9 @@ Si vous souhaitez configurer le mappage réseau, procédez comme suit :
 
 1. Connectez-vous au [Portail de gestion](https://portal.azure.com) à partir du serveur VMM à inscrire.
 
-2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
+2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
 
-3. Cliquez sur **Créer nouveau** > **Création rapide**.
+3. Cliquez sur **Créer nouveau** > **Création rapide**.
 
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 
@@ -239,13 +239,13 @@ Le fournisseur Azure Site Recovery peut également être installé à l’aide d
 
 Où les paramètres sont :
 
- - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve
- - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
- - **/EncryptionEnabled** : paramètre facultatif que vous ne devez utiliser que dans le scénario VMM vers Azure si vos machines virtuelles doivent être chiffrées au repos dans Azure. Vérifiez que le nom du fichier que vous fournissez porte l'extension **.pfx**.
- - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
- - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
- - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
- - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
+ - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve
+ - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
+ - **/EncryptionEnabled** : paramètre facultatif que vous ne devez utiliser que dans le scénario VMM vers Azure si vos machines virtuelles doivent être chiffrées au repos dans Azure. Vérifiez que le nom du fichier que vous fournissez porte l'extension **.pfx**.
+ - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
+ - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
+ - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
 
 
 ## Étape 3 : Mapper les groupes et pools de stockage
@@ -307,8 +307,8 @@ Une fois cette opération terminée, Azure Site Recovery, VMM et les fournisseur
 
 Au terme de la réplication de la baie de stockage, activez la protection des machines virtuelles dans la console VMM à l'aide de l'une des méthodes suivantes :
 
-- **Nouvelle machine virtuelle** : dans la console VMM, lorsque vous créez une machine virtuelle, vous activez la protection Azure Site Recovery et associez la machine virtuelle au groupe de réplication. Si vous choisissez cette option, VMM place de manière optimale le stockage des machines virtuelles sur les LUN du groupe de réplication. Azure Site Recovery orchestre la création d'une machine virtuelle masquée sur le site secondaire et alloue de l'espace de stockage pour que les machines virtuelles de réplication puissent être démarrées après le basculement.
-- **Ordinateur virtuel existant** : si un ordinateur virtuel est déjà déployé dans VMM, vous pouvez activer la protection Azure Site Recovery et effectuer une migration du stockage vers un groupe de réplication. Au terme de l'opération, VMM et Azure Site Recovery détectent la nouvelle machine virtuelle et commencent à la gérer dans Azure Site Recovery à des fins de protection. Une machine virtuelle masquée est créée sur le site secondaire et un espace de stockage est alloué pour que la machine virtuelle de réplication puisse être démarrée après le basculement.
+- **Nouvelle machine virtuelle** : dans la console VMM, lorsque vous créez une machine virtuelle, vous activez la protection Azure Site Recovery et associez la machine virtuelle au groupe de réplication. Si vous choisissez cette option, VMM place de manière optimale le stockage des machines virtuelles sur les LUN du groupe de réplication. Azure Site Recovery orchestre la création d'une machine virtuelle masquée sur le site secondaire et alloue de l'espace de stockage pour que les machines virtuelles de réplication puissent être démarrées après le basculement.
+- **Ordinateur virtuel existant** : si un ordinateur virtuel est déjà déployé dans VMM, vous pouvez activer la protection Azure Site Recovery et effectuer une migration du stockage vers un groupe de réplication. Au terme de l'opération, VMM et Azure Site Recovery détectent la nouvelle machine virtuelle et commencent à la gérer dans Azure Site Recovery à des fins de protection. Une machine virtuelle masquée est créée sur le site secondaire et un espace de stockage est alloué pour que la machine virtuelle de réplication puisse être démarrée après le basculement.
 
 	![Activer la protection](./media/site-recovery-vmm-san/enable-protect.png)
 
@@ -325,7 +325,9 @@ Vous pouvez suivre la progression de l’action d’activation de la protection,
 Pour vous assurer que les machines virtuelles et les données basculent comme prévu, testez votre déploiement. Pour ce faire, créez un plan de récupération en sélectionnant des groupes de réplication. Ensuite, exécutez un test de basculement sur le plan.
 
 1. Dans l'onglet **Plans de récupération**, cliquez sur **Créer un plan de récupération**.
-2. Spécifiez un nom pour le plan de récupération et les serveurs VMM source et cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source. Sélectionnez **SAN** pour n’afficher que les clouds configurés pour la réplication SAN. 3. ![Créer un plan de récupération](./media/site-recovery-vmm-san/r-plan.png)
+2. Spécifiez un nom pour le plan de récupération et les serveurs VMM source et cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source. Sélectionnez **SAN** pour n’afficher que les clouds configurés pour la réplication SAN.
+3.
+	![Créer un plan de récupération](./media/site-recovery-vmm-san/r-plan.png)
 
 4. Dans **Sélectionner la machine virtuelle**, sélectionnez les groupes de réplication. Toutes les machines virtuelles associées au groupe de réplication sont sélectionnées et ajoutées au plan de récupération. Ces machines virtuelles sont ajoutées au groupe par défaut du plan de récupération, à savoir le groupe 1. Vous pouvez ajouter d'autres groupes si nécessaire. Notez qu’après la réplication, les machines virtuelles démarrent dans l’ordre des groupes du plan de récupération.
 

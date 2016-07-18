@@ -119,7 +119,7 @@ Voici la configuration obtenue.
 
 Cette configuration comprend :
 
-- un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
+- un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
 - deux comptes de stockage ;
 - quatre groupes à haute disponibilité, un pour chaque niveau du magasin en ligne
 - les machines virtuelles pour les quatre niveaux ;

@@ -23,13 +23,13 @@ Azure SQL Database offre un certain nombre de solutions de continuité des activ
 
 Pour discuter des solutions de continuité des activités cloud de SQL Database, vous devez vous familiariser avec plusieurs concepts. Ces composants sont les suivants :
 
-* La **récupération d'urgence (DR) :** processus consistant à restaurer la fonction commerciale normale de l'application
+* La **récupération d'urgence (DR) :** processus consistant à restaurer la fonction commerciale normale de l'application
 
-* Le **temps de récupération estimé (ERT) :** durée estimée nécessaire pour que la base de données soit entièrement disponible après une requête de restauration ou de basculement.
+* Le **temps de récupération estimé (ERT) :** durée estimée nécessaire pour que la base de données soit entièrement disponible après une requête de restauration ou de basculement.
 
-* L’**objectif de délai de récupération (RTO) :** délai maximal acceptable avant la récupération complète de l’application après l’événement d’interruption. RTO mesure la perte maximale de disponibilité pendant les échecs.
+* L’**objectif de délai de récupération (RTO) :** délai maximal acceptable avant la récupération complète de l’application après l’événement d’interruption. RTO mesure la perte maximale de disponibilité pendant les échecs.
 
-* L’**objectif de point de récupération (RPO) :** quantité maximale des dernières mises à jour (intervalle de temps) que l’application peut perdre jusqu’à sa récupération complète après l’événement d’interruption. RPO mesure la perte maximale de données pendant les échecs.
+* L’**objectif de point de récupération (RPO) :** quantité maximale des dernières mises à jour (intervalle de temps) que l’application peut perdre jusqu’à sa récupération complète après l’événement d’interruption. RPO mesure la perte maximale de données pendant les échecs.
 
 
 ## Scénarios de continuité des activités cloud de SQL Database
@@ -58,7 +58,7 @@ Je publie une mise à niveau majeure de mon application. Elle implique des modif
 
 ## Fonctionnalités de continuité des activités d’une base de données SQL Azure
 
-Le tableau suivant montre les fonctionnalités de continuité des activités et leurs différences à travers les [niveaux de service](sql-database-service-tiers.md) :
+Le tableau suivant montre les fonctionnalités de continuité des activités et leurs différences à travers les [niveaux de service](sql-database-service-tiers.md) :
 
 | Fonctionnalité | Niveau de base | Niveau standard |Niveau Premium
 | --- |--- | --- | ---

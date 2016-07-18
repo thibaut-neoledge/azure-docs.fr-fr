@@ -40,13 +40,13 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
     ![][1]
 
-	+ **Nom d'utilisateur** : champ UITextField avec du texte d'espace réservé, *Entrer le nom d'utilisateur*, juste en dessous de l'étiquette des résultats d'envoi et entre les marges gauche et droite, en dessous de l'étiquette des résultats d'envoi.
-	+ **Mot de passe** : champ UITextField avec du texte d'espace réservé, *Entrer le mot de passe*, juste en dessous du champ de texte du nom d'utilisateur et entre les marges gauche et droite, en dessous du champ de texte du nom d'utilisateur. Cochez l'option **Sécuriser l'entrée de texte** dans l'inspecteur d'attributs sous *Touche Retour*.
-	+ **Connexion** : un UIButton étiqueté immédiatement en dessous du champ de texte du mot de passe et décochez l'option **Activé** dans l'inspecteur d'attributs, sous *Contrôle-Contenu*
-	+ **WNS** : étiquette et commutateur pour activer l'envoi de la notification du service de notification Windows, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main de Windows](notification-hubs-windows-store-dotnet-get-started.md).
-	+ **GCM** : étiquette et commutateur pour activer l'envoi de la notification à Google Cloud Messaging, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main d'Android](notification-hubs-android-get-started.md).
-	+ **APNS** : étiquette et commutateur pour activer l'envoi de la notification au service de notification de la plateforme Apple.
-	+ **Nom d'utilisateur du destinataire** : champ UITextField avec du texte d'espace réservé, *Balise du nom d'utilisateur du destinataire*, juste en dessous de l'étiquette GCM et entre les marges gauche et droite, en dessous de l'étiquette GCM.
+	+ **Nom d'utilisateur** : champ UITextField avec du texte d'espace réservé, *Entrer le nom d'utilisateur*, juste en dessous de l'étiquette des résultats d'envoi et entre les marges gauche et droite, en dessous de l'étiquette des résultats d'envoi.
+	+ **Mot de passe** : champ UITextField avec du texte d'espace réservé, *Entrer le mot de passe*, juste en dessous du champ de texte du nom d'utilisateur et entre les marges gauche et droite, en dessous du champ de texte du nom d'utilisateur. Cochez l'option **Sécuriser l'entrée de texte** dans l'inspecteur d'attributs sous *Touche Retour*.
+	+ **Connexion** : un UIButton étiqueté immédiatement en dessous du champ de texte du mot de passe et décochez l'option **Activé** dans l'inspecteur d'attributs, sous *Contrôle-Contenu*
+	+ **WNS** : étiquette et commutateur pour activer l'envoi de la notification du service de notification Windows, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main de Windows](notification-hubs-windows-store-dotnet-get-started.md).
+	+ **GCM** : étiquette et commutateur pour activer l'envoi de la notification à Google Cloud Messaging, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main d'Android](notification-hubs-android-get-started.md).
+	+ **APNS** : étiquette et commutateur pour activer l'envoi de la notification au service de notification de la plateforme Apple.
+	+ **Nom d'utilisateur du destinataire** : champ UITextField avec du texte d'espace réservé, *Balise du nom d'utilisateur du destinataire*, juste en dessous de l'étiquette GCM et entre les marges gauche et droite, en dessous de l'étiquette GCM.
 
 
 	Certains composants ont été ajoutés dans le didacticiel [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
@@ -86,7 +86,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 		@end
 
-5. Dans RegisterClient.m, mettez à jour la section `@interface` :
+5. Dans RegisterClient.m, mettez à jour la section `@interface` :
 
 		@interface RegisterClient ()
 
@@ -266,14 +266,14 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 	Notez que cette classe a besoin que sa propriété **authorizationHeader** soit définie afin de fonctionner correctement. Cette propriété est définie par la classe **ViewController** après la connexion.
 
-7. Dans ViewController.h, ajoutez une instruction `#import` pour RegisterClient.h. Ensuite, ajoutez une déclaration pour le jeton de l'appareil et faites référence à une instance `RegisterClient` dans la section `@interface` :
+7. Dans ViewController.h, ajoutez une instruction `#import` pour RegisterClient.h. Ensuite, ajoutez une déclaration pour le jeton de l'appareil et faites référence à une instance `RegisterClient` dans la section `@interface` :
 
 		#import "RegisterClient.h"
 
 		@property (strong, nonatomic) NSData* deviceToken;
 		@property (strong, nonatomic) RegisterClient* registerClient;
 
-8. Dans ViewController.m, ajoutez une déclaration de méthode privée dans la section `@interface` :
+8. Dans ViewController.m, ajoutez une déclaration de méthode privée dans la section `@interface` :
 
 		@interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 

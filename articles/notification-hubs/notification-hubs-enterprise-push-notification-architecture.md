@@ -52,8 +52,8 @@ L'élément clé de ce diagramme architectural est Azure Service Bus, qui fourni
 ###Composants requis
 Vous devez suivre les didacticiels suivants pour vous familiariser avec les concepts et les étapes habituelles de création et de configuration :
 
-1. [Programmation Service Bus Pub/Sub] : cette page présente l'utilisation des rubriques/abonnements Service Bus, la création d'un espace de noms pour contenir des rubriques/abonnements, ainsi que l'envoi et la réception de messages à partir de ceux-ci.
-2. [Notification Hubs : didacticiel Windows Universal] : cette rubrique explique comment configurer une application Windows Store et Notification Hubs pour vous inscrire et recevoir des notifications.
+1. [Programmation Service Bus Pub/Sub] : cette page présente l'utilisation des rubriques/abonnements Service Bus, la création d'un espace de noms pour contenir des rubriques/abonnements, ainsi que l'envoi et la réception de messages à partir de ceux-ci.
+2. [Notification Hubs : didacticiel Windows Universal] : cette rubrique explique comment configurer une application Windows Store et Notification Hubs pour vous inscrire et recevoir des notifications.
 
 ###Exemple de code
 
@@ -224,7 +224,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
 	b. Assurez-vous que la réception des notifications toast est activée dans votre application.
 
-	c. Assurez-vous que le code d'inscription suivant de Notification Hubs est appelé au démarrage de l'application (après avoir remplacé *HubName* et *DefaultListenSharedAccessSignature*) :
+	c. Assurez-vous que le code d'inscription suivant de Notification Hubs est appelé au démarrage de l'application (après avoir remplacé *HubName* et *DefaultListenSharedAccessSignature*) :
 
         private async void InitNotificationsAsync()
         {
