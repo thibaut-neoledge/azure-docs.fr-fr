@@ -26,7 +26,7 @@ Vous pouvez créer des tâches qui dépendent d’autres tâches dans une relati
 
 ## Dépendances de tâches avec Batch.NET
 
-Cet article explique comment configurer les dépendances de tâches à l’aide de la bibliothèque [Batch .NET][net_msdn]. Nous allons tout d’abord vous montrer comment [activer la dépendance de tâches](#enable-task-dependency) dans vos projets, puis vous expliquer brièvement comment [configurer une tâche avec des dépendances](#create-dependent-tasks). Pour fini, nous passerons en revue les [scénarios de dépendance](#dependency-scenarios) pris en charge par Batch.
+Cet article explique comment configurer les dépendances de tâches à l’aide de la bibliothèque [Batch .NET][net_msdn]. Nous allons tout d’abord vous montrer comment [activer la dépendance de tâches](#enable-task-dependencies) dans vos projets, puis vous expliquer brièvement comment [configurer une tâche avec des dépendances](#create-dependent-tasks). Pour fini, nous passerons en revue les [scénarios de dépendance](#dependency-scenarios) pris en charge par Batch.
 
 ## Activation des dépendances de tâches
 
@@ -162,4 +162,4 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Schéma : dépendance un-à-plusieurs"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Schéma : dépendance de plage d’ID de tâche"
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

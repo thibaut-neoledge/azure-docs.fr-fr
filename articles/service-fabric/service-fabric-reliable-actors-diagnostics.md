@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="07/05/2016"
    ms.author="abhisram"/>
 
 # Diagnostics et surveillance des performances pour Reliable Actors
@@ -118,7 +118,7 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 |Service Fabric Actor|Moyenne en millisecondes de maintien du verrou par acteur|Durée (en millisecondes) pendant laquelle le verrou par acteur est maintenu|
 
 ### Événements et compteurs de performances de gestion des états d'acteur
-Le runtime Reliable Actors émet les événements suivants liés à la [gestion des états d'acteur](service-fabric-reliable-actors-state-management).
+Le runtime Reliable Actors émet les événements suivants liés à la [gestion des états d'acteur](service-fabric-reliable-actors-state-management.md).
 
 |Nom de l'événement|ID de l’événement|Level|Mot clé|Description|
 |---|---|---|---|---|
@@ -169,4 +169,4 @@ Lorsqu'un client appelle une méthode via un objet proxy d'acteur, un message de
  - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

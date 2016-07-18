@@ -47,13 +47,13 @@ Vous trouverez ci-dessous une description des points de terminaison :
 * **Points de terminaison des appareils**. Pour chaque appareil approvisionné dans le registre des identités des appareils, IoT Hub expose un ensemble de points de terminaison qu’un appareil peut utiliser pour envoyer et recevoir des messages :
     - *Envoyer des messages appareil-à-cloud*. Utilisez ce point de terminaison pour envoyer des messages appareil-à-cloud. Pour plus d’informations, consultez [Messages appareil-à-cloud](#d2c)
     - *Recevoir des messages cloud-à-appareil*. Un appareil utilise ce point de terminaison pour recevoir les messages cloud-à-appareil qui lui sont adressés. Pour plus d’informations, consultez [Messages cloud-à-appareil](#c2d).
-    - *Initier des téléchargements de fichiers*. Un appareil utilise ce point de terminaison pour recevoir un URI SAP Azure Storage à partir d’IoT Hub pour télécharger un fichier. Pour plus d'informations, consultez la rubrique [Téléchargements de fichiers](#fileupload). 
+    - *Initier des téléchargements de fichiers*. Un appareil utilise ce point de terminaison pour recevoir un URI SAP Azure Storage à partir d’IoT Hub pour télécharger un fichier. Pour plus d'informations, consultez la rubrique [Téléchargements de fichiers](#fileupload).
 
     Ces points de terminaison sont exposés à l’aide des protocoles HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] et [AMQP 1.0][lnk-amqp]. Notez que le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison que votre système principal d’application peut utiliser pour communiquer avec vos appareils. Ces points de terminaison sont actuellement exposés uniquement à l’aide du protocole [AMQP][lnk-amqp].
     - *Recevoir des messages Appareil vers cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs][lnk-event-hubs]. Il peut être utilisé par un service principal pour lire tous les messages appareil vers cloud envoyés par vos appareils. Pour plus d’informations, consultez [Messagerie appareil vers cloud](#d2c)
     - *Envoyer des messages Cloud vers appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent votre système principal d’application à envoyer des messages cloud-à-appareil et à recevoir les accusés de réception ou d’expiration correspondants. Pour plus d’informations, consultez [Messagerie cloud vers appareil](#c2d).
-    - *Recevoir les notifications de fichier*. Ce point de terminaison de messagerie vous permet de recevoir des notifications lorsqu’un fichier est correctement téléchargé sur votre appareil. 
+    - *Recevoir les notifications de fichier*. Ce point de terminaison de messagerie vous permet de recevoir des notifications lorsqu’un fichier est correctement téléchargé sur votre appareil.
 
 L’article [API et Kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks] décrit les différentes méthodes permettant d’accéder à ces points de terminaison.
 
@@ -70,7 +70,7 @@ Lorsque vous utilisez des Kits de développement logiciel (SDK) ou des intégrat
 
     ![Paramètres Appareil vers cloud][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec les Event Hubs est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est**iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms**est **iothub-ns-myiothub-1234**.
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie de sécurité d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au hub d’événements ci-dessus.
 
@@ -248,7 +248,7 @@ IoT Hub offre des primitives de message pour communiquer :
 
 - [Cloud vers appareil](#c2d) : à partir d’un serveur principal d’applications (*service* ou *cloud*).
 - [Appareil vers cloud](#d2c) : à partir d’un appareil vers un serveur principal d’applications.
-- [Téléchargements de fichiers](#fileupload) : à partir d’un appareil vers un compte Azure Storage associé. 
+- [Téléchargements de fichiers](#fileupload) : à partir d’un appareil vers un compte Azure Storage associé.
 
 Les principales propriétés de la fonctionnalité de messagerie IoT Hub sont la fiabilité et la durabilité des messages. Elle active la résilience de la connectivité intermittente côté appareils et des pics de chargement dans le traitement d’événements côté cloud. IoT Hub implémente *au moins une fois* des garanties de remise pour l’envoi de messages appareil vers cloud et cloud vers appareil.
 
@@ -550,14 +550,14 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 
 | Limitation | Valeur par hub |
 | -------- | ------------- |
-| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 100/min/unité, jusqu’à 5 000/min. |
-| Connexions d’appareils | 120/sec/unité (pour S2), 12/sec/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 équivalent à 2*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
-| Envois de messages appareil-à-cloud | 120/sec/unité (pour S2), 12/sec/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 équivalent à 2*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
-| Envois cloud-à-appareil | 100/min/unité. |
-| Réceptions cloud-à-appareil | 1 000/min/unité. |
-| Opérations de téléchargement de fichier | 100 notifications de téléchargement de fichier/min/unité <br/> 10 000 URI SAP peuvent être générés à la fois pour un compte de stockage <br/> 10 URI SAP/appareil peuvent être générés à la fois | 
+| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 5 000/min/unité (pour S3) <br/> 100/min/unité (pour S1 et S2). |
+| Connexions d’appareils | 6 000/s/unité (pour S3), 120/s/unité (pour S2), 12/s/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 équivalent à 2*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
+| Envois appareil-à-cloud | 6 000/s/unité (pour S3), 120/s/unité (pour S2), 12/s/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 équivalent à 2*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
+| Envois cloud-à-appareil | 5 000/min/unité (pour S3), 100/min/unité (pour S1 et S2). |
+| Réceptions cloud-à-appareil | 50 000/min/unité (pour S3), 1000/min/unité (pour S1 et S2). |
+| Opérations de téléchargement de fichier | 5 000 notifications de téléchargement de fichier/min/unité (pour S3), 100 notifications de téléchargement de fichier/min/unité (pourS1 et S2). <br/> 10 000 URI de signature d’accès partagé peuvent être générés à la fois pour un compte de stockage.<br/> 10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. | 
 
-Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
+Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub, et non le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
 
 Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre d’identité de l’appareil.
 
@@ -624,4 +624,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

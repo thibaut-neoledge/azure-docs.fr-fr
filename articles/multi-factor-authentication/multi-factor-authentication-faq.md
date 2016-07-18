@@ -52,10 +52,10 @@ Lorsque vous utilisez le serveur Multi-Factor Authentication (MFA) sur site, les
 - Adresse de messagerie : facultatif
 - Numéro de téléphone : en cas d'authentification par appel vocal ou SMS
 - Jeton du périphérique : en cas d'authentification par application mobile
-- Mode d'authentification 
-- Résultat de l'authentification 
-- Nom du serveur MFA 
-- Adresse IP du serveur MFA 
+- Mode d'authentification
+- Résultat de l'authentification
+- Nom du serveur MFA
+- Adresse IP du serveur MFA
 - Adresse IP du client (si disponible)
 
 
@@ -83,7 +83,7 @@ Modèle de facturation | Prix
 Consommation par utilisateur (engagement monétaire Azure)| 1,40 $ par mois (authentifications illimitées)
 Consommation par authentification (engagement monétaire Azure)|1,40 $ pour 10 authentifications
 Licence annuelle par utilisateur (direct)|1,40 $ par mois (authentifications illimitées)
-Licence annuelle par utilisateur (licence en volume)|Contactez votre [représentant Contrat Entreprise](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx).
+Licence annuelle par utilisateur (licence en volume)|Contactez votre [représentant Contrat Entreprise.](https://www.microsoft.com/fr-FR/licensing/licensing-programs/enterprise.aspx)
 
 **Q : Le modèle de facturation « par utilisateur » dépend-il du nombre d'utilisateurs activés pour l'authentification multifacteur ou du nombre d'utilisateurs qui effectuent des vérifications ?**
 
@@ -132,7 +132,7 @@ Vous pouvez supprimer tous les mots de passe de l’application utilisateur afin
 **Q : Que se passe-t-il si l'utilisateur n'est pas en mesure de se connecter à des applications sans navigateur ?**
 
 - Les utilisateurs avec l'authentification multifacteur nécessitent un mot de passe d’application pour se connecter à certaines applications sans navigateur.
-- Les utilisateurs doivent effacer les informations de connexion (supprimer les informations de connexion), redémarrer l'application et se connecter à l'aide de leur mot de passe et de leur nom d'utilisateur d'application. 
+- Les utilisateurs doivent effacer les informations de connexion (supprimer les informations de connexion), redémarrer l'application et se connecter à l'aide de leur mot de passe et de leur nom d'utilisateur d'application.
 
 Pour plus d'informations sur la création de mots de passe d'application, consultez [Aide relative aux mots de passe d'application](multi-factor-authentication-end-user-app-passwords.md)
 
@@ -185,4 +185,4 @@ Actuellement, une vérification de sécurité supplémentaire est utilisable uni
 
 La solution consiste à disposer d'un compte d'utilisateur distinct pour les opérations liées aux administrateurs et les autres. Vous pouvez ultérieurement lier les boîtes de réception de votre compte d'administrateur et d’un compte non administrateur pour vous connecter à Outlook à l'aide de votre compte non administrateur. Pour plus d'informations, consultez [Permettre à un administrateur d'ouvrir et d'afficher le contenu de la boîte aux lettres d'un utilisateur] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

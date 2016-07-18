@@ -67,7 +67,7 @@ Le propriétaire d’un groupe peut également rendre ce groupe disponible pour 
 ## Prise en main de la gestion des accès
 Vous êtes prêt à commencer ? Testez certaines des tâches de base que vous pouvez faire avec les groupes Azure AD. Utilisez ces fonctionnalités pour offrir un accès spécialisé à différents groupes de personnes pour les différentes ressources de votre organisation. Vous trouverez ci-dessous une liste des premières étapes à suivre.
 
-* [Création d’une règle simple pour configurer l’appartenance dynamique au groupe](active-directory-accessmanagement-manage-groups.md#how-can-i-create-a-simple-rule-to-manage-members-of-a-group-dynamically)
+* [Création d’une règle simple pour configurer l’appartenance dynamique au groupe](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
 
 * [Utilisation d’un groupe pour gérer l’accès aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
 
@@ -91,4 +91,4 @@ Maintenant que vous avez compris les principes fondamentaux de la gestion des ac
 
 * [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

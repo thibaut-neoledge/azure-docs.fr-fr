@@ -62,7 +62,7 @@ Le tableau suivant montre les fonctionnalités de continuité des activités et 
 
 | Fonctionnalité | Niveau de base | Niveau standard |Niveau Premium
 | --- |--- | --- | ---
-| Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours | Tout point de restauration dans un délai de 14 jours | Tout point de restauration dans un délai de 35 jours
+| Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours | Tout point de restauration dans un délai de 35 jours | Tout point de restauration dans un délai de 35 jours
 | Restauration géographique | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h
 | Géo-réplication active | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
@@ -73,7 +73,7 @@ Ces fonctionnalités sont fournies pour résoudre les scénarios répertoriés c
 
 ###Restauration dans le temps
 
-La [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) est conçue pour restaurer votre base de données à un point antérieur dans le temps. Elle utilise les sauvegardes de base de données, les sauvegardes incrémentielles et les sauvegardes de journaux de transactions que le service gère automatiquement pour chaque base de données utilisateur. Cette fonctionnalité est disponible pour tous les niveaux de service. Vous pouvez revenir en arrière 7 jours avec le niveau de base, 14 jours avec le niveau standard et 35 jours avec le niveau Premium.
+La [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) est conçue pour restaurer votre base de données à un point antérieur dans le temps. Elle utilise les sauvegardes de base de données, les sauvegardes incrémentielles et les sauvegardes de journaux de transactions que le service gère automatiquement pour chaque base de données utilisateur. Cette fonctionnalité est disponible pour tous les niveaux de service. Vous pouvez revenir en arrière 7 jours avec le niveau de base, 35 jours avec le niveau standard et 35 jours avec le niveau Premium.
 
 ### Restauration géographique
 
@@ -126,4 +126,4 @@ Pour plus d’informations sur les stratégies de récupération lors de l’uti
 - Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

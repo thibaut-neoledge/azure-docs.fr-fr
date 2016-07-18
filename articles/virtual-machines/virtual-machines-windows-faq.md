@@ -24,7 +24,7 @@ Cet article traite certaines questions courantes que les utilisateurs se posent 
 
 ## Qu’est-il possible d’exécuter sur une machine virtuelle Azure ?
 
-Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtuelle Azure. Pour plus d’informations sur la stratégie de prise en charge des logiciels serveur Microsoft en cours d’exécution dans Azure, consultez [Prise en charge des logiciels serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/kb/2721672).
+Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtuelle Azure. Pour plus d’informations sur la stratégie de prise en charge des logiciels serveur Microsoft en cours d’exécution dans Azure, consultez [Prise en charge des logiciels serveur Microsoft pour les machines virtuelles Windows Azure](https://support.microsoft.com/kb/2721672).
 
 Pour les images du client Windows, certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment des instructions et des limitations, voir [Images de client Windows pour les abonnés MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
@@ -79,4 +79,8 @@ Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquem
 
 Oui. Pour créer rapidement une machine virtuelle Linux de test, consultez [Création d’une machine virtuelle Linux sur Azure à l’aide du portail](virtual-machines-linux-quick-create-portal.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Puis-je ajouter une carte réseau à ma machine virtuelle après sa création ?
+
+Non. Actuellement, cela n’est possible qu’au moment de la création.
+
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Files d'attente Azure et files d'attente Service Bus : comparaison et différences | Microsoft Azure"
-   description="Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Files d'attente Azure et files d'attente Service Bus : comparaison et différences | Microsoft Azure"
+    description="Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="11/18/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd"
+    ms.date="07/05/2015"
+    ms.author="sethm" />
 
 # Files d'attente Azure et files d'attente Service Bus : comparaison et différences
 
@@ -67,17 +67,17 @@ En tant que développeur/architecte de solutions, **vous devez envisager d'utili
 
 - La taille de la file d'attente ne sera pas supérieure à 80 Go.
 
-- Vous souhaitez utiliser le service Broker pour les messages basé sur les normes AMQP 1.0. Pour plus d'informations sur AMQP, consultez [Présentation d'AMQP Service Bus](service-bus-amqp-overview.md).
+- Vous souhaitez utiliser le protocole de messagerie basé sur les normes AMQP 1.0. Pour plus d'informations sur AMQP, consultez [Présentation d'AMQP Service Bus](service-bus-amqp-overview.md).
 
 - Vous pouvez prévoir une migration éventuelle de la communication point à point basée sur la file d'attente vers un modèle d'échange de messages qui permet une intégration transparente de récepteurs (abonnés) supplémentaires, chacun d'entre eux recevant des copies indépendantes de certains ou de tous les messages envoyés à la file d'attente. Ce dernier point fait référence à la fonctionnalité publication/abonnement en mode natif fournie par Service Bus.
 
-- Votre solution de messagerie doit être en mesure de prendre en charge la garantie de remise "Une fois au maximum" sans que vous ayez besoin de créer des composants d'infrastructure supplémentaires.
+- Votre solution de messagerie doit être en mesure de prendre en charge la garantie de remise « Une fois au maximum » sans que vous ayez besoin de créer des composants d’infrastructure supplémentaires.
 
 - Vous souhaitez être en mesure de publier et d'utiliser des lots de messages.
 
 - Vous avez besoin d'une intégration complète avec la pile de communication de Windows Communication Foundation (WCF) dans .NET Framework.
 
-## Comparaison des files d'attente Azure et des files d'attente Service Bus
+## Comparaison des files d’attente Azure et des files d’attente Service Bus
 
 Les tables dans les sections suivantes fournissent un regroupement logique des fonctionnalités de file d'attente et vous permettent de comparer, en un coup d'œil, les fonctionnalités disponibles dans les files d'attente Azure et les files d'attente Service Bus.
 
@@ -90,18 +90,18 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 |Garantie de classement|**Non** <br/><br>Pour plus d'informations, consultez la première remarque dans la section "Informations supplémentaires".</br>|**Oui - Méthode Premier entré, premier sorti (FIFO)**<br/><br>(par le biais de l'utilisation de sessions de messagerie)|
 |Garantie de livraison|**Au moins une fois**|**Au moins une fois**<br/><br/>**Une fois au maximum**|
 |Prise en charge des opérations atomiques|**Non**|**Oui**<br/><br/>|
-|Comportement de réception|**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n'est trouvé)|**Blocage avec ou sans délai d'attente**<br/><br/>(offre une interrogation longue ou la ["technique Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>** Non bloquant**<br/><br/>(par le biais d'une API gérée par .NET uniquement)|
+|Comportement de réception|**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n'est trouvé)|**Blocage avec ou sans délai d’attente**<br/><br/>(offre une interrogation longue ou la [« technique Comet »](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non bloquant**<br/><br/>(par le biais d’une API gérée par .NET uniquement)|
 |API style Push|**Non**|**Oui**<br/><br/> API .NET [OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) et **sessions OnMessage**.|
 |Mode de réception|**Aperçu et attribution**|**Aperçu et verrouillage**<br/><br/>**Réception et suppression**|
 |Mode d'accès exclusif|**Basé sur attribution**|**Basé sur verrouillage**|
-|Durée attribution/verrouillage|**30 secondes (valeur par défaut)**<br/><br/>**7 jours (maximum)** (Vous pouvez renouveler ou libérer l'attribution d'un message à l'aide de l'API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 secondes (valeur par défaut)**<br/><br/>Vous pouvez renouveler le verrouillage d'un message à l'aide de l'API [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
+|Durée attribution/verrouillage|**30 secondes (valeur par défaut)**<br/><br/>**7 jours (maximum)** (Vous pouvez renouveler ou libérer l’attribution d’un message à l’aide de l’API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 secondes (valeur par défaut)**<br/><br/>Vous pouvez renouveler le verrouillage d'un message à l'aide de l'API [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
 |Précision attribution/verrouillage|**Au niveau du message**<br/><br/>(chaque message peut avoir une valeur de délai d'attente différente, que vous pouvez ensuite mettre à jour en fonction des besoins lors du traitement du message, à l'aide de l'API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx))|**Au niveau de la file d'attente**<br/><br/>(pour chaque file d'attente, une précision de verrouillage est appliquée à tous les messages, mais vous pouvez renouveler le verrouillage à l'aide de l'API [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).)|
 |Réception par lots|**Oui**<br/><br/>(spécifiant explicitement le nombre de messages lors de la récupération des messages, avec un maximum de 32 messages)|**Oui**<br/><br/>(activant implicitement une propriété de pré-récupération ou explicitement par le biais de l'utilisation de transactions)|
 |Envoi par lots|**Non**|**Oui**<br/><br/>(par le biais de l'utilisation de transactions ou du traitement par lots côté client)|
 
-### informations supplémentaires
+### Informations supplémentaires
 
-- Les messages dans les files d'attente Azure se voient en général appliquer la méthode Premier entré, premier sorti. Mais ils peuvent parfois être dans le désordre. Par exemple, lorsque le délai de visibilité d'un message expire (par exemple, à cause du blocage d'une application cliente pendant le traitement). Lorsque le délai de visibilité expire, le message est de nouveau visible dans la file d'attente et un autre processus peut le retirer de la file d'attente. À ce stade, le message nouvellement visible peut être placé dans la file d'attente (pour en être de nouveau retiré) après un message qui se trouvait à l'origine dans la file d'attente après lui.
+- Les messages dans les files d’attente Azure se voient en général appliquer la méthode Premier entré, premier sorti. Mais ils peuvent parfois être dans le désordre. Par exemple, lorsque le délai de visibilité d’un message expire (par exemple, à cause du blocage d’une application cliente pendant le traitement). Lorsque le délai de visibilité expire, le message est de nouveau visible dans la file d'attente et un autre processus peut le retirer de la file d'attente. À ce stade, le message nouvellement visible peut être placé dans la file d'attente (pour en être de nouveau retiré) après un message qui se trouvait à l'origine dans la file d'attente après lui.
 
 - Si vous utilisez déjà des Tables ou des objets BLOB de stockage Azure et que vous commencez à utiliser les files d'attente, vous êtes assuré d'une disponibilité de 99,9 %. Si vous utilisez des Tables ou des objets BLOB de stockage avec des files d'attente Service Bus, la disponibilité sera inférieure.
 
@@ -109,23 +109,23 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 
 - Les files d'attente Azure sont conçues pour prendre en charge des scénarios de files d'attente standard, tels que le découplage des composants d'application pour augmenter l'évolutivité et la tolérance aux pannes, le nivellement de charge et la création des workflows de processus.
 
-- Les files d'attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. En outre, la sémantique *Une fois au maximum* peut être prise en charge à l'aide de l'état de session pour stocker l'état de l'application et à l'aide de transactions pour recevoir atomiquement des messages et mettre à jour l'état de la session. Le service de workflow Azure utilise cette technique pour garantir une livraison Une fois au maximum.
+- Les files d'attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. En outre, la sémantique *Une fois au maximum* peut être prise en charge à l'aide de l'état de session pour stocker l'état de l'application et à l'aide de transactions pour recevoir atomiquement des messages et mettre à jour l'état de la session.
 
 - Les files d'attente Azure fournissent un modèle de programmation uniforme et cohérent entre les files d'attente, les tables et les objets BLOB, pour les développeurs et les équipes d'exploitation.
 
 - Les files d'attente Service Bus prennent en charge les transactions locales dans le contexte d'une file d'attente unique.
 
-- Le mode *Réception et suppression* pris en charge par Service Bus offre la possibilité de réduire le nombre d'opérations de messagerie (et le coût associé) en échange d'une garantie de livraison réduite.
+- Le mode **Réception et suppression** pris en charge par Service Bus offre la possibilité de réduire le nombre d'opérations de messagerie (et le coût associé) en échange d'une garantie de livraison réduite.
 
 - Les files d'attente Azure fournissent des attributions avec la possibilité d'étendre les attributions pour les messages. Ainsi, les processus peuvent maintenir des attributions de courte durée pour les messages. Par conséquent, si un processus se bloque, le message peut être rapidement traité à nouveau par un autre processus. En outre, un processus peut étendre l'attribution d'un message s'il doit le traiter pendant une période plus longue que la durée de l'attribution.
 
-- Les files d'attente Azure offrent un délai de visibilité que vous pouvez définir lors de la mise en file d'attente ou du retrait de la file d'attente d'un message. En outre, vous pouvez mettre à jour un message avec des valeurs d'attribution différentes lors de l'exécution et mettre à jour des valeurs différentes entre des messages dans la même file d'attente. Les délais de verrouillage Service Bus sont définis dans les métadonnées de la file d'attente. Toutefois, vous pouvez renouveler le verrouillage en appelant la méthode [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
+- Les files d'attente Azure offrent un délai de visibilité que vous pouvez définir lors de la mise en file d'attente ou du retrait de la file d'attente d'un message. En outre, vous pouvez mettre à jour un message avec des valeurs d’attribution différentes lors de l’exécution et mettre à jour des valeurs différentes entre des messages dans la même file d’attente. Les délais de verrouillage Service Bus sont définis dans les métadonnées de la file d'attente. Toutefois, vous pouvez renouveler le verrouillage en appelant la méthode [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
 
 - Le délai d'attente maximal pour une opération de réception de blocage dans les files d'attente Service Bus est de 24 jours. Toutefois, les délais d'attente basés sur REST ont une valeur maximale de 55 secondes.
 
 - Le traitement par lots côté client fourni par Service Bus permet à un client de file d'attente de traiter par lots plusieurs messages dans une seule opération d'envoi. Le traitement par lots n'est disponible que pour les opérations d'envoi asynchrones.
 
-- Certaines fonctionnalités telles que la limite de 200 To pour les files d'attente Azure (davantage lorsque vous virtualisez des comptes) et un nombre illimité de files d'attente en font une plateforme idéale pour les fournisseurs SaaS.
+- Certaines fonctionnalités telles que la limite de 200 To pour les files d’attente Azure (davantage lorsque vous virtualisez des comptes) et un nombre illimité de files d’attente en font une plateforme idéale pour les fournisseurs SaaS.
 
 - Les files d'attente Azure fournissent un mécanisme de contrôle d'accès délégué performant et flexible.
 
@@ -141,7 +141,7 @@ Cette section compare les fonctionnalités avancées fournies par les files d'at
 |Prise en charge des messages incohérents|**Oui**|**Oui**|
 |Mise à jour sur place|**Oui**|**Oui**|
 |Journal des transactions côté serveur|**Oui**|**Non**|
-|Métriques de stockage|**Oui**<br/><br/>**Métriques par minute** : fournit des métriques en temps réel pour la disponibilité, TPS, nombre d'appels API, nombre d'erreurs, etc., le tout en temps réel (métriques agrégées par minute et consignées en l'espace de quelques minutes à partir de ce qui vient de se passer en production). Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Oui**<br/><br/>(requêtes en bloc en appelant [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|Métriques de stockage|**Oui**<br/><br/>**Métriques par minute** : fournit des métriques en temps réel pour la disponibilité, TPS, nombre d’appels API, nombre d’erreurs, etc., le tout en temps réel (métriques agrégées par minute et consignées en l’espace de quelques minutes à partir de ce qui vient de se passer en production). Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Oui**<br/><br/>(requêtes en bloc en appelant [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
 |Gestion de l'état|**Non**|**Oui**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Transfert automatique des messages|**Non**|**Oui**|
 |Fonction de purge de la file d'attente|**Oui**|**Non**|
@@ -161,19 +161,19 @@ Cette section compare les fonctionnalités avancées fournies par les files d'at
 
 - Les files d'attente Azure prennent en charge la mise à jour du contenu du message. Vous pouvez utiliser cette fonctionnalité pour les informations d'état persistantes et les mises à jour incrémentielles de progression dans le message, afin que celui-ci puisse être traité à partir du dernier point de contrôle connu, au lieu de recommencer depuis le début. Avec les files d'attente Service Bus, vous pouvez activer le même scénario à l'aide des sessions de messagerie. Les sessions vous permettent d'enregistrer et de récupérer l'état de traitement de l'application (à l'aide de [SetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx) et [GetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
 
-- Le concept de Lettre morte, qui est uniquement pris en charge par les files d'attente Service Bus, peut être utile pour isoler les messages qui ne peuvent pas être traités correctement par l'application réceptrice ou lorsque les messages n'atteignent pas leur destination en raison d'une propriété de durée de vie (TTL) expirée. La valeur de durée de vie spécifie la durée pendant laquelle un message reste dans la file d'attente. Avec Service Bus, le message est déplacé vers une file d'attente spéciale appelée $DeadLetterQueue lorsque la durée de vie expire.
+- Le concept de [Lettre morte](service-bus-dead-letter-queues.md), qui est uniquement pris en charge par les files d’attente Service Bus, peut être utile pour isoler les messages qui ne peuvent pas être traités correctement par l’application réceptrice ou lorsque les messages n’atteignent pas leur destination en raison d’une propriété de durée de vie (TTL) expirée. La valeur de durée de vie spécifie la durée pendant laquelle un message reste dans la file d'attente. Avec Service Bus, le message est déplacé vers une file d'attente spéciale appelée $DeadLetterQueue lorsque la durée de vie expire.
 
-- Pour trouver les messages « incohérents » dans les files d'attente Azure, lors du retrait de la file d'attente d'un message l'application examine la propriété DequeueCount du message. Si la propriété DequeueCount dépasse un seuil donné, l'application déplace le message vers une file d'attente de type « lettre morte » définie par l'application.
+- Pour trouver les messages « incohérents » dans les files d’attente Azure, lors du retrait de la file d’attente d’un message l’application examine la propriété **[DequeueCount](https://msdn.microsoft.com/library/azure/dd179474.aspx)** du message. Si la propriété** DequeueCount** dépasse un seuil donné, l’application déplace le message vers une file d’attente de type « lettre morte » définie par l’application.
 
 - Les files d'attente Azure vous permettent d'obtenir un journal détaillé de toutes les transactions exécutées sur la file d'attente, ainsi que des métriques agrégées. Ces deux options sont utiles pour déboguer et comprendre comment votre application utilise les files d'attente Azure. Elles sont également utiles pour régler les performances de votre application et réduire les coûts d'utilisation des files d'attente.
 
-- Le concept de « sessions de messagerie » pris en charge par Service Bus permet aux messages appartenant à un certain groupe logique d'être associés à un destinataire spécifique, ce qui ensuite crée une affinité de type session entre les messages et leurs récepteurs respectifs. Vous pouvez activer cette fonctionnalité avancée dans Service Bus en définissant la propriété [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) d'un message. Les récepteurs peuvent ensuite écouter par le biais d'un ID de session spécifique et recevoir les messages qui partagent l'identificateur de session spécifié.
+- Le concept de « sessions de messagerie » pris en charge par Service Bus permet aux messages appartenant à un certain groupe logique d’être associés à un destinataire spécifique, ce qui ensuite crée une affinité de type session entre les messages et leurs récepteurs respectifs. Vous pouvez activer cette fonctionnalité avancée dans Service Bus en définissant la propriété [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) d'un message. Les récepteurs peuvent ensuite écouter par le biais d'un ID de session spécifique et recevoir les messages qui partagent l'identificateur de session spécifié.
 
 - La fonctionnalité de détection des doublons prise en charge par les files d'attente Service Bus supprime automatiquement les messages en double envoyés à une file d'attente ou une rubrique, selon la valeur de la propriété [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
 
 ## Capacité et quotas
 
-Cette section compare les files d'attente Azure et les files d'attente Service Bus du point de vue de la capacité et des quotas qui peuvent s'appliquer.
+Cette section compare les files d’attente Azure et les files d’attente Service Bus du point de vue de la [capacité et des quotas](service-bus-quotas.md) qui peuvent s’appliquer.
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
@@ -187,7 +187,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Service Bus applique les limites en termes de taille de file d'attente. La taille de file d'attente maximale est spécifiée lors de la création de la file d'attente et peut avoir une valeur comprise entre 1 Go et 80 Go. Si la valeur de taille de la file d'attente définie lors de la création de celle-ci est atteinte, les messages entrants supplémentaires seront rejetés et une exception sera reçue par le code appelant. Pour plus d'informations sur les quotas dans Service Bus, consultez [Quotas Service Bus](service-bus-quotas.md).
 
-- Vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d'attente de 5 Go, avec 16 partitions la taille maximale de la file d'attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure Classic][].
+- Vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions la taille maximale de la file d’attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure Classic][].
 
 - Avec les files d'attente Azure, si le contenu du message n'est pas sécurisé pour XML, il doit être encodé au format **Base64**. Si vous encodez le message au format **Base64**, la charge utilisateur peut atteindre 48 Ko, au lieu de 64 Ko.
 
@@ -211,7 +211,7 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 |API PHP|**Oui**|**Oui**|
 |API Node.js|**Oui**|**Oui**|
 |Prise en charge des métadonnées arbitraires|**Oui**|**Non**|
-|Règles d'affectation des noms aux files d'attente|**Jusqu'à 63 caractères**<br/><br/>(les lettres dans un nom de file d'attente doivent être en minuscules)|**Jusqu’à 260 caractères**<br/><br/>(les chemins d’accès et noms des files d’attente ne respectent pas la casse)|
+|Règles d'affectation des noms aux files d'attente|**Jusqu’à 63 caractères**<br/><br/>(les lettres dans un nom de file d’attente doivent être en minuscules)|**Jusqu’à 260 caractères**<br/><br/>(les chemins d’accès et noms des files d’attente ne respectent pas la casse)|
 |Fonction d'obtention de la longueur de la file d'attente|**Oui**<br/><br/>(valeur approximative si les messages expirent au-delà de la durée de vie sans être supprimés)|**Oui**<br/><br/>(valeur exacte, à un moment donné)|
 |Fonction Peek (aperçu)|**Oui**|**Oui**|
 
@@ -225,7 +225,7 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 
 - Les noms des files d’attente Azure peuvent compter entre 3 et 63 caractères, ils peuvent contenir des lettres minuscules, des nombres et des traits d’union. Pour plus d'informations, consultez [Affectation de noms pour les files d'attente et les métadonnées](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-- Les noms des files d'attente Service Bus peuvent compter jusqu'à 260 caractères. Les règles d'affectation de noms sont moins restrictives. Les noms des files d'attente Service Bus peuvent contenir des lettres, des nombres, des points (.), des traits d'union (-) et des traits de soulignement (\_).
+- Les noms des files d'attente Service Bus peuvent compter jusqu'à 260 caractères. Les règles d'affectation de noms sont moins restrictives. Les noms des files d’attente Service Bus peuvent contenir des lettres, des nombres, des points (.), des traits d’union (-) et des traits de soulignement (\_).
 
 ## Performances
 
@@ -241,15 +241,15 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Une seule file d'attente Azure peut traiter jusqu'à 2 000 transactions par seconde. Une transaction est une opération **Put**, **Get** ou **Delete**. Le fait d’envoyer un message unique à une file d’attente (**Put**) est considéré comme une seule transaction, mais la réception d’un message correspond souvent à un processus en deux étapes impliquant la récupération (**Get**), suivie d’une requête de suppression du message de la file d’attente (**Delete**). Par conséquent, une opération de suppression de la file d'attente réussie implique généralement deux transactions. La récupération de plusieurs messages dans un lot peut en réduire l'impact, car vous pouvez **récupérer** jusqu'à 32 messages en une seule transaction, puis **supprimer** chacun d'eux. Pour un meilleur débit, vous pouvez créer plusieurs files d'attente (un compte de stockage peut avoir un nombre illimité de files d'attente).
 
-- Lorsque l'application atteint le débit maximal pour une file d'attente Azure, une réponse « Serveur occupé HTTP 503 » est généralement renvoyée à partir du service de file d'attente. Dans ce cas, l'application doit déclencher la logique de nouvelle tentative avec un délai de temporisation exponentiel.
+- Lorsque l’application atteint le débit maximal pour une file d’attente Azure, une réponse « Serveur occupé HTTP 503 » est généralement renvoyée à partir du service de file d’attente. Dans ce cas, l'application doit déclencher la logique de nouvelle tentative avec un délai de temporisation exponentiel.
 
 - La latence des files d'attente Azure est de 10 millisecondes en moyenne lors du traitement des messages de petite taille (inférieure à 10 Ko) à partir d'un service hébergé situé dans le même emplacement (région) que le compte de stockage.
 
 - Les files d'attente Azure et les files d'attente Service Bus appliquent le comportement de limitation en rejetant les requêtes pour une file d'attente qui est limitée. Toutefois, aucune de ces files d'attente ne traite les requêtes limitées comme facturables.
 
-- Les tests d'évaluation sur les files d'attente Service Bus ont démontré qu'une seule file d'attente peut atteindre un débit de 2 000 messages par seconde avec une taille de message d'environ 1 Ko. Pour obtenir un débit plus élevé, utilisez plusieurs files d'attente. Pour plus d’informations sur l’optimisation des performances avec Service Bus, consultez [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md).
+- Pour obtenir un débit plus élevé, utilisez plusieurs files d’attente Service Bus. Pour plus d’informations sur l’optimisation des performances avec Service Bus, consultez [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md).
 
-- Lorsque le débit maximal est atteint pour une file d'attente Service Bus, une réponse [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (avec l'utilisation de l'API de messagerie répartie .NET) ou HTTP 503 (avec l'utilisation de l'API REST) est renvoyée au client de file d'attente, indiquant que la file d'attente est limitée.
+- Lorsque le débit maximal est atteint pour une file d’attente Service Bus, une réponse [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (avec l’utilisation de l’API de messagerie .NET) ou HTTP 503 (avec l’utilisation de l’API REST) est renvoyée au client de file d’attente, indiquant que la file d’attente est limitée.
 
 ## Authentification et autorisation
 
@@ -263,7 +263,7 @@ Cette section traite des fonctionnalités d'authentification et d'autorisation p
 
 ### Informations supplémentaires
 
-- Chaque requête à l'une des technologies de file d'attente doit être authentifiée. Les files d'attente publiques avec accès anonyme ne sont pas prises en charge. À l'aide de SAS, vous pouvez résoudre ce scénario en publiant un SAS en écriture seule, un SAS en lecture seule ou un SAS à accès total.
+- Chaque requête à l'une des technologies de file d'attente doit être authentifiée. Les files d'attente publiques avec accès anonyme ne sont pas prises en charge. À l’aide de [SAP](service-bus-sas-overview.md), vous pouvez résoudre ce scénario en publiant un SAP en écriture seule, un SAP en lecture seule ou un SAP à accès total.
 
 - Le schéma d'authentification fourni par les files d'attente Azure implique l'utilisation d'une clé symétrique, qui est un code d'authentification de message basé sur hachage (HMAC), calculée avec l'algorithme SHA-256 et encodée comme une chaîne **Base64**. Pour plus d’informations sur le protocole respectif, consultez [Authentification pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx). Les files d'attente Service Bus prennent en charge un modèle similaire utilisant des clés symétriques. Pour plus d'informations, consultez [Authentification par signature d'accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md).
 
@@ -273,11 +273,11 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
+|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
 |Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/><br/>(aucun frais pour les autres opérations)|
-|Transactions inactives|**Facturables**<br/><br/>(l'interrogation d'une file d'attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d'attente vide est considérée comme un message facturable)|
+|Transactions inactives|**Facturables**<br/><br/>(l’interrogation d’une file d’attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d’attente vide est considérée comme un message facturable)|
 |Coût de stockage|**0,07 $**<br/><br/>(par Go/mois)|**0,00 $**|
-|Coûts de transfert de données sortantes|**0,12 $ - 0,19 $**<br/><br/>(selon la géographie)|**0,12 $ - 0,19 $**<br/><br/>(selon la géographie)|
+|Coûts de transfert de données sortantes|**0,12 $ - 0,19 $**<br/><br/>(selon la géographie)|**0,12 $ - 0,19 $**<br/><br/>(selon la géographie)|
 
 ### Informations supplémentaires
 
@@ -289,7 +289,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Étant donné la prise en charge de l'interrogation longue, l'utilisation de files d'attente Service Bus peut être rentable dans les situations où une remise à latence faible est requise.
 
->[AZURE.NOTE] Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](https://azure.microsoft.com/pricing/). Pour plus d’informations sur la tarification Service Bus, consultez [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle et n’inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](https://azure.microsoft.com/pricing/). Pour plus d’informations sur la tarification Service Bus, consultez [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 
@@ -306,7 +306,6 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Meilleures pratiques relatives aux améliorations de performances à l'aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md)
 - [Présentation des files d'attente et des rubriques dans Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [Guide du développeur pour Service Bus](http://www.cloudcasts.net/devguide/)
-- [« Immersion dans les tables et les files d'attente Azure »](http://www.microsoftpdc.com/2009/SVC09)
 - [Architecture de stockage Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Utilisation du service de mise en file d'attente dans Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
@@ -314,4 +313,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 [portail Azure Classic]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

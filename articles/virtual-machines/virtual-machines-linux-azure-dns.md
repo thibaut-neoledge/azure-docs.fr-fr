@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/11/2016"
+   ms.date="06/21/2016"
    ms.author="rclaus" />
 
 # Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure
@@ -78,9 +78,9 @@ Un certain nombre de packages de mise en cache DNS différents sont disponibles,
 - **Ubuntu (utilise resolvconf)** :
 	- installez simplement le package dnsmasq (« sudo apt-get install dnsmasq »).
 - **SUSE (utilise netconf)** :
-	- installez le package dnsmasq (« sudo zypper install dnsmasq ») 
-	- activez le service dnsmasq (« systemctl enable dnsmasq.service ») 
-	- démarrez le service dnsmasq (« systemctl start dnsmasq.service ») 
+	- installez le package dnsmasq (« sudo zypper install dnsmasq »)
+	- activez le service dnsmasq (« systemctl enable dnsmasq.service »)
+	- démarrez le service dnsmasq (« systemctl start dnsmasq.service »)
 	- modifiez « /etc/sysconfig/network/config » et remplacez NETCONFIG\_DNS\_FORWARDER="" par « dnsmasq »
 	- mettez à jour resolv.conf (netconfig update) pour définir le cache en tant que programme de résolution DNS local
 - **OpenLogic (utilise NetworkManager)** :
@@ -96,8 +96,8 @@ Un certain nombre de packages de mise en cache DNS différents sont disponibles,
 
 DNS est principalement un protocole UDP. Comme le protocole UDP ne garantit pas la remise des messages, la logique de nouvelle tentative est gérée dans le protocole DNS lui-même. Chaque client DNS (système d’exploitation) peut afficher une logique de nouvelle tentative différente selon la préférence de son auteur :
 
- - Les systèmes d’exploitation Windows effectuent de nouvelles tentatives après 1 seconde, puis à nouveau après 2 secondes, 4 secondes et encore 4 secondes. 
- - La configuration Linux par défaut effectue une nouvelle tentative après 5 secondes. Il est recommandé de modifier ce paramètre pour effectuer de nouvelles tentatives 5 fois à des intervalles de 1 seconde.  
+ - Les systèmes d’exploitation Windows effectuent de nouvelles tentatives après 1 seconde, puis à nouveau après 2 secondes, 4 secondes et encore 4 secondes.
+ - La configuration Linux par défaut effectue une nouvelle tentative après 5 secondes. Il est recommandé de modifier ce paramètre pour effectuer de nouvelles tentatives 5 fois à des intervalles de 1 seconde.
 
 Pour vérifier les paramètres actuels sur une machine virtuelle Linux, accédez à 'cat /etc/resolv.conf' et consultez la ligne 'options', par exemple :
 
@@ -106,13 +106,13 @@ Pour vérifier les paramètres actuels sur une machine virtuelle Linux, accédez
 Le fichier resolv.conf est généralement généré automatiquement et ne doit pas être modifié. Les étapes spécifiques pour l’ajout de la ligne 'options' varient selon la distribution :
 
 - **Ubuntu** (utilise resolvconf) :
-	- ajoutez la ligne 'options' à '/etc/resolveconf/resolv.conf.d/head' 
+	- ajoutez la ligne 'options' à '/etc/resolveconf/resolv.conf.d/head'
 	- exécutez 'resolvconf -u' pour mettre à jour
 - **SUSE** (utilise netconf) :
-	- ajoutez 'timeout:1 attempts:5' au paramètre NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" dans '/etc/sysconfig/network/config' 
+	- ajoutez 'timeout:1 attempts:5' au paramètre NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" dans '/etc/sysconfig/network/config'
 	- exécutez 'netconfig update' pour mettre à jour
 - **OpenLogic** (utilise NetworkManager) :
-	- ajoutez 'echo "options timeout:1 attempts:5"' à '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- ajoutez 'echo "options timeout:1 attempts:5"' à '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- exécutez 'service network restart' pour mettre à jour
 
 ## Résolution de noms à l’aide de votre propre serveur DNS
@@ -126,16 +126,16 @@ En outre, grâce à la redirection DNS, la résolution DNS entre réseaux virtue
 
 Quand vous utilisez la résolution de noms dans Azure, le suffixe DNS interne est fourni à chaque machine virtuelle à l’aide de DHCP. Quand vous utilisez votre propre solution de résolution de noms, ce suffixe n’est pas fourni aux machines virtuelles, car il interfère avec d’autres architectures DNS. Pour faire référence à des ordinateurs par nom de domaine complet, ou pour configurer le suffixe sur vos machines virtuelles, vous pouvez déterminer celui-ci à l’aide de PowerShell ou de l’API :
 
--  Pour les réseaux virtuels gérés dans Azure Resource Management, le suffixe est disponible par le biais de la ressource de [carte d’interface réseau](https://msdn.microsoft.com/library/azure/mt163668.aspx). Vous pouvez également exécuter la commande `azure network public-ip show <resource group> <pip name>` pour afficher les détails de votre adresse IP publique, y compris le nom de domaine complet de la carte réseau.    
+-  Pour les réseaux virtuels gérés dans Azure Resource Management, le suffixe est disponible par le biais de la ressource de [carte d’interface réseau](https://msdn.microsoft.com/library/azure/mt163668.aspx). Vous pouvez également exécuter la commande `azure network public-ip show <resource group> <pip name>` pour afficher les détails de votre adresse IP publique, y compris le nom de domaine complet de la carte réseau.
 
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS. Votre solution DNS doit présenter les caractéristiques suivantes :
 
--  Fournir la résolution de nom d’hôte approprié, par exemple par le biais de [DNS dynamique](../virtual-network/virtual-networks-name-resolution-ddns.md). Si vous utilisez DNS dynamique, vous pouvez être amené à désactiver le nettoyage des enregistrements DNS, car les baux DHCP d’Azure sont très longs et le nettoyage risque de supprimer des enregistrements DNS prématurément. 
+-  Fournir la résolution de nom d’hôte approprié, par exemple par le biais de [DNS dynamique](../virtual-network/virtual-networks-name-resolution-ddns.md). Si vous utilisez DNS dynamique, vous pouvez être amené à désactiver le nettoyage des enregistrements DNS, car les baux DHCP d’Azure sont très longs et le nettoyage risque de supprimer des enregistrements DNS prématurément.
 -  Fournir la résolution récursive appropriée pour permettre la résolution de noms de domaines externes.
 -  Être accessible (TCP et UDP sur le port 53) à partir des clients qu’elle dessert et être en mesure d’accéder à internet.
 -  Être protégée contre tout accès à partir d’Internet, pour atténuer les menaces posées par les agents externes.
 
 > [AZURE.NOTE] Pour de meilleures performances, lors de l’utilisation de machines virtuelles Azure en tant que serveurs DNS, le protocole IPv6 doit être désactivé et une [adresse IP publique de niveau d’instance](../virtual-network/virtual-networks-instance-level-public-ip.md) doit être affectée à chaque machine virtuelle du serveur DNS.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

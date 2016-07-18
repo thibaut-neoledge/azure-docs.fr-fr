@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Effectuer la migration d’une application web d’entreprise vers Azure App Service" 
-	description="Indique comment utiliser l’Assistant Migration Web Apps pour effectuer rapidement la migration de sites web IIS existants vers Azure App Service Web Apps" 
+	description="Indique comment utiliser l’Assistant Migration Web Apps pour effectuer rapidement la migration de sites web IIS existants vers Azure App Service Web Apps" 
 	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -14,32 +14,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 # Effectuer la migration d’une application web d’entreprise vers Azure App Service
 
-Vous pouvez facilement effectuer la migration de vos sites web qui s’exécutent sur Internet Information Services (IIS) version 6 ou ultérieure vers [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+Vous pouvez facilement effectuer la migration de vos sites web qui s’exécutent sur Internet Information Services (IIS) version 6 ou ultérieure vers [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
->[AZURE.IMPORTANT] La fin du support de Windows Server 2003 est intervenue le 14 juillet 2015. Si vous hébergez actuellement vos sites web sur un serveur IIS exécutant Windows Server 2003, la fonctionnalité Web Apps constitue une solution sûre, économique et stable pour conserver vos sites web en ligne. Quant à l’Assistant Migration d’applications web, il facilite l’automatisation de votre processus de migration.
+>[AZURE.IMPORTANT] La fin du support de Windows Server 2003 est intervenue le 14 juillet 2015. Si vous hébergez actuellement vos sites web sur un serveur IIS exécutant Windows Server 2003, la fonctionnalité Web Apps constitue une solution sûre, économique et stable pour conserver vos sites web en ligne. Quant à l’Assistant Migration d’applications web, il facilite l’automatisation de votre processus de migration.
 
-L’[Assistant Migration Web Apps](https://www.movemetothecloud.net/) peut analyser votre installation de serveur IIS, identifier les sites pouvant faire l’objet d’une migration vers App Service, mettre en surbrillance les éléments dont la migration est impossible ou qui ne sont pas pris en charge sur la plateforme, puis effectuer la migration de vos sites web et des bases de données associées vers Azure.
+L’[Assistant Migration Web Apps](https://www.movemetothecloud.net/) peut analyser votre installation de serveur IIS, identifier les sites pouvant faire l’objet d’une migration vers App Service, mettre en surbrillance les éléments dont la migration est impossible ou qui ne sont pas pris en charge sur la plateforme, puis effectuer la migration de vos sites web et des bases de données associées vers Azure.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Éléments vérifiés au cours de l’analyse de compatibilité ##
-L’Assistant Migration crée un rapport d’analyse visant à déceler tout problème ou obstacle potentiel à la réussite de la migration d’un serveur IIS local vers Azure App Service Web Apps. Certains des éléments clés à connaître sont les suivants :
+L’Assistant Migration crée un rapport d’analyse visant à déceler tout problème ou obstacle potentiel à la réussite de la migration d’un serveur IIS local vers Azure App Service Web Apps. Certains des éléments clés à connaître sont les suivants :
 
--	Liaisons de port : Web Apps prend uniquement en charge le port 80 pour le trafic HTTP et le port 443 pour le trafic HTTPS. Toute autre configuration de port est ignorée, et le trafic est alors redirigé vers les ports 80 ou 443. 
--	Authentification : Web Apps prend en charge l’authentification anonyme par défaut et l’authentification par formulaire lorsqu’une application le spécifie. L'authentification Windows peut être utilisée uniquement en cas d'intégration à Azure Active Directory et ADFS. Aucune des autres formes d’authentification, telles que l’authentification de base, n’est prise en charge pour l’instant. 
--	Global Assembly Cache (GAC) : GAC n’est pas pris en charge dans Web Apps. Si votre application fait référence à des assemblys que vous déployez en règle générale vers GAC, vous devrez déployer le dossier Bin de l’application dans Web Apps. 
--	Mode de compatibilité IIS5 : non pris en charge dans Web Apps. 
--	Pools d’applications : dans Web Apps, chaque site et ses applications enfants s’exécutent dans le même pool d’applications. Si votre site comporte plusieurs applications enfants utilisant différents pools d’applications, regroupez-les dans un seul pool d’applications en optant pour les paramètres courants ou effectuez la migration de chaque application vers une application web distincte.
--	Composants COM : Web Apps n’autorise pas l’inscription de composants COM sur la plateforme. Si vos sites web ou applications utilisent des composants COM, vous devez les réécrire en code managé et les déployer avec le site web ou l’application.
--	Filtres ISAPI : Web Apps peut prendre en charge l’utilisation des filtres ISAPI. Effectuez les opérations suivantes :
-	-	Déployez les DLL avec votre application web. 
+-	Liaisons de port : Web Apps prend uniquement en charge le port 80 pour le trafic HTTP et le port 443 pour le trafic HTTPS. Toute autre configuration de port est ignorée, et le trafic est alors redirigé vers les ports 80 ou 443.
+-	Authentification : Web Apps prend en charge l’authentification anonyme par défaut et l’authentification par formulaire lorsqu’une application le spécifie. L'authentification Windows peut être utilisée uniquement en cas d'intégration à Azure Active Directory et ADFS. Aucune des autres formes d’authentification, telles que l’authentification de base, n’est prise en charge pour l’instant.
+-	Global Assembly Cache (GAC) : GAC n’est pas pris en charge dans Web Apps. Si votre application fait référence à des assemblys que vous déployez en règle générale vers GAC, vous devrez déployer le dossier Bin de l’application dans Web Apps.
+-	Mode de compatibilité IIS5 : non pris en charge dans Web Apps.
+-	Pools d’applications : dans Web Apps, chaque site et ses applications enfants s’exécutent dans le même pool d’applications. Si votre site comporte plusieurs applications enfants utilisant différents pools d’applications, regroupez-les dans un seul pool d’applications en optant pour les paramètres courants ou effectuez la migration de chaque application vers une application web distincte.
+-	Composants COM : Web Apps n’autorise pas l’inscription de composants COM sur la plateforme. Si vos sites web ou applications utilisent des composants COM, vous devez les réécrire en code managé et les déployer avec le site web ou l’application.
+-	Filtres ISAPI : Web Apps peut prendre en charge l’utilisation des filtres ISAPI. Effectuez les opérations suivantes :
+	-	Déployez les DLL avec votre application web.
 	-	Enregistrez les DLL à l’aide de [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters).
-	-	Placez un fichier applicationHost.xdt à la racine du site en utilisant le code ci-dessous :
+	-	Placez un fichier applicationHost.xdt à la racine du site en utilisant le code ci-dessous :
 
 			<?xml version="1.0"?>
 			<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
@@ -54,15 +54,15 @@ L’Assistant Migration crée un rapport d’analyse visant à déceler tout pro
 
 -	La migration ne concerne pas les autres composants comme SharePoint, les extensions serveur FrontPage (FPSE), les serveurs FTP et les certificats SSL.
 
-## Utilisation de l’Assistant Migration Web Apps ##
-Cette section présente pas à pas un exemple de migration de sites web qui utilisent une base de données SQL Server et s'exécutent sur un serveur local sous Windows Server 2003 R2 (IIS 6.0) :
+## Utilisation de l’Assistant Migration Web Apps ##
+Cette section présente pas à pas un exemple de migration de sites web qui utilisent une base de données SQL Server et s'exécutent sur un serveur local sous Windows Server 2003 R2 (IIS 6.0) :
 
-1.	Sur le serveur IIS ou votre ordinateur client, accédez à [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/). 
+1.	Sur le serveur IIS ou votre ordinateur client, accédez à [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/).
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
-2.	Installez l’Assistant Migration Web Apps en cliquant sur le bouton **Serveur IIS dédié**. D'autres options seront ajoutées dans un proche avenir.
-4.	Cliquez sur le bouton **Installer l’outil** pour installer l’Assistant Migration Web Apps sur votre machine.
+2.	Installez l’Assistant Migration Web Apps en cliquant sur le bouton **Serveur IIS dédié**. D'autres options seront ajoutées dans un proche avenir.
+4.	Cliquez sur le bouton **Installer l’outil** pour installer l’Assistant Migration Web Apps sur votre machine.
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
@@ -72,7 +72,7 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 
 	![](./media/web-sites-migration-from-iis-server/install-progress.png)
 
-	Une fois installé, l’Assistant Migration Web Apps démarre automatiquement.
+	Une fois installé, l’Assistant Migration Web Apps démarre automatiquement.
   
 6.	Sélectionnez **Migrer des sites et des bases de données depuis un serveur distant vers Azure**. Entrez les informations d’identification d’administration du serveur distant, puis cliquez sur **Continuer**.
 
@@ -82,7 +82,7 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
  
 	L’outil de migration analyse ensuite la configuration de votre serveur ISS, notamment les sites, les applications, les pools d’applications et les dépendances afin d’identifier les sites web candidats à la migration.
 
-8.	La capture d’écran ci-dessous présente trois sites web : **Site web par défaut**, **TimeTracker** et **CommerceNet4**. Tous ces sites sont associés à une base de données à migrer. Sélectionnez tous les sites que vous souhaitez évaluer, puis cliquez sur **Suivant**.
+8.	La capture d’écran ci-dessous présente trois sites web : **Site web par défaut**, **TimeTracker** et **CommerceNet4**. Tous ces sites sont associés à une base de données à migrer. Sélectionnez tous les sites que vous souhaitez évaluer, puis cliquez sur **Suivant**.
 
 	![](./media/web-sites-migration-from-iis-server/select-migration-candidates.png)
  
@@ -100,11 +100,11 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 
 	![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
 
-14.	L'écran suivant vous permet d'effectuer des changements par rapport aux paramètres de migration par défaut, tels que :
+14.	L'écran suivant vous permet d'effectuer des changements par rapport aux paramètres de migration par défaut, tels que :
 
-	- utiliser une base de données SQL Azure existante ou créer une base de données SQL Azure et configurer ses informations d'identification ;
-	- sélectionner les sites web à migrer ;
-	- définir des noms pour les applications web Azure et les bases de données SQL qui y sont associées ;
+	- utiliser une base de données SQL Azure existante ou créer une base de données SQL Azure et configurer ses informations d'identification ;
+	- sélectionner les sites web à migrer ;
+	- définir des noms pour les applications web Azure et les bases de données SQL qui y sont associées ;
 	- personnaliser les paramètres globaux et les paramètres au niveau du site.
 
 	La capture d'écran ci-dessous montre tous les sites web à migrer sélectionnés. Les paramètres définis sont les paramètres par défaut.
@@ -129,10 +129,10 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 
 	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

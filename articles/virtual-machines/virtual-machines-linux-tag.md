@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
-   ms.author="iainfour;memccror"/>
+   ms.date="07/05/2016"
+   ms.author="memccror"/>
 
 # Comment baliser une machine virtuelle Linux dans Azure
 
@@ -25,13 +25,13 @@ Cet article décrit différentes façons d’ajouter des balises à une machine 
 
 ## Balisage avec l’interface de ligne de commande Azure
 
-Le balisage est également pris en charge pour les ressources qui sont déjà créés via l’interface de ligne de commande Azure. Pour commencer, configurez votre [environnement CLI Azure][]. Connectez-vous à votre abonnement via l’interface CLI Azure et passez en mode Azure Resource Manager (`azure config mode arm`).
+Pour commencer, [installez et configurez l’interface de ligne de commande Azure](../xplat-cli-azure-resource-manager.md), et assurez-vous que vous êtes en mode Resource Manager (`azure config mode arm`).
 
 Vous pouvez afficher toutes les propriétés d’une machine virtuelle donnée, y compris les balises, à l’aide de cette commande :
 
         azure vm show -g MyResourceGroup -n MyTestVM
 
-Pour ajouter une nouvelle balise de machine virtuelle via l'interface de ligne de commande Azure, vous pouvez utiliser la commande `azure vm set` avec le paramètre de balise **-t** :
+Pour ajouter une nouvelle balise de machine virtuelle via l'interface de ligne de commande Azure, vous pouvez utiliser la commande `azure vm set` avec le paramètre de balise **-t** :
 
         azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -53,10 +53,10 @@ Maintenant que nous avons appliqué des balises à nos ressources via l’interf
 
 
 
-[environnement CLI Azure]: ./xplat-cli-azure-resource-manager.md
+[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Présentation d’Azure Resource Manager]: ../resource-group-overview.md
 [Organisation des ressources Azure à l’aide de balises]: ../resource-group-using-tags.md
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
-    ms.author="sethm" />
+    ms.date="07/01/2016"
+    ms.author="sethm;hillaryc" />
 
 # Entités de messagerie partitionnées
 
@@ -57,11 +57,11 @@ Certains scénarios, tels que les sessions ou les transactions, nécessitent que
 
 Selon le scénario, différentes propriétés de messages sont utilisées comme clé de partition :
 
-**SessionId** : si un message a la propriété [BrokeredMessage.SessionId][] définie, alors Service Bus utilise cette propriété comme clé de partition. De cette façon, tous les messages qui appartiennent à la même session sont gérés par le même courtier de messages. Cela permet à Service Bus de garantir l'ordre des messages, ainsi que la cohérence des états de session.
+**SessionId** : si un message a la propriété [BrokeredMessage.SessionId][] définie, alors Service Bus utilise cette propriété comme clé de partition. De cette façon, tous les messages qui appartiennent à la même session sont gérés par le même courtier de messages. Cela permet à Service Bus de garantir l'ordre des messages, ainsi que la cohérence des états de session.
 
-**PartitionKey** : si un message a la propriété [BrokeredMessage.PartitionKey][] définie mais pas la propriété [BrokeredMessage.SessionId][], alors Service Bus utilise la propriété [PartitionKey][] comme clé de partition. Si le message a les deux propriétés [SessionId][] et [PartitionKey][] définies, alors elles doivent être identiques. Si la propriété [PartitionKey][] est définie sur une valeur différente de celle de la propriété [SessionId][], Service Bus retourne une exception **InvalidOperationException**. La propriété [PartitionKey][] doit être utilisée si un expéditeur envoie des messages transactionnels non liés à une session. La clé de partition garantit que tous les messages qui sont envoyés dans une transaction sont gérés par le même courtier de messages.
+**PartitionKey** : si un message a la propriété [BrokeredMessage.PartitionKey][] définie mais pas la propriété [BrokeredMessage.SessionId][], alors Service Bus utilise la propriété [PartitionKey][] comme clé de partition. Si le message a les deux propriétés [SessionId][] et [PartitionKey][] définies, alors elles doivent être identiques. Si la propriété [PartitionKey][] est définie sur une valeur différente de celle de la propriété [SessionId][], Service Bus retourne une exception **InvalidOperationException**. La propriété [PartitionKey][] doit être utilisée si un expéditeur envoie des messages transactionnels non liés à une session. La clé de partition garantit que tous les messages qui sont envoyés dans une transaction sont gérés par le même courtier de messages.
 
-**MessageId** : si la file d'attente ou la rubrique a la propriété [QueueDescription.RequiresDuplicateDetection][] définie sur **true** et que les propriétés [BrokeredMessage.SessionId][] ou [BrokeredMessage.PartitionKey][] ne sont pas définies, la propriété [BrokeredMessage.MessageId][] sert de clé de partition. (Notez que les bibliothèques Microsoft .NET et AMQP attribuent automatiquement un ID de message si l'application émettrice ne le fait pas.) Dans ce cas, toutes les copies du même message sont gérées par le même courtier de messages. Cela permet à Service Bus de détecter et d'éliminer les messages en double. Si la propriété [QueueDescription.RequiresDuplicateDetection][] n'est pas définie sur **true**, Service Bus ne considère pas la propriété [MessageId][] comme clé de partition.
+**MessageId** : si la file d'attente ou la rubrique a la propriété [QueueDescription.RequiresDuplicateDetection][] définie sur **true** et que les propriétés [BrokeredMessage.SessionId][] ou [BrokeredMessage.PartitionKey][] ne sont pas définies, la propriété [BrokeredMessage.MessageId][] sert de clé de partition. (Notez que les bibliothèques Microsoft .NET et AMQP attribuent automatiquement un ID de message si l'application émettrice ne le fait pas.) Dans ce cas, toutes les copies du même message sont gérées par le même courtier de messages. Cela permet à Service Bus de détecter et d'éliminer les messages en double. Si la propriété [QueueDescription.RequiresDuplicateDetection][] n'est pas définie sur **true**, Service Bus ne considère pas la propriété [MessageId][] comme clé de partition.
 
 ### Non utilisation d'une clé de partition
 
@@ -93,7 +93,7 @@ Si les propriétés qui servent de clé de partition sont définies, Service Bus
 
 Pour envoyer un message transactionnel à une file d'attente ou une rubrique utilisant une session, le message doit contenir la propriété [BrokeredMessage.SessionId][] définie. Si la propriété [BrokeredMessage.PartitionKey][] est également spécifiée, elle doit être identique à la propriété [SessionId][]. Si elles diffèrent, Service Bus renvoie une exception **InvalidOperationException**.
 
-Contrairement aux files d'attente ou rubriques standard (non partitionnées), il n'est pas possible d'utiliser une transaction unique pour envoyer plusieurs messages à différentes sessions. Dans ce cas, Service Bus renvoie une exception **InvalidOperationException**. Par exemple :
+Contrairement aux files d'attente ou rubriques standard (non partitionnées), il n'est pas possible d'utiliser une transaction unique pour envoyer plusieurs messages à différentes sessions. Dans ce cas, Service Bus renvoie une exception **InvalidOperationException**. Par exemple :
 
 ```
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -111,16 +111,25 @@ committableTransaction.Commit();
 
 Azure Service Bus prend en charge le transfert automatique des messages à partir de, vers ou entre les entités partitionnées. Pour activer le transfert automatique des messages, définissez la propriété [QueueDescription.ForwardTo][] de la file d'attente ou de l'abonnement source. Si le message spécifie une clé de partition ([SessionId][], [PartitionKey][] ou [MessageId][]), cette clé de partition est utilisée pour l'entité de destination.
 
+## Considérations et recommandations
+
+- **Fonctionnalités de cohérence élevée**: si une entité utilise des fonctionnalités telles que des sessions, la détection des doublons ou un contrôle explicite de la clé de partitionnement, les opérations de messagerie sont toujours acheminées vers des fragments spécifiques. Si le trafic d’un des fragments est élevé ou si le magasin sous-jacent est défectueux, ces opérations échouent et la disponibilité s’en trouve réduite. En général, la cohérence reste plus importante que le nombre d’entités non partitionnées. Seul un sous-ensemble de trafic rencontre des problèmes, et non le trafic tout en entier.
+- **Gestion** : opérations telles que la création la mise à jour et la suppression doivent être exécutées sur tous les fragments de l’entité. Si un fragment est défectueux, cela peut entraîner l’échec de ces opérations. Pour l’opération Get, des informations telles que le nombre de messages doivent être agrégées à partir de tous les fragments. Si un fragment est défectueux, l’état de disponibilité de l’entité est signalé comme étant limité.
+- **Scénarios de messages à faible volume** : dans ce cas, notamment lorsque vous utilisez le protocole HTTP, vous devez peut-être effectuer plusieurs opérations de réception afin d’obtenir tous les messages. Pour les demandes de réception, le serveur frontal effectue une opération de réception sur tous les fragments et met en cache toutes les réponses reçues. Une demande de réception ultérieure sur la même connexion profiterait de cette mise en cache et on assisterait à une réduction des latences liées à la réception. Toutefois, si vous disposez de plusieurs connexions ou si vous utilisez HTTP, une nouvelle connexion est établie pour chaque demande. Par conséquent, l’accès au même nœud n’est pas garanti. Si tous les messages existants sont verrouillés et mis en cache sur un autre serveur frontal, l’opération de réception renvoie la valeur **null**. Les messages peuvent arriver à expiration et vous pouvez les recevoir à nouveau. La persistance du protocole HTTP est recommandée.
+- **Parcourir/Agfficher l’aperçu des messages** : PeekBatch ne retourne pas toujours le nombre de messages spécifié dans la [propriété MessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx). Il existe deux raisons courantes à cela. L’une des raisons est que la taille agrégée de la collection de messages dépasse la taille maximale de 256 Ko. Une autre raison est que si la [propriété EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) de la file d’attente ou de la rubrique est définie sur **true**, il se peut qu’une partition ne dispose pas de suffisamment de messages pour terminer le nombre de messages demandé. En règle générale, si une application veut recevoir un certain nombre de messages, elle doit appeler [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) à plusieurs reprises jusqu’à obtenir le nombre de messages voulu à moins qu’il n’y ait plus de messages pour lesquels afficher un aperçu. Pour plus d’informations, y compris pour obtenir des exemples de code, consultez [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) ou [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
+
+## Dernières fonctionnalités ajoutées
+
+- L’ajout ou la suppression de règles est désormais pris en charge avec les entités partitionnées. À la différence des entités non partitionnée, ces opérations ne sont pas prises en charge dans le cadre des transactions.
+- AMQP est désormais pris en charge pour l’envoi et la réception de messages vers et à partir d’une entité partitionnée.
+- AMQP est désormais pris en charge pour les opérations suivantes : [Envoi par lots](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx), [Réception par lots](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx), [Réception par numéro de séquence](https://msdn.microsoft.com/library/azure/hh330765.aspx), [Affichage d’aperçu](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx), [Verrouillage du renouvellement](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx), [Planification des messages](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx), [Annulation des messages planifiés](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx), [Ajout de règles](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Suppression de règles](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Verrouillage de renouvellement de session](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx), [Définition de l’état d’une session](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx), [Obtention de l’état d’une session](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx), [Affichage de l’aperçu de messages de session](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx), et [Énumération des sessions](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx).
+
 ## Limites des entités partitionnées
 
 Dans son implémentation actuelle, Service Bus impose les limites suivantes aux files d'attente et rubriques partitionnées :
 
--   Les rubriques et files d'attente partitionnées sont disponibles via SBMP ou HTTP/HTTPS, ainsi qu'avec AMQP.
-
 -   Les rubriques et files d'attente partitionnées ne prennent pas en charge l'envoi de messages appartenant à des sessions différentes dans une transaction unique.
-
 -   Service Bus permet actuellement de disposer jusqu’à 100 rubriques ou files d’attente par espace de nom. Chaque file d'attente ou rubrique partitionnée est comptabilisée dans le quota de 10 000 entités par espace de noms.
-
 -   Les rubriques et files d'attente partitionnées ne sont pas prises en charge sur les versions 1.0 et 1.1 de Service Bus pour Windows Server.
 
 ## Étapes suivantes
@@ -144,4 +153,4 @@ Consultez la discussion sur la [prise en charge par AMQP 1.0 des rubriques et fi
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [prise en charge par AMQP 1.0 des rubriques et files d’attente partitionnées de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -20,7 +20,7 @@
 
 Cette rubrique explique ce que vous devez savoir sur les clés publiques utilisées dans Azure Active Directory (Azure AD) pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent Azure AD doivent être en mesure de gérer le processus de substitution de clé par le biais d’un programme. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application pour gérer la substitution de clé si nécessaire.
 
-> [AZURE.IMPORTANT] La prochaine substitution de clé de signature aura lieu le 15 août 2016 et n’affectera *pas* les applications de galerie ou les applications des clients B2C.
+> [AZURE.IMPORTANT] La prochaine substitution de clé de signature est prévue le 15 août 2016 et n'affectera **pas** les applications clientes, les applications ajoutées à partir de la galerie (y compris les applications personnalisées), les applications publiées via le proxy d’application ou les applications des clients B2C.
 
 ## Vue d’ensemble des clés de signature dans Azure AD
 
@@ -328,4 +328,4 @@ Pour récupérer manuellement la dernière clé à partir du document de métado
 
 Vous venez de créer le certificat X509 qui est utilisé en tant que clé publique pour Azure AD. En utilisant les informations du certificat (par exemple, son empreinte numérique et sa date d’expiration), vous pouvez, soit manuellement soit à l’aide d’un programme, vérifier la validité du certificat et de l’empreinte numérique actuellement utilisés par votre application.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -17,9 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Prise en main du chiffrement transparent des données (TDE)
+
+
 > [AZURE.SELECTOR]
-- [Portail Azure](sql-data-warehouse-encryption-tde.md)
-- [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
+- [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
+- [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
+- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
+- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
+- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 La fonction de chiffrement transparent des données (TDE) d’Azure SQL Data Warehouse protège le système contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions au repos, sans exiger de modification de l’application.
 
@@ -66,7 +73,7 @@ Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique 
 
 ##DMV de chiffrement  
 
-- [sys.databases][] 
+- [sys.databases][]
 - [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
 
 
@@ -79,4 +86,4 @@ Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

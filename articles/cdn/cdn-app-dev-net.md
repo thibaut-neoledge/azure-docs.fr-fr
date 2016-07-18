@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Prise en main de la bibliothèque Azure CDN pour .NET
+# Prise en main du développement Azure CDN
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.JS](cdn-app-dev-node.md)
 
 Vous pouvez utiliser la [bibliothèque Azure CDN pour .NET](https://msdn.microsoft.com/library/mt657769.aspx) pour automatiser la création et la gestion des points de terminaison et profils CDN. Ce didacticiel présente la création d’une application console .NET simple, qui exécute plusieurs des opérations disponibles. Il n’a pas vocation à décrire en détail tous les aspects de la bibliothèque Azure CDN pour .NET.
 
 Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) est disponible gratuitement en téléchargement.
 
-Vous trouverez un exemple de ce didacticiel [ici](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+> [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) est disponible en téléchargement sur MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -40,7 +44,7 @@ Notre projet va utiliser certaines bibliothèques Azure contenues dans des packa
 
 	![Gérer les packages NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 
-2. Dans la Console du Gestionnaire de Package, exécutez la commande suivante pour installer la bibliothèque **ADAL (Active Directory Authentication Library)** :
+2. Dans la Console du Gestionnaire de package, exécutez la commande suivante pour installer la bibliothèque **ADAL (Active Directory Authentication Library)** :
 
 	`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 
@@ -65,7 +69,7 @@ Rédigeons la structure de base de notre programme.
 	using Microsoft.Rest;
 	```
 
-2. Nous devons définir certaines constantes que nos méthodes utiliseront. Dans la classe `Program` mais avant la méthode `Main`, ajoutez le code suivant. Veillez à remplacer les espaces réservés, notamment les **&lt;élements entre crochets&gt;**, par vos propres valeurs au besoin.
+2. Nous devons définir certaines constantes que nos méthodes utiliseront. Dans la classe `Program` mais avant la méthode `Main`, ajoutez le code suivant. Veillez à remplacer les espaces réservés, y compris les **&lt;éléments entre chevrons&gt;** par vos propres valeurs, si nécessaire.
 
 	```
 	//Tenant app constants
@@ -142,7 +146,7 @@ Rédigeons la structure de base de notre programme.
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}
@@ -283,7 +287,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] Dans l’exemple ci-dessus, la chaîne `/*` indique que je souhaite vider tous les éléments à la racine du chemin d’accès du point de terminaison. Cela revient à cocher la case **Purge All (Vider tout)** dans la boîte de dialogue de vidage du portail Azure. Dans la méthode `CreateCdnProfile`, j’ai créé notre profil comme un profil **Azure CDN de Verizon** à l’aide du code `Sku = new Sku(SkuName.StandardVerizon)`, pour que l’opération aboutisse. Toutefois, les profils **Azure CDN de Akamai** ne prennent pas en charge l’option **Purge All (Purger tout)**. Donc, si j’utilisais un profil Akamai pour ce didacticiel, je devrais inclure les chemins d’accès spécifiques à vider.
+>[AZURE.NOTE] Dans l’exemple ci-dessus, la chaîne `/*` indique que je souhaite vider tous les éléments à la racine du chemin d’accès du point de terminaison. Cela revient à cocher la case **Purge All** (Purger tout) dans la boîte de dialogue de vidage du portail Azure. Dans la méthode `CreateCdnProfile`, j’ai créé notre profil comme un profil **Azure CDN de Verizon** à l’aide du code `Sku = new Sku(SkuName.StandardVerizon)`, pour que l’opération aboutisse. Toutefois, les profils **Azure CDN de Akamai** ne prennent pas en charge l’option **Purge All** (Purger tout). Donc, si j’utilisais un profil Akamai pour ce didacticiel, je devrais inclure les chemins d’accès spécifiques à vider.
 
 ## Supprimer des profils CDN et des points de terminaison
 
@@ -329,8 +333,8 @@ Nous pouvons alors confirmer les invites pour exécuter le reste du programme.
 
 ## Étapes suivantes
 
-Pour visualiser le projet finalisé selon cette procédure pas à pas, [téléchargez l’exemple](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [téléchargez l’exemple](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
 Pour trouver de la documentation supplémentaire sur la bibliothèque Azure CDN Management Library pour .NET, consultez la [référence sur MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

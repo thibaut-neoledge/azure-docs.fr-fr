@@ -18,7 +18,7 @@
 
 # Conception de bases de données cloud évolutives
 
-La montée en charge des bases de données peut être aisément accomplie à l'aide de fonctionnalités et d'outils évolutifs de bases de données SQL Azure. En particulier, vous pouvez utiliser la **Bibliothèque cliente de bases de données élastiques** pour créer et gérer des bases de données avec montée en charge. Cette fonctionnalité vous permet de développer facilement des applications partitionnées à l'aide de centaines, voire de milliers, de bases de données SQL Azure.
+La montée en charge des bases de données peut être aisément accomplie à l’aide de fonctionnalités et d’outils évolutifs de bases de données SQL Azure. En particulier, vous pouvez utiliser la **Bibliothèque cliente de bases de données élastiques** pour créer et gérer des bases de données avec montée en charge. Cette fonctionnalité vous permet de développer facilement des applications partitionnées à l'aide de centaines, voire de milliers, de bases de données SQL Azure.
 
 Pour installer la bibliothèque, accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
@@ -31,13 +31,13 @@ Pour installer la bibliothèque, accédez à [Microsoft.Azure.SqlDatabase.Elasti
 * [Requêtes sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md)
 * [Ajout d’une partition à l’aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md)
 * [Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-* [Mettre à niveau les applications de la bibliothèque cliente](sql-database-elastic-scale-upgrade-client-library.md) 
+* [Mettre à niveau les applications de la bibliothèque cliente](sql-database-elastic-scale-upgrade-client-library.md)
 * [Vue d'ensemble des requêtes élastiques](sql-database-elastic-query-overview.md)
 * [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md)
 * [Bibliothèque cliente de la base de données élastique avec Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 * [Bibliothèque cliente de bases de données élastiques avec Dapper](sql-database-elastic-scale-working-with-dapper.md)
 * [Outil de fractionnement et de fusion](sql-database-elastic-scale-overview-split-and-merge.md)
-* [Compteurs de performances pour le Gestionnaire de cartes de partitions](sql-database-elastic-database-client-library.md) 
+* [Compteurs de performances pour le Gestionnaire de cartes de partitions](sql-database-elastic-database-client-library.md)
 * [FAQ des outils de bases de données élastiques](sql-database-elastic-scale-faq.md)
 
 ## Fonctionnalités du client
@@ -73,4 +73,4 @@ La bibliothèque est disponible en tant que logiciel open source sur [GitHub](ht
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

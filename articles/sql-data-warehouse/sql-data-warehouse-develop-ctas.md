@@ -426,11 +426,11 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
-[Statistiques]: ./sql-data-warehouse-develop-statistics.md
+[Statistiques]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

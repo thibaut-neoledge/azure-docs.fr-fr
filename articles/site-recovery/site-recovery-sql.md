@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 
@@ -132,12 +132,12 @@ Voici ce dont vous avez besoin pour intégrer SQL AlwaysOn à Site Recovery quan
 ####  Étape 1 : ajouter un serveur SQL Server
 
 
-1. Cliquez sur **Ajouter un serveur SQL** pour ajouter un nouveau serveur SQL Server. 
+1. Cliquez sur **Ajouter un serveur SQL** pour ajouter un nouveau serveur SQL Server.
 
 	![Ajouter un serveur SQL](./media/site-recovery-sql/add-sql.png)
 
 2. Dans **Configurer les paramètres SQL** > **Nom**, indiquez un nom convivial pour le serveur SQL Server.
-3. Dans **SQL Server (nom de domaine complet)**, indiquez le nom de domaine complet du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster.  
+3. Dans **SQL Server (nom de domaine complet)**, indiquez le nom de domaine complet du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster.
 4. Dans **Instance SQL Server**, choisissez l’instance par défaut ou indiquez le nom de l’instance personnalisée.
 5. Dans **Serveur VMM**, sélectionnez un serveur VMM inscrit dans le coffre Site Recovery. Site Recovery utilise ce serveur VMM pour communiquer avec le serveur SQL Server.
 6. Dans **Compte d’identification**, indiquez le nom d’un compte d’identification qui a été créé sur le serveur VMM spécifié. Ce compte est utilisé pour accéder au serveur SQL Server et doit être doté des autorisations Lecture et Basculement sur les groupes de disponibilité présents sur l’ordinateur SQL Server.
@@ -151,7 +151,7 @@ Une fois ajouté, le serveur SQL Server apparaît sous l’onglet **Serveurs SQL
 
 #### Étape 2 : ajouter un groupe de disponibilité SQL
 
-1. Une fois l’ordinateur SQL Server ajouté, l’étape suivante consiste à ajouter le groupe de disponibilité à Site Recovery. Pour cela, descendez dans la hiérarchie du serveur SQL Server ajouté à l’étape précédente et cliquez sur Ajouter un groupe de disponibilité SQL. 
+1. Une fois l’ordinateur SQL Server ajouté, l’étape suivante consiste à ajouter le groupe de disponibilité à Site Recovery. Pour cela, descendez dans la hiérarchie du serveur SQL Server ajouté à l’étape précédente et cliquez sur Ajouter un groupe de disponibilité SQL.
 
 	![Ajouter un groupe de disponibilité SQL](./media/site-recovery-sql/add-sqlag.png)
 
@@ -353,4 +353,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

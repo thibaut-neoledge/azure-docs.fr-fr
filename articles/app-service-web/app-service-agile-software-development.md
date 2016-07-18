@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 
@@ -43,7 +43,7 @@ Vous découvrirez un flux de travail de type développement-test-intermédiaire-
 
 Voici la situation telle qu’elle apparaît :
 
--	L’architecture de déploiement est divisée en trois environnements distincts (appelés [groupes de ressources](../resource-group-overview.md) dans Azure), chacun disposant de son propre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), des paramètres de [mise à l’échelle](web-sites-scale.md) et de la base de données SQL. 
+-	L’architecture de déploiement est divisée en trois environnements distincts (appelés [groupes de ressources](../resource-group-overview.md) dans Azure), chacun disposant de son propre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), des paramètres de [mise à l’échelle](web-sites-scale.md) et de la base de données SQL.
 -	Chaque environnement peut être géré séparément. Il peut même être couvert par des abonnements différents.
 -	Les phases intermédiaire et de production sont implémentées comme deux emplacements de la même application App Service. La branche principale est configurée pour l’intégration continue avec l’emplacement intermédiaire.
 -	Quand une validation pour la branche principale est vérifiée sur l’emplacement intermédiaire (avec des données de production), l’application intermédiaire vérifiée est permutée dans l’emplacement de production [sans interruption](web-sites-staged-publishing.md).
@@ -60,16 +60,18 @@ Vous utiliserez également la stratégie de création de branchement typique, qu
 
 -	Un compte Azure
 -	Un compte [GitHub](https://github.com/)
--	Git Shell (installé avec [GitHub for Windows](https://windows.github.com/)) - cela permet d’exécuter des commandes PowerShell et Git dans la même session 
+-	Git Shell (installé avec [GitHub for Windows](https://windows.github.com/)) - cela permet d’exécuter des commandes PowerShell et Git dans la même session
 -	Dernières informations [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
 -	Compréhension élémentaire des concepts et outils suivants :
 	-	Déploiement de modèles [Azure Resource Manager](../resource-group-overview.md) (voir également [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. Vous pouvez [activer les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même quand ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps.
+> + Vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 >
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Configurer votre environnement de production ##
 
@@ -121,7 +123,7 @@ Vous venez de configurer l’environnement de production. Vous allez lancer une 
 
 À présent que vous disposez d’une application complexe qui s’exécute en production dans Azure, vous allez effectuer une mise à jour dans votre application en recourant à la méthodologie agile. Dans cette section, vous allez créer les branches de développement et de test dont vous aurez besoin pour effectuer les mises à jour requises.
 
-1.	Créez d’abord l’environnement de test. Dans votre session Git Shell, exécutez les commandes suivantes afin de créer l’environnement pour une nouvelle branche appelée **NewUpdate**. 
+1.	Créez d’abord l’environnement de test. Dans votre session Git Shell, exécutez les commandes suivantes afin de créer l’environnement pour une nouvelle branche appelée **NewUpdate**.
 
 		git checkout -b NewUpdate
 		git push origin NewUpdate 
@@ -280,4 +282,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

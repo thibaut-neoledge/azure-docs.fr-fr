@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Gérer le serveur DNS sur un domaine géré par les services de domaine Azure Active Directory
@@ -118,4 +118,4 @@ Pour en savoir plus sur la gestion du serveur DNS, consultez l’[article relati
 
 - [Outils d’administration DNS](https://technet.microsoft.com/library/cc753579.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

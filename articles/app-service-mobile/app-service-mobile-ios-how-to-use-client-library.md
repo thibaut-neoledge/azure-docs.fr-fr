@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
@@ -792,4 +792,4 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

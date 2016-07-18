@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="mobile"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
     keywords="notification push, notifications push, notifications push iOS, notifications push android, push ios, push android"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc" />
 
 #Notifications Push avec Azure Notification Hubs - Forum aux Questions
@@ -31,7 +31,7 @@ Pour les détails les plus récents, voir la page [Tarification de Concentrateur
 
 Le niveau **Gratuit** est offert à des fins de développement et n’est assorti d’aucune garantie de contrat de niveau service (SLA). Si ce niveau peut être un bon point de départ pour les personnes désireuses d’explorer les fonctionnalités des notifications Push avec Azure Notification Hubs, il ne constitue probablement pas le meilleur choix pour des applications d’échelle moyenne à grande.
 
-Les niveaux **De base** et **Standard** sont destinés à un usage de production, mais les fonctionnalités clés suivantes sont activées *uniquement pour le niveau Standard* :
+Les niveaux **De base** et **Standard** sont destinés à un usage de production, mais les fonctionnalités clés suivantes sont activées *uniquement pour le niveau Standard* :
 
 - *Télémétrie enrichie* - Notification Hubs offre un certain nombre de fonctionnalités pour exporter vos données de télémétrie, ainsi que des informations d’inscription de notification Push destinées à une consultation et à une analyse hors connexion.
 - *Architecture mutualisée* - idéale si vous créez une application mobile à l’aide de Notification Hubs pour prendre en charge plusieurs clients. Vous pourrez alors définir les informations d'identification des services de notifications Push (PNS) au niveau de l'espace de noms du hub de notification pour l'application, puis isoler les locataires en créant pour chacun d'eux un hub distinct sous cet espace de noms commun. Cette architecture offre l’avantage de simplifier la maintenance, tout en permettant de continuer à utiliser des clés SAP pour envoyer et recevoir les notifications Push de hubs de notification isolés pour chaque locataire, en empêchant tout chevauchement entre locataires.
@@ -143,9 +143,9 @@ Pour l’envoi des charges utiles sensibles, nous recommandons toutefois d’uti
 ###1\. En quoi consiste la récupération d'urgence ?
 Nous assurons la couverture de la récupération d’urgence des métadonnées (nom de hub de notification, chaîne de connexion et autres informations critiques). Quand un scénario de récupération d’urgence est déclenché, les données d’inscription sont le **seul segment** de l’infrastructure de Notification Hubs qui est perdu. Vous devez implémenter une solution pour réinsérer ces données dans votre nouveau concentrateur après la récupération.
 
-- *Étape 1* - Créez un hub de notification secondaire dans un autre centre de données. Vous pouvez le créer juste au moment de l’événement de récupération d’urgence ou en créer après le départ. L’option que vous choisissez fait peu de différence, car la configuration du hub de notification est un processus relativement rapide, de l’ordre de quelques secondes. En avoir un dès le début permet de limiter l’impact de l’événement de récupération d’urgence sur vos capacités de gestion. Nous recommandons donc fortement cette option.
+- *Étape 1* - Créez un hub de notification secondaire dans un autre centre de données. Vous pouvez le créer juste au moment de l’événement de récupération d’urgence ou en créer après le départ. L’option que vous choisissez fait peu de différence, car la configuration du hub de notification est un processus relativement rapide, de l’ordre de quelques secondes. En avoir un dès le début permet de limiter l’impact de l’événement de récupération d’urgence sur vos capacités de gestion. Nous recommandons donc fortement cette option.
 
-- *Étape 2* - Alimentez le hub de notification secondaire avec les inscriptions du hub de notification principal. Il est déconseillé de tenter de conserver les inscriptions sur les deux hubs et de les maintenir synchronisées au fur et à mesure de l’arrivée de nouvelles inscriptions. Cela ne fonctionne généralement pas bien en raison de la nature même des inscriptions qui sont destinées à expirer côté PNS. Les inscriptions sont supprimées de Notification Hubs lorsque le PNS nous signale qu'elles ont expiré ou qu'elles ne sont plus valides.
+- *Étape 2* - Alimentez le hub de notification secondaire avec les inscriptions du hub de notification principal. Il est déconseillé de tenter de conserver les inscriptions sur les deux hubs et de les maintenir synchronisées au fur et à mesure de l’arrivée de nouvelles inscriptions. Cela ne fonctionne généralement pas bien en raison de la nature même des inscriptions qui sont destinées à expirer côté PNS. Les inscriptions sont supprimées de Notification Hubs lorsque le PNS nous signale qu'elles ont expiré ou qu'elles ne sont plus valides.
 
 Nous recommandons d'utiliser un serveur principal d'applications qui :
 
@@ -197,7 +197,7 @@ Nous offrons également la possibilité d’exporter les données de télémétr
 [Exportation et modification d’inscriptions en bloc]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [exemples complets]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
-[Tarification de App Service]: https://azure.microsoft.com/pricing/details/app-service/
+[Azure Mobile Apps]: https://azure.microsoft.com/fr-FR/services/app-service/mobile/
+[Tarification de App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="06/30/2016" 
     ms.author="elizapo" />
 
 # Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ?
@@ -50,9 +50,6 @@ Nous vous recommandons également d'utiliser le mode « mise en cache » dans Ou
 
 Consultez [cet article](remoteapp-outlook.md) pour plus d’informations sur l’utilisation d’Outlook et d’Azure RemoteApp.
 
-## Pouvons-nous utiliser des solutions de données partagées ?
-Oui, Azure RemoteApp prend en charge l'utilisation de solutions de données partagées, en particulier OneDrive Entreprise et Dropbox. Notez que OneDrive Consumer (la version personnelle) et Box ne sont pas prises en charge.
-
 ## Qu'en est-il de la redirection ?
 Vous pouvez configurer Azure RemoteApp pour permettre aux utilisateurs d’accéder aux périphériques locaux en configurant une [redirection](remoteapp-redirection.md). Les périphériques locaux pourront ensuite accéder aux données sur l’UPD.
 
@@ -84,7 +81,7 @@ Vous souhaiterez peut-être désactiver les UPD dans les situations suivantes :
 
 - Vous avez besoin d’un accès et d’un contrôle complet des données utilisateur (aux fins d’audit et de vérification ; p. ex., institutions financières).
 - Vous possédez des solutions tierces de gestion des profils utilisateur en local, et souhaitez continuer à les utiliser dans votre déploiement Azure RemoteApp joint à un domaine. Cela nécessiterait le chargement de l’agent de profil dans l’image Gold.
-- Vous n’avez pas besoin de stockage de données local, toutes vos données sont dans le cloud (p. ex., OneDrive Entreprise) ou dans un partage de fichiers, et vous aimeriez contrôler l’enregistrement des données en local à l’aide d’Azure RemoteApp.
+- Vous n’avez pas besoin de stockage de données local, toutes vos données sont dans le cloud ou dans un partage de fichiers, et vous aimeriez contrôler l’enregistrement des données en local à l’aide d’Azure RemoteApp.
 
 Consultez [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) pour plus d’informations.
 
@@ -111,7 +108,6 @@ Non, tous les UPD ont une capacité de stockage de 50 Go. Si vous souhaitez stoc
 3. Chargez le partage de fichiers à l'aide d'un script de démarrage. Voir ci-dessous pour plus d'informations sur les scripts de démarrage dans Azure RemoteApp.
 4. Demandez aux utilisateurs d'enregistrer toutes les données sur le partage de fichiers.
 
-Vous pouvez également utiliser des applications de synchronisation de données comme OneDrive Entreprise.
 
 ## Comment puis-je exécuter un script de démarrage dans Azure RemoteApp ?
 
@@ -121,7 +117,7 @@ Si vous souhaitez exécuter un script de démarrage, commencez par créer une t�
 
 ![Création d’une tâche système qui s'exécute lorsqu'un utilisateur ouvre une session](./media/remoteapp-upd/upd2.png)
 
-Dans l'onglet **Général**, veillez à choisir "BUILTIN\\Users" comme **compte utilisateur** sous Sécurité.
+Dans l’onglet **Général**, veillez à choisir « BUILTIN\\Users » comme **compte utilisateur** sous Sécurité.
 
 ![Remplacement du compte d'utilisateur par un groupe](./media/remoteapp-upd/upd4.png)
 
@@ -143,7 +139,7 @@ Non, cette fonctionnalité n’est pas prise en charge dans Azure RemoteApp.
 
 ## Est-il possible de stocker localement des données sur la machine virtuelle ?
 
-NON, les données stockées sur la machine virtuelle ailleurs que dans l'UPD seront perdues. Il est fort probable que l'utilisateur ne recevra pas la même machine virtuelle la prochaine fois qu'il se connecte à Azure RemoteApp. Les machines virtuelles n'étant pas dédiées à un utilisateur spécifique, celui-ci ne se connecte donc pas à la même machine virtuelle, et les données seront perdues. En outre, lorsque nous mettre à jour la collection, les machines virtuelles existantes sont remplacées par un nouvel ensemble de machines virtuelles - ce qui signifie que toutes les données stockées sur la machine virtuelle elle-même sont perdues. Il est recommandé de stocker les données dans l'UPD, un stockage partagé comme des fichiers Azure, un serveur de fichiers à l'intérieur d'un réseau virtuel, ou sur le cloud à l'aide de OneDrive Entreprise ou un autre système de stockage cloud pris en charge comme DropBox.
+NON, les données stockées sur la machine virtuelle ailleurs que dans l'UPD seront perdues. Il est fort probable que l'utilisateur ne recevra pas la même machine virtuelle la prochaine fois qu'il se connecte à Azure RemoteApp. Les machines virtuelles n'étant pas dédiées à un utilisateur spécifique, celui-ci ne se connecte donc pas à la même machine virtuelle, et les données seront perdues. En outre, lorsque nous mettre à jour la collection, les machines virtuelles existantes sont remplacées par un nouvel ensemble de machines virtuelles - ce qui signifie que toutes les données stockées sur la machine virtuelle elle-même sont perdues. Il est recommandé de stocker les données dans l’UPD, un stockage partagé comme des fichiers Azure, un serveur de fichiers à l’intérieur d’un réseau virtuel, ou sur le cloud à l’aide d’un système de stockage cloud pris en charge comme DropBox.
 
 ## Comment monter un partage de fichiers Azure sur une machine virtuelle à l'aide de PowerShell ?
 
@@ -159,4 +155,4 @@ Vous pouvez également enregistrer vos informations d'identification en exécuta
 
 Vous pouvez ainsi ignorer le paramètre -Credential dans l'applet de commande New-PSDrive.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -34,7 +34,7 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 
 | Restauration de base de données | Niveau de base | Niveaux Standard | Niveaux Premium |
 | :-- | :-- | :-- | :-- |
-| Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours|Tout point de restauration dans un délai de 14 jours| Tout point de restauration dans un délai de 35 jours|
+| Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours|Tout point de restauration dans un délai de 35 jours| Tout point de restauration dans un délai de 35 jours|
 
 ## Copie de la table à partir de la base de données restaurée à l’aide de l’outil Migration de base de données SQL
 1. Téléchargez et installez [l’Assistant Migration de base de données SQL](https://sqlazuremw.codeplex.com).
@@ -71,4 +71,4 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 
 [Sauvegardes automatiques d’une base de données SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

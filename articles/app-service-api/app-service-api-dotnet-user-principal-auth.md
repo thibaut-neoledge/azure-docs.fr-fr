@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="06/30/2016"
 	ms.author="tdykstra"/>
 
 # Authentification utilisateur pour API Apps dans Azure App Service
@@ -91,7 +91,7 @@ L’application s’exécute désormais dans Azure App Service sans exiger que l
 
 * Configurez App Service pour qu’elle exige une authentification Azure Active Directory (Azure AD) pour appeler l’application API de niveau intermédiaire.
 * Créez une application Azure AD.
-* Configurez l’application Azure AD pour envoyer le jeton de porteur après la connexion au frontal AngularJS. 
+* Configurez l’application Azure AD pour envoyer le jeton de porteur après la connexion au frontal AngularJS.
 
 Si vous rencontrez des problèmes en suivant les instructions du didacticiel, consultez la section [Résolution de problèmes](#troubleshooting) à la fin du didacticiel.
  
@@ -115,7 +115,7 @@ Si vous rencontrez des problèmes en suivant les instructions du didacticiel, co
 
 	![Option Express du panneau Authentification/Autorisation du portail Azure](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-	Avec l’option **Express**, App Service permet à Azure AD de créer automatiquement une application Azure AD dans le [client](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant).
+	Avec l’option **Express**, App Service permet à Azure AD de créer automatiquement une application Azure AD dans le [client](https://msdn.microsoft.com/fr-FR/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant).
 
 	Vous n’avez pas à créer un client, car chaque compte Azure en possède un.
 
@@ -135,7 +135,7 @@ Maintenant, seuls les utilisateurs de votre client Azure AD peuvent appeler l’
 
 ### Facultatif : tester l’application API
 
-1. Dans un navigateur, accédez à l’URL de l’application API : dans le panneau **Application API** du portail Azure, cliquez sur le lien situé sous **URL**.  
+1. Dans un navigateur, accédez à l’URL de l’application API : dans le panneau **Application API** du portail Azure, cliquez sur le lien situé sous **URL**.
 
 	Vous êtes redirigé vers un écran de connexion, car les demandes non authentifiées ne sont pas autorisées à atteindre l’application API.
 
@@ -271,7 +271,7 @@ Apportez les modifications suivantes au projet ToDoListAngular.
 
 ## Configurer le projet ToDoListAPI pour utiliser l’authentification
 
-Pour le moment, le projet ToDoListAPI envoie « * » comme valeur `owner` pour ToDoListDataAPI. Dans cette section, vous allez modifier le code pour envoyer l’ID de l’utilisateur connecté.
+Pour le moment, le projet ToDoListAPI envoie « * » comme valeur `owner` pour ToDoListDataAPI. Dans cette section, vous allez modifier le code pour envoyer l’ID de l’utilisateur connecté.
 
 Apportez les modifications suivantes au projet ToDoListAPI.
 
@@ -305,7 +305,7 @@ Apportez les modifications suivantes au projet ToDoListAPI.
 
 	![Page To Do List](./media/app-service-api-dotnet-user-principal-auth/webappindex.png)
 
-	Aucune tâche ne s’affiche, car jusqu’ici, elles étaient toutes pour le propriétaire « * ». Maintenant le niveau intermédiaire demande des éléments pour l’utilisateur connecté, et aucun n’a encore été créé.
+	Aucune tâche ne s’affiche, car jusqu’ici, elles étaient toutes pour le propriétaire « * ». Maintenant le niveau intermédiaire demande des éléments pour l’utilisateur connecté, et aucun n’a encore été créé.
 
 11. Ajoutez de nouveaux éléments de tâche pour vérifier que l’application fonctionne.
 
@@ -329,11 +329,11 @@ Pour plus d’informations sur la création d’une application à page unique A
 
 [AZURE.INCLUDE [résolution des problèmes](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* Assurez-vous de ne pas confondre ToDoListAPI (niveau intermédiaire) et ToDoListDataAPI (couche de données). Par exemple, vérifiez que vous avez ajouté l’authentification à l’application API de niveau intermédiaire, pas la couche de données. 
-* Assurez-vous que le code source AngularJS fait référence à l’URL de l’application API de niveau intermédiaire (ToDoListAPI, pas ToDoListDataAPI) et à l’ID client correct d’Azure AD. 
+* Assurez-vous de ne pas confondre ToDoListAPI (niveau intermédiaire) et ToDoListDataAPI (couche de données). Par exemple, vérifiez que vous avez ajouté l’authentification à l’application API de niveau intermédiaire, pas la couche de données.
+* Assurez-vous que le code source AngularJS fait référence à l’URL de l’application API de niveau intermédiaire (ToDoListAPI, pas ToDoListDataAPI) et à l’ID client correct d’Azure AD.
 
 ## Étapes suivantes
 
 Ce didacticiel vous a montré comment utiliser l’authentification du Service d’application pour une application API et comment appeler l’application API à l’aide de la bibliothèque ADAL JS. Dans le didacticiel suivant, vous allez découvrir comment [sécuriser l’accès à votre application API pour les scénarios de service à service](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

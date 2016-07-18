@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
@@ -31,13 +31,13 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 1. Dans MainStoryboard\_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d’objets :
 
-	+ **Étiquette** : « Envoi d’une notification Push à l’utilisateur avec Notification Hubs »
-	+ **Étiquette** : « InstallationId »
-	+ **Étiquette** : « Utilisateur »
-	+ **Zone de texte** : « Utilisateur »
-	+ **Étiquette** : « Mot de passe »
-	+ **Zone de texte** : « Mot de passe »
-	+ **Bouton** : « Connexion »
+	+ **Étiquette** : « Envoi d’une notification Push à l’utilisateur avec Notification Hubs »
+	+ **Étiquette** : « InstallationId »
+	+ **Étiquette** : « Utilisateur »
+	+ **Zone de texte** : « Utilisateur »
+	+ **Étiquette** : « Mot de passe »
+	+ **Zone de texte** : « Mot de passe »
+	+ **Bouton** : « Connexion »
 
 	À ce stade, votre storyboard a normalement l’aspect suivant :
 
@@ -236,4 +236,4 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 
 [Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

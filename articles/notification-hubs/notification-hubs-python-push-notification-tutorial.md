@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs à partir de Python
@@ -28,8 +28,8 @@ Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir 
 Dans cette rubrique, nous vous montrons comment :
 
 * créer un client REST pour les fonctionnalités de Notification Hubs dans Python ;
-* envoyer des notifications à l’aide de l’interface de Python vers les API REST Notification Hub ; 
-* obtenir un vidage de la demande/réponse HTTP REST à des fins pédagogiques/de débogage. 
+* envoyer des notifications à l’aide de l’interface de Python vers les API REST Notification Hub ;
+* obtenir un vidage de la demande/réponse HTTP REST à des fins pédagogiques/de débogage.
 
 Vous pouvez suivre le [didacticiel de prise en main](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal dans Python.
 
@@ -320,7 +320,7 @@ Quand vous activez l'indicateur de débogage pendant l'initialisation de la clas
 
 Vous verrez un résultat détaillé de hub de notification, par exemple
 
-- lorsque le message est envoyé au service de notification Push. 
+- lorsque le message est envoyé au service de notification Push.
 	
 		<Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
 
@@ -391,4 +391,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

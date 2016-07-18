@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
@@ -37,7 +37,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 
 La première étape consiste à ajouter des éléments de l’interface utilisateur à votre page principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises.
 
-1. Ouvrez le fichier projet MainPage.xaml, puis copiez le code suivant dans l'élément **Grid** :
+1. Ouvrez le fichier projet MainPage.xaml, puis copiez le code suivant dans l'élément **Grid** :
 
         <Grid>
             <Grid.RowDefinitions>
@@ -69,7 +69,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 		using Windows.Storage;
 		using System.Threading.Tasks;
 
-3. Ajoutez le code suivant dans la nouvelle classe **Notifications** :
+3. Ajoutez le code suivant dans la nouvelle classe **Notifications** :
 
 		private NotificationHub hub;
 
@@ -120,7 +120,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
 
 
-4. Dans le fichier projet App.xaml.cs, ajoutez la propriété suivante à la classe **App** :
+4. Dans le fichier projet App.xaml.cs, ajoutez la propriété suivante à la classe **App** :
 
 		public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
 
@@ -174,7 +174,7 @@ Les étapes suivantes permettent l’inscription auprès du concentrateur de not
 
 	Cette opération garantit que chaque fois que l'application démarre, elle récupère les catégories du stockage local et demande une inscription pour ces catégories. La méthode **InitNotificationsAsync** a été créée dans le cadre du didacticiel [Prise en main de Notification Hubs][get-started].
 
-3. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant à la méthode *OnNavigatedTo* :
+3. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant à la méthode *OnNavigatedTo* :
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -258,4 +258,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

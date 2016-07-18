@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Prise en main des API Text Analytics pour détecter le sentiment, les expressions clés et la langue
@@ -24,7 +24,7 @@ Ce document décrit comment intégrer votre service ou application pour utiliser
 
 Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour obtenir des informations techniques sur les API.
 
-Ce guide concerne la version 2 des API. Pour plus d’informations sur la version 1 des API, [consultez ce document](../machine-learning-apps-text-analytics/).
+Ce guide concerne la version 2 des API. Pour plus d’informations sur la version 1 des API, [consultez ce document](../machine-learning/machine-learning-apps-text-analytics.md).
 
 À la fin de ce didacticiel, vous serez en mesure de détecter par programmation les informations suivantes :
 
@@ -66,22 +66,32 @@ Vous pouvez facilement détecter le sentiment, les expressions clés et les lang
 
 >[AZURE.TIP] Pour l’analyse de sentiment, nous vous recommandons de fractionner le texte en phrases. Cela vous permettra généralement d’obtenir des prédictions de sentiment plus précises.
 
+Notez que les langues prises en charge sont les suivantes :
+
+| Fonctionnalité | Codes des langues prises en charge |
+|:-----|:----|
+| Sentiments | `en` (Anglais), `es` (Espagnol), `fr` (Français), `pt` (Portugais) |
+| Expressions clés | `en` (Anglais), `es` (Espagnol), `de` (Allemand), `ja` (Japonais) |
+
+
 1. Définissez les en-têtes comme ci-dessous. Notez que JSON est actuellement le seul format d’entrée accepté pour les API. XML n’est pas pris en charge.
 
 		Ocp-Apim-Subscription-Key: <your API key>
 		Content-Type: application/json
 		Accept: application/json
 
-1. Ensuite, mettez vos lignes d’entrée au format JSON. Le format est le même pour la détection du sentiment, des expressions clés et de la langue. Chaque ID doit être unique. Il correspond à l’ID renvoyé par le système. La taille maximale par document envoyé est de 10 Ko et la taille totale maximale de l’entrée envoyée est de 1 Mo. Vous ne pouvez pas envoyer plus de 1 000 documents dans un seul appel. Voici un exemple d’entrée :
+1. Ensuite, mettez vos lignes d’entrée au format JSON. Le format est le même pour la détection du sentiment, des expressions clés et de la langue. Chaque ID doit être unique. Il correspond à l’ID renvoyé par le système. La taille maximale par document envoyé est de 10 Ko et la taille totale maximale de l’entrée envoyée est de 1 Mo. Vous ne pouvez pas envoyer plus de 1 000 documents dans un seul appel. La langue est un paramètre optionnel qui doit être spécifié si vous analysez du texte dans une langue autre que l’anglais. Vous trouverez ci-dessous un exemple d’entrée, où le paramètre facultatif `language` pour l’analyse des sentiments ou l’extraction d’expressions clés est inclus :
 
 		{
 			"documents": [
 				{
+					"language": "en",
 					"id": "1",
 					"text": "First document"
 				},
                 ...
                 {
+					"language": "en",
 					"id": "100",
 					"text": "Final document"
 				}
@@ -153,13 +163,12 @@ Vous pouvez facilement détecter le sentiment, les expressions clés et les lang
 			]
 		}
 
-        
 
 ## Tâche 3 : Détecter les rubriques dans un corpus de texte ####
 
 Il s'agit d'une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une expression clé, représentée par un ou plusieurs mots associés. L'API est conçue pour fonctionner correctement avec un texte court écrit par un humain, par exemple des évaluations et des commentaires d’utilisateurs.
 
-Cette API nécessite l’envoi de **100 enregistrements texte au minimum**, mais elle est conçue pour détecter des rubriques parmi des centaines, voire des milliers d’enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo.
+Cette API nécessite l’envoi **d’au moins 100 enregistrements texte**, mais elle est conçue pour détecter des rubriques parmi des centaines de milliers d'enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo.
 
 Vous pouvez utiliser deux paramètres d’entrée **facultatifs** supplémentaires pour améliorer la qualité des résultats :
 
@@ -206,7 +215,7 @@ Suivez ces étapes pour détecter les rubriques dans votre texte.
 
 		{
 			"status": "succeeded",
-			"processingResult": {
+			"operationProcessingResult": {
 			  	"topics": [
                     {
 					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
@@ -284,4 +293,4 @@ Les explications concernant chaque partie de la réponse sont les suivantes :
 
 Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -29,14 +29,14 @@ Les applications hybrides locales et dans le cloud sont une réalité des enviro
 
 - [Création d’une application hybride .NET locale/dans le cloud avec Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 - [Utilisation de Service Bus Relay (vidéo et exemple de code)](http://appfabricdemos.codeplex.com/releases/view/67597)
-- [Intégration d’un site Web Azure avec une application métier via Service Bus Relay](https://code.msdn.microsoft.com/How-to-integrate-a-Windows-f1fedff8) 
+- [Intégration d’un site Web Azure avec une application métier via Service Bus Relay](https://code.msdn.microsoft.com/How-to-integrate-a-Windows-f1fedff8)
 - [Géo-réplication avec la messagerie par relais Service Bus](http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd)
 - [Intégration d’un service mobile à un service Service Bus Relay REST](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
  
 ## Populaire
 
 - [Informations sur la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
-- [FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md)
+- [FAQ Service Bus](service-bus-faq.md)
 - [Référence de l’API REST de Service Bus](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 - [Ouvrir gratuitement un compte Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
@@ -44,7 +44,7 @@ Les applications hybrides locales et dans le cloud sont une réalité des enviro
 
 - [BizTalk Services](https://azure.microsoft.com/services/biztalk-services/)
 - [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)
-- [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
+- [Cloud Services](https://azure.microsoft.com/services/cloud-services/)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/29/2016"
+	ms.date="06/30/2016"
 	ms.author="carlrab" />
 
 # Guide des performances de base de données SQL Azure pour les bases de données uniques
@@ -23,7 +23,7 @@
 
 La base de données SQL Microsoft Azure compte trois [niveaux de service](sql-database-service-tiers.md) : De base, Standard et Premium. Tous ces niveaux isolent strictement les ressources fournies à votre base de données SQL Azure et garantissent des performances prévisibles. Le débit garanti pour votre base de données augmente du niveau De base à Standard, puis passe à Premium.
 
->[AZURE.NOTE] Les niveaux de service Web et Business seront retirés en septembre 2015. Pour en savoir plus, voir [Forum aux questions sur la disparition des éditions Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Pour plus d’informations sur la mise à niveau des bases de données Web et Business existantes vers les nouveaux niveaux de service, consultez [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-server-portal.md).
+>[AZURE.NOTE] Les niveaux de service Web et Business ont été retirés en septembre 2015. Pour en savoir plus, voir [Forum aux questions sur la disparition des éditions Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Pour plus d’informations sur la mise à niveau des bases de données Web et Business existantes vers les nouveaux niveaux de service, consultez [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-server-portal.md).
 
 Ce document fournit des conseils pour vous aider à déterminer le niveau de service adapté à votre application, ainsi que des recommandations pour le paramétrage de votre application afin que vous tiriez le meilleur parti de votre base de données SQL Azure.
 
@@ -206,7 +206,7 @@ Pour les autres requêtes, consultez les exemples dans [sys.dm\_db\_resource\_st
 
 ### Avec sys.resource\_stats
 
-La vue [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) de la base de données **master** fournit des informations supplémentaires pour analyser l'utilisation des performances de votre base de données SQL au sein de son niveau de service et de performance spécifique. Les données sont collectées toutes les cinq minutes et conservées pendant environ 14 jours. Cette vue est plus utile pour l'analyse historique à long terme de votre utilisation des ressources de base de données SQL.
+La vue [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) de la base de données **master** fournit des informations supplémentaires pour analyser l'utilisation des performances de votre base de données SQL au sein de son niveau de service et de performance spécifique. Les données sont collectées toutes les cinq minutes et conservées pendant environ 35 jours. Cette vue est plus utile pour l'analyse historique à long terme de votre utilisation des ressources de base de données SQL.
 
 Le graphique suivant illustre l’utilisation des ressources d’UC pour les bases de données Premium avec un niveau de performances P2 pour chaque heure de la semaine. Ce graphique spécifique commence un lundi, affiche 5 journées de travail, puis un week-end où l’application connaît une activité réduite.
 
@@ -507,4 +507,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

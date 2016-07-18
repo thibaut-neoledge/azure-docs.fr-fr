@@ -52,7 +52,7 @@ Selon l’utilisation de votre base de données, vous pouvez actuellement rencon
 | Recommandation | Description |
 | :--- | :--- |
 | Mise à niveau | Mise à niveau vers un nouveau niveau. |
-| Non disponible | Une base de données requiert une charge de travail minimale, ou environ 14 jours d’activité. Il n’existe pas suffisamment de données pour fournir une recommandation valide. |
+| Non disponible | Une base de données requiert une charge de travail minimale, ou environ 35 jours d’activité. Il n’existe pas suffisamment de données pour fournir une recommandation valide. |
 
 ## Obtenir des recommandations sur les niveaux tarifaires
 
@@ -96,4 +96,4 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -52,6 +52,10 @@ Oui. Pour obtenir des instructions, consultez [Création d’une copie d’une m
 
 ## Pourquoi ne vois-je pas les régions Centre et Est du Canada dans Azure Resource Manager ?
 
-Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquement lors de la création de machines virtuelles pour des abonnements Azure. Cet enregistrement s’effectue automatiquement lorsqu’une machine virtuelle est déployée via le portail Azure dans n’importe quelle autre région à l’aide d’Azure Resource Manager. Une fois une machine virtuelle déployée dans une autre région Azure, les nouvelles régions doivent être disponibles pour les machines virtuelles suivantes.
+Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquement lors de la création de machines virtuelles pour des abonnements Azure. Cet enregistrement s’effectue lorsqu’une machine virtuelle est déployée via le portail Azure dans n’importe quelle autre région à l’aide d’Azure Resource Manager. Une fois une machine virtuelle déployée dans une autre région Azure, les nouvelles régions doivent être disponibles pour les machines virtuelles suivantes.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Puis-je ajouter une carte réseau à ma machine virtuelle après sa création ?
+
+Non. Actuellement, cela n’est possible qu’au moment de la création.
+
+<!---HONumber=AcomDC_0706_2016-->

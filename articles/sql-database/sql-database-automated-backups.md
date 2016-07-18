@@ -18,7 +18,7 @@
 
 # Sauvegardes automatisées d’une base de données SQL
 
-Le service de base de données SQL Azure protège toutes les bases de données grâce à une sauvegarde automatisée conservée pendant 7 jours en mode de base, 14 jours en mode standard et 35 jours en mode premium. Consultez la page [Niveaux de service](sql-database-service-tiers.md) pour plus d’informations sur les fonctionnalités disponibles avec chaque niveau de service.
+Le service de base de données SQL Azure protège toutes les bases de données grâce à une sauvegarde automatisée conservée pendant 7 jours en mode de base, 35 jours en mode standard et 35 jours en mode premium. Consultez la page [Niveaux de service](sql-database-service-tiers.md) pour plus d’informations sur les fonctionnalités disponibles avec chaque niveau de service.
 
 Les sauvegardes de base de données sont effectuées automatiquement sans avoir à activer quoi que ce soit, et n’entraînent aucuns frais supplémentaires. Ces sauvegardes automatisées et la limite de restauration dans le temps permettent de protéger vos bases de données sans frais et sans administration contre les altérations ou suppressions accidentelles, quelle qu’en soit la cause. Vous pouvez utiliser ces sauvegardes automatisées pour effectuer des restaurations dans le temps et pour restaurer une base de données supprimée après une altération ou suppression accidentelle de données.
 
@@ -48,7 +48,7 @@ Vous pouvez également utiliser les [sauvegardes automatisées d’une base de d
 
 ## Que se passe-t-il pour la période de rétention du point de restauration lorsque je mets à niveau vers une version antérieure/supérieure par niveau de service ?
 
-Après la mise à niveau vers un niveau de performances inférieur, la période de rétention du point de restauration est immédiatement tronquée en fonction de la période de rétention du niveau de performances de la base de données actuelle. Si le niveau de service de la base de données est mis à niveau, la période de rétention s'étendra uniquement après la mise à niveau de la base de données. Par exemple, si la base de données est mise à niveau de P1 vers S3, la période de rétention passera immédiatement de 35 jours à 14 jours. Tous les points de restauration antérieurs à 14 jours ne seront plus disponibles. Par la suite, si la base de données est remise à niveau vers P1, la période de rétention commencera à 14 jours et s'étendra jusqu'à 35 jours.
+Après la mise à niveau vers un niveau de performances inférieur, la période de rétention du point de restauration est immédiatement tronquée en fonction de la période de rétention du niveau de performances de la base de données actuelle. Si le niveau de service de la base de données est mis à niveau, la période de rétention s'étendra uniquement après la mise à niveau de la base de données. Par exemple, si la base de données est mise à niveau de P1 vers S3, la période de rétention passera immédiatement de 35 jours à 35 jours. Tous les points de restauration antérieurs à 35 jours ne seront plus disponibles. Par la suite, si la base de données est remise à niveau vers P1, la période de rétention commencera à 35 jours et s’étendra jusqu’à 35 jours.
 
 ## Quelle est la durée d'une période de rétention pour une base de données supprimée ? 
 La période de rétention est déterminée par le niveau de service de la base de données au moment de son existence ou le nombre de jours pendant laquelle la base de données existe, quel que soit le chiffre inférieur.
@@ -62,4 +62,4 @@ La période de rétention est déterminée par le niveau de service de la base d
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 - Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

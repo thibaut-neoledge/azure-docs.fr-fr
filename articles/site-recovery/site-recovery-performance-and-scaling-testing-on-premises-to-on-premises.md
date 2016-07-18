@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Test des performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local avec Site Recovery
@@ -208,4 +208,4 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
 - [Configuration de la protection entre des sites VMM locaux](site-recovery-vmm-to-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

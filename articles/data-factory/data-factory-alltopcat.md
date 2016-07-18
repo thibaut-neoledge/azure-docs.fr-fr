@@ -44,12 +44,8 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | [Créer votre première fabrique de données Azure à l’aide du portail Azure et de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) | Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure. |
 | [Créer votre première fabrique de données Azure à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l'aide d'Azure PowerShell. |
 | [Didacticiel : concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) | Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory en utilisant un modèle Azure Resource Manager. |
-| [Didacticiel : créer votre première fabrique de données (vue d'ensemble)](data-factory-build-your-first-pipeline.md) | Ce didacticiel vous montre comment créer une fabrique de données avec un pipeline de données qui transforme des données avec Azure HDInsight. |
-| [Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-get-started.md) | Ce didacticiel vous montre comment utiliser l'activité de copie dans un pipeline Azure Data Factory pour copier des données depuis un objet blob Azure vers une base de données SQL Azure. |
-| [Didacticiel : Créer un pipeline avec l'activité de copie à l'aide d'Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide d'Azure PowerShell. |
+| [Didacticiel : créer votre première fabrique de données (vue d'ensemble)](data-factory-build-your-first-pipeline.md) | Ce didacticiel vous montre comment créer une fabrique de données avec un pipeline de données qui transforme des données avec Azure HDInsight. |
 | [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) | Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie en vous servant de Data Factory Editor pris en charge par le portail Azure. |
-| [Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor](data-factory-get-started-using-editor.md) | Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Data Factory Editor dans le portail Azure. |
-| [Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Visual Studio](data-factory-get-started-using-vs.md) | Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Visual Studio. |
 
 ## Déplacement des données
 
@@ -133,7 +129,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | :-- | :-- |
 | [Azure Data Factory : Journal des modifications de l’API .NET](data-factory-api-change-log.md) | Décrit les dernières modifications, les ajouts de fonctionnalités, les correctifs de bogues, etc., d’une version spécifique de l'API .NET de Azure Data Factory. |
 | [Référence du développeur Azure Data Factory](data-factory-sdks.md) | Découvrez les différentes façons de créer, surveiller et gérer des fabriques de données Azure. |
-| [Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET](data-factory-create-data-factories-programmatically.md) | Découvrez comment créer, analyser et gérer par programmation des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory. |
+| [Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET](data-factory-create-data-factories-programmatically.md) | Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK. |
 
 
 ## Divers
@@ -151,10 +147,10 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 - [Recherche dans la documentation de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 
-- [Affichage des dernières mises à jour du service Data Factory](http://azure.microsoft.com/updates/?service=data-factory)
+- [Affichage des dernières mises à jour du service data-factory](http://azure.microsoft.com/updates/?service=data-factory)
 
 - [Graphique du parcours d’apprentissage des services Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
 
 - Graphique du parcours d’apprentissage : [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

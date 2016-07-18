@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Déploiement et gestion des concentrateurs de notification à l'aide de PowerShell
@@ -96,7 +96,7 @@ Pour approvisionner un hub de notification, utilisez l’[API .NET pour Notifica
 Dans cette partie du script, nous allons créer quatre variables locales supplémentaires.
 
 1. `$Namespace` : définissez cette variable sur le nom de l’espace de noms dans lequel vous souhaitez créer un hub de notification.
-2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification. Par exemple, « MonConcentrateur ».    
+2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification. Par exemple, « MonConcentrateur ».
 3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 4. `$WnsSecretkey` : définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
@@ -172,4 +172,4 @@ Vous pouvez également télécharger des scripts prêts à l’emploi :
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

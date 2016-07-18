@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="06/29/2016"
 	ms.author="larryfr"/>
 
-#Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)
+#Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop) sous Linux
 
 Apprenez à créer et à générer une application [Apache HBase](http://hbase.apache.org/) dans Java à l'aide d'Apache Maven. Puis utilisez l’application avec un cluster HDInsight Linux.
 
 [Maven](http://maven.apache.org/) est un outil de gestion de projets logiciels et d'inclusion qui vous permet de créer des logiciels, de la documentation et des rapports pour les projets Java. Dans cet article, vous apprendrez à l’utiliser de façon à créer une application Java de base permettant de créer ou de supprimer une table HBase dans un cluster HDInsight Linux, ainsi que de lui envoyer des requêtes.
+
+> [AZURE.NOTE] Les étapes présentes dans ce document supposent que vous utilisez un cluster HDInsight Linux. Pour plus d’informations sur l’utilisation d’un cluster HDInsight basé sur Windows, voir [Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight sous Linux](hdinsight-hbase-build-java-maven.md)
 
 ##Configuration requise
 
@@ -29,6 +31,8 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 * [Maven](http://maven.apache.org/)
 
 * [Un cluster Azure HDInsight sous Linux avec HBase](../hdinsight-hbase-get-started-linux.md#create-hbase-cluster)
+
+    > [AZURE.NOTE] Les étapes décrites dans ce document ont été testées avec des versions de cluster HDInsight 3.2, 3.3 et 3.4. Les valeurs par défaut fournies dans les exemples concernent un cluster HDInsight 3.4.
 
 * **Des connaissances en SSH et SCP**. Pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
 
@@ -59,10 +63,29 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 		<dependency>
       	  <groupId>org.apache.hbase</groupId>
           <artifactId>hbase-client</artifactId>
-          <version>0.98.4-hadoop2</version>
+          <version>1.1.2</version>
         </dependency>
 
-	Cela indique à Maven que le projet nécessite __hbase-client__ version __0.98.4-hadoop2__. Au moment de la compilation, il sera téléchargé à partir du référentiel Maven par défaut. Vous pouvez utiliser la [Recherche du référentiel central Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) pour en savoir plus sur cette dépendance.
+	Cela indique à Maven que le projet nécessite __hbase-client__ version __1.1.2__. Au moment de la compilation, il sera téléchargé à partir du référentiel Maven par défaut. Vous pouvez utiliser la [Recherche du référentiel central Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) pour en savoir plus sur cette dépendance.
+
+    > [AZURE.IMPORTANT] Le numéro de version doit correspondre à la version de HBase fournie avec votre cluster HDInsight. Utilisez le tableau suivant pour trouver le numéro de version correct.
+
+    | Version de cluster HDInsight | Version HBase à utiliser |
+    | ----- | ----- |
+    | 3\.2 | 0\.98.4-hadoop2 |
+    | 3\.3 et 3.4 | 1\.1.2 |
+
+    Pour plus d’informations sur les versions et composants HDInsight, voir [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](hdinsight-component-versioning.md)
+
+2. Si vous utilisez un cluster HDInsight 3.3 ou 3.4, vous devez également ajouter le code suivant à la section `<dependencies>` :
+
+        <dependency>
+            <groupId>org.apache.phoenix</groupId>
+            <artifactId>phoenix-core</artifactId>
+            <version>4.4.0-HBase-1.1</version>
+        </dependency>
+    
+    Cette opération charge les composants de base phoenix nécessaires à Hbase version 1.1.x.
 
 2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
 
@@ -83,8 +106,8 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
         	  <artifactId>maven-compiler-plugin</artifactId>
 						<version>3.3</version>
         	  <configuration>
-          	    <source>1.6</source>
-          	    <target>1.6</target>
+          	    <source>1.7</source>
+          	    <target>1.7</target>
         	  </configuration>
       		</plugin>
 		    <plugin>
@@ -163,7 +186,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
             //NOTE: Actual zookeeper host names can be found using Ambari:
             //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
             
-            //Linux-based HDInsight clusters don't use the default znode parent
+            //Linux-based HDInsight clusters use /hbase-unsecure as the znode parent
             config.set("zookeeper.znode.parent","/hbase-unsecure");
 
             // create an admin object using the config
@@ -367,4 +390,4 @@ Lorsque vous avez terminé, utilisez la commande ci-après dans la session Azure
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

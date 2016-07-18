@@ -33,7 +33,7 @@ Les abonnements Office 365 incluent les fonctionnalités Azure Active Directory 
 > [AZURE.NOTE] Pour les options de tarification de ces éditions, consultez la [tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Les éditions Azure Active Directory Premium et Azure Active Directory de base ne sont actuellement pas prises en charge en Chine. Pour plus d’informations, contactez-nous via le Forum Azure Active Directory.
 
 
-- **Azure Active Directory - version de base** : Conçue pour les employés avec des besoins principalement centrés sur le cloud, cette édition offre un accès aux applications avec des besoins principalement centrés sur le cloud ainsi que des solutions de gestion des identités en libre-service. Avec l’édition de base d’Azure Active Directory, vous disposez de fonctionnalités qui améliorent votre productivité et réduisent vos coûts comme la gestion d’accès basée sur les groupes, la réinitialisation libre-service du mot de passe pour les applications cloud et un proxy d’application Azure Active Directory (pour publier des applications web locales à l’aide d’Azure Active Directory). Le tout, avec un contrat SLA pour professionnel qui fournit 99,9 % de disponibilité.
+- **Azure Active Directory - version de base** : Conçue pour les employés avec des besoins principalement centrés sur le cloud, cette édition offre un accès aux applications avec des besoins principalement centrés sur le cloud ainsi que des solutions de gestion des identités en libre-service. Avec l’édition de base d’Azure Active Directory, vous disposez de fonctionnalités qui améliorent votre productivité et réduisent vos coûts comme la gestion d’accès basée sur les groupes, la réinitialisation libre-service du mot de passe pour les applications cloud et un proxy d’application Azure Active Directory (pour publier des applications web locales à l’aide d’Azure Active Directory). Le tout, avec un contrat SLA pour professionnel qui fournit 99,9 % de disponibilité.
  
 - **Azure Active Directory - version Premium** : Conçue pour permettre aux entreprises avec des besoins d’identification et de gestion des accès plus élevés, la version Premium d’Azure Active Directory ajoute des fonctionnalités de gestion des identités de niveau professionnel et permet aux utilisateurs hybrides d'accéder en toute transparence aux fonctionnalités locaux et disponibles sur le cloud. Cette édition inclut tout ce dont vous avez besoin pour les travailleurs de l'information et les administrateurs d'identités dans les environnements hybrides grâce à un accès inter-applications, à une gestion des identités et de l’accès en libre-service (IAM), à la protection des identités et à la sécurité dans le cloud. Elle prend en charge des ressources d'administration et de délégation avancées telles que des groupes dynamiques et la gestion de groupes en libre-service. Elle inclut Microsoft Identity Manager (une suite de gestion locale des identités et des accès) et fournit des fonctionnalités d'écriture différée sur le cloud offrant aux utilisateurs locaux des solutions comme la réinitialisation en libre-service du mot de passe du service.
 
@@ -64,7 +64,7 @@ Plusieurs fonctionnalités Azure Active Directory sont disponibles via les édit
 
 **Fonctionnalités communes**
 
-- [Objets d’annuaire](#directory-objects) 
+- [Objets d’annuaire](#directory-objects)
 
 - [Gestion des groupes/utilisateurs (ajout/mise à jour/suppression)/ approvisionnement basé sur l’utilisateur, inscription d’appareil](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 
@@ -163,11 +163,11 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite| Édition de base| Édition Premium| Applications Office 365 uniquement |
 | :-: | :-: | :-: | :-: |
-| 10 applications par utilisateur [1] (applications SaaS pré-intégrées et applications intégrées par le développeur)| 10 applications par utilisateur [1] (niveau gratuit + proxy d’application) | Aucune limite [2] (niveaux gratuit et de base + modèles d’intégration d’applications libre-service)| 10 applications par utilisateur [1] (applications SaaS pré-intégrées et applications intégrées par le développeur)|
+| 10 applications par utilisateur (1) | 10 applications par utilisateur (1) | Aucune limite (2) | 10 applications par utilisateur (1)|
 
-[1] Avec les niveaux Gratuit et De base d’Azure AD, les utilisateurs finaux qui bénéficient d’un accès aux applications SaaS peuvent visualiser jusqu’à 10 applications dans leur volet d’accès et y accéder par le biais de l’authentification unique. Dans ces deux niveaux, les administrateurs peuvent configurer l’authentification unique et attribuer aux utilisateurs un accès à un nombre illimité d’applications SaaS. À noter toutefois que les utilisateurs ne pourront afficher que 10 applications à la fois dans leur volet d’accès.
+1. Avec les niveaux Gratuit et De base d’Azure AD, les utilisateurs finaux qui bénéficient d’un accès aux applications SaaS peuvent visualiser jusqu’à 10 applications dans leur volet d’accès et y accéder par le biais de l’authentification unique. Dans ces deux niveaux, les administrateurs peuvent configurer l’authentification unique et attribuer aux utilisateurs un accès à un nombre illimité d’applications SaaS. À noter toutefois que les utilisateurs ne pourront afficher que 10 applications à la fois dans leur volet d’accès.
 
-[2] Intégration libre-service de n’importe quelle application prenant en charge SAML, SCIM ou l’authentification par formulaire à l’aide de modèles fournis dans le menu de la galerie d’applications. Pour en savoir plus, consultez la page [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](active-directory-saas-custom-apps.md).
+2. Intégration libre-service de n’importe quelle application prenant en charge SAML, SCIM ou l’authentification par formulaire à l’aide de modèles fournis dans le menu de la galerie d’applications. Pour en savoir plus, consultez la page [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](active-directory-saas-custom-apps.md).
 
 **Détails supplémentaires :**
 
@@ -347,7 +347,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 #### Multi-Factor Authentication (dans le cloud et localement - MFA Server)
 
-**Type :** Fonctionnalités Premium
+**Type :** Fonctionnalités Premium
 
 
 **Disponibilité :**
@@ -398,7 +398,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 #### Connect Health
 
-**Type :** Fonctionnalités Premium
+**Type :** Fonctionnalités Premium
 
 
 **Disponibilité :**
@@ -495,4 +495,4 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

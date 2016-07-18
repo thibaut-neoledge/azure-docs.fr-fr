@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="06/28/2016"
 	ms.author="wesmc"/>
 
 # Synchronisation des données hors connexion dans Azure Mobile Apps
@@ -78,7 +78,7 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 
   Si la requête possède un paramètre, une façon de créer un nom de requête unique consiste à intégrer la valeur du paramètre. Par exemple, si vous filtrez sur le nom d’utilisateur, le nom de votre requête peut être le suivant (en C#) :
 
-		await todoTable.PullAsync("todoItems" + userid, 
+		await todoTable.PullAsync("todoItems" + userid,
 			syncTable.Where(u => u.UserId == userid));
 
   Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `null` en tant qu’ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel à `PullAsync`, ce qui est potentiellement inefficace.
@@ -105,4 +105,4 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [Windows 8.1 : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 [Windows 8.1 : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

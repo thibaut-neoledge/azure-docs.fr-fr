@@ -28,7 +28,7 @@ Si vous avez déjà déployé la gestion des mots de passe ou si vous souhaitez 
   - [Comment accéder aux données de réinitialisation des mots de passe pour vos utilisateurs](#how-to-access-password-reset-data-for-your-users)
 
 ## Vue d’ensemble de l’écriture différée de mot de passe
-L’écriture différée de mot de passe est un composant [Azure Active Directory Connect](active-directory-aadconnect) qui peut être activé et utilisé par les abonnés actifs d’Azure Active Directory Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+L’écriture différée de mot de passe est un composant [Azure Active Directory Connect](active-directory-aadconnect.md) qui peut être activé et utilisé par les abonnés actifs d’Azure Active Directory Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 L’écriture différée de mot de passe vous permet de configurer votre client cloud pour l’écriture différée des mots de passe vers l’environnement Active Directory local. Cela vous évite d’avoir à configurer et à gérer une solution de réinitialisation de mot de passe libre-service locale complexe en offrant à vos utilisateurs un moyen pratique via le cloud de réinitialiser leurs mots de passe locaux, où qu’ils se trouvent. Voici certaines fonctionnalités importantes de l’écriture différée de mot de passe :
 
@@ -66,7 +66,7 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
 10.	Si l’opération de définition du mot de passe échoue, nous renvoyons l’erreur à l’utilisateur et le laissons réessayer. L’opération peut échouer parce que le service est arrêté, parce que le mot de passe qu’il a sélectionné ne remplit pas les critères des stratégies de l’organisation, parce que nous n’avons pas trouvé l’utilisateur dans l’annuaire Active Directory local ou pour différentes autres raisons. Nous avons un message spécifique pour la plupart de ces cas de figure et nous indiquons à l’utilisateur ce qu’il peut faire pour résoudre le problème.
 
 ### Scénarios pris en charge par l’écriture différée des mots de passe
-Le tableau ci-dessous décrit les scénarios pris en charge pour les différentes versions de nos fonctions de synchronisation. En général, nous vous recommandons vivement d’installer la dernière version d’[Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) si vous souhaitez utiliser l’écriture différée de mot de passe.
+Le tableau ci-dessous décrit les scénarios pris en charge pour les différentes versions de nos fonctions de synchronisation. En général, nous vous recommandons vivement d’installer la dernière version d’[Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect) si vous souhaitez utiliser l’écriture différée de mot de passe.
 
   ![][002]
 
@@ -379,4 +379,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Attachement d’un disque de données à une machine virtuelle Windows dans le portail Azure
@@ -55,4 +55,4 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 
 Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->
