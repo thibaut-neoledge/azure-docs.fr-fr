@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Liste des connecteurs gérés par Microsoft pour une utilisation avec les Microsoft Azure Logic Apps | Microsoft Azure App Service"
+	pageTitle="Liste des connecteurs gérés par Microsoft pour une utilisation dans Microsoft Azure Logic Apps | Microsoft Azure"
 	description="Obtenez la liste complète des connecteurs gérés par Microsoft que vous pouvez utiliser pour créer des applications logiques dans Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="07/07/2016"
 	ms.author="deonhe"/>
 
 # Liste de connecteurs
@@ -105,7 +105,7 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Découvrez l’intégration d’entreprise AS2."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Découvrez l’intégration d’entreprise X12."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Découvrez le fichier plat d’intégration d’entreprise."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Découvrez la validation XML d’intégration d’entreprise."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise."
 
@@ -148,5 +148,4 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0706_2016-->
-
+<!---HONumber=AcomDC_0713_2016-->

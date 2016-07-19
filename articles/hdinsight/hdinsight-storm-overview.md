@@ -109,7 +109,7 @@ Storm sur HDInsight bénéficie d’une assistance professionnelle complète 24h
 
 ##Scénarios d‘utilisation courants d’analyse en temps réel
 
-Voici quelques scénarios courants dans lesquels vous pouvez utiliser Apache Storm sur HDInsight. Pour plus d‘informations sur les scénarios réels, consultez la rubrique [Comment les entreprises utilisent-elles Storm ?](https://storm.incubator.apache.org/documentation/Powered-By.html).
+Voici quelques scénarios courants dans lesquels vous pouvez utiliser Apache Storm sur HDInsight. Pour plus d‘informations sur les scénarios réels, consultez la rubrique [Comment les entreprises utilisent-elles Storm ?](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet des objets (IoT)
 * Détection des fraudes
@@ -123,25 +123,25 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser Apache St
 
 Apache Storm exécute des**topologies** au lieu de tâches MapReduce que vous connaissez peut-être si vous utilisez HDInsight ou Hadoop. Un cluster Storm sur HDInsight contient deux types de nœuds : les nœuds principaux qui exécutent **Nimbus** et les nœuds de travail qui exécutent **Supervisor**.
 
-* **Nimbus** : tout comme JobTracker dans Hadoop, il est chargé de la distribution du code dans l‘ensemble du cluster, de l’attribution des tâches aux machines virtuelles et de l’analyse des défaillances. HDInsight fournit deux nœuds Nimbus, de sorte que Storm sur HDInsight ne présente pas de point de défaillance unique.
+* **Nimbus** : tout comme JobTracker dans Hadoop, il est chargé de la distribution du code dans l‘ensemble du cluster, de l’attribution des tâches aux machines virtuelles et de l’analyse des défaillances. HDInsight fournit deux nœuds Nimbus, de sorte que Storm sur HDInsight ne présente pas de point de défaillance unique.
 
-* **Superviseur** : le superviseur de chaque nœud de travail est responsable du démarrage et de l’arrêt du **processus de travail** sur le nœud.
+* **Superviseur** : le superviseur de chaque nœud de travail est responsable du démarrage et de l’arrêt du **processus de travail** sur le nœud.
 
-* **Processus de travail** : exécute un sous-ensemble d’une **topologie**. Une topologie en cours d'exécution est distribuée entre plusieurs processus de travail via le cluster.
+* **Processus de travail** : exécute un sous-ensemble d’une **topologie**. Une topologie en cours d'exécution est distribuée entre plusieurs processus de travail via le cluster.
 
-* **Topologie** : définit un graphique de calcul qui traite les **flux** de données. Contrairement aux tâches MapReduce, les topologies continuent de s‘exécuter jusqu‘à ce que vous les arrêtiez.
+* **Topologie** : définit un graphique de calcul qui traite les **flux** de données. Contrairement aux tâches MapReduce, les topologies continuent de s‘exécuter jusqu‘à ce que vous les arrêtiez.
 
-* **Flux** : une collection non liée de **tuples**. Les flux sont produits par des **spouts** et des **bolts**, et consommés par des **bolts**.
+* **Flux** : une collection non liée de **tuples**. Les flux sont produits par des **spouts** et des **bolts**, et consommés par des **bolts**.
 
-* **Tuple** : une liste nommée de valeurs saisies de manière dynamique.
+* **Tuple** : une liste nommée de valeurs saisies de manière dynamique.
 
-* **Spout** : consomme des données à partir d‘une source de données et émet un ou plusieurs **flux**.
+* **Spout** : consomme des données à partir d‘une source de données et émet un ou plusieurs **flux**.
 
 	> [AZURE.NOTE] Dans de nombreux cas, les données sont lues à partir d‘une file d‘attente telle que Kafka, les files d‘attente Azure Service Bus ou les concentrateurs d‘événements. Les files d‘attente garantissent la conservation des données en cas de panne.
 
-* **Bolt** : consomme des **flux**, effectue le traitement des **tuples** et peut émettre des **flux**. Les bolts sont également chargés d‘écrire des données vers le stockage externe, comme une file d‘attente, HDInsight, HBase, un objet blob ou autre magasin de données.
+* **Bolt** : consomme des **flux**, effectue le traitement des **tuples** et peut émettre des **flux**. Les bolts sont également chargés d‘écrire des données vers le stockage externe, comme une file d‘attente, HDInsight, HBase, un objet blob ou autre magasin de données.
 
-* **Apache Thrift** : infrastructure logicielle permettant un développement de service évolutif interlangage. Il vous permet de développer des services fonctionnant entre C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk et d'autres langages.
+* **Apache Thrift** : infrastructure logicielle permettant un développement de service évolutif interlangage. Il vous permet de développer des services fonctionnant entre C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk et d'autres langages.
 
 	* **Nimbus** est un service de Thrift et une **topologie** est une définition de Thrift. Il est donc possible de développer des topologies en utilisant plusieurs langages de programmation.
 
@@ -162,11 +162,11 @@ Pour plus d‘informations, consultez la rubrique [Développer des topologies C#
 
 La plupart des exemples Java que vous allez rencontrer sont entièrement rédigés en Java ou en Trident. Trident est une abstraction globale facilitant le déroulement des tâches telles que les jointures, les agrégations, le regroupement et le filtrage. Toutefois, Trident agit sur les lots de tuples, tandis qu‘une solution Java brute traite un flux à raison d’un tuple à la fois.
 
-Pour plus d‘informations sur Trident, consultez le [didacticiel Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) sur le site apache.org.
+Pour plus d‘informations sur Trident, consultez le [didacticiel Trident](https://storm.apache.org/documentation/Trident-tutorial.html) sur le site apache.org.
 
 Pour obtenir des exemples de topologies Java et Trident, consultez la [liste des exemples de topologies Storm](hdinsight-storm-example-topology.md) ou les exemples storm-starter sur votre cluster HDInsight.
 
-Les exemples storm-starter sont situés dans le répertoire \_\_ /usr/hdp/current/storm-client/contrib/storm-starter\_\_ sur les clusters Linux et le répertoire **%storm\_home%\\contrib\\storm-starter** sur les clusters Windows.
+Les exemples storm-starter sont situés dans le répertoire __ /usr/hdp/current/storm-client/contrib/storm-starter__ sur les clusters Linux et dans le répertoire **%storm\_home%\\contrib\\storm-starter** sur les clusters Windows.
 
 ##Quels sont les modèles de développement courants ?
 
@@ -214,9 +214,9 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -9,13 +9,13 @@
 
 <tags
    ms.service="security-center"
-   ms.topic="hero-article" 
+   ms.topic="hero-article"
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/12/2016"
    ms.author="yurid"/>
- 
+
 # Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
 
@@ -32,12 +32,12 @@ Ce guide couvre un ensemble d’étapes et de tâches que vous pouvez suivre pou
 - Rôles de sécurité et contrôles d’accès
 - Stratégies et recommandations de sécurité
 - Collecte et stockage des données
-- Surveillance continue de la sécurité 
+- Surveillance continue de la sécurité
 - Réponse aux incidents
 
 Dans la section suivante, vous allez apprendre à planifier chacun de ces aspects et à appliquer ces recommandations en fonction de vos besoins.
 
-## Rôles de sécurité et contrôles d’accès 
+## Rôles de sécurité et contrôles d’accès
 
 Selon la taille et la structure de votre entreprise, plusieurs personnes et équipes peuvent utiliser le Centre de sécurité pour différentes tâches liées à la sécurité. Voici un exemple de personnes fictives avec leurs responsabilités et rôles respectifs en termes de sécurité :
 
@@ -47,7 +47,7 @@ Le Centre de sécurité Azure permet à ces personnes d’assumer ces différent
 
 **Jeff (propriétaire de la charge de travail cloud)**
 
-- Consulte et met en œuvre les recommandations du Centre de sécurité dans le portail Azure. 
+- Consulte et met en œuvre les recommandations du Centre de sécurité dans le portail Azure.
 - Peut également utiliser un système de tickets pour le suivi des modifications (fournit des recommandations à l’aide d’une API).
 
 **Rex (directeur informatique/responsable de la sécurité des systèmes d’information)**
@@ -57,18 +57,18 @@ Le Centre de sécurité Azure permet à ces personnes d’assumer ces différent
 **David (sécurité informatique)**
 
 - Définit la stratégie de sécurité et vérifie l’intégrité de la sécurité dans le portail Azure.
-- Analyse les données et génère des rapports dans Power BI. 
+- Analyse les données et génère des rapports dans Power BI.
 
 **Sam (opérations de sécurité)**
 
-- Consulte et trie les alertes du Centre de sécurité dans le portail Azure. 
+- Consulte et trie les alertes du Centre de sécurité dans le portail Azure.
 - Peut utiliser un tableau de bord (renseigne les alertes à l’aide d’une API).
 
 **Sherlock (analyste de sécurité)**
 
-- Consulte les alertes du Centre de sécurité dans le portail Azure. 
+- Consulte les alertes du Centre de sécurité dans le portail Azure.
 - Peut utiliser un tableau de bord (renseigne les alertes à l’aide d’une API).
-- Analyse les tendances des alertes dans Power BI. 
+- Analyse les tendances des alertes dans Power BI.
 - Consulte les journaux d’événements à partir de Storage.
 
 Le Centre de sécurité Azure utilise le [contrôle d’accès basé sur un rôle (RBAC)](../active-directory/role-based-access-control-configure.md) qui fournit des [rôles intégrés](../active-directory/role-based-access-built-in-roles.md) susceptibles d’être attribués à des utilisateurs, des groupes et des services dans Azure. Lorsqu’un utilisateur ouvre le Centre de sécurité Azure, il ne voit que les informations concernant les ressources auxquelles il a accès. Autrement dit, il a reçu le rôle de propriétaire, collaborateur ou lecteur pour l’abonnement ou le groupe de ressources auquel appartient une ressource. Avec les personnes ci-dessus, le RBAC suivant serait nécessaire :
@@ -113,7 +113,7 @@ Comme indiqué dans la figure ci-dessus, les stratégies de sécurité des group
 Si des ressources d’un groupe de ressources nécessitent un autre jeu de stratégies, vous pouvez désactiver l’héritage et appliquer des stratégies personnalisées à un groupe de ressources spécifique.
 
 Si vous avez besoin de stratégies personnalisées dans certains groupes de ressources, vous devez désactiver l’héritage dans le groupe de ressources et modifier les stratégies de sécurité. Par exemple, si certaines de vos charges de travail ne nécessitent pas la stratégie SQL Transparent Data Encryption, désactivez cette dernière au niveau de l’abonnement et ne l’activez que dans les groupes de ressources qui la requièrent.
- 
+
 Lorsque vous créez des stratégies personnalisées pour différents groupes de ressources, vous devez planifier leur déploiement, sachant qu’en cas de conflit (entre l’abonnement et le groupe de ressources), la stratégie du groupe de ressources prévaut.
 
 > [AZURE.NOTE] Si vous devez examiner les stratégies qui ont été modifiées, utilisez les [journaux d’audit Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2015/03/10/audit-logs-for-azure-events/). Les modifications de stratégie y sont toujours enregistrées.
@@ -122,7 +122,7 @@ Lorsque vous créez des stratégies personnalisées pour différents groupes de 
 
 Avant de configurer des stratégies de sécurité, vous devez examiner chacune des [recommandations de sécurité](security-center-recommendations.md) et déterminer si elles conviennent à vos différents abonnements et groupes de ressources. Il est également important de comprendre quelle action va être effectuée en réponse aux recommandations de sécurité.
 
-**Protection de point de terminaison** : si une machine virtuelle n’a aucune solution de protection de point de terminaison activée, le Centre de sécurité Azure vous recommande d’en installer une. Si vous avez déjà mis en place une solution locale de protection de point de terminaison, vous devez décider si vous allez utiliser le même logiciel anti-programme malveillant pour vos machines virtuelles Azure. Le Centre de sécurité Azure vous propose plusieurs options de protection de point de terminaison. Vous pouvez utiliser la solution gratuite Microsoft Antimalware ou faire votre choix parmi les solutions de protection de point de terminaison de partenaires intégrés. Pour plus d’informations sur le déploiement d’un logiciel anti-programme malveillant à l’aide du Centre de sécurité Azure, consultez [Activer le logiciel anti-programme malveillant dans le Centre de sécurité Azure](security-center-enable-antimalware.md).
+**Protection de point de terminaison** : si une machine virtuelle n’a aucune solution de protection de point de terminaison activée, le Centre de sécurité Azure vous recommande d’en installer une. Si vous avez déjà mis en place une solution locale de protection de point de terminaison, vous devez décider si vous allez utiliser le même logiciel anti-programme malveillant pour vos machines virtuelles Azure. Le Centre de sécurité Azure vous propose plusieurs options de protection de point de terminaison. Vous pouvez utiliser la solution gratuite Microsoft Antimalware ou faire votre choix parmi les solutions de protection de point de terminaison de partenaires intégrés. Pour plus d’informations sur le déploiement d’un logiciel anti-programme malveillant à l’aide d’Azure Security Center, consultez [Installer Endpoint Protection dans Azure Security Center](security-center-install-endpoint-protection.md).
 
 **Mises à jour système** : le Centre de sécurité Azure identifie les machines virtuelles sur lesquelles des mises à jour de sécurité ou du système d’exploitation sont manquantes. Désignez la personne chargée d’installer les mises à jour ainsi que les modalités d’application de celles-ci. De nombreuses entreprises utilisent WSUS, Windows Update ou un autre outil.
 
@@ -149,14 +149,14 @@ Il est vivement recommandé d’activer la collecte des données pour chacun de 
 L’extension Surveillance de la sécurité Azure analyse diverses configurations de sécurité et collecte les journaux de sécurité de la machine virtuelle. Ces données sont envoyées au compte de stockage spécifié. Le gestionnaire d’analyse (ASMSoftwareScanner.exe), également installé sur la machine virtuelle, peut être utilisé comme module de recherche de correctifs.
 
 Une fois la collecte de données activée dans la stratégie de sécurité, l’agent et les extensions de surveillance sont installées automatiquement sur toutes les machines virtuelles existantes et nouvelles qui sont prises en charge et provisionnées dans Azure. Le processus de l’agent est non invasif et n’affecte pas les performances des machines virtuelles.
- 
+
 Si, à un moment donné, vous souhaitez désactiver la collecte de données, vous pouvez le faire dans la stratégie de sécurité. Pour supprimer les agents de surveillance déployés, sélectionnez l’option de menu Supprimer les agents.
 
 > [AZURE.NOTE] Pour obtenir la liste des machines virtuelles prises en charge, consultez le [Forum aux questions (FAQ) du Centre de sécurité Azure](security-center-faq.md).
 
 Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte sera créé. Vous pouvez choisir un emplacement de stockage par région ou stocker toutes les informations dans un emplacement central. S’il est possible de configurer les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, le choix de la région du compte de stockage ne s’effectue que dans l’abonnement.
 
-Si vous utilisez un compte de stockage partagé entre différentes ressources Azure, lisez l’article [Objectifs de performance et évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) pour en savoir plus sur les contraintes et limites de taille. Votre abonnement a également des limites concernant le compte de stockage. Consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits) pour mieux comprendre ces limites.
+Si vous utilisez un compte de stockage partagé entre différentes ressources Azure, lisez l’article [Objectifs de performance et évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) pour en savoir plus sur les contraintes et limites de taille. Votre abonnement a également des limites concernant le compte de stockage. Consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md) pour mieux comprendre ces limites.
 
 > [AZURE.NOTE] Les coûts associés à ce stockage ne sont pas inclus dans le prix du service du Centre de sécurité Azure. Ils sont facturés séparément au [tarif normal d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -172,8 +172,8 @@ Le Centre de sécurité Azure n’interfère pas avec vos procédures de fonctio
 
 Le tableau de bord du Centre de sécurité Azure est divisé en deux parties principales :
 
-- Prévention 
-- Détection 
+- Prévention
+- Détection
 
 Lorsque vous activez la collecte des données de votre environnement Azure dans le Centre de sécurité Azure, veillez à passer en revue toutes les recommandations, ce que vous pouvez faire dans le panneau **Recommandations** ou par ressource (**Machine virtuelle**, **Mise en réseau**, **SQL** et **Application**).
 
@@ -200,9 +200,9 @@ Vous devez également surveiller régulièrement l’état des ressources exista
 
 ![Opérations](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4.png)
 
-1.	Le panneau **Intégrité de la sécurité des ressources** vous permet d’accéder rapidement à vos principales ressources. Utilisez cette option pour surveiller vos machines virtuelles, réseaux, SQL et applications. 
+1.	Le panneau **Intégrité de la sécurité des ressources** vous permet d’accéder rapidement à vos principales ressources. Utilisez cette option pour surveiller vos machines virtuelles, réseaux, SQL et applications.
 2.	Le panneau **Recommandations** vous permet de consulter les recommandations du Centre de sécurité Azure. La surveillance continue peut signaler que vous n’avez aucune recommandation aujourd’hui, ce qui est normal puisque vous les avez toutes traitées pendant la configuration initiale du Centre de sécurité Azure. Voilà pourquoi cette section peut ne pas afficher de nouvelles informations tous les jours et ne doit être consultée qu’en cas de besoin.
-3.	Le panneau **Détection** peut changer très fréquemment ou très rarement. Passez toujours en revue les alertes de sécurité et prenez des mesures en fonction des recommandations du Centre de sécurité Azure. 
+3.	Le panneau **Détection** peut changer très fréquemment ou très rarement. Passez toujours en revue les alertes de sécurité et prenez des mesures en fonction des recommandations du Centre de sécurité Azure.
 
 ## Réponse aux incidents
 
@@ -233,4 +233,4 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : trouvez des billets de blog sur la sécurité et la conformité Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

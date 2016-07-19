@@ -14,7 +14,7 @@
 	ms.devlang="node"
 	ms.topic="get-started-article"
 	ms.date="05/26/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Créer une API RESTful Node.js et la déployer vers une application API dans Azure
 
@@ -90,7 +90,7 @@ Bien qu’App Service prenne en charge de nombreuses façons de déployer votre 
 
 ### Personnaliser le code structuré
 
-1. Copiez le dossier **lib** du dossier **Démarrer** vers le dossier **ContactList** créé par la génération de modèles automatique. 
+1. Copiez le dossier **lib** du dossier **Démarrer** vers le dossier **ContactList** créé par la génération de modèles automatique.
 
 1. Remplacez le code dans le fichier **handlers/contacts.js** par le code suivant.
 
@@ -155,7 +155,7 @@ Bien qu’App Service prenne en charge de nombreuses façons de déployer votre 
 
 ### Test avec l’API exécutée en local
 
-1. Activez le serveur à l’aide de l’exécutable en ligne de commande Node.js. 
+1. Activez le serveur à l’aide de l’exécutable en ligne de commande Node.js.
 
         node server.js
 
@@ -167,7 +167,7 @@ Bien qu’App Service prenne en charge de nombreuses façons de déployer votre 
 
     ![Appel d’API de contact spécifique](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
-1. Les données JSON Swagger sont fournies par le biais du point de terminaison **/swagger** :
+1. Les données JSON Swagger sont fournies par le biais du point de terminaison **/swagger** :
 
     ![Contacts Swagger Json](media/app-service-api-nodejs-api-app/contacts-swagger-json.png)
 
@@ -179,7 +179,7 @@ Bien qu’App Service prenne en charge de nombreuses façons de déployer votre 
 
 Dans cette section, vous utilisez le portail Azure pour créer une application API dans Azure. Cette application API représente les ressources de calcul que fournit Azure pour exécuter votre code. Dans les sections suivantes, vous déploierez votre code vers la nouvelle application API.
 
-1. Accédez au [Portail Azure](https://portal.azure.com/). 
+1. Accédez au [Portail Azure](https://portal.azure.com/).
 
 1. Cliquez sur **Nouveau > Web + Mobile > Application API**.
 
@@ -221,7 +221,7 @@ Dans cette section, vous utilisez le portail Azure pour créer une application A
 
 Vous allez déployer votre code vers l’application API, en envoyant des validations vers un référentiel dans Azure App Service. Dans cette section du didacticiel, vous allez créer les informations d’identification et le référentiel Git dans Azure que vous utiliserez pour le déploiement.
 
-1. Une fois votre application API créée, cliquez sur **App Services > {votre application API}** à partir de la page d’accueil du portail. 
+1. Une fois votre application API créée, cliquez sur **App Services > {votre application API}** à partir de la page d’accueil du portail.
 
 	Le portail affiche les panneaux **Application API** et **Paramètres**.
 
@@ -294,7 +294,7 @@ Dans cette section, vous créerez un référentiel qui contient le code de votre
 
 ## Test avec l’API exécutée dans Azure
  
-3. Copiez l’**URL** mentionnée dans la section **Bases** du panneau de votre application API. 
+3. Copiez l’**URL** mentionnée dans la section **Bases** du panneau de votre application API.
 
     ![Déploiement terminé](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
@@ -312,4 +312,4 @@ Maintenant que vous avez activé la livraison en continu, vous pouvez apporter d
 
 À ce stade, vous avez créé une application API et déployé une application API Node.js vers cette dernière. Le didacticiel suivant montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

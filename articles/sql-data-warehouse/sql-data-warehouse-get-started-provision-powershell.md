@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Création de SQL Data Warehouse à l'aide de Powershell
@@ -23,8 +23,8 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-## Configuration requise
-Vérifiez que les conditions préalables suivantes sont remplies avant de commencer :
+## Composants requis
+Vérifiez que les conditions préalables suivantes sont remplies avant de commencer.
 
 - **Compte Azure **: consultez [Évaluation gratuite d’Azure][] ou [Crédits Azure MSDN][] pour créer un compte.
 - **Serveur Azure SQL Server V12** : consultez [Créer un serveur logique de base de données SQL Azure avec le Portail Azure][] ou [Créer un serveur logique de base de données SQL Azure avec PowerShell][].
@@ -33,7 +33,7 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 > [AZURE.NOTE] La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable. Voir [Tarification de SQL Data Warehouse][] pour plus d’informations sur la tarification.
 
-## Création d’une base de données SQL Data Warehouse
+## Créer un entrepôt de données SQL
 1. Ouvrez Windows PowerShell.
 2. Exécutez cette applet de commande pour vous connecter à Azure Resource Manager.
 
@@ -55,7 +55,7 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 Cette applet de commande requiert les paramètres suivants :
 
-- **RequestedServiceObjectiveName** : quantité de [DWU][] que vous demandez. Valeurs prises en charge sont : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, et DW2000.
+- **RequestedServiceObjectiveName** : quantité de [DWU][] que vous demandez. Les valeurs prises en charge sont les suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 et DW6000.
 - **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
 - **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
 - **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
@@ -64,6 +64,7 @@ Cette applet de commande requiert les paramètres suivants :
 Pour plus d’informations sur les options de paramètre, consultez [Créer une base de données (Azure SQL Data Warehouse)][]. Pour accéder aux informations de référence sur la commande, consultez [New-AzureRmSqlDatabase][].
 
 ## Étapes suivantes
+
 Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger][] ou [migrer][].
 
 Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Warehouse par programme, consultez notre article sur l’utilisation des [applets de commande PowerShell et des API REST][].
@@ -96,4 +97,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Mon premier Runbook graphique dans Azure Automation | Microsoft Azure"
+    pageTitle="Mon premier Runbook graphique dans Azure Automation | Microsoft Azure"
     description="Ce didacticiel vous familiarise avec la création, le test et la publication d'un Runbook graphique simple."
     services="automation"
     documentationCenter=""
@@ -13,18 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/28/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # Mon premier Runbook graphique
 
 > [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
 
-Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Nous commencerons par un simple Runbook que nous testerons et publierons tout en expliquant comment suivre l'état de la tâche du Runbook. Puis nous modifierons le Runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Puis nous renforcerons le Runbook en ajoutant des paramètres de Runbook et des liens conditionnels.
+Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Nous commencerons par un simple Runbook que nous testerons et publierons tout en expliquant comment suivre l'état de la tâche du Runbook. Puis nous modifierons le Runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Puis nous renforcerons le Runbook en ajoutant des paramètres de Runbook et des liens conditionnels.
 
 ## Configuration requise
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 -	abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[créer un compte gratuit](https://azure.microsoft.com/free/).
 -	Un [compte d’identification Azure](automation-sec-configure-azure-runas-account.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
@@ -50,7 +50,7 @@ Le contrôle Bibliothèque à gauche de l’éditeur vous permet de sélectionne
 2.	Faites défiler jusqu'au bas de la liste. Vous pouvez cliquer avec le bouton droit sur **Write-Output** et sélectionner **Ajouter au canevas** ou cliquer sur les points de suspension en regard de l’applet de commande, puis sélectionner **Ajouter au canevas**.
 3.	Cliquez sur l’activité **Write-Output** sur le canevas. Le panneau du contrôle Configuration qui vous permet de configurer l’activité s’ouvre.
 4.	Par défaut, le champ **Étiquette** affiche le nom de l’applet de commande, mais nous pouvons le modifier pour le rendre plus convivial. Remplacez-le par *Write Hello World to output*.
-5.	Cliquez sur **Paramètres** pour renseigner les paramètres de l’applet de commande. Certaines applets de commande comportent plusieurs jeux de paramètres, et vous devez sélectionner celle que vous utiliserez. Dans ce cas précis, **Write-Output** ne comporte qu’un seul paramètre défini ; vous n’avez donc pas besoin d’en sélectionner un. <br> ![Propriétés Write-Output](media/automation-first-runbook-graphical/write-output-properties-b.png)
+5.	Cliquez sur **Paramètres** pour renseigner les paramètres de l’applet de commande. Certaines applets de commande comportent plusieurs jeux de paramètres, et vous devez sélectionner celle que vous utiliserez. Dans ce cas précis, **Write-Output** ne comporte qu’un seul paramètre défini ; vous n’avez donc pas besoin d’en sélectionner un. <br> ![Propriétés Write-Output](media/automation-first-runbook-graphical/write-output-properties-b.png)
 6.	Sélectionnez le paramètre **InputObject**. Il s'agit du paramètre où nous spécifierons le texte à envoyer au flux de sortie.
 7.	Dans le menu déroulant **Source de données**, sélectionnez **Expression PowerShell**. Le menu déroulant **Source de données** fournit différentes sources que vous utilisez pour renseigner un paramètre. Vous pouvez utiliser la sortie de ces sources, par exemple une autre activité, un élément multimédia Automation ou une expression PowerShell. Dans notre cas, nous voulons simplement extraire le texte *Hello World*. Nous pouvons utiliser une expression PowerShell et spécifiez une chaîne.
 8.	Dans le champ **Expression**, tapez *« Hello World »*, puis cliquez deux fois sur **OK** pour revenir au canevas.<br> ![Expression PowerShell](media/automation-first-runbook-graphical/expression-hello-world.png)
@@ -211,4 +211,4 @@ Nous allons maintenant modifier le Runbook afin qu’il tente de démarrer la ma
 -	Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 -	Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

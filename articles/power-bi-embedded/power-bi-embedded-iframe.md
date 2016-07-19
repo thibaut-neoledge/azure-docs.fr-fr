@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Version préliminaire de Microsoft Power BI Embedded - Incorporer un rapport Power BI avec un IFrame"
-   description="Version préliminaire de Microsoft Power BI Embedded - Code de base pour intégrer un rapport dans votre application, comment s’authentifier avec le jeton d’application Power BI Embedded, comment obtenir des rapports"
+   pageTitle="Microsoft Power BI Embedded - Incorporer un rapport Power BI avec un IFrame"
+   description="Microsoft Power BI Embedded - Code de base pour intégrer un rapport à votre application, comment s’authentifier avec le jeton d’application Power BI Embedded, comment obtenir des rapports"
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
@@ -13,35 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # Incorporer un rapport Power BI avec un IFrame
 Cet article vous présente un code essentiel à l’utilisation de l’API REST **Power BI Embedded**, des jetons d’application, un IFrame et du code JavaScript pour intégrer ou incorporer un rapport dans votre application.
 
-Dans [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md), vous apprendrez à configurer une **collection d’espaces de travail** pour contenir un ou plusieurs **espaces de travail** pour le contenu de votre rapport. Ensuite, dans [Prise en main de l’exemple Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md), vous importerez un rapport dans un **espace de travail**.
+Dans [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md), vous allez découvrir comment configurer une **collection d’espaces de travail** pour contenir un ou plusieurs **espaces de travail** pour le contenu de votre rapport. Ensuite, dans [Prise en main de l’exemple Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md), vous importerez un rapport dans un **espace de travail**.
 
-Cet article vous montre comment incorporer un rapport dans votre application. Pour suivre la procédure dans cet article, vous devrez télécharger l’exemple d’[intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub. Cet exemple est une application de formulaire web ASP.NET simple, destinée à illustrer des codes C# et JavaScript de base dont vous aurez besoin pour intégrer un rapport. Pour obtenir un exemple plus avancé qui utilise le modèle de conception Model-View-Controller (MVC) pour intégrer un rapport, consultez l’[exemple d’application web de tableau de bord](http://go.microsoft.com/fwlink/?LinkId=761493) sur GitHub.
+Cet article présente la procédure à suivre pour incorporer un rapport dans votre application. Pour suivre la procédure dans cet article, vous devrez télécharger l’exemple d’[intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub. Cet exemple est une application de formulaire web ASP.NET simple, destinée à illustrer des codes C# et JavaScript de base dont vous aurez besoin pour intégrer un rapport. Pour obtenir un exemple plus avancé qui utilise le modèle de conception Model-View-Controller (MVC) pour intégrer un rapport, consultez l’[exemple d’application web de tableau de bord](http://go.microsoft.com/fwlink/?LinkId=761493) sur GitHub.
 
-Les descriptions pour intégrer un rapport **Power BI Embedded** dans votre application se trouvent ci-dessous.
+Pour intégrer un rapport, procédez comme suit :
 
-Voici les étapes permettant d’intégrer un rapport.
-
-- Étape 1 : [Obtenir un rapport dans un espace de travail](#GetReport). Dans cette étape, vous utilisez un flux de jeton d’application pour obtenir un jeton d’accès afin d’appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx). Une fois un rapport obtenu à partir de la liste **Get Reports**, vous incorporez le rapport dans une application avec un élément **IFrame**.
+- Étape 1 : [Obtenir un rapport dans un espace de travail](#GetReport). Dans cette étape, vous utilisez un flux de jetons d’application pour obtenir un jeton d’accès afin d’appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx). Une fois un rapport obtenu à partir de la liste **Get Reports**, vous incorporez le rapport dans une application avec un élément **IFrame**.
 - Étape 2 : [Incorporer un rapport dans une application](#EmbedReport). Dans cette étape, vous utiliserez un jeton d’incorporation pour un rapport, du code JavaScript et un IFrame pour intégrer ou incorporer un rapport dans une application web.
 
-Si vous souhaitez exécuter l’exemple pour savoir comment intégrer un rapport, téléchargez l’exemple d’[intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub, puis configurez les trois paramètres Web.Config :
+Si vous souhaitez exécuter l’exemple pour savoir comment intégrer un rapport, téléchargez l’exemple d’[intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub, puis configurez trois paramètres Web.Config :
 
-- **AccessKey**: un **AccessKey** est utilisé pour générer un jeton web JSON (JWT), servant à obtenir et à incorporer des rapports. Pour découvrir comment obtenir un **AccessKey**, consultez [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceName** : pour découvrir comment obtenir un **WorkspaceName**, consultez [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceId** : pour découvrir comment obtenir un **WorkspaceId**, consultez [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **AccessKey** : un **AccessKey** est utilisé pour générer un jeton web JSON (JWT), servant à obtenir et à incorporer des rapports. Pour découvrir comment obtenir un **AccessKey**, consultez l’article [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **WorkspaceName** : pour découvrir comment obtenir un **WorkspaceName**, consultez l’article [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **WorkspaceId** : pour découvrir comment obtenir un **WorkspaceId**, consultez l’article [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 Les sections suivantes vous présentent le code nécessaire pour intégrer un rapport.
 
 <a name="GetReport"/>
 ## Obtenir un rapport dans un espace de travail
 
-Pour intégrer un rapport dans une application, vous aurez besoin d’un **ID** et d’un **embedUrl** de rapport. Pour obtenir un **ID** et **embedUrl** de rapport, vous devez appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), puis choisir un rapport dans la liste JSON. Dans [Incorporer un rapport dans une application](#EmbedReport), vous utilisez un **ID** et **embedUrl** de rapport pour incorporer le rapport dans votre application.
+Pour intégrer un rapport à une application, vous avez besoin d’un **ID** et d’une **embedUrl** de rapport. Pour obtenir un **ID** et une **embedUrl** de rapport, vous devez appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), puis choisir un rapport dans la liste JSON. Dans la section [Incorporer un rapport dans une application](#EmbedReport), vous utilisez un **ID** et une **embedUrl** de rapport pour incorporer le rapport dans votre application.
 
 ### Réponse JSON de Get Reports
 ```
@@ -57,7 +55,7 @@ Pour intégrer un rapport dans une application, vous aurez besoin d’un **ID** 
 
 ```
 
-Pour appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), vous utilisez un jeton d’application. Pour plus d’informations sur le flux de jeton d’application, consultez [À propos du flux de jetons d’application dans Power BI Embedded](power-bi-embedded-app-token-flow.md). Le code suivant décrit comment obtenir une liste JSON de rapports. Pour incorporer un rapport, consultez [Incorporer un rapport dans une application](#EmbedReport).
+Pour appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), vous utilisez un jeton d’application. Pour plus d’informations sur le flux de jetons d’application, consultez l’article [À propos du flux de jetons d’application dans Power BI Embedded](power-bi-embedded-app-token-flow.md). Le code suivant décrit comment obtenir une liste JSON de rapports. Pour incorporer un rapport, consultez la section [Incorporer un rapport dans une application](#EmbedReport).
 
 ```
 protected void getReportsButton_Click(object sender, EventArgs e)
@@ -111,7 +109,7 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 <a name="EmbedReport"/>
 ## Incorporer un rapport dans une application
 
-Avant d’incorporer un rapport dans votre application, vous aurez besoin d’un jeton d’incorporation pour un rapport. Ce jeton ressemble à un jeton d’application utilisé pour appeler les opérations REST **Power BI Embedded**, mais est généré pour une ressource de rapport plutôt que pour une ressource REST. Voici le code pour obtenir un jeton d’application pour un rapport. Pour utiliser le jeton d’application pour un rapport, consultez [Incorporer un rapport dans votre application](#EmbedReportJS).
+Avant d’incorporer un rapport dans votre application, vous aurez besoin d’un jeton d’incorporation pour un rapport. Ce jeton ressemble à un jeton d’application utilisé pour appeler les opérations REST **Power BI Embedded**, mais il est généré pour une ressource de rapport plutôt que pour une ressource REST. Voici le code pour obtenir un jeton d’application pour un rapport. Pour utiliser le jeton d’application pour un rapport, consultez la section [Incorporer un rapport dans votre application](#EmbedReportJS).
 
 <a name="EmbedReportToken"/>
 ### Obtenir un jeton d’application pour un rapport
@@ -135,7 +133,7 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 <a name="EmbedReportJS"/>
 ### Incorporer un rapport dans votre application
 
-Pour incorporer un rapport **Power BI** dans votre application, vous utilisez un IFrame et du code JavaScript. Voici un exemple d’IFrame et de code JavaScript pour incorporer un rapport. Pour afficher tous les exemples de code pour incorporer un rapport, consultez l’exemple d’[intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub.
+Pour incorporer un rapport **Power BI** dans votre application, vous utilisez un IFrame et du code JavaScript. Voici un exemple d’IFrame et de code JavaScript pour incorporer un rapport. Pour afficher tous les exemples de code pour incorporer un rapport, consultez l’exemple [d’intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub.
 
 ![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
 
@@ -213,19 +211,16 @@ Pour masquer le **volet Filtre**, ajoutez **filterPaneEnabled** à la chaîne de
 &filterPaneEnabled=false
 ```
 
-## Conclusion
+## Ressources supplémentaires
 
-Cet article vous a présenté le code nécessaire à l’intégration d’un rapport **Power BI** dans votre application. Pour rapidement commencer l’intégration d’un rapport dans une application, téléchargez ces exemples sur GitHub :
+Cet article vous a présenté le code nécessaire à l’intégration d’un rapport **Power BI** à votre application. Veillez à consulter ces exemples supplémentaires sur GitHub :
 
 - [Exemple d’intégration d’un rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [Exemple d’application web de tableau de bord](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## Voir aussi
-- [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
-- [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
 - [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

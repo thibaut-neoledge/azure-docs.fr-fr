@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Architecture Service Bus | Microsoft Azure"
-    description="Décrit l'architecture de traitement de message d'Azure Service Bus."
+    description="Décrit l’architecture de traitement et de relais de message d’Azure Service Bus."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Architecture de Service Bus
 
-Cet article décrit l’architecture de traitement de message d’Azure Service Bus.
+Cet article décrit l’architecture de traitement et de relais de message d’Azure Service Bus.
 
 ## Unités d'échelle de Service Bus
 
@@ -53,10 +53,10 @@ Lorsque la connexion au relais est établie, les clients peuvent échanger des m
 
 ## Étapes suivantes
 
-Maintenant que vous avez lu une présentation du fonctionnement de Service Bus, consultez les liens suivants :
+Maintenant que vous avez lu une présentation de l’architecture Service Bus, consultez les liens suivants :
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Une solution de messages de file d'attente utilisant les files d'attente Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->
