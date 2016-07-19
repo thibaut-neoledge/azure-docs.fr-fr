@@ -24,10 +24,10 @@ Ce didacticiel explique comment créer une application Java et comment la déplo
 
 ## Configuration requise
 
-1. Le [kit 8 de développeur Java] (ou version ultérieure)
+1. Le [kit 8 de développeur Java] \(ou version ultérieure)
 1. [Maven] doit être installé sur votre ordinateur de développement
 1. [Git] doit être installé sur votre ordinateur de développement
-1. Un abonnement payant ou une [version d’évaluation gratuite] [Microsoft Azure]
+1. Un abonnement payant ou une [version d’évaluation gratuite] de [Microsoft Azure]
 1. Une application de test HTTP comme [Postman]
 
 ## Structure de l’API avec Swagger.IO
