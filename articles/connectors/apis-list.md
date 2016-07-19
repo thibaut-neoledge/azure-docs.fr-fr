@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Liste des connecteurs gérés par Microsoft pour une utilisation avec les Microsoft Azure Logic Apps | Microsoft Azure App Service"
+	pageTitle="Liste des connecteurs gérés par Microsoft pour une utilisation dans Microsoft Azure Logic Apps | Microsoft Azure"
 	description="Obtenez la liste complète des connecteurs gérés par Microsoft que vous pouvez utiliser pour créer des applications logiques dans Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="07/07/2016"
 	ms.author="deonhe"/>
 
 # Liste de connecteurs
@@ -31,7 +31,7 @@ Sélectionnez une icône afin d’apprendre rapidement à tirer parti de ces con
 
 |Connecteurs||||
 |-----------|-----------|-----------|-----------|
-|[![Icône API][blobicon]<br/>**Objets<br/>blob Azure**][azureblobdoc]|[![Icône API][boxicon]<br/>**Box**][boxDoc]|[![Icône API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icône API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Icône API][blobicon]<br/>**Objets blob Azure**][azureblobdoc]|[![Icône API][boxicon]<br/>**Box**][boxDoc]|[![Icône API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icône API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Icône API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icône API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icône API][githubicon]<br/>**GitHub**][githubdoc]|[![Icône API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Icône API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icône API][microsofttranslatoricon]<br/>**Traducteur**][microsofttranslatordoc]|[![Icône API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icône API][office365icon]<br/>**Office 365**<br/>**Utilisateurs**][office365usersdoc]|
 |[![Icône API][office365icon]<br/>**Office 365**<br/>**Vidéo**][office365videodoc]|[![Icône API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icône API][onedriveicon]<br/>**OneDrive<br/>Entreprise**][onedriveforbusinessdoc]|[![Icône API][outlookicon]<br/>**Outlook**][outlookdoc]|
@@ -62,10 +62,7 @@ Il existe deux types de déclencheurs :
 Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applications. Les actions sont utiles pour rechercher des données qui peuvent ensuite être utilisées lors de l'exécution de votre application. Par exemple, vous devrez peut-être rechercher des données client à partir d'une base de données SQL lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une table de destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
 
 
-[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md)  
-[Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md) 
+[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connectez-vous à un objet blob Azure pour gérer les fichiers de votre conteneur d'objets blob."
@@ -105,7 +102,7 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Découvrez l’intégration d’entreprise AS2."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Découvrez l’intégration d’entreprise X12."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Découvrez le fichier plat d’intégration d’entreprise."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Découvrez la validation XML d’intégration d’entreprise."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise."
 
@@ -148,5 +145,4 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0706_2016-->
-
+<!---HONumber=AcomDC_0713_2016-->

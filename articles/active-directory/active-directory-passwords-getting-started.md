@@ -5,8 +5,8 @@
 	keywords="Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialiser le mot de passe Azure AD"
 	documentationCenter=""
 	authors="asteen"
-	manager="kbrint"
-	editor="billmath"/>
+	manager="femila"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016" 
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Prise en main de la gestion de mot de passe
+
+> [AZURE.IMPORTANT] **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+
 Pour permettre à vos utilisateurs de gérer eux-mêmes leurs mots de passe Azure Active Directory pour le cloud ou pour une utilisation en local, il suffit de suivre une procédure simple. Après avoir vérifié que vous disposez de la configuration requise, vous pouvez rapidement activer la modification et la réinitialisation des mots de passe pour toute votre organisation. Cet article présente les concepts suivants :
 
 * [**Comment permettre aux utilisateurs de réinitialiser leurs mots de passe Active Directory Azure pour le cloud**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -232,8 +235,7 @@ Lorsque vous avez téléchargé l’outil Azure AD Connect, vous pouvez activer 
 4.	Obtenez l’état actuel de l’écriture différée pour le connecteur actuel en exécutant l’applet de commande suivante : `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	Activez l’écriture différée de mot de passe en exécutant l’applet de commande : `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE] Si vous êtes invité à vous identifier, assurez-vous que le compte d’administrateur que vous indiquez pour AzureADCredential est un **compte d’administrateur cloud (créé dans Azure AD)** et non pas un compte fédéré (créé dans un AD local et synchronisé dans Azure AD).
-> [AZURE.NOTE] Pour désactiver l’écriture différée de mot de passe via PowerShell, il vous suffit de répéter les instructions précédentes en transmettant `$false` à cette étape ou en définissant le paramètre **Écriture différée de mot de passe sur le répertoire local** sur **Non** dans la section **Stratégie de réinitialisation du mot de passe utilisateur** de l’onglet **Configurer** de votre répertoire dans le [portail de gestion Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Si vous êtes invité à vous identifier, assurez-vous que le compte d’administrateur que vous indiquez pour AzureADCredential est un **compte d’administrateur cloud (créé dans Azure AD)** et non pas un compte fédéré (créé dans un AD local et synchronisé dans Azure AD). [AZURE.NOTE] Pour désactiver l’écriture différée de mot de passe via PowerShell, il vous suffit de répéter les instructions précédentes en transmettant `$false` à cette étape ou en définissant le paramètre **Écriture différée de mot de passe sur le répertoire local** sur **Non** dans la section **Stratégie de réinitialisation du mot de passe utilisateur** de l’onglet **Configurer** de votre répertoire dans le [portail de gestion Azure](https://manage.windowsazure.com).
 
 #### Vérification de la réussite de la configuration
 Une fois la configuration terminée, un message indiquant la réussite de l’activation de l’écriture différée de mot de passe s’affiche dans la fenêtre Windows PowerShell ou dans l’interface utilisateur de configuration.
@@ -303,14 +305,12 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
     ![][031]
 
 
-<br/>
-<br/>
-<br/>
+<br/> <br/> <br/>
 
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
@@ -354,4 +354,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -54,9 +54,11 @@ Maintenant que vous avez terminé ce didacticiel sur la base de données SQL et 
 
 - Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, voir [Migration d’une base de données vers la base de données SQL Azure](sql-database-cloud-migrate.md) pour plus d’informations.
 
+- Si vous souhaitez charger des données dans une nouvelle table à partir d’un fichier CSV à l’aide de BCP, voir [Chargement de données dans une base de données SQL à partir d’un fichier CSV à l’aide de BCP](sql-database-load-from-csv-with-bcp.md).
+
 
 ## Ressources supplémentaires
 
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

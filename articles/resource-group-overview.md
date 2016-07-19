@@ -30,7 +30,7 @@ Resource Manager offre plusieurs avantages :
 - Vous pouvez définir les dépendances entre les ressources afin de les déployer dans le bon ordre.
 - Vous pouvez appliquer le contrôle d’accès à tous les services dans votre groupe de ressources, car le contrôle d’accès en fonction du rôle (RBAC) est intégré en mode natif à la plateforme de gestion.
 - Vous pouvez appliquer des balises aux ressources pour organiser logiquement toutes les ressources dans votre abonnement.
-- Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe ou pour un groupe de ressources partageant la même balise.  
+- Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe ou pour un groupe de ressources partageant la même balise.
 
 Resource Manager propose une nouvelle façon de déployer et de gérer vos solutions. Si vous avez utilisé un modèle de déploiement antérieur et souhaitez obtenir des informations sur les modifications, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
@@ -125,15 +125,41 @@ Pour plus d’informations sur l’utilisation du portail, consultez [Utilisatio
 
 Azure Resource Manager prend en charge le partage des ressources cross-origin (CORS). CORS permet d’appeler l’API REST Resource Manager ou une API REST du service Azure à partir d’une application web qui se trouve dans un domaine différent. Sans la prise en charge de CORS, le navigateur web empêcherait une application d’un domaine d’accéder aux ressources d’un autre domaine. Resource Manager active CORS pour toutes les demandes associées à des informations d’authentification valides.
 
+## Kits de développement logiciel (SDK) et exemples
+
+Des kits de développement logiciel (SDK) Azure sont disponibles en plusieurs langues sur plusieurs plates-formes. Chacune de ces langues est disponible via le gestionnaire de package d’écosystème correspondant et GitHub.
+
+Le code dans chaque kit de développement logiciel (SDK) est généré à partir de spécifications de l’API Azure RESTful. Disponibles en open source, ces spécifications sont basées sur la spécification Swagger 2.0. Le code des kits de développement logiciel (SDK) est généré par le biais d’un projet open source appelé AutoRest. AutoRest transforme ces spécifications d’API RESTful en bibliothèques clientes dans plusieurs langues. Si vous souhaitez améliorer des aspects du code généré dans les Kits de développement logiciel (SDK), l’ensemble des outils permettant de créer les Kits de développement logiciel (SDK) sont ouverts, disponibles gratuitement et basés sur un format de spécification d’API largement répandu.
+
+**Exemples** : mise en route rapide dans la langue de votre choix.
+
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *bientôt disponible*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *bientôt disponible*
+- [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
+- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
+- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *bientôt disponible*
+- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+
+**Référentiels du kit de développement logiciel (SDK) open source**: n’hésitez pas à nous faire part de vos commentaires, des problèmes rencontrés et de vos requêtes d’extraction.
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Java](https://github.com/Azure/azure-sdk-for-java)
+- [Node.JS](https://github.com/Azure/azure-sdk-for-node)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
+- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+
+> [AZURE.NOTE] Si le kit de développement logiciel (SDK) ne fournit pas la fonctionnalité requise, vous pouvez également appeler [l’API REST Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) directement.
+
 ## Étapes suivantes
 
 - Consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md) qui présente de manière simple l’utilisation des modèles.
 - Pour obtenir une procédure pas à pas plus détaillée de création d’un modèle, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
-- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

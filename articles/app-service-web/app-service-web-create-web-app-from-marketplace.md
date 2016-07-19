@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/11/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ Azure Marketplace met à votre disposition une large gamme d’applications web 
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
-* Trouver un modèle d’application dans Azure Marketplace.
-* Créer une application web dans Azure App Service basée sur le modèle.
-* Configurer les paramètres d’Azure App Service pour la nouvelle application web et la nouvelle base de données.
+* Rechercher et créer l’application web dans Azure App Service, basée sur un modèle Azure Marketplace.
+* Configurer les paramètres d’Azure App Service pour la nouvelle application web.
+* Lancer et gérer votre application web.
 
 Pour les besoins de ce didacticiel, vous allez déployer un blog WordPress à partir d’Azure Marketplace. Lorsque vous aurez terminé les étapes de ce didacticiel, vous disposerez de votre propre site WordPress installé et configuré dans le cloud.
 
-![Example de tableau de bord d’application web WordPress][WordPressDashboard]
+![Example de tableau de bord d’application web WordPress][WordPressDashboard1]
 
 Le site WordPress que vous allez déployer dans le cadre de ce didacticiel utilise MySQL pour la base de données. Si vous souhaitez utiliser à la place Base de données SQL pour la base de données, consultez [Project Nami], qui est également disponible via Azure Marketplace.
 
@@ -41,7 +41,7 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. S
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service]. Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
-## Sélectionner WordPress et configurer pour Azure App Service
+## Rechercher et créer une application web dans Azure App Service
 
 1. Connectez-vous au [portail Azure].
 
@@ -57,7 +57,9 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. S
 
 	![Créer une application web WordPress][MarketplaceCreate]
 
-1. Le panneau des paramètres WordPress s’affiche. Il vous permet d’effectuer les opérations suivantes :
+## Configurer les paramètres d’Azure App Service pour votre nouvelle application web
+
+1. Une fois l’application web créée, le panneau des paramètres WordPress s’affiche et vous permet d’effectuer les opérations suivantes :
 
 	![Configurer les paramètres d’une application web WordPress][ConfigStart]
 
@@ -79,7 +81,7 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. S
 
 1. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
 
-	Pour plus d’informations sur les plans App Service, consultez [Présentation des plans d’Azure App Service][AzureAppServicePlans].
+	Pour plus d’informations sur les plans App Service, consultez [Présentation détaillée des plans Azure App Service][AzureAppServicePlans].
 
 	![Configurer le plan de service de l’application web][ConfigServicePlan]
 
@@ -119,7 +121,7 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. S
 
 	![Accéder à votre application web WordPress][WordPressBrowse]
 
-1. Si vous êtes invité à sélectionner la langue de votre blog WordPress, sélectionnez celle de votre choix, puis cliquez sur **Continuer**.
+1. Si vous êtes invité à sélectionner la langue de votre blog WordPress, sélectionnez-la, puis cliquez sur **Continuer**.
 
 	![Configurer la langue de votre application web WordPress][WordPressLanguage]
 
@@ -131,7 +133,7 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. S
 
 1. La page Tableau de bord de votre site s’ouvre et affiche les informations que vous avez fournies.
 
-	![Afficher votre tableau de bord WordPress][WordPressDashboard]
+	![Afficher votre tableau de bord WordPress][WordPressDashboard2]
 
 ## Étapes suivantes
 
@@ -174,7 +176,8 @@ Pour plus d’informations sur le développement d’applications web WordPress 
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!-----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

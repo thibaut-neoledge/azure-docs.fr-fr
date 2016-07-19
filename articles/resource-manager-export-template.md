@@ -147,7 +147,7 @@ Bien que chaque déploiement affiche seulement les modifications apportées à v
 
       ![exporter un groupe de ressources](./media/resource-manager-export-template/export-resource-group.png)
 
-     Tous les types de ressources prennent en charge la fonction de modèle d’exportation. Si votre groupe de ressources contient uniquement le compte de stockage et le réseau virtuel indiqués dans cet article, aucune erreur ne s’affiche. Cependant, si vous avez créé d’autres types de ressources, vous pouvez rencontrer une erreur indiquant qu’il existe un problème avec l’exportation. Vous allez apprendre à gérer ces problèmes dans la section [Résoudre les problèmes d’exportation](#fixing-export-issues).
+     Tous les types de ressources prennent en charge la fonction de modèle d’exportation. Si votre groupe de ressources contient uniquement le compte de stockage et le réseau virtuel indiqués dans cet article, aucune erreur ne s’affiche. Cependant, si vous avez créé d’autres types de ressources, vous pouvez rencontrer une erreur indiquant qu’il existe un problème avec l’exportation. Vous allez apprendre à gérer ces problèmes dans la section [Résoudre les problèmes d’exportation](#fix-export-issues).
 
       
 
@@ -336,10 +336,10 @@ Ajoutez un type de ressource de connexion.
 
 ## Étapes suivantes
 
-Félicitations ! Vous avez appris comment exporter un modèle à partir des ressources que vous avez créées dans le portail.
+Félicitations ! Vous avez appris comment exporter un modèle à partir des ressources que vous avez créées dans le portail.
 
 - Dans la deuxième partie de ce didacticiel, vous allez personnaliser le modèle que vous venez de télécharger en ajoutant des paramètres et en le redéployant dans un script. Consultez [Personnaliser et redéployer le modèle exporté](resource-manager-customize-template.md).
 - Pour savoir comment exporter un modèle via PowerShell, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 - Pour savoir comment exporter un modèle via l’interface de ligne de commande Azure, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

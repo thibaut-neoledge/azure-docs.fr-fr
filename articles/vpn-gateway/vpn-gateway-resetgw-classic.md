@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="07/13/2016"
    ms.author="cherylmc"/>
 
 # Réinitialiser une passerelle VPN Azure à l’aide de PowerShell
@@ -58,4 +58,4 @@ Après deux redémarrages, si vous continuez de rencontrer des problèmes de con
 	
 Consultez la [référence PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) pour plus d’informations sur cette applet de commande.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->
