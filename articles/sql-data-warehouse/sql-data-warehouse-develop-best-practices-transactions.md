@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimisation des transactions pour SQL Data Warehouse
@@ -413,7 +413,7 @@ Consultez [Transactions dans SQL Data Warehouse][] pour en savoir plus sur les n
 
 <!--Article references-->
 [Transactions dans SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[partition de table]: ./sql-data-warehouse-develop-table-partitions.md
+[partition de table]: ./sql-data-warehouse-tables-partition.md
 [l’accès concurrentiel]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
@@ -424,4 +424,4 @@ Consultez [Transactions dans SQL Data Warehouse][] pour en savoir plus sur les n
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

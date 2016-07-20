@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs à partir de Java
@@ -25,14 +25,14 @@ Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à part
 
 Le kit de développement logiciel (SDK) prend actuellement en charge :
 
-- CRUD sur Notification Hubs 
+- CRUD sur Notification Hubs
 - CRUD sur les inscriptions
 - Gestion de l’installation
 - Importation/exportation des inscriptions
 - Envois réguliers
 - Envois planifiés
 - Opérations asynchrones via Java NIO
-- Plates-formes prises en charge : APNs (iOS), GCM (Android), WNS (applications Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sans services Google) 
+- Plates-formes prises en charge : APNs (iOS), GCM (Android), WNS (applications Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sans services Google)
 
 ## Utilisation du kit de développement logiciel (SDK)
 
@@ -285,7 +285,7 @@ L’exécution de votre code Java produit normalement une notification qui appar
 ##<a name="next-steps"></a>Étapes suivantes
 Dans cette rubrique, nous vous avons montré comment créer un client REST Java simple pour Notification Hubs. À ce stade, vous pouvez :
 
-* Téléchargez la version complète du [Kit de développement logiciel (SDK) Java], qui contient l’ensemble du code du Kit de développement logiciel (SDK). 
+* Téléchargez la version complète du [Kit de développement logiciel (SDK) Java], qui contient l’ensemble du code du Kit de développement logiciel (SDK).
 * Entraînez-vous avec les exemples :
 	- [Prise en main de Notification Hubs]
 	- [Envoi des dernières nouvelles]
@@ -303,4 +303,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

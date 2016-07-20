@@ -31,7 +31,7 @@ L’article [Comparaison entre IoT Hub et Event Hubs][lnk-compare] décrit les d
 
 ![Azure IoT Hub comme passerelle cloud dans une solution Internet des objets][img-architecture]
 
-> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Services Microsoft Azure IoT : Architecture de référence).
+> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] \(Services Microsoft Azure IoT : Architecture de référence).
 
 ## Défis liés à la connectivité des appareils IoT
 
@@ -59,7 +59,7 @@ Azure IoT Hub répond aux défis liés à la connectivité de l’appareil comme
 
 -   **Protocoles et possibilités d’extension IoT**. Si votre solution ne peut pas utiliser les bibliothèques d’appareils, IoT Hub propose un protocole public qui permet aux appareils d’utiliser nativement les protocoles MQTT v3.1.1, HTTP 1.1 ou AMQP 1.0. Vous pouvez également étendre IoT Hub afin de permettre la prise en charge des protocoles personnalisés en :
 
-    - Créant une passerelle de champ avec le [Kit de développement logiciel (SDK) Azure IoT Gateway][lnk-gateway-sdk] qui convertit votre protocole personnalisé en l’un des trois protocoles compris par IoT Hub. 
+    - Créant une passerelle de champ avec le [Kit de développement logiciel (SDK) Azure IoT Gateway][lnk-gateway-sdk] qui convertit votre protocole personnalisé en l’un des trois protocoles compris par IoT Hub.
     - Personnalisant la [passerelle de protocole Azure IoT][protocol-gateway], composant open source qui s’exécute dans le cloud.
 
 -   **Mise à l’échelle** Azure IoT Hub peut supporter des millions d’appareils connectés simultanément et des millions d’événements par seconde.
@@ -96,13 +96,14 @@ L’industrie mobile utilise le schéma de communication assistée par service �
 
 ## Étapes suivantes
 
-Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
+Pour découvrir comment Azure IoT Hub permet une gestion des appareils basée sur IoT pour gérer à distance, configurer et mettre à jour vos appareils, consultez l’article [Vue d’ensemble de la gestion des appareils Azure IoT Hub][lnk-device-management].
 
-* [Prise en main d’IoT Hub][lnk-get-started]
-* [Connexion de votre appareil][lnk-connect-device]
-* [Traitement des messages appareil-à-cloud][lnk-d2c]
+Pour implémenter des applications clientes sur un large éventail de plateformes matérielles et de systèmes d’exploitation d’appareils, vous pouvez utiliser les Kits de développement logiciel (SDK) d’appareils IoT. Ces kits incluent des bibliothèques qui facilitent l’envoi de données de télémétrie vers un IoT Hub et la réception de commandes cloud-à-appareils. Avec les Kits de développement logiciel (SDK), vous avez le choix parmi un grand nombre de protocoles réseau pour communiquer avec IoT Hub. Pour plus d’informations, consultez la rubrique [plus d’informations sur les kits de développement logiciel (SDK) d’appareils][lnk-device-sdks].
+
+Pour commencer à écrire du code et à exécuter certains exemples, consultez le didacticiel [Prise en main d’IoT Hub][lnk-get-started].
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -120,5 +121,6 @@ Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

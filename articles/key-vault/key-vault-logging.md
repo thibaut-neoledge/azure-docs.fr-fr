@@ -25,7 +25,7 @@ Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez sans
 Vous pouvez accéder aux informations de journalisation au plus 10 minutes après l’opération sur le coffre de clés. Dans la plupart des cas, ce sera plus rapide. C’est à vous de gérer vos journaux dans votre compte de stockage :
 
 - Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux en limitant l’accès à ces derniers.
-- Supprimez les journaux que vous ne souhaitez plus conserver dans votre compte de stockage. 
+- Supprimez les journaux que vous ne souhaitez plus conserver dans votre compte de stockage.
 
 Utilisez ce didacticiel pour vous familiariser avec Azure Key Vault pour créer votre compte de stockage, activer la journalisation et interpréter les informations de journalisation collectées.
 
@@ -40,8 +40,8 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Un coffre de clés existant que vous utilisez déjà.  
-- Azure PowerShell, **version 1.0.1 minimum**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`.  
+- Un coffre de clés existant que vous utilisez déjà.
+- Azure PowerShell, **version 1.0.1 minimum**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`.
 - Espace de stockage suffisant sur Azure pour vos journaux de coffre de clés.
 
 
@@ -105,7 +105,7 @@ L’activation de la journalisation de votre coffre de clés est à présent act
 - toutes les demandes API REST authentifiées sont enregistrées, ce qui inclut des requêtes ayant échoué suite à des demandes, des erreurs système ou des autorisations d’accès incorrectes ;
 - les opérations du coffre de clés lui-même, notamment la création, la suppression la définition des stratégies d’accès aux coffres de clés, et la mise à jour des attributs de coffre de clés (par exemple, les balises) ;
 - les opérations sur les clés et les clés secrètes dans le coffre de clés, notamment la création, la modification ou la suppression de ces clés ou ces clés secrètes ; les opérations telles que la signature, la vérification, le chiffrement, le déchiffrement, l’encapsulage et le désencapsulage des clés, l’obtention des clés secrètes, la liste des clés et des clés secrètes et leurs versions.
-- les requêtes non authentifiées qui génèrent une réponse 401. Par exemple, les requêtes qui ne possèdent pas de jeton de porteur, qui sont incorrectes, qui ont expiré ou qui comportent un jeton non valide.  
+- les requêtes non authentifiées qui génèrent une réponse 401. Par exemple, les requêtes qui ne possèdent pas de jeton de porteur, qui sont incorrectes, qui ont expiré ou qui comportent un jeton non valide.
 
 
 ## <a id="access"></a>Accès à vos journaux ##
@@ -116,7 +116,7 @@ Les journaux de coffre de clés sont stockés dans le conteneur **insights-logs-
 
 Le résultat ressemble à ce qui suit :
 
-****Conteneur Uri : https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Conteneur Uri : https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Name**
@@ -127,10 +127,10 @@ Le résultat ressemble à ce qui suit :
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
  
 
-Comme vous pouvez le voir dans cette sortie, les objets blob suivent une convention d’affectation de noms : **resourceId =<ARM resource ID>/y =<year>/m =<month>/d =<day of month>/h =<hour>/m =<minute>/filename.json**
+Comme vous pouvez le constater dans cette sortie, les objets blob suivent une convention d’affectation de noms : **resourceId=<ID de la ressource ARM>/y=<année>/m=<mois>/d=<jour du mois>/h=<heure>/m=<minute>/filename.json**
 
 Les valeurs de date et d’heure utilisent UTC.
 
@@ -148,7 +148,7 @@ Adressez cette liste via « Get-AzureStorageBlobContent » pour télécharger 
 
 	$blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
 
-Lorsque vous exécutez cette seconde commande, le délimiteur **/** présent dans les noms d’objet blob crée une structure de dossier complète sous le dossier de destination, structure qui servira à télécharger et stocker les objets blob en tant que fichiers.
+Lorsque vous exécutez cette seconde commande, le délimiteur **/** présent dans les noms d’objet blob crée une structure de dossiers complète sous le dossier de destination, structure qui servira à télécharger et à stocker les objets blob en tant que fichiers.
 
 Pour télécharger les objets blob de façon sélective, utilisez des caractères génériques. Par exemple :
 
@@ -168,10 +168,10 @@ Vous êtes maintenant prêt à commencer les recherches dans le contenu des jour
 
 - Pour interroger l’état des paramètres de diagnostic de votre ressource de coffre de clés : `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
  
-- Pour désactiver l’enregistrement de votre ressource de coffre de clés : `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+- Pour désactiver la journalisation de votre ressource de coffre de clés : `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
-## <a id="interpret"></a>Interprétation de vos journaux de coffre de clés ##
+## <a id="interpret"></a>Interpréter vos journaux de coffre de clés ##
 
 Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Voici un exemple d’entrée de journal après l’exécution de `Get-AzureRmKeyVault -VaultName 'contosokeyvault'` :
 
@@ -221,11 +221,11 @@ Le tableau suivant répertorie les noms de champ et les descriptions.
 
 Les valeurs de champ **operationName** sont au format ObjectVerb. Par exemple :
 
-- Toutes les opérations de coffre de clés sont au format « Archivage`<action>` », comme `VaultGet` et `VaultCreate`. 
+- Toutes les opérations de coffre de clés sont au format « Archivage`<action>` », comme `VaultGet` et `VaultCreate`.
 
-- Toutes les opérations sont au format « Clé`<action>` », comme `KeySign` et `KeyList`.
+- Toutes les opérations de clé sont au format « Clé`<action>` », comme `KeySign` et `KeyList`.
 
-- Toutes les opérations de secret sont au format « Clé secrète`<action>` », comme `SecretGet` et `SecretListVersions`.
+- Toutes les opérations de secret sont au format « Secret`<action>` », comme `SecretGet` et `SecretListVersions`.
 
 Le tableau suivant répertorie les éléments operationName et la commande API REST correspondante.
 
@@ -240,7 +240,7 @@ Le tableau suivant répertorie les éléments operationName et la commande API R
 | KeyCreate | [Création d’une clé](https://msdn.microsoft.com/fr-FR/library/azure/dn903634.aspx)|
 | KeyGet | [Obtention des informations sur une clé](https://msdn.microsoft.com/fr-FR/library/azure/dn878080.aspx)|
 | KeyImport | [Importation d’une clé dans un coffre](https://msdn.microsoft.com/fr-FR/library/azure/dn903626.aspx)|
-| KeyBackup | [Sauvegarde d’une clé](https://msdn.microsoft.com/fr-FR/library/azure/dn878058.aspx).|
+| KeyBackup | [Sauvegarde d’une clé](https://msdn.microsoft.com/fr-FR/library/azure/dn878058.aspx)|
 | KeyDelete | [Suppression d’une clé](https://msdn.microsoft.com/fr-FR/library/azure/dn903611.aspx)|
 | KeyRestore | [Restauration d’une clé](https://msdn.microsoft.com/fr-FR/library/azure/dn878106.aspx)|
 | KeySign | [Signature avec une clé](https://msdn.microsoft.com/fr-FR/library/azure/dn878096.aspx)|
@@ -268,7 +268,8 @@ Pour accéder à un didacticiel utilisant Azure Key Vault dans une application w
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-Pour obtenir la liste des applets de commande Azure PowerShell 1.0 pour le coffre de clés Azure, consultez la page [Applets de commande d’Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
- 
+Pour obtenir la liste des applets de commande Azure PowerShell 1.0 pour Azure Key Vault, consultez la page [Applets de commande d’Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+Pour accéder à un didacticiel sur la rotation des clés et les journaux d’audit avec Azure Key Vault, consultez l’article [How to setup Key Vault with end to end key rotation and auditing (Configuration d’Azure Key Vault avec une rotation des clés et un audit de bout en bout)](key-vault-key-rotation-log-monitoring.md).
+
+<!---HONumber=AcomDC_0713_2016-->

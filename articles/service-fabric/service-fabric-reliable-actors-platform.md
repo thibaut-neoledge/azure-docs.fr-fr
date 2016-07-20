@@ -39,7 +39,7 @@ Dans Reliable Services, votre service hérite de la classe `StatefulService`, el
 
  - sauvegarde et restauration du service ;
  - fonctionnalités partagées par tous les acteurs, tel un disjoncteur ;
- - communication à distance avec les appels de procédure sur le service d’acteur proprement dit, ainsi que sur chaque acteur. 
+ - communication à distance avec les appels de procédure sur le service d’acteur proprement dit, ainsi que sur chaque acteur.
 
 ### Utilisation du service d’acteur
 
@@ -157,7 +157,7 @@ static class Program
 
 #### Implémentation d’une sauvegarde et restauration d’acteur
 
- Dans l’exemple suivant, le service d’acteur personnalisé expose une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService` :
+ Dans l’exemple suivant, le service d’acteur personnalisé expose une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService` :
 
 ```csharp
 public interface IMyActorService : IService
@@ -251,7 +251,7 @@ Lorsque vous utilisez des chaînes et des GUID, les valeurs sont hachées en Int
  - [Gestion des états d’acteur](service-fabric-reliable-actors-state-management.md)
  - [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
  - [Documentation de référence de l’API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Exemple de code](https://github.com/Azure/servicefabric-samples)
+ - [Exemple de code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->
@@ -261,4 +261,4 @@ Lorsque vous utilisez des chaînes et des GUID, les valeurs sont hachées en Int
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

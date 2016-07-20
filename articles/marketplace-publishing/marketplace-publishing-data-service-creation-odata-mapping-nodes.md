@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="04/29/2016"
+      ms.date="06/29/2016"
       ms.author="hascipio; avikova" />
 
 # Présentation du schéma de nœuds pour le mappage d’un service web existant à OData via le langage CSDL
@@ -39,9 +39,9 @@ La section suivante décrit en détail les modifications (éléments ajoutés et
 ## Nœud FunctionImport
 Un nœud FunctionImport représente une URL (point d’entrée) qui expose un service à l’utilisateur final. Le nœud autorise la description de la manière dont l’URL est résolue, les paramètres disponibles pour l’utilisateur final et la manière dont ces paramètres sont fournis.
 
-De plus amples informations sur ce nœud sont disponibles à l’adresse [http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx][MSDNFunctionImportLink].
+Vous trouverez des informations sur ce nœud [ici][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]: 'http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx'
+[MSDNFunctionImportLink]: (https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
 Voici les attributs supplémentaires (ou ajouts aux attributs) qui sont exposés par le nœud FunctionImport.
 
@@ -53,13 +53,13 @@ Voici les attributs supplémentaires (ou ajouts aux attributs) qui sont exposés
 
 **ReturnType** *(facultatif)* : spécifie le type des éléments renvoyés par l’URI. N’utilisez pas cet attribut si la fonction ne renvoie pas de valeur. Les types suivants sont pris en charge :
 
- - **Collection (<Entity type name>)** : spécifie une collection de types d’entités définis. Le nom est présent dans l’attribut Name du nœud EntityType. Par exemple, Collection(WXC.HourlyResult).
- - **Raw (<mime type>)** : spécifie un document/blob brut qui est renvoyé à l’utilisateur. Par exemple, Raw(image/jpeg) ; autres exemples :
+ - **Collection (<Nom du type d’entité>)** : spécifie une collection de types d’entités définis. Le nom est présent dans l’attribut Name du nœud EntityType. Par exemple, Collection(WXC.HourlyResult).
+ - **Raw (<Type MIME>)** : spécifie un document/blob brut qui est renvoyé à l’utilisateur. Par exemple, Raw(image/jpeg) ; autres exemples :
 
   - ReturnType="Raw(text/plain)"
   - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
-**d:Paging** : spécifie la manière dont la pagination est gérée par la ressource REST. Les valeurs de paramètre sont utilisées dans des accolades, p. ex., page={$page}&itemsperpage={$size} ; les options disponibles sont :
+**d:Paging** : spécifie la manière dont la pagination est gérée par la ressource REST. Les valeurs de paramètre sont utilisées dans des accolades, p. ex., page={$page}&itemsperpage={$size} ; les options disponibles sont :
 
 - **None :** aucune pagination n’est disponible
 - **Skip :** la pagination est exprimée à l’aide d’une logique « skip » et « take » (supérieure). « skip » passe les éléments M, puis « take » renvoie les éléments N suivants. Valeur du paramètre : $skip
@@ -143,18 +143,18 @@ Les nœuds enfants supplémentaires (non couverts par la documentation du langag
 
 Ce nœud représente un paramètre qui est exposé en tant que partie du modèle d’URI / du corps de la demande qui a été spécifié dans le nœud FunctionImport.
 
-Une page de documentation détaillée très utile sur le nœud « Élément Parameter » est disponible à l’adresse [http://msdn.microsoft.com/library/ee473431.aspx](http://msdn.microsoft.com/library/ee473431.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire). *Exemple :* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+Une page de documentation détaillée très utile sur le nœud « Élément Parameter » est disponible [ici](http://msdn.microsoft.com/library/ee473431.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire). *Exemple :* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Attribut de paramètre | Est obligatoire | Valeur |
 |----|----|----|
 | Nom | Oui | Le nom du paramètre. Respecte la casse. Respectez la casse de l’URI de base. **Exemple :** `<Property Name="IsDormant" Type="Byte" />` |
-| Type | Oui | Le type du paramètre. La valeur doit être de type **EDMSimpleType** ou de type complexe, dans la portée du modèle. Pour plus d’informations, consultez « 6. Types de paramètres/propriétés pris en charge ». (Respecte la casse. Le premier caractère est en majuscule, les autres sont en minuscules). Consultez également la page [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][MSDNParameterLink]. **Exemple :** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Type | Oui | Le type du paramètre. La valeur doit être de type **EDMSimpleType** ou de type complexe, dans la portée du modèle. Pour plus d’informations, consultez « 6. Types de paramètres/propriétés pris en charge ». (Respecte la casse. Le premier caractère est en majuscule, les autres sont en minuscules). Voir également [Types de modèle conceptuel (CSDL)][MSDNParameterLink]. **Exemple :** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode | Non | **In**, Out ou InOut selon que le paramètre est un paramètre d’entrée, de sortie ou d’entrée/sortie. (Seule la valeur « IN » est disponible dans Azure Marketplace.) **Exemple :** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | Non | La longueur maximale autorisée du paramètre. **Exemple :** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision | Non | La précision du paramètre. **Exemple :** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Scale | Non | L’échelle du paramètre. **Exemple :** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]: 'http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx'
+[MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
 Les éléments suivants sont des attributs qui ont été ajoutés à la spécification du langage CSDL :
 
@@ -163,13 +163,13 @@ Les éléments suivants sont des attributs qui ont été ajoutés à la spécifi
 | **d:Regex** *(facultatif)* | Une instruction d’expression régulière utilisée pour valider la valeur d’entrée pour le paramètre. Si la valeur d’entrée ne correspond pas à l’instruction, la valeur est rejetée. Cela permet également de spécifier un ensemble de valeurs possibles, p. ex., ^ [0-9] +? $ pour autoriser uniquement les chiffres. **Exemple :** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(facultatif)* | Une liste de valeurs séparées par des barres verticales, valide pour le paramètre. Le type des valeurs doit correspondre au type défini du paramètre. Exemple : `english|metric|raw`. Enum s’affiche sous forme d’une liste déroulante sélectionnable de paramètres dans l’interface utilisateur (explorateur de service). **Exemple :** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
 | **d:Nullable** *(facultatif)* | Permet de définir si un paramètre peut être null. La valeur par défaut est true. Toutefois, les paramètres qui sont exposés en tant que partie du chemin d’accès dans le modèle d’URI ne peuvent pas être null. Lorsque l’attribut est défini sur false pour ces paramètres, l’entrée utilisateur est remplacée. **Exemple :** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(facultatif)* | Un exemple de valeur à afficher en tant que note au client dans l’interface utilisateur. Il est possible d’ajouter plusieurs valeurs à l’aide d’une liste séparée par des barres verticales, c’est-à-dire `a|b|c` **Exemple :** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
+| **d:SampleValue** *(facultatif)* | Un exemple de valeur à afficher en tant que note au client dans l’interface utilisateur. Il est possible d’ajouter plusieurs valeurs à l’aide d’une liste séparée par des barres verticales, c’est-à-dire `a|b|c` **Exemple :** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
 ## Nœud EntityType
 
 Ce nœud représente l’un des types renvoyés à partir de Marketplace à l’utilisateur final. Il contient également le mappage de la sortie qui est renvoyée par le service du fournisseur de contenu aux valeurs renvoyées à l’utilisateur final.
 
-Des informations sur ce nœud sont disponibles à l’adresse [http://msdn.microsoft.com/library/bb399206.aspx](http://msdn.microsoft.com/library/bb399206.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire).
+Des informations sur ce nœud sont disponibles [ici](http://msdn.microsoft.com/library/bb399206.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire).
 
 | Nom de l'attribut | Est obligatoire | Valeur |
 |----|----|----|
@@ -272,4 +272,4 @@ Les éléments suivants sont les types de paramètres et de propriétés pris en
 - Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code et pour comprendre la syntaxe et le contexte du code.
 - Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

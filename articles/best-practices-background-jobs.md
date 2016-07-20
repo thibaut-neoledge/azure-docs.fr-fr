@@ -112,8 +112,8 @@ Les tâches web Azure présentent les caractéristiques suivantes :
   - Pour une exécution déclenchée : site/wwwroot/app\_data/jobs/triggered/{job name}
   - Pour une exécution en continu : site/wwwroot/app\_data/jobs/continuous/{job name}
 - **Journalisation** : la commande Console.Out est traitée (marquée) comme étant de type INFO. La commande Console.Error est traitée comme étant de type ERROR. Vous pouvez accéder aux données de surveillance et de diagnostic à l’aide du portail Azure. Vous pouvez télécharger les fichiers journaux directement à partir du site. Ces éléments sont sauvegardés aux emplacements suivants :
-  - Pour une exécution déclenchée : Vfs/data/jobs/continuous/jobName
-  - Pour une exécution en continu : Vfs/data/jobs/triggered/jobName
+  - Pour une exécution déclenchée : Vfs/data/jobs/triggered/jobName
+  - Pour une exécution en continu : Vfs/data/jobs/continuous/jobName
 - **Configuration** : vous pouvez configurer des tâches web à l’aide du portail, de l’API REST et de PowerShell. Utilisez un fichier de configuration nommé settings.job, situé dans le même répertoire racine que le script de travail, pour fournir des informations sur la configuration d’un travail. Par exemple :
   - { "stopping\_wait\_time": 60 }
   - { "is\_singleton": true }
@@ -149,7 +149,7 @@ Le fait d’exécuter des tâches en arrière-plan dans un rôle de travail pré
 - Cela vous permet de gérer la mise à l’échelle de chaque type de rôle, de manière séparée. Par exemple, vous aurez peut-être besoin d’un plus grand nombre d’instances du rôle web pour gérer la charge actuelle, mais d’un nombre moins important d’instances du rôle de travail qui exécute les tâches en arrière-plan. En effectuant une mise à l’échelle des instances de calcul des tâches en arrière-plan séparément des rôles de l’interface utilisateur, vous diminuez les coûts d’hébergement, tout en garantissant des performances acceptables.
 - Cela permet de décharger la charge de traitement des tâches en arrière-plan du rôle web. Le rôle web qui fournit l’interface utilisateur peut rester réactif, ce qui peut se traduire par un nombre moins important d’instances requises pour gérer un volume donné de demandes de la part des utilisateurs.
 - Cela vous permet d’implémenter la séparation des intérêts. Chaque type de rôle peut implémenter un ensemble spécifique de tâches clairement définies et associées. Ainsi, la conception et la gestion du code sont plus simples, car l’interdépendance entre le code et les fonctionnalités est moins appuyée entre les rôles.
-- Cela peut faciliter l’isolation des données et processus sensibles. Par exemple, les rôles web qui implémentent l’interface utilisateur n’ont pas nécessairement besoin d’un accès aux données gérées et contrôlées par un rôle de travail. Cela peut contribuer à renforcer la sécurité, notamment quand vous utilisez un modèle tel que le [modèle d’opérateur de contrôle d’appels](http://msdn.microsoft.com/library/dn589793.aspx).  
+- Cela peut faciliter l’isolation des données et processus sensibles. Par exemple, les rôles web qui implémentent l’interface utilisateur n’ont pas nécessairement besoin d’un accès aux données gérées et contrôlées par un rôle de travail. Cela peut contribuer à renforcer la sécurité, notamment quand vous utilisez un modèle tel que le [modèle d’opérateur de contrôle d’appels](http://msdn.microsoft.com/library/dn589793.aspx).
 
 ### Considérations
 
@@ -253,7 +253,7 @@ Quand vous planifiez la façon dont vous allez exécuter les tâches en arrière
 - L’implémentation par défaut de la méthode **Run** dans la classe **RoleEntryPoint** contient un appel à l’élément **Thread.Sleep(Timeout.Infinite)** qui permet au rôle de rester actif indéfiniment. Si vous remplacez la méthode **Run** (qui est généralement nécessaire pour exécuter des tâches en arrière-plan), vous ne devez pas autoriser votre code à quitter cette méthode, sauf si vous voulez recycler l’instance du rôle.
 - Une implémentation classique de la méthode **Run** inclut du code pour démarrer chaque tâche en arrière-plan, ainsi qu’une construction en boucle qui vérifie périodiquement l’état de toutes les tâches en arrière-plan. Elle peut redémarrer toute tâche en échec ou détecter la présence de jetons d’annulation qui signalent les travaux terminés.
 - Si une tâche en arrière-plan lève une exception non gérée, cette tâche doit être recyclée alors que toutes les autres tâches en arrière-plan du rôle doivent être autorisées à se poursuivre. Toutefois, si l’exception est provoquée par l’endommagement d’objets en dehors de la tâche, tels que le stockage partagé, cette exception doit être gérée par votre classe **RoleEntryPoint**, toutes les tâches doivent être annulées et la méthode **Run** doit être autorisée à se terminer. Ensuite, Microsoft Azure redémarre le rôle.
-- Utilisez la méthode **OnStop** pour suspendre ou arrêter les tâches en arrière-plan et nettoyer les ressources. Cela peut impliquer l’arrêt des tâches de longue durée ou à plusieurs étapes. Il est essentiel de savoir comment y parvenir sans entraîner d’incohérence des données. Si une instance de rôle s’arrête pour une raison quelconque (autre qu’un arrêt initié par l’utilisateur), le code exécutant la méthode **OnStop** doit se terminer dans les cinq minutes. Autrement, son arrêt est forcé. Assurez-vous que votre code peut s’exécuter dans le délai prévu ou qu’il accepte d’être arrêté avant la fin de son exécution.  
+- Utilisez la méthode **OnStop** pour suspendre ou arrêter les tâches en arrière-plan et nettoyer les ressources. Cela peut impliquer l’arrêt des tâches de longue durée ou à plusieurs étapes. Il est essentiel de savoir comment y parvenir sans entraîner d’incohérence des données. Si une instance de rôle s’arrête pour une raison quelconque (autre qu’un arrêt initié par l’utilisateur), le code exécutant la méthode **OnStop** doit se terminer dans les cinq minutes. Autrement, son arrêt est forcé. Assurez-vous que votre code peut s’exécuter dans le délai prévu ou qu’il accepte d’être arrêté avant la fin de son exécution.
 - L’équilibreur de charge Azure commence à diriger le trafic vers l’instance de rôle quand la méthode **RoleEntryPoint.OnStart** renvoie la valeur **true**. Par conséquent, vous pouvez envisager de placer l’ensemble de votre code d’initialisation dans la méthode **OnStart**, afin que les instances de rôle qui ne s’initialisent pas correctement ne reçoivent aucun trafic.
 - Vous pouvez utiliser des tâches de démarrage en plus des méthodes de la classe **RoleEntryPoint**. Pour initialiser des paramètres à modifier dans l’équilibreur de charge Azure, utilisez des tâches de démarrage, car ces tâches sont exécutées avant que le rôle reçoive une demande. Pour plus d’informations, consultez [Exécuter des tâches de démarrage dans Azure](./cloud-services/cloud-services-startup-tasks.md).
 - Si une tâche de démarrage contient une erreur, cela peut obliger le rôle à redémarrer continuellement. Vous ne pourrez alors peut-être pas faire un échange d’adresses virtuelles IP (VIP) vers une version intermédiaire précédente, car l’échange nécessite un accès exclusif au rôle, ce qui est impossible pendant le redémarrage du rôle. Pour résoudre ce problème :
@@ -270,7 +270,7 @@ Quand vous planifiez la façon dont vous allez exécuter les tâches en arrière
 	}
 	```
 
-   - Ajoutez la définition du paramètre **Freeze** en tant que valeur booléenne dans les fichiers ServiceDefinition.csdef et ServiceConfiguration.cscfg du rôle, puis définissez-la sur la valeur **false**. Si le rôle entre dans un mode de redémarrage répété, vous pouvez affecter à ce paramètre la valeur **true** pour bloquer l’exécution du rôle et permettre son échange avec une version précédente.
+   - Ajoutez la définition du paramètre **Freeze** en tant que valeur booléenne dans les fichiers ServiceDefinition.csdef et ServiceConfiguration.*.cscfg du rôle, puis définissez-la sur la valeur **false**. Si le rôle entre dans un mode de redémarrage répété, vous pouvez affecter à ce paramètre la valeur **true** pour bloquer l’exécution du rôle et permettre son échange avec une version précédente.
 
 ## Remarques relatives à la résilience
 
@@ -320,4 +320,4 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Activation des diagnostics dans un service cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 # Vue d’ensemble des certificats pour Azure Cloud Services
@@ -51,7 +51,7 @@ Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil 
 * Le nom du sujet doit correspondre au domaine servant à accéder au service cloud.
     > Vous ne pouvez pas acquérir un certificat SSL pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d'objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
 * Chiffrement à 2 048 bits au minimum.
-* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel*.
+* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel*.
 
 Vous disposez de deux méthodes simples pour créer un certificat sur Windows : avec l’utilitaire `makecert.exe` ou avec IIS.
 
@@ -61,10 +61,16 @@ Cet utilitaire a été déconseillé et n’est plus documenté ici. Pour plus d
 
 ### PowerShell
 
-```
+```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+
+Si vous souhaitez utiliser ce [certificat avec le portail de gestion](../azure-api-management-certs.md), exportez-le vers un fichier **.cer** :
+
+```powershell
+Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
 ### Internet Information Services (IIS)
@@ -85,4 +91,4 @@ Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dan
 
 >[AZURE.NOTE] Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

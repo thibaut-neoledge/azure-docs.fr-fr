@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016" 
+	ms.date="07/05/2016" 
 	ms.author="larryfr"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
@@ -43,7 +43,11 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 1. Accédez à [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. Sur la page, sélectionnez les valeurs suivantes :
 
-	| Name | Value | | Filter Year | 2013 | | Filter Period | January | | Fields | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Effacer tous les autres champs |
+    | Nom | Valeur |
+    | ---- | ---- |
+    | Filtre année | 2013 |
+    | Filtre période | Janvier |
+    | Champs | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Effacez tous les autres champs |
 
 3. Cliquez sur **Télécharger**.
 
@@ -75,7 +79,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	
 4. Pour créer un répertoire sur WASB (le magasin de données distribuées utilisé par HDInsight), procédez comme suit et copiez le fichier :
 
-	hadoop fs -mkdir -p /tutorials/flightdelays/data hadoop fs -copyFromLocal FILENAME.csv /tutorials/flightdelays/data/FILENAME.csv
+	hdfs dfs -mkdir -p /tutorials/flightdelays/data hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
 	
 ##Création et exécution du HiveQL
 
@@ -149,13 +153,18 @@ Suivez la procédure suivante pour importer des données à partir du fichier CS
 
 3. Pour démarrer Hive et exécuter le fichier __flightdelays.hql__, procédez comme suit :
 
-		hive -i flightdelays.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
 		
-	Ceci exécutera le fichier, puis retournera une invite `hive>`.
+	> [AZURE.NOTE] Dans cet exemple, `localhost` est utilisé, car vous êtes connecté au nœud principal du cluster HDInsight, où s’exécute HiveServer2.
 
-4. Lorsque vous recevrez l’invite `hive>`, utilisez l’instruction suivante pour récupérer les données à partir des données relatives aux retards de vol qui ont été importées.
+4. Utilisez la commande suivante pour ouvrir une session Beeline interactive :
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+5. Lorsque vous recevrez l’invite `jdbc:hive2://localhost:10001/>`, utilisez l’instruction suivante pour récupérer les données à partir des données relatives aux retards de vol qui ont été importées.
 
 		INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 		SELECT regexp_replace(origin_city_name, '''', ''),
 			avg(weather_delay)
 		FROM delays
@@ -164,34 +173,13 @@ Suivez la procédure suivante pour importer des données à partir du fichier CS
 
 	Vous récupérerez ainsi la liste des villes qui ont enregistré des retards liés aux conditions météo, ainsi que le temps de retard moyen, qui seront enregistrés dans `/tutorials/flightdelays/output`. Sqoop lira ensuite les données à partir de cet emplacement et les exportera vers Azure SQL Database.
 
-##Création d’une base de données SQL
+6. Pour quitter Beeline, entrez `!quit` à l’invite de commandes.
 
-Pour créer une base de données SQL Azure, procédez comme suit : Cette procédure sera utilisée pour contenir les données exportées à partir de HDInsight via Sqoop.
+## Création d’une base de données SQL
 
-1. À partir de votre environnement de développement dans lequel l’interface de ligne de commande Azure a été installée, utilisez la commande suivante pour créer une base de données SQL Azure :
+Si vous disposez déjà d’une base de données SQL, vous devez obtenir le nom du serveur. Vous le trouverez sur le [portail Azure](https://portal.azure.com) en sélectionnant __Bases de données SQL__, puis en filtrant sur le nom de la base de données que vous souhaitez utiliser. Le nom du serveur est répertorié dans la colonne __SERVEUR__.
 
-		azure sql server create <adminLogin> <adminPassword> <region>
-
-	Par exemple, `azure sql server create admin password "West US"`.
-
-	Quand la commande est terminée, vous recevez une réponse similaire à ce qui suit :
-
-		info:    Executing command sql server create
-		+ Creating SQL Server
-		data:    Server Name i1qwc540ts
-		info:    sql server create command OK
-
-> [AZURE.IMPORTANT] Notez le nom de serveur renvoyé par cette commande. Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est `<shortname>.database.windows.net`.
-
-2. Utilisez la commande suivante pour créer une base de données nommée **sqooptest** sur le serveur de base de données SQL :
-
-        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
-
-    Un message « OK » s’affiche à la fin de l’opération.
-
-	> [AZURE.NOTE] Si une erreur indiquant un problème d’accès s’affiche, vous devez ajouter l’adresse IP de votre station de travail cliente au pare-feu de la base de données SQL à l’aide de la commande suivante :
-	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+Si vous n’avez pas de base de données SQL, consultez les informations dans le [Didacticiel sur la base de données SQL : Création d’une base de données SQL en quelques minutes](../sql-database/sql-database-get-started.md) pour en créer une. Vous devez enregistrer le nom du serveur utilisé pour la base de données.
 
 ##Création d’une table de base de données SQL
 
@@ -203,9 +191,9 @@ Pour créer une base de données SQL Azure, procédez comme suit : Cette procé
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-4. Une fois FreeTDS installé, utilisez la commande suivante pour vous connecter au serveur de base de données SQL créé précédemment :
+4. Une fois FreeTDS installé, utilisez la commande suivante pour vous connecter au serveur de base de données SQL. Remplacez __serverName__ par le nom du serveur de base de données SQL. Remplacez __adminLogin__ et __adminPassword__ par les informations d’identification de la base de données SQL. Remplacez __databaseName__ par le nom de la base de données.
 
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
 
     Le résultat ressemble à ce qui suit :
 
@@ -234,27 +222,23 @@ Pour créer une base de données SQL Azure, procédez comme suit : Cette procé
     Le résultat ressemble à ce qui suit :
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     delays      BASE TABLE
+        databaseName       dbo     delays      BASE TABLE
 
 8. Pour quitter l’utilitaire psql, entrez `exit` à l’invite de commandes `1>`.
 	
 ##Exportation de données avec Sqoop
 
-1. Utilisez la commande suivante pour créer un lien vers le pilote JDBC SQL Server à partir du répertoire de la bibliothèque Sqoop. Sqoop peut ainsi utiliser ce pilote pour communiquer avec la base de données SQL :
-
-		sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
-
 2. Utilisez la commande suivante pour vérifier que Sqoop peut voir votre base de données SQL :
 
 		sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
-	Cette commande doit renvoyer une liste des bases de données, y compris la base de données sqooptest que vous avez créée précédemment.
+	Cette commande doit renvoyer une liste des bases de données, notamment la base de données que vous avez créée précédemment dans la table des retards.
 
 3. Utilisez la commande suivante pour exporter des données à partir de hivesampletable dans la table mobiledata :
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Sqoop doit se connecter à la base de données SQL, à la base de données sqooptest, puis exporter des données à partir de wasb:///tutorials/flightdelays/output (l’emplacement où nous avons stocké précédemment la sortie de la requête Hive)
+	Sqoop doit se connecter à la base de données SQL, à la base de données contenant la table des retards, puis exporter des données à partir de wasb:///tutorials/flightdelays/output (l’emplacement où nous avons stocké précédemment la sortie de la requête Hive) vers la table des retards.
 
 4. Une fois la commande terminée, utilisez les éléments suivants pour vous connecter à la base de données à l’aide de TSQL :
 
@@ -268,6 +252,7 @@ Pour créer une base de données SQL Azure, procédez comme suit : Cette procé
 	Vous devez voir une liste des données dans la table. Tapez `exit` pour quitter l’utilitaire tsql.
 
 ##<a id="nextsteps"></a>Étapes suivantes
+
 Vous savez à présent télécharger un fichier vers le stockage d’objets blob Azure, renseigner une table Hive à l’aide des données du stockage d’objets blob Azure, exécuter des requêtes Hive et utiliser Sqoop pour exporter des données entre HDFS et une base de données SQL Azure. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main de HDInsight][hdinsight-get-started]
@@ -306,4 +291,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

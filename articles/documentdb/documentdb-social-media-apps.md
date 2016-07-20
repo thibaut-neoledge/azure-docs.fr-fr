@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="mimig"/>
 
 # Réseaux sociaux avec DocumentDB
@@ -106,6 +106,33 @@ Les flux de commentaires peuvent être créés à l’aide des processus d’arr
 
 Les points et les J’aime attribués à une publication peuvent être traités de manière différée à l’aide de cette même technique pour créer un environnement cohérent.
 
+Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de taille de document de 512 Ko, vous pouvez donc envisager de stocker les abonnés en tant que document avec cette structure :
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"followersOf": "dse4-qwe2-ert4-aad2",
+    	"followers":[
+    		"ewr5-232d-tyrg-iuo2",
+    		"qejh-2345-sdf1-ytg5",
+    		//...
+    		"uie0-4tyg-3456-rwjh"
+    	]
+    }
+
+Cela peut fonctionner pour un utilisateur avec quelques milliers d’abonnés, mais si des célébrités rejoignent nos rangs, cette opération atteindra forcément la limite de taille du document.
+
+Pour résoudre ce problème, nous pouvons utiliser une approche mixte. Dans le cadre du document Statistiques de l’utilisateur, nous pouvons stocker le nombre d’abonnés :
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"user": "dse4-qwe2-ert4-aad2",
+    	"followers":55230,
+    	"totalPosts":452,
+    	"totalPoints":11342
+    }
+
+Et le graphique réel d’abonnés peut être stocké dans les Tables de stockage Azure à l’aide d’une [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) qui permet le stockage et la récupération simples, de type « A-suit-B ». De cette façon, nous pouvons déléguer le processus d’extraction de la liste exacte des abonnés (lorsque nous en avons besoin) aux Tables de stockage Azure, mais pour une recherche rapide de chiffres, nous utilisons DocumentDB.
+
 ## Duplication des données et modèle « Échelle »
 
 Comme vous l’avez peut-être remarqué dans le document JSON qui fait référence à une publication, il existe plusieurs occurrences d’un utilisateur. Et vous auriez raison. Cela signifie que les informations qui représentent un utilisateur peuvent être présentes à plusieurs endroits, en raison de la dénormalisation.
@@ -140,21 +167,26 @@ L’étape intermédiaire est appelée Utilisateur. Ce sont les données complè
 
 L’étape la plus importante est appelée Utilisateur étendu. Elle inclut toutes les informations utilisateur essentielles, ainsi que d’autres données qui ne nécessitent pas vraiment d’être lues rapidement ou dont l’utilisation est finale (par exemple, le processus de connexion). Ces données peuvent être stockées en dehors de DocumentDB, dans Azure SQL Database ou Azure Storage Tables.
 
-Pourquoi fractionner l’utilisateur et même stocker ces informations dans des endroits différents ? Parce que l’espace de stockage dans DocumentDB n’est pas infini et du point de vue des performances, plus les documents sont volumineux, plus les requêtes sont coûteuses. Maintenez les documents à une taille minimale, avec les informations correctes pour exécuter toutes vos requêtes dépendantes des performances pour votre réseau social, et stockez les informations supplémentaires pour des scénarios éventuels comme les modifications de profil complètes, les connexions, et même l’exploration des données pour l’analyse de l’utilisation et les initiatives de Big Data. Peu importe que la collecte de données pour l’analyse soit plus lente parce qu’elle est exécutée sur Azure SQL Database, ce qui nous importe c’est que nos utilisateurs bénéficient d’une expérience rapide et compacte. Un utilisateur, stocké sur DocumentDB, ressemblerait à ceci :
+Pourquoi fractionner l’utilisateur et même stocker ces informations dans des endroits différents ? Parce que l’espace de stockage dans DocumentDB n’est [pas infini](documentdb-limits.md) et du point de vue des performances, plus les documents sont volumineux, plus les requêtes sont coûteuses. Maintenez les documents à une taille minimale, avec les informations correctes pour exécuter toutes vos requêtes dépendantes des performances pour votre réseau social, et stockez les informations supplémentaires pour des scénarios éventuels comme les modifications de profil complètes, les connexions, et même l’exploration des données pour l’analyse de l’utilisation et les initiatives de Big Data. Peu importe que la collecte de données pour l’analyse soit plus lente parce qu’elle est exécutée sur Azure SQL Database, ce qui nous importe c’est que nos utilisateurs bénéficient d’une expérience rapide et compacte. Un utilisateur, stocké sur DocumentDB, ressemblerait à ceci :
 
     {
         "id":"dse4-qwe2-ert4-aad2",
         "name":"John",
         "surname":"Doe",
+        "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john",
-        "totalPoints":100,
-        "totalPosts":24,
-        "following":{
-            "count":2,
-            "list":[
-                UserChunk1, UserChunk2
-            ]
+        "twitterHandle":"@john"
+    }
+
+Et une publication ressemblerait à ce qui suit :
+
+    {
+        "id":"1234-asd3-54ts-199a",
+        "title":"Awesome post!",
+        "date":"2016-01-02",
+        "createdBy":{
+        	"id":"dse4-qwe2-ert4-aad2",
+    		"username":"johndoe"
         }
     }
 
@@ -182,7 +214,9 @@ Mais, que pouvons-nous apprendre ? Quelques exemples simples incluent l’[analy
 
 Maintenant que j’ai votre attention, vous pensez sans doute qu’il vous faut un doctorat en sciences mathématiques pour extraire ces modèles et ces informations de fichiers et de bases de données simples, mais vous avez tort.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), composant de [Cortana Analytics Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une simple interface de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_(programming_language)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation, comme : [Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Modérateur de contenu](https://www.microsoft.com/moderator) ou [Recommandations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), composant de [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une simple interface de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_(programming_language)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation, comme : [Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Modérateur de contenu](https://www.microsoft.com/moderator) ou [Recommandations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+
+Pour réaliser l’un de ces scénarios d’apprentissage, nous pouvons utiliser [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) pour recevoir les informations de différentes sources et utiliser [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) pour traiter les informations et générer une sortie qui peut être traitée par Azure Machine Learning.
 
 ## Conclusion
 
@@ -198,4 +232,4 @@ En savoir plus sur la modélisation des données avec l’article [Modélisation
 
 Ou apprenez-en plus sur DocumentDB en suivant le [parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

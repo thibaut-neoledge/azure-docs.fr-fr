@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="06/28/2016"
 	ms.author="wesmc"/>
 
 # Synchronisation des données hors connexion dans Azure Mobile Apps
@@ -64,26 +64,26 @@ Un magasin local est associé au contexte de synchronisation à l’aide d’une
 
 Quand vous utilisez des tables de synchronisation, votre code client détermine à quel moment les modifications locales sont synchronisées avec un backend d’application Azure Mobile App. Rien n’est envoyé au backend tant que n’a pas été émis un appel pour *envoyer* les modifications locales. De même, le magasin local n’est rempli avec de nouvelles données que si un appel pour *extraire* les données est émis.
 
-* **Envoi** : l’envoi est une opération sur le contexte de synchronisation et consiste à envoyer toutes les modifications CUD qui se sont produites depuis le dernier envoi. Notez qu’il n’est pas possible d’envoyer uniquement les modifications d’une table spécifique, car sinon les opérations pourraient être envoyées dans le désordre. L’envoi exécute une série d’appels REST à destination de votre backend d’application Azure Mobile App qui, à son tour, modifie votre base de données serveur.
+* **Envoi** : l’envoi est une opération sur le contexte de synchronisation et consiste à envoyer toutes les modifications CUD qui se sont produites depuis le dernier envoi. Notez qu’il n’est pas possible d’envoyer uniquement les modifications d’une table spécifique, car sinon les opérations pourraient être envoyées dans le désordre. L’envoi exécute une série d’appels REST à destination de votre backend d’application Azure Mobile App qui, à son tour, modifie votre base de données serveur.
 
-* **Extraction** : l’extraction est effectuée sur une table spécifique et peut être personnalisée avec une requête pour récupérer uniquement un sous-ensemble des données du serveur. Les Kits de développement logiciel (SDK) clients Azure Mobile insèrent ensuite les données résultantes dans le magasin local.
+* **Extraction** : l’extraction est effectuée sur une table spécifique et peut être personnalisée avec une requête pour récupérer uniquement un sous-ensemble des données du serveur. Les Kits de développement logiciel (SDK) clients Azure Mobile insèrent ensuite les données résultantes dans le magasin local.
 
-* **Envois implicites** : si une extraction est exécutée sur une table en attente de mises à jour locales, cette extraction commence par exécuter un envoi sur le contexte de synchronisation. Cela permet de réduire au minimum les conflits entre les modifications qui sont déjà en attente et les nouvelles données du serveur.
+* **Envois implicites** : si une extraction est exécutée sur une table en attente de mises à jour locales, cette extraction commence par exécuter un envoi sur le contexte de synchronisation. Cela permet de réduire au minimum les conflits entre les modifications qui sont déjà en attente et les nouvelles données du serveur.
 
-* **Synchronisation incrémentielle** : le premier paramètre de l’opération d’extraction est un *nom de requête* qui est utilisé uniquement sur le client. Si vous utilisez un nom de requête non null, le Kit de développement logiciel (SDK) Azure Mobile effectue une *synchronisation incrémentielle*. Chaque fois qu’une opération d’extraction retourne un jeu de résultats, le dernier horodatage `updatedAt` à partir de ce jeu de résultats est stocké dans les tables de système locales du Kit de développement logiciel (SDK). Les opérations d’extraction ultérieures n’extraient que les enregistrements postérieurs à cet horodatage.
+* **Synchronisation incrémentielle** : le premier paramètre de l’opération d’extraction est un *nom de requête* qui est utilisé uniquement sur le client. Si vous utilisez un nom de requête non null, le Kit de développement logiciel (SDK) Azure Mobile effectue une *synchronisation incrémentielle*. Chaque fois qu’une opération d’extraction retourne un jeu de résultats, le dernier horodatage `updatedAt` à partir de ce jeu de résultats est stocké dans les tables de système locales du Kit de développement logiciel (SDK). Les opérations d’extraction ultérieures n’extraient que les enregistrements postérieurs à cet horodatage.
 
   Pour utiliser la synchronisation incrémentielle, votre serveur doit retourner des valeurs `updatedAt` explicites et prendre en charge le tri par ce champ. Toutefois, étant donné que le Kit de développement logiciel (SDK) ajoute son propre tri sur le champ updatedAt, vous ne pouvez pas utiliser une requête d’extraction qui a sa propre clause `$orderBy$`.
 
   Le nom de la requête peut être toute chaîne de votre choix, mais il doit être unique pour chaque requête logique dans votre application. Sinon, différentes opérations d’extraction pourraient écraser le même horodatage de synchronisation incrémentielle et vos requêtes pourraient renvoyer des résultats incorrects.
 
-  Si la requête possède un paramètre, une façon de créer un nom de requête unique consiste à intégrer la valeur du paramètre. Par exemple, si vous filtrez sur le nom d’utilisateur, le nom de votre requête peut être le suivant (en C#) :
+  Si la requête possède un paramètre, une façon de créer un nom de requête unique consiste à intégrer la valeur du paramètre. Par exemple, si vous filtrez sur le nom d’utilisateur, le nom de votre requête peut être le suivant (en C#) :
 
-		await todoTable.PullAsync("todoItems" + userid, 
+		await todoTable.PullAsync("todoItems" + userid,
 			syncTable.Where(u => u.UserId == userid));
 
   Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `null` en tant qu’ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel à `PullAsync`, ce qui est potentiellement inefficace.
 
-* **Purge** : vous pouvez effacer le contenu du magasin local en utilisant `IMobileServiceSyncTable.PurgeAsync`. Cette opération peut s’avérer nécessaire si la base de données client contient des données obsolètes ou que vous souhaitez ignorer toutes les modifications en attente.
+* **Purge** : vous pouvez effacer le contenu du magasin local en utilisant `IMobileServiceSyncTable.PurgeAsync`. Cette opération peut s’avérer nécessaire si la base de données client contient des données obsolètes ou que vous souhaitez ignorer toutes les modifications en attente.
 
   Une purge efface une table du magasin local. Si des opérations sont en attente de synchronisation avec la base de données du serveur, la purge lève une exception, à moins que le paramètre *force purge* soit activé.
 
@@ -105,4 +105,4 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [Windows 8.1 : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 [Windows 8.1 : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

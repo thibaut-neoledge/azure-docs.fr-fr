@@ -20,14 +20,18 @@
 # Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
 > [AZURE.SELECTOR]
+- [Portail](azure-portal/resource-group-portal.md)
 - [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
 Cet article présente des méthodes courantes pour créer et gérer des ressources Azure en utilisant l’interface de ligne de commande Azure en mode Azure Resource Manager.
 
->[AZURE.NOTE] Pour créer et gérer des ressources Azure sur la ligne de commande, vous devez disposer d’un abonnement Azure ([compte Azure gratuit ici](https://azure.microsoft.com/free/)). Vous devrez également [installer l’interface de ligne de commande Azure ](xplat-cli-install.md) et [vous connecter pour utiliser des ressources Azure associées à votre compte](xplat-cli-connect.md). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
+>[AZURE.NOTE] Pour créer et gérer des ressources Azure sur la ligne de commande, vous devez disposer d’un abonnement Azure ([compte Azure gratuit ici](https://azure.microsoft.com/free/)). Vous devrez également [installer l’interface de ligne de commande Azure](xplat-cli-install.md) et [vous connecter pour utiliser des ressources Azure associées à votre compte](xplat-cli-connect.md). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
 
 ## Ressources Azure
 
@@ -232,6 +236,6 @@ Vous pouvez afficher le modèle Resource Manager pour un groupe de ressources ex
 ## Étapes suivantes
 
 * Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
-* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du Portail Azure, voir [Utilisation du Portail Azure pour déployer et gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
+* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, voir [Utilisation du Portail Azure pour déployer et gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

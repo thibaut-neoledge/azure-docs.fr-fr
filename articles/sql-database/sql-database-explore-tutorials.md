@@ -25,6 +25,10 @@ Utilisez les liens ci-dessous pour obtenir une vue d’ensemble de chaque foncti
 
 Dans les didacticiels suivants, vous allez apprendre à utiliser SQL Server Management Studio pour administrer et interroger la base de données SQL Azure.
 
+
+> [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 | Didacticiel | Description |
 |---|---|---|
 | [Connexion à une base de données SQL Azure à l'aide d'une connexion du principal au niveau du serveur](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login)| Ce didacticiel vous apprend à vous connecter à une base de données SQL Azure à l’aide des identifiants de connexion d’un principal au niveau du serveur.|
@@ -180,4 +184,4 @@ Ce didacticiel fournit des informations relatives à la [synchronisation des don
 
 [Explorer les démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

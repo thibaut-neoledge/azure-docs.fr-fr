@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="07/06/2016"
    ms.author="magoedte" />
 
 # Sécurité dans Azure Automation
@@ -45,4 +45,4 @@ Objet principal du service Azure AD | Azure Resource Manager | [Authentifier des
 Authentification Windows | Centre de données local | [Authentifier des Runbooks pour des Runbook Workers hybrides](../automation/automation-hybrid-runbook-worker.md)
 Informations d'identification AWS | Amazon Web Services | [Authentifier des Runbooks avec Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

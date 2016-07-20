@@ -46,6 +46,7 @@ Pour activer manuellement Stretch Database sur le serveur, exécutez **sp\_confi
 ```
 EXEC sp_configure 'remote data archive' , '1';
 GO
+
 RECONFIGURE;
 GO
 ```
@@ -62,6 +63,10 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 1.  Avant de commencer, choisissez un serveur Azure existant pour les données migrées par Stretch Database, ou créez un serveur Azure.
 
 2.  Sur le serveur Azure, créez une règle de pare-feu avec la plage d’adresses IP de l’ordinateur SQL Server qui autorise SQL Server à communiquer avec le serveur distant.
+
+    Vous pouvez facilement trouver les valeurs dont vous avez besoin et créer la règle de pare-feu en essayant de vous connecter au serveur Azure à partir de l’Explorateur d’objets dans SQL Server Management Studio (SSMS). SSMS vous aide à créer la règle en ouvrant la boîte de dialogue suivante qui inclut déjà les valeurs d’adresse IP requises.
+
+	![Créer une règle de pare-feu dans SSMS][FirewallRule]
 
 3.  Pour configurer une base de données SQL Server pour Stretch Database, il faut que la base de données ait une clé principale de base de données. Celle-ci sécurise les informations d’identification utilisées par Stretch Database pour se connecter à la base de données distante. Voici un exemple qui crée une nouvelle clé principale de base de données.
 
@@ -136,4 +141,6 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+[FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
+
+<!---HONumber=AcomDC_0706_2016-->

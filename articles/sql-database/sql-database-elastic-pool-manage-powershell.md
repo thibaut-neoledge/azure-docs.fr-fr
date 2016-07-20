@@ -83,8 +83,8 @@ Mesures récupérables sous la forme d'un pourcentage de la limite de pool de re
 
 **Granularité des mesures/périodes de rétention :**
 
-* Les données seront renvoyées avec une granularité de 5 minutes.  
-* La durée de conservation des données est de 14 jours.  
+* Les données seront renvoyées avec une granularité de 5 minutes.
+* La durée de conservation des données est de 35 jours.
 
 Cette applet de commande et API limite le nombre de lignes pouvant être récupérées au cours d'un seul appel à 1 000 (environ 3 jours de données avec une granularité de 5 minutes). Mais cette commande peut être appelée plusieurs fois avec des intervalles de temps de début / fin différents pour récupérer plus de données.
 
@@ -177,7 +177,7 @@ Pour utiliser cet exemple d’implémentation, suivez les étapes décrites ci-d
 
 1. Téléchargez les [scripts et la documentation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) :
 2. Modifiez les scripts pour votre environnement. Spécifiez le ou les serveurs qui hébergent les pools élastiques.
-3. Spécifiez une base de données de télémétrie où les métriques collectées doivent être stockées. 
+3. Spécifiez une base de données de télémétrie où les métriques collectées doivent être stockées.
 4. Personnalisez le script pour spécifier la durée de l’exécution des scripts.
 
 D’un point de vue global, le script effectue les opérations suivantes :
@@ -276,4 +276,4 @@ L’applet de commande Stop- signifie « annuler », et non « interrompre �
 - [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
 - Consultez [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

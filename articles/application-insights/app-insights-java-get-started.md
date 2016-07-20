@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Analyse d’une application web Java avec Application Insights | Microsoft Azure"
-	description="Surveillance des performances et de l’utilisation de votre site web Java avec Application Insights"
+	description="Surveillance des performances et de l’utilisation de votre site web Java avec Application Insights "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -163,6 +163,19 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 * Le composant de demande HTTP est facultatif. Il envoie automatiquement la télémétrie concernant les demandes et les temps de réponse au portail.
 * La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic][diagnostic].
 
+### Autres méthodes pour définir la clé d’instrumentation
+
+Le kit de développement logiciel (SDK) d’Application Insights recherche la clé dans cet ordre :
+
+1. Propriété système : -DAPPLICATION\_INSIGHTS\_IKEY=votre\_ikey
+2. Variable d’environnement : APPLICATION\_INSIGHTS\_IKEY
+3. Fichier de configuration : ApplicationInsights.xml
+
+Vous pouvez également [la définir dans le code](app-insights-api-custom-events-metrics.md#ikey) :
+
+    telemetryClient.InstrumentationKey = "...";
+
+
 ## 4\. Ajouter un filtre HTTP
 
 La dernière étape de la configuration permet au composant de demande HTTP de consigner toutes les demandes web. (Non requis si vous voulez juste l'API seule.)
@@ -227,7 +240,7 @@ Cliquez sur un des graphiques pour afficher des métriques agrégées plus déta
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights part du principe que le format des requêtes HTTP pour les applications MVC est : `VERB controller/action` Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` seront regroupés dans `GET Home/Product`. Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
+> Application Insights suppose que le format des requêtes HTTP pour les applications MVC est : `VERB controller/action`. Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` seront regroupés dans `GET Home/Product`. Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
 
 
 ### Données d’instance 
@@ -243,21 +256,19 @@ Lorsque vous affichez les propriétés d’une demande, vous voyez les événeme
 
 ### Analytics : un puissant langage de requête
 
-En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant, utile pour comprendre les performances et l’utilisation, ainsi que pour mener à bien des diagnostics.
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais aussi d’effectuer des diagnostics.
 
 ![Exemple d’Analytics](./media/app-insights-java-get-started/025.png)
 
 
-## 5\. Installer votre application sur le serveur
+## 7\. Installer votre application sur le serveur
 
 Publiez maintenant votre application sur le serveur, laissez le temps aux usagers de l’utiliser, puis observez les données de télémétrie qui s’affichent sur le portail.
 
 * Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
 
  * dc.services.VisualStudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Sur les serveurs Windows, installez :
@@ -274,7 +285,7 @@ Les exceptions non gérées sont collectées automatiquement :
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
-* [Insérez des appels à TrackException() dans votre code][apiexceptions]. 
+* [Insérez des appels à TrackException() dans votre code][apiexceptions].
 * [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
 
 
@@ -401,4 +412,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -75,9 +75,9 @@ Vous pouvez configurer des paramètres pour activer les diagnostics et corriger 
         "etlReadIntervalInMinutes": "5",
         "uploadIntervalInMinutes": "10",
         "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
+        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
+        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
+        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
     },
 
 Ces variables vous aident à collecter les journaux de suivi ETW, les vidages sur incident ainsi que les compteurs de performance. Consultez les sections [Journal de suivi](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) et [Suivi ETW](https://msdn.microsoft.com/library/ms751538.aspx) pour plus d’informations sur les journaux de suivi ETW. [Les vidages sur incident](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) pour un nœud Service Fabric et pour le cluster peuvent être dirigés vers le dossier **crashDumpConnectionString**. Les [compteurs de performance](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) du cluster peuvent être dirigés vers le dossier **perfCtrConnectionString** sur votre ordinateur.
@@ -137,10 +137,10 @@ Cette section vous permet de définir les répertoires racine des données et jo
         "name": "Setup",
         "parameters": [{
             "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
+            "value": "C:\ProgramData\SF"
         }, {
             "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
+            "value": "C:\ProgramData\SF\Log"
     }]
 
 Notez que si vous personnalisez uniquement la racine des données, la racine du journal sera placée un niveau en dessous de la racine des données.
@@ -150,4 +150,4 @@ Notez que si vous personnalisez uniquement la racine des données, la racine du 
 
 Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Création d’un cluster Azure Service Fabric en local ou dans le cloud](service-fabric-cluster-creation-for-windows-server.md) puis passer à la section [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

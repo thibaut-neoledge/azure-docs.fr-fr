@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Rôles dans Azure AD Privileged Identity Management
@@ -24,33 +24,34 @@ Vous pouvez affecter aux utilisateurs de votre organisation différents rôles a
 
 Un administrateur général peut mettre à jour les utilisateurs **définitivement** affectés aux rôles dans Azure AD à l’aide des applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`, ou via le portail classique, comme décrit à la rubrique [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md).
 
-Azure AD Privileged Identity Management (PIM) gère les stratégies pour l’accès privilégié des utilisateurs dans Azure AD. PIM affecte les utilisateurs à un ou plusieurs rôles dans Azure AD, et ces affectations peuvent être permanentes ou temporaires. Lorsqu’un utilisateur est définitivement affecté à un rôle ou qu’il active une affectation de rôle temporaire, il peut alors gérer Azure Active Directory, Office 365 et d’autres applications avec les autorisations attribuées aux rôles.
+Azure AD Privileged Identity Management (PIM) gère les stratégies pour l’accès privilégié des utilisateurs dans Azure AD. PIM affecte aux utilisateurs un ou plusieurs rôles dans Azure AD, et vous pouvez affecter définitivement le rôle à une personne, ou la rendre éligible au rôle. Lorsqu’un utilisateur est définitivement affecté à un rôle ou qu’il active une affectation de rôle éligible, il peut alors gérer Azure Active Directory, Office 365 et d’autres applications avec les autorisations attribuées aux rôles.
 
+Il n’existe aucune différence entre un accès accordé de façon permanente à un utilisateur et l’affectation d’un rôle éligible. La seule différence réside dans le fait que certaines personnes n’ont pas besoin d’un accès permanent. Ces personnes deviennent éligibles au rôle et peuvent l’activer et le désactiver chaque fois que cela est nécessaire.
 
 ## Rôles gérés dans PIM
 
 Privileged Identity Management vous permet d’affecter des utilisateurs à des rôles d’administrateur courants, notamment :
 
 
-- L’**administrateur général** (également connu sous le nom d’administrateur d’entreprise) a accès à toutes les fonctionnalités d’administration. Vous pouvez avoir plus d’un administrateur général dans votre organisation. La personne qui s’inscrit pour acheter Office 365 devient automatiquement un administrateur général.
-- L’**administrateur de rôle privilégié** gère Azure AD PIM et met à jour les attributions de rôles pour d’autres utilisateurs.  
-- L’**administrateur de facturation** effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
-- L’**administrateur de mots de passe** réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mot de passe sont limités à la réinitialisation des mots de passe des utilisateurs.
-- L’**administrateur de services fédérés** gère les demandes de service et surveille l’état des services.
+- **Administrateur général** (également connu sous le nom d’administrateur d’entreprise) : a accès à toutes les fonctionnalités d’administration. Vous pouvez avoir plus d’un administrateur général dans votre organisation. La personne qui s’inscrit pour acheter Office 365 devient automatiquement un administrateur général.
+- **Administrateur de rôle privilégié** : gère Azure AD PIM et met à jour les attributions de rôles pour d’autres utilisateurs.
+- **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
+- **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mot de passe sont limités à la réinitialisation des mots de passe des utilisateurs.
+- **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
 
   > [AZURE.NOTE] Si vous utilisez Office 365, avant d’affecter le rôle d’administrateur de service à un utilisateur, commencez par affecter les autorisations d’administrateur à un service, comme Exchange Online.
 
-- L’**administrateur de gestion des utilisateurs** réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. L’administrateur de gestion des utilisateurs ne peut pas supprimer un administrateur général, créer d’autres rôles d’administrateur ou réinitialiser des mots de passe pour les administrateurs de facturation, généraux et du service.
-- L’**administrateur Exchange** dispose d’un accès administratif à Exchange Online par le biais du Centre d’administration Exchange (EAC) et peut effectuer presque n’importe quelle tâche dans Exchange Online.
-- L’**administrateur SharePoint** dispose d’un accès administratif à SharePoint Online par le biais du Centre d’administration SharePoint Online et peut effectuer presque n’importe quelle tâche dans SharePoint Online.
-- L’**administrateur Skype Entreprise** dispose d’un accès administratif à Skype Entreprise par le biais du Centre d’administration Skype Entreprise et peut effectuer presque n’importe quelle tâche dans Skype Entreprise Online.
+- **Administrateur de gestion des utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. L’administrateur de gestion des utilisateurs ne peut pas supprimer un administrateur général, créer d’autres rôles d’administrateur ou réinitialiser des mots de passe pour les administrateurs de facturation, généraux et du service.
+- **Administrateur Exchange** : dispose d’un accès administratif à Exchange Online par le biais du Centre d’administration Exchange (EAC) et peut effectuer presque n’importe quelle tâche dans Exchange Online.
+- **Administrateur SharePoint** : dispose d’un accès administratif à SharePoint Online par le biais du Centre d’administration SharePoint Online et peut effectuer presque n’importe quelle tâche dans SharePoint Online.
+- **Administrateur Skype Entreprise** : dispose d’un accès administratif à Skype Entreprise par le biais du Centre d’administration Skype Entreprise et peut effectuer presque n’importe quelle tâche dans Skype Entreprise Online.
 
 Consultez les articles suivants pour plus d’informations sur l’[attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md) et sur l’[attribution de rôles d’administrateur dans Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
 
-À partir de PIM, vous pouvez [affecter temporairement ces rôles à un utilisateur](active-directory-privileged-identity-management-how-to-add-role-to-user.md) pour qu’il puisse [activer le rôle si nécessaire](active-directory-privileged-identity-management-how-to-activate-role.md).
+À partir de PIM, vous pouvez [affecter ces rôles à un utilisateur](active-directory-privileged-identity-management-how-to-add-role-to-user.md) pour qu’il puisse [activer le rôle si nécessaire](active-directory-privileged-identity-management-how-to-activate-role.md).
 
 Si vous souhaitez autoriser un autre utilisateur à effectuer la gestion dans PIM, les rôles que requiert PIM pour cet utilisateur sont décrits dans [Comment accorder l’accès à PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
@@ -82,10 +83,10 @@ L’accès à Microsoft Online Services peut nécessiter l’affectation d’une
 5. Sélectionnez le plan de licence contenant les licences que vous souhaitez distribuer.
 6. Sélectionnez **Affecter des utilisateurs**.
 7. Sélectionnez l’utilisateur auquel vous souhaitez affecter une licence.
-8. Cliquez sur le bouton **Affecter**. L’utilisateur peut à présent ouvrir une session Azure.
+8. Cliquez sur le bouton **Affecter**. L’utilisateur peut à présent se connecter à Azure.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

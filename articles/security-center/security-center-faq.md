@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/05/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -102,7 +102,7 @@ Le Centre de sécurité Azure collecte, analyse et fusionne automatiquement les 
 ### Quelle est la différence entre les menaces détectées et faisant l’objet d’une alerte par Microsoft Security Response Center et par Azure Security Center ?
 Microsoft Security Response Center (MSRC) effectue certaines analyses de sécurité sur l'infrastructure et le réseau Azure et reçoit des informations sur les menaces et des plaintes pour mauvaise utilisation provenant de tiers. Lorsque MSRC constate que les données client ont été utilisées par un tiers illégal ou non autorisé ou que l'utilisation d’Azure par le client ne respecte pas les conditions de bon usage, un gestionnaire des incidents de sécurité informe le client. La notification correspond généralement à un courrier électronique envoyé au(x) contact(s) de sécurité spécifié(s) dans Azure Security Center ou au propriétaire de l'abonnement Azure si aucun contact de sécurité n'est spécifié.
 
-Security Center est un service Azure qui surveille en continu l'environnement Azure du client et applique des analyses de façon à détecter automatiquement un large éventail d'activités potentiellement malveillantes. Ces détections sont signalées en tant qu'alertes de sécurité dans le tableau de bord du Security Center. À l'avenir, une notification par courrier électronique des alertes de sécurité sera également envoyée au(x) contact(s) de sécurité.
+Security Center est un service Azure qui surveille en continu l'environnement Azure du client et applique des analyses de façon à détecter automatiquement un large éventail d'activités potentiellement malveillantes. Ces détections sont signalées en tant qu'alertes de sécurité dans le tableau de bord du Security Center.
 
 ### Comment les autorisations sont-elles gérées dans le Centre de sécurité Azure ?
 Le Centre de sécurité Azure prend en charge l’accès en fonction du rôle. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md).
@@ -114,15 +114,15 @@ Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propri�
 ## Machines virtuelles
 
 ### Quels sont les types de machines virtuelles pris en charge ?
-Les machines virtuelles créées à partir des [modèles de déploiement de type classique et Resource Manager](../azure-classic-rm.md) sont prises en charge, notamment celles qui font partie de clusters Azure Service Fabric.
+La surveillance de l’intégrité de la sécurité et les recommandations sont disponibles pour les machines virtuelles créées à l’aide des [modèles de déploiement classique et Resource Manager](../azure-classic-rm.md), y compris pour les machines virtuelles faisant partie de clusters Azure Service Fabric.
 
-Machines virtuelles Windows prises en charge :
+Les machines virtuelles Windows prises en charge sont les suivantes :
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-Machines virtuelles Linux prises en charge :
+Les machines virtuelles Linux prises en charge sont les suivantes :
 
 - Ubuntu versions 12.04, 14.04, 15.10 et 16.04
 - Debian versions 7 et 8
@@ -130,4 +130,8 @@ Machines virtuelles Linux prises en charge :
 - Red Hat Enterprise Linux (RHEL) versions 6.* et 7.*
 - SUSE Linux Enterprise Server (SLES) versions 11.* et 12.*
 
-<!---HONumber=AcomDC_0615_2016-->
+Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur le service cloud, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md).
+
+La recommandation de Security Center [Appliquer des mises à jour système](security-center-recommendations.md) recommande le déploiement des mises à jour de sécurité du système et les mises à jour critiques manquantes sur les machines virtuelles. Pour les machines virtuelles des services cloud, la recommandation **mettre à jour la version du système d’exploitation** recommande la mise à jour du système d’exploitation vers la dernière version.
+
+<!---HONumber=AcomDC_0706_2016-->

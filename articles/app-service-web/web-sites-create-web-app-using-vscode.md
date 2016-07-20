@@ -31,8 +31,8 @@ ASP.NET 5 est une nouvelle conception significative d'ASP.NET. ASP.NET 5 est une
 ## Composants requis  
 
 * Installation de [VS Code](http://code.visualstudio.com/Docs/setup).
-* Installation de [Node.js](http://nodejs.org) : Node.js est une plateforme permettant la création d’applications de serveur rapides et évolutives à l’aide de JavaScript. Node est le runtime (Node), et [npm](http://www.npmjs.com/) est le gestionnaire de package pour les modules Node. Vous utiliserez npm pour structurer une application Web ASP.NET 5 dans ce didacticiel.
-* Installation de Git - vous pouvez l'installer depuis l’un de ces emplacements : [Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads). Si vous n’êtes pas familiarisé avec Git, choisissez [git-scm.com](http://git-scm.com/downloads) et sélectionnez l’option vous permettant d’**utiliser Git à partir de l’invite de commandes Windows**. Une fois Git installé, vous devrez également définir le nom d'utilisateur et l’adresse de messagerie Git qui vous seront ultérieurement demandés dans ce didacticiel (lorsque vous effectuerez une validation à partir de VS Code).  
+* Installation de [Node.js](http://nodejs.org) : Node.js est une plateforme permettant la création d’applications de serveur rapides et évolutives à l’aide de JavaScript. Node est le runtime (Node), et [npm](http://www.npmjs.com/) est le gestionnaire de package pour les modules Node. Vous utiliserez npm pour structurer une application Web ASP.NET 5 dans ce didacticiel.
+* Installation de Git - vous pouvez l'installer depuis l’un de ces emplacements : [Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads). Si vous n’êtes pas familiarisé avec Git, choisissez [git-scm.com](http://git-scm.com/downloads) et sélectionnez l’option vous permettant d’**utiliser Git à partir de l’invite de commandes Windows**. Une fois Git installé, vous devrez également définir le nom d'utilisateur et l’adresse de messagerie Git qui vous seront ultérieurement demandés dans ce didacticiel (lorsque vous effectuerez une validation à partir de VS Code).
 
 ## Installer ASP.NET 5 et DNX
 ASP.NET 5/DNX (l'environnement d'exécution .NET) est une pile .NET lean vous permettant de créer des applications web et cloud modernes capables de s'exécuter sur OS X, Linux et Windows. Elle a été construite intégralement pour fournir une infrastructure de développement optimisée pour les applications qui sont déployées sur le cloud ou qui sont exécutées en local. Elle inclut des composants modulaires associés à des frais généraux réduits. Ainsi, vous bénéficiez d’une certaine flexibilité lors de la création de vos solutions.
@@ -123,7 +123,7 @@ Maintenant que vous avez créé l'application Web et extrait tous les packages N
 
 	La fenêtre de commande affiche que l'application a démarré. Si la fenêtre de commande n'affiche pas ce message, vérifiez le coin inférieur gauche de VS Code pour découvrir les erreurs repérées dans votre projet.
 	
-	> [AZURE.NOTE] L’émission d’une commande à partir de la **palette de commandes** nécessite un caractère **>** au début de la ligne de commande. Vous pouvez afficher les détails relatifs à la commande **web** dans le fichier *project.json*.
+	> [AZURE.NOTE] L’émission d’une commande à partir de la **palette de commandes** nécessite un caractère **>** au début de la ligne de commande. Vous pouvez afficher les détails relatifs à la commande **web** dans le fichier *project.json*. Si la commande ne s’affiche pas ou n’est pas disponible, vous devrez peut-être installer l’extension C#. Exécutez `>Extensions: Install Extension` et `ext install c#` pour installer les extensions C#.
 
 2. Ouvrez un navigateur et accédez à l'URL suivante.
 
@@ -250,7 +250,7 @@ Maintenant que vous avez déployé votre application Web, exécutez l'applicatio
 
 Cette opération peut être réalisée de deux manières :
 
-* Ouvrez un navigateur et entrez le nom de votre application Web comme suit.   
+* Ouvrez un navigateur et entrez le nom de votre application Web comme suit.
 
 		http://SampleWebAppDemo.azurewebsites.net
  
@@ -262,4 +262,4 @@ Cette opération peut être réalisée de deux manières :
 ## Résumé
 Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d’informations sur VS Code, consultez l’article [Pourquoi Visual Studio Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

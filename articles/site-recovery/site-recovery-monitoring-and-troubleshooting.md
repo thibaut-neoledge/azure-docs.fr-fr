@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="07/06/2016" 
 	ms.author="anbacker"/>
 	
 # Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques
@@ -148,7 +148,7 @@ Pour déclencher un ticket de support pour ASR, accédez au support Azure en uti
 -   [Comment conserver la lettre de lecteur pour les machines virtuelles protégées qui ont basculé ou migré sur Azure](http://support.microsoft.com/kb/3031135)
 -   [Comment gérer l’utilisation de la bande passante réseau par la protection Local vers Azure](https://support.microsoft.com/kb/3056159)
 -   [ASR : Erreur « La ressource de cluster est introuvable » quand vous essayez d’activer la protection d’une machine virtuelle](http://support.microsoft.com/kb/3010979)
--   [Guide de présentation et de résolution des problèmes relatifs à la réplication Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016) 
+-   [Guide de présentation et de résolution des problèmes relatifs à la réplication Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
 
 ## Les erreurs ASR courantes et leur résolution
 
@@ -171,7 +171,7 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 ### Protection
 - <span style="color:green;">NOUVEAU</span> [Échec de l’activation de la protection avec l’erreur « Impossible de configurer la protection pour la machine virtuelle ». Erreur 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
 - <span style="color:green;">NOUVEAU</span> [Échec de l’activation de la protection avec l’erreur « Impossible d’activer la protection pour la machine virtuelle ». Erreur 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
-- <span style="color:green;">NOUVEAU</span> [Erreur de migration en direct 23848 : La machine virtuelle va être déplacée avec le type En direct. Ceci peut endommager l’état de protection de la récupération de la machine virtuelle.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
+- <span style="color:green;">NOUVEAU</span> [Erreur de migration en direct 23848 : La machine virtuelle va être déplacée avec le type En direct. Ceci peut endommager l’état de protection de la récupération de la machine virtuelle.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 - [Échec de l'activation de la protection, car l'agent n’est pas installé sur la machine hôte](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 - [Impossible de trouver un hôte approprié pour la machine virtuelle de réplication, en raison des faibles ressources de calcul](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 - [Impossible de trouver un hôte approprié pour la machine virtuelle de réplication, en raison de l'absence de réseau logique attaché](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
@@ -202,4 +202,4 @@ Serveur de configuration, Serveur de traitement, Serveur maître
 ### Résolution des problèmes après un basculement de bureau à distance
 -   Suite à un basculement, de nombreux clients ont été confrontés à des problèmes de connexion à la machine virtuelle dans Azure. [Utiliser le document de résolution des problèmes pour le protocole RDP dans la machine virtuelle](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

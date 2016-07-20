@@ -36,7 +36,10 @@ Pour configurer la géoréplication active à l’aide de Transact-SQL, vous dev
 - Un serveur de base de données SQL Azure logique <MyLocalServer> et une base de données SQL <MyDB> : la base de données primaire que vous souhaitez répliquer.
 - Un ou plusieurs serveurs logiques de bases de données SQL Azure <MySecondaryServer(n)> - Les serveurs logiques qui seront serveurs partenaires dans lequel vous créerez des bases de données secondaires.
 - Une connexion qui est DBManager sur le serveur principal, a la propriété db\_ownership de la base de données locale que vous allez géo-répliquer et est DBManager sur le ou les serveurs partenaires sur lesquels vous allez configurer la géoréplication.
-- La version la plus récente de SQL Server Management Studio. Pour obtenir la version la plus récente de SQL Server Management Studio (SSMS), accédez à [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Pour plus d’informations sur l’utilisation de SQL Server Management Studio dans la gestion des serveurs logiques et des bases de données SQL Azure, consultez [Gestion de base de données SQL à l’aide de SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+> [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 ## Ajout d'une base de données secondaire
 
@@ -164,7 +167,7 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géoréplicatio
 
 ## Étapes suivantes
 
-- Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour plus d’informations sur la géoréplication active, consultez [Géoréplication active](sql-database-geo-replication-overview.md)
 - Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

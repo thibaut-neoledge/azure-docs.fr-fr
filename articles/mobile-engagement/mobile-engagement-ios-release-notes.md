@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Notes de publication du Kit de développement logiciel (SDK) Azure Mobile Engagement pour iOS"
+	pageTitle="Notes de publication du Kit de développement logiciel (SDK) Azure Mobile Engagement pour iOS | Microsoft Azure"
 	description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
-#Notes de publication
+#Notes de publication du Kit de développement logiciel (SDK) Azure Mobile Engagement pour iOS
+
+##3\.2.4 (30/06/2016)
+
+-   Agrégation fixe entre les journaux techniques et les autres journaux.
 
 ##3\.2.3 (07/06/2016)
 
@@ -67,4 +71,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

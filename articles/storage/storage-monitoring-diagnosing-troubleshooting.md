@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="06/28/2016"
 	ms.author="jahogg"/>
 
 # Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
@@ -26,7 +26,7 @@ Le diagnostic et la résolution des problèmes dans une application distribuée 
 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l’analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
 
-> [AZURE.NOTE] Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS).
+> [AZURE.NOTE] Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS). En outre, le service de fichiers Azure ne gère pas la journalisation pour l’instant.
 
 Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](storage-e2e-troubleshooting.md).
 
@@ -102,9 +102,11 @@ La section « [Annexes] » inclut des informations concernant l'utilisation d'
 
 ## <a name="monitoring-your-storage-service"></a>Analyse de votre service de stockage
 
-Si vous connaissez les outils d’analyse de performances Windows, vous pouvez considérer les métriques de stockage comme l’équivalent, dans Azure Storage, des compteurs de l’Analyseur de performances Windows. Les métriques de stockage incluent un vaste éventail de métriques (appelées compteurs dans la terminologie de l’Analyseur de performances Windows) telles que la disponibilité du service, le nombre total de demandes du service ou le pourcentage de demandes réussies du service (pour obtenir une liste complète des métriques disponibles, consultez la section <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schéma de table de métriques Storage Analytics</a> sur MSDN). Vous pouvez spécifier si vous désirez que le service de stockage collecte et agrège les métriques toutes les heures ou toutes les minutes. Pour plus d’informations sur la façon d’activer les métriques et d’analyser vos comptes de stockage, consultez la section <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Activation des métriques de stockage</a> sur MSDN.
+Si vous connaissez les outils d’analyse de performances Windows, vous pouvez considérer les métriques de stockage comme l’équivalent, dans Azure Storage, des compteurs de l’Analyseur de performances Windows. Les métriques de stockage incluent un vaste éventail de métriques (appelées compteurs dans la terminologie de l’Analyseur de performances Windows) telles que la disponibilité du service, le nombre total de demandes du service ou le pourcentage de demandes réussies du service. Pour obtenir une liste de toutes les métriques disponibles, consultez l’article [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx). Vous pouvez spécifier si vous désirez que le service de stockage collecte et agrège les métriques toutes les heures ou toutes les minutes. Pour plus d’informations sur la façon d’activer les métriques et d’analyser vos comptes de stockage, consultez la section [Activation de Storage Metrics et affichage des données de métriques](http://go.microsoft.com/fwlink/?LinkId=510865).
 
-Vous pouvez sélectionner les métriques horaires à afficher dans le [portail Azure](https://portal.azure.com) et configurer les règles de notification par messagerie des administrateurs quand une métrique horaire dépasse un seuil spécifique (pour plus d’informations, consultez la page <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Procédure : réception de notifications d’alerte et gestion de règles d’alerte dans Azure</a>). Le service de stockage collecte les métriques du mieux qu’il peut, mais peut ne pas enregistrer toutes les opérations de stockage.
+Vous pouvez sélectionner les métriques horaires à afficher dans le [portail Azure](https://portal.azure.com) et configurer les règles de notification par e-mail des administrateurs lorsqu’une métrique horaire dépasse un seuil spécifique. Pour plus d’informations, consultez la page [Réception de notifications d’alerte](../azure-portal/insights-receive-alert-notifications.md).
+
+Le service de stockage collecte les métriques du mieux qu’il peut, mais peut ne pas enregistrer toutes les opérations de stockage.
 
 Dans le portail Azure, vous pouvez afficher des métriques telles que la disponibilité, le nombre total de demandes et les valeurs de latence moyenne pour un compte de stockage. Une règle de notification a également été configurée afin d'alerter l'administrateur lorsque la disponibilité chute en dessous d'un certain niveau. Lorsque ces données sont affichées, l'un des possibles éléments d'enquête est la présence d'un pourcentage inférieur à 100 % dans le service de table (pour plus d'informations, voir la section « [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors] »).
 
@@ -125,23 +127,23 @@ La suite de cette section décrit quelles métriques vous devriez analyser et po
 
 Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour afficher l’état du service de stockage (et d’autres services Azure) dans toutes les régions Azure de par le monde. Vous pouvez ainsi savoir immédiatement si un problème sur lequel vous n’avez pas de contrôle affecte la région dans laquelle vous utilisez l’application.
 
-Le [portail Azure](https://portal.azure.com) peut également envoyer des notifications des incidents qui affectent les divers services Azure. Remarque : Ces informations étaient auparavant accessibles avec les données d’historique, sur le tableau de bord du service Azure à l’adresse <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
+Le [portail Azure](https://portal.azure.com) peut également envoyer des notifications des incidents qui affectent les divers services Azure. Remarque : ces informations étaient auparavant accessibles avec les données d’historique, sur le [tableau de bord du service Azure](http://status.azure.com).
 
-Le [portail Azure](https://portal.azure.com) recueille les informations d’état à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui accèdent périodiquement à votre application web Azure à partir de plusieurs emplacements. Les services offerts par <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> et Application Insights pour Visual Studio Team Services sont des exemples de ce type d’approche. Pour plus d’informations sur Application Insights pour Visual Studio Team Services, consultez « [Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services] ».
+Le [portail Azure](https://portal.azure.com) recueille les informations d’état à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui accèdent périodiquement à votre application web Azure à partir de plusieurs emplacements. Les services offerts par [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) et Application Insights pour Visual Studio Team Services sont des exemples de ce type d’approche. Pour plus d’informations sur Application Insights pour Visual Studio Team Services, consultez « [Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services](#appendix-5) ».
 
 ### <a name="monitoring-capacity"></a>Analyse de la capacité
 
-Les métriques de stockage enregistrent uniquement les métriques de capacité pour le service d’objet blob, car les objets blob constituent généralement la majeure partie des données stockées (lors de l’écriture, il n’est pas possible d’utiliser les métriques de stockage pour analyser la capacité de vos tables et files d’attente). Ces données sont accessibles dans la table **$MetricsCapacityBlob** si vous avez activé l'analyse pour le service d'objet blob. Les métriques de stockage enregistrent ces données une fois par jour, et vous pouvez utiliser la valeur de la **RowKey** pour déterminer si la ligne contient une entité associée à des données utilisateur (valeur **data**) ou des données d'analyse (valeur **analytics**). Chaque entité stockée contient des informations sur la quantité de stockage utilisée (**Capacity** mesurée en octets) et le nombre actuel de conteneurs (**ContainerCount**) et d'objets blob (**ObjectCount**) utilisés dans le compte de stockage. Pour plus d’informations sur les métriques de capacité stockées dans la table **$MetricsCapacityBlob**, consultez <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schéma de table de métriques Storage Analytics</a> sur MSDN.
+Les métriques de stockage enregistrent uniquement les métriques de capacité pour le service d’objet blob, car les objets blob constituent généralement la majeure partie des données stockées (lors de l’écriture, il n’est pas possible d’utiliser les métriques de stockage pour analyser la capacité de vos tables et files d’attente). Ces données sont accessibles dans la table **$MetricsCapacityBlob** si vous avez activé l'analyse pour le service d'objet blob. Les métriques de stockage enregistrent ces données une fois par jour, et vous pouvez utiliser la valeur de la **RowKey** pour déterminer si la ligne contient une entité associée à des données utilisateur (valeur **data**) ou des données d'analyse (valeur **analytics**). Chaque entité stockée contient des informations sur la quantité de stockage utilisée (**Capacity** mesurée en octets) et le nombre actuel de conteneurs (**ContainerCount**) et d'objets blob (**ObjectCount**) utilisés dans le compte de stockage. Pour plus d’informations sur les métriques de capacité stockées dans la table **$MetricsCapacityBlob**, consultez [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [AZURE.NOTE] Ces valeurs doivent être analysées en guise de préavertissement lorsque vous approchez des limites de capacité de votre compte de stockage. Dans le portail Azure, vous pouvez ajouter des règles d’alerte pour être averti lorsque l’utilisation agrégée du stockage dépasse les seuils que vous définissez ou chute en dessous de ces seuils.
 
-Pour plus d’informations sur l’estimation de la taille des divers objets de stockage tels que les objets blob, consultez le billet de blog <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity</a>.
+Pour plus d’informations sur l’estimation de la taille des divers objets de stockage tels que les objets blob, consultez le billet de blog [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx) (Présentation de la facturation du stockage Azure - bande passante, transactions et capacité).
 
 ### <a name="monitoring-availability"></a>Analyse de la disponibilité
 
 Vous devez analyser la disponibilité des services de stockage dans votre compte de stockage en examinant la colonne **Availability** de vos tables de métriques horaires ou par minute — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La colonne **Availability** contient une valeur de pourcentage qui indique la disponibilité du service ou de l'opération API représentée par la ligne (la **RowKey** s'affiche si la ligne contient des métriques pour l'ensemble du service ou pour une opération API spécifique).
 
-Toute valeur inférieure à 100 % indique que certaines demandes de stockage échouent. Vous pouvez connaître la raison de l'échec en examinant les autres colonnes dans les données métriques qui indiquent les nombres de demandes avec différents types d'erreur, tels que **ServerTimeoutError**. Il est normal que la valeur de la colonne **Availability** descende provisoirement en dessous de 100% pour des raisons telles que des délais d'expiration de serveur temporaires, lorsque le service déplace des partitions afin de mieux équilibrer la charge de la demande ; la logique de nouvelle tentative dans votre application client doit gérer ces conditions intermittentes. La page <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> énumère les types de transactions que les métriques de stockage incluent dans leur calcul de la valeur **Availability**.
+Toute valeur inférieure à 100 % indique que certaines demandes de stockage échouent. Vous pouvez connaître la raison de l'échec en examinant les autres colonnes dans les données métriques qui indiquent les nombres de demandes avec différents types d'erreur, tels que **ServerTimeoutError**. Il est normal que la valeur de la colonne **Availability** descende provisoirement en dessous de 100% pour des raisons telles que des délais d'expiration de serveur temporaires, lorsque le service déplace des partitions afin de mieux équilibrer la charge de la demande ; la logique de nouvelle tentative dans votre application client doit gérer ces conditions intermittentes. L’article [Opérations et messages d’état enregistrés Storage Analytics](http://msdn.microsoft.com/library/azure/hh343260.aspx) répertorie les types de transactions que Storage Metrics inclut dans son calcul **Disponibilité**.
 
 Dans le [portail Azure](https://portal.azure.com), vous pouvez ajouter des règles d’alerte pour être averti lorsque la valeur **Availability** pour un service chute en dessous d’un seuil que vous spécifiez.
 
@@ -151,7 +153,7 @@ La section « [Instructions pour la résolution des problèmes] » de ce guide
 
 Pour analyser les performances de vos services de stockage, vous pouvez utiliser les métriques suivantes des tables de métriques horaires ou par minute.
 
-- Les valeurs des colonnes **AverageE2ELatency** et **AverageServerLatency** indiquent le temps moyen nécessaire au service de stockage ou à l’opération API pour traiter les demandes. **AverageE2ELatency** est une mesure de la latence de bout en bout, qui inclut le temps nécessaire pour lire la demande et envoyer la réponse, en plus du temps nécessaire pour traiter la demande (elle inclut donc la latence réseau lorsque la demande parvient au service de stockage) ; **AverageServerLatency** est une mesure du seul temps de traitement et n'inclut donc aucune latence réseau associée à la communication avec le client. Voir la section « [Les métriques indiquent une valeur AverageE2ELatency élevée et une valeur AverageServerLatency faible] » plus bas dans ce guide pour examiner les raisons d'une éventuelle différence importante entre ces deux valeurs.
+- Les valeurs des colonnes **AverageE2ELatency** et **AverageServerLatency** indiquent le temps moyen nécessaire au service de stockage ou à l’opération API pour traiter les demandes. **AverageE2ELatency** est une mesure de la latence de bout en bout, qui inclut le temps nécessaire pour lire la demande et envoyer la réponse, en plus du temps nécessaire pour traiter la demande (elle inclut donc la latence réseau lorsque la demande parvient au service de stockage) ; **AverageServerLatency** est une mesure du seul temps de traitement et n'inclut donc aucune latence réseau associée à la communication avec le client. Voir la section « [Les métriques indiquent une valeur AverageE2ELatency élevée et une valeur AverageServerLatency faible] » plus bas dans ce guide pour examiner les raisons d'une éventuelle différence importante entre ces deux valeurs.
 - Les valeurs dans les colonnes **TotalIngress** et **TotalEgress** indiquent le volume total des données (en octets) entrant dans et sortant de votre service de stockage, ou via une opération API spécifique.
 - Les valeurs dans la colonne **TotalRequests** indiquent le nombre total de demandes que le service de stockage de l'opération API reçoit. **TotalRequests** est le nombre total de demandes que le service de stockage reçoit.
 
@@ -182,7 +184,7 @@ Les sections suivantes expliquent les étapes à suivre pour le diagnostic et la
 
 ### <a name="service-health-issues"></a>Problèmes d’état du service
 
-Les problèmes d’état du service sont généralement des problèmes sur lesquels vous n’avez pas de contrôle. Le [portail Azure](https://portal.azure.com) fournit des informations sur n’importe quel problème en cours avec les services Azure, y compris les services de stockage. Si vous avez opté pour un stockage géo-redondant avec accès en lecture lors de la création de votre compte de stockage, lorsque vos données ne sont plus accessibles depuis l'emplacement principal, votre application peut passer provisoirement à une copie en lecture seule sur l'emplacement secondaire. Pour ce faire, votre application doit être capable de passer indifféremment des emplacements de stockage principaux aux emplacements de stockage secondaires, et de fonctionner dans un mode de fonctionnalités réduites, avec des données en lecture seule. Les bibliothèques clientes Azure Storage vous permettent de définir une stratégie de nouvelle tentative afin de passer à une lecture depuis le stockage secondaire lorsque la lecture depuis le stockage principal échoue. Votre application doit également être capable de reconnaître que les données de l’emplacement secondaire sont cohérentes. Pour plus d’informations, consultez le billet de blog <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure Storage Redundancy Options and Read Access Geo Redundant Storage</a>.
+Les problèmes d’état du service sont généralement des problèmes sur lesquels vous n’avez pas de contrôle. Le [portail Azure](https://portal.azure.com) fournit des informations sur n’importe quel problème en cours avec les services Azure, y compris les services de stockage. Si vous avez opté pour un stockage géo-redondant avec accès en lecture lors de la création de votre compte de stockage, lorsque vos données ne sont plus accessibles depuis l'emplacement principal, votre application peut passer provisoirement à une copie en lecture seule sur l'emplacement secondaire. Pour ce faire, votre application doit être capable de passer indifféremment des emplacements de stockage principaux aux emplacements de stockage secondaires, et de fonctionner dans un mode de fonctionnalités réduites, avec des données en lecture seule. Les bibliothèques clientes Azure Storage vous permettent de définir une stratégie de nouvelle tentative afin de passer à une lecture depuis le stockage secondaire lorsque la lecture depuis le stockage principal échoue. Votre application doit également être capable de reconnaître que les données de l’emplacement secondaire sont cohérentes. Pour plus d’informations, consultez le billet de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Options de redondance d’Azure Storage et stockage géo-redondant avec accès en lecture).
 
 ### <a name="performance-issues"></a>Problèmes de performances
 
@@ -198,12 +200,13 @@ Les utilisateurs de votre application peuvent vous signaler des erreurs identifi
 
 > [AZURE.NOTE] N’oubliez pas que vous devriez voir des erreurs intermittentes : les erreurs dues à des problèmes réseau temporaires ou les erreurs d’application par exemple.
 
-Les ressources suivantes sur MSDN sont utiles pour comprendre les codes d’état et d’erreur liés au stockage :
+Les ressources suivantes sont utiles pour comprendre les codes d’état et d’erreur liés au stockage :
 
-- <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codes d’erreur API REST courants</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Codes d’erreur de service BLOB</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">Codes d’erreur de service de File d’attente</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Codes d’erreur de service de Table</a>
+- [Codes d'erreur API REST communs](http://msdn.microsoft.com/library/azure/dd179357.aspx)
+- [Codes d'erreur de service d'objet blob](http://msdn.microsoft.com/library/azure/dd179439.aspx)
+- [Codes d'erreur de service de file d'attente](http://msdn.microsoft.com/library/azure/dd179446.aspx)
+- [Codes d'erreur de service de table](http://msdn.microsoft.com/library/azure/dd179438.aspx)
+- [Codes d’erreur de service de fichier](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
 ### <a name="storage-emulator-issues"></a>Problèmes liés à l’émulateur de stockage
 
@@ -213,9 +216,9 @@ La section « [Instructions pour la résolution des problèmes] » de ce guide
 
 ### <a name="storage-logging-tools"></a>Outils de journalisation du stockage
 
-La journalisation du stockage permet de journaliser côté serveur les demandes de stockage dans votre compte de stockage Azure. Pour plus d’informations concernant l’activation de la journalisation côté serveur et l’accès aux données de journalisation, consultez <a href="http://go.microsoft.com/fwlink/?LinkId=510867" target="_blank">Utilisation de la journalisation côté serveur</a> sur MSDN.
+La journalisation du stockage permet de journaliser côté serveur les demandes de stockage dans votre compte de stockage Azure. Pour plus d’informations concernant l’activation de la journalisation côté serveur et l’accès aux données de journalisation, consultez [Activation de la journalisation du stockage et accès aux données des journaux](http://go.microsoft.com/fwlink/?LinkId=510867).
 
-La bibliothèque cliente de stockage pour .NET vous permet de collecter les données de journalisation côté client, liées aux opérations de stockage réalisées par votre application. Pour plus d’informations concernant l’activation de la journalisation côté client et l’accès aux données de journalisation, consultez <a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">Journalisation côté client avec la bibliothèque cliente de stockage</a> sur MSDN.
+La bibliothèque cliente de stockage pour .NET vous permet de collecter les données de journalisation côté client, liées aux opérations de stockage réalisées par votre application. Pour plus d’informations, consultez [Journalisation côté client avec la bibliothèque cliente de stockage .NET](http://go.microsoft.com/fwlink/?LinkId=510868).
 
 > [AZURE.NOTE] Dans certains cas (par ex., erreurs d’autorisation SAS), il peut arriver qu’un utilisateur signale une erreur pour laquelle vous ne trouvez aucune donnée de demande dans les journaux de stockage côté serveur. Vous pouvez utiliser les fonctionnalités de journalisation de la bibliothèque cliente de stockage pour savoir si la cause du problème se situe au niveau client ou utiliser les outils d’analyse de réseau pour examiner le réseau.
 
@@ -223,10 +226,10 @@ La bibliothèque cliente de stockage pour .NET vous permet de collecter les donn
 
 Vous pouvez capturer le trafic entre le client et le serveur afin d’obtenir des informations détaillées concernant les données échangées entre le client et le serveur, et concernant les conditions réseau sous-jacentes. Parmi les outils de journalisation réseau utiles, on retrouve :
 
-- Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) est un proxy de débogage web gratuit qui vous permet d’examiner les en-têtes et données de charge utile des messages de requête et de réponse HTTP et HTTPS. Pour plus d’informations, consultez « [Annexe 1 : utilisation de Fiddler pour capturer le trafic HTTP et HTTPS] ».
-- Le Moniteur réseau Microsoft (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) et Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) sont des analyseurs de protocole réseau gratuits qui vous permettent d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Pour plus d’informations sur Wireshark, consultez « [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau] ».
-- L’analyseur de message Microsoft est un outil de Microsoft qui remplace Netmon et qui, en plus de capturer les données des paquets réseau, vous aide à afficher et analyser les données de journalisation capturées à partir d’autres outils. Pour plus d’informations, consultez « [Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau] ».
-- Si vous souhaitez effectuer un test de connectivité de base pour vérifier que votre ordinateur client peut se connecter au service de stockage Azure via le réseau, vous ne pouvez pas le faire en utilisant l'outil **ping** standard sur le client. Mais l'outil **tcping** vous permet de vérifier la connectivité. Vous pouvez télécharger **tcping** à l’adresse <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
+- [Fiddler](http://www.telerik.com/fiddler) est un proxy de débogage web gratuit qui vous permet d’examiner les en-têtes et données de charge utile des messages de requête et de réponse HTTP et HTTPS. Pour plus d’informations, consultez [Annexe 1 : utilisation de Fiddler pour capturer le trafic HTTP et HTTPS](#appendix-1).
+- [Le Moniteur réseau Microsoft (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) et [Wireshark](http://www.wireshark.org/) sont des analyseurs de protocole réseau gratuits qui vous permettent d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Pour plus d’informations sur Wireshark, consultez « [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau](#appendix-2) ».
+- L’analyseur de message Microsoft est un outil de Microsoft qui remplace Netmon et qui, en plus de capturer les données des paquets réseau, vous aide à afficher et analyser les données de journalisation capturées à partir d’autres outils. Pour plus d’informations, consultez « [Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau](#appendix-3) ».
+- Si vous souhaitez effectuer un test de connectivité de base pour vérifier que votre ordinateur client peut se connecter au service de stockage Azure via le réseau, vous ne pouvez pas le faire en utilisant l'outil **ping** standard sur le client. Mais [l’outil **tcping**](http://www.elifulkerson.com/projects/tcping.php) vous permet de vérifier la connectivité.
 
 Dans de nombreux cas, les données de journalisation issues de la journalisation du stockage et de la bibliothèque cliente de stockage seront suffisantes pour diagnostiquer un problème, mais dans certains scénarios, il se peut que vous ayez besoin de plus d’informations que celles fournies par ces outils de journalisation réseau. Par exemple, utiliser Fiddler pour afficher les messages HTTP et HTTPS vous permet d'afficher les données d'en-tête et de charge utile envoyées aux et par les services de stockage, ce qui vous permet de vérifier comment une application cliente effectue les nouvelles tentatives d'opérations de stockage. Les analyseurs de protocole tels que Wireshark fonctionnent au niveau des paquets et vous permettent d'afficher les données TCP afin de résoudre les problèmes de perte de paquets et de connectivité. L’analyseur de message est capable de fonctionner au niveau des couches HTTP et TCP.
 
@@ -369,7 +372,7 @@ Notez que le service de stockage calcule uniquement la métrique **AverageE2ELat
 
 Les raisons possibles à une réponse lente du client incluent un nombre limité de connexions ou threads disponibles, ou l’insuffisance de ressources telles que le processeur, la mémoire ou la bande passante réseau. Il se peut que le problème puisse être résolu en modifiant le code client afin de le rendre plus efficace (par exemple, en utilisant des appels asynchrones vers le service de stockage), ou en utilisant une machine virtuelle plus puissante (avec davantage de cœurs et de mémoire).
 
-Pour les services de Table et de File d’attente, l’algorithme Nagle peut également provoquer de hautes valeurs **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> sur le blog de l’équipe de Microsoft Azure Storage. Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application\_Start** dans un rôle de travail.
+Pour les services de table et de file d’attente, l’algorithme Nagle peut également provoquer de hautes valeurs **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (Algorithme Nagle et petites demandes : des rapports peu amicaux). Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application\_Start** dans un rôle de travail.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -377,7 +380,7 @@ Pour les services de Table et de File d’attente, l’algorithme Nagle peut ég
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-Vous devez consulter les journaux côté client pour savoir combien de demandes votre application cliente soumet, et vérifier la présence dans votre client de goulots d’étranglement au niveau des performances générales de .NET, telles que l’UC, .NET garbage collection, l’utilisation du réseau ou la mémoire (la première étape pour la résolution des problèmes des applications clientes .NET consiste à consulter la section <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Débogage, suivi et profilage</a> sur MSDN).
+Vous devez consulter les journaux côté client pour savoir combien de demandes votre application cliente soumet, et vérifier la présence dans votre client de goulots d’étranglement au niveau des performances générales de .NET, telles que l’UC, .NET garbage collection, l’utilisation du réseau ou la mémoire. La première étape pour la résolution des problèmes des applications clientes .NET consiste à consulter la section [Débogage, suivi et profilage](http://msdn.microsoft.com/library/7fe0dd2y).
 
 #### Enquête sur les problèmes de latence du réseau
 
@@ -397,7 +400,7 @@ Vous devez également vérifier si le client effectue plusieurs nouvelles tentat
 
 - Examiner les journaux d’analyse de stockage. En cas de tentatives répétées, plusieurs opérations avec le même ID de demande client mais différents ID de demande serveur apparaissent.
 - Examiner les journaux du client. Les nouvelles tentatives apparaissent dans la journalisation documentée.
-- Déboguer votre code et vérifier les propriétés de l’objet **OperationContext** associé à la demande. Si l’opération a effectué une nouvelle tentative, la propriété **RequestResults** inclut plusieurs ID de demande d’un seul serveur. Vous pouvez également vérifier les heures de début et de fin de chaque demande. Pour plus d’informations, voir l’exemple de code de la section « [ID de la demande serveur] ». 
+- Déboguer votre code et vérifier les propriétés de l’objet **OperationContext** associé à la demande. Si l’opération a effectué une nouvelle tentative, la propriété **RequestResults** inclut plusieurs ID de demande d’un seul serveur. Vous pouvez également vérifier les heures de début et de fin de chaque demande. Pour plus d’informations, voir l’exemple de code de la section « [ID de la demande serveur] ».
 
 En l’absence de problèmes au niveau du client, vous pouvez enquêter sur la présence de problèmes potentiels au niveau du réseau, tels que la perte de paquets. Vous pouvez utiliser des outils tels que Wireshark ou l’analyseur de message Microsoft pour enquêter sur les problèmes de réseau.
 
@@ -413,7 +416,7 @@ Si vous constatez une valeur **AverageServerLatency** élevée pour les demandes
 
 Des valeurs **AverageServerLatency** élevées peuvent également indiquer la présence de tables mal conçues ou de requêtes donnant lieu à des opérations d'analyse ou qui suivent l'anti-modèle d'ajout/ajout de préfixe. Voir la section « [Les métriques indiquent une augmentation de la valeur PercentThrottlingError] » pour plus d'informations.
 
-> [AZURE.NOTE] Pour obtenir une liste de contrôle des performances exhaustive, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](storage-performance-checklist.md).
+> [AZURE.NOTE] Pour obtenir une liste de contrôle exhaustive des performances, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](storage-performance-checklist.md).
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Vous constatez des retards inattendus dans la livraison des messages en file d’attente
 
@@ -428,7 +431,7 @@ Si vous constatez un retard entre le moment où une application ajoute un messag
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Les métriques indiquent une augmentation de la valeur PercentThrottlingError
 
-Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur les cibles d’évolutivité des comptes de stockage et les cibles de performances des partitions dans les comptes de stockage, voir <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Objectifs de performance et évolutivité d'Azure Storage</a>.
+Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Voir la section [Cibles d'évolutivité et de performances Azure Storage](storage-scalability-targets.md) pour plus d'informations sur les cibles d'évolutivité des comptes de stockage et les cibles de performance des partitions dans les comptes de stockage.
 
 Si la métrique **PercentThrottlingError** indique une augmentation du pourcentage de demandes qui échouent avec une erreur de limitation, vous devez enquêter sur un des deux scénarios suivants :
 
@@ -439,7 +442,7 @@ Une augmentation de la valeur **PercentThrottlingError** se produit souvent en m
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Augmentation provisoire de la valeur PercentThrottlingError
 
-Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Cela réduira la charge immédiate sur la partition et aidera votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, voir <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Espace de noms Microsoft.WindowsAzure.Storage.RetryPolicies</a> sur MSDN.
+Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Cela réduira la charge immédiate sur la partition et aidera votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, voir [Espace de noms Microsoft.WindowsAzure.Storage.RetryPolicies](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
 
 > [AZURE.NOTE] Vous pouvez également constater des pics de la valeur **PercentThrottlingError** qui ne coïncident pas avec des périodes de forte activité de l’application. La cause la plus probable est le déplacement de partitions, par le service de stockage, pour améliorer l’équilibrage de la charge.
 
@@ -491,10 +494,10 @@ Dans ce scénario, vous devez rechercher pourquoi le jeton SAS expire avant que 
 
 - Généralement, vous ne devez pas définir d'heure de début lorsque vous créez une SAS à utiliser immédiatement par un client. S'il existe de faibles variations d'horloges entre l'hôte qui génère la SAS sur base de l'heure actuelle et le service de stockage, il est possible que le service de stockage reçoive une SAS qui n'est pas encore valide.
 - Vous ne devez pas définir une durée d'expiration très courte pour une SAS. À nouveau, de petites variations d'horloges entre l'hôte qui génère la SAS et le service de stockage peuvent donner l'impression que la SAS a expiré plus tôt que prévu.
-- Le paramètre de version dans la clé SAS (par exemple **sv=2015-04-05**) correspond-il à la version de la bibliothèque cliente de stockage que vous utilisez ? Vous devez toujours utiliser la dernière version de la [bibliothèque cliente de stockage](https://www.nuget.org/packages/WindowsAzure.Storage/). Pour plus d’informations sur la gestion des versions du jeton SAS, consultez [Nouveautés de Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+- Le paramètre de version dans la clé SAS (par exemple **sv=2015-04-05**) correspond-il à la version de la bibliothèque cliente de stockage que vous utilisez ? Vous devez toujours utiliser la dernière version de la [bibliothèque cliente de stockage](https://www.nuget.org/packages/WindowsAzure.Storage/).
 - Si vous régénérez vos clés d’accès de stockage, cela peut invalider tous les jetons SAS existants. Un problème peut survenir si vous générez des jetons SAS avec une durée d'expiration longue pour les applications clientes dans le cache.
 
-Si vous utilisez la bibliothèque cliente de stockage pour générer des jetons SAS, il est facile de créer un jeton valide. Mais si vous utilisez l’API REST de stockage et créez des jetons SAS manuellement, vous devez lire avec attention la rubrique <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Délégation de l’accès avec une signature d’accès partagé</a> sur MSDN.
+Si vous utilisez la bibliothèque cliente de stockage pour générer des jetons SAS, il est facile de créer un jeton valide. Mais si vous utilisez l’API REST de stockage et créez des jetons SAS manuellement, vous devez lire avec attention la rubrique [Délégation de l’accès avec une signature d’accès partagé](http://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>Le client reçoit des messages HTTP 404 (Non trouvé)
 Si l’application client reçoit un message HTTP 404 (Non trouvé) du serveur, cela signifie que l’objet que le client tentait d’utiliser (tel qu’une entité, une table, un objet blob, un conteneur ou une file d’attente) n’existe pas dans le service de stockage. Il existe un certain nombre de raisons possibles à ce problème, dont :
@@ -562,7 +565,7 @@ de8b1c3c-...| Exception levée pendant l’opération : Le serveur distant a re
 de8b1c3c-... | La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur : (404) Not Found.
 e2d06d78-... | La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur : (409) Conflict.
 
-Dans cet exemple, le journal indique que le client entrelace les demandes de la méthode **CreateIfNotExists** (ID de demande e2d06d78…) avec les demandes de la méthode **UploadFromStream** (de8b1c3c-...) ; cela est dû au fait que l'application cliente appelle ces méthodes de façon asynchrone. Vous devez modifier le code asynchrone dans le client de façon à ce qu'il crée le conteneur avant de tenter de charger des données dans un objet blob de ce conteneur. Idéalement, vous devriez créer tous vos conteneurs à l’avance.
+Dans cet exemple, le journal indique que le client entrelace les demandes de la méthode **CreateIfNotExists** (ID de demande e2d06d78…) avec les demandes de la méthode **UploadFromStream** (de8b1c3c-...) ; cela est dû au fait que l'application cliente appelle ces méthodes de façon asynchrone. Vous devez modifier le code asynchrone dans le client de façon à ce qu'il crée le conteneur avant de tenter de charger des données dans un objet blob de ce conteneur. Idéalement, vous devriez créer tous vos conteneurs à l’avance.
 
 #### <a name="SAS-authorization-issue"></a>Problème d’autorisation de signature d’accès partagé (SAP)
 
@@ -621,9 +624,9 @@ Si vous utilisez un client JavaScript et que le service de stockage renvoie des 
 
 > [AZURE.NOTE] Vous pouvez utiliser les Outils de développement F12 dans Internet Explorer pour procéder au suivi des messages échangés entre le navigateur et le service de stockage lors de la résolution des problèmes JavaScript côté client.
 
-Ces erreurs sont dues au fait que le navigateur implémente la restriction de sécurité <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">same-origin policy</a>, qui empêche une page web d’appeler une API dans un domaine différent de celui dont la page provient.
+Ces erreurs sont dues au fait que le navigateur implémente la restriction de sécurité [same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy), qui empêche une page web d’appeler une API dans un domaine différent de celui dont la page provient.
 
-Pour contourner le problème JavaScript, vous devez configurer le service Partage des ressources cross-origin (CORS) pour le service de stockage auquel le client accède. Pour plus d’informations, voir <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage</a> sur MSDN.
+Pour contourner le problème JavaScript, vous devez configurer le service Partage des ressources cross-origin (CORS) pour le service de stockage auquel le client accède. Pour plus d’informations, voir [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
 L’exemple de code suivant montre comment configurer votre service d’objet blob afin de permettre l’exécution de JavaScript dans le domaine Contoso pour accéder à un objet blob dans votre service de stockage d’objets blob :
 
@@ -677,7 +680,7 @@ Il est important de noter que ces opérations ont été réalisées avec succès
 - **ResouceAlreadyExists** (Conflict 409), par exemple, à partir d'une opération **CreateIfNotExist** où la ressource existe déjà.
 - **ConditionNotMet** (Not Modified 304), par exemple, à partir d'une opération conditionnelle, comme lorsqu'un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
 
-Vous trouverez une liste des codes d’erreur API REST communs renvoyés par les services de stockage à la page <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codes d’erreur API REST communs</a>.
+Vous trouverez une liste des codes d'erreur API REST communs renvoyés par les services de stockage à la page [Codes d'erreur API REST communs](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Les métriques de capacité indiquent une augmentation inattendue de l’utilisation de la capacité de stockage
 
@@ -686,9 +689,9 @@ Si vous constatez des changements soudains, inattendus dans l’utilisation de l
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Vous constatez des redémarrages inattendus des machines virtuelles Azure associées à un grand nombre de disques durs virtuels
 
-Si une machine virtuelle Azure est associée à un grand nombre de disques durs virtuels dans le même compte de stockage, vous risquez de dépasser les cibles d’évolutivité pour un compte de stockage individuel, ce qui provoquera une panne de la machine virtuelle. Vous devez consulter les métriques par minute pour le compte de stockage (**TotalRequests**/**TotalIngress**/**TotalEgress**), et vérifier la présence de pics dépassant les cibles d’extensibilité pour un compte de stockage. La section « [Les métriques indiquent une augmentation de la valeur PercentThrottlingError] » vous aidera à déterminer si une limitation a été appliquée à votre compte de stockage.
+Si une machine virtuelle Azure est associée à un grand nombre de disques durs virtuels dans le même compte de stockage, vous risquez de dépasser les cibles d’évolutivité pour un compte de stockage individuel, ce qui provoquera une panne de la machine virtuelle. Vous devez consulter les métriques par minute pour le compte de stockage (**TotalRequests**/**TotalIngress**/**TotalEgress**) et vérifier la présence de pics dépassant les cibles d'évolutivité pour un compte de stockage. La section « [Les métriques indiquent une augmentation de la valeur PercentThrottlingError] » vous aidera à déterminer si une limitation a été appliquée à votre compte de stockage.
 
-En général, chaque opération d'entrée ou de sortie individuelle sur un disque dur virtuel à partir d'une machine virtuelle traduit les opérations **Get Page** ou **Put Page** sur l'objet blob de la page sous-jacente. Vous pouvez donc utiliser les opérations d’E/S par seconde (IOPS) estimées pour votre environnement pour déterminer le nombre de disques durs virtuels que vous pouvez avoir dans un compte de stockage unique, sur base du comportement spécifique de votre application. Nous déconseillons d’avoir plus de 40 disques dans un compte de stockage unique. Pour obtenir des détails sur les cibles d’extensibilité actuelles des comptes de stockage, en particulier le taux de demandes total et la bande passante totale pour le type de compte de stockage que vous utilisez, consultez <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Objectifs de performance et évolutivité d’Azure Storage</a>. Si vous dépassez les cibles d’évolutivité pour votre compte de stockage, vous devez placer vos disques durs virtuels dans plusieurs comptes de stockage différents afin de réduire l’activité dans chaque compte individuel.
+En général, chaque opération d'entrée ou de sortie individuelle sur un disque dur virtuel à partir d'une machine virtuelle traduit les opérations **Get Page** ou **Put Page** sur l'objet blob de la page sous-jacente. Vous pouvez donc utiliser les opérations d’E/S par seconde (IOPS) estimées pour votre environnement pour déterminer le nombre de disques durs virtuels que vous pouvez avoir dans un compte de stockage unique, sur base du comportement spécifique de votre application. Nous déconseillons d’avoir plus de 40 disques dans un compte de stockage unique. Voir la section [Cibles d'évolutivité et de performances Azure Storage](storage-scalability-targets.md) pour les détails des cibles d'évolutivité actuelles des comptes de stockage, en particulier le taux de demandes total et la bande passante totale pour le type de compte de stockage que vous utilisez. Si vous dépassez les cibles d’évolutivité pour votre compte de stockage, vous devez placer vos disques durs virtuels dans plusieurs comptes de stockage différents afin de réduire l’activité dans chaque compte individuel.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Votre problème provient de l’utilisation de l’émulateur de stockage pour le développement ou les tests
 
@@ -700,7 +703,7 @@ On utilise généralement un émulateur de stockage lors du développement et de
 
 #### <a name="feature-X-is-not-working"></a>La fonctionnalité « X » ne fonctionne pas dans l’émulateur de stockage
 
-L’émulateur de stockage ne prend pas en charge toutes les fonctionnalités des services de stockage Azure (par ex., le service de fichiers). Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Différences entre l’émulateur de stockage et les services Azure Storage</a> sur MSDN.
+L’émulateur de stockage ne prend pas en charge toutes les fonctionnalités des services de stockage Azure (par ex., le service de fichiers). Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md).
 
 Pour accéder à ces fonctions non prises en charge par l’émulateur de stockage, vous devez utiliser le service de stockage Azure dans le cloud.
 
@@ -716,7 +719,7 @@ Ce scénario se produit généralement lorsque vous installez et utilisez la der
 
 Vous êtes invité à entrer vos informations d’identification d’administrateur lorsque vous exécutez l’émulateur de stockage. Cela ne se produit que lors de la toute première initialisation de l'émulateur de stockage. Une fois qu’il a été initialisé, vous n’avez plus besoin de privilèges d’administration pour l’exécuter à nouveau.
 
-Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">Initialisation de l’émulateur de stockage à l’aide de l’outil en ligne de commande</a> sur MSDN (vous pouvez également initialiser l’émulateur de stockage dans Visual Studio, qui nécessite aussi des privilèges d’administration).
+Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md). Notez que vous pouvez également initialiser l’émulateur de stockage dans Visual Studio, qui exige également des privilèges d’administration.
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Vous rencontrez des problèmes pendant l’installation du Kit de développement logiciel (SDK) Azure pour .NET
 
@@ -754,7 +757,7 @@ Les annexes décrivent plusieurs outils qui peuvent s’avérer utiles lors du d
 
 ### <a name="appendix-1"></a>Annexe 1 : utilisation de Fiddler pour capturer le trafic HTTP et HTTPS
 
-Fiddler est un outil utile pour l’analyse du trafic HTTP et HTTPS entre votre application cliente et le service de stockage Azure que vous utilisez. Vous pouvez télécharger Fiddler à l’adresse <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
+[Fiddler](http://www.telerik.com/fiddler) est un outil utile pour l’analyse du trafic HTTP et HTTPS entre votre application cliente et le service de stockage Azure que vous utilisez.
 
 > [AZURE.NOTE] Fiddler est capable de décoder le trafic HTTPS ; vous devez lire avec attention la documentation de Fiddler pour vous familiariser avec ce processus et comprendre les implications en matière de sécurité.
 
@@ -771,14 +774,14 @@ Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des 
 
 ### <a name="appendix-2"></a>Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau
 
-Wireshark est un analyseur de protocole réseau qui vous permet d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Vous pouvez télécharger Wireshark à l’adresse <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
+[Wireshark](http://www.wireshark.org/) est un analyseur de protocole réseau qui vous permet d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau.
 
 La procédure suivante explique comment capturer des informations détaillées concernant les paquets pour le trafic à partir de la machine locale où vous avez installé Wireshark, vers le service de table de votre compte de stockage Azure.
 
 1.	Lancez Wireshark sur votre ordinateur local.
 2.	Dans la section **Start**, sélectionnez l'interface réseau locale ou des interfaces connectées à Internet.
 3.	Cliquez sur **Capture Options**.
-4.	Ajoutez un filtre à la zone de texte **Capture Filter**. Par exemple, **host contosoemaildist.table.core.windows.net** configurera Wireshark pour capturer uniquement les paquets envoyés au ou par le point de terminaison de stockage du service de table dans le compte de stockage **contosoemaildist**. Pour obtenir la liste complète des filtres de capture, accédez au site <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
+4.	Ajoutez un filtre à la zone de texte **Capture Filter**. Par exemple, **host contosoemaildist.table.core.windows.net** configurera Wireshark pour capturer uniquement les paquets envoyés au ou par le point de terminaison de stockage du service de table dans le compte de stockage **contosoemaildist**. Consultez la [liste complète des filtres de capture](http://wiki.wireshark.org/CaptureFilters).
 
     ![][6]
 
@@ -790,11 +793,11 @@ WireShark met en évidence toutes les erreurs détectées dans la fenêtre **pac
 
 ![][7]
 
-Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit de la souris sur les données TCP et en sélectionnant **Follow TCP Stream**. Cette option est particulièrement utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, voir <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">ici</a>.
+Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit de la souris sur les données TCP et en sélectionnant **Follow TCP Stream**. Cette option est particulièrement utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html) (Suivi du flux TCP).
 
 ![][8]
 
-> [AZURE.NOTE] Pour plus d’informations sur l’utilisation de Wireshark, consultez le <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guide d’utilisation de Wireshark</a>.
+> [AZURE.NOTE] Pour plus d’informations sur l’utilisation de Wireshark, consultez le [Guide d’utilisation de Wireshark](http://www.wireshark.org/docs/wsug_html_chunked).
 
 ### <a name="appendix-3"></a>Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau
 
@@ -810,7 +813,7 @@ Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS �
 
 Lorsque vous êtes prêt à commencer la collecte des données de suivi, cliquez sur le bouton **Start With**.
 
-Pour plus d’informations concernant le suivi **Web Proxy** de l’analyseur de message Microsoft, consultez la section <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">Fournisseur PEF-WebProxy</a> sur TechNet.
+Pour plus d’informations concernant le suivi **Web Proxy** de l’analyseur de message Microsoft, consultez la section [Fournisseur Microsoft-PEF-WebProxy](http://technet.microsoft.com/library/jj674814.aspx).
 
 Le suivi **Web Proxy** intégré de l'analyseur de message Microsoft est basé sur Fiddler ; il est capable de capturer le trafic HTTPS côté client et d'afficher les messages HTTPS non chiffrés. Le suivi **Web Proxy** fonctionne via la configuration d'un proxy local pour tout le trafic HTTP et HTTPS, lui permettant d'accéder aux messages non chiffrés.
 
@@ -826,11 +829,11 @@ Lorsque vous créez la session de suivi dans l’analyseur de message Microsoft,
 
 ![][10]
 
-Pour plus d’informations concernant le suivi Local Link Layer de l’analyseur de message Microsoft, consultez <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">Fournisseur PEF-NDIS-PacketCapture</a> sur TechNet.
+Pour plus d’informations concernant le suivi Local Link Layer de l’analyseur de message Microsoft, consultez [Fournisseur Microsoft-PEF-NDIS-PacketCapture](http://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4"></a>Annexe 4 : utilisation d’Excel pour afficher les métriques et les données de journalisation
 
-De nombreux outils vous permettent de télécharger les données métriques de stockage à partir du stockage de table Azure dans un format délimité, permettant leur chargement aisé dans Excel afin de les consulter ou les analyser. Les données de journalisation du stockage d’objets blob Azure sont déjà dans un format délimité qui peut être chargé dans Excel. Toutefois, vous devez ajouter des en-têtes de colonnes appropriés sur la base des informations des sections <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">Format de journal de Storage Analytics</a> et <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schéma de table de métriques Storage Analytics</a>.
+De nombreux outils vous permettent de télécharger les données métriques de stockage à partir du stockage de table Azure dans un format délimité, permettant leur chargement aisé dans Excel afin de les consulter ou les analyser. Les données de journalisation du stockage d’objets blob Azure sont déjà dans un format délimité qui peut être chargé dans Excel. Mais vous devez ajouter les en-têtes de colonne appropriés sur base des informations des sections [Format du journal Storage Analytics](http://msdn.microsoft.com/library/azure/hh343259.aspx) et [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 Pour importer vos données de journalisation du stockage dans Excel, après les avoir téléchargées à partir stockage d’objets blob :
 
@@ -847,8 +850,7 @@ Vous pouvez également utiliser la fonctionnalité Application Insights pour Vis
 - Vous assurer que votre service Web est disponible et réactif. Que votre application soit destinée à un site Web ou un périphérique qui utilise un service Web, l'outil peut tester votre URL toutes les quelques minutes depuis divers emplacements de par le monde et vous signaler tout problème éventuel.
 - Rapidement diagnostiquer tous les problèmes ou exceptions de performances rencontrés par votre service Web. Découvrez si l'UC ou d'autres ressources sont en difficulté, obtenez les traces de la pile à partir des exceptions et effectuez des recherches aisées dans les suivis de journalisation. Si les performances de l'application chutent en deçà des limites acceptables, nous pouvons vous envoyer un e-mail. Vous pouvez analyser les services Web .NET et Java.
 
-Au moment de la rédaction du présent document, Application Insights était à l’état de version préliminaire. Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights pour Visual Studio Team Services sur MSDN</a>.
-
+Vous trouverez plus d’informations dans la [Présentation d’Application Insights](../application-insights/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduction]: #introduction
@@ -923,4 +925,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

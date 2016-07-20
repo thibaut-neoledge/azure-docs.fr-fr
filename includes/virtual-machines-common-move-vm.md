@@ -1,24 +1,26 @@
 
-This article walks you through how to move a VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
+Cet article vous guide tout au long du déplacement d’une machine virtuelle entre des abonnements. Cela peut être pratique si, à l’origine, vous aviez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise afin de poursuivre votre travail.
 
-> [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
+> [AZURE.NOTE] De nouveaux ID de ressource seront créés dans le cadre du déplacement. Une fois que la machine virtuelle a été déplacée, vous devez mettre à jour vos outils et vos scripts pour utiliser les nouveaux ID de ressource.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. Ouvrez le [portail Azure](https://portal.azure.com).
+2. Cliquez sur **Parcourir** > **Machines virtuelles** et sélectionnez la machine virtuelle que vous souhaitez déplacer dans la liste.
 	
-	![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
+	![Capture d’écran de la section Essentials où vous cliquez sur l’icône en forme de crayon pour ouvrir le panneau Déplacer des ressources.](./media/virtual-machines-common-move-vm/move-button.png)
 	
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+3. Dans la section **Essentials**, cliquez sur l’icône en forme de crayon **Modifier l’abonnement** en regard du nom de l’abonnement. Le panneau **Déplacer des ressources** s’ouvre alors.
 	
-	![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
+	![Capture d’écran du panneau Déplacer des ressources.](./media/virtual-machines-common-move-vm/move.png)
 	
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+4. Sélectionnez chacune des ressources à déplacer. Dans la plupart des cas, vous devez déplacer toutes les ressources facultatives répertoriées.
+5. Sélectionnez **l’abonnement** vers lequel vous souhaitez déplacer la machine virtuelle.
+6. Sélectionnez un **groupe de ressources** existant, ou tapez un nom pour créer un groupe de ressources.
+7. Lorsque vous avez terminé, sélectionnez que vous comprenez que de nouveaux ID de ressources vont être créés et qu’ils doivent être utilisés avec la machine virtuelle une fois que celle-ci a été déplacée, puis cliquez sur **OK**.
 
 
 
-## Next steps
+## Étapes suivantes
 
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).	
+Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../articles/resource-group-move-resources.md).
+
+<!---HONumber=AcomDC_0706_2016-->

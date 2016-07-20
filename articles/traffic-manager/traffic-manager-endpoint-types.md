@@ -27,7 +27,7 @@ Cette page explique comment Traffic Manager prend en charge les différents type
 
 Traffic Manager prend en charge trois types de points de terminaison :
 
-- Les **points de terminaison Azure** sont utilisés pour les services hébergés dans Azure.  
+- Les **points de terminaison Azure** sont utilisés pour les services hébergés dans Azure.
 - Les **points de terminaison externes** sont utilisés pour les services hébergés en dehors d’Azure, c’est-à-dire les services hébergés en local ou par un autre hébergeur.
 - Les **points de terminaison imbriqués** servent à combiner différents profils Traffic Manager pour créer des schémas de routage du trafic plus souples afin de répondre aux besoins des déploiements plus vastes et plus complexes.
 
@@ -127,7 +127,7 @@ En règle générale, Traffic Manager est utilisé pour diriger le trafic vers d
 
 Dans le cas des applications web, les points de terminaison Azure Traffic Manager ne permettent pas d’ajouter au même profil Traffic Manager plusieurs points de terminaison d’application web provenant de la même région Azure. Les étapes suivantes proposent une solution de contournement :
 
-1.	Vérifiez que vos applications web de la même région se trouvent dans d’autres « unités d’échelle »de l’application web (par exemple, différentes instances du service d’application web). Pour ce faire, vérifiez l’entrée DNS <...>.azurewebsites.net dans le chemin d’accès DNS. L’unité d’échelle doit ressembler à « waws-prod-xyz-123.vip.azurewebsites.net ». Un nom de domaine spécifié doit correspondre à un seul site d’une unité d’échelle donnée, c’est pourquoi deux applications web se trouvant dans la même unité d’échelle ne peuvent pas partager un même profil Traffic Manager. 
+1.	Vérifiez que vos applications web de la même région se trouvent dans d’autres « unités d’échelle »de l’application web (par exemple, différentes instances du service d’application web). Pour ce faire, vérifiez l’entrée DNS <...>.azurewebsites.net dans le chemin d’accès DNS. L’unité d’échelle doit ressembler à « waws-prod-xyz-123.vip.azurewebsites.net ». Un nom de domaine spécifié doit correspondre à un seul site d’une unité d’échelle donnée, c’est pourquoi deux applications web se trouvant dans la même unité d’échelle ne peuvent pas partager un même profil Traffic Manager.
 2.	En supposant que chaque application web se trouve dans une unité d’échelle différente, ajoutez votre nom de domaine personnel en tant que nom d’hôte personnalisé pour chaque application web. Cela suppose que toutes les applications web appartiennent au même abonnement.
 3.	Ajoutez un (et un seul) point de terminaison d’application web à votre profil Traffic Manager selon la procédure habituelle et configurez-le en tant que point de terminaison Azure.
 4.	Ajoutez chaque point de terminaison d’application web supplémentaire à votre profil Traffic Manager en tant que point de terminaison externe. Pour cela, vous devez utiliser l’expérience Resource Manager de Traffic Manager, et non l’expérience Gestion des services.
@@ -142,4 +142,4 @@ Dans le cas des applications web, les points de terminaison Azure Traffic Manage
 
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) avec Traffic Manager.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

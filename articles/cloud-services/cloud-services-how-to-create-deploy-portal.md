@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -75,7 +75,7 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 4. Dans le nouveau panneau **Service cloud**, entrez une valeur pour le **nom DNS**.
 5. Créez un **groupe de ressources** ou sélectionnez-en un.
 6. Sélectionnez un **emplacement**.
-7. Cliquez sur **Package**. Le panneau **Télécharger un package** s’affiche. Renseignez les champs obligatoires.  
+7. Cliquez sur **Package**. Le panneau **Télécharger un package** s’affiche. Renseignez les champs obligatoires.
 
      Si l’un de vos rôles contient une seule et même instance, vérifiez que l’option **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est sélectionnée.
 
@@ -116,4 +116,4 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="04/22/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Déployer une application web ASP.NET dans Azure App Service à l’aide de Visual Studio
 
@@ -199,8 +199,7 @@ Dans cette section, vous allez déployer le projet web dans l’application web.
 
 	![Application web exécutée dans Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] Vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil, cliquer sur un bouton pour effectuer la publication ou cliquer sur un bouton pour ouvrir l’Assistant **Publier le site web**. 
-	![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] Vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil, cliquer sur un bouton pour effectuer la publication ou cliquer sur un bouton pour ouvrir l’Assistant **Publier le site web**. ![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Résolution de problèmes
 
@@ -214,7 +213,7 @@ Une fois que votre application web ASP.NET exécutée dans Azure App Service, vo
 
 Dans ce didacticiel, vous avez appris à créer une application web simple et à la déployer sur une application web Azure. Pour en savoir plus sur Azure App Service, consultez les rubriques et ressources suivantes :
 
-* Surveillez et gérez votre application web dans le [portail Azure](https://portal.azure.com/). 
+* Surveillez et gérez votre application web dans le [portail Azure](https://portal.azure.com/).
 
 	Pour plus d’informations, consultez [une vue d’ensemble du portail Azure](/services/management-portal/) et [Configurer des applications web dans Azure App Service](web-sites-configure.md).
 
@@ -241,4 +240,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 	Pour plus d’informations sur l’utilisation des groupes de ressources dans le portail Azure, consultez [Utilisation du portail Azure pour déployer et gérer vos ressources Azure](../resource-group-portal.md).
 
-<!------HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

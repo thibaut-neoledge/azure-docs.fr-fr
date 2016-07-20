@@ -37,6 +37,6 @@ Cette erreur se produit lorsque la base de données Azure est déplacée (ou rec
 
 ## Étapes suivantes
 - Si vous recevez une erreur différente, consultez le [message d’erreur](sql-database-develop-error-messages.md) pour obtenir des indices sur la cause.
-- Si le problème persiste, consultez les instructions dans [Résolution des problèmes de connexion courants à Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
+- Si le problème persiste, consultez les instructions dans [Résoudre des problèmes de connexion à la base de données SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

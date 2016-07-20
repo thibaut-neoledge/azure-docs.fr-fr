@@ -13,54 +13,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="06/30/2016"
    ms.author="kgremban"/>
 
 # Comment configurer les alertes de sécurité dans Azure AD Privileged Identity Management
 
 ## Alertes de sécurité
-Azure Privileged Identity Management (PIM) génère les alertes suivantes, qui peuvent être consultés dans la section Alertes du tableau de bord PIM.
+Azure Privileged Identity Management (PIM) génère des alertes en cas d’activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur le tableau de bord PIM.
+
+![Alertes de sécurité du tableau de bord PIM - capture d’écran][1]
+
+
 
 | Alerte | Déclencheur | Recommandation |
 | ----- | ------- | -------------- |
-| **Activation permanente** | Un administrateur a été définitivement affecté à un rôle, en dehors de PIM. | Révisez la nouvelle attribution de rôle et rendez-la temporaire si nécessaire. |
-| **Renouvellement d’activation de rôles privilégiés suspect** | Un trop grand nombre de réactivations du même rôle se sont produites par rapport à la durée autorisée dans les paramètres. | Contactez l'utilisateur pour vous assurer qu’il peut activer le rôle avec succès. |
-| **L’authentification faible est configurée pour l’activation du rôle** | Les paramètres comportent des rôles sans authentification MFA. | Envisagez d’exiger l'authentification MFA pour l'activation de tous les rôles. |
-| **Administrateurs redondants** | Certains administrateurs temporaires n'ont pas activé leurs rôles récemment. | Supprimer des attributions de rôles qui ne sont plus nécessaires. |
-| **Trop d'administrateurs généraux** | Le nombre d’administrateurs généraux est supérieur au nombre recommandé. | Supprimez les affectations de rôles qui ne sont plus nécessaires, ou rendez certaines de ces affectations temporaires. |
+| **Les rôles sont affectés en dehors de PIM** | Un administrateur a été définitivement affecté à un rôle, en dehors de l’interface PIM. | Révisez la nouvelle affectation de rôle. Étant donné que les autres services peuvent uniquement affecter des administrateurs permanents, remplacez cette affectation par une affectation éligible si nécessaire. |
+| **Les rôles sont activés trop fréquemment.** | Un trop grand nombre de réactivations du même rôle se sont produites par rapport à la durée autorisée dans les paramètres. | Contactez l’utilisateur pour savoir pourquoi il a activé le rôle autant de fois. Peut-être que le délai est trop court pour lui permettre d’effectuer ses tâches, ou peut-être utilise-t-il des scripts pour contourner le processus. |
+| **Les rôles ne nécessitent pas l’authentification multifacteur pour l’activation** | Les paramètres comportent des rôles sans authentification MFA. | Nous exigeons l’authentification multifacteur pour les rôles les plus privilégiés, mais nous vous conseillons vivement d’activer l’authentification multifacteur pour l’activation de tous les rôles. |
+| **Les administrateurs n’utilisent par leurs rôles privilégiés** | Certains administrateurs temporaires n'ont pas activé leurs rôles récemment. | Démarrez une vérification d’accès pour identifier les utilisateurs qui n’ont plus besoin d’un accès. |
+| **Trop d'administrateurs généraux** | Le nombre d’administrateurs généraux est supérieur au nombre recommandé. | Si vous avez un grand nombre d’administrateurs généraux, il est probable que les utilisateurs reçoivent plus d’autorisations que nécessaire. Affectez aux utilisateurs des rôles moins privilégiés, ou rendez certains d’entre eux éligibles au rôle au lieu de leur affecter le rôle de façon permanente. |
 
 ## Configurez les paramètres d'alerte de sécurité
 
-### Alerte « Renouvellement d’activation suspect de rôles privilégiés »
+Vous pouvez personnaliser certaines alertes de sécurité dans PIM selon votre environnement et vos objectifs de sécurité. Procédez comme suit pour accéder au panneau des paramètres :
 
-Configurez les paramètres **Période de renouvellement de l'activation** et **Nombre de renouvellements de l'activation** pour contrôler le déclenchement de cette alerte.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) et sélectionnez la mosaïque **Azure AD Privileged Identity Management** dans le tableau de bord.
+2. Sélectionnez **Rôles privilégiés gérés** > **Paramètres** > **Paramètres des alertes**.
 
-1. Sélectionnez **Alertes de sécurité** dans la section **Activité** du tableau de bord. Le panneau **Alertes de sécurité actives** s’affiche.
-2. Cliquez sur **Paramètres**.
-3. Définissez la **Période de renouvellement des activations** en déplaçant le curseur ou en entrant le nombre de minutes dans le champ de texte. La valeur maximale est 100.
-4. Définissez le **Nombre de renouvellements des activations** pendant la période de renouvellement des activations en déplaçant le curseur ou en entrant le nombre de renouvellements dans le champ de texte. La valeur maximale est 100.
-5. Cliquez sur **Enregistrer**.
+    ![Accès aux paramètres des alertes de sécurité][2]
 
-### Alerte « Administrateurs redondants »
-1. Sélectionnez **Alertes de sécurité** dans la section **Activité** du tableau de bord. Le panneau **Alertes de sécurité actives** s’affiche.
-2. Cliquez sur **Paramètres**.
-3. Sélectionnez le nombre de jours autorisés sans activation de rôle en ajustant le curseur ou en entrant le nombre de jours dans le champ de texte.
-4. Cliquez sur **Enregistrer**.
+### Alerte « Les rôles sont activés trop fréquemment »
 
-### Alerte « Trop d'administrateurs généraux »
+Cette alerte se déclenche si un utilisateur active le même rôle privilégié plusieurs fois pendant une période spécifiée. Vous pouvez configurer la période et le nombre d’activations.
 
-Il existe deux paramètres pouvant déclencher cette alerte :
-- **Nombre minimal d’administrateurs généraux** déclenchera l’alerte si le nombre d’administrateurs est supérieur au nombre autorisé.
-- **Pourcentage d'administrateurs généraux** déclenchera une alerte si le pourcentage d'administrateurs généraux est supérieur au nombre autorisé par les paramètres.
+- **Période de renouvellement des activations** : spécifiez en jours, heures, minutes et secondes la période que vous souhaitez utiliser pour effectuer le suivi des renouvellements suspects.
 
-1. Sélectionnez **Alertes de sécurité** dans la section **Activité** du tableau de bord. Le panneau **Alertes de sécurité actives** s’affiche.
-2. Cliquez sur **Paramètres**.
-3. Définissez le **Nombre minimal d’administrateurs généraux** en ajustant le curseur ou en entrant le numéro dans le champ de texte.
-4. Définissez le **Pourcentage d’administrateurs généraux** en ajustant le curseur ou en entrant le pourcentage dans le champ de texte.
-5. Cliquez sur **Enregistrer**.
+- **Nombre de renouvellements de l’activation** : spécifiez le nombre d’activations, de 2 à 100, qui vous semblent suspectes ou qui au moins doivent déclencher une alerte, dans l’intervalle de temps que vous avez choisi. Vous pouvez définir ce paramètre en déplaçant le curseur ou en tapant un nombre dans la zone de texte.
+
+
+### Alerte « Trop d'administrateurs généraux »
+
+PIM déclenche cette alerte si deux critères correspondent, et vous pouvez configurer ces deux valeurs. Vous devez tout d’abord atteindre un certain seuil d’administrateurs généraux. Puis vous devez réserver un certain pourcentage du total de vos affectations à des rôles d’administrateur général. Si vous ne remplissez qu’un seul de ces critères, l’alerte ne s’affichera pas.
+
+- **Nombre minimal d’administrateurs généraux** : spécifiez, de 2 à 100, le nombre d’administrateurs généraux qui, selon vous, présenterait un risque.
+
+- **Pourcentage d'administrateurs généraux** : indiquez, de 0 % à 100 %, le pourcentage d'administrateurs généraux par rapport au nombre total d’administrateurs qui, selon vous, présenterait un risque pour votre environnement.
+
+### Alerte « Les administrateurs n’utilisent pas leurs rôles privilégiés »
+
+Cette alerte se déclenche si un utilisateur reste un certain temps sans activer un rôle.
+
+- **Nombre de jours** : spécifiez, de 0 à 100, le nombre de jours pendant lesquels un utilisateur peut rester sans activer un rôle.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
+[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
+
+<!---HONumber=AcomDC_0706_2016-->

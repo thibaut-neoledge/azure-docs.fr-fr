@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Modèles
@@ -127,13 +127,13 @@ Le tableau suivant indique le langage autorisé dans les modèles :
 | $(prop, n) | Comme ci-dessus, mais le texte est explicitement coupé à n caractères ; par exemple, $(title, 20) coupe le contenu de la propriété de titre à 20 caractères. |
 | .(prop, n) | Comme ci-dessus, mais le texte est suivi de trois points lorsqu’il est coupé. La taille totale de la chaîne coupée et du suffixe ne dépasse pas n caractères. .(title, 20) avec une propriété d’entrée de « Ceci est la ligne du titre » donne **Ceci est la ligne...** |
 | %(prop) | Similaire à $(name), sauf que la sortie est codée URI. |
-| #(prop) | Utilisé dans les modèles JSON (par exemple, pour les modèles iOS et Android).<br><br>Cette fonction agit exactement comme l’expression $(prop) spécifiée précédemment, sauf lorsqu’elle est utilisée dans les modèles JSON (par exemple, les modèles Apple). Dans ce cas, si cette fonction n’est pas placée entre « {','} » (par exemple, 'myJsonProperty' : '#(name)'), et qu’elle renvoie un nombre au format JavaScript, par exemple, regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, la sortie JSON est alors un nombre.<br><br>Par exemple, 'badge : '#(name)' devient 'badge' : 40 (et non '40'). |
-| 'text' ou « text » | Un littéral. Les littéraux contiennent du texte arbitraire placé entre des guillemets simples ou doubles. |
-| expr1 + expr2 | Opérateur de concaténation qui joint deux expressions en une seule chaîne.
+| #(prop) | Utilisé dans les modèles JSON (par exemple, pour les modèles iOS et Android).<br><br>Cette fonction agit exactement comme l’expression $(prop) spécifiée précédemment, sauf lorsqu’elle est utilisée dans les modèles JSON (par exemple, les modèles Apple). Dans ce cas, si cette fonction n’est pas placée entre « {’,’} » (par exemple, ’myJsonProperty’ : ’#(name)’), et qu’elle renvoie un nombre au format JavaScript, par exemple, regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, la sortie JSON est alors un nombre.<br><br>Par exemple, ’badge : ’#(name)’ devient ’badge’ : 40 (et non ’40’). |
+| ‘text’ ou « text » | Un littéral. Les littéraux contiennent du texte arbitraire placé entre guillemets simples ou doubles. |
+| expr1 + expr2 | L’opérateur de concaténation joint deux expressions en une seule chaîne.
 
 Les expressions peuvent avoir n’importe laquelle des formes précédentes.
 
-Lors de l’utilisation de la concaténation, l’expression toute entière doit être placée entre {}. Par exemple, {$(prop) + ' - ' + $(prop2)}. |
+Lors de l’utilisation de la concaténation, l’expression toute entière doit être placée entre {}. Par exemple, {$(prop) + ' - ' + $(prop2)}. |
 
 
 Par exemple, le modèle suivant n’est pas un modèle XML valide :
@@ -157,4 +157,4 @@ Comme expliqué ci-dessus, lors de l’utilisation de la concaténation, les exp
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

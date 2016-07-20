@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Procédure : envoi de notifications planifiées
@@ -34,4 +34,4 @@ Vous pouvez également annuler une notification précédemment planifiée à l'a
 
 Il n'existe aucune limite quant au nombre de notifications planifiées que vous pouvez envoyer.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

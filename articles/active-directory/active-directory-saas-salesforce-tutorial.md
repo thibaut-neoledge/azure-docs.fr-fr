@@ -84,11 +84,11 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 	![Sélectionner l’authentification unique Azure AD][7]
 
-	> [AZURE.NOTE] Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. Sur la page **Configurer les paramètres de l’application**, remplissez le champ **URL de connexion** en entrant l’URL de votre domaine Salesforce au format suivant :
  - Compte d’entreprise : `https://<domain>.my.salesforce.com`
- - Compte de développeur :`https://<domain>-dev-ed.my.salesforce.com` 
+ - Compte de développeur :`https://<domain>-dev-ed.my.salesforce.com`
 
 	![Entrer votre URL d’authentification unique][8]
 
@@ -256,4 +256,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

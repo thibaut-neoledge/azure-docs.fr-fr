@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/28/2016"
 	ms.author="krisragh"/>
 
 
@@ -53,7 +53,7 @@ Le [simulateur iOS ne prend pas en charge les notifications Push](https://develo
 ##<a id="more"></a>En savoir plus
 
 * Les modèles vous apportent la souplesse nécessaire pour envoyer des notifications push multiplateformes et localisées. La rubrique [Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps](app-service-mobile-ios-how-to-use-client-library.md#templates) vous montre comment enregistrer des modèles.
-* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. La rubrique [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) vous montre comment ajouter des balises à l’installation d’un appareil.
+* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. La rubrique [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) vous montre comment ajouter des balises à l’installation d’un appareil.
 
 <!-- Anchors.  -->
 [Generate iOS certificate signing request]: #certificates
@@ -70,4 +70,4 @@ Le [simulateur iOS ne prend pas en charge les notifications Push](https://develo
 <!-- URLs. -->
 [Démarrage rapide iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0706_2016-->

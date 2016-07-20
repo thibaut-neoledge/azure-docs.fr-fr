@@ -24,14 +24,14 @@ Comme vous le savez, SQL Data Warehouse prend en charge les transactions dans le
 SQL Data Warehouse implémente les transactions ACID. Toutefois, l’isolation de la prise en charge des transactions se limite à `READ UNCOMMITTED`. Ce paramètre ne peut pas être modifié. Vous pouvez implémenter un certain nombre de méthodes de codage pour éviter les lectures erronées des données, si le problème se pose. Les méthodes les plus populaires reposent sur la commande CTAS et le basculement des partitions de table (souvent appelé « modèle de fenêtre glissante ») afin d’empêcher les utilisateurs d’interroger les données en cours de préparation. On utilise également des vues qui appliquent un filtre préliminaire aux données.
 
 ## Taille de la transaction
-Une transaction de modification de données unique est limitée en taille. Aujourd’hui, la limite est appliquée « par distribution ». Pour obtenir la valeur totale, nous devons donc multiplier la limite par le nombre de distributions. Pour évaluer approximativement le nombre maximal de lignes dans la transaction, divisez la limite de la distribution par la taille totale de chaque colonne. Pour les colonnes à longueur variable, pensez à prendre une longueur de colonne moyenne au lieu d’utiliser la taille maximale.
+Une transaction de modification de données unique est limitée en taille. Aujourd’hui, la limite est appliquée « par distribution ». Par conséquent, l’allocation totale peut être calculée en multipliant la limite par le nombre de distributions. Pour évaluer approximativement le nombre maximal de lignes dans la transaction, divisez la limite de la distribution par la taille totale de chaque ligne. Pour les colonnes à longueur variable, pensez à prendre une longueur de colonne moyenne au lieu d’utiliser la taille maximale.
 
 Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 
 * Une distribution égale des données s’est produite
 * La longueur de ligne moyenne est de 250 octets
 
-| DWU | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
+| [DWU][] | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
 | ------ | -------------------------- | ----------------------- | -------------------------- | ----------------------- | ------------------------ |
 | DW100 | 1 | 60 | 60 | 4 000 000 | 240 000 000 |
 | DW200 | 1\.5 | 60 | 90 | 6 000 000 | 360 000 000 |
@@ -110,7 +110,7 @@ SELECT @xact;
 Vous pouvez constater que la restauration de la transaction doit se produire avant la lecture des informations sur l’erreur, dans le bloc `CATCH`.
 
 ## Fonction Error\_Line()
-Il est également important de signaler que SQL Data Warehouse n’implémente pas et ne prend pas en charge la fonction ERROR\_LINE(). Si cette fonction est incluse dans votre code, vous devez la supprimer pour respecter les exigences de SQL Data Warehouse. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Consultez l’article relatif aux [libellés de requête] pour en savoir plus.
+Il est également important de signaler que SQL Data Warehouse n’implémente pas et ne prend pas en charge la fonction ERROR\_LINE(). Si cette fonction est incluse dans votre code, vous devez la supprimer pour respecter les exigences de SQL Data Warehouse. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Consultez l’article relatif aux [libellés][] pour en savoir plus.
 
 ## Utilisation des paramètres THROW et RAISERROR
 Le paramètre THROW est l’implémentation la plus moderne du déclenchement d’exceptions dans SQL Data Warehouse. Toutefois, le paramètre RAISERROR est également pris en charge. Il existe cependant quelques différences, qu’il est préférable de prendre en compte.
@@ -130,16 +130,19 @@ Les voici :
 - Aucune prise en charge de DDL comme `CREATE TABLE` dans une transaction définie par l’utilisateur
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
+Pour en savoir plus sur l’optimisation des transactions, consultez les [meilleures pratiques relatives aux transactions][]. Pour en savoir plus sur les meilleures pratiques relatives à SQL Data Warehouse, consultez l’article [correspondant][].
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
-[meilleures pratiques relatives aux transactions]: sql-data-warehouse-develop-best-practices-transactions.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[meilleures pratiques relatives aux transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[correspondant]: ./sql-data-warehouse-best-practices.md
+[libellés]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="04/07/2016"
+  ms.date="06/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Conditions préalables générales pour créer une offre pour Azure Marketplace
@@ -46,13 +46,11 @@ C’est l’abonnement que vous utilisez pour créer vos images de machine virtu
 Avant de pouvoir vendre vos services dans Azure Marketplace, assurez-vous que l’entité inscrite réside dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, consultez la Section 1b des [Politiques concernant la participation à Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Étapes suivantes
-Vous devez ensuite remplir les conditions préalables techniques de chaque type d’offre. Cliquez sur le lien vers l’article du type d’offre que vous voulez créer pour Azure Marketplace.
-
-| Image de machine virtuelle | Service de développement | Service de données | Modèle de solution |
-|-----|-----|-----|-----|
-| [Conditions préalables techniques des machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md) | Version préliminaire privée | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
+Une fois que les conditions préalables non techniques requises sont remplies, vous devez vous pencher sur les conditions préalables techniques propres à l’offre. Cliquez sur le lien vers l’article du type d’offre que vous voulez créer pour Azure Marketplace.
+- [Conditions préalables techniques des machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

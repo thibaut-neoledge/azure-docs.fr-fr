@@ -21,13 +21,16 @@
 
 # Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Azure Linux à l'aide de l’extension VMAccess
 
-Cet article explique comment utiliser l'extension VMAccess VM [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) pour vérifier ou réparer le disque, réinitialiser l'accès des utilisateurs, gérer les comptes d'utilisateur ou réinitialiser la configuration SSHD sous Linux. Cet article nécessite [un compte Azure](https://azure.microsoft.com/pricing/free-trial/), les [clés SSH](virtual-machines-linux-mac-create-ssh-keys.md), une machine virtuelle Azure Linux et l'interface CLI Azure installée et au mode ARM avec `azure config mode arm`.
+Cet article vous explique comment utiliser l’extension VMAccess VM [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSHD sous Linux. Cet article nécessite [un compte Azure](https://azure.microsoft.com/pricing/free-trial/), les [clés SSH](virtual-machines-linux-mac-create-ssh-keys.md), une machine virtuelle Azure Linux et l'interface CLI Azure installée et au mode ARM avec `azure config mode arm`.
 
 ## Commandes rapides
 
-Il existe deux façons d'utiliser VMAccess sur vos machines virtuelles Linux. La première consiste à utiliser l’interface CLI Azure avec `azure vm reset-access` et l'indicateur correct. La seconde consiste à utiliser des fichiers json bruts que VMAccess traitera puis exploitera. Pour la section sur la commande rapide, nous utiliserons la méthode `azure vm reset-access`.
+Il existe deux façons d’utiliser VMAccess sur vos machines virtuelles Linux :
 
-Dans les exemples de commandes suivants, remplacez les valeurs entre &lt; et &gt; par les valeurs de votre propre environnement.
+- À l’aide de l’interface de ligne de commande Azure et des paramètres requis.
+- À l’aide de fichiers JSON bruts que VMAccess va traiter et exploiter.
+
+Pour la section sur la commande rapide, nous utiliserons la méthode `azure vm reset-access` Interface de ligne de commande Azure. Dans les exemples de commandes suivants, remplacez les valeurs entre &lt; et &gt; par les valeurs de votre propre environnement.
 
 ## Réinitialiser le mot de passe racine
 
@@ -72,9 +75,9 @@ azure vm reset-access -g <resource group> -n <vm name> -r
 
 ### VMAccess défini :
 
-Le disque de votre machine virtuelle Linux affiche des erreurs. Vous avez d'une certaine manière réinitialisé le mot de passe racine de votre machine virtuelle Linux ou supprimé accidentellement votre clé privée SSH. Si ce problème était survenu au temps des anciens centres de données, vous auriez dû vous déplacer sur place, déverrouiller la porte à l’aide de vos empreintes digitales, pénétrer dans la pièce, puis actionner le commutateur KVM pour accéder à la console du serveur. Considérez l’extension Azure VMAccess comme ce commutateur KVM qui vous permet d'accéder à la console pour réinitialiser l'accès à Linux ou effectuer la maintenance au niveau du disque.
+Le disque de votre machine virtuelle Linux affiche des erreurs. Vous avez d'une certaine manière réinitialisé le mot de passe racine de votre machine virtuelle Linux ou supprimé accidentellement votre clé privée SSH. Si ce problème était survenu au temps des anciens centres de données, vous auriez dû vous déplacer sur place, déverrouiller la porte à l’aide de vos empreintes digitales, pénétrer dans la pièce, puis actionner le commutateur KVM pour accéder à la console du serveur. Considérez l’extension Azure VMAccess comme ce commutateur KVM qui vous permet d’accéder à la console pour réinitialiser l’accès à Linux ou effectuer la maintenance au niveau du disque.
 
-Pour la procédure pas à pas, nous allons utiliser la forme longue de VMAccess qui utilise des fichiers json bruts. Ces fichiers json VMAccess peuvent également être appelés à partir de modèles Azure.
+Pour la procédure pas à pas, nous allons utiliser la forme longue de VMAccess qui utilise des fichiers JSON bruts. Ces fichiers JSON VMAccess peuvent également être appelés à partir de modèles Azure.
 
 ### Utilisation de VMAccess pour vérifier ou réparer le disque d'une machine virtuelle Linux
 
@@ -101,7 +104,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Utilisation de VMAccess pour réinitialiser l'accès utilisateur à Linux
 
-Si vous ne pouvez plus accéder à la racine de votre machine virtuelle Linux, vous pouvez lancer un script VMAccess pour réinitialiser le mot de passe racine et déverrouiller ainsi Linux.
+Si vous ne pouvez plus accéder à la racine de votre machine virtuelle Linux, vous pouvez lancer un script VMAccess pour réinitialiser le mot de passe racine.
 
 Pour réinitialiser le mot de passe racine, utilisez ce script VMAccess :
 
@@ -205,4 +208,4 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

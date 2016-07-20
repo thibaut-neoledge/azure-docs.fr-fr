@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 
@@ -30,9 +30,9 @@ Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de co
 
 De nombreuses charges de travail utilisent SQL Server comme base. Les applications SharePoint, Dynamics et SAP utilisent SQL Server pour mettre en œuvre des services de données. Les applications déploient SQL Server de plusieurs façons :
 
-- **SQL Server autonome** : le serveur SQL et toutes les bases de données sont hébergés sur un seul ordinateur (physique ou une machine virtuelle). Quand le serveur est virtualisé, le cluster hôte est utilisé pour la haute disponibilité locale. Aucune haute disponibilité pour le niveau invité n’est implémentée.
-- **Instances de clustering de basculement SQL Server (Always On FCI)** : deux ou plusieurs nœuds d’instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si l’une des instances de cluster est défaillante, le cluster peut opérer un basculement vers une autre instance SQL Server. Ce paramétrage est généralement utilisé pour la haute disponibilité sur un site principal. Cela ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Le disque partagé peut être mis en œuvre avec iSCSI, Fibre channel ou VHDx partagé.
-- **Groupes de disponibilité SQL Always On** : dans ce cas de figure, deux nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
+- **SQL Server autonome** : le serveur SQL et toutes les bases de données sont hébergés sur un seul ordinateur (physique ou une machine virtuelle). Quand le serveur est virtualisé, le cluster hôte est utilisé pour la haute disponibilité locale. Aucune haute disponibilité pour le niveau invité n’est implémentée.
+- **Instances de clustering de basculement SQL Server (Always On FCI)** : deux ou plusieurs nœuds d’instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si l’une des instances de cluster est défaillante, le cluster peut opérer un basculement vers une autre instance SQL Server. Ce paramétrage est généralement utilisé pour la haute disponibilité sur un site principal. Cela ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Le disque partagé peut être mis en œuvre avec iSCSI, Fibre channel ou VHDx partagé.
+- **Groupes de disponibilité SQL Always On** : dans ce cas de figure, deux nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
 
 Dans les éditions Enterprise, SQL Server fournit également des technologies de récupération d’urgence natives pour la récupération des bases de données vers un site distant. Dans cet article, nous allons exploiter et intégrer les technologies de récupération d’urgence SQL natives suivantes :
 
@@ -97,9 +97,9 @@ Voici ce dont vous avez besoin pour commencer :
 
 Vous avez besoin d’Active Directory sur le site de récupération secondaire pour que SQL Server fonctionne correctement. Deux cas de figure peuvent se présenter :
 
-- **Petite entreprise** : si vous avez un petit nombre d'applications et un seul contrôleur de domaine pour le site local et que vous souhaitez basculer l'ensemble du site, nous vous recommandons d'utiliser Site Recovery pour répliquer le contrôleur de domaine sur le centre de données secondaire ou Azure.
+- **Petite entreprise** : si vous avez un petit nombre d'applications et un seul contrôleur de domaine pour le site local et que vous souhaitez basculer l'ensemble du site, nous vous recommandons d'utiliser Site Recovery pour répliquer le contrôleur de domaine sur le centre de données secondaire ou Azure.
 
-- **Moyenne ou grande entreprise** : si vous avez un grand nombre d'applications, que vous exécutez une forêt Active Directory et que vous souhaitez effectuer un basculement par application ou charge de travail, nous vous recommandons de configurer un contrôleur de domaine supplémentaire dans le centre de données secondaire ou dans Azure. Notez que si vous utilisez des groupes de disponibilité AlwaysOn pour effectuer une récupération sur un site distant, nous vous recommandons de configurer un contrôleur de domaine supplémentaire sur le site secondaire ou sur Azure, à utiliser pour l'instance SQL Server récupérée.
+- **Moyenne ou grande entreprise** : si vous avez un grand nombre d'applications, que vous exécutez une forêt Active Directory et que vous souhaitez effectuer un basculement par application ou charge de travail, nous vous recommandons de configurer un contrôleur de domaine supplémentaire dans le centre de données secondaire ou dans Azure. Notez que si vous utilisez des groupes de disponibilité AlwaysOn pour effectuer une récupération sur un site distant, nous vous recommandons de configurer un contrôleur de domaine supplémentaire sur le site secondaire ou sur Azure, à utiliser pour l'instance SQL Server récupérée.
 
 Les instructions fournies dans ce document supposent qu'un contrôleur de domaine est disponible sur l'emplacement secondaire. Pour plus d’informations sur la protection d’Active Directory avec Site Recovery, cliquez [ici](site-recovery-active-directory.md).
 
@@ -132,12 +132,12 @@ Voici ce dont vous avez besoin pour intégrer SQL AlwaysOn à Site Recovery quan
 ####  Étape 1 : ajouter un serveur SQL Server
 
 
-1. Cliquez sur **Ajouter un serveur SQL** pour ajouter un nouveau serveur SQL Server. 
+1. Cliquez sur **Ajouter un serveur SQL** pour ajouter un nouveau serveur SQL Server.
 
 	![Ajouter un serveur SQL](./media/site-recovery-sql/add-sql.png)
 
 2. Dans **Configurer les paramètres SQL** > **Nom**, indiquez un nom convivial pour le serveur SQL Server.
-3. Dans **SQL Server (nom de domaine complet)**, indiquez le nom de domaine complet du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster.  
+3. Dans **SQL Server (nom de domaine complet)**, indiquez le nom de domaine complet du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster.
 4. Dans **Instance SQL Server**, choisissez l’instance par défaut ou indiquez le nom de l’instance personnalisée.
 5. Dans **Serveur VMM**, sélectionnez un serveur VMM inscrit dans le coffre Site Recovery. Site Recovery utilise ce serveur VMM pour communiquer avec le serveur SQL Server.
 6. Dans **Compte d’identification**, indiquez le nom d’un compte d’identification qui a été créé sur le serveur VMM spécifié. Ce compte est utilisé pour accéder au serveur SQL Server et doit être doté des autorisations Lecture et Basculement sur les groupes de disponibilité présents sur l’ordinateur SQL Server.
@@ -151,7 +151,7 @@ Une fois ajouté, le serveur SQL Server apparaît sous l’onglet **Serveurs SQL
 
 #### Étape 2 : ajouter un groupe de disponibilité SQL
 
-1. Une fois l’ordinateur SQL Server ajouté, l’étape suivante consiste à ajouter le groupe de disponibilité à Site Recovery. Pour cela, descendez dans la hiérarchie du serveur SQL Server ajouté à l’étape précédente et cliquez sur Ajouter un groupe de disponibilité SQL. 
+1. Une fois l’ordinateur SQL Server ajouté, l’étape suivante consiste à ajouter le groupe de disponibilité à Site Recovery. Pour cela, descendez dans la hiérarchie du serveur SQL Server ajouté à l’étape précédente et cliquez sur Ajouter un groupe de disponibilité SQL.
 
 	![Ajouter un groupe de disponibilité SQL](./media/site-recovery-sql/add-sqlag.png)
 
@@ -353,4 +353,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

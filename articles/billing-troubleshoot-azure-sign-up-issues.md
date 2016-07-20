@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="cjiang"/>
 
 # Résoudre les problèmes d’inscription à Azure
 Cet article vous aidera à résoudre les causes courantes des problèmes susceptibles de se produire lors de votre inscription à Azure.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure sur le [site de support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## J’obtiens une erreur lors de la saisie de mes informations d’inscription.
 Les informations de profil de compte sont-elles correctes ? Vos informations de profil étant utilisées pour générer les relevés de facturation, il est important de les saisir avec exactitude. Exemples de champs incorrects :
@@ -81,4 +81,4 @@ Avez-vous déjà utilisé un abonnement Azure auparavant ? Les conditions d’u
 Suggestions
 - Si vous déjà activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation. Vous pouvez également bénéficier d’une offre d’avantages. Pour en savoir plus, consultez la [page Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite d’Azure. Notez que les programmes d’avantages imposent des conditions requises spécifiques.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

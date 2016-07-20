@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/30/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -28,10 +28,12 @@ La vue [sys.dm\_pdw\_exec\_sessions][] vous permet de surveiller les connexions 
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
-## Analyse de l'exécution des requêtes
+## Analyse de l’exécution des requêtes
 Pour surveiller l’exécution des requêtes, commencez par [sys.dm\_pdw\_exec\_requests][]. Cette vue contient les requêtes en cours, ainsi que l’historique des requêtes qui se sont terminées récemment. L’ID de requête (request\_id) identifie de manière unique chaque requête. Il s’agit de la clé principale pour cette vue. L’ID de requête (request\_id) est assignée de façon séquentielle pour chaque nouvelle requête. En interrogeant cette table pour un ID de session (session\_id) donné, vous obtenez toutes les requêtes pour une connexion donnée.
 
-Voici les étapes à suivre pour analyser les heures et les plans d’exécution des requêtes pour une requête spécifique.
+>[AZURE.NOTE] Les procédures stockées utilisent plusieurs request\_ids. Les ID de demande seront attribués par ordre séquentiel.
+
+Voici les étapes à suivre pour analyser les heures et les plans d’exécution d’une requête spécifique.
 
 ### ÉTAPE 1: rechercher la requête à analyser
 
@@ -90,10 +92,10 @@ Enregistrez l'Index d'étape de l’étape la plus longue.
 
 Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
 
-- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
+### ÉTAPE 4a : rechercher la progression de l’exécution d’une étape SQL
 
 Utilisez l’ID de requête et l’index des étapes pour récupérer des informations à partir de [sys.dm\_pdw\_sql\_requests][] qui contient des détails sur l’exécution de la requête sur les instances distribuées de SQL Server. Notez l’ID de distribution et le SPID si la requête est en cours d’exécution et si vous souhaitez obtenir le plan à partir de la distribution de SQL Server.
 
@@ -116,7 +118,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ```
 
-### ÉTAPE 4b : rechercher la progression de l'exécution d'une étape de déplacement des données
+### ÉTAPE 4b : rechercher la progression de l’exécution d’une étape de déplacement des données
 
 Utilisez l’ID de requête et l’index des étapes pour récupérer des informations sur l’étape de déplacement des données en cours d’exécution sur chaque distribution à partir de [sys.dm\_pdw\_dms\_workers][].
 
@@ -148,10 +150,9 @@ Pour plus d’informations sur les vues de gestion dynamique (DMV), consultez [V
 <!--Image references-->
 
 <!--Article references-->
-[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
-[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
-[Meilleures pratiques relatives à SQL Data Warehouse]: sql-data-warehouse-best-practices.md
-[Vues système]: sql-data-warehouse-reference-tsql-system-views.md
+[Vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
+[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Vues système]: ./sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +163,4 @@ Pour plus d’informations sur les vues de gestion dynamique (DMV), consultez [V
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

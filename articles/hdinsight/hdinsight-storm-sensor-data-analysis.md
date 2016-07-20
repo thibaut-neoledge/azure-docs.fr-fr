@@ -13,30 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
-# Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
+# Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop) 
 
-Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les données de capteur à partir d'Azure Event Hub et les visualiser à l'aide de D3.js. Ce document décrit également comment utiliser un réseau virtuel Azure pour connecter Storm sur HDInsight avec HBase sur HDInsight et stocker les données de la topologie dans HBase.
+Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les données de capteur à partir d’Azure Event Hub, les stocker sous Apache HBase sur HDInsight et les visualiser à l’aide de D3.js s’exécutant en tant qu’application web Azure.
 
-> [AZURE.NOTE] Les informations de ce document sont basées sur l’utilisation d’un cluster Storm Windows sur HDInsight version 3.2. Pour plus d'informations sur l'utilisation d'Azure Event Hub avec Storm Linux sur HDInsight, consultez [Traitement d'événements à partir d'Azure Event Hubs avec Storm dans HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+Le modèle Azure Resource Manager utilisé dans ce document montre comment créer plusieurs ressources Azure dans un groupe de ressources. Plus précisément, il crée un réseau virtuel Azure, deux clusters HDInsight (Storm et HBase) et une application web Azure. Une implémentation node.js de tableau de bord web en temps réel est automatiquement déployée sur l’application web.
+
+> [AZURE.NOTE] Les informations contenues dans ce document et l’exemple fourni ont été testés à l’aide de versions de cluster HDInsight sous Linux 3.3 et 3.4.
 
 ## Configuration requise
 
 * Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Un [cluster Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+    > [AZURE.IMPORTANT] Vous n’avez pas besoin d’un cluster HDInsight existant ; les étapes décrites dans ce document crée les ressources suivantes :
+    >
+    > * un réseau virtuel Azure ;
+    > * un cluster Storm sur HDInsight (basé sur Linux, 2 nœuds de travail) ;
+    > * un cluster HBase sur HDInsight (basé sur Linux, 2 nœuds de travail) ;
+    > * une application web Azure qui héberge le tableau de bord web.
 
-* [Node.js](http://nodejs.org/): utilisé pour le tableau de bord Web et pour envoyer des données de capteur à Event Hub.
+* [Node.js](http://nodejs.org/) : utilisé pour afficher un aperçu du tableau de bord web localement sur votre environnement de développement.
 
-* [Java et le Kit de développement Java (JDK) 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java et JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) : utilisés pour développer la topologie Storm.
 
-* [Maven](http://maven.apache.org/what-is-maven.html)
+* [Maven](http://maven.apache.org/what-is-maven.html) : utilisé pour générer et compiler le projet.
 
-* [Git](http://git-scm.com/)
+* [Git](http://git-scm.com/) : utilisé pour télécharger le projet à partir de GitHub.
 
-> [AZURE.NOTE] Java, le Kit de développement Java (JDK), Maven et Git sont également disponibles via le gestionnaire de package [Chocolatey NuGet](http://chocolatey.org/).
+* Client __SSH__ : utilisé pour se connecter aux clusters HDInsight basés sous Linux. Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les documents suivants.
+
+    * [Utilisation de SSH avec HDInsight à partir d’un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    * [Utilisation de SSH avec HDInsight à partir d’un client Linux, Unix ou Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+    > [AZURE.NOTE] Vous devez également avoir accès à la commande `scp`, qui est utilisée pour copier des fichiers entre votre environnement de développement local et le cluster HDInsight à l’aide de SSH.
 
 ## Architecture
 
@@ -44,15 +57,17 @@ Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les donné
 
 Cet exemple est constitué des composants suivants :
 
-* **Azure Event Hub** : fournit des données collectées à partir des capteurs. Pour cet exemple, une application est fournie pour générer des données fictives.
+* **Azure Event Hubs** : contient les données collectées à partir des capteurs. Pour cet exemple, une application est fournie pour générer des données.
 
-* **Storm sur HDInsight** : fournit le traitement en temps réel des données à partir d’Event Hub.
+* **Storm sur HDInsight** : fournit le traitement en temps réel des données à partir d’Event Hub.
 
-* **HBase sur HDInsight** (facultatif) : fournit un magasin de données NoSQL persistant.
+* **HBase sur HDInsight** : fournit un magasin de données NoSQL persistant pour les données une fois celles-ci traitées par Storm.
 
-* **Service Azure Virtual Network** (facultatif, requis si vous utilisez HBase) : permet des communications sécurisées entre le Storm sur HDInsight et les clusters HBase sur HDInsight.
+* **Service Azure Virtual Network** : permet des communications sécurisées entre Storm sur HDInsight et les clusters HBase sur HDInsight.
 
-* **Site web de tableau de bord** : un exemple de tableau de bord qui suit des données en temps réel.
+    > [AZURE.NOTE] Un réseau virtuel est requis pour pouvoir utiliser l’API cliente Java HBase, car elle n’est pas exposée via la passerelle publique pour les clusters HBase. L’installation de clusters HBase et Storm dans le même réseau virtuel permet au cluster Storm (ou à tout autre système sur le réseau virtuel) d’accéder directement à HBase à l’aide de l’API cliente.
+
+* **Site web de tableau de bord** : un exemple de tableau de bord qui suit des données en temps réel.
 
 	* Le site web est implémenté dans Node.js, donc il peut s'exécuter sur n'importe quel système d'exploitation de client de test, ou il peut être déployé sur des sites web Azure.
 
@@ -62,9 +77,7 @@ Cet exemple est constitué des composants suivants :
 
 	* [D3.js](http://d3js.org/) est utilisé pour représenter par un graphique les données envoyées au site web.
 
-La topologie lit les données à partir du hub d'événements à l'aide de la classe **com.microsoft.eventhubs.spout.EventHubSpout** qui est fournie dans le cluster Storm sur HDInsight. La communication avec le site web s'effectue à l'aide de [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
-
-Le cas échéant, la communication avec HBase s'effectue à l'aide de la classe [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) qui est fournie dans le cadre de Storm.
+La topologie lit les données à partir d’Event Hub à l’aide de la classe [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) et écrit des données dans HBase à l’aide de la classe [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html). La communication avec le site web s'effectue à l'aide de [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
 Voici un schéma de cette solution :
 
@@ -73,27 +86,27 @@ Voici un schéma de cette solution :
 > [AZURE.NOTE] Il s'agit d'un affichage très simplifié de la topologie. Au moment de l'exécution, une instance de chaque composant est créée pour chaque partition pour le hub d'événements en cours de lecture. Ces instances sont réparties entre les nœuds du cluster et les données sont acheminées entre eux comme suit :
 >
 > * Les données du spout vers l'analyseur sont disposent d’un équilibrage de charges.
-> * Les données de l'analyseur vers le tableau de bord et HBase (si utilisé) sont regroupées par ID de périphérique afin que les messages issus du même périphérique passe toujours par le même composant.
+> * Les données de l’analyseur vers le tableau de bord et HBase sont regroupées par ID de périphérique afin que les messages issus du même périphérique passent toujours par le même composant.
 
-### Composants
+### Composants de la topologie
 
-* **Spout Event Hub** : spout fourni dans le cadre des [exemples HDInsight Storm](https://github.com/hdinsight/hdinsight-storm-examples) sur GitHub.
+* **Spout EventHub** : spout fourni dans le cadre de la version d’Apache Storm 0.10.0 et versions ultérieures.
+
+    > [AZURE.NOTE] Le spout EventHub utilisé dans cet exemple requiert une version de cluster Storm sur HDInsight 3.3 ou 3.4. Pour plus d’informations sur l’utilisation des Event Hubs avec une version précédente de Storm sur HDInsight, voir [Traitement d’événements à partir d’Azure Event Hubs avec Storm dans HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
 
 * **ParserBolt.java**: les données émises par le spout sont JSON brut, et parfois, plusieurs événements sont émis à la fois. Ce bolt montre comment lire les données émises par le spout et les émet à un nouveau stream sous forme de tuple contenant plusieurs champs.
 
-* **DashboardBolt.java** : cela montre comment utiliser la bibliothèque client Socket.io pour Java pour envoyer des données en temps réel au tableau de bord web.
+* **DashboardBolt.java** : montre comment utiliser la bibliothèque client Socket.io pour Java pour envoyer des données en temps réel au tableau de bord web.
 
 ## Préparation de votre environnement
 
-Avant d'utiliser cet exemple, vous devez créer un hub d'événements Azure, qui peut être lu par la topologie Storm. Vous devez également créer une topologie Storm sur HDInsight, car le composant utilisé pour lire les données à partir d’Event Hub est uniquement disponible dans le cluster.
-
-> [AZURE.NOTE] Le spout Event Hub sera disponible à partir de Maven.
+Avant d’utiliser cet exemple, vous devez créer un Azure Event Hub, qui peut être lu par la topologie Storm.
 
 ### Configuration du hub d'événements
 
 Le hub d'événements est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau hub d'événements.
 
-1. Depuis le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Nouveau| Service Bus | Event Hub | Custom Create**.
+1. Depuis le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU| Service Bus | Event Hub | Custom Create**.
 
 2. Dans la boîte de dialogue **Ajouter un nouvel hub d'événements**, entrez un **Nom du hub d'événements**, sélectionnez la **Région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la flèche pour continuer.
 
@@ -103,41 +116,14 @@ Le hub d'événements est la source de données pour cet exemple. Procédez comm
 
 4. Sélectionnez **Configurer**, puis créez deux nouvelles stratégies d'accès à l’aide des informations suivantes.
 
-	<table>
-	<tr><th>Nom</th><th>Autorisations</th></tr>
-	<tr><td>Appareils</td><td>Envoyer</td></tr>
-	<tr><td>Storm</td><td>Écouter</td></tr>
-	</table>
+	| Nom | Autorisations |
+    | ----- | ----- |
+	| périphériques | Envoyer |
+	| storm | Écouter |
 
 	Après la création des autorisations, sélectionnez l'icône **Enregistrer** au bas de la page. Les stratégies d'accès partagées sont créées. Elles sont utilisées pour envoyer et lire des messages à partir de ce hub.
 
 5. Après l'enregistrement des stratégies, utilisez le **Générateur de clés d'accès partagé** en bas de la page pour récupérer les clés des stratégies **périphériques** et **storm**. Enregistrez-les, car vous en aurez besoin plus tard.
-
-### Création du storm sur le clsuter HDInsight
-
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
-
-2. Cliquez sur **HDInsight** dans le volet de gauche, puis sur **+NOUVEAU** dans le coin inférieur gauche de la page.
-
-3. Cliquez sur l'icône HDInsight dans la seconde colonne, puis sélectionnez **Personnaliser**.
-
-4. Sur la page **Détails du cluster**, entrez le nom du nouveau cluster, puis sélectionnez **Storm** pour le **Type de cluster**. Cliquez sur la flèche pour continuer.
-
-5. Entrez 1 pour la valeur de **Nœuds de données** à utiliser pour ce cluster.
-
-	> [AZURE.NOTE] Pour réduire les coûts du cluster utilisé pour cet article, réduisez la **Taille du cluster** sur 1, puis supprimez le cluster après avoir fini de l'utiliser.
-
-6. Entrez le **Nom d'utilisateur** d'administrateur et un **Mot de passe**, puis cliquez sur la flèche pour continuer.
-
-4. Pour **Compte de stockage**, sélectionnez **Créer un nouveau stockage** ou sélectionnez un compte de stockage existant. Sélectionnez ou entrez le **Nom de compte** et le **Conteneur par défaut** à utiliser. Cliquez sur l'icône en forme de coche en bas à gauche pour créer le cluster Storm.
-
-## Téléchargement et installation de l’agent EventHubSpout
-
-1. Téléchargez le [projet d'exemples de Storm HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/). Une fois téléchargé, recherchez le fichier **lib/eventhubs/eventhubs-storm-spout-0.9-jar-with-dependencies.jar**.
-
-2. À partir de l'invite de commandes, utilisez la commande suivante pour installer le fichier **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** dans le magasin local Maven. Ceci vous permettra de l'ajouter facilement en tant que référence dans le projet Storm à l'étape suivante.
-
-		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
 ## Téléchargement et configuration du projet
 
@@ -159,7 +145,7 @@ Une fois la commande terminée, vous aurez la structure de répertoire suivante 
 
 > [AZURE.NOTE] Ce document ne détaille pas le code inclus dans cet exemple ; toutefois, le code est entièrement commenté.
 
-Ouvrez le fichier **Config.properties** et ajoutez les informations utilisées précédemment lors de la création du concentrateur d'événements. Enregistrez le fichier après avoir ajouté ces informations.
+Ouvrez le fichier **Config.properties** et ajoutez les informations utilisées précédemment lors de la création de l’Event Hub pour les entrées répertoriées ci-dessous. Enregistrez le fichier après avoir ajouté ces informations.
 
 	eventhubspout.username = storm
 
@@ -171,16 +157,11 @@ Ouvrez le fichier **Config.properties** et ajoutez les informations utilisées p
 
 	eventhubspout.partitions.count = <the number of partitions for the event hub>
 
-	## if not provided, will use storm's zookeeper settings
-	## zookeeper.connectionstring=localhost:2181
-
-	eventhubspout.checkpoint.interval = 10
-
-	eventhub.receiver.credits = 1024
-
 ## Compilation et test local
 
 Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de la topologie et de générer les données à stocker dans le hub d'événements.
+
+> [AZURE.IMPORTANT] Le composant HBase de cette topologie n’est pas actif lors d’un test local, car l’API Java pour le cluster HBase n’est pas accessible depuis l’extérieur du réseau virtuel Azure qui contient les clusters.
 
 ### Démarrage de l’application Web
 
@@ -204,8 +185,7 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
 
 ### Démarrage de la génération de données
 
-> [AZURE.NOTE] Les étapes de cette section utilisent Node.js de sorte à pouvoir utiliser n'importe quelle plate-forme. Pour d'autres exemples de langage, consultez le répertoire **SendEvents**.
-
+> [AZURE.NOTE] Les étapes de cette section utilisent Node.js de sorte à pouvoir être utilisées sur n’importe quelle plate-forme. Pour d'autres exemples de langage, consultez le répertoire **SendEvents**.
 
 1. Ouvrez une nouvelle invite de commandes ou un terminal, et remplacez les répertoires par **hdinsight-eventhub-example/dashboard**, puis utilisez la commande suivante pour installer les dépendances requises par l'application :
 
@@ -227,152 +207,162 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
 
 	Vous devez normalement voir plusieurs lignes de sortie contenant les données envoyées au hub d'événements. Les informations se présentent alors comme suit :
 
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":0,"Temperature":7}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":1,"Temperature":39}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":2,"Temperature":86}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":3,"Temperature":29}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":4,"Temperature":30}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":5,"Temperature":5}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":6,"Temperature":24}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":7,"Temperature":40}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":8,"Temperature":43}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":9,"Temperature":84}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"0","Temperature":7}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"1","Temperature":39}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"2","Temperature":86}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"3","Temperature":29}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"4","Temperature":30}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"5","Temperature":5}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"6","Temperature":24}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"7","Temperature":40}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"8","Temperature":43}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"9","Temperature":84}
 
 ### Démarrage de la topologie
 
 2. Démarrez la topologie localement à l’aide de la commande suivante :
 
-	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
+        mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 	Ceci démarre la topologie, la lecture des fichiers à partir du hub d'événements et leur envoi vers le tableau de bord exécuté dans Sites Web Azure. Vous devriez voir des lignes apparaître dans le tableau de bord web, comme ceci :
 
 	![tableau de bord avec données](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-3. Lorsque le tableau de bord est en cours d'exécution, utilisez la commande `node app.js` des étapes précédentes pour envoyer de nouvelles données au tableau de bord. Les valeurs de température étant générées au hasard, le graphique doit être mis à jour pour afficher les nouvelles valeurs.
+    > [AZURE.NOTE] Si vous exécutez cette commande à partir d’une invite PowerShell, vous devez utiliser des guillemets doubles autour du paramètre `-Dstorm.topology=com.microsoft.examples.Temperature`. Par exemple : `mvn compile exec:java "-Dstorm.topology=com.microsoft.examples.Temperature"`.
+
+3. Lorsque le tableau de bord est en cours d’exécution, utilisez la commande `node app.js` des étapes précédentes pour envoyer de nouvelles données aux Event Hubs. Les valeurs de température étant générées au hasard, le graphique doit être mis à jour pour afficher les modifications importantes de température.
 
 3. Après avoir vérifié que cela fonctionne, arrêtez la topologie en tapant Ctrl + C. Pour arrêter l'application SendEvent, sélectionnez la fenêtre et appuyez sur une touche. Vous pouvez également utiliser Ctrl-C pour arrêter le serveur Web.
 
-## Mise en package et déploiement de la topologie vers HDInsight
+## Créer un cluster Storm et HBase
 
-Dans votre environnement de développement, procédez comme suit pour exécuter la topologie de température sur votre cluster Storm HDInsight.
+Pour exécuter la topologie sur HDInsight et activer le bolt HBase, vous devez créer un cluster Storm et un cluster HBase. Les étapes décrites dans cette section utilisent un [modèle Azure Resource Manager](../resource-group-template-deploy.md) pour créer un réseau virtuel Azure et des clusters Storm et HBase sur le réseau virtuel. Le modèle crée également une application web Azure et déploie une copie du tableau de bord dans celle-ci.
 
-### Publication du tableau de bord du site Web
+> [AZURE.NOTE] Un réseau virtuel est utilisé afin que la topologie en cours d’exécution sur le cluster Storm puisse communiquer directement avec le cluster HBase à l’aide de l’API Java HBase.
 
-1. Pour déployer le tableau de bord sur un site Web Azure, suivez les étapes de la section [Création et déploiement d’un site Web Node.js dans Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Notez l'URL du site Web, qui doit être similaire à **mywebsite.azurewebsites.net**.
+Le modèle Resource Manager utilisé dans ce document est situé dans un conteneur blob public sous \_\_https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json__.
 
-2. Une fois le site web créé, accédez au site via le portail Azure Classic et sélectionnez l’onglet **Configurer**. Activez les **ports Web**, puis cliquez sur **Enregistrer** en bas de la page.
+1. Cliquez sur le bouton suivant pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure.
 
-2. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** et modifiez la ligne suivante pour pointer vers l'URL du tableau de bord publié :
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-		socket = IO.socket("http://mywebsite.azurewebsites.net");
+2. À partir du panneau **Paramètres**, saisissez les informations suivantes :
 
-3. Enregistrez le fichier **DashboardBolt.java**.
+    ![Paramètres HDInsight](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
+    
+    * **BASECLUSTERNAME** : cette valeur sera utilisée comme nom de base pour les clusters Storm et HBase. Par exemple, si vous entrez __hdi__, cela crée un cluster Storm nommé __storm hdi__ et un cluster HBase nommé __hbase-hdi__.
+    * __CLUSTERLOGINUSERNAME__ : nom d’utilisateur Admin pour les clusters Storm et HBase.
+    * __CLUSTERLOGINPASSWORD__ : mot de passe utilisateur Admin pour les clusters Storm et HBase.
+    * __SSHUSERNAME__ : utilisateur SSH permettant de créer des clusters Storm et HBase.
+    * __SSHPASSWORD__ : mot de passe de l’utilisateur SSH pour les clusters Storm et HBase.
+    * __EMPLACEMENT__ : région dans laquelle seront créés les clusters.
+    
+    Cliquez sur __OK__ pour enregistrer les paramètres.
+    
+3. Utilisez la section __Groupe de ressources__ pour créer un groupe de ressources Azure ou sélectionnez un groupe existant.
 
-### Mise en package et déploiement de la topologie
+4. Dans le menu déroulant __Emplacement du groupe de ressources__, sélectionnez le même emplacement que celui que vous avez sélectionné pour le paramètre __EMPLACEMENT__.
 
-1. Utilisez la commande suivante pour créer un package JAR depuis votre projet :
+5. Sélectionnez __Mentions légales__, puis sélectionnez __Créer__.
 
-		mvn package
+6. Pour finir, cochez __Épingler au tableau de bord__, puis sélectionnez __Créer__. La création des clusters prendra environ 20 minutes.
 
-	Ceci va créer un fichier nommé **TemperatureMonitor-1.0-SNAPSHOT.jar** dans le répertoire **target** de votre projet.
+Une fois les ressources créées, vous êtes redirigé vers un panneau pour le groupe de ressources contenant les clusters et le tableau de bord web.
 
-2. Suivez les étapes de la section [Déploiement et gestion des topologies Storm](hdinsight-storm-deploy-monitor-topology.md) pour télécharger et démarrer la topologie sur votre Storm sur le cluster HDInsight à l'aide du **tableau de bord Storm**.
+![Volet du groupe de ressources pour les clusters et le réseau virtuel](./media/hdinsight-storm-sensor-data-analysis/groupblade.png)
 
-3. Une fois la topologie lancée, ouvrez un navigateur vers le site Web que vous avez publié sur Azure, puis utiliser la commande `node app.js` pour envoyer des données au concentrateur d'événements. Vous devez mettre à jour le tableau de bord Web pour afficher les informations.
+> [AZURE.IMPORTANT] Les noms des clusters HDInsight sont __storm-BASENAME__ et __hbase-BASENAME__, où BASENAME est le nom que vous avez fourni pour le modèle. Vous utiliserez ces noms dans les étapes ultérieures, lors de la connexion aux clusters. Notez également que le nom du site du tableau de bord est __basename-dashboard__. Vous l’utiliserez ultérieurement lors de l’affichage du tableau de bord.
 
-	![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
+## Configurer le bolt de tableau de bord
 
-## Facultatif : utilisation de HBase
+Pour envoyer des données au tableau de bord déployé en tant qu’application web, vous devez modifier la ligne suivante dans le fichier __DashboardBolt.java__ :
 
-Pour utiliser Storm et HBase conjointement, vous devez créer un réseau virtuel Azure, puis des clusters Storm et HBase sur le réseau.
+    socket = IO.socket("http://localhost:3000");
 
-### Création d'un réseau virtuel Azure (facultatif)
+Modifiez `http://localhost:3000` en `http://BASENAME-dashboard.azurewebsites.net` et enregistrez le fichier. Remplacez __BASENAME__ par le nom de base que vous avez fourni à l’étape précédente. Vous pouvez également utiliser le groupe de ressources créé précédemment pour sélectionner le tableau de bord et afficher l’URL.
 
-Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un réseau virtuel Azure qui contiendra un Storm sur cluster HDInsight et un HBase sur cluster HDInsight.
+## Créer une table HBase
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+Afin de stocker des données dans HBase, nous devons tout d’abord créer une table. En général, vous devez créer au préalable les ressources sur lesquelles Storm doit écrire, car la création de ressources dans une topologie Storm peut faire que plusieurs copies distribuées du code essaient de créer la même ressource. Créez les ressources en dehors de la topologie et utilisez simplement Storm pour les opérations de lecture/écriture et d’analyse.
 
-2. Dans le bas de la page, cliquez sur **+NOUVEAU** > **Services de réseau** > **Réseau virtuel** > **Création rapide**.
+1. Utilisez le protocole SSH pour vous connecter au cluster HBase à l’aide de l’utilisateur et du mot de passe SSH fournis pour le modèle lors de la création du cluster. Par exemple, si vous vous connectez à l’aide de la commande `ssh`, vous devez utiliser la syntaxe suivante :
 
-3. Tapez ou sélectionnez les valeurs suivantes :
+        ssh USERNAME@hbase-BASENAME-ssh.azurehdinsight.net
+    
+    Dans cette commande, remplacez __USERNAME__ par le nom d’utilisateur SSH fourni lors de la création du cluster et __BASENAME__ par le nom de base que vous avez fourni. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH.
 
-	- **Nom** : nom de votre réseau virtuel.
+2. À partir de la session SSH, démarrez l’interpréteur de commandes HBase.
 
-	- **Espace d’adressage** : choisissez un espace d’adressage pour le réseau virtuel qui soit suffisamment grand pour fournir des adresses à tous les nœuds du cluster. Si ce n'est pas le cas, l'approvisionnement échouera.
+    	hbase shell
+	
+	Une fois l’interpréteur de commandes chargé, vous verrez une invite `hbase(main):001:0>`.
 
-	- **Nombre maximal de machines virtuelles** : choisissez l’un des nombres maximaux de machines virtuelles.
+3. À partir de l'environnement de ligne de commande HBase, entrez la commande suivante pour créer une table dans laquelle seront stockées les données du capteur :
 
-	- **Emplacement** : l’emplacement doit être le même que celui du cluster HBase que vous allez créer.
+    	create 'SensorData', 'cf'
 
-	- **Serveur DNS** : étant donné que cet article utilise le serveur DNS interne fourni par Azure, vous pouvez choisir **Aucun**. Des configurations de réseau plus avancées avec des serveurs DNS personnalisés sont également prises en charge. Pour obtenir des instructions détaillées, consultez la page [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+4. Vérifiez que la table a été créée à l’aide de la commande suivante :
 
-4. Cliquez sur **Créer un réseau virtuel**. Le nom du nouveau réseau virtuel apparaît dans la liste. Attendez que la valeur **Créé** apparaisse dans la colonne Statut.
+    	scan 'SensorData'
+		
+	Cela doit renvoyer des informations similaires à celles ci-dessous, indiquant que la table comporte 0 ligne.
+	
+		ROW                   COLUMN+CELL                                       0 row(s) in 0.1900 seconds
 
-5. Dans le volet principal, cliquez sur le réseau virtuel que vous venez de créer.
+5. Pour quitter l’interpréteur de commandes HBase, utilisez la commande suivante :
 
-6. En haut de la page, cliquez sur **TABLEAU DE BORD**.
+		exit
 
-7. Sous **aperçu rapide**, prenez note de l'**ID RÉSEAU VIRTUEL**. Vous en aurez besoin lors de l'approvisionnement des clusters Storm et HBase.
+## Configuration du bolt HBase
 
-8. En haut de la page, cliquez sur **CONFIGURER**.
+Pour écrire dans HBase à partir du cluster Storm , vous devez fournir le bolt HBase avec les détails de configuration de votre cluster HBase. Pour ce faire, le moyen le plus simple consiste à télécharger le fichier __hbase-site.XML__ depuis le cluster et à l’inclure dans votre projet. Vous devez également supprimer les commentaires de plusieurs dépendances dans le fichier __pom.xml__, qui chargent le composant storm-hbase et les dépendances requises.
 
-9. En bas de la page, le nom du sous-réseau par défaut est **Sous-réseau-1**. Utilisez le bouton **Ajouter un sous-réseau** pour ajouter **Subnet-2**. Ces sous-réseaux vont héberger les clusters Storm et HBase.
+> [AZURE.IMPORTANT] Vous devez aussi télécharger le fichier storm-hbase.jar fourni sur votre cluster Storm sur HDInsight 3.3 ou 3.4 ; cette version est compilée pour fonctionner avec HBase 1.1.x, utilisé pour les clusters HBase sur HDInsight 3.3 et 3.4. Si vous utilisez un composant storm-hbase à partir d’un autre emplacement, il peut être compilé avec une version antérieure de HBase.
 
-	> [AZURE.NOTE] Dans cet article, nous allons utiliser des clusters avec un seul nœud. Si vous créez des clusters multi-nœuds, vous devez vérifier la valeur de **CIDR (NOMBRE D'ADRESSES)** du sous-réseau qui sera utilisé pour le cluster. Le nombre d’adresses doit être supérieur au nombre de nœuds de travail plus 7 (passerelle : 2, nœud principal : 2, Zookeeper : 3). Par exemple, si vous avez besoin d'un cluster HBase à 10 nœuds, le nombre d'adresses pour le sous-réseau doit être supérieur à 17 (10+7). Si ce n'est pas le cas, le déploiement échouera.
-	>
-	> Il est vivement recommandé de désigner un seul sous-réseau pour un cluster.
+### Télécharger le fichier hbase-site.xml
 
-11. Cliquez sur **Enregistrer** au bas de la page.
+À partir d’une invite de commande, utilisez SCP pour télécharger le fichier __hbase-site.XML__ depuis le cluster. Dans l’exemple suivant, remplacez __USERNAME__ par l’utilisateur SSH fourni lors de la création du cluster et __BASENAME__ par le nom de base que vous avez fourni précédemment. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH. Remplacez `/path/to/TemperatureMonitor/conf/hbase-site.xml` par le chemin d’accès à ce fichier dans le projet TemperatureMonitor.
 
-### Création de clusters Storm et HBase sur le réseau virtuel
+    scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/conf/hbase-site.xml
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
+Cela télécharge le fichier __hbase-site.XML__ vers chemin d’accès spécifié.
 
-2. Cliquez sur **HDInsight** dans le volet de gauche, puis sur **+NOUVEAU** dans le coin inférieur gauche de la page.
+### Télécharger et installer le composant storm-hbase
 
-3. Cliquez sur l'icône HDInsight dans la seconde colonne, puis sélectionnez **Personnaliser**.
+1. À partir d’une invite de commande, utilisez SCP pour télécharger le fichier __storm-hbase.jar__ depuis le cluster Storm. Dans l’exemple suivant, remplacez __USERNAME__ par l’utilisateur SSH fourni lors de la création du cluster et __BASENAME__ par le nom de base que vous avez fourni précédemment. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH.
 
-4. Sur la page **Détails du cluster**, entrez le nom du nouveau cluster, puis sélectionnez **Storm** pour le **Type de cluster**. Cliquez sur la flèche pour continuer.
+        scp USERNAME@storm-BASENAME-ssh.azurehdinsight.net:/usr/hdp/current/storm-client/contrib/storm-hbase/storm-hbase*.jar .
 
-5. Entrez 1 pour la valeur de **Nœuds de données** à utiliser pour ce cluster. Pour **Région/Réseau virtuel**, sélectionnez le réseau virtuel Azure créé précédemment. Pour **Sous-réseaux du réseau virtuel**, sélectionnez **Subnet-1**.
+    Cela télécharge un fichier nommé `storm-hbase-####.jar`, où ### est le numéro de version de Storm pour ce cluster. Notez ce numéro, car vous en aurez besoin ultérieurement.
 
-	> [AZURE.NOTE] Pour réduire les coûts du cluster utilisé pour cet article, réduisez la **Taille du cluster** sur 1, puis supprimez le cluster après avoir fini de l'utiliser.
+2. Utilisez la commande suivante pour installer ce composant dans le référentiel Maven local de votre environnement de développement. Cela permet à Maven de trouver le package lors de la compilation du projet. Remplacez __###__ par le numéro de version inclus dans le nom de fichier.
 
-6. Entrez le **Nom d'utilisateur** d'administrateur et un **Mot de passe**, puis cliquez sur la flèche pour continuer.
+        mvn install:install-file -Dfile=storm-hbase-####.jar -DgroupId=org.apache.storm -DartifactId=storm-hbase -Dversion=#### -Dpackaging=jar
 
-4. Pour **Compte de stockage**, sélectionnez **Créer un nouveau stockage** ou sélectionnez un compte de stockage existant. Sélectionnez ou entrez le **Nom de compte** et le **Conteneur par défaut** à utiliser. Cliquez sur l'icône en forme de coche en bas à gauche pour créer le cluster Storm.
+### Activer le composant storm-hbase dans le projet
 
-5. Répétez ces étapes pour créer un nouveau cluster **HBase**. Voici les principales différences :
+1. Ouvrez le fichier __TemperatureMonitor/pom.xml__ et supprimez les lignes suivantes :
 
-	* **Type de cluster**: sélectionnez **HBase**
+        <!-- uncomment this section to enable the hbase-bolt
+        end comment for hbase-bolt section -->
+    
+    > [AZURE.IMPORTANT] Supprimez uniquement ces deux lignes ; ne supprimez pas les lignes comprises entre ces dernières.
+    
+    Cela permet d’activer plusieurs composants nécessaires à la communication avec HBase à l’aide du bolt hbase.
 
-	* **Sous-réseaux du réseau virtuel** : sélectionnez **Subnet-2**.
+2. Recherchez les lignes suivantes, puis remplacez __###__ par le numéro de version du fichier storm-hbase que vous avez téléchargé précédemment.
 
-	* **Compte de stockage**: nous vous conseillons d’utiliser un autre conteneur que celui utilisé pour le cluster Storm.
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-hbase</artifactId>
+            <version>####</version>
+        </dependency>
 
-### Découverte du suffixe DNS de HBase
+    > [AZURE.IMPORTANT] Le numéro de version doit correspondre à la version que vous avez utilisée lors de l’installation du composant dans le référentiel Maven local, car Maven utilise ces informations pour charger le composant lors de la génération du projet.
 
-Pour écrire sur HBase à partir du cluster Storm, vous devez utiliser le nom de domaine qualifié complet (FQDN) du cluster HBase. Utilisez la commande suivante pour découvrir ces informations :
+2. Enregistrez le fichier __pom.xml__.
 
-	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
-
-Dans les données JSON renvoyées, recherchez l’entrée **« host\_name »**. Elle contient le nom de domaine qualifié complet des nœuds du cluster, par exemple :
-
-	...
-	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
-	...
-
-La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS, par exemple **mycluster.b1.cloudapp.net**.
-
-### Activation du bolt HBase
-
-1. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** et remplacez les entrées `suffix` dans la ligne suivante par le suffixe DNS obtenu précédemment pour le cluster HBase. Enregistrez le fichier après avoir apporté ces modifications.
-
-		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
-
-	Cela sera utilisé par le bolt HBase pour communiquer avec le cluster HBase.
-
-1. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** dans un éditeur de texte et annulez les marques de commentaires dans les lignes suivantes en supprimant le `//` du début. Enregistrez le fichier après avoir apporté ces modifications.
+3. Ouvrez **TemperatureMonitor/src/main/java/com/microsoft/examples/Temperature.jav** dans un éditeur de texte et annulez les marques de commentaires dans les lignes suivantes en supprimant le `//` du début.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -381,33 +371,93 @@ La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS
 
 	> [AZURE.NOTE] Vous devez uniquement activer le bolt HBase lorsque vous déployez sur le cluster storm, pas lorsque vous testez localement.
 
-### Données HBase et Storm
+4. Enregistrez le fichier __Temperature.java__.
+    
+## Génération, mise en package et déploiement de la solution vers HDInsight
 
-Avant d'exécuter la topologie, vous devez préparer HBase pour accepter les données.
+Dans votre environnement de développement, suivez les étapes ci-dessous pour déployer la topologie Storm vers le cluster Storm.
 
-1. Connectez-vous au cluster HBase en utilisant le Bureau à distance.
+1. Utilisez la commande suivante pour exécuter la nouvelle version et créer un package JAR depuis votre projet :
 
-2. À partir du bureau, démarrez la ligne de commande HDInsight, puis entrez les commandes suivantes :
+		mvn clean compile package
 
-    cd %HBASE\_HOME% bin\\hbase shell
+	Ceci va créer un fichier nommé **TemperatureMonitor-1.0-SNAPSHOT.jar** dans le répertoire **target** de votre projet.
 
-3. À partir de l'environnement de ligne de commande HBase, entrez la commande suivante pour créer une table dans laquelle seront stockées les données du capteur :
+2. Utilisez SCP pour télécharger le fichier __TemperatureMonitor-1.0-SNAPSHOT.jar__ vers votre cluster Storm. Dans l’exemple suivant, remplacez __USERNAME__ par l’utilisateur SSH fourni lors de la création du cluster et __BASENAME__ par le nom de base que vous avez fourni précédemment. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH.
 
-    create 'SensorData', 'cf'
+        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:
+    
+    > [AZURE.NOTE] Le téléchargement du fichier peut prendre plusieurs minutes en raison de sa taille.
 
-4. Vérifiez que la table ne contient aucune donnée en entrant la commande suivante.
+3. Une fois le fichier téléchargé, connectez-vous au cluster à l’aide de SSH.
 
-    scan 'SensorData'
+        ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
 
-Lorsque vous avez démarré la topologie sur le cluster storm et traité les données, vous pouvez à nouveau utiliser la commande `scan 'SensorData'` pour vérifier que les données ont été insérées dans HBase.
+4. Dans la session SSH, utilisez la commande suivante pour démarrer la topologie.
+
+        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature tempmonitor
+    
+    Cela démarre la topologie à l’aide de la classe __com.microsoft.examples.Temperature__ contenue dans le package, en utilisant __tempmonitor__ comme nom convivial pour cette instance de la topologie.
+
+3. Une fois la topologie lancée, ouvrez un navigateur vers le site Web que vous avez publié sur Azure, puis utiliser la commande `node app.js` pour envoyer des données au concentrateur d'événements. Vous devez mettre à jour le tableau de bord Web pour afficher les informations.
+
+	![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
+
+## Afficher les données HBase
+
+Une fois que vous avez envoyé des données à la topologie à l’aide de `node app.js`, procédez comme suit pour vous connecter à HBase et vérifiez que les données ont été écrites dans la table que vous avez créée précédemment.
+
+1. Utilisez SSH pour vous connecter au cluster HBase.
+
+        ssh USERNAME@hbase-BASENAME-ssh.azurehdinsight.net
+
+2. À partir de la session SSH, démarrez l’interpréteur de commandes HBase.
+
+    	hbase shell
+	
+	Une fois l’interpréteur de commandes chargé, vous verrez une invite `hbase(main):001:0>`.
+
+2. Affichez les lignes de la table :
+
+    	scan 'SensorData'
+		
+	Cela doit renvoyer des informations similaires à celles ci-dessous, indiquant que la table comporte 0 ligne.
+	
+		hbase(main):002:0> scan 'SensorData'
+        ROW                             COLUMN+CELL
+        \x00\x00\x00\x00               column=cf:temperature, timestamp=1467290788277, value=\x00\x00\x00\x04
+        \x00\x00\x00\x00               column=cf:timestamp, timestamp=1467290788277, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x01               column=cf:temperature, timestamp=1467290788348, value=\x00\x00\x00M
+        \x00\x00\x00\x01               column=cf:timestamp, timestamp=1467290788348, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x02               column=cf:temperature, timestamp=1467290788268, value=\x00\x00\x00R
+        \x00\x00\x00\x02               column=cf:timestamp, timestamp=1467290788268, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x03               column=cf:temperature, timestamp=1467290788269, value=\x00\x00\x00#
+        \x00\x00\x00\x03               column=cf:timestamp, timestamp=1467290788269, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x04               column=cf:temperature, timestamp=1467290788356, value=\x00\x00\x00>
+        \x00\x00\x00\x04               column=cf:timestamp, timestamp=1467290788356, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x05               column=cf:temperature, timestamp=1467290788326, value=\x00\x00\x00\x0D
+        \x00\x00\x00\x05               column=cf:timestamp, timestamp=1467290788326, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x06               column=cf:temperature, timestamp=1467290788253, value=\x00\x00\x009
+        \x00\x00\x00\x06               column=cf:timestamp, timestamp=1467290788253, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x07               column=cf:temperature, timestamp=1467290788229, value=\x00\x00\x00\x12
+        \x00\x00\x00\x07               column=cf:timestamp, timestamp=1467290788229, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x08               column=cf:temperature, timestamp=1467290788336, value=\x00\x00\x00\x16
+        \x00\x00\x00\x08               column=cf:timestamp, timestamp=1467290788336, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x09               column=cf:temperature, timestamp=1467290788246, value=\x00\x00\x001
+        \x00\x00\x00\x09               column=cf:timestamp, timestamp=1467290788246, value=2015-02-10T14:43.05.00320Z
+        10 row(s) in 0.1800 seconds
+
+    > [AZURE.NOTE] Cette opération d’analyse renvoie uniquement une valeur maximale de 10 lignes pour la table.
 
 ## Supprimer vos clusters
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+Pour supprimer simultanément les clusters, le stockage et l’application web, supprimez le groupe de ressources qui les contient.
+
 ## Étapes suivantes
 
-Vous avez à présent appris à utiliser Storm pour lire des données à partir du hub d'événements et afficher des informations à partir de Storm sur un tableau de bord externe à l’aide de SignalR et D3.js. Si vous avez suivi les étapes facultatives, vous avez également appris comment configurer HDInsight dans un réseau virtuel et communiquer entre une topologie Storm et HBase à l'aide du bolt HBase.
+Vous avez à présent appris à utiliser Storm pour lire des données à partir des Event Hubs, à stocker des données dans HBase et à afficher des informations sur un tableau de bord externe en utilisant Socket.io et D3.js.
 
 * Pour plus d'exemples de topologies Storm avec HDinsight, consultez :
 
@@ -425,6 +475,6 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 * Pour plus d'informations sur la création de topologies en .NET, consultez [Développement de topologies C# pour Apache Storm sur HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-[azure-portal]: https://manage.windowsazure.com/
+[azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

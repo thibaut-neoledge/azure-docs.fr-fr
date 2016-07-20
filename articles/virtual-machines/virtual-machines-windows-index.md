@@ -77,7 +77,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Capturer une machine virtuelle Windows créée avec le modèle de déploiement classique](virtual-machines-windows-classic-capture-image.md)
 
-[Création et téléchargement d’un VHD Windows Server classique à l’aide de Powershell](virtual-machines-windows-classic-createupload-vhd.md)
+[Création et téléchargement d’un VHD Windows Server classique à l’aide de PowerShell](virtual-machines-windows-classic-createupload-vhd.md)
 
 [Automatisation du déploiement de machine virtuelle Azure avec Chef](virtual-machines-windows-chef-automation.md)
 
@@ -192,4 +192,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

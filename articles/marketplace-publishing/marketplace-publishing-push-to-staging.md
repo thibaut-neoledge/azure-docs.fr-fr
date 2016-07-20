@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="06/29/2016"
    ms.author="hascipio"/>
 
 # Compléter la création d’offre avec du contenu marketing
@@ -130,7 +130,7 @@ Les offres peuvent constituer une combinaison quelconque de tarifs De base + Con
 |Gratuit|0 $/mois|Fonctionnalités de base.|Peut migrer vers une autre offre|
 |Bronze|10 $/mois|Fonctionnalités de base et un quota de 1 000 pour la fonctionnalité X.|Possibilité de migration vers les offres Bronze Plus, Silver et Gold|
 |Bronze Plus|Période d’essai gratuite : 0 $/mois + 0 $/meter01 |Fonctionnalités de base et quota de 10 000 pour la fonctionnalité X. Une fois le quota alloué pour la fonctionnalité X épuisé, le client peut payer à l’utilisation via meter01.|Possibilité de migration vers les offres Silver Plus et Gold|
-|Bronze Plus| Période payée (ou essai gratuit expiré) : 10 $/mois + 0,05 $/meter01|Fonctionnalités de base et quota de 10 000 pour la fonctionnalité X. Une fois le quota alloué pour la fonctionnalité X épuisé, le client peut payer à l’utilisation via meter01.|Possibilité de migration vers les offres Silver Plus et Gold|
+|Bronze Plus| Période payée (ou essai gratuit expiré) : 10 $/mois + 0,05 $/meter01|Fonctionnalités de base et quota de 10 000 pour la fonctionnalité X. Une fois le quota alloué pour la fonctionnalité X épuisé, le client peut payer à l’utilisation via meter01.|Possibilité de migration vers les offres Silver Plus et Gold|
 |Silver|0,15 $/meter01|Le client peut payer à l’utilisation en fonction de meter01, qui s’applique à la fonctionnalité X.|Possibilité de migration vers les offres Bronze et Gold|
 |Silver Plus|20 $/mois + 0,15 $/meter01 + 0,01 $/meter02|Fonctionnalités de base et un quota de 10 000 pour la fonctionnalité X et de 100 pour la fonctionnalité Y. Une fois le quota pour la fonctionnalité X utilisé, le client peut payer en fonction de l’utilisation via meter01. Une fois le quota pour la fonctionnalité Y utilisé, le client peut payer en fonction de l’utilisation via meter02.|Possibilité de migration vers les offres Bronze Plus et Gold|
 |Gold|1 000 $ par mois|Quota de 10 000 pour la fonctionnalité X, 1 000 pour la fonctionnalité Y et illimité pour la fonctionnalité Z.|Permet de migrer vers toutes les offres sauf Gratuit|
@@ -175,10 +175,8 @@ Voici une vue détaillée de l’utilisation des informations marketing de l’o
 
 ## Étapes suivantes
 Votre contenu Marketplace étant chargé, nous allons maintenant tester votre offre dans l’environnement intermédiaire. Vous devez toutefois sélectionner le type d’offre approprié dans la liste ci-dessous, car les étapes diffèrent selon le type d’offre.
-
-||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
-|----|----|----|----|----|
-| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Version préliminaire privée | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
+- [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md)
+- [Tester votre offre de modèle de solution en mode intermédiaire](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## Voir aussi
 - [Mise en route : Publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -192,4 +190,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

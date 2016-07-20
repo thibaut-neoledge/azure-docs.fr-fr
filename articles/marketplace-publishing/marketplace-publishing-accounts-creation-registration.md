@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="06/27/2016"
    ms.author="hascipio"/>
 
 # Créer un compte de développeur Microsoft
@@ -22,7 +22,7 @@ Cet article décrit la procédure de création de compte et d’inscription que 
 ## 1\. Création d'un compte Microsoft
 > [AZURE.WARNING] Pour démarrer le processus de publication, vous devez créer un compte Microsoft. Celui-ci vous permettra de vous enregistrer et de vous connecter au **Centre de développement Microsoft** et au **portail de publication Azure**. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Celui-ci ne doit pas être propre à des services ou offres spécifiques.
 
-L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique (par exemple, publishing@example.com)). Les paiements, informations fiscales et rapports seront envoyés via ce compte.
+L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique (par exemple, publishing@example.com). Les paiements, informations fiscales et rapports seront envoyés via ce compte.
 
   > [AZURE.WARNING] Les termes tels qu'« Azure » et « Microsoft » ne sont pas pris en charge pour l'enregistrement d'un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
 
@@ -65,7 +65,7 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
 
 2. Accédez à [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
 
-3. Connectez-vous avec le compte Microsoft utilisé pour l’enregistrement de votre société (par exemple, marketplace@example.com)).
+3. Connectez-vous avec le compte Microsoft utilisé pour l’enregistrement de votre société (par exemple, marketplace@example.com).
 
     ![drawing][img-signin]
 
@@ -143,7 +143,7 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 
 2.	Accédez à [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Connectez-vous avec votre compte Microsoft utilisé pour l’enregistrement de la société (c’est-à-dire marketplace@example.com)) et ajoutez des co-administrateurs si vous le souhaitez.
+3.	Connectez-vous avec votre compte Microsoft utilisé pour l’enregistrement de la société (c’est-à-dire marketplace@example.com) et ajoutez des co-administrateurs si vous le souhaitez.
 
   > [AZURE.TIP] Les politiques concernant la participation sont décrites sur le [site web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
@@ -159,14 +159,7 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 
 
 ## Étapes suivantes
-Maintenant que votre compte est créé et enregistré, cliquez sur le type d'artefact (machine virtuelle, service de développeur, service de données ou modèle de solution) que vous souhaitez publier sur Azure Marketplace. Visitez l’un des articles suivants pour apprendre à publier votre offre :
-
-|| Image de machine virtuelle | Service de développement | Service de données | Modèle de solution |
-|----|-----|-----|-----|-----|
-|**Étape 2 : Créer votre offre** |[Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| Version préliminaire privée | [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)|
-|| [Conditions préalables techniques de l’image de machine virtuelle][link-single-vm-prereq] | Version préliminaire privée | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guide de publication de l’image de machine virtuelle][link-single-vm] | Version préliminaire privée | [Guide de publication de service de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
-|| [Guide de contenu marketing Azure Marketplace][link-pushstaging] | Version préliminaire privée | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
+Maintenant que votre compte est créé et enregistré, assurez-vous de vous répondre à toutes les conditions préalables non techniques requises pour publier votre offre en consultant l’article [Conditions préalables non techniques](marketplace-publishing-pre-requisites.md).
 
 ## Voir aussi
 - [Mise en route : publication d'une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +191,4 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d'art
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

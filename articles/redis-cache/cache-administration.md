@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/28/2016"
+	ms.date="07/05/2016"
 	ms.author="sdanie" />
 
 # Comment administrer le Cache Redis Azure
@@ -47,7 +47,7 @@ L’impact sur les applications clientes varie selon le(s) nœud(s) que vous red
 
 -	**Master** - lorsque le nœud principal est redémarré, le Cache Redis Azure bascule sur le nœud de réplica et le promeut au niveau Master. Pendant ce basculement, il peut y avoir un court intervalle pendant lequel les connexions au cache peuvent échouer.
 -	**Subordonné** - lorsque le nœud subordonné est redémarré, il n’y a généralement aucun impact sur les clients du cache.
--	**Master et Subordonné** - lorsque les nœuds du cache sont redémarrés, toutes les données sont perdues dans le cache et les connexions au cache échouent jusqu’à ce que le nœud principal soit de nouveau en ligne. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée lorsque le cache repasse en ligne.
+-	**Master et Subordonné** - lorsque les nœuds du cache sont redémarrés, toutes les données sont perdues dans le cache et les connexions au cache échouent jusqu’à ce que le nœud principal soit de nouveau en ligne. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée lorsque le cache repasse en ligne. Toutes les opération d’écriture dans le cache qui se sont produites après la dernière sauvegarde seront perdues.
 -	**Nœud(s) d’un cache premium avec activation du clustering** - lorsque vous redémarrez le(s) nœud(s) d’un cache premium avec le clustering activé, le comportement est le même que lorsque vous redémarrez un ou plusieurs nœuds d’un cache non-cluster.
 
 
@@ -70,11 +70,13 @@ Pour tester la résilience de votre application en cas de défaillance du nœud 
 
 Oui, toutes les connexions client sont effacées si vous réinitialisez le cache. Cette option est utile dans le cas où toutes les connexions client sont utilisées, par exemple en raison d’une erreur logique ou d’un bogue dans l’application cliente. Chaque niveau tarifaire a différentes [limites de connexion client](cache-configure.md#default-redis-server-configuration) pour les différentes tailles. Une fois ces limites sont atteintes, aucune autre connexion client supplémentaire n’est acceptée. Redémarrer le cache permet d’effacer toutes les connexions client.
 
+>[AZURE.IMPORTANT] Si vos connexions client sont épuisées en raison d’une erreur logique ou d’un bogue dans votre code client, StackExchange.Redis se reconnectera automatiquement une fois le nœud Redis en ligne. Si le problème sous-jacent n’est pas résolu, les connexions client continueront à être utilisées.
+
 ### Vais-je perdre les données dans mon cache si je redémarre ?
 
-Si vous redémarrez à la fois les nœuds **Master** et **Subordonnés**, toutes les données dans le cache (ou dans cette partition si vous utilisez un cache premium avec activation du clustering) sont perdues. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée lorsque le cache repasse en ligne.
+Si vous redémarrez à la fois les nœuds **Master** et **Subordonnés**, toutes les données dans le cache (ou dans cette partition si vous utilisez un cache premium avec activation du clustering) sont perdues. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée lorsque le cache repasse en ligne. Toutes les opération d’écriture dans le cache qui se sont produites après la sauvegarde seront perdues.
 
-Si vous redémarrez simplement l’un des nœuds, les données ne sont généralement pas perdues, mais elles peuvent toujours l’être. Par exemple, si le nœud principal est redémarré et qu’une opération d’écriture dans le cache est en cours, les données écrites dans le cache sont perdues.
+Si vous redémarrez simplement l’un des nœuds, les données ne sont généralement pas perdues, mais elles peuvent toujours l’être. Par exemple, si le nœud principal est redémarré et qu’une opération d’écriture dans le cache est en cours, les données écrites dans le cache sont perdues. Vous êtes également susceptible de perdre des données lorsque vous redémarrez un nœud et que l’autre nœud se met hors service en même temps en raison d’une défaillance. Pour plus d’informations sur les causes possibles d’une perte de données, voir [Qu’est-il arrivé à mes données dans Redis ?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md).
 
 ### Est-il possible de redémarrer mon cache à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres outils de gestion ?
 
@@ -110,4 +112,8 @@ Seules les mises à jour du serveur Redis sont exécutées au cours de la fenêt
 
 La planification des mises à jour n’est disponible que dans le niveau tarifaire Premium.
 
-<!---HONumber=AcomDC_0629_2016-->
+## Étapes suivantes
+
+-	Découvrez plus de fonctionnalités de [niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md).
+
+<!---HONumber=AcomDC_0706_2016-->

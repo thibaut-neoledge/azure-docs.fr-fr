@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 #  Répliquer des machines virtuelles Hyper-V sur un seul serveur VMM
@@ -27,7 +27,7 @@ Si, après avoir lu cet article, vous avez des questions, posez-les au bas de ce
 
 Vous pouvez répliquer des machines virtuelles Hyper-V situées sur des hôtes Hyper-V dans des clouds VMM de deux façons :
 
-- Réplication vers Azure. 
+- Réplication vers Azure.
 - Réplication vers un site VMM secondaire.
 
 Que se passe-t-il si vous voulez effectuer la réplication vers un site VMM secondaire, mais que vous avez uniquement un seul serveur VMM dans votre déploiement ?
@@ -62,7 +62,7 @@ Suivez les instructions de [cet article](site-recovery-vmm-to-vmm.md) pour la cr
 
 En cas de défaillance, vous récupérez les charges de travail sur les machines virtuelles Hyper-V comme suit :
 
-1. Basculez manuellement la machine virtuelle VMM sur le site secondaire à l’aide du Gestionnaire Hyper-V avec un basculement planifié. 
+1. Basculez manuellement la machine virtuelle VMM sur le site secondaire à l’aide du Gestionnaire Hyper-V avec un basculement planifié.
 2. Une fois la machine virtuelle VMM récupérée, vous pouvez vous connecter au Gestionnaire de récupération Hyper-V à partir du site secondaire et effectuer un basculement non planifié des machines virtuelles du site principal vers le site secondaire. Notez que la machine virtuelle VMM doit être basculée manuellement vers le site secondaire avant que les machines virtuelles avec les charges de travail ne puissent être basculées.
 3. Une fois que le basculement non planifié est terminé, l’utilisateur peut à nouveau accéder à toutes les ressources sur le site principal.
 
@@ -93,4 +93,4 @@ En cas de défaillance, le serveur VMM et la base de données SQL Server corresp
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

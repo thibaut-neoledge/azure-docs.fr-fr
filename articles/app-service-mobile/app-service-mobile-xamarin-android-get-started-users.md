@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Ajout de l'authentification à votre application Xamarin.Android
@@ -40,7 +40,7 @@ Ensuite, vous mettrez à jour l’application cliente pour demander des ressourc
 
 L'application est mise à jour de manière à demander aux utilisateurs de cliquer sur le bouton **Se connecter** et de s'authentifier avant que les données ne s'affichent.
 
-1. Ajoutez le code suivant à la classe **TodoActivity** :
+1. Ajoutez le code suivant à la classe **TodoActivity** :
 
 	    // Define a authenticated user.
 	    private MobileServiceUser user;
@@ -107,4 +107,4 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
 <!-- URLs. -->
 [Création d’une application Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

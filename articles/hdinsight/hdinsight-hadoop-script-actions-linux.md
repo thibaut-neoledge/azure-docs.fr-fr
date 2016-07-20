@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/31/2016"
+    ms.date="07/05/2016"
     ms.author="larryfr"/>
 
 # Développement d’actions de script avec HDInsight
@@ -50,6 +50,7 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 - [Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure](#bPS6)
 - [Écrire des informations sur STDOUT et STDERR](#bPS7)
 - [Enregistrer des fichiers au format ASCII avec les fins de ligne LF](#bps8)
+- [Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire](#bps9)
 
 > [AZURE.IMPORTANT] Les actions de script doivent se terminer dans les 60 minutes, faute de quoi elles expirent. Lors de l’approvisionnement du nœud, le script est exécuté en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 
@@ -95,7 +96,7 @@ Par exemple, le texte suivant copie le fichier giraph-examples.jar du système d
 
 Les informations écrites dans STDOUT et STDERR pendant l’exécution du script sont consignées et peuvent être affichées à l’aide de l’interface utilisateur web Ambari.
 
-> [AZURE.NOTE] Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de dépannage de [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pour connaître d’autres façons d’accéder aux informations de journalisation.
+> [AZURE.NOTE] Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de dépannage de [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pour découvrir d’autres façons d’accéder aux informations de journalisation.
 
 La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple :
 
@@ -107,7 +108,7 @@ Par défaut, `echo` envoie la chaîne à STDOUT. Pour la diriger vers STDERR, aj
 
 Les informations sont redirigées vers STDOUT (1, par défaut et donc, non répertoriées ici) vers STDERR (2). Pour plus d’informations sur la redirection des E/S, consultez [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Pour plus d’informations sur l’affichage des informations consignées par les actions de script, consultez [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+Pour plus d’informations sur l’affichage des informations consignées par les actions de script, voir [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ###<a name="bps8"></a> Enregistrer des fichiers au format ASCII avec les fins de ligne LF
 
@@ -115,6 +116,40 @@ Les scripts d’interpréteur de commandes doivent être stockés au format ASCI
 
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
+
+###<a name="bps9"></a> Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire
+
+Lors du téléchargement de fichiers, de l’installation de packages à l’aide d’apt-get ou d’autres actions qui transmettent des données sur Internet, l’action peut échouer en raison d’erreurs réseau temporaires. Par exemple, la ressource distante avec laquelle vous communiquez peut être en train de basculer vers un nœud de secours.
+
+Pour rendre votre script résistant aux erreurs temporaires, vous pouvez implémenter la logique de nouvelle tentative. Voici un exemple de fonction qui exécute toute commande qui lui est transmise et qui, si la commande échoue, réessaye jusqu’à trois fois. Deux secondes s’écoulent entre chaque tentative.
+
+    #retry
+    MAXATTEMPTS=3
+
+    retry() {
+        local -r CMD="$@"
+        local -i ATTMEPTNUM=1
+        local -i RETRYINTERVAL=2
+
+        until $CMD
+        do
+            if (( ATTMEPTNUM == MAXATTEMPTS ))
+            then
+                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                    return 1
+            else
+                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                    sleep $(( RETRYINTERVAL ))
+                    ATTMEPTNUM=$ATTMEPTNUM+1
+            fi
+        done
+    }
+
+Voici quelques exemples d’utilisation de cette fonction.
+
+    retry ls -ltr foo
+
+    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
 ## <a name="helpermethods"></a>Méthodes d'assistance pour les scripts personnalisés
 
@@ -181,7 +216,7 @@ Voici les étapes à suivre avant de déployer des scripts :
 
 ## <a name="runScriptAction"></a>Comment exécuter une action de script
 
-Vous pouvez utiliser des actions de script pour personnaliser les clusters HDInsight avec les modèles du portail Azure, d’Azure PowerShell ou d’Azure Resource Manager (ARM) ou le Kit de développement logiciel (SDK) .NET HDInsight. Pour obtenir des instructions, consultez [Comment utiliser l’action de script](hdinsight-hadoop-customize-cluster-linux.md).
+Vous pouvez utiliser des actions de script pour personnaliser les clusters HDInsight avec les modèles du portail Azure, d’Azure PowerShell ou d’Azure Resource Manager (ARM) ou le Kit de développement logiciel (SDK) .NET HDInsight. Pour obtenir des instructions, voir [Comment utiliser l’action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Exemples de scripts personnalisés
 
@@ -190,7 +225,7 @@ Microsoft fournit des exemples de scripts pour installer des composants sur un c
 - [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md)
 - [Installation et utilisation de R sur des clusters HDInsight Hadoop](hdinsight-hadoop-r-scripts-linux.md)
 - [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
-- [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
+- [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
 > [AZURE.NOTE] Les documents sont spécifiques aux clusters HDInsight sous Linux. Pour les scripts qui fonctionnent avec HDInsight sous Windows, consultez le [développement d’action de script HDInsight (Windows)](hdinsight-hadoop-script-actions.md) ou utilisez les liens disponibles en haut de chaque article.
 
@@ -227,10 +262,10 @@ Pour la commande ci-dessus, remplacez __INFILE__ par le fichier contenant la mar
 
 ## <a name="seeAlso"></a>Étapes suivantes
 
-* Découvrez comment [personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md)
+* Découvrez comment [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-* Utilisez la [Référence du Kit de développement logiciel (SDK) .NET HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) pour en savoir plus sur la création d'applications .NET qui gèrent HDInsight
+* Utilisez la [Référence du Kit de développement logiciel (SDK) .NET HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) pour en savoir plus sur la création d’applications .NET qui gèrent HDInsight
 
 * Utilisez l’[API REST HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) pour savoir comment utiliser REST pour effectuer des actions de gestion sur des clusters HDInsight.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

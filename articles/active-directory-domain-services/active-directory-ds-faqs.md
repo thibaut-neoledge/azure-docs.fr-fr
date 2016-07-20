@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Caractéristiques de la version préliminaire des services de domaine Azure Active Directory : FAQ
@@ -69,7 +69,7 @@ Le service est disponible à un prix réduit spécial pour la durée de la péri
 #### Le service peut-il être essayé gratuitement ?
 Ce service est inclus dans l’essai gratuit d’Azure. Vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-#### Puis-je obtenir les services de domaine Azure AD dans le cadre d’Enterprise Mobility Suite (EMS) ?
+#### Puis-je obtenir les services de domaine Azure AD dans le cadre d’Enterprise Mobility Suite (EMS) ?
 Non, les services de domaine Azure AD constituent un service Azure avec paiement à l’utilisation et ne font pas partie d’EMS. Les services de domaine Azure AD sont disponibles pour toutes les références SKU d’Azure AD (Gratuit, De base et Premium) et sont facturés à l’heure d’utilisation.
 
 #### Dans quelles régions Azure le service est-il disponible ?
@@ -78,4 +78,4 @@ Pour obtenir la liste des régions Azure où les services de domaine Azure AD s
 #### Quand les services de domaine Azure AD seront-ils mis à la disposition générale ?
 Nous ne pouvons actuellement fournir aucun calendrier quant à la mise à disposition générale du service.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

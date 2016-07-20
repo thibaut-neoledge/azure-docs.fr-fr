@@ -62,7 +62,7 @@ Les affixes peuvent faire référence à différents aspects des ressources spé
 | Environnement | dev, stg, prod | En fonction de l’objectif et du nom de chaque environnement. |
 | Emplacement | usw (West US), use (East US 2) | En fonction de la région du centre de données et de l’organisation. |
 | Composant, service ou produit Azure | Rg pour groupe de ressources, VNet pour réseau virtuel | En fonction du produit auquel la ressource est associée. |
-| Rôle | sql, ora, sp, iis | En fonction du rôle de la machine virtuelle. |
+| Rôle | base de données, application, web | En fonction du rôle de la machine virtuelle. |
 | Instance | 01, 02, 03, etc. | Pour les ressources possédant plusieurs instances. Par exemple, des serveurs Web à charge équilibrée dans un service cloud. |
 
 
@@ -110,4 +110,4 @@ Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne
 ## Étapes suivantes
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->
