@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Plans et facturation dans Azure Scheduler
@@ -25,7 +25,8 @@ Dans Azure Scheduler, les collections de travaux constituent l'entité facturabl
 |:---|:---|:---|:---|:---|
 |**Gratuit**|5 travaux par collection|Une fois par heure. Ne peut pas exécuter des travaux plus souvent qu'une fois par heure|Un abonnement est autorisé jusqu'à 1 collection de travaux gratuite|Impossible d'utiliser un [objet d'autorisation sortante HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 travaux par collection|Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute|Un abonnement est autorisé jusqu'à 100 collections de travaux standard|Accès à l'ensemble complet des fonctionnalités de Scheduler|
-|**Premium**|50 travaux par collection|Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute|Un abonnement autorise jusqu’à 10 000 collections de travaux Premium. Pour augmenter cette limite, <a href="mailto:wapteams@microsoft.com">contactez-nous</a>.|Accès à l'ensemble complet des fonctionnalités de Scheduler|
+|**P10 Premium**|50 travaux par collection|Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute|Un abonnement autorise jusqu’à 10 000 collections de travaux P10 Premium. Pour augmenter cette limite, <a href="mailto:wapteams@microsoft.com">contactez-nous</a>.|Accès à l'ensemble complet des fonctionnalités de Scheduler|
+|**P20 Premium**|1000 travaux par collection|Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute|Un abonnement autorise jusqu’à 500 collections de travaux P20 Premium. Pour augmenter cette limite, <a href="mailto:wapteams@microsoft.com">contactez-nous</a>.|Accès à l'ensemble complet des fonctionnalités de Scheduler|
 
 ## Mises à niveau et versions antérieures des Plans de collections de travaux
 
@@ -85,4 +86,4 @@ Pour plus d’informations sur la tarification, voir l’article [Tarification d
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

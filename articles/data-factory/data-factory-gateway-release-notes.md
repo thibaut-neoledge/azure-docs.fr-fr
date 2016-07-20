@@ -22,16 +22,28 @@ Un des défis de l’intégration de données modernes consiste à déplacer en 
 
 Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus.
 
-## VERSION ACTUELLE (1.12.5953.1)
-- Résolution des bogues
+## VERSION ACTUELLE (2.0.6013.1)
+
+- Vous pouvez sélectionner la langue/culture utilisée par une passerelle lors de l’installation manuelle.
+- Lorsqu’une passerelle ne fonctionne pas comme prévu, vous pouvez choisir d’envoyer les journaux des 7 derniers jours de la passerelle à Microsoft pour faciliter la résolution du problème. Si la passerelle n’est pas connectée au service cloud, vous pouvez choisir d’enregistrer et d’archiver les journaux de la passerelle.
+- Améliorations de l’interface utilisateur du gestionnaire de configuration de la passerelle :
+	- État de la passerelle plus visible dans l’onglet Accueil.
+	- Commandes réorganisées et simplifiées.
+- Vous pouvez copier des données à partir d’un stockage autre que le stockage d’objets Blob Azure dans Azure SQL Data Warehouse via Polybase et du stockage intermédiaire d’objets Blob à l’aide de [l’outil de prévisualisation de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy).
+- Vous pouvez utiliser la passerelle de gestion des données pour entrer des données directement à partir d’une base de données SQL Server locale dans Azure Machine Learning.
+- Amélioration des performances
+	- Amélioration des performances d’affichage du schéma/de l’aperçu par rapport à SQL Server dans l’outil de prévisualisation de copie sans code.
 
 
 ## Versions antérieures
 
+## 1\.12.5953.1
+- Résolution des bogues
+
 ## 1\.11.5918.1
 
 - La taille maximale du journal des événements de la passerelle a été augmentée de 1 Mo à 40 Mo.
-- Une boîte de dialogue d’avertissement s’affiche si un redémarrage est nécessaire pendant la mise à jour automatique de la passerelle. Vous pouvez choisir de redémarrer immédiatement ou plus tard. 
+- Une boîte de dialogue d’avertissement s’affiche si un redémarrage est nécessaire pendant la mise à jour automatique de la passerelle. Vous pouvez choisir de redémarrer immédiatement ou plus tard.
 - En cas d’échec de la mise à jour automatique, le programme d’installation de la passerelle retentera la mise à jour automatique 3 fois au maximum.
 - Amélioration des performances
 	- Améliorez les performances lors du chargement de tables de grande taille à partir du serveur local dans le scénario de copie sans code.
@@ -49,7 +61,7 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 - Possibilité de mise à jour immédiate depuis le client
 - Possibilité de définir l’heure de planification de la mise à jour
 - Script PowerShell disponible pour activer/désactiver la mise à jour automatique
-- Prise en charge du format JSON  
+- Prise en charge du format JSON
 - Amélioration des performances
 - Résolution des bogues
 
@@ -134,7 +146,7 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 
 ### 1\.2.5303.1
 
-- 	Correction du problème de délai d’expiration pour la prise en charge de connexions de source de données chronophages supplémentaires. 
+- 	Correction du problème de délai d’expiration pour la prise en charge de connexions de source de données chronophages supplémentaires.
  	
 ### 1\.1.5526.8
 
@@ -142,11 +154,11 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 
 ### 1\.0.5144.2
 
-- Aucune modification affectant les scénarios Microsoft Azure Data Factory. 
+- Aucune modification affectant les scénarios Microsoft Azure Data Factory.
 
 ## Questions et réponses
 
 ### Pourquoi le Gestionnaire de sources de données tente-t-il de se connecter à une passerelle ?
 Il s’agit d’une conception de sécurité. Elle vous permet uniquement de configurer des sources de données locales pour l’accès au cloud au sein de votre réseau d’entreprise, et vos informations d’identification ne circulent pas en dehors de votre pare-feu d’entreprise. Assurez-vous que votre ordinateur peut atteindre l’ordinateur sur lequel la passerelle est installée.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

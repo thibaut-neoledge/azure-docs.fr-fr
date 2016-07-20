@@ -18,6 +18,14 @@
 
 # SQL Data Warehouse : prise en charge des clients de niveau inférieur pour l’audit et le masquage de données dynamiques
 
+> [AZURE.SELECTOR]
+- [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
+- [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
+- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
+- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
+- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 [L’audit](sql-data-warehouse-auditing-overview.md) fonctionne avec les clients SQL qui prennent en charge la redirection TDS.
 
@@ -38,4 +46,4 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 
 **Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

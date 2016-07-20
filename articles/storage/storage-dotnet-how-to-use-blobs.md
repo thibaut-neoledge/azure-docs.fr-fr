@@ -41,6 +41,11 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Autres exemples
+
+Pour obtenir des exemples supplémentaires utilisant Blob Storage, voir [Prise en main d’Azure Blob Storage dans .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Vous pouvez télécharger l’exemple d’application et l’exécuter ou parcourir le code sur GitHub.
+
+
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -61,7 +66,7 @@ Ajoutez les instructions `using` suivantes au début du fichier `program.cs` :
 
 ### Créer le client du service Blob
 
-La classe **CloudBlobClient** vous permet de récupérer des conteneurs et des objets blob stockés dans le Blob Storage. Voici un moyen de créer le client du service :
+La classe **CloudBlobClient** vous permet de récupérer des conteneurs et des objets blob stockés dans Blob Storage. Voici un moyen de créer le client du service :
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -367,11 +372,15 @@ Par défaut, les données d’objets blob de votre compte de stockage sont acces
 Azure Storage prend en charge le chiffrement des données d’objets blob côtés client et serveur :
 
 - **Chiffrement côté client :** la bibliothèque cliente de stockage pour .NET prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration à Azure Key Vault pour la gestion des clés de compte de stockage. Pour plus d’informations, voir [Chiffrement côté client avec .NET pour Microsoft Azure Storage](storage-client-side-encryption.md). Voir également [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Chiffrement côté serveur** : Azure Storage prend désormais en charge le chiffrement côté serveur. Voir [Azure Storage Service Encryption pour les données au repos (version préliminaire)](storage-service-encryption.md). 
+- **Chiffrement côté serveur** : Azure Storage prend désormais en charge le chiffrement côté serveur. Voir [Azure Storage Service Encryption pour les données au repos (version préliminaire)](storage-service-encryption.md).
 
 ## Étapes suivantes
 
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour en savoir plus.
+
+### Exemples relatifs à Blob Storage
+
+- [Prise en main d’Azure Blob Storage dans .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Documentation de référence sur le stockage d’objets blob
 
@@ -395,4 +404,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

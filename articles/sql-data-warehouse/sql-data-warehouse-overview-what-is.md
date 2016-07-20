@@ -162,13 +162,13 @@ PolyBase vous permet de valoriser vos données de différentes sources en appliq
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Création d’un ticket de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[charger des exemples de données]: ./sql-data-warehouse-load-sample-databases.md
-[créer rapidement un SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[documentation relative à la migration]: ./sql-data-warehouse-overview-migrate.md
-[Partenaires de solutions SQL Data Warehouse]: ./sql-data-warehouse-integrate-solution-partners.md
-[Vue d’ensemble des outils intégrés]: ./sql-data-warehouse-overview-integrate.md
-[vue d’ensemble des fonctionnalités de sauvegarde et de restauration]: ./sql-data-warehouse-restore-database-overview.md
+[Création d’un ticket de support]: sql-data-warehouse-get-started-create-support-ticket.md
+[charger des exemples de données]: sql-data-warehouse-load-sample-databases.md
+[créer rapidement un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[documentation relative à la migration]: sql-data-warehouse-overview-migrate.md
+[Partenaires de solutions SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
+[Vue d’ensemble des outils intégrés]: sql-data-warehouse-overview-integrate.md
+[vue d’ensemble des fonctionnalités de sauvegarde et de restauration]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,9 +176,9 @@ PolyBase vous permet de valoriser vos données de différentes sources en appliq
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs de l’équipe CAT (Customer Advisory Team)]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum MSDN]: https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureSQLDataWarehouse
+[Forum MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

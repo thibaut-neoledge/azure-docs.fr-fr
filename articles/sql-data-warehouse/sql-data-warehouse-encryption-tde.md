@@ -17,9 +17,15 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
+
 > [AZURE.SELECTOR]
-- [Portail Azure](sql-data-warehouse-encryption-tde.md)
-- [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
+- [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
+- [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
+- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
+- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
+- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 La fonction de chiffrement transparent des données (TDE) d’Azure SQL Data Warehouse protège le système contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions au repos, sans exiger de modification de l’application.
 
@@ -33,7 +39,7 @@ Pour activer le chiffrement transparent des données pour SQL Data Warehouse, pr
 2. Dans le panneau de la base de données, cliquez sur le bouton **Paramètres**
 3. Sélectionnez l’option **Chiffrement transparent des données** ![][1]
 4. Sélectionnez le paramètre **Activé** ![][2]
-5. Sélectionnez **Enregistrer** ![][3]  
+5. Sélectionnez **Enregistrer** ![][3]
 
 ##Désactivation du chiffrement
 
@@ -43,7 +49,7 @@ Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse
 2. Dans le panneau de la base de données, cliquez sur le bouton **Paramètres**
 3. Sélectionnez l’option **Chiffrement transparent des données** ![][1]
 4. Sélectionnez le paramètre **Désactivé** ![][4]
-5. Sélectionnez **Enregistrer** ![][5]  
+5. Sélectionnez **Enregistrer** ![][5]
 
 ##DMV de chiffrement
 
@@ -66,4 +72,4 @@ Le chiffrement peut être vérifié avec les vues DMV suivantes :
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

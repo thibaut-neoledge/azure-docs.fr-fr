@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Déployer une application web Sails.js dans Azure App Service
@@ -82,7 +82,7 @@ Procédez comme suit :
         loggingEnabled: true
         logDirectory: iisnode
 
-    La journalisation est maintenant activée pour iisnode. Pour savoir comment cela fonctionne, consultez [Obtenir des journaux stdout et stderr à partir d’iisnode](app-service-web-nodejs-sails.md#iisnodelog).
+    La journalisation est maintenant activée pour iisnode. Pour savoir comment cela fonctionne, consultez [Obtenir des journaux stdout et stderr à partir d’iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
 
 2. Ouvrez config/env/production.js pour configurer votre environnement de production et définir `port` et `hookTimeout` :
 
@@ -238,4 +238,4 @@ Pour vous connecter à une base de données Azure, créez la base de données de
 - [Prise en main des applications web Node.js dans Azure App Service](app-service-web-nodejs-get-started.md)
 - [Utilisation de modules Node.js avec des applications Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

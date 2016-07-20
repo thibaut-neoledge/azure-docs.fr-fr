@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="mobile"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
     keywords="notification push, notifications push, notifications push iOS, notifications push android, push ios, push android"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc" />
 
 #Notifications Push avec Azure Notification Hubs - Forum aux Questions
@@ -200,4 +200,4 @@ Nous offrons également la possibilité d’exporter les données de télémétr
 [Azure Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [Tarification de App Service]: https://azure.microsoft.com/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

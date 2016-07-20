@@ -61,7 +61,7 @@ Pour vérifier si le mappage de volumes fonctionne, exécutez la commande suivan
 **À partir de Windows**
 
 ```
-a
+docker run -it -v /c/Users/Public:/wormhole busybox
 / # ls
 ```
 
@@ -105,14 +105,14 @@ Si vous utilisez le navigateur Microsoft Edge, le site risque de ne pas s’ouv
 
 1. Accédez à **Options Internet**.
     - Sur Windows 10, vous pouvez taper `Internet Options` dans la zone Exécuter.
-    - Dans Internet Explorer, vous pouvez accéder au menu **Paramètres**, puis sélectionner **Options Internet**. 
-1. Sélectionnez **Options Internet**. 
+    - Dans Internet Explorer, vous pouvez accéder au menu **Paramètres**, puis sélectionner **Options Internet**.
+1. Sélectionnez **Options Internet**.
 1. Sélectionnez l’onglet **Sécurité**.
 1. Sélectionnez la zone **Intranet local**.
-1. Sélectionnez **Sites**. 
-1. Ajoutez l’IP de votre machine virtuelle (dans ce cas, l’hôte Docker) à la liste. 
-1. Actualisez la page dans Edge et vérifiez que le site est opérationnel. 
-1. Pour plus d’informations sur ce problème, reportez-vous au billet de blog de Scott Hanselman [Microsoft Edge can’t see or open VirtualBox-hosted local web sites (Microsoft Edge ne peut pas voir ou ouvrir des sites web locaux hébergés sur VirtualBox)](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
+1. Sélectionnez **Sites**.
+1. Ajoutez l’IP de votre machine virtuelle (dans ce cas, l’hôte Docker) à la liste.
+1. Actualisez la page dans Edge et vérifiez que le site est opérationnel.
+1. Pour plus d’informations sur ce problème, reportez-vous au billet de blog de Scott Hanselman [Microsoft Edge can’t see or open VirtualBox-hosted local web sites (Microsoft Edge ne peut pas voir ou ouvrir des sites web locaux hébergés sur VirtualBox)](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
 
 ##Résolution des problèmes de la version 0.15 ou version antérieures
 
@@ -135,4 +135,4 @@ Cela peut être dû à une erreur au cours de `docker-compose-up`. Procédez com
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

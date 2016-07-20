@@ -541,9 +541,9 @@ Au cours de cette étape, vous allez créer un service lié pour votre compte **
 
     3.  Entrez l’ID du pool pour la propriété **poolName****.** Pour cette propriété, vous pouvez spécifier le nom de pool ou l’ID de pool.
 
-    4.  Entrez l’URI du lot pour la propriété JSON **batchUri**.
+    4.  Entrez l’URI du lot pour la propriété JSON **batchUri**.  
     
-		> [AZURE.IMPORTANT] L’**URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : <nomducompte>.<région>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** de l’URL. Par exemple : "batchUri": "https://eastus.batch.azure.com".
+		> [AZURE.IMPORTANT] L’**URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : \<nomducompte\>.\<région\>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** de l’URL. Par exemple : "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 

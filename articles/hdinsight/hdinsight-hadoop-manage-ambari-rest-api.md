@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/19/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
 #Gérer des clusters HDInsight à l'aide de l'API REST d'Ambari
@@ -27,9 +27,9 @@ Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fou
 
 ##Configuration requise
 
-* [cURL](http://curl.haxx.se/) : cURL est un utilitaire multiplateforme utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
-* [jq](https://stedolan.github.io/jq/) : jq est un utilitaire de ligne de commande multiplateforme conçu pour travailler avec des documents JSON. Dans ce document, il est utilisé pour analyser les documents JSON renvoyés par l'API REST d'Ambari.
-* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
+* [cURL](http://curl.haxx.se/) : cURL est un utilitaire multiplateforme utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
+* [jq](https://stedolan.github.io/jq/) : jq est un utilitaire de ligne de commande multiplateforme conçu pour travailler avec des documents JSON. Dans ce document, il est utilisé pour analyser les documents JSON renvoyés par l'API REST d'Ambari.
+* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -76,13 +76,11 @@ Si vous l'exécutez, en remplaçant __PASSWORD__ par le mot de passe de votre cl
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-Dans la mesure où il s'agit de JSON, il est généralement plus facile d'utiliser un analyseur JSON pour récupérer les données. Par exemple, si vous souhaitez récupérer le nombre total d'alertes (contenues dans l'élément __« Host/host\_status/ALERT »__) vous pouvez utiliser les éléments suivants pour accéder directement à la valeur :
+Dans la mesure où il s'agit de JSON, il est généralement plus facile d'utiliser un analyseur JSON pour récupérer les données. Par exemple, si vous souhaitez récupérer des informations sur l’état d’intégrité du cluster, vous pouvez utiliser les éléments suivants.
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report."Host/host_status/ALERT"'
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
     
-Ceci récupère le document JSON, puis redirige la sortie vers jq. `'.Clusters.health_report."Host/host_status/ALERT"'` indique l'élément du document JSON que vous souhaitez récupérer.
-
-> [AZURE.NOTE] L'élément __Host/host\_status/ALERT__ est placé entre guillemets pour indiquer que « / » fait partie du nom de l'élément. Pour plus d'informations sur l'utilisation de jq, consultez le [Site web jq](https://stedolan.github.io/jq/).
+Ceci récupère le document JSON, puis redirige la sortie vers jq. `.Clusters.health_report` indique l'élément du document JSON que vous souhaitez récupérer.
 
 ##Exemple : Obtenir le nom de domaine complet de nœuds de cluster
 
@@ -172,11 +170,11 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
     
     Curl récupère le document JSON, puis jq est utilisé pour apporter des modifications et créer un modèle que nous utilisons pour ajouter/modifier des valeurs de configuration. Plus précisément, il effectue les opérations suivantes :
     
-    * Il crée une valeur unique qui contient la chaîne « version » et la date, qui est stockée dans __newtag__.
+    * Il crée une valeur unique qui contient la chaîne « version » et la date, qui est stockée dans __newtag__.
     * Il crée un document racine pour la nouvelle configuration souhaitée.
     * Il récupère le contenu du tableau .items et l’ajoute à l’élément __desired\_config__.
     * Il supprime les éléments __href__, __version__ et __Config__, car ils ne sont pas nécessaires à l’envoi d’une nouvelle configuration.
-    * Il ajoute un nouvel élément __tag__ et y affecte la valeur __version#################__ où la partie numérique est basée sur la date actuelle. Chaque configuration doit avoir une balise unique.
+    * Il ajoute un nouvel élément __tag__ et lui affecte la valeur __version#################__, où la partie numérique est basée sur la date actuelle. Chaque configuration doit avoir une balise unique.
     
     Enfin, les données sont enregistrées dans le document __newconfig.json__. La structure du document se présente alors comme suit :
     
@@ -194,7 +192,7 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
             }
         }
 
-3. Ouvrez le document __newconfig.json__ et modifier/ajouter des valeurs dans l’objet __properties__. Par exemple, changez la valeur de __spark.yarn.am.memory__ de __1g__ en __3g__ et ajouter un nouvel élément pour __spark.kryoserializer.buffer.max__ avec une valeur de __256m__.
+3. Ouvrez le document __newconfig.json__ et modifier/ajouter des valeurs dans l’objet __properties__. Par exemple, changez la valeur de __spark.yarn.am.memory__ de __1g__ en __3g__ et ajoutez un nouvel élément pour __spark.kryoserializer.buffer.max__ avec une valeur de __256m__.
 
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
@@ -205,7 +203,7 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
 
         cat newconfig.json | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
         
-    Cette commande dirige le contenu du fichier __newconfig.json__ vers la demande curl, qui l’envoie au cluster en tant que la nouvelle configuration souhaitée. Cette commande renvoie un document JSON. L’élément __versionTag__ de ce document doit correspondre à la version que vous avez envoyée et l’objet __configs__ contient les modifications de configuration que vous avez demandées.
+    Cette commande dirige le contenu du fichier __newconfig.json__ vers la demande curl, qui l’envoie au cluster en tant que nouvelle configuration souhaitée. Cette commande renvoie un document JSON. L’élément __versionTag__ de ce document doit correspondre à la version que vous avez envoyée et l’objet __configs__ contient les modifications de configuration que vous avez demandées.
 
 ###Exemple : redémarrer un composant de service
 
@@ -257,4 +255,4 @@ Pour obtenir une référence complète de l'API REST, consultez la page [Référ
 
 > [AZURE.NOTE] Certaines fonctionnalités d'Ambari, telles que l'ajout ou la suppression d'hôtes du cluster, ou l'ajout de nouveaux services, sont désactivées, puisqu'il est géré par le service cloud HDInsight.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

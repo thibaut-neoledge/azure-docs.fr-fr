@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.date="07/06/2016"
     ms.author="sstein"/>
 
 # Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell
@@ -30,9 +30,9 @@ Cet article fournit des instructions pour créer une base de données SQL Azure
 
 Un BACPAC est un fichier .bacpac qui contient un schéma de base de données et des données. Pour plus d'informations, consultez Backup Package (.bacpac) dans [Applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx).
 
-La base de données est créée à partir d'un fichier BACPAC importé depuis un conteneur d'objets blob de stockage Azure. Si vous n’avez pas de fichier .bacpac dans le stockage Azure, vous pouvez en créer un en suivant la procédure décrite dans [Créer et exporter un fichier BACPAC à partir d’une base de données SQL Azure](sql-database-export-powershell.md).
+La base de données est créée à partir d'un fichier BACPAC importé depuis un conteneur d'objets blob de stockage Azure. Si vous n’avez pas de fichier .bacpac dans le stockage Azure, vous pouvez en créer un en suivant la procédure décrite dans [Archiver une base de données SQL Azure dans un fichier BACPAC à l’aide de PowerShell](sql-database-export-powershell.md).
 
-> [AZURE.NOTE] La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
+> [AZURE.NOTE] La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance. Pour plus d’informations, consultez : [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 
 
 Pour importer une base de données SQL, vous avez besoin des éléments suivants :
@@ -41,22 +41,9 @@ Pour importer une base de données SQL, vous avez besoin des éléments suivants
 - Un fichier .bacpac (BACPAC) de la base de données à importer. Le fichier BACPAC doit se trouver dans un conteneur d’objets blob de [Compte Azure Storage (classique)](../storage/storage-create-storage-account.md).
 
 
-## Configurer vos informations d'identification et sélectionner votre abonnement
 
-Tout d'abord, vous devez établir l'accès à votre compte Azure : lancez PowerShell, puis exécutez l’applet de commande suivante. Sur l’écran de connexion, saisissez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
+[AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
 
-	Add-AzureAccount
-
-Après vous être connecté, vous voyez des informations sur l’écran, notamment l’ID avec lequel vous vous êtes connecté et les abonnements Azure auxquels vous avez accès.
-
-
-### Sélectionner votre abonnement Azure
-
-Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l’étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l’applet de commande **Get-AzureSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. Une fois en possession de votre identifiant d’abonnement, exécutez l'applet de commande suivante :
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureSubscription** et vérifier que l’abonnement que vous avez sélectionné affiche **IsCurrent: True**.
 
 
 ## Configurer les variables de votre environnement
@@ -67,8 +54,9 @@ Le nom du serveur doit être un serveur existant actuellement dans l'abonnement 
 
 Le nom de la base de données est le nom que vous voulez donner à la nouvelle base de données.
 
-    $ServerName = "servername"
-    $DatabaseName = "databasename"
+    $ResourceGroupName = "resource group name"
+    $ServerName = "server name"
+    $DatabaseName = "database name"
 
 
 Les variables suivantes proviennent du compte de stockage dans lequel se trouve votre fichier BACPAC. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage pour obtenir ces valeurs. Vous pouvez trouver la clé primaire en cliquant sur **Tous les paramètres** puis sur **Clés** dans le panneau de votre compte de stockage.
@@ -76,64 +64,54 @@ Les variables suivantes proviennent du compte de stockage dans lequel se trouve 
 Le nom de l'objet blob est le nom du fichier .bacpac existant à partir duquel vous souhaitez créer la base de données. Vous devez inclure l'extension .bacpac.
 
     $StorageName = "storageaccountname"
-    $ContainerName = "blobcontainername"
-    $BlobName = "filename.bacpac"
+    $StorageKeyType = "storageKeyType"
+    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
     $StorageKey = "primaryaccesskey"
 
-## Créer un pointeur vers votre serveur et votre compte de stockage
 
-L’exécution de l’applet de commande **Get-Credential** ouvre une fenêtre vous demandant votre nom d’utilisateur et votre mot de passe. Entrez le nom d’utilisateur et le mot de passe administrateur du serveur SQL sur lequel vous souhaitez créer la base de données ($ServerName ci-dessus), et non le nom d'utilisateur et le mot de passe de votre compte Azure.
+L’exécution de l’applet de commande **Get-Credential** ouvre une fenêtre vous demandant votre nom d’utilisateur et votre mot de passe. Entrez le nom d’utilisateur et le mot de passe administrateur du serveur de base de données SQL ($ServerName ci-dessus), et non le nom d’utilisateur et le mot de passe de votre compte Azure.
 
     $credential = Get-Credential
-    $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
-
-    $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
-    $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
 
 
 ## Importer la base de données
 
 Cette commande envoie une demande d’importation de la base de données au service. Selon la taille de votre base de données, l'opération d'importation peut prendre plus ou moins longtemps.
 
-    $importRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
+    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMxSize 50000
     
 
 ## Surveillez la progression de l’opération
 
-Après l’exécution de **Start-AzureSqlDatabaseImport**, vous pouvez vérifier l’état de la demande.
+Après l’exécution de **New-AzureRmSqlDatabaseImport**, vous pouvez vérifier l’état de la demande.
 
 En cas de vérification de l’état immédiatement après la demande, un état **En attente** ou **En cours d’exécution** est généralement renvoyé, accompagné du pourcentage de progression. Vous pouvez donc exécuter cette opération plusieurs fois jusqu’à ce que vous voyiez **État : Terminé** en sortie.
 
 Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et le mot de passe administrateur de votre serveur SQL.
 
 
-    Get-AzureSqlDatabaseImportExportStatus -RequestId $ImportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest .OperationStatusLink
  
 
 
 ## Script d'importation PowerShell de base de données SQL
 
 
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    
+    $ResourceGroupName = "resourceGroupName"
     $ServerName = "servername"
-    $DatabaseName = "nameofnewdatabase"
+    $DatabaseName = "databasename"
 
     $StorageName = "storageaccountname"
-    $ContainerName = "blobcontainername"
-    $BlobName = "filename.bacpac"
+    $StorageKeyType = "storageKeyType"
+    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
     $StorageKey = "primaryaccesskey"
-    
+
     $credential = Get-Credential
-    $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
-    
-    $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
-    $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
-    
-    $ImportRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
-    
-    Get-AzureSqlDatabaseImportExportStatus -RequestId $ImportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
+
+    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey  StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMxSize 50000
+ 
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest .OperationStatusLink
+
     
 
 ## Étapes suivantes
@@ -149,4 +127,4 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -64,6 +64,26 @@ La build de recommandation possède deux fonctionnalités intéressantes :
  Il peut être intéressant d’appliquer les recommandations de l’utilisateur lorsque, par exemple, l’utilisateur se connecte à votre boutique/site, sur la page d’accueil. Vous pouvez alors promouvoir le contenu qui s’applique à cet utilisateur spécifique.
  
  Vous pouvez également appliquer un type de build de recommandation lorsque l’utilisateur est sur le point de procéder au paiement. À ce stade, vous avez accès à la liste des articles que le client est sur le point d’acheter ; l’occasion idéale de fournir des recommandations compte tenu du panier en cours.
+ 
+#### Paramètres de génération de recommandation 
+ 
+| Nom | 	Description |	 Type, <br> Valeurs valides <br> (valeur par défaut)
+|-------|-------------------|------------------
+| NumberOfModelIterations |	Le nombre d'itérations effectuées par le modèle est déterminé par le temps de calcul total et la précision du modèle. Un nombre élevé signifie une plus grande précision, mais aussi des temps de calcul plus longs. |	 Entier, <br> 10 à 50 <br>Par défaut : 40 
+| NumberOfModelDimensions |	Le nombre de dimensions correspond au nombre de « caractéristiques » que le modèle tente de trouver dans vos données. Le fait d'augmenter le nombre de dimensions permet de mieux ajuster les résultats en clusters plus petits. Toutefois, si le nombre de dimensions est trop important, le modèle ne pourra pas trouver de corrélations entre les éléments. |	Entier, <br> 10 à 40 <br>Par défaut : 20 |
+| ItemCutOffLowerBound |	Définit le nombre minimal de points d’utilisation où un élément doit se trouver pour qu’il soit pris en compte dans le modèle. |		Entier, <br> 2 ou Plus. <br> Par défaut : 2 |
+| ItemCutOffUpperBound | 	Définit le nombre maximal de points d’utilisation où un élément doit se trouver pour qu’il soit pris en compte dans le modèle. | Entier, <br> 2 ou Plus.<br> Par défaut : 2147483647 |
+|UserCutOffLowerBound |	Définit le nombre minimal de transactions qu’un utilisateur doit avoir effectuées pour être pris en compte dans le modèle. |	Entier, <br> 2 ou Plus. <br> Par défaut : 2 
+| ItemCutOffUpperBound |	Définit le nombre maximal de transactions qu’un utilisateur doit avoir effectuées pour être pris en compte dans le modèle. |	Entier, <br>2 ou Plus. <br> Par défaut : 2147483647|
+| UseFeaturesInModel |	Indique si des caractéristiques peuvent être utilisées pour améliorer le modèle de recommandation. | 	 Booléen<br> Par défaut : True 
+|ModelingFeatureList |	Liste de noms de caractéristiques séparés par des virgules à utiliser dans la build de recommandation pour améliorer les recommandations. (Dépend des fonctionnalités importantes) |	Chaîne, 512 caractères maximum
+| AllowColdItemPlacement |	Indique si la recommandation doit également placer les éléments froids selon la similarité des caractéristiques. | Booléen <br> Par défaut : False	
+| EnableFeatureCorrelation | Indique si des caractéristiques peuvent être utilisées dans le raisonnement. |	Booléen <br> Par défaut : False
+| ReasoningFeatureList |	Liste de noms de caractéristiques séparés par des virgules à utiliser pour générer des phrases de raisonnement (par exemple, pour expliquer les recommandations). (Dépend des fonctionnalités importantes pour les clients) | Chaîne, 512 caractères maximum
+| EnableU2I |	Autoriser la recommandation personnalisée alias U2I (recommandations d’éléments selon un utilisateur). | Booléen <br>Par défaut : True
+|EnableModelingInsights |	Définit si l’évaluation hors connexion doit être effectuée pour collecter des informations sur la modélisation (par exemple, les mesures de précision et de diversité). Si cette valeur est définie sur True, un sous-ensemble des données ne sera pas utilisé pour l’apprentissage car il sera réservé pour le test du modèle. En savoir plus sur les [évaluations hors connexion](#OfflineEvaluation) | Booléen <br> Par défaut : False
+| SplitterStrategy | Si enable modeling insights (Activer les informations de modélisation) est définie sur True, la méthode selon laquelle les données doivent être fractionnées à des fins d’évaluation | Chaîne, *RandomSplitter* ou *LastEventSplitter* <br>Par défaut : RandomSplitter 
+
 
 <a name="FBTBuild"></a>
 ### Build de type FBT ###
@@ -77,6 +97,16 @@ Dans notre exemple de téléphone Lumia 650, un téléphone X est renvoyé si et
 On suppose actuellement que deux articles sont achetés au cours de la même session si l’achat est effectué dans une transaction associée au même ID utilisateur et au même horodatage.
 
 Les builds FBT ne gèrent pas les articles froids pour le moment, puisque, par définition, deux articles doivent être effectivement achetés au cours de la même transaction. Bien que les builds FBT puissent retourner des jeux d’articles (triplets), elles ne gèrent pas les recommandations personnalisées puisqu’elles acceptent un seul article de départ comme donnée d’entrée.
+
+
+#### Paramètres de build FBT 
+ 
+| Nom | 	Description |		Type, <br> Valeurs valides <br> (valeur par défaut)
+|-------|---------------|-----------------------
+| FbtSupportThreshold | Niveau de conservatisme du modèle. Nombre de co-occurrences d'éléments à prendre en compte pour la modélisation. | Entier, <br> 3-50 <br> Par défaut : 6 
+| FbtMaxItemSetSize | Limite le nombre d'éléments dans un ensemble fréquent.| Entier <br> 2-3 <br> Par défaut : 2
+| FbtMinimalScore | Score minimal d'un jeu fréquent pour que celui-ci soit inclus dans les résultats retournés. Plus le score est élevé, mieux c'est. | Double <br> 0 et supérieur <br> Par défaut : 0
+| FbtSimilarityFunction | Définit la fonction de similarité à utiliser par le build. Élévation favorise la sérendipité, cooccurence favorise la prévisibilité, et Jaccard est un bon compromis entre les deux. | Chaîne, <br> <i>cooccurrence, lift, jaccard</i><br> Par défaut : <i>jaccard</i> 
 
 <a name="SelectBuild"></a>
 ## Comment choisir la build exacte à utiliser ? ##
@@ -241,4 +271,4 @@ Ceci déclenche une build qui utilise uniquement un sous-ensemble des données p
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

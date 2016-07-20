@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(version préliminaire)*
@@ -37,12 +37,18 @@ Les fonctionnalités suivantes sont disponibles dans la version préliminaire de
 
 - **Prise en charge des liaisons LDAP et des lectures LDAP :** vous pouvez utiliser des applications qui reposent sur les liaisons LDAP pour authentifier les utilisateurs dans des domaines pris en charge par les services de domaine Azure AD. En outre, les applications qui utilisent des opérations de lecture LDAP pour interroger les attributs des utilisateurs ou ordinateurs à partir de l’annuaire peuvent également fonctionner auprès des services de domaine Azure AD.
 
+- **LDAP sécurisé (LDAPS) :** vous pouvez activer l’accès au répertoire via LDAP sécurisé (LDAPS). L’accès LDAP sécurisé est disponible au sein du réseau virtuel par défaut. Toutefois, vous pouvez activer également l’accès LDAP sécurisé via internet.
+
 - **Stratégie de groupe :** vous pouvez vous servir d’un seul objet de stratégie de groupe intégré pour les conteneurs des utilisateurs et des ordinateurs afin d’imposer la conformité aux stratégies de sécurité nécessaires pour les comptes d’utilisateur, ainsi que pour les ordinateurs joints au domaine.
 
-- **Disponibilité dans plusieurs régions Azure** : consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
+- **Gérer les DNS :** les membres du groupe AAD DC Administrators peuvent gérer les DNS de votre domaine géré par les services de domaine Azure AD à l’aide d'outils d’administration DNS courants comme le composant logiciel enfichable DNS Administration MMC.
+
+- **Créer des unités organisationnelles (UO) personnalisées :** les membres du groupe AAD DC Administrators peuvent créer des unités organisationnelles personnalisées au sein du domaine géré par les services de domaine AAD. Ces utilisateurs bénéficient de privilèges administratifs complets sur les unités organisationnelles personnalisées et peuvent donc ajouter/supprimer des comptes de service, des ordinateurs, des groupes, etc. au sein de ces unités organisationnelles personnalisées.
+
+- **Disponibilité dans plusieurs régions Azure **: consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
 
 - **Haute disponibilité :** les services de domaine Azure AD offrent une haute disponibilité pour votre domaine. Vous bénéficiez ainsi d’une disponibilité de service et d’une tolérance aux pannes plus élevées. La surveillance intégrée de l’intégrité permet de corriger automatiquement les défaillances en configurant de nouvelles instances pour remplacer les instances défectueuses et fournir un service continu pour votre domaine.
 
 - **Utilisation d’outils de gestion familiers :** vous pouvez utiliser les outils de gestion Windows Server Active Directory familiers tels que le Centre d’administration Active Directory ou Active Directory PowerShell pour administrer des domaines fournis par les services de domaine Azure AD.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

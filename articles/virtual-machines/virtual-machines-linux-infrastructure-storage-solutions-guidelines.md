@@ -46,7 +46,7 @@ Azure Storage est un élément essentiel du déploiement et de la gestion des ap
 Il existe deux types de comptes de stockage disponibles dans pour prendre en charge les machines virtuelles :
 
 - Un compte de stockage standard vous donne accès au stockage d’objets blob (utilisé pour le stockage de disques de machines virtuelles Azure), de tables, de files d’attente et de fichiers de stockage
-- [Le stockage Premium](../storage/storage-premium-storage.md) est offre une prise en charge de disques hautes performances à faible latence pour les charges de travail gourmandes en E/S, telles que les serveurs SQL dans un cluster AlwaysOn, et prend actuellement en charge uniquement les disques de machine virtuelle Azure.
+- [Le stockage Premium](../storage/storage-premium-storage.md) offre une prise en charge des disques hautes performances à faible latence pour les charges de travail gourmandes en E/S, telles que le cluster partitionné MongoDB, et prend actuellement en charge uniquement les disques de machine virtuelle Azure.
 
 Azure crée des machines virtuelles avec un disque de système d’exploitation, et éventuellement plusieurs disques de données facultatifs. Le disque de système d’exploitation et les disques de données sont des objets blob de pages Azure, tandis que le disque temporaire est stocké localement sur le nœud comprenant l’emplacement de la machine. Lors de la conception d’applications, veillez à utiliser uniquement ce disque temporaire pour des données non persistantes, car la machine virtuelle peut être migrée entre ordinateurs hôtes pendant un événement de maintenance. Toutes les données stockées sur le disque temporaire seraient alors perdues.
 
@@ -56,7 +56,7 @@ Les disques de système d’exploitation et les disques de données ont une tail
 
 Il existe certaines limites d’évolutivité lors de la conception de vos déploiements Azure Storage : voir [Abonnement Microsoft Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md#storage-limits) pour plus de détails. Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../storage/storage-scalability-targets.md).
 
-En ce qui concerne le stockage d’applications, vous pouvez stocker les données d’objets non structurées comme des documents, des images, des sauvegardes, des données de configuration, des journaux, etc. à l’aide du stockage d’objets blob. Plutôt que d’écrire sur un disque virtuel connecté à la machine virtuelle, l’application peut écrire directement sur le stockage d’objets blob. Le stockage d’objets blob offre également la possibilité de choisir entre [des niveaux de stockage à chaud et à froid](../storage/storage-blob-storage-tiers.md) selon vos besoins de disponibilité et les contraintes de coût.
+En ce qui concerne le stockage d’applications, vous pouvez stocker les données d’objets non structurées comme des documents, des images, des sauvegardes, des données de configuration, des journaux, etc., à l’aide du stockage d’objets blob. Plutôt que d’écrire sur un disque virtuel connecté à la machine virtuelle, l’application peut écrire directement sur le stockage d’objets blob. Le stockage d’objets blob offre également la possibilité de choisir entre [des niveaux de stockage à chaud et à froid](../storage/storage-blob-storage-tiers.md) selon vos besoins de disponibilité et les contraintes de coût.
 
 
 ## Disques agrégés par bandes
@@ -71,7 +71,7 @@ Si vous utilisez l’entrelacement pour les disques de données Azure, respectez
 - Utilisation de LVM
 - Évitez d’utiliser des options de mise en cache des disques de données Azure (Stratégie de mise en cache = Aucune)
 
-Pour plus d’informations, voir la page [Espaces de stockage : une conception pour la performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Pour plus d’informations, consultez [Configurer LVM sur une machine virtuelle Linux dans Azure](virtual-machines-linux-configure-lvm.md).
 
 
 ## Comptes de stockage multiples
@@ -85,4 +85,4 @@ Pour plus d’informations sur les fonctionnalités d’E/S des différentes opt
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

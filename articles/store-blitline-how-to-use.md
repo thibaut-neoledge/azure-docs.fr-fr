@@ -69,7 +69,7 @@ Vous trouverez plus d’informations sur les *fonctions* prises en charge à l�
 
 Vous pouvez également trouver de la documentation sur les options de tâche à l’adresse suivante :<http://www.blitline.com/docs/api>
 
-Lorsque vous avez votre JSON, vous devez simplement le **PUBLIER** sur `http://api.blitline.com/jobs`.
+Lorsque vous avez votre JSON, vous devez simplement le **PUBLIER** sur `http://api.blitline.com/job`.
 
 Le JSON renvoyé ressemblera à ceci :
 
@@ -85,7 +85,7 @@ Le JSON renvoyé ressemblera à ceci :
     }
 
 
-Ceci vous indique que Blitline a reçu votre requête et qu’il l’a placée dans une file d’attente de traitement. Une fois l’image terminée, elle sera disponible à l’adresse suivante : ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Ceci vous indique que Blitline a reçu votre requête et qu’il l’a placée dans une file d’attente de traitement. Une fois l’image terminée, elle sera disponible à l’adresse suivante : **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## Enregistrement d'une image sur votre compte Azure Storage
 
@@ -132,4 +132,4 @@ Rendez-vous sur blitline.com pour découvrir toutes nos autres fonctions :
 * Exemples d'API Blitline <http://www.blitline.com/docs/examples>
 * Bibliothèque Nuget tierce <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0706_2016-->

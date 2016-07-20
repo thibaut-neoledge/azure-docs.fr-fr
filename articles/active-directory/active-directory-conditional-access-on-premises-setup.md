@@ -80,15 +80,15 @@ Suivez la liste de vérification ci-dessous pour activer et configurer le servic
 
 | Task | Référence |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Déployer un domaine Services de domaine Active Directory avec les extensions de schéma Windows Server 2012 R2. Vous n'avez pas besoin de mettre à niveau vos contrôleurs de domaine vers Windows Server 2012 R2. Seule la mise à niveau des schémas est nécessaire. | [Mise à niveau de votre schéma Services de domaine Active Directory] (#Upgrade your Active Directory Domain Services Schema) |
-| Les appareils détectent votre service Azure Active Directory Device Registration en recherchant des enregistrements DNS connus. Vous devez configurer le DNS de votre entreprise afin que les appareils puissent détecter le service Azure Active Directory Device Registration. | [Préparation de vos appareils de prise en charge Active Directory] (#Prepare your Active Directory to support devices) |
+| Déployer un domaine Services de domaine Active Directory avec les extensions de schéma Windows Server 2012 R2. Vous n'avez pas besoin de mettre à niveau vos contrôleurs de domaine vers Windows Server 2012 R2. Seule la mise à niveau des schémas est nécessaire. | [Mettre à niveau le schéma des services de domaine Active Directory](#upgrade-your-active-directory-domain-services-schema) |
+| Les appareils détectent votre service Azure Active Directory Device Registration en recherchant des enregistrements DNS connus. Vous devez configurer le DNS de votre entreprise afin que les appareils puissent détecter le service Azure Active Directory Device Registration. | [Préparation de votre Active Directory à la prise en charge d'appareils](#prepare-your-active-directory-to-support-devices) |
 
 
 ##3ème partie : Activer l'écriture différée des appareils dans Azure AD
 
 | Task | Référence |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Terminez la 2ème partie de l'activation de l'écriture différée des appareils dans Azure AD Connect. Une fois que vous avez terminé, revenez à ce guide. | [Activation de l'écriture différée des appareils dans Azure AD Connect] (#Upgrade your Active Directory Domain Services Schema) |
+| Terminez la 2ème partie de l'activation de l'écriture différée des appareils dans Azure AD Connect. Une fois que vous avez terminé, revenez à ce guide. | [Activation de l’écriture différée des appareils dans Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 
 ##[Facultatif] 4ème partie : Activer l'authentification multifacteur
@@ -102,10 +102,10 @@ Le déploiement est maintenant terminé. Vous pouvez désormais tester certains 
 
 | Task | Référence |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Joindre des appareils à votre espace de travail à l'aide du service Azure Active Directory Device Registration. Vous pouvez joindre des appareils iOS, Windows et Android | [Joindre des appareils à votre espace de travail à l'aide du service Azure Active Directory Device Registration](#Join devices to your workplace using Azure Active Directory Device Registration) |
+| Joindre des appareils à votre espace de travail à l'aide du service Azure Active Directory Device Registration. Vous pouvez joindre des appareils iOS, Windows et Android | [Joindre des appareils à votre espace de travail à l’aide du service Azure Active Directory Device Registration](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | Vous pouvez afficher et activer/désactiver les appareils inscrits via le portail d'administration. Dans cette tâche, vous allez afficher des appareils inscrits via le portail d'administration. | [Vue d’ensemble du service d’inscription d’appareil Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
-| Vérifier que les objets d'appareil sont réécrits depuis Azure Active Directory vers Windows Server Active Directory. | [Vérifier que les appareils inscrits sont réécrits dans Active Directory](#Verify registered devices are written-back to Active Director) |
-| Maintenant que les utilisateurs peuvent inscrire leurs appareils, vous pouvez créer des stratégies d'accès à l'application dans AD FS qui autorisent uniquement les appareils inscrits. Dans cette tâche, vous allez créer une règle d'accès à l'application et message personnalisé d'accès refusé. | [Créer une stratégie d'accès à l'application et un message personnalisé d'accès refusé](#Create an application access policy and custom access denied message) |
+| Vérifier que les objets d'appareil sont réécrits depuis Azure Active Directory vers Windows Server Active Directory. | [Vérifier la réécriture des appareils inscrits dans Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
+| Maintenant que les utilisateurs peuvent inscrire leurs appareils, vous pouvez créer des stratégies d'accès à l'application dans AD FS qui autorisent uniquement les appareils inscrits. Dans cette tâche, vous allez créer une règle d'accès à l'application et message personnalisé d'accès refusé. | [Créer une stratégie d’accès aux applications et un message personnalisé de refus d’accès](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 
 
@@ -121,8 +121,7 @@ Cela va vous aider à intégrer le client Azure AD au répertoire Active Direc
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
   
-  > [AZURE.NOTE] 
-  > Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
+  > [AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
 
 
 ## Mettre à niveau le schéma des services de domaine Active Directory
@@ -180,7 +179,7 @@ Où `yourdomainname` correspond au nom du domaine que vous avez configuré avec 
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Nous vous conseillons de publier cette URL dans un message d’application personnalisé de refus d’accès dans AD FS. Ceci est traité dans la section suivante : [Créer une stratégie d'accès à l'application et un message personnalisé d'accès refusé](#Create an application access policy and custom access denied message).
+Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Nous vous conseillons de publier cette URL dans un message d’application personnalisé de refus d’accès dans AD FS. Ce sujet est traité dans la prochaine section : [Créer une stratégie d’accès aux applications et un message personnalisé de refus d’accès](#create-an-application-access-policy-and-custom-access-denied-message).
 
 ###Joindre un appareil Windows 8.1 à l’aide du service Azure Active Directory Device Registration
 
@@ -231,7 +230,7 @@ Sur votre serveur de fédération, ouvrez une fenêtre de commande Windows Power
     Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
 Vous devez inscrire votre appareil avant d'accéder à cette application.
 
-**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
+**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
 
     a href='https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
 
@@ -252,4 +251,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

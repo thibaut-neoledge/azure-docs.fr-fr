@@ -13,11 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/28/2016"
+      ms.date="06/28/2016"
       ms.author="hascipio; avikova" />
 
 # Guide de publication d’un service de données pour Azure Marketplace
-Après avoir effectué l’étape 1, [Création et inscription d’un compte][link-acct-creation], nous vous avons guidé dans les [exigences générales non techniques](marketplace-publishing-pre-requisites.md) et les [exigences techniques](marketplace-publishing-data-service-creation-prerequisites.md) d’une offre de service de données sur Azure Marketplace. À présent, nous allons vous guider dans la procédure de création d’une offre de service de données sur le [portail de publication][link-pubportal] pour Azure Marketplace.
+Après avoir effectué l’étape 1, [Création et inscription d’un compte](marketplace-publishing-accounts-creation-registration.md), nous vous avons guidé dans les [exigences générales non techniques](marketplace-publishing-pre-requisites.md) et les [exigences techniques](marketplace-publishing-data-service-creation-prerequisites.md) d’une offre de service de données sur Azure Marketplace. À présent, nous allons vous guider dans la procédure de création d’une offre de service de données sur le [portail de publication][link-pubportal] pour Azure Marketplace.
 
 ## 1\. Connectez-vous au portail de publication.
 
@@ -143,7 +143,6 @@ Maintenant que vous avez créé votre offre de service de données, assurez-vous
 - Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code, ainsi que pour comprendre la syntaxe et le contexte du code.
 
 
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0706_2016-->

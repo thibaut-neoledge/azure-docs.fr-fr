@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics et Power BI : tableau de bord d'analyse en temps réel pour les données de diffusion en continu
@@ -25,12 +25,10 @@ Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un
 
 Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos tâches Azure Stream Analytics comment utiliser un tableau de bord en temps réel.
 
-> [AZURE.NOTE] Pour le moment, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure, mais uniquement dans le portail Azure Classic.
-
-## Composants requis
+## Configuration requise
 
 * Compte Microsoft Azure.
-* Une entrée pour alimenter un travail Stream Analytics en flux de données. Stream Analytics accepte les entrées d'Azure Event Hubs ou d'Azure Blob storage.  
+* Une entrée pour alimenter un travail Stream Analytics en flux de données. Stream Analytics accepte les entrées d'Azure Event Hubs ou d'Azure Blob storage.
 * Compte professionnel ou scolaire pour Power BI
 
 ## Créer une tâche Azure Stream Analytics
@@ -172,7 +170,7 @@ C’est pour cette raison que Power BI s’applique naturellement dans les cas o
 
 ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
 
-Par exemple, si 1 000 appareils envoient des données chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :
+Par exemple, si 1 000 appareils envoient des données chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :
 
 ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
@@ -203,9 +201,18 @@ Vous devrez authentifier de nouveau votre compte Power BI si son mot de passe a 
 
 ![graphic12][graphic12]
 
+De même, si une tâche tente de démarrer alors que le jeton a expiré, une erreur se produit et le démarrage de la tâche échoue. L’erreur ressemble à ce qui suit :
+
+![Erreur de validation PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
+ 
+
 Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et accédez à votre sortie Power BI. Cliquez sur le lien « Renouveler l’autorisation », puis redémarrez votre tâche depuis l’heure du dernier arrêt pour éviter de perdre des données.
 
-![graphic13][graphic13]
+![Renouvellement de la validation PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png)
+
+Une fois que l’autorisation est actualisée avec Power BI, vous voyez une alerte verte dans la zone d’autorisation :
+
+![Renouvellement de la validation PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -233,4 +240,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

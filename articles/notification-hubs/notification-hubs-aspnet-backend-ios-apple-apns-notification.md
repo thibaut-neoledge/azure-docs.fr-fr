@@ -3,7 +3,7 @@
 	description="Découvrez comment envoyer des notifications Push aux utilisateurs dans Azure. Exemples de code écrits en Objective-C et l'API .NET pour le serveur principal."
 	documentationCenter="ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET
@@ -69,7 +69,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 		- (IBAction)LogInAction:(id)sender;
 
-4. Dans ViewController.h, ajoutez le code `#define` suivant juste en dessous de vos instructions d'importation. Remplacez l'espace réservé *<Enter Your Backend Endpoint>* par l'URL de destination que vous avez utilisée pour déployer votre serveur principal d'application dans la section précédente. Par exemple, **http://you_backend.azurewebsites.net*.
+4. Dans ViewController.h, ajoutez le code `#define` suivant juste en dessous de vos instructions d'importation. Remplacez l'espace réservé *<Enter Your Backend Endpoint>* par l'URL de destination que vous avez utilisée pour déployer votre serveur principal d'application dans la section précédente. Par exemple, *http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -86,7 +86,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 		@end
 
-5. Dans RegisterClient.m, mettez à jour la section `@interface` :
+5. Dans RegisterClient.m, mettez à jour la section `@interface` :
 
 		@interface RegisterClient ()
 
@@ -266,14 +266,14 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 	Notez que cette classe a besoin que sa propriété **authorizationHeader** soit définie afin de fonctionner correctement. Cette propriété est définie par la classe **ViewController** après la connexion.
 
-7. Dans ViewController.h, ajoutez une instruction `#import` pour RegisterClient.h. Ensuite, ajoutez une déclaration pour le jeton de l'appareil et faites référence à une instance `RegisterClient` dans la section `@interface` :
+7. Dans ViewController.h, ajoutez une instruction `#import` pour RegisterClient.h. Ensuite, ajoutez une déclaration pour le jeton de l'appareil et faites référence à une instance `RegisterClient` dans la section `@interface` :
 
 		#import "RegisterClient.h"
 
 		@property (strong, nonatomic) NSData* deviceToken;
 		@property (strong, nonatomic) RegisterClient* registerClient;
 
-8. Dans ViewController.m, ajoutez une déclaration de méthode privée dans la section `@interface` :
+8. Dans ViewController.m, ajoutez une déclaration de méthode privée dans la section `@interface` :
 
 		@interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
@@ -454,7 +454,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 	![][3]
 
-4. Dans le champ de texte **Balise de nom d'utilisateur du destinataire*, entrez la balise de nom d'utilisateur utilisée lors de l'enregistrement sur un autre appareil.
+4. Dans le champ de texte **Balise de nom d’utilisateur du destinataire*, entrez la balise de nom d’utilisateur utilisée lors de l’enregistrement sur un autre appareil.
 5. Entrez un message de notification et cliquez sur **Envoyer une notification**. Seuls les appareils qui disposent d'un enregistrement avec la balise de nom d'utilisateur du destinataire reçoivent le message de notification. Il n'est envoyé qu'à ces utilisateurs.
 
 	![][4]
@@ -465,4 +465,4 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -69,15 +69,15 @@ Extension du service ATOM Pub où chaque entrée représente une ligne d’un j
 
 Permet de définir des fonctions (SPROC) et des entités qui sont exposées via une base de données. Vous trouverez des informations supplémentaires ici : [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)
 
-> [AZURE.TIP]Cliquez sur la liste déroulante des **autres versions** et sélectionnez une version l’article ne s’affiche pas.
+> [AZURE.TIP] Cliquez sur la liste déroulante des **autres versions** et sélectionnez une version l’article ne s’affiche pas.
 
 ### EDM (Entry Data Model)
-- Vue d’ensemble : [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Aperçu : [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Types de données : [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
-[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- Vue d’ensemble : [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
+[OverviewLink]: http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Aperçu : [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
+[PreviewLink]: http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Types de données : [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
+[DataTypesLink]: http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 Le diagramme suivant présente un flux de gauche à droite détaillé depuis lequel le client entre l’instruction OData (appel au service web du fournisseur de contenu) de récupération des résultats/données.
 
@@ -115,7 +115,11 @@ Mise en relation de ces éléments comme suit pour un service de données :
 - EntityType ~= Colonnes
 - FunctionImport ~= Procédure stockée
 
-**Verbes HTTP autorisés** - GET : renvoie des valeurs de la base de données (retourne une collection). - POST : utilisé pour transmettre des données à la base de données et, éventuellement, renvoyer des valeurs à partir de la base de données (créer une entrée dans la collection, retourner l’ID/URI). - DELETE : supprime des données de la base de données (supprime une collection). - PUT : met à jour des données dans une base de données (remplacer une collection ou en créer une).
+**Verbes HTTP autorisés**
+- GET - renvoie les valeurs à partir de la base de données (renvoie une collection)
+- POST - permet de transmettre des données et des valeurs de retour facultatives à partir de la base de données (créer une entrée dans la collection, renvoyer un ID/URI)
+- DELETE - supprime les données de la base de données (supprime une collection)
+- PUT - met à jour les données dans une base de données (remplace ou crée une collection)
 
 ## Document de métadonnées/de mappage
 
@@ -123,7 +127,10 @@ Le document de métadonnées/de mappage permet de mapper les services web exista
 
 Voici un exemple d’élément CSDL : (Copiez et collez l’exemple CSDL ci-dessous dans un éditeur XML et apportez les modifications nécessaires en fonction de votre service. Collez-le ensuite dans un mappage CSDL sous l’onglet Service de données lors de la création de votre service dans le [portail de publication Azure Marketplace](https://publish.windowsazure.com).)
 
-**Termes :** mise en relation des termes CSDL avec les termes de l’interface utilisateur du [portail de publication](https://publish.windowsazure.com) (PPUI). - Le « titre » de l’offre dans le PPUI est associé à MyWebOffer. - MyCompany dans le PPUI est associé au **Nom d’affichage de l’éditeur** dans l’interface utilisateur du [Centre de développement Microsoft](http://dev.windows.com/registration?accountprogram=azure). - Votre API est associée à un service web ou de données (un plan dans le PPUI)
+**Termes :** met en relation les termes CSDL avec les termes de l’interface utilisateur du [portail de publication](https://publish.windowsazure.com) (PPUI).
+- Le « titre » de l’offre dans le PPUI est associé à MyWebOffer
+- MyCompany dans le PPUI est associé au **nom complet de l’éditeur** dans l’interface utilisateur [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure)
+- Votre API est associée à un service web ou de données (un plan dans le PPUI)
 
 **Hiérarchie :** une entreprise (fournisseur de contenu) possède une ou plusieurs offres qui comprennent des plans, c’est-à-dire des services, qui sont associés à une API.
 
@@ -239,7 +246,7 @@ L’exemple suivant établit une connexion à un service qui expose un point de 
             </EntityType>
         </Schema>
 
-> [AZURE.TIP]Affichez d’autres exemples de services web CSDL dans l’article [Exemples de mappage d’un service web existant à OData par le biais des données CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+> [AZURE.TIP] Affichez d’autres exemples de services web CSDL dans l’article [Exemples de mappage d’un service web existant à OData par le biais des données CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 ###Exemple de service de données CSDL
 
@@ -301,4 +308,4 @@ L’exemple suivant établit une connexion à un service qui expose une table ou
 - Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code et pour comprendre la syntaxe et le contexte du code.
 - Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0706_2016-->

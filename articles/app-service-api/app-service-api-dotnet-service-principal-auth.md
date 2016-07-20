@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tdykstra"/>
 
 # Authentification de principal du service pour API Apps dans Azure App Service
@@ -83,8 +83,8 @@ Une fois le jeton obtenu, l’appelant peut l’inclure avec les requêtes HTTP 
 
 Les jetons de porteur des utilisateurs du même client sont considérés comme valides pour l’application API protégée. Si vous souhaitez faire en sorte que seul un principal du service puisse appeler l’application API protégée, ajoutez du code dans l’application API protégée pour valider les revendications suivantes dans le jeton :
 
-* `appid` doit correspondre à l’ID client de l’application Azure AD associée à l’appelant. 
-* `oid` (`objectidentifier`) doit être l’ID du principal du service de l’appelant. 
+* `appid` doit correspondre à l’ID client de l’application Azure AD associée à l’appelant.
+* `oid` (`objectidentifier`) doit être l’ID du principal du service de l’appelant.
 
 App Service fournit également la revendication `objectidentifier` dans l’en-tête X-MS-CLIENT-PRINCIPAL-ID.
 
@@ -126,7 +126,7 @@ Si vous rencontrez des problèmes en suivant les instructions du didacticiel, co
 
 6. Dans le panneau **Paramètres Azure Active Directory**, cliquez sur **Express**.
 
-	L’option **Express** permet à Azure de créer automatiquement une application AAD dans le [client](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD.
+	L’option **Express** permet à Azure de créer automatiquement une application AAD dans le [client](https://msdn.microsoft.com/fr-FR/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD.
 
 	Vous n’avez pas à créer un client, car chaque compte Azure en possède un.
 
@@ -150,7 +150,7 @@ Si vous rencontrez des problèmes en suivant les instructions du didacticiel, co
 
 ### Vérifier la protection de l’application API
 
-1. Dans un navigateur, accédez à l’URL de l’application API : dans le panneau **Application API** du portail Azure, cliquez sur le lien situé sous **URL**. 
+1. Dans un navigateur, accédez à l’URL de l’application API : dans le panneau **Application API** du portail Azure, cliquez sur le lien situé sous **URL**.
 
 	Vous êtes redirigé vers un écran de connexion, car les demandes non authentifiées ne sont pas autorisées à atteindre l’application API.
 
@@ -166,7 +166,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 * Ajouter du code dans l’application API de niveau intermédiaire qui utilise les informations d’identification de l’application Azure AD pour acquérir un jeton et l’envoyer en même temps que les requêtes HTTP à l’application API de la couche de données.
 * Obtenir auprès d’Azure AD les informations d’identification dont vous avez besoin.
-* Saisir les informations d’identification dans les paramètres de l’environnement d’exécution Azure App Service de l’application API de niveau intermédiaire. 
+* Saisir les informations d’identification dans les paramètres de l’environnement d’exécution Azure App Service de l’application API de niveau intermédiaire.
 
 ### Configurer le projet ToDoListAPI pour acquérir et envoyer le jeton Azure AD
 
@@ -415,4 +415,4 @@ Pour plus d’informations sur Azure Active Directory, consultez les ressources 
 
 Pour plus d’informations sur les autres méthodes de déploiement de projets Visual Studio dans des applications API, à l’aide de Visual Studio ou en [automatisant le déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) à partir d’un [système de contrôle de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consultez [Déploiement d’une application Azure App Service](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

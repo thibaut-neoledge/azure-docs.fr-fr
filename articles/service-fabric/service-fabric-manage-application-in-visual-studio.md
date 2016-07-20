@@ -36,23 +36,24 @@ Le déploiement d’une application regroupe les étapes suivantes en une simple
 
 Dans Visual Studio, vous pouvez aussi appuyer sur **F5** pour déployer votre application et attacher le débogueur à toutes les instances de l'application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l’aide du profil de publication. Pour plus d’informations, reportez-vous à la section [Publication d’une application dans un cluster à distance avec Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
-### Conservation des données entre les séries de tests
+### Mode de débogage d’application
 
-Souvent, vous testez les services localement en ajoutant l'entrée de données de test, en modifiant certains blocs de code, puis en effectuant un nouveau débogage local. Les outils Service Fabric de Visual Studio sont dotés d’une propriété pratique appelée **Préserver les données au démarrage** qui permet de conserver les données saisies au cours de la session précédente et de les réutiliser.
+Lors du débogage local du service, il se peut que vous souhaitiez conserver l’application et les données existantes. Les outils Service Fabric de Visual Studio fournissent une propriété appelée **Mode de débogage d’application**, qui vérifie si **F5** doit désinstaller l’application ou la conserver après une session de débogage.
 
-#### Activation de la propriété Preserve Data on Start
+#### Pour définir la propriété Mode de débogage d’application
 
 1. Dans le menu contextuel du projet d’application, cliquez sur **Propriétés** (ou appuyez sur la touche **F4**).
-1. Dans la fenêtre **Propriétés**, définissez la propriété **Preserve Data on Start** sur **Yes**.
+2. Dans la fenêtre **Propriétés**, configurez la propriété **Mode de débogage d’application**sur **Supprimer** ou **Mise à niveau automatique**.
 
-	![Configuration de la propriété Preserve Data on Start][preservedata]
+![Définir la propriété Mode de débogage d’application][debugmodeproperty]
 
-Lorsque vous exécutez votre application à nouveau, le script de déploiement traite le déploiement comme une mise à niveau, en utilisant le mode automatique non contrôlé pour mettre rapidement à niveau l’application vers une version plus récente avec une chaîne de date ajoutée. Le processus de mise à niveau conserve les données que vous avez saisies au cours de la précédente session de débogage.
+Le fait de définir cette valeur de propriété sur **Mise à niveau automatique** a pour effet de laisser l’application s’exécuter sur le cluster local. Le **F5** suivant traite le déploiement comme une mise à niveau, en utilisant le mode automatique non contrôlé pour mettre rapidement à niveau l’application vers une version plus récente avec une chaîne de date ajoutée. Le processus de mise à niveau conserve les données que vous avez saisies au cours de la précédente session de débogage.
 
-![Exemple d’une nouvelle version de l'application avec une date ajoutée][preservedate]
+![Exemple d’une nouvelle version d’application à laquelle date1 est ajouté][preservedate]
 
 Les données sont préservées à l’aide de la fonctionnalité de mise à niveau de la plateforme de Service Fabric. Pour plus d’informations sur la mise à niveau d’une application, reportez-vous à [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md).
 
+**Remarque :** cette propriété n’existe pas avant la version 1.1 des outils Service Fabric pour Visual Studio. Avant la version 1.1, veuillez utiliser la propriété **Conserver les données au démarrage** pour obtenir le même comportement.
 ## Ajouter un service à votre application Service Fabric
 
 Vous pouvez ajouter de nouveaux services Service Fabric à votre application pour étendre ses fonctionnalités. Pour garantir que le service est inclus dans votre package d’application, ajoutez-le via l’élément de menu **Nouveau service Service Fabric…**.
@@ -96,5 +97,6 @@ Vous pouvez supprimer les privilèges d’accès d’un type d’application à 
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
+[debugmodeproperty]: ./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="07/06/2016" 
 	ms.author="tomfitz"/>
 
 # Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
@@ -82,7 +82,7 @@ Les services qui ne prennent actuellement pas en charge le déplacement d’une 
 
 Lorsque vous travaillez avec des applications App Service, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications App Service, les options disponibles sont :
 
-- Déplacez le plan App Service et toutes les autres ressources d’App Service dans ce groupe de ressources vers un nouveau groupe de ressources qui ne dispose pas encore des ressources d’App Service. Cela signifie que vous devez déplacer même les ressources d’App Service qui ne sont pas associées au plan App Service. 
+- Déplacez le plan App Service et toutes les autres ressources d’App Service dans ce groupe de ressources vers un nouveau groupe de ressources qui ne dispose pas encore des ressources d’App Service. Cela signifie que vous devez déplacer même les ressources d’App Service qui ne sont pas associées au plan App Service.
 - Déplacer les applications vers un autre groupe de ressources, mais conserver tous les plans App Service dans le groupe de ressources d'origine.
 
 Si votre groupe de ressources d’origine inclut également une ressource Application Insights, vous ne pouvez pas déplacer cette ressource, car Application Insights ne prend pas en charge l’opération de déplacement. Si vous incluez la ressource Application Insights lors du déplacement d’applications App Service, l’opération de déplacement entière échoue. Toutefois, Application Insights et le plan App Service n’ont pas à résider dans le même groupe de ressources pour que l’application fonctionne correctement.
@@ -119,7 +119,7 @@ Les options de déplacement des ressources déployées avec le modèle classique
 Lors du déplacement de ressources d’un groupe de ressources vers un autre **au sein du même abonnement**, les restrictions suivantes s’appliquent :
 
 - Les réseaux virtuels (classiques) ne peuvent pas être déplacés.
-- Les machines virtuelles (classiques) doivent être déplacées avec le service cloud. 
+- Les machines virtuelles (classiques) doivent être déplacées avec le service cloud.
 - Le service cloud peut uniquement être déplacé lorsque le déplacement comprend toutes ses machines virtuelles.
 - Un seul service cloud peut être déplacé à la fois.
 - Un seul compte de stockage (classique) peut être déplacé à la fois.
@@ -132,11 +132,11 @@ Lors du déplacement de ressources vers un **nouvel abonnement**, les restrictio
 
 ## Utilisation du portail pour déplacer des ressources
 
-Vous pouvez déplacer des ressources via le portail ; cependant, tous les fournisseurs de ressources qui prennent en charge l’opération de déplacement ne fournissent pas cette fonctionnalité via le portail.
-
 Pour déplacer une ressource, sélectionnez-la, puis cliquez sur le bouton **Déplacer**.
 
 ![Déplacer la ressource](./media/resource-group-move-resources/move-resources.png)
+
+> [AZURE.NOTE] À ce stade, toutes les ressources ne peuvent pas être déplacées à l’aide du portail. Si le bouton **Déplacer** ne s’affiche pas pour la ressource que vous souhaitez déplacer, utilisez PowerShell, CLI ou l’API REST pour déplacer la ressource.
 
 Vous spécifiez l’abonnement de destination et le groupe de ressources lors du déplacement de la ressource. Si d’autres ressources doivent être déplacées avec la ressource, celles-ci sont répertoriées.
 
@@ -272,4 +272,4 @@ Avec le corps de requête :
 - Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
 - Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

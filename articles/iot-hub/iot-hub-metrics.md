@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="07/06/2016"
  ms.author="nberdy"/>
 
 # Introduction aux métriques de diagnostic
 
-Les métriques de diagnostic s’inscrivent dans un effort de proposer des métriques Azure pour que vous disposiez de meilleures données sur l’état des ressources Azure de votre abonnement. Grâce aux métriques, un utilisateur peut évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles lui permettent d’effectuer le suivi de son hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
+Les métriques de diagnostic vous offrent de meilleures données sur l’état des ressources Azure de votre abonnement. Grâce aux métriques, un utilisateur peut évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles lui permettent d’effectuer le suivi de son hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
 
 Vous pouvez activer les métriques de diagnostic à partir du portail Azure.
 
@@ -70,4 +70,4 @@ Les métriques de diagnostic n’étant plus un secret pour vous, suivez les lie
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

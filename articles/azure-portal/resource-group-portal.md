@@ -19,9 +19,18 @@
 
 # Gérer les ressources Azure sur le portail
 
-Cette rubrique montre comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](../resource-group-overview.md) pour gérer vos ressources Azure. Pour en savoir plus sur le déploiement des ressources avec le portail, consultez [Déployer des ressources avec des modèles Resource Manager et le Portail Azure](../resource-group-template-deploy-portal.md).
+> [AZURE.SELECTOR]
+- [Portail](azure-portal/resource-group-portal.md)
+- [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, consultez [Graphique de la disponibilité du Portail Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.com) avec [Azure Resource Manager](../resource-group-overview.md) pour gérer vos ressources Azure. Pour en savoir plus sur le déploiement des ressources avec le portail, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../resource-group-template-deploy-portal.md).
+
+Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, consultez [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 <a id="access-control-for-azure-dashboards" />
 ## Personnaliser le tableau de bord pour surveiller les ressources
@@ -30,10 +39,10 @@ Le portail fournit un tableau de bord que vous pouvez utiliser pour surveiller e
 
 ![dashboard](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] Le meilleur moyen d’en savoir plus sur l’utilisation des tableaux de bord est de regarder la vidéo [Créer des tableaux de bord personnalisés dans le Portail Microsoft Azure](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards).
+> [AZURE.TIP] Le meilleur moyen d’en savoir plus sur l’utilisation des tableaux de bord est de regarder la vidéo [Créer des tableaux de bord personnalisés dans le portail Microsoft Azure](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards).
 
 ### Partage de tableaux de bord Azure et contrôle d’accès
-Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Le [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md) Azure régit l’accès aux informations affichées par les vignettes dans le portail. Tous les tableaux de bord publiés sont implémentés en tant que ressources Azure. Du point de vue du contrôle d’accès, les tableaux de bord sont traités de la même manière qu’une machine virtuelle ou un compte de stockage.
+Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Le [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md) Azure régit l’accès aux informations affichées par les mosaïques dans le portail. Tous les tableaux de bord publiés sont implémentés en tant que ressources Azure. Du point de vue du contrôle d’accès, les tableaux de bord sont traités de la même manière qu’une machine virtuelle ou un compte de stockage.
 
 Voici un exemple. Supposons que vous disposez d’un abonnement Azure et que les différents membres de votre équipe ont reçu les rôles de **propriétaire**, **contributeur** ou **lecteur** de l’abonnement. Les utilisateurs associés au rôle de propriétaire ou de contributeur peuvent répertorier, afficher, créer, modifier ou supprimer des tableaux de bord dans l’abonnement. Les utilisateurs ayant le rôle de lecteur peuvent répertorier et afficher des tableaux de bord, sans les modifier ou les supprimer. Les utilisateurs ayant un accès en lecture peuvent apporter des modifications locales à un tableau de bord publié (par exemple, lors de la résolution d’un problème), mais ne peuvent pas republier ces modifications sur le serveur. Ils pourront effectuer une copie privée du tableau de bord pour leur propre usage.
 
@@ -120,6 +129,6 @@ La suppression d’un groupe de ressources supprime toutes les ressources qu’i
 
 - Pour afficher les journaux d’audit, consultez [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
 - Pour résoudre des problèmes liés à un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le Portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Pour déployer des ressources avec le portail, consultez [Déployer des ressources avec des modèles Resource Manager et le Portail Azure](../resource-group-template-deploy-portal.md).
+- Pour déployer des ressources avec le portail, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

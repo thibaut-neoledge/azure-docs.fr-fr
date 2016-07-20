@@ -29,7 +29,7 @@ La base de données SQL Azure restaure toujours sur une nouvelle base de donnée
 
 En cas d’erreur de l’utilisateur ou de modification involontaire des données, vous pouvez utiliser la fonction de limite de restauration dans le temps pour restaurer une base de données à un moment donné, inclus dans la période de rétention prévue pour vos bases de données.
 
-Les bases de données de niveau de base proposent une période de rétention de 7 jours. Quant aux niveaux Standard et Premium, ils offrent des périodes de rétention de 14 et 35 jours, respectivement. Pour en savoir plus sur la rétention de sauvegarde de base de données, consultez [Sauvegardes automatisées](sql-database-automated-backups.md).
+Les bases de données de niveau de base proposent une période de rétention de 7 jours. Quant aux niveaux Standard et Premium, ils offrent des périodes de rétention de 35 jours. Pour en savoir plus sur la rétention de sauvegarde de base de données, consultez [Sauvegardes automatisées](sql-database-automated-backups.md).
 
 Pour effectuer une limite de restauration dans le temps, consultez les ressources suivantes :
 
@@ -59,4 +59,4 @@ Pour restaurer une base de données supprimée :
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
 - Pour plus d’informations sur l’utilisation de la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/10/2016"
+   ms.date="07/01/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
@@ -31,7 +31,11 @@ Apprenez à utiliser le portail Azure pour créer un cluster HDInsight (Hadoop, 
 
 * **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire. Pour obtenir plus d’informations, consultez [Utiliser Data Lake Store avec les clusters HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store est disponible uniquement si vous utilisez HDInsight version 3.2 et 3.4 (pour des clusters Hadoop, HBase et Storm sur Windows et Linux). Pour les clusters Spark sur Linux, cette option est uniquement disponible sur des clusters HDInsight 3.4.
+> [AZURE.NOTE] Quelques points importants à prendre en compte.
+> 
+> * L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store est disponible uniquement si vous utilisez HDInsight version 3.2 et 3.4 (pour des clusters Hadoop, HBase et Storm sur Windows et Linux). Pour les clusters Spark sur Linux, cette option est uniquement disponible sur des clusters HDInsight 3.4.
+>
+> * Comme mentionné ci-dessus, Data Lake Store est disponible en tant que stockage par défaut pour certains types de cluster (HBase) et en tant que stockage supplémentaire pour d’autres types de cluster (Hadoop, Spark, Storm). L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster. Dans un scénario où Data Lake Store est utilisé comme espace de stockage supplémentaire, les fichiers associés au cluster (par exemple, les journaux, etc.) sont écrits dans le stockage par défaut (objets Blob Azure), tandis que les données que vous souhaitez traiter peuvent être stockées dans un compte Data Lake Store.
 
 
 ## Composants requis
@@ -43,7 +47,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d'Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Une fois que vous avez créé le compte, effectuez les tâches suivantes pour télécharger des exemples de données. Vous aurez besoin de ces données plus tard dans ce didacticiel, pour exécuter des tâches à partir d’un cluster HDInsight ayant accès au Data Lake Store.
 
 	* [Créer un dossier dans votre Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
-	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Dépot Git Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ## Les vidéos vous permettent-elles d’apprendre plus rapidement ?
 
@@ -72,7 +76,7 @@ Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data 
 
 			![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Ajouter un principal du service à un cluster HDInsight")
 
-		* Dans le panneau **Identité AAD de cluster**, cliquez sur **Gérer l’accès ADLS**. Le panneau affiche les comptes Data Lake Store associés à l’abonnement. Toutefois, vous pouvez uniquement affecter des autorisations au compte que vous avez créé. Sélectionnez les autorisations de lecture/écriture/exécution (READ/WRITE/EXECUTE) pour le compte que vous voulez associer au cluster HDInsight, puis cliquez sur **Enregistrer les autorisations**.
+		* Dans le panneau **Identité AAD de cluster**, cliquez sur **Gérer l’accès ADLS**. Le panneau affiche les comptes Data Lake Store associés à l’abonnement. Toutefois, vous pouvez uniquement affecter des autorisations au compte que vous avez créé. Sélectionnez les autorisations de lecture/écriture/exécution (READ/WRITE/EXECUTE) pour le compte que vous souhaitez associer au cluster HDInsight, puis cliquez sur **Enregistrer les autorisations**.
 
 			![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Ajouter un principal du service à un cluster HDInsight")
 
@@ -125,9 +129,9 @@ Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches 
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. Cliquez sur le bouton **Exécuter** au bas de l’**Éditeur de requête** pour démarrer la requête. Une section **Résultats du processus de requête** doit apparaître en dessous de l’**Éditeur de requête** et afficher des informations sur le travail.
+5. Cliquez sur le bouton **Exécuter** au bas de **l’Éditeur de requête** pour démarrer la requête. Une section **Résultats du processus de requête** doit apparaître en dessous de **l’Éditeur de requête** et afficher des informations sur le travail.
 
-6. Une fois la requête terminée, la section **Résultats du processus de requête** affiche les résultats de l’opération. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
+6. Une fois la requête terminée, la section **Résultats du processus de requête** affiche les résultats de l’opération. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
 
 7. Lancez la requête suivante pour vérifier que la table a été créée.
 
@@ -233,7 +237,7 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 Dans cette section, vous utilisez le bloc-notes Jupyter disponible avec les clusters HDInsight Spark pour exécuter une tâche qui lit les données d’un compte Data Lake Store que vous avez associé un cluster HDInsight Spark, plutôt que le compte d’objets blob Azure Storage par défaut.
 
-1. Copiez quelques données d’exemple du compte de stockage par défaut (WASB) associé au cluster Spark dans le compte Azure Data Lake associé au cluster. Vous pouvez utiliser l[’outil ADLCopy](http://aka.ms/downloadadlcopy) pour cette opération. Téléchargez et installez l’outil à l’aide du lien.
+1. Copiez quelques données d’exemple du compte de stockage par défaut (WASB) associé au cluster Spark dans le compte Azure Data Lake associé au cluster. Vous pouvez utiliser [l’outil ADLCopy](http://aka.ms/downloadadlcopy) pour cette opération. Téléchargez et installez l’outil à l’aide du lien.
 
 2. Ouvrez une invite de commandes et accédez au répertoire où vous avez installé AdlCopy, généralement `%HOMEPATH%\Documents\adlcopy`.
 
@@ -256,7 +260,7 @@ Dans cette section, vous utilisez le bloc-notes Jupyter disponible avec les clus
 
 	Le fichier de données (**HVAC.csv**) sera copié dans un dossier **/hvac** du compte Data Lake Store.
 
-4. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
+4. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -343,4 +347,4 @@ Avec les clusters HBase, vous pouvez utiliser Data Lake Store comme stockage par
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

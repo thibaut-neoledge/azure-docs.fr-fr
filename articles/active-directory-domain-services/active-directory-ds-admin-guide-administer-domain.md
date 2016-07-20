@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Administrer un domaine géré par les services de domaine Azure Active Directory
@@ -146,4 +146,4 @@ Maintenant que les outils d’administration AD sont installés sur la machine v
 
 - [Déployer les Outils d’administration de serveur distant](https://technet.microsoft.com/library/hh831501.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

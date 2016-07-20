@@ -1,5 +1,5 @@
 <properties
- pageTitle="Mise à l’échelle Azure IoT Hub | Microsoft Azure"
+ pageTitle="Mise à l’échelle Azure IoT Hub | Microsoft Azure"
  description="Décrit comment mettre à l’échelle Azure IoT Hub."
  services="iot-hub"
  documentationCenter=""
@@ -20,7 +20,7 @@
 
 Azure IoT Hub peut prendre en charge jusqu’à un million d’appareils connectés simultanément. Pour plus d’informations, consultez la [tarification IoT Hub][lnk-pricing]. Chaque unité IoT Hub autorise également un certain nombre de messages quotidiens.
 
-Pour mettre correctement à l’échelle votre solution, étudiez votre utilisation particulière d’IoT Hub. Prenez plus particulièrement en compte le débit maximal requis pour les catégories d’opérations suivantes :
+Pour mettre correctement à l’échelle votre solution, étudiez votre utilisation particulière d’IoT Hub. Prenez plus particulièrement en compte le débit maximal requis pour les catégories d’opérations suivantes :
 
 * Messages Appareil vers cloud
 * Messages Cloud vers appareil
@@ -38,8 +38,9 @@ Les messages Appareil vers cloud respectent les recommandations de débit souten
 | ---- | -------------------- | ------------------- |
 | S1 | Jusqu’à 1 111 Ko/minute par unité<br/>(1,5 Go/jour/unité) | Moyenne de 278 messages/minute par unité<br/>(400 000 messages/jour par unité) |
 | S2 | Jusqu’à 16 Mo/minute par unité<br/>(22,8 Go/jour/unité) | Moyenne de 4 167 messages/minute par unité<br/>(6 millions de messages/jour par unité) |
+| S3 | Jusqu’à 814 Mo/minute par unité<br/>(1144,4 Go/jour/unité) | Moyenne de 208 333 messages/minute par unité<br/>(300 millions de messages/jour par unité) |
 
-La performance des échelles des messages Cloud vers appareil, où chaque appareil reçoit jusqu’à 5 messages par minute.
+La performance des échelles des messages Cloud vers appareil, où chaque appareil reçoit jusqu’à 5 messages par minute.
 
 ## Débit des opérations de registre d’identité
 
@@ -53,15 +54,15 @@ Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution 
 
 ## Étapes suivantes
 
-Suivez ces liens pour en savoir plus sur Azure IoT Hub :
+Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
 - [Prise en main d'IoT Hub (didacticiel)][lnk-get-started]
-- [Qu’est-ce qu’Azure IoT Hub ?][]
+- [Qu’est-ce qu’Azure IoT Hub ?][]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [quotas et limitations IoT Hub]: iot-hub-devguide.md#throttling
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
+[Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0706_2016-->

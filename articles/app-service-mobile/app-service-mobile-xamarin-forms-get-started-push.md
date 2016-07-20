@@ -318,7 +318,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
 
 ####Configurer le Notification Hub pour APNS
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Mobile Apps** > votre application mobile > **Paramètres** > **Notifications Push** > **Apple (APNS)** > **Télécharger un certificat**. Chargez le fichier de certificat Push p12 exporté plus tôt. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, sélectionnez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Mobile Apps** > votre application mobile > **Paramètres** > **Notifications Push** > **Apple (APNS)** > **Télécharger un certificat**. Chargez le fichier de certificat Push p12 exporté plus tôt. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, sélectionnez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -330,43 +330,14 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
 
 ####Ajout de notifications Push à votre application iOS
 
-1. Ajoutez l’instruction `using` suivante au début du fichier **AppDelegate.cs**.
+1. Dans le projet **iOS**, ouvrez AppDelegate.cs, ajoutez l’instruction **using** suivante en haut du fichier de code.
 
-        using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Newtonsoft.Json.Linq;
 
+4. Dans la classe **AppDelegate.cs**, ajoutez également un remplacement pour l’événement **RegisteredForRemoteNotifications** afin de vous inscrire pour les notifications :
 
-2. Dans le projet iOS, ouvrez AppDelegate.cs et mettez à jour`FinishedLaunching` pour prendre en charge des notifications à distance comme suit.
-
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			global::Xamarin.Forms.Forms.Init ();
-
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-
-            // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
-            // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
-            //SQLitePCL.CurrentPlatform.Init();
-
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound,
-                new NSSet());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-
-			LoadApplication (new App ());
-
-			return base.FinishedLaunching (app, options);
-		}
-
-
-4. Dans AppDelegate.cs, ajoutez également un remplacement pour l’événement **RegisteredForRemoteNotifications** afin de vous inscrire pour les notifications :
-
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        public override void RegisteredForRemoteNotifications(UIApplication application, 
+			NSData deviceToken)
         {
             const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
 
@@ -381,9 +352,10 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. Dans AppDelegate.cs, ajoutez également un remplacement pour l’événement **DidReceivedRemoteNotification** afin de traiter les notifications entrantes pendant l’exécution de l’application :
+5. Dans **AppDelegate**, ajoutez également la substitution suivante pour le Gestionnaire d’événements **DidReceivedRemoteNotification** :
 
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        public override void DidReceiveRemoteNotification(UIApplication application, 
+			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
@@ -398,6 +370,22 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
                 avAlert.Show();
             }
         }
+
+	Cette méthode gère les notifications entrantes pendant que l’application est en cours d’exécution.
+
+2. Dans la classe **AppDelegate**, ajoutez le code suivant à la méthode **FinishedLaunching** :
+
+        // Register for push notifications.
+        var settings = UIUserNotificationSettings.GetSettingsForTypes(
+            UIUserNotificationType.Alert
+            | UIUserNotificationType.Badge
+            | UIUserNotificationType.Sound,
+            new NSSet());
+
+        UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+	Cela permet la prise en charge de l’enregistrement Push des notifications et des demandes à distance.
 
 L’application est mise à jour et prend en charge les notifications Push.
 
@@ -510,4 +498,4 @@ Vous pouvez poursuivre avec l’un des didacticiels suivants :
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

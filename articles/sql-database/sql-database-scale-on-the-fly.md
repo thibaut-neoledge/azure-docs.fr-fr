@@ -19,7 +19,7 @@
 
 # Mises à l’échelle instantanées de bases de données SQL Azure
 
-## Lorsque votre application passe d’un petit nombre de clients à une utilisation quasi universelle, votre base de données SQL Azure peut évoluer simultanément sans interruption de l’application.
+## Lorsque votre application passe d’un petit nombre de clients à une utilisation quasi universelle, votre base de données SQL Azure peut évoluer simultanément avec une interruption minimale de l’application.
 
 L’un des avantages de disposer d’une base de données SQL sur Microsoft Azure est de pouvoir augmenter ou diminuer les performances en temps réel, pour s’adapter rapidement aux demandes de charge de travail. Une base de données SQL propose un large éventail de niveaux de performances permettant de répondre aux besoins spécifiques de votre application. Chaque niveau garantit des performances données, afin que les utilisateurs de votre application aient une expérience homogène.
 
@@ -54,4 +54,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

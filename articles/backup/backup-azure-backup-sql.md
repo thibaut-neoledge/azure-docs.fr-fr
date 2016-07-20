@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="07/01/2016"
 	ms.author="giridham; jimpark;"/>
 
 
@@ -30,7 +30,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
 3. Récupérer la base de données à partir d’Azure.
 
 ## Avant de commencer
-Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-azure-dpm-introduction/#prerequisites) à l'utilisation de Microsoft Azure Backup pour protéger les charges de travail ont été remplies. Les conditions préalables couvrent des tâches telles que : création d'un coffre de sauvegarde, téléchargement des informations d'identification du coffre, installation de l'agent de sauvegarde Azure et inscription du serveur auprès du coffre.
+Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-azure-dpm-introduction.md#prerequisites) à l'utilisation de Microsoft Azure Backup pour protéger les charges de travail ont été remplies. Les conditions préalables couvrent des tâches telles que : création d'un coffre de sauvegarde, téléchargement des informations d'identification du coffre, installation de l'agent de sauvegarde Azure et inscription du serveur auprès du coffre.
 
 ## Créer une stratégie de sauvegarde pour protéger les bases de données SQL Server dans Azure
 
@@ -52,7 +52,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 
     ![Sélectionner la base de données SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
-6. Indiquez le nom du groupe de protection que vous vous apprêtez à créer. Veillez à sélectionner l’option « ** je souhaite une Protection en ligne ** ».
+6. Indiquez le nom du groupe de protection que vous vous apprêtez à créer. Veillez à sélectionner l’option « **Je souhaite une protection en ligne** ».
 
     ![Méthode de Protection des données - disque à court terme et Azure en ligne](./media/backup-azure-backup-sql/pg-name.png)
 
@@ -100,7 +100,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 
     >[AZURE.NOTE] Il est conseillé de disposer de plusieurs points de récupération à court terme sur disque pour une récupération rapide. Cette opération est appelée « Récupération opérationnelle ». Azure constitue un bon emplacement hors site, avec des contrats de niveau de service supérieurs et une disponibilité garantie.
 
-    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela active, la dernière sauvegarde de disque doit être copiée vers Azure.
+    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela active, la dernière sauvegarde de disque doit être copiée vers Azure.
 
 13. Cliquez sur la planification de stratégie de rétention. Les détails du fonctionnement de la stratégie de rétention sont fournis dans la section [Utilisation d'Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 
@@ -174,4 +174,4 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

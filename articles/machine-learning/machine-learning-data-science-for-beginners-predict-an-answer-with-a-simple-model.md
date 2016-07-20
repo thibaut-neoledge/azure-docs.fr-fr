@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prédire une réponse à l’aide d’un modèle simple | Microsoft Azure"
+   pageTitle="Prédire une réponse à l’aide d’un modèle simple - Science des données pour les débutants | Microsoft Azure"
    description="Comment créer un modèle simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants. Comprend une régression linéaire de base avec des données cibles."                                  
    keywords="créer un modèle,modèle simple,modèle de données simple,prédiction de prix,modèle de régression simple"
    services="machine-learning"
@@ -17,9 +17,11 @@
    ms.date="06/29/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Prédire une réponse à l’aide d’un modèle simple : science des données pour les débutants, vidéo 4
+# Vidéo Science des données pour les débutants nº 4 : Prédire une réponse à l’aide d’un modèle simple
 
 Découvrez comment créer un modèle simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants. Nous allons dessiner un modèle de régression avec des données cibles.
+
+Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
@@ -121,18 +123,19 @@ Aujourd’hui, nous avons expliqué comment effectuer une régression linéaire,
 Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 
 
-## Autres vidéos de la série
+## Autres vidéos de cette série
 
-La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq courtes vidéos.
+La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-  * Vidéo 1 : [Les 5 questions auxquelles la science des données peut répondre](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Disponible dès à présent.**
-  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Disponible dès à présent.**
-  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Disponible dès à présent.**
-  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Disponible le 30 juin.
+  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Vidéo 4 : Prédire une réponse à l’aide d’un modèle simple
+  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Étapes suivantes
 
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+  * [Consultez la présentation de l’apprentissage automatique sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

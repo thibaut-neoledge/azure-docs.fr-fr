@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="douglasl"/>
 
 # Restaurer des bases de données Stretch
@@ -56,28 +56,13 @@ Pour restaurer une base de données Azure supprimée au moment de sa suppression
 5. Spécifiez un nouveau **nom pour la base de données** et cliquez sur **Créer**.
 6. Le processus de restauration de la base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**.
 
-### Restaurer une base de données Azure dans une autre région Azure  
-Le service SQL Server Stretch Database sur Azure copie les instantanés de façon asynchrone dans une autre région Azure géographique pour faciliter leur récupération en cas de défaillance dans une région. Si vous ne pouvez pas accéder à votre base de données en raison d’une défaillance dans une région Azure, vous pouvez la restaurer à l’aide de l’un des instantanés géo-redondants.
-
->   [AZURE.NOTE] La récupération de la base de données Azure dans une autre région Azure requiert la modification de la chaîne de connexion dans les applications clientes après la récupération et peut entraîner une perte de données permanente. Effectuez ce type de récupération uniquement lorsque l’interruption est susceptible de durer longtemps.
-
-Pour récupérer une base de données Azure à un point antérieur dans le temps dans une autre région Azure à l’aide du portail Azure, procédez comme suit.
-
-1. Connectez-vous au portail Azure.
-2. Sur le côté gauche de l’écran, sélectionnez **+NOUVEAU**, puis **Données et stockage** et **SQL Data Warehouse**
-3. Sélectionnez **SAUVEGARDE** comme source, puis la sauvegarde géo-redondante à partir de laquelle vous souhaitez effectuer la récupération
-4. Spécifiez le reste des propriétés de la base de données, puis cliquez sur **Créer**
-5. Le processus de restauration de la base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**
-
-Après avoir restauré la base de données Azure dans une autre région, vous devez exécuter les procédures stockées **sys.sp\_rda\_deauthorize\_db** et **sys.sp\_rda\_reauthorize\_db** pour restaurer la connexion entre la base de données Stretch SQL Server et la base de données Azure distante. Pour plus d’informations, consultez [Restaurer la connexion entre la base de données SQL Server et la base de données Azure distante](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
-
 ## Restaurer la connexion entre la base de données SQL Server et la base de données Azure distante
 
-1.  Si vous souhaitez vous connecter à une base de données Azure restaurée avec un nom différent ou dans une région différente, exécutez la procédure stockée [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) pour vous déconnecter de la base de données Azure précédente.  
+1.  Si vous souhaitez vous connecter à une base de données Azure restaurée avec un nom différent ou dans une région différente, exécutez la procédure stockée [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) pour vous déconnecter de la base de données Azure précédente.
 
 2.  Exécutez la procédure stockée [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) pour reconnecter la base de données Stretch locale à la base de données Azure.
 
-	-   Fournissez les informations d’identification de portée de base de données sous forme de valeur varchar (128) ou sysname. (N’utilisez pas varchar(max).) Vous pouvez rechercher le nom d’identification dans la vue **sys.database\_scoped\_credentials**.  
+	-   Fournissez les informations d’identification de portée de base de données sous forme de valeur varchar (128) ou sysname. (N’utilisez pas varchar(max).) Vous pouvez rechercher le nom d’identification dans la vue **sys.database\_scoped\_credentials**.
 
 	-   Indiquez s’il est nécessaire d’effectuer une copie des données distantes et de s’y connecter (recommandé).
 
@@ -98,4 +83,4 @@ Après avoir restauré la base de données Azure dans une autre région, vous de
 
 [Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/20/2016"
+	ms.date="06/30/2016"
 	ms.author="marsma" />
 
 # Déploiement d’applications avec des packages d’applications Azure Batch
@@ -198,6 +198,8 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
+Les packages d’applications que vous spécifiez pour un pool sont installés sur chaque nœud de calcul lorsque ce nœud rejoint le pool, et lorsque le nœud est redémarré ou réinitialisé. Si un déploiement de package d’applications échoue pour une raison quelconque, le service Batch marque le nœud comme [inutilisable][net_nodestate] et aucune tâche ne sera planifiée sur ce nœud. Dans ce cas, vous devez **redémarrer** le nœud pour relancer le déploiement du package (le fait de redémarrer le nœud réactive également la planification des tâches sur le nœud).
+
 ## Exécution des applications installées
 
 Quand chaque nœud de calcul rejoint un pool (ou est redémarré ou réinitialisé), les packages que vous avez spécifiés sont téléchargés et extraits vers un répertoire nommé au sein de `AZ_BATCH_ROOT_DIR` sur le nœud. Batch crée également une variable d’environnement pour les lignes de commande de votre tâche à utiliser lors de l’appel des fichiers binaires applicatifs ; cette variable se conforme au schéma d’affectation de noms suivant :
@@ -244,7 +246,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-La nouvelle version (version 2.76b) étant configurée, elle sera déployée sur les *nouveaux* nœuds qui rejoignent le pool. Pour installer la version 2.76b sur les nœuds qui sont *déjà* dans le pool, redémarrez-les (ou réinitialisez-les). Notez que les nœuds redémarrés conservent les fichiers des déploiements précédents du package.
+Maintenant que la nouvelle version (version 2.76b) a été configurée, elle sera déployée sur les *nouveaux* nœuds qui rejoignent le pool. Pour installer la version 2.76b sur les nœuds qui sont *déjà* dans le pool, redémarrez-les (ou réinitialisez-les). Notez que les nœuds redémarrés conservent les fichiers des déploiements précédents du package.
 
 ## Liste des applications dans un compte Batch
 
@@ -272,7 +274,7 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 
 * L’[API REST Batch][api_rest] prend également en charge l’utilisation de packages d’applications. Par exemple, consultez l’élément [applicationPackageReferences][rest_add_pool_with_packages] dans [Ajouter un pool à un compte][rest_add_pool] pour spécifier les packages à installer à l’aide de l’API REST. Consultez la page [Applications][rest_applications] pour plus de détails sur l’obtention d’informations sur l’application à l’aide de l’API REST Batch.
 
-* Découvrez comment [gérer les quotas et les comptes Azure Batch avec Batch Management .NET](batch-management-dotnet.md) par programmation. La bibliothèque [Batch Management .NET][api_net_mgmt] peut activer les fonctionnalités de création et de suppression de compte pour votre application ou service Batch.
+* Découvrez comment [gérer les quotas et les comptes Azure Batch avec Batch Management .NET](batch-management-dotnet.md) par programme. La bibliothèque [Batch Management .NET][api_net_mgmt] peut activer les fonctionnalités de création et de suppression de compte pour votre application ou service Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -284,6 +286,7 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -301,4 +304,4 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [11]: ./media/batch-application-packages/app_pkg_11.png "Panneau Mettre à jour un package dans le portail Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Boîte de dialogue de confirmation de la suppression d’un package dans le portail Azure"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

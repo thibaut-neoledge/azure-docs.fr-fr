@@ -28,7 +28,7 @@ Cet article se concentre sur la compréhension des étapes de planification néc
 
 Décisions :
 
-- Quel type de réseau virtuel devez-vous pour héberger votre charge de travail ou votre infrastructure informatique (cloud ou intersite) ?
+- Quel type de réseau virtuel devez-vous pour héberger votre charge de travail ou votre infrastructure informatique (cloud ou intersite) ?
 - Pour les réseaux virtuels intersite, de quelle taille d’espace adressage avez-vous besoin pour héberger les sous-réseaux et les machines virtuelles maintenant et pour une extension future raisonnable ?
 - Allez-vous créer des réseaux virtuels centralisés ou plutôt des réseaux virtuels pour chaque groupe de ressources ?
 
@@ -52,7 +52,7 @@ Avec l’utilisation de groupes de ressources, vous disposez de plus de flexibil
 ### Réseaux virtuels cloud uniquement
 Si les utilisateurs et les ordinateurs locaux ne nécessitent pas de connectivité continue aux machines virtuelles dans un réseau virtuel Azure, votre conception de réseau virtuel sera très simple :
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Diagramme d’un réseau virtuel de base uniquement dans le cloud](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
 Cette solution s’applique généralement à des charges de travail Internet, telles qu’un serveur web Internet. Vous pouvez gérer ces machines virtuelles par SSH ou connexion VPN point à site.
 
@@ -62,7 +62,7 @@ Les réseaux virtuels ne se connectant pas à votre réseau local, les réseaux 
 ### Réseaux virtuels intersite
 Si les utilisateurs et ordinateurs locaux nécessitent une connectivité continue aux machines virtuelles dans un réseau virtuel Azure, créez un réseau virtuel intersite et connectez-le à votre réseau local avec une connexion ExpressRoute ou VPN de site à site.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Diagramme de réseau virtuel entre sites locaux](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
 Dans cette configuration, le réseau virtuel Azure est essentiellement une extension cloud de votre réseau local.
 
@@ -95,7 +95,7 @@ Vous pouvez appliquer des règles de filtrage pour le trafic qui transite via vo
 
 
 ## Composants réseau supplémentaires
-Comme avec une infrastructure de réseau local physique, un réseau virtuel Windows Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
+Comme avec une infrastructure de réseau local physique, un réseau virtuel Microsoft Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
 
 - [Des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) : connectez des réseaux virtuels Azure à d’autres réseaux virtuels Azure, sur les réseaux locaux via une connexion VPN de site à site, fournissez aux utilisateurs un accès direct avec les connexions VPN point à site ou implémentez des connexions Express Route pour des connexions dédiées et sécurisées.
 - [Un équilibreur de charge](../load-balancer/load-balancer-overview.md) - fournit l’équilibrage de la charge du trafic pour le trafic externe et interne de la façon dont vous le souhaitez.
@@ -107,4 +107,4 @@ Comme avec une infrastructure de réseau local physique, un réseau virtuel Wind
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

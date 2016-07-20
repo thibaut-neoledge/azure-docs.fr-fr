@@ -444,9 +444,9 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des valeur
 
 - [concat](#concat)
 - [length](#length)
-- [take](#take)
 - [skip](#skip)
 - [split](#split)
+- [take](#take)
 
 <a id="length" />
 ### length
@@ -469,37 +469,6 @@ Vous pouvez aussi l’utiliser avec une chaîne :
     },
     "variables": { 
         "nameLength": "[length(parameters('appName'))]"
-    }
-
-<a id="take" />
-### take
-**take(originalValue, numberToTake)**
-
-Retourne un tableau ou une chaîne avec le nombre spécifié d’éléments ou de caractères depuis le début de la chaîne ou du tableau.
-
-| Paramètre | Requis | Description
-| :--------------------------------: | :------: | :----------
-| originalValue | Oui | Le tableau ou la chaîne à partir desquels les éléments ou les caractères doivent être pris.
-| numberToTake | Oui | Le nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, un tableau ou une chaîne vide sont retournés. Si elle est supérieure à la longueur de la chaîne ou du tableau donnés, tous les éléments du tableau ou de la chaîne sont retournés.
-
-L’exemple suivant prend le nombre spécifié d’éléments du tableau.
-
-    "parameters": {
-      "first": {
-        "type": "array",
-        "defaultValue": [ "one", "two", "three" ]
-      },
-      "second": {
-        "type": "int"
-      }
-    },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "array",
-        "value": "[take(parameters('first'),parameters('second'))]"
-      }
     }
 
 <a id="skip" />
@@ -530,6 +499,37 @@ L’exemple suivant ignore le nombre spécifié d’éléments du tableau.
       "return": {
         "type": "array",
         "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Retourne un tableau ou une chaîne avec le nombre spécifié d’éléments ou de caractères depuis le début de la chaîne ou du tableau.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| originalValue | Oui | Le tableau ou la chaîne à partir desquels les éléments ou les caractères doivent être pris.
+| numberToTake | Oui | Le nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, un tableau ou une chaîne vide sont retournés. Si elle est supérieure à la longueur de la chaîne ou du tableau donnés, tous les éléments du tableau ou de la chaîne sont retournés.
+
+L’exemple suivant prend le nombre spécifié d’éléments du tableau.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
       }
     }
 
@@ -877,4 +877,4 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

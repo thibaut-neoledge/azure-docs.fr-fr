@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
+   ms.date="07/05/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Guide technique de la résilience Azure - Récupération suite à des défaillances locales dans Azure
@@ -69,7 +69,7 @@ Azure Virtual Machines diffère des rôles de calcul Platform as a Service (PaaS
 
 Contrairement aux instances de rôle PaaS, les données stockées sur les disques de machines virtuelles demeurent persistantes, même en cas de déplacement des machines virtuelles. Les machines virtuelles Azure utilisent les disques de machines virtuelles existant en tant qu’objets blob dans Azure Storage. En raison des caractéristiques de disponibilité d’Azure Storage, les données stockées sur des lecteurs d’une machine virtuelle sont également hautement disponibles.
 
-Notez que le lecteur D fait exception à cette règle. Le lecteur D correspond au stockage physique sur le serveur monté en rack qui héberge la machine virtuelle ; ses données seront perdues en cas de recyclage de la machine virtuelle. Le lecteur D est dédié au stockage temporaire uniquement.
+Notez que le lecteur D (sur les machines virtuelles Windows) fait exception à cette règle. Le lecteur D correspond au stockage physique sur le serveur monté en rack qui héberge la machine virtuelle ; ses données seront perdues en cas de recyclage de la machine virtuelle. Le lecteur D est dédié au stockage temporaire uniquement. Sous Linux, Azure expose « généralement » (mais pas systématiquement) le disque temporaire local en tant qu’appareil en mode bloc /dev/sdb. Il est souvent monté par l’Agent Linux Azure sous forme de point de montage /mnt/resource ou /mnt (configurable via/etc/waagent.conf).
 
 ###Partitionnement
 
@@ -118,13 +118,13 @@ La Base de données SQL Azure fournit la résilience intégrée dédiée aux dé
 
 ####Gestion des ressources
 
-Lors de la création, chaque base de données est configurée avec une limite de taille supérieure. La taille maximale actuellement disponible est 150 Go. Lorsqu’une base de données atteint sa limite de taille maximale, elle refuse les commandes INSERT ou UPDATE supplémentaires. (L’interrogation et la suppression des données sont toujours possibles.)
+Lors de la création, chaque base de données est configurée avec une limite de taille supérieure. La taille maximale actuellement disponible est de 1 To (les limites de taille varient en fonction de votre niveau de service, consultez la section relative aux [niveaux de service et de performances des bases de données Azure SQL](../sql-database/sql-database-resource-limits.md#service-tiers-and-performance-levels). Lorsqu’une base de données atteint sa limite de taille maximale, elle refuse les commandes INSERT ou UPDATE supplémentaires. (L’interrogation et la suppression des données sont toujours possibles.)
 
 Dans une base de données, la Base de données SQL Azure utilise une structure pour gérer les ressources. Toutefois, au lieu d’un contrôleur de structure, elle utilise une topologie en anneau pour détecter les erreurs. Dans un cluster, chaque réplica a deux voisins et il est chargé de détecter leur mise hors service. Lorsqu’un réplica est mis hors service, ses voisins déclenchent un Reconfiguration Agent pour le recréer sur une autre machine. La limitation du moteur fournie vous assure qu’un serveur logique n’utilise pas trop de ressources sur une machine ou ne dépasse les limites physiques de la machine.
 
 ###Élasticité
 
-Si l’application nécessite davantage que la limite de base de données de 150 Go, elle doit implémenter une approche d’augmentation de la taille des instances. Vous augmentez la taille des instances avec la Base de données SQL Azure via un partitionnement manuel des données entre plusieurs bases de données SQL Azure. Cette approche d’augmentation de la taille des instances permet d’obtenir une augmentation quasi linéaire du prix par rapport à la mise à l’échelle. La croissance élastique ou la capacité à la demande peuvent augmenter avec une tarification incrémentielle en fonction des besoins, car les bases de données sont facturées en fonction de la taille moyenne réelle utilisée chaque jour, pas en fonction de la taille maximale possible.
+Si l’application nécessite davantage que la limite de base de données de 1 To, elle doit implémenter une approche d’augmentation de la taille des instances. Vous augmentez la taille des instances avec la Base de données SQL Azure via un partitionnement manuel des données entre plusieurs bases de données SQL Azure. Cette approche d’augmentation de la taille des instances permet d’obtenir une augmentation quasi linéaire du prix par rapport à la mise à l’échelle. La croissance élastique ou la capacité à la demande peuvent augmenter avec une tarification incrémentielle en fonction des besoins, car les bases de données sont facturées en fonction de la taille moyenne réelle utilisée chaque jour, pas en fonction de la taille maximale possible.
 
 ##SQL Server sur Virtual Machines
 
@@ -132,11 +132,11 @@ En installant SQL Server (version 2014 ou ultérieure) sur Azure Virtual Machine
 
 ###Nœuds haute disponibilité d’un groupe à haute disponibilité
 
-Lorsque vous implémentez une solution de haute disponibilité dans Azure, vous pouvez utiliser le groupe à haute disponibilité dans Azure pour placer les nœuds haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts. Pour être clair, le groupe à haute disponibilité est un concept Azure. Nous vous recommandons de suivre cette meilleure pratique pour vous assurer de la haute disponibilité de vos bases de données, que vous utilisiez des groupes de disponibilité AlwaysOn, la mise en miroir de bases de données ou une autre solution. Si vous ne suivez pas cette meilleure pratique, vous pourriez croire, à tort, que votre système est hautement disponible. Mais en réalité, vos nœuds peuvent tous tomber en panne simultanément, car ils se trouvent dans le même domaine d’erreur du centre de données Azure.
+Lorsque vous implémentez une solution de haute disponibilité dans Azure, vous pouvez utiliser le groupe à haute disponibilité dans Azure pour placer les nœuds haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts. Pour être clair, le groupe à haute disponibilité est un concept Azure. Nous vous recommandons de suivre cette meilleure pratique pour vous assurer de la haute disponibilité de vos bases de données, que vous utilisiez des groupes de disponibilité AlwaysOn, la mise en miroir de bases de données ou une autre solution. Si vous ne suivez pas cette meilleure pratique, vous pourriez croire, à tort, que votre système est hautement disponible. Mais en réalité, vos nœuds peuvent tous tomber en panne simultanément, car ils se trouvent dans le même domaine d’erreur de la région Azure.
 
-Cette recommandation n’est pas applicable avec la copie des journaux de transaction. Puisque la copie des journaux de transaction est une fonctionnalité de récupération d’urgence, vous devez vous assurer que les serveurs s’exécutent dans des emplacements de centre de données Azure distincts (régions). Par définition, ces emplacements de centre de données sont des domaines d’erreur distincts.
+Cette recommandation n’est pas applicable avec la copie des journaux de transaction. Puisque la copie des journaux de transaction est une fonctionnalité de récupération d’urgence, vous devez vous assurer que les serveurs s’exécutent dans des régions Azure distinctes. Par définition, ces régions sont des domaines d’erreur distincts.
 
-Pour les machines virtuelles Azure que vous devez placer dans le même groupe à haute disponibilité, vous devez les déployer dans le même service cloud. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. En outre, les machines virtuelles doivent se trouver dans le même réseau virtuel pour s’assurer qu’elles conservent leur adresse IP même après la réparation du service. Cela vous permet d’éviter les temps de mise à jour DNS.
+Pour que les machines virtuelles Azure Cloud Services déployées via le portail classique se trouvent dans le même groupe à haute disponibilité, vous devez les déployer dans le même service cloud. Les machines virtuelles déployées via Azure Resource Manager (portail actuel) ne présentent pas cette limite. Pour les machines virtuelles déployées sur le portail classique dans Azure Cloud Service, seuls les nœuds du même service cloud peuvent participer au même groupe à haute disponibilité. En outre, les machines virtuelles Cloud Services doivent se trouver dans le même réseau virtuel pour s’assurer qu’elles conservent leur adresse IP même après la réparation du service. Cela vous permet d’éviter les temps d’interruption de mise à jour DNS.
 
 ###Azure uniquement : solutions de haute disponibilité
 
@@ -187,7 +187,7 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans le s
 
 ###Machines virtuelles
 
-  1. Consultez la section [Virtual Machines](#virtual-machines) de ce document.
+  1. Consulter la section [Virtual Machines](#virtual-machines) de ce document.
   2. N’utilisez pas le lecteur D pour le stockage persistant.
   3. Groupez les machines dans un niveau de service d’un groupe à haute disponibilité.
   4. Configurez l’équilibrage de charge et les sondes facultatives.
@@ -223,4 +223,4 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans le s
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->
