@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Vue d’ensemble de la validation XML et d’Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Découvrez le fonctionnement de la validation dans Enterprise Integration Pack et vos applications logiques" 
+	pageTitle="Vue d’ensemble du traitement XML et d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
+	description="Apprenez à traiter et à valider des messages XML à l’aide d’Enterprise Integration Pack et d’applications logiques" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,30 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/07/2016" 
 	ms.author="deonhe"/>
 
-# Intégration d’entreprise avec la validation XML
 
-## Vue d'ensemble
-Souvent, dans les scénarios d’entreprise à entreprise (B2B), les partenaires au sein d’un contrat doivent confirmer que les messages qu’ils échangent sont valides avant de commencer le traitement des données. Dans Enterprise Integration Pack, vous pouvez utiliser le connecteur XML Validation pour valider les documents par rapport à un schéma prédéfini.
+# Traitement XML
 
-## Comment valider un document avec le connecteur XML Validation ?
-1. Créez une application logique et [liez-la à votre compte d’intégration](./app-service-logic-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le schéma que vous utiliserez pour valider les données XML.
-2. Ajoutez un déclencheur **Demande - Quand une demande HTTP est reçue** à votre application logique ![](./media/app-service-logic-enterprise-integration-xml/xml-1.png)
-3. Ajouter l’action **Validation XML** en sélectionnant d’abord **Ajouter une action**
-4. Entrez *xml* dans la zone de recherche afin de filtrer toutes les actions et d’obtenir celle que vous souhaitez utiliser
-5. Sélectionnez **Validation XML** ![](./media/app-service-logic-enterprise-integration-xml/xml-2.png)
-6. Sélectionnez la zone de texte **CONTENU** ![](./media/app-service-logic-enterprise-integration-xml/xml-1-5.png)
-7. Sélectionnez la balise body en tant que contenu qui sera validé. ![](./media/app-service-logic-enterprise-integration-xml/xml-3.png)
-8. Sélectionnez la zone de liste **NOM DU SCHÉMA** et choisissez le schéma que vous souhaitez utiliser pour valider le *contenu* entré ci-dessus ![](./media/app-service-logic-enterprise-integration-xml/xml-4.png)
-9. Enregistrez votre travail ![](./media/app-service-logic-enterprise-integration-xml/xml-5.png)
+Enterprise Integration Pack facilite la validation et le traitement des documents XML échangés avec vos partenaires commerciaux. Voici les méthodes permettant de traiter ces messages XML à l’aide d’applications logiques :
 
-À ce stade, vous avez terminé de configurer votre connecteur de validation. Dans une application réelle, vous souhaiterez peut-être stocker les données validées dans une application métier, comme SalesForce. Vous pouvez facilement ajouter une action pour envoyer la sortie de la validation à SalesForce.
+- [Validation XML](./app-service-logic-enterprise-integration-xml-validation.md "En savoir plus sur la validation de message XML") - La validation XML permet de valider un message provenant d’un point de terminaison source par rapport à un schéma spécifique.
+- [Transformation XML](./app-service-logic-enterprise-integration-transform.md "En savoir plus sur les transformations et les mappages de message XML") - La transformation XML permet de convertir un message XML basé sur les spécifications d’un point de terminaison de destination.
+- [Encodage et décodage de fichier plat](./app-service-logic-enterprise-integration-flatfile.md "En savoir plus sur l’encodage/décodage de fichier plat") -L’encodage/décodage de fichier plat permet de coder ou décoder un fichier plat.
+- [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - permet d’enrichir un message et d’extraire des propriétés spécifiques du message. Les propriétés extraites peuvent ensuite servir à acheminer le message vers une destination ou un point de terminaison intermédiaire.
 
-Vous pouvez maintenant tester votre action de validation en effectuant une demande au point de terminaison HTTP.
+## En savoir plus
 
-## Étapes suivantes
-- [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
+[En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

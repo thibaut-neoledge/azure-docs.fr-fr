@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning
@@ -1296,13 +1296,13 @@ RStudio étant très bien documenté, vous trouverez dans cette annexe des liens
 
 Ce didacticiel sur la programmation R couvre les concepts de base de ce qu'il vous faut pour utiliser le langage R avec Azure Machine Learning Studio. Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 
-- « R pour les débutants » par Emmanuel Paradis est un bon point de départ, à l’adresse http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+- « R pour les débutants » par Emmanuel Paradis est un bon point de départ, à l’adresse http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.
 
 - Une introduction à R par W. N. Venables et collab. approfondit un peu le sujet : http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Il existe de nombreux livres sur le langage R qui peuvent vous aider à vous lancer. En voici quelques-uns que j'ai trouvés utiles :
 
-- « The Art of R Programming: A Tour of Statistical Software Design » de Norman Matloff est une excellente introduction à la programmation en langage R.  
+- « The Art of R Programming: A Tour of Statistical Software Design » de Norman Matloff est une excellente introduction à la programmation en langage R.
 
 - L’ouvrage « R Cookbook » de Paul Teetor propose des solutions aux problèmes rencontrés lors de l’utilisation du langage R.
 
@@ -1318,7 +1318,7 @@ L’ouvrage « Introductory Time Series with R » de Paul Cowpertwait et Andre
 
 Quelques ressources Internet particulièrement utiles :
 
-- DataCamp : apprenez le langage R tout en restant confortablement installé devant votre navigateur, grâce à des leçons vidéo et des exercices de codage. Il existe des didacticiels interactifs sur les dernières techniques et de langage R. Suivez gratuitement le didacticiel interactif sur le langage R à l’adresse https://www.datacamp.com/courses/introduction-to-r  
+- DataCamp : apprenez le langage R tout en restant confortablement installé devant votre navigateur, grâce à des leçons vidéo et des exercices de codage. Il existe des didacticiels interactifs sur les dernières techniques et de langage R. Suivez gratuitement le didacticiel interactif sur le langage R à l’adresse https://www.datacamp.com/courses/introduction-to-r
 
 - Un bref didacticiel sur le langage R par Kelly Black de l’université de Clarkson : http://www.cyclismo.org/tutorial/R/
 
@@ -1358,4 +1358,4 @@ Quelques ressources Internet particulièrement utiles :
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

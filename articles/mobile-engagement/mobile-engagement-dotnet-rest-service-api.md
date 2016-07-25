@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
-	ms.author="wesmc" />
+	ms.date="07/07/2016" 
+	ms.author="wesmc;ricksal" />
 
 #Utilisation de REST pour accéder aux API du service Azure Mobile Engagement
 
@@ -32,7 +32,7 @@ Cet exemple nécessite l’ajout d’un tag app-info à l’application Mobile E
 
 
 
-Si vous avez suivi la procédure décrite dans [Prise en main d’Azure Mobile Engagement pour les applications universelles Windows](mobile-engagement-windows-store-dotnet-get-started.md), vous pouvez tester l’envoi du tag **user\_name** en remplaçant simplement `OnNavigatedTo()` dans votre classe `MainPage` pour envoyer le tag app-info similaire au code suivant :
+Si vous avez suivi la procédure décrite dans [Prise en main d’Azure Mobile Engagement pour les applications universelles Windows](mobile-engagement-windows-store-dotnet-get-started.md), vous pouvez tester l’envoi du tag **user\_name** en remplaçant simplement `OnNavigatedTo()` dans votre classe `MainPage` pour envoyer le tag app-info similaire au code suivant :
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
@@ -49,13 +49,13 @@ Si vous avez suivi la procédure décrite dans [Prise en main d’Azure Mobile E
 
 ## Création de l’application API Service
 
-1. Pour commencer, vous avez besoin de quatre paramètres que nous utilisons dans cet exemple. Ces paramètres sont **SubscriptionId**, **TenantId**, **ApplicationId** et **Secret**. Pour obtenir ces paramètres d’authentification, il est recommandé d’utiliser l’approche de script PowerShell mentionnée dans la section *Installation unique (à l’aide d’un script)* du didacticiel [Authentification](mobile-engagement-api-authentication.md#authentication). 
+1. Pour commencer, vous avez besoin de quatre paramètres que nous utilisons dans cet exemple. Ces paramètres sont **SubscriptionId**, **TenantId**, **ApplicationId** et **Secret**. Pour obtenir ces paramètres d’authentification, il est recommandé d’utiliser l’approche de script PowerShell mentionnée dans la section *Installation unique (à l’aide d’un script)* du didacticiel [Authentification](mobile-engagement-api-authentication.md#authentication).
 
 2. Nous allons utiliser une application console Windows simple pour illustrer l’utilisation des API Service REST pour créer et activer une campagne Announcement. Ouvrez Visual Studio et créez une **application console**.
 
 3. Ensuite, ajoutez le package NuGet **Newtonsoft.Json** à votre projet.
 
-4. Dans le fichier `Program.cs`, ajoutez les instructions `using` suivantes pour les espaces de noms suivants :
+4. Dans le fichier `Program.cs`, ajoutez les instructions `using` suivantes pour les espaces de noms suivants :
 
 		using System.IO;
 		using System.Net;
@@ -461,4 +461,4 @@ Si vous avez suivi la procédure décrite dans [Prise en main d’Azure Mobile E
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

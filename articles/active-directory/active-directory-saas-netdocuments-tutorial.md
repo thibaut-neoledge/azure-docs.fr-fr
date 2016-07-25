@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à NetDocuments
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Ne
 
 ###Pour activer l’application de l’intégration pour NetDocuments, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-netdocuments-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **NetDocuments**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **NetDocuments**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configurer l’authentification unique")
 
@@ -82,8 +82,8 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application NetDocuments (par exemple : "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-	2.  Dans la zone de texte **URL de réponse NetDocuments**, tapez la valeur que vous venez de taper dans la zone de texte **URL de connexion**.  
+    1.  Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application NetDocuments (par exemple : « *https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+    2.  Dans la zone de texte **URL de réponse NetDocuments**, tapez la valeur que vous venez de taper dans la zone de texte **URL de connexion**.
 
         >[AZURE.NOTE]Vous trouverez la valeur correcte à la fin de la boîte de dialogue **Federated Identity** (voir la capture d’écran de l’étape 9).
 
@@ -113,7 +113,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
     2.  Pour télécharger le fichier de métadonnées, cliquez sur **Choose file**.
     3.  Cliquez sur **OK**.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -146,7 +146,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à NetDocuments, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **NetDocuments**, cliquez sur **Affecter des utilisateurs**.
 
@@ -158,4 +158,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

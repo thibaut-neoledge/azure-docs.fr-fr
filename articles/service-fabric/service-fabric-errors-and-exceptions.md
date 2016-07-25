@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2016"
+   ms.date="07/11/2016"
    ms.author="ryanwi"/>
 
 # Exceptions et erreurs courantes lorsque vous travaillez avec les API FabricClient
@@ -44,4 +44,4 @@ Certaines erreurs [FabricErrorCode](https://msdn.microsoft.com/library/system.fa
 |InvalidSubjectName|Le nom d'objet n'est pas valide.|
 |InvalidAllowedCommonNameList|Le format de la chaîne de la liste de noms courants n'est pas valide. Ce doit être une liste séparée par des virgules.|
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

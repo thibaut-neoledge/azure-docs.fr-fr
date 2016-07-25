@@ -119,7 +119,7 @@ Lorsque vous activez cette fonction, un lien identique accessible avec différen
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	Quand vous atteignez la page *http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, vous êtes invité à télécharger le fichier bootstrap.css provenant de votre application web dans Azure.
+	Quand vous atteignez la page **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, vous êtes invité à télécharger le fichier bootstrap.css provenant de votre application web dans Azure.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 

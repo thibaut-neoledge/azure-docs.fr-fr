@@ -61,7 +61,14 @@ Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passe
 - [Kit de développement logiciel (SDK) de la passerelle IoT - Prise en main de Linux][lnk-gateway-get-started]
 - [Kit de développement logiciel (SDK) de la passerelle – envoyer des messages appareil-à-cloud avec une simulation d’appareil à l’aide de Linux][lnk-gateway-simulated]
 
-Vous trouverez plus d’informations sur la gestion des appareils avec IoT Hub en lisant la rubrique [Vue d’ensemble de la gestion des appareils Azure IoT Hub][lnk-device-management].
+Pour en savoir plus sur la gestion des appareils avec IoT Hub, consultez [Présentation de la bibliothèque cliente de gestion des appareils (DM) Azure IoT Hub][lnk-library-c].
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png
@@ -74,4 +81,15 @@ Vous trouverez plus d’informations sur la gestion des appareils avec IoT Hub e
 [lnk-gateway-simulated]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

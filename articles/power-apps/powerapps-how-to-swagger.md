@@ -14,11 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # Personnaliser votre définition de Swagger pour PowerApps et les flux logiques
+
+>[AZURE.IMPORTANT] Cette rubrique a été déplacée vers powerapps.microsoft.com dans [Personnaliser votre définition de Swagger pour PowerApps et les flux](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/). Accédez à PowerApps pour la dernière version. Ce lien Azure est archivé.
+
 
 ## Créer une définition d’API Swagger 2.0 pour votre API
 
@@ -28,7 +31,7 @@ Pour savoir comment ajouter Swagger à votre WebAPI, consultez [Swashbuckle][1].
 Outre les spécifications Swagger standard, d’autres extensions swagger sont disponibles lors de la création d'une API personnalisée pour PowerApps et les flux logiques. Cette section répertorie et décrit ces extensions.
 
 ##### x-ms-summary
-Chaîne qui décrit les noms d’affichage des entités qui n'ont pas de champ `summary` défini dans la spécification Swagger. Les**Noms de paramètres** en sont un exemple.
+Chaîne qui décrit les noms d’affichage des entités qui n’ont pas de champ `summary` défini dans la spécification Swagger. Les**Noms de paramètres** en sont un exemple.
 
 ##### x-ms-visibility
 Cette valeur indique si l'entité est affichée dans le concepteur de flux logique. Les valeurs suivantes sont disponibles :
@@ -52,11 +55,11 @@ Il s'agit d'un indicateur pour le concepteur de flux de la logique que l'API fou
 
 La valeur est un objet qui contient les propriétés suivantes :
 	
-- `operationId` : une chaîne qui correspond à l'operationId pour l'opération appelée
-- `parameters` : un objet dont les propriétés définissent les paramètres requis pour l'opération
-- `value-collection` : une chaîne de chemin d'accès qui correspond à un tableau d'objets dans la charge utile de réponse
-- `value-path` : une chaîne de chemin d'accès de l'objet à l'intérieur de « value-collection » qui fait référence à la valeur du paramètre.
-- `value-title` : une chaîne de chemin d'accès de l'objet à l'intérieur de « value-collection » qui fait référence à une description de la valeur.
+- `operationId` : une chaîne qui correspond à l’operationId pour l’opération appelée
+- `parameters` : un objet dont les propriétés définissent les paramètres requis pour l’opération
+- `value-collection` : une chaîne de chemin d’accès qui correspond à un tableau d’objets dans la charge utile de réponse
+- `value-path` : une chaîne de chemin d’accès de l’objet à l’intérieur de « value-collection » qui fait référence à la valeur du paramètre.
+- `value-title` : une chaîne de chemin d’accès de l’objet à l’intérieur de « value-collection » qui fait référence à une description de la valeur.
 
 
 Exemple :
@@ -109,10 +112,10 @@ Exemple :
 },
 ```
 
-c’est utile dans les scénarios où les entrées d'une opération sont dynamiques. Considérez par exemple le cas SQL. Le schéma de chaque table est différent. Par conséquent, lorsqu'un utilisateur sélectionne une table particulière, le concepteur de flux logique doit comprendre la structure de la table pour pouvoir afficher les noms de colonnes. Dans ce contexte, si la définition swagger a `x-ms-dynamic-schema`, elle appelle l'opération correspondante pour extraire le schéma.
+c’est utile dans les scénarios où les entrées d'une opération sont dynamiques. Considérez par exemple le cas SQL. Le schéma de chaque table est différent. Par conséquent, lorsqu'un utilisateur sélectionne une table particulière, le concepteur de flux logique doit comprendre la structure de la table pour pouvoir afficher les noms de colonnes. Dans ce contexte, si la définition swagger a `x-ms-dynamic-schema`, elle appelle l’opération correspondante pour extraire le schéma.
 
 
 <!--Reference links in article-->
 [1]: https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/09/2016"
+   	ms.date="07/08/2016"
    	ms.author="jgao"/>
 
 
@@ -224,9 +224,13 @@ Pour plus d’informations sur l’utilisation des magasins d’objets blob seco
 
 Nous vous recommandons fortement d’utiliser un metastore personnalisé si vous voulez conserver vos tables Hive après avoir supprimé votre cluster HDInsight dans le but de pouvoir attacher ce metastore à un autre cluster HDInsight.
 
+> [AZURE.IMPORTANT] Le metastore HDInsight n’est pas rétrocompatible. Par exemple, vous ne pouvez pas utiliser un metastore d’un cluster HDInsight 3.4 pour créer un cluster HDInsight 3.3.
+
 Le metastore contient les métadonnées Hive et Oozie, telles que les tables, les partitions, les schémas et les colonnes Hive. L’utilisation du metastore vous permet de conserver vos métadonnées Hive et Oozie, afin de ne pas devoir recréer des tables Hive ou des tâches Oozie lorsque vous créez un nouveau cluster. Hive utilise par défaut une base de données intégrée Azure SQL pour stocker ces informations. La base de données incorporée ne peut pas conserver les métadonnées lorsque le cluster est supprimé. Par exemple, vous disposez d’un cluster qui a été créé avec un metastore Hive. Vous avez créé des tables Hive. Après avoir supprimé et recréé le cluster à l’aide du même metastore Hive, vous ne pourrez pas afficher les tables Hive que vous avez créées dans le cluster d’origine.
 
-> [AZURE.NOTE] La configuration Metastore n’est pas disponible pour les types de cluster HBase.
+La configuration Metastore n’est pas disponible pour les types de cluster HBase.
+
+> [AZURE.IMPORTANT] Lors de la création d’un metastore personnalisé, n’utilisez pas de nom de base de données contenant des traits d’union ou des tirets, car cela risque d’entraîner l’échec du processus de création du cluster.
 
 ## Utilisation des réseaux virtuels Azure
 
@@ -294,4 +298,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

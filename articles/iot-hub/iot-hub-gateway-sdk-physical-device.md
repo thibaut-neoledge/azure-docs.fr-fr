@@ -426,7 +426,17 @@ Le comportement par défaut d’un appareil utilisant le protocole HTTP pour se 
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-sdk].
+Si vous souhaitez approfondir vos connaissances sur les kits de développement logiciel (SDK) Gateway et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
+
+- [Gérer un appareil de passerelle][lnk-manage-devices]
+- [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk]
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
@@ -441,4 +451,11 @@ Pour plus d’informations, consultez [Kit de développement logiciel (SDK) de p
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

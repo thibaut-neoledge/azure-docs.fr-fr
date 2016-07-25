@@ -27,7 +27,7 @@ Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server
 
 ![Étapes du processus de sauvegarde](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modèle de déploiement classique.
 
 ## Avant de commencer
 Pour sauvegarder un serveur ou un client sur Azure, vous devez disposer d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
@@ -184,6 +184,8 @@ Pour effectuer la sauvegarde initiale, vous devez utiliser l’agent Microsoft A
 
 L’agent Backup prend en charge la limitation du réseau. La limitation contrôle l’utilisation de la bande passante réseau durant le transfert de données. Cela peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation s’applique aux activités de sauvegarde et de restauration.
 
+>[AZURE.NOTE] La limitation du réseau n’est pas disponible sur Windows Server 2008 R2 SP1, Windows Server 2008 SP2 ou Windows 7 (avec service packs). La fonctionnalité de limitation du réseau Azure Backup implique une qualité de Service (QoS) sur le système d’exploitation local. Même si Azure Backup est en mesure de protéger ces systèmes d’exploitation, la version de la qualité de service disponible sur ces plates-formes ne fonctionne pas avec la fonctionnalité de limitation du réseau Azure Backup. La limitation du réseau peut être utilisée sur tous les autres [systèmes d’exploitation pris en charge](backup-azure-backup-faq.md#installation-amp-configuration).
+
 **Pour activer la limitation du réseau**
 
 1. Dans l’agent Backup, cliquez sur **Modifier les propriétés**.
@@ -206,7 +208,7 @@ L’agent Backup prend en charge la limitation du réseau. La limitation contrô
 
     ![Sauvegarder Windows Server maintenant](./media/backup-configure-vault/backup-now.png)
 
-2. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
+2. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, Puis cliquez sur **Sauvegarder**.
 
 3. Cliquez sur **Fermer** pour fermer l’Assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
 
@@ -220,7 +222,7 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 ## Étapes suivantes
 Pour plus d’informations sur la sauvegarde des machines virtuelles ou d’autres charges de travail, consultez les références suivantes :
 
-- Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
-- Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
+- Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos coffres et vos serveurs](backup-azure-manage-windows-server.md).
+- Si vous avez besoin de restaurer une sauvegarde, référez-vous à cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

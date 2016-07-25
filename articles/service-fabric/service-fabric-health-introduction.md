@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Présentation du contrôle d’intégrité de Service Fabric
@@ -230,7 +230,7 @@ Les [rapports d'intégrité](https://msdn.microsoft.com/library/azure/system.fab
 
 - **SequenceNumber**. Entier positif qui doit être croissant, car il représente l’ordre des rapports. Ce paramètre est utilisé par le magasin d’intégrité pour détecter les rapports obsolètes, qui ont été reçus tardivement en raison de délais sur le réseau ou d’autres problèmes. Un rapport est rejeté si le numéro de séquence est inférieur ou égal au dernier numéro appliqué aux mêmes entité, source et propriété. S’il n’est pas spécifié, le numéro de séquence est généré automatiquement. Il est nécessaire de le placer dans le numéro de séquence uniquement lors de la création de rapports sur les transitions d’état. Dans ce cas, la source doit mémoriser les rapports qu’elle a envoyés et conserver les informations de récupération en cas de basculement.
 
-Les informations SourceId, entity identifier, Property et HealthState sont requises pour tous les rapports d’intégrité. La chaîne SourceId ne doit pas commencer par le préfixe « **System.** », car il est réservé aux rapports système. Pour la même entité, un seul rapport couvre les mêmes source et propriété. Si plusieurs rapports sont générés pour la même source et la même propriété, ils se substituent mutuellement, aussi bien sur le client d’intégrité (s’ils sont traités par lot) que dans le magasin d’intégrité. Le remplacement s’effectue en fonction du numéro de séquence : les rapports les plus récents (avec un numéro de séquence supérieur) remplacent les rapports les plus anciens.
+Les informations SourceId, entity identifier, Property et HealthState sont requises pour tous les rapports d’intégrité. La chaîne SourceId ne doit pas commencer par le préfixe « **System.** », car il est réservé aux rapports système. Pour la même entité, un seul rapport couvre les mêmes source et propriété. Si plusieurs rapports sont générés pour la même source et la même propriété, ils se substituent mutuellement, aussi bien sur le client d’intégrité (s’ils sont traités par lot) que dans le magasin d’intégrité. Le remplacement s’effectue en fonction du numéro de séquence : les rapports les plus récents (avec un numéro de séquence supérieur) remplacent les rapports les plus anciens.
 
 ### Événements d'intégrité
 En interne, le magasin d’intégrité conserve les [événements d’intégrité](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), qui contiennent toutes les informations des rapports, ainsi que des métadonnées supplémentaires, notamment l’heure à laquelle le rapport a été remis au client d’intégrité et l’heure de sa modification côté serveur. Les événements d’intégrité sont retournés par des [requêtes d’intégrité](service-fabric-view-entities-aggregated-health.md#health-queries).
@@ -331,10 +331,12 @@ Le modèle d’intégrité est très utilisé pour la surveillance et le diagnos
 
 [Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
+[Comment signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [Ajout de rapports d’intégrité Service Fabric personnalisés](service-fabric-report-health.md)
 
 [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

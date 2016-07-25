@@ -24,7 +24,10 @@ Vous devez créer un compte Azure Data Lake Store avant de créer un pipeline av
 >  
 > Veuillez consulter le [didacticiel Générer votre premier pipeline](data-factory-build-your-first-pipeline.md) pour connaître les étapes détaillées de la création d’une fabrique de données, de services liés, de jeux de données et d’un pipeline. Utilisez les extraits de code JSON avec Data Factory Editor ou Visual Studio ou Azure PowerShell pour créer les entités Data Factory.
 
-Les exemples suivants indiquent comment copier des données vers et depuis Azure Data Lake Store et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+## Assistant Copier des données
+Le moyen le plus simple de créer un pipeline qui copie les données vers/depuis Azure Data Lake Store consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapides sur la création d’un pipeline à l’aide de l’Assistant Copier de données.
+
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis Azure Data Lake Store et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** d’une source quelconque vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores) par le biais de l’activité de copie d’Azure Data Factory.
 
 
 ## Exemple : copie de données depuis un objet Blob Azure vers Azure Data Lake Store
@@ -78,7 +81,7 @@ La procédure qui suit décrit les étapes nécessaires à la création d’un s
 5. (facultatif) Spécifiez les valeurs des paramètres facultatifs tels que **accountName**, **subscriptionID** et **resourceGroupName** dans JSON (ou) supprimer ces propriétés à partir de JSON.
 6. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
-> [AZURE.IMPORTANT] Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** arrive à expiration au bout d’un certain temps. Vous devrez **autoriser à nouveau** à l’aide du bouton **Autoriser** à l’**expiration du jeton**, puis redéployer le service lié. Pour plus d’informations, consultez la section [Service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties).
+> [AZURE.IMPORTANT] Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Vous devrez **accorder une nouvelle autorisation** à l’aide du bouton **Autoriser** à **l’expiration du jeton**, puis redéployer le service lié. Pour plus d’informations, consultez la section [Service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties).
 
 
 
@@ -413,7 +416,7 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide
 | nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
 
 ## Expiration du jeton 
-Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de **l’expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
 
 | Type d’utilisateur | Expire après |
@@ -423,7 +426,7 @@ Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** 
 
 Notez que si vous modifiez votre mot de passe avant cette date d’expiration du jeton, le jeton expirera immédiatement et vous verrez l’erreur mentionnée ci-dessus.
 
-Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
+Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** à **l’expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
 
 ### Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme 
 
@@ -450,7 +453,7 @@ Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autori
         }
     }
 
-Consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
+Consultez les rubriques [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
  
 
 ## Propriétés de type du jeu de données Azure Data Lake
@@ -462,10 +465,10 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Requis |
 | :-------- | :----------- | :-------- |
 | folderPath | Chemin d’accès au conteneur et au dossier dans le magasin Azure Data Lake | Oui |
-| fileName | Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Quand fileName n’est pas spécifié, la copie inclut tous les fichiers dans folderPath pour le jeu de données d’entrée.<br/><br/>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | Non |
+| fileName | Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (notamment la copie) fonctionne sur le fichier spécifique.<br/><br/>Quand fileName n’est pas spécifié, la copie inclut tous les fichiers dans folderPath pour le jeu de données d’entrée.<br/><br/>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la section propriété Leveraging partitionedBy ci-dessous pour obtenir plus d’informations et des exemples. | Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **AvroFormat**, **JsonFormat** et **OrcFormat**. La propriété **type** située sous Format doit être définie sur l’une de ces valeurs. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat), [Définition de JsonFormat](#specifying-jsonformat) et [Définition d’OrcFormat](#specifying-orcformat). Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), vous pouvez ignorer la section Format dans les deux définitions de jeu de données d’entrée et de sortie.| Non
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Notez que, pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** et **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat**, **AvroFormat**, **JsonFormat** et **OrcFormat**. La propriété **type** située sous Format doit être définie sur l’une de ces valeurs. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat), [Définition de JsonFormat](#specifying-jsonformat) et [Définition d’OrcFormat](#specifying-orcformat). Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), vous pouvez ignorer la section Format dans les deux définitions de jeu de données d’entrée et de sortie.| Non
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Notez que, pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** ou **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 ### Utilisation de la propriété partitionedBy
 Comme mentionné ci-dessus, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -526,10 +529,10 @@ Pour spécifier la compression pour un jeu de données, utilisez la propriété 
  
 Notez que la section **compression** a deux propriétés :
   
-- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
-- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**. 
-	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
-	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
+- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.
+- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**.
+	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale.
+	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps.
 	
 	Pour plus d'informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 
@@ -537,9 +540,9 @@ Supposons que l'exemple de jeu de données ci-dessus est utilisé comme sortie d
 
 Quand vous spécifiez la propriété compression dans un jeu de données JSON d’entrée, le pipeline peut lire les données compressées à partir de la source et, quand vous spécifiez la propriété dans un jeu de données JSON de sortie, l’activité de copie peut écrire les données compressées dans la destination. Voici quelques exemples de scénarios :
 
-- Lisez les données GZIP compressées à partir de l'Azure Data Lake Store, décompressez-les et écrivez les données résultantes dans une base de données SQL Azure. Dans ce cas, vous définissez le jeu de données d'entrée de l'Azure Data Lake Store avec la propriété de compression JSON. 
-- Lisez les données d'un fichier de texte brut dans le système de fichiers local, compressez-les en utilisant le format GZip et écrivez les données compressées dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store de sortie avec la propriété de compression JSON.  
-- Lisez les données compressées au format GZIP à partir d'une compression, décompressez-les, compressez-les en utilisant le format BZIP2 et écrivez les données résultantes dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store d'entrée avec le type de compression défini sur GZIP et le jeu de données de sortie avec le type de compression défini sur BZIP2.   
+- Lisez les données GZIP compressées à partir de l'Azure Data Lake Store, décompressez-les et écrivez les données résultantes dans une base de données SQL Azure. Dans ce cas, vous définissez le jeu de données d'entrée de l'Azure Data Lake Store avec la propriété de compression JSON.
+- Lisez les données d'un fichier de texte brut dans le système de fichiers local, compressez-les en utilisant le format GZip et écrivez les données compressées dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store de sortie avec la propriété de compression JSON.
+- Lisez les données compressées au format GZIP à partir d'une compression, décompressez-les, compressez-les en utilisant le format BZIP2 et écrivez les données résultantes dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store d'entrée avec le type de compression défini sur GZIP et le jeu de données de sortie avec le type de compression défini sur BZIP2.
 
 
 ## Propriétés de type activité de copie Azure Data Lake  
@@ -547,7 +550,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -555,11 +558,11 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 
 
-**AzureDataLakeStoreSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**AzureDataLakeStoreSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Spécifie le comportement de copie. | **PreserveHierarchy** : conserve la hiérarchie des fichiers dans le dossier cible. Autrement dit, le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy :** tous les fichiers du dossier source se trouvent dans le premier niveau du dossier cible. Les fichiers cible auront un nom généré automatiquement.<br/><br/>**MergeFiles :** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non |
+| copyBehavior | Spécifie le comportement de copie. | **PreserveHierarchy** : conserve la hiérarchie des fichiers dans le dossier cible. Autrement dit, le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy :** tous les fichiers du dossier source se trouvent dans le premier niveau du dossier cible. Les fichiers cible auront un nom généré automatiquement.<br/><br/>**MergeFiles :** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -571,4 +574,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

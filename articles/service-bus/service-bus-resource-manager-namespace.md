@@ -18,11 +18,11 @@
 
 # Créer un espace de noms Service Bus à l’aide d’un modèle Azure Resource Manager
 
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus « Messagerie » avec une référence (SKU) Standard/De base. L'article définit également les paramètres qui sont spécifiés pour l'exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus de type **Messagerie** avec une référence (SKU) Standard/De base. L'article définit également les paramètres qui sont spécifiés pour l'exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
 Pour en savoir plus sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager][].
 
-Pour le modèle complet, consultez le [modèle d'espace de noms Service Bus][] sur GitHub.
+Pour connaître le modèle complet, consultez le [modèle d’espace de noms Service Bus][] sur GitHub.
 
 >[AZURE.NOTE] Les modèles Azure Resource Manager suivants sont disponibles au téléchargement et au déploiement.
 >
@@ -31,7 +31,7 @@ Pour le modèle complet, consultez le [modèle d'espace de noms Service Bus][] s
 >-    [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 >-    [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
 >
->Pour connaître les derniers modèles, recherchez Service Bus dans les [modèles de démarrage rapide Azure][].
+>Pour connaître les derniers modèles, recherchez Service Bus dans la galerie de [modèles de démarrage rapide Azure][].
 
 ## Qu'allez-vous déployer ?
 
@@ -45,7 +45,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 
 Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters`, qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient selon le projet que vous déployez, ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent identiques. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
 
-Nous allons décrire chaque paramètre du modèle.
+Le modèle définit les paramètres suivants.
 
 ### serviceBusNamespaceName
 
@@ -82,7 +82,7 @@ Le modèle définit les valeurs autorisées pour ce paramètre (De base ou Stand
 
 Il existe des frais de base de niveau standard de 10 $ par mois, ce qui vous permet d'effectuer jusqu'à 12,5 millions d'opérations par mois sans frais supplémentaires. Le niveau De base coûte 0,05 $ par million d'opérations.
 
-Pour plus d’informations sur la tarification Service Bus, consultez [Tarification et facturation Service Bus][].
+Pour plus d’informations sur la tarification Service Bus, consultez [Tarification et facturation Service Bus][].
 
 ### serviceBusApiVersion
 
@@ -148,10 +148,10 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
 - [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Création de modèles Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [modèle d'espace de noms Service Bus]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-  [modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/
-  [Tarification et facturation Service Bus]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+  [modèle d’espace de noms Service Bus]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
+  [modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Tarification et facturation Service Bus]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de la capacité de SQL Data Warehouse
@@ -25,7 +25,7 @@ Les tableaux ci-après présentent les valeurs maximales autorisées pour les di
 
 | Catégorie | Description | Maximale |
 | :------------------ | :------------------------------------------- | :----------------- |
-| [Data Warehouse Units (DWU)][]| Ressources de calcul, de mémoire et d’E/S | 2000 |
+| [Data Warehouse Units (DWU)][]| Ressources de calcul, de mémoire et d’E/S | 6000 |
 | Connexion de base de données | Sessions simultanées ouvertes | 1 024<br/><br/>Nous prenons en charge un maximum de 1 024 connexions actives, chacune pouvant envoyer simultanément des requêtes à une base de données SQL Data Warehouse. Notez que le nombre de requêtes pouvant réellement s’exécuter simultanément est limité. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée.|
 | Connexion de base de données | Mémoire maximale pour les instructions préparées | 20 Mo |
 | [Gestion des charges de travail][] | Nombre maximal de requêtes concurrentes | 32<br/><br/> Par défaut, SQL Data Warehouse exécute un maximum de 32 requêtes simultanées et place en file d’attente les requêtes restantes.<br/><br/>Le niveau de concurrence peut diminuer lorsque les utilisateurs sont affectés à une classe de ressource supérieure. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter.|
@@ -110,4 +110,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Erreur interne : une limite des services d’expression a été atteinte]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/06/2016"
+	ms.date="07/13/2016"
 	ms.author="ashmaka"/>
 
 # Créer un service Azure Search à l’aide du portail Azure
@@ -23,14 +23,14 @@ Ce guide suppose que vous disposez d’un abonnement Azure et que vous êtes en 
 ## Trouver Azure Search sur le portail Azure
 1. Accédez au [portail Azure](https://portal.azure.com/) et connectez-vous.
 1. Cliquez sur le signe plus (« + ») dans le coin supérieur gauche.
-2. Sélectionnez « Données + stockage ».
-3. Sélectionnez « Azure Search ».
+2. Sélectionnez **Données + stockage**.
+3. Sélectionnez **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search.png)
 
 ## Choisir un nom de service et un point de terminaison d’URL pour le service
 1. Le nom de votre service fait partie de l’URL de point de terminaison de votre service Azure Search que vous utilisez pour effectuer vos appels d’API afin de gérer et d’utiliser le service de recherche.
-2. Tapez le nom de votre service dans le champ « URL ». Le nom du service :
+2. Tapez le nom de votre service dans le champ **URL**. Le nom du service :
   * doit contenir uniquement des lettres minuscules, des chiffres ou des tirets (« - ») ;
   * ne pas utiliser de tiret (« - ») pour les 2 premiers caractères ni pour le dernier ;
   * ne peut pas contenir de tirets consécutifs (« -- ») ;
@@ -47,7 +47,7 @@ Créez un groupe de ressources ou sélectionnez-en un. Un groupe de ressources c
 En sa qualité de service Azure, Azure Search peut être hébergé dans les centres de données du monde entier. Veuillez noter que les [prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
 
 ## Sélectionner un niveau tarifaire
-[Azure Search est actuellement disponible à différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base ou Standard. Chaque niveau est associé à ses propres [capacité et limites](search-limits-quotas-capacity.md).
+[Azure Search est actuellement disponible à différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base ou Standard. Chaque niveau a ses propres [capacité et limites](search-limits-quotas-capacity.md). Pour obtenir de l’aide, voir [Choisir un niveau tarifaire ou une référence (SKU)](search-sku-tier.md).
 
 Ici, nous avons choisi le niveau Standard pour notre service.
 
@@ -59,12 +59,12 @@ Ici, nous avons choisi le niveau Standard pour notre service.
 
 Une fois votre service approvisionné, vous pouvez le mettre à l’échelle en fonction de vos besoins. Si vous avez choisi le niveau Standard pour votre service Azure Search, vous pouvez le mettre à l’échelle dans deux dimensions : réplicas et partitions. Si vous avez choisi le niveau De base, vous pouvez uniquement ajouter des réplicas.
 
-Les *__partitions__* permettent à votre service de stocker plus de documents et d’effectuer des recherches dans plus de documents.
+Les *__partitions__* permettent à votre service de stocker plus de documents et d’effectuer des recherches dans un plus grand nombre de documents.
 
 Les *__réplicas__* permettent à votre service de traiter plus de requêtes de recherche. [Un service requiert 2 réplicas pour obtenir un contrat SLA en lecture seule et nécessite 3 réplicas pour obtenir un contrat SLA en lecture/écriture](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Accédez au panneau de gestion de votre service Azure Search dans le portail Azure.
-2. Dans le panneau « Paramètres », sélectionnez « Mise à l'échelle ».
+2. Dans le panneau **Paramètres**, sélectionnez **Mise à l’échelle**.
 3. Vous pouvez mettre votre service à l’échelle en ajoutant des réplicas ou des partitions.
   * Lors de la mise à l’échelle de votre service, vous ne pouvez pas dépasser 36 unités de recherche. Le nombre total d’unités de recherche correspond au produit des réplicas et des partitions (réplicas x partitions = nombre total d’unités de recherche).
   * Si vous avez choisi le niveau De base, vous pouvez uniquement effectuer une mise à l’échelle avec 3 réplicas. Les services De base sont limités à une seule partition.
@@ -74,4 +74,6 @@ Les *__réplicas__* permettent à votre service de traiter plus de requêtes de 
 ## Suivant
 Après avoir approvisionné un service Azure Search, vous pouvez [définir un index Azure Search](search-what-is-an-index.md) afin de pouvoir télécharger vos données et effectuer des recherches dans vos données.
 
-<!---HONumber=AcomDC_0608_2016-->
+Pour accéder à un didacticiel rapide, voir [Prise en main d’Azure Search dans le portail](search-get-started-portal.md).
+
+<!---HONumber=AcomDC_0713_2016-->

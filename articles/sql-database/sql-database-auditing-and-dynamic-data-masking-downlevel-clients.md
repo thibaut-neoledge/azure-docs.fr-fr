@@ -3,7 +3,7 @@
 	description="En savoir plus sur la prise en charge des clients de niveau inférieur de la base de données SQL et sur la modification des points de terminaison IP à des fins d’audit."
 	services="sql-database"
 	documentationCenter=""
-	authors="nadavhelfman"
+	authors="ronitr"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="nadavh;ronitr"/>
+	ms.date="07/10/2016"
+	ms.author="ronitr"/>
 
 # Base de données SQL - Prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit
 
@@ -72,4 +72,4 @@ Le nouveau point de terminaison IP de la base de données dépend de la région 
 | Centre du Canada | 13\.88.248.106 |
 | Est du Canada | 40\.86.227.82 |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Diffuser des données à partir d’un objet blob Azure Storage dans Data Lake Store à l’aide d’Azure Stream Analytics
 
 Dans cet article, vous allez apprendre à utiliser Azure Data Lake Store comme sortie d’une tâche Azure Stream Analytics. Cet article présente un scénario simple qui lit des données à partir d’un objet blob Azure Storage (entrée) et écrit les données dans Data Lake Store (sortie).
 
->[AZURE.NOTE] À l’heure actuelle, la création et la configuration des sorties Data Lake Store de Stream Analytics sont prises en charge uniquement dans le [portail Azure Classic](manage.windowsazure.com). Par conséquent, certaines parties de ce didacticiel utilisent le portail Azure Classic.
+>[AZURE.NOTE] À l’heure actuelle, la création et la configuration des sorties Data Lake Store de Stream Analytics sont prises en charge uniquement dans le [portail Azure Classic](https://manage.windowsazure.com). Par conséquent, certaines parties de ce didacticiel utilisent le portail Azure Classic.
 
 ## Composants requis
 
@@ -95,7 +95,7 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 	* **Entrez un alias de sortie**. Il s’agit d’un nom unique que vous fournissez pour la sortie de la tâche.
 	* **Spécifiez un compte Data Lake Store**. Il devrait déjà exister, comme indiqué dans les conditions préalables.
-	* **Spécifiez un modèle de préfixe de chemin d’accès**. Cela est nécessaire pour identifier les fichiers de sortie qui sont écrits dans Data Lake Store par la tâche Stream Analytics. Étant donné que les titres des sorties écrits par la tâche sont dans un format GUID, un préfixe suffit à identifier la sortie écrite. Si vous souhaitez inclure un horodatage dans le cadre du préfixe veillez à inclure `{date}/{time}` dans le modèle de préfixe. Si vous incluez cette valeur, les champs **Date Format** et **Format de l’heure** sont activés et vous pouvez sélectionner le format de votre choix.
+	* **Spécifiez un modèle de préfixe de chemin d’accès**. Cela est nécessaire pour identifier les fichiers de sortie qui sont écrits dans Data Lake Store par la tâche Stream Analytics. Étant donné que les titres des sorties écrits par la tâche sont dans un format GUID, un préfixe suffit à identifier la sortie écrite. Si vous souhaitez inclure un horodatage dans le cadre du préfixe veillez à inclure `{date}/{time}` dans le modèle de préfixe. Si vous incluez cette valeur, les champs **Format de date** et **Format de l’heure** sont activés et vous pouvez sélectionner le format de votre choix.
 
 	Cliquez sur la flèche Suivant.
 
@@ -119,7 +119,7 @@ Après le démarrage de la tâche, cliquez sur l’onglet **Analyse** pour voir 
 
 ![Surveiller la tâche](./media/data-lake-store-stream-analytics/run.query.3.png "Surveiller la tâche")
 
-Enfin, vous pouvez utiliser le [portail Azure](portal.azure.com) pour ouvrir votre compte Data Lake Store et vérifier si les données ont été écrites correctement pour le compte.
+Enfin, vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour ouvrir votre compte Data Lake Store et vérifier si les données ont été écrites correctement pour le compte.
 
 ![Vérifier la sortie](./media/data-lake-store-stream-analytics/run.query.4.png "Vérifier la sortie")
 
@@ -129,4 +129,4 @@ Dans le volet Explorateur de données, notez que la sortie est écrite dans un d
 
 * [Créer un cluster HDInsight pour utiliser Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

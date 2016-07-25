@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/05/2016"
+	ms.date="07/13/2016"
 	ms.author="sdanie" />
 
 # Comment administrer le Cache Redis Azure
@@ -80,7 +80,7 @@ Si vous redémarrez simplement l’un des nœuds, les données ne sont général
 
 ### Est-il possible de redémarrer mon cache à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres outils de gestion ?
 
-C’est impossible à ce stade, mais cette fonctionnalité sera bientôt disponible.
+Oui, pour les instructions PowerShell, voir [Comment redémarrer un cache Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### Quels niveaux tarifaires peuvent utiliser la fonctionnalité de redémarrage ?
 
@@ -114,6 +114,6 @@ La planification des mises à jour n’est disponible que dans le niveau tarifai
 
 ## Étapes suivantes
 
--	Découvrez plus de fonctionnalités de [niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md).
+-	Découvrez plus de fonctionnalités de [niveau Premium du cache Redis Azure](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

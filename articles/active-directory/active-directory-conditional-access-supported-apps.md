@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 
@@ -57,7 +57,9 @@ Dans Exchange, il existe principalement deux catégories de protocoles. Examinez
 
 
 ### Exemples de règles AD FS
-Les règles suivantes peuvent être utilisées pour bloquer l’accès d’un protocole hérité à AD FS, dans les deux configurations courantes. Option 1 : autoriser Exchange ActiveSync et autoriser uniquement les applications héritées sur l’intranet.
+Les règles suivantes peuvent être utilisées pour bloquer l’accès d’un protocole hérité à AD FS, dans les deux configurations courantes.
+
+### Option 1 : autoriser Exchange ActiveSync et autoriser uniquement les applications héritées sur l’intranet
 
 En appliquant les trois règles suivantes à la partie de confiance AD FS de la plateforme d’identité Microsoft Office 365, le trafic Exchange ActiveSync sera autorisé, tout comme le trafic du navigateur et de l’authentification moderne. Les applications héritées ne pourront pas accéder à l’extranet.
 
@@ -105,4 +107,4 @@ Règle 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

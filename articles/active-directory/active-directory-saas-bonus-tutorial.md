@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Bonus.ly
@@ -35,7 +35,7 @@ Cette section décrit l’activation de l’intégration d’applications pour B
 
 ###Pour activer l’intégration d’applications pour Bonus.ly, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Activer l’authentification unique](./media/active-directory-saas-bonus-tutorial/IC773680.png "Activer l’authentification unique")
 
@@ -66,7 +66,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Bonus.ly**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **Bonus.ly**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configurer l’authentification unique")
 
@@ -94,16 +94,16 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Bonus.ly](./media/active-directory-saas-bonus-tutorial/IC773687.png "Bonus.ly")
 
-    1.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL cible de l’authentification unique IdP**.
-    2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **ID de l’émetteur** et collez-la dans la zone de texte **IdP Issuer**.
-    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **IdP Login URL**.
+    1.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **IdP SSO target URL**.
+    2.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **ID de l’émetteur** et collez-la dans la zone de texte **IdP Issuer**.
+    3.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **IdP Login URL**.
     4.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Cert Fingerprint**.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 9.  Cliquez sur **save**.
 
-10. Dans le portail Microsoft Azure AD, sélectionnez la confirmation de configuration, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Microsoft Azure Classic, sélectionnez la confirmation de la configuration, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bonus-tutorial/IC773689.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -137,9 +137,9 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bonus.ly, vous devez
     1.  Tapez les « **adresse de messagerie**, **prénom**, **nom** » d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
     2.  Cliquez sur **Enregistrer**.
 
-    >[AZURE.NOTE]Le détenteur du compte AAD recevra un message électronique contenant un lien à suivre pour confirmer le compte avant qu’il ne soit activé.
+    >[AZURE.NOTE] Le détenteur du compte AAD recevra un message électronique contenant un lien à suivre pour confirmer le compte avant qu’il ne soit activé.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Bonus.ly pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Bonus.ly pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
 ##Affectation d’utilisateurs
 
@@ -147,7 +147,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Bonus.ly, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications Bonus.ly, cliquez sur **Affecter des utilisateurs**.
 
@@ -159,4 +159,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

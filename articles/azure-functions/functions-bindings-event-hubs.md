@@ -34,8 +34,8 @@ Un déclencheur Azure Event Hub permet de répondre à un événement envoyé à
 Le fichier *function.json* pour un déclencheur Azure Event Hub spécifie les propriétés suivantes :
 
 - `type` : doit être défini sur *eventHubTrigger*.
-- `name` : nom de variable utilisé dans le code de fonction pour le message de concentrateur d’événements. 
-- `direction` : doit être défini sur *in*. 
+- `name` : nom de variable utilisé dans le code de fonction pour le message de concentrateur d’événements.
+- `direction` : doit être défini sur *in*.
 - `path` : nom du concentrateur d’événements.
 - `connection` : nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms dans lequel réside le concentrateur d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour l’espace de noms, et non pour le concentrateur d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.
 
@@ -75,17 +75,17 @@ En cas d’utilisation de l’exemple function.json exemple, le corps du message
 
 ## Liaison de sortie du concentrateur d’événements Azure (Azure Event Hub)
 
-Une liaison de sortie d’événement Azure liaison est utilisée pour écrire des événements dans un flux d’événements du concentrateur d’événements. Vous devez disposer de l’autorisation d’envoi à un concentrateur d’événements pour y écrire les événements.
+Une liaison de sortie du concentrateur d’événements Azure est utilisée pour écrire des événements dans un flux d’événements du concentrateur d’événements. Vous devez disposer de l’autorisation d’envoi à un concentrateur d’événements pour y écrire les événements.
 
 #### function.json pour la liaison de sortie de concentrateur d’événements
 
 Le fichier *function.json* pour une liaison de déclencheur Azure Event Hub spécifie les propriétés suivantes :
 
 - `type` : doit être défini sur *eventHub*.
-- `name` : nom de variable utilisé dans le code de fonction pour le message de concentrateur d’événements. 
+- `name` : nom de variable utilisé dans le code de fonction pour le message de concentrateur d’événements.
 - `path` : nom du concentrateur d’événements.
 - `connection` : nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms dans lequel réside le concentrateur d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour l’espace de noms, et non pour le concentrateur d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux du concentrateur d’événements.
-- `direction` : doit être défini sur *out*. 
+- `direction` : doit être défini sur *out*.
 
 	    {
 	      "type": "eventHub",
@@ -134,4 +134,4 @@ L’exemple de code de fonction Node.js suivant illustre l’écriture d’un é
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

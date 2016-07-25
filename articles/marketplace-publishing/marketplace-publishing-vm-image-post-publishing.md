@@ -219,4 +219,4 @@ L’équipe de support vous guidera tout au long du processus de suppression de 
 - [Création d’une image de machine virtuelle locale](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Fonctionnement de la gestion des mots de passe Azure AD | Microsoft Azure" 
-	description="Découvrez les différents composants de la gestion des mots de passe Azure AD, y compris l’emplacement où les utilisateurs s’inscrivent, réinitialisent et modifient leurs mots de passe et celui où les administrateurs configurent, créent des rapports et activent la gestion des mots de passe Active Directory locaux." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Fonctionnement de la gestion des mots de passe Azure AD | Microsoft Azure"
+	description="Découvrez les différents composants de la gestion des mots de passe Azure AD, y compris l’emplacement où les utilisateurs s’inscrivent, réinitialisent et modifient leurs mots de passe et celui où les administrateurs configurent, créent des rapports et activent la gestion des mots de passe Active Directory locaux."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Fonctionnement de la gestion des mots de passe
+
+> [AZURE.IMPORTANT] **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+
 La gestion des mots de passe dans Azure Active Directory se compose de plusieurs composants logiques qui sont décrits ci-dessous. Cliquez sur chaque lien pour en savoir plus sur le composant en question.
 
 - [**Portail de configuration de la gestion des mots de passe**](#password-management-configuration-portal) : les administrateurs peuvent contrôler différents aspects de la gestion des mots de passe dans leurs clients en accédant à l’onglet Configurer de leur annuaire dans le [portail de gestion Azure](https://manage.windowsazure.com).
@@ -102,7 +105,7 @@ Pour plus d’informations sur Azure AD Connect, consultez la page [Prise en mai
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
@@ -121,4 +124,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

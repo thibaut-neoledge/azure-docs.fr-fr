@@ -668,4 +668,21 @@ Cet article décrit en détail les aspects uniques de la bibliothèque **seriali
 
 Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit de développement logiciel Azure IoT device SDK pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Pour plus d’informations, il existe quelques exemples du kit de développement logiciel non couverts ici. Sinon, la [documentation du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks) est une ressource précieuse pour obtenir des informations complémentaires.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+Pour en savoir plus sur le développement pour IoT Hub, consultez les [Kits SDK IoT Hub][lnk-sdks].
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
+
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

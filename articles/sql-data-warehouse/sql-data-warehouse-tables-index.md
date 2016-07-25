@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Indexation de tables dans SQL Data Warehouse
@@ -244,6 +244,16 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
+```sql
+-- Rebuild a single partition with archival compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+```
+
+```sql
+-- Rebuild a single partition with columnstore compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+```
+
 La reconstruction d’un index dans SQL Data Warehouse est une opération hors connexion. Pour plus d’informations sur la reconstruction d’index, consultez la section ALTER INDEX REBUILD dans [Columnstore Indexes Defragmentation][] (Défragmentation d’index columnstore) et la rubrique de syntaxe [ALTER INDEX][].
  
 ### Étape 3 : Vérifier que la qualité de segment columnstore en cluster a été améliorée
@@ -296,7 +306,7 @@ Pour plus d’informations sur la recréation de partitions à l’aide de `CTAS
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez les articles [Table Overview][Overview] (Vue d’ensemble des tables), [Table Data Types][Data Types] (Types de données de table), [Distributing a Table][Distribute] \(Distribution d’une table), [Partitioning a Table][Partition] \(Partitionnement d’une table), [Maintaining Table Statistics][Statistics] \(Maintenance des statistiques de table) et [Tables temporaires][Temporary]. Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
+Pour plus d’informations, consultez les articles [Vue d’ensemble des tables][Overview], [Types de données de table][Data Types], [Distribution d’une table][Distribute], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary]. Pour en savoir plus sur les bonnes pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -314,6 +324,7 @@ Pour plus d’informations, consultez les articles [Table Overview][Overview] (V
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporaire]: ./sql-data-warehouse-tables-temporary.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
@@ -326,4 +337,4 @@ Pour plus d’informations, consultez les articles [Table Overview][Overview] (V
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

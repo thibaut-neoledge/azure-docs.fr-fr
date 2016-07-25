@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows-sql-server"
    ms.workload="infrastructure-services"
-   ms.date="04/17/2016"
+   ms.date="07/12/2016"
    ms.author="MikeRayMSFT"/>
 
 # Configurer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn dans Azure
@@ -28,7 +28,7 @@ Cette rubrique requiert que vos groupes de disponibilité soient déjà configur
 
 Rubriques connexes :
 
- - [Configuration de groupes de disponibilité AlwaysOn dans Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+ - [Configuration de groupes de disponibilité AlwaysOn dans Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
  
  - [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
@@ -70,13 +70,13 @@ La première étape consiste à créer l’équilibrage de charge. Dans le porta
 | **Groupe de ressources** | Sélectionnez le groupe de ressources réseau contenant les serveurs SQL. | 
 | **Emplacement** | Sélectionnez l’emplacement Azure contenant les serveurs SQL. |
 
-- Cliquez sur **Créer**. 
+- Cliquez sur **Créer**.
 
 Azure crée l’équilibrage de charge que vous avez configuré précédemment. Cet équilibrage de charge appartient à un réseau, un sous-réseau, un groupe de ressources et un emplacement spécifiques. Une fois l’opération terminée, vérifiez les paramètres de l’équilibrage de charge dans Azure.
 
 Maintenant, configurez l’adresse IP de l’équilibrage de charge.
 
-- Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Adresse IP**. Le panneau **Adresse IP** indique qu’il s’agit d’un équilibrage de charge privé sur le même réseau virtuel que vos serveurs SQL. 
+- Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Adresse IP**. Le panneau **Adresse IP** indique qu’il s’agit d’un équilibrage de charge privé sur le même réseau virtuel que vos serveurs SQL.
 
 - Spécifiez les paramètres suivants :
 
@@ -96,7 +96,7 @@ Maintenant, l’équilibrage de charge a une adresse IP. Notez-la. Vous allez l�
 
 L’étape suivante consiste à créer un pool d’adresses principal. Azure appelle *pool principal* ce pool d’adresses principal. En l’occurrence, le pool principal contient les adresses des deux serveurs SQL dans votre groupe de disponibilité.
 
-- Dans votre groupe de ressources, cliquez sur l’équilibrage de charge créé. 
+- Dans votre groupe de ressources, cliquez sur l’équilibrage de charge créé.
 
 - Dans **Paramètres**, cliquez sur **Pools principaux**.
 
@@ -118,7 +118,7 @@ Azure met à jour les paramètres du pool d’adresses principal. Votre groupe �
 
 L’étape suivante consiste à créer une sonde. La sonde vérifie comment Azure va identifier celui des serveurs SQL qui possède l’écouteur de groupe de disponibilité. Azure teste le service avec l’adresse IP sur un port que vous définissez lors de la création de la sonde.
 
-- Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Sondes**. 
+- Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Sondes**.
 
 - Dans le panneau **Sondes**, cliquez sur **Ajouter**.
 
@@ -132,7 +132,7 @@ L’étape suivante consiste à créer une sonde. La sonde vérifie comment Azur
 | **Intervalle** | *5* | 
 | **Seuil de défaillance sur le plan de l’intégrité** | *2* | 
 
-- Cliquez sur **OK**. 
+- Cliquez sur **OK**.
 
 >[AZURE.NOTE] Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](http://technet.microsoft.com/library/cc753558.aspx).
 
@@ -142,7 +142,7 @@ Azure crée la sonde. Azure va utiliser cette sonde pour identifier le serveur S
 
 Configurez les règles d’équilibrage de charge. Les règles d’équilibrage de charge déterminent comment l’équilibrage de charge achemine le trafic aux serveurs SQL. Pour cet équilibrage de charge, vous allez activer le retour direct du serveur, car seul un serveur SQL peut posséder l’écouteur de groupe de disponibilité.
 
-- Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Règles d’équilibrage de charge**. 
+- Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Règles d’équilibrage de charge**.
 
 - Dans le panneau **Règles d’équilibrage de charge**, cliquez sur **Ajouter**.
 
@@ -161,7 +161,7 @@ Configurez les règles d’équilibrage de charge. Les règles d’équilibrage 
 
  >[AZURE.NOTE] Vous devrez peut-être faire défiler le panneau vers le bas pour afficher tous les paramètres.
 
-- Cliquez sur **OK**. 
+- Cliquez sur **OK**.
 
 - Azure configure la règle d’équilibrage de charge. L’équilibrage de charge est maintenant configuré pour acheminer le trafic vers le serveur SQL qui héberge l’écouteur de groupe de disponibilité.
 
@@ -173,7 +173,7 @@ Configurez les règles d’équilibrage de charge. Les règles d’équilibrage 
 
 L’étape suivante consiste à configurer l’écouteur sur le cluster et à le mettre en ligne. Pour ce faire, procédez comme suit :
 
-1. Créer l’écouteur de groupe de disponibilité sur le cluster de basculement 
+1. Créer l’écouteur de groupe de disponibilité sur le cluster de basculement
 
 1. Mettre l'écouteur en ligne
 
@@ -181,7 +181,7 @@ L’étape suivante consiste à configurer l’écouteur sur le cluster et à le
 
 Dans cette étape, vous créez manuellement l'écouteur du groupe de disponibilité dans le Gestionnaire du cluster de basculement et SQL Server Management Studio (SSMS).
 
-- Utilisez le protocole RDP pour vous connecter à la machine virtuelle Azure qui héberge le réplica principal. 
+- Utilisez le protocole RDP pour vous connecter à la machine virtuelle Azure qui héberge le réplica principal.
 
 - Ouvrez le Gestionnaire du cluster de basculement.
 
@@ -260,9 +260,9 @@ La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébe
 
 Notez les instructions suivantes concernant l’écouteur de groupe de disponibilité dans Azure utilisant l’équilibrage de charge interne :
 
-- Le service cloud ne prend en charge qu’un écouteur de groupe de disponibilité interne, car l’écouteur est configuré sur le seul équilibrage de charge interne. Toutefois, il est possible de créer plusieurs écouteurs externes. 
+- Le service cloud ne prend en charge qu’un écouteur de groupe de disponibilité interne, car l’écouteur est configuré sur le seul équilibrage de charge interne. Toutefois, il est possible de créer plusieurs écouteurs externes.
 
 - Avec un équilibrage de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,19 +1,20 @@
 <properties
    pageTitle="Transfert de propriété d’un abonnement Azure | Microsoft Azure"
    description="Transfert d’un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure"
-   services="billing"
+   services=""
    documentationCenter=""
    authors="genlin"
    manager="stevenpo"
-   editor=""/>
+   editor="n/a"
+   tags="billing,top-support-issue"/>
 
 <tags
    ms.service="billing"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="billing"
-   ms.date="07/04/2016"
+   ms.date="07/12/2016"
    ms.author="genli"/>
 
 # Transfert de propriété d’un abonnement Azure
@@ -27,12 +28,9 @@ Souhaitez-vous :
 
 Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes Microsoft Azure pour les abonnements de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark. Nous avons ajouté une fonction permettant de transférer votre abonnement vers un autre utilisateur. En d'autres termes, vous pouvez maintenant modifier l'administrateur de compte pour n'importe quel abonnement de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark dont vous êtes titulaire, quel que soit le pays dans lequel vous travaillez. Nous prenons désormais en charge le transfert d’achats Azure Marketplace pour ces types d’abonnements également.
 
-**Remarque** Vous devez être l’administrateur du compte pour effectuer un transfert de propriété. Vous pouvez vérifier qui est l’administrateur du compte de l’abonnement comme suit :
+> [AZURE.NOTE]  Pour modifier votre abonnement à une autre offre, consultez les informations détaillées de la rubrique [Changement d’offre Azure](billing-how-to-switch-azure-offer.md).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu Hub, sélectionnez **Abonnement**.
-3. Sélectionnez l’abonnement que vous souhaitez vérifier, puis sélectionnez **Paramètres**. ![paramètres](./media/billing-subscription-transfer/settings.png)
-4. Sélectionnez **Propriétés**. L’administrateur du compte de l’abonnement s’affiche dans la zone **ADMINISTRATEUR DE COMPTE**. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+> Vous devez être l’administrateur du compte pour effectuer un transfert de propriété. Pour plus d’informations sur la manière de déterminer qui est l’administrateur du compte de l’abonnement, consultez la [Forum aux questions](#faq).
 
 ## Transfert de propriété d’un abonnement Azure
 
@@ -62,7 +60,17 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 
 7. Vous avez réussi ! L’abonnement est à présent transféré.
 
+<a id="faq"></a>
 ## Forum Aux Questions (FAQ)
+
+-   **Comment vérifier qui est l’administrateur du compte de l’abonnement ?**
+
+    Vous pouvez vérifier qui est l’administrateur du compte de l’abonnement comme suit :
+
+    1. Connectez-vous au [portail Azure](https://portal.azure.com).
+    2. Dans le menu Hub, sélectionnez **Abonnement**.
+    3. Sélectionnez l’abonnement que vous souhaitez vérifier, puis sélectionnez **Paramètres**.
+    4. Sélectionner **Propriétés**. L’administrateur du compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
 
 -   **Un transfert d’abonnement entraîne-t-il une interruption de service ?**
 
@@ -123,4 +131,4 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

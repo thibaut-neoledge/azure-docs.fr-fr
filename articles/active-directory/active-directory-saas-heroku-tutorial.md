@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -47,7 +47,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 
 ## Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. <br> Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Heroku à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -58,21 +58,37 @@ Pour configurer l’intégration de Heroku à Azure AD, vous devez ajouter Hero
 
 **Pour ajouter Heroku à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+
+	![Active Directory][1]
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
-4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
-6. Dans la zone de recherche, tapez **Heroku**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_01.png)<br>
-7. Dans le volet de résultats, sélectionnez **Heroku**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_02.png)<br>
+3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+
+	![Applications][2]
+
+4. Cliquez sur **Ajouter** en bas de la page.
+
+	![Applications][3]
+
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+
+	![Applications][4]
+
+6. Dans la zone de recherche, tapez **Heroku**.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_01.png)
+
+7. Dans le volet de résultats, sélectionnez **Heroku**, puis cliquez sur **Terminer** pour ajouter l’application.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_02.png)
 
 
 ##  Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Heroku avec un utilisateur de test appelé "Britta Simon".
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Heroku équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Heroku associé doit être établie.<br> Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Heroku.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Heroku équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Heroku associé doit être établie. Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Heroku.
 
 Pour configurer et tester l’authentification unique Azure AD avec Heroku, vous devez suivre les indications des sections suivantes :
 
@@ -89,23 +105,31 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 **Pour configurer l’authentification unique Azure AD avec Heroku, procédez comme suit :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Heroku**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Heroku**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Heroku**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_03.png) <br>
+	![Configurer l’authentification unique][6]
 
-3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png) <br>
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Heroku**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+ 
+	![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_03.png)
+
+3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
+ 
+	![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png)
 
     > [AZURE.NOTE] Si vous ne savez pas quelles sont les valeurs correctes pour l’URL de connexion et l’URL de l’identificateur, consultez [Pour activer l’authentification unique dans Heroku, effectuez les opérations suivantes](#x123) pour découvrir comment les obtenir.
 
 
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Heroku au format suivant : **https://sso.heroku.com/saml/nom\_entreprise>/init**.
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Heroku au format suivant : **https://sso.heroku.com/saml/<nom\_entreprise>/init**.
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL selon le modèle suivant : **https://sso.heroku.com/saml/\<nom de la société>**.
+    b. Dans la zone de texte **Identificateur**, tapez une URL selon le modèle suivant : **https://sso.heroku.com/saml/\<nom\_entreprise>**.
 
     c. Cliquez sur **Next**.
 
 
-4. Dans la page **Configurer l’authentification unique sur Heroku**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_05.png) <br>
+4. Dans la page **Configurer l’authentification unique sur Heroku**, procédez comme suit :
+
+	![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_05.png)
 
     a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
 
@@ -127,31 +151,45 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     f. <a name="x123"></a>Copiez votre **URL de connexion Heroku** et votre **ID d’entité Heroku**, puis, dans le portail Azure AD Classic, revenez à la page **Configurer les paramètres de l’application** et collez la valeur dans les zones de texte correspondantes.
 
   
-    <br>![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) <br><br>
+	![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png)
 
     g. Cliquez sur **Next**.
   
-6. Sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
+6. Sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
-7. Dans la page **Confirmation de l'authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
+	![Authentification unique Azure AD][10]
+
+7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
+
+	![Authentification unique Azure AD][11]
 
 
 
 
 ### Création d’un utilisateur de test Azure AD
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
+
+![Créer un utilisateur Azure AD][20]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_09.png) <br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_09.png)
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_03.png) <br>
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_04.png) <br>
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_03.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_05.png) <br>
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_04.png)
+
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_05.png)
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -159,7 +197,9 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_06.png) <br>
+6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_06.png)
 
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
@@ -171,9 +211,13 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_07.png) <br>
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_08.png) <br>
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_07.png)
+
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-heroku-tutorial/create_aaduser_08.png)
 
     a. Notez la valeur du **Nouveau mot de passe**.
 
@@ -192,25 +236,35 @@ Vous n’avez aucune opération à effectuer dans cette section. Un nouvel utili
 
 ### Affectation de l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Heroku. <br><br>![Affecter des utilisateurs][200] <br>
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Heroku.
+
+![Affecter des utilisateurs][200]
 
 **Pour affecter Britta Simon à Heroku, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Pour ouvrir la vue des applications dans le portail Classic, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.
 
-2. Dans la liste des applications, sélectionnez **Heroku**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_50.png) <br>
+	![Affecter des utilisateurs][201]
 
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Affecter des utilisateurs][203] <br>
+2. Dans la liste des applications, sélectionnez **Heroku**.
+
+	![Configurer l’authentification unique](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_50.png)
+
+1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+
+	![Affecter des utilisateurs][203]
 
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+
+	![Affecter des utilisateurs][205]
 
 
 
 ### Test de l’authentification unique
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.<br> Lorsque vous cliquez sur la mosaïque Heroku dans le volet d’accès, vous devez être connecté automatiquement à votre application Heroku.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Heroku dans le volet d’accès, vous devez être connecté automatiquement à votre application Heroku.
 
 
 ## Ressources supplémentaires
@@ -238,4 +292,4 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 [204]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

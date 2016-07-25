@@ -140,15 +140,15 @@ La procédure définit *DefaultSiteHQ* comme connexion de site par défaut pour 
 
 	L’exemple d’applet de commande ci-dessous ajoute un itinéraire par défaut à la table de routage créée à l’étape 1. Le seul itinéraire pris en charge est le préfixe de destination de « 0.0.0.0/0 » vers le prochain saut « VPNGateway ».
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. Associez la table de routage aux sous-réseaux.
 
 	Une fois la table de routage créée et l’itinéraire ajouté, utilisez l’applet de commande ci-dessous pour ajouter ou associer la table d’itinéraires à un sous-réseau de réseau virtuel. Les exemples ci-dessous ajouteront la table d’itinéraires « MyRouteTable » aux sous-réseaux intermédiaire et principal du réseau virtuel multiniveau.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 4. Affectez un site par défaut pour le tunneling forcé.
 
@@ -161,7 +161,7 @@ La procédure définit *DefaultSiteHQ* comme connexion de site par défaut pour 
 
 ### Pour supprimer une table d’itinéraires
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+	Remove-AzureRouteTable -Name <routeTableName>
 
 ### Pour répertorier une table d’itinéraires
 
@@ -173,14 +173,14 @@ La procédure définit *DefaultSiteHQ* comme connexion de site par défaut pour 
 
 ### Pour supprimer un itinéraire d’un sous-réseau
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Pour répertorier la table d’itinéraires associée à un sous-réseau
 	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Pour supprimer un site par défaut d’une passerelle VPN de réseau virtuel
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

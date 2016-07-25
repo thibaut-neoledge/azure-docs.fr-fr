@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2015"
+   ms.date="07/06/2015"
    ms.author="vturecek"/>
 
 # Remarques sur la sérialisation de type Reliable Actors Service Fabric
@@ -92,4 +92,4 @@ public class VoicemailBox
  - [Polymorphisme des acteurs et modèles de conception orientée objet](service-fabric-reliable-actors-polymorphism.md)
  - [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

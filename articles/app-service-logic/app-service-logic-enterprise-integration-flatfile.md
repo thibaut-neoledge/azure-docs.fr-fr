@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Vue d’ensemble d’Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Utilisez les fonctionnalités d’Enterprise Integration Pack pour activer les processus métier et les scénarios d’intégration à l’aide de Microsoft Azure App Service" 
+	pageTitle="Apprendre à encoder ou à décoder des fichiers plats à l’aide d’Enterprise Integration Pack et des applications logiques | Microsoft Azure App Service | Microsoft Azure" 
+	description="Utiliser les fonctionnalités d’Enterprise Integration Pack et des applications logiques pour encoder ou décoder des fichiers plats" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Intégration d'entreprise avec des fichiers plats
@@ -65,4 +65,4 @@ Vous pouvez maintenant tester votre connecteur en envoyant une demande au point 
 ## En savoir plus
 - [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

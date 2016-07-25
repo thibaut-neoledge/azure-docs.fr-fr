@@ -379,7 +379,14 @@ Vous avez maintenant terminé le didacticiel sur l’utilisation du client de ge
 
 Pour en savoir plus sur la gestion des appareils avec IoT Hub et l’exemple d’interface utilisateur, consultez l’article [Vue d’ensemble de la gestion des appareils Azure IoT Hub][lnk-device-management].
 
-Pour savoir comment connecter des appareils physiques à votre IoT Hub, consultez l’article [Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil vers cloud avec un appareil réel à l’aide de Linux][lnk-gateway-physical].
+Si vous souhaitez approfondir vos connaissances sur les kits de développement logiciel (SDK) Gateway et découvrir certains exemples de code, consultez [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk].
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 
 
@@ -411,4 +418,9 @@ Pour savoir comment connecter des appareils physiques à votre IoT Hub, consulte
 [lnk-gateway-scenario]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # Se connecter à une source de données
@@ -25,8 +25,6 @@ Voici les différences entre **Import** et **DirectQuery**.
 |Importer | DirectQuery
 |---|---
 |Les tables, colonnes *et données* sont importées ou copiées dans le jeu de données du rapport. Pour voir les modifications apportées aux données sous-jacentes, vous devez actualiser ou réimporter un jeu de données à jour et complet.|Seules les *tables et colonnes* sont importées ou copiées dans le jeu de données du rapport. Vous visualisez toujours les données les plus récentes.
-
-La section suivante décrit les avantages et les limitations de l'utilisation de **DirectQuery**.
 
 ## Avantages de l'utilisation de DirectQuery
 
@@ -40,7 +38,7 @@ Il existe deux grands avantages à utiliser **DirectQuery** :
    Il existe quelques limitations à l’utilisation de **DirectQuery** :
 
    -	Toutes les tables doivent provenir d'une même base de données.
-   -	Si la requête est trop complexe, une erreur se produit. Pour corriger l'erreur, vous devez refactoriser la requête afin de la simplifier. Si la requête doit être complexe, vous devez importer les données au lieu d'utiliser **DirectQuery**.
+   -	Si la requête est trop complexe, une erreur se produit. Pour corriger l'erreur, vous devez refactoriser la requête afin de la simplifier. Si la requête doit être complexe, vous devez importer les données au lieu d’utiliser **DirectQuery**.
    -	Le filtrage de la relation s’effectue dans un seul sens, et non dans les deux sens.
    -	Vous ne pouvez pas modifier le type de données d'une colonne.
    -	Par défaut, les limitations s’appliquent aux expressions DAX autorisées dans les mesures. Voir [DirectQuery et mesures](#measures).
@@ -48,11 +46,10 @@ Il existe deux grands avantages à utiliser **DirectQuery** :
 <a name="measures"/>
 ## DirectQuery et mesures
 
-Pour garantir que les requêtes envoyées à la source de données sous-jacente sont suffisamment performantes, des limitations s’appliquent aux mesures. Lorsque vous utilisez **Power BI Desktop**, les utilisateurs avancées peuvent contourner cette limitation en choisissant **File > Options and settings > Options**. Dans la boîte de dialogue **Options**, choisissez **DirectQuery**, puis sélectionnez l'option **Allow unrestricted measures in DirectQuery mode**. Lorsque cette option est sélectionnée, toute expression DAX valide pour une mesure peut être utilisée. Cependant, les utilisateurs doivent être conscients que certaines expressions qui fonctionnent très bien lorsque les données sont importées peuvent entraîner des requêtes très lentes vers la source principale en mode **DirectQuery**. Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/).
+Pour garantir que les requêtes envoyées à la source de données sous-jacente sont suffisamment performantes, des limitations s’appliquent aux mesures. Lorsque vous utilisez **Power BI Desktop**, les utilisateurs avancés peuvent contourner cette limitation en choisissant **Fichier > Options et paramètres > Options**. Dans la boîte de dialogue **Options**, choisissez **DirectQuery**, puis sélectionnez l’option **Allow unrestricted measures in DirectQuery mode** (Autoriser les mesures non restreintes en mode DirectQuery). Lorsque cette option est sélectionnée, toute expression DAX valide pour une mesure peut être utilisée. Cependant, les utilisateurs doivent être conscients que certaines expressions qui fonctionnent très bien lorsque les données sont importées peuvent entraîner des requêtes très lentes vers la source principale en mode **DirectQuery**. Pour en savoir plus sur l’utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/).
 
 ## Voir aussi
-- [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
+- [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

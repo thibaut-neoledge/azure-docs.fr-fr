@@ -42,7 +42,7 @@ Le [portail Azure][] est un portail basé sur le Web dans lequel vous pouvez cr�
 Pour la prise en main du portail Azure, consultez la rubrique [Créer un entrepôt de données SQL (portail Azure)][].
 
 ### SQL Server Data Tools dans Visual Studio
-[SQL Server Data Tools][] \(SSDT) dans Visual Studio vous permet de vous connecter à vos bases de données, de les gérer et de les développer. Si vous êtes un développeur d’applications familiarisé avec Visual Studio ou d’autres environnements de développement intégré (IDE), essayez la fonction SSDT de Visual Studio.
+[SQL Server Data Tools][] (SSDT) dans Visual Studio vous permet de vous connecter à vos bases de données, de les gérer et de les développer. Si vous êtes un développeur d’applications familiarisé avec Visual Studio ou d’autres environnements de développement intégré (IDE), essayez la fonction SSDT de Visual Studio.
 
 SSDT comprend la solution Explorateur d’objets SQL Server qui vous permet de visualiser, de connecter et d’exécuter des scripts dans des bases de données SQL Data Warehouse. Pour vous connecter rapidement à SQL Data Warehouse, il vous suffit de cliquer sur le bouton **Ouvrir dans Visual Studio** de la barre de commandes lorsque vous affichez les détails de la base de données dans le portail Azure Classic.
 
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez [Suspension du calcul][], et [Reprise du c
 
 Lorsque vous devez prendre en main une nouvelle technologie, rechercher les conseils et astuces adaptés à vos besoins dès le départ peut vous faire gagner beaucoup de temps. Vous trouverez des meilleures pratiques dans plusieurs de nos rubriques.
 
-Pour voir un résumé des considérations les plus importantes dont vous devez tenir compte lors du développement de votre charge de travail, consultez la rubrique [Meilleures pratiques relatives à SQL Data Warehouse][] \(en anglais).
+Pour voir un résumé des considérations les plus importantes dont vous devez tenir compte lors du développement de votre charge de travail, consultez la rubrique [Meilleures pratiques relatives à SQL Data Warehouse][] (en anglais).
 
 ## Surveillance des requêtes
 
@@ -92,7 +92,7 @@ Pour en savoir plus sur la gestion de la sécurité, consultez la [vue d’ensem
 Le stockage de sauvegardes fiables de vos données est un élément essentiel de toute base de données de production. SQL Data Warehouse permet de sécuriser vos données en sauvegardant automatiquement vos bases de données actives à intervalles réguliers. Ces sauvegardes vous permettent d’effectuer une récupération à partir des scénarios où vous avez endommagé vos données ou accidentellement supprimé vos données ou votre base de données. Pour en savoir plus sur la planification de la sauvegarde de données, la stratégie de rétention et la restauration d’une base de données, consultez [Restore from snapshot (Restaurer à partir d’un instantané)][].
 
 ## Étapes suivantes
-La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [vue d’ensemble du développement][].
+La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [Vue d’ensemble du développement][].
 
 <!--Image references-->
 
@@ -102,7 +102,7 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 [connection]: sql-data-warehouse-develop-connections.md
 [Se connecter à SQL Data Warehouse avec Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Se connecter et lancer des requêtes avec SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
-[vue d’ensemble du développement]: sql-data-warehouse-overview-development.md
+[Vue d’ensemble du développement]: sql-data-warehouse-overview-develop.md
 [Surveiller votre charge de travail à l'aide de vues de gestion dynamique]: sql-data-warehouse-manage-monitor.md
 [Suspension du calcul]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Restore from snapshot (Restaurer à partir d’un instantané)]: sql-data-warehouse-restore-database-overview.md
@@ -118,4 +118,4 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

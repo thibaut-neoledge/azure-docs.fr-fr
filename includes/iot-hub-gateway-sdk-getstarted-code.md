@@ -198,13 +198,11 @@ Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passe
 - [Kit de développement logiciel (SDK) de la passerelle IoT– envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux][lnk-gateway-simulated].
 - [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] sur GitHub.
 
-Vous trouverez plus d’informations sur la gestion des appareils avec IoT Hub en lisant la rubrique [Vue d’ensemble de la gestion des appareils Azure IoT Hub][lnk-device-management].
-
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-device-management]: ../articles/iot-hub/iot-hub-device-management-overview.md
 
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Prise en main : services de l’API Web Service Fabric avec auto-hébergement OWIN
@@ -39,11 +39,13 @@ Commencez par créer une application Service Fabric, avec un seul service sans �
 
 ![Création d'une application Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
-Vous avez à votre disposition un modèle Visual Studio pour un service sans état utilisant une API Web. Dans ce didacticiel, nous allons créer un projet qui donnera le même résultat que si vous aviez sélectionné ce modèle. À ce stade, vous pouvez démarrer l’API Web du service sans état et suivre la procédure, ou utiliser un service sans état vide et tout générer de zéro.
+Vous avez à votre disposition un modèle Visual Studio pour un service sans état utilisant une API Web. Dans ce didacticiel, nous allons créer un projet d’API Web qui donnera le même résultat que si vous aviez sélectionné ce modèle.
+
+Sélectionnez un projet Service sans état vide pour découvrir comment créer un projet d’API Web, ou vous pouvez commencer avec le modèle d’API Web de service sans état et suivre simplement la procédure indiquée.
 
 ![Création d'un service unique sans état](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
-La première étape consiste à extraire certains packages NuGet pour l'API Web. Le package que nous voulons utiliser est Microsoft.AspNet.WebApi.OwinSelfHost. Ce package comprend tous les packages API Web et les packages *hôtes* nécessaires. Ils auront leur importance plus tard.
+La première étape consiste à extraire certains packages NuGet pour l'API Web. Le package que nous voulons utiliser est Microsoft.AspNet.WebApi.OwinSelfHost. Ce package comprend tous les packages d’API Web et les packages *hôtes* nécessaires. Ils auront leur importance plus tard.
 
 ![Créer l’API Web à l’aide du Gestionnaire de package NuGet](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
@@ -90,7 +92,7 @@ namespace WebService.Controllers
 
 ```
 
-Ensuite, ajoutez une classe de démarrage à la racine du projet pour inscrire le routage, les formateurs et tout autre programme d’installation de configuration. C’est également depuis cet endroit que l’API Web se connecte à l’*hôte*, ce que nous reverrons ultérieurement.
+Ensuite, ajoutez une classe de démarrage à la racine du projet pour inscrire le routage, les formateurs et tout autre programme d’installation de configuration. C’est également depuis cet endroit que l’API Web se connecte à l*’hôte*, ce que nous reverrons ultérieurement.
 
 **Startup.cs**
 
@@ -165,9 +167,9 @@ Il n’appartient pas à cet article de donner plus de détails sur le processus
 
 Étant donné que le code de votre application API Web est hébergé dans son propre processus, comment se connecter à un serveur web ? Entrez [OWIN](http://owin.org/). OWIN est simplement un contrat entre les applications web .NET et les serveurs web. Traditionnellement avec ASP.NET (jusqu’à MVC 5), l’application web est étroitement liée à IIS via System.Web. Toutefois, l’API Web implémente OWIN, ce qui vous permet d’écrire une application web dissociée du serveur web qui l’héberge. Pour cette raison, vous pouvez utiliser un serveur web OWIN *auto-hébergé* que vous pouvez démarrer dans votre propre processus. Il s’intègre parfaitement avec le modèle d’hébergement Service Fabric que nous venons de décrire.
 
-Dans cet article, nous utiliserons Katana comme hôte OWIN pour l'application de l'API Web. Katana est une implémentation hôte OWIN open source.
+Dans cet article, nous utiliserons Katana comme hôte OWIN pour l'application de l'API Web. Katana est une implémentation d’hôte OWIN open source basée sur [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) et sur l’[API de serveur HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) de Windows.
 
-> [AZURE.NOTE] Pour en savoir plus sur Katana, accédez au [site Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Pour obtenir un aperçu rapide de l’utilisation de Katana pour auto-héberger l’API Web, consultez [Utiliser OWIN pour auto-héberger une API Web ASP.NET 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
+> [AZURE.NOTE] Pour en savoir plus sur Katana, accédez au [site Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Pour obtenir un aperçu rapide de l’utilisation de Katana pour auto-héberger l’API Web, consultez [Use OWIN to Self-Host ASP.NET Web API 2 (Utiliser OWIN pour auto-héberger une API Web ASP.NET 2)](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
 
 
 ## Configurer le serveur web
@@ -349,7 +351,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 Notez que « http://+ » est utilisé ici. Cette opération permet de s’assurer que le serveur web écoute toutes les adresses disponibles, y compris l’hôte local, le nom de domaine complet et l’adresse IP de l’ordinateur.
 
-L’implémentation d’OpenAsync est une des principales raisons pour laquelle le serveur web (ou une pile de communication) est implémenté comme élément ICommunicationListener au lieu d’être simplement ouvert directement à partir de `RunAsync()` dans le service. La valeur de retour d'OpenAsync est l'adresse sur laquelle le serveur web écoute. Lorsque cette adresse est renvoyée au système, elle enregistre auprès du service. Service Fabric fournit une API qui permet aux clients et à d’autres services de rechercher cette adresse par nom de service. Ceci est important, car l’adresse du service n’est pas statique. Les services se déplacent dans le cluster à des fins d’équilibrage des ressources et de disponibilité. Ce mécanisme permet aux clients de résoudre l'adresse d'écoute pour un service.
+L’implémentation d’OpenAsync est l’une des principales raisons pour lesquelles le serveur web (ou une pile de communication) est implémenté comme élément ICommunicationListener au lieu d’être simplement ouvert directement à partir de `RunAsync()` dans le service. La valeur de retour d'OpenAsync est l'adresse sur laquelle le serveur web écoute. Lorsque cette adresse est renvoyée au système, elle enregistre auprès du service. Service Fabric fournit une API qui permet aux clients et à d’autres services de rechercher cette adresse par nom de service. Ceci est important, car l’adresse du service n’est pas statique. Les services se déplacent dans le cluster à des fins d’équilibrage des ressources et de disponibilité. Ce mécanisme permet aux clients de résoudre l'adresse d'écoute pour un service.
 
 Dans cette optique, OpenAsync démarre le serveur web et retourne l’adresse qu’il écoute. Notez qu’il écoute « http://+ », mais avant qu’OpenAsync ne retourne l’adresse, le « + » est remplacé par l’adresse IP ou le nom de domaine complet du nœud actuel. L’adresse retournée par cette méthode est celle enregistrée dans le système. Il s’agit également de celle que les clients et autres services voient quand ils recherchent l’adresse d’un service. Pour pouvoir s'y connecter, les clients ont besoin de l'IP ou du nom de domaine complet de l'adresse.
 
@@ -425,7 +427,7 @@ Dans cet exemple d’implémentation, CloseAsync et Abort arrêtent tout simplem
 
 ## Démarrer le serveur web
 
-Vous êtes maintenant prêt à créer et à renvoyer une instance OwinCommunicationListener pour démarrer le serveur web. De retour dans la classe de service (Service.cs), remplacez la méthode `CreateServiceInstanceListeners()` :
+Vous êtes maintenant prêt à créer et à renvoyer une instance OwinCommunicationListener pour démarrer le serveur web. De retour dans la classe de service (Service.cs), substituez la méthode `CreateServiceInstanceListeners()` :
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -439,11 +441,11 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-C’est là que l’*application* API Web et l’*hôte* OWIN finissent par se rencontrer. L’hôte (OwinCommunicationListener) reçoit une instance de l’*application* (l’API Web via le démarrage). Ensuite, Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
+C’est là que l*’application* API Web et l*’hôte* OWIN finissent par se rencontrer. L’hôte (OwinCommunicationListener) reçoit une instance de l*’application* (l’API Web via le démarrage). Ensuite, Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
 
 ## Assemblage
 
-Dans cet exemple, vous n’avez rien à faire dans la méthode `RunAsync()`, donc vous pouvez tout simplement supprimer ce remplacement.
+Dans cet exemple, vous n’avez rien à faire dans la méthode `RunAsync()`. Vous pouvez donc tout simplement supprimer cette substitution.
 
 L’implémentation du service finale doit être très simple. Il suffit de créer l’écouteur de communication :
 
@@ -679,10 +681,10 @@ Vous pouvez également le faire quand vous définissez un service par défaut da
 
 ```
 
-Pour plus d’informations sur la création d’instances d’application et de service, consultez [Déployer une application](service-fabric-deploy-remove-applications.md).
+Pour plus d’informations sur la façon de créer des instances d’application et de service, consultez [Déployer une application](service-fabric-deploy-remove-applications.md).
 
 ## Étapes suivantes
 
 [Débogage de votre application Service Fabric à l’aide de Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -103,7 +103,9 @@ La bibliothèque cliente DM a deux grandes responsabilités dans la gestion des 
 
 Pour plus d’informations concernant ces responsabilités et l’implémentation sur l’appareil physique, consultez la rubrique [Présentation de la bibliothèque cliente de gestion des appareils Azure IoT Hub pour C][lnk-library-c].
 
-## Étape suivante
+## Étapes suivantes
+
+Pour implémenter des applications clientes sur un large éventail de plateformes matérielles et de systèmes d’exploitation d’appareils, vous pouvez utiliser les Kits de développement logiciel (SDK) d’appareils IoT. Ces kits incluent des bibliothèques qui facilitent l’envoi de données de télémétrie vers un IoT Hub et la réception de commandes cloud-à-appareils. Avec les Kits de développement logiciel (SDK), vous avez le choix parmi un grand nombre de protocoles réseau pour communiquer avec IoT Hub. Pour plus d’informations, consultez la rubrique [plus d’informations sur les kits de développement logiciel (SDK) d’appareils][lnk-device-sdks].
 
 Pour plus d’informations sur les fonctionnalités de gestion des appareils Azure IoT Hub, consultez le didacticiel [Prise en main de la gestion des appareils Azure IoT Hub][lnk-get-started].
 
@@ -118,5 +120,6 @@ Pour plus d’informations sur les fonctionnalités de gestion des appareils Azu
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

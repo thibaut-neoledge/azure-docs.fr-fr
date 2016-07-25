@@ -115,7 +115,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**, puis sur **Nouvel élément**. Ajoutez un nouveau fichier JSON appelé **parameters.json** à votre projet.
 
-4. Remplacez le contenu de **parameters.json** avec les informations des paramètres ci-dessous qui définissent le nom du nouvel IoT Hub, par exemple **{vos initiales}mynewiothub** (notez que ce nom doit être globalement unique et inclure votre nom ou vos initiales) :
+4. Remplacez le contenu de **parameters.json** avec les informations des paramètres ci-dessous qui définissent le nom du nouvel IoT Hub, par exemple **{vos initiales}mynewiothub** (notez que ce nom doit être globalement unique et inclure votre nom ou vos initiales) :
 
     ```
     {
@@ -129,7 +129,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 5. Dans l’**Explorateur de serveurs**, connectez-vous à votre abonnement Azure et, dans votre compte de stockage, créez un conteneur appelé **modèles**. Dans le panneau **Propriétés**, définissez les autorisations **Accès public en lecture** pour le conteneur **modèles** sur **Blob**.
 
-6. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur le conteneur **modèles**, puis cliquez sur Afficher le conteneur d'objets blob. Cliquez sur le bouton Télécharger l’objet Blob, sélectionnez les deux fichiers, **parameters.json** et **templates.json**, puis cliquez sur Ouvrir pour télécharger les fichiers JSON dans le conteneur **modèles**. Les URL des objets blob contenant les données JSON sont :
+6. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur le conteneur **modèles**, puis cliquez sur **Afficher le conteneur d'objets blob**. Cliquez sur le bouton **Télécharger l’objet Blob**, sélectionnez les deux fichiers, **parameters.json** et **templates.json**, puis cliquez sur **Ouvrir** pour télécharger les fichiers JSON dans le conteneur **modèles**. Les URL des objets blob contenant les données JSON sont :
 
     ```
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
@@ -185,7 +185,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(client);
@@ -207,6 +207,18 @@ Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle ARM avec 
 - Découvrez les capacités de l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
 - Pour plus d’informations sur les capacités d’Azure Resource Manager, voir l’article [Présentation d’Azure Resource Manager][lnk-azure-rm-overview].
 
+Pour en savoir plus sur le développement pour IoT Hub, consultez les pages suivantes :
+
+- [Présentation du Kit de développement logiciel (SDK) C][lnk-c-sdk]
+- [Kits SDK IoT Hub][lnk-sdks]
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
+
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
@@ -215,4 +227,12 @@ Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle ARM avec 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0601_2016-->
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/04/2016" 
+    ms.date="07/08/2016" 
     ms.author="hawong"/>
 
 # Cas d’utilisation courants de DocumentDB
@@ -33,7 +33,7 @@ Azure DocumentDB est une base de données NoSQL à usage général qui est utili
 
 - DocumentDB partitionne en mode natif vos données une disponibilité et une évolutivité élevées.
 - DocumentDB dispose d’un stockage SSD avec des temps de réponse de l’ordre des millisecondes à faible latence.
-- La prise en charge de DocumentDB des niveaux de cohérence comme la cohérence finale, de session et liée sans état, offre un rapport coût-performances faible. 
+- La prise en charge de DocumentDB des niveaux de cohérence comme la cohérence finale, de session et liée sans état, offre un rapport coût-performances faible.
 - DocumentDB possède un modèle de tarification flexible et adapté aux données qui mesure indépendamment le stockage et le débit.
 - Le modèle de débit réservé de DocumentDB vous permet de raisonner en termes de nombre de lectures/écritures au lieu de processeur/mémoire/IOPS du matériel sous-jacent.
 - La conception de DocumentDB vous permet de monter en puissance pour des volumes de requêtes énormes, de l’ordre de milliards de requêtes par jour.
@@ -99,9 +99,9 @@ Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consu
 - [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Comment Halo 5 a mis en œuvre l’expérience de jeu de société avec Azure DocumentDB.
 - [Galerie Cortana Analytics](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Galerie Cortana Analytics : un site communautaire évolutif basé sur Azure DocumentDB.
 - [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). L’intégrateur principal offre aux entreprises multinationales un aperçu global en quelques minutes avec les technologies de cloud flexibles.
-- [News République](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Rendre les informations plus intelligentes pour offrir un contenu plus pertinent aux citoyens engagés. 
+- [News République](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Rendre les informations plus intelligentes pour offrir un contenu plus pertinent aux citoyens engagés.
 - [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). Pour une harmonisation à travers le globe, les grandes marques se tournent vers SGS. Et SGS se tourne vers Azure.
-- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Le leader mondial Telenor utilise le cloud pour évoluer à la vitesse d'une startup. 
+- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Le leader mondial Telenor utilise le cloud pour évoluer à la vitesse d'une startup.
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Le magasin du futur fonctionne grâce à la recherche rapide et au flux de données simplifié.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

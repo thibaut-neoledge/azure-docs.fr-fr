@@ -1,7 +1,7 @@
 
 <properties 
 	pageTitle="Personnaliser des définitions d’API générées par Swashbuckle" 
-	description="Découvrez comment personnaliser les définitions d’API Swagger générées par Swashbuckle pour une application API dans Azure App Service." 
+	description="Découvrez comment personnaliser les définitions d’API Swagger générées par Swashbuckle pour une application API dans Azure App Service." 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
@@ -15,20 +15,20 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/22/2016" 
-	ms.author="bradyg"/>
+	ms.author="rachelap"/>
 
 # Personnaliser des définitions d’API générées par Swashbuckle 
 
 ## Vue d'ensemble
 
-Cet article explique comment personnaliser Swashbuckle pour gérer les scénarios courants de modification d’un comportement par défaut :
+Cet article explique comment personnaliser Swashbuckle pour gérer les scénarios courants de modification d’un comportement par défaut :
 
 * Swashbuckle génère des identificateurs d'opération en double pour les surcharges des méthodes de contrôleur.
-* Swashbuckle suppose que la seule réponse valide d'une méthode est HTTP 200 (OK). 
+* Swashbuckle suppose que la seule réponse valide d'une méthode est HTTP 200 (OK).
  
 ## Personnaliser la génération d'identificateurs d'opération
 
-Swashbuckle génère des identificateurs d’opération Swagger en concaténant le nom du contrôleur et le nom de la méthode. Ce modèle crée un problème lorsque vous avez plusieurs surcharges pour une méthode : Swashbuckle génère les ID d’opération en double, ce qui est incompatible avec le format Swagger JSON.
+Swashbuckle génère des identificateurs d’opération Swagger en concaténant le nom du contrôleur et le nom de la méthode. Ce modèle crée un problème lorsque vous avez plusieurs surcharges pour une méthode : Swashbuckle génère les ID d’opération en double, ce qui est incompatible avec le format Swagger JSON.
 
 Le code du contrôleur suivant, par exemple, force Swashbuckle à générer trois ID d’opération Contact\_Get.
 
@@ -36,7 +36,7 @@ Le code du contrôleur suivant, par exemple, force Swashbuckle à générer troi
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsinjson.png)
 
-Vous pouvez résoudre ce problème manuellement en donnant aux méthodes des noms uniques, tels que ceux-ci pour cet exemple :
+Vous pouvez résoudre ce problème manuellement en donnant aux méthodes des noms uniques, tels que ceux-ci pour cet exemple :
 
 * Obtenir
 * GetById
@@ -44,9 +44,9 @@ Vous pouvez résoudre ce problème manuellement en donnant aux méthodes des nom
 
 L’alternative consiste à étendre Swashbuckle afin de pouvoir générer automatiquement des ID d’opération uniques.
 
-Les étapes suivantes montrent comment personnaliser Swashbuckle en utilisant le fichier *SwaggerConfig.cs* inclus dans le projet avec le modèle de projet d’applications API de Visual Studio en version préliminaire. Vous pouvez également personnaliser Swashbuckle dans un projet d’API Web que vous configurerez pour être déployé sous la forme d’une application API.
+Les étapes suivantes montrent comment personnaliser Swashbuckle en utilisant le fichier *SwaggerConfig.cs* inclus dans le projet avec le modèle de projet d’applications API de Visual Studio en version préliminaire. Vous pouvez également personnaliser Swashbuckle dans un projet d’API Web que vous configurerez pour être déployé sous la forme d’une application API.
 
-1. Créer une implémentation `IOperationFilter` personnalisée 
+1. Créer une implémentation `IOperationFilter` personnalisée
 
 	L’interface de `IOperationFilter` fournit un point d’extensibilité pour les utilisateurs de Swashbuckle qui souhaitent personnaliser divers aspects du processus des métadonnées Swagger. Le code suivant illustre une méthode de modification du comportement de génération de l’ID d’opération. Le code ajoute les noms de paramètre au nom de l’ID d’opération.
 
@@ -128,13 +128,13 @@ Dans ce scénario, le Swagger que Swashbuckle génère par défaut ne spécifie 
         throw ex;
     } 
 
-Swashbuckle fournit deux méthodes de personnalisation de la liste des codes de réponse HTTP attendus qu'il génère, à l'aide de commentaires XML ou de l’attribut `SwaggerResponse`. L'attribut est la méthode la plus simple, mais il est uniquement disponible dans Swashbuckle 5.1.5 ou version ultérieure. Le modèle d’aperçu de nouveau projet d’API Apps de Visual Studio 2013 comprend Swashbuckle 5.0.0, donc si vous avez utilisé le modèle et ne souhaitez pas mettre à jour Swashbuckle, vous n’avez pas d’autre choix que d’utiliser les commentaires XML.
+Swashbuckle fournit deux méthodes de personnalisation de la liste des codes de réponse HTTP attendus qu'il génère, à l'aide de commentaires XML ou de l’attribut `SwaggerResponse`. L'attribut est la méthode la plus simple, mais il est uniquement disponible dans Swashbuckle 5.1.5 ou version ultérieure. Le modèle d’aperçu de nouveau projet d’API Apps de Visual Studio 2013 comprend Swashbuckle 5.0.0, donc si vous avez utilisé le modèle et ne souhaitez pas mettre à jour Swashbuckle, vous n’avez pas d’autre choix que d’utiliser les commentaires XML.
 
 ### Personnaliser les codes de réponse attendue à l'aide de commentaires XML
 
 Utilisez cette méthode pour spécifier les codes de réponse si votre version de Swashbuckle est antérieure à 5.1.5.
 
-1. Tout d'abord, ajoutez des commentaires de documentation XML aux méthodes pour lesquelles vous souhaitez spécifier des codes de réponse HTTP. Si vous suivez l’exemple d’action d’API Web proposé ci-dessus et appliquez la documentation XML, vous obtiendrez un code semblable à celui ci-après 
+1. Tout d'abord, ajoutez des commentaires de documentation XML aux méthodes pour lesquelles vous souhaitez spécifier des codes de réponse HTTP. Si vous suivez l’exemple d’action d’API Web proposé ci-dessus et appliquez la documentation XML, vous obtiendrez un code semblable à celui ci-après
 
 		/// <summary>
 		/// Returns the specified contact.
@@ -162,7 +162,7 @@ Utilisez cette méthode pour spécifier les codes de réponse si votre version d
 
 1. Ajoutez des instructions au fichier *SwaggerConfig.cs* pour que Swashbuckle utilise le fichier de documentation XML.
 
-	* Ouvrez le fichier *SwaggerConfig.cs* et créez une méthode dans la classe *SwaggerConfig* pour spécifier le chemin d'accès au fichier de documentation XML. 
+	* Ouvrez le fichier *SwaggerConfig.cs* et créez une méthode dans la classe *SwaggerConfig* pour spécifier le chemin d'accès au fichier de documentation XML.
 
 			private static string GetXmlCommentsPath()
 			{
@@ -205,9 +205,9 @@ Vous trouverez le code pour cette démonstration dans [ce référentiel GitHub](
 
 ### Personnaliser les codes de réponse attendue à l'aide de l'attribut SwaggerResponse
 
-L’attribut [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) est disponible dans Swashbuckle 5.1.5 et versions ultérieures. Si votre projet fait appel à une version antérieure, la présente section commence par expliquer comment mettre à jour le package Swashbuckle NuGet afin que vous puissiez utiliser cet attribut.
+L’attribut [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) est disponible dans Swashbuckle 5.1.5 et versions ultérieures. Si votre projet fait appel à une version antérieure, la présente section commence par expliquer comment mettre à jour le package Swashbuckle NuGet afin que vous puissiez utiliser cet attribut.
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet d’API Web, puis sélectionnez **Gérer les packages NuGet**. 
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet d’API Web, puis sélectionnez **Gérer les packages NuGet**.
 
 	![](./media/app-service-api-dotnet-swashbuckle-customize/manage-nuget-packages.png)
 
@@ -235,7 +235,7 @@ L’attribut [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/bl
 		    }
 		}
 
-2. Ajouter un énoncé `using` pour l'espace de noms de l'attribut :
+2. Ajouter un énoncé `using` pour l'espace de noms de l'attribut :
 
 		using Swashbuckle.Swagger.Annotations;
 		
@@ -250,4 +250,4 @@ Vous trouverez le code pour cette démonstration dans [ce référentiel GitHub](
 Cet article vous a expliqué comment personnaliser la façon dont Swashbuckle génère des identificateurs d'opération et des codes de réponse valides. Pour plus d’informations, consultez [Swashbuckle sur GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

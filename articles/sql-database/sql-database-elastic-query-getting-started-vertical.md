@@ -62,7 +62,7 @@ Exécutez maintenant la requête suivante sur la base de données **Customers** 
 		WITH IDENTITY = '<username>', 
 		SECRET = '<password>';  
 
-	Le « username » et le « password » doivent être le nom d'utilisateur et le mot de passe de connexion à la base de données Customers.
+	Le « username » et le « password » doivent être le nom d'utilisateur et le mot de passe de connexion à la base de données Customers. L’authentification à l’aide d’Azure Active Directory avec des requêtes élastiques n’est pas prise en charge actuellement.
 
 ### Sources de données externes
 Pour créer une source de données externe, exécutez la commande suivante sur la base de données Orders :
@@ -106,4 +106,4 @@ Pour plus d’informations sur la tarification, voir [Tarification des bases de 
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

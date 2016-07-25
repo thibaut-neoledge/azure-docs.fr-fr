@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/11/2016"
 	ms.author="jhubbard"/>
 
 
@@ -48,7 +48,7 @@ Veillez à installer les composants suivants sur l’ordinateur sur lequel vous 
 
 - **.NET Framework 4.0**
 
- Vous pouvez télécharger .NET Framework 4.0 [ici](http://go.microsoft.com/fwlink/?linkid=205836).
+ Installez le .NET Framework 4.0 à partir de [cet emplacement](http://go.microsoft.com/fwlink/?linkid=205836).
 
 - **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
 
@@ -202,4 +202,4 @@ Pour plus d’informations sur la base de données SQL et la synchronisation des
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

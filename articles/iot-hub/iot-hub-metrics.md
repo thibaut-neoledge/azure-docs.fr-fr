@@ -54,11 +54,17 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 
 ## Étapes suivantes
 
-Les métriques de diagnostic n’étant plus un secret pour vous, suivez les liens ci-après pour en savoir plus :
+Les métriques de diagnostic n’étant plus un secret pour vous, suivez les liens ci-après pour en savoir plus sur la gestion d’Azure IoT Hub :
 
-- [Surveillance des opérations IoT Hub][lnk-operations-monitoring]
-- [Mise à l’échelle IoT Hub][lnk-scaling]
-- [Haute disponibilité et récupération d’urgence IoT Hub :][lnk-dr]
+- [Surveillance des opérations][lnk-monitor]
+- [Gérer l’accès à IoT Hub][lnk-itpro]
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -70,4 +76,12 @@ Les métriques de diagnostic n’étant plus un secret pour vous, suivez les lie
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

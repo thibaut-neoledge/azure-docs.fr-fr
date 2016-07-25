@@ -3,8 +3,8 @@
 	description="Décrit la configuration de l’intégration continue dans Visual Studio Team Services en utilisant des projets de déploiement Groupe de ressources Azure dans Visual Studio."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="04/19/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Intégration continue dans Visual Studio Team Services à l’aide de projets de déploiement de groupe de ressources Azure
 
@@ -63,7 +63,7 @@ La procédure suivante vous guidera à travers les étapes nécessaires à la co
 
 1.	Choisissez l’étape de build **Azure PowerShell**, puis renseignez ses valeurs.
 
-    1.	Si vous disposez déjà d’un point de terminaison de service Azure ajouté à Visual Studio Team Services, sélectionnez l’abonnement dans la zone de liste déroulante **Abonnement Azure**, puis passez à la section suivante. 
+    1.	Si vous disposez déjà d’un point de terminaison de service Azure ajouté à Visual Studio Team Services, sélectionnez l’abonnement dans la zone de liste déroulante **Abonnement Azure**, puis passez à la section suivante.
 
         Si vous n’avez pas de point de terminaison de service Azure dans Visual Studio Team Services, vous devez en ajouter un. Cette sous-section vous guide dans la procédure. Si votre compte Azure utilise un compte Microsoft (tel que Hotmail), vous devez procéder comme suit pour obtenir l’authentification d’un principal de service.
 
@@ -121,7 +121,7 @@ La procédure suivante vous guidera à travers les étapes nécessaires à la co
 
     | Paramètre | Description|
     |---|---|
-    | -ResourceGroupLocation | Valeur de l’emplacement géographique où le groupe de ressources est localisé, par exemple **estdesétatsunis** ou **« Est des États-Unis »**. (Ajouter des guillemets simples si le nom comporte un espace). Consultez [Régions Azure](https://azure.microsoft.com/regions/) pour plus d’informations.| |
+    | -ResourceGroupLocation | Valeur de l’emplacement géographique où le groupe de ressources est localisé, par exemple **estdesétatsunis** ou **« Est des États-Unis »**. (Ajouter des guillemets simples si le nom comporte un espace). Consultez [Régions Azure](https://azure.microsoft.com/fr-FR/regions/) pour plus d’informations.| |
     | -ResourceGroupName | Nom du groupe de ressources utilisé pour ce déploiement.| |
     | -UploadArtifacts | Ce paramètre, lorsqu’il est présent, spécifie que les artefacts doivent être téléchargés vers Azure depuis le système local. Il vous suffit de définir ce commutateur si le déploiement de votre modèle requiert des artefacts supplémentaires pour les phases intermédiaires de l’utilisation du script PowerShell (tels que les scripts de configuration ou les modèles imbriqués). |
     | -StorageAccountName | Nom du compte de stockage utilisé pour les artefacts intermédiaires pour ce déploiement. Ce paramètre n’est obligatoire que si vous copiez des artefacts vers Azure. Ce compte de stockage n’est pas automatiquement créé par le déploiement. Il doit déjà exister.| |
@@ -160,4 +160,4 @@ Pour plus d’informations sur Azure Resource Manager et les groupes de ressourc
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

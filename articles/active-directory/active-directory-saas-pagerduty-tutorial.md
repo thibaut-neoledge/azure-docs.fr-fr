@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Pagerduty
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, dans la page d’intégration d’application **Pagerduty**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, dans la page d’intégration d’application **Pagerduty**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-pagerduty-tutorial/IC778531.png "Configurer l’authentification unique")
 
@@ -98,17 +98,17 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Activer l’authentification unique](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Activer l'authentification unique")
 
-    1.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    1.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    2.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate**.
-    3.  Dans la boîte de dialogue **Configurer l’authentification unique sur Pagerduty** du portail Azure, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
-    4.  Dans la boîte de dialogue **Configurer l’authentification unique sur Pagerduty** du portail Azure, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
+    2.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
+    3.  Dans la boîte de dialogue **Configurer l’authentification unique sur Pagerduty** du portail Azure Classic, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
+    4.  Dans la boîte de dialogue **Configurer l’authentification unique sur Pagerduty** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
     5.  Sélectionnez **Turn on Single Sign-on**.
-    6.  Cliquez sur **Save Changes**.
+    6.  Cliquez sur **Enregistrer les modifications**.
 
-9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -129,9 +129,9 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Pagerduty, vous deve
 
     ![Inviter dans votre équipe](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Inviter dans votre équipe")
 
-    >[AZURE.NOTE]Tous les utilisateurs recevront une invitation pour créer un compte PagerDuty.
+    >[AZURE.NOTE] Tous les utilisateurs recevront une invitation pour créer un compte PagerDuty.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Pagerduty, pour approvisionner des comptes utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Pagerduty, pour approvisionner des comptes utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -139,7 +139,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Pagerduty, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **Pagerduty**, cliquez sur **Affecter des utilisateurs**.
 
@@ -151,4 +151,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

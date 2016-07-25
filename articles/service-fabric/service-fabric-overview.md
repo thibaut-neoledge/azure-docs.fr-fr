@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Vue d'ensemble de Service Fabric
@@ -41,7 +41,7 @@ Pour plus d'informations sur l’approche microservices, consultez [Pourquoi ado
 ## Créer des clusters Service Fabric n'importe où
 Vous pouvez créer des clusters Service Fabric dans de nombreux environnements pour y déployer vos applications. Cela peut être effectué dans Azure ou localement, sur Windows Server ou sous Linux. En outre, l'environnement de développement dans le Kit de développement logiciel (SDK) est identique à l'environnement de production, sans aucun émulateur impliqué. En d'autres termes, s’il s'exécute sur votre cluster de développement local, il se déploiera sur le même cluster dans d'autres environnements.
 
-Pour plus d’informations, consultez [Déploiement universel sur Windows Server ou Linux avec Service Fabric](service-fabric-deploy-anywhere.md)
+Pour plus d’informations sur la création locale de clusters, consultez [Création d’un cluster sur Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou, pour créer un cluster Azure par le biais du portail Azure, consultez [cette rubrique](service-fabric-cluster-creation-via-portal.md).
 
 ![Plateforme Service Fabric][Image1]
 
@@ -55,7 +55,7 @@ Pourquoi utiliser des microservices avec état et sans état ? Voici les deux pr
 
 2. La simplification de la conception des applications, car les microservices avec état ne nécessitent pas de files d’attente et de caches supplémentaires. Ceux-ci étaient généralement nécessaires pour répondre aux exigences de latence et de disponibilité d’une application purement sans état. Les services avec état étant naturellement hautement disponibles et à faible latence, vous avez moins d’éléments mobiles à gérer au sein de votre application.
 
-Pour plus d'informations sur les modèles d'application avec Service Fabric, consultez [Scénarios d'application](service-fabric-application-scenarios.md) et [Choix d'une infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service
+Pour plus d’informations sur les modèles d’application avec Service Fabric, consultez [Scénarios d’application](service-fabric-application-scenarios.md) et [Choix d’une infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service.
 
 ## Gestion du cycle de vie des applications
 Service Fabric offre une excellente prise en charge de la gestion du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance.
@@ -64,7 +64,7 @@ Les fonctionnalités Service Fabric de gestion du cycle de vie des applications 
 
 La plupart des applications sont constituées d’une combinaison de microservices avec et sans état et d’autres exécutables/runtimes déployés ensemble. Service Fabric, grâce à des types forts sur les applications et aux microservices packagés, permet le déploiement de plusieurs instances d’application qui peuvent être gérées et mises à niveau individuellement. Plus important encore, Service Fabric peut déployer *n’importe quel* exécutable ou runtime et le rendre fiable. Par exemple, il peut servir à déployer ASP.NET Core 1, node.js, des machines virtuelles Java, des scripts ou tout autre élément qui compose votre application.
 
-Pour plus d'informations sur la gestion du cycle de vie des applications, consultez [Cycle de vie des applications](service-fabric-application-lifecycle.md), et sur le déploiement de n'importe quel code, consultez [Déployer un exécutable invité](service-fabric-deploy-existing-app.md)
+Pour plus d’informations sur la gestion du cycle de vie des applications, consultez [Cycle de vie des applications](service-fabric-application-lifecycle.md), et sur le déploiement de n’importe quel code, consultez [Déployer un exécutable invité](service-fabric-deploy-existing-app.md)
 
 ## Fonctionnalités clés
 Service Fabric vous permet d'effectuer les opérations suivantes :
@@ -105,9 +105,9 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 * Pour en savoir plus :
     * [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
     * [Vue d'ensemble de la terminologie](service-fabric-technical-overview.md)
-* Configuration de votre [environnement de développement](service-fabric-get-started.md) Service Fabric  
+* Configuration de votre [environnement de développement](service-fabric-get-started.md) Service Fabric
 * Choix d’une [infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

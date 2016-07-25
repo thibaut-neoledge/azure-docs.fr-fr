@@ -94,10 +94,20 @@ Une implémentation plus complexe pourrait inclure les informations de la [surve
 
 ## Étapes suivantes
 
-Suivez ces liens pour en savoir plus sur Azure IoT Hub :
+Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
 
-- [Prise en main d'IoT Hub (didacticiel)][lnk-get-started]
-- [Qu’est-ce qu’Azure IoT Hub ?][lnk-what-is-hub]
+- [Support MQTT][lnk-mqtt]
+- [Appareils pris en charge][lnk-devices]
+- [Prendre en charge des protocoles supplémentaires][lnk-protocols]
+- [Comparer à Event Hubs][lnk-compare]
+- [Mise à l’échelle, HA et DR][lnk-scaling]
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal-manage]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -121,4 +131,14 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [quotas et limitations IoT Hub]: iot-hub-devguide.md#throttling
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal-manage]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -3,7 +3,7 @@
    description="Résolution des problèmes de Microsoft Power BI Embedded Preview "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/25/2016"
-   ms.author="derrickv"/>
+   ms.date="06/29/2016"
+   ms.author="owend"/>
 
 # Résolution des problèmes de Microsoft Power BI Embedded Preview
 Cet article apporte des réponses concernant la résolution des problèmes de **Power BI Embedded**.
@@ -40,4 +40,4 @@ Dans le cas où vous possédez des informations d'identification pour un environ
 - [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
 - [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

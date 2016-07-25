@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Utiliser les rapports d’intégrité du système pour la résolution des problèmes
@@ -471,15 +471,74 @@ Lors du démarrage de l’application défaillante sous le débogueur, les fenê
 - **SourceId** : System.Replicator
 - **Property** : **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, en fonction du rôle de réplica
 
+### Opérations de nommage lentes
+
+**System.NamingService** signale l’intégrité sur son réplica principal quand une opération de nommage prend trop de temps. [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) et [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx) sont des exemples d’opérations de nommage. D’autres méthodes se trouvent sous FabricClient, par exemple sous les [méthodes de gestion de service](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) ou les [méthodes de gestion de propriété](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+
+> [AZURE.NOTE] Le service de nommage résout les noms des services dans un emplacement du cluster et permet aux utilisateurs de gérer les propriétés et les noms des services. Il s’agit d’un service persistant partitionné Service Fabric. L’une des partitions représente le propriétaire de l’autorité, qui contient des métadonnées sur tous les noms et les services System Fabric. Les noms Service Fabric sont mappés à des partitions différentes, appelées partitions Propriétaire du nom. Ainsi, le service est extensible. En savoir plus sur le [service de nommage](service-fabric-architecture.md).
+
+Quand une opération de nommage prend plus longtemps que prévu, elle est marquée avec un Avertissement sur le *réplica principal de la partition de service d’affectation de noms qui effectue l’opération*. Si l’opération se termine avec succès, l’avertissement est effacé. Si l’opération se termine avec une erreur, le rapport d’intégrité inclut des détails sur l’erreur.
+
+- **SourceId** : System.NamingService
+- **Propriété** : commence par le préfixe **Duration\_** et identifie l’opération lente et le nom Service Fabric sur lequel l’opération est appliquée. Par exemple, si la création de service au nom fabric:/MyApp/MyService prend trop de temps, la propriété est Duration\_AOCreateService.fabric:/MyApp/MyService. AO pointe vers le rôle de la partition de nommage pour ce nom et cette opération.
+- **Étapes suivantes** : vérifier pourquoi l’opération de nommage échoue. Chaque opération peut avoir différentes causes principales. Par exemple, une opération de suppression de service peut se bloquer sur un nœud car l’hôte d’application se bloque constamment sur un nœud à cause d’un bogue utilisateur dans le code de service.
+
+Le code suivant montre une opération de création de service. L’opération a duré plus longtemps que la durée configurée. AO réessaie et envoie le travail à NO. NO a terminé la dernière opération avec Timeout. Dans ce cas, le même réplica est principal pour les rôles AO et NO.
+
+```powershell
+PartitionId           : 00000000-0000-0000-0000-000000001000
+ReplicaId             : 131064359253133577
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.NamingService', Property='Duration_AOCreateService.fabric:/MyApp/MyService', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 131064359308715535
+                        SentAt                : 4/29/2016 8:38:50 PM
+                        ReceivedAt            : 4/29/2016 8:39:08 PM
+                        TTL                   : Infinite
+                        Description           : Replica has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 4/29/2016 8:39:08 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_AOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064359526778775
+                        SentAt                : 4/29/2016 8:39:12 PM
+                        ReceivedAt            : 4/29/2016 8:39:38 PM
+                        TTL                   : 00:05:00
+                        Description           : The AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_NOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064360657607311
+                        SentAt                : 4/29/2016 8:41:05 PM
+                        ReceivedAt            : 4/29/2016 8:41:08 PM
+                        TTL                   : 00:00:15
+                        Description           : The NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+``` 
+
 ## Rapports d’intégrité du système sur les applications déployées
 **System.Hosting** est l’autorité régnant sur les entités déployées.
 
 ### Activation
 System.Hosting consigne la valeur OK lorsqu’une application a été activée sur le nœud. Dans le cas contraire, il indique une erreur.
 
-- **SourceId** : System.Hosting
-- **Property** : Activation, inclut la version de déploiement
-- **Étapes suivantes** : si l’application est défectueuse, recherchez la raison de l’échec de l’activation.
+- **SourceId** : System.Hosting
+- **Property** : Activation, inclut la version de déploiement
+- **Étapes suivantes** : si l’application est défectueuse, rechercher la raison de l’échec de l’activation.
 
 Le code suivant représente une activation réussie :
 
@@ -511,9 +570,9 @@ HealthEvents                       :
 ### Télécharger
 **System.Hosting** indique une erreur en cas d’échec du téléchargement du package d’application.
 
-- **SourceId** : System.Hosting
-- **Property** : **Download :*RolloutVersion***
-- **Étapes suivantes** : recherchez la raison de l’échec du téléchargement sur le nœud.
+- **SourceId** : System.Hosting
+- **Property** : **Download :*RolloutVersion***
+- **Étapes suivantes** : rechercher la raison de l’échec du téléchargement sur le nœud.
 
 ## Rapports d’intégrité du système sur le package de service déployé
 **System.Hosting** est l’autorité régnant sur les entités déployées.
@@ -522,20 +581,20 @@ HealthEvents                       :
 System.Hosting consigne la valeur OK si l’activation du package de service sur le nœud est réussie. Dans le cas contraire, il indique une erreur.
 
 - **SourceId** : System.Hosting
-- **Property** : Activation
-- **Étapes suivantes** : examinez la raison de l’échec de l’activation.
+- **Property** : Activation
+- **Étapes suivantes** : examiner la raison de l’échec de l’activation.
 
 ### Activation du package de code
-**System.Hosting** consigne la valeur OK pour chaque package de code en cas de réussite de l’activation. En cas d’échec de l’activation, il indique un avertissement conformément à la configuration. Si l’activation de **CodePackage** échoue, ou s’il se termine avec une erreur supérieure à la valeur **CodePackageHealthErrorThreshold** configurée, System.Hosting indique une erreur. Si un package de service contient plusieurs packages de code, un rapport d’activation est généré pour chacun d’entre eux.
+**System.Hosting** consigne la valeur OK pour chaque package de code en cas de réussite de l’activation. En cas d’échec de l’activation, il indique un avertissement conformément à la configuration. Si l’activation de **CodePackage** échoue, ou s’il se termine avec une erreur supérieure à la valeur **CodePackageHealthErrorThreshold** configurée, System.Hosting indique une erreur. Si un package de service contient plusieurs packages de code, un rapport d’activation est généré pour chacun d’entre eux.
 
-- **SourceId** : System.Hosting
-- **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (par exemple, **CodePackageActivation:Code:SetupEntryPoint**)
+- **SourceId** : System.Hosting
+- **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (par exemple, **CodePackageActivation:Code:SetupEntryPoint**)
 
 ### Inscription du type de service
-**System.Hosting** consigne la valeur OK si le type de service a été correctement inscrit. Il indique une erreur si l’inscription n’a pas été effectuée dans les temps (conformément à la configuration de **ServiceTypeRegistrationTimeout**). Si l’inscription du type de service dans le nœud est annulée, cela est dû à la fermeture du runtime. Hosting indique un avertissement.
+**System.Hosting** consigne la valeur OK si le type de service a été inscrit correctement. Il indique une erreur si l’inscription n’a pas été effectuée à temps (conformément à la configuration de **ServiceTypeRegistrationTimeout**). Si l’inscription du type de service dans le nœud est annulée, cela est dû à la fermeture du runtime. Hosting indique un avertissement.
 
-- **SourceId** : System.Hosting
-- **Property** : utilise le préfixe **ServiceTypeRegistration** et contient le nom du type de service (par exemple, **ServiceTypeRegistration:FileStoreServiceType**)
+- **SourceId** : System.Hosting
+- **Property** : utilise le préfixe **ServiceTypeRegistration** et contient le nom du type de service (par exemple, **ServiceTypeRegistration:FileStoreServiceType**)
 
 Le code suivant indique un package de service déployé sain :
 
@@ -588,22 +647,24 @@ HealthEvents          :
 ### Télécharger
 **System.Hosting** indique une erreur en cas d’échec du téléchargement du package de service.
 
-- **SourceId** : System.Hosting
-- **Property** : **Download :*RolloutVersion***
-- **Étapes suivantes** : recherchez la raison de l’échec du téléchargement sur le nœud.
+- **SourceId** : System.Hosting
+- **Property** : **Download :*RolloutVersion***
+- **Étapes suivantes** : rechercher la raison de l’échec du téléchargement sur le nœud.
 
 ### Validation de mise à niveau
 **System.Hosting** indique une erreur en cas d’échec de la validation lors la mise à niveau ou en cas d’échec de la mise à niveau sur le nœud.
 
-- **SourceId** : System.Hosting
-- **Property** : utilise le préfixe **FabricUpgradeValidation** et contient la version de mise à niveau
-- **Description** : désigne l’erreur rencontrée
+- **SourceId** : System.Hosting
+- **Property** : utilise le préfixe **FabricUpgradeValidation** et contient la version de mise à niveau
+- **Description** : désigne l’erreur rencontrée
 
 ## Étapes suivantes
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
+
+[Comment signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

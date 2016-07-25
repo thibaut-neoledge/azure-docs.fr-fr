@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="mohisri"/>
+	ms.author="rachelap"/>
 
 # App Service API Apps : les nouveautés
 
@@ -122,4 +122,4 @@ Pour en savoir plus, lisez les articles de la [section Documentation de l’API 
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps)
 - [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="07/12/2016"
 	ms.author="tomfitz"/>
 
 # Partage d’état dans les modèles Azure Resource Manager
@@ -288,7 +288,7 @@ Les détails du stockage sont souvent partagés avec les modèles liés. Dans l'
 
 Si vous utilisez des modèles liés, vous devrez peut-être transmettre des paramètres de système d’exploitation à différents types de nœuds entre les différents types de configurations connus. Un objet complexe est pratique pour stocker et partager facilement des informations de système d’exploitation et facilite également la prise en charge de plusieurs options de système d’exploitation pour le déploiement.
 
-L’exemple suivant montre un objet pour *osSettings* :
+L’exemple suivant montre un objet pour *osSettings* :
 
     "osSettings": {
       "imageReference": {
@@ -426,4 +426,4 @@ Au moment de définir la machine virtuelle, vous affectez à **osProfile** la va
 - Pour en savoir plus sur les sections du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour consulter les fonctions disponibles dans un modèle, voir [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->
