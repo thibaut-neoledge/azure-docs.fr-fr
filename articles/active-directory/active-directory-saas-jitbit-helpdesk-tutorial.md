@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec Jitbit Helpdesk
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Ji
 
 ###Pour activer l’intégration d’application pour Jitbit Helpdesk, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC700993.png "Active Directory")
 
@@ -66,11 +66,11 @@ Cette section décrit l’activation de l’intégration d’application pour Ji
   
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jitbit Helpdesk avec leur compte Azure Active Directory en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
->[AZURE.IMPORTANT]Pour être en mesure de configurer l’authentification unique sur votre locataire Jitbit Helpdesk, vous devez au préalable contacter le support technique Jitbit Helpdesk pour faire activer cette fonctionnalité.
+>[AZURE.IMPORTANT] Pour être en mesure de configurer l’authentification unique sur votre locataire Jitbit Helpdesk, vous devez au préalable contacter le support technique Jitbit Helpdesk pour faire activer cette fonctionnalité.
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **Jitbit Helpdesk**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **Jitbit Helpdesk**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777678.png "Configurer l’authentification unique")
 
@@ -101,7 +101,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Paramètres d’authentification](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777683.png "Paramètres d’authentification")
 
     1.  Sélectionnez **Enable SAML 2.0 single sign on** avec **OneLogin**.
-    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Jitbit Helpdesk**, copiez la valeur **Point de terminaison initié du fournisseur de services**, puis collez-la dans la zone de texte **EndPoint URL**.
+    2.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Jitbit Helpdesk**, copiez la valeur **Point de terminaison initié du fournisseur de services**, puis collez-la dans la zone de texte **EndPoint URL**.
     3.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
         
 		>[AZURE.TIP]Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
@@ -109,7 +109,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     4.  Ouvrez votre certificat codé en base 64, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
     5.  Cliquez sur **Save changes**.
 
-9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -138,7 +138,7 @@ Pour pouvoir se connecter à Jitbit Helpdesk, les utilisateurs d’Azure Active
 
 6.  Cliquez sur **Create**.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Jitbit Helpdesk pour approvisionner des comptes d’utilisateurs Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Jitbit Helpdesk pour approvisionner des comptes d’utilisateurs Azure Active Directory.
 
 ##Affectation d’utilisateurs
   
@@ -146,7 +146,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Jitbit Helpdesk, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **Jitbit Helpdesk**, cliquez sur **Affecter des utilisateurs**.
 
@@ -158,4 +158,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

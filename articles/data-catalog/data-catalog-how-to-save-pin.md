@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 # Comment enregistrer des recherches et épingler des ressources de données
@@ -76,4 +76,4 @@ La page d’accueil du portail Azure Data Catalog comprend une section intitul
 ## Résumé
 Azure Data Catalog offre aux utilisateurs des fonctionnalités qui leur permettent de mieux découvrir les sources de données dont ils ont besoin, et ainsi de passer moins de temps à rechercher les données et plus de temps à les utiliser. Des recherches enregistrées et des ressources de données épinglées sont générées d’après ces fonctionnalités de base afin que les utilisateurs puissent identifier facilement les sources de données avec lesquelles ils comptent travailler régulièrement.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

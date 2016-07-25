@@ -169,7 +169,7 @@ L’émulateur de stockage étant un environnement émulé exécuté dans une in
 
 - À partir de la version 3.1, le compte d'émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture. Dans l’émulateur, RA-GRS est activé pour tous les comptes et il n’y a jamais de latence entre le réplica principal et le réplica secondaire. Les opérations Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge sur le compte secondaire et retournent toujours la valeur de l’élément de réponse `LastSyncTime` comme heure actuelle en fonction de la base de données SQL sous-jacente.
 
-	Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez [Bibliothèque cliente Microsoft Azure Storage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+	Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez la [Bibliothèque cliente Microsoft Azure Storage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 - Les points de terminaison du service de fichiers et de protocole SMB ne sont pas pris en charge dans l’émulateur de stockage pour le moment.
 
@@ -203,6 +203,14 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ## Notes de publication de l’émulateur de stockage
 
+### Version 4.4
+
+- Le garbage collection par l’émulateur de stockage des données blob est désormais plus efficace quand le nombre d’objets blob est élevé.
+
+- Correction d’un bogue qui provoquait la validation du XML ACL de conteneur légèrement différemment de la façon dont procède le service de stockage.
+
+- Correction d’un bogue qui entraînait parfois le signalement des valeurs de date/heure max et min dans le fuseau horaire incorrect.
+
 ### Version 4.3
 
 - L’émulateur de stockage prend maintenant en charge la version 2015-07-08 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
@@ -213,7 +221,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### Version 4.1
 
-- L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services de Blob, de File d’attente et de Table, à l’exception des nouvelles fonctionnalités des objets blob d’ajout. 
+- L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services de Blob, de File d’attente et de Table, à l’exception des nouvelles fonctionnalités des objets blob d’ajout.
 
 - L’émulateur de stockage renvoie désormais un message d’erreur explicite si vous utilisez une version des services de stockage qui n’est pas encore prise en charge par cette version de l’émulateur. Nous vous recommandons d’utiliser la dernière version de l’émulateur. Si vous rencontrez une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte), téléchargez la dernière version de l’émulateur de stockage.
 
@@ -224,16 +232,19 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 - L’exécutable de l’émulateur de stockage est renommé en *AzureStorageEmulator.exe*.
 
 ### Version 3.2
+
 - L’émulateur de stockage prend maintenant en charge la version 2014-02-14 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table. Notez que les points de terminaison du service de fichiers ne sont pas pris en charge dans l’émulateur de stockage pour le moment. Pour plus d’informations sur la version 2014-02-14, consultez la page [Contrôle de version pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx).
 
 ### Version 3.1
+
 - Le stockage géo-redondant avec accès en lecture (RA-GRS) est maintenant pris en charge dans l’émulateur de stockage. Les API Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge pour le compte secondaire et renvoient la valeur de l’élément de réponse LastSyncTime comme heure actuelle en fonction de la base de données SQL sous-jacente. Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez Bibliothèque cliente Microsoft Azure Storage pour .NET.
 
 ### Version 3.0
+
 - L’émulateur de stockage Azure n’est plus inclus dans le même package que l’émulateur de calcul.
 
 - L’interface graphique de l’émulateur de stockage est remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
 
 - La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

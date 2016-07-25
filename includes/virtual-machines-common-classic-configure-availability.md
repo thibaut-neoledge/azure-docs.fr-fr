@@ -18,9 +18,9 @@ Pour cela, vous pouvez utiliser le portail Azure ou des commandes Azure Power
 
 Pour utiliser le portail Azure :
 
-1. Si ce n’est pas déjà fait, connectez-vous au portail Azure.
+1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu hub, cliquez sur **+ Nouveau**, puis sur **Machines virtuelles**.
+2. Dans le menu Hub, cliquez sur **+ Nouveau**, puis sur **Machine virtuelle**.
     
     ![Texte de remplacement d’image](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
 
@@ -34,29 +34,29 @@ Pour utiliser le portail Azure :
 
 6. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner** pour continuer.
 
-7. Choisissez **Configuration facultative > Groupe à haute disponibilité**, et sélectionnez le groupe à haute disponibilité auquel vous voulez ajouter la machine virtuelle.
+7. Choisissez **Configuration facultative > Groupe à haute disponibilité** et sélectionnez le groupe à haute disponibilité auquel vous voulez ajouter la machine virtuelle.
     
     ![Texte de remplacement d’image](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png)
 
 8. Passez en revue vos paramètres de configuration. Une fois ces opérations effectuées, cliquez sur **Créer**.
 
-9. Pendant qu’Azure crée votre machine virtuelle, vous pouvez suivre la progression de cette opération dans le menu Hub sous **Machines virtuelles**.
+9. Pendant qu’Azure crée votre machine virtuelle, vous pouvez suivre la progression de cette opération dans le menu Hub, sous **Machines virtuelles**.
 
-Pour utiliser des commandes Azure PowerShell afin de créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, voir [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
+Pour utiliser des commandes Azure PowerShell pour créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, consultez la page [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md).
 
 ## <a id="addmachine"> </a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité##
 
 Dans le portail Azure, vous pouvez ajouter des machines virtuelles classiques existantes à un groupe à haute disponibilité existant, ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
 
-1. Si ce n’est pas déjà fait, connectez-vous au portail Azure.
+1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu hub, cliquez sur **Machines virtuelles (classiques)**.
+2. Dans le menu Hub, cliquez sur **Machines virtuelles (classiques)**.
     
     ![Texte de remplacement d’image](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 
 3. Dans la liste des machines virtuelles, sélectionnez le nom de la machine virtuelle que vous voulez ajouter au groupe.
 
-4. Choisissez **Groupe à haute disponibilité** dans les **Paramètres** de la machine virtuelle.
+4. Choisissez **Groupe à haute disponibilité** dans les **Paramètres** de machine virtuelle.
     
     ![Texte de remplacement d’image](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
 
@@ -66,15 +66,12 @@ Dans le portail Azure, vous pouvez ajouter des machines virtuelles classiques ex
 
 6. Cliquez sur **Save**.
 
-Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShell de niveau administrateur et exécutez la commande suivante. Pour les espaces réservés (tels que &lt;VmCloudServiceName&gt;), remplacez tout ce qui se trouve entre guillemets, y compris les caractères < and >, par les noms adéquats.
+Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShell de niveau administrateur et exécutez la commande suivante. Pour les espaces réservés (tels que &lt;VmCloudServiceName&gt;), remplacez tout ce qui se trouve entre guillemets, y compris les caractères < et >, par les noms adéquats.
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 >[AZURE.NOTE] Il se peut que la machine virtuelle doive être redémarrée pour terminer son ajout au groupe à haute disponibilité.
 
-## Ressources supplémentaires
-
-[Articles pour les machines virtuelles classiques][]
 
 <!-- LINKS -->
 [Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité]: #createset
@@ -85,6 +82,5 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 
 [Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
-[Articles pour les machines virtuelles classiques]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

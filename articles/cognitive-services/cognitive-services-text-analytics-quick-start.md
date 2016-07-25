@@ -36,7 +36,9 @@ Ce guide concerne la version 2 des API. Pour plus d’informations sur la versio
 
 - **Langue** : Dans quelle langue le texte est-il écrit ?
 
-Notez que cette API facture 1 transaction par enregistrement texte soumis.
+Notez que cette API facture 1 transaction par document soumis. Par exemple, si vous demandez le sentiment pour 1 000 documents en un seul appel, 1 000 transactions sont déduites.
+
+
 
 <a name="Overview"></a>
 ## Présentation générale ##
@@ -293,4 +295,6 @@ Les explications concernant chaque partie de la réponse sont les suivantes :
 
 Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
 
-<!---HONumber=AcomDC_0706_2016-->
+Pour voir comment des fonctionnalités d’analyse de texte, telles que des sentiments, peuvent être utilisées en tant que composant d’un bot, consultez l’exemple [Robot émotionnel](http://docs.botframework.com/fr-FR/bot-intelligence/language/#example-emotional-bot) sur le site Bot Framework (Infrastructure de robot).
+
+<!---HONumber=AcomDC_0713_2016-->

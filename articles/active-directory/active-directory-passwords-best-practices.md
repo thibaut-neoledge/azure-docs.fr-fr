@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Meilleures pratiques Gestion des mots de passe Azure AD | Microsoft Azure" 
-	description="Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Meilleures pratiques Gestion des mots de passe Azure AD | Microsoft Azure"
+	description="Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Déploiement de la gestion des mots de passe et formation des utilisateurs
+
+> [AZURE.IMPORTANT] **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+
 L’étape qui suit l’activation de la réinitialisation de mot de passe consiste à autoriser les utilisateurs à utiliser le service dans votre organisation. Pour ce faire, vous devez vous assurer que vos utilisateurs sont configurés pour utiliser le service correctement et également qu’ils disposent de la formation nécessaire pour réussir à gérer leurs mots de passe. Cet article vous explique les concepts suivants :
 
 * [**Configuration des utilisateurs pour la gestion des mots de passe**](#how-to-get-users-configured-for-password-reset)
@@ -84,7 +87,7 @@ Nombre de nos clients les plus importants optent pour la création d’une entr�
 Pour vous aider, nous avons créé une page simple qui utilise les derniers paradigmes de conception d’une interface utilisateur réactive et qui fonctionne sur tous les navigateurs et appareils mobiles.
 
   ![][007]
-  
+
 Vous pouvez [télécharger le modèle de site web ici](https://github.com/kenhoff/password-reset-page). Nous vous recommandons de personnaliser le logo et les couleurs en fonction des besoins de votre organisation.
 
 ### Utilisation de l’inscription forcée
@@ -112,12 +115,12 @@ Vous pouvez télécharger les données d’authentification via le [portail de g
 1.	Accédez à votre annuaire dans l’**extension Active Directory** du [portail de gestion Azure](https://manage.windowsazure.com).
 2.	Cliquez sur l’onglet **Utilisateurs**.
 3.	Sélectionnez l’utilisateur qui vous intéresse dans la liste.
-4.	Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe. 
+4.	Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe.
 
     ![][005]
 
 5.	Cliquez sur l’onglet **Informations professionnelles**.
-6.	Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**. Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe. 
+6.	Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**. Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe.
 
     ![][006]
 
@@ -134,7 +137,7 @@ Nous travaillons actuellement sur des exemples de supports de formation que vous
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
@@ -153,4 +156,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

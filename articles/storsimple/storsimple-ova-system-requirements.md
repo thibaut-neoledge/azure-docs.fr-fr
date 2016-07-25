@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/13/2016"
    ms.author="alkohli"/>
 
 # Configuration système requise pour StorSimple Virtual Array
@@ -24,9 +24,9 @@ Cet article décrit la configuration système requise importante pour Microsoft 
 
 Les conditions requises sont les suivantes :
 
--   **Configuration logicielle requise pour les clients de stockage** : décrit les plateformes de virtualisation, les navigateurs web, les initiateurs iSCSI, les clients SMB pris en charge, la configuration minimale requise pour les appareils virtuels et toutes les exigences requises pour ces systèmes d'exploitation.
+-   **Configuration logicielle requise pour les clients de stockage** : décrit les plateformes de virtualisation, les navigateurs web, les initiateurs iSCSI, les clients SMB pris en charge, la configuration minimale requise pour les appareils virtuels et toutes les exigences requises pour ces systèmes d'exploitation.
 
--   **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
+-   **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
 
 Les informations de configuration système requise StorSimple publiées dans cet article s'appliquent uniquement aux tableaux virtuels StorSimple.
 
@@ -85,13 +85,16 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 |--------------------------|---------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------------------|
 | TCP 80 (HTTP) | Sortie | WAN | Non | Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l'utilisateur. |
 | TCP 443 (HTTPS) | Sortie | WAN | Oui | Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l'utilisateur. |
-| UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> **Remarque** : si vous déployez un serveur de fichiers, nous recommandons l'utilisation d'un serveur DNS local.|
+| UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> **Remarque** : si vous déployez un serveur de fichiers, nous recommandons l'utilisation d'un serveur DNS local.|
 | UDP 123 (NTP) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur NTP Internet.<br></br> **Remarque :** si vous déployez un serveur de fichiers, nous vous recommandons de synchroniser l'heure avec vos contrôleurs de domaine Active Directory. |
-| TCP 80 (HTTP) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> **Remarque** : l'accès à l'interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS.|
+| TCP 80 (HTTP) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> **Remarque** : l'accès à l'interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS.|
 | TCP 443 (HTTPS) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale.|
 | TCP 3260 (iSCSI) | Dans | LAN | Non | Ce port est utilisé pour accéder aux données via iSCSI.|
 
 <sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
+
+> [AZURE.IMPORTANT] Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
+
 
 ### Modèles d’URL pour règles de pare-feu 
 
@@ -101,8 +104,8 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 > [AZURE.NOTE] 
 > 
-> - Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud. 
-> - Les adresses IP de destination doivent être définies sur des [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/fr-FR/download/confirmation.aspx?id=41653).
+> - Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud.
+> - Les adresses IP de destination doivent être définies sur les [plages IP du centre de données Azure](https://www.microsoft.com/fr-FR/download/confirmation.aspx?id=41653).
 
 
 | Modèle d’URL | Composant/Fonctionnalité |
@@ -110,14 +113,14 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Service StorSimple Manager<br>Access Control Service<br>Azure Service Bus|
 |`http://*.backup.windowsazure.com`|Enregistrement de l’appareil|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Révocation de certificat |
-| `https://*.core.windows.net/*` | Comptes de stockage Azure et surveillance |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Comptes de stockage Azure et surveillance |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Serveurs Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN Akamai |
 | `https://*.partners.extranet.microsoft.com/*` | Package de prise en charge |
-| `http://*.data.microsoft.com ` | Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et diagnostic de la télémétrie (en anglais)](https://support.microsoft.com/fr-FR/kb/3068708) |
+| `http://*.data.microsoft.com ` | Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/fr-FR/kb/3068708) |
 
 ## Étape suivante
 
 -   [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

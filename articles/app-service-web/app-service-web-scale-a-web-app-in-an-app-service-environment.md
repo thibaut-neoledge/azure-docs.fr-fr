@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="ccompy"/>
 
 # Mise à l'échelle des applications dans un environnement App Service #
@@ -21,7 +21,7 @@
 Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
 
 - Plan de tarification
-- Taille du travail 
+- Taille du travail
 - Nombre d'instances
 
 Dans un environnement App Service, il est inutile de sélectionner ou de modifier le plan de tarification. En termes de fonctionnalités, il est déjà au niveau de tarification Premium.
@@ -84,4 +84,4 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez la rubri
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 [AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

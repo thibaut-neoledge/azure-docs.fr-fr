@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Exploration du suivi des journaux Java dans Application Insights
@@ -136,9 +136,9 @@ Les appenders Application Insights peuvent être référencés par n’importe q
 
 ## Explorer le suivi dans le portail Application Insights
 
-Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à Application Insights, vous pouvez rechercher et consulter ce suivi dans le portail Application Insights, dans le panneau [Recherche de diagnostic][diagnostic].
+Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à Application Insights, vous pouvez rechercher et consulter ce suivi dans le portail Application Insights, dans le panneau [Recherche][diagnostic].
 
-![Dans Application Insights, ouvrez la recherche de diagnostic.](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![Dans Application Insights, ouvrez Recherche](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Étapes suivantes
 
@@ -151,4 +151,4 @@ Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

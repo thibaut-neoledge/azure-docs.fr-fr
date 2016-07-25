@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribution de tables dans SQL Data Warehouse
@@ -29,16 +29,22 @@
 
 SQL Data Warehouse est un système de base de données distribuée à traitement massivement parallèle. En répartissant les données et les fonctions de traitement sur plusieurs nœuds, SQL Data Warehouse propose une évolutivité immense, bien supérieure à ce qu’offre n’importe quel système unique. Le fait de décider comment distribuer vos données dans votre SQL Data Warehouse est un des facteurs les plus importants pour obtenir des performances optimales. L’élément clé permettant d’optimiser les performances est de réduire le déplacement des données et celui permettant de réduire le déplacement des données est de sélectionner la stratégie de distribution appropriée.
 
+## Présentation du déplacement des données
+
+Dans un système MPP, les données de chaque table sont réparties dans plusieurs bases de données sous-jacentes. Les requêtes les plus optimisées sur un système MPP peuvent simplement être passées pour s’exécuter sur les différentes bases de données distribuées sans aucune interaction entre les autres bases de données. Par exemple, supposons que vous disposez d’une base de données avec des données de ventes, qui contient deux tables, ventes et clients. Si vous avez une requête qui doit joindre votre table de ventes à votre table de clients, et que vous divisez ces deux tables par numéro de client, en plaçant chaque client dans une base de données distincte, toutes les requêtes qui joignent des ventes à des clients peuvent être résolues dans chaque base de données sans connaissance des autres bases de données. En revanche, si vous avez divisé vos données de vente par numéro de commande et vos données de clients par numéro de client, les bases de données ne disposeront pas des données correspondantes pour chaque client. Ainsi, si vous souhaitez joindre vos données de ventes à vos données de clients, vous devez obtenir les données relatives à chaque client à partir des autres bases de données. Dans ce second exemple, un déplacement des données devra se produire pour déplacer les données des clients vers les données de ventes, afin que les deux tables puissent être jointes.
+
+Le déplacement des données n’est pas toujours une mauvaise chose. Il est parfois nécessaire pour résoudre une requête. Mais quand cette étape supplémentaire peut être évitée, votre requête s’exécute naturellement plus rapidement. Le déplacement des données se produit généralement en cas de jointure ou d’agrégation de tables. Il arrive souvent que vous deviez effectuer ces deux opérations à la fois. Ainsi, même si vous pouvez optimiser pour un scénario (par exemple une jointure), vous devrez quand même déplacer des données pour vous aider à remplir les conditions de l’autre scénario (par exemple une agrégation). L’astuce est de déterminer ce qui nécessite le moins de travail. Dans la plupart des cas, la distribution de grandes tables de faits sur une colonne de jointure commune est la méthode la plus efficace pour réduire le déplacement des données. La distribution de données sur des colonnes de jointure est une méthode de réduction du déplacement des données beaucoup plus courante que la distribution de données sur des colonnes impliquées dans une agrégation.
+
 ## Sélectionner la méthode de distribution
 
 En arrière-plan, SQL Data Warehouse divise vos données en 60 bases de données. Chaque base de données est considérée comme une **distribution**. Lorsque les données sont chargées dans chaque table, SQL Data Warehouse doit savoir comment répartir vos données parmi ces 60 distributions.
 
 La méthode de distribution est définie au niveau de la table et actuellement, il existe deux possibilités :
 
-1. Le **Tourniquet (round robin) ** qui distribue les données de manière équitable, mais aléatoire.
-2. La **distribution par hachage** qui distribue les données en fonction des valeurs de hachage d’une colonne unique.
+1. Le **Tourniquet (round robin) **, qui distribue les données de manière équitable mais aléatoire.
+2. La **distribution par hachage**, qui distribue les données en fonction des valeurs de hachage d’une colonne unique.
 
-Par défaut, lorsque vous ne définissez pas de méthode de distribution de données, votre table sera distribuée à l’aide de la méthode de distribution du **tourniquet (round robin)** . Toutefois, à mesure que vous affinez votre implémentation, vous voudrez peut-être utiliser des tables à **distribution par hachage** afin de réduire le déplacement des données, ce qui optimise les performances des requêtes.
+Par défaut, quand vous ne définissez pas de méthode de distribution de données, votre table est distribuée à l’aide de la méthode de distribution du **tourniquet (round robin)**. Toutefois, à mesure que vous affinez votre implémentation, vous voudrez peut-être utiliser des tables à **distribution par hachage** afin de réduire le déplacement des données, ce qui optimise les performances des requêtes.
 
 ### Tables avec distribution par tourniquet (round robin)
 
@@ -117,7 +123,7 @@ WITH
 
 ## Sélectionner la colonne de distribution
 
-Lorsque vous choisissez de **distribuer** une table par hachage, vous devez sélectionner une seule colonne de distribution. Lorsque vous sélectionnez une colonne de distribution, vous devez prendre en compte trois facteurs essentiels.
+Quand vous choisissez de **distribuer une table par hachage**, vous devez sélectionner une seule colonne de distribution. Lorsque vous sélectionnez une colonne de distribution, vous devez prendre en compte trois facteurs essentiels.
 
 Sélectionnez une colonne unique qui :
 
@@ -131,7 +137,7 @@ Les colonnes de distribution ne peuvent pas être mises à jour, par conséquent
 
 ### Sélectionner la colonne de distribution qui distribuera les données de manière uniforme
 
-Dans la mesure où un système distribué s’exécute à la vitesse de sa distribution la plus lente, il est important de travailler uniformément sur les distributions afin d’équilibrer l’exécution sur le système. La manière dont le travail est réparti sur le système distribué repose sur l’endroit où résident les données de chaque distribution. Il est donc très important de sélectionner la colonne de distribution de droite pour la distribution des données afin que chaque point de distribution ait la même quantité de travail et qu’il mette le même temps pour effectuer cette dernière. Lorsque le travail est bien réparti sur le système, l’exécution est équilibrée. Lorsque les données ne sont pas réparties de manière uniforme sur un système et que l’équilibrage est incorrect, il existe un **décalage des données**.
+Dans la mesure où un système distribué s’exécute à la vitesse de sa distribution la plus lente, il est important de travailler uniformément sur les distributions afin d’équilibrer l’exécution sur le système. La manière dont le travail est réparti sur le système distribué repose sur l’endroit où résident les données de chaque distribution. Il est donc très important de sélectionner la colonne de distribution de droite pour la distribution des données afin que chaque point de distribution ait la même quantité de travail et qu’il mette le même temps pour effectuer cette dernière. Lorsque le travail est bien réparti sur le système, l’exécution est équilibrée. Quand les données ne sont pas réparties de manière uniforme sur un système et que l’équilibrage est incorrect, il existe un **décalage des données**.
 
 Pour procéder à une répartition uniforme et éviter le décalage des données, tenez compte des éléments suivants lors de la sélection de votre colonne de distribution :
 
@@ -148,14 +154,16 @@ Lorsqu’il n’existe aucune colonne appropriée, envisagez d’utiliser la mé
 
 ### Sélectionner la colonne de distribution qui réduira le déplacement des données
 
-La réduction du déplacement des données par la sélection de la colonne de distribution adaptée est une des stratégies les plus importantes pour optimiser les performances de votre SQL Data Warehouse. Le déplacement des données se produit généralement en cas de jointure ou d’agrégation de tables. La distribution par hachage de grandes tables de faits sur une colonne de jointure commune est une des méthodes les plus efficaces pour réduire le déplacement des données. Outre le fait de sélectionner une colonne de jointure, il existe également des critères à remplir afin d’éviter le déplacement des données. Pour éviter le déplacement des données :
+La réduction du déplacement des données par la sélection de la colonne de distribution adaptée est une des stratégies les plus importantes pour optimiser les performances de votre SQL Data Warehouse. Le déplacement des données se produit généralement en cas de jointure ou d’agrégation de tables. Les colonnes utilisées dans les clauses `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` et `HAVING` sont toutes **adéquates** pour une distribution par hachage. En revanche, les colonnes de la clause `WHERE` ne sont **pas** adéquates pour une distribution par hachage, car elles limitent les distributions pouvant participer à la requête.
 
-1. Les tables impliquées dans la jointure doivent être distribuées par hachage sur une des colonnes de jointure.
-2. Les types de données des colonnes de jointure doivent correspondre.
+En règle générale, si deux grandes tables de faits sont souvent impliquées dans une jointure, la distribution des deux tables sur l’une des colonnes de jointure permet d’obtenir les meilleures performances. Si vous disposez d’une table qui n’est jamais jointe à une autre grande table de faits, examinez les colonnes se trouvant fréquemment dans la clause `GROUP BY`.
+
+Quelques critères clés doivent être remplis pour éviter le déplacement des données lors d’une jointure :
+
+1. Les tables impliquées dans la jointure doivent être distribuées par hachage sur **une** des colonnes participant à la jointure.
+2. Les types de données des colonnes de jointure doivent être identiques dans les deux tables.
 3. Les colonnes doivent être jointes avec un opérateur d’égalité.
 4. Le type de jointure ne peut pas être `CROSS JOIN`.
-
-Les colonnes utilisées dans les clauses `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` et `HAVING` sont toutes adéquates pour une distribution par hachage. En revanche, les colonnes de la clause `WHERE` ne sont **pas** adéquates pour une distribution par hachage, car elles limitent les distributions pouvant participer à la requête. En règle générale, si deux grandes tables de faits sont souvent impliquées dans une jointure, la distribution s’effectue le plus souvent sur l’une des colonnes de jointure. Si vous disposez d’une table qui n’est jamais jointe à une autre grande table de faits, examinez les colonnes se trouvant fréquemment dans la clause `GROUP BY`. À moins de ne pas trouver de colonne adéquate pour la distribution par hachage pour distribuer vos données de manière uniforme, il peut généralement être intéressant pour vos requêtes de sélectionner une colonne de distribution au lieu d’utiliser la distribution selon la méthode du tourniquet (round robin) par défaut.
 
 
 ## Résolution des problèmes de décalage de données
@@ -171,7 +179,7 @@ Un moyen simple d’identifier une table ayant subi un décalage consiste à uti
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Toutefois, si vous interrogez les vues de gestion dynamique (DMV) Azure SQL Data Warehouse, vous pouvez effectuer une analyse plus détaillée. Pour commencer, créez la vue [dbo.vTableSizes][] à l’aide de SQL à partir de l’article [Table Overview][Overview] \(Vue d’ensemble des tables). Une fois la vue créée, exécutez cette requête pour identifier les tables dont le décalage des données est supérieur à 10 %.
+Toutefois, si vous interrogez les vues de gestion dynamique (DMV) Azure SQL Data Warehouse, vous pouvez effectuer une analyse plus détaillée. Pour commencer, créez la vue [dbo.vTableSizes][] à l’aide de SQL à partir de l’article [Vue d’ensemble des tables][Overview]. Une fois la vue créée, exécutez cette requête pour identifier les tables dont le décalage des données est supérieur à 10 %.
 
 ```sql
 select *
@@ -190,7 +198,7 @@ order by two_part_name, row_count
 
 ### Résolution du décalage des données
 
-Tous les décalages ne sont pas suffisants pour garantir un correctif. Dans certains cas, les performances d’une table dans certaines requêtes peuvent annuler les dommages liés au décalage des données. Pour déterminer si vous devez résoudre un décalage des données dans une table, vous devez comprendre au mieux les volumes de données et les requêtes dans votre charge de travail. Une façon d’examiner l’impact du décalage consiste à suivre les étapes de l’article relatif à la [surveillance des requêtes][] pour analyser l’impact du décalage sur les performances des requêtes et en particulier sur leur durée d’exécution sur chaque distribution.
+Tous les décalages ne sont pas suffisants pour garantir un correctif. Dans certains cas, les performances d’une table dans certaines requêtes peuvent annuler les dommages liés au décalage des données. Pour déterminer si vous devez résoudre un décalage des données dans une table, vous devez comprendre au mieux les volumes de données et les requêtes dans votre charge de travail. Une façon d’examiner l’impact du décalage consiste à suivre les étapes de l’article relatif à la [surveillance des requêtes][] pour analyser l’impact du décalage sur les performances des requêtes, en particulier sur leur durée d’exécution sur chaque distribution.
 
 La distribution de données consiste à trouver le juste équilibre entre la réduction du décalage des données et la réduction du déplacement des données. Ces buts peuvent s’opposer, et parfois, vous pouvez conserver le décalage des données afin de réduire le déplacement des données. Par exemple, quand la colonne de distribution est souvent la colonne partagée dans les jointures et les agrégations, vous devez minimiser le déplacement des données. L’avantage d’un déplacement minimal des données peut compenser l’impact d’un décalage des données.
 
@@ -278,7 +286,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la conception de tables, consultez les articles portant sur la [distribution][], l’[indexation][], le [partitionnement][], les [types de données][], les [statistiques][] et les [tables temporaires][Temporary]. Pour une vue d’ensemble des meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
+Pour en savoir plus sur la conception de tables, consultez les articles portant sur la [distribution][], l[’indexation][], le [partitionnement][], les [types de données][], les [statistiques][] et les [tables temporaires][Temporary]. Pour obtenir une vue d’ensemble des bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse][].
 
 
 <!--Image references-->
@@ -290,13 +298,13 @@ Pour en savoir plus sur la conception de tables, consultez les articles portant 
 [Distribuer]: ./sql-data-warehouse-tables-distribute.md
 [distribution]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[indexation]: ./sql-data-warehouse-tables-index.md
+[’indexation]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [partitionnement]: ./sql-data-warehouse-tables-partition.md
 [Statistiques]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporaire]: ./sql-data-warehouse-tables-temporary.md
-[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Bonnes pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 [surveillance des requêtes]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
@@ -305,4 +313,4 @@ Pour en savoir plus sur la conception de tables, consultez les articles portant 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

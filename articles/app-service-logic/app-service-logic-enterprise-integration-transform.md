@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d’ensemble d’Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Vue d’ensemble d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Utilisez les fonctionnalités d’Enterprise Integration Pack pour activer les processus métier et les scénarios d’intégration à l’aide de Microsoft Azure App Service" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Intégration d’entreprise avec les transformations XML
@@ -34,20 +34,16 @@ Après avoir téléchargé la transformation dans votre compte d’intégration,
 
 ### Configuration requise 
 Dans la version préliminaire, vous devez :
+
 -  [Créer un conteneur Azure Functions](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Création d’un conteneur Azure Functions")
-
-
->[AZURE.TIP] Notez le nom du conteneur Azure Functions, vous en aurez besoin à l’étape suivante.
-
-
 -  [Ajouter une fonction dans le conteneur Azure Functions](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Ce modèle crée une fonction Azure en C# basée sur un webhook avec des fonctionnalités de transformation à utiliser dans des scénarios d’intégration d’applications logiques")
+-  Créer un compte d’intégration et y ajouter un mappage
 
-
->[AZURE.TIP] Notez le nom de la fonction, vous en aurez besoin à l’étape suivante.
+>[AZURE.TIP] Notez le nom du conteneur Azure Functions et de la fonction Azure car vous en aurez besoin à l’étape suivante.
 
 Maintenant que vous avez exécuté la configuration requise, il est temps de créer votre application logique :
 
-1. Créez une application logique et [liez-la à votre compte d’intégration](./app-service-logic-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient la transformation.
+1. Créez une application logique et [liez-la à votre compte d’intégration](./app-service-logic-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le mappage.
 2. Ajoutez un déclencheur **Demande - Quand une demande HTTP est reçue** à votre application logique ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
 3. Ajoutez l’action **Transformer XML** en sélectionnant d’abord **Ajouter une action** ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
 4. Entrez le mot *transformation* dans la zone de recherche afin de filtrer toutes les actions et d’obtenir celle que vous souhaitez utiliser ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
@@ -75,6 +71,7 @@ Vous pouvez maintenant tester votre transformation en effectuant une demande au 
 
 ## En savoir plus
 - [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
+- [En savoir plus sur les mappages](./app-service-logic-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

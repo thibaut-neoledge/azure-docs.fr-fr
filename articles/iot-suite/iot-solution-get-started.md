@@ -4,7 +4,7 @@
 	services=""
     documentationCenter=".net"
     suite=""
-	authors="alancameronwills"
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 # Système IoT MyDriving : démarrage rapide
 
@@ -54,7 +54,7 @@ Sur votre appareil :
 
 *Des problèmes pour démarrer l’application sur Windows 10 Mobile ?* Votre téléphone a peut-être une ou deux mises à jour de retard. Vérifiez que vous disposez des dernières mises à jour ou installez :
 
- - [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
+ - [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx)
 
  - [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx)
 
@@ -170,4 +170,4 @@ Nous espérons recevoir bientôt de vos nouvelles.
   [portail HockeyApp]: https://rink.hockeyapp.org
   [problème sur GitHub]: https://github.com/Azure-Samples/MyDriving/issues
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

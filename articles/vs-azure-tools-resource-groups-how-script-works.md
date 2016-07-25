@@ -3,8 +3,8 @@
 	description="Décrit le fonctionnement du script PowerShell dans le projet de déploiement du groupe de ressources Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="05/08/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure
 
@@ -73,7 +73,7 @@ Voici une description des opérations permises par certaines sections du script 
 
 1.	Convertissez les variables avec des chemins d’accès relatifs en chemins d’accès absolus. Par exemple, modifiez un chemin d’accès tel que `..\Tools\AzCopy.exe` en `C:\YourFolder\Tools\AzCopy.exe`. En outre, initialisez les variables *ArtifactsLocationName* et *ArtifactsLocationSasTokenName* sur la valeur null. *ArtifactsLocation* et *SaSToken* peuvent être des paramètres pour le modèle. Si leurs valeurs sont null après lecture dans le fichier de paramètres, le script génère des valeurs à leur intention.
 
-    Azure Tools utilise les valeurs de paramètre *\_artifactsLocation* et *\_artifactsLocationSasToken* dans le modèle pour gérer les artefacts. Si le script PowerShell trouve des paramètres avec ces noms, mais que les valeurs de paramètre ne sont pas fournies, le script charge les artefacts et renvoie les valeurs appropriées pour ces paramètres. Ensuite, il les transmet à l’applet de commande via `@OptionsParameters`.
+    Les outils Azure utilisent les valeurs de paramètre *\_artifactsLocation* et *\_artifactsLocationSasToken* dans le modèle pour gérer les artefacts. Si le script PowerShell trouve des paramètres avec ces noms, mais que les valeurs de paramètre ne sont pas fournies, le script charge les artefacts et renvoie les valeurs appropriées pour ces paramètres. Ensuite, il les transmet à l’applet de commande via `@OptionsParameters`.
 
 	|Variable|Description|
     |---|---|
@@ -264,4 +264,4 @@ En savoir plus sur Azure Resource Manager en consultant [Présentation d’Azure
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
@@ -30,7 +30,7 @@ Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement
 - Vous ne pouvez pas télécharger plusieurs fichiers.
 - Les fichiers ne peuvent pas être supérieurs à 4 Mo.
 
-## Tableau des extensions de nom de fichier
+## Tableau des extensions de nom de fichier autorisées
 
 | 0-9, A-C | D-G | H-M | N-P | R-T | U-W | X-Z |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -63,4 +63,4 @@ Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

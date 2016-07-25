@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Présentation du Kit de développement logiciel (SDK) Azure pour .NET
 
@@ -41,7 +41,7 @@ Le Kit de développement logiciel (SDK) Azure pour .NET installe les produits su
 - [Microsoft ASP.NET et outils web pour Visual Studio](#wte)
 - [Outils Microsoft Azure Data Lake pour Visual Studio](#datalake)
 
-###<a id="vwd"></a>Visual Studio Express pour le web
+###<a id="vwd"></a>Visual Studio Community Edition 2015
 
 Si vous ne disposez pas de Visual Studio sur votre ordinateur, le Kit de développement logiciel (SDK) installe [Visual Studio Community Edition 2015](https://www.visualstudio.com/products/visual-studio-community-vs).
 
@@ -51,7 +51,7 @@ L'[Émulateur de stockage Azure](http://msdn.microsoft.com/library/hh403989.aspx
 
 ###<a id="stgtools"></a>Outils de stockage Microsoft Azure
 
-Ils permettent d'installer [AzCopy](http://aka.ms/AzCopy), un outil en ligne de commande que vous pouvez utiliser pour transférer des données vers et depuis un compte de stockage Azure.
+Ils permettent d'installer [AzCopy](http://aka.ms/AzCopy), un outil de ligne de commande que vous pouvez utiliser pour transférer des données vers et depuis un compte de stockage Azure.
 
 ###<a id="auth"></a>Outils de création Microsoft Azure
 
@@ -191,4 +191,4 @@ Pour le code source du Kit de développement logiciel (SDK) Azure pour .NET, y c
 
 Pour la documentation de référence de la bibliothèque cliente Azure, consultez [Référence Azure .NET](https://azure.microsoft.com/documentation/api/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

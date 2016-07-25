@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/04/2016"
+	ms.date="07/12/2016"
 	ms.author="ccompy"/>
 
 # Créer une application web dans un environnement App Service
@@ -30,7 +30,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
 
 ## Créer une application web
 
-1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Nouveau > Web + mobile > Application web**. 
+1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Nouveau > Web + mobile > Application web**.
 
 	![][1]
 
@@ -44,7 +44,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
 
 4. Sélectionnez ou créez un plan App Service.
 
-	Les *plans App Service* sont des ensembles gérés d’applications web. Lorsque vous sélectionnez la tarification, le prix facturé s’applique au plan App Service et non aux applications individuelles. Pour augmenter le nombre d’instances d’une application web, vous augmentez la taille des instances de votre plan App Service, et toutes les applications web du plan sont affectées. Certaines fonctionnalités, telles que les emplacements de site ou l'intégration de réseau virtuel, présentent aussi des restrictions de quantité à l'intérieur du plan. Pour plus d’informations, consultez [Présentation des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Les *plans App Service* sont des ensembles gérés d’applications web. Normalement, lorsque vous sélectionnez la tarification, le prix facturé s’applique au plan App Service et non aux applications individuelles. Dans un ASE, vous payez les instances de calcul allouées à l’ASE plutôt que ce que vous avez répertorié avec votre ASP. Pour augmenter le nombre d’instances d’une application web, vous augmentez la taille des instances de votre plan App Service, et toutes les applications web du plan sont affectées. Certaines fonctionnalités, telles que les emplacements de site ou l'intégration de réseau virtuel, présentent aussi des restrictions de quantité à l'intérieur du plan. Pour plus d’informations, consultez [Présentation des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 	Vous pouvez identifier les plans App Service dans votre environnement App Service en examinant l’emplacement indiqué sous le nom du plan.
 
@@ -54,15 +54,9 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
 
 5. Entrez le nom de votre application web, puis cliquez sur **Créer**.
 
-	Le nom de votre application web doit être unique dans Azure App Service. Cela signifie que si vous souhaitez créer une application web nommée « monappweb », il ne doit pas y avoir d’autre application web nommée « monappweb » dans Azure App Service.
-
-	L’URL d’une application web dans un environnement ASE est :
-
-	[*nom du site*].[*nom de votre environnement App Service*].p.azurewebsites.net
-
-	et non à l'adresse
-
-	[*nom du site*]. azurewebsites.net
+	Si votre ASE utilise une adresse VIP externe, l’URL d’une application dans un ASE est : [*sitename*]. [*nom de votre environnement App Service*]. p.azurewebsites.net au lieu de [*sitename*]. azurewebsites.net
+	
+	Si votre ASE utilise une adresse VIP interne, l’URL d’une application dans cet ASE est : [*sitename*]. [*sous-domaine spécifié lors de la création de l’ASE*] Après avoir sélectionné votre ASP lors de la création de l’ASE, vous verrez la mise à jour du sous-domaine sous **Nom**
 
 ## <a name="createplan"></a> Créer un plan App Service
 
@@ -118,4 +112,4 @@ Après avoir créé votre application web et votre plan App Service, il peut êt
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

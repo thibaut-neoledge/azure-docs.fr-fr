@@ -24,9 +24,9 @@ Voici un résumé des fonctionnalités qu’il vous reste peut-être encore à d
 ||
 |---|---
 |[**Tests de disponibilité**](app-insights-monitor-web-app-availability.md)<br/>Envoyez des demandes HTTP à votre application web à intervalles réguliers à partir de divers emplacements dans le monde. Nous vous alerterons si la réponse est lente ou peu fiable.| 
-|[**Appels de dépendance et AJAX**](app-insights-asp-net-dependencies.md)<br/>Surveillez les requêtes SQL et les appels à REST ou d’autres ressources.|
+|[**Appels de dépendance**](app-insights-asp-net-dependencies.md)<br/>Surveillez les requêtes SQL et les appels à REST ou d’autres ressources.|
 |[**Exceptions**](app-insights-asp-net-exceptions.md)<br/>Comptez les exceptions gérées et non gérées, obtenez l’arborescence des appels de procédure et parcourez le code.|
-|[**Pages Web**](app-insights-javascript.md)<br/>Surveillez l’utilisation des pages et les performances en instrumentant vos pages web.
+|[**Pages Web**](app-insights-javascript.md)<br/>Surveillez l’utilisation des pages, les performances et les appels AJAX en instrumentant vos pages web.
 |**Performances de l’hôte : [Diagnostics Azure](app-insights-azure-diagnostics.md), [Compteurs de performances Windows](app-insights-web-monitor-performance.md)**<br/>Consultez l’utilisation du processeur et d’autres mesures contextuelles. |![](./media/app-insights-asp-net-more/04.png)
 |[**API de SDK, télémétrie personnalisée**](app-insights-api-custom-events-metrics.md)<br/>Envoyez vos propres événements et mesures pour une vue plus détaillée des performances et de l’utilisation de votre application, dans le code serveur comme client.|
 |[**Intégration des journaux**](app-insights-asp-net-trace-logs.md)<br/>Si vous utilisez une infrastructure comme Log4Net, NLog ou System.Diagnostics.Trace, un adaptateur envoie les suivis à Application Insights avec les autres données télémétriques.|
@@ -52,4 +52,4 @@ Voici un résumé des fonctionnalités qu’il vous reste peut-être encore à d
 |**API d’accès aux données**<br/>Prochainement disponible.|
 |[**Échantillonnage**](app-insights-sampling.md)<br/>Réduit le débit de données et vous permet de rester dans la limite de votre niveau tarifaire.|![Mosaïque d’échantillonnage](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

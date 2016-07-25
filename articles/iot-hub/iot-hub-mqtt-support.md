@@ -43,7 +43,7 @@ Le tableau suivant contient des liens vers des exemples de code pour chaque lang
 
 Si un appareil ne peut pas utiliser les Kits device client SDK, il peut toujours se connecter aux points de terminaison d’appareil publics à l’aide du protocole MQTT. Dans le paquet **CONNECT**, l’appareil doit utiliser les valeurs suivantes :
 
-- Pour le champ **ClientId**, utilisez le **deviceId**. 
+- Pour le champ **ClientId**, utilisez le **deviceId**.
 - Dans le champ **Nom d’utilisateur**, utilisez `{iothubhostname}/{device_id}`, où {iothubhostname} est l’enregistrement CName complet du IoT Hub.
 
     Par exemple, si le nom de votre IoT Hub est **contoso.azure-devices.net** et si le nom de votre appareil est **MyDevice01**, le champ complet **Nom d’utilisateur** doit contenir `contoso.azure-devices.net/MyDevice01`.
@@ -85,13 +85,24 @@ Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisa
 
 Pour plus d’informations sur la prise en charge MQTT avec les kits de développement logiciel (SDK) IoT Device, consultez la rubrique [Remarques sur la prise en charge MQTT][lnk-mqtt-devguide] dans le guide du développeur Azure IoT Hub.
 
-Pour en savoir plus sur l’utilisation des Kits device client SDK en vue de communiquer avec IoT Hub, consultez [Prise en main d’Azure IoT Hub][lnk-iot-get-stated].
-
 Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][lnk-mqtt-docs].
+
+Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
+
+- [Appareils pris en charge][lnk-devices]
+- [Prendre en charge des protocoles supplémentaires][lnk-protocols]
+- [Comparer à Event Hubs][lnk-compare]
+- [Mise à l’échelle, HA et DR][lnk-scaling]
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
-[lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
@@ -101,4 +112,13 @@ Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][
 [lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

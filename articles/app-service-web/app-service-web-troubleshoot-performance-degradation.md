@@ -1,12 +1,4 @@
-<properties
-	pageTitle="Résolution des problèmes : dégradation des performances dans une application web"
-	description="Cet article vous aide à résoudre les problèmes de performances dans une application web hébergée dans Azure App Service."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
-	tags="top-support-issue"/>
+<properties pageTitle="Baisse de performances de l’application web dans App Service | Microsoft Azure" description="Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans Azure App Service." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="web app performance, slow app, app slow"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,14 +6,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Résolution des problèmes : dégradation des performances dans une application web
+# Résoudre les problèmes de baisse de performances d’une application web dans Azure App Service
 
-Cet article vous aide à résoudre les problèmes de performances dans une application web hébergée dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Si vous avez besoin d’une aide supplémentaire au sujet d’un point quelconque de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 ## Symptôme
 
@@ -64,7 +56,7 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 -	Plage de travail de la mémoire
 -	Demandes
 
-![](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![surveiller les performances d’une application web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Pour plus d’informations, consultez :
 
@@ -182,8 +174,8 @@ Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](
 
 Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Dans le [portail Azure](https://portal.azure.com/), sur le panneau de votre application web, vous avez la possibilité d’arrêter ou de redémarrer votre application.
 
- ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![redémarrer une application web pour résoudre les problèmes de performances](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

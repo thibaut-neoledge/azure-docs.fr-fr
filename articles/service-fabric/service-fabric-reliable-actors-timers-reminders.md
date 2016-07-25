@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
@@ -107,7 +107,7 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 
 Quand un rappel est déclenché, le runtime Reliable Actors appelle la méthode `ReceiveReminderAsync` sur l’acteur. Un acteur peut inscrire plusieurs rappels, et la méthode `ReceiveReminderAsync` est appelée chaque fois qu’un de ces rappels est déclenché. L'acteur peut ensuite utiliser le nom du rappel qui est envoyé à la méthode `ReceiveReminderAsync` pour identifier le rappel qui a été déclenché.
 
-Le runtime Actors enregistre l’état de l’acteur à la fin de l’appel `ReceiveReminderAsync`. Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée. Pour spécifier que l'état ne doit pas être enregistré à la fin du rappel, l'indicateur `ActorReminderAttributes.ReadOnly` peut être défini dans le paramètre `attributes` lorsque la méthode `RegisterReminder` est appelée pour créer le rappel.
+Le runtime Actors enregistre l’état de l’acteur à la fin de l’appel `ReceiveReminderAsync`. Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée.
 
 Pour désinscrire un rappel, un acteur appelle la méthode `UnregisterReminder`, comme illustré dans l’exemple ci-dessous.
 
@@ -125,4 +125,4 @@ Comme indiqué ci-dessus, la méthode `UnregisterReminder` accepte une interface
  - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

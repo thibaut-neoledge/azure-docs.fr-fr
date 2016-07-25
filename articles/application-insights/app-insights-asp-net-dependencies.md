@@ -99,11 +99,7 @@ Dans le panneau de configuration de votre application web Azure, ajoutez l’ext
 
 ## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances
 
-Pour évaluer les performances des demandes au niveau de votre serveur :
-
-![Dans Application Insights, dans la page Vue d’ensemble de votre application, cliquez sur la vignette de performances](./media/app-insights-asp-net-dependencies/01-performance.png)
-
-Faites défiler vers le bas pour accéder à la grille des demandes :
+Pour évaluer les performances des demandes au niveau de votre serveur, ouvrez le panneau Performances et défilez vers le bas pour accéder à la grille des demandes :
 
 ![Liste de demandes avec moyennes et nombres](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
@@ -116,21 +112,24 @@ Cliquez sur cette ligne pour afficher les événements de la demande :
 
 Cliquez sur n’importe quelle instance présentant une longue durée d’exécution pour l’examiner de plus près.
 
-> [AZURE.NOTE] Faites défiler vers le bas pour choisir une instance. Une latence dans le pipeline peut expliquer que les données des premières instances soient incomplètes.
-
 Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
 
 ![Rechercher des appels de dépendances distantes, identifier une durée anormale](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 Il semble que la plupart du temps passé au traitement de cette demande ait été consacré à l’appel d’un service local.
 
-Sélectionnez cette ligne pour obtenir plus d’informations :
 
+Sélectionnez cette ligne pour obtenir plus d’informations :
 
 ![Cliquez sur cette dépendance distante pour identifier la cause](./media/app-insights-asp-net-dependencies/05-detail.png)
 
 Les informations contenues dans le détail sont suffisantes pour diagnostiquer le problème.
 
+
+Dans un autre cas, aucun appel de dépendance n’est long, mais en basculant en vue chronologie, nous pouvons voir où le délai s’est produit dans notre traitement interne :
+
+
+![Rechercher des appels de dépendances distantes, identifier une durée anormale](./media/app-insights-asp-net-dependencies/04-1.png)
 
 
 ## Échecs
@@ -178,9 +177,9 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 ## Étapes suivantes
 
-- [Exceptions](app-insights-asp-net-exception-mvc.md#selector1)
-- [Données utilisateur et de page](app-insights-asp-net-client.md#selector1)
-- [Availability](app-insights-monitor-web-app-availability.md#selector1)
+- [Exceptions](app-insights-asp-net-exceptions.md)
+- [Données utilisateur et de page][client]
+- [Availability](app-insights-monitor-web-app-availability.md)
 
 
 
@@ -202,4 +201,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

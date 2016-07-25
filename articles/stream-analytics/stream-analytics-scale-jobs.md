@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Mettre à l’échelle des tâches Azure Stream Analytics pour augmenter le débit de traitement des données de flux
@@ -40,14 +40,14 @@ Cet article vous montre comment calculer et régler la requête pour augmenter l
 ## Tâche massivement parallèle
 La tâche massivement parallèle est le scénario le plus évolutif d’Azure Stream Analytics. Elle permet de connecter une partition de l’entrée à une instance de la requête, puis de connecter celle-ci à une partition de la sortie. L’obtention de ce parallélisme nécessite plusieurs choses :
 
-1.  Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Dans le cas de hubs d’événements, les données d’événement doivent être définies sur **PartitionKey**. Vous pouvez aussi utiliser des expéditeurs partitionnés. Pour les objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête n’a pas besoin de la clé qui est traitée par la même instance de la requête, vous pouvez ignorer cette condition. Un exemple serait une requête simple du type select/project/filter.  
-2.	Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **Partition By** dans toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Actuellement, pour qu’un travail soit entièrement parallèle, la clé de partitionnement doit être définie sur **PartitionId**.  
-3.	Pour le moment, seuls les hubs d’événements et les objets blob prennent en charge les sorties partitionnées. Pour la sortie des hubs d’événements, vous devez définir le champ **PartitionKey** sur **PartitionId**. Pour les objet blob, aucune action n’est nécessaire.  
-4.	En outre, le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. Actuellement, la sortie des objets blob ne prend pas en charge les partitions. Toutefois, cela ne pose pas de problème, car elle hérite du schéma de partitionnement de la requête en amont. Voici des exemples de valeurs de partition qui permettent la création d’une tâche entièrement parallèle :  
+1.  Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Dans le cas de hubs d’événements, les données d’événement doivent être définies sur **PartitionKey**. Vous pouvez aussi utiliser des expéditeurs partitionnés. Pour les objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête n’a pas besoin de la clé qui est traitée par la même instance de la requête, vous pouvez ignorer cette condition. Un exemple serait une requête simple du type select/project/filter.
+2.	Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **Partition By** dans toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Actuellement, pour qu’un travail soit entièrement parallèle, la clé de partitionnement doit être définie sur **PartitionId**.
+3.	Pour le moment, seuls les hubs d’événements et les objets blob prennent en charge les sorties partitionnées. Pour la sortie des hubs d’événements, vous devez définir le champ **PartitionKey** sur **PartitionId**. Pour les objet blob, aucune action n’est nécessaire.
+4.	En outre, le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. Actuellement, la sortie des objets blob ne prend pas en charge les partitions. Toutefois, cela ne pose pas de problème, car elle hérite du schéma de partitionnement de la requête en amont. Voici des exemples de valeurs de partition qui permettent la création d’une tâche entièrement parallèle :
 	1.	8 partitions d’entrée de hubs d’événements et 8 partitions de sortie de hubs d’événements
-	2.	8 partitions d’entrée de hubs d’événements et une sortie d’objet blob  
-	3.	8 partitions d’entrée d’objets blob et une sortie d’objet blob  
-	4.	8 partitions d’entrée d’objets blob et 8 partitions de sortie de hubs d’événements  
+	2.	8 partitions d’entrée de hubs d’événements et une sortie d’objet blob
+	3.	8 partitions d’entrée d’objets blob et une sortie d’objet blob
+	4.	8 partitions d’entrée d’objets blob et 8 partitions de sortie de hubs d’événements
 
 Voici quelques exemples de parallélisme massif.
 
@@ -88,7 +88,7 @@ Entrée – Hub d’événements avec 8 partitions de sortie – Hub d’évén
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Cette requête a une clé de regroupement. Il est donc nécessaire que la même clé soit traitée par la même instance de requête. Nous pouvons utiliser la même stratégie que dans la requête précédente. La requête comporte plusieurs étapes. **Partition By** a-t-il la valeur **PartitionId** dans chacune des étapes ? Oui, c’est bon. Pour la sortie, nous devons définir **PartitionKey** sur **PartitionId** comme nous l’avons vu plus haut. Nous pouvons également voir qu’elle a le même nombre de partitions que l’entrée. Cette topologie est massivement parallèle.
+Cette requête a une clé de regroupement. Il est donc nécessaire que la même clé soit traitée par la même instance de requête. Nous pouvons utiliser la même stratégie que dans la requête précédente. La requête comporte plusieurs étapes. Chaque étape a-t-elle un mot clé **Partition By** égal à **PartitionId** ? Oui, c’est bon. Pour la sortie, nous devons définir **PartitionKey** sur **PartitionId** comme nous l’avons vu plus haut. Nous pouvons également voir qu’elle a le même nombre de partitions que l’entrée. Cette topologie est massivement parallèle.
 
 
 ## Exemples de scénarios qui n’impliquent pas un parallélisme massif
@@ -128,7 +128,7 @@ Pour l’instant, utilisez les instructions générales ci-dessous :
 Le nombre total d'unités de diffusion en continu qui peut être utilisé par un travail Stream Analytics varie selon le nombre d'étapes de la requête définie pour le travail et le nombre de partitions pour chaque étape.
 
 ### Étapes dans une requête
-Une requête peut avoir une ou plusieurs étapes. Chaque étape constitue une requête secondaire définie à l’aide du mot clé **WITH**. La seule requête qui se trouve en dehors du mot clé **WITH** est également comptabilisée comme une étape, par exemple, l’instruction **SELECT** de la requête suivante :
+Une requête peut avoir une ou plusieurs étapes. Chaque étape est une sous-requête définie à l’aide du mot clé **WITH**. La seule requête qui se trouve en dehors du mot clé **WITH** est également comptabilisée comme une étape, par exemple, l’instruction **SELECT** de la requête suivante :
 
 	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
@@ -148,7 +148,7 @@ La requête précédente a deux étapes.
 
 Les conditions suivantes doivent être respectées pour procéder au partitionnement d'une étape :
 
-- La source d'entrée doit être partitionnée. Pour plus d’informations, consultez le [Guide de programmation de hubs d’événements](../event-hubs/event-hubs-programming-guide.md).
+- La source d'entrée doit être partitionnée. Pour plus d’informations, consultez le [Guide de programmation de concentrateurs d’événements](../event-hubs/event-hubs-programming-guide.md).
 - L’instruction **SELECT** de la requête doit lire à partir d’une source d’entrée partitionnée.
 - La requête de l'étape doit contenir le mot clé **Partition By**
 
@@ -211,7 +211,7 @@ Pour utiliser plusieurs unités de diffusion en continu pour la requête, le flu
 	FROM Input1 Partition By PartitionId
 	GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Lorsqu'une requête est partitionnée, les événements d'entrée sont traités et agrégées dans des groupes de partition distincts. Les événements de sortie sont également générés pour chacun des groupes. Le partitionnement peut provoquer des résultats inattendus lorsque le champ **Group-by** n'est pas la clé de partition dans l'entrée du flux de données. Par exemple, le champ **TollBoothId** dans l’exemple de requête précédent n’est pas la clé de partition d’Input1. Les données du péage « TollBooth #1 » peuvent être réparties dans plusieurs partitions.
+Lorsqu'une requête est partitionnée, les événements d'entrée sont traités et agrégées dans des groupes de partition distincts. Les événements de sortie sont également générés pour chacun des groupes. Le partitionnement peut provoquer des résultats inattendus lorsque le champ **Group-by** n'est pas la clé de partition dans l'entrée du flux de données. Par exemple, dans l’exemple de requête précédent, le champ **TollBoothId** n’est pas la clé de partition d’Input1. Les données du péage « TollBooth #1 » peuvent être réparties dans plusieurs partitions.
 
 Chacune des partitions Input1 sera traitée séparément par Stream Analytics et plusieurs enregistrements du nombre de voitures qui traversent (« car-pass-through ») seront créés pour le même péage au cours du même intervalle de temps. Au cas où il serait impossible de modifier la clé de partition d'entrée, ce problème peut être résolu en ajoutant une étape non partitionnée supplémentaire, par exemple :
 
@@ -271,7 +271,7 @@ Requête : « Envoyer une alerte lorsque la lumière est éteinte »
 	 WHERE
 		lght< 0.05 GROUP BY TumblingWindow(second, 1)
 
-Mesure de débit : dans ce contexte, le débit correspond à la quantité de données d’entrée traitées par Stream Analytics au cours d’une durée fixe (10 minutes). Pour obtenir un meilleur débit de traitement pour les données d'entrée, le flux de données d'entrée et la requête doivent être partitionnés. De même, **COUNT()** est inclus dans la requête pour mesurer le nombre d’événements d’entrée traités. Pour vous assurer que la tâche n’attend pas simplement les événements d’entrée, chaque partition du hub d’événements d’entrée a été préchargée avec suffisamment de données d’entrée (environ 300 Mo).
+Mesure de débit : dans ce contexte, le débit correspond à la quantité de données d’entrée traitées par Stream Analytics au cours d’une durée fixe (10 minutes). Pour obtenir un meilleur débit de traitement pour les données d'entrée, le flux de données d'entrée et la requête doivent être partitionnés. En outre, **COUNT()** est inclus dans la requête pour mesurer combien d’événements d’entrée ont été traités. Pour vous assurer que la tâche n’attend pas simplement les événements d’entrée, chaque partition du hub d’événements d’entrée a été préchargée avec suffisamment de données d’entrée (environ 300 Mo).
 
 Voici les résultats avec l'augmentation du nombre d'unités de diffusion en continu et le nombre de partitions correspondant dans les hubs d'événements.
 
@@ -326,7 +326,6 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 - [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
-- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
@@ -351,4 +350,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

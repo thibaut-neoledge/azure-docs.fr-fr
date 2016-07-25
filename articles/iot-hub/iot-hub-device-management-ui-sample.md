@@ -20,7 +20,7 @@
 
 Interagir avec l’exemple d’interface utilisateur de gestion d’appareils vous permettra de renforcer les concepts et les fonctionnalités abordés dans les articles [Vue d’ensemble][lnk-dm-overview] et [Prise en main][lnk-get-started] de la gestion d’appareils Azure IoT Hub. Cet article vous permettra de vous familiariser avec les trois principaux concepts de gestion d’appareils (*représentation d’appareil*, *requêtes d’appareil* et *travaux d’appareil*) comme représenté dans l’exemple d’interface utilisateur Web de gestion d’appareils.
 
-Les développeurs souhaitant créer leur propre expérience interactive de gestion d’appareils peuvent répliquer l’exemple de code base de l’interface utilisateur pour l’utiliser comme base pour un projet personnalisé. Vous pouvez consulter l’intégralité du code de projet et les documents Lisez-moi qui décrivent en détail les fonctionnalités de développement supplémentaires dans le référentiel GitHub [Azure IoT device management UI][lnk-dm-github] \(Interface utilisateur de gestion d’appareils Azure IoT).
+Les développeurs souhaitant créer leur propre expérience interactive de gestion d’appareils peuvent répliquer l’exemple de code base de l’interface utilisateur pour l’utiliser comme base pour un projet personnalisé. Vous pouvez consulter l’intégralité du code de projet et les documents Lisez-moi qui décrivent en détail les fonctionnalités de développement supplémentaires dans le référentiel GitHub [Azure IoT device management UI][lnk-dm-github] (Interface utilisateur de gestion d’appareils Azure IoT).
 
 ## Composants requis
 
@@ -111,12 +111,20 @@ Si vous actualisez cet écran après quelques minutes, l’état du travail pare
 
 ## Étapes suivantes
 
-Vous avez maintenant terminé d’explorer les concepts de gestion d’appareils et d’utiliser l’exemple d’interface utilisateur de gestion d’appareils. Si vous souhaitez approfondir vos connaissances sur les API de gestion d’appareils et découvrir certains exemples de code, consultez les didacticiels de développement suivants :
+Vous avez maintenant terminé d’explorer les concepts de gestion d’appareils et d’utiliser l’exemple d’interface utilisateur de gestion d’appareils. Si vous souhaitez approfondir vos connaissances sur les API de gestion d’appareils et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
 
 - [Utilisation des représentations d’appareil physique][lnk-tutorial-twin]
 - [Recherche de représentations d’appareil physique à l’aide de requêtes][lnk-tutorial-queries]
 - [Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils][lnk-tutorial-jobs]
+- [Activer les appareils gérés derrière une passerelle IoT][lnk-dm-gateway]
 - [Présentation de la bibliothèque cliente de gestion des appareils (DM) Azure IoT Hub][lnk-library-c]
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
@@ -130,9 +138,16 @@ Vous avez maintenant terminé d’explorer les concepts de gestion d’appareils
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management/
-[lnk-library-c]: iot-hub-device-management-library.md
+
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
 
-<!---HONumber=AcomDC_0615_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

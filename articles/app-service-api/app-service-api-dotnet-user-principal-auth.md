@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Authentification utilisateur pour API Apps dans Azure App Service
 
@@ -336,4 +336,4 @@ Pour plus d’informations sur la création d’une application à page unique A
 
 Ce didacticiel vous a montré comment utiliser l’authentification du Service d’application pour une application API et comment appeler l’application API à l’aide de la bibliothèque ADAL JS. Dans le didacticiel suivant, vous allez découvrir comment [sécuriser l’accès à votre application API pour les scénarios de service à service](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

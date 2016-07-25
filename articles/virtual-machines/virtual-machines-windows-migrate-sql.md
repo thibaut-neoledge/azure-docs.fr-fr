@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="carlasab"/>
 
 
 # Migrer une base de données SQL Server vers SQL Server dans une machine virtuelle Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] Modèle Resource Manager
 
 
 Il existe plusieurs méthodes permettant la migration d’une base de données utilisateur SQL Server locale vers SQL Server sur une machine virtuelle Azure. Cet article aborde brièvement les différentes méthodes, recommande la mieux adaptée en fonction de différents scénarios et inclut un [didacticiel](#azure-vm-deployment-wizard-tutorial) qui vous guide dans l’utilisation de l’assistant **Déploiement d’une base de données SQL Server vers une machine virtuelle Microsoft Azure**.
@@ -178,4 +178,6 @@ Vous pouvez utiliser la [méthode de service Import/Export Azure](../storage/sto
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+Pour obtenir des instructions sur la création d’une machine virtuelle Azure SQL Server à partir d’une image capturée, consultez la page [Tips & Tricks on ‘cloning’ Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) (Trucs et astuces sur le « clonage » des machines virtuelles Azure SQL à partir d’images capturées) du blog des ingénieurs CSS SQL Server.
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/12/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Chargement de données dans Azure SQL Data Warehouse
@@ -100,6 +100,19 @@ Résumé du processus de chargement :
 3. Expédiez les disques à Microsoft.
 4. Microsoft charge les données dans SQL Data Warehouse.
 
+## Charger à partir de HDInsight
+SQL Data Warehouse prend en charge le chargement des données à partir de HDInsight par le biais de PolyBase. Le processus est le même que pour le chargement des données à partir du stockage d’objets Blob Azure : utilisation de PolyBase pour se connecter à HDInsight pour charger des données.
+
+### 1\. Utilisation de PolyBase et de T-SQL
+
+Résumé du processus de chargement :
+
+2. Basculez vos données au format UTF-8, car PolyBase ne prend pas actuellement en charge UTF-16.
+2. Déplacer vos données vers HDInsight et les stocker dans des fichiers texte, au format ORC ou Parquet.
+3. Configurez les objets externes dans SQL Data Warehouse pour définir l’emplacement et le format des données.
+4. Exécutez une commande T-SQL pour charger les données en parallèle dans une nouvelle table de base de données.
+
+Pour accéder à un didacticiel, consultez [Charger les données de stockage d’objets blob Azure dans SQL Data Warehouse (PolyBase)][].
 
 ## Recommandations
 
@@ -124,7 +137,7 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 [Load sample data into SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
 [vue d’ensemble de la migration]: ./sql-data-warehouse-overview-migrate.md
-[partenaires de solutions]: ./sql-data-warehouse-integrate-solution-partners.md
+[partenaires de solutions]: ./sql-data-warehouse-partner-business-intelligence.md
 [vue d’ensemble sur le développement]: ./sql-data-warehouse-overview-develop.md
 [Statistiques]: ./sql-data-warehouse-tables-statistics.md
 
@@ -133,4 +146,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 <!--Other Web references-->
 [Import/Export]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

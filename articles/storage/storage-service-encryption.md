@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/11/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption pour les données au repos (version préliminaire)
@@ -37,9 +37,9 @@ Lorsque vous avez cliqué sur le paramètre Chiffrement, vous pouvez activer ou 
 
 ##Availability
 
-Pour le stockage Standard, cette fonctionnalité est actuellement disponible dans les États-Unis du Centre, l’Asie de l’Est, les États-Unis de l’Est 2, l’Europe de l’Ouest et les États-Unis de l’Ouest.
+Pour le stockage Standard, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est 2, le Sud-Est asiatique, l’Europe de l’Ouest et les États-Unis de l’Ouest.
 
-Pour le stockage Premium, cette fonctionnalité est actuellement disponible dans les États-Unis du Centre, les États-Unis de l’Est 2, le Japon de l’Est et les États-Unis de l’Ouest.
+Pour le stockage Premium, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est 2, le Sud-Est asiatique, le Japon de l’Est et les États-Unis de l’Ouest.
 
 Nous mettrons à jour ce document lorsque de nouvelles régions seront disponibles pour cette fonctionnalité.
 
@@ -167,7 +167,7 @@ R : Oui. SSE est pris en charge par le stockage Standard et Premium Storage.
 
 **Q : Si je crée un compte de stockage et que j’active SSE, puis que je crée une machine virtuelle à l’aide de ce compte de stockage, cela signifie-t-il que ma machine virtuelle est chiffrée ?**
 
-R. : Oui. Les disques créés qui utilisent le nouveau compte de stockage sont chiffrés, à condition qu’ils aient été créés après l’activation de SSE. Si la machine virtuelle a été créée à l’aide d’Azure Marketplace, l’image de base du disque dur virtuel reste non chiffrée. Toutefois, les écritures effectuées une fois que la machine virtuelle est opérationnelle sont chiffrées.
+R. : Oui. Les disques créés qui utilisent le nouveau compte de stockage sont chiffrés, à condition qu’ils aient été créés après l’activation de SSE. Si la machine virtuelle a été créée à l’aide d’Azure Marketplace, l’image de base du disque dur virtuel reste non chiffrée. Toutefois, les écritures effectuées une fois que la machine virtuelle est opérationnelle sont chiffrées.
 
 **Q : Puis-je créer des comptes de stockage dans lesquels SSE est activé à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure ?**
 
@@ -229,4 +229,4 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
-	ms.author="wesmc"/>
+	ms.date="07/08/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Authentifier avec l’API REST de Mobile Engagement
 
@@ -40,7 +40,7 @@ Il existe plusieurs façons d’obtenir un jeton. Comme les API sont généralem
 
 Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’installation à l’aide d’un script PowerShell qui prend le temps minimal pour l’installation, mais utilise les valeurs par défaut les plus autorisées. Si vous le souhaitez, vous pouvez également suivre les instructions de l’[installation manuelle](mobile-engagement-api-authentication-manual.md) pour effectuer cette opération directement à partir du portail Azure et affiner la configuration.
 
-1. Récupérez la dernière version d’Azure PowerShell [ici](http://aka.ms/webpi-azps). Consultez ce [lien](../powershell-install-configure.md) pour obtenir des instructions de téléchargement.  
+1. Récupérez la dernière version d’Azure PowerShell [ici](http://aka.ms/webpi-azps). Consultez ce [lien](../powershell-install-configure.md) pour obtenir des instructions de téléchargement.
 
 2. Une fois Azure PowerShell installé, utilisez les commandes suivantes pour vérifier que le **module Azure** est installé :
 
@@ -94,8 +94,8 @@ Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’in
 
 1. Appelez l’API avec les paramètres suivants et veillez à remplacer les valeurs TENANT\_ID, CLIENT\_ID et CLIENT\_SECRET :
 
-	- **URL de requête** sous la forme **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
+	- **URL de requête** sous la forme *https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
+	- **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
 	- **Corps de la requête HTTP** sous la forme *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Voici un exemple de requête :
@@ -141,13 +141,13 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 	- **1** `{subscription-id}`
 	- **2** `{app-collection}`
 	- **3** `{app-resource-name}`
-	- **4** Le nom de votre groupe de ressources va être **MobileEngagement** sauf si vous en avez créé un autre. 
+	- **4** Le nom de votre groupe de ressources va être **MobileEngagement** sauf si vous en avez créé un autre.
 
 	![Paramètres URI d’API Mobile Engagement][2]
 
 >[AZURE.NOTE] <br/>
 >1. Ignorez l’adresse racine de l’API car elle s’appliquait aux API précédentes.<br/>
->2. Si vous avez créé l’application à l’aide du portail Azure Classic, vous devez utiliser le nom de ressource de l’application qui est différent du nom de l’application elle-même. Si vous avez créé l’application dans le portail Azure, vous devez utiliser le nom de l’application elle-même (il n’existe aucune distinction entre le nom de ressource de l’application et le nom de l’application pour les applications créées dans le nouveau portail).  
+>2. Si vous avez créé l’application à l’aide du portail Azure Classic, vous devez utiliser le nom de ressource de l’application qui est différent du nom de l’application elle-même. Si vous avez créé l’application dans le portail Azure, vous devez utiliser le nom de l’application elle-même (il n’existe aucune distinction entre le nom de ressource de l’application et le nom de l’application pour les applications créées dans le nouveau portail).
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -155,4 +155,4 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -160,7 +160,7 @@ Dans cette section, vous reconnectez l’application au backend d’applications
 
 ##Résumé de l’API
 
-Pour pouvoir prendre en charge les fonctionnalités hors connexion des services mobiles, nous avons utilisé l'interface [IMobileServiceSyncTable](https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx) et initialisé [MobileServiceClient.SyncContext][synccontext] avec une base de données SQL locale. Lorsque vous êtes hors connexion, Les opérations normales de création, lecture, mise à jour et suppression pour Mobile Apps fonctionnent comme si l’application était toujours connectée, mais toutes les opérations se rapportent au magasin local. Les méthodes suivantes servent à synchroniser le magasin local avec le serveur :
+Pour pouvoir prendre en charge les fonctionnalités hors connexion des services mobiles, nous avons utilisé l’interface [IMobileServiceSyncTable et initialisé] [MobileServiceClient.SyncContext][synccontext] avec une base de données SQL locale. Lorsque vous êtes hors connexion, Les opérations normales de création, lecture, mise à jour et suppression pour Mobile Apps fonctionnent comme si l’application était toujours connectée, mais toutes les opérations se rapportent au magasin local. Les méthodes suivantes servent à synchroniser le magasin local avec le serveur :
 
 *  **[PushAsync]** Cette méthode étant membre de [IMobileServicesSyncContext], les modifications sur toutes les tables sont envoyées au serveur principal par opération Push. Seuls les enregistrements avec des modifications locales sont envoyés au serveur.
 
@@ -212,4 +212,4 @@ Les rubriques suivantes fournissent des informations générales supplémentaire
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

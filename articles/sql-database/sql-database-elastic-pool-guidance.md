@@ -22,7 +22,7 @@ Déterminez si l’utilisation d’un pool de base de données élastique est é
 
 - Pour obtenir une vue d’ensemble des pools, consultez [Pools de bases de données SQL élastiques](sql-database-elastic-pool.md).
 
-> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis, du Sud du Brésil, de l’Inde de l’Ouest, du Sud de l’Inde et du Nord de la Chine, où ils sont actuellement en version préliminaire. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible.
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord et du centre des États-Unis, de l’Inde de l’Ouest et du Nord de la Chine, où ils sont actuellement en préversion. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible.
 
 ## Pool de bases de données élastique
 
@@ -58,7 +58,7 @@ L'utilisation globale des DTU pour les 20 bases de données est illustrée par l
 
 Cet exemple est idéal pour les raisons suivantes :
 
-- Il existe de grandes différences entre les pics d’utilisation et l'utilisation moyenne par base de données.  
+- Il existe de grandes différences entre les pics d’utilisation et l'utilisation moyenne par base de données.
 - Les pics d’utilisation de chaque base de données se produisent à différents moments dans le temps.
 - Les eDTU sont partagés entre plusieurs bases de données.
 
@@ -131,4 +131,4 @@ Les bases de données uniques ne sont pas toutes de parfaits candidats à un poo
 - [Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md)
 - [Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

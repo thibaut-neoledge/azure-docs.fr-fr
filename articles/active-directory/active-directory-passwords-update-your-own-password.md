@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Comment : modifier ou réinitialiser votre mot de passe Azure AD | Microsoft Azure" 
-	description="Découvrez comment demander une réinitialisation du mot de passe, comment modifier votre mot de passe et comment réinitialiser votre mot de passe si vous l'avez oublié." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Comment : modifier ou réinitialiser votre mot de passe Azure AD | Microsoft Azure"
+	description="Découvrez comment demander une réinitialisation du mot de passe, comment modifier votre mot de passe et comment réinitialiser votre mot de passe si vous l'avez oublié."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Comment mettre à jour votre mot de passe
@@ -32,20 +32,20 @@ Le moyen le plus rapide de vous inscrire pour demander une réinitialisation du 
  1. Accédez à http://aka.ms/ssprsetup.
  2. Entrez votre nom d'utilisateur et votre mot de passe.
  3. Choisissez une option pour vous inscrire en cliquant sur **Configurer maintenant**. Dans ce cas, je vais vous montrer l'inscription mon **téléphone d'authentification**.
- 
+
     ![][011]
-   
+
  4. Sélectionnez votre code de pays dans la liste déroulante et entrez votre **numéro de téléphone complet + indicatif**.
- 
+
     ![][012] ![][013]
-   
+
  5. Sélectionnez une des options **Envoyez-moi un SMS** ou **Appelez-moi**. Dans ce cas, je vais sélectionner **Envoyez-moi un SMS**, qui enverra un code à 6 chiffres sur mon téléphone. Attendez que le code arrive sur votre téléphone.
- 
+
     ![][014]
- 
+
  6. Une fois que le code arrive, entrez-le dans la zone d'entrée, puis cliquez sur « Vérifier ».
  7. Lorsque vous voyez **Merci**, et voilà ! Vous pouvez maintenant utiliser ce que vous avez enregistré pour réinitialiser votre mot de passe à tout moment en accédant à https://passwordreset.microsoftonline.com.
- 
+
     ![][015]
 
  >[AZURE.IMPORTANT] Si votre administrateur vous permet de vous inscrire à plusieurs options, nous vous recommandons vivement de vous inscrire également à une option de sauvegarde, pour le cas où vous perdriez votre téléphone ou n'auriez plus accès à votre adresse de messagerie.
@@ -68,7 +68,7 @@ Suivez les étapes ci-dessous pour modifier le mot de passe de votre compte prof
  3. Cliquez sur la mosaïque **Modifier mon mot de passe** sur le côté droit de l'écran.
  4. Tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le.
  5. Cliquez sur **Enregistrer**.
- 
+
  Vous rencontrez un problème lors de la modification de votre mot de passe ? Lisez [Problèmes courants et leurs solutions](#common-problems-and-their-solutions).
 
 ## Comment réinitialiser votre mot de passe
@@ -77,16 +77,16 @@ Suivez les étapes ci-dessous pour modifier le mot de passe de votre compte prof
 Suivez les étapes ci-dessous pour réinitialiser le mot de passe de votre compte professionnel ou scolaire depuis n'importe quel écran de connexion professionnel ou scolaire.
 
  >[AZURE.IMPORTANT] Cette fonctionnalité est disponible uniquement si votre administrateur l'a activée. Si elle est désactivée, vous verrez un message indiquant que votre compte n'est pas activé pour cette fonctionnalité. Dans ce cas, vous pouvez utiliser le lien « Contactez votre administrateur » pour contacter votre administrateur et déverrouiller votre compte.<br><br>Si votre administrateur a activé cette fonctionnalité pour vous, vous devrez vous connecter avant de pouvoir l'utiliser. Vous pouvez le faire ici : http://aka.ms/ssprsetup.
- 
+
 
  1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.microsoftonline.com.
- 
+
     ![][001]
- 
+
  2. Sur la page « Qui êtes-vous? », entrez votre identifiant de compte professionnel ou scolaire et prouvez que vous n'êtes pas un robot en passant le test Captcha.
- 
+
     ![][002]
- 
+
  3. Cliquez sur le bouton « Suivant ».
  4. Choisissez une option pour réinitialiser votre mot de passe. Selon la façon dont votre administrateur a configuré le système, vous pouvez voir une ou plusieurs des options suivantes :
      * **Envoyer un courrier électronique sur mon adresse de messagerie secondaire** - envoie un message électronique avec un code à 6 chiffres à votre **autre adresse e-mail** ou à votre **adresse e-mail d'authentification** (au choix).
@@ -96,28 +96,28 @@ Suivez les étapes ci-dessous pour réinitialiser le mot de passe de votre compt
 	 * **Répondre à mes questions de sécurité** - affiche vos questions de sécurité préenregistrées pour vous permettre de répondre.
 
     ![][003]
-	 
+
  5. Nous allons utiliser l'option « Envoyer un SMS à mon téléphone mobile » à titre d'exemple. Si vous utilisez une option basée sur un numéro de téléphone, vous devez vérifier votre numéro de téléphone avant que nous envoyions un SMS. Entrez votre numéro de téléphone complet, puis cliquez sur **Suivant** pour vérifier qu'il est correct et envoyez un SMS.
- 
+
     ![][004]
- 
+
  6. Lorsque vous recevez le SMS, veillez à utiliser le code de vérification dans le corps du message, pas le numéro à partir duquel le code a été envoyé. La réception du SMS peut prendre quelques minutes, allez donc boire un café !
- 
+
     ![][009]
- 
+
  8. Saisissez maintenant le code que vous venez de recevoir sur votre téléphone dans la zone d'entrée sur la page.
- 
+
     ![][005]
- 
+
  9. Votre administrateur peut avoir besoin d'une deuxième étape de vérification. Dans ce cas, répétez l'étape 4 avec une autre option sélectionnée.
  10. Dans l'écran « Choisir un nouveau mot de passe », sélectionnez un nouveau mot de passe et confirmez votre choix, puis cliquez sur **Terminer**.
- 
+
     ![][006] ![][007]
-  
+
  11. Une fois que vous voyez la page de confirmation, vous êtes prêt ! Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.
- 
+
     ![][008]
- 
+
 Vous rencontrez un problème lors de la réinitialisation de votre mot de passe ? Lisez [Problèmes courants et leurs solutions](#common-problems-and-their-solutions).
 
 ## Comment déverrouiller votre compte
@@ -127,13 +127,13 @@ Suivez les étapes ci-dessous pour déverrouiller votre compte local depuis n'im
 
 
  1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.microsoftonline.com.
- 
+
     ![][001]
- 
+
  2. Sur la page « Qui êtes-vous? », entrez votre identifiant de compte professionnel ou scolaire et prouvez que vous n'êtes pas un robot en passant le test Captcha.
- 
+
     ![][002]
- 
+
  3. Cliquez sur le bouton « Suivant ».
  4. Choisissez une option pour déverrouiller votre compte. Selon la façon dont votre administrateur a configuré le système, vous pouvez voir une ou plusieurs des options suivantes :
      * **Envoyer un courrier électronique sur mon adresse de messagerie secondaire** - envoie un message électronique avec un code à 6 chiffres à votre **autre adresse e-mail** ou à votre **adresse e-mail d'authentification** (au choix).
@@ -143,27 +143,27 @@ Suivez les étapes ci-dessous pour déverrouiller votre compte local depuis n'im
 	 * **Répondre à mes questions de sécurité** - affiche vos questions de sécurité préenregistrées pour vous permettre de répondre.
 
     ![][003]
-	 
+
  5. Nous allons utiliser l'option « Envoyer un SMS à mon téléphone mobile » à titre d'exemple. Si vous utilisez une option basée sur un numéro de téléphone, vous devez vérifier votre numéro de téléphone avant que nous envoyions un SMS. Entrez votre numéro de téléphone complet, puis cliquez sur **Suivant** pour vérifier qu'il est correct et envoyez un SMS.
- 
+
     ![][004]
- 
+
  6. Lorsque vous recevez le SMS, veillez à utiliser le code de vérification dans le corps du message, pas le numéro à partir duquel le code a été envoyé. La réception du SMS peut prendre quelques minutes, allez donc boire un café !
- 
+
     ![][009]
- 
+
  8. Saisissez maintenant le code que vous venez de recevoir sur votre téléphone dans la zone d'entrée sur la page.
- 
+
     ![][005]
- 
+
  9. Votre administrateur peut avoir besoin d'une deuxième étape de vérification. Dans ce cas, répétez l'étape 4 avec une autre option sélectionnée.
- 
+
  11. Une fois que vous voyez la page de confirmation, vous êtes prêt ! Votre compte local a été déverrouillé et vous pouvez maintenant vous connecter encore une fois.
- 
+
     ![][010]
-  
+
  >[AZURE.IMPORTANT] Veillez à mettre à jour le mot de passe sur tous vos appareils : souvent, une application non autorisée avec un mot de passe obsolète (comme votre client de messagerie de téléphone) peut être la raison pour laquelle votre compte a été verrouillé en premier lieu.
- 
+
 Rencontrez un problème pour déverrouiller votre compte ? Lisez [Problèmes courants et leurs solutions](#common-problems-and-their-solutions).
 
 ## Problèmes courants et leurs solutions
@@ -222,6 +222,7 @@ Voici quelques cas d'erreur courants et leurs solutions :
           </tr>
         </tbody></table>
 
+
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
@@ -252,4 +253,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

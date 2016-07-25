@@ -122,7 +122,7 @@ Vous pouvez connecter des disques à vos machines virtuelles Azure, qu’ils soi
 
 11. Ajoutez le nouveau lecteur à /etc/fstab :
 
-	Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier /etc/fstab. En outre, il est vivement recommandé d’utiliser l’UUID (identificateur global unique) dans /etc/fstab comme référence au lecteur, plutôt que le nom d’appareil uniquement (par exemple, /dev/sdc1). Pour rechercher l’UUID du nouveau lecteur, vous pouvez vous servir de l’utilitaire **blkid** :
+	Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier /etc/fstab. En outre, il est vivement recommandé d’utiliser l’UUID (identificateur global unique) dans /etc/fstab comme référence au lecteur, plutôt que le nom d’appareil uniquement (par exemple, /dev/sdc1). Cela évite de monter un disque incorrect vers un emplacement donné si le système d’exploitation détecte une erreur de disque lors du démarrage, et l’affectation de ces ID d’appareils aux disques de données restants éventuels. Pour rechercher l’UUID du nouveau lecteur, vous pouvez vous servir de l’utilitaire **blkid** :
 
 		# sudo -i blkid
 
@@ -173,4 +173,4 @@ Vous trouverez plus d’informations sur l’utilisation de votre machine virtue
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

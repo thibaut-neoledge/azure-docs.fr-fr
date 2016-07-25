@@ -16,47 +16,51 @@
 	ms.date="06/07/2016"
 	ms.author="piyushjo" />
 
-# Utiliser l’API Engagement dans une application web
+# Utiliser l’API Azure Mobile Engagement dans une application web
 
-Ce document est un complément de la procédure [Intégration d’Engagement à une application web](mobile-engagement-web-integrate-engagement.md). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
+Ce document vient compléter celui vous décrivant comment [intégrer Mobile Engagement dans une application web](mobile-engagement-web-integrate-engagement.md). Il fournit des informations détaillées sur l’utilisation de l’API Azure Mobile Engagement pour signaler les statistiques de votre application.
 
-L’API Engagement est fournie par l’objet `engagement.agent`. `engagement` est l’alias du Kit de développement logiciel (SDK) Engagement par défaut. Il peut être redéfini à partir de la configuration du SDK.
+L’API Mobile Engagement est fournie par l’objet `engagement.agent`. L’alias du Kit de développement logiciel (SDK) web d’Azure Mobile Engagement par défaut est `engagement`. Vous pouvez redéfinir cet alias dans la configuration du Kit de développement logiciel (SDK).
 
-## Concepts liés à Engagement
+## Concepts de Mobile Engagement
 
 Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engagement-concepts.md) courants pour la plateforme web.
 
 ### `Session` et `Activity`
 
-Si l'utilisateur reste inactif plus de quelques secondes entre deux *activités*, sa séquence d'*activités* est fractionnée en deux *sessions* distinctes. Ces quelques secondes constituent le *délai d’expiration de session*.
+Si l’utilisateur reste inactif pendant plus de quelques secondes entre deux activités, sa séquence d’activités est fractionnée en deux sessions distinctes. Ces quelques secondes constituent le délai d’expiration de session.
 
-Si votre application web ne déclare pas la fin des activités de l’utilisateur par elle-même (en appelant la fonction `engagement.agent.endActivity`), le serveur Engagement terminera automatiquement la session de l’utilisateur dans les trois minutes qui suivront la fermeture de la page d’application. Ce comportement est appelé *délai d’expiration de session* du serveur.
+Si votre application web ne déclare pas la fin des activités de l’utilisateur par elle-même (en appelant la fonction `engagement.agent.endActivity`), le serveur Mobile Engagement termine automatiquement la session de l’utilisateur dans les trois minutes qui suivent la fermeture de la page d’application. C’est ce que l’on appelle le délai d’expiration de session du serveur.
 
 ### `Crash`
 
-Il n’existe pas de rapport automatisé d’exceptions JavaScript non interceptées. Toutefois, vous pouvez signaler les incidents manuellement à l’aide de la fonction `sendCrash` (voir ci-dessous).
+Les rapports automatisés d’exceptions JavaScript non interceptées ne sont pas créés par défaut. Toutefois, vous pouvez signaler les incidents manuellement à l’aide de la fonction `sendCrash` (voir la section sur les rapports d’incidents).
 
-## Rapports d'activités
+## Rapports d’activités
 
-### L'utilisateur démarre une nouvelle activité
+Les rapports d’activités de l’utilisateur incluent le moment où l’utilisateur démarre une nouvelle activité et où l’utilisateur met fin à l’activité en cours.
+
+### L’utilisateur démarre une nouvelle activité
 
 	engagement.agent.startActivity("MyUserActivity");
 
-Vous devez appeler `startActivity()` chaque fois que l'activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
+Vous devez appeler `startActivity()` chaque fois que l’activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
 
-### L'utilisateur met fin à l'activité en cours
+### L’utilisateur met fin à l’activité en cours
 
 	engagement.agent.endActivity();
 
-Vous devez appeler `endActivity()` au moins une fois quand l'utilisateur termine sa dernière activité. Cela indique au SDK Engagement que l'utilisateur est inactif et que la session utilisateur doit être fermée à la fin du délai d'expiration de session (si vous appelez `startActivity()` avant l'expiration de la session, la session est simplement reprise).
+Vous devez appeler `endActivity()` au moins une fois lorsque l’utilisateur termine sa dernière activité. Le Kit de développement logiciel (SDK) web Mobile Engagement est ainsi informé que l’utilisateur est inactif et que la session utilisateur doit être fermée après le délai d’expiration de session. Si vous appelez `startActivity()` avant la fin du délai d’expiration de session, la session reprend simplement.
 
-Il est souvent difficile, voire impossible, d’intercepter la fin des activités de l’utilisateur dans des environnements web (aucun appel fiable lors de la fermeture de la fenêtre du navigateur). C’est pourquoi le serveur Engagement termine automatiquement la session de l’utilisateur dans un délai de 3 minutes après la fermeture de la page de l’application.
+Étant donné qu’il n’existe aucun appel fiable lors de la fermeture de la fenêtre du navigateur, il est souvent difficile, voire impossible, d’intercepter la fin des activités de l’utilisateur dans un environnement web. C’est pourquoi le serveur Mobile Engagement termine automatiquement la session de l’utilisateur dans un délai de trois minutes après la fermeture de la page de l’application.
 
-## Rapports d'événements
+## Rapports d’événements
+
+Les rapports d’événements couvrent les événements de session et les événements autonomes.
 
 ### Événements de session
 
-Les événements de session servent généralement à signaler les actions effectuées par un utilisateur lors de sa session.
+Les événements de session servent généralement à signaler les actions effectuées par un utilisateur lors la session de l’utilisateur.
 
 **Exemple sans données supplémentaires :**
 
@@ -74,15 +78,17 @@ Les événements de session servent généralement à signaler les actions effec
 
 ### Événements autonomes
 
-Contrairement aux événements de session, les événements autonomes peuvent se produire en dehors du contexte d'une session.
+Contrairement aux événements de session, les événements autonomes peuvent se produire en dehors du contexte d’une session.
 
 Pour cela, utilisez ``engagement.agent.sendEvent`` au lieu de ``engagement.agent.sendSessionEvent``.
 
-## Rapports d'erreurs
+## Rapports d’erreurs
+
+Les rapports d’erreurs couvrent les erreurs de session et les erreurs autonomes.
 
 ### Erreurs de session
 
-Les erreurs de session servent généralement à signaler les erreurs affectant l'utilisateur lors de sa session.
+Les erreurs de session servent généralement à signaler les erreurs qui ont un impact sur l’utilisateur pendant la session de l’utilisateur.
 
 **Exemple sans données supplémentaires :**
 
@@ -106,16 +112,18 @@ Les erreurs de session servent généralement à signaler les erreurs affectant 
 
 ### Erreurs autonomes
 
-Contrairement aux erreurs de session, les erreurs autonomes peuvent se produire en dehors du contexte d'une session.
+Contrairement aux erreurs de session, les erreurs autonomes peuvent se produire en dehors du contexte d’une session.
 
 Pour cela, utilisez `engagement.agent.sendError` au lieu de `engagement.agent.sendSessionError`.
 
 ## Rapports de travaux
 
-### Exemple
+Les rapports de travaux couvrent les erreurs et les événements qui se produisent lors d’un travail, ainsi que les rapports d’incidents.
 
-Supposons que vous souhaitiez analyser une requête Ajax :
-			
+**Exemple :**
+
+Pour surveiller une requête AJAX, vous utilisez les éléments suivants :
+
 	// [...]
 	xhr.onreadystatechange = function() {
 	  if (xhr.readyState == 4) {
@@ -129,11 +137,11 @@ Supposons que vous souhaitiez analyser une requête Ajax :
 
 ### Signaler les erreurs lors d’un travail
 
-Les erreurs peuvent être associées à un travail en cours d'exécution plutôt qu'à la session utilisateur en cours.
+Les erreurs peuvent être associées à un travail en cours d’exécution plutôt qu’à la session utilisateur en cours.
 
 **Exemple :**
 
-Supposons que vous vouliez signaler une erreur si une requête Ajax échoue :
+Pour signaler une erreur si une requête AJAX échoue :
 
 	// [...]
 	xhr.onreadystatechange = function() {
@@ -149,32 +157,34 @@ Supposons que vous vouliez signaler une erreur si une requête Ajax échoue :
 	xhr.send();
 	// [...]
 
-### Rapports d'événements pendant une tâche
+### Rapports d’événements pendant un travail
 
-Les événements peuvent être associés à un travail en cours d’exécution au lieu de se rapporter à la session utilisateur en cours grâce à la fonction `engagement.agent.sendJobEvent`.
+Les événements peuvent être associés à un travail en cours d’exécution plutôt qu’à la session utilisateur en cours grâce à la fonction `engagement.agent.sendJobEvent`.
 
 Cette fonction fonctionne exactement comme `engagement.agent.sendJobError`.
 
-### Rapports d'incidents
+### Rapports d’incidents
 
-La fonction `sendCrash` est utilisée pour signaler des incidents manuellement.
+Utilisez la fonction `sendCrash` pour signaler des incidents manuellement.
 
-L’argument `crashid` est une chaîne utilisée pour identifier le type de l’incident. L’argument `crash` correspond généralement à l’arborescence des appels de procédure de l’incident sous forme de chaîne.
+L’argument `crashid` est une chaîne qui identifie le type d’incident. L’argument `crash` correspond généralement à l’arborescence des appels de procédure de l’incident sous forme de chaîne.
 
 	engagement.agent.sendCrash(crashid, crash);
 
 ## Paramètres supplémentaires
 
-Des données arbitraires peuvent être associées à un événement, à une erreur, à une activité ou à un travail.
+Vous pouvez joindre des données arbitraires à un événement, une erreur, une activité ou un travail.
 
-Ces données peuvent être n’importe quel objet JSON (et non un tableau ou des types primitifs).
+Les données peuvent être n’importe quel objet JSON (mais pas un tableau ou un type primitif).
 
-**Exemple**
+**Exemple :**
 
 	var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
 	engagement.agent.sendEvent("video_clicked", extras);
 
 ### Limites
+
+Les limites qui s’appliquent aux paramètres supplémentaires se situent dans les zones des expressions régulières pour les clés, les types de valeur et la taille.
 
 #### de clés symétriques
 
@@ -186,28 +196,30 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Valeurs
 
-Les valeurs sont limitées aux types chaîne, nombre et booléen.
+Les valeurs sont limitées aux types chaîne, nombre et Booléen.
 
 #### Taille
 
-Les données supplémentaires sont limitées à **1024** caractères par appel (une fois codées au format JSON par le SDK).
+Les paramètres supplémentaires sont limités à 1 024 caractères par appel (une fois que le Kit de développement logiciel (SDK) Mobile Engagement Web l’encode dans JSON).
 
-## Rapports d'informations sur l'application
+## Rapports d’informations sur l’application
 
-Vous pouvez signaler manuellement les informations de suivi (ou toutes autres informations spécifiques aux applications) à l'aide de la fonction `sendAppInfo()`.
+Vous pouvez signaler manuellement les informations de suivi (ou toutes autres informations spécifiques aux applications) à l’aide de la fonction `sendAppInfo()`.
 
-Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné.
+Notez que ces informations peuvent être envoyées de façon incrémentielle. Seule la dernière valeur d’une clé spécifique est conservée pour un appareil donné.
 
-À l’instar des paramètres supplémentaires des événements, un objet JSON peut être utilisé pour récupérer les informations de l’application. Notez que les tableaux ou les sous-objets seront considérés comme des chaînes plates (à l’aide de la sérialisation JSON).
+Comme pour les paramètres supplémentaires d’événement, vous pouvez utiliser n’importe quel objet JSON pour extraire des informations sur l’application. Notez que les tableaux ou les sous-objets sont traités comme des chaînes plates (à l’aide de la sérialisation JSON).
 
-### Exemple
+**Exemple :**
 
-Voici un exemple de code pour envoyer des informations sur la date de naissance et le sexe de l'utilisateur :
+Voici un exemple de code pour l’envoi du sexe et de la date de naissance de l’utilisateur :
 
 	var appInfos = {"birthdate":"1983-12-07","gender":"female"};
 	engagement.agent.sendAppInfo(appInfos);
 
 ### Limites
+
+Les limites qui s’appliquent aux informations sur l’application se situent dans les zones des expressions régulières pour les clés et la taille.
 
 #### de clés symétriques
 
@@ -219,11 +231,10 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations sur l’application sont limitées à **1024** caractères par appel (une fois codées au format JSON par le SDK).
+Les informations sur l’application sont limitées à 1 024 caractères par appel (une fois que le Kit de développement logiciel (SDK) Mobile Engagement Web l’encode dans JSON).
 
-Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
+Dans l’exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 	{"birthdate":"1983-12-07","gender":"female"}
- 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Évaluation et amélioration des performances d’une base de données dans une base de données SQL Azure"
-	description="Décrit comment évaluer et améliorer les performances d’une base de données"
+	pageTitle="Conseils pour le réglage des performances de SQL Database | Microsoft Azure"
+	description="Conseils pour le réglage des performances dans Azure SQL Database par le biais de l’évaluation et de l’amélioration."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="réglage des performances de sql, réglage des performances de base de données, conseils pour le réglage des performances de sql, réglage des performances de sql database"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="07/06/2016"
 	ms.author="v-shysun"/>
 
-# Évaluation et amélioration des performances d’une base de données dans une base de données SQL Azure
-Vous pouvez modifier le [niveau de service](sql-database-service-tiers.md) d’une seule base de données ou augmenter le nombre d’eDTU d’un pool de base de données élastique à tout moment pour améliorer les performances, mais il se peut que vous vouliez identifier des opportunités pour améliorer et optimiser d’abord des performances de requêtes. Des index manquants et des requêtes incorrectement optimisées sont souvent à l’origine de performances de base de données limitées.
+# Conseils pour le réglage des performances de SQL Database
+Vous pouvez modifier le [niveau de service](sql-database-service-tiers.md) d’une seule base de données ou augmenter le nombre d’eDTU d’un pool de base de données élastique à tout moment pour améliorer les performances, mais il se peut que vous vouliez identifier des opportunités pour améliorer et optimiser d’abord des performances de requêtes. Des index manquants et des requêtes incorrectement optimisées sont souvent à l’origine de performances de base de données limitées. Cet article fournit des conseils pour le réglage des performances dans SQL Database.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -34,4 +35,4 @@ Vous pouvez modifier le [niveau de service](sql-database-service-tiers.md) d’u
 1.	Pour les bases de données uniques, vous pouvez [Modifier les niveaux de service](sql-database-scale-up.md) à la demande pour améliorer les performances de la base de données.
 2.	S’il existe plusieurs bases de données, envisagez d’utiliser des [pools de base de données élastiques](sql-database-elastic-pool-guidance.md) pour une mise à l’échelle automatique des ressources.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

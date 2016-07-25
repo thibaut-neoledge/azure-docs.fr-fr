@@ -188,7 +188,7 @@ Au moment de la build, dans le cadre des paramètres de build FBT ou de recomman
 
 2.	Vous pouvez éventuellement sélectionner *splitterStrategy* (*RandomSplitter* ou *LastEventSplitter*). *RandomSplitter* fractionne les données d’utilisation dans les jeux de données d’apprentissage et de test à partir des pourcentages de test et des valeurs de départ aléatoires *randomSplitterParameters*. *LastEventSplitter* fractionne les données d’utilisation dans les jeux de données d’apprentissage et de test en fonction de la dernière transaction de chaque utilisateur.
 
-Ceci déclenche une build qui utilise uniquement un sous-ensemble des données pour l’apprentissage, en réservant les autres données pour calculer les mesures d’évaluation. Une fois la build terminée, vous devez simplement appeler [l’API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console) en transmettant les valeurs *modelId* et *buildId* correspondantes pour obtenir le résultat de l’évaluation.
+Ceci déclenche une build qui utilise uniquement un sous-ensemble des données pour l’apprentissage, en réservant les autres données pour calculer les mesures d’évaluation. Une fois la build terminée, vous devez simplement appeler [l’API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f) en transmettant les valeurs *modelId* et *buildId* correspondantes pour obtenir le résultat de l’évaluation.
 
  Voici le résultat JSON obtenu pour l’exemple d’évaluation que nous avons effectuée :
 
@@ -271,4 +271,4 @@ Ceci déclenche une build qui utilise uniquement un sous-ensemble des données p
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

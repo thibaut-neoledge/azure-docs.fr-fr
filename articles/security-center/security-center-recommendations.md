@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="07/12/2016"
    ms.author="terrylan"/>
 
 # Gestion des recommandations de sécurité dans le Centre de sécurité Azure
@@ -43,7 +43,7 @@ Les recommandations de stratégie actuelles se concentrent sur les mises à jour
 ### Suivi des recommandations
 Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La vignette **Recommandations** du panneau **Security Center** vous permet de connaître le nombre total de recommandations fournies par Security Center.
 
-![][2]
+![Panneau Recommandations][2]
 
 Pour afficher les détails de chaque recommandation :
 
@@ -70,39 +70,40 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 |-----|-----|
 |[Activer la collecte des données pour des abonnements](security-center-enable-data-collection.md)|Recommande l’activation de la collecte des données dans la stratégie de sécurité pour chacun de vos abonnements et toutes les machines virtuelles de vos abonnements.|
 |Résoudre une non-conformité aux règles de ligne de base|Recommande d’aligner les configurations de système d’exploitation sur les lignes de base recommandées, comme le fait de ne pas permettre l’enregistrement des mots de passe.|
-|Appliquer des mises à jour système|Recommande le déploiement des mises à jour de sécurité du système et des mises à jour critiques manquantes sur les machines virtuelles.|
+|[Appliquer des mises à jour système](security-center-apply-system-updates.md)|Recommande le déploiement des mises à jour de sécurité du système et des mises à jour critiques manquantes sur les machines virtuelles.|
+|[Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates)|Recommande de redémarrer une machine virtuelle pour terminer le processus de mise à jour du système.|
 |[Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md)|Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l’aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l’aide du modèle de déploiement classique) sont limités à l’utilisation d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique).|
-|Finaliser la configuration du pare-feu d’applications web|Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration.|
-|[Activer le logiciel anti-programme malveillant](security-center-enable-antimalware.md)|Recommande l’approvisionnement de logiciels anti-programme malveillant sur les machines virtuelles (Windows uniquement).|
-|Activer des groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau|Recommande l’activation de groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau.|
+|[Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection)|Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration.|
+|[Installer Endpoint Protection](security-center-install-endpoint-protection.md)|Recommande l’approvisionnement de logiciels anti-programme malveillant sur les machines virtuelles (Windows uniquement).|
+|[Activer des groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau](security-center-enable-network-security-groups.md)|Recommande l’activation de groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau.|
 |Restreindre l’accès à l’aide de points de terminaison externes publics|Recommande la configuration de règles de trafic entrant pour les groupes de sécurité réseau.|
 |[Activer l’audit des serveurs SQL](security-center-enable-auditing-on-sql-servers.md)|Recommande l’activation de l’audit pour les serveurs SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles).|
 |[Activer l’audit des bases de données SQL](security-center-enable-auditing-on-sql-databases.md)|Recommande l’activation de l’audit pour les bases de données SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles).|
 |[Activer le chiffrement transparent des données des bases de données SQL](security-center-enable-transparent-data-encryption.md)|Recommande l’activation du chiffrement pour les bases de données SQL (service Azure SQL uniquement).|
 |Déployer l’agent de machine virtuelle|Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle.|
 | [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle.|
-|Fournir des informations de contact de sécurité | Vous recommande de fournir des informations de contact de sécurité pour chacun de vos abonnements. Les informations de contact correspondent à une adresse électronique et à un numéro de téléphone. Elles seront utilisées pour vous contacter si notre équipe de sécurité détecte que vos ressources sont compromises. |
-| Mettre à jour la version du système d’exploitation | Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation. Pour en savoir plus sur Cloud Services, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md). |
+|[Fournir des informations de contact de sécurité](security-center-provide-security-contact-details.md) | Vous recommande de fournir des informations de contact de sécurité pour chacun de vos abonnements. Les informations de contact correspondent à une adresse électronique et à un numéro de téléphone. Elles seront utilisées pour vous contacter si notre équipe de sécurité détecte que vos ressources sont compromises. |
+| [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md) | Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation. Pour en savoir plus sur Cloud Services, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md). |
 
 Vous pouvez filtrer et ignorer les recommandations.
 
 1. Cliquez sur **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
-    ![][3]
+    ![Filtrer les recommandations][3]
 
-2. Si vous déterminez qu’une recommandation n’est pas applicable, vous pouvez l’ignorer pour la faire disparaître. Il existe deux façons d’ignorer une recommandation. L’une consiste à cliquer avec le bouton droit de la souris sur un élément, puis à sélectionner **Ignorer**. L’autre consiste à pointer sur un élément, à cliquer sur les trois points qui apparaissent à droite, puis à sélectionner **Ignorer**. Vous pouvez afficher les recommandations ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Ignorées**.
+2. Si vous déterminez qu’une recommandation n’est pas applicable, vous pouvez l’ignorer pour la faire disparaître. Il existe deux façons d’ignorer une recommandation. L’une consiste à cliquer avec le bouton droit de la souris sur un élément, puis à sélectionner **Ignorer**. L’autre consiste à pointer sur un élément, à cliquer sur les trois points qui apparaissent à droite, puis à sélectionner **Ignorer**. Vous pouvez afficher les recommandations ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Ignoré**.
 
-    ![][4]
+    ![Ignorer une recommandation][4]
 
 ### Appliquer les recommandations
 Après avoir examiné toutes les recommandations, vous pouvez décider d’en appliquer une en priorité. Les recommandations à appliquer en priorité sont celles dont le niveau de gravité est le plus élevé. Voyons comment appliquer une recommandation en prenant comme exemple la recommandation **Activer le logiciel anti-programme malveillant**.
 
-1. Dans le panneau **Recommandations** , sélectionnez **Activer le logiciel anti-programme malveillant**. ![][5]
+1. Dans le panneau **Recommandations** , sélectionnez **Activer le logiciel anti-programme malveillant**. ![Sélectionner Activer le logiciel anti-programme malveillant][5]
 
 2. Dans le panneau **Installer le logiciel anti-programme malveillant**, sélectionnez les machines virtuelles pour lesquelles aucun logiciel anti-programme malveillant n’est activé, puis cliquez sur **Installer le logiciel anti-programme malveillant**.
 3. Le panneau **Nouvelle ressource** s’ouvre et vous permet de sélectionner la solution anti-programme malveillant à utiliser. Sélectionnez **Microsoft Antimalware**.
 4. Des informations supplémentaires sur la solution anti-programme malveillant s’affichent. Sélectionnez **Créer**.
-5. Saisissez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. ![][6]
+5. Saisissez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. ![Installer le logiciel anti-programme malveillant][6]
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md) est maintenant activé sur la machine virtuelle sélectionnée.
 
@@ -110,11 +111,11 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 ## Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-- [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-- [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
-- [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+- [Surveillance des solutions de partenaire avec le Centre de sécurité Azure](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
+- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
 
 <!--Image references-->
@@ -124,4 +125,4 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

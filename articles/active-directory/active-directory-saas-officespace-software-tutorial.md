@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec OfficeSpace Software
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Of
 
 ###Pour activer l’intégration d’application pour OfficeSpace Software, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-officespace-software-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, dans la page d’intégration d’application **OfficeSpace Software**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, dans la page d’intégration d’application **OfficeSpace Software**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à OfficeSpace Software**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application OfficeSpace Software (par exemple, « **https://company.officespacesoftware.com*"), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à OfficeSpace Software**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application OfficeSpace Software (par exemple, « *https://company.officespacesoftware.com*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configurer l’URL de l’application")
 
@@ -98,15 +98,16 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configuration de SAML](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "Configuration de SAML")
 
-    1.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur OfficeSpace Software**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Logout provider url**.
-    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur OfficeSpace Software**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Client idp target url**.
-    3.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Client idp cert fingerprint**.  
+    1.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur OfficeSpace Software**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Logout provider url**.
+    2.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur OfficeSpace Software**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Client idp target url**.
+    3.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Client idp cert fingerprint**.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]
+        Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
     4.  Cliquez sur **Save Settings**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -121,7 +122,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à OfficeSpace Software, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **OfficeSpace Software**, cliquez sur **Affecter des utilisateurs**.
 
@@ -133,4 +134,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

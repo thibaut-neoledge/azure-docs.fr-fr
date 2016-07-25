@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Scénarios d'applications Service Fabric
@@ -24,7 +24,7 @@ La plateforme Service Fabric dans Azure est idéale pour les catégories d'appli
 
 - **Services hautement disponibles** : les services Service Fabric assurent un basculement rapide en créant plusieurs réplicas de services secondaires. Si un nœud, un processus ou un service individuel tombe en panne en raison d’une défaillance matérielle ou autre, un des réplicas secondaires est promu réplica principal avec une perte de service minimale.
 
-- **Services extensibles** : les différents services peuvent être partitionnés, permettant une montée en charge de l’état à l’ensemble du cluster. En outre, les services individuels peuvent être créés et supprimés à la volée. L’échelle des services peut être rapidement et facilement augmentée de quelques instances à plusieurs milliers d’instances et réduite d’autant, selon vos besoins en ressources. Vous pouvez utiliser Service Fabric pour générer ces services et gérer l’ensemble de leur cycle de vie.
+- **Services extensibles** : les différents services peuvent être partitionnés, permettant une montée en charge de l’état à l’ensemble du cluster. En outre, les services individuels peuvent être créés et supprimés à la volée. L’échelle des services peut être rapidement et facilement augmentée de quelques instances à plusieurs milliers d’instances et réduite d’autant, en fonction de vos besoins en ressources. Vous pouvez utiliser Service Fabric pour générer ces services et gérer l’ensemble de leur cycle de vie.
 
 - **Calcul sur des données non statiques** : Service Fabric vous permet de générer des applications, des entrées/sorties et de calculer des applications intensives avec état. Service Fabric permet la colocalisation du traitement (calcul) et des données dans les applications. Normalement, lorsque votre application a besoin d’un accès aux données, il y a une latence réseau associée à un niveau de stockage ou de cache de données externe. Avec Service Fabric avec état, cette latence est éliminée, ce qui permet des lectures et écritures performantes. Imaginez, par exemple, une application qui effectue des sélections de recommandation en temps quasi-réel pour des clients, avec un délai d’aller-retour de moins de 100 millisecondes. Les caractéristiques de latence et les performances de Service Fabric (où le calcul de la sélection de la recommandation est colocalisé avec les données et les règles) offrent une expérience réactive à l’utilisateur par rapport au modèle de mise en œuvre standard consistant à extraire les données nécessaires depuis le stockage distant.
 
@@ -61,4 +61,4 @@ Les microservices avec état simplifient les conceptions d’applications, car i
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

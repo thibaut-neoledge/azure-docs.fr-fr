@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Activation des métriques de stockage dans le portail Azure | Microsoft Azure" 
-	description="Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier" 
-	services="storage" 
-	documentationCenter="" 
-	authors="robinsh" 
-	manager="carmonm" 
+<properties
+	pageTitle="Activation des métriques de stockage dans le portail Azure | Microsoft Azure"
+	description="Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier"
+	services="storage"
+	documentationCenter=""
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/09/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/05/2016"
 	ms.author="robinsh"/>
 
 # Activation des métriques Azure Storage et affichage des données associées
@@ -30,7 +30,7 @@ Lorsque vous activez Storage Metrics, vous devez choisir une période de rétent
 
 Pour activer les métriques dans le [portail Azure](https://portal.azure.com), procédez comme suit :
 
-1. Accédez à votre compte de stockage. 
+1. Accédez à votre compte de stockage.
 1. Ouvrez le panneau **Paramètres**, puis sélectionnez **Diagnostics**.
 1. Vérifiez que l’option **État** est définie sur **Activé**.
 1. Sélectionnez les métriques des services que vous souhaitez surveiller.
@@ -71,7 +71,7 @@ L’extrait de code C# suivant montre comment activer les métriques et la journ
     // Create service client for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Enable Storage Analytics logging and set retention policy to 10 days. 
+    // Enable Storage Analytics logging and set retention policy to 10 days.
     ServiceProperties properties = new ServiceProperties();
     properties.Logging.LoggingOperations = LoggingOperations.All;
     properties.Logging.RetentionDays = 10;
@@ -92,7 +92,7 @@ L’extrait de code C# suivant montre comment activer les métriques et la journ
     // Set the service properties.
     blobClient.SetServiceProperties(properties);
 
-    
+
 ## Affichage des métriques de stockage
 
 Après que vous avez configuré les métriques d’analyse du stockage pour surveiller votre compte de stockage, l’analyse du stockage enregistre les métriques dans des tables connues dans votre compte de stockage. Vous pouvez configurer des graphiques permettant de consulter des métriques horaires dans le [portail Azure](https://portal.azure.com) :
@@ -102,7 +102,16 @@ Après que vous avez configuré les métriques d’analyse du stockage pour surv
 3. Pour modifier les métriques affichées dans un graphique, cliquez sur le lien **Modifier**. Vous pouvez ajouter ou supprimer des métriques en les sélectionnant ou les désélectionnant.
 4. Une fois les métriques modifiées, cliquez sur **Enregistrer**.
 
-Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez utiliser un outil ou écrire du code pour lire les tables. Vous devez télécharger les métriques par minute pour analyse. Les tables ne sont pas visibles si vous répertoriez toutes les tables dans votre compte de stockage, mais vous pouvez y accéder directement par nom. De nombreux outils tiers de consultation du stockage prennent en compte ces tables et vous permettent de les afficher directement (voir le billet de blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) pour obtenir la liste des outils disponibles).
+Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez :
+
+- Utiliser un outil qui prend en charge ces tables et vous permet de les afficher et de les télécharger
+- Écrire une application ou un script personnalisé pour lire et stocker les tables
+
+De nombreux outils de consultation du stockage tiers prennent en charge ces tables et vous permettent de les afficher directement. Pour obtenir la liste des outils disponibles, consultez [Explorateurs Azure Storage](storage-explorers.md).
+
+> [AZURE.NOTE] À compter de la version 0.8.0 de [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vous pourrez désormais afficher et télécharger les tables de métriques Analytics.
+
+Pour accéder par programmation aux tables Analytics, notez qu’elles n’apparaissent pas si vous répertoriez toutes les tables dans votre compte de stockage. Vous pouvez y accéder directement par nom ou utiliser l[’API CloudAnalyticsClient](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) dans la bibliothèque cliente .NET pour interroger les noms de tables.
 
 ### Métriques toutes les heures
 - $MetricsHourPrimaryTransactionsBlob
@@ -148,7 +157,7 @@ L’exemple de code suivant en C# accède aux métriques par minute pour une pla
     // Convert the dates to the format used in the PartitionKey
     var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
     var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
-    
+
     var services = Enum.GetValues(typeof(StorageService));
     foreach (StorageService service in services)
     {
@@ -161,9 +170,9 @@ L’exemple de code suivant en C# accède aux métriques par minute pour une pla
     // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
     // because they are calculated fields in the MetricsEntity class.
     // The PartitionKey identifies the DataTime of the metrics.
-    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
+    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0
     select entity;
-    
+
     // Filter on "user" transactions after fetching the metrics from Table Storage.
     // (StartsWith is not supported using LINQ with Azure table storage)
     var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
@@ -171,7 +180,7 @@ L’exemple de code suivant en C# accède aux métriques par minute pour une pla
     Console.WriteLine(resultString);
     }
     }
-    
+
     private static string MetricsString(MetricsEntity entity, OperationContext opContext)
     {
     var entityProperties = entity.WriteEntity(opContext);
@@ -181,7 +190,7 @@ L’exemple de code suivant en C# accède aux métriques par minute pour une pla
     string.Format("TransactionType: {0}, ", entity.TransactionType) +
     string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
     return entityString;
-    
+
     }
 
 
@@ -203,6 +212,5 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 
 ## Étapes suivantes :
 [Activation de la journalisation du stockage et accès aux données des journaux](https://msdn.microsoft.com/library/dn782840.aspx)
- 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

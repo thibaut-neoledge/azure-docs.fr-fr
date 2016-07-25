@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/06/2016"
 	ms.author="casoper"/>
 
 # Compression des fichiers pour améliorer les performances
@@ -114,15 +114,16 @@ Ces tableaux décrivent le comportement de compression du CDN Azure pour chaque 
 |----------------|-----------|------------|-----|
 |Compressé|Compressé|Compressé|Transcode CDN entre les formats pris en charge|
 |Compressé|Non compressé|Compressé|CDN effectue la compression|
-|Compressé|Non mis en cache|Compressé|CDN effectue la compression si l’origine renvoie le format non compressé|
+|Compressé|Non mis en cache|Compressé|CDN effectue la compression si l’origine renvoie le format non compressé. **Azure CDN de Verizon** transmet le fichier non compressé à la première demande, puis compresse et met en cache le fichier pour les demandes suivantes. Les fichiers avec l’en-tête `Cache-Control: no-cache` ne seront jamais compressés. 
 |Non compressé|Compressé|Non compressé|CDN effectue la décompression|
 |Non compressé|Non compressé|Non compressé| |	
-|Non compressé|Non mis en cache|Non compressé| |	
+|Non compressé|Non mis en cache|Non compressé| |
 
-## Remarques
-1. Pour les points de terminaison de diffusion en continu CDN de Media Services, la compression est activée par défaut pour les types de contenu suivants : application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. Vous ne pouvez pas activer ou désactiver la compression pour les types mentionnés à l'aide du portail Azure.  
+## Compression CDN Media Services
+
+Pour les points de terminaison de diffusion en continu CDN de Media Services, la compression est activée par défaut pour les types de contenu suivants : application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. Vous ne pouvez pas activer ou désactiver la compression pour les types mentionnés à l'aide du portail Azure.
 
 ## Voir aussi
-- [Résolution des problèmes de compression des fichiers CDN](cdn-troubleshoot-compression.md)    
+- [Résolution des problèmes de compression des fichiers CDN](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

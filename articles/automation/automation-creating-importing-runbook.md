@@ -80,7 +80,7 @@ Vous pouvez utiliser la procédure suivante pour importer un fichier de script d
 3. Cliquez sur le bouton **Ajouter un runbook**, puis sur **Importer**.
 4. Cliquez sur **Fichier runbook** pour sélectionner le fichier à importer.
 2. Si le champ **Nom** est activé, vous avez la possibilité de modifier le nom. Le nom du runbook doit commencer par une lettre et peut contenir des lettres, des chiffres, des traits de soulignement et des tirets.
-3. Le [type de runbook](automation-runbook-types.md) est sélectionné automatiquement, mais vous pouvez le modifier après avoir pris en compte les restrictions applicables. 
+3. Le [type de runbook](automation-runbook-types.md) est sélectionné automatiquement, mais vous pouvez le modifier après avoir pris en compte les restrictions applicables.
 3. Le nouveau runbook apparaît sur la liste des runbooks pour le compte Automation.
 4. Vous devez [Publier le runbook](#publishing-a-runbook) avant de pouvoir l’exécuter.
 
@@ -92,7 +92,7 @@ Vous pouvez utiliser l’applet de commande [Import-AzureRMAutomationRunbook](ht
 
 Les exemples de commandes suivants montrent comment importer un fichier de script dans un runbook.
 
-    $automationAccountName =  AutomationAccount"
+    $automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
     $RGName = "ResourceGroup"
@@ -123,7 +123,7 @@ Lorsque vous créez ou importez un runbook, vous devez le publier avant de pouvo
 
 Vous pouvez utiliser l’applet de commande [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) pour publier un runbook avec Windows PowerShell. Les exemples de commandes suivants montrent comment publier un exemple de runbook.
 
-	$automationAccountName =  AutomationAccount"
+	$automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $RGName = "ResourceGroup"
 
@@ -136,4 +136,4 @@ Vous pouvez utiliser l’applet de commande [Publish-AzureRmAutomationRunbook](h
 - Pour en savoir plus sur la modification des runbooks PowerShell et de workflow PowerShell avec un éditeur de texte, consultez [Modifier des runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)
 - Pour en savoir plus sur la création de Runbooks graphiques, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

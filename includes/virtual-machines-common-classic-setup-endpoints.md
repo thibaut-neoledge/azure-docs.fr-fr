@@ -12,7 +12,7 @@ Après avoir créé un point de terminaison, vous pouvez utiliser une liste de c
 
 ## Création d’un point de terminaison
 
-1.	Si ce n’est pas déjà fait, connectez-vous au portail Azure Classic.
+1.	Si ce n’est pas déjà fait, connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
 2.	Cliquez sur **Machines virtuelles**, puis sur le nom de la machine virtuelle à configurer.
 3.	Cliquez sur **Endpoints**. La page **Points de terminaison** répertorie tous les points de terminaison actuels de la machine virtuelle. (Cet exemple est une machine virtuelle Windows. Par défaut, une machine virtuelle Linux affiche un point de terminaison pour SSH.)
 
@@ -60,4 +60,4 @@ Vous pouvez utiliser des règles pour autoriser uniquement le trafic provenant d
 
 Les règles sont évaluées dans l’ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d’informations et obtenir des exemples, consultez [Qu’est-ce qu’une liste de contrôle d’accès réseau ?](../articles/virtual-network/virtual-networks-acl.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

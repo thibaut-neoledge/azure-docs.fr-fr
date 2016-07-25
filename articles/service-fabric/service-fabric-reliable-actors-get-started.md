@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Prise en main de Reliable Actors
@@ -32,13 +32,14 @@ Pour prendre en main Reliable Actors, vous devez comprendre seulement quatre con
 	* Elle résout les noms. Elle est en mesure de localiser l’acteur dans le cluster (rechercher le nœud du cluster dans lequel il est hébergé).
 	* Elle gère les échecs. Elle peut retenter les appels de méthode et déterminer de nouveau l’emplacement de l’acteur après une défaillance qui requiert le déplacement de l’acteur vers un autre nœud du cluster, par exemple.
 
-Les règles suivantes, qui se rapportent aux méthodes d'interface d'acteur, sont importantes :
+Les règles suivantes, qui se rapportent aux interfaces d’acteur, sont importantes :
 
 - Les méthodes d'interface d'acteur ne peuvent pas être surchargées.
 - Les méthodes d’interface d'acteur ne doivent pas avoir de paramètres de sortie, de paramètres de référence ou de paramètres facultatifs.
+- Les interfaces génériques ne sont pas prises en charge.
 
 ## Création d'un projet dans Visual Studio
-Après avoir installé Service Fabric Tools pour Visual Studio, vous pouvez créer des types de projet. Les nouveaux types de projet se trouvent sous la catégorie **Cloud** de la boîte de dialogue **Nouveau projet**.
+Après avoir installé Service Fabric Tools pour Visual Studio, vous pouvez créer des types de projet. Les nouveaux types de projets se trouvent sous la catégorie **Cloud** de la boîte de dialogue **Nouveau projet**.
 
 
 ![Outils Service Fabric pour Visual Studio - nouveau projet][1]
@@ -81,7 +82,7 @@ internal class MyActor : Actor, IMyActor
 }
 ```
 
-Le service de l’acteur doit être enregistré avec un type de service dans le runtime Service Fabric. Afin que le service de l’acteur exécute vos instances d’acteur, le type d’acteur doit également être enregistré auprès du Service de l’acteur. La méthode d’enregistrement `ActorRuntime` effectue ce travail pour les acteurs.
+Le service de l’acteur doit être enregistré avec un type de service dans le runtime Service Fabric. Afin que le service de l’acteur exécute vos instances d’acteur, le type d’acteur doit également être enregistré auprès du Service de l’acteur. La méthode d’inscription `ActorRuntime` effectue ce travail pour les acteurs.
 
 ```csharp
 internal static class Program
@@ -139,4 +140,4 @@ Pendant le processus de déploiement, vous pouvez afficher la progression dans l
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

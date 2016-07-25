@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="07/12/2016"  
 	ms.author="juliako"/>
 
 #Développement Media Services avec .NET
@@ -75,7 +75,12 @@ La boîte de dialogue Gérer les références s’affiche.
 Pour obtenir le **nom de compte** et les informations relatives à la **clé de compte**, ouvrez le **portail Azure Classic**, sélectionnez votre compte Media Services et cliquez sur le bouton **GÉRER LES CLÉS**.
 
 
-<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	<configuration>
+	...
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
 	  
 	</configuration>
 
@@ -103,4 +108,4 @@ Pour obtenir le **nom de compte** et les informations relatives à la **clé de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

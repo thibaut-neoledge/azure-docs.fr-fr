@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Quels sont les pays et les régions dans lesquels Microsoft Azure est disponible à la vente, et quelles sont les devises d’achat d’Azure ?
@@ -171,4 +171,4 @@ Vous pouvez acheter Microsoft Azure dans plus de 140 pays, et de nombreuses dev
 | Zambie | USD |
 | Zimbabwe | USD |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

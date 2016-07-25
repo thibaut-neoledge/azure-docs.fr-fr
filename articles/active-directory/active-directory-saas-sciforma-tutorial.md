@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Sciforma
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ###Pour activer l’intégration d’applications pour Sciforma, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Sciforma** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Sciforma** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sciforma-tutorial/IC777373.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à Sciforma** de la page **Configurer l’URL de l’application**, tapez votre URL selon le modèle suivant « *https://\<nom-locataire>.Sciforma.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Sciforma** de la page **Configurer l’URL de l’application**, tapez votre URL selon le modèle suivant « *https://\<nom-locataire>.Sciforma.com* », puis cliquez sur**Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-sciforma-tutorial/IC777374.png "Configurer l’URL de l’application")
 
@@ -98,7 +98,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Sciforma, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Sciforma**, cliquez sur **Affecter des utilisateurs**.
 
@@ -110,4 +110,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

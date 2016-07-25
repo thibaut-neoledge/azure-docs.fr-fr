@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Gestion des états de Reliable Actors
@@ -62,7 +62,7 @@ Ce paramètre utilise un fournisseur d’état uniquement en mémoire et défini
 
 ### Valeurs par défaut et paramètres générés
 
-Lorsque vous utilisez l’attribut `StatePersistence`, un fournisseur d’état est automatiquement sélectionné pour vous lors de l’exécution au démarrage du service d’acteur. Toutefois, le nombre de réplicas est défini au moment de la compilation par les outils de génération d’acteurs Visual Studio. Ces outils génèrent automatiquement un *service par défaut* pour le service d’acteur dans ApplicationManifest.xml. Les paramètres sont créés pour la **taille minimale du jeu de réplicas** et la **taille cible du jeu de réplicas**. Vous pouvez bien évidemment modifier ces paramètres manuellement ; cependant, chaque fois que l’attribut `StatePersistence` est modifié, les paramètres seront rétablis aux valeurs de taille de jeu de réplicas par défaut pour l’attribut `StatePersistence`, ce qui remplacera toutes les valeurs précédentes.
+Lorsque vous utilisez l’attribut `StatePersistence`, un fournisseur d’état est automatiquement sélectionné pour vous lors de l’exécution au démarrage du service d’acteur. Toutefois, le nombre de réplicas est défini au moment de la compilation par les outils de génération d’acteurs Visual Studio. Ces outils génèrent automatiquement un *service par défaut* pour le service d’acteur dans ApplicationManifest.xml. Les paramètres sont créés pour la **taille minimale du jeu de réplicas** et la **taille cible du jeu de réplicas**. Vous pouvez bien évidemment modifier ces paramètres manuellement ; cependant, chaque fois que l’attribut `StatePersistence` est modifié, les paramètres seront rétablis aux valeurs de taille de jeu de réplicas par défaut pour l’attribut `StatePersistence`, ce qui remplacera toutes les valeurs précédentes. En d’autres termes, les valeurs que vous définissez dans le fichier ServiceManifest.xml sont remplacées au moment de la génération **uniquement** quand vous modifiez la valeur d’attribut `StatePersistence`.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -98,9 +98,9 @@ L’état est accessible via le gestionnaire d’état par l’intermédiaire d�
 
  - Une méthode d’acteur lève une exception non gérée après avoir récupéré un objet à partir du gestionnaire d’état.
  - Un acteur est réactivé soit après avoir été désactivé, soit en raison d’un échec.
- - Si le fournisseur d’état écrit l’état sur le disque. Ce comportement dépend de l’implémentation du fournisseur d’état. Le fournisseur d’état par défaut pour le paramètre `Persisted` présente ce comportement. 
+ - Si le fournisseur d’état écrit l’état sur le disque. Ce comportement dépend de l’implémentation du fournisseur d’état. Le fournisseur d’état par défaut pour le paramètre `Persisted` présente ce comportement.
 
-L’état peut être récupéré à l’aide d’une opération *Get* standard qui lève l’exception `KeyNotFoundException` s’il n’existe aucune entrée pour la clé donnée :
+Vous pouvez récupérer l’état à l’aide d’une opération *Get* standard qui lève l’exception `KeyNotFoundException` s’il n’existe aucune entrée pour la clé donnée :
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -113,7 +113,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-L’état peut être également récupéré à l’aide d’une opération *TryGet* qui ne lève pas d’exception s’il n’existe aucune entrée pour la clé donnée :
+Vous pouvez également récupérer l’état à l’aide d’une opération *TryGet* qui ne lève pas d’exception s’il n’existe aucune entrée pour la clé donnée :
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -135,7 +135,7 @@ class MyActor : Actor, IMyActor
 
 Les méthodes de récupération du gestionnaire d’état renvoient une référence à un objet dans la mémoire locale. La modification de cet objet dans la mémoire locale uniquement ne permet pas de l’enregistrer durablement. Lorsqu’un objet est récupéré à partir du gestionnaire d’état puis modifié, il doit être réinséré dans le gestionnaire d’état afin d’être enregistré de façon durable.
 
-L’état peut être inséré en utilisant une méthode *Set* inconditionnelle, équivalant à la syntaxe `dictionary["key"] = value` :
+Vous pouvez insérer l’état en utilisant une méthode *Set* inconditionnelle, ce qui équivaut à la syntaxe `dictionary["key"] = value` :
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -148,7 +148,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-L’état peut être ajouté à l’aide d’une méthode *Add* qui lève l’exception `InvalidOperationException` lors d’une tentative d’ajout d’une clé existante :
+Vous pouvez ajouter l’état à l’aide d’une méthode *Add*, qui lève l’exception `InvalidOperationException` lors d’une tentative d’ajout d’une clé existante :
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -161,7 +161,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-L’état peut être également ajouté à l’aide d’une méthode *TryAdd* qui ne lève pas d’exception lors d’une tentative d’ajout d’une clé existante :
+Vous pouvez également ajouter l’état à l’aide d’une méthode *TryAdd*, qui ne lève pas d’exception lors d’une tentative d’ajout d’une clé existante :
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -181,7 +181,7 @@ class MyActor : Actor, IMyActor
 
 À la fin d’une méthode d’acteur, le gestionnaire d’état enregistre automatiquement toutes les valeurs qui ont été ajoutées ou modifiées par une opération insert ou update. Une opération « save » peut inclure la conservation sur disque et la réplication, selon les paramètres utilisés. Les valeurs qui n’ont pas été modifiées ne sont pas conservées ou répliquées. Si aucune valeur n’a été modifiée, l’opération n’aura aucun effet. En cas d’échec de l’enregistrement, l’état modifié est ignoré et l’état d’origine rechargé.
 
-L’état peut également être enregistré manuellement en appelant la méthode `SaveStateAsync` sur la base d’acteur :
+Vous pouvez également enregistrer l’état manuellement en appelant la méthode `SaveStateAsync` sur la base d’acteur :
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -194,7 +194,7 @@ async Task IMyActor.SetCountAsync(int count)
 
 ### Suppression de l’état
 
-L’état peut être supprimé définitivement du gestionnaire d’état d’un acteur en appelant la méthode *Remove*. Cette méthode lève l’exception `KeyNotFoundException` lorsque vous tentez de supprimer une clé qui n’existe pas :
+Vous pouvez supprimer définitivement l’état du gestionnaire d’état d’un acteur en appelant la méthode *Remove*. Cette méthode lève l’exception `KeyNotFoundException` quand vous tentez de supprimer une clé qui n’existe pas :
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -207,7 +207,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-L’état peut également être supprimé définitivement à l’aide de la méthode *TryRemove*, laquelle ne lèvera pas d’exception si vous tentez de supprimer une clé qui n’existe pas :
+Vous pouvez également supprimer définitivement l’état à l’aide de la méthode *TryRemove*, qui ne lève pas d’exception si vous tentez de supprimer une clé qui n’existe pas :
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -229,7 +229,7 @@ class MyActor : Actor, IMyActor
  - [Sérialisation du type d’acteur](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
  - [Polymorphisme des acteurs et modèles de conception orientée objet](service-fabric-reliable-actors-polymorphism.md)
  - [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
- - [Documentation de référence de l’API Actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

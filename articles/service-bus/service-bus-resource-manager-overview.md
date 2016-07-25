@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/22/2016"
+    ms.date="07/11/2016"
     ms.author="sethm"/>
 
 # Création de ressources Service Bus à l’aide de modèles Azure Resource Manager
@@ -144,7 +144,7 @@ Pour utiliser un fichier de paramètres facultatif, copiez le fichier [201-servi
 }
 ```
 
-Pour plus d'informations, consultez l’article [Fichier de paramètres](../resource-group-template-deploy.md#parameter-file).
+Pour plus d’informations, consultez la rubrique [Fichier de paramètres](../resource-group-template-deploy.md#parameter-file).
 
 ### Se connecter à Azure et définir l'abonnement Azure
 
@@ -154,13 +154,13 @@ Pour plus d'informations, consultez l’article [Fichier de paramètres](../reso
 Login-AzureRmAccount
 ```
 
-Vous êtes invité à ouvrir une session sur votre compte Azure. Une fois connecté, exécutez la commande suivante pour afficher les abonnements disponibles :
+Vous êtes invité à ouvrir une session sur votre compte Azure. Une fois connecté, exécutez la commande suivante pour afficher les abonnements disponibles.
 
 ```
 Get-AzureRMSubscription
 ```
 
-Cette commande renvoie la liste des abonnements Azure disponibles. Choisissez un abonnement pour la session en cours en exécutant la commande suivante. Remplacez `<YourSubscriptionId>` par le GUID de l'abonnement Azure que vous souhaitez utiliser :
+Cette commande renvoie la liste des abonnements Azure disponibles. Choisissez un abonnement pour la session en cours en exécutant la commande suivante. Remplacez `<YourSubscriptionId>` par le GUID de l’abonnement Azure que vous souhaitez utiliser.
 
 ```
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -168,13 +168,13 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### Définir le groupe de ressources
 
-Si vous ne disposez pas d’un groupe de ressources, créez-en un avec la commande **New-AzureRmResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Par exemple :
+Si vous n’avez pas de groupe de ressources, créez-en un avec la commande **New-AzureRmResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Par exemple :
 
 ```
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-En cas de réussite, un résumé du nouveau groupe de ressources s’affiche :
+En cas de réussite, un résumé du nouveau groupe de ressources s’affiche.
 
 ```
 ResourceGroupName : MyDemoRG
@@ -194,7 +194,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### Créer le déploiement
 
-Pour créer le déploiement, exécutez la commande `New-AzureRmResourceGroupDeployment` et indiquez les paramètres nécessaires lorsque vous y êtes invité. Les paramètres incluent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d’accès ou l’URL du fichier de modèle. Le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée. Pour plus d'informations, consultez [Déploiements incrémentiels et complets](../resource-group-template-deploy.md#incremental-and-complete-deployments).
+Pour créer le déploiement, exécutez la commande `New-AzureRmResourceGroupDeployment` et indiquez les paramètres nécessaires quand vous y êtes invité. Les paramètres incluent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d’accès ou l’URL du fichier de modèle. Si le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée. Pour plus d’informations, consultez [Déploiements incrémentiels et complets](../resource-group-template-deploy.md#incremental-and-complete-deployments).
 
 La commande suivante vous invite à entrer les trois paramètres dans la fenêtre PowerShell :
 
@@ -202,7 +202,7 @@ La commande suivante vous invite à entrer les trois paramètres dans la fenêtr
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-Pour utiliser un fichier de paramètres à la place, utilisez la commande suivante.
+Pour spécifier un fichier de paramètres à la place, utilisez la commande suivante.
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -214,7 +214,7 @@ Vous pouvez également utiliser des paramètres inclus lorsque vous exécutez l'
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Pour exécuter un déploiement [complet](../resource-group-template-deploy.md#incremental-and-complete-deployments), définissez le paramètre **Mode** sur **Complet** :
+Pour exécuter un déploiement [complet](../resource-group-template-deploy.md#incremental-and-complete-deployments), affectez la valeur **Complet** au paramètre **Mode** :
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
@@ -254,4 +254,4 @@ Vous avez maintenant vu le flux de travail et les commandes de base pour le dép
 [Déployer des ressources à l’aide de modèles Azure Resource Manager]: ../resource-group-template-deploy.md
 [Galerie de modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -729,20 +729,21 @@ Alias de [limit](#limit-operator)
 
 ### opérateur top
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 Renvoie les *N* premiers enregistrements triés d’après les colonnes spécifiées.
 
 
 **Syntaxe**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **Arguments**
 
 * *NumberOfRows :* nombre de lignes de *T* à renvoyer.
 * *Sort\_expression :* expression selon laquelle trier les lignes. Il s’agit généralement juste d’un nom de colonne. Vous pouvez spécifier plusieurs expressions sort\_expression.
 * `asc` ou `desc` (valeur par défaut) peut s’afficher pour indiquer si la sélection provient du bas ou du haut de la plage.
+* `nulls first` ou `nulls last` contrôle l’apparition des valeurs null. `First` est la valeur par défaut pour `asc`, `last` est la valeur par défaut pour `desc`.
 
 
 **Conseils**
@@ -816,7 +817,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-Nombre d’utilisateurs ayant produit un événement `exceptions` ou `traces` la veille. Dans le résultat, la colonne ’SourceTable’ indique « Requête » ou « Commande ».
+Le nombre d’utilisateurs ayant produit un événement `exceptions` ou un événement `traces` au cours de la journée précédente. Dans le résultat, la colonne ’SourceTable’ indique « Requête » ou « Commande ».
 
 ```AIQL
 exceptions
@@ -843,21 +844,21 @@ Filtre une table d’après le sous-ensemble de lignes correspondant à un préd
 **Arguments**
 
 * *T* : entrée tabulaire dont les enregistrements doivent être filtrés.
-* *Predicate :* [expression](#boolean) `boolean` sur les colonnes de *T*. Elle est calculée pour chaque ligne de *T*.
+* *Predicate :* `boolean`[expression](#boolean) sur les colonnes de *T*. Elle est évaluée pour chaque ligne dans *T*.
 
 **Retourne**
 
-Lignes de *T* pour lesquelles *Predicate* est `true`.
+Les lignes de *T* dont *Predicate* est `true`.
 
 **Conseils**
 
 Pour obtenir des performances optimales :
 
-* **Utilisez des comparaisons simples** entre les noms de colonne et les constantes. (« Constante » s’entendant au sens de constante à l’intérieur de la table, donc `now()` et `ago()` sont OK, tout comme les valeurs scalaires affectées à l’aide d’une [clause `let`](#let-clause).)
+* **Utilisez des comparaisons simples** entre les noms de colonnes et les constantes. (« Constante » s’entend dans le sens de constante au fil de la table, de telle sorte que `now()` et `ago()` soient OK, tout comme les valeurs scalaires affectées à l’aide d’une [clause `let`](#let-clause).)
 
     Par exemple, préférez `where Timestamp >= ago(1d)` à `where floor(Timestamp, 1d) == ago(1d)`.
 
-* **Mettez les termes les plus simples en premier** : si vous avez plusieurs clauses unies par `and`, insérez d’abord les clauses n’impliquant qu’une seule colonne. `Timestamp > ago(1d) and OpId == EventId` est donc préférable à l’autre solution.
+* **Simplest terms first** : si vous avez plusieurs clauses unies avec `and`, insérez d’abord les clauses n’impliquant qu’une seule colonne. C’est pourquoi `Timestamp > ago(1d) and OpId == EventId` est plus adapté.
 
 
 **Exemple**
@@ -877,7 +878,7 @@ Notez que nous plaçons la comparaison entre deux colonnes à la fin, car elle n
 
 ## Agrégations
 
-Les agrégations sont des fonctions utilisées pour combiner des valeurs dans les groupes créés dans l’[opération summarize](#summarize-operator). Par exemple, dans cette requête, dcount() est une fonction d’agrégation :
+Les agrégations sont des fonctions utilisées pour combiner des valeurs dans les groupes créés dans l’[opération de résumé](#summarize-operator). Par exemple, dans cette requête, dcount() est une fonction d’agrégation :
 
     requests | summarize dcount(name) by success
 
@@ -905,9 +906,9 @@ traces
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-Recherche dans le groupe la ligne qui minimise/maximalise *ExprToMaximize* et renvoie la valeur de *ExprToReturn* (ou `*` pour renvoyer la ligne entière).
+Recherche dans le groupe la ligne correspondant à la valeur maximale de *ExprToMaximize* ou à la valeur minimale et retourne la valeur de *ExprToReturn* (ou `*` pour retourner la ligne entière).
 
-**Conseil** : les colonnes analysées sont renommées automatiquement. Pour être sûr d’utiliser les noms corrects, examinez les résultats à l’aide de `take 5` avant de les transmettre à un autre opérateur.
+**Conseil** : les colonnes analysées sont automatiquement renommées. Pour vérifier que vous utilisez les noms corrects, examinez les résultats à l’aide de `take 5` avant de les transmettre à un autre opérateur.
 
 **Exemples**
 
@@ -941,7 +942,7 @@ Calcule la moyenne de *Expression* dans le groupe.
 
     buildschema(DynamicExpression)
 
-Renvoie le schéma minimal qui admet toutes les valeurs de *DynamicExpression*.
+Retourne le schéma minimal qui admet toutes les valeurs de *DynamicExpression*.
 
 Le type de la colonne de paramètre doit être `dynamic` (tableau ou conteneur de propriétés).
 
@@ -1029,9 +1030,9 @@ Le schéma s’apparente à un sous-ensemble d’annotations de type TypeScript,
 
     count([ Predicate ])
 
-Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`. Si *Predicate* n’est pas spécifié, renvoie le nombre total d’enregistrements dans le groupe.
+Retourne le nombre de lignes pour lesquelles *Predicate* vaut `true`. Si *Predicate* n’est pas spécifié, retourne le nombre total d’enregistrements dans le groupe.
 
-**Conseil pour optimiser les performances** : utilisez `summarize count(filter)` plutôt que `where filter | summarize count()`
+**Conseil pour optimiser les performances** : utilisez `summarize count(filter)` à la place de `where filter | summarize count()`.
 
 > [AZURE.NOTE] Évitez d'utiliser count() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données dans Application Insights est inférieur au nombre d’événements. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
@@ -1039,17 +1040,17 @@ Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`. Si *
 
     countif(Predicate)
 
-Renvoie le nombre de lignes pour lesquelles *Predicate* a la valeur `true`.
+Retourne le nombre de lignes pour lesquelles *Predicate* vaut `true`.
 
-**Conseil pour optimiser les performances** : utilisez `summarize countif(filter)` plutôt que `where filter | summarize count()`
+**Conseil pour optimiser les performances** : utilisez `summarize countif(filter)` à la place de `where filter | summarize count()`.
 
-> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
+> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand l’[échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
 ### dcount
 
     dcount( Expression [ ,  Accuracy ])
 
-Renvoie une estimation du nombre de valeurs distinctes de *Expr* dans le groupe. (Pour afficher les valeurs distinctes, utilisez [`makeset`](#makeset).)
+Retourne une estimation du nombre de valeurs distinctes de *Expr* dans le groupe. (Pour afficher les valeurs distinctes, utilisez [`makeset`](#makeset).)
 
 Si *Accuracy* est spécifié, détermine le compromis entre vitesse et précision.
 
@@ -1109,7 +1110,7 @@ Renvoie un tableau (JSON) `dynamic` du jeu de valeurs distinctes prises par *Exp
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
-Consultez aussi l’[opérateur `mvexpand`](#mvexpand-operator) pour la fonction inverse.
+Consultez aussi [l’opérateur `mvexpand`](#mvexpand-operator) pour la fonction inverse.
 
 
 ### max, min
@@ -1461,11 +1462,11 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraction | 
-| * | Multiplication | 
-| / | Division | 
-| % | Modulo | 
-|| 
+| - | Soustraction |
+| * | Multiplication |
+| / | Division |
+| % | Modulo |
+||
 |`<` |Inférieur à 
 |`<=`|Inférieur ou égal à 
 |`>` |Supérieur à 
@@ -1896,20 +1897,26 @@ h"hello"
 Opérateur|Description|Respecte la casse|Exemple vrai
 ---|---|---|---
 `==`|Égal à |Oui| `"aBc" == "aBc"`
-`<>`|Non égal à|Oui| `"abc" <> "ABC"`
+`<>` `!=`|Non égal à|Oui| `"abc" <> "ABC"`
 `=~`|Égal à |Non| `"abc" =~ "ABC"`
 `!~`|Non égal à |Non| `"aBc" !~ "xyz"`
 `has`|Le terme de droite est un terme entier dans le terme de gauche|Non| `"North America" has "america"`
 `!has`|Le terme de droite n’est pas un terme entier dans le terme de gauche|Non|`"North America" !has "amer"` 
+`hasprefix`|Le terme de droite est un préfixe de terme dans du sous terme de gauche|Non|`"North America" hasprefix "ame"`
+`!hasprefix`|Le terme de droite n’est pas un préfixe de terme dans du sous terme de gauche|Non|`"North America" !hasprefix "mer"`
 `contains` | Le terme de droite est une sous-séquence du terme de gauche|Non| `"FabriKam" contains "BRik"`
 `!contains`| Le terme de droite n’est pas une sous-séquence du terme de gauche|Non| `"Fabrikam" !contains "xyz"`
 `containscs` | Le terme de droite est une sous-séquence du terme de gauche|Oui| `"FabriKam" contains "Kam"`
 `!containscs`| Le terme de droite n’est pas une sous-séquence du terme de gauche|Oui| `"Fabrikam" !contains "Kam"`
 `startswith`|Le terme de droite est une sous-séquence initiale du terme de gauche|Non|`"Fabrikam" startswith "fab"`
+`!startswith`|Le terme de droite n’est pas une sous-séquence initiale du terme de gauche.|Non|`"Fabrikam" !startswith "abr"`
+`endswith`|Le terme de droite est une sous-séquence terminale du terme de gauche.|Non|`"Fabrikam" endswith "kam"`
+`!endswith`|Le terme de droite n’est pas une sous-séquence terminale du terme de gauche.|Non|`"Fabrikam" !endswith "ka"`
 `matches regex`|Le terme de gauche contient une correspondance du terme de droite|Oui| `"Fabrikam" matches regex "b.*k"`
+`in`|Est égal à un des éléments|Oui|`"abc" in ("123", "345", "abc")`
+`!in`|N’est égal à aucun des éléments|Oui|`"bc" !in ("123", "345", "abc")`
 
-
-Utilisez `has` ou `in` si vous testez la présence d’un terme lexical complet, c’est-à-dire un symbole ou un mot alphanumérique délimité par des caractères non alphanumériques ou le début ou la fin d’un champ. `has` effectue la recherche plus rapidement que `contains` ou `startswith`. La première de ces requêtes s’exécute plus rapidement :
+Utilisez `has` ou `in` si vous testez la présence d’un terme lexical complet, c’est-à-dire un symbole ou un mot alphanumérique délimité par des caractères non alphanumériques ou le début ou la fin d’un champ. `has` effectue la recherche plus rapidement que `contains`, `startswith` ou `endswith`. La première de ces requêtes s’exécute plus rapidement :
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -2180,7 +2187,7 @@ Voici le résultat d’une requête sur une exception d’Application Insights. 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Mais utilisez `arraylength` et d’autres fonctions Analytics (pas « .length » !)
+* Mais utilisez `arraylength` et d’autres fonctions Analytics (et non « .length» !)
 
 **Conversion** Parfois, il est nécessaire de convertir un élément que vous extrayez d’un objet, car son type pourrait varier. Par exemple, `summarize...to` a besoin d’un type spécifique :
 
@@ -2493,4 +2500,4 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

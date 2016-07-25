@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Clarizen
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
 ###Pour activer l’intégration d’applications pour Clarizen, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-clarizen-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Clarizen**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **Clarizen**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-clarizen-tutorial/IC784682.png "Configurer l’authentification unique")
 
@@ -80,7 +80,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-clarizen-tutorial/IC784684.png "Configurer l’authentification unique")
 
-4.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **Clarizen** en tant qu’administrateur (par exemple, **https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
+4.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **Clarizen** en tant qu’administrateur (par exemple, *https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
 
 5.  Cliquez sur votre nom d’utilisateur, puis sur **Settings**.
 
@@ -95,12 +95,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Authentification fédérée](./media/active-directory-saas-clarizen-tutorial/IC785892.png "Authentification fédérée")
 
     1.  Cliquez sur **Upload** pour charger votre certificat téléchargé.
-    2.  Dans la page **Configurer l’authentification unique sur Clarizen** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Sign-in URL**.
-    3.  Dans la page **Configurer la déconnexion unique sur Clarizen** du portail Azure, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **Sign-out URL**.
+    2.  Dans la page **Configurer l’authentification unique sur Clarizen** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Sign-in URL**.
+    3.  Dans la page **Configurer la déconnexion unique sur Clarizen** du portail Azure Classic, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **Sign-out URL**.
     4.  Sélectionnez **Use POST**.
     5.  Cliquez sur **Enregistrer**.
 
-8.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+8.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-clarizen-tutorial/IC784688.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -126,7 +126,7 @@ Pour se connecter à Clarizen, les utilisateurs d’Azure AD doivent être appro
     1.  Dans la zone de texte **Email**, tapez l’adresse électronique d’un compte Azure Active Directory valide à approvisionner.
     2.  Cliquez sur **Invite**.
 
-    >[AZURE.NOTE]Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
+    >[AZURE.NOTE] Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
 
 ##Affectation d’utilisateurs
 
@@ -134,7 +134,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Clarizen, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Clarizen**, cliquez sur **Affecter des utilisateurs**.
 
@@ -146,4 +146,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

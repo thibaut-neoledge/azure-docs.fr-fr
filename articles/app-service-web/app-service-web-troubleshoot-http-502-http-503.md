@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Dépannage : application web indisponible en raison de HTTP 502/503"
-	description="Cet article vous aide à résoudre les erreurs HTTP 502/503 dans votre application web hébergée dans Azure App Service."
+	pageTitle="Corriger les erreurs 502 Passerelle incorrecte, 503 Service indisponibles | Microsoft Azure"
+	description="Corriger les erreurs « 502 Passerelle incorrecte » et « 503 Service indisponible » dans votre application web hébergée dans Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="502 Passerelle incorrecte, 503 Service indisponible, erreur 503, erreur 502"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,18 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Dépannage : application web indisponible en raison de HTTP 502/503
+# Résoudre les erreurs HTTP de type « 502 Passerelle incorrecte » et « 503 Service indisponible » dans vos applications web Azure
 
-Cet article vous aide à résoudre les erreurs HTTP 502/503 dans votre application web hébergée dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+« 502 Passerelle incorrecte » et « 503 Service indisponible » sont des erreurs courantes dans votre application web hébergée dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous permet de résoudre ces erreurs.
 
 Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 ## Symptôme
 
-Lorsque vous accédez à l'application web, elle retourne un message HTTP « 502 Passerelle incorrecte » ou HTTP « 503 Service non disponible ».
+Lorsque vous accédez à l'application web, elle retourne un message d’erreur HTTP « 502 Passerelle incorrecte » ou HTTP « 503 Service non disponible ».
 
 ## Cause :
 
@@ -35,7 +36,7 @@ Ce problème est souvent dû à des problèmes au niveau de l’application, tel
 -	un taux d’utilisation élevé de la mémoire/UC par l’application ;
 -	un blocage de l’application en raison d’une exception.
 
-## Étapes de dépannage
+## Étapes de dépannage pour résoudre les erreurs « 503 Service indisponible » et « 502 Passerelle incorrecte »
 
 Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séquentiel :
 
@@ -64,7 +65,7 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 -	Plage de travail de la mémoire
 -	Demandes
 
-![](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![surveiller l’application web pour résoudre les erreurs HTTP de type « 502 Passerelle incorrecte » et « 503 Service indisponible »](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 Pour plus d’informations, consultez :
 
@@ -134,8 +135,8 @@ Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](
 
 Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Dans le [portail Azure](https://portal.azure.com/), sur le panneau de votre application web, vous avez la possibilité d’arrêter ou de redémarrer votre application.
 
- ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
+ ![redémarrer l’application pour résoudre les erreurs HTTP de type « 502 Passerelle incorrecte » et « 503 Service indisponible »](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

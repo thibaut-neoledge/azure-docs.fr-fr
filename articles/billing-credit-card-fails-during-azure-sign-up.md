@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Ma carte de crédit ne fonctionne pas lorsque je tente de m’inscrire à Azure | Microsoft Azure"
-	description="Décrit les causes courantes des problèmes d’inscription à Microsoft Azure liés à l’utilisation d’une carte de crédit"
+	pageTitle="Carte de crédit ou de débit refusée lors de l’abonnement | Microsoft Azure"
+	description="Décrit les causes courantes des problèmes d’inscription à Microsoft Azure liés au refus d’une carte de crédit ou de débit."
 	services="billing"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="carte de crédit refusée, carte de débit refusée, votre carte de crédit a été refusée, carte de crédit non acceptée"/>
 
 <tags
 	ms.service="billing"
@@ -17,10 +18,10 @@
 	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
-# Ma carte de crédit ne fonctionne pas lorsque je tente de m’inscrire à Azure
-Actuellement, seules les cartes de crédit et de débit qui ne sont pas virtuelles ou prépayées sont acceptées en tant qu’options de paiement valides. Les fournisseurs de cartes de crédit et de cartes de débit acceptées varient selon le pays.
+# Ma carte de crédit ou de débit est refusée lors de mon inscription à Azure
+Si votre carte de crédit ou de débit a été refusée, la raison peut être que vous utilisez une carte virtuelle ou prépayée. Actuellement, nous acceptons la plupart des cartes de crédit et de débit, mais pas les cartes virtuelles ou prépayées. Elles ne sont pas acceptées en tant qu’option de paiement valide. Les fournisseurs de cartes de crédit et de cartes de débit acceptées varient selon le pays. Dans la liste déroulante permettant de choisir une carte de crédit, vous verrez uniquement les options valides dans le pays que vous avez sélectionné.
 
-Assurez-vous également que le mode de paiement est actif et que votre banque ne bloque pas les transactions en ligne pour des raisons de sécurité.
+Si vous avez cependant utilisé une carte de crédit ou de débit valide, assurez-vous également que la carte est active et que votre banque ne bloque pas les transactions en ligne pour des raisons de sécurité.
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
@@ -40,4 +41,4 @@ Pour utiliser l’option de paiement par facturation, vous devez représenter un
 
 Pour démarrer le processus de configuration d’une facture, consultez [Facturation Azure - Procédure de facturation](https://azure.microsoft.com/pricing/invoicing/) pour plus d’informations.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

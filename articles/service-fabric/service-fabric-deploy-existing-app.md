@@ -25,8 +25,8 @@ Vous pouvez exécuter n’importe quel type d’application, comme Node.js, Java
 L’exécution d'un exécutable invité dans un cluster Service Fabric présente plusieurs avantages :
 
 - Haute disponibilité : Les applications qui sont exécutées dans Service Fabric sont hautement disponibles dès le départ. Service Fabric s’assure qu’une instance d’une application est toujours en cours d’exécution.
-- Analyse du fonctionnement. La fonction d’analyse du fonctionnement de Service Fabric détecte si l’application est en cours d’exécution et fournit des informations de diagnostic en cas d’échec.   
-- Gestion du cycle de vie des applications. Outre les mises à niveau sans interruption de service, Service Fabric permet également de revenir à la version précédente, si un problème est survenu pendant la mise à niveau.    
+- Analyse du fonctionnement. La fonction d’analyse du fonctionnement de Service Fabric détecte si l’application est en cours d’exécution et fournit des informations de diagnostic en cas d’échec.
+- Gestion du cycle de vie des applications. Outre les mises à niveau sans interruption de service, Service Fabric permet également de revenir à la version précédente, si un problème est survenu pendant la mise à niveau.
 - Densité. Vous pouvez exécuter plusieurs applications dans un cluster, ce qui élimine le besoin d’exécuter chaque application sur son propre matériel.
 
 Dans cet article, nous abordons les étapes de base pour empaqueter un exécutable invité et le déployer dans Service Fabric.
@@ -52,12 +52,12 @@ Pour déployer une application dans Service Fabric, l'application doit respecter
 
 ```
 |-- ApplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|-- Settings.xml
-  |-- data    
-  |-- ServiceManifest.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |-- Settings.xml
+    |-- data
+    |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -308,4 +308,4 @@ Dans cet article, vous avez appris à empaqueter un exécutable invité et à le
 - [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
 - [Créez votre première application Service Fabric avec Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

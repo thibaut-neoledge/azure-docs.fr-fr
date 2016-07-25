@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="07/13/2016" 
 	ms.author="stefsch"/>
 
 # Présentation de l'architecture réseau des environnements App Service
@@ -23,9 +23,11 @@ Les environnements App Service sont toujours créés dans un sous-réseau d'un 
 
 ## Flux réseau général ##
  
-Un environnement App Service a toujours une adresse IP virtuelle publique (VIP). Tout le trafic entrant arrive sur cette adresse VIP publique, y compris le trafic HTTP et HTTPS pour les applications, ainsi que le reste du trafic pour les opérations de gestion Azure, les fonctionnalités de débogage à distance et FTP. Pour obtenir une liste complète des ports spécifiques (obligatoires et facultatifs) disponibles sur l'adresse VIP publique, consultez l'article sur le [contrôle du trafic entrant][controllinginboundtraffic] dans un environnement App Service.
+Lorsqu’un environnement App Service (ASE) utilise une adresse IP virtuelle publique (VIP) pour les applications, tout le trafic entrant arrive sur cette adresse IP virtuelle publique. Cela inclut le trafic HTTP et HTTPS pour les applications, ainsi que le reste du trafic pour les opérations de gestion Azure, les fonctionnalités de débogage à distance et FTP. Pour obtenir une liste complète des ports spécifiques (obligatoires et facultatifs) disponibles sur l'adresse VIP publique, consultez l'article sur le [contrôle du trafic entrant][controllinginboundtraffic] dans un environnement App Service.
 
-Le diagramme suivant montre une vue d'ensemble des différents flux réseau entrants et sortants :
+Les environnements App Service prennent également en charge les applications en cours d’exécution et uniquement liées à une adresse interne de réseau virtuel, également appelée adresse ILB (équilibrage de charge interne). Sur un ASE avec équilibrage de charge interne, le trafic HTTP et HTTPS des applications et des appels de débogage à distance arrive sur l’adresse d’équilibrage de charge interne. Dans la plupart des configurations d’équilibrage de charge interne ASE, le trafic FTP/FTPS arrive également sur l’adresse d’équilibrage de charge interne. Toutefois les opérations de gestion Azure continuent de transiter par les ports 454/455 sur l’adresse IP virtuelle publique d’un ASE avec équilibrage de charge interne.
+
+Le diagramme suivant montre une vue d’ensemble des différents flux réseau entrants et sortants d’un environnement App Service où les applications sont liées à une adresse IP virtuelle publique :
 
 ![Flux de réseau généraux][GeneralNetworkFlows]
 
@@ -46,7 +48,7 @@ Si le point de terminaison appelé est **en dehors** de la topologie de réseau 
  
 ![Adresse IP sortante][OutboundIPAddress]
 
-Il est également possible de déterminer cette adresse en créant une application dans l'environnement App Service, puis en effectuant une opération *nslookup* sur l'adresse de l'application. L'adresse IP obtenue est à la fois l'adresse IP virtuelle publique et l'adresse NAT sortante de l'environnement App Service.
+Il est également possible de déterminer cette adresse pour les ASE disposant uniquement d’une adresse VIP publique en créant une application dans l'environnement App Service, puis en effectuant une opération *nslookup* sur l'adresse de l'application. L'adresse IP obtenue est à la fois l'adresse IP virtuelle publique et l'adresse NAT sortante de l'environnement App Service.
 
 Si le point de terminaison appelé est **dans** la topologie de réseau virtuel, l'adresse sortante de l'application appelante sera l'adresse IP interne de la ressource de calcul individuelle exécutant l'application. Toutefois, il n'existe pas de mappage persistant des adresses IP internes du réseau virtuel aux applications. Les applications peuvent se déplacer entre différentes ressources de calcul et le pool de ressources de calcul disponibles dans un environnement App Service peut changer en raison d'opérations de mise à l'échelle.
 
@@ -73,6 +75,8 @@ Dans l'exemple ci-dessus, l'environnement App Service « ASE One » possède l�
 Même si les appels entre les différents environnements App Service sont traités comme des appels « Internet », lorsque les deux environnements App Service se trouvent dans la même région Azure, le trafic réseau reste sur le réseau Azure régional et ne circule pas physiquement sur le réseau Internet public. Par conséquent, vous pouvez utiliser un groupe de sécurité réseau sur le sous-réseau du deuxième environnement App Service pour autoriser uniquement les appels entrants à partir du premier environnement App Service (dont l’adresse IP sortante est 192.23.1.2), afin de garantir une communication sécurisée entre les environnements App Service.
 
 ## Informations et liens supplémentaires ##
+Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
+
 Vous trouverez plus d’informations sur les ports entrants utilisés par les environnements App Service et l’utilisation de groupes de sécurité réseau pour contrôler le trafic entrant [ici][controllinginboundtraffic].
 
 Cet [article][ExpressRoute] contient des informations sur l’utilisation d’itinéraires définis par l’utilisateur pour accorder un accès Internet sortant à des environnements App Service.
@@ -89,4 +93,4 @@ Cet [article][ExpressRoute] contient des informations sur l’utilisation d’it
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->
