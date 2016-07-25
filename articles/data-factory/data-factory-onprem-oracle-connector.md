@@ -212,7 +212,7 @@ Vous devez ajuster la chaîne de requête en fonction de la façon dont les date
 
 	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
 
-Vous devrez peut-être modifier la requête, comme indiqué ci-dessous (à l’aide de la fonction to\_date) :
+Vous devrez peut-être modifier la requête, comme indiqué ci-dessous (à l’aide de la fonction to\_date) :
 
 	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
@@ -421,7 +421,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
 ### OracleSource
-Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
@@ -433,7 +433,7 @@ oracleReaderQuery | Utilise la requête personnalisée pour lire des données. |
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
 writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. | intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). | Non
-writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize | Integer | Non (valeur par défaut : 10000)  
+writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize | Nombre entier (nombre de lignes)| Non (valeur par défaut : 10000)  
 sqlWriterCleanupScript | Requête spécifiée par l'utilisateur pour exécuter l'activité de copie de sorte que les données d'un segment spécifique seront nettoyées. | Une instruction de requête. | Non
 sliceIdentifierColumnName | Nom de colonne spécifié par l’utilisateur que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, et qui sera utilisée pour nettoyer les données d’un segment spécifique lors de la réexécution. | Nom d’une colonne avec le type de données binary(32). | Non
 
@@ -501,4 +501,4 @@ XML | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

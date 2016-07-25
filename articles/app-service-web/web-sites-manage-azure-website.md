@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/27/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Gérer une application web dans Azure App Service
 
@@ -49,8 +49,8 @@ Outre ces paramètres de configuration de base, vous pouvez configurer ce qui su
 
 Configuration spécifique à la langue :
 
-- **PHP** : [configurez PHP dans Azure App Service Web Apps](web-sites-php-configure.md).
-- **Python** : [configurez Python dans Azure App Service Web Apps](web-sites-python-configure.md).
+- **PHP** : [configurez PHP dans Azure App Service Web Apps](web-sites-php-configure.md).
+- **Python** : [configurez Python dans Azure App Service Web Apps](web-sites-python-configure.md).
 
 
 ## Pendant l’exécution de votre application web
@@ -60,8 +60,7 @@ Lorsque votre application web est en cours d’exécution, vérifiez qu’elle e
 ### Surveillance
 
 - Via le portail Azure, vous pouvez [ajouter des mesures de performances](web-sites-monitor.md) comme l’utilisation du processeur et le nombre de demandes de clients.
-- Pour des informations plus détaillées, utilisez New Relic pour analyser et gérer les performances. Consultez la page [Gestion des performances des applications New Relic dans les applications Web Azure Service](store-new-relic-web-sites-dotnet-application-performance-management.md).
-- [Mettez votre application web à l’échelle](web-sites-scale.md) en fonction du trafic. Suivant l'option choisie, vous pouvez mettre à l'échelle le nombre de machines virtuelles et/ou la taille des instances de celles-ci. Dans les niveaux Standard et Premium, vous pouvez également configurer la mise à l’échelle automatique, qui fait évoluer votre application automatiquement soit à une planification définie, soit en fonction de la charge.  
+- [Mettez votre application web à l’échelle](web-sites-scale.md) en fonction du trafic. Suivant l'option choisie, vous pouvez mettre à l'échelle le nombre de machines virtuelles et/ou la taille des instances de celles-ci. Dans les niveaux Standard et Premium, vous pouvez également configurer la mise à l’échelle automatique, qui fait évoluer votre application automatiquement soit à une planification définie, soit en fonction de la charge.
  
 ### Sauvegarde
 
@@ -70,7 +69,7 @@ Lorsque votre application web est en cours d’exécution, vérifiez qu’elle e
 
 ### Résolution des problèmes
 
-- Si une erreur survient, vous pouvez [résoudre les problèmes dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) en utilisant des journaux de diagnostic et le débogage réel dans le cloud. 
+- Si une erreur survient, vous pouvez [résoudre les problèmes dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) en utilisant des journaux de diagnostic et le débogage réel dans le cloud.
 - En dehors de Visual Studio, il existe différentes manières de recueillir les journaux de diagnostic. Consultez la page [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](web-sites-enable-diagnostic-log.md).
 - Pour les applications Node.js, consultez la page [Débogage d’une application Node.js dans Azure Web Sites](web-sites-nodejs-debug.md).
 
@@ -87,7 +86,7 @@ Envisagez d'utiliser le [déploiement intermédiaire](web-sites-staged-publishin
 
 Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploiement continu depuis le contrôle de la source :
 
-- [Utilisation de TFVC (Team Foundation Version Control)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Utilisation de TFVC (Team Foundation Version Control)](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
 - [Utilisation de Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 <!-- Anchors. -->
@@ -98,4 +97,4 @@ Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploie
 
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -111,7 +111,7 @@ Vous pouvez également renommer des colonnes et en définir de nouvelles :
 ![result](./media/app-insights-analytics-tour/270.png)
 
 * Les [noms de colonnes](app-insights-analytics-reference.md#names) peuvent contenir des espaces ou des symboles s’ils sont placés entre crochets comme suit : `['...']` ou `["..."]`
-* `%` est l’opérateur modulo habituel. 
+* `%` est l’opérateur modulo habituel.
 * `1d` (le chiffre un, suivi de la lettre d) est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrondit une valeur au multiple inférieur le plus proche de la valeur de base que vous fournissez. Ainsi, `floor(aTime, 1s)` arrondit une heure vers le bas à la seconde la plus proche.
 
@@ -412,7 +412,7 @@ Nous avons également supprimé la limite supérieure dans la clause where, afin
 
 Nous pouvons voir que :
 
-* 5 % des sessions durent moins de 3 minutes 34 s ; 
+* 5 % des sessions durent moins de 3 minutes 34 s ;
 * 50 % des sessions durent moins de 36 minutes ;
 * 5 % des sessions durent plus de 7 jours.
 
@@ -455,7 +455,7 @@ Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélection
 
 ## [Laisser](app-insights-analytics-reference.md#let-clause) : affecter un résultat à une variable
 
-Utilisez [Laisser](./app-insights-analytics-syntax.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
+Utilisez [let](./app-insights-analytics-reference.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
 ```AIQL
 
@@ -472,4 +472,4 @@ Utilisez [Laisser](./app-insights-analytics-syntax.md#let-statements) pour sépa
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

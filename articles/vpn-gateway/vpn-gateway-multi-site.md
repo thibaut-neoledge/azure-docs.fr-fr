@@ -72,13 +72,13 @@ Si vous avez déjà un VPN de site à site avec une passerelle de routage dynami
 
 ### Si vous avez déjà un réseau virtuel de site à site, mais que sa passerelle de routage est statique :
 
-1. Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique (ou basée sur un itinéraire). Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, voir [Modifier un type de routage de passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type).  
+1. Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique (ou basée sur un itinéraire). Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, consultez la page [Modification du type de routage VPN de votre passerelle](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway).
 
 2. Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configuration d’une passerelle VPN dans le portail Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md). Tout d’abord, changez le type de votre passerelle en dynamique.
 
 ### Si vous n’avez pas de réseau virtuel de site à site :
 
-1. Créez votre réseau virtuel de site à site en suivant la procédure décrite dans [Création d’un réseau virtuel avec une connexion VPN de site à site dans le portail Azure Classic](vpn-gateway-site-to-site-create.md).  
+1. Créez votre réseau virtuel de site à site en suivant la procédure décrite dans [Création d’un réseau virtuel avec une connexion VPN de site à site dans le portail Azure Classic](vpn-gateway-site-to-site-create.md).
 
 2. Configurez une passerelle de routage dynamique en suivant la procédure décrite dans [Configuration d’une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
@@ -206,4 +206,4 @@ Vérifiez l’état de tunnel multisite. Après avoir téléchargé les clés de
 
 Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

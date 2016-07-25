@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="07/11/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Didacticiels de workflows avancés Media Encoder Premium
@@ -974,7 +974,7 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
 
 [Codecs et formats de Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 
-[Exemples de fichiers de workflow](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+[Exemples de fichiers de workflow](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Outil Azure Media Services Explorer](http://aka.ms/amse)
 
@@ -986,4 +986,4 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

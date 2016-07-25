@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/13/2016"
 	ms.author="danlep"/>
 
 # Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)
@@ -23,13 +23,19 @@ L’interface Azure CLI offre un ensemble de commandes multiplateforme open-sour
 
 Pour vous connecter à votre abonnement à partir de l’interface de ligne de commande Azure, vous pouvez au choix :
 
-* **Se connecter à Azure à l’aide d’un compte professionnel ou scolaire ou d’une identité de compte Microsoft** : Utilisez la commande `azure login` dans l’interface de ligne de commande version 0.9.10 et versions ultérieures un type d’identité de compte quelconque pour l’authentification à l’aide d’Azure Active Directory. L’interface de ligne de commande version 0.9.9 et versions ultérieures prend également en charge l’authentification interactive à l’aide d’un portail web pour les comptes pour lesquels l’authentification multifacteur est activée. Utilisez également la commande `azure login` pour authentifier un principal du service pour une application Azure Active Directory, ce qui est utile pour l’exécution des services automatisés. Une fois connecté avec une identité de compte prise en charge, vous pouvez utiliser les commandes du mode Azure Resource Manager ou du mode Azure Service Management.
+* **Vous connecter à Azure à l’aide d’un compte professionnel ou scolaire ou d’une identité de compte Microsoft** : utilisez la commande `azure login` avec l’un des types d’identité de compte pour l’authentification à l’aide d’Azure Active Directory. La plupart des clients créant des déploiements Azure doivent utiliser cette méthode. Pour certains comptes, la commande `azure login` vous oblige à vous connecter de manière interactive par le biais d’un portail web.
 
-* **Télécharger et utiliser un fichier de paramètres de publication** : cette méthode installe sur votre ordinateur local un certificat qui vous permet d'exécuter les tâches de gestion pendant toute la durée de validité de l'abonnement et du certificat. Cette méthode vous permet d’utiliser uniquement les commandes du mode Azure Service Management.
+    Utilisez également la commande `azure login` pour authentifier un principal du service pour une application Azure Active Directory, ce qui est utile pour l’exécution de services automatisés.
+    
+    Une fois connecté avec une identité de compte prise en charge, vous pouvez utiliser les commandes du mode Azure Resource Manager ou les commandes de l’interface de ligne de commande du mode Azure Service Management.
+
+* **Télécharger et utiliser un fichier de paramètres de publication** : cette méthode installe sur votre ordinateur local un certificat qui vous permet d'exécuter les tâches de gestion pendant toute la durée de validité de l'abonnement et du certificat.
+
+    Cette méthode vous permet d’utiliser uniquement les commandes d’interface de ligne de commande du mode Azure Service Management.
 
 >[AZURE.NOTE] Si vous utilisez une version de l’interface de ligne de commande Azure antérieure à la version 0.9.10, vous pouvez utiliser la commande `azure login` uniquement avec un compte professionnel ou scolaire. Les identités de comptes Microsoft ne fonctionnent pas. Toutefois, si vous le souhaitez, vous pouvez [créer un ID professionnel ou scolaire à partir de votre ID de compte Microsoft](virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
-Pour obtenir des informations sur les différentes identités de comptes et des différents abonnements Azure, consultez [Association des abonnements Azure avec Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
+Pour obtenir des informations sur les différentes identités de comptes et des différents abonnements Azure, consultez la rubrique [Association des abonnements Azure avec Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## Utiliser la commande azure login pour effectuer une authentification interactive
 
@@ -44,9 +50,9 @@ L'établissement d'une connexion interactive est simple : saisissez `azure logi
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. 
 
-Copiez le code proposé ci-dessus et ouvrez un navigateur à l'adresse http://aka.ms/devicelogin. Entrez le code et vous serez invité à entrer le nom d'utilisateur et le mot de passe pour l'identité que vous souhaitez utiliser. Une fois le processus terminé, l'interface de commande termine le processus de connexion. Le résultat suivant peut s'afficher :
+Copiez le code proposé ci-dessus et ouvrez un navigateur à l'adresse http://aka.ms/devicelogin (ou une autre page, le cas échéant). Entrez le code et vous serez invité à entrer le nom d'utilisateur et le mot de passe pour l'identité que vous souhaitez utiliser. Une fois le processus terminé, l'interface de commande termine le processus de connexion. Le résultat suivant peut s'afficher :
 
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
@@ -78,7 +84,7 @@ Si vous avez créé un principal du service pour une application Active Director
 
 ## Utiliser un fichier de paramètres de publication
 
-Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de commande du mode Azure Service Management, vous pouvez vous connecter à l’aide d’un fichier de paramètres de publication.
+Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de commande du mode Azure Service Management (par exemple, pour déployer des machines virtuelles Azure dans le modèle de déploiement Classic), vous pouvez vous connecter à l’aide d’un fichier de paramètres de publication.
 
 * **Pour télécharger le fichier de paramètres de publication** de votre compte, utilisez la commande suivante (disponible uniquement en mode Service Management) :
 
@@ -122,9 +128,9 @@ Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser 
 
 L’interface de ligne de commande Azure propose deux modes de commande pour l’utilisation des ressources Azure, avec divers jeux de commandes :
 
-* **Mode Resource Manager** : pour utiliser les ressources Azure dans le modèle de déploiement Resource Manager. Pour définir ce mode, exécutez `azure config mode arm`.
+* **Mode Resource Manager** : pour utiliser des ressources Azure dans le modèle de déploiement Resource Manager. Pour définir ce mode, exécutez `azure config mode arm`.
 
-* **Mode Service Management** : pour utiliser les ressources Azure dans le modèle de déploiement classique. Pour définir ce mode, exécutez `azure config mode asm`.
+* **Mode Service Management** : pour utiliser des ressources Azure dans le modèle de déploiement Classic. Pour définir ce mode, exécutez `azure config mode asm`.
 
 Lors de la première installation, l’interface de ligne de commande est en mode Service Management.
 
@@ -151,6 +157,6 @@ Si les abonnements associés au compte étaient authentifiés uniquement avec Ac
 
 * Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
 
-* Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurescripting).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

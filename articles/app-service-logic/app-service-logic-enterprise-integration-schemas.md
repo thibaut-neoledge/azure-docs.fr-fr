@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d’ensemble des schémas et d’Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Vue d’ensemble des schémas et d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Découvrez comment utiliser les schémas avec Enterprise Integration Pack et vos applications logiques" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # En savoir plus sur les schémas et Enterprise Integration Pack  
@@ -53,8 +53,8 @@ Vous utilisez des schémas pour confirmer que les documents XML que vous recevez
 
 ## Étapes suivantes
 
-- [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
+- [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
       
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

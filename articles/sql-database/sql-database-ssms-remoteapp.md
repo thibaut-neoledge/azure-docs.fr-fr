@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/05/2016"
 	ms.author="adhurwit"/>
 
 # Connexion à une base de données SQL à l’aide de SQL Server Management Studio dans Azure RemoteApp
@@ -79,7 +79,7 @@ Pour en savoir plus sur la création d'une image Azure RemoteApp, consultez la p
 
 Lorsque l’exécution de la machine virtuelle est arrêtée, recherchez-la dans le portail actuel et capturez-la.
 
-Pour en savoir plus sur la capture d’une image, consultez [Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
+Pour en savoir plus sur la capture d’une image, consultez [Capturer l’image d’une machine virtuelle Windows Azure créée avec le modèle de déploiement classique](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
 
 
 ### 5\. Ajouter des images de modèle à Azure RemoteApp
@@ -158,4 +158,4 @@ C’est tout pour le moment. Vous n’avez plus qu’à l’utiliser !
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -2,16 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à RightAnswers | Microsoft Azure" 
     description="Apprenez à utiliser RightAnswers avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" manager="stevenpo"/>
+    authors="jeevansd"  
+    documentationCenter="na" 
+	manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à RightAnswers
   
@@ -36,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Ri
 
 ###Pour activer l’intégration d’application pour RightAnswers, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-rightanswers-tutorial/IC700993.png "Active Directory")
 
@@ -65,7 +66,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **RightAnswers**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **RightAnswers**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Configurer l’authentification unique")
 
@@ -73,7 +74,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-rightanswers-tutorial/IC802928.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer les paramètres de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application RightAnswers (par exemple, **https://fortify.rightanswers.com/portal/ss/*), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer les paramètres de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application RightAnswers (par exemple, *https://fortify.rightanswers.com/portal/ss/*), puis cliquez sur **Suivant**.
 
     ![Configurer les paramètres d’application](./media/active-directory-saas-rightanswers-tutorial/IC802929.png "Configurer les paramètres d’application")
 
@@ -83,9 +84,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Envoyez le fichier de métadonnées téléchargé à votre équipe de support technique RightAnswers.
 
-    >[AZURE.NOTE]Votre équipe de support technique RightAnswers doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
+    >[AZURE.NOTE] Votre équipe de support technique RightAnswers doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
 
-6.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-rightanswers-tutorial/IC802931.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -102,7 +103,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à RightAnswers, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **RightAnswers**, cliquez sur **Affecter des utilisateurs**.
 
@@ -114,4 +115,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

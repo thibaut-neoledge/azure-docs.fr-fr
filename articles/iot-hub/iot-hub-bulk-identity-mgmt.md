@@ -332,10 +332,26 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Étapes suivantes
 
-Dans cet article, vous avez appris comment effectuer des opérations en bloc sur le registre d’identité des appareils dans un IoT Hub. Vous pouvez continuer à explorer les fonctionnalités d’IoT Hub et d’autres scénarios IoT dans les articles suivants :
+Dans cet article, vous avez appris comment effectuer des opérations en bloc sur le registre d’identité des appareils dans un IoT Hub. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
-- [Créer un IoT Hub par programme](iot-hub-rm-template.md)
-- [Mesures d’utilisation d’IoT Hub](iot-hub-metrics.md)
-- [Surveillance des opérations IoT Hub](iot-hub-operations-monitoring.md)
+- [Mesures d’utilisation][lnk-metrics]
+- [Surveillance des opérations][lnk-monitor]
+- [Gérer l’accès à IoT Hub][lnk-itpro]
 
-<!---HONumber=AcomDC_0504_2016-->
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide de développement][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="07/13/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide à la création d’une image de machine virtuelle pour Azure Marketplace
@@ -33,6 +33,8 @@ Une offre constitue le « parent » des références SKU associées. Vous pouv
 Une référence SKU désigne le nom commercial d’une image de machine virtuelle. Une image de machine virtuelle contient un disque de système d’exploitation et aucun ou plusieurs disques de données. Il s’agit en fait du profil de stockage complet d’une machine virtuelle. Chaque disque a un disque dur virtuel est nécessaire par disque. Même les disques de données vides ont besoin de la création d’un disque dur virtuel.
 
 Quel que soit le système d’exploitation que vous utilisez, ajoutez uniquement le nombre minimal de disques de données requis par la référence SKU. Les clients ne suppriment pas les disques qui font partie d’une image lors du déploiement, mais peuvent toujours ajouter des disques pendant ou après le déploiement le cas échéant.
+
+>[AZURE.IMPORTANT] **Ne modifiez pas le nombre de disques dans une nouvelle version de l’image.** Si vous devez reconfigurer les disques de données dans l’image, définissez une nouvelle référence SKU. La publication d’une nouvelle version de l’image avec un nombre de disques différent peut potentiellement rompre le nouveau déploiement basé sur la nouvelle version de l’image en cas de mise à l’échelle automatique, de déploiements automatiques de solutions via des modèles ARM et autres scénarios.
 
 ### 1\.1 Ajouter une offre
 
@@ -470,11 +472,11 @@ Au lieu de générer une clé d’accès partagé à l’aide d’un code, vous 
 
     ![dessin][img-azstg-setup-6]
 
-    a. **Accès autorisé à partir de** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
+    a. **Accès autorisé à partir de** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
 
-    b. **Accès autorisé à** : sélectionnez une date située au moins 7 à 8 jours après l’**accès autorisé à partir de** date.
+    b. **Accès autorisé à** : sélectionnez une date située au moins 7 à 8 jours après l’**accès autorisé à partir de** date.
 
-    c. **Actions autorisées** : sélectionnez les autorisations **Liste** et **en lecture**.
+    c. **Actions autorisées** : sélectionnez les autorisations **Liste** et **en lecture**.
 
     d. Si vous avez correctement sélectionné votre fichier .vhd, ce dernier apparaît dans **Blob name to access** (Nom d’objet Blob auquel accéder) avec l’extension .vhd.
 
@@ -567,4 +569,4 @@ Une fois que vous avez terminé avec les détails de la référence SKU, vous po
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

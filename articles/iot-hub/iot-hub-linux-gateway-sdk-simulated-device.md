@@ -121,7 +121,18 @@ Pour exécuter l'exemple :
 
 ## Étapes suivantes
 
-Pour savoir comment utiliser le Kit de développement logiciel (SDK) de passerelle, consultez la rubrique [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] sur GitHub.
+Si vous souhaitez approfondir vos connaissances sur les kits de développement logiciel (SDK) Gateway et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
+
+- [Envoi de messages appareil-à-cloud depuis un appareil réel avec le kit de développement logiciel (SDK) Gateway][lnk-physical-device]
+- [Gérer un appareil de passerelle][lnk-manage-devices]
+- [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk]
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -130,4 +141,12 @@ Pour savoir comment utiliser le Kit de développement logiciel (SDK) de passerel
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 # Prise en main de l’accès conditionnel à Azure AD  
@@ -68,7 +68,7 @@ La version préliminaire actuelle prend en charge les options suivantes :
 
 * **Exiger une authentification multifacteur** : avec cette option, les utilisateurs auxquels les règles d’accès s’appliquent doivent effectuer une authentification multifacteur avant d’accéder à l’application à laquelle la stratégie s’applique.
 
-* **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : avec cette option, un utilisateur disposant d’une adresse IP approuvée n’est pas tenu d’effectuer une authentification multifacteur. Les plages d’adresses IP approuvées peuvent être configurées sur la page des paramètres de l’authentification multifacteur ou à l’aide des plages d’adresses IP publiques sous l’onglet Configuration de l’annuaire.
+* **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : avec cette option, un utilisateur disposant d’une adresse IP approuvée n’est pas tenu d’effectuer une authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
 
 * **Bloquer l’accès quand l’utilisateur n’est pas au travail** : avec cette option, un utilisateur qui ne dispose pas d’une adresse IP approuvée est bloqué. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
 
@@ -94,4 +94,4 @@ En plus de définir cet indicateur, vous devez configurer l’instance AD FS du 
 - [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](active-directory-conditional-access.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

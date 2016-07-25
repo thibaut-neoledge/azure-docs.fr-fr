@@ -289,7 +289,7 @@ Un client en possession de la SAP de service peut l’utiliser à partir de son 
 Lorsque vous utilisez des signatures d'accès partagé dans vos applications, vous devez être conscient de deux risques potentiels :
 
 - Si une signature d'accès partagé est divulguée, toute personne qui se la procure peut s'en servir et votre compte de stockage court donc le risque d'être compromis.
-- Si une signature d'accès partagé fournie à une application cliente expire et que l'application est incapable d'en récupérer une nouvelle à partir de votre service, la fonctionnalité de votre application risque d'être entravée.  
+- Si une signature d'accès partagé fournie à une application cliente expire et que l'application est incapable d'en récupérer une nouvelle à partir de votre service, la fonctionnalité de votre application risque d'être entravée.
 
 Les recommandations suivantes relatives à l'utilisation des signatures d'accès partagé vous aideront à limiter ces risques :
 
@@ -302,7 +302,7 @@ Les recommandations suivantes relatives à l'utilisation des signatures d'accès
 7.	**Sachez que toute utilisation de votre compte sera facturée, y compris pour les signatures d'accès partagé.** Si vous fournissez un accès en écriture à un objet blob, un utilisateur peut choisir de charger un objet blob de 200 Go. Si vous lui avez également accordé un accès en lecture, il peut choisir de le télécharger 10 fois, et vous devrez alors acquitter des frais de sortie pour l'équivalent de 2 To. Accordez des autorisations limitées pour atténuer les risques liés aux utilisateurs malveillants. Utilisez des signatures d'accès partagé à durée de vie limitée pour atténuer cette menace (mais pensez au décalage d'horloge pour l'heure de fin).
 8.	**Validez les données écrites avec une signature d'accès partagé.** Lorsqu'une application cliente écrit des données dans votre compte de stockage, n'oubliez pas que ces données peuvent être une source de problèmes. Si votre application exige que ces données soient validées ou autorisées avant de pouvoir être utilisées, vous devez effectuer cette validation après l'écriture des données et avant qu'elles ne soient utilisées par votre application. Cette pratique assure également une protection contre l'écriture de données endommagées ou malveillantes dans votre compte, soit par un utilisateur qui a acquis correctement la signature d'accès partagé, soit par un utilisateur qui exploite sa divulgation.
 9. **N'utilisez pas toujours une signature d'accès partagé.** Parfois, les risques associés à une opération particulière sur votre compte de stockage l'emportent sur les avantages offerts par la signature d'accès partagé. Pour ces opérations, créez un service de niveau intermédiaire qui écrit dans votre compte de stockage après avoir effectué la validation des règles métier, l'authentification et un audit. Parfois aussi, il est plus simple de gérer l'accès par d'autres moyens. Par exemple, si vous voulez que tous les objets blob dans un conteneur soient publiquement lisibles, vous pouvez rendre le conteneur public, au lieu de fournir une signature d'accès partagé à chaque client.
-10.	**Utilisez Storage Analytics pour surveiller votre application.** Vous pouvez utiliser la journalisation et les mesures pour observer tout pic dans les échecs d'authentification dus à une interruption du service de votre fournisseur de signatures d'accès partagé ou à la suppression par inadvertance d'une stratégie d'accès stockée. Pour plus d'informations, consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx).
+10.	**Utilisez Storage Analytics pour surveiller votre application.** Vous pouvez utiliser la journalisation et les mesures pour observer tout pic dans les échecs d’authentification dus à une interruption du service de votre fournisseur de signatures d’accès partagé ou à la suppression par inadvertance d’une stratégie d’accès stockée. Pour plus d'informations, consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx).
 
 ## Conclusion ##
 
@@ -315,7 +315,7 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 - [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 - [Délégation de l'accès avec une signature d'accès partagé](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 - [Présentation des signatures d’accès partagé de table et de file d’attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png 
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

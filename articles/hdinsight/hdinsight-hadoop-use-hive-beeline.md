@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Utilisation de Hive avec Hadoop dans HDInsight via Beeline
@@ -23,7 +23,7 @@
 
 Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Azure HDInsight Linux, puis envoyer ensuite de façon interactive des requêtes Hive à l’aide de l’outil de ligne de commande [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell).
 
-> [AZURE.NOTE] Beeline a utilisé JDBC pour la connexion à Hive. Pour plus d’informations sur l’utilisation de JDBC avec Hive, consultez la section [Se connecter à Hive sur Azure HDInsight à l’aide du pilote Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
+> [AZURE.NOTE] Beeline utilise JDBC pour la connexion à Hive. Pour plus d’informations sur l’utilisation de JDBC avec Hive, consultez la section [Se connecter à Hive sur Azure HDInsight à l’aide du pilote Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -35,7 +35,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 ##<a id="ssh"></a>Connexion avec SSH
 
-Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight** :
+Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight** :
 
 	ssh admin@myhdinsight-ssh.azurehdinsight.net
 
@@ -55,25 +55,13 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 ##<a id="beeline"></a>Utilisez la commande Beeline
 
-1. Une fois connecté, utilisez les éléments suivants pour obtenir le nom d’hôte du nœud principal :
+1. Une fois connecté, procédez comme suit pour démarrer Beeline :
 
-        hostname -f
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+    Cette action démarre le client Beeline et assure la connexion à l’url JDBC. Ici, `localhost` est utilisé, car HiveServer2 s’exécute sur les deux nœuds principaux du cluster et nous utilisons Beeline directement sur le nœud principal 0.
     
-    Enregistrez le nom d’hôte renvoyé. Il sera utilisé ultérieurement lors de la connexion à HiveServer2 à partir de Beeline.
-    
-2. Démarrez l’interface de ligne de commande Hive à l’aide de la commande suivante :
-
-        beeline
-
-2. À partir de l’invite `beeline>`, utilisez les éléments suivants pour vous connecter au service HiveServer2 : Remplacez __HOSTNAME__ par le nom d’hôte renvoyé précédemment pour le nœud principal :
-
-        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
-        
-    Ce code indique à Beeline de se connecter au port __10001__ sur le __HOSTNAME__ spécifié et que __HTTP__ est le mode de transport. Le compte __admin__ est utilisé pour authentifier la connexion.
-
-    Lorsque vous y êtes invité, saisissez le mot de passe du compte administrateur admin de votre cluster HDInsight. Une fois la connexion établie, l’invite se transforme en l’écran suivant :
-    
-        jdbc:hive2://HOSTNAME:10001/>
+    Une fois la commande terminée, vous arriverez à une invite `jdbc:hive2://localhost:10001/>`.
 
 3. Les commandes Beeline commencent généralement par un caractère `!`. Par exemple, `!help` affiche l’aide. Toutefois, le `!` peut souvent être omis. Par exemple, `help` fonctionne également.
 
@@ -118,12 +106,12 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
     Ces instructions effectuent les opérations suivantes :
 
-    * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
-    * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
-    * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-    * **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
-    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
-    * **INPUT\_\_FILE\_\_NAME LIKE ’%.log’** : indique à Hive de renvoyer uniquement des données provenant de fichiers se terminant par .log. Normalement, vous devriez obtenir uniquement les données avec le même schéma dans le même dossier lors de l’interrogation avec hive, toutefois, cet exemple de fichier journal est stocké avec d’autres formats de données.
+    * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
+    * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
+    * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+    * **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
+    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
+    * **INPUT\_\_FILE\_\_NAME LIKE ’%.log’** : indique à Hive de renvoyer uniquement des données provenant de fichiers se terminant par .log. Normalement, vous devriez obtenir uniquement les données avec le même schéma dans le même dossier lors de l’interrogation avec hive, toutefois, cet exemple de fichier journal est stocké avec d’autres formats de données.
 
     > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
     >
@@ -163,26 +151,28 @@ Beeline peut également être utilisé pour exécuter un fichier contenant les i
 
         nano query.hql
         
-2. Lorsque l’éditeur s’ouvre, utilisez les données suivantes comme contenu du fichier : Cette requête crée une nouvelle table « interne » nommée **errorLogs** :
+2. Lorsque l’éditeur s’ouvre, utilisez les données suivantes comme contenu du fichier : Cette requête crée une nouvelle table « interne » nommée **errorLogs** :
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
     Ces instructions effectuent les opérations suivantes :
 
-    * **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
-    * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
+    * **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
+    * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
+    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
     
     > [AZURE.NOTE] Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
     
-3. Pour enregistrer le fichier, utilisez __Ctrl__+___\_X__, saisissez ensuite __Y__, puis appuyez sur __Entrée__.
+3. Pour enregistrer le fichier, utilisez __Ctrl__+__\_X__, saisissez ensuite _Y_, puis appuyez sur __Entrée__.
 
-4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants. Remplacez __HOSTNAME__ par le nom obtenu précédemment pour le nœud principal, et __PASSWORD__ par le mot de passe du compte d’administration :
+4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants. Remplacez __HOSTNAME__ par le nom obtenu précédemment pour le nœud principal, et __PASSWORD__ par le mot de passe du compte d’administration :
 
-        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-5. Pour vérifier que la table **errorLogs** a été créée, démarrez Beeline et connectez-vous à HiveServer2, puis utilisez l’instruction suivante pour renvoyer toutes les lignes à partir d’**errorLogs** :
+    > [AZURE.NOTE] Le paramètre `-i` démarre Beeline, exécute les instructions dans le fichier query.hql et reste dans Beeline à l’invite `jdbc:hive2://localhost:10001/>`. Vous pouvez également exécuter un fichier en utilisant le paramètre `-f`, qui vous renvoie à Bash une fois le fichier traité.
+
+5. Pour vérifier que la table **errorLogs** a été créée, utilisez l’instruction suivante pour renvoyer toutes les lignes à partir d’**errorLogs** :
 
         SELECT * from errorLogs;
 
@@ -245,4 +235,4 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

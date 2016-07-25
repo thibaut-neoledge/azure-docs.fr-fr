@@ -177,18 +177,11 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-à-appareil. Vous pouvez continuer à explorer les scénarios et les fonctionnalités d’IoT Hub avec les didacticiels suivants :
+Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-à-appareil.
 
-- [Traiter les messages des appareils vers le cloud] montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
-- [Téléchargement de fichiers à partir d’appareils] décrit un modèle qui utilise les messages cloud vers appareil pour faciliter les téléchargements de fichiers à partir d’appareils.
+Pour voir des exemples de solutions de bout en bout qui utilisent IoT Hub, consultez [Azure IoT Suite].
 
-Informations supplémentaires sur IoT Hub :
-
-* [Vue d’ensemble d’IoT Hub]
-* [Guide du développeur d’IoT Hub]
-* [Conseils pour IoT Hub]
-* [Langages et plateformes d’appareils pris en charge]
-* [Centre de développement Azure IoT]
+Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez le [Guide du développeur IoT Hub].
 
 
 <!-- Images -->
@@ -199,16 +192,17 @@ Informations supplémentaires sur IoT Hub :
 [Prise en main d’Azure IoT Hub]: iot-hub-java-java-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
-[Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md
-[Conseils pour IoT Hub]: iot-hub-guidance.md
-[Guide du développeur d’IoT Hub]: iot-hub-devguide.md
-[Langages et plateformes d’appareils pris en charge]: iot-hub-supported-devices.md
+[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
+[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
+[Guide du développeur IoT Hub]: iot-hub-devguide.md
+[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portail Azure]: https://portal.azure.com
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

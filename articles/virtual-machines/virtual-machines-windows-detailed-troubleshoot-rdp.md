@@ -1,27 +1,28 @@
 <properties
-	pageTitle="Dépannage détaillé du Bureau à distance | Microsoft Azure"
-	description="Étapes de dépannage détaillées des connexions RDP à une machine virtuelle Azure exécutant Windows."
+	pageTitle="Résolution détaillée des problèmes : Impossible de se connecter au Bureau à distance de la machine virtuelle | Microsoft Azure"
+	description="Résoudre les erreurs liées au Bureau à distance, quand vous ne pouvez pas utiliser le Bureau à distance pour vous connecter aux machines virtuelles Windows dans Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"
+	keywords="impossible de se connecter au bureau à distance, dépanner le bureau à distance, le bureau à distance ne peut pas se connecter, erreurs du bureau à distance, dépannage du bureau à distance, problèmes du bureau à distance"/>
 
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/07/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Dépannage de connexions du Bureau à distance à des machines virtuelles Azure Windows
+# Résoudre dans le détail les problèmes liés au Bureau à distance qui ne peut pas se connecter aux machines virtuelles Windows dans Azure
 
 Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et résoudre les erreurs complexes du Bureau à distance pour les machines virtuelles basées Azure sur Windows.
 
-> [AZURE.IMPORTANT] Pour éliminer les erreurs du Bureau à distance plus courantes, veillez à lire [l’article sur la résolution des problèmes de base du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md) avant de continuer.
+> [AZURE.IMPORTANT] Pour éliminer les erreurs du Bureau à distance les plus courantes, veillez à lire [l’article sur la résolution des problèmes de base du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md) avant de continuer.
 
 Si vous obtenez un message d’erreur du Bureau à distance qui ne ressemble à aucun des messages d’erreur spécifiques couverts dans [le guide de résolution des problèmes de base du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md), vous pouvez suivre ces étapes et essayer de déterminer pourquoi le client Bureau à distance (RDP) ne parvient pas à se connecter au service RDP sur la machine virtuelle Azure.
 
@@ -47,7 +48,7 @@ Avant de poursuivre, nous vous recommandons de réfléchir à tout ce qui a chan
 Avant de passer à la procédure de dépannage détaillé,
 
 - vérifiez l’état de la machine virtuelle sur le portail Azure Classic ou le portail Azure pour identifier d’éventuels problèmes flagrants
-- Suivez les [étapes du guide de résolution des problèmes de base pour corriger rapidement les erreurs RDP courantes](virtual-machines-windows-troubleshoot-rdp-connection.md)
+- suivez les [étapes du guide de résolution des problèmes de base pour corriger rapidement les erreurs RDP courantes](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
 
 Essayez de vous reconnecter à la machine virtuelle via le Bureau à distance après ces étapes.
@@ -113,7 +114,15 @@ Pour vérifier si le point de terminaison est la source du problème, supprimez 
 
 ### <a id="nsgs"></a>Source 4 : groupes de sécurité réseau
 
-Les groupes de sécurité réseau vous permettent de contrôler plus précisément le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Examinez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic de Bureau à distance provenant d’Internet est autorisé.
+Les groupes de sécurité réseau vous permettent de contrôler plus précisément le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Examinez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic de Bureau à distance provenant d’Internet est autorisé :
+
+- Dans le portail Azure, sélectionnez votre machine virtuelle.
+- Cliquez sur **Tous les paramètres** | **Interfaces réseau** et sélectionnez votre interface réseau.
+- Cliquez sur **Tous les paramètres** | **Groupe de sécurité réseau** et sélectionnez votre groupe de sécurité réseau.
+- Cliquez sur **Tous les paramètres** | **Règles de sécurité de trafic entrant** et assurez-vous d’avoir une règle autorisant RDP sur le port TCP 3389.
+	- Si vous n’avez pas de règle, cliquez sur **Ajouter** pour en créer une. Entrez **TCP** pour le protocole, puis **3389** pour la plage de ports de destination.
+	- Assurez-vous que l’action est définie sur **Autoriser** et cliquez sur OK pour enregistrer votre nouvelle règle de trafic entrant.
+
 
 Pour plus d’informations, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
@@ -121,7 +130,7 @@ Pour plus d’informations, consultez [Présentation du groupe de sécurité ré
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Utilisez le [package de diagnostic Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) pour vérifier si le problème est dû à la machine virtuelle Azure elle-même. Si ce package de diagnostics ne peut pas résoudre le problème de **connectivité RDP à une machine virtuelle Azure (redémarrage requis)**, suivez les instructions de [cet article](virtual-machines-windows-reset-rdp.md) pour réinitialiser le service Bureau à distance sur la machine virtuelle. Avec cette opération, vous pouvez :
+Utilisez le [package de diagnostic Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) pour vérifier si le problème est dû à la machine virtuelle Azure elle-même. Si ce package de diagnostic ne peut pas résoudre le problème de **connectivité RDP à une machine virtuelle Azure (redémarrage requis)**, suivez les instructions fournies dans [cet article](virtual-machines-windows-reset-rdp.md) pour réinitialiser le service Bureau à distance sur la machine virtuelle. Avec cette opération, vous pouvez :
 
 - activer la règle par défaut du pare-feu Windows Bureau à distance (port TCP 3389) ;
 - activer les connexions Bureau à distance en définissant la valeur de registre HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections sur 0.
@@ -133,13 +142,13 @@ Essayez une nouvelle fois de vous connecter à partir de votre ordinateur. Si vo
 - Le pare-feu Windows ou un autre pare-feu local comporte une règle sortante qui empêche le trafic du Bureau à distance.
 - Le logiciel de détection d’intrusion ou de surveillance réseau s’exécutant sur la machine virtuelle Azure empêche les connexions Bureau à distance.
 
-Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, vous pouvez utiliser une session Azure PowerShell distante vers la machine virtuelle Azure. Tout d’abord, vous devez installer un certificat pour le service cloud d’hébergement de la machine virtuelle. Accédez à [Configurer l’accès à distance sécurisé de PowerShell vers les machines virtuelles Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) et téléchargez le fichier de script **InstallWinRMCertAzureVM.ps1** sur votre ordinateur local.
+Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, vous pouvez utiliser une session Azure PowerShell distante vers la machine virtuelle Azure. Tout d’abord, vous devez installer un certificat pour le service cloud d’hébergement de la machine virtuelle. Accédez à [Configurer l’accès à distance sécurisé de PowerShell aux machines virtuelles Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) et téléchargez le fichier de script **InstallWinRMCertAzureVM.ps1** sur votre ordinateur local.
 
 Installez ensuite Azure PowerShell si ce n’est pas déjà fait. Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 Ouvrez ensuite une invite de commandes Azure PowerShell, puis remplacez le dossier actif par l’emplacement du fichier de script **InstallWinRMCertAzureVM.ps1**. Pour exécuter un script Azure PowerShell, vous devez définir la bonne stratégie d’exécution. Exécutez la commande **Get-ExecutionPolicy** afin de déterminer votre niveau de stratégie actuel. Pour plus d’informations sur la définition du niveau approprié, consultez [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
-Indiquez ensuite le nom de votre abonnement Azure, le nom du service cloud et le nom de votre machine virtuelle (en supprimant les caractères < and >), puis exécutez ces commandes.
+Indiquez ensuite le nom de votre abonnement Azure, le nom du service cloud et le nom de votre machine virtuelle (en supprimant les caractères < et >), puis exécutez ces commandes.
 
 	$subscr="<Name of your Azure subscription>"
 	$serviceName="<Name of the cloud service that contains the target virtual machine>"
@@ -148,7 +157,7 @@ Indiquez ensuite le nom de votre abonnement Azure, le nom du service cloud et le
 
 Le nom d’abonnement correct apparaît dans la propriété **SubscriptionName** de l’affichage de la commande _Get-AzureSubscription_. Le nom du service cloud pour la machine virtuelle apparaît dans la colonne _ServiceName_ de l’affichage de la commande **Get-AzureVM**.
 
-Vérifiez que vous disposez du nouveau certificat, ouvrez un composant logiciel enfichable Certificats pour l’utilisateur actuel, puis examinez le dossier **Autorités de certification racines de confiance\\Certificats**. Vous devriez voir un certificat portant le nom DNS de votre service cloud doit apparaître dans la colonne Issued To (exemple : cloudservice4testing.cloudapp.net).
+Vérifiez si vous disposez du nouveau certificat, ouvrez un composant logiciel enfichable Certificats pour l’utilisateur actuel, puis examinez le dossier **Autorités de certification racines de confiance\\Certificats**. Vous devriez voir un certificat portant le nom DNS de votre service cloud doit apparaître dans la colonne Issued To (exemple : cloudservice4testing.cloudapp.net).
 
 Lancez ensuite une session Azure PowerShell distante à l’aide de ces commandes.
 
@@ -195,4 +204,4 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

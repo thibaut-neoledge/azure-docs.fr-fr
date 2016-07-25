@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création de solutions B2B avec Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Création de solutions B2B avec Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="En savoir plus sur la réception de données à l’aide des fonctionnalités B2B d'Enterprise Integration Pack" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # En savoir plus sur la réception de données à l’aide des fonctionnalités B2B d'Enterprise Integration Pack#
@@ -75,4 +75,4 @@ Dans cette procédure, vous verrez comment utiliser les actions AS2 et X12 pour 
 
 [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

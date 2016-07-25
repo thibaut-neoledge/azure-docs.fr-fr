@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
-# Partitionnement des données dans DocumentDB avec le Kit de développement logiciel (SDK) .NET
+# Comment partitionner des données à l’aide de la prise en charge côté client dans DocumentDB
 
-Azure DocumentDB prend en charge les collections qui peuvent évoluer jusqu'à de [gros volumes de stockage et de débit](documentdb-partition-data.md). Toutefois, il existe des cas d'usage où il est intéressant de disposer d'un contrôle plus fin sur le comportement du partitionnement. Afin de réduire la quantité de code réutilisable requis pour les tâches de partitionnement, nous avons ajouté des fonctionnalités dans les Kits de développement logiciel (SDK) Java, .NET et Node.js, qui optimisent la génération d’applications mises à l’échelle entre plusieurs collections.
+Azure DocumentDB prend en charge le [partitionnement automatique des collections](documentdb-partition-data.md). Toutefois, il existe des cas d'usage où il est intéressant de disposer d'un contrôle plus fin sur le comportement du partitionnement. Afin de réduire la quantité de code réutilisable requis pour les tâches de partitionnement, nous avons ajouté des fonctionnalités dans les Kits de développement logiciel (SDK) Java, .NET et Node.js, qui optimisent la génération d’applications mises à l’échelle entre plusieurs collections.
 
 Dans cet article, nous allons examiner les classes et les interfaces du Kit de développement (SDK) .NET et voir comment les utiliser pour développer des applications partitionnées. D’autres kits de développement logiciel (SDK) tels que Java, Node.js et Python prennent en charge des méthodes et des interfaces similaires pour le partitionnement côté client.
 
-## Partitionnement avec le Kit de développement logiciel (SDK) DocumentDB
+## Partitionnement côté client avec le Kit de développement logiciel (SDK) DocumentDB
 
 Avant d’aller plus loin dans le partitionnement, nous allons revoir certains concepts DocumentDB fondamentaux liés au partitionnement. Un compte de base de données DocumentDB Azure est constitué d'un ensemble de bases de données. Chacune d'elles contient plusieurs collections, lesquelles comportent des procédures stockées, des déclencheurs, des UDF, des documents et des pièces jointes associées. Les collections peuvent être des partitions uniques ou elles peuvent être partitionnées elles-mêmes et avoir les propriétés suivantes :
 
@@ -140,7 +140,7 @@ Les exemples sont open source et nous vous invitons à envoyer des requêtes d'e
 
 Oui, DocumentDB prend en charge le [partitionnement côté serveur](documentdb-partition-data.md). DocumentDB prend également en charge le partitionnement côté client via des programmes de résolution de partition côté client pour les cas d'usage plus complexes.
 
-**Quand dois-je utiliser le partitionnement côté serveur ou côté client ?** Dans la majorité des cas d'usage, nous recommandons l'utilisation du partitionnement côté serveur car il gère les tâches d'administration du partitionnement des données et du routage des requêtes. Toutefois, si vous avez besoin d'un partitionnement par plage ou êtes confronté à un cas d'usage spécialisé pour l'isolement des performances entre les différentes valeurs de clés de partition, le partitionnement côté client peut être préférable.
+**Quand dois-je utiliser le partitionnement côté serveur ou côté client ?** Dans la majorité des cas d’usage, nous recommandons l’utilisation du partitionnement côté serveur car il gère les tâches d’administration du partitionnement des données et du routage des requêtes. Toutefois, si vous avez besoin d'un partitionnement par plage ou êtes confronté à un cas d'usage spécialisé pour l'isolement des performances entre les différentes valeurs de clés de partition, le partitionnement côté client peut être préférable.
 
 **Comment puis-je ajouter ou supprimer une collection à mon modèle de partitionnement ?**
 
@@ -164,4 +164,4 @@ Vous pouvez associer PartitionResolvers en implémentant votre propre IPartition
 * [Blog de DocumentDB avec des conseils relatifs aux performances](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

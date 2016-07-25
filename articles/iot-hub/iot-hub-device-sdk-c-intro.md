@@ -469,4 +469,23 @@ Cet article a abordé les principes de base de l’utilisation des bibliothèque
 
 Pour savoir comment utiliser les fonctionnalités de gestion des appareils dans le **Kit de développement logiciel Azure IoT device SDK pour C**, consultez [Présentation de la bibliothèque de gestion d’appareils Azure IoT Hub pour C](iot-hub-device-management-library.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+Pour en savoir plus sur le développement pour IoT Hub, consultez les [Kits SDK IoT Hub][lnk-sdks].
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
+
+[lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

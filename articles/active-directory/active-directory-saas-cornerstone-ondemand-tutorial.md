@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Cornerstone OnDemand
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
 ###Pour activer l’intégration d’applications pour Cornerstone OnDemand, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, dans la page d’intégration d’applications **Cornerstone OnDemand**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, dans la page d’intégration d’applications **Cornerstone OnDemand**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![activation de l'authentification unique](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781596.png "activation de l'authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique avec Microsoft Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781597.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Cornerstone OnDemand**, tapez votre URL selon le modèle « **http://company.csod.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Cornerstone OnDemand**, tapez votre URL selon le modèle « *http://company.csod.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781598.png "Configurer l’URL de l’application")
 
@@ -90,7 +90,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Valeur **URL de connexion distante**
     3.  Valeur **URL de déconnexion distante**
 
-    >[AZURE.NOTE]L’authentification unique doit être configurée par l’équipe du support technique Cornerstone OnDemand. Vous recevrez une notification de la part de l’équipe du support technique une fois la configuration terminée.
+    >[AZURE.NOTE] L’authentification unique doit être configurée par l’équipe du support technique Cornerstone OnDemand. Vous recevrez une notification de la part de l’équipe du support technique une fois la configuration terminée.
 
 6.  Sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -103,7 +103,7 @@ Pour se connecter à Cornerstone OnDemand, les utilisateurs d’Azure AD doivent
 
 1.  Envoyez les informations sur l’utilisateur Azure AD que vous souhaitez approvisionner (par exemple : nom, adresse e-mail) à l’équipe du support technique Cornerstone OnDemand.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur fourni par Cornerstone OnDemand pour approvisionner des comptes d’utilisateurs AAD.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur fourni par Cornerstone OnDemand pour approvisionner des comptes d’utilisateurs AAD.
 
 ##Affectation d’utilisateurs
 
@@ -111,7 +111,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Cornerstone OnDemand, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Cornerstone OnDemand**, cliquez sur **Affecter des utilisateurs**.
 
@@ -123,4 +123,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

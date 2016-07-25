@@ -36,7 +36,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 * Les machines virtuelles de série F sont un excellent choix pour les charges de travail qui exigent des processeurs plus rapides, mais n’ont pas besoin d’autant de mémoire ou de SSD local par cœur de processeur. Les charges de travail telles que l’analyse, les serveurs de jeux, les serveurs web et le traitement par lots tireront avantage de la série F.
 
-*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d'assistance.
+*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <nom de la machine>** ou **Échec de la création de la machine virtuelle <nom de la machine>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une nouvelle machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d'assistance.
 
 
 ## Considérations relatives aux performances
@@ -91,7 +91,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 ## Série A - Instances de calcul intensif
 
-Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Pour plus d’informations et pour connaître les éléments à prendre en compte pour l’utilisation de ces tailles, consultez la page [À propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
@@ -122,12 +122,12 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 |Standard\_D2\_v2 |2|7 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
 |Standard\_D3\_v2 |4|14 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
 |Standard\_D4\_v2 |8|28 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|Standard\_D5\_v2 |16|56 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
+|Standard\_D5\_v2 |16|56 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| extrêmement élevé |
 |Standard\_D11\_v2 |2|14 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
 |Standard\_D12\_v2 |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
 |Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
-|Standard\_D15\_v2 |20|140 Go|10|Temporaire (SSD) = 1 To |40|40 x 500| très élevé |
+|Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| extrêmement élevé |
+|Standard\_D15\_v2 |20|140 Go|10|Temporaire (SSD) = 1 To |40|40 x 500| extrêmement élevé |
 
 
 ## Séries DS*
@@ -143,7 +143,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 |Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde | élevé |
 |Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 512 Mo par seconde | très élevé |
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Séries DSv2*
@@ -154,15 +154,15 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 |Standard\_DS2\_v2 |2|7|2|Disque SSD local = 14 Go |4|86| 6 400 96 Mo par seconde | élevé |
 |Standard\_DS3\_v2 |4|14|4|Disque SSD local = 28 Go |8|172| 12 800 192 Mo par seconde | élevé |
 |Standard\_DS4\_v2 |8|28|8|Disque SSD local = 56 Go |16|344| 25 600 384 Mo par seconde | élevé |
-|Standard\_DS5\_v2 |16|56|8|Disque SSD local = 112 Go |32|688| 51 200 768 Mo par seconde | élevé |
+|Standard\_DS5\_v2 |16|56|8|Disque SSD local = 112 Go |32|688| 51 200 768 Mo par seconde | extrêmement élevé |
 |Standard\_DS11\_v2 |2|14|2|Disque SSD local = 28 Go |4|72| 6 400 96 Mo par seconde | élevé |
 |Standard\_DS12\_v2 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 192 Mo par seconde | élevé |
 |Standard\_DS13\_v2 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 384 Mo par seconde | élevé |
-|Standard\_DS14\_v2 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 768 Mo par seconde | très élevé |
-|Standard\_DS15\_v2 |20|140 Go|10|Disque SSD local = 280 Go |40| 720|64 000 960 Mo par seconde | très élevé |
+|Standard\_DS14\_v2 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 768 Mo par seconde | extrêmement élevé |
+|Standard\_DS15\_v2 |20|140 Go|10|Disque SSD local = 280 Go |40| 720|64 000 960 Mo par seconde | extrêmement élevé |
 
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Série F
@@ -174,7 +174,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 | Standard\_F2 | 2 | 4 Go | 2 | Temporaire (SSD) = 32 Go | 4 | 4 x 500 | élevé |
 | Standard\_F4 | 4 | 8 Go | 4 | Temporaire (SSD) = 64 Go | 8 | 8 x 500 | élevé |
 | Standard\_F8 | 8 | 16 Go | 8 | Temporaire (SSD) = 128 Go | 16 | 16 x 500 | élevé |
-| Standard\_F16 | 16 | 32 Go | 8 | Temporaire (SSD) = 256 Go | 32 | 32 x 500 | très élevé |
+| Standard\_F16 | 16 | 32 Go | 8 | Temporaire (SSD) = 256 Go | 32 | 32 x 500 | extrêmement élevé |
 
 
 
@@ -186,11 +186,11 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 | Standard\_F2s | 2 | 4 | 2 | Disque SSD local = 8 Go | 4 | 24 | 6 400 96 Mo par seconde | élevé |
 | Standard\_F4s | 4 | 8 | 4 | Disque SSD local = 16 Go | 8 | 48 | 12 800 192 Mo par seconde | élevé |
 | Standard\_F8s | 8 | 16 | 8 | Disque SSD local = 32 Go | 16 | 96 | 25 600 384 Mo par seconde | élevé |
-| Standard\_F16s | 16 | 32 | 8 | Disque SSD local = 64 Go | 32 | 192 | 51 200 768 Mo par seconde | très élevé |
+| Standard\_F16s | 16 | 32 | 8 | Disque SSD local = 64 Go | 32 | 192 | 51 200 768 Mo par seconde | extrêmement élevé |
 
 
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série Fs sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série Fs sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 
@@ -227,7 +227,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 Dans le modèle de déploiement classique, certains noms des tailles de machines virtuelles sont légèrement différents dans Powershell et l’interface de ligne de commande :
 
-* Standard\_A0 est ExtraSmall (Très petit) 
+* Standard\_A0 est ExtraSmall (Très petit)
 * Standard\_A1 est Small (Petit)
 * Standard\_A2 est Medium (Moyen)
 * Standard\_A3 est Large (Grand)
@@ -236,7 +236,7 @@ Dans le modèle de déploiement classique, certains noms des tailles de machines
 
 ## Étapes suivantes
 
-- En savoir plus sur [l’abonnement Azure et les limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
-- En savoir plus sur [l’utilisation des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
+- En savoir plus sur l’[abonnement Azure et les limites, quotas et contraintes des services](../articles/azure-subscription-service-limits.md).
+- En savoir plus sur [à propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que le calcul haute performance (HPC).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

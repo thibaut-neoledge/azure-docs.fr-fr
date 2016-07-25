@@ -35,7 +35,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015
 
-+ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Essai gratuit d’Azure][lnk-free-trial].
++ Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Essai gratuit d’Azure][lnk-free-trial].
 
 ## Associer un compte Azure Storage à IoT Hub
 
@@ -149,17 +149,18 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à tirer parti des fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et les fonctionnalités d’IoT Hub avec le didacticiel suivant :
+Dans ce didacticiel, vous avez appris à tirer parti des fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et les fonctionnalités d’IoT Hub avec les articles suivants :
 
-- [Traiter les messages des appareils vers le cloud] montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
+- [Créer un IoT Hub par programme][lnk-create-hub]
+- [Présentation du Kit de développement logiciel (SDK) C][lnk-c-sdk]
+- [Kits SDK IoT Hub][lnk-sdks]
 
-Informations supplémentaires sur IoT Hub :
+Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Vue d’ensemble d’IoT Hub]
-* [Guide du développeur d’IoT Hub]
-* [Conseils pour IoT Hub]
-* [Langages et plateformes d’appareils pris en charge][Supported devices]
-* [Centre de développement Azure IoT]
+- [Conception de votre solution][lnk-design]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 <!-- Images. -->
 
@@ -169,34 +170,31 @@ Informations supplémentaires sur IoT Hub :
 
 <!-- Links -->
 
-[Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
-
 [portail Azure]: https://portal.azure.com/
 
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Didacticiel : envoi de messages cloud-à-appareil avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Envoi de messages cloud à appareil avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Traitement des messages appareil à cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-
-[Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md
-[Conseils pour IoT Hub]: iot-hub-guidance.md
-[Guide du développeur d’IoT Hub]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Prise en main d’Azure IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Configuration de hubs IoT par le biais du portail Azure]: iot-hub-manage-through-portal.md#file-upload
 [package Azure IoT - Service SDK NuGet]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

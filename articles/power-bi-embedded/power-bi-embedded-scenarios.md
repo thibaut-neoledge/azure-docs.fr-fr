@@ -13,23 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
-# Scénarios Microsoft Power BI Embedded courants
+# Scénarios Power BI Embedded courants
 
-La version préliminaire de **Microsoft Power BI Embedded** se concentre principalement sur l'exposition de la majorité des fonctionnalités existantes de l'API Power BI dans le cadre d'un service Azure vous permettant de développer vos applications. Vous pourrez en outre configurer par programmation, développer et déployer les ressources nécessaires et le contenu Power BI. Pour en savoir plus, consultez [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+**Microsoft Power BI Embedded** se concentre principalement sur l’exposition de la majorité des fonctionnalités existantes de l’API Power BI dans le cadre d’un service Azure vous permettant de développer vos applications. Vous pourrez en outre configurer par programmation, développer et déployer les ressources nécessaires et le contenu Power BI. Pour en savoir plus, consultez [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 Voici quelques scénarios d'utilisation de **Power BI Embedded** dans vos applications.
 
 - Les rapports interactifs créés dans Power BI Desktop peuvent être incorporés dans votre propre application à l'aide d'un nouveau modèle de jeton d'authentification d'application.
-- Les éditeurs de logiciels indépendants et les entreprises qui conçoivent des applications orientées client peuvent utiliser le service **Power BI Embedded** et le Kit de développement logiciel (SDK) Power BI pour incorporer des rapports interactifs. Pour en savoir plus, consultez [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- Les éditeurs de logiciels indépendants et les entreprises qui conçoivent des applications orientées client peuvent utiliser le service **Power BI Embedded** et le Kit de développement logiciel (SDK) Power BI pour incorporer des rapports interactifs. Pour découvrir comment, consultez [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 - En tant que développeur, vous pouvez utiliser l'infrastructure de visualisation Power BI pour créer des visualisations personnalisées utilisables dans votre propre application. Consultez [Développer Power BI avec des éléments visuels personnalisés](https://powerbi.microsoft.com/custom-visuals/).
 
-## Voir aussi
+### Voir aussi
 
-- [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
+- [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Prise en main de l'exemple](power-bi-embedded-get-started.md)
-- [Développer Power BI avec des éléments visuels personnalisés](https://powerbi.microsoft.com/custom-visuals/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -54,15 +54,25 @@ Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution 
 
 ## Étapes suivantes
 
-Suivez ces liens pour en savoir plus sur Azure IoT Hub :
+Pour explorer davantage les capacités de IoT Hub, consultez :
 
-- [Prise en main d'IoT Hub (didacticiel)][lnk-get-started]
-- [Qu’est-ce qu’Azure IoT Hub ?][]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [quotas et limitations IoT Hub]: iot-hub-devguide.md#throttling
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
+[lnk-design]: iot-hub-guidance.md
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

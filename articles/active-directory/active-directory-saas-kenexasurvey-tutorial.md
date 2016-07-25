@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -58,7 +58,7 @@ Pour configurer son intégration à Azure AD, vous devez ajouter IBM Kenexa Surv
 
 **Pour ajouter IBM Kenexa Survey Enterprise à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
  - Le fichier de certificat téléchargé
  - L’**URL de l’émetteur**
- - L’**URL d’authentification unique SAML** 
+ - L’**URL d’authentification unique SAML**
  - L’**URL du service d’authentification unique**
 
 	> [AZURE.NOTE] Remarque : la valeur de revendication NameID de la réponse doit correspondre à l’ID d’authentification unique configuré au sein du système Kenexa. Nous vous invitons à collaborer avec l’équipe de support technique Kenexa pour mapper l’identificateur d’utilisateur approprié dans votre organisation, en tant qu’ID d’authentification unique. Par défaut, Azure AD définit la valeur NameIdentifier en tant que valeur UPN. Pour modifier ce paramètre, accédez à l’onglet Attribut, comme indiqué dans la capture d’écran ci-dessous. L’intégration ne fonctionnera qu’une fois le mappage correct effectué.
@@ -289,4 +289,4 @@ Lorsque vous cliquez sur la vignette IBM Kenexa Survey Enterprise dans le volet 
 [204]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

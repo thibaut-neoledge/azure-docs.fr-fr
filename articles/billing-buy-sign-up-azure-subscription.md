@@ -90,4 +90,4 @@ Si vous avez acheté des crédits Azure dans Open auprès d’un revendeur et si
 
 3. Entrez la clé de produit, puis activez l’option indiquant votre consentement.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

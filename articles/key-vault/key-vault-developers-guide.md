@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/25/2016"
+   ms.date="07/07/2016"
    ms.author="bruceper" />
 
 # Guide du développeur de coffre de clés Azure
@@ -64,9 +64,9 @@ Vous pouvez, sous réserve d’autorisation, exécuter les opérations suivantes
 
 Les kits de développement logiciel (SDL) suivants sont disponibles pour une utilisation avec le coffre de clés :
 
-|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[Documentation du Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentation du Kit de développement logiciel (SDK) Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[Documentation du Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/mt430941.aspx)|[Documentation du Kit de développement logiciel (SDK) Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Package du Kit de développement logiciel (SDK) .NET](https://azure.microsoft.com/documentation/api/)|[Package du Kit de développement logiciel (SDK) Node.js](https://www.npmjs.com/package/azure-keyvault)|
 
 
@@ -84,8 +84,9 @@ Les articles et scénarios suivants fournissent des conseils spécifiques sur l�
 - [Utilisation de Key Vault pour la gestion extensible de clés avec SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) : le connecteur SQL Server pour Azure Key Vault permet à SQL Server et à SQL-in-a-VM d'exploiter le service Azure Key Vault comme un fournisseur de gestion extensible de clés (EKM) afin de protéger ses clés de chiffrement pour le lien des applications ; chiffrement transparent des données, chiffrement de sauvegarde et chiffrement au niveau des colonnes.
 - [Comment déployer des certificats sur des machines virtuelles à partir du coffre de clés](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Une application cloud s’exécutant sur une machine virtuelle sur Azure a besoin d’un certificat. Comment obtenir ce certificat sur cette machine virtuelle dès aujourd’hui ?
 - [Comment intégrer le coffre de clés à Azure Disk Encryption pour des machines virtuelles Iaas Windows et Linux](../azure-security-disk-encryption.md) - La solution est intégrée au coffre de clés Azure pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets de votre abonnement au coffre de clés, tout en vous assurant que toutes les données des disques virtuels sont chiffrées au repos dans le stockage Azure.
+- [Configuration du coffre de clés avec une rotation des clés et un audit de bout en bout](key-vault-key-rotation-log-monitoring.md) - Cet article décrit comment configurer la rotation des clés et l’audit avec Azure Key Vault.
 
-Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles ARM de Ryan Jones pour le coffre de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
+Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles ARM de Ryan Jones pour le coffre de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## Intégration avec Key Vault
 
@@ -104,4 +105,4 @@ Ces articles concernent d’autres scénarios et services qui utilisent ou intè
 - [Blog de Key Vault](http://aka.ms/kvblog)
 - [Forum de Key Vault](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

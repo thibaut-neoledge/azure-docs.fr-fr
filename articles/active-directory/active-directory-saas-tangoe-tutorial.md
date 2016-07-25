@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration de Tangoe Command Premium Mobile à Azure AD, 
 
 **Pour ajouter Tangoe Command Premium Mobile à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -126,7 +126,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 	![Configurer l’authentification unique](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png)
 
 
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL qu’utilisent vos utilisateurs pour se connecter à votre application Tangoe Command Premium Mobile selon le modèle suivant : **« https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<émetteur de client>&Target=<URL de la page cible> »**.
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL qu’utilisent vos utilisateurs pour se connecter à votre application Tangoe Command Premium Mobile selon le modèle suivant : ** « https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<émetteur de client>&Target=<URL de la page cible> »**.
 
 	b. Dans la zone de texte **URL de réponse**, tapez l’URL selon le modèle suivant : **« https://sso.tangoe.com/sp/ACS.saml2 »**.
 
@@ -255,7 +255,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils du bas, cliquez sur **Attribuer**.
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
 
 ![Affecter des utilisateurs][205]
 
@@ -293,4 +293,4 @@ Quand vous cliquez sur la vignette Tangoe Command Premium Mobile dans le volet d
 [204]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

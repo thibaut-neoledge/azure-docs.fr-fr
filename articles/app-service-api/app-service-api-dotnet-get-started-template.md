@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="04/13/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Prise en main d’Azure App Service et de l’API Web ASP.NET 2 avec Visual Studio
 
@@ -263,4 +263,4 @@ Une fois que vous aurez configuré votre application web ASP.NET dans Azure App 
 
 Dans ce didacticiel, vous avez appris à créer une API Web simple et à la déployer sur une application API dans Azure App Service. Pour une présentation des fonctionnalités App Service qui facilitent le développement et l’utilisation des API Web, consultez la série de didacticiels qui commence par [Prise en main des applications API et d’ASP.NET](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

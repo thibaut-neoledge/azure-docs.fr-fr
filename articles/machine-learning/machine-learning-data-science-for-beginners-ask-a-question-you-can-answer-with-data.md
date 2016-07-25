@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Poser une question à laquelle les données permettent de répondre : vidéo Science des données pour les débutants nº 3 | Microsoft Azure"
+   pageTitle="Poser une question à laquelle les données permettent de répondre - formuler des questions | Microsoft Azure"
    description="Découvrez comment formuler une question de science des données dans la vidéo Science des données pour les débutants nº 3. Inclut une comparaison des questions de classification et de régression."
    keywords="choisir une question,questions de science des données, formuler une question,formuler des questions,questions de régression,questions de classification,question précise"
    services="machine-learning"
@@ -17,7 +17,7 @@
    ms.date="06/28/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Vidéo Science des données pour les débutants nº 3 : Poser une question à laquelle les données permettent de répondre 
+# Vidéo Science des données pour les débutants nº 3 : Poser une question à laquelle les données permettent de répondre
 
 Découvrez comment formuler une question de science des données dans la vidéo Science des données pour les débutants nº 3. Cette vidéo inclut une comparaison des questions faisant appel aux algorithmes de classification et de régression.
 
@@ -97,6 +97,6 @@ La série *Science des données pour les débutants* offre une introduction rapi
 ## Étapes suivantes
 
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de l’apprentissage automatique sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

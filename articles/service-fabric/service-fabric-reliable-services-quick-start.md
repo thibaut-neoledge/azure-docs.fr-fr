@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Prise en main de Service Fabric Reliable Services
@@ -24,11 +24,11 @@ Une application Azure Service Fabric contient un ou plusieurs services qui exéc
 
 Un service sans état est un type de service qui correspond actuellement à la norme pour les applications cloud. Le service lui-même est considéré comme étant sans état, car il ne contient pas de données à stocker de manière fiable ou à rendre hautement disponibles. Si une instance d’un service sans état est arrêtée, tout son état interne est perdu. Dans ce type de service, l’état doit être conservé dans un magasin externe, comme des tables Azure ou une base de données SQL, pour être hautement disponible et fiable.
 
-Lancez Visual Studio 2015 RC en tant qu’administrateur et créez un projet d’application Service Fabric nommé *HelloWorld* :
+Lancez Visual Studio 2015 en tant qu’administrateur et créez un projet d’application Service Fabric nommé *HelloWorld* :
 
 ![Utiliser la boîte de dialogue Nouveau projet pour créer une application Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Créez ensuite un projet de service sans état nommé *HelloWorldStateless* :
+Créez ensuite un projet de service sans état nommé *HelloWorldStateless* :
 
 ![Dans la deuxième boîte de dialogue, créer un projet de service sans état](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -70,7 +70,7 @@ Dans ce didacticiel, nous allons nous concentrer sur la méthode de point d’en
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic 
+    // TODO: Replace the following sample code with your own logic
     //       or remove this RunAsync override if it's not needed in your service.
 
     long iterations = 0;
@@ -122,7 +122,7 @@ Ouvrez **HelloWorldStateful.cs** dans *HelloWorldStateful* qui contient la méth
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic 
+    // TODO: Replace the following sample code with your own logic
     //       or remove this RunAsync override if it's not needed in your service.
 
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
@@ -140,7 +140,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
 
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
             // discarded, and nothing is saved to the secondary replicas.
             await tx.CommitAsync();
         }
@@ -159,11 +159,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-*IReliableDictionary* est une implémentation de dictionnaire qui peut servir à stocker de façon fiable l’état dans le service. Avec Service Fabric et les collections fiables, vous pouvez stocker des données directement dans votre service sans avoir besoin d’un magasin persistant externe. Les Reliable Collections rendent vos données hautement disponibles. Pour ce faire, Service Fabric crée et gère plusieurs *réplicas* de votre service pour vous. Il fournit également une API qui élimine la complexité de la gestion de ces réplicas et leurs transitions d’état.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) est une implémentation de dictionnaire qui peut servir à stocker de façon fiable l’état dans le service. Avec Service Fabric et les collections fiables, vous pouvez stocker des données directement dans votre service sans avoir besoin d’un magasin persistant externe. Les Reliable Collections rendent vos données hautement disponibles. Pour ce faire, Service Fabric crée et gère plusieurs *réplicas* de votre service pour vous. Il fournit également une API qui élimine la complexité de la gestion de ces réplicas et leurs transitions d’état.
 
 Les collections fiables peuvent stocker n’importe quel type .NET, y compris vos types personnalisés, avec quelques inconvénients :
 
- - Service Fabric rend votre état hautement disponible en *répliquant* l’état sur tous les nœuds et les Reliable Collections stockent vos données sur le disque local de chaque réplica. Cela signifie que tout ce qui est stocké dans les Reliable Collections doit être *sérialisable*. Par défaut, les Reliable Collections utilisent [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) pour la sérialisation. Il est donc important de s’assurer que vos types soient [pris en charge par le sérialiseur de contrat de données](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) quand vous utilisez le sérialiseur par défaut.
+ - Service Fabric rend votre état hautement disponible en *répliquant* l’état sur tous les nœuds, et les Reliable Collections stockent vos données sur le disque local de chaque réplica. Cela signifie que tout ce qui est stocké dans les Reliable Collections doit être *sérialisable*. Par défaut, les Reliable Collections utilisent [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) pour la sérialisation. Il est donc important de vérifier que vos types sont [pris en charge par le sérialiseur de contrat de données](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) quand vous utilisez le sérialiseur par défaut.
 
  - Les objets sont répliqués à des fins de haute disponibilité quand vous envoyez des transactions sur des collections fiables. Les objets stockés dans les collections fiables sont conservés dans la mémoire locale de votre service. Cela signifie que vous avez une référence locale à l’objet.
 
@@ -186,15 +186,15 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 Les Reliable Collections ont de nombreuses opérations en commun avec leurs équivalents `System.Collections.Generic` et `System.Collections.Concurrent`, sauf LINQ. Les opérations sur les Reliable Collections sont asynchrones. Ceci est dû au fait que les opérations d’écriture avec les Reliable Collections exécutent des opérations E/S pour répliquer et faire persister les données sur le disque.
 
-Les opérations des Reliable Collections sont *transactionnelles*, de sorte que vous pouvez conserver un état cohérent entre plusieurs Reliable Collections et opérations. Vous pouvez, par exemple, retirer un élément de travail d'une File d'attente fiable, effectuer une opération sur ce dernier et enregistrer le résultat dans un Dictionnaire fiable, le tout dans une transaction unique. Ces opérations sont traitées comme une seule opération atomique, ce qui garantit soit son succès total, soit son échec total. Si une erreur se produit une fois que vous avez retiré l’élément de la file d’attente, mais avant d’enregistrer le résultat, la transaction entière est annulée et l’élément reste dans la file d’attente à des fins de traitement.
+Les opérations des Reliable Collections sont *transactionnelles*. Ainsi, vous pouvez conserver un état cohérent entre plusieurs Reliable Collections et opérations. Vous pouvez, par exemple, retirer un élément de travail d'une File d'attente fiable, effectuer une opération sur ce dernier et enregistrer le résultat dans un Dictionnaire fiable, le tout dans une transaction unique. Ces opérations sont traitées comme une seule opération atomique, ce qui garantit soit son succès total, soit son échec total. Si une erreur se produit une fois que vous avez retiré l’élément de la file d’attente, mais avant d’enregistrer le résultat, la transaction entière est annulée et l’élément reste dans la file d’attente à des fins de traitement.
 
 ## Exécution de l'application
 
 Revenons maintenant à l’application *HelloWorld*. Vous pouvez désormais générer et déployer vos services. Quand vous appuyez sur **F5**, votre application est générée et déployée sur votre cluster local.
 
-Une fois que les services commencent à s’exécuter, vous pouvez afficher les événements ETW (Suivi d’événements pour Windows) générés dans une fenêtre **Événements de diagnostic**. Notez que les événements affichés proviennent à la fois du service sans état et du service avec état dans l’application. Vous pouvez interrompre le flux en cliquant sur le bouton **Suspendre**. Vous pouvez ensuite examiner les détails d’un message en développant ce message.
+Une fois que les services commencent à s’exécuter, vous pouvez afficher les événements ETW (Event Tracing for Windows, Suivi d’événements pour Windows) générés dans une fenêtre **Événements de diagnostic**. Notez que les événements affichés proviennent à la fois du service sans état et du service avec état dans l’application. Vous pouvez interrompre le flux en cliquant sur le bouton **Suspendre**. Vous pouvez ensuite examiner les détails d’un message en développant ce message.
 
->[AZURE.NOTE] Avant d’exécuter l’application, assurez-vous qu’un cluster de développement local est en cours d’exécution. Consultez le [guide de prise en main](service-fabric-get-started.md) pour plus d’informations sur la configuration de votre environnement local.
+>[AZURE.NOTE] Avant d’exécuter l’application, assurez-vous qu’un cluster de développement local est en cours d’exécution. Pour plus d’informations sur la configuration de votre environnement local, consultez le [guide de prise en main](service-fabric-get-started.md).
 
 ![Afficher les événements de diagnostic dans Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
@@ -213,4 +213,4 @@ Une fois que les services commencent à s’exécuter, vous pouvez afficher les 
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

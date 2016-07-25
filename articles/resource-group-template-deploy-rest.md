@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/11/2016"
    ms.author="tomfitz"/>
 
 # Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager
@@ -93,4 +93,4 @@ Votre modèle peut être un fichier local ou un fichier externe disponible par l
 - Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
 - Pour plus d’informations sur l’utilisation d’une référence Key Vault pour transmettre des valeurs sécurisées, consultez [Transmettre des valeurs sécurisées pendant le déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

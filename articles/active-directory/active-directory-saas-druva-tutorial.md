@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Druva
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’applications pour D
 
 ###Pour activer l’intégration d’applications pour Druva, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-druva-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ Votre application Druva attend les assertions SAML dans un format spécifique, c
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, dans la page d’intégration d’applications **Druva**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Sur la page d’intégration d’applications **Druva** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-druva-tutorial/IC795027.png "Configurer l’authentification unique")
 
@@ -80,7 +80,7 @@ Votre application Druva attend les assertions SAML dans un format spécifique, c
 
     ![Configurer l’authentification unique](./media/active-directory-saas-druva-tutorial/IC795088.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Druva**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Druva (par exemple, "**https://cloud.druva.com/home/*”), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Druva**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Druva (par exemple, « *https://cloud.druva.com/home/*”), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-druva-tutorial/IC795089.png "Configurer l’URL de l’application")
 
@@ -98,11 +98,11 @@ Votre application Druva attend les assertions SAML dans un format spécifique, c
 
     ![Paramètres d’authentification unique](./media/active-directory-saas-druva-tutorial/IC795092.png "Paramètres d’authentification unique")
 
-    1.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Druva** de la boîte de dialogue, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **ID Provider Login URL**.
-    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Druva**, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **ID Provider Logout URL**.
-    3.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    1.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Druva** de la boîte de dialogue, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **ID Provider Login URL**.
+    2.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Druva**, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **ID Provider Logout URL**.
+    3.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     4.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **ID Provider Certificate**.
     5.  Pour ouvrir la page **Settings**, cliquez sur**Save**.
@@ -118,7 +118,7 @@ Votre application Druva attend les assertions SAML dans un format spécifique, c
     1.  Cliquez sur**Copy**.
     2.  Cliquez sur **Fermer**.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-druva-tutorial/IC795095.png "Configurer l’authentification unique")
 
@@ -161,7 +161,7 @@ Pour se connecter à Druva, les utilisateurs d’Azure AD doivent être approvis
     1.  Indiquez l’adresse e-mail et le nom d’un compte d’utilisateur Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
     2.  Cliquez sur **Create User**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Druva pour approvisionner des comptes d’utilisateurs AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Druva pour approvisionner des comptes d’utilisateurs AAD.
 
 ##Affectation d’utilisateurs
 
@@ -169,7 +169,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Druva, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Druva**, cliquez sur **Affecter des utilisateurs**.
 
@@ -181,4 +181,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

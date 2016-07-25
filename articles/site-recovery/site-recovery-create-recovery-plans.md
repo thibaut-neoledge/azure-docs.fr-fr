@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/01/2016" 
+	ms.date="07/08/2016" 
 	ms.author="raynew"/>
 
 # Créer des plans de récupération
@@ -73,10 +73,10 @@ Pour créer un plan de récupération, procédez comme suit :
 
 1. Cliquez sur l’onglet **Plans de récupération**, puis sur **Créer un plan de récupération**. Spécifiez un nom pour le plan de récupération, puis définissez une source et une cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source.
 
-	- Si vous exécutez une réplication de VMM vers VMM, sélectionnez **Type de source** > **VMM**, puis les serveurs VMM source et cible. Cliquez sur **Hyper-V** afin d’afficher les clouds qui sont configurés pour l’utilisation de Réplica Hyper-V. 
+	- Si vous exécutez une réplication de VMM vers VMM, sélectionnez **Type de source** > **VMM**, puis les serveurs VMM source et cible. Cliquez sur **Hyper-V** afin d’afficher les clouds qui sont configurés pour l’utilisation de Réplica Hyper-V.
 	- Si vous exécutez une réplication de VMM vers VMM à l’aide d’un réseau SAN, sélectionnez **Type de source** > **VMM**, puis les serveurs VMM source et cible. Pour afficher les clouds configurés pour la réplication SAN, cliquez sur **SAN**.
 	- Si vous exécutez une réplication de VMM vers Azure, sélectionnez **Type de source** > **VMM**. Sélectionnez le serveur VMM source et **Azure** en tant que cible.
-	- Si vous effectuez une réplication à partir d’un site Hyper-V, sélectionnez **Type de source** > **Site Hyper-V**. Sélectionnez le site en tant que source et **Azure **en tant que cible.
+	- Si vous effectuez une réplication à partir d’un site Hyper-V, sélectionnez **Type de source** > **Site Hyper-V**. Sélectionnez le site en tant que source et **Azure** en tant que cible.
 	- Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
 
 2. Dans **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles (ou le groupe de réplication) que vous voulez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
@@ -86,7 +86,7 @@ Pour créer un plan de récupération, procédez comme suit :
 Une fois que vous avez ajouté les machines virtuelles protégées ou les groupes de réplication au groupe par défaut du plan de récupération et créé le plan, vous pouvez le personnaliser :
 
 - **Ajouter des groupes** : il est possible d’ajouter des groupes supplémentaires au plan de récupération. Les groupes sont numérotés dans l’ordre dans lequel vous les ajouter. Vous pouvez ajouter jusqu’à sept groupes. Une fois que vous les avez ajoutés, vous pouvez y intégrer davantage de machines ou de groupes de réplication. Notez que les machines virtuelles et les groupes de réplication peuvent être incorporés au sein d’un seul plan de récupération.
-- **Ajouter un script **: ajoutez des scripts avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous associez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 sera créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Notez que pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé.
+- **Ajouter un script** : vous pouvez ajouter des scripts avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous associez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 sera créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Notez que pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé.
 - **Ajouter une action manuelle** : il est possible d’ajouter des actions manuelles qui s’exécutent avant ou après un groupe de plan de récupération. Lorsque le plan de récupération s’exécute, il est arrêté au point d’insertion de l’action manuelle, et une boîte de dialogue vous invite à confirmer la bonne réalisation de l’action manuelle.
 
 ## Étendre des plans de récupération avec des scripts
@@ -115,7 +115,7 @@ Pour étendre votre plan de récupération, exécutez un Runbook Automation Pl
 1. Ouvrez le plan de récupération que vous souhaitez personnaliser.
 2. Cliquez pour ajouter une machine virtuelle ou un groupe.
 3. Pour ajouter un script ou une action manuelle, cliquez sur un élément de la liste **Étape,** puis cliquez sur **Script** ou sur **Action manuelle**. Indiquez si vous souhaitez ajouter le script ou l’action avant ou après l’élément sélectionné. Utilisez les boutons de commande de **Déplacement vers le haut** et de **Déplacement vers le bas** pour faire monter ou descendre le script.
-4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Ainsi, dans le cadre de notre exemple où le partage est situé à l’emplacement \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, définissez le chemin d’accès : \\RPScripts\\RPScript.PS1.
+4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Ainsi, dans le cadre de notre exemple où le partage est situé à l’emplacement \\<VMMServerName>\\MSSCVMMLibrary\\RPScripts, définissez le chemin : \\RPScripts\\RPScript.PS1.
 5. Si vous ajoutez un Runbook Azure Automation, spécifiez le **Compte Azure Automation** dans lequel se trouve le Runbook, puis sélectionnez le **Script Runbook Azure** approprié.
 5. Exécutez un basculement du plan de récupération, afin de vous assurer du bon fonctionnement du script.
 
@@ -127,4 +127,4 @@ Vous pouvez exécuter différents types de basculements de plan de récupératio
 
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Différences entre les services cloud et Service Fabric | Microsoft Azure"
+   pageTitle="Différences entre les services cloud et Service Fabric | Microsoft Azure"
    description="Aperçu conceptuel pour apprendre à migrer des applications à partir des services cloud vers Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Découvrez les différences entre les services cloud et Service Fabric avant de migrer les applications.
@@ -29,20 +29,20 @@ L’une des principales différences entre les services cloud et Service Fabric 
  
 ![Topologie et applications de service cloud][1]
 
- - **Service Fabric vise à déployer des applications sur des machines virtuelles existantes ou sur des ordinateurs exécutant Service Fabric sur Windows ou Linux.** Les services que vous écrivez sont complètement dissociés de l’infrastructure sous-jacente, qui est éliminée par la plateforme d’application de Service Fabric. De ce fait, une application peut être déployée dans plusieurs environnements. Une charge de travail dans Service Fabric est appelée un « service », et un ou plusieurs services peuvent être regroupés dans une application formellement définie qui s’exécute sur la plateforme d’application Service Fabric. Plusieurs applications peuvent être déployées dans un seul cluster Service Fabric.
+ - **Service Fabric vise à déployer des applications sur des machines virtuelles existantes ou sur des ordinateurs exécutant Service Fabric sur Windows ou Linux.** Les services que vous écrivez sont complètement dissociés de l’infrastructure sous-jacente, qui est éliminée par la plateforme d’application de Service Fabric. De ce fait, une application peut être déployée dans plusieurs environnements. Une charge de travail dans Service Fabric est appelée un « service », et un ou plusieurs services peuvent être regroupés dans une application formellement définie qui s’exécute sur la plateforme d’application Service Fabric. Plusieurs applications peuvent être déployées dans un seul cluster Service Fabric.
  
 ![Topologie et applications Service Fabric][2]
  
-Service Fabric correspond à une couche de plateforme d’application qui s’exécute sur Windows ou Linux, alors que les services cloud constituent un système de déploiement de machines virtuelles gérées par Azure avec des charges de travail jointes. Le modèle d’application Service Fabric présente plusieurs avantages :
+Service Fabric correspond à une couche de plateforme d’application qui s’exécute sur Windows ou Linux, alors que les services cloud constituent un système de déploiement de machines virtuelles gérées par Azure avec des charges de travail jointes. Le modèle d’application Service Fabric présente plusieurs avantages :
 
  - Temps de déploiement rapide. La création d’instances de machine virtuelle peut prendre beaucoup de temps. Dans Service Fabric, les machines virtuelles sont déployées une seule fois pour former un cluster qui héberge la plateforme d’application Service Fabric. À ce stade, les packages d’application peuvent être déployés vers le cluster très rapidement.
- - Hébergement de haute densité. Dans les services cloud, une machine virtuelle de rôle de travail héberge une charge de travail. Dans Service Fabric, les applications sont séparées des machines virtuelles qui les exécutent, ce qui signifie que vous pouvez déployer un grand nombre d’applications sur un petit nombre de machines virtuelles. Résultat : une diminution des coûts globaux pour des déploiements plus importants.
- - La plateforme Service Fabric peut s’exécuter sur n’importe quel système incluant des ordinateurs Windows Server ou Linux, qu’il s’agisse d’Azure ou d’un système sur site. La plateforme fournit une couche d’abstraction au-dessus de l’infrastructure sous-jacente pour permettre d’exécuter votre application sur différents environnements. 
- - Gestion des applications distribuées. La plateforme Service Fabric ne se contente pas d’héberger les applications distribuées : elle permet également de gérer leur cycle de vie indépendamment de la machine virtuelle hôte ou du cycle de vie de la machine.
+ - Hébergement de haute densité. Dans les services cloud, une machine virtuelle de rôle de travail héberge une charge de travail. Dans Service Fabric, les applications sont séparées des machines virtuelles qui les exécutent, ce qui signifie que vous pouvez déployer un grand nombre d’applications sur un petit nombre de machines virtuelles. Résultat : une diminution des coûts globaux pour des déploiements plus importants.
+ - La plateforme Service Fabric peut s’exécuter sur n’importe quel système incluant des ordinateurs Windows Server ou Linux, qu’il s’agisse d’Azure ou d’un système sur site. La plateforme fournit une couche d’abstraction au-dessus de l’infrastructure sous-jacente pour permettre d’exécuter votre application sur différents environnements.
+ - Gestion des applications distribuées. La plateforme Service Fabric ne se contente pas d’héberger les applications distribuées : elle permet également de gérer leur cycle de vie indépendamment de la machine virtuelle hôte ou du cycle de vie de la machine.
 
 ## Architecture de l'application
 
-L’architecture d’une application de service cloud inclut généralement de nombreuses dépendances de services externes, comme Service Bus, les tables et le stockage d’objets blob Azure, SQL, Redis etc., pour gérer l’état et les données d’une application et la communication entre les rôles web et de travail dans un déploiement de services cloud. Voici un exemple d’application de services cloud complète :
+L’architecture d’une application de service cloud inclut généralement de nombreuses dépendances de services externes, comme Service Bus, les tables et le stockage d’objets blob Azure, SQL, Redis etc., pour gérer l’état et les données d’une application et la communication entre les rôles web et de travail dans un déploiement de services cloud. Voici un exemple d’application de services cloud complète :
 
 ![Architecture des services cloud][9]
 
@@ -50,7 +50,12 @@ Les applications Service Fabric peuvent également opter pour l’utilisation de
 
 ![Architecture Service Fabric après une migration simple][10]
 
-À ce stade, le système doit continuer à fonctionner comme avant. En tirant profit des fonctionnalités avec état de Service Fabric, les magasins d’état externe peuvent être internalisés sous forme de services avec état le cas échéant. Cela est plus complexe qu’une simple migration de rôles web et de travail vers les services sans état Service Fabric, car il est nécessaire d’écrire les services personnalisés qui fournissent à votre application des fonctionnalités équivalentes à celles fournies auparavant par les services externes. Les avantages de cette méthode sont notamment la suppression des dépendances externes et l’unification du déploiement, de la gestion et des modèles de mise à niveau. Voici un exemple d’architecture résultant de l’internalisation de ces services :
+À ce stade, le système doit continuer à fonctionner comme avant. En tirant profit des fonctionnalités avec état de Service Fabric, les magasins d’état externe peuvent être internalisés sous forme de services avec état le cas échéant. Cela est plus complexe qu’une simple migration de rôles web et de travail vers les services sans état Service Fabric, car il est nécessaire d’écrire les services personnalisés qui fournissent à votre application des fonctionnalités équivalentes à celles fournies auparavant par les services externes. Les avantages sont les suivants :
+
+ - Suppression des dépendances externes
+ - Unification des modèles de mise à niveau, de gestion et de déploiement
+ 
+Voici un exemple d’architecture résultant de l’internalisation de ces services :
 
 ![Architecture Service Fabric après une migration complète][11]
 
@@ -64,9 +69,9 @@ Avec la communication directe, les niveaux peuvent communiquer directement par l
 
 ![Communication directe des services cloud][5]
 
- La communication directe est un modèle de communication courant dans Service Fabric. La principale différence entre Service Fabric et les services cloud est que dans les services cloud, vous vous connectez à une machine virtuelle, tandis que dans Service Fabric, vous vous connectez à un service. Cette distinction est importante pour plusieurs raisons :
+ La communication directe est un modèle de communication courant dans Service Fabric. La principale différence entre Service Fabric et les services cloud est que dans les services cloud, vous vous connectez à une machine virtuelle, tandis que dans Service Fabric, vous vous connectez à un service. Cette distinction est importante pour plusieurs raisons :
 
- - Les services dans Service Fabric ne sont pas liés aux machines virtuelles qui les hébergent ; les services peuvent se déplacer au sein du cluster et en réalité, ils doivent même se déplacer pour différentes raisons : équilibrage des ressources, basculement, mises à niveau de l’application et de l’infrastructure, contraintes de positionnement ou de charge. Cela signifie que l’adresse d’une instance de service peut changer à tout moment. 
+ - Les services dans Service Fabric ne sont pas liés aux machines virtuelles qui les hébergent ; les services peuvent se déplacer au sein du cluster et en réalité, ils doivent même se déplacer pour différentes raisons : équilibrage des ressources, basculement, mises à niveau de l’application et de l’infrastructure, contraintes de positionnement ou de charge. Cela signifie que l’adresse d’une instance de service peut changer à tout moment.
  - Une machine virtuelle dans Service Fabric peut héberger plusieurs services, chacun avec des points de terminaison uniques.
 
 Service Fabric fournit un mécanisme de découverte de service, appelé service d’affectation de noms, qui peut être utilisé pour résoudre les adresses de point de terminaison des services.
@@ -87,7 +92,7 @@ Le même modèle de communication peut être utilisé dans Service Fabric. Cela 
 
 Le moyen le plus simple de migrer des services cloud vers Service Fabric est de remplacer uniquement le déploiement des services cloud par une application Service Fabric, tout en conservant l’architecture globale de votre application presque inchangée. L’article suivant fournit un guide pour vous aider à convertir un rôle web ou de travail en service sans état Service Fabric.
 
- - [Migration simple : convertir un rôle web ou de travail en service sans état Service Fabric](./service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+ - [Migration simple : convertir un rôle web ou de travail en service sans état Service Fabric](./service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png
@@ -100,4 +105,4 @@ Le moyen le plus simple de migrer des services cloud vers Service Fabric est de 
 [10]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-simple.png
 [11]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-full.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

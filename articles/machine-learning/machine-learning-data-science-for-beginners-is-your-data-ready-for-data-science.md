@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Vos données sont-elles prêtes pour la science des données ? (évaluation des données) - Science des données pour les débutants| Microsoft Azure"
+   pageTitle="Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Azure"
    description="Découvrez les 4 critères indiquant que vos données sont prêtes pour la science des données. La vidéo 2 de la série Science des données pour les débutants contient des exemples concrets pour faciliter l’évaluation de données de base."
    keywords="évaluation des données,données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes"
    services="machine-learning"
@@ -114,6 +114,6 @@ La série *Science des données pour les débutants* offre une introduction rapi
 ## Étapes suivantes
 
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de l’apprentissage automatique sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

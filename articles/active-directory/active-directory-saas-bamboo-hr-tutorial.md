@@ -4,19 +4,19 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à BambooHR
 
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et BambooHR.  
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et BambooHR.
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour B
 
 ###Pour activer l’intégration d’applications pour BambooHR, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-bamboo-hr-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **BambooHR**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **BambooHR**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Scénario](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scénario")
 
@@ -79,7 +79,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bamboo-hr-tutorial/IC796688.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application BambooHR (par exemple, https://company.bamboohr.com)) puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application BambooHR (par exemple, https://company.bamboohr.com) puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-bamboo-hr-tutorial/IC796689.png "Configurer l’URL de l’application")
 
@@ -94,46 +94,46 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
     ![Authentification unique](./media/active-directory-saas-bamboo-hr-tutorial/IC796691.png "Authentification unique")
 
     1.  Cliquez sur **Applications**.
-    2.  Dans le menu des applications sur la gauche, cliquez sur **Authentification unique**.
-    3.  Cliquez sur **Authentification unique SAML**.
+    2.  Dans le menu des applications sur la gauche, cliquez sur **Single Sign-On**.
+    3.  Cliquez sur **SAML Single Sign-On**.
 
-7.  Dans la section **Authentification unique SAML**, procédez comme suit :
+7.  Dans la section **SAML Single Sign-On**, procédez comme suit :
 
     ![Authentification unique SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Authentification unique SAML")
 
-    1.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur BambooHR**, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL de connexion d’authentification unique**.
-    2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    1.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur BambooHR**, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **SSO Login URL**.
+    2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
     4.  Cliquez sur **Enregistrer**.
 
-8.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+8.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
 
-Pour permettre aux utilisateurs Azure AD de se connecter à BambooHR, vous devez les approvisionner dans BambooHR.  
+Pour permettre aux utilisateurs Azure AD de se connecter à BambooHR, vous devez les approvisionner dans BambooHR.
 En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 ###Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
 1.  Connectez-vous à votre site **BambooHR** en tant qu’administrateur.
 
-2.  Dans la barre d’outils située en haut, cliquez sur **Paramètres**.
+2.  Dans la barre d’outils située en haut, cliquez sur **Settings**.
 
     ![Paramètre](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Paramètre")
 
-3.  Cliquez sur **Aperçu**.
+3.  Cliquez sur **Overview**.
 
-4.  Dans le volet de navigation de gauche, accédez à **Sécurité > Utilisateurs**.
+4.  Dans le volet de navigation de gauche, accédez à **Security > Users**.
 
 5.  Tapez le nom d’utilisateur, le mot de passe et l’adresse de messagerie d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
 
 6.  Cliquez sur **Enregistrer**.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par BambooHR pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par BambooHR pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
 ##Affectation d’utilisateurs
 
@@ -141,7 +141,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à BambooHR, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **BambooHR**, cliquez sur **Affecter des utilisateurs**.
 
@@ -153,4 +153,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

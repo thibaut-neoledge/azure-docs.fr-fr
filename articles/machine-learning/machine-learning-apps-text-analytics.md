@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/07/2016"
 	ms.author="onewth"/>
 
 
 # API Machine Learning : analyse de texte pour déterminer les sentiments, l’extraction d’expressions clés, la détection de la langue et la détection de la rubrique
 
->[AZURE.NOTE] Ce guide concerne la version 1 de l’API. Pour la version 2, [**consultez ce document**](../cognitive-services-text-analytics-quick-start/). La version 2 est désormais la version par défaut de cette API.
+>[AZURE.NOTE] Ce guide concerne la version 1 de l’API. Pour la version 2, [**consultez ce document**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). La version 2 est désormais la version par défaut de cette API.
 
 ## Vue d'ensemble
 
@@ -53,7 +53,7 @@ Il s'agit d'une API lancée récemment, qui renvoie les premières rubriques dé
 
 ### En-têtes
 
-Veillez à inclure les bons en-têtes dans votre requête, qui doit se présenter comme suit :
+Veillez à inclure les bons en-têtes dans votre requête, qui doit se présenter comme suit :
 
 	Authorization: Basic <creds>
 	Accept: application/json
@@ -385,4 +385,4 @@ Les propriétés de chaque partie de la réponse sont les suivantes :
 | TopicId | ID de rubrique auquel l'enregistrement a été affecté. |
 | Distance | Niveau de confiance que l'enregistrement appartient à la rubrique. Plus la distance est proche de zéro, plus le niveau de confiance est élevé. |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

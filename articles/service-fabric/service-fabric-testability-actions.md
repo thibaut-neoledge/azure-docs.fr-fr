@@ -3,9 +3,9 @@
    description="Cet article présente les actions de testabilité de Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="heeldin"
+   authors="motanv"
    manager="timlt"
-   editor="vturecek"/>
+   editor="toddabel"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/05/2016"
-   ms.author="heeldin;motanv"/>
+   ms.date="07/08/2016"
+   ms.author="motanv;heeldin"/>
 
 # Actions de testabilité
 Pour simuler une infrastructure non fiable, Azure Service Fabric procure aux développeurs, autrement dit à vous, des moyens d’intégrer des défaillances et des transitions d’état réalistes. Elles sont exposées en tant qu’actions de testabilité. Les actions sont les API de bas niveau provoquant l’injection des erreurs, la transition entre les états ou la validation. En combinant ces actions, vous êtes en mesure d’écrire des scénarios de test complets pour vos services.
@@ -106,8 +106,8 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 Explications de paramètres :
 
 - Le **mode d’achèvement** indique que l’action de redémarrage ne doit faire l’objet d’aucune vérification. La définition du mode d’achèvement sur « Verify » configure la vérification de l’action de redémarrage.
-- **OperationTimeout** : définit le délai précédant la fin de l’opération, avant qu’une exception TimeoutException ne soit lancée.
-- **CancellationToken** : annule un appel en attente.
+- **OperationTimeout** : définit le délai précédant la fin de l’opération, avant qu’une exception TimeoutException ne soit lancée.
+- **CancellationToken** : annule un appel en attente.
 
 Au lieu de spécifier directement le nœud par son nom, vous pouvez effectuer la définition via une clé de partition et le type de réplica.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simuler des défaillances au cours des charges de travail de services](service-fabric-testability-workload-tests.md)
    - [Échecs de communication de service à service](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

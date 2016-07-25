@@ -50,7 +50,7 @@ Un autre avantage clé est que les bases de données secondaires sont lisibles e
 
 Autres scénarios dans lesquels la géo-réplication active peut être utilisée :
 
-- **Migration de base de données** : la géo-réplication active permet de migrer une base de données d’un serveur à un autre serveur en ligne avec un temps d’arrêt minimal.
+- **Migration de base de données** : la géo-réplication active permet de migrer une base de données d’un serveur à un autre serveur en ligne avec un temps d’arrêt minimal.
 - **Mises à niveau de l’application** : vous pouvez créer une base de données secondaire supplémentaire faisant office de copie de restauration automatique lors des mises à niveau de l’application.
 
 Pour assurer vraiment la continuité des activités, l’ajout d’une redondance de base de données entre les centres de données n’est qu’une partie de la solution. La récupération d’une application (service) de bout en bout après une défaillance catastrophique implique la récupération de tous les composants constituant le service et tous les services dépendants. En voici quelques exemples : logiciel client (il peut s’agir par exemple d’un navigateur avec un code JavaScript personnalisé), serveurs web frontaux, ressources de stockage et DNS. Il est essentiel que tous les composants résistent aux mêmes défaillances et redeviennent disponibles dans l’objectif de délai de récupération (RTO) de votre application. Par conséquent, vous devez identifier tous les services dépendants et comprendre les garanties et les fonctionnalités qu’ils fournissent. Ensuite, vous devez prendre les mesures appropriées pour vous assurer que votre service fonctionne pendant le basculement des services dont il dépend. Pour plus d’informations sur la conception de solutions pour la récupération d’urgence, consultez la section [Conception de solutions cloud pour la récupération d’urgence à l’aide de la géo-réplication active](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
@@ -92,9 +92,9 @@ Comme indiqué plus haut, en plus du portail Azure, la géo-réplication active 
 
 |Commande|Description|
 |-------|-----------|
-|[ALTER DATABASE (base de données SQL Azure)]https://msdn.microsoft.com/fr-FR/library/mt574871.aspx)|Utilise l’argument ADD SECONDARY ON SERVER afin de créer une base de données secondaire pour une base de données existante puis lance la réplication des données|
-|[ALTER DATABASE (base de données SQL Azure)]https://msdn.microsoft.com/fr-FR/library/mt574871.aspx)|Utilise l’argument FAILOVER ou FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS pour basculer d’une base de données secondaire à une base de données principale afin de lancer le basculement
-|[ALTER DATABASE (base de données SQL Azure)]https://msdn.microsoft.com/fr-FR/library/mt574871.aspx)|Utilise l’argument REMOVE SECONDARY ON SERVER pour mettre fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée.|
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Utilise l’argument ADD SECONDARY ON SERVER afin de créer une base de données secondaire pour une base de données existante puis lance la réplication des données|
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Utilise l’argument FAILOVER ou FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS pour basculer d’une base de données secondaire à une base de données principale afin de lancer le basculement
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Utilise l’argument REMOVE SECONDARY ON SERVER pour mettre fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée.|
 |[sys.geo\_replication\_links (base de données SQL Azure)](https://msdn.microsoft.com/library/mt575501.aspx)|Retourne des informations concernant tous les liens de réplication existants pour chaque base de données sur le serveur logique de base de données SQL Azure.|
 |[sys.dm\_geo\_replication\_link\_status (base de données SQL Azure)](https://msdn.microsoft.com/library/mt575504.aspx)|Obtient l’heure de la dernière réplication, le dernier décalage de la réplication et d’autres informations sur le lien de réplication pour une base de données SQL spécifique.|
 |[Sys.dm\_operation\_status (base de données SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx)|Affiche l’état de toutes les opérations de base de données, y compris l’état des liens de réplication.|
@@ -116,7 +116,7 @@ Comme indiqué plus haut, en plus du portail Azure, la géo-réplication active 
 
 |API|Description|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crée, met à jour ou restaure une base de données principale ou secondaire.|
+|.[Créer ou mettre à jour la base de données (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crée, met à jour ou restaure une base de données principale ou secondaire.|
 |[Créer ou mettre à jour l’état de la base de données](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Retourne l’état durant une opération de création.|
 |[Définir la base de données secondaire comme principale (basculement planifié)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promouvoir une base de données secondaire dans un partenariat de géo-réplication afin qu’elle devienne la nouvelle base de données primaire.|
 |[Définir la base de données secondaire comme principale (basculement non planifié)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|Pour forcer un basculement vers la base de données secondaire et définir la base de données secondaire comme base de données principale.|
@@ -128,10 +128,10 @@ Comme indiqué plus haut, en plus du portail Azure, la géo-réplication active 
 
 ## Étapes suivantes
 
-- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
-- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
-- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
-- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
-- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
+- Pour obtenir une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+- Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md).
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

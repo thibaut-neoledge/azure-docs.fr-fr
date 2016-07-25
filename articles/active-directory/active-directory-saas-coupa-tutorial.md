@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Coupa
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
 ###Pour activer l’intégration d’applications pour Coupa, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-coupa-tutorial/IC700993.png "Active Directory")
 
@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Métadonnées SP Coupa](./media/active-directory-saas-coupa-tutorial/IC791901.png "Métadonnées SP Coupa")
 
-4.  Dans une autre fenêtre de navigateur, connectez-vous au portail Azure Active Directory.
+4.  Dans une autre fenêtre du navigateur, connectez-vous au portail Azure Classic.
 
 5.  Dans la page d’intégration d’applications **Coupa**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -113,7 +113,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Cliquez sur **Browse** pour charger le fichier de métadonnées Azure Active Directory téléchargé.
     3.  Cliquez sur **Enregistrer**.
 
-11. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-coupa-tutorial/IC791907.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -139,9 +139,9 @@ Pour se connecter à Coupa, les utilisateurs d’Azure AD doivent être approvis
     1.  Tapez l’ID de connexion, le prénom, le nom, l’ID d’authentification unique et l’adresse électronique d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte **Login**, **First name**, **Last Name**, **Single Sign-On ID** et **Email**.
     2.  Cliquez sur **Create**.
 
-    >[AZURE.NOTE]Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien pour confirmer le compte et l’activer.
+    >[AZURE.NOTE] Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien pour confirmer le compte et l’activer.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Coupa pour approvisionner des comptes d’utilisateurs AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Coupa pour approvisionner des comptes d’utilisateurs AAD.
 
 ##Affectation d’utilisateurs
 
@@ -149,7 +149,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Coupa, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Coupa**, cliquez sur **Affecter des utilisateurs**.
 
@@ -161,4 +161,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

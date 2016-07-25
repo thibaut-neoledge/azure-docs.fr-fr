@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="02/06/2016" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -114,9 +114,13 @@ Si vous avez ajouté des [mesures personnalisées][track] au code de votre appli
 
 ## Segmenter vos données
 
+Vous pouvez fractionner une mesure par propriété, par exemple, pour comparer des affichages de page sur des clients avec différents systèmes d’exploitation.
+
 Sélectionnez un graphique ou une grille, basculez vers le regroupement et choisissez une propriété de regroupement :
 
 ![Activez le regroupement, puis une propriété de regroupement](./media/app-insights-metrics-explorer/15-segment.png)
+
+> [AZURE.NOTE] Lorsque vous utilisez le regroupement, les types de graphiques en aires et à barres fournissent un affichage empilé. Cet affichage convient pour la méthode d’agrégation Somme. Mais si le type d’agrégation est Moyenne, choisissez les types d’affichage en ligne ou en grille.
 
 Si vous avez ajouté des [mesures personnalisées][track] au code de votre application et qu'elles incluent des valeurs de propriétés, vous pourrez sélectionner la propriété dans la liste.
 
@@ -224,7 +228,7 @@ L[’analyse](app-insights-analytics.md) est un moyen plus souple d’analyser v
 
 *Mon graphique ne contient aucune donnée.*
 
-* Les filtres s’appliquent à tous les graphiques du panneau. Lorsque vous vous concentrez sur un graphique, vérifiez que vous n’avez pas défini un filtre qui exclut toutes les données d’un autre graphique. 
+* Les filtres s’appliquent à tous les graphiques du panneau. Lorsque vous vous concentrez sur un graphique, vérifiez que vous n’avez pas défini un filtre qui exclut toutes les données d’un autre graphique.
 
     Si vous souhaitez définir des filtres différents sur différents graphiques, créez-les dans des panneaux différents, enregistrez-les sous forme de favoris distincts. Si vous le souhaitez, vous pouvez les épingler au tableau de bord afin de les afficher parallèlement.
 
@@ -247,4 +251,4 @@ L[’analyse](app-insights-analytics.md) est un moyen plus souple d’analyser v
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

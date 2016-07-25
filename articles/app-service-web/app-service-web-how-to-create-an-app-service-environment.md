@@ -13,32 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="07/12/2016" 
 	ms.author="ccompy"/>
 
 # Comment créer un environnement App Service #
 
 Les environnements App Service constituent une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés. La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau virtuel du client. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Présentation d'un environnement App Service][WhatisASE].
 
+
 ### Vue d'ensemble ###
+
+Un ASE se compose de ressources frontales et de ressources de calcul de travail. Les ressources frontales servent de points de terminaison HTTP/HTTPS et envoient le trafic vers les travaux, les rôles qui hébergent vos applications.
 
 Pour créer un ASE, les clients doivent entrer les informations suivantes :
 
 - nom de l’ASE
-- abonnement à utiliser pour l’ASE  
+- abonnement à utiliser pour l’ASE
 - resource group
-- sélection d’un réseau virtuel Azure et d’un sous-réseau
+- Azure Virtual Network (VNet) avec au moins 8 adresses et un sous-réseau devant être utilisé par l’ASE
+- Type de VIP, externe ou interne
 - définition du pool de ressources ASE
+
 
 Il existe quelques détails importants pour chacun de ces éléments.
 
-- Le nom de l'ASE servira dans le sous-domaine de toutes les applications faites dans cet ASE
+- Le nom de l'ASE servira dans le sous-domaine de toutes les applications faites dans cet ASE, s’il est configuré avec une adresse VIP externe
+- Un ASE avec une adresse externe héberge des applications accessibles via Internet. Un ASE avec une adresse VIP interne utilise un équilibreur de charge interne (ILB)
 - Toutes les applications faites dans un ASE se trouveront dans le même abonnement que l'ASE lui-même
 - Si vous n'avez pas accès à l'abonnement utilisé pour faire l'ASE, vous ne pouvez pas utiliser l'ASE pour créer des applications
-- Les réseaux virtuels utilisés pour héberger un ASE doivent être des réseaux virtuels « v1 » classiques régionaux 
+- Les réseaux virtuels utilisés pour héberger un ASE doivent être des réseaux virtuels régionaux. Vous pouvez utiliser les réseaux virtuels classiques ou du Gestionnaire de ressources
 - **Le sous-réseau utilisé pour héberger l’ASE ne doit contenir aucune autre ressource de calcul**
 - Il ne peut exister qu’un seul ASE dans un sous-réseau
-- Grâce à une modification récente effectuée en juin 2016, les ASE peuvent désormais être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées). Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devez créer le sous-réseau à l’avance, puis sélectionner le sous-réseau dans l’expérience utilisateur de création d’un ASE.
+- Les ASE peuvent désormais être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées). Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devez créer le réseau virtuel et le sous-réseau à l’avance, puis sélectionner le sous-réseau dans l’expérience utilisateur de création d’un ASE.
+
 
 Chaque déploiement d'ASE est un service hébergé qu'Azure gère et tient à jour. Les ressources de calcul qui hébergent les rôles système d'ASE ne sont pas accessibles au client, mais le client gère la quantité d'instances et leur taille.
 
@@ -46,11 +53,13 @@ Il existe deux façons d'accéder à l'interface utilisateur de création d'un A
 
 Si vous voulez associer un groupe de ressources distinct au réseau virtuel, vous devez d’abord créer un réseau virtuel séparément, puis le sélectionner lors de la création de l’ASE. Par ailleurs, si vous voulez créer un sous-réseau dans un réseau virtuel existant lors de la création de l’ASE, ce dernier doit se trouver dans le même groupe de ressources que le réseau virtuel.
 
+
 ### Création rapide ###
 L’expérience de création d’un ASE comporte un ensemble de valeurs par défaut qui permettent d’accélérer le processus. Vous pouvez créer un ASE rapidement en entrant simplement un nom pour le déploiement. Un ASE est alors créé dans la région la plus proche avec les éléments suivants :
 
 - Réseau virtuel avec 512 adresses utilisant un espace d’adressage privé RFC1918
 - sous-réseau avec 256 adresses
+- VIP externe
 - pool frontal avec 2 ressources de calcul P2
 - pool de travail avec 2 ressources de calcul P1
 - adresse IP unique à utiliser pour IP SSL
@@ -59,16 +68,18 @@ La taille P2 ou supérieure est requise pour les pools frontaux. Veillez à sél
 
 ![][1]
 
-Le nom spécifié pour l’ASE sera utilisé pour les applications créées dans l’ASE. Si le nom de l’ASE est appsvcenvdemo, le nom de domaine est .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
+Le nom spécifié pour l’ASE sera utilisé pour les applications créées dans l’ASE. Si le nom de l’ASE est appsvcenvdemo, le nom du sous-domaine est .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules. Si vous utilisez un ILB, le nom de votre ASE n’est pas utilisé dans votre sous-domaine mais explicitement indiqué lors de la création de l’ASE.
 
 Les valeurs par défaut sont très utiles dans un certain nombre de situations, mais vous devrez souvent modifier quelque chose. Les sections suivantes vous guident dans chacune des sections de configuration de l’ASE.
 
+
 ### Réseau virtuel ###
-Même s'il existe une fonction de création rapide qui crée automatiquement un réseau virtuel, la fonctionnalité prend également en charge la sélection d'un réseau virtuel existant et la création manuelle d'un réseau virtuel. Vous pouvez sélectionner un réseau virtuel existant (à l’heure actuelle, seuls les réseaux virtuels « v1 » classiques sont pris en charge) s’il est suffisamment grand pour prendre en charge le déploiement d’un environnement App Service. Le réseau virtuel doit avoir au moins 8 adresses.
+Le processus de création de l’ASE prend en charge la sélection d’un réseau virtuel classique ou du Gestionnaire des ressources ainsi que la création d’un nouveau réseau virtuel classique.
 
-Grâce à une modification récente effectuée en juin 2016, les ASE peuvent désormais être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées). Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devez créer le sous-réseau à l’avance, puis sélectionner le sous-réseau dans l’expérience utilisateur de création d’un ASE.
+Lorsque vous sélectionnez un réseau virtuel existant, vous constaterez que vos réseaux virtuels classiques et du Gestionnaire des ressources apparaissent ensemble. Les réseaux virtuels classiques sont signalés par le terme Classic en regard de leur emplacement. Si ce terme n’est pas affiché, cela signifie qu’il s’agit d’un réseau virtuel du Gestionnaire de ressources.
 
-Si vous ne sélectionnez pas un réseau virtuel préexistant, vous devez également spécifier un sous-réseau à utiliser ou en créer un. Le sous-réseau doit avoir au moins 8 adresses et ne peut pas contenir d’autres ressources au préalable. La création d’un ASE échoue si vous utilisez un sous-réseau contenant déjà des machines virtuelles allouées.
+![][2]
+
 
 Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous devez indiquer les éléments suivants :
 
@@ -76,9 +87,14 @@ Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous d
 - Plage d'adresses du réseau virtuel en notation CIDR
 - Emplacement
 
-L’emplacement du réseau virtuel est celui de l’ASE, car celui-ci est déployé dans le réseau virtuel.
+L’emplacement du réseau virtuel correspond à l’emplacement de l’ASE. N’oubliez pas que ce processus crée un réseau virtuel classique et non un réseau virtuel du Gestionnaire de ressources.
+
+Les ASE peuvent être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées). Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devez créer le sous-réseau à l’avance, puis sélectionner le sous-réseau dans l’expérience utilisateur de création d’un ASE.
+
+Si vous ne sélectionnez pas un réseau virtuel préexistant, vous devez également spécifier un sous-réseau à utiliser ou en créer un. Le sous-réseau doit avoir au moins 8 adresses et ne peut pas contenir d’autres ressources au préalable. La création d’un ASE échoue si vous utilisez un sous-réseau contenant déjà des machines virtuelles allouées.
 
 Une fois votre réseau virtuel spécifié ou sélectionné, vous devez créer ou sélectionner un sous-réseau approprié. Les détails que vous devez fournir sont les suivants :
+
 - Nom du sous-réseau
 - Plage de sous-réseau en notation CIDR
 
@@ -86,8 +102,12 @@ La notation CIDR (Classless Inter-Domain Routing) se présente sous la forme d�
 
 Par ailleurs, si vous voulez créer un sous-réseau dans un réseau virtuel existant, l’ASE doit se trouver dans le même groupe de ressources que le réseau virtuel. Pour conserver votre ASE dans un groupe de ressources distinct de votre réseau virtuel, créez votre réseau et votre sous-réseau séparément avant de créer votre ASE.
 
-![][2]
 
+#### Adresse VIP externe ou interne ####
+
+Par défaut, la configuration du réseau virtuel est définie avec un type d’adresse VIP externe et 1 adresse IP. Si vous souhaitez utiliser un ILB au lieu d’une adresse VIP externe, accédez à la configuration du réseau virtuel et modifiez le type d’adresse VIP en Interne. Une adresse IP externe est utilisée par défaut. Lorsque vous modifiez le type d’adresse VIP sur Interne, vous devez spécifier votre sous-domaine pour l’ASE. Vous devez accepter quelques compromis si vous utilisez un ILB comme adresse VIP virtuelle pour un ASE. Pour en savoir plus, consultez [Utilisation d’un équilibreur de charge interne avec un environnement App Service][ILBASE].
+
+![][4]
 
 ### Pools de ressources de calcul ###
 
@@ -160,6 +180,7 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-basecreateblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnetcreation.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-resources.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-externalvip.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -167,5 +188,6 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
+[ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

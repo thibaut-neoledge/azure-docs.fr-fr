@@ -13,30 +13,59 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
 # Réentrance Reliable Actors
 Par défaut, le runtime Reliable Actors autorise la réentrance des appels logiques selon le contexte. Cela permet de réentrer des acteurs s'ils se trouvent dans la même chaîne de contexte d'appel. Par exemple, un acteur A envoie un message à un acteur B qui envoie le message à un acteur C. Dans le cadre du traitement du message, si l’acteur C appelle l’acteur A, le message est réentrant et donc autorisé. Tout autre message faisant partie d’un contexte d’appel différent est bloqué au niveau de l’acteur A jusqu’à ce qu’il termine le traitement.
 
-Les acteurs qui souhaitent désactiver la réentrance des appels logiques selon le contexte peuvent le faire en affectant l'attribut `ReentrantAttribute(ReentrancyMode.Disallowed)` à la classe d'acteur.
+
+Deux options disponibles pour la réentrance des acteurs sont définies dans l’enum `ActorReentrancyMode` :
+
+ - `LogicalCallContext` (comportement par défaut)
+ - `Disallowed` : désactive la réentrance
 
 ```csharp
-public enum ReentrancyMode
+public enum ActorReentrancyMode
 {
     LogicalCallContext = 1,
     Disallowed = 2
 }
 ```
 
-Le code suivant montre une classe d’acteur qui affecte au mode de réentrance la valeur `ReentrancyMode.Disallowed`. Dans ce cas, si un acteur envoie un message réentrant à un autre acteur, une exception de type `FabricException` est levée.
+Vous pouvez configurer la réentrance dans les paramètres d’un `ActorService` lors de l’inscription. Le paramètre s’applique à toutes les instances d’acteur créées dans le service d’acteur.
+
+L’exemple suivant montre un service d’acteur qui affecte la valeur `ActorReentrancyMode.Disallowed` au mode de réentrance. Dans ce cas, si un acteur envoie un message réentrant à un autre acteur, une exception de type `FabricException` est levée.
 
 ```csharp
-[Reentrant(ReentrancyMode.Disallowed)]
-class MyActor : Actor, IMyActor
+static class Program
 {
-    ...
+    static void Main()
+    {
+        try
+        {
+            ActorRuntime.RegisterActorAsync<Actor1>(
+                (context, actorType) => new ActorService(
+                    context, 
+                    actorType, () => new Actor1(), 
+                    settings: new ActorServiceSettings()
+                    {
+                        ActorConcurrencySettings = new ActorConcurrencySettings()
+                        {
+                            ReentrancyMode = ActorReentrancyMode.Disallowed
+                        }
+                    }))
+                .GetAwaiter().GetResult();
+
+            Thread.Sleep(Timeout.Infinite);
+        }
+        catch (Exception e)
+        {
+            ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+            throw;
+        }
+    }
 }
 ```
 
@@ -45,4 +74,4 @@ class MyActor : Actor, IMyActor
  - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

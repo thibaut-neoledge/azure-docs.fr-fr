@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Résoudre les problèmes de connexion SSH à une machine virtuelle Azure | Microsoft Azure"
+	pageTitle="La connexion SSH à une machine virtuelle Linux est refusée, échoue ou génère une erreur | Microsoft Azure"
 	description="Dépannez et résolvez les erreurs SSH comme l’échec de connexion SSH ou le refus de connexion SSH pour une machine virtuelle Azure exécutant Linux."
-	keywords="refus de la connexion ssh,erreur ssh,ssh azure,échec de la connexion ssh"
+	keywords="connexion ssh refusée, erreur ssh, ssh azure, échec de connexion SSH"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,13 +14,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Résolution des problèmes de connexion SSH à une machine virtuelle Azure
+# Dépanner une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
 
-Il existe différentes raisons pour lesquelles vous pouvez obtenir des erreurs SSH (Secure Shell) en tentant de vous connecter à une machine virtuelle Azure Linux. Cet article vous aide à identifier et corriger ces problèmes.
+Il existe différentes raisons pour lesquelles vous pouvez obtenir des erreurs SSH (Secure Shell), la connexion SSH échoue ou cette connexion est refusée lorsque vous tentez de vous connecter à une machine virtuelle Azure basée sur Linux. Cet article vous aide à identifier et corriger ces problèmes.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -124,7 +124,7 @@ Procédez comme suit pour résoudre les problèmes de connexion SSH les plus cou
 	- réinitialiser la configuration SSH.
 
 - Vérifiez l’intégrité des ressources de la machine virtuelle et recherchez s’il existe des problèmes de plateforme. <br> Sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Linux* > **Paramètres** > **Vérifier l’intégrité**.
-	 
+
 
 ## Ressources supplémentaires
 
@@ -134,4 +134,4 @@ Procédez comme suit pour résoudre les problèmes de connexion SSH les plus cou
 
 - Pour plus d’informations sur la résolution des problèmes des machines virtuelles créées à l’aide du modèle de déploiement Classic, consultez [Réinitialisation d’un mot de passe ou de SSH pour les machines virtuelles basées sur Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

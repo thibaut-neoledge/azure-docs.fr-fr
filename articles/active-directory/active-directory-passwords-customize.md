@@ -1,23 +1,26 @@
-<properties 
-	pageTitle="Personnalisation : gestion des mots de passe Azure AD | Microsoft Azure" 
-	description="Comment personnaliser l’apparence, le comportement et les notifications de gestion de mot de passe dans Azure AD en fonction de vos besoins." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Personnalisation : gestion des mots de passe Azure AD | Microsoft Azure"
+	description="Comment personnaliser l’apparence, le comportement et les notifications de gestion de mot de passe dans Azure AD en fonction de vos besoins."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Personnalisation de la gestion des mots de passe en fonction des besoins de votre organisation
-Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous recommandons d’explorer et de tester les options de configuration de la gestion de mot de passe qui sont à votre disposition. De fait, vous pouvez de suite commencer cette exploration en ouvrant l’onglet de configuration de l’**extension Active Directory** dans le [portail de gestion Azure](https://manage.windowsazure.com). Cette rubrique vous présente toutes les possibilités de personnalisation de la gestion des mots de passe que vous appliquez en tant qu’administrateur depuis l’onglet **Configurer** de votre annuaire, sur le [portail de gestion Azure](https://manage.windowsazure.com). Par exemple :
+
+> [AZURE.IMPORTANT] **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+
+Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous recommandons d’explorer et de tester les options de configuration de la gestion de mot de passe qui sont à votre disposition. De fait, vous pouvez de suite commencer cette exploration en ouvrant l’onglet de configuration de **l’extension Active Directory** dans le [portail Azure Classic](https://manage.windowsazure.com). Cette rubrique vous présente toutes les possibilités de personnalisation de la gestion des mots de passe que vous appliquez en tant qu’administrateur depuis l’onglet **Configurer** de votre annuaire, sur le [portail Azure Classic](https://manage.windowsazure.com). Par exemple :
 
 | Rubrique | |
 | --------- | --------- |
@@ -34,7 +37,7 @@ Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous rec
 | Comment autoriser les utilisateurs à déverrouiller des comptes Active Directory sans réinitialiser un mot de passe ? | [Paramètre : autoriser les utilisateurs à déverrouiller leurs comptes AD sans réinitialiser un mot de passe](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? | [Paramètre : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? | [Paramètre : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramétrage : nom, marque et logo de l’entreprise](#password-managment-look-and-feel) |
+| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramètre : nom, marque et logo de la société](#password-managment-look-and-feel) |
 
 
 ## Interface de gestion des mots de passe
@@ -95,7 +98,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Détermine si les utilisateurs qui accèdent à la page de réinitialisation du mot de passe voient le logo Microsoft ou votre propre logo. Cet élément de configuration ajoute également votre marque au panneau d’accès et à la page de connexion.</p>
                 <p>
-                  
+
                 </p>
                 <p>Pour plus d’informations sur la fonctionnalité de personnalisation et sur l’ajout d’une marque, consultez <a href="https://technet.microsoft.com/library/dn532270.aspx">Ajout d’une marque de société aux pages de connexion et aux pages du panneau d’accès</a>.</p>
               </td>
@@ -223,7 +226,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Détermine quel groupe d’utilisateurs est autorisé à utiliser la réinitialisation du mot de passe. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si <strong>Limiter l’accès à la réinitialisation des mots de passe</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
@@ -262,16 +265,16 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Détermine les vérifications que les utilisateurs sont autorisés à utiliser pour réinitialiser leur mot de passe.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Remarque&#160;:</strong>
@@ -328,7 +331,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Détermine le nombre minimal de méthodes d’authentification disponibles que l’utilisateur doit appliquer pour réinitialiser son mot de passe.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
@@ -398,7 +401,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Détermine le nombre minimal de questions auxquelles un utilisateur doit répondre lors de la réinitialisation du mot de passe.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
               </td>
@@ -432,7 +435,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Définit les questions préconçues de sécurité que vos utilisateurs peuvent choisir au moment de l’inscription à la réinitialisation du mot de passe et au moment de la réinitialisation de leur mot de passe.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
               </td>
@@ -483,7 +486,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Définit les questions de sécurité que vos utilisateurs peuvent choisir lors de l’inscription à la réinitialisation du mot de passe et lors de la réinitialisation de leur mot de passe.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
               </td>
@@ -533,7 +536,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                   <p>Obliger les utilisateurs à s’inscrire durant la connexion ?</p>
                 </div>
                 <p>
-                  
+
                 </p>
               </td>
               <td>
@@ -542,20 +545,20 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 <p>Cette fonctionnalité fonctionne sur n’importe quelle page de connexion qui utilise un compte professionnel ou scolaire. Ces pages incluent toutes les applications Office&#160;365, le portail de gestion Azure, le panneau d’accès et toutes les applications fédérées ou personnalisées qui utilisent Azure AD pour se connecter.
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>L’inscription obligatoire s’applique uniquement aux utilisateurs qui sont autorisés à réinitialiser le mot de passe, ce qui signifie que vous avez utilisé la fonctionnalité «&#160;Limiter l’accès à la réinitialisation des mots de passe&#160;» et étendu la réinitialisation des mots de passe à certains utilisateurs, qui devront donc s’inscrire à la réinitialisation de mot de passe lors de la connexion.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Remarque&#160;:</strong>
@@ -586,16 +589,16 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Lorsque <strong>Demander aux utilisateurs de s’inscrire</strong> est activé, ce paramètre détermine le temps qui peut s’écouler avant que l’utilisateur ne doive reconfirmer ses coordonnées. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si <strong>Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent au panneau d’accès</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Remarque&#160;:</strong>
@@ -622,7 +625,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Contrôle si le lien Contactez votre administrateur (illustré à gauche) apparaît sur le portail de réinitialisation du mot de passe lorsqu’une erreur se produit, lorsque l’utilisateur attend trop longtemps ou lorsqu’une opération pointe vers une URL ou une adresse électronique personnalisée.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
@@ -668,7 +671,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Contrôle l’adresse électronique ou l’URL à laquelle renvoie le lien <strong>Contactez votre administrateur</strong>. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Visible uniquement si l’option <strong>Personnaliser le lien «&#160;Contactez votre administrateur&#160;»</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
@@ -702,13 +705,13 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
               <td>
                 <p>Contrôle si l’écriture différée de mot de passe est activée ou non pour cet annuaire. Si elle l’est, indique l’état du service d’écriture différée local.</p>
                 <p>
-                  
+
                 </p>
                 <p>C’est utile si vous voulez désactiver temporairement le service sans reconfigurer Azure AD Connect.</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Remarque&#160;:</strong>
@@ -748,11 +751,11 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 </div>
               </td>
               <td>
-              
+
               <p>Indique si les utilisateurs qui visitent le portail de réinitialisation de mot de passe doivent ou non avoir la possibilité de déverrouiller leurs comptes Active Directory locaux sans réinitialiser leur mot de passe. Par défaut, Azure AD déverrouille toujours les comptes sans procéder à la réinitialisation de mot de passe. Ce paramétrage permet donc de différencier ces deux opérations.</p>
-              
+
               <p>Si la valeur est «&#160;Oui&#160;», les utilisateurs auront la possibilité de réinitialiser leur mot de passe et de déverrouiller le compte ou de déverrouiller celui-ci sans réinitialiser le mot de passe. </p>
-              
+
               <p>Si la valeur est «&#160;Non&#160;», les utilisateurs devront réinitialiser leur mot de passe lorsqu’ils déverrouilleront leur compte.</p>
 
               </td>
@@ -763,7 +766,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 <ul>
                   <li class="unordered">
 												Pour utiliser cette fonctionnalité, vous devez installer la version d’août&#160;2015 ou une version postérieure d’Azure AD Connect (version 1.0.8667.0.x ou supérieure).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Cliquez ici pour télécharger la dernière version d’Azure AD Connect.</a></li>
-                        
+
                   <li class="unordered">
                     <strong>Remarque :</strong> pour tester cette fonctionnalité, vous devez activer l’écriture différée du mot de passe et utiliser un compte provenant d’un utilisateur du site local (comme un utilisateur fédéré ou un utilisateur à mot de passe synchronisé) et possédant un compte verrouillé. Les utilisateurs qui ne proviennent pas du site local et qui n’ont pas de compte verrouillé ne verront pas l’option de déverrouillage de leurs comptes.</li>
                 </ul>
@@ -860,7 +863,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
@@ -872,4 +875,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

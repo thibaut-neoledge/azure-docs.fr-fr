@@ -32,7 +32,7 @@ Azure exploite des centres de données dans plusieurs régions à l’échelle i
 
 En cas de défaillance spécifique à une région, vous devez rediriger le trafic vers les services ou les déploiements dans une autre région. Vous pouvez effectuer ce routage manuellement, mais il est plus efficace d’utiliser un processus automatisé. Azure Traffic Manager est conçu pour cette tâche. Vous pouvez vous en servir pour gérer automatiquement le basculement du trafic utilisateur vers une autre région en cas de défaillance de la région primaire. Étant donné que la gestion du trafic représente un aspect majeur de la stratégie globale, il est important de comprendre les principes de base de Traffic Manager.
 
-Dans le diagramme suivant, les utilisateurs se connectent à une URL spécifiée pour Traffic Manager (__http://myATMURL.trafficmanager.net__) qui extrait les URL réelles des sites (__http://app1URL.cloudapp.net__ et \_\___http://app2URL.cloudapp.net__). En fonction de la configuration des critères de routage des utilisateurs, ces derniers sont envoyés au site réel correct lorsque la stratégie le détermine. Les options de stratégie sont tourniquet (round robin), performance ou basculement. Dans cet article, nous traiterons uniquement l’option de basculement.
+Dans le diagramme suivant, les utilisateurs se connectent à une URL spécifiée pour Traffic Manager (__http://myATMURL.trafficmanager.net__) qui extrait les URL réelles des sites (__http://app1URL.cloudapp.net__ et \_\_http://app2URL.cloudapp.net__. En fonction de la configuration des critères de routage des utilisateurs, ces derniers sont envoyés au site réel correct lorsque la stratégie le détermine. Les options de stratégie sont tourniquet (round robin), performance ou basculement. Dans cet article, nous traiterons uniquement l’option de basculement.
 
 ![Routage via Microsoft Azure Traffic Manager](./media/resiliency-disaster-recovery-azure-applications/routing-using-azure-traffic-manager.png)
 
@@ -305,4 +305,4 @@ Plusieurs autres techniques existent pour tester les plans de récupération d�
 
 Cet article fait partie d’une série d’articles axés sur la thématique [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L’article précédent de cette série est [Haute disponibilité pour les applications développées sur Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

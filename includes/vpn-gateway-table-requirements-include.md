@@ -8,7 +8,7 @@ Le tableau ci-dessous répertorie la configuration requise pour les passerelles 
 | **Méthode d’authentification** | Clé prépartagée | Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site | Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site | Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site |
 | **Nombre maximal de connexions de site à site** | 1 | 10 | 10 | 30 |
 | **Nombre maximal de connexions de point à site** | Non pris en charge | 128 | 128 | 128 |
-|**Prise en charge de routage actif (BGP)** | Non pris en charge | Non pris en charge | Non pris en charge | Non pris en charge |
+|**Prise en charge de routage actif (BGP)** | Non pris en charge | Non pris en charge | Pris en charge | Pris en charge |
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0713_2016-->

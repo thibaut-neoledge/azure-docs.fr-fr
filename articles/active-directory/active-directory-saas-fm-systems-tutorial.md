@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à FM:Systems
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour FM
 
 ###Pour activer l’application de l’intégration pour FM:Systems, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-fm-systems-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’applications **FM:Systems**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **FM:Systems**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configurer l’authentification unique")
 
@@ -80,9 +80,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **FM:Systems Sign On URL**, entrez l’URL de réponse **Reply URL** de FM:Systems (par exemple : **https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).
+    1.  Dans la zone de texte **FM:Systems Sign On URL**, entrez l’URL de réponse **Reply URL** de FM:Systems (par exemple : *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).
 
-        >[AZURE.WARNING]La valeur vous est fournie par l’équipe de support technique FM:Systems.
+        >[AZURE.WARNING] La valeur vous est fournie par l’équipe de support technique FM:Systems.
 
     2.  Cliquez sur **Suivant**
 
@@ -92,9 +92,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Envoyez le fichier de métadonnées téléchargé à votre équipe de support technique FM:Systems.
 
-    >[AZURE.NOTE]Votre équipe de support technique FM:Systems doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
+    >[AZURE.NOTE] Votre équipe de support technique FM:Systems doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
 
-6.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -120,7 +120,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à FM:Systems, vous dev
     1.  Tapez le nom d’utilisateur, le mot de passe et sa confirmation, l’adresse électronique et l’ID d’employé d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
     2.  Cliquez sur **Next**.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur, fourni par FM:Systems, pour approvisionner des comptes d’utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur, fourni par FM:Systems, pour approvisionner des comptes d’utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -128,7 +128,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à FM:Systems, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **FM:Systems**, cliquez sur **Affecter des utilisateurs**.
 
@@ -140,4 +140,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

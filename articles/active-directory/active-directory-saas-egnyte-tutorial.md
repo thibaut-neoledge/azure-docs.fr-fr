@@ -4,19 +4,19 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Egnyte
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Egnyte.  
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Egnyte.
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
@@ -38,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’application pour Eg
 
 ###Pour activer l’intégration d’application pour Egnyte, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-egnyte-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **Egnyte**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Sur la page d’intégration d’applications **Egnyte** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-egnyte-tutorial/IC787815.png "Configurer l’authentification unique")
 
@@ -79,7 +79,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     ![Configurer l’authentification unique](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Egnyte**, tapez votre URL selon le modèle suivant "*https://company.egnyte.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Egnyte**, tapez votre URL selon le modèle suivant « *https://company.egnyte.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configurer l’URL de l’application")
 
@@ -107,9 +107,9 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     1.  Pour **Single sign-on authentication**, sélectionnez **SAML 2.0**.
     2.  Pour **Identity provider**, sélectionnez **AzureAD**.
-    3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte** de la boîte de dialogue, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Identity provider login URL**.
-    4.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity provider entity ID**.
-    5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    3.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Egnyte** de la boîte de dialogue, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Identity provider login URL**.
+    4.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Egnyte**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity provider entity ID**.
+    5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -118,7 +118,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
     8.  Pour **Use domain-specific issuer value**, sélectionnez **disabled**.
     9.  Cliquez sur **Enregistrer**.
 
-10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -143,9 +143,9 @@ Dans le cas de Egnyte, l’approvisionnement est une tâche manuelle.
     1.  Tapez l’**adresse de messagerie**, le **nom d’utilisateur** et les autres informations d’un compte Azure Active Directory valide à approvisionner.
     2.  Cliquez sur **Enregistrer**.
 
-    >[AZURE.NOTE]Le titulaire du compte Azure Active Directory recevra une notification par courrier électronique.
+    >[AZURE.NOTE] Le titulaire du compte Azure Active Directory recevra une notification par courrier électronique.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Egnyte fourni par ce site pour approvisionner des comptes d’utilisateurs AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Egnyte fourni par ce site pour approvisionner des comptes d’utilisateurs AAD.
 
 ##Affectation d’utilisateurs
   
@@ -153,7 +153,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Egnyte, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **Egnyte**, cliquez sur **Affecter des utilisateurs**.
 
@@ -165,4 +165,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

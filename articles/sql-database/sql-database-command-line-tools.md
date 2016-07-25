@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gérer la base de données SQL Azure avec PowerShell" 
-	description="Gestion de la base de données SQL Azure avec PowerShell." 
+	description="Gestion d’Azure SQL Database avec PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # Gérer la base de données SQL Azure avec PowerShell
@@ -53,7 +53,7 @@ Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous d
 
 Pour créer une règle de pare-feu et accéder au serveur, utilisez la commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Exécutez la commande suivante en remplaçant les adresses IP de début et de fin par des valeurs valides pour votre client.
 
-Si votre serveur doit autoriser l'accès à d'autres services Azure, ajoutez le commutateur **-AllowAllAzureIPs** qui insère une règle de pare-feu spéciale et autorise le trafic Azure complet à accéder au serveur.
+Si votre serveur doit autoriser l’accès à d’autres services Azure, ajoutez le commutateur **-AllowAllAzureIPs** qui insère une règle de pare-feu spéciale et autorise tout le trafic Azure à accéder au serveur.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -83,18 +83,18 @@ Vous pouvez supprimer une base de données SQL à l’aide de la commande [Remov
 
 Vous pouvez également supprimer un serveur à l’aide de la commande [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). L’exemple suivant supprime un serveur nommé server12.
 
+
+>[AZURE.NOTE]  L’opération de suppression est asynchrone et peut prendre un certain temps. Vérifiez si l’opération est terminée avant d’effectuer des opérations supplémentaires qui dépendent de la suppression complète du serveur (par exemple la création d’un serveur portant le même nom).
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-Si vous comptez recréer ces ressources SQL Azure ou des ressources similaires, vous pouvez :
-
-- Enregistrer ceci en tant que fichier de script PowerShell (*.ps1)
-- Enregistrer ceci en tant runbook d’automation Azure dans la section Automation du portail Azure Classic 
 
 ## Étapes suivantes
 
-Combiner des commandes et l’automatisation. Par exemple, remplacez tous les éléments entre guillemets, y compris les caractères < and > par vos valeurs pour créer un serveur, une règle de pare-feu et une base de données :
+Combiner des commandes et l’automatisation. Par exemple, remplacez tous les éléments entre guillemets, notamment les caractères < et >, par vos valeurs pour créer un serveur, une règle de pare-feu et une base de données :
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -106,4 +106,4 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 
 - [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

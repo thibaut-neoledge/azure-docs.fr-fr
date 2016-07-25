@@ -183,7 +183,7 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 | Package | Écrire | Opaque | | Package du microprogramme au format binaire.<br/>Correspond à l’API de service :<br/>**SystemPropertyNames.FirmwarePackage** |
 | PackageURI | Écrire | String | 0-255 octets | URI à partir duquel l’appareil peut télécharger le package du microprogramme.<br/>Correspond à l’API de service : **SystemPropertyNames.FirmwarePackageUri** |
 | Mettre à jour | Exécuter | | | Met à jour le microprogramme à l’aide du package du microprogramme stocké dans Package, ou par le biais du microprogramme téléchargé à partir de l’URI du package.<br/>Correspond à l’API de service :<br/>**ScheduleFirmwareUpdateAsync** |
-| State | Lire | Integer | 1-3 | État du processus de mise à jour du microprogramme :<br/>**1** : inactif. Cela peut survenir avant le téléchargement du package du microprogramme ou après l’application du package du microprogramme.<br/>**2**: téléchargement du package du microprogramme.<br/>**3**: package du microprogramme téléchargé.<br/> Correspond à l’API de service : **SystemPropertyNames.FirmwareUpdateState** |
+| State | Lire | Integer | 1-3 | État du processus de mise à jour du microprogramme :<br/>**1** : inactif. Cela peut survenir avant le téléchargement du package du microprogramme ou après l’application du package du microprogramme.<br/>**2** : téléchargement du package du microprogramme.<br/>**3** : package du microprogramme téléchargé.<br/> Correspond à l’API de service : **SystemPropertyNames.FirmwareUpdateState** |
 | UpdateResult | Lire | Integer | 0-6 | Résultat du téléchargement ou de la mise à jour du microprogramme<br/>**0** : valeur par défaut.<br/>**1** : mise à jour du microprogramme réussie.<br/>**2** : mémoire insuffisante pour le nouveau package du microprogramme.<br/>**3** : mémoire insuffisante pendant le téléchargement du package du microprogramme.<br/>**4** : déconnexion intempestive lors du téléchargement du microprogramme.<br/>**5** : échec du contrôle CRC pour le nouveau package téléchargé.<br/>**6** : type de package du microprogramme non pris en charge.<br/>**7** : URI non valide. Correspond à l’API de service : **SystemPropertyNames.FirmwareUpdateResult** |
 | PkgName | Lire | String | 0-255 octets | Nom descriptif du package du microprogramme référencé par la ressource **Package**<br/>Correspond à l’API de service : <br/>**SystemPropertyNames.FirmwarePackageName** |
 | PackageVersion | Lire | String | 0-255 octets | Version du package du microprogramme référencé par la ressource **Package**<br/>Correspond à l’API de service : <br/>**SystemPropertyNames.FirmwarePackageVersion** |
@@ -204,6 +204,15 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 | Valeur | Lecture Écriture | String | | Identifie de façon unique la valeur de la configuration à lire ou à mettre à jour. |
 | Appliquer | Exécuter | | | Applique la modification de configuration sur l’appareil. |
 
+## Étapes suivantes
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
+
 [img-library-overview]: media/iot-hub-device-management-library/library.png
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
@@ -216,10 +225,14 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 [Wakaama]: https://github.com/eclipse/wakaama
 [OMA LWM2M Object and resource registry]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-[lnk-run-linux]: http://TODO
 [lnk-Wakaama]: https://github.com/eclipse/wakaama
 [lnk-github1]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

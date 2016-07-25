@@ -13,40 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partenaires d’intégration de données pour SQL Data Warehouse
 
-Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants.
-
-Cet article répertorie les entreprises partenaires qui disposent de partenaires d’intégration de données pour SQL Data Warehouse.
+Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants. Voici une liste de plusieurs sociétés partenaires proposant des solutions d’intégration de données pour SQL Data Warehouse.
 
 ## Nos partenaires d’intégration de données
 
 | Partenaire | Description | Liens | Vidéos |
 | ------- | ----------- |------ | ------ |
-| ![Alteryx][1] | **Alteryx**<br> Alteryx Designer fournit un flux de travail répétitif pour l’analyse de données en libre-service qui offre de nouvelles perspectives en quelques heures, contrairement à quelques semaines pour les approches traditionnelles ! Alteryx Designer valorise les analystes de données en combinant la préparation des données, la fusion de données et l’analyse (prédictive, statistique et spatiale) à l’aide de la même interface utilisateur intuitive. | [Marketplace][alteryx_marketplace]<br>[Site web][alteryx_designer_website]<br>[Fiche technique][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] | [![Vidéo Alteryx](./media/sql-data-warehouse-integrate-solution-partners/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
-| ![Attunity][2] | **Attunity**<br>Attunity CloudBeam offre une solution automatisée et optimisée de chargement de données dans SQL Data Warehouse. Dotée d’une conception de type « cliquer pour charger », elle simplifie et accélère à la fois le chargement par lot et la réplication incrémentielle à partir de nombreuses bases de données hétérogènes, notamment SQL Server, Oracle, DB2, Sybase et mySQL. | [Marketplace][attunity_marketplace]<br>[Site web][attunity_cloudbeam_website]<br>[Fiche technique][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] | [![Vidéo Attunity](./media/sql-data-warehouse-integrate-solution-partners/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
+| ![Alteryx][1] | **Alteryx**<br> Alteryx Designer fournit un flux de travail répétitif pour l’analyse de données en libre-service qui offre de nouvelles perspectives en quelques heures, contrairement à quelques semaines pour les approches traditionnelles ! Alteryx Designer valorise les analystes de données en combinant la préparation des données, la fusion de données et l’analyse (prédictive, statistique et spatiale) à l’aide de la même interface utilisateur intuitive. | [Marketplace][alteryx_marketplace]<br>[Site web][alteryx_designer_website]<br>[Fiche technique][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] | [![Vidéo Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
+| ![Attunity][2] | **Attunity**<br>Attunity CloudBeam offre une solution automatisée et optimisée de chargement de données dans SQL Data Warehouse. Dotée d’une conception de type « cliquer pour charger », elle simplifie et accélère à la fois le chargement par lot et la réplication incrémentielle à partir de nombreuses bases de données hétérogènes, notamment SQL Server, Oracle, DB2, Sybase et mySQL. | [Marketplace][attunity_marketplace]<br>[Site web][attunity_cloudbeam_website]<br>[Fiche technique][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] | [![Vidéo Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
 | ![Bryte Systems][3] | **Bryte Systems**<br>Bryte Systems automatise le transfert de données vers SQL Data Warehouse à partir d’une multitude de bases de données et de sources. Bryte Systems est spécialisé dans les technologies d’intégration et de déplacement de données. Cette entreprise crée des entrepôts de données et des lacs de données cloud destinés à découvrir les perspectives. | [Marketplace][bryte_systems_marketplace]<br>[Site web][bryte_systems_azure_website] | |
-| ![Informatica][4] | **Informatica Cloud**<br>Le portefeuille Informatica Cloud Integration vous permet de vous connecter facilement à une variété de sources de données sur le cloud, sur site, mobiles et sociales afin de vous permettre de partager efficacement vos informations commerciales pertinentes et fiables. Nous proposons la suite la plus complète d’intégration cloud pour les modèles par lots et en temps réel, la gestion des données de test cloud, la qualité des données cloud et les applications de gestion de données de référence cloud. | [Marketplace][informatica_Cloud_Services_marketplace]<br>[Site web][informatica_Cloud_Services_website]<br>[Fiche technique][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
+| ![Informatica][4] | **Informatica Cloud**<br>Le portefeuille Informatica Cloud Integration vous permet de vous connecter facilement à une variété de sources de données sur le cloud, locales, mobiles et sociales afin de vous permettre de partager efficacement vos informations commerciales pertinentes et fiables. Nous proposons la suite la plus complète d’intégration cloud pour les modèles par lots et en temps réel, la gestion des données de test cloud, la qualité des données cloud et les applications de gestion de données de référence cloud. | [Marketplace][informatica_Cloud_Services_marketplace]<br>[Site web][informatica_Cloud_Services_website]<br>[Fiche technique][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
 | ![Informatica][4] | **Informatica PowerCenter**<br>Informatica est l’un des fournisseurs indépendants de logiciels d’intégration de données les plus connus au monde. PowerCenter constitue la base de toutes vos initiatives d’intégration de données, notamment l’analyse et l’entreposage de données, la migration d’application ou la consolidation et la gouvernance des données. | [Marketplace (Standard)][informatica_PowerCenter_std_marketplace]<br>[Marketplace (Avancé)][informatica_PowerCenter_adv_marketplace]<br>[Site web][informatica_PowerCenter_website]<br>[Fiche technique][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
-| ![Redgate][5] | **Redgate Data Platform Studio (version préliminaire)**<br>Data Platform Studio de Redgate offre un moyen simple et fiable pour migrer des bases de données SQL sur site vers Azure SQL Data Warehouse. Il est conçu pour prendre des décisions intelligentes pour une migration entièrement automatisée et est disponible gratuitement pour les migrations à occurrence unique. | [Site web][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] | |
-| ![SnapLogic][6] | **SnapLogic**<br>La solution iPaaS (Integration Platform as a Service) de SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance de Microsoft Azure SQL Data Warehouse. SnapLogic offre la possibilité d’intégrer des centaines d’applications, des services et l’Internet des objets dans le cloud, sur site ou en mode hybride pour présenter des vues d’ensemble de façon rapide et efficace. | [Marketplace][snaplogic_marketplace]<br>[Site web][snaplogic_website]<br>[Fiche technique][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] | [![Vidéo Snaplogic](./media/sql-data-warehouse-integrate-solution-partners/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
+| ![Redgate][5] | **Redgate Data Platform Studio (préversion)**<br>Data Platform Studio de Redgate offre un moyen simple et fiable de migrer des bases de données SQL locales vers Azure SQL Data Warehouse. Il est conçu pour prendre des décisions intelligentes pour une migration entièrement automatisée et est disponible gratuitement pour les migrations à occurrence unique. | [Site web][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] | |
+| ![SnapLogic][6] | **SnapLogic**<br>La solution iPaaS (Integration Platform as a Service) de SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance de Microsoft Azure SQL Data Warehouse. SnapLogic offre la possibilité d’intégrer des centaines d’applications, des services et l’Internet des objets dans le cloud, sur site ou en mode hybride pour présenter des vues d’ensemble de façon rapide et efficace. | [Marketplace][snaplogic_marketplace]<br>[Site web][snaplogic_website]<br>[Fiche technique][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] | [![Vidéo Snaplogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## Étapes suivantes
 
-Pour en savoir plus sur certains de nos autres partenaires, consultez les articles suivants :
-- [Partenaires décisionnels][bi_partners]
-- [Partenaires de gestion de données][dm_partners]
+Pour en savoir plus sur certains de nos autres partenaires, consultez [Partenaires décisionnels][bi_partners] et [Partenaires de gestion des données][dm_partners].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-integrate-solution-partners/alteryx_logo.png
-[2]: ./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
-[3]: ./media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
-[4]: ./media/sql-data-warehouse-integrate-solution-partners/informatica_logo.png
-[5]: ./media/sql-data-warehouse-integrate-solution-partners/redgate_logo.png
-[6]: ./media/sql-data-warehouse-integrate-solution-partners/snaplogic_logo.png
+[1]: ./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png
+[2]: ./media/sql-data-warehouse-partner-data-integration/attunity_logo.png
+[3]: ./media/sql-data-warehouse-partner-data-integration/bryte_systems_logo.png
+[4]: ./media/sql-data-warehouse-partner-data-integration/informatica_logo.png
+[5]: ./media/sql-data-warehouse-partner-data-integration/redgate_logo.png
+[6]: ./media/sql-data-warehouse-partner-data-integration/snaplogic_logo.png
 
 
 <!--Article links-->
@@ -110,4 +106,4 @@ Pour en savoir plus sur certains de nos autres partenaires, consultez les articl
 [redgate_twitter]: https://twitter.com/DataPlatform_S
 [snaplogic_twitter]: https://twitter.com/snaplogic
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

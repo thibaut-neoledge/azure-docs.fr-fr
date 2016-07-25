@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/28/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
 
@@ -266,7 +266,7 @@ Une application ASP.NET qui s’exécute dans une application web Microsoft Az
 
 * **Journaux de suivi d'application**<br/> : l'application crée ces journaux en appelant des méthodes de la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx).
 * **Journaux de serveur Web**<br/> : le serveur Web crée une entrée de journal pour chaque requête HTTP vers l’application Web.
-* **Journaux de messages d'erreur détaillés**<br/> : le serveur Web crée une page HTML contenant certaines informations supplémentaires pour les requêtes HTTP ayant échoué (celles dont le code d'état est 400 ou plus). 
+* **Journaux de messages d'erreur détaillés**<br/> : le serveur Web crée une page HTML contenant certaines informations supplémentaires pour les requêtes HTTP ayant échoué (celles dont le code d'état est 400 ou plus).
 * **Journaux de suivi des demandes ayant échoué**<br/> : le serveur Web crée un fichier XML avec des informations de suivi détaillées pour les requêtes HTTP ayant échoué. Le serveur Web fournit également un fichier XSL pour mettre en forme le XML dans un navigateur.
   
 La fonction de journalisation affecte les performances des applications web. Pour cette raison, Microsoft Azure vous offre la possibilité d’activer ou de désactiver chaque type de journal, selon vos besoins. Vous pouvez définir un niveau minimal de gravité pour l'écriture des journaux d'application. Lorsque vous créez une application web, la fonction de journalisation est désactivée par défaut.
@@ -279,7 +279,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 * ajout d’instructions de traçage au projet Web que vous avez créé dans [Prise en main d’Azure et ASP.NET][GetStarted] ;
 * affichage des journaux lorsque vous exécutez le projet localement ;
-* affichage des journaux durant leur génération par l'application exécutée dans Azure. 
+* affichage des journaux durant leur génération par l'application exécutée dans Azure.
 
 Pour plus d’informations sur la création de journaux d’application dans WebJobs, consultez [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs - Écriture de journaux](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs). Les instructions suivantes permettant d'afficher les journaux et de contrôler la façon dont ils sont stockés dans Azure s'appliquent également aux journaux des applications créés par WebJobs.
 
@@ -349,7 +349,7 @@ Pour plus d’informations sur la création de journaux d’application dans Web
 
 3. Appuyez sur Ctrl+F5 pour exécuter l’application.
 
-4. Dans la barre d’adresse du navigateur, ajoutez *trace.axd* à l’URL, puis appuyez sur Entrée (l’URL ressemblera à http://localhost:53370/trace.axd)).
+4. Dans la barre d’adresse du navigateur, ajoutez *trace.axd* à l’URL, puis appuyez sur Entrée (l’URL ressemblera à http://localhost:53370/trace.axd).
 
 5. Sur la page **Suivi d’application**, cliquez sur **Afficher les détails** sur la première ligne (pas la ligne BrowserLink).
 
@@ -521,7 +521,7 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 ![Créer un compte de stockage](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
-3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom correspondant au compte de stockage. 
+3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom correspondant au compte de stockage.
 
 	Le nom doit être unique (aucun autre compte de stockage Azure ne doit avoir le même nom). Si le nom que vous entrez est déjà utilisé, vous aurez la possibilité de le modifier.
 
@@ -616,7 +616,7 @@ Vous pouvez afficher les journaux de suivi des demandes ayant échoué directeme
 
 	![Nouveaux nom d'utilisateur et mot de passe FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	****Lorsque vous vous connectez, vous devez utiliser le nom d’utilisateur complet, avec pour préfixe le nom de l’application web. Par exemple, si vous entrez « monid » comme nom d’utilisateur et si le site est « monexemple », vous vous connectez en tant que « monexemple\\monid ».
+	**Lorsque vous vous connectez, vous devez utiliser le nom d’utilisateur complet, avec pour préfixe le nom de l’application web. Par exemple, si vous entrez « monid » comme nom d’utilisateur et si le site est « monexemple », vous vous connectez en tant que « monexemple\\monid ».
 
 5. Dans une nouvelle fenêtre de navigateur, accédez à l’URL affichée sous **Nom d’hôte FTP** ou **Nom d’hôte FTPS** dans le panneau **Application web** pour votre application web.
 
@@ -648,7 +648,7 @@ Vous pouvez afficher les journaux de suivi des demandes ayant échoué directeme
 Vous avez vu en quoi Visual Studio facilite l’affichage de journaux créés par une application web Microsoft Azure. Les sections suivantes fournissent des liens vers des ressources supplémentaires sur des rubriques connexes :
 
 * Dépannage des applications web Microsoft Azure
-* Débogage dans Visual Studio 
+* Débogage dans Visual Studio
 * Débogage distant dans Azure
 * Suivi dans les applications ASP.NET
 * Analyse de journaux de serveur Web
@@ -728,4 +728,4 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

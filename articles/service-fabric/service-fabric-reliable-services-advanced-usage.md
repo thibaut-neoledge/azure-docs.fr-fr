@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Utilisation avancée du modèle de programmation de services fiables
@@ -42,7 +42,7 @@ Bien que `RunAsync` devrait suffire dans presque tous les cas, les événements 
 
 Le cycle de vie d’un réplica de service avec état est beaucoup plus complexe qu’une instance de service sans état. En plus des événements d’ouverture, de fermeture et d’abandon, un réplica de service avec état subit des modifications de rôle pendant sa durée de vie. Lorsqu’un réplica de service avec état change de rôle, l’événement `OnChangeRoleAsync` est déclenché :
 
-- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync est appelée quand le service avec état change de rôle, par exemple quand il devient un service principal ou secondaire. Les réplicas principaux se voient affecter un état d’écriture (ils sont autorisés à créer des collections fiables et à écrire dans celles-ci). Les réplicas secondaires se voient affecter un état de lecture (ils peuvent uniquement lire à partir de collections fiables existantes). Vous pouvez démarrer ou mettre à jour les tâches en arrière-plan en réponse à des changements de rôle, par exemple une validation en lecture seule, une création de rapport ou l’exploration de données sur un service secondaire.
+- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync est appelée quand le réplica de service avec état change de rôle, par exemple quand il devient un service principal ou secondaire. Les réplicas principaux se voient affecter un état d’écriture (ils sont autorisés à créer des collections fiables et à écrire dans celles-ci). Les réplicas secondaires se voient affecter un état de lecture (ils peuvent uniquement lire à partir de collections fiables existantes). La plupart du travail dans un service avec état est effectué sur le réplica principal. Les réplicas secondaires peuvent effectuer la validation en lecture seule, la génération de rapports, l’exploration de données ou d’autres tâches en lecture seule.
 
 Dans un service avec état, seul le réplica principal dispose d’un accès en écriture à l’état, ce qui a généralement lieu lorsque le service effectue un travail réel. La méthode `RunAsync` dans un service avec état est exécutée uniquement lorsque le réplica de service avec état est principal. La méthode `RunAsync` est annulée lorsque le rôle d’un réplica principal est modifié, ainsi que pendant les événements de fermeture et d’abandon.
 
@@ -67,4 +67,4 @@ Pour accéder à des rubriques plus avancées concernant Service Fabric, consult
 
 - [Configuration de services avec Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

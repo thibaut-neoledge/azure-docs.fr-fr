@@ -3,7 +3,7 @@ pageTitle="Mise à jour d’un service cloud | Microsoft Azure"
 description="Découvrez comment mettre à jour des services cloud dans Azure. Découvrez comment mettre à jour un service cloud se poursuit pour garantir la disponibilité."
 services="cloud-services"
 documentationCenter=""
-authors="kenazk"
+authors="Thraka"
 manager="timlt"
 editor=""/>
 <tags
@@ -12,8 +12,8 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="10/26/2015"
-ms.author="kenazk"/>
+ms.date="05/05/2016"
+ms.author="adegeo"/>
 
 # Mettre à jour un service cloud
 
@@ -26,7 +26,7 @@ Azure organise vos instances de rôle en regroupements logiques appelés domaine
 
 Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spécifier un nombre différent de domaines de mise à niveau en incluant l’attribut upgradeDomainCount dans le fichier de définition du service (.csdef). Pour plus d’informations sur l’attribut upgradeDomainCount, consultez [Schéma WebRole](https://msdn.microsoft.com/library/azure/gg557553.aspx) ou [Schéma WorkerRole](https://msdn.microsoft.com/library/azure/gg557552.aspx).
 
-Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d’informations, consultez [Déroulement de la mise à niveau](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed) plus loin dans cet article.
+Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d’informations, consultez [Déroulement de la mise à niveau](#howanupgradeproceeds) plus loin dans cet article.
 
 > [AZURE.NOTE] Bien que les termes **mise à jour** et **mise à niveau** aient une signification légèrement différente dans le contexte Azure, ils peuvent être utilisés indifféremment pour les processus et les descriptions des fonctionnalités du présent document.
 
@@ -132,7 +132,7 @@ Azure offre une flexibilité dans la gestion des services pendant la mise à jou
 Le rétablissement d’une mise à jour en cours a les effets suivants sur le déploiement :
 
 -   Toutes les instances de rôle n’ayant pas encore été mises à jour ou à niveau vers la nouvelle version ne sont ni mises à jour ni mises à niveau, car les instances s’exécutent déjà sur la version cible du service.
--   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (\*.cspkg) ou le fichier de configuration (\*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
+-   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (*.cspkg) ou le fichier de configuration (*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
 
 Cette fonction est assurée par les fonctionnalités suivantes :
 
@@ -145,7 +145,7 @@ Cette fonction est assurée par les fonctionnalités suivantes :
 
 Dans certaines situations, la restauration d’une mise à jour ou d’une mise à niveau n’est pas prise en charge, notamment les suivantes :
 
--   Réduction des ressources locale : si la mise à jour augmente les ressources locales d’un rôle, la plateforme Azure n’autorise pas la restauration. Pour plus d’informations sur la configuration des ressources locales pour un rôle, consultez [Configurer les ressources de stockage local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+-   Réduction des ressources locale : si la mise à jour augmente les ressources locales d’un rôle, la plateforme Azure n’autorise pas la restauration.
 -   Limitations de quota : si la mise à jour correspond à une opération de réduction, vous pouvez ne plus avoir suffisamment de capacité de calcul pour effectuer l’opération de restauration. Chaque abonnement Azure a un quota associé qui spécifie le nombre maximal de cœurs qui peuvent être utilisés par les services hébergés appartenant à cet abonnement. Si l’exécution de la restauration d’une mise à jour donnée met votre abonnement au dessus du quota, la restauration ne sera pas activée.
 -   Condition de concurrence : si la mise à jour initiale est terminée, la restauration est impossible.
 
@@ -167,7 +167,7 @@ Deux opérations, [Obtenir le déploiement](https://msdn.microsoft.com/library/a
 Pour appeler la version de ces méthodes qui renvoie un indicateur Verrouillé, vous devez définir un en-tête de requête « x-ms-version: 2011-10-01 » ou ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 ## Distribution des rôles entre domaines de mise à niveau
-Azure répartit les instances d’un rôle de manière égale sur un certain nombre de domaines de mise à niveau, qui peuvent être configurés dans le cadre du fichier de définition de service (.csdef). Le nombre maximal de domaines de mise à niveau est de 20, et le nombre par défaut est 5. Pour plus d’informations sur la façon de modifier le fichier de définition de service, consultez [Schéma de définition du service Azure (fichier .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
+Azure répartit les instances d’un rôle de manière égale sur un certain nombre de domaines de mise à niveau, qui peuvent être configurés dans le cadre du fichier de définition de service (.csdef). Le nombre maximal de domaines de mise à niveau est de 20, et le nombre par défaut est 5. Pour plus d’informations sur la façon de modifier le fichier de définition de service, consultez [Schéma de définition du service Azure (fichier .csdef)](cloud-services-model-and-package.md#csdef).
 
 Par exemple, si votre rôle comporte dix instances, par défaut, chaque domaine de mise à niveau contient deux instances. Si votre rôle comporte 14 instances, alors quatre des domaines de mise à niveau contiennent trois instances et un cinquième domaine en contient deux.
 
@@ -182,4 +182,4 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 ## Étapes suivantes
 [Gestion de Cloud Services](cloud-services-how-to-manage.md)<br> [Surveiller Cloud Services](cloud-services-how-to-monitor.md)<br> [Configurer Cloud Services](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

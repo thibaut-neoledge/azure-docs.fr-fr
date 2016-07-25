@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Affichage rapports d’intégrité de Service Fabric
@@ -70,7 +70,7 @@ Les requêtes d’intégrité doivent transmettre l’identificateur de l’enti
 
 Les données d’intégrité d’une entité contiennent les informations suivantes :
 
-- L’état agrégé d’intégrité de l’entité. Cette valeur est calculée par le magasin d’intégrité en fonction des rapports d’intégrité de l’entité, de l’état d’intégrité des enfants (le cas échéant) et des stratégies de contrôle d’intégrité. En savoir plus sur l’[évaluation de l’intégrité de l’entité](service-fabric-health-introduction.md#entity-health-evaluation).  
+- L’état agrégé d’intégrité de l’entité. Cette valeur est calculée par le magasin d’intégrité en fonction des rapports d’intégrité de l’entité, de l’état d’intégrité des enfants (le cas échéant) et des stratégies de contrôle d’intégrité. En savoir plus sur l’[évaluation de l’intégrité de l’entité](service-fabric-health-introduction.md#entity-health-evaluation).
 
 - Les événements d’intégrité sur l’entité.
 
@@ -642,7 +642,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ### PowerShell
 L’applet de commande permettant d’obtenir les données d’intégrité des applications déployées est [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Pour connaître l’emplacement de déploiement d’une application, exécutez [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) et visualisez les enfants de l’application déployée.
 
-L’applet de commande suivante permet d’obtenir les données d’intégrité de l’application **fabric:/WordCount** déployée sur **\_Node\_2**.
+L’applet de commande suivante permet d’obtenir les données d’intégrité de l’application **fabric:/WordCount** déployée sur **_Node_2**.
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_2
@@ -684,7 +684,7 @@ Cette requête renvoie les données d’intégrité d’une entité de package d
 - [Facultatif] Filtres des événements qui spécifient les entrées intéressantes qui doivent être retournées dans le résultat (par exemple, uniquement les erreurs ou à la fois les avertissements et les erreurs). Notez que tous les événements permettent d’évaluer l’intégrité d’entité agrégée, quel que soit le filtre utilisé.
 
 ### API
-Pour obtenir les données d’intégrité d’un package de services déployé via l’API, créez un élément `FabricClient` et appelez la méthode [GetDeployedServicePackageHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync.aspx) sur son élément HealthManager. Pour spécifier des paramètres facultatifs, utilisez [DeployedServicePackageHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedservicepackagehealthquerydescription.aspx).
+Pour obtenir les données d’intégrité d’un package de services déployé par le biais de l’API, créez un élément `FabricClient` et appelez la méthode [GetDeployedServicePackageHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync.aspx) sur son élément HealthManager. Pour spécifier des paramètres facultatifs, utilisez [DeployedServicePackageHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedservicepackagehealthquerydescription.aspx).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -694,7 +694,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ### PowerShell
 L’applet de commande permettant d’obtenir les données d’intégrité du package de services déployé est [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Pour connaître l’emplacement de déploiement d’une application, exécutez [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) et visualisez les applications déployées. Pour connaître les packages de services d’une application, consultez les enfants du package de services déployé dans la sortie de [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx).
 
-L’applet de commande suivante permet d’obtenir les données d’intégrité du package de services **WordCountServicePkg** de l’application **fabric:/WordCount** déployée sur **\_Node\_2**. L’entité présente des rapports **System.Hosting** indiquant la réussite de l’activation du package de services et du point d’entrée ainsi que la réussite de l’inscription du type de service.
+L’applet de commande suivante permet d’obtenir les données d’intégrité du package de services **WordCountServicePkg** de l’application **fabric:/WordCount** déployée sur **_Node_2**. L’entité présente des rapports **System.Hosting** indiquant la réussite de l’activation du package de services et du point d’entrée, ainsi que la réussite de l’inscription du type de service.
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -776,7 +776,7 @@ Elle renvoie les données d’intégrité de l’entité du cluster et contient 
 
 - [Facultatif] Mappage de la stratégie de contrôle d’intégrité de l’application avec les stratégies de contrôle d’intégrité utilisées pour remplacer les stratégies du manifeste de l’application.
 
-- [Facultatif] Filtres pour les nœuds et applications qui spécifient les entrées d’intérêt qui doivent figurer dans les résultats. Les filtres sont spécifiques à une entité/un groupe d’entités, ou s’appliquent à l’ensemble des entités de ce niveau. La liste de filtres peut contenir un filtre général et/ou un filtre associé à des identificateurs spécifiques isolant des entités individuelles renvoyées par la requête. Si elle est vide, les enfants ne sont pas renvoyés par défaut. En savoir plus sur les filtres, sur [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) et [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). Les filtres d’application peuvent spécifier de manière récursive des filtres avancés pour les enfants.
+- [Facultatif] Filtres pour les nœuds et applications qui spécifient les entrées d’intérêt qui doivent figurer dans les résultats. Les filtres sont spécifiques à une entité/un groupe d’entités, ou s’appliquent à l’ensemble des entités de ce niveau. La liste de filtres peut contenir un filtre général et/ou un filtre associé à des identificateurs spécifiques isolant des entités individuelles renvoyées par la requête. Si elle est vide, les enfants ne sont pas renvoyés par défaut. Pour en savoir plus sur les filtres, consultez [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) et [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). Les filtres d’application peuvent spécifier de manière récursive des filtres avancés pour les enfants.
 
 Le résultat de segments inclut les enfants retenus par les filtres.
 
@@ -978,7 +978,7 @@ ApplicationHealthStateChunks :
 ```
 
 ## Requêtes générales
-Les requêtes générales renvoient la liste des entités Service Fabric d’un type spécifié. Elles sont exposées via l’API (méthodes sur **FabricClient.QueryManager**), les applets de commande PowerShell et REST. Ces requêtes agrègent les sous-requêtes de plusieurs composants. L’un d’eux est le [magasin d’intégrité](service-fabric-health-introduction.md#health-store), qui renseigne l’état d’intégrité agrégé pour chaque résultat de requête.
+Les requêtes générales renvoient la liste des entités Service Fabric d’un type spécifié. Elles sont exposées par le biais de l’API (méthodes sur **FabricClient.QueryManager**), les applets de commande PowerShell et REST. Ces requêtes agrègent les sous-requêtes de plusieurs composants. L’un d’eux est le [magasin d’intégrité](service-fabric-health-introduction.md#health-store), qui renseigne l’état d’intégrité agrégé pour chaque résultat de requête.
 
 > [AZURE.NOTE] Les requêtes générales renvoient l’état d’intégrité agrégé de l’entité et ne contiennent pas de données d’intégrité enrichies. Si une entité n’est pas saine, vous pouvez recourir à des requêtes d’intégrité afin d’obtenir l’ensemble des informations sur son intégrité, comme les événements, l’état d’intégrité des enfants et les évaluations de défaut d’intégrité.
 
@@ -1128,8 +1128,10 @@ Chaque fois qu’un problème est identifié dans le cluster ou dans une applica
 
 [Ajout de rapports d’intégrité Service Fabric personnalisés](service-fabric-report-health.md)
 
+[Comment signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

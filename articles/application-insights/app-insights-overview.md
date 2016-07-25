@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
+	ms.date="06/06/2016" 
 	ms.author="awills"/>
  
 # Présentation d’Application Insights
@@ -27,7 +27,7 @@ Il fonctionne avec les applications web et les applications autonomes sur un lar
 
 Application Insights est destiné à l'équipe de développement. Avec lui, vous pouvez :
 
-* [Analyser les modèles d'utilisation][knowUsers] pour mieux comprendre vos utilisateurs et améliorer sans cesse votre application. 
+* [Analyser les modèles d'utilisation][knowUsers] pour mieux comprendre vos utilisateurs et améliorer sans cesse votre application.
  * Nombre de pages consultées, les utilisateurs nouveaux et qui reviennent, la géolocalisation, les plateformes ainsi que d’autres analyses d’utilisation principales
  * Suivre les chemins d'utilisation pour évaluer la réussite de chaque fonctionnalité.
 * [Détectez, triez et diagnostiquez][detect] les problèmes de performances et corrigez-les avant que la plupart de vos utilisateurs ne s’en rende compte.
@@ -118,8 +118,6 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
  * [Résolution des problèmes][qna]
  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Bogues :
- * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog :
@@ -158,4 +156,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

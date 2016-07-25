@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -30,6 +30,7 @@ Pour atteindre cet objectif :
 
 Cette rubrique offre une vue d’ensemble sur des concepts importants de la distribution de contenu.
 
+Pour vérifier les problèmes connus, voir [cette](media-services-deliver-content-overview.md#known-issues) section.
 
 ##Empaquetage dynamique
 
@@ -86,7 +87,7 @@ Notez que vous pouvez uniquement transmettre en continu via le protocole SSL si 
 
 ##Formats d’URL de diffusion en continu :
 
-**Format MPEG DASH**
+###Format MPEG DASH
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest(format=mpd-time-csf)
 
@@ -96,28 +97,28 @@ Exemple
 
 
 
-**Format Apple HTTP Live Streaming (HLS) V4**
+###Format Apple HTTP Live Streaming (HLS) V4
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest(format=m3u8-aapl)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-**Format Apple HTTP Live Streaming (HLS) V3**
+###Format Apple HTTP Live Streaming (HLS) V3
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest(format=m3u8-aapl-v3)
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-**Format Apple HTTP Live Streaming (HLS) avec filtre audio uniquement**
+###Format Apple HTTP Live Streaming (HLS) avec filtre audio uniquement
 
 Par défaut, les pistes uniquement audio sont incluses dans le manifeste HLS. Cette condition est nécessaire pour qu’Apple certifie les réseaux cellulaires. Dans ce cas, si un client n'a pas suffisamment de bande passante ou est connecté via une connexion 2G, il bascule vers la lecture audio uniquement. Cela permet de conserver une diffusion en continu sans mise en mémoire tampon, mais avec l’inconvénient de n’avoir aucune vidéo. Toutefois, dans certains scénarios, la mise en mémoire tampon du lecteur est préférable à une diffusion audio uniquement. Si vous souhaitez supprimer la piste audio uniquement, vous pouvez l’ajouter (audio-only=false) à l'URL et la supprimer.
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Pour plus d’informations, voir [ce](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 
-**Format Smooth Streaming**
+###Format Smooth Streaming
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest
 
@@ -125,7 +126,7 @@ Exemple :
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-**Manifeste Smooth Streaming 2.0 (manifeste hérité)**
+###<a id="fmp4_v20"></a>Manifeste Smooth Streaming 2.0 (manifeste hérité)
 
 Par défaut, le manifeste Smooth Streaming contient la balise de répétition (r-tag). Toutefois, certains lecteurs ne gèrent pas la balise r-tag. Ces clients peuvent utiliser un format qui désactive la balise r-tag :
 
@@ -133,12 +134,11 @@ Par défaut, le manifeste Smooth Streaming contient la balise de répétition (r
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
-**HDS (pour les titulaires de licences Adobe PrimeTime/Access uniquement)**
+###HDS (pour les titulaires de licences Adobe PrimeTime/Access uniquement)
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest(format=f4m-f4f)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
-
 
 ##Téléchargement progressif 
 
@@ -151,7 +151,6 @@ Pour télécharger progressivement du contenu, utilisez le type de localisateur 
 La considération suivante s’applique :
 
 - Vous devez déchiffrer les ressources à chiffrement de stockage que vous souhaitez diffuser en continu depuis le service d’origine pour permettre le téléchargement progressif.
-
 
 ##Télécharger
 
@@ -166,13 +165,38 @@ Les considérations suivantes s'appliquent :
 - Vous devez déchiffrer les ressources à chiffrement de stockage que vous souhaitez diffuser en continu depuis le service d’origine pour permettre le téléchargement progressif.
 - Si le téléchargement n’est pas terminé au bout de 12 heures, il échoue.
 
-
-
 ##Points de terminaison de diffusion en continu
 
 Un **point de terminaison de diffusion en continu** représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) pour être redistribué. Le flux sortant d’un service de point de terminaison de diffusion en continu peut être un flux dynamique ou une ressource de vidéo à la demande dans votre compte Media Services. En outre, vous pouvez contrôler la capacité du service de point de terminaison de diffusion en continu afin de gérer les besoins croissants en matière de bande passante en ajustant les unités réservées de diffusion en continu. Vous devez allouer au moins une unité réservée pour les applications au sein d’un environnement de production. Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](media-services-manage-origins.md#scale_streaming_endpoints).
 
+##Problèmes connus
 
+### Modifications apportées à la version du manifeste Smooth Streaming
+
+Avant la version de service de juillet 2016, lorsque des éléments multimédias générés par Media Encoder Standard, Media Encoder Premium Workflow ou l’encodeur multimédia Azure hérité étaient diffusés en continu à l’aide de l’empaquetage dynamique, le manifeste Smooth Streaming retourné devait être conforme à la version 2.0, dans laquelle les durées de fragments n’utilisent pas ce que l’on appelle les balises de répétition (« r »). Par exemple :
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" n="0" />
+			<c d="2000" />
+			<c d="2000" />
+			<c d="2000" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+Après la version de service de juillet 2016, le manifeste Smooth Streaming généré est conforme à la version 2.2, avec des durées de fragments utilisant des balises de répétition. Par exemple :
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" r="4" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+Certains clients Smooth Streaming hérités peuvent ne pas prendre en charge les balises de répétition et ne parviennent pas à charger le manifeste. Pour résoudre ce problème, vous pouvez utiliser le paramètre de format de manifeste hérité **(format=fmp4-v20)** (pour plus d’informations, voir [cette](media-services-deliver-content-overview.md#fmp4_v20) section), ou mettre à jour votre client vers la dernière version qui prend en charge les balises de répétition.
 
 ##Parcours d’apprentissage de Media Services
 
@@ -187,4 +211,4 @@ Un **point de terminaison de diffusion en continu** représente un service de di
 [Mettre à jour les localisateurs de Media Services après le déploiement des clés de stockage](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->
