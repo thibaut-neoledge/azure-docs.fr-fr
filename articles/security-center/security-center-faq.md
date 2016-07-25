@@ -126,9 +126,9 @@ Les machines virtuelles Linux prises en charge sont les suivantes :
 
 - Ubuntu versions 12.04, 14.04, 15.10 et 16.04
 - Debian versions 7 et 8
-- CentOS versions 6.* et 7.*
-- Red Hat Enterprise Linux (RHEL) versions 6.* et 7.*
-- SUSE Linux Enterprise Server (SLES) versions 11.* et 12.*
+- CentOS versions 6.\* et 7.*
+- Red Hat Enterprise Linux (RHEL) versions 6.\* et 7.*
+- SUSE Linux Enterprise Server (SLES) versions 11.\* et 12.*
 
 Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur le service cloud, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md).
 

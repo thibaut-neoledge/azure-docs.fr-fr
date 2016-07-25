@@ -206,7 +206,11 @@ Les sections suivantes expliquent quelles propriétés des sections de message A
 
 | Nom du champ | Utilisation | Nom de l’API |
 |----------------	|-------------------------------	|---------------	|
-| durable | - | - | | priorité | - | - | | ttl | Durée de vie de ce message | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | - | - | | delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | - | - |
+| priorité | - | - |
+| ttl | Durée de vie de ce message | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| first-acquirer | - | - |
+| delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### properties
 

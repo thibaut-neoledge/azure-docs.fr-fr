@@ -496,10 +496,10 @@ Pour voir les revendications disponibles, utilisez un navigateur web pour affich
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 

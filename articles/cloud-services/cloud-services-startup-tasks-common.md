@@ -70,9 +70,9 @@ Les codes errorlevel retournés par *AppCmd.exe* sont répertoriés dans le fich
 
 ### Exemple
 
-Cet exemple ajoute une section de compression et une entrée de compression pour JSON au fichier *Web.config*, avec gestion et journalisation des erreurs.
+Cet exemple ajoute une section de compression et une entrée de compression pour JSON au fichier *Web.config* , avec gestion et journalisation des erreurs.
 
-Les sections pertinentes du fichier [ServiceDefinition.csdef] sont indiquées ici, avec notamment l’attribut [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) défini sur `elevated` pour qu’*AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
+Les sections pertinentes du fichier [ServiceDefinition.csdef] sont indiquées ici, avec notamment l’attribut [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) défini sur `elevated` pour qu’ *AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

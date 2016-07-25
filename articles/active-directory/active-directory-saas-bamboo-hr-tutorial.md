@@ -16,7 +16,8 @@
 
 #Didacticiel : Intégration d’Azure Active Directory à BambooHR
 
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et BambooHR. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et BambooHR.
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement BambooHR pour lequel l’authentification unique est activée
@@ -64,7 +65,9 @@ Cette section décrit l’activation de l’intégration d’applications pour B
     ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
 ##Configuration de l'authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur BambooHR avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur BambooHR avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
+Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -111,7 +114,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Configurer l’authentification unique](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
 
-Pour permettre aux utilisateurs Azure AD de se connecter à BambooHR, vous devez les approvisionner dans BambooHR. En l’occurrence, cet approvisionnement est une tâche manuelle.
+Pour permettre aux utilisateurs Azure AD de se connecter à BambooHR, vous devez les approvisionner dans BambooHR.
+En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 ###Pour approvisionner un compte d’utilisateur, procédez comme suit :
 

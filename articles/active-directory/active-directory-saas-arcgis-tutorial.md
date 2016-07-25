@@ -112,7 +112,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Configurer l’authentification unique](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
 
-Pour permettre aux utilisateurs Azure AD de se connecter à ArcGIS, vous devez les approvisionner dans ArcGIS. En l’occurrence, cet approvisionnement est une tâche manuelle.
+Pour permettre aux utilisateurs Azure AD de se connecter à ArcGIS, vous devez les approvisionner dans ArcGIS.
+En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 

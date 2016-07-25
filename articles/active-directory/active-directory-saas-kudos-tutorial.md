@@ -16,7 +16,8 @@
 
 #Didacticiel : Intégration d’Azure Active Directory à Kudos
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Kudos. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Kudos.  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Kudos
@@ -64,7 +65,9 @@ Cette section décrit l’activation de l’intégration d’application pour Ku
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Kudos avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Kudos avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
+Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 

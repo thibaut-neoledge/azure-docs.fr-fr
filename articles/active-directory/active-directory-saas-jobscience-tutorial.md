@@ -16,7 +16,8 @@
 
 #Didacticiel : Intégration d’Azure Active Directory à Jobscience
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Jobscience. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Jobscience.
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Jobscience pour lequel l’authentification unique est activée
@@ -64,7 +65,9 @@ Cette section décrit l’activation de l’intégration d’application pour Jo
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat.  
+Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -145,10 +148,12 @@ Pour obtenir l’URL d’authentification unique initiée par le fournisseur de 
 
 ![Contrôles de sécurité](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Contrôles de sécurité")
   
-Cliquez sur le profil d’authentification unique créé à l’étape précédente. Cette page affiche l’URL d’authentification unique de votre entreprise (par exemple, *https://companyname.my.salesforce.com?so=companyid*).
+Cliquez sur le profil d’authentification unique créé à l’étape précédente.  
+Cette page affiche l’URL d’authentification unique de votre entreprise (par exemple, *https://companyname.my.salesforce.com?so=companyid*).
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous devez les approvisionner dans Jobscience. Dans le cas de Jobscience, cet approvisionnement est une tâche manuelle.
+Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous devez les approvisionner dans Jobscience.  
+Dans le cas de Jobscience, cet approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
