@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/29/2016"
+	ms.date="07/07/2016"
 	ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
@@ -63,6 +63,8 @@ Cliquez sur **Dépanner** pour afficher les problèmes courants et les stratégi
 Cliquez sur **Journaux d’audit** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour plus d’informations sur l’utilisation des journaux d’audit, consultez les rubriques [Affichage des événements et journaux d’audit](../azure-portal/insights-debugging-with-events.md) et [Opérations d’audit avec Resource Manager](../resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
 
 **Resource health** surveille vos ressources et vous indique si elles s’exécutent comme prévu. Pour plus d’informations sur le service Azure Resource Health, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
+
+>[AZURE.NOTE] Resource Health ne parvient pas à créer de rapport sur l’intégrité des instances du cache Redis Azure hébergées dans un réseau virtuel. Pour plus d’informations, voir [Toutes les fonctionnalités fonctionnent-elles lorsque vous hébergez un cache dans un réseau virtuel ?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 Cliquez sur **Nouvelle demande de support** pour ouvrir une demande de support pour votre cache.
 
@@ -218,12 +220,12 @@ L’importation peut servir à récupérer les fichiers RDB compatibles Redis de
 
 L’exportation vous permet d’exporter les données stockées dans le Cache Azure Redis vers un ou plusieurs fichier(s) RDB compatible(s). Vous pouvez utiliser cette fonctionnalité pour déplacer des données d’une instance de Cache Redis Azure à une autre, ou vers un autre serveur Redis. Pendant le processus d’exportation, un fichier temporaire est créé sur la machine virtuelle qui héberge l’instance de serveur de Cache Redis Azure, puis téléchargé vers le compte de stockage désigné. Lorsque l’opération d’exportation se termine avec un état de réussite ou d’échec, le fichier temporaire est supprimé.
 
->[AZURE.IMPORTANT] L’importation/exportation est uniquement disponible pour les caches de niveau Premium. Pour plus d’informations et pour obtenir des instructions, consultez la rubrique [Importer et exporter des données dans le Cache Redis Azure](cache-how-to-import-export-data.md).
+>[AZURE.IMPORTANT] L’importation/exportation est uniquement disponible pour les caches de niveau Premium. Pour plus d’informations et pour obtenir des instructions, consultez la rubrique [Importer et exporter des données dans le cache Redis Azure](cache-how-to-import-export-data.md).
 
 
 ## Paramètres d’administration
 
-Les paramètres de la section **Administration** vous permettent d’effectuer les tâches administratives suivantes pour votre cache premium.
+Les paramètres de la section **Administration** vous permettent d’effectuer les tâches administratives suivantes pour votre cache Premium.
 
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
@@ -234,7 +236,7 @@ Les paramètres de la section **Administration** vous permettent d’effectuer l
 
 ### Reboot
 
-Le panneau **Reboot** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cela vous permet de tester la résilience de votre application en cas d’échec.
+Le panneau **Redémarrer** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cela vous permet de tester la résilience de votre application en cas d’échec.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -242,13 +244,13 @@ Si vous avez un cache premium avec activation du clustering, vous pouvez sélect
 
 ![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-Pour redémarrer un ou plusieurs nœuds de votre cache, sélectionnez les nœuds souhaités, puis cliquez sur **Reboot**. Si vous avez un cache premium avec activation du clustering, sélectionnez les partitions à redémarrer, puis cliquez sur **Reboot**. Après quelques minutes, les nœuds sélectionnés sont redémarrés et sont de nouveau en ligne.
+Pour redémarrer un ou plusieurs nœuds de votre cache, sélectionnez les nœuds souhaités, puis cliquez sur **Redémarrer**. Si vous avez un cache Premium avec activation du clustering, sélectionnez les partitions à redémarrer, puis cliquez sur **Redémarrer**. Après quelques minutes, les nœuds sélectionnés sont redémarrés et sont de nouveau en ligne.
 
 >[AZURE.IMPORTANT] Le redémarrage est uniquement disponible pour les caches de niveau Premium. Pour plus d’informations et pour obtenir des instructions, consultez la page [Administration du cache Redis Azure - Redémarrage](cache-administration.md#reboot).
 
 ### Planification de mises à jour
 
-Le panneau **Planification de mises à jour** vous permet de désigner une fenêtre de maintenance pour les mises à jour de du serveur Redis de votre cache.
+Le panneau **Planification de mises à jour** vous permet de désigner une fenêtre de maintenance pour les mises à jour du serveur Redis de votre cache.
 
 >[AZURE.IMPORTANT] Notez que la fenêtre de maintenance s’applique uniquement aux mises à jour du serveur Redis et non à toute mise à jour d’Azure ou du système d’exploitation des machines virtuelles qui hébergent le cache.
 
@@ -260,7 +262,7 @@ Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spé
 
 ## Paramètres de diagnostic
 
-La section **Diagnostics** vous permet de configurer les diagnostics de votre Cache Redis.
+La section **Diagnostics** vous permet de configurer les diagnostics de votre cache Redis.
 
 ![Diagnostics](./media/cache-configure/redis-cache-diagnostics.png)
 
@@ -270,7 +272,7 @@ Cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to
 
 Cliquez sur **Mesures Redis** pour [afficher les mesures](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) relatives à votre cache, puis sur **Règles d’alerte** pour [définir des règles d’alerte](cache-how-to-monitor.md#operations-and-alerts).
 
-Pour plus d’informations sur les diagnostics de Cache Redis Azure, voir [Surveillance du cache Redis Azure](cache-how-to-monitor.md).
+Pour plus d’informations sur les diagnostics du cache Redis Azure, voir [Surveillance du cache Redis Azure](cache-how-to-monitor.md).
 
 
 ## Paramètres réseau
@@ -279,7 +281,7 @@ Les paramètres de la section **Réseau** vous permettent d’accéder aux param
 
 ![Réseau](./media/cache-configure/redis-cache-network.png)
 
->[AZURE.IMPORTANT] Les paramètres de réseau virtuel sont disponibles uniquement pour les caches Premium qui ont été configurés avec la prise en charge de réseau virtuel lors de la création du cache. Pour plus d’informations sur la création d’un cache Premium avec la prise en charge de réseau virtuel et sur la mise à jour de ses paramètres, consultez [Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium](cache-how-to-premium-vnet.md).
+>[AZURE.IMPORTANT] Les paramètres de réseau virtuel sont disponibles uniquement pour les caches Premium qui ont été configurés avec la prise en charge de réseau virtuel lors de la création du cache. Pour plus d’informations sur la création d’un cache Premium avec la prise en charge de réseau virtuel et sur la mise à jour de ses paramètres, consultez [Comment configurer la prise en charge de réseau virtuel pour un cache Redis Azure Premium](cache-how-to-premium-vnet.md).
 
 ## Paramètres de gestion des ressources
 
@@ -313,7 +315,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 |lua-event-limit|500|Il s’agit de la taille maximale de la file d’attente des événements de script.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu’un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d’informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
-<a name="databases"></a> <sup>1</sup>La limite de `databases` est différente pour chaque niveau tarifaire du Cache Redis Azure et peut être définie lors de la création du cache. Si aucun paramètre `databases` n’est spécifié lors de la création du cache, la valeur par défaut est 16.
+<a name="databases"></a> <sup>1</sup>La limite de `databases` est différente pour chaque niveau tarifaire du cache Redis Azure et peut être définie lors de la création du cache. Si aucun paramètre `databases` n’est spécifié lors de la création du cache, la valeur par défaut est 16.
 
 -	Caches De base et Standard
 	-	Cache C0 (250 Mo) : jusqu’à 16 bases de données
@@ -328,13 +330,13 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 	-	P2 (13 à 130 Go) - jusqu’à 32 bases de données
 	-	P3 (26 à 260 Go) - jusqu’à 48 bases de données
 	-	P4 (53 à 530 Go) - jusqu’à 64 bases de données
-	-   Tous les caches de niveau premium avec cluster Redis activé : le cluster Redis prend uniquement en charge l’utilisation de la base de données 0 pour que la limite `databases` de chaque cache premium avec cluster Redis activé soit effectivement 1 et que la commande [Selectionner](http://redis.io/commands/select) ne soit pas autorisée. Pour en savoir plus, voir, [Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+	-   Tous les caches de niveau Premium avec cluster Redis activé : le cluster Redis prend uniquement en charge l’utilisation de la base de données 0 pour que la limite `databases` de chaque cache Premium avec cluster Redis activé soit effectivement 1 et que la commande [Sélectionner](http://redis.io/commands/select) ne soit pas autorisée. Pour en savoir plus, voir, [Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 
 >[AZURE.NOTE] Le paramètre `databases` peut être configuré uniquement lors de la création du cache et uniquement à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres clients de gestion. Pour obtenir un exemple de configuration de `databases` lors de la création du cache à l’aide de PowerShell, voir [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 
 
-<a name="maxclients"></a> <sup>2</sup>`maxclients` est différent pour chaque niveau tarifaire du Cache Redis Azure.
+<a name="maxclients"></a> <sup>2</sup>`maxclients` est différent pour chaque niveau tarifaire du cache Redis Azure.
 
 -	Caches De base et Standard
 	-	Cache C0 (250 Mo) : jusqu’à 256 connexions
@@ -396,4 +398,4 @@ Pour plus d’informations sur le déplacement des ressources d’un groupe de r
 ## Étapes suivantes
 -	Pour plus d'informations sur l'utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

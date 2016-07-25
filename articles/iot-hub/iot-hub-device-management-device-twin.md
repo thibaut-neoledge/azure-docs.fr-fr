@@ -54,7 +54,7 @@ Avant d’exécuter cet exemple, vous devez avoir terminé les étapes de [Prise
 
 Pour démarrer l’exemple, vous devez exécuter le processus **DeviceTwin.exe**. Celui-ci lit les propriétés de l’appareil à partir de la représentation d’appareil et à partir de l’appareil physique. Il modifie également une propriété de l’appareil sur l’appareil physique. Procédez comme suit pour démarrer l’exemple :
 
-1.  À partir du dossier racine dans lequel vous avez cloné le référentiel **azure-iot-sdks**, accédez au dossier **azure-iot-sdks\\csharp\\service\\samples\\bin**.  
+1.  À partir du dossier racine dans lequel vous avez cloné le référentiel **azure-iot-sdks**, accédez au dossier **azure-iot-sdks\\csharp\\service\\samples\\bin**.
 
 2.  Exécutez `DeviceTwin.exe <IoT Hub Connection String>`.
 
@@ -122,10 +122,17 @@ Au lieu d’utiliser la méthode set, vous pouvez implémenter un rappel. Pour p
 Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure IoT Hub, vous pouvez parcourir les didacticiels suivants :
 
 - [Recherche de représentations d’appareil physique à l’aide de requêtes][lnk-tutorial-queries]
-
-- [Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils][lnk-dm-jobs]
-
+- [Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils][lnk-tutorial-jobs]
+- [Activer les appareils gérés derrière une passerelle IoT][lnk-dm-gateway]
+- [Présentation de la bibliothèque cliente de gestion des appareils (DM) Azure IoT Hub][lnk-library-c]
 - Les bibliothèques clientes de gestion des appareils fournissent un exemple de bout en bout utilisant un [appareil Intel Edison][lnk-edison].
+
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
@@ -139,4 +146,15 @@ Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure I
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0622_2016-->
+
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

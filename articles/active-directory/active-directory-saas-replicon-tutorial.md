@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Replicon | Microsoft Azure" 
     description="Apprenez à utiliser Replicon avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Replicon
   
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Re
 
 ###Pour activer l’intégration d’application pour Replicon, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-replicon-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Replicon**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **Replicon**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configurer l’authentification unique")
 
@@ -83,8 +83,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Dans la zone de texte **Replicon Sign On URL**, entrez l’URL de votre locataire Replicon (par exemple, *https://na2.replicon.com/company/saml2/sp-sso/post*).
     2.  Dans la zone de texte **Replicon Reply URL**, entrez votre URL Replicon **AssertionConsumerService** (par exemple, *https://global.replicon.com/!/saml2/company/sso/post*).
 
-        >[AZURE.NOTE]Vous pouvez obtenir l’URL à partir des métadonnées Replicon à :
-        **https://global.replicon.com/!/saml2/\<CléDeVotreEntreprise>**.
+        >[AZURE.NOTE] Vous pouvez obtenir l’URL à partir des métadonnées Replicon à : **https://global.replicon.com/!/saml2/\<CléDeVotreEntreprise>**.
 
     3.  Cliquez sur **Suivant**
 
@@ -98,21 +97,17 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Activer l’authentification SAML](./media/active-directory-saas-replicon-tutorial/IC777805.png "Activer l’authentification SAML")
 
-    1.  Pour afficher la boîte de dialogue **EnableSAML Authentication2**, ajoutez ce qui suit à votre URL, après la clé de votre entreprise :  
-        **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**  
-        Voici une illustration du schéma de l’URL complète :  
-        **https://na2.replicon.com/\<CléDeVotreEntreprise>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
+    1.  Pour afficher la boîte de dialogue **EnableSAML Authentication2**, ajoutez ce qui suit à votre URL, après la clé de votre entreprise : **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2** Voici une illustration du schéma de l’URL complète : **https://na2.replicon.com/\<CléDeVotreEntreprise>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
     2.  Cliquez sur **+** pour développer la section **v20Configuration**.
     3.  Cliquez sur **+** pour développer la section **metaDataConfiguration**.
     4.  Cliquez sur **Choose File** pour sélectionner votre fichier XML de métadonnées de fournisseur d’identité, puis cliquez sur **Submit**.
 
-7.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+7.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-replicon-tutorial/IC778418.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour se connecter à Replicon, les utilisateurs d’Azure AD doivent être approvisionnés dans Replicon.  
-Dans le cas de Replicon, l’approvisionnement est une tâche manuelle.
+Pour se connecter à Replicon, les utilisateurs d’Azure AD doivent être approvisionnés dans Replicon. Dans le cas de Replicon, l’approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
@@ -144,7 +139,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Replicon, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **Replicon**, cliquez sur **Affecter des utilisateurs**.
 
@@ -156,4 +151,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

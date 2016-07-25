@@ -22,7 +22,7 @@
 
 Les pools élastiques offrent une solution simple et économique pour gérer les objectifs de performance de plusieurs bases de données ayant des modèles d’utilisation variables et non prévisibles.
 
-> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord, du centre des États-Unis, du Sud du Brésil, de l’Inde de l’Ouest et du Nord de la Chine, où ils sont actuellement en version préliminaire. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible.
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis, de l’Inde de l’Ouest et du Nord de la Chine, où ils sont actuellement en préversion. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible.
 
 ## Fonctionnement
 
@@ -104,4 +104,4 @@ Pour les applications qui ont des exigences de récupération extrêmement stric
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

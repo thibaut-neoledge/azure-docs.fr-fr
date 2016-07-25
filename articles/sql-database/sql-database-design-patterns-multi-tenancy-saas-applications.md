@@ -32,6 +32,7 @@ Dans cet article, une application mutualisée désigne une application hébergé
 Les applications mutualisées illustrent parfaitement les applications dont les données et les charges de travail peuvent être aisément partitionnées. Par exemple, avec les applications mutualisées, les données et la charge de travail peuvent généralement être partitionnées en fonction des limites du locataire, étant donné que la plupart des demandes sont définies dans ce cadre. Cette propriété est inhérente aux données et à la charge de travail, et elle favorise les modèles d’applications abordés dans la suite de l’article.
 
 Nous avons trouvé des applications de ce type dans toute la gamme d’applications basées sur le cloud, notamment :
+
 - Les applications de base de données ISV effectuant une transition vers le cloud en tant qu’applications SaaS
 - Les applications SaaS créées pour le cloud de A à Z
 - Les applications orientées consommateur direct/utilisateur final
@@ -117,7 +118,7 @@ Base de données SQL Azure fournit des « pools de base de données élastique �
 | Simplicité des opérations de développement entre bases de données | [Pools de base de données élastique :](sql-database-elastic-pool.md) comme indiqué ci-dessus.|
 ||[Requête élastique :](sql-database-elastic-query-horizontal-partitioning.md) permet d’interroger des bases de données à propos de la création de rapports ou de l’analyse entre locataires.|
 ||[Tâches élastiques :](sql-database-elastic-jobs-overview.md) permet de regrouper et de déployer correctement les opérations de maintenance de base de données ou les modifications de schéma de base de données pour plusieurs bases de données.|
-||[Transactions élastiques :](sql-database-elastic-scale.md) permet de traiter les modifications dans plusieurs bases de données de manière atomique et isolée. Cette fonction est nécessaire lorsque les applications ont besoin de garanties « tout ou rien » sur plusieurs opérations de base de données. |
+||[Transactions élastiques :](sql-database-elastic-transactions-overview.md) permet de traiter les modifications dans plusieurs bases de données de manière atomique et isolée. Cette fonction est nécessaire lorsque les applications ont besoin de garanties « tout ou rien » sur plusieurs opérations de base de données. |
 ||[Bibliothèque cliente de base de données élastique :](sql-database-elastic-database-client-library.md) cette fonctionnalité permet de gérer les distributions de données et le mappage des locataires vers les bases de données. |
 ||||
 
@@ -179,4 +180,4 @@ Pour toute question, contactez-nous sur le [forum Base de données SQL](http://s
 
 	
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

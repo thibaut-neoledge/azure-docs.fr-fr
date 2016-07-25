@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Microsoft Azure" 
     description="Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs" 
-    services="service-bus" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
@@ -206,11 +206,7 @@ Les sections suivantes expliquent quelles propriétés des sections de message A
 
 | Nom du champ | Utilisation | Nom de l’API |
 |----------------	|-------------------------------	|---------------	|
-| durable | - | - |
-| priorité | - | - |
-| ttl | Durée de vie de ce message | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
-| first-acquirer | - | - |
-| delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | - | - | | priorité | - | - | | ttl | Durée de vie de ce message | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | - | - | | delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### properties
 
@@ -234,9 +230,11 @@ Les sections suivantes expliquent quelles propriétés des sections de message A
 
 Cette section traite des fonctionnalités avancées d’Azure Service Bus qui reposent sur des projets d’extension d’AMQP en cours de développement au sein du comité technique OASIS pour AMQP. Azure Service Bus implémente le dernier état de ces projets et adoptera les modifications introduites dès que ces projets auront été normalisés.
 
+> [AZURE.NOTE] Les opérations avancées de messagerie Service Bus sont prises en charge via un modèle de demande/réponse. Les détails de ces opérations sont décrits dans le document [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx) (AMQP 1.0 dans Service Bus : opérations basées sur le modèle de demande/réponse).
+
 ### Gestion du protocole AMQP
 
-La spécification de gestion du protocole AMQP est le premier projet d’extension dont nous parlerons ici. Cette spécification définit un ensemble de mouvements de protocole disposés en couche au-dessus du protocole AMQP, qui permettent des interactions de gestion avec l’infrastructure de messagerie via AMQP. La spécification définit des opérations génériques, telles que la *création*, la *lecture*, la *mise à jour*, et la *suppression*, pour la gestion des entités au sein d’une infrastructure de messagerie et un ensemble d’opérations de requête.
+La spécification de gestion du protocole AMQP est le premier projet d’extension dont nous parlerons ici. Cette spécification définit un ensemble de mouvements de protocole disposés en couche au-dessus du protocole AMQP, qui permettent des interactions de gestion avec l’infrastructure de messagerie via AMQP. La spécification définit des opérations génériques, telles que la *création*, la *lecture*, la *mise à jour* et la *suppression*, pour la gestion des entités au sein d’une infrastructure de messagerie et un ensemble d’opérations de requête.
 
 Tous ces mouvements nécessitent une interaction demande/réponse entre le client et l’infrastructure de messagerie. Par conséquent, la spécification définit comment modéliser ce modèle d’interaction au-dessus d’AMQP : le client se connecte à l’infrastructure de messagerie, lance une session, puis crée une paire de liens. Sur un lien, le client joue le rôle d’expéditeur et sur l’autre, il agit en tant que destinataire, créant ainsi une paire de liens pouvant agir sous forme de canal bidirectionnel.
 
@@ -290,9 +288,9 @@ La propriété *name* identifie l’entité avec laquelle le jeton doit être as
 | amqp:swt | Clé d’authentification Web simple (SWT) | Valeur AMQP (chaîne) | Pris en charge uniquement pour les clés d’authentification web simples SWT émises par AAD/ACS |
 | servicebus.windows.net:sastoken | Jeton SAP Service Bus | Valeur AMQP (chaîne) | - |
 
-Les jetons confèrent des droits. Service Bus connaît trois droits fondamentaux : « Envoyer » autorise l’envoi, « Écouter » autorise la réception, et « Gérer » autorise la manipulation d’entités. Les jetons SWT émis par AAD/ACS incluent explicitement ces droits en tant que revendications. Les jetons SAP Service Bus font référence aux règles configurées sur l’espace de noms ou l’entité. Ces dernières sont configurées avec des droits. Le fait de signer le jeton avec la clé associée à cette règle permet au jeton d’exprimer les droits respectifs. Le jeton associé à une entité à l’aide de *put-token* permet au client connecté d’interagir avec l’entité selon les droits du jeton. Un lien sur lequel le client joue le rôle d’*expéditeur* requiert le droit « Envoyer ». le rôle de *destinataire* requiert le droit « Écouter ».
+Les jetons confèrent des droits. Service Bus connaît trois droits fondamentaux : « Envoyer » autorise l’envoi, « Écouter » autorise la réception, et « Gérer » autorise la manipulation d’entités. Les jetons SWT émis par AAD/ACS incluent explicitement ces droits en tant que revendications. Les jetons SAP Service Bus font référence aux règles configurées sur l’espace de noms ou l’entité. Ces dernières sont configurées avec des droits. Le fait de signer le jeton avec la clé associée à cette règle permet au jeton d’exprimer les droits respectifs. Le jeton associé à une entité à l’aide de *put-token* permet au client connecté d’interagir avec l’entité selon les droits du jeton. Un lien sur lequel le client joue le rôle d’*expéditeur* exige le droit « Envoyer ». Le rôle de *destinataire* exige le droit « Écouter ».
 
-Le message de réponse possède les valeurs *application-properties* suivantes :
+Le message de réponse a les valeurs *application-properties* suivantes :
 
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 |--------------------|----------|------------|-----------------------------------|
@@ -327,4 +325,4 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
  
 # Guide de conversion des rôles web et de travail en services sans état Service Fabric
@@ -38,7 +38,7 @@ D’un point de vue conceptuel, un rôle de travail représente une charge de tr
 
 Comme pour le rôle de travail, un rôle web représente également une charge de travail sans état, et, d’un point de vue conceptuel, il peut donc lui aussi être mappé vers un service sans état Service Fabric. Toutefois, contrairement aux rôles web, Service Fabric ne prend pas en charge les IIS. Pour migrer une application web d’un rôle web vers un service sans état, vous devez d’abord passer à une infrastructure web auto-hébergée et qui ne dépend pas d’IIS ou de System.Web, comme ASP.NET Core 1.
 
-**Application** | **Prise en charge** | **Chemin de migration**
+**Application** | **Pris en charge** | **Chemin de migration**
 --- | --- | ---
 Formulaires web ASP.NET | Non | Convertir en ASP.NET Core 1 MVC
 ASP.NET MVC | Avec migration | Mettre à niveau vers ASP.NET Core 1
@@ -108,13 +108,13 @@ namespace Stateless1
 
 ```
 
-Les deux disposent d’un remplacement « Exécuter » principal où commencer le traitement. Les services Service Fabric associent `Run`, `Start`, et `Stop` en un point d’entrée unique, `RunAsync`. Votre service doit démarrer en même temps que `RunAsync` et doit cesser de fonctionner lorsque le CancellationToken de la méthode `RunAsync` apparaît.
+Les deux disposent d’un remplacement « Exécuter » principal où commencer le traitement. Les services Service Fabric associent `Run`, `Start` et `Stop` en un point d’entrée unique, `RunAsync`. Votre service doit démarrer en même temps que `RunAsync` et doit cesser de fonctionner quand le CancellationToken de la méthode `RunAsync` apparaît.
 
 Il existe plusieurs différences majeures entre le cycle de vie et la durée de vie des rôles de travail et des services Service Fabric :
 
- - **Cycle de vie :** la plus grande différence est qu’un rôle de travail est une machine virtuelle. Son cycle de vie est donc lié à la machine virtuelle, ce qui inclut les événements de démarrage et d’arrêt de la machine virtuelle. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
+ - **Cycle de vie :** la plus grande différence est qu’un rôle de travail est une machine virtuelle. Son cycle de vie est donc lié à la machine virtuelle, ce qui inclut les événements de démarrage et d’arrêt de la machine virtuelle. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
 
- - **Durée de vie :** les instances de rôle de travail sont recyclées lorsque la méthode `Run` se ferme. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de fonctionner.
+ - **Durée de vie :** les instances de rôle de travail sont recyclées quand la méthode `Run` se ferme. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de s’exécuter.
 
 Service Fabric fournit un point d’entrée de configuration de la communication en option pour les services qui écoutent les requêtes des clients. RunAsync et le point d’entrée de communication constituent tous deux des remplacements en option dans les services Service Fabric. Votre service peut choisir d’écouter les requêtes des clients, d’exécuter uniquement une boucle de traitement, ou les deux. C’est pourquoi la méthode RunAsync peut se fermer sans redémarrer l’instance de service : elle peut continuer à écouter les requêtes des clients.
 
@@ -126,7 +126,7 @@ L’API d’environnement des services cloud fournit des informations et des fon
 --- | --- | ---
 Paramètres de configuration et notification de modification | `RoleEnvironment` | `CodePackageActivationContext`
 Stockage local | `RoleEnvironment` | `CodePackageActivationContext`
-Informations sur le point de terminaison | `RoleInstance` <ul><li>Instance active : `RoleEnvironment.CurrentRoleInstance`</li><li>Autres rôles et instance : `RoleEnvironment.Roles`</li> | <ul><li>`NodeContext` pour l’adresse du nœud actif</li><li>`FabricClient` et `ServicePartitionResolver` pour la découverte du point de terminaison du service</li> 
+Informations sur le point de terminaison | `RoleInstance` <ul><li>Instance active : `RoleEnvironment.CurrentRoleInstance`</li><li>Autres rôles et instance : `RoleEnvironment.Roles`</li> | <ul><li>`NodeContext` pour l’adresse du nœud actif</li><li>`FabricClient` et `ServicePartitionResolver` pour la découverte du point de terminaison du service</li> 
 Émulation de l’environnement | `RoleEnvironment.IsEmulated` | N/A
 Événement de modification simultanée | `RoleEnvironment` | N/A
 
@@ -134,9 +134,9 @@ Informations sur le point de terminaison | `RoleInstance` <ul><li>Instance activ
 
 Les paramètres de configuration des services cloud sont définis pour un rôle de machine virtuelle et s’appliquent à toutes les instances de ce rôle de machine virtuelle. Ces paramètres correspondent à des paires clé-valeur définies dans les fichiers ServiceConfiguration.*.cscfg. Ils sont accessibles directement via RoleEnvironment. Dans Service Fabric, les paramètres s’appliquent individuellement à chaque service et chaque application, plutôt qu’à une machine virtuelle. En effet, une machine virtuelle peut héberger plusieurs applications et services. Un service se compose de trois packages :
 
- - **Code :** contient les exécutables du service, ses fichiers binaires, ses DLL et tous les autres fichiers dont un service a besoin pour s’exécuter.
- - **Config :** tous les fichiers de configuration et les paramètres d’un service.
- - **Data :** les fichiers de données statiques associés au service.
+ - **Code :** contient les exécutables du service, ses fichiers binaires, ses DLL et tous les autres fichiers dont un service a besoin pour s’exécuter.
+ - **Config :** tous les fichiers de configuration et les paramètres d’un service.
+ - **Data :** fichiers de données statiques associés au service.
 
 Chacun de ces packages peut être individuellement mis à niveau et faire l’objet d’un contrôle de version indépendant. Comme pour les services cloud, les packages de configuration sont accessibles par programme via une API et des événements permettent d’informer le service de toute modification apportée au package de configuration. Un fichier Settings.xml peut être utilisé pour la configuration clé-valeur et l’accès par programmation de manière similaire à la section appSetttings d’un fichier App.config. Toutefois, contrairement aux services cloud, les packages de configuration Service Fabric peuvent contenir des fichiers de configuration à n’importe quel format : XML, JSON, YAML ou tout format binaire personnalisé.
 
@@ -144,7 +144,7 @@ Chacun de ces packages peut être individuellement mis à niveau et faire l’ob
 ### Accès à la configuration
 #### Microsoft Azure
 
-Les paramètres de configuration de ServiceConfiguration.*.cscfg sont accessibles via `RoleEnvironment`. Toutes les instances de rôle d’un même déploiement de service cloud peuvent accéder à ces paramètres.
+Les paramètres de configuration de ServiceConfiguration.*.cscfg sont accessibles par le biais de `RoleEnvironment`. Toutes les instances de rôle d’un même déploiement de service cloud peuvent accéder à ces paramètres.
 
 ```C#
 
@@ -160,7 +160,7 @@ Les paramètres de configuration constituent des accès au sein de chaque instan
 
 ```C#
 
-ConfigurationPackage configPackage = this.ServiceInitializationParameters.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
 KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
@@ -178,7 +178,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 ### Événements de mise à jour de la configuration
 #### Microsoft Azure
 
-L’événement `RoleEnvironment.Changed` sert à informer toutes les instances de rôle lorsqu’une modification est apportée à l’environnement, telle qu’une modification de configuration. Cela permet d’effectuer les mises à jour de la configuration sans recycler les instances de rôle, ni redémarrer un processus de travail.
+L’événement `RoleEnvironment.Changed` sert à informer toutes les instances de rôle quand une modification est apportée à l’environnement, telle qu’une modification de configuration. Cela permet d’effectuer les mises à jour de la configuration sans recycler les instances de rôle, ni redémarrer un processus de travail.
 
 ```C#
 
@@ -204,7 +204,7 @@ Ces événements permettent d’apporter des modifications aux packages de servi
  
 ```C#
 
-this.ServiceInitializationParameters.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
 private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
@@ -277,4 +277,4 @@ Découvrez plus en détail les services fiables Service Fabric et les différenc
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

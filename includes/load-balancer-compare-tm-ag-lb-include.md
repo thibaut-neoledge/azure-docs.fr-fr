@@ -2,7 +2,7 @@
 
 Il existe différentes options pour répartir le trafic réseau à l’aide de Microsoft Azure. Ces options fonctionnent différemment, car elle disposent d’un ensemble de fonctionnalités différent et prennent en charge différents scénarios. Elles peuvent être utilisées de manière isolée ou en les combinant.
 
-- L’Équilibrage de charge Azure fonctionne au niveau de la couche réseau (niveau 4 dans la pile de référence de réseau OSI). Il fournit une distribution du trafic au niveau du réseau entre les instances d’une application s’exécutant dans le même centre de données Azure.
+- Azure Load Balancer fonctionne au niveau de la couche réseau (niveau 4 dans la pile de référence de réseau OSI). Il fournit une distribution du trafic au niveau du réseau entre les instances d’une application s’exécutant dans le même centre de données Azure.
 
 - Application Gateway fonctionne au niveau de la couche d’application (niveau 7 dans la pile de référence de réseau OSI). Il agit comme un service de proxy inversé, qui met fin à la connexion du client et transfère les requêtes vers les points de terminaison principaux.
 
@@ -10,7 +10,7 @@ Il existe différentes options pour répartir le trafic réseau à l’aide de M
 
 | Service | Équilibrage de charge Azure | Application Gateway | Traffic Manager |
 |---|---|---|---|
-|Technology| Niveau Réseau (niveau 4) | Niveau Application (niveau 7) | Niveau DNS |
+|Technology| Niveau Transport (niveau 4) | Niveau Application (niveau 7) | Niveau DNS |
 | Protocoles d’applications pris en charge |	Quelconque | HTTP et HTTPS | 	N’importe quelle option (un point de terminaison HTTP/S est requis pour l’analyse du point de terminaison) |
 | Points de terminaison | Instances de rôle de services cloud et de machines virtuelles Azure | Toute adresse IP interne Azure ou adresse IP Internet publique | Machines virtuelles Azure, Cloud Services, Azure Web Apps et points de terminaison externes |
 | Prise en charge de réseau virtuel | Peut être utilisé pour les applications internes (réseau virtuel) et les applications accessibles via Internet | Peut être utilisé pour les applications internes (réseau virtuel) et les applications accessibles via Internet |	Prend uniquement en charge les applications accessibles via Internet |
@@ -30,4 +30,4 @@ Surveillance de point de terminaison | prise en charge via les sondes | prise en
 
   
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

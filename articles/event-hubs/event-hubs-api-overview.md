@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Présentation des API Event Hubs
 
-Cet article passe en revue certaines des principales API clientes .NET Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
+Cet article passe en revue certaines des principales API clientes .NET Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
 
-Les scénarios d'analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence de l’[API .NET Service Bus](https://msdn.microsoft.com/library/azure/mt419900.aspx) et de l’[API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Les scénarios d’analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence de l’[API .NET Service Bus](https://msdn.microsoft.com/library/azure/mt419900.aspx) et de l’[API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API de gestion
 
@@ -189,4 +189,4 @@ Les informations de référence de l'API .NET se trouvent ici :
 - [Références des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

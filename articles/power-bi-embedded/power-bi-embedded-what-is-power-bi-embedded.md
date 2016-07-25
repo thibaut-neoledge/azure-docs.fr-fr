@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
-# Présentation de Microsoft Power BI Embedded
+# Pouvez-vous nous présenter le service Microsoft Power BI Embedded ?
 
-Avec **Power BI Embedded**, vous pouvez intégrer des rapports Power BI dans vos applications web ou mobiles. Vous n’avez donc pas besoin de créer des solutions personnalisées pour visualiser les données de vos utilisateurs.
+Avec **Power BI Embedded**, vous pouvez intégrer des rapports Power BI dans vos applications web ou mobiles.
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-**Power BI Embedded** est un service Azure qui permet aux éditeurs de logiciels indépendants (ISV) de proposer des expériences de données Power BI au sein de leurs applications. En tant qu’éditeur de logiciels indépendant, vous avez créé des applications. Ces applications ont leurs propres utilisateurs et un ensemble spécifique de fonctionnalités. Ces applications peuvent également contenir des éléments de données intégrés, tels que des graphiques et des rapports, qui peuvent désormais être fournis par **Microsoft Power BI Embedded**. Les utilisateurs n’ont pas besoin d’avoir un compte Power BI pour utiliser votre application. Ils peuvent continuer à se connecter à votre application comme avant, afficher et interagir avec la création de rapports et le format mosaïque de Power BI sans nécessiter de licence supplémentaire.
+**Power BI Embedded** est un service Azure qui permet aux éditeurs de logiciels indépendants (ISV) et aux développeurs d’applications de proposer des expériences de données Power BI au sein de leurs applications. En tant que développeur, vous avez créé des applications, et ces applications disposent de leurs propres utilisateurs et d’un ensemble distinct de fonctionnalités. Ces applications peuvent également contenir des éléments de données intégrés, tels que des graphiques et des rapports, qui peuvent désormais être fournis par Microsoft Power BI Embedded. Les utilisateurs n’ont pas besoin de compte Power BI pour utiliser votre application. Ils peuvent continuer à se connecter à votre application comme avant, afficher et interagir avec la création de rapports de Power BI sans nécessiter de licence supplémentaire.
 
 ## Gestion des licences pour Microsoft Power BI Embedded
 
@@ -32,11 +32,11 @@ Dans le modèle d’utilisation **Microsoft Power BI Embedded**, la gestion des 
 
 ![](media\powerbi-embedded-whats-is\model.png)
 
-Comme pour tout autre service dans Azure, les ressources de **Microsoft Power BI Embedded** sont approvisionnées via les [API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). Dans ce cas, la ressource approvisionnée constitue une **collection d’espaces de travail Power BI**.
+Comme pour tout autre service dans Azure, les ressources de Power BI Embedded sont approvisionnées via les [API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). Dans ce cas, la ressource approvisionnée constitue une **collection d’espaces de travail Power BI**.
 
 ## Collection d’espaces de travail
 
-Une **collection d’espaces de travail** est le conteneur Azure de niveau supérieur pour les ressources qui contiennent 0 ou plusieurs **espaces de travail**. Une **collection** d’**espaces de travail** dispose de toutes les propriétés Azure standard, ainsi que des éléments suivants :
+Une **collection d’espaces de travail** est le conteneur Azure de niveau supérieur pour les ressources qui contiennent 0 ou plusieurs **espaces de travail**. Une **collection** **d’espaces de travail** dispose de toutes les propriétés Azure standard, ainsi que des éléments suivants :
 
 -	**Clés d’accès** : clés utilisées lors de l’appel sécurisé aux API de Power BI (fonction décrite dans une section ultérieure).
 -	**Utilisateurs** : les utilisateurs Azure Active Directory (AAD) qui ont des droits d’administrateur pour gérer la collection d’espaces de travail Power BI via le portail Azure ou l’API ARM.
@@ -48,21 +48,10 @@ Un **espace de travail** est un conteneur de contenu Power BI, qui peut inclure 
 
 ## Utilisation des collections d’espaces de travail et des espaces de travail
 Les **collections d’espaces de travail** et les **espaces de travail** sont des conteneurs de contenu qui sont utilisés et organisés de la façon la plus adaptée à la conception de l’application que vous créez. Vous pouvez en organiser le contenu de plusieurs façons. Vous pouvez choisir de placer tout le contenu dans un seul espace de travail, puis d’utiliser des jetons d’application pour subdiviser le contenu entre vos clients. Vous pouvez également choisir de placer tous vos clients dans des espaces de travail distincts afin de les séparer. Ou, vous pouvez choisir d’organiser les utilisateurs par région, et non par client. Cette conception flexible vous permet de choisir la meilleure façon d’organiser le contenu.
-## Sources de données dans la version préliminaire
-
-Nous activerons un ensemble limité de sources de données pour la version préliminaire, comme suit :
-
-### Requête directe
-
-Nous prendrons en charge des connexions de requête directe sur des sources cloud pour la version préliminaire. Cela signifie que vous pourrez vous connecter à leurs sources de données pour afficher les données les plus récentes. Ces sources de données doivent être accessibles à partir du cloud et doivent utiliser l’authentification de base. Parmi les sources de données les plus adaptées, on trouve :
-
--	SQL Azure
--	SQL Azure DW
--	HD Insight Spark
 
 ## Jeux de données mis en cache
 
-Il est possible d’utiliser des jeux de données mis en cache dans la version préliminaire. Cependant, vous ne pouvez pas actualiser les données mises en cache une fois qu’elle ont été chargées dans **Microsoft Power BI Embedded**.
+Il est possible d’utiliser des jeux de données mis en cache dans la version préliminaire. Cependant, vous ne pouvez pas actualiser les données mises en cache une fois qu’elles ont été chargées dans **Microsoft Power BI Embedded**.
 
 ## Authentification et autorisation avec des jetons d’application
 
@@ -93,9 +82,6 @@ Pour obtenir un exemple d’utilisation de [CreateProvisionToken](https://msdn.m
 
 ## Voir aussi
 - [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
-- [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
-- [Jetons d’application](power-bi-embedded-get-started-sample.md#key-flow)
-- [API REST de Power BI](http://docs.powerbi.apiary.io/reference)
-- [Régions Azure](https://azure.microsoft.com/regions/)
+- [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

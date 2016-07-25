@@ -1,4 +1,4 @@
-Plusieurs raisons peuvent expliquer vos problèmes de connexion à une application exécutée sur une machine virtuelle Azure, comme une application qui ne s’exécute pas et n’écoute pas les ports attendus, ou des règles de mises en réseau qui ne transmettent pas correctement le trafic à l’application. Cet article décrit une approche méthodique permettant d’identifier et de corriger le problème.
+Plusieurs raisons peuvent expliquer des problèmes de démarrage d’une application exécutée sur une machine virtuelle Azure ou de connexion à une telle application. Par exemple, l’application peut ne pas s’exécuter ou être à l’écoute sur les ports prévus, un port d’écoute peut être bloqué ou des règles de mise en réseau peuvent ne pas transmettre correctement le trafic à l’application. Cet article décrit une approche méthodique permettant d’identifier et de corriger le problème.
 
 Si vous rencontrez des problèmes de connexion à votre machine virtuelle à l’aide de RDP ou de SSH, consultez l’un des articles suivants :
 
@@ -29,14 +29,14 @@ Pour plus d'informations, consultez [Résolution des problèmes de connectivité
 
 La résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure comporte quatre domaines principaux.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
+![dépannage - impossible de démarrer l’application](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
 1.	L’application exécutée sur la machine virtuelle Azure.
 	- L’application fonctionne-t-elle correctement ?
 2.	La machine virtuelle Azure.
 	- La machine virtuelle fonctionne-t-elle correctement et répond-elle aux demandes ?
 3.	Les points de terminaison Azure pour le service cloud qui contient la machine virtuelle (pour les machines virtuelles créées dans le modèle de déploiement classique), les règles NAT entrantes (pour les machines virtuelles dans le modèle de déploiement Resource Manager) et les groupes de sécurité réseau.
-	- Le trafic peut-il transiter depuis les utilisateurs vers la machine virtuelle/l’application sur les ports attendus ?
+	- Le trafic peut-il transiter depuis les utilisateurs jusqu’à la machine virtuelle/l’application sur les ports prévus ?
 4.	Votre périphérique de périmètre Internet.
 	- Les règles de pare-feu en place empêchent-elles la circulation correcte du trafic ?
 
@@ -46,7 +46,7 @@ Pour les ordinateurs clients qui accèdent à l’application par le biais d’u
 
 Essayez d’accéder à l’application avec le programme client approprié à partir de la machine virtuelle sur laquelle il est en cours d’exécution. Utilisez le nom d’hôte local, l’adresse IP locale ou l’adresse de bouclage (127.0.0.1).
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
+![démarrer l’application directement à partir de la machine virtuelle](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
 Par exemple, si l’application est un serveur web, ouvrez un navigateur sur la machine virtuelle et essayez d’accéder à une page web hébergée sur la machine virtuelle.
 
@@ -57,13 +57,13 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suiv
 - L’application est exécutée sur la machine virtuelle cible.
 - L’application écoute sur les ports TCP et UDP attendus.
 
-Sur les machines virtuelles Windows et Linux, utilisez la commande **netstat** pour afficher les ports d’écoute actifs. Examinez la sortie pour les ports attendus sur lesquels votre application doit être à l’écoute. Redémarrez l’application ou configurez-la pour utiliser les ports attendus en fonction des besoins et tentez d’accéder à nouveau à l’application en local.
+Sur les machines virtuelles Windows et Linux, utilisez la commande **netstat** pour afficher les ports d’écoute actifs. Examinez la sortie pour les ports attendus sur lesquels votre application doit être à l’écoute. Redémarrez l’application ou configurez-la pour utiliser les ports prévus selon les besoins et essayez d’accéder à nouveau localement à l’application.
 
 ## <a id="step2"></a>Étape2 : pouvez-vous accéder à l’application à partir d’une autre machine virtuelle dans le même réseau virtuel ?
 
 Essayez d’accéder à l’application à partir d’une machine virtuelle différente, mais sur le même réseau virtuel, à l’aide du nom d’hôte de la machine virtuelle ou de son adresse IP publique, privée ou de fournisseur attribuée par Azure. Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, n’utilisez pas l’adresse IP publique du service cloud.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
+![démarrer l’application à partir d’une autre machine virtuelle](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
 Par exemple, si l’application est un serveur web, essayez d’accéder à un navigateur sur une autre machine virtuelle du même réseau virtuel.
 
@@ -84,7 +84,7 @@ Sur une machine virtuelle Windows, utilisez le pare-feu Windows avec fonctions a
 
 Essayez d’accéder à l’application à partir d’un ordinateur en dehors du réseau virtuel car la machine virtuelle sur laquelle l’application est exécutée n’est pas sur le même réseau que votre ordinateur client d’origine.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
+![démarrer l’application à partir d’un ordinateur situé hors du réseau virtuel](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 Par exemple, si l’application est un serveur web, essayez d’accéder à la page web à partir d’un navigateur sur un autre ordinateur ne faisant pas partie de ce réseau virtuel.
 
@@ -94,7 +94,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suiv
 	- La configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
 	- Les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet.
 	- Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-	
+
 - Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager :
 	- La configuration de la règle NAT de trafic entrant pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
 	- Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes.
@@ -118,4 +118,4 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

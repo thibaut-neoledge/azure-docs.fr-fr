@@ -43,7 +43,7 @@ Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015
 
-+ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure][lnk-free-trial].
++ Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure][lnk-free-trial].
 
 ## Réception de messages sur le périphérique simulé
 
@@ -77,7 +77,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
         ReceiveC2dAsync();
 
-> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
+> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
 ## Envoi d’un message cloud-à-appareil à partir du serveur principal de l’application
 
@@ -95,7 +95,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette opération lance le téléchargement, l’installation et ajoute une référence au [package Azure IoT - Service SDK NuGet].
 
-4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
+4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
 		using Microsoft.Azure.Devices;
 
@@ -104,7 +104,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 		private async static Task SendCloudToDeviceMessageAsync()
         {
@@ -114,7 +114,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette méthode envoie un nouveau message cloud-à-appareil à l’appareil avec l’ID `myFirstDevice`. Modifiez ce paramètre en conséquence, au cas où vous avez modifié celui utilisé dans [Prise en main d’Azure IoT Hub].
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Send Cloud-to-Device message\n");
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
@@ -161,7 +161,7 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** de
 
         ReceiveFeedbackAsync();
 
-3. Pour obtenir des commentaires sur la remise de votre message cloud-à-appareil, vous devez spécifier une propriété dans la méthode **SendCloudToDeviceMessageAsync**. Ajoutez la ligne suivante, immédiatement après la ligne `var commandMessage = new Message(...);` :
+3. Pour obtenir des commentaires sur la remise de votre message cloud-à-appareil, vous devez spécifier une propriété dans la méthode **SendCloudToDeviceMessageAsync**. Ajoutez la ligne suivante, immédiatement après la ligne `var commandMessage = new Message(...);` :
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
@@ -169,22 +169,15 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** de
 
     ![Application recevant le message][22]
 
-> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
+> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-à-appareil. Vous pouvez continuer à explorer les scénarios et les fonctionnalités d’IoT Hub avec les didacticiels suivants :
+Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-à-appareil.
 
-- [Traiter les messages des appareils vers le cloud] montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
-- [Téléchargement de fichiers à partir d’appareils] décrit un modèle qui utilise les messages cloud vers appareil pour faciliter les téléchargements de fichiers à partir d’appareils.
+Pour voir des exemples de solutions de bout en bout qui utilisent IoT Hub, consultez [Azure IoT Suite].
 
-Informations supplémentaires sur IoT Hub :
-
-* [Vue d’ensemble d’IoT Hub]
-* [Guide du développeur d’IoT Hub]
-* [Conseils pour IoT Hub]
-* [Langages et plateformes d’appareils pris en charge]
-* [Centre de développement Azure IoT]
+Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez le [Guide du développeur IoT Hub].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -198,16 +191,11 @@ Informations supplémentaires sur IoT Hub :
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
-
-[Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md
-[Conseils pour IoT Hub]: iot-hub-guidance.md
-[Guide du développeur d’IoT Hub]: iot-hub-devguide.md
-[Langages et plateformes d’appareils pris en charge]: iot-hub-supported-devices.md
+[Guide du développeur IoT Hub]: iot-hub-devguide.md
 [Prise en main d’Azure IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

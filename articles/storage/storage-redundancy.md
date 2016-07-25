@@ -83,11 +83,11 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 | Est de l'Asie | Asie du Sud-Est |
 | Chine orientale | Chine du Nord |
 | Chine du Nord | Chine orientale |
-| Est du Japon | Ouest du Japon |
-| Ouest du Japon | Est du Japon |
+| Japon de l’Est | Ouest du Japon |
+| Ouest du Japon | Japon de l’Est |
 | Sud du Brésil | États-Unis - partie centrale méridionale |
-| Est de l’Australie | Sud-est de l’Australie |
-| Sud-est de l’Australie | Est de l’Australie |
+| Est de l’Australie | Sud-Est de l’Australie |
+| Sud-Est de l’Australie | Est de l’Australie |
 | Sud de l'Inde | Inde-Centre |
 | Inde-Centre | Sud de l'Inde |
 | Gouvernement américain - Iowa | Gouvernement américain - Virginie |
@@ -98,7 +98,8 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 | Sud du Royaume-Uni 2 | Nord du Royaume-Uni |
 | Centre de l’Allemagne | Nord-Est de l’Allemagne |
 | Nord-Est de l’Allemagne | Centre de l’Allemagne |
-
+| Ouest des États-Unis 2 | Centre ouest des États-Unis |
+| Centre ouest des États-Unis | Ouest des États-Unis 2 |
 
 Pour obtenir des informations récentes sur les régions prises en charge par Azure, consultez [Régions Azure](https://azure.microsoft.com/regions/).
  
@@ -116,4 +117,4 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 - [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

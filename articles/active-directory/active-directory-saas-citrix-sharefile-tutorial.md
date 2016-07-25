@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
 ###Pour activer l’intégration d’applications pour Citrix ShareFile, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-citrix-sharefile-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Citrix ShareFile**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **Citrix ShareFile**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Activer l’authentification unique](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Activer l’authentification unique")
 
@@ -97,14 +97,14 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Authentification unique](./media/active-directory-saas-citrix-sharefile-tutorial/IC773628.png "Authentification unique")
 
     1.  Cliquez sur **Enable SAML**.
-    2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **ID d’entité**, puis collez-la dans la zone de texte **Your IDP Issuer/ Entity ID**.
-    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion**.
-    4.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
-    5.  Cliquez sur **Change** en regard du champ **X.509 Certificate**, puis chargez le certificat que vous avez téléchargé à partir du portail Azure AD. ![Paramètres de base](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Paramètres de base")
+    2.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **ID d’entité**, puis collez-la dans la zone de texte **Your IDP Issuer/ Entity ID**.
+    3.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
+    4.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
+    5.  Cliquez sur **Change** en regard du champ **X.509 Certificate**, puis chargez le certificat que vous avez téléchargé à partir du portail Azure AD Classic. ![Paramètres de base](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Paramètres de base")
 
 9.  Cliquez sur **Save** dans le portail de gestion Citrix ShareFile.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -125,9 +125,9 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Citrix ShareFile, vo
 
 4.  Cliquez sur **Add User**.
 
-    >[AZURE.NOTE]Le détenteur du compte AAD recevra un message électronique et suivra un lien pour confirmer le compte avant qu’il ne soit activé.
+    >[AZURE.NOTE] Le détenteur du compte AAD recevra un message électronique et suivra un lien pour confirmer le compte avant qu’il ne soit activé.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Citrix ShareFile pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Citrix ShareFile pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
 ##Affectation d’utilisateurs
 
@@ -135,7 +135,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Citrix ShareFile, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Citrix ShareFile**, cliquez sur **Affecter des utilisateurs**.
 
@@ -147,4 +147,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

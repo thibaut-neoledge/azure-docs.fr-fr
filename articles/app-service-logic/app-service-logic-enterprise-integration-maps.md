@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d’ensemble des mappages Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Vue d’ensemble des mappages Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Découvrez comment utiliser les mappages avec Enterprise Integration Pack et vos applications logiques" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # En savoir plus sur les mappages et Enterprise Integration Pack
@@ -47,15 +47,15 @@ Procédez comme suit pour télécharger un nouveau mappage remplaçant un mappag
 4. Sélectionnez le fichier de mappage que vous souhaitez télécharger à l’aide de la boîte de dialogue de sélection de fichier qui s’ouvre, puis choisissez **Ouvrir** dans le sélecteur de fichiers ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
 5. Vous recevrez un message de notification une fois le mappage téléchargé.
 
-
 ## Comment supprimer un mappage ?
 1. Sélectionnez la mosaïque **Mappages**
 2. Sélectionnez le mappage que vous souhaitez supprimer lorsque le panneau Mappages s'ouvre
 3. Sélectionnez le lien **Supprimer** ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
 4. Confirmez que vous voulez vraiment supprimer le mappage. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-
 ## Étapes suivantes
+- [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 - [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
+- [En savoir plus sur les transformations](./app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

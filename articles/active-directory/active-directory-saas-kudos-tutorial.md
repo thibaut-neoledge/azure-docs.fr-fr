@@ -4,20 +4,19 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Kudos
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Kudos.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Kudos. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Kudos
@@ -38,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Ku
 
 ###Pour activer l’intégration d’application pour Kudos, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-kudos-tutorial/IC700993.png "Active Directory")
 
@@ -65,13 +64,11 @@ Cette section décrit l’activation de l’intégration d’application pour Ku
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Kudos avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
-Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Kudos avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Kudos**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Sur la page d’intégration d’applications **Kudos** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configurer l’authentification unique")
 
@@ -79,7 +76,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Kudos**, tapez votre URL selon le modèle suivant "*https://company.kudosnow.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Kudos**, tapez votre URL selon le modèle suivant « *https://company.kudosnow.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configurer l’URL de l’application")
 
@@ -99,18 +96,18 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     ![Authentification unique](./media/active-directory-saas-kudos-tutorial/IC787807.png "Authentification unique")
 
-    1.  Dans la page **Configurer l’authentification unique sur Kudos** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Sign on URL**.
-	2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    1.  Dans la page **Configurer l’authentification unique sur Kudos** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Sign on URL**.
+    2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
         >[AZURE.TIP]
         Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate**.
-    4.  Dans la page **Configurer l’authentification unique sur Kudos** du portail Azure, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **Logout To URL**.
-	5.  Dans la zone de texte **Your Kudos URL**, tapez le nom de votre entreprise.
-    6.  Cliquez sur **Save**.
+    4.  Dans la page **Configurer l’authentification unique sur Kudos** du portail Azure Classic, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **Logout To URL**.
+    5.  Dans la zone de texte **Your Kudos URL**, tapez le nom de votre entreprise.
+    6.  Cliquez sur **Enregistrer**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -146,7 +143,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Kudos, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **Kudos**, cliquez sur **Affecter des utilisateurs**.
 
@@ -158,7 +155,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0121_2016-->
-
-
-
+<!---HONumber=AcomDC_0713_2016-->

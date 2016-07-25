@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Pourquoi une approche de microservices pour la conception d’applications ?
@@ -140,15 +140,16 @@ Service Fabric fournit deux grands domaines pour vous aider à créer des appli
 
 Peut-être. Nous avons constaté qu’étant donné que de plus en plus d’équipes Microsoft avaient pour consigne de créer en gardant le cloud à l’esprit pour des raisons liées aux entreprises, nombre d’entre elles avaient pris conscience des avantages d’une approche de microservices. Bing, par exemple, fait cela dans le domaine de la recherche depuis des années. Pour les autres équipes, c’était très nouveau. Elles ont trouvé qu’il y avait des problèmes complexes à résoudre, ce qui n’était pas leur point fort. C’est pourquoi Service Fabric est très populaire en tant que technologie pour créer des services.
 
-L’objectif de Service Fabric consiste à réduire la complexité de la création d’applications avec une approche de microservices afin de vous éviter des refontes coûteuses. Commencez petit, mettez à l’échelle lorsque c’est nécessaire, déconseillez les services inutiles, ajoutez-en de nouveaux, évoluez avec l’utilisation des clients, voilà l’approche à adopter. Nous savons également qu’en réalité il existe de nombreux autres problèmes à résoudre pour que les microservices soient plus abordables pour la majorité des développeurs. Les conteneurs et le modèle de programmation Actor sont des exemples de petites étapes dans cette direction, et nous sommes persuadés que plusieurs innovations vont apparaître pour simplifier ce processus.
+L’objectif de Service Fabric consiste à réduire la complexité de la création d’applications avec une approche de microservices afin de vous éviter des refontes coûteuses. Commencez petit, mettez à l’échelle lorsque c’est nécessaire, déconseillez les services inutiles, ajoutez-en de nouveaux, évoluez avec l’utilisation des clients, voilà l’approche à adopter. Nous savons également qu’en réalité il existe de nombreux autres problèmes à résoudre pour que les microservices soient plus abordables pour la majorité des développeurs. Les conteneurs et le modèle de programmation Actor sont des exemples de petites étapes dans cette direction, et nous sommes persuadés que plusieurs innovations vont apparaître pour simplifier ce processus.  
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
 * Pour en savoir plus :
     * [Vue d'ensemble de Service Fabric](service-fabric-overview.md)
-    * [Microservices: An application revolution powered by the cloud (Microservices : une approche révolutionnaire des applications reposant sur le cloud)](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microservices: An application revolution powered by the cloud (Microservices : une approche révolutionnaire des applications reposant sur le cloud)](https://azure.microsoft.com/fr-FR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

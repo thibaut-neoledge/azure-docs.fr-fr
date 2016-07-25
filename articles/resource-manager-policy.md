@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Utiliser le service Policy pour gérer les ressources et contrôler l’accès
@@ -97,7 +97,7 @@ Les conditions sont formées à partir de champs et de sources. Un champ représ
 
 Les sources et champs suivants sont pris en charge :
 
-Champs : **name**, **kind**, **type**, **location**, **tags**, **tags.*** et **property alias**.
+Champs : **name** (nom), **kind (genre)**, **type**, **location** (emplacement), **tags** (balises), **tags.*** et **property alias* (alias de propriété)*.
 
 ### Alias de propriété 
 L’alias de propriété est un nom pouvant servir de définition de stratégie pour accéder aux propriétés propres au type de ressource, telles que les paramètres et les références (SKU). Il fonctionne sur toutes les versions d’API pour lesquelles la propriété existe. Les alias peuvent être récupérés à l'aide de l'API REST ci-dessous (la prise en charge Powershell sera ajoutée ultérieurement) :
@@ -155,7 +155,7 @@ La stratégie prend en charge trois types d’effet : **deny**, **audit** et **a
 
 - Deny génère un événement dans le journal d'audit et fait échouer la requête
 - Audit génère un événement dans le journal d'audit mais ne fait pas échouer la requête
-- Append ajoute l'ensemble des champs défini à la requête 
+- Append ajoute l'ensemble des champs défini à la requête
 
 Pour **append**, vous devez fournir les détails comme indiqué ci-dessous :
 
@@ -468,4 +468,4 @@ Pour afficher tous les événements liés au résultat « audit », vous pouve
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

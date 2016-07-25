@@ -13,19 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # Introduction à la surveillance des opérations
 
 La surveillance des opérations IoT Hub permet aux utilisateurs de surveiller l’état des opérations sur leur hub IoT en temps réel. IoT Hub effectue le suivi des événements entre les différentes catégories d’opérations, et les utilisateurs peuvent opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de leur hub IoT en vue de leur traitement. Les utilisateurs peuvent surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
-IoT Hub surveille quatre catégories d’événements :
+IoT Hub surveille cinq catégories d’événements :
 
 - Opérations d’identité des appareils
 - Télémétrie d’appareil
 - Commandes cloud-à-appareil
 - Connexions
+- Chargements de fichiers
 
 ## Comment activer la surveillance des opérations
 
@@ -35,7 +36,7 @@ IoT Hub surveille quatre catégories d’événements :
 
     ![][1]
 
-3. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**. Le point de terminaison IoT Hub s'appelle `messages/operationsmonitoringevents`.
+3. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**. Le point de terminaison IoT Hub s’appelle `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -143,11 +144,14 @@ La catégorie de chargement de fichiers effectue le suivi des erreurs qui se pro
 
 ## Étapes suivantes
 
-La surveillance des opérations n’étant plus un secret pour vous, vous pouvez suivre les liens ci-après :
+Maintenant que vous disposez d’une vue d’ensemble de la surveillance des opérations, consultez [Gérer l’accès à IoT Hub][lnk-itpro] pour plus d’informations sur la gestion de IoT Hub.
 
-- [Métriques de diagnostic IoT Hub][lnk-diagnostic-metrics]
-- [Mise à l’échelle IoT Hub][lnk-scaling]
-- [Haute disponibilité et récupération d’urgence IoT Hub :][lnk-dr]
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -158,4 +162,11 @@ La surveillance des opérations n’étant plus un secret pour vous, vous pouvez
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

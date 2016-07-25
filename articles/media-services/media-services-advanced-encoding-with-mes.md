@@ -32,8 +32,10 @@ Il présente les présélections personnalisées qui exécutent les tâches d’
 - [Désactiver le désentrelacement automatique](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Présélections audio uniquement](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concaténation de deux fichiers vidéo ou plus](media-services-custom-mes-presets-with-dotnet.md#concatenate)
+- [Rogner des vidéos avec l’encodeur multimédia standard](media-services-custom-mes-presets-with-dotnet.md#crop)
 
-##<a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+
+##<a id="encoding_with_dotnet"></a>Encodage à l’aide du kit de développement logiciel (SDK) .NET de Media Services
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
@@ -250,11 +252,11 @@ Lors de la génération de miniatures, il est inutile de toujours spécifier la 
 	<Width>100%</Width>
 	<Height>100%</Height>
 	
-##<a id="thumbnails"></a>Générer des miniatures
+##<a id="thumbnails"></a>Génération de miniatures
 
 Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et ajouter le code qui génère des miniatures.
 
->[AZURE.NOTE]Le paramètre **SceneChangeDetection** figurant dans la présélection qui suit ne peut présenter la valeur true que si votre encodage porte sur une vidéo à vitesse de transmission unique. Si votre encodage s’applique à une vidéo à plusieurs vitesses de transmission et que vous définissez **SceneChangeDetection** sur true, l’encodeur renverra une erreur.
+>[AZURE.NOTE]Le paramètre **SceneChangeDetection** figurant dans la présélection qui suit ne peut présenter la valeur True que si votre encodage porte sur une vidéo à vitesse de transmission unique. Si votre encodage s’applique à une vidéo à plusieurs vitesses de transmission et que vous définissez **SceneChangeDetection** sur True, l’encodeur renverra une erreur.
 
 
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
@@ -456,7 +458,7 @@ Les considérations suivantes s'appliquent :
 	- La configuration par défaut est « Start:{Best} ».
 - Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
-##<a id="trim_video"></a>Rogner une vidéo (extrait)
+##<a id="trim_video"></a>Découpage d’une vidéo (extrait)
 
 Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou extraire un élément multimédia capturé ou archivé à partir d’un flux en direct. Pour plus d’informations à ce sujet, voir [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
@@ -701,7 +703,7 @@ Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES
 	  </Outputs>
 	</Preset>
 
-##<a id="overlay"></a>Créer une superposition
+##<a id="overlay"></a>Création d’une superposition
 
 Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
 
@@ -857,7 +859,7 @@ L’exemple .NET ci-dessus définit deux fonctions : **UploadMediaFilesFromFolde
 	</Preset>
 
 
-##<a id="silent_audio"></a>Insérer une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
+##<a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
 
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupera les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
@@ -883,7 +885,7 @@ Vous pouvez utiliser l’une des présélections MES documentées [ici](https://
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Désactiver le désentrelacement automatique
+##<a id="deinterlacing"></a>Désactivation du désentrelacement automatique
 
 Si les clients souhaitent que le contenu d’entrelacement soit automatiquement désentrelacé, aucune action n’est nécessaire. Quand le désentrelacement automatique est activé (par défaut), MES détecte automatiquement les images entrelacées et désentrelace uniquement les images marquées comme entrelacées.
 
@@ -1072,7 +1074,10 @@ Mettez à jour votre présélection personnalisée avec les ID des éléments mu
 	    }
 	  ]
 	}
-	
+
+##<a id="crop"></a>Rogner des vidéos avec l’encodeur multimédia standard
+
+Voir la rubrique [Rogner des vidéos avec l’encodeur multimédia standard](media-services-crop-video.md).
 
 ##Parcours d’apprentissage de Media Services
 
@@ -1086,4 +1091,4 @@ Mettez à jour votre présélection personnalisée avec les ID des éléments mu
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

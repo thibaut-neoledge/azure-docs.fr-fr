@@ -37,7 +37,7 @@ Le partitionnement peut bénéficier de la maintenance des données et des perfo
 
 Le principal avantage du partitionnement dans SQL Data Warehouse est d’améliorer l’efficacité et les performances de chargement de données en utilisant la suppression, le basculement et la fusion de partitions. Dans la plupart des cas, les données sont partitionnées sur une colonne de date qui est étroitement liée à la séquence sur laquelle les données sont chargées dans la base de données. L’un des avantages majeurs de l’utilisation de partitions pour la maintenance des données et qu’elle évite la journalisation des transactions. Bien que l’insertion, la mise à jour ou la suppression de données constituent l’approche la plus simple, avec un peu de réflexion et d’efforts, l’utilisation du partitionnement pendant votre processus de partitionnement peut considérablement améliorer les performances.
 
-Le basculement de partitions peut servir à supprimer ou à remplacer rapidement une section d’une table. Par exemple, une table de faits des ventes peut contenir seulement des données pour les 36 derniers mois. À la fin de chaque mois, le mois de données de ventes le plus ancien est supprimé de la table. Ces données ont pu être supprimées à l’aide d’une instruction delete pour supprimer les données pour le mois plus ancien. Toutefois, la suppression d’une grande quantité de données ligne par ligne avec une instruction delete peut prendre beaucoup de temps, ainsi que créer le risque de transactions volumineuses qui pourraient nécessiter un temps de restauration considérable en cas de problème. Une approche plus optimale consiste à simplement déplacer la partition de données la plus ancienne. Alors que la suppression des lignes individuelle peut prendre des heures, la suppression d’une partition complète ne prend que secondes.
+Le basculement de partitions peut servir à supprimer ou à remplacer rapidement une section d’une table. Par exemple, une table de faits des ventes peut contenir seulement des données pour les 36 derniers mois. À la fin de chaque mois, le mois de données de ventes le plus ancien est supprimé de la table. Ces données ont pu être supprimées à l’aide d’une instruction delete pour supprimer les données pour le mois plus ancien. Toutefois, la suppression d’une grande quantité de données ligne par ligne avec une instruction delete peut prendre beaucoup de temps, ainsi que créer le risque de transactions volumineuses qui pourraient nécessiter un temps de restauration considérable en cas de problème. Une approche plus optimale consiste à simplement supprimer la partition de données la plus ancienne. Alors que la suppression des lignes individuelle peut prendre des heures, la suppression d’une partition complète ne prend que secondes.
 
 ### Avantages pour les requêtes
 
@@ -187,7 +187,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 > [AZURE.NOTE] En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, voir [Gérer des statistiques dans SQL Data Warehouse][].
 
-Nous pouvons ensuite rechercher le nombre de lignes exploitant la vue de catalogue `sys.partitions` :
+Nous pouvons ensuite rechercher le nombre de lignes exploitant la vue de catalogue `sys.partitions` :
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -350,7 +350,7 @@ Grâce à cette méthode, le code faisant l’objet d’un contrôle de code sou
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez les articles [Table Overview][Overview] \(Vue d’ensemble des tables), [Table Data Types][Data Types] (Types de données de table), [Distributing a Table][Distribute] (Distribution d’une table), [Indexing a Table][Index] (Indexation d’une table), [Maintaining Table Statistics][Statistics] (Maintenance des statistiques de table) et [Tables temporaires][Temporary]. Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
+Pour plus d’informations, consultez les articles [Table Overview][Overview] (Vue d’ensemble des tables), [Table Data Types][Data Types] (Types de données de table), [Distributing a Table][Distribute] (Distribution d’une table), [Indexing a Table][Index] (Indexation d’une table), [Maintaining Table Statistics][Statistics] (Maintenance des statistiques de table) et [Tables temporaires][Temporary]. Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -380,4 +380,4 @@ Pour plus d’informations, consultez les articles [Table Overview][Overview] \(
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

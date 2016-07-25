@@ -1,6 +1,6 @@
 <properties
-   pageTitle="À propos du flux de jetons d’application dans Power BI Embedded"
-   description="Power BI Embedded, à propos des jetons d'application pour l'authentification et d'autorisation"
+   pageTitle="Authentification et autorisation avec Power BI Embedded"
+   description="Authentification et autorisation avec Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
@@ -13,14 +13,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/01/2016"
    ms.author="owend"/>
 
-# À propos du flux de jetons d’application dans Power BI Embedded
+# Authentification et autorisation avec Power BI Embedded
 
-Le service **Power BI Embedded** utilise des **jetons d’application** pour l’authentification et l’autorisation des utilisateurs finaux. Il n’utilise pas l’authentification explicite. Dans ce modèle de **jetons d’application**, votre application gère l’authentification et l’autorisation de vos utilisateurs finaux.. Quand cela est nécessaire, votre application crée et envoie les **jetons d’application** à notre service pour lui indiquer d’afficher le rendu du rapport demandé. Avec cette conception, votre application peut gérer l’authentification et l’autorisation des utilisateurs sans passer par **Azure Active Directory**. Cette option est toutefois possible.
+Le service Power BI Embedded utilise des **clés** et des **jetons d’applications** pour l’authentification et l’autorisation des utilisateurs finaux. Il n’utilise pas l’authentification explicite. Dans ce modèle, votre application gère l’authentification et l’autorisation de vos utilisateurs finaux. Quand cela est nécessaire, votre application crée et envoie les jetons d’application à notre service pour lui indiquer d’afficher le rendu du rapport demandé. Avec cette conception, votre application peut gérer l’authentification et l’autorisation des utilisateurs sans passer par Azure Active Directory. Cette option est toutefois possible.
 
-**Voici comment fonctionne le flux de clé de jeton d’application**
+## Deux méthodes d’authentification
+
+**Clé** - Vous pouvez utiliser des clés pour tous les appels d’API REST Power BI Embedded REST. Les clés se trouvent sur le **portail Azure** en cliquant sur **Tous les paramètres**, puis sur **Clés d’accès**. Traitez toujours votre clé comme s’il s’agissait d’un mot de passe. Ces clés ont des autorisations pour appeler toutes les API REST sur une collection d’espaces de travail donnée.
+
+Pour utiliser une clé sur un appel REST, ajoutez l’en-tête d’autorisation suivant :
+
+    Authorization: AppKey {your key}
+
+**Jeton d’application** - Les jetons d’application sont utilisés pour toutes les demandes d’incorporation. Ils sont conçus pour être exécutés côté client, afin qu’ils soient limités à un rapport unique. Il est également recommandé de définir un délai d’expiration.
+
+Les jetons d’application sont un JWT (JSON Web Token) signé par l’une de vos clés.
+
+Votre jeton d’application peut contenir les revendications suivantes :
+
+| Revendication | Description |
+|--------------|------------|
+| **ver** | Version de jeton d’application. La version actuelle est 1.0.0. |
+| **aud** | Destinataire du jeton. Pour Power BI Embedded, utilisez : https://analysis.windows.net/powerbi/api. |
+| **iss** | Chaîne indiquant l’application qui a émis le jeton. |
+| **type** | Type de jeton d’application en cours de création. Le seul type pris en charge pour l’instant est **embed**. |
+| **wcn** | Nom de collection d’espace de travail pour lequel le jeton est émis. |
+| **wid** | ID d’espace de travail pour lequel le jeton est émis. |
+| **rid** | ID de rapport pour lequel le jeton est émis. |
+| **username** (facultatif) | Utilisé avec la fonction RLS, ceci est une chaîne qui peut aider à identifier l’utilisateur lors de l’application des règles RLS. |
+| **roles** (facultatif) | Chaîne contenant les rôles à sélectionner lors de l’application des règles de sécurité au niveau des lignes. Si vous transmettez plusieurs rôles, ils doivent l’être en tant que table de chaînes. |
+| **exp** (facultatif) | Indique l’heure d’expiration du jeton. Les heures doivent être transmises en tant qu’horodatages Unix. |
+| **nbf** (facultatif) | Indique l’heure de début de validité du jeton. Les heures doivent être transmises en tant qu’horodatages Unix. |
+
+Un exemple de jeton d’application doit ressembler à ceci :
+
+![](media\power-bi-embedded-app-token-flow\power-bi-embedded-app-token-flow-sample-coded.png)
+
+
+Lorsqu’il est décodé, il doit ressembler à ceci :
+
+![](media\power-bi-embedded-app-token-flow\power-bi-embedded-app-token-flow-sample-decoded.png)
+
+
+## Voici comment fonctionne le flux :
 
 1. Copiez les clés API dans votre application. Vous pouvez obtenir les clés à partir du **portail Azure**.
 
@@ -46,14 +84,13 @@ Le service **Power BI Embedded** utilise des **jetons d’application** pour l�
 
     ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-6.png)
 
-Après que **Power BI Embedded** envoie un rapport à l'utilisateur, ce dernier peut afficher le rapport dans votre application personnalisée. Par exemple, si vous avez importé l’[exemple PBIX Analyse des données de vente](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l’exemple d’application a l’aspect suivant :
+Après que **Power BI Embedded** envoie un rapport à l’utilisateur, ce dernier peut afficher le rapport dans votre application personnalisée. Par exemple, si vous avez importé l’[exemple PBIX Analyse des données de vente](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l’exemple d’application a l’aspect suivant :
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
 ## Voir aussi
 - [Prise en main de l’exemple Microsoft Power BI Embedded Preview](power-bi-embedded-get-started-sample.md)
-- [Présentation de Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Scénarios Microsoft Power BI Embedded Preview courants](power-bi-embedded-scenarios.md)
-- [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
+- [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
+- [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

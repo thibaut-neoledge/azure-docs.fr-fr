@@ -2,17 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à RunMyProcess | Microsoft Azure" 
     description="Apprenez à utiliser RunMyProcess avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à RunMyProcess
   
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Ru
 
 ###Pour activer l’application de l’intégration pour RunMyProcess, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-runmyprocess-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, dans la page d’intégration d’application **RunMyProcess**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, dans la page d’intégration d’application **RunMyProcess**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-runmyprocess-tutorial/IC789617.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-runmyprocess-tutorial/IC789622.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de RunMyProcess**, tapez votre URL selon le modèle suivant « **http://company.runmyprocess.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de RunMyProcess**, tapez votre URL selon le modèle suivant *http://company.runmyprocess.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-runmyprocess-tutorial/IC789623.png "Configurer l’URL de l’application")
 
@@ -97,17 +97,17 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Authentification unique](./media/active-directory-saas-runmyprocess-tutorial/IC789626.png "Authentification unique")
 
     1.  Pour **Method**, sélectionnez **SSO with Samlv2**.
-    2.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure, copiez la valeur **URL SSO SAML** et collez-la dans la zone de texte **SSO redirect**.
-    3.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure, copiez la valeur **URL du service d’authentification unique** et collez-la dans la zone de texte **Logout redirect**.
+    2.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure Classic, copiez la valeur **URL SSO SAML** et collez-la dans la zone de texte **SSO redirect**.
+    3.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique** et collez-la dans la zone de texte **Logout redirect**.
     4.  Dans la zone de texte **Name id Format**, entrez **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
-    5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     6.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificate**.
     7.  Cliquez sur **Enregistrer**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-runmyprocess-tutorial/IC789627.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -139,7 +139,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à RunMyProcess, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **RunMyProcess**, cliquez sur **Affecter des utilisateurs**.
 
@@ -151,4 +151,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

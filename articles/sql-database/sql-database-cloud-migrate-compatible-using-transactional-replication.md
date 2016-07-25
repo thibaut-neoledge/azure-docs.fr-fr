@@ -40,9 +40,9 @@ Une fois la synchronisation terminée et que vous êtes prêt à migrer, vous de
 
 ## Conditions requises de la réplication transactionnelle
 
-La réplication transactionnelle est une technologie intégrée à SQL Server depuis SQL Server 6.5. Il s'agit d'une technologie très mature et éprouvée que la plupart des administrateurs de bases de données maîtrisent parfaitement. Avec la [version préliminaire de SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/), il est désormais possible de configurer votre Base de données SQL Azure comme un [abonné de réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) à votre publication locale. La configuration dans Management Studio est identique à la configuration d'un abonné de réplication transactionnelle sur un serveur local. Prise en charge de ce scénario lorsque le serveur de publication et le serveur de distribution sont au moins une des versions suivantes de SQL Server :
+La réplication transactionnelle est une technologie intégrée à SQL Server depuis SQL Server 6.5. Il s'agit d'une technologie très mature et éprouvée que la plupart des administrateurs de bases de données maîtrisent parfaitement. Avec [SQL Server 2016](https://www.microsoft.com/fr-FR/cloud-platform/sql-server), vous pouvez désormais configurer votre service Azure SQL Database comme [abonné de réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) à votre publication locale. La configuration dans Management Studio est identique à la configuration d'un abonné de réplication transactionnelle sur un serveur local. Prise en charge de ce scénario lorsque le serveur de publication et le serveur de distribution sont au moins une des versions suivantes de SQL Server :
 
- - SQL Server 2016 CTP3 (version préliminaire) et versions ultérieures 
+ - SQL Server 2016 et versions ultérieures
  - SQL Server 2014 SP1 CU3 et versions ultérieures
  - SQL Server 2014 RTM CU10 et versions ultérieures
  - SQL Server 2012 SP2 CU8 et versions ultérieures
@@ -56,7 +56,7 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
 
 - [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Version préliminaire de SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+- [SQL Server 2016](https://www.microsoft.com/fr-FR/cloud-platform/sql-server)
 
 ## Ressources supplémentaires
 
@@ -65,4 +65,4 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

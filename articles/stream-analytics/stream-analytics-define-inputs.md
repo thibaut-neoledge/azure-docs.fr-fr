@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/15/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
@@ -118,6 +118,8 @@ Quand il est nécessaire de stocker de grandes quantités de données non struct
 
 Il est important de noter que l’horodatage par défaut des événements de stockage d’objets blob dans Stream Analytics est l’horodatage de la dernière modification de l’objet blob, *BlobLastModifiedUtcTime*. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot-clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
+Notez également que des entrées au format CSV **nécessitent** une ligne d’en-tête pour définir les champs du jeu de données. Les champs de ligne d’en-tête suivants doivent tous être **uniques**.
+
 > [AZURE.NOTE] Stream Analytics ne prend pas en charge l’ajout de contenu à un objet blob existant. Stream Analytics affiche un objet blob une seule fois et toutes les modifications effectuées après cette lecture ne sont pas traitées. La meilleure pratique consiste à télécharger toutes les données en une fois et à ne pas ajouter d’événements supplémentaires dans le magasin d’objets blob.
 
 Le tableau ci-dessous explique chaque propriété de l’onglet des entrées de stockage d’objets blob et fournit la description correspondante :
@@ -211,4 +213,4 @@ Vous avez appris à connaître les options de connexion de données dans Azure p
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

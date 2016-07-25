@@ -28,22 +28,7 @@ De nombreuses tâches ici utilisent le
 
 ## Définir des variables d’environnement avant le démarrage d’un rôle
 
-Vous pouvez définir des variables d’environnement pour un rôle entier en ajoutant l’élément [Runtime] à la définition du rôle dans le fichier de définition de service.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-Si des variables d’environnement doivent être définies pour une tâche spécifique, qui n’est pas partagée par d’autres tâches, vous pouvez utiliser l’élément [Environment] à l’intérieur de l’élément [Task].
+Si des variables d’environnement doivent être définies pour une tâche spécifique, utilisez l’élément [Environment] à l’intérieur de l’élément [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -85,9 +70,9 @@ Les codes errorlevel retournés par *AppCmd.exe* sont répertoriés dans le fich
 
 ### Exemple
 
-Cet exemple ajoute une section de compression et une entrée de compression pour JSON au fichier *Web.config* , avec gestion et journalisation des erreurs.
+Cet exemple ajoute une section de compression et une entrée de compression pour JSON au fichier *Web.config*, avec gestion et journalisation des erreurs.
 
-Les sections pertinentes du fichier [ServiceDefinition.csdef] sont indiquées ici, avec notamment l’attribut [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) défini sur `elevated` pour qu’ *AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
+Les sections pertinentes du fichier [ServiceDefinition.csdef] sont indiquées ici, avec notamment l’attribut [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) défini sur `elevated` pour qu’*AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -188,7 +173,7 @@ Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef].
 </ServiceDefinition>
 ```
 
-Ajoutez cette commande au fichier **startup.cmd** :
+Ajoutez cette commande au fichier **startup.cmd** :
 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
@@ -391,13 +376,12 @@ La façon la plus simple de détecter qu’une tâche a déjà été exécutée 
     REM   Exit normally.
     EXIT /B 0
 
-
 ## Meilleures pratiques pour les tâches
 Voici quelques meilleures pratiques à suivre quand vous configurez la tâche pour votre rôle web ou de travail.
 
 ### Toujours consigner les activités de démarrage
 
-Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%**, ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **% PathToApp1Install** :
+Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%**, ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **% PathToApp1Install** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
@@ -503,4 +487,4 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

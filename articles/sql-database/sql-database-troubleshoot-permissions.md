@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Exécution de tâches administratives courantes dans une base de données SQL Azure"
-	description="Décrit comment effectuer des tâches administratives courantes"
+	pageTitle="Comment effectuer des tâches d’administration, par exemple réinitialiser des mots de passe administrateur | Microsoft Azure"
+	description="Explique comment effectuer des tâches d’administration courantes dans SQL Database. Par exemple, la réinitialisation de mot de passe administrateur, l’octroi et la suppression de l’accès."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="réinitialiser un mot de passe administrateur"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="07/06/2016"
 	ms.author="v-shysun"/>
 
-# Exécution de tâches administratives courantes dans une base de données SQL Azure
+# Comment effectuer des tâches d’administration courantes telles que la réinitialisation de mot de passe d’administrateur dans Azure SQL Database
 Utilisez cette rubrique pour accorder et refuser l’accès à une base de données SQL Azure en quelques opérations rapides. Pour obtenir des informations complètes, consultez :
 
 - [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
@@ -26,9 +27,7 @@ Utilisez cette rubrique pour accorder et refuser l’accès à une base de donn�
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-
-## Modifier le mot de passe d’administration d’un serveur logique
-
+## Pour réinitialiser le mot de passe administrateur pour un serveur logique
 
 - Dans le [portail Azure](https://portal.azure.com),cliquez sur **Serveurs SQL**, sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe**.
 
@@ -39,9 +38,9 @@ Utilisez cette rubrique pour accorder et refuser l’accès à une base de donn�
 - Utilisez l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) et consultez [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Pour authentifier les utilisateurs de base de données à relation contenant-contenu de la base de données à l’aide d’Azure Active Directory
-- Consultez la rubrique [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+- Consultez [Connexion à SQL Database avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Pour créer des connexions supplémentaires pour les utilisateurs avec des privilèges élevés vers la base de données master virtuelle
-- Utilisez l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) et consultez la section Gestion des connexions de [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md) pour plus de détails.
+- Utilisez l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) et consultez la section Gestion des connexions de [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md) pour plus de détails.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

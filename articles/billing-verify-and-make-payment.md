@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="07/12/2016"
 	ms.author="genli"/>
 
 # Comment vérifier votre mode de paiement et procéder à des paiements pour un abonnement Azure
 
 >[AZURE.NOTE] Si vous recevez une erreur après avoir soumis les informations de votre carte de crédit, consultez l’article [Ma carte de crédit ne fonctionne pas quand je tente de m’inscrire à Azure](billing-credit-card-fails-during-azure-sign-up.md).
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Vérifier le mode de paiement actuel
 1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte.
@@ -42,4 +44,4 @@ Si vous avez configuré une carte de crédit ou une carte bancaire comme mode de
 
 Si vous utilisez un mode de paiement par facture, envoyez votre paiement à l’endroit indiqué au bas de votre facture. Pour obtenir de l’aide supplémentaire, contactez le [support Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

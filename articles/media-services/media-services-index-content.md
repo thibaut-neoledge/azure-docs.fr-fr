@@ -272,7 +272,7 @@ Code | Nom | Causes possibles
 2005 | Type de fichier non pris en charge | Le type de fichier multimédia d’entrée n’est pas pris en charge.
 2006 | Trop de fichiers d’entrée | Le manifeste d’entrée comporte plus de 10 fichiers.
 3000 | Impossible de décoder le fichier multimédia | Codec de média non pris en charge <br/>ou<br/> fichier multimédia corrompu <br/>ou<br/> Aucun flux audio dans le média d’entrée.
-4000 | Indexation en lot partiellement réussie | Impossible d'indexer certains des fichiers multimédias d’entrée. Pour plus d’informations, consultez la section <a href="output_files">Fichiers de sortie</a>.
+4000 | Indexation en lot partiellement réussie | Impossible d'indexer certains des fichiers multimédias d’entrée. Pour plus d’informations, consultez la section <a href="#output_files">Fichiers de sortie</a>.
 autres | Erreurs internes | Veuillez contacter l’équipe du support technique. indexer@microsoft.com
 
 
@@ -298,4 +298,4 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 [Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -34,6 +34,8 @@ Hive sait comment travailler avec des données structurées et semi-structurées
 
 Hive peut également être étendu via des **fonctions définies par l'utilisateur (UDF)**. Une fonction UDF vous permet d'implémenter une fonctionnalité ou une logique qui n'est pas facilement modelée en HiveQL. Pour obtenir un exemple d'utilisation des fonctions définies par l’utilisateur (UDF) avec Hive, consultez les documents suivants :
 
+* [Utiliser une fonction définie par l’utilisateur de Java avec Hive](hdinsight-hadoop-hive-java-udf.md)
+
 * [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md)
 
 * [Utilisation de C# avec Hive et Pig dans HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
@@ -46,7 +48,7 @@ Hive peut également être étendu via des **fonctions définies par l'utilisate
 Voici quelques éléments à connaître sur les tables interne et externe Hive :
 
 - La commande **CREATE TABLE** permet de créer une table interne. Le fichier de données doit se trouver dans le conteneur par défaut.
-- La commande **CREATE TABLE** transfère le fichier de données vers le dossier /hive/warehouse/<TableName>.
+- La commande **CREATE TABLE** transfère le fichier de données vers le dossier /hive/warehouse/<NomTable>.
 - La commande **CREATE EXTERNAL TABLE** permet de créer une table externe. Le fichier de données peut se trouver à l'extérieur du conteneur par défaut.
 - La commande **CREATE EXTERNAL TABLE** ne déplace pas le fichier de données.
 - La commande **CREATE EXTERNAL TABLE** n’autorise aucun dossier à l’EMPLACEMENT. C'est la raison pour laquelle le didacticiel réalise une copie du fichier sample.log.
@@ -70,11 +72,11 @@ L’exemple de données est stocké dans le stockage d'objets blob Azure, que HD
 
 Étant donné que le stockage d’objets blob Azure est le stockage par défaut pour HDInsight, vous pouvez également accéder au fichier en utilisant **/example/data/sample.log** depuis HiveQL.
 
-> [AZURE.NOTE] La syntaxe, **wasb:///**, permet d’accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d’autres comptes de stockage pendant l’approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l’adresse du compte de stockage, par exemple, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] La syntaxe, **wasb:///**, permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d’autres comptes de stockage pendant l’approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l’adresse du compte de stockage, par exemple : **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Exemple de tâche : projection de colonnes sur des données délimitées
 
-Les instructions HiveQL suivantes vont projeter des colonnes sur des données délimitées stockées dans le répertoire **wasb:///example/data** :
+Les instructions HiveQL suivantes vont projeter des colonnes sur des données délimitées stockées dans le répertoire **wasb:///example/data** :
 
     set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
@@ -89,12 +91,12 @@ Dans l’exemple précédent, les instructions HiveQL effectuent les opérations
 
     > [AZURE.NOTE] Cette instruction est uniquement requise lorsque vous utilisez un cluster HDInsight basé sur Windows. Tez est le moteur d’exécution par défaut pour HDInsight sous Linux.
 
-* **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
-* **CREATE EXTERNAL TABLE** : crée une nouvelle table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à leur emplacement d’origine et dans leur format d’origine.
-* **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-* **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte. Les données peuvent être dans un seul fichier ou réparties sur plusieurs fichiers dans le répertoire.
-* **SELECT** : sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3**, car trois lignes contiennent cette valeur.
-* **INPUT\_\_FILE\_\_NAME LIKE '%.log'** : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cela limite la recherche au fichier sample.log qui contient les données et l'empêche de renvoyer des données provenant d'autres fichiers d'exemple qui ne correspondent pas au schéma que nous avons défini.
+* **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
+* **CREATE EXTERNAL TABLE** : crée une nouvelle table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à leur emplacement d’origine et dans leur format d’origine.
+* **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+* **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte. Les données peuvent être dans un seul fichier ou réparties sur plusieurs fichiers dans le répertoire.
+* **SELECT** : sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3**, car trois lignes contiennent cette valeur.
+* **INPUT\_\_FILE\_\_NAME LIKE '%.log'** : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cela limite la recherche au fichier sample.log qui contient les données et l'empêche de renvoyer des données provenant d'autres fichiers d'exemple qui ne correspondent pas au schéma que nous avons défini.
 
 > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, telle qu’un processus de téléchargement de données automatisé, ou par une autre opération MapReduce et vous souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
 >
@@ -110,9 +112,9 @@ Après avoir créé la table externe, les instructions suivantes permettent de c
 
 Ces instructions effectuent les opérations suivantes :
 
-* **CREATE TABLE IF NOT EXISTS** : crée une table, le cas échéant. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
-* **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-* **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contient **[ERROR]**, puis insère les données dans la table **errorLogs**.
+* **CREATE TABLE IF NOT EXISTS** : crée une table, le cas échéant. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
+* **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
+* **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contient **[ERROR]**, puis insère les données dans la table **errorLogs**.
 
 > [AZURE.NOTE] Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
@@ -212,4 +214,4 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

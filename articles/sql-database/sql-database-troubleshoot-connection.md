@@ -1,11 +1,12 @@
 <properties
-	pageTitle="La résolution des problèmes de base de données de serveur n’est pas disponible actuellement pour la base de données SQL Azure"
-	description="Opérations servant à identifier et résoudre les erreurs de connexion de la base de données SQL Azure."
+	pageTitle="La base de données sur le serveur n’est pas disponible actuellement, connexion à SQL Database | Microsoft Azure"
+	description="Dépannage de l’erreur « La base de données sur le serveur n’est pas disponible actuellement » quand une application se connecte à SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="la base de données sur le serveur n’est pas disponible actuellement, connexion à sql database"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/06/2016"
 	ms.author="daleche"/>
 
-# Dépannage de l’erreur « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement »
+# Erreur « La base de données sur le serveur n’est pas disponible actuellement » lors de la connexion à SQL Database
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 Lorsqu’une application se connecte à une base de données SQL Azure, le message d’erreur suivant s’affiche :
@@ -37,6 +38,6 @@ Cette erreur se produit lorsque la base de données Azure est déplacée (ou rec
 
 ## Étapes suivantes
 - Si vous recevez une erreur différente, consultez le [message d’erreur](sql-database-develop-error-messages.md) pour obtenir des indices sur la cause.
-- Si le problème persiste, consultez les instructions dans [Résoudre des problèmes de connexion à la base de données SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
+- Si le problème persiste, consultez les instructions dans [Résoudre des problèmes de connexion à Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

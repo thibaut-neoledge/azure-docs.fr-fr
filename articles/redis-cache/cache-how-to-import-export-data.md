@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="07/13/2016" 
 	ms.author="sdanie"/>
 
 # Importer et exporter des données dans le Cache Redis Azure
@@ -137,7 +137,9 @@ L’Importation/Exportation vous permet d’importer ou d’exporter des donnée
 
 ### Puis-je automatiser l’Importation/Exportation à l’aide de PowerShell, de CLI ou d’autres clients de gestion ?
 
-Cette fonctionnalité n’est pas disponible pendant la phase préliminaire, mais elle le sera bientôt.
+Oui, pour les instructions PowerShell, voir [Comment importer un cache Redis](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) et [Comment exporter un cache Redis](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache).
+
+
 
 ### J’ai reçu une erreur de délai d’attente pendant mon opération d’Importation/Exportation. Qu’est-ce que cela signifie ?
 
@@ -168,4 +170,4 @@ L’Importation/Exportation ne fonctionne qu’avec les fichiers RDB stockés so
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

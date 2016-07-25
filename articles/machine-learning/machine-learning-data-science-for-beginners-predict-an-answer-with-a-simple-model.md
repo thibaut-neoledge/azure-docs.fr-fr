@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prédire une réponse à l’aide d’un modèle simple - Science des données pour les débutants | Microsoft Azure"
+   pageTitle="Prédire une réponse à l’aide d’un modèle simple - modèle de régression | Microsoft Azure"
    description="Comment créer un modèle simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants. Comprend une régression linéaire de base avec des données cibles."                                  
    keywords="créer un modèle,modèle simple,modèle de données simple,prédiction de prix,modèle de régression simple"
    services="machine-learning"
@@ -136,6 +136,6 @@ La série *Science des données pour les débutants* offre une introduction rapi
 ## Étapes suivantes
 
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de l’apprentissage automatique sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/11/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transactions dans SQL Data Warehouse
@@ -43,10 +43,12 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 | DW1200 | 9 | 60 | 540 | 36 000 000 | 2 160 000 000 |
 | DW1500 | 11,25 | 60 | 675 | 45 000 000 | 2 700 000 000 |
 | DW2000 | 15 | 60 | 900 | 60 000 000 | 3 600 000 000 |
+| DW3000 | 22,5 | 60 | 1 350 | 90 000 000 | 5 400 000 000 |
+| DW6000 | 45 | 60 | 2 700 | 180 000 000 | 10 800 000 000 |
 
 La limite de taille de transaction est appliquée par transaction ou opération. Elle n’est pas appliquée à toutes les transactions simultanées. Par conséquent, chaque transaction est autorisée à écrire cette quantité de données dans le journal.
 
-Pour optimiser et réduire la quantité de données écrites dans le journal, consultez l’article sur les [meilleures pratiques relatives aux transactions][].
+Pour optimiser et réduire la quantité de données écrites dans le journal, consultez l’article sur les [bonnes pratiques relatives aux transactions][].
 
 > [AZURE.WARNING] La taille de transaction maximale ne peut être obtenue que pour les tables distribuées HASH ou ROUND\_ROBIN où la répartition des données est égale. Si la transaction écrit les données de manière asymétrique dans les distributions, alors la limite est susceptible d’être atteinte avant la taille de transaction maximale.
 <!--REPLICATED_TABLE-->
@@ -130,14 +132,14 @@ Les voici :
 - Aucune prise en charge de DDL comme `CREATE TABLE` dans une transaction définie par l’utilisateur
 
 ## Étapes suivantes
-Pour en savoir plus sur l’optimisation des transactions, consultez les [meilleures pratiques relatives aux transactions][]. Pour en savoir plus sur les meilleures pratiques relatives à SQL Data Warehouse, consultez l’article [correspondant][].
+Pour en savoir plus sur l’optimisation des transactions, consultez les [bonnes pratiques relatives aux transactions][]. Pour en savoir plus sur les bonnes pratiques relatives à SQL Data Warehouse, consultez l’article [correspondant][].
 
 <!--Image references-->
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [development overview]: ./sql-data-warehouse-overview-develop.md
-[meilleures pratiques relatives aux transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[bonnes pratiques relatives aux transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [correspondant]: ./sql-data-warehouse-best-practices.md
 [libellés]: ./sql-data-warehouse-develop-label.md
 
@@ -145,4 +147,4 @@ Pour en savoir plus sur l’optimisation des transactions, consultez les [meille
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

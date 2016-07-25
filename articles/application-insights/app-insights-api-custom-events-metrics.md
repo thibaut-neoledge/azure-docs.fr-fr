@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="07/11/2016" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -47,8 +47,8 @@ Si vous ne l'avez pas encore fait :
 * Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet :
  * [Projet ASP.NET][greenbrown]
  * [Projet Windows][windows]
- * [Projet Java][java] 
- * [JavaScript dans chaque page web][client]   
+ * [Projet Java][java]
+ * [JavaScript dans chaque page web][client]
 
 * Ajoutez au code de votre périphérique ou de votre serveur web :
 
@@ -505,7 +505,35 @@ Si cela est plus pratique, vous pouvez collecter les paramètres d'un événemen
 
 > [AZURE.WARNING] Ne réutilisez pas la même instance d’élément de télémétrie (`event` dans cet exemple) pour appeler Track*() plusieurs fois. Cela peut provoquer un envoi de données de télémétrie configurées de façon incorrecte.
 
-#### <a name="timed"></a> Événements de durée
+## Contexte de l’opération
+
+Lorsque votre application web reçoit une requête HTTP, le module de suivi des demandes Application Insights assigne un ID à la demande et définit la même valeur que l’ID de l’opération en cours. L’ID d’opération est désactivé lorsque la réponse à la demande est envoyée. Tous les appels de suivi effectués lors de l’opération obtiennent le même ID d’opération (à condition qu’ils utilisent la valeur par défaut TelemetryContext). Cela vous permet de mettre en corrélation les événements liés à une demande particulière lorsque vous les inspectez dans le portail.
+
+![Éléments connexes](./media/app-insights-api-custom-events-metrics/21.png)
+
+Si vous analysez des événements non associés à une requête HTTP, ou si vous n’utilisez pas le module de suivi de demande - par exemple, si vous analysez un processus principal - puis vous pouvez définir votre propre contexte d’opération à l’aide de ce modèle :
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+En plus de définir un contexte d’opération, `StartOperation` crée un objet de télémétrie du type que vous spécifiez, et l’envoie lorsque supprimez l’opération ou appelez explicitement `StopOperation`. Si vous utilisez `RequestTelemetry` comme type de télémétrie, alors sa durée est définie sur l’intervalle entre le début et la fin.
+
+Les contextes de l’opération ne peuvent pas être imbriqués. S’il existe déjà un contexte d’opération, son ID est associé à tous les éléments de contenu, y compris l’élément créé avec StartOperation.
+
+
+## <a name="timed"></a> Événements de durée
 
 Vous avez parfois besoin d’obtenir une représentation graphique de la durée nécessaire à la réalisation d’une action. Par exemple, vous souhaitez savoir de combien de temps les utilisateurs ont besoin pour évaluer leurs choix dans un jeu. Il s'agit d'un exemple intéressant de l'utilisation du paramètre de mesure.
 
@@ -576,9 +604,9 @@ Les appels de télémétrie individuels peuvent remplacer les valeurs par défau
 
 Vous pouvez écrire du code pour traiter votre télémétrie avant de l’envoyer à partir du Kit de développement logiciel (SDK). Le traitement inclut les données envoyées par les modules de télémétrie standard, telles que la collection de requêtes HTTP et la collection de dépendances.
 
-* [Ajoutez des propriétés](app-insights-api-filtering-sampling.md#add-properties) à la télémétrie en implémentant `ITelemetryInitializer`. Par exemple, pour ajouter des numéros de version ou des valeurs calculées à partir d'autres propriétés. 
-* Le [filtrage](app-insights-api-filtering-sampling.md#filtering) peut modifier ou ignorer les données de télémétrie avant qu’elles ne soient envoyées à partir du Kit de développement logiciel (SDK) avec l’implémentation de `ITelemetryProcesor`. Vous contrôlez ce qui est envoyé ou rejeté, mais vous devez tenir compte de l’impact sur vos critères. Suivant la façon dont vous ignorez les éléments, vous risquez de ne plus pouvoir naviguer entre des éléments connexes.
-* L’[échantillonnage](app-insights-api-filtering-sampling.md#sampling) est une solution intégrée pour réduire le volume des données envoyées à partir de votre application vers le portail. Il n’affecte pas les mesures affichées, ni votre capacité à diagnostiquer les problèmes en naviguant entre des éléments connexes, tels que les exceptions, les requêtes et les affichages de page.
+* [Ajoutez des propriétés](app-insights-api-filtering-sampling.md#add-properties) à la télémétrie en implémentant `ITelemetryInitializer` - par exemple pour ajouter des numéros de version ou des valeurs calculées à partir d’autres propriétés.
+* Le [filtrage](app-insights-api-filtering-sampling.md#filtering) peut modifier ou abandonner la télémétrie avant son envoi au SDK en implémentant `ITelemetryProcesor`. Vous contrôlez ce qui est envoyé ou rejeté, mais vous devez tenir compte de l’impact sur vos critères. Suivant la façon dont vous ignorez les éléments, vous risquez de ne plus pouvoir naviguer entre des éléments connexes.
+* [L’échantillonnage](app-insights-api-filtering-sampling.md#sampling) est une solution intégrée pour réduire le volume des données envoyées à partir de votre application vers le portail. Il n’affecte pas les mesures affichées, ni votre capacité à diagnostiquer les problèmes en naviguant entre des éléments connexes, tels que les exceptions, les requêtes et les affichages de page.
 
 [En savoir plus](app-insights-api-filtering-sampling.md)
 
@@ -617,7 +645,7 @@ Pendant le débogage, il est utile d'avoir votre télémétrie envoyée par le p
 *C#*
     
     var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
+    telemetry.InstrumentationKey = "---my key---";
     // ...
 
 
@@ -672,11 +700,11 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 * **Emplacement** : identifie l'emplacement géographique du périphérique.
 * **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
- * **Nom** : un identificateur, généralement l'URL de la requête HTTP. 
+ * **Nom** : un identificateur, généralement l'URL de la requête HTTP.
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
 * **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
-* **Utilisateur** : informations utilisateur. 
+* **Utilisateur** : informations utilisateur.
 
 ## Limites
 
@@ -685,7 +713,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
 *Comment puis-je éviter d'atteindre la limite de débit de données ?*
 
-* Utilisez l’[échantillonnage](app-insights-sampling.md).
+* Utilisez [l’échantillonnage](app-insights-sampling.md).
 
 *Combien de temps les données sont-elles conservées ?*
 
@@ -721,7 +749,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
 * *Existe-t-il une API REST pour obtenir des données à partir du portail ?*
 
-    Oui, elle sera bientôt disponible. En attendant, utilisez l’[exportation continue](app-insights-export-telemetry.md).
+    Oui, elle sera bientôt disponible. En attendant, utilisez [l’exportation continue](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Étapes suivantes
 
@@ -750,4 +778,4 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

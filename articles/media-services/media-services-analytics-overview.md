@@ -73,7 +73,7 @@ Cette section répertorie tous les processeurs multimédia Media Services Analyt
 
 ### .NET
 
-La fonction suivante sélectionne un des noms MP spécifiés et retourne un objet NP.
+La fonction suivante sélectionne un des noms MP spécifiés et retourne un objet MP.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -144,4 +144,4 @@ Réponse :
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

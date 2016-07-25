@@ -1,6 +1,6 @@
 <properties
    pageTitle="Développer des solutions intégrées avec SQL Data Warehouse | Microsoft Azure"
-   description="Outils et partenaires proposant des solutions s’intégrant avec SQL Data Warehouse."
+   description="Outils et partenaires proposant des solutions s’intégrant avec SQL Data Warehouse. "
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -29,16 +29,16 @@ Nous travaillons à une intégration à un certain nombre d’autres services da
 ##Power BI
 L’intégration de Power BI vous permet de tirer parti de la puissance de calcul de SQL Data Warehouse avec la création de rapports dynamiques et la visualisation de Power BI. L’intégration de Power BI inclut actuellement les éléments suivants :
 
-+ **Connexion directe** : une connexion plus avancée avec un menu déroulant logique dans SQL Data Warehouse. Ainsi, les analyses sont plus rapides à une plus grande échelle.
-+ **Ouvrir dans Power BI** : ce bouton transmet les informations d’instance à Power BI, permettant une connexion plus fluide.
++ **Connexion directe** : une connexion plus avancée avec un menu déroulant logique dans SQL Data Warehouse. Ainsi, les analyses sont plus rapides à une plus grande échelle.
++ **Ouvrir dans Power BI** : ce bouton transmet les informations d’instance à Power BI, permettant une connexion plus fluide.
 
 Pour plus d’informations, consultez [Intégrer à Power BI](./sql-data-warehouse-integrate-power-bi.md) ou la [documentation Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
 ##Azure Data Factory
 Azure Data Factory offre aux utilisateurs une plateforme gérée pour créer des pipelines d’extraction-chargement complexes. L’intégration de SQL Data Warehouse à Azure Data Factory inclut les éléments suivants :
 
-+ **Procédures stockées** : orchestrez l’exécution de procédures stockées dans SQL Data Warehouse.
-+ **Copy** : utilisez ADF pour déplacer les données dans SQL Data Warehouse. Cette opération peut utiliser le mécanisme de déplacement de données standard d’ADF ou PolyBase en arrière-plan. 
++ **Procédures stockées** : orchestrez l’exécution de procédures stockées dans SQL Data Warehouse.
++ **Copy** : utilisez ADF pour déplacer les données dans SQL Data Warehouse. Cette opération peut utiliser le mécanisme de déplacement de données standard d’ADF ou PolyBase en arrière-plan.
 
 Pour plus d’informations, consultez [Intégrer à Azure Data Factory](./sql-data-warehouse-integrate-azure-data-factory.md) ou la [documentation Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
@@ -66,10 +66,10 @@ Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](./
 [Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md
 [Azure Stream Analytics]: sql-data-warehouse-integrate-azure-stream-analytics.md
 [Power BI]: sql-data-warehouse-integrate-power-bi.md
-[Partners]: sql-data-warehouse-integrate-solution-partners.md
+[Partners]: sql-data-warehouse-partner-business-intelligence.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

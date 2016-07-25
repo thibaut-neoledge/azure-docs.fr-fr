@@ -72,13 +72,13 @@ Pour commencer le codage, voir [Prise en main des requêtes de bases de données
 
 Une requête élastique peut être utilisée pour mettre les données situées dans une base de données SQLDB à la disposition d’autres bases de données SQLDB. Ainsi, les requêtes issues d’une base de données peuvent faire référence à des tables dans n’importe quelle autre base de données SQLDB distante. La première étape consiste à définir une source de données externe pour chaque base de données distante. La source de données externe est définie dans la base de données locale à partir de laquelle vous souhaitez accéder aux tables situées sur la base de données distante. Aucune modification de la base de données distante n’est nécessaire. Pour les scénarios verticaux dans lesquels les différentes bases de données comportent des schémas différents, les requêtes élastiques peuvent être utilisées pour implémenter des scénarios d’utilisation courants tels que l’accès aux données de référence et l’interrogation de bases de données croisées.
 
-**Données de référence** : Topologie 1 est utilisé pour la gestion de données de référence. Dans la figure ci-dessous, deux tables (T1 et T2) avec des données de référence sont conservées dans une base de données dédiée. Avec une requête élastique, vous pouvez désormais accéder aux tables T1 et T2 à distance depuis d’autres bases de données, comme indiqué dans la figure. Utilisez Topologie 1 si les tables de référence sont des requêtes de petite taille ou distantes se trouvant dans la table de référence et ayant des prédicats sélectifs.
+**Données de référence** : Topologie 1 est utilisé pour la gestion de données de référence. Dans la figure ci-dessous, deux tables (T1 et T2) avec des données de référence sont conservées dans une base de données dédiée. Avec une requête élastique, vous pouvez désormais accéder aux tables T1 et T2 à distance depuis d’autres bases de données, comme indiqué dans la figure. Utilisez Topologie 1 si les tables de référence sont des requêtes de petite taille ou distantes se trouvant dans la table de référence et ayant des prédicats sélectifs.
 
 **Figure 2** Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence
 
 ![Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence][3]
 
-**Interrogation des bases de données croisées** : les requêtes élastiques permettent d’utiliser des cas nécessitant l’interrogation de plusieurs bases de données BDSQL. La figure 3 représente quatre bases de données différentes : Gestion de la relation client (CRM), Inventaire, Ressources humaines (RH) et Produits. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
+**Interrogation des bases de données croisées** : les requêtes élastiques permettent d’utiliser des cas nécessitant l’interrogation de plusieurs bases de données BDSQL. La figure 3 représente quatre bases de données différentes : Gestion de la relation client (CRM), Inventaire, Ressources humaines (RH) et Produits. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
 
 **Figure 3** Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données
 
@@ -117,7 +117,7 @@ Les étapes suivantes configurent des requêtes de base de données flexibles po
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
-*    Créer un [mappage de partition](sql-database-elastic-scale-shard-map-management.md) représentant votre couche de données à l’aide d’une bibliothèque de base de données élastique cliente.   
+*    Créer un [mappage de partition](sql-database-elastic-scale-shard-map-management.md) représentant votre couche de données à l’aide d’une bibliothèque de base de données élastique cliente.
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource de type **SHARD\_MAP\_MANAGER**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
@@ -129,6 +129,8 @@ Après avoir défini votre source de données externe et vos tables externes, vo
 ## Connectivité des outils
 Vous pouvez utiliser des chaînes de connexion SQL Server standard pour connecter vos applications et les outils d’intégration BI ou données aux bases de données qui ont des tables externes. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Une fois connecté, vous pouvez traiter la base de données de requête élastique et les tables externes de cette base de données comme n’importe quelle autre base de données SQL Server à laquelle vous vous connectez avec votre outil.
 
+> [AZURE.IMPORTANT] L’authentification à l’aide d’Azure Active Directory avec des requêtes élastiques n’est pas prise en charge actuellement.
+
 ## Coût
 
 La requête élastique est incluse dans le coût des bases de données Azure SQL Database. Notez que les topologies dont les bases de données distantes se trouvent dans un centre de données autre que le point de terminaison de requête élastique. Cependant, le chargement de sortie des données est facturé aux [tarifs Azure](https://azure.microsoft.com/pricing/details/data-transfers/) standard.
@@ -137,7 +139,7 @@ La requête élastique est incluse dans le coût des bases de données Azure SQL
 * L’exécution de votre première requête élastique peut prendre quelques minutes sur la couche de performances Standard. Ce délai est nécessaire au chargement de la fonctionnalité de requête flexible ; les performances de chargement s’améliorent avec les couches de performance supérieures.
 * La rédaction de script de sources de données externes ou de tables externes à partir de SSMS ou SSDT n’est pas encore prise en charge.
 * L’importation/exportation de base de données de SQL ne prend pas en charge les tables et sources de données externes. Si vous devez utiliser importer/exporter, supprimez ces objets avant l’exportation, puis recréez-les après l’importation.
-* Une requête élastique prend actuellement en charge uniquement les accès en lecture seule à des tables externes. Vous pouvez toutefois utiliser des fonctionnalités T-SQL complètes sur la base de données dans laquelle la table externe est définie. Cela peut être utile, par exemple, pour conserver les résultats temporaires à l’aide de SELECT <column_list> INTO <local_table>, ou pour définir des procédures stockées dans la base de données de requête élastique qui fait référence à des tables externes.
+* Une requête élastique prend actuellement en charge uniquement les accès en lecture seule à des tables externes. Vous pouvez toutefois utiliser des fonctionnalités T-SQL complètes sur la base de données dans laquelle la table externe est définie. Cela peut être utile, par exemple pour conserver les résultats temporaires à l’aide de SELECT <liste\_colonnes> INTO <table\_locale>, ou pour définir des procédures stockées dans la base de données de requêtes élastiques qui font référence à des tables externes.
 * À l’exception de nvarchar (max), les types métier ne sont pas pris en charge dans les définitions de table externes. Pour résoudre ce problème, vous pouvez créer une vue sur la base de données distante qui convertit le type LOB en nvarchar (max), définir votre table externe sur la vue au lieu de la table de base, et puis effectuer un cast vers le type LOB d’origine dans vos requêtes.
 * Les statistiques des colonnes via les tables externes ne sont pas prises en charge actuellement. Les statistiques des tables sont prises en charge, mais doivent être créées manuellement.
 
@@ -169,4 +171,4 @@ Vous trouverez d’autres informations sur les scénarios de partitionnement hor
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

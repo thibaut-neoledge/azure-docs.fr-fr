@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à IdeaScale
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’application pour Id
 
 ###Pour activer l’intégration d’application pour IdeaScale, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-ideascale-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, dans la page d’intégration d’application **IdeaScale**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, dans la page d’intégration d’application **IdeaScale**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-ideascale-tutorial/IC790843.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-ideascale-tutorial/IC790844.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion de IdeaScale** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application IdeaScale (ex. : « **https://company.IdeaScale.com*")), puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion de IdeaScale** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application IdeaScale (par exemple : « *https://company.IdeaScale.com*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-ideascale-tutorial/IC790845.png "Configurer l’URL de l’application")
 
@@ -102,12 +102,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Paramètres d’authentification unique](./media/active-directory-saas-ideascale-tutorial/IC790850.png "Paramètres d’authentification unique")
 
-    1.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur IdeaScale**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **SAML IdP Entity ID**.
+    1.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur IdeaScale**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **SAML IdP Entity ID**.
     2.  Copiez le contenu du fichier de métadonnées téléchargé et collez-le dans la zone de texte **SAML ldP Metadata**.
-    3.  Dans la page **Configurer l’authentification unique sur IdeaScale** du portail Azure, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Logout Success URL**.
+    3.  Dans la page **Configurer l’authentification unique sur IdeaScale** du portail Azure Classic, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Logout Success URL**.
     4.  Cliquez sur **Save Changes**.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-ideascale-tutorial/IC790851.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -135,9 +135,9 @@ Pour permettre aux utilisateurs Azure AD de se connecter à IdeaScale, vous deve
     1.  Indiquez l’adresse de messagerie d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans la zone de texte **Email Addresses**.
     2.  Cliquez sur **Save Changes**.
 
-    >[AZURE.NOTE]Le titulaire du compte Azure Active Directory reçoit un message électronique avec un lien pour confirmer le compte avant qu’il ne soit activé.
+    >[AZURE.NOTE] Le titulaire du compte Azure Active Directory reçoit un message électronique avec un lien pour confirmer le compte avant qu’il ne soit activé.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par IdeaScale pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par IdeaScale pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
 ##Affectation d’utilisateurs
   
@@ -145,7 +145,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à IdeaScale, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’application **IdeaScale**, cliquez sur **Affecter des utilisateurs**.
 
@@ -157,4 +157,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

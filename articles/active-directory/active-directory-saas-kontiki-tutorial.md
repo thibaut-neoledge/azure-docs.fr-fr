@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Kontiki
@@ -37,7 +37,7 @@ Cette section décrit l'activation de l’intégration d’applications pour Kon
 
 ###Pour activer l'intégration d’applications pour Kontiki, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-kontiki-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’applications **Kontiki**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **Kontiki**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Kontiki**, tapez l’URL utilisée par vos utilisateurs pour se connecter à Kontiki (par ex. “*https://company.mc.eval.kontiki.com/*")), puis cliquez sur **Suivant** :
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Kontiki**, tapez l’URL utilisée par vos utilisateurs pour se connecter à Kontiki (par ex. « *https://company.mc.eval.kontiki.com/*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configurer l’URL de l’application")
 
@@ -86,9 +86,9 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
 5.  Envoyez le fichier de métadonnées à l’équipe du support technique Kontiki.
 
-    >[AZURE.NOTE]La configuration de l’authentification unique doit être effectuée par l’équipe du support technique Kontiki. Vous recevez une notification dès qu’elle est terminée.
+    >[AZURE.NOTE] La configuration de l’authentification unique doit être effectuée par l’équipe du support technique Kontiki. Vous recevez une notification dès qu’elle est terminée.
 
-6.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -100,7 +100,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Kontiki, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Kontiki**, cliquez sur **Affecter des utilisateurs**.
 
@@ -112,4 +112,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

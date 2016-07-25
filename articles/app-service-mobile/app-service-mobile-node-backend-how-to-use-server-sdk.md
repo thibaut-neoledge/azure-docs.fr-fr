@@ -174,11 +174,11 @@ Le Kit de développement logiciel Node.js Server azure-mobile-apps fournit des m
 
 | Opération | Description |
 | --------- | ----------- |
-| GET /tables/\_tablename\_ | Extraire tous les enregistrements de la table |
-| GET /tables/\_tablename\_/:id | Extraire un enregistrement spécifique de la table |
-| POST /tables/\_tablename\_ | Créer un enregistrement dans la table |
-| PATCH /tables/\_tablename\_/:id | Mettre à jour un enregistrement existant dans la table |
-| DELETE /tables/\_tablename\_/:id | Supprimer un enregistrement de la table |
+| GET /tables/_tablename_ | Extraire tous les enregistrements de la table |
+| GET /tables/_tablename_/:id | Extraire un enregistrement spécifique de la table |
+| POST /tables/_tablename_ | Créer un enregistrement dans la table |
+| PATCH /tables/_tablename_/:id | Mettre à jour un enregistrement existant dans la table |
+| DELETE /tables/_tablename_/:id | Supprimer un enregistrement de la table |
 
 Cette WebAPI prend en charge [OData] et étend le schéma de table pour prendre en charge [la synchronisation des données hors connexion].
 
@@ -496,10 +496,10 @@ Pour voir les revendications disponibles, utilisez un navigateur web pour affich
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 
@@ -629,7 +629,7 @@ Vous pouvez également ajouter l’option Swagger à votre fichier `azureMobile.
 
 ## <a name="push">Notifications Push
 
-Mobile Apps s’intègre à Azure Notification Hubs pour vous permettre d’envoyer des notifications Push ciblées à des millions d’appareils utilisant toutes les plateformes les plus populaires. Notification Hubs vous permet d’envoyer des notifications Push aux appareils iOS, Android et Windows. Pour plus d'informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d'ensemble de Notification Hubs](./notification-hubs/notification-hubs-push-notification-overview.md).
+Mobile Apps s’intègre à Azure Notification Hubs pour vous permettre d’envoyer des notifications Push ciblées à des millions d’appareils utilisant toutes les plateformes les plus populaires. Notification Hubs vous permet d’envoyer des notifications Push aux appareils iOS, Android et Windows. Pour plus d'informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d'ensemble de Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>Procédure : envoi de notifications Push
 
@@ -733,7 +733,7 @@ Chaque paramètre correspond à l’un des verbes RESTful standard : GET, POST,
 
 ### <a name="howto-customapi-auth"></a>Procédure : exiger une authentification pour l’accès à une API personnalisée
 
-Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
+Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
 
 	var api = {
 		get: function (req, res, next) {
@@ -826,13 +826,13 @@ Azure App Service fournit plusieurs techniques de débogage et de résolution de
 
 - [Surveiller les applications web dans Microsoft Azure App Service]
 - [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]
-- [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]
+- [Dépanner un service Azure App dans Visual Studio]
 
 Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le SDK Node.js Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. Cette option est activée automatiquement si vous activez le mode débogage ou définissez le paramètre d’application **MS\_DebugMode** sur true dans le [portail Azure]. Les journaux générés s’afficheront dans les journaux de diagnostic sur le [portail Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Procédure : utilisation de l’outil Tables faciles dans le Portail Azure
 
-L’outil Easy Tables du portail vous permet de créer et utiliser des tables directement dans le portail. Vous pouvez même modifier les opérations de table à l’aide de l’éditeur en ligne Visual Studio.
+L’outil Easy Tables du portail vous permet de créer et utiliser des tables directement dans le portail. Vous pouvez même modifier les opérations de table à l’aide de l’éditeur App Service.
 
 Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal, vous pouvez ajouter une nouvelle table ou modifier ou supprimer une table existante. Vous pouvez également voir les données de la table.
 
@@ -840,30 +840,30 @@ Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal,
 
 Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
 
-+ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
-+ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur Visual Studio Team Services.
-+ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
-+ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-+ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
-+ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
++ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
++ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
++ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
++ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
++ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
++ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
 
 ###<a name="work-easy-apis"></a>Procédure : utiliser l’outil Easy APIs dans le portail Azure
 
-L’outil Easy APIs du portail vous permet de créer et utiliser des API personnalisées directement dans le portail. Vous pouvez même modifier les scripts d’API à l’aide de l’éditeur en ligne Visual Studio.
+L’outil Easy APIs du portail vous permet de créer et utiliser des API personnalisées directement dans le portail. Vous pouvez même modifier des scripts API à l’aide de l’éditeur App Service.
 
 Lorsque vous cliquez sur **Easy APIs** dans vos paramètres de site principal, vous pouvez ajouter un nouveau point de terminaison d’API personnalisé ou modifier ou supprimer un point de terminaison d’API existant.
 
 ![Utilisation de l’outil Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP donnée, modifier le fichier de script d’API dans l’éditeur Visual Studio Team Services ou afficher les journaux de diffusion en continu.
+Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP donnée, modifier le fichier de script d’API dans l’éditeur App Service ou afficher les journaux de diffusion en continu.
 
-###<a name="online-editor"></a>Procédure : modifier le code dans Visual Studio Team Services
+###<a name="online-editor"></a>Comment : modifier le code dans l’éditeur App Service
 
-Le portail Azure vous permet de modifier les fichiers de script de votre serveur principal Node.js dans Visual Studio Team Services sans avoir à télécharger le projet sur votre ordinateur local. Pour modifier les fichiers de script dans l’éditeur en ligne :
+Le portail Azure vous permet de modifier les fichiers de script de votre serveur principal Node.js dans l’éditeur App Service sans avoir à télécharger le projet sur votre ordinateur local. Pour modifier les fichiers de script dans l’éditeur en ligne :
 
-1. Dans le panneau de votre serveur Mobile App, cliquez sur **Tous les paramètres** > **Easy Tables** ou **Easy APIs**, cliquez sur une table ou une API, puis cliquez sur **Modifier le script**. Le fichier de script s’ouvre dans l’éditeur Visual Studio Team Services.
+1. Dans le panneau de votre serveur Mobile App, cliquez sur **Tous les paramètres** > **Easy Tables** ou **Easy APIs**, cliquez sur une table ou une API, puis cliquez sur **Modifier le script**. Le fichier de script est ouvert dans l’éditeur App Service.
 
-	![Éditeur de code Visual Studio Team Services](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Éditeur App Service](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Apportez vos modifications au fichier de code dans l’éditeur en ligne. Les modifications sont enregistrées automatiquement au fil de la saisie.
 
@@ -895,7 +895,7 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Guide de déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
 [Surveiller les applications web dans Microsoft Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Dépanner un service Azure App dans Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [spécifier la version de Node]: ../nodejs-specify-node-version-azure-apps.md
 [utiliser les modules Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
@@ -917,4 +917,4 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

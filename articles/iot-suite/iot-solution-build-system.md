@@ -4,7 +4,7 @@
 	services=""
     documentationCenter=".net"
     suite=""
-	authors="alancameronwills"
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 
 # Créer et déployer la solution MyDriving dans votre environnement
@@ -462,4 +462,4 @@ Nous espérons recevoir bientôt de vos nouvelles.
 
 Nous vous recommandons de consulter le [Guide de référence MyDriving](http://aka.ms/mydrivingdocs), qui offre une description complète de la conception du système et de ses composants.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

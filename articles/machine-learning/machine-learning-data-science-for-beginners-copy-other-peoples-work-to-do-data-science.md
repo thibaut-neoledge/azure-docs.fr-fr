@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Copier le travail d’autres personnes pour des projets de science des données : science des données pour les débutants | Microsoft Azure"
+   pageTitle="Copier le travail d’autres personnes pour la science des données - tester l’exemple | Microsoft Azure"
    description="Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Consultez des exemples dans la galerie Cortana Analytics, notamment un exemple d’algorithme de clustering."
    keywords="exemples de science des données, exemple d’algorithme, tester l’exemple, exemple de machine learning, algorithme de clustering"
    services="machine-learning"
@@ -92,6 +92,6 @@ La série *Science des données pour les débutants* offre une introduction rapi
 ## Étapes suivantes
 
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de l’apprentissage automatique sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

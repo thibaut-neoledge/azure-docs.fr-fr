@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/06/2016" 
 	ms.author="arramac"/>
 
 # Test des performances et de la mise à l’échelle avec Azure DocumentDB
@@ -25,7 +25,7 @@ Cet article est une référence pour les développeurs implémentant des suites 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
 - Où puis-je trouver un exemple d’application cliente .NET pour le test des performances d’Azure DocumentDB ?
-- Quels sont les principaux facteurs affectant les performances de bout en bout des demandes adressées à Azure DocumentDB ? 
+- Quels sont les principaux facteurs affectant les performances de bout en bout des demandes adressées à Azure DocumentDB ?
 - Comment atteindre des niveaux de débit élevés avec Azure DocumentDB à partir de mon application cliente ?
 
 Pour commencer avec le code, téléchargez le projet à partir de [DocumentDB Performance Testing Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) (Exemple de test des performances DocumentDB).
@@ -39,7 +39,7 @@ Afin d’obtenir les meilleures performances de bout en bout avec DocumentDB, te
 - **Tester dans la même région Azure** : si possible, tester à partir d’une machine virtuelle ou d’un service d’application déployé dans la même région Azure. Pour une comparaison ballpark, les appels à DocumentDB dans la même région s’effectuent en 1 à 2 ms, toutefois la latence entre les côtes ouest et est des États-Unis est > à 50 ms.
 - **Augmenter System.Net MaxConnections par hôte** : les demandes DocumentDB sont effectuées via HTTPS/REST par défaut et sont soumises aux limites de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir cette propriété sur une valeur plus élevée (100 à 1000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à DocumentDB. Dans .NET, il s’agit de [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
 - **Activer GC côté serveur** : la réduction de la fréquence de garbage collection peut aider dans certains cas. Dans .NET, définissez [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) sur true.
-- **Utiliser la connectivité directe avec le protocole TCP** : utilisez [Connectivité directe](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx) avec le [protocole TCP](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.protocol.aspx) pour de meilleures performances. 
+- **Utiliser une connexion directe** : utilisez une [connectivité directe](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx) pour obtenir de meilleures performances.
 - **Implémenter l’interruption aux intervalles RetryAfter** : lors du test de performances, vous devez augmenter la charge jusqu’à ce qu’un petit nombre de demandes soit limité. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Cela garantit un temps d’attente minimal entre chaque tentative. Consultez la page [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 - **Augmenter votre charge de travail cliente** : si vous effectuez le test à des niveaux de débit élevé (> 50 000 RU/s), l’application cliente peut devenir un goulot d’étranglement en raison du plafonnement sur le processeur ou l’utilisation du réseau. Si vous atteignez ce point, vous pouvez continuer à augmenter le compte DocumentDB en montant en charge vos applications clientes sur plusieurs serveurs.
 
@@ -112,4 +112,4 @@ Dans cet article, nous avons examiné comment effectuer un test des performances
 * [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB avec des conseils relatifs aux performances](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

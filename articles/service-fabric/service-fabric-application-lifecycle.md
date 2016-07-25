@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="07/11/2016"
    ms.author="ryanwi"/>
 
 
@@ -100,7 +100,7 @@ Pour obtenir des exemples, consultez [Didacticiel de mise à niveau d’applicat
 5. Quand de nouveaux nœuds sont ajoutés au cluster ou que des nœuds existants sont supprimés de celui-ci, Service Fabric équilibre automatiquement la charge des applications en cours d’exécution sur tous les nœuds du cluster pour obtenir des performances optimales.
 
 ## Supprimer
-1. Un *opérateur* peut supprimer une instance spécifique d’un service en cours d’exécution dans le cluster sans supprimer l’ensemble de l’application à l’aide de la méthode [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), de l’applet de commande [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) ou de l’opération REST de [**suppression d’un service**](https://msdn.microsoft.com/library/azure/dn707687.aspx).  
+1. Un *opérateur* peut supprimer une instance spécifique d’un service en cours d’exécution dans le cluster sans supprimer l’ensemble de l’application à l’aide de la méthode [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), de l’applet de commande [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) ou de l’opération REST de [**suppression d’un service**](https://msdn.microsoft.com/library/azure/dn707687.aspx).
 
 2. Un *opérateur* peut également supprimer une instance d’application et tous ses services à l’aide de la méthode [**DeleteApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), de l’applet de commande [**Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) ou de l’opération REST de [**suppression d’une application**](https://msdn.microsoft.com/library/azure/dn707651.aspx).
 
@@ -121,4 +121,4 @@ Pour plus d'informations sur le développement, le test et la gestion des servic
 - [Vue d’ensemble de la testabilité](service-fabric-testability-overview.md)
 - [Échantillon de cycle de vie des applications basé sur REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->
