@@ -58,4 +58,4 @@ Après deux redémarrages, si vous continuez de rencontrer des problèmes de con
 	
 Consultez la [référence PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) pour plus d’informations sur cette applet de commande.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

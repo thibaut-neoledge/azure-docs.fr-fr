@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/13/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure
@@ -21,18 +21,17 @@ Ce document est conçu pour vous aider à utiliser les fonctionnalités du Centr
 
 > [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
 
-## Qu’est-ce que le Centre de sécurité Azure ?
- Le Centre de sécurité vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
-
 ## Que sont les alertes de sécurité ?
-Le Centre de sécurité collecte, analyse et intègre automatiquement les données de journaux provenant de vos ressources Azure, du réseau et des logiciels anti-programme malveillant et pare-feu, pour détecter les menaces réelles et réduire le nombre de faux positifs. Une liste hiérarchisée d’alertes de sécurité, notamment les alertes provenant de solutions de partenaires intégrées, est affichée dans le Centre de sécurité, ainsi que les informations nécessaires pour trouver rapidement la cause d’une attaque et des recommandations sur la façon d’y remédier.
+Le Centre de sécurité collecte, analyse et intègre automatiquement les données de journaux provenant de vos ressources Azure, du réseau et des solutions partenaires connectées, telles que les solutions de protection des points de terminaison et des pare-feu, pour détecter les menaces réelles et réduire le nombre de faux positifs. Une liste hiérarchisée d’alertes de sécurité est affichée dans le Centre de sécurité, ainsi que les informations nécessaires pour trouver rapidement la cause d’une attaque et des recommandations sur la façon d’y remédier.
+
+> [AZURE.NOTE] Pour plus d’informations sur le fonctionnement des fonctionnalités de détection par le Centre de sécurité, consultez [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md).
 
 Les chercheurs en matière de sécurité Microsoft analysent en permanence les nouvelles menaces qui apparaissent dans le monde entier, y compris les nouvelles tendances et stratégies d’attaque sur les produits Microsoft grand public et professionnels, ainsi que sur les services en ligne. Par conséquent, le Centre de sécurité peut mettre à jour ses algorithmes de détection au fur et à mesure que de nouvelles vulnérabilités et attaques sont découvertes ; ainsi, les clients ne se font pas rattraper par les menaces en constante évolution. Voici quelques exemples de menaces que le Centre de sécurité peut détecter :
 
-- **Détection d’une attaque par force brute sur des données réseau** : ce type de détection utilise des modèles de Machine Learning qui se basent sur les données de trafic réseau de vos applications. Cela permet une détection plus fiable des tentatives d’accès provenant d’acteurs illégitimes au lieu d’utilisateurs légitimes.
-- **Détection d’une attaque par force brute sur des données de point de terminaison** : scénario basé sur l’analyse des journaux des machines ; permet de distinguer les tentatives réussies des échecs.
-- **Machines virtuelles communiquant avec des adresses IP malveillantes** : compare le trafic réseau aux renseignements de Microsoft en matière de menaces à l’échelle mondiale, et détecte les machines compromises qui communiquent avec leurs serveurs de commande et contrôle (C&C), et inversement.
-- **Machines virtuelles compromises** : scénario basé sur l’analyse comportementale des journaux des machines et la corrélation avec les autres signaux ; identifie les événements anormaux qui résultent probablement de l’exploitation d’ordinateurs compromis.
+- **Détection d’une attaque par force brute sur des données réseau** : ce type de détection utilise des modèles de Machine Learning qui se basent sur les données de trafic réseau de vos applications. Cela permet une détection plus fiable des tentatives d’accès provenant d’acteurs illégitimes au lieu d’utilisateurs légitimes.
+- **Détection d’une attaque par force brute sur des données de point de terminaison** : scénario basé sur l’analyse des journaux des machines ; permet de distinguer les tentatives réussies des échecs.
+- **Machines virtuelles communiquant avec des adresses IP malveillantes** : compare le trafic réseau aux renseignements de Microsoft en matière de menaces à l’échelle mondiale, et détecte les machines compromises qui communiquent avec leurs serveurs de commande et contrôle (C&C), et inversement.
+- **Machines virtuelles compromises** : scénario basé sur l’analyse comportementale des journaux des machines et la corrélation avec les autres signaux ; identifie les événements anormaux qui résultent probablement de l’exploitation d’ordinateurs compromis.
 
 ## Gestion des alertes de sécurité
 
@@ -48,15 +47,15 @@ Vous pouvez connaître vos alertes actuelles en consultant la mosaïque **Alerte
 
 Les détails de chaque alerte sont affichés au bas du panneau. Pour les organiser à votre convenance, cliquez sur la colonne que vous voulez trier. La définition de chaque colonne est indiquée ci-dessous :
 
-- **Alerte** : brève explication de l’alerte.
-- **Nombre** : liste de toutes les alertes d’un type spécifique qui ont été détectées un jour précis.
-- **Détectée par** : service à l’origine du déclenchement de l’alerte.
-- **Date** : date à laquelle l’événement s’est produit.
-- **État** : état actuel de l’alerte. Il existe trois types d’états :
-    - **Active** : l’alerte de sécurité a été détectée.
-    - **Ignorée** : l’alerte de sécurité a été ignorée par l’utilisateur. Cet état est généralement attribué aux alertes qui ont été examinées, mais qui ont nécessité une correction ou qui ne correspondent pas à une attaque.
+- **Alerte** : brève explication de l’alerte.
+- **Nombre** : liste de toutes les alertes d’un type spécifique qui ont été détectées un jour précis.
+- **Détectée par** : service à l’origine du déclenchement de l’alerte.
+- **Date** : date à laquelle l’événement s’est produit.
+- **État** : état actuel de l’alerte. Il existe deux types d’état :
+    - **Active** : l’alerte de sécurité a été détectée.
+    - **Ignorée** : l’alerte de sécurité a été ignorée par l’utilisateur. Cet état est généralement attribué aux alertes qui ont été examinées, mais qui ont nécessité une correction ou qui ne correspondent pas à une attaque.
 
-- **Gravité** : niveau de gravité (élevé, moyen ou bas).
+- **Gravité** : niveau de gravité (élevé, moyen ou bas).
 
 Vous pouvez filtrer les alertes en fonction de la date, de l’état et du niveau de gravité. Le filtrage des alertes peut être utile quand vous avez besoin de restreindre le nombre d’alertes de sécurité qui s’affichent. Supposons que vous souhaitiez vérifier les alertes de sécurité qui se sont produites au cours des dernières 24 heures, car vous recherchez une violation de sécurité potentielle du système.
 
@@ -73,7 +72,7 @@ Sélectionnez une alerte de sécurité pour en savoir plus sur les événements 
 
 ![Répondre aux alertes de sécurité dans le centre de sécurité Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig7.png)
 
-Dans ce cas, les alertes qui ont été déclenchées concernent une activité suspecte utilisant le protocole RDP. Les première, deuxième, troisième et quatrième colonnes affichent respectivement les ressources qui ont été attaquées, l’heure à laquelle cette attaque a été détectée, l’état de l’alerte et le niveau de gravité de l’attaque. Après avoir examiné ces informations, cliquez sur la ressource qui a été attaquée. Un nouveau panneau s’ouvre avec plus de suggestions sur la marche à suivre, comme illustré dans l’exemple ci-dessous.
+Dans ce cas, les alertes qui ont été déclenchées concernent une activité suspecte utilisant le protocole RDP. Les première, deuxième, troisième et quatrième colonnes affichent respectivement les ressources qui ont été attaquées, l’heure à laquelle cette attaque a été détectée, l’état de l’alerte et le niveau de gravité de l’attaque. Après avoir examiné ces informations, cliquez sur la ressource qui a été attaquée. Un nouveau panneau s’affiche.
 
 ![Suggestions sur la façon de traiter les alertes de sécurité dans le centre de sécurité Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8-1.png)
 
@@ -81,13 +80,43 @@ Vous trouverez plus d’informations sur l’événement dans le champ **Alerte*
 
 > [AZURE.NOTE] La correction suggérée par le Centre de sécurité dépend de l’alerte de sécurité. Dans certains cas, vous pouvez être amené à utiliser d’autres fonctionnalités Azure pour appliquer la correction recommandée. Par exemple, pour cette attaque, la correction consiste à mettre sur liste noire l’adresse IP à l’origine de l’attaque à l’aide d’une règle [ACL réseau](../virtual-network/virtual-networks-acl.md) ou de [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
+## Alertes de sécurité par type
+La procédure utilisée pour accéder à l’alerte d’activité RDP suspecte peut être utilisée pour accéder aux autres types d’alertes. Voici d’autres exemples d’alertes que vous pouvez rencontrer dans les alertes du Centre de sécurité :
 
-## Étapes suivantes
+**Injection SQL potentielle** L’injection SQL est une attaque dans laquelle un code malveillant est inséré dans les chaînes transmises ultérieurement à une instance de SQL Server pour analyse et exécution. Toute procédure qui construit des instructions SQL doit être analysée pour rechercher les vulnérabilités d’injection, car SQL Server exécutera toutes les requêtes syntaxiquement valides qu’il reçoit.
+
+![Alerte d’injection SQL](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig9.png)
+
+Cette alerte fournit des informations qui vous permettent d’identifier la ressource attaquée, l’heure de détection et l’état de l’attaque. Elle fournit également un lien vers des étapes d’investigation supplémentaires.
+
+**Trafic sortant suspect détecté**
+
+Les périphériques réseau peuvent être détectés et profilés de la même façon que les autres types de systèmes. Les pirates commencent généralement par l’analyse des ports / le balayage des ports. L’exemple ci-dessous présente un trafic SSH suspect d’une machine virtuelle pouvant être en train de procéder à une attaque de force brute SSH ou à une attaque par balayage des ports contre une ressource externe.
+
+![Alerte de trafic sortant suspect](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-10.png)
+
+Cette alerte fournit des informations qui vous permettent d’identifier la ressource qui a été utilisée pour lancer ce type d’attaque, l’ordinateur compromis, l’heure de détection, le protocole et le port qui a été utilisé. Ce panneau vous donne également une liste des étapes de résolution pouvant être utilisées pour résoudre ce problème.
+
+**Communication réseau avec un ordinateur malveillant**
+ 
+En exploitant les flux des informations sur les menaces de Microsoft, Azure Security Center peut détecter les ordinateurs compromis qui communiquent avec des adresses IP malveillantes, généralement un centre de commande et de contrôle. Dans ce cas, Azure Security Center a détecté que la communication a été effectuée à l’aide du programme malveillant Pony Loader (également appelé [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
+
+![Alerte de communication réseau avec un ordinateur malveillant](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-11.png)
+
+Cette alerte fournit des informations qui vous permettent d’identifier la ressource qui a été utilisée pour lancer ce type d’attaque, la ressource attaquée, l’adresse IP de la victime, l’adresse IP de l’attaquant et l’heure de détection.
+
+> [AZURE.NOTE] Les adresses IP dynamiques ont été supprimés de cette capture d’écran à des fins de confidentialité.
+
+
+## Voir aussi
+
 Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
+- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)
+- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md)
 - [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Surveillance des solutions de partenaires avec le Centre de sécurité Azure](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : consultez des billets de blog sur la sécurité et la conformité Azure.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
+- [FAQ de Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : trouvez des billets de blog sur la sécurité et la conformité Azure.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

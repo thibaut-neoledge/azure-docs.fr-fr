@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
 # Mon premier runbook PowerShell Workflow
@@ -87,13 +87,13 @@ Le Runbook que nous venons de créer est toujours en mode brouillon. Nous devons
 7.	Lorsque le Runbook prend l’état *Terminé*, cliquez sur **Sortie**. Le volet Sortie s’ouvre, affichant *Hello World*.<br>![Résumé des tâches](media/automation-first-runbook-textual/job-pane-output.png)
 8.	Fermez le volet Sortie.
 9.	Cliquez sur **Flux** pour ouvrir le volet Flux de la tâche du runbook. Seul le message *Hello World* devrait apparaître dans le flux de sortie, mais d’autres flux peuvent s’afficher pour une tâche de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.<br> ![Résumé des tâches](media/automation-first-runbook-textual/job-pane-streams.png)
-10.	Fermez les volets Flux et Tâche pour revenir au volet MyFirstRunbook-Workflow.
+10.	Fermez les volets du flux et de la tâche pour revenir au volet MyFirstRunbook.
 11.	Cliquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Une seule tâche doit apparaître, car nous n’avons exécuté la tâche qu’une seule fois.<br> ![Travaux](media/automation-first-runbook-textual/runbook-control-jobs.png)
 12.	Vous pouvez cliquer sur cette tâche pour ouvrir le volet de la tâche que nous avons consulté au démarrage du Runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
 
 ## Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
 
-Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait rien d'utile. Nous voulons qu’il gère les ressources Azure. Il ne peut le faire que si nous le configurons pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [conditions préalables](#prerequisites). Pour cela, nous utilisons l’applet de commande **Add-AzureRmAccount**.
+Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait rien d'utile. Nous voulons qu’il gère les ressources Azure. Il ne peut le faire que si nous le configurons pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [conditions préalables](#prerequisites). Nous utilisons pour cela l’applet de commande **Add-AzureRmAccount**.
 
 1.	Ouvrez l’éditeur textuel en cliquant sur **Modifier** dans le volet MyFirstRunbook-Workflow.<br> ![Modifier un Runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
 2.	La ligne **Write-Output** ne nous est plus utile. Vous pouvez donc la supprimer.
@@ -101,12 +101,13 @@ Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait r
 4.	Tapez ou copiez-collez le code suivant qui gérera l’authentification avec votre compte d’authentification Automation :
 
     ```
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```
 
 5.	Cliquez sur **Volet de test** afin de tester le Runbook.
-6.	Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée devrait afficher les informations de base sur votre compte. Cette sortie confirme la validité des informations d’identification. <br> ![Authentifier](media/automation-first-runbook-textual/runbook-auth-results.png)
+6.	Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée semblable à celle illustrée ci-dessous devrait afficher les informations de base sur votre compte. Cette sortie confirme la validité des informations d’identification.<br>![Authentifier](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## Étape 6 - Ajouter du code pour démarrer une machine virtuelle
 
@@ -117,12 +118,11 @@ Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait r
     ```
     workflow MyFirstRunbook-Workflow
     {
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
- 
-     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+      $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
-    ```
+    ``` 
 
 2.	Enregistrez le runbook, puis cliquez sur **Volet de test** pour le tester.
 3.	Cliquez sur **Démarrer** pour démarrer le test. Une fois le test terminé, vérifiez que la machine virtuelle a démarré.
@@ -141,7 +141,7 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -161,4 +161,4 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
 -  Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 -  Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez le billet [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Prise en charge de script PowerShell natif dans Azure Automation)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

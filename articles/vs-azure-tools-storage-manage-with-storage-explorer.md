@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="tarcher" />
 
 # Prise en main de l’explorateur de stockage (version préliminaire)
@@ -166,7 +166,7 @@ Pour illustrer cela, supposons que l’utilisateur A est l’administrateur d’
 
 ## Attachement d’un service à l’aide d’une SAP
 
-La section [Attachement d’un compte à l’aide d’une SAP](#attach-account-using-sas) illustre la façon dont l’administrateur d’un abonnement Azure peut accorder un accès temporaire à un compte de stockage en générant (et en partageant) une SAP pour le compte de stockage. De la même façon, une SAP peut être générée pour un service spécifique (conteneur d’objets blob, file d’attente ou table) dans un compte de stockage.
+La section [Attachement d’un compte de stockage à l’aide d’une SAP](#attach-storage-account-using-sas) illustre la façon dont l’administrateur d’un abonnement Azure peut accorder un accès temporaire à un compte de stockage en générant (et en partageant) une SAP pour le compte de stockage. De la même façon, une SAP peut être générée pour un service spécifique (conteneur d’objets blob, file d’attente ou table) dans un compte de stockage.
 
 ### Génération d’une SAP pour le service à partager
 
@@ -226,4 +226,4 @@ Pour effacer la recherche, sélectionnez le bouton **x** dans la zone de recherc
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

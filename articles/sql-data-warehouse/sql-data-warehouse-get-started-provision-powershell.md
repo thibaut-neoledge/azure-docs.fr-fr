@@ -84,7 +84,7 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Créer un serveur logique de base de données SQL Azure avec le Portail Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Créer un serveur logique de base de données SQL Azure avec PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[groupes de ressources]: ../azure-portal/resource-group-portal.md
+[groupes de ressources]: ../resource-group-template-deploy-portal.md
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -97,4 +97,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

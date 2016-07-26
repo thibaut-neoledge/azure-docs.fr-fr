@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
- 	ms.date="04/18/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ Ce didacticiel montre comment effectuer les tâches suivantes :
 
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-- Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. 
+- Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure.
 	
 	Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
 - Systèmes d’exploitation : Windows 8 ou ultérieur, Windows 2008 R2, Windows 7.
@@ -253,7 +253,7 @@ Comme mentionné précédemment, lorsque vous travaillez avec Azure Media Servic
 
 Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
-- Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.  
+- Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.
 - Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu.
 
 Le code suivant vous explique comment effectuer envoyer une tâche d'encodage. Le travail contient une tâche qui spécifie le fichier mezzanine à transcoder en un ensemble de MP4 à débit adaptatif à l’aide de **Media Encoder Standard**. Le code envoie la tâche et attend qu'elle soit terminée.
@@ -453,4 +453,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

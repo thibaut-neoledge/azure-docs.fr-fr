@@ -40,15 +40,15 @@ Dans ce didacticiel, vous utiliserez le portail Azure pour créer un entrepôt d
 
     ![Création d’une base de données](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-	- **Serveur** : nous vous recommandons de commencer par sélectionner votre serveur. Vous pouvez sélectionner un groupe de ressources existant ou [en créer un](./sql-data-warehouse-get-started-new-server.md). 
+	- **Serveur** : nous vous recommandons de commencer par sélectionner votre serveur. Vous pouvez sélectionner un groupe de ressources existant ou [en créer un](./sql-data-warehouse-get-started-new-server.md).
 
 	- **Nom de la base de données** : le nom qui vous servira à référencer le SQL Data Warehouse. Le nom doit être unique sur le serveur.
 	
-    - **Performances** : nous vous recommandons de commencer par 400 DWU. Vous pouvez déplacer le curseur vers la gauche ou la droite pour ajuster les performances de votre entrepôt de données, ou le faire monter ou descendre en puissance suivant la création. Pour en savoir plus sur les DWU, consultez notre documentation sur la [montée en charge](./sql-data-warehouse-manage-compute-overview.md) ou notre [page de tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+    - **Performances** : nous vous recommandons de commencer par 400 DWU. Vous pouvez déplacer le curseur vers la gauche ou la droite pour ajuster les performances de votre entrepôt de données, ou le faire monter ou descendre en puissance suivant la création. Pour en savoir plus sur les DWU, consultez notre documentation sur la [montée en charge](./sql-data-warehouse-manage-compute-overview.md) ou notre [page de tarification](https://azure.microsoft.com/fr-FR/pricing/details/sql-data-warehouse/).
 
     - **Abonnement** : sélectionnez l’abonnement sur lequel ce SQL Data Warehouse sera facturé.
 
-    - **Groupe de ressources** : un groupe de ressources est un conteneur, conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
+    - **Groupe de ressources** : un groupe de ressources est un conteneur, conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. En savoir plus sur les [groupes de ressources](../resource-group-overview.md).
 
     - **Sélectionner une source** : cliquez sur **Sélectionner une source** > **Exemple**. Étant donné qu’un seul exemple de base de données est disponible à ce stade, lorsque vous sélectionnez Exemple, Azure renseigne automatiquement l’option **Sélectionner un exemple** avec AdventureWorksDW.
 
@@ -68,4 +68,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 
 Si vous essayez de migrer une base de données existante vers SQL Data Warehouse, consultez le [vue d’ensemble de la Migration](./sql-data-warehouse-overview-migrate.md) ou utilisez [utilitaire de Migration de](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

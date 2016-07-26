@@ -13,14 +13,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-et-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Étapes suivantes
 
-Azure IoT Hub est un service Azure qui autorise des communications bidirectionnelles sécurisées et fiables entre votre serveur d’applications principal et des millions d’appareils. Il permet au serveur d’applications principal de recevoir des données de télémétrie à grande échelle de vos appareils, d’acheminer ces données vers un processeur d’événements de flux et d’envoyer des commandes cloud-à-appareil à des appareils spécifiques. Vous pouvez utiliser IoT Hub pour implémenter votre propre serveur principal de solution. IoT Hub offre aussi un registre d’identités d’appareils qui permet de configurer des appareils, leurs informations d’identification et leurs droits de connexion au hub. Pour en savoir plus sur IoT Hub, consultez l’article [Qu’est-ce qu’IoT Hub ?][lnk-iot-hub].
+Azure IoT Hub est un service Azure qui autorise des communications bidirectionnelles sécurisées et fiables entre votre serveur d’applications principal et des millions d’appareils. Il permet au serveur d’applications principal de recevoir des données de télémétrie à grande échelle de vos appareils, d’acheminer ces données vers un processeur d’événements de flux, de recevoir des téléchargements de fichiers d’appareils et d’envoyer des commandes cloud-à-appareil à des appareils spécifiques. Vous pouvez utiliser IoT Hub pour implémenter votre propre serveur principal de solution. IoT Hub offre aussi un registre d’identités d’appareils qui permet de configurer des appareils, leurs informations d’identification et leurs droits de connexion au hub. Pour en savoir plus sur IoT Hub, consultez l’article [Qu’est-ce qu’IoT Hub ?][lnk-iot-hub].
 
 Pour découvrir comment Azure IoT Hub permet une gestion des appareils basée sur IoT pour gérer à distance, configurer et mettre à jour vos appareils, consultez l’article [Vue d’ensemble de la gestion des appareils Azure IoT Hub][lnk-device-management].
 
@@ -37,4 +37,4 @@ Pour commencer à écrire du code et à exécuter certains exemples, consultez l
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
