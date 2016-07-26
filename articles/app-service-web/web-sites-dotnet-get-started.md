@@ -238,6 +238,6 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * Supprimez le groupe de ressources contenant votre application web et les ressources Azure associées, lorsque vous en avez terminé.
 
-	Pour plus d’informations sur l’utilisation des groupes de ressources dans le portail Azure, consultez [Utilisation du portail Azure pour déployer et gérer vos ressources Azure](../resource-group-portal.md).
+	Pour plus d’informations sur l’utilisation des groupes de ressources dans le portail Azure, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

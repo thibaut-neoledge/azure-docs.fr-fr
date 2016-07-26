@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en main du Centre de sécurité Azure | Microsoft Azure"
+   pageTitle="Définition des stratégies de sécurité dans le Centre de sécurité Azure | Microsoft Azure"
    description="Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité Azure."
    services="security-center"
    documentationCenter="na"
@@ -13,21 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Définition des stratégies de sécurité dans le Centre de sécurité Azure
-Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité Azure en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche.
-
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
-
-## Qu’est-ce que le Centre de sécurité Azure ?
-Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
+Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche.
 
 ## Que sont les stratégies de sécurité ?
-Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans le Centre de sécurité Azure, vous devez définir des stratégies pour vos abonnements ou groupes de ressources Azure en fonction des exigences de sécurité de votre société et du type d’applications ou du niveau de confidentialité des données de chaque abonnement.
+Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans le Centre de sécurité, vous devez définir des stratégies pour vos abonnements ou groupes de ressources Azure en fonction des exigences de sécurité de votre société et du type d’applications ou du niveau de confidentialité des données de chaque abonnement.
 
-Par exemple, les ressources utilisées pour le développement ou le test peuvent avoir des exigences de sécurité différentes de celles utilisées pour les applications de production. De même, les applications dont les données sont réglementées (par exemple, les informations d’identification personnelle (PII)) peuvent nécessiter un niveau de sécurité plus élevé. Les stratégies de sécurité activées dans le Centre de sécurité Azure déterminent les recommandations de sécurité et la surveillance qui vous aideront à identifier les vulnérabilités potentielles et à éliminer les menaces.
+Par exemple, les ressources utilisées pour le développement ou le test peuvent avoir des exigences de sécurité différentes de celles utilisées pour les applications de production. De même, les applications dont les données sont réglementées (par exemple, les informations d’identification personnelle (PII)) peuvent nécessiter un niveau de sécurité plus élevé. Les stratégies de sécurité activées dans le Centre de sécurité Azure déterminent les recommandations de sécurité et la surveillance qui vous aideront à identifier les vulnérabilités potentielles et à éliminer les menaces. Pour plus d’informations sur la façon de décider quelle option vous convient le mieux, consultez [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md).
 
 ## Définition des stratégies de sécurité pour les abonnements
 
@@ -69,10 +64,10 @@ Le tableau ci-dessous explique à quoi servent les options :
 
 | Stratégie | Lorsque l’option est activée (On) |
 |----- |-----|
-| Mises à jour du système | Récupère quotidiennement la liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou WSUS (selon le service qui est configuré pour la machine virtuelle), et recommande que les mises à jour manquantes soient appliquées. Il vérifie également la disponibilité des dernières mises à jour dans les systèmes Linux et des mises à jour de sécurité et des mises à jour importantes à partir des machines virtuelles [Cloud Services](./cloud-services/cloud-services-how-to-configure.md). |
+| Mises à jour du système | Récupère quotidiennement la liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou WSUS (selon le service qui est configuré pour la machine virtuelle), et recommande que les mises à jour manquantes soient appliquées. Recherche les dernières mises à jour dans les systèmes Linux à l’aide du système de gestion des packages fourni par le distributeur afin de déterminer quels packages peuvent être mis à jour. Il vérifie également la disponibilité des mises à jour de sécurité et des mises à jour importantes à partir des machines virtuelles [Cloud Services](./cloud-services/cloud-services-how-to-configure.md). |
 | Règles de ligne de base | Analyse quotidiennement les configurations de système d’exploitation susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des changements de configuration visant à résoudre ces problèmes. Pour plus d’informations sur les configurations surveillées, consultez la [liste des règles de base recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
 | Endpoint Protection | Recommande l’approvisionnement d’Endpoint Protection pour toutes les machines virtuelles Windows afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants. 
-| Groupes de sécurité réseau | Recommande la configuration de [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour contrôler le trafic entrant et sortant entre les sous-réseaux et les interfaces réseau. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. Après la vérification de la configuration d’un groupe de sécurité réseau, cette option évalue les règles de sécurité de trafic entrant afin d’identifier toute règle autorisant le trafic entrant. |
+| Groupes de sécurité réseau | Recommande la configuration de [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour contrôler le trafic entrant et sortant vers les machines virtuelles avec des points de terminaison publics. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. Après la vérification de la configuration d’un groupe de sécurité réseau, cette option évalue les règles de sécurité de trafic entrant afin d’identifier toute règle autorisant le trafic entrant. |
 | Pare-feu d’applications web | Recommande l’approvisionnement d’un pare-feu d’applications web sur les machines virtuelles quand une [adresse IP publique de niveau d’instance](../virtual-network/virtual-networks-instance-level-public-ip.md) est utilisée et que les règles de sécurité de trafic entrant des groupes de sécurité réseau associés sont configurées pour autoriser l’accès au port 80 ou 443. Les adresses IP dont la charge est répartie (adresses IP virtuelles) sont utilisées. Les règles d’équilibrage de charge et les règles NAT de trafic entrant associées sont configurées pour autoriser l’accès au port 80 ou 443 (pour plus d’informations, consultez [Support d’Azure Resource Manager pour l’équilibreur de charge](../load-balancer/load-balancer-arm.md)) |
 | Pare-feu de nouvelle génération | Cela permet d’étendre les protections du réseau au-delà des groupes de sécurité réseau, intégrés à Azure. Le Centre de sécurité détecte les déploiements pour lesquels un pare-feu de nouvelle génération est recommandé et vous permet d’approvisionner une appliance virtuelle. |
 | Audit SQL | Recommande l’activation de l’audit de l’accès aux serveurs et aux bases de données SQL Azure à des fins de conformité, de détection avancée et d’investigation. |
@@ -93,15 +88,15 @@ Une fois le groupe de ressources sélectionné, vous accédez au panneau **Strat
 > [AZURE.NOTE] En cas de conflit entre la stratégie de niveau abonnement et la stratégie de niveau groupe de ressources, la stratégie de niveau ressources est prioritaire.
 
 
-## Étapes suivantes
+## Voir aussi
 
 Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
-- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conceptions pour l’adoption d’Azure Security Center .
+- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conception à intégrer pour le Centre de sécurité Azure.
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) – Découvrez comment surveiller l’intégrité de vos ressources Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
-- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
+- [Surveillance des solutions de partenaires avec le Centre de sécurité Azure](security-center-partner-solutions.md) -- Découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

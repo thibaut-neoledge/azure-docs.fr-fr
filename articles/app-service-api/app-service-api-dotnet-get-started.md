@@ -239,7 +239,7 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	Un groupe de ressources est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles, etc. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilite la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
 
-	Cette zone vous permet de sélectionner un [groupe de ressources](../azure-portal/resource-group-portal.md) existant ou d’en créer un en tapant un nom différent des groupes de ressources existants de votre abonnement.
+	Cette zone vous permet de sélectionner un [groupe de ressources](../resource-group-overview.md) existant ou d’en créer un en tapant un nom différent des groupes de ressources existants de votre abonnement.
 
 4. Cliquez sur le bouton **Nouveau** situé en regard de la liste déroulante **Plan App Service**.
 
@@ -491,4 +491,4 @@ Si vous souhaitez créer des projets d’application API à partir de zéro, uti
 
 Choisir le modèle de projet d’**Application API Azure** revient à sélectionner le modèle ASP.NET 4.5.2 **Vide**, à cocher la case pour ajouter la prise en charge d’API web et à installer le package NuGet Swashbuckle. En outre, le modèle ajoute du code de configuration Swashbuckle conçu pour empêcher la création d’ID d’opération Swagger en double. Une fois le projet d’application API créé, vous pouvez le déployer dans une application API en procédant comme indiqué dans le didacticiel.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

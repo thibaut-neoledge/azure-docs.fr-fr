@@ -13,16 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"virtual
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 #Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
 Ce document a pour but de vous aider à utiliser les fonctionnalités de surveillance du Centre de sécurité Azure, afin de contrôler la conformité aux stratégies.
 
 > [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
-
-## Qu’est-ce que le Centre de sécurité Azure ?
-Le Centre de sécurité vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus sur la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 ##Qu’est-ce que la surveillance de l’intégrité de la sécurité ?
 Nous pensons souvent que la surveillance consiste à veiller et à attendre qu’un événement se produise pour y répondre. Ici, la surveillance de la sécurité fait référence à une stratégie proactive qui audite vos ressources afin d’identifier les systèmes qui ne répondent pas aux normes organisationnelles ou aux meilleures pratiques.
@@ -60,23 +57,25 @@ Cette section contient une série de recommandations pour chaque machine virtuel
 
 ![Recommandations pour les machines virtuelles](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
+> [AZURE.NOTE] Seules les machines virtuelles ayant au moins un point de terminaison public sont affichées dans le panneau Intégrité de mise en réseau dans la liste des topologies Réseau.
+
 Chaque recommandation dispose d'un ensemble d'actions qui peuvent être effectuées lorsque vous cliquez dessus. Par exemple, si vous cliquez sur **Mises à jour système manquantes**, le panneau **Mises à jour système manquantes** s’ouvre. Ce dernier répertorie les machines virtuelles auxquelles il manque des correctifs ainsi que le niveau de gravité de la mise à jour manquante, comme indiqué ci-dessous.
 
 ![Mises à jour système manquantes](./media/security-center-monitoring/security-center-monitoring-fig5-new.png)
 
-Le panneau **Mises à jour système manquantes** affiche un tableau incluant les informations suivantes :
+Le panneau **Mises à jour système manquantes** affiche un tableau incluant les informations suivantes :
 
-- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
-- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
-- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
-- **ÉTAT** : état actuel de la recommandation :
-	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
-	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
-- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
-	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
-	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
-	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+- **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
+- **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
+- **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
+- **ÉTAT** : état actuel de la recommandation :
+	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
+	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
+- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
+	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
+	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
+	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Pour afficher des informations détaillées sur les recommandations, cliquez sur le nom de la machine virtuelle concernée. Un nouveau panneau s’ouvre pour cette machine virtuelle et affiche la liste des mises à jour manquantes, comme indiqué ci-dessous.
 
@@ -106,7 +105,7 @@ Vous devez suivre les étapes de la recommandation pour mettre à jour la versio
 
 ![Détails du service cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Pour voir une explication plus normative concernant cette recommandation, cliquez sur **Update OS version** (Mettre à jour la version du système d’exploitation) sous la colonne **DESCRIPTION **. Le panneau **Update OS version (Preview)** (Mettre à jour la version du système d’exploitation (Version préliminaire)) s’ouvre et affiche des informations détaillées.
+Pour voir une explication plus normative concernant cette recommandation, cliquez sur **Update OS version** (Mettre à jour la version du système d’exploitation) sous la colonne **DESCRIPTION**. Le panneau **Update OS version (Preview)** (Mettre à jour la version du système d’exploitation (Version préliminaire)) s’ouvre et affiche des informations détaillées.
 
 ![Recommandations de Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
 
@@ -199,7 +198,7 @@ Le panneau **Applications web non sécurisées** contient une liste de toutes le
 
 ![Ajouter WAF](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
-## Étapes suivantes
+## Voir aussi
 Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveillance du Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) – Découvrez comment configurer des paramètres de sécurité dans le Centre de sécurité Azure
@@ -208,4 +207,4 @@ Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveill
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

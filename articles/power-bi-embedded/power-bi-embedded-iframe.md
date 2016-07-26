@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/19/2016"
    ms.author="owend"/>
 
 # Incorporer un rapport Power BI avec un IFrame
@@ -28,23 +28,23 @@ Pour intégrer un rapport, procédez comme suit :
 - Étape 1 : [Obtenir un rapport dans un espace de travail](#GetReport). Dans cette étape, vous utilisez un flux de jetons d’application pour obtenir un jeton d’accès afin d’appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx). Une fois un rapport obtenu à partir de la liste **Get Reports**, vous incorporez le rapport dans une application avec un élément **IFrame**.
 - Étape 2 : [Incorporer un rapport dans une application](#EmbedReport). Dans cette étape, vous utiliserez un jeton d’incorporation pour un rapport, du code JavaScript et un IFrame pour intégrer ou incorporer un rapport dans une application web.
 
-Si vous souhaitez exécuter l’exemple pour savoir comment intégrer un rapport, téléchargez l’exemple d’[intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub, puis configurez trois paramètres Web.Config :
+Si vous souhaitez exécuter l’exemple, téléchargez l’exemple [d’intégration de rapport avec un IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sur GitHub, puis configurez trois paramètres Web.Config :
 
-- **AccessKey** : un **AccessKey** est utilisé pour générer un jeton web JSON (JWT), servant à obtenir et à incorporer des rapports. Pour découvrir comment obtenir un **AccessKey**, consultez l’article [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceName** : pour découvrir comment obtenir un **WorkspaceName**, consultez l’article [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceId** : pour découvrir comment obtenir un **WorkspaceId**, consultez l’article [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **AccessKey** : un **AccessKey** est utilisé pour générer un jeton web JSON (JWT), servant à obtenir et à incorporer des rapports.
+- **Nom de la collection d’espaces de travail** : identifie l’espace de travail.
+- **ID de l’espace de travail** : un ID unique pour l’espace de travail.
 
-Les sections suivantes vous présentent le code nécessaire pour intégrer un rapport.
+Pour savoir comment obtenir une clé d’accès, le nom de la collection d’espaces de travail et l’ID de l’espace de travail à partir du portail Azure, voir [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 <a name="GetReport"/>
 ## Obtenir un rapport dans un espace de travail
 
-Pour intégrer un rapport à une application, vous avez besoin d’un **ID** et d’une **embedUrl** de rapport. Pour obtenir un **ID** et une **embedUrl** de rapport, vous devez appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), puis choisir un rapport dans la liste JSON. Dans la section [Incorporer un rapport dans une application](#EmbedReport), vous utilisez un **ID** et une **embedUrl** de rapport pour incorporer le rapport dans votre application.
+Pour intégrer un rapport à une application, vous avez besoin d’un **ID** et d’une **embedUrl** de rapport. Pour les obtenir, vous devez appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), puis choisir un rapport dans la liste JSON.
 
 ### Réponse JSON de Get Reports
 ```
 {
-  "@odata.context":"https://api.powerbi.com/beta/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
+  "@odata.context":"https://api.powerbi.com/v1.0/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
     {
       "id":"804d3664-…-e71882055dba","name":"Import report sample","webUrl":"https://embedded.powerbi.com/reports/804d3664-...-e71882055dba","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=804d3664-...-e71882055dba"
     },{
@@ -55,25 +55,13 @@ Pour intégrer un rapport à une application, vous avez besoin d’un **ID** et 
 
 ```
 
-Pour appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), vous utilisez un jeton d’application. Pour plus d’informations sur le flux de jetons d’application, consultez l’article [À propos du flux de jetons d’application dans Power BI Embedded](power-bi-embedded-app-token-flow.md). Le code suivant décrit comment obtenir une liste JSON de rapports. Pour incorporer un rapport, consultez la section [Incorporer un rapport dans une application](#EmbedReport).
+Pour appeler l’opération REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), vous devez utiliser un jeton d’application. Pour plus d’informations sur le flux de jetons d’application, voir [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md). Le code suivant décrit comment obtenir une liste JSON de rapports.
 
 ```
 protected void getReportsButton_Click(object sender, EventArgs e)
 {
-    //Get an app token to generate a JSON Web Token (JWT). An app token flow is a claims-based design pattern.
-    //To learn how you can code an app token flow to generate a JWT, see the PowerBIToken class.
-    var appToken = PowerBIToken.CreateDevToken(workspaceName, workspaceId);
-
-    //After you get a PowerBIToken which has Claims including your WorkspaceName and WorkspaceID,
-    //you generate JSON Web Token (JWT) . The Generate() method uses classes from System.IdentityModel.Tokens: SigningCredentials,
-    //JwtSecurityToken, and JwtSecurityTokenHandler.
-    string jwt = appToken.Generate(accessKey);
-
-    //Set app token textbox to JWT string to show that the JWT was generated
-    appTokenTextbox.Text = jwt;
-
     //Construct reports uri resource string
-    var uri = String.Format("https://api.powerbi.com/beta/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
+    var uri = String.Format("https://api.powerbi.com/v1.0/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
 
     //Configure reports request
     System.Net.WebRequest request = System.Net.WebRequest.Create(uri) as System.Net.HttpWebRequest;
@@ -82,7 +70,7 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 
     //Set the WebRequest header to AppToken, and jwt
     //Note the use of AppToken instead of Bearer
-    request.Headers.Add("Authorization", String.Format("AppToken {0}", jwt));
+    request.Headers.Add("Authorization", String.Format("AppKey {0}", accessKey));
 
     //Get reports response from request.GetResponse()
     using (var response = request.GetResponse() as System.Net.HttpWebResponse)
@@ -104,12 +92,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
         }
     }
 }
+
 ```
 
 <a name="EmbedReport"/>
 ## Incorporer un rapport dans une application
 
-Avant d’incorporer un rapport dans votre application, vous aurez besoin d’un jeton d’incorporation pour un rapport. Ce jeton ressemble à un jeton d’application utilisé pour appeler les opérations REST **Power BI Embedded**, mais il est généré pour une ressource de rapport plutôt que pour une ressource REST. Voici le code pour obtenir un jeton d’application pour un rapport. Pour utiliser le jeton d’application pour un rapport, consultez la section [Incorporer un rapport dans votre application](#EmbedReportJS).
+Avant d’incorporer un rapport dans votre application, vous aurez besoin d’un jeton d’incorporation pour un rapport. Ce jeton ressemble à un jeton d’application utilisé pour appeler les opérations REST Power BI Embedded, mais il est généré pour une ressource de rapport plutôt que pour une ressource REST. Voici le code pour obtenir un jeton d’application pour un rapport.
 
 <a name="EmbedReportToken"/>
 ### Obtenir un jeton d’application pour un rapport
@@ -187,7 +176,7 @@ Vous pouvez filtrer un rapport incorporé à l’aide d’une syntaxe d’URL. P
 
 **Filtrer sur une valeur**
 
-Pour filtrer sur une valeur, vous utilisez la syntaxe de requête **$filter** avec un opérateur **eq** comme suit :
+Pour filtrer sur une valeur, utilisez la syntaxe de requête **$filter** avec un opérateur **eq** comme suit :
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -223,4 +212,4 @@ Cet article vous a présenté le code nécessaire à l’intégration d’un rap
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

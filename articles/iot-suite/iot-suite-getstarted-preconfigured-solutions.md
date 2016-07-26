@@ -21,9 +21,11 @@
 
 ## Introduction
 
-Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise.
+Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée de *surveillance à distance* se connecte et surveille vos appareils. Cela vous permet d’analyser le flux de données de vos appareils et d’améliorer les résultats de l’entreprise du fait que les processus répondent automatiquement à ce flux de données.
 
-Ce didacticiel montre comment configurer la solution préconfigurée de *surveillance à distance*. Il présente également les fonctionnalités de base de la solution préconfigurée de surveillance à distance.
+Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Il présente également les fonctionnalités de base de la solution préconfigurée de surveillance à distance. Vous pouvez accéder à la plupart de ces fonctionnalités via le tableau de bord de solution déployé avec la solution préconfigurée :
+
+![Tableau de bord de solution préconfigurée de surveillance à distance][img-dashboard]
 
 Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
@@ -31,37 +33,37 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
 [AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Afficher le tableau de bord de la solution de surveillance à distance
+## Afficher le tableau de bord de solution
 
 Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée. Par exemple, vous pouvez afficher les données de télémétrie, ajouter des appareils et configurer des règles.
 
 1.  Une fois que l’approvisionnement est terminé et que la vignette de votre solution préconfigurée indique **Prêt**, cliquez sur **Lancer** pour ouvrir le portail de votre solution de surveillance à distance dans un nouvel onglet.
 
-    ![][img-launch-solution]
+    ![Lancer la solution préconfigurée][img-launch-solution]
 
 2.  Par défaut, le portail de solution affiche le *tableau de bord de solution*. Vous pouvez sélectionner d’autres vues à partir du menu de gauche.
 
-    ![][img-dashboard]
+    ![Tableau de bord de solution préconfigurée de surveillance à distance][img-dashboard]
 
 Le tableau de bord affiche les informations suivantes :
 
 - La carte affiche l'emplacement de chaque appareil connecté à la solution. Lors de la première exécution de la solution, quatre appareils sont simulés. Les appareils simulés sont implémentés en tant qu’Azure WebJobs, et la solution utilise l'API Bing Maps pour tracer les informations sur la carte.
 - Le panneau **Historique de télémétrie** trace la télémétrie de l’humidité et de la température d’un appareil sélectionné en temps quasi-réel et affiche les données d’agrégation telles que l’humidité maximale, minimale et moyenne.
-- Le panneau **Historique des alertes** affiche les alarme récentes lorsqu’une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
+- Le panneau **Historique des alertes** affiche les alarmes récentes lorsqu’une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
 
-## Afficher la liste des appareils de la solution
+## Afficher la liste des appareils
 
 La liste des appareils montre tous les appareils inscrits dans la solution. Vous affichez et modifiez les métadonnées des appareils, ajoutez ou supprimez des appareils et envoyez des commandes aux appareils.
 
 1.  Cliquez sur **Appareils** dans le menu de gauche pour accéder à la *liste des appareils* de cette solution.
 
-    ![][img-devicelist]
+    ![Liste des appareils dans le tableau de bord][img-devicelist]
 
 2.  La liste des appareils montre que quatre appareils simulés ont été créés par le processus de déploiement.
 
 3.  Cliquez sur un appareil de la liste pour en afficher les détails.
 
-    ![][img-devicedetails]
+    ![Détails de l’appareil dans le tableau de bord][img-devicedetails]
 
 Le panneau **Détails de l’appareil** comprend trois sections :
 
@@ -75,7 +77,7 @@ Le volet des détails de l’appareil affiche toutes les commandes prises en cha
 
 1.  Cliquez sur **Commandes** dans le volet d’informations de l’appareil sélectionné.
 
-    ![][img-devicecommands]
+    ![Commandes de l’appareil dans le tableau de bord][img-devicecommands]
 
 2.  Sélectionnez **PingDevice** dans la liste de commandes.
 
@@ -83,21 +85,25 @@ Le volet des détails de l’appareil affiche toutes les commandes prises en cha
 
 4.  Vous pouvez visualiser l’état de la commande dans l’historique des commandes.
 
-    ![][img-pingcommand]
+    ![État de la commande dans le tableau de bord][img-pingcommand]
 
 La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat prend la valeur **Réussite**.
 
 ## Ajouter un nouvel appareil simulé
 
+Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement les quatre exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil réel à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connecting-devices].
+
+Les étapes suivantes vous montrent comment ajouter un nouvel appareil simulé à la solution :
+
 1.  Retournez à la liste des appareils.
 
 2.  Cliquez sur **+ Ajouter un appareil** dans le coin inférieur gauche pour ajouter un nouvel appareil.
 
-    ![][img-adddevice]
+    ![Ajouter un appareil à la solution préconfigurée][img-adddevice]
 
 3.  Cliquez sur **Ajouter un nouveau** sur la vignette **Appareil simulé**.
 
-    ![][img-addnew]
+    ![Définir les détails du nouvel appareil dans le tableau de bord][img-addnew]
     
     Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations à ce sujet, voir [Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite][lnk-connecting-devices].
 
@@ -105,33 +111,35 @@ La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Init
 
 5.  Cliquez sur **Create**.
 
-    ![][img-definedevice]
+    ![Enregistrer un nouvel appareil][img-definedevice]
 
 6. À l’étape 3 de la procédure **Ajouter un appareil simulé**, cliquez sur **Terminé** pour revenir à la liste des appareils.
 
 7. Vous pouvez vérifier que votre appareil est **En cours d’exécution** dans la liste des appareils.
 
-    ![][img-runningnew]
+    ![Afficher le nouvel appareil dans la liste des appareils][img-runningnew]
 
 8. Vous pouvez également afficher les données de télémétrie provenant de votre nouvel appareil sur le tableau de bord :
 
-    ![][img-runningnew-2]
+    ![Afficher la télémétrie du nouvel appareil][img-runningnew-2]
 
 ## Modifier les métadonnées de l’appareil
+
+Lors de la première connexion d’un appareil à la solution, il envoie ses métadonnées à la solution. Lorsque vous modifiez les métadonnées de l’appareil via le tableau de bord de solution, cette dernière envoie les nouvelles valeurs de métadonnées à l’appareil et stocke les nouvelles valeurs dans la base de données DocumentDB de la solution. Pour plus d’informations, consultez [Registre d’identité des appareils et DocumentDB][lnk-devicemetadata].
 
 1.  Retournez à la liste des appareils.
 
 2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Modifier** pour modifier les **Propriétés d’un appareil** :
 
-    ![][img-editdevice]
+    ![Modifier les métadonnées de l’appareil][img-editdevice]
 
 3. Faites défiler vers le bas et modifiez les valeurs de latitude et de longitude. Puis cliquez sur **Enregistrer les modifications dans le registre de l’appareil**.
 
-    ![][img-editdevice2]
+    ![Modifier les métadonnées de l’appareil][img-editdevice2]
 
 4. Retournez au tableau de bord, l'emplacement de l’appareil a changé sur la carte :
 
-    ![][img-editdevice3]
+    ![Modifier les métadonnées de l’appareil][img-editdevice3]
 
 ## Ajouter une règle pour le nouvel appareil
 
@@ -143,49 +151,59 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
 3. Créez une règle qui utilise **Température** comme champ de données et **AlarmTemp** en tant que sortie lorsque la température dépasse 47 degrés :
 
-    ![][img-adddevicerule]
+    ![Ajouter une règle d’appareil][img-adddevicerule]
 
 4. Cliquez sur **Enregistrer et afficher les règles** pour enregistrer vos modifications.
 
 5.  Cliquez sur **Commandes** dans le volet Détails du nouvel appareil.
 
-    ![][img-adddevicerule2]
+    ![Ajouter une règle d’appareil][img-adddevicerule2]
 
 6.  Sélectionnez **ChangeSetPointTemp** dans la liste de commandes et définissez **SetPointTemp** sur 45. Cliquez ensuite sur **Envoyer la commande** :
 
-    ![][img-adddevicerule3]
+    ![Ajouter une règle d’appareil][img-adddevicerule3]
 
 7.  Retournez au tableau de bord de la solution. Après un bref instant, vous verrez une nouvelle entrée dans le volet **Historique des alertes** lorsque la température signalée par votre nouvel appareil dépassera le seuil de 47 degrés :
 
-    ![][img-adddevicerule4]
+    ![Ajouter une règle d’appareil][img-adddevicerule4]
 
 8. Vous pouvez consulter et modifier toutes les règles dans le tableau de bord **Règles** :
 
-    ![][img-rules]
+    ![Répertorier les règles d’appareil][img-rules]
 
 9. Vous pouvez consulter et modifier toutes les mesures qui peuvent être prises en réponse à une règle sur le tableau de bord **Actions** :
 
-    ![][img-actions]
+    ![Répertorier les actions d’appareil][img-actions]
 
-> [AZURE.NOTE] Il est possible de définir des actions pouvant envoyer un e-mail ou un SMS en réponse à une règle ou s’intégrer à un système métier par le biais d’une [application logique][lnk-logic-apps].
+> [AZURE.NOTE] Il est possible de définir des actions pouvant envoyer un message électronique ou un SMS en réponse à une règle ou s’intégrer à un système métier par le biais d’une [application logique][lnk-logic-apps]. Pour plus d’informations consultez [Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite][lnk-logicapptutorial].
+
+## Autres fonctionnalités
+
+Vous pouvez utiliser le portail de solutions pour rechercher des appareils ayant des caractéristiques spécifiques (par exemple, un numéro de modèle) :
+
+![Rechercher un appareil][img-search]
+
+Vous pouvez désactiver un appareil puis le supprimer :
+
+![Désactiver et supprimer un appareil][img-disable]
 
 ## Dans les coulisses
 
-Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l'abonnement Azure que vous avez sélectionné. Vous pouvez afficher ces ressources dans le [Portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
+Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l'abonnement Azure que vous avez sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
 
-![][img-portal]
+![Solution préconfigurée dans le portail Azure][img-portal]
 
 Vous pouvez afficher les paramètres de chaque ressource en la sélectionnant dans la liste des ressources dans le groupe de ressources. La capture d'écran ci-dessus illustre les paramètres pour l’IoT Hub utilisé dans la solution préconfigurée.
 
-Vous pouvez également afficher le code source pour la solution préconfigurée. Le code source de la solution préconfigurée de surveillance à distance est [azure-iot-remote-monitoring][lnk-rmgithub] \:
+Vous pouvez également afficher le code source pour la solution préconfigurée. Le code source de la solution préconfigurée de surveillance à distance se trouve dans le référentiel GitHub [azure-iot-remote-monitoring][lnk-rmgithub] \:
 
 - Le dossier **DeviceAdministration** contient le code source pour le tableau de bord.
 - Le dossier **Simulator** contient le code source pour l’appareil simulé.
 - Le dossier **EventProcessor** contient le code source pour le processus principal qui gère les données de télémétrie entrantes.
 
-Quand vous avez terminé, vous pouvez supprimer la solution préconfigurée de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ceci vous permet de supprimer toutes les ressources qui ont été approvisionnées lors de la création de la solution préconfigurée.
+Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ceci vous permet de supprimer toutes les ressources qui ont été approvisionnées lors de la création de la solution préconfigurée.
 
-> [AZURE.NOTE] Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez cette dernière à partir du site [azureiotsuite.com][lnk-azureiotsuite] ; ne vous contentez pas de supprimer le groupe de ressources dans le portail.
+> [AZURE.NOTE] Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez cette dernière sur le site [azureiotsuite.com][lnk-azureiotsuite] ; ne vous contentez pas de supprimer le groupe de ressources dans le portail.
 
 ## Étapes suivantes
 
@@ -215,6 +233,8 @@ Une solution préconfigurée opérationnelle étant créée, vous pouvez passer 
 [img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
 [img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
 [img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
+[img-search]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_07.png
+[img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -222,10 +242,10 @@ Une solution préconfigurée opérationnelle étant créée, vous pouvez passer 
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-faq]: iot-suite-faq.md
+[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
+[lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

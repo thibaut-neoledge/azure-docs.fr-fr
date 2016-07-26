@@ -193,7 +193,7 @@ Dans cette section, vous utilisez le portail Azure pour créer une application A
 
 6. Dans la liste déroulante **Groupe de ressources**, cliquez sur **Nouveau**, puis dans **Nouveau nom du groupe de ressources** entrez « NodejsAPIAppGroup » ou un autre nom si vous préférez.
 
-	Un [groupe de ressources](../azure-portal/resource-group-portal.md) est une collection de ressources Azure telles que des applications API, des bases de données et des machines virtuelles. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilite la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
+	Un [groupe de ressources](../resource-group-overview.md) est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilite la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
 
 4. Cliquez sur **Plan/emplacement App Service**, puis cliquez sur **Créer**.
 
@@ -312,4 +312,4 @@ Maintenant que vous avez activé la livraison en continu, vous pouvez apporter d
 
 À ce stade, vous avez créé une application API et déployé une application API Node.js vers cette dernière. Le didacticiel suivant montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

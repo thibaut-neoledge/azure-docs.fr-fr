@@ -27,11 +27,7 @@ Le stockage d’objets blob Azure est une solution de stockage à la fois robust
 
 Le stockage de données dans le stockage d’objets blob vous permet de supprimer les clusters HDInsight servant aux calculs, sans perte de données utilisateur.
 
-> [AZURE.NOTE]	La syntaxe **asv://* n’est pas prise en charge dans les clusters HDInsight version 3.0. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight version 3.0 utilisant explicitement la syntaxe **asv://* échoueront. Vous devez plutôt utiliser la syntaxe **wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight version  3.0 échoueront également. Vous devez recréer ces metastores en utilisant la syntaxe « wasb:// » pour adresser les ressources.
-
-> HDInsight prend uniquement en charge les objets blob de blocs pour le moment.
-
-> La plupart des commandes HDFS (par exemple <b>ls</b>, <b>copyFromLocal</b> et <b>mkdir</b>) fonctionnent toujours comme prévu. Seules les commandes propres à l'implémentation HDFS native (nommée DFS), telles que <b>fschk</b> et <b>dfsadmin</b> se comporteront différemment dans le stockage d'objets blob Azure.
+> [AZURE.IMPORTANT] HDInsight prend uniquement en charge les objets blob de blocs. Il ne prend en charge les objets blob de pages ou d’ajout.
 
 Pour plus d'informations sur la création d'un cluster HDInsight, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started] ou [Création de clusters HDInsight][hdinsight-creation].
 
@@ -49,6 +45,7 @@ De plus, HDInsight permet d'accéder aux données du stockage d'objets blob Azur
 
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] Dans les versions HDInsight antérieures à 3.0, `asv://` était utilisé à la place de `wasb://`. `asv://` ne doit pas être utilisé avec les clusters HDInsight 3.0 ou versions ultérieures, car cela entraînerait une erreur.
 
 Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Au cours de la création de HDInsight, un compte de stockage Azure et un conteneur de stockage d'objets blob Azure spécifique de ce compte sont désignés en tant que système de fichiers par défaut.
 
@@ -83,7 +80,7 @@ Voici les avantages offerts par le stockage de données dans un stockage d'objet
 
 Certains packages et tâches MapReduce peuvent créer des résultats intermédiaires que vous ne voulez pas stocker dans un stockage d'objets blob Azure. Dans ce cas, vous pouvez choisir de stocker les données dans un système HDFS local. En fait, HDInsight utilise DFS pour plusieurs de ces résultats intermédiaires dans les tâches Hive et d'autres processus.
 
-
+> [AZURE.NOTE] La plupart des commandes HDFS (par exemple <b>ls</b>, <b>copyFromLocal</b> et <b>mkdir</b>) fonctionnent toujours comme prévu. Seules les commandes propres à l'implémentation HDFS native (nommée DFS), telles que <b>fschk</b> et <b>dfsadmin</b> se comporteront différemment dans le stockage d'objets blob Azure.
 
 ## Création de conteneurs d’objets blob
 
@@ -263,7 +260,7 @@ Vous pouvez utiliser le code suivant pour fournir le nom de groupe de ressources
 
 ###Exécution de requêtes Hive à l'aide d'un compte de stockage non défini
 
-Cet exemple montre comment répertorier le contenu d'un dossier d'un compte de stockage non défini durant le processus de création.$clusterName = « <HDInsightClusterName> »
+Cet exemple montre comment répertorier le contenu d’un dossier d’un compte de stockage non défini pendant le processus de création. $clusterName = "<HDInsightClusterName>"
 
 	$undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
 	$undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
@@ -304,4 +301,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

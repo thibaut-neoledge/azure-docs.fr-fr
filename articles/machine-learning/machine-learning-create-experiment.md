@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Création d'une expérience simple dans Machine Learning Studio | Microsoft Azure"
-	description="Un premier didacticiel sur l'apprentissage automatique pour la création d'une expérience simple afin de former et tester un modèle de régression linéaire dans Azure Machine Learning Studio."
-	keywords="expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive"
+	pageTitle="Expérience simple dans Machine Learning Studio | Microsoft Azure"
+	description="Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression."
+	keywords="expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive,expérience de science de données"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,23 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/09/2016"
+	ms.date="07/14/2016"
 	ms.author="garye"/>
 
-# Didacticiel sur l'apprentissage automatique : création de votre première expérience dans Azure Machine Learning Studio
+# Didacticiel sur l’apprentissage automatique : Création de votre première expérience de science des données dans Azure Machine Learning Studio
 
-Dans ce premier didacticiel sur l'apprentissage automatique, nous allons créer un modèle de régression linéaire qui prédit le prix d'une voiture selon différentes variables, comme la marque et les caractéristiques techniques. Pour ce faire, nous allons utiliser Microsoft Azure Machine Learning Studio (ML Studio) pour développer et effectuer une itération sur une expérience d’analyse prédictive simple.
+Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons créer un modèle de régression linéaire qui prédit le prix d'une voiture selon différentes variables, comme la marque et les caractéristiques techniques. Pour ce faire, nous allons utiliser Microsoft Azure Machine Learning Studio (ML Studio) pour développer et effectuer une itération sur une expérience d’analyse prédictive simple.
+
+*L’analyse prédictive* est un type de science des données qui utilise les données actuelles pour prédire les résultats futurs. Pour obtenir un exemple très simple d’analyse prédictive, regardez la quatrième vidéo de la série « Science des données pour les débutants » : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (durée : 7:42).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Une expérience Machine Learning Studio consiste à glisser-déplacer de composants sur une zone de dessin, ainsi que leur connexion pour *créer un modèle*, *le former*, puis *l’évaluer et le tester*. L'expérience utilise des techniques de modélisation prédictive sous la forme de modules Machine Learning Studio qui ingèrent des données, forment un modèle par rapport à celles-ci et appliquent le modèle aux nouvelles données. Vous pouvez également ajouter des modules pour traiter des données au préalable et sélectionner des fonctionnalités, diviser des données en ensembles de formation et de test ou évaluer ou effectuer une validation croisée de la qualité de votre modèle.
+## En quoi Machine Learning Studio est-il utile ?
 
-Dans Machine Learning Studio, saisissez [https://studio.azureml.net](https://studio.azureml.net), puis cliquez sur le bouton **Get started**. Vous pouvez choisir l'accès invité ou vous connecter à l'aide de votre compte Microsoft.
+Machine Learning Studio facilite la configuration d’une expérience à l’aide de modules à glisser-déplacer préprogrammés avec des techniques de modélisation prédictive. Pour exécuter votre expérience et prédire une réponse, vous allez utiliser Machine Learning Studio pour *créer un modèle*, *former le modèle* et *noter et évaluer le modèle*.
+
+Accédez à Machine Learning Studio : [https://studio.azureml.net](https://studio.azureml.net). Si vous vous êtes déjà connecté à Machine Learning Studio, cliquez sur **Connectez-vous ici**. Sinon, cliquez sur **S’inscrire** et faites votre choix parmi les options gratuites et payantes.
 
 Pour obtenir des informations générales sur Machine Learning Studio, consultez [Présentation de Machine Learning Studio](machine-learning-what-is-ml-studio.md).
-
->[AZURE.TIP] Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
-
 
 ## Cinq étapes pour créer une expérience
 
@@ -66,11 +67,15 @@ Vous avez le choix entre plusieurs exemples de jeux de données sont inclus dans
 
 	![Dataset][screen1]
 
-Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé en bas du jeu de données d’automobile, puis sélectionnez **Visualiser**. Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d’automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
+Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé en bas du jeu de données d’automobile, puis sélectionnez **Visualiser**.
+
+![Port de sortie de module][screen1c]
+
+Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d’automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
 
 ![Dataset visualization][screen1b]
 
-Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
+Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
 
 ## Étape 2 : traitement préalable des données
 
@@ -80,23 +85,24 @@ Pour pouvoir être analysé, un jeu de données nécessite généralement un tra
 
 Commençons par supprimer la colonne **normalized-losses**, puis chaque ligne ayant des données manquantes.
 
-1. Dans la zone de recherche située sur la partie supérieure de la palette de modules, saisissez la chaîne **select columns** afin de rechercher le module [Select Columns in Dataset][select-columns], puis faites-le glisser vers la zone de dessin de l’expérience et connectez-le au jeu de données sur le **prix des véhicules automobiles (brutes)**. Ce module permet de sélectionner les colonnes de données à inclure ou exclure du modèle.
+1. Dans la zone de recherche située sur la partie supérieure de la palette de modules, saisissez la chaîne **sélectionner des colonnes** afin de rechercher le module [Sélectionner des colonnes dans le jeu de données][select-columns], puis faites-le glisser vers la zone de dessin de l’expérience et connectez-le au jeu de données sur le **prix des véhicules automobiles (brutes)**. Ce module permet de sélectionner les colonnes de données à inclure ou exclure du modèle.
 
-2. Sélectionnez le module [Select Columns in Dataset][select-columns], puis cliquez sur **Lancer le sélecteur de colonne** dans le volet **Propriétés**.
+2. Sélectionnez le module [Sélectionner des colonnes dans le jeu de données][select-columns], puis cliquez sur **Lancer le sélecteur de colonne** dans le volet **Propriétés**.
 
-	- Assurez-vous que l’option **Toutes les colonnes** est sélectionnée dans la liste déroulante de filtres, **Commencer par**. Vous indiquez ainsi au module [Select Columns in Dataset][select-columns] de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
-	- Dans la ligne suivante, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses**, qui est alors ajoutée à la zone de texte.
+	- Sur la gauche, cliquez sur **With rules** (À l’aide de règles).
+	- Sous **Commencer par**, cliquez sur **Toutes les colonnes**. Vous indiquez ainsi au module [Sélectionner des colonnes dans le jeu de données][select-columns] de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
+	- Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses**, qui est alors ajoutée à la zone de texte.
 	- Cliquez sur le bouton en forme de coche (OK) pour fermer le sélecteur de colonne.
 
     ![Select columns][screen3]
 
-	Le volet de propriétés du module **Select Columns in Dataset** indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
+	Le volet de propriétés du module **Sélectionner des colonnes dans le jeu de données** indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
 
     ![Propriétés du module Select Columns in Dataset][screen4]
 
-    > [AZURE.TIP] Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d’un seul coup d’œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Select Columns in Dataset][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
+    > [AZURE.TIP] Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d’un seul coup d’œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
 
-3. Faites glisser le module [Clean Missing Data][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Select Columns in Dataset][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**, afin de nettoyer les données en supprimant les lignes contenant des valeurs manquantes. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
+3. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**, afin de nettoyer les données en supprimant les lignes contenant des valeurs manquantes. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
 	![Clean Missing Data properties][screen4a]
 
@@ -112,21 +118,26 @@ Maintenant que les données sont nettoyées, nous pouvons indiquer les fonctionn
 
 ## Étape 3 : définition des fonctionnalités
 
-Dans Machine Learning, les *fonctionnalités* sont des propriétés individuelles mesurables d’un élément qui vous intéresse. Dans notre jeu de données, chaque ligne représente un véhicule et chaque colonne une fonctionnalité de ce véhicule. La recherche du jeu de fonctionnalités adéquat pour la création d’un modèle de prévision requiert certaines expériences et des connaissances sur le problème qui se pose. Certaines fonctionnalités sont mieux adaptées à la prévision que d’autres. De même, certaines fonctionnalités présentent une forte corrélation avec d'autres fonctionnalités, comme city-mpg par rapport à highway-mpg. Elles n'apporteront donc pas beaucoup de nouvelles informations au modèle. Vous pouvez les supprimer.
+Dans Machine Learning, les *fonctionnalités* sont des propriétés individuelles mesurables d’un élément qui vous intéresse. Dans notre jeu de données, chaque ligne représente un véhicule et chaque colonne une fonctionnalité de ce véhicule.
 
-Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnalités pour notre jeu de données. Vous pouvez revenir en arrière et sélectionner différentes fonctionnalités, relancer l'expérience et voir si vous obtenez de meilleurs résultats. En guise de test, sélectionnez les fonctionnalités suivantes (colonnes) avec le module [Select Columns in Dataset][select-columns]. Notez que pour l’apprentissage du modèle, nous devons inclure la valeur *price*, car c’est ce que nous voulons prévoir.
+La recherche du jeu de fonctionnalités adéquat pour la création d’un modèle de prévision requiert certaines expériences et des connaissances sur le problème qui se pose. Certaines fonctionnalités sont mieux adaptées à la prévision que d’autres. De même, certaines fonctionnalités présentent une forte corrélation avec d'autres fonctionnalités, comme city-mpg par rapport à highway-mpg. Elles n'apporteront donc pas beaucoup de nouvelles informations au modèle. Vous pouvez les supprimer.
+
+Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnalités pour notre jeu de données. Vous pouvez revenir en arrière et sélectionner différentes fonctionnalités, relancer l'expérience et voir si vous obtenez de meilleurs résultats. Mais pour commencer, nous allons essayer les fonctionnalités suivantes :
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. Faites glisser un autre module [Select Columns in Dataset][select-columns] vers la zone de dessin de l’expérience et connectez-le au port de sortie gauche du module [Clean Missing Data][clean-missing-data]. Double-cliquez sur le module et saisissez le commentaire suivant : « Sélection des fonctionnalités pour la prévision ».
+
+1. Faites glisser un autre module [Sélectionner des colonnes dans le jeu de données][select-columns] vers la zone de dessin de l’expérience et connectez-le au port de sortie gauche du module [Nettoyer les données manquantes][clean-missing-data]. Double-cliquez sur le module et saisissez le commentaire suivant : « Sélection des fonctionnalités pour la prévision ».
 
 2. Cliquez sur l’option **Lancer le sélecteur de colonne** figurant dans le volet **Propriétés**.
 
-3. Dans le sélecteur de colonne, choisissez la valeur **Aucune colonne** pour **Commencer par**, puis sélectionnez **Inclure** et **Noms des colonnes** dans la ligne de filtre. Entrez votre liste de noms de colonnes. Vous indiquez aussi au module qu’il doit transmettre les colonnes spécifiées uniquement.
+3. Cliquez sur **With rules** (À l’aide de règles).
 
-	> [AZURE.TIP] Étant donné que nous avons exécuté l’expérience, les définitions de colonne de nos données ont été transmises à partir du jeu de données d’origine, via le module [Nettoyer les données manquantes][clean-missing-data]. Lorsque vous connectez le module [Select Columns in Dataset][select-columns] au module [Clean Missing Data][clean-missing-data], le module [Select Columns in Dataset][select-columns] prend connaissance des définitions de colonne dans les données. Lorsque vous cliquez sur la zone **Noms des colonnes**, une liste de colonnes s’affiche, vous permettant de sélectionner celles que vous voulez ajouter à la liste.
+4. Sous **Commencer par**, cliquez sur **Aucune colonne**, puis sélectionnez **Inclure** et **Noms des colonnes** dans la ligne de filtre. Entrez votre liste de noms de colonnes. Vous indiquez aussi au module qu’il doit transmettre les colonnes spécifiées uniquement.
 
-4. Cliquez sur le bouton en forme de coche (OK) pour continuer.
+	> [AZURE.TIP] Lors de l’exécution de l’expérience, nous nous sommes assurés que les définitions de colonne de nos données aient été transmises à partir du jeu de données d’origine, via le module [Nettoyer les données manquantes][clean-missing-data]. Cela signifie que les autres modules que vous connecterez contiendront également les informations du jeu de données.
+
+5. Cliquez sur le bouton en forme de coche (OK) pour continuer.
 
 ![Select columns][screen6]
 
@@ -134,17 +145,17 @@ Cette opération génère le jeu de données qui sera utilisé dans l’algorith
 
 ## Étape 4 : sélection et application d’un algorithme d’apprentissage
 
-À présent que les données sont prêtes, la construction d'un modèle de prévision passe par la formation et le test. Nous allons utiliser nos données pour former le modèle, puis tester le modèle pour voir dans quelle mesure il peut prévoir les prix.
+À présent que les données sont prêtes, la construction d'un modèle de prévision passe par la formation et le test. Nous allons utiliser nos données pour former le modèle, puis tester le modèle pour voir dans quelle mesure il peut prévoir les prix. Pour l’instant, ne vous préoccupez pas des raisons pour lesquelles nous devons former puis tester le modèle.
 
-La *classification* et la *régression* sont deux types de techniques d'apprentissage automatique supervisé. La classification permet d'établir une prévision à partir d'un jeu de valeurs défini, comme une couleur (rouge, bleu ou vert). La régression permet d'établir une prédiction à partir d'un jeu de valeurs continu, comme l'âge d'une personne.
+La *classification* et la *régression* sont deux types de techniques d'apprentissage automatique supervisé. La classification permet de prédire une réponse à partir d'un jeu de catégories défini, comme une couleur (rouge, bleu ou vert). La régression est utilisée pour prédire un nombre.
 
-Nous voulons prévoir le prix d’une automobile, qui peut être de n’importe quelle valeur. Nous allons donc utiliser le modèle de régression. Pour cet exemple, nous allons former un modèle de *régression linéaire* simple, que nous testerons à l’étape suivante.
+Étant donné que nous voulons prédire un prix, qui est un nombre, nous allons utiliser un modèle de régression. Pour cet exemple, nous allons former un modèle de *régression linéaire* simple, que nous testerons à l’étape suivante.
 
-1. Nous pouvons utiliser nos données pour la formation et le test en les divisant en jeux distincts de formation et de test. Sélectionnez et faites glisser le module [Split Data][split] sur le canevas d’expérience et connectez-le à la sortie du dernier module [Select Columns in Dataset][select-columns]. Définissez **Fraction de lignes dans le premier jeu de données de sortie** sur 0.75. Ainsi, nous allons utiliser 75 % des données pour former le modèle, et 25 % pour le tester.
+1. Nous allons utiliser nos données pour la formation et le test en les divisant en jeux distincts de formation et de test. Sélectionnez et faites glisser le module [Fractionner les données][split] sur le canevas d’expérience et connectez-le à la sortie du dernier module [Sélectionner des colonnes dans le jeu de données][select-columns]. Définissez **Fraction de lignes dans le premier jeu de données de sortie** sur 0.75. Ainsi, nous allons utiliser 75 % des données pour former le modèle, et 25 % pour le tester.
 
 	> [AZURE.TIP] En modifiant le paramètre **Valeur de départ aléatoire**, vous pouvez produire différents échantillons aléatoires pour la formation et le test. Ce paramètre contrôle la valeur de départ du générateur de nombres pseudo-aléatoire.
 
-2. Exécutez l’expérience. Cela permet aux modules [Select Columns in Dataset][select-columns] et [Split Data][split] de transmettre des définitions de colonne aux modules que nous allons ajouter par la suite.
+2. Exécutez l’expérience. Cela permet aux modules [Sélectionner des colonnes dans le jeu de données][select-columns] et [Fractionner les données][split] de transmettre des définitions de colonne aux modules que nous allons ajouter par la suite.
 
 3. Pour sélectionner l’algorithme d’apprentissage, développez la catégorie **Machine Learning** dans la palette des modules, à gauche de la zone de dessin, puis développez **Initialiser le modèle**. Différentes catégories de modules s'affichent, permettant d'initialiser des algorithmes d'apprentissage automatique.
 
@@ -166,7 +177,7 @@ Le résultat est un modèle de régression formé qui permet de noter de nouveau
 
 À présent que nous avons formé le modèle à l'aide de 75 % de nos données, nous pouvons l'utiliser pour la notation du reste de nos données (25 %), afin de voir s'il fonctionne correctement.
 
-1. Recherchez et faites glisser le module [Score Model][score-model] vers la zone de dessin de l’expérience, puis connectez le port d’entrée de gauche de ce dernier à la sortie du module [Train Model][train-model]. Connectez le port d’entrée de droite à la sortie des données de test (port de droite) du module [Split Data][split].  
+1. Recherchez et faites glisser le module [Score Model][score-model] vers la zone de dessin de l’expérience, puis connectez le port d’entrée de gauche de ce dernier à la sortie du module [Train Model][train-model]. Connectez le port d’entrée de droite à la sortie des données de test (port de droite) du module [Split Data][split].
 
 	![Score Model module][screen8a]
 
@@ -180,9 +191,9 @@ Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur 
 
 - **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
 - **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
+- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
 Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination**, est proche de un (1.0), plus la prévision est correcte.
 
@@ -212,6 +223,7 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [screen1]: ./media/machine-learning-create-experiment/screen1.png
 [screen1a]: ./media/machine-learning-create-experiment/screen1a.png
 [screen1b]: ./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [screen2]: ./media/machine-learning-create-experiment/screen2.png
 [screen3]: ./media/machine-learning-create-experiment/screen3.png
 [screen4]: ./media/machine-learning-create-experiment/screen4.png
@@ -234,4 +246,4 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->
