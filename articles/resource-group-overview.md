@@ -13,12 +13,22 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/27/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
 
 L’infrastructure de votre application est généralement constituée de plusieurs composants (peut-être une machine virtuelle, un compte de stockage et un réseau virtuel ou une application web, une base de données, un serveur de base de données et 3 services de tiers). Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement.
+
+## Terminologie
+
+Si vous êtes un nouvel utilisateur d’Azure Resource Manager, vous pouvez ne pas connaître certains termes.
+
+- **ressource** : un élément qui fait partie de votre solution Azure. Les ressources telles que les machines virtuelles, les comptes de stockage, les applications web, les bases de données et les réseaux virtuels sont courantes, mais il en existe beaucoup d’autres.
+- **groupe de ressources** : un conteneur réunissant les ressources associées d’une application. Le groupe de ressources peut inclure toutes les ressources d’une application, ou uniquement celles que vous regroupez ensemble. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation. Voir [Groupes de ressources](#resource-groups).
+- **fournisseur de ressources** : un service qui fournit les ressources que vous pouvez déployer et gérer via Resource Manager. Chaque fournisseur de ressources propose des opérations pour travailler avec les ressources déployées. Parmi les fournisseurs de ressources courants se trouvent Microsoft.Compute, qui fournit la ressource de machine virtuelle ; Microsoft.Storage, qui fournit la ressource du compte de stockage ; et Microsoft.Web, qui fournit des ressources liées aux applications web. Voir [Fournisseurs de ressources](#resource-providers).
+- **Modèle Resource Manager** : fichier JSON (JavaScript Objet Notation) qui définit une ou plusieurs ressources à déployer vers un groupe de ressources. Il définit également les dépendances entre les ressources déployées. Le modèle peut être utilisé pour déployer les ressources de manière cohérente et répétée. Voir [Déploiement de modèle](#template-deployment).
+- **syntaxe déclarative** : une syntaxe qui vous permet de déclarer « Voici ce que je souhaite créer » sans avoir à écrire la séquence de commandes de programmation pour le créer. Le modèle Resource Manager est un exemple de syntaxe déclarative. Dans le fichier, vous définissez les propriétés afin de déployer l’infrastructure vers Azure.
 
 ## Avantages de l’utilisation de Resource Manager
 
@@ -26,7 +36,7 @@ Resource Manager offre plusieurs avantages :
 
 - Vous pouvez déployer, gérer et surveiller toutes les ressources de votre solution comme un groupe, plutôt que de gérer ces ressources individuellement.
 - Vous pouvez déployer votre solution à plusieurs reprises tout au long du cycle de vie de développement et avoir ainsi l’assurance que vos ressources présentent un état cohérent lors de leur déploiement.
-- Vous pouvez utiliser des modèles déclaratifs pour définir votre déploiement.
+- Vous pouvez gérer votre infrastructure à l’aide de modèles déclaratifs plutôt que de scripts.
 - Vous pouvez définir les dépendances entre les ressources afin de les déployer dans le bon ordre.
 - Vous pouvez appliquer le contrôle d’accès à tous les services dans votre groupe de ressources, car le contrôle d’accès en fonction du rôle (RBAC) est intégré en mode natif à la plateforme de gestion.
 - Vous pouvez appliquer des balises aux ressources pour organiser logiquement toutes les ressources dans votre abonnement.
@@ -43,9 +53,9 @@ Les suggestions suivantes vous aideront à tirer le meilleur parti de Resource M
 3. Exécutez des commandes impératives pour gérer vos ressources, par exemple démarrer ou arrêter une application ou une machine.
 4. Organisez des ressources avec le même cycle de vie dans un groupe de ressources. Utilisez des balises pour toute organisation des ressources.
 
-## Groupes de ressources
+Pour plus de recommandations, voir [Bonnes pratiques relatives à la création de modèles Azure Resource Manager](resource-manager-template-best-practices.md).
 
-Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Le groupe de ressources peut inclure toutes les ressources d’une application, ou uniquement celles qui sont regroupées de façon logique. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation.
+## Groupes de ressources
 
 Lorsque vous définissez votre groupe de ressources, vous devez prendre en compte certains facteurs importants :
 
@@ -55,21 +65,19 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 4. Vous pouvez déplacer une ressource d’un groupe de ressources vers un autre groupe. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](resource-group-move-resources.md).
 4. Un groupe de ressources peut contenir des ressources figurant dans différentes régions.
 5. Un groupe de ressources peut être utilisé pour définir l’étendue du contrôle d’accès des actions administratives.
-6. Une ressource peut être liée à la ressource d’un autre groupe de ressources lorsqu’elles interagissent entre elles, mais elles ne partagent pas le même cycle de vie (par exemple, plusieurs applications se connectant à une base de données). Pour en savoir plus, consultez [Associer des ressources avec Azure Resource Manager](resource-group-link-resources.md).
+6. Une ressource peut interagir avec la ressource d’un autre groupe de ressources lorsqu’elles sont liées, mais elles ne partagent pas le même cycle de vie (par exemple, plusieurs applications web se connectant à une base de données).
 
 ## Fournisseurs de ressources
 
-Un fournisseur de ressources est un service qui fournit les ressources que vous pouvez déployer et gérer via Resource Manager. Chaque fournisseur de ressources offre des opérations d’API REST pour travailler avec les ressources. Par exemple, si vous voulez déployer un coffre de clés Azure pour stocker des clés et des secrets, vous allez travailler avec le fournisseur de ressources **Microsoft.KeyVault** . Ce fournisseur de ressources fournit un type de ressource appelé **vaults** pour la création du coffre de clés et un type de ressource appelé **vaults/secrets** pour la création d’un secret dans le coffre de clés. Pour en savoir plus sur un fournisseur de ressources, consultez ses opérations d’API REST, telles que les [opérations d’API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx).
+Chaque fournisseur de ressources propose un ensemble de ressources et d’opérations pour travailler avec les domaines techniques. Par exemple, si vous voulez stocker des clés et des secrets, vous allez travailler avec le fournisseur de ressources **Microsoft.KeyVault** . Ce fournisseur de ressources fournit un type de ressource appelé **vaults** pour la création du coffre de clés et un type de ressource appelé **vaults/secrets** pour la création d’un secret dans le coffre de clés. Il fournit également des opérations par le biais [d’opérations d’API REST de Coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx). Vous pouvez appeler l’API REST directement ou utiliser les [applets de commande PowerShell pour le coffre de clés](https://msdn.microsoft.com/library/dn868052.aspx) et les [interfaces de ligne de commande Azure pour le coffre de clés](./key-vault/key-vault-manage-with-cli.md) pour gérer le coffre de clés. Vous pouvez également utiliser plusieurs langages de programmation pour travailler avec la plupart des ressources. Pour plus d’informations, voir [Kits de développement logiciel (SDK) et exemples](#sdks-and-samples).
 
 Pour déployer et gérer votre infrastructure, vous devez connaître des détails sur les fournisseurs de ressources, comme les types de ressources qu’il offre, les numéros de version des opérations d’API REST, les opérations qu’il prend en charge et le schéma à utiliser quand vous définissez les valeurs du type de ressource à créer. Pour en savoir plus sur les fournisseurs de ressources pris en charge, consultez [Fournisseurs, régions, versions d’API et schémas de Resource Manager](resource-manager-supported-services.md).
 
 ## Déploiement de modèle
 
-Avec Resource Manager, vous pouvez créer un modèle simple (au format JSON) définissant le déploiement et la configuration de votre application. Ce modèle est connu sous le nom de modèle Resource Manager et permet de définir le déploiement de façon déclarative. En utilisant un modèle, vous pouvez déployer votre application à plusieurs reprises tout au long du cycle de vie de l’application et avoir ainsi l’assurance que vos ressources présentent un état cohérent lors de leur déploiement.
+Avec Resource Manager, vous pouvez créer un modèle simple (au format JSON) définissant le déploiement et la configuration de votre application. En utilisant un modèle, vous pouvez déployer votre application à plusieurs reprises tout au long du cycle de vie de l’application et avoir ainsi l’assurance que vos ressources présentent un état cohérent lors de leur déploiement. Azure Resource Manager analyse les dépendances pour vérifier que les ressources sont créées dans l’ordre approprié. Pour plus d’informations, consultez [Définition de dépendances dans des modèles Azure Resource Manager](resource-group-define-dependencies.md).
 
-Dans ce modèle, vous définissez l’infrastructure de votre application, le mode de configuration de cette infrastructure et la méthode de publication du code de votre application dans cette infrastructure. Vous n’avez pas à vous soucier de l’ordre du déploiement, car Azure Resource Manager analyse les dépendances pour vérifier que les ressources sont créées dans l’ordre approprié. Pour plus d’informations, consultez [Définition de dépendances dans des modèles Azure Resource Manager](resource-group-define-dependencies.md).
-
-Lorsque vous créez une solution à partir de Marketplace, cette solution inclut automatiquement un modèle de déploiement. Vous n’êtes pas contraint de créer votre modèle à partir de zéro, car vous pouvez partir du modèle de votre solution et le personnaliser en fonction de vos besoins spécifiques. Vous pouvez récupérer un modèle pour un groupe de ressources existant en exportant l'état actuel du groupe de ressources vers un modèle, ou en affichant le modèle qui avait été utilisé pour un déploiement particulier. L’affichage du modèle exporté est un moyen utile pour en découvrir plus sur sa syntaxe. Pour en savoir plus sur l’utilisation des modèles exportés, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
+Lorsque vous créez une solution à partir du portail, cette solution inclut automatiquement un modèle de déploiement. Vous n’êtes pas contraint de créer votre modèle à partir de zéro, car vous pouvez partir du modèle de votre solution et le personnaliser en fonction de vos besoins spécifiques. Vous pouvez récupérer un modèle pour un groupe de ressources existant en exportant l'état actuel du groupe de ressources vers un modèle, ou en affichant le modèle qui avait été utilisé pour un déploiement particulier. L’affichage du modèle exporté est un moyen utile pour en découvrir plus sur sa syntaxe. Pour en savoir plus sur l’utilisation des modèles exportés, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
 Il est inutile de définir toute votre infrastructure dans un seul modèle. Il peut être judicieux de diviser les exigences de votre déploiement dans un ensemble de modèles ciblés destinés à un usage particulier. Vous pouvez facilement réutiliser ces modèles pour différentes solutions. Pour déployer une solution particulière, créez un modèle de référence qui relie tous les modèles requis. Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
@@ -121,7 +129,7 @@ Pour plus d’informations sur l’interface de ligne de commande Azure, voir [U
 
 Pour plus d’informations sur l’API REST, voir [Référence sur l’API REST du gestionnaire des ressources Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). Pour afficher les opérations REST pour vos ressources déployées, consultez la rubrique [Affichage et modification des ressources à l’aide de l’Explorateur de ressources Azure](resource-manager-resource-explorer.md).
 
-Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
+Pour plus d’informations sur l’utilisation du portail, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](resource-group-template-deploy-portal.md).
 
 Azure Resource Manager prend en charge le partage des ressources cross-origin (CORS). CORS permet d’appeler l’API REST Resource Manager ou une API REST du service Azure à partir d’une application web qui se trouve dans un domaine différent. Sans la prise en charge de CORS, le navigateur web empêcherait une application d’un domaine d’accéder aux ressources d’un autre domaine. Resource Manager active CORS pour toutes les demandes associées à des informations d’authentification valides.
 
@@ -133,7 +141,7 @@ Le code dans chaque kit de développement logiciel (SDK) est généré à partir
 
 **Exemples** : mise en route rapide dans la langue de votre choix.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *bientôt disponible*
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
 - [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *bientôt disponible*
 - [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
@@ -156,10 +164,11 @@ Le code dans chaque kit de développement logiciel (SDK) est généré à partir
 - Consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md) qui présente de manière simple l’utilisation des modèles.
 - Pour obtenir une procédure pas à pas plus détaillée de création d’un modèle, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
-- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Pour plus d’informations sur l’utilisation de VS Code avec Resource Manager, consultez [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](resource-manager-vs-code.md).
 
 Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

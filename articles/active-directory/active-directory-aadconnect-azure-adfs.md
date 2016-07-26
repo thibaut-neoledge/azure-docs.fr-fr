@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# AD FS dans Azure 
+# Déploiement des services AD FS dans Azure 
 
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts. Le déploiement d’AD FS dans Azure présente toute une série d’avantages, notamment :
 
@@ -259,11 +259,9 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ|	Autoriser la communication HTTPS avec la zone DMZ | Trafic entrant |
 |DenyAllFromDMZ| Cette règle bloque l’ensemble du trafic entre la zone DMZ et le sous-réseau interne. La règle AllowHTTPSFromDMZ veille d’ores et déjà à ce que les communications HTTPS aboutissent ; tout autre trafic est par conséquent bloqué grâce à cette règle | Trafic entrant |
-|AllowHTTPSToDMZ| Cette règle autorise les communications HTTPS avec la zone DMZ | Règle de trafic sortant |
-|DenyDMZAll| Cette règle bloque tout autre trafic vers la zone DMZ, à l’exception de HTTPS | Règle de trafic sortant |
 |DenyInternetOutbound| Aucun accès à Internet | Règle de trafic sortant |
 
-![Règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png) ![Règles d’accès INT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[commentaire] : <> (![Règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [commentaire] : <> (![Règles d’accès INT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2. Sécurisation du sous-réseau DMZ**
 
@@ -271,13 +269,12 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| Autoriser le trafic HTTPS à partir du réseau virtuel | Trafic entrant |
 |AllowHTTPSInternet| Autoriser le trafic HTTPS entre Internet et la zone DMZ | Trafic entrant|
-|DenyingressexceptHTTPS|	Bloquer tout trafic autre que HTTPS à partir d’Internet | Trafic entrant |
-|AllowOutToADFS| Autoriser le trafic HTTPS vers le sous-réseau interne | Règle de trafic sortant |
-|AllowHTTPSToInternet| Autoriser le trafic HTTPS vers Internet | Règle de trafic sortant |
+|DenyingressexceptHTTPS| Bloquer tout trafic autre que HTTPS à partir d’Internet | Trafic entrant |
 |DenyOutToInternet|	Tout trafic est bloqué, à l’exception du trafic HTTPS vers Internet | Règle de trafic sortant |
 
-![Règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png) ![Règles d’accès EXT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[commentaire] : <> (![Règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [commentaire] : <> (![Règles d’accès EXT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] Si l’authentification du certificat utilisateur client (authentification clientTLS à l’aide de certificats utilisateur X509) est requise, AD FS nécessite l’activation du port TCP 49443 pour l’accès entrant.
 
 ###10\. Tester l’authentification dans AD FS
 
@@ -306,4 +303,4 @@ Si l’authentification aboutit, vous obtenez le message de confirmation ci-dess
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 * [Configuration et gestion de vos services AD FS avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/13/2016"
+	ms.date="07/14/2016"
 	ms.author="garye"/>
 
 # Forum Aux Questions (FAQ) Azure Machine Learning : facturation, fonctionnalités, limitations et support
@@ -26,7 +26,6 @@ Ce Forum Aux Questions contient des questions et des réponses sur Azure Machine
 **Qu'est-ce que Microsoft Azure Machine Learning ?**
 
 Microsoft Azure Machine Learning est un service entièrement géré qui permet de créer, de tester, de faire fonctionner et de gérer des solutions analytiques prédictives dans le cloud. À l’aide d’un simple navigateur, vous pouvez vous inscrire, télécharger des données et commencer immédiatement des expériences d’apprentissage automatique. Grâce à la modélisation prédictive par glisser-déplacer, la vaste palette de modules et la bibliothèque de modèles de départ, les tâches d'apprentissage automatique les plus courantes sont simples et rapides. Pour plus d’informations, consultez la [Vue d’ensemble du service Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Pour une présentation de l'apprentissage automatique couvrant la terminologie et les concepts principaux, consultez [Présentation d'Azure Machine Learning](machine-learning-what-is-machine-learning.md).
-
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -42,18 +41,26 @@ Le service d’API Machine Learning vous permet de déployer des modèles prédi
 
 Voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md) pour plus d’informations.
 
+**Où sont répertoriés mes services web classiques ? Où sont répertoriés mes nouveaux services web basés sur ARM ?**
 
-## Questions sur la facturation
+Les services web classiques sont répertoriés dans [Machine Learning Studio](http://studio.azureml.net) dans l’onglet des services web. Les nouveaux services web basés sur ARM sont répertoriés sur le portail des [services web de Microsoft Azure Machine Learning](https://services.azureml.net/). Il n’existe aucune liste croisée.
 
-**Comment fonctionne la facturation dans Machine Learning ?**
+## Questions sur le service web Microsoft Azure Machine Learning
 
-Pour des informations sur la facturation et la tarification, consultez [Tarification Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+**À quoi servent les services web Azure ML Web ?**
 
-**Une version d’évaluation de Machine Learning est-elle disponible ?**
+Grâce au service web Microsoft Azure Machine Learning, une application externe peut communiquer avec le modèle de notation de workflow Machine Learning et ce, en temps réel. Un appel du service web Machine Learning renvoie les résultats d’une prédiction à une application externe. Pour créer cet appel, vous transmettez la clé d’API précédemment créée lors du déploiement du service web. Le service web Machine Learning est basé sur l’architecture REST, souvent choisie pour les projets de programmation web.
 
- Il existe une option d’abonnement gratuit pour Azure Machine Learning (pour plus d’informations, voir [Tarification de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)), ainsi qu’une version d’évaluation rapide de 8 heures pour Machine Learning Studio (connectez-vous à [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) pour accéder à cette version d’évaluation).
- 
- En outre, lorsque vous vous inscrivez pour une version d’évaluation gratuite d’Azure, vous pouvez essayer n’importe quel service Azure pendant un mois. Pour plus d’informations sur la version d’évaluation gratuite d’Azure, voir [Forum Aux Questions sur la version d’évaluation gratuite d’Azure](/pricing/free-trial-faq/).
+Microsoft Azure Machine Learning propose deux types de service :
+
+* Service de requête-réponse (Request-Response Service, RRS) : service hautement évolutif, à faible latence, qui constitue une interface pour les modèles sans état créés et déployés à partir de Machine Learning Studio.
+* Service d’exécution de lots (Batch Execution Service, BES) : service asynchrone qui effectue la notation d’un lot pour les enregistrements de données.
+
+Il existe plusieurs moyens d’utiliser l’API REST et d’accéder au service web. Vous pouvez par exemple écrire une application en C#, R ou Python à l’aide de l’exemple de code généré lors du déploiement du service Web (disponible dans Machine Learning Studio, sur la page d’aide de l’API dans le tableau de bord du service Web). Vous pouvez aussi utiliser l’exemple de classeur Microsoft Excel créé pour vous (également disponible dans le tableau de bord du service Web dans Studio).
+
+**Quelles sont les principales mises à jour liées aux nouveaux services web Azure ML ?**
+
+Pour plus d’informations sur les nouveaux services web Azure Machine Learning, reportez-vous à la [documentation connexe](machine-learning-whats-new.md).
 
 ## Questions sur Machine Learning Studio
 
@@ -62,6 +69,14 @@ Pour des informations sur la facturation et la tarification, consultez [Tarifica
 **Existe-t-il un contrôle de version ou une intégration Git pour les graphiques d’expérience ?**
 
 Non, cependant Machine Learning Studio conserve chaque itération d’une expérience, qui ne peut pas être modifiée par d’autres utilisateurs. Pour plus d’informations, voir [Gestion des itérations d’expériences dans Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
+
+
+### Déploiement d’une expérience
+
+**Puis-je déployer une expérience prédictive en tant que nouveau service web (basé sur ARM) si je l’ai déjà déployée en tant que service web classique ?**
+
+Non, vous ne pouvez pas déployer une expérience qui a déjà été déployée auparavant en tant que service web classique. Vous devez créer une nouvelle expérience prédictive et la déployer.
+
 
 ### Importation et exportation de données pour Machine Learning
 
@@ -225,7 +240,7 @@ Vous pouvez également utiliser les API de recyclage. Pour plus d’informations
 
 **Comment puis-je surveiller mon service web déployé en production ?**
 
-Une fois qu’un modèle prédictif a été déployé, vous pouvez le surveiller à partir du portail Azure Classic. Chaque service déployé dispose de son propre tableau de bord, à partir duquel vous pouvez consulter les informations de surveillance correspondant à ce service. Pour plus d’informations sur la gestion de vos services web déployés, voir [Gestion d’un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md).
+Une fois qu’un modèle prédictif a été déployé, vous pouvez le surveiller à partir du portail Azure Classic. Chaque service déployé dispose de son propre tableau de bord, à partir duquel vous pouvez consulter les informations de surveillance correspondant à ce service. Pour plus d’informations sur la gestion de vos services web déployés, voir [Gestion d’un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md).
 
 **Existe-t-il un endroit où je peux voir le résultat de mon service RRS/BES ?**
 
@@ -322,6 +337,239 @@ Pour obtenir un support technique pour Azure Machine Learning, accédez au [Supp
 
 Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où vous pouvez poser des questions en rapport avec Azure Machine Learning. Le forum est géré par l'équipe d'Azure Machine Learning. Visitez le [Forum Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
+## Questions sur la facturation
+
+**Comment fonctionne la facturation dans Machine Learning ?**
+
+Le service Azure Machine Learning comporte deux composantes : Machine Learning Studio et les services web Machine Learning.
+
+Lorsque vous évaluez Machine Learning Studio, vous pouvez utiliser le niveau de facturation gratuit. Le niveau Gratuit vous permet également de déployer un service web classique avec une capacité limitée.
+
+Une fois que vous estimez qu’Azure Machine Learning répond à vos besoins, vous pouvez vous inscrire au niveau Standard. Pour vous inscrire, vous devez disposer d'un abonnement à Microsoft Azure.
+
+Dans le niveau Standard, vous êtes soumis à une facturation mensuelle par siège pour l’utilisation de Machine Learning Studio. Lorsque vous exécutez une expérience dans le studio, vous êtes facturé selon les ressources de calcul nécessaires à son exécution. Lorsque vous déployez un service web classique, les transactions et les heures de calcul sont facturées sur la base d’un paiement à l’utilisation.
+
+Les nouveaux services web Machine Learning incluent des profils de facturation offrant une plus grande prévisibilité des coûts. La tarification à plusieurs niveaux est destinée aux clients nécessitant une grande capacité tout en offrant des tarifs préférentiels.
+
+Lorsque vous créez un plan, vous acceptez un coût fixe associé à une quantité incluse d’heures de calcul et de transactions d’API. Si vous avez besoin de davantage de quantités incluses, vous pouvez ajouter des instances supplémentaires à votre plan. Si vous avez besoin de beaucoup plus de quantités incluses, vous pouvez choisir un plan de niveau supérieur qui en offre davantage à un meilleur tarif.
+
+Une fois les quantités incluses dans les instances existantes épuisées, toute utilisation supplémentaire est facturée au tarif de dépassement associé au niveau de profil de facturation.
+
+Remarque : les quantités incluses sont réallouées tous les 30 jours. Les quantités incluses non utilisées ne sont pas reportées sur la période suivante.
+
+Pour plus d’informations sur la facturation et la tarification, consultez [Tarification Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+
+**Une version d’évaluation de Machine Learning est-elle disponible ?**
+
+ Il existe une option d’abonnement gratuit pour Azure Machine Learning (pour plus d’informations, voir [Tarification de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)), ainsi qu’une version d’évaluation rapide de 8 heures pour Machine Learning Studio (connectez-vous à [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) pour accéder à cette version d’évaluation).
+ 
+ En outre, lorsque vous vous inscrivez pour une version d’évaluation gratuite d’Azure, vous pouvez essayer n’importe quel service Azure pendant un mois. Pour plus d’informations sur la version d’évaluation gratuite d’Azure, voir [Forum Aux Questions sur la version d’évaluation gratuite d’Azure](/pricing/free-trial-faq/).
+
+**Qu’est-ce qu’une transaction ?**
+
+Une transaction correspond à un appel d’API pris en charge par Azure Machine Learning. Les transactions provenant d’appels de service de requête-réponse (RRS) et de service d’exécution de lots (BES) sont regroupées et facturées selon votre profil de facturation.
+
+**Puis-je utiliser les quantités de transactions incluses dans un plan à la fois pour les transactions de services RSS et BES ?**
+
+Oui, les transactions de vos RRS et BES sont regroupées et facturées selon votre profil de facturation.
+
+**Qu’est-ce qu’une heure de calcul API ?**
+
+Une heure de calcul API est l’unité de facturation correspondant au temps nécessaire à l’exécution des appels d’API à l’aide des ressources de calcul ML. Tous vos appels sont regroupés pour la facturation.
+
+**Combien de temps prend un appel d’API de production type ?**
+
+Les délais d’appel des API de production peuvent varier de façon importante. Ils sont généralement compris entre plusieurs centaines de millisecondes et quelques secondes. Ils peuvent toutefois nécessiter plusieurs minutes selon la complexité du traitement des données et du modèle d’apprentissage automatique. La meilleure façon d’évaluer les délais d’appel des API de production consiste à définir un modèle sur le service Machine Learning.
+
+**Qu’est-ce qu’une heure de calcul Studio ?**
+
+Une heure de calcul Studio est l’unité de facturation correspondant à la durée cumulée d’utilisation des ressources de calcul dans Studio par vos expériences.
+
+**Dans les nouveaux services web, à quoi sert le niveau de développement/test ?**
+
+Les nouveaux services web Azure ML proposent différents niveaux que vous pouvez utiliser pour configurer votre profil de facturation. Le niveau de développement/test fournit des quantités incluses limitées qui vous permettent de tester votre expérience en tant que nouveau service web à titre gratuit. Vous avez la possibilité de tester le produit pour voir comment il fonctionne.
+
+**Existe-t-il des frais distincts pour le stockage ?**
+
+Le niveau Gratuit de Machine Learning n’autorise pas de stockage distinct. Le niveau Standard de Machine Learning nécessite que les utilisateurs aient un compte de stockage Azure. Le stockage Azure est [facturé séparément](https://azure.microsoft.com/pricing/details/storage/).
+
+**Comment Machine Learning prend-il en charge le travail à disponibilité élevée ?**
+
+Les délais d’appel des API de production peuvent varier de façon importante. Ils sont généralement compris entre plusieurs centaines de millisecondes et quelques secondes. Ils peuvent toutefois nécessiter plusieurs minutes selon la complexité du traitement des données et du modèle d’apprentissage automatique. La meilleure façon d’évaluer les délais d’appel des API de production consiste à définir un modèle sur le service Machine Learning.
+
+**Sur quel type de ressources de calcul mes appels d’API de production seront-ils exécutés ?**
+
+Le service Machine Learning est mutualisé. Les ressources de calcul réelles utilisées sur le service principal varient et sont optimisées pour les performances et la prévisibilité.
+
+### Gestion des nouveaux services web 
+
+**Que se passe-t-il si je supprime mon profil ?**
+
+Le profil est supprimé de votre abonnement et vous êtes facturé au prorata de votre utilisation.
+
+Remarque : vous ne pouvez pas supprimer un profil qui est utilisé par un service web. Pour supprimer le profil, vous devez en attribuer un nouveau au service web ou supprimer ce dernier.
+
+**Qu’est-ce qu’une instance de plan ?**
+
+Une instance de plan est une unité de quantités incluses que vous pouvez ajouter à votre profil de facturation. Lorsque vous sélectionnez un niveau de facturation pour votre profil de facturation, il contient une seule instance. Si vous avez besoin de davantage de quantités incluses, vous pouvez ajouter des instances du niveau de facturation sélectionné à votre profil.
+
+**Combien d’instances de plan puis-je ajouter ?**
+
+Vous ne pouvez avoir qu’une seule instance de niveau développement/test par abonnement.
+
+Pour les niveaux S1, S2 et S3, vous pouvez en ajouter autant que nécessaire.
+
+Remarque : selon l’utilisation que vous prévoyez, il peut s’avérer plus rentable de passer à un niveau plus élevé de quantités incluses plutôt que d’ajouter des instances au niveau actuel.
+
+**Que se passe-t-il lorsque je change de niveau de profil (vers le niveau supérieur/inférieur) ?**
+
+L’ancien profil est supprimé et l’utilisation en cours est facturée au prorata. Un nouveau profil comprenant la totalité des quantités incluses correspondant au niveau supérieur/inférieur est créé pour le reste de la période.
+
+Remarque : les quantités incluses sont allouées par période. Les quantités non utilisées ne sont pas reportées.
+
+**Que se passe-t-il lorsque j’augmente les instances d’un profil ?**
+
+Les quantités incluses sont ajoutées au prorata. L’opération peut prendre 24 heures.
+
+**Que se passe-t-il lorsque je supprime une instance d’un profil ?**
+
+L’instance est supprimée de votre abonnement et vous êtes facturé au prorata de votre utilisation.
+
+
+### Inscription aux nouveaux plans de services web
+
+**Comment s’inscrire à un plan ?**
+
+Il existe deux manières de créer des profils de facturation.
+
+Lorsque vous déployez un nouveau service web pour la première fois, vous pouvez choisir un profil existant ou en créer un.
+
+Les profils créés de cette façon se situent dans votre région par défaut et votre service web sera déployé dans celle-ci.
+
+Nous vous recommandons de définir vos profils de facturation avant de déployer votre service, notamment si vous souhaitez par exemple déployer des services vers des régions autres que votre région par défaut.
+
+Dans ce cas, connectez-vous au portail de services web Azure Machine Learning et accédez à la page dédiée aux profils. Vous pourrez alors ajouter et supprimer des profils, mais aussi modifier des profils existants.
+
+**Quel profil devrais-je choisir pour commencer ?**
+
+Nous vous recommandons de commencer par le niveau Standard S1 et de surveiller l’utilisation de votre service. Si vous estimez que vous utilisez vos quantités incluses rapidement, ajoutez des instances ou optez pour un niveau supérieur afin d’obtenir un meilleur tarif. Vous pouvez ajuster votre profil de facturation en fonction de vos besoins tout au long de votre cycle de facturation.
+
+**Dans quelles régions les nouveaux profils sont-ils disponibles ?**
+
+Les nouveaux profils de facturation sont disponibles dans les trois régions de production dans lesquelles nous prenons en charge les nouveaux services web :
+
+* Centre-Sud des États-Unis
+* Europe de l'Ouest
+* Asie du Sud-Est
+
+**J’ai des services web dans plusieurs régions. Dois-je avoir un profil pour chaque région ?**
+
+Oui. La tarification des profils varie selon les régions. Si vous déployez un service web dans une autre région, vous devrez lui affecter un profil spécifique pour cette région.
+
+### Nouveaux services web : dépassements
+
+**Comment vérifier si mon utilisation du service web est en dépassement ?**
+
+Vous pouvez consulter l’utilisation de tous vos profils sur la page qui leur est dédiée sur le portail de services web d’Azure Machine Learning. Connectez-vous au portail et cliquez sur l’option de menu Abonnements.
+
+Dans les colonnes Transactions et Calcul du tableau, vous pouvez consulter les quantités incluses dans le plan et le pourcentage utilisé.
+
+**Que se passe-t-il lorsque j’ai épuisé les quantités incluses dans le niveau de développement/test ?**
+
+Les services affectés au niveau de développement/test sont arrêtés jusqu'à la période suivante ou vous devez les déplacer vers l’un des niveaux payants.
+
+**Pour les services web classiques et les dépassements des nouveaux services web, comment sont calculés les tarifs pour les charges de travail de demande-réponse (RRS) et d’exécution de lots (BES) ?**
+
+Pour une charge de travail RRS, vous êtes facturé pour chaque appel de transaction API, ainsi que pour le temps de calcul associé à ces demandes. Les coûts relatifs aux transactions API de production RRS sont donc calculés comme suit : nombre total d’appels d’API effectués, multiplié par le tarif par millier de transactions (au prorata par transaction individuelle). Les coûts relatifs aux heures de calcul API de production RRS sont calculés comme suit : durée d'exécution de chaque appel d'API, multiplié par le nombre total de transactions API, multiplié par le tarif par heure de calcul API de production. Par exemple, avec le niveau de dépassement Standard S1, le coût de 1 000 000 transactions API d'une durée de 0,72 secondes chacune est calculée comme suit : (1 000 000 * 0,50 $/1 000 transactions API), soit un tarif pour les transactions API de production de 500 $ et (1 000 000 * 0,72 s * 2 $/heure), soit un tarif pour les heures de calcul API de production de 400 $, pour un total de 900 $.
+
+Pour une charge de travail BES, vous êtes facturé de la même manière. Toutefois, les coûts de transaction API représentent le nombre de travaux de traitement par lot que vous soumettez, et les coûts de calcul représentent le temps de calcul associé à ces travaux de traitement par lots. Les coûts relatifs aux transactions API de production BES sont donc calculés comme suit : nombre total de travaux soumis, multiplié par le tarif par millier de transactions (au prorata par transaction individuelle). Les coûts relatifs aux heures de calcul API de production BES sont calculés comme suit : durée d’exécution de chaque ligne de votre travail, multiplié par le nombre total de lignes de votre travail, multiplié par le nombre total de travaux, multiplié par le tarif par heure de calcul API de production. Lorsque vous utilisez la calculatrice Machine Learning, le compteur de transactions représente le nombre de travaux que vous planifiez de soumettre, et la durée par transaction représente la durée combinée nécessaire à l'exécution de toutes les lignes de chaque travail. Par exemple, avec le niveau de dépassement Standard S1, si vous soumettez 100 travaux par jour, chacun étant constitué de 500 lignes prenant 0,72 secondes chacune, le coût mensuel des dépassements est le suivant : (100 travaux par jour = 3 100 travaux/mois * 0,50 $/1 000 transactions API), soit des coûts de transaction API de production de 1,55 $ et (500 lignes * 0,72 s * 3 100 travaux * 2 $/heure) des heures de calcul API de production de 620 $, soit un total de 621,55 $.
+
+### Services web Azure ML classiques
+
+**Le paiement à l’utilisation est-il toujours disponible ?** Oui, les services web classiques sont toujours disponibles dans Azure Machine Learning.
+
+### Niveaux Gratuit et Standard d’Azure Machine Learning
+
+**Qu’est-ce qui est inclus dans le niveau Gratuit d’Azure Machine Learning ?**
+
+Le niveau Gratuit d’Azure Machine Learning offre une introduction complète à Azure Machine Learning Studio. Il vous suffit d'un compte Microsoft pour vous inscrire. Le niveau Gratuit inclut un accès gratuit à un espace de travail Azure Machine Learning Studio par [compte Microsoft](https://www.microsoft.com/account/default.aspx). Il permet d'utiliser jusqu'à 10 Go de stockage et de configurer les modèles en tant qu'API intermédiaires. Les charges de travail du niveau Gratuit ne sont couvertes par aucun contrat de niveau de service et sont uniquement destinées au développement et à une utilisation personnelle. Les charges de travail du niveau Gratuit ne peuvent pas accéder aux données en se connectant à un serveur SQL Server local. Le tableau ci-dessus présente les nombreuses différences entre les niveaux Gratuit et Standard. Il peut cependant y avoir d’autres différences et les caractéristiques du niveau Gratuit sont susceptibles d’être modifiées à tout moment.
+
+**Qu’est-ce qui est inclus dans le niveau et les plans Standard d'Azure Machine Learning ?**
+
+Le niveau Standard d’Azure Machine Learning est une version de production payante d’Azure Machine Learning Studio. Les frais mensuels du service Azure ML Studio sont facturés par siège et par mois et ajustés pour les mois incomplets. Les heures d'expérimentation Azure ML Studio sont facturées par heure de calcul pour l'expérimentation active. La facturation est ajustée pour les heures incomplètes.
+
+Le service API d’Azure ML est facturé selon le type de service web : classique ou nouveau.
+
+Les frais ci-dessous sont agrégés par espace de travail pour votre abonnement.
+
+* Abonnement d’utilisateur ML : l’abonnement de siège Machine Learning est un montant mensuel qui permet d’accéder à un espace de travail ML Studio. Il est nécessaire pour pouvoir lancer des expérimentations dans le studio et pour pouvoir utiliser les API de production.
+* Heures d'expérience Studio : ce compteur regroupe tous les frais de calcul cumulés suite à l'exécution d'expériences dans ML Studio et d'appels d'API de production dans l'environnement intermédiaire.
+* Accédez aux données en vous connectant à un serveur SQL Server local dans vos modèles pour votre formation et votre évaluation.
+* Pour les services web classiques :
+	* Heures calcul des API de production : ce compteur inclut les frais de calcul cumulés par les services web exécutés en production.
+	* Transactions d'API de production (par milliers) : ce compteur inclut les frais cumulés par appel à votre service web de production.
+
+Mis à part les frais ci-dessus, dans le cas des nouveaux services web, les frais sont agrégés au plan sélectionné :
+
+* Plan d’API Standard S1/S2/S3 (unités) : ce compteur représente le type d’instance sélectionné pour les nouveaux services web.
+* Heures calcul des API de dépassement Standard S1/S2/S3 : ce compteur inclut les frais de calcul générés par les nouveaux services web en cours d’exécution en production après épuisement des quantités incluses dans les instances existantes. L’utilisation supplémentaire est facturée au tarif de dépassement associé au niveau du plan S1/S2/S3.
+* Transactions d’API de dépassement Standard S1/S2/S3 (par milliers) : ce compteur inclut les frais générés par appel à votre nouveau service web de production après épuisement des quantités incluses dans les instances existantes. L’utilisation supplémentaire est facturée au tarif de dépassement associé au niveau du plan S1/S2/S3.
+* Heures de calcul des API Quantité incluse : avec les nouveaux services web, ce compteur représente la quantité d’heures de calcul API incluse.
+* Transactions des API Quantité incluse (en milliers) : avec les nouveaux services web, ce compteur représente la quantité incluse de transactions des API.
+
+
+**Comment s’inscrire au niveau Gratuit d’Azure ML ?**
+
+Vous avez besoin uniquement d'un compte Microsoft. Accédez à la [page d'accueil Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) et cliquez sur le bouton Démarrer maintenant. Connectez-vous à votre compte Microsoft. Un espace de travail du niveau Gratuit est alors créé pour vous. Vous pouvez immédiatement commencer à explorer et à créer des expériences Machine Learning.
+
+**Comment s’inscrire au niveau Standard d’Azure ML ?**
+
+Vous devez d'abord avoir accès à un abonnement Azure pour créer un espace de travail ML Standard. Vous pouvez souscrire un abonnement Azure gratuit de 30 jours, puis migrer vers un abonnement Azure payant ou acheter directement ce dernier. Vous pouvez ensuite créer un espace de travail Machine Learning à partir du portail de gestion Microsoft Azure Classic après avoir obtenu l’accès à l’abonnement. Veuillez consulter [les instructions pas à pas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+
+En outre, vous pouvez être invité par un propriétaire à accéder à son espace de travail Standard ML.
+
+**Puis-je spécifier mon propre compte de stockage d’objets blob Azure à utiliser avec le niveau Gratuit ?**
+
+Non, le niveau Standard est équivalent à la version du service Machine Learning qui était disponible avant l’introduction des niveaux.
+
+**Puis-je déployer mes modèles d'apprentissage automatique en tant qu'API dans le niveau Gratuit ?**
+
+Oui. Avec le niveau Gratuit, vous pouvez faire fonctionner les modèles d’apprentissage automatique dans les services API intermédiaires. Pour que le service API intermédiaire soit mis en production, et pour obtenir un point de terminaison de production pour le service fonctionnel, vous devez utiliser le niveau Standard.
+
+**Quelle est la différence entre l’essai gratuit d’Azure et le niveau Gratuit d’Azure Machine Learning ?**
+
+L’[essai gratuit de Microsoft Azure](https://azure.microsoft.com/free/) offre des crédits applicables aux services Azure pendant 1 mois alors que le niveau Gratuit d’Azure Machine Learning propose un accès continu spécifique au service Azure Machine Learning pour les charges de travail hors production.
+
+**Comment migrer l'expérience du niveau Gratuit au niveau Standard ?**
+
+Pour copier vos expériences du niveau Gratuit vers le niveau Standard, suivez les étapes ci-dessous.
+
+1.	Connectez-vous à Azure Machine Learning Studio. Assurez-vous que les espaces de travail Gratuit et Standard figurent dans le sélecteur d’espaces de travail dans la barre de navigation supérieure.
+2.	Passez à l’espace de travail Gratuit si vous êtes dans l’espace de travail Standard.
+3.	Dans la liste des expériences, sélectionnez une expérience à copier, puis cliquez sur le bouton de commande Copier.
+4.	Sélectionnez l’espace de travail Standard dans la boîte de dialogue contextuelle, puis cliquez sur le bouton Copier.
+5.	Veuillez noter que tous les jeux de données associés, le modèle formé et autres éléments sont copiés en même temps que l’expérience dans l’espace de travail Standard.
+6.	Vous devrez réexécuter l’expérience et republier votre site web dans l’espace de travail Standard.
+
+### Espace de travail Studio
+
+**Qu’est-ce que l’abonnement de siège Machine Learning et quand dois-je y recourir ?**
+
+Un siège Machine Learning représente un espace de travail. Il est recommandé que tous les utilisateurs qui exécutent des expérimentations dans ML Studio ou qui utilisent un service d'API de production soient couverts par un abonnement de siège Machine Learning.
+
+**Y a-t-il différentes factures pour différents espaces de travail ?**
+
+Les frais liés à l'espace de travail seront décomposés pour chaque compteur applicable sur une seule facture.
+
+**Sur quel type de ressources de calcul mes expériences seront-elles exécutées ?**
+
+Le service Machine Learning est mutualisé. Les ressources de calcul réelles utilisées sur le service principal varient et sont optimisées pour les performances et la prévisibilité.
+
+### Accès invité
+
+**Qu’est-ce qu’un accès invité à Azure Machine Learning Studio ?**
+
+L'accès invité est une expérience d'essai limitée qui vous permet de créer et d'exécuter des expériences dans Azure Machine Learning Studio, gratuitement et sans authentification. Les sessions en tant qu’invité ne sont pas persistantes (ne peuvent pas être enregistrées) et sont limitées à 8 heures. D’autres limitations incluent l’absence de prise en charge des langages R et Python, l’absence d’API intermédiaires, ainsi qu’une taille de jeu de données et une capacité de stockage limitées. En comparaison, les utilisateurs qui choisissent de se connecter à un compte Microsoft bénéficient d'un accès complet au niveau Gratuit de Machine Learning Studio décrit ci-dessus, qui inclut un espace de travail persistant et davantage de fonctionnalités complètes. Pour choisir l'expérience Machine Learning gratuite, cliquez sur le bouton « Commencer » sur la page [https://studio.azureml.net](https://studio.azureml.net), puis sélectionnez Accès invité ou Se connecter à un compte Microsoft.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
@@ -334,4 +582,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

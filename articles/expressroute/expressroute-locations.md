@@ -142,6 +142,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 |---|---|---|
 |**Alaska Communications**|Equinix|Seattle|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
+|**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Singapour|
 
 ## Intégrateurs système ExpressRoute
 
@@ -151,7 +152,7 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Asie, Europe, États-Unis |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europe |
-|**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|FR||
+|**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|FR|
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asie |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | FR |
@@ -164,4 +165,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

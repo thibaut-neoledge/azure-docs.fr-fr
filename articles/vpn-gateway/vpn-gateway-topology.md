@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Topologies de connexion à la passerelle VPN Azure
+# Azure VPN Gateway connections (Connexions à la passerelle VPN Azure)
 
 Cet article explique les topologies de connexion à la passerelle VPN de base. Vous pouvez vous appuyer sur les graphiques et les descriptions pour sélectionner la topologie de configuration répondant à vos besoins. Bien que cet article aborde le traitement des principales topologies de base, il est possible de créer des topologies plus complexes à l’aide des diagrammes.
 
 Chaque topologie contient un tableau présentant le modèle de déploiement correspondant à cette dernière, ainsi que les outils de déploiement pour configurer chaque topologie. Ce tableau contient des liens vers des articles, le cas échéant. Nous mettons à jour les tableaux lorsque de nouveaux articles et outils de déploiement sont disponibles.
 
-Pour plus d’informations sur les passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
-
-
+Les instructions que vous utilisez pour créer votre passerelle VPN varient selon le modèle de déploiement que vous avez utilisé pour créer votre réseau virtuel. Par exemple, si vous avez créé votre réseau virtuel à l’aide du modèle de déploiement classique, vous utiliserez les recommandations et les instructions pour le modèle de déploiement classique afin de créer et configurer votre passerelle VPN. Il est impossible de créer une passerelle VPN Resource Manager pour un réseau virtuel à base de modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, voir [Présentation du déploiement Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
 
 ## Connexions site à site et multi-sites
 
@@ -104,4 +102,4 @@ Familiarisez-vous avec les éléments des articles [À propos des passerelles VP
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Créer et modifier le routage le routage pour un circuit ExpressRoute
@@ -113,8 +113,8 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
 
 2. Configurez l’homologation publique Azure pour le circuit. Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
 
-	- Un sous-réseau /30 pour le lien principal. 
-	- Un sous-réseau /30 pour le lien secondaire. 
+	- Un sous-réseau /30 pour le lien principal.
+	- Un sous-réseau /30 pour le lien secondaire.
 	- Toutes les adresses IP utilisées pour configurer cette homologation doivent être des adresses IPv4 publiques valides.
 	- Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
 	- Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
@@ -237,4 +237,4 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 
 -  Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

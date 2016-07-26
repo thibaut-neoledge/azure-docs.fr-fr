@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d’une application web Node.js dans Azure App Service | Microsoft Azure"
+	pageTitle="Création d’une application web Node.js dans Azure App Service | Microsoft Azure"
 	description="Découvrez comment déployer une application Node.js sur une application web dans Azure App Service."
 	services="app-service\web"
 	documentationCenter="nodejs"
@@ -28,19 +28,19 @@
 
 Ce didacticiel explique comment créer une simple application [Node.js](http://nodejs.org) et la déployer sur une [application web](app-service-web-overview.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) en utilisant [Git](http://git-scm.com). Les instructions de ce didacticiel s’appliquent à tous les systèmes d’exploitation pouvant exécuter Node.js.
 
-Vous apprendrez ce qui suit :
+Vous apprendrez ce qui suit :
 
 * Comment créer une application web dans Azure App Service à l’aide du portail Azure.
 * Comment déployer une application Node.js sur l’application web par transmission de type push au référentiel Git de l’application web.
 
-L’application terminée écrit une courte chaîne « Hello World » dans le navigateur.
+L’application terminée écrit une courte chaîne « Hello World » dans le navigateur.
 
-![Navigateur affichant le message « Hello World ».][helloworld-completed]
+![Navigateur affichant le message « Hello World ».][helloworld-completed]
 
 Pour des didacticiels et exemples de code avec des applications Node.js plus complexes, ou pour d’autres rubriques sur l’utilisation de Node.js dans Azure, consultez le [Centre de développement Node.js](/develop/nodejs/).
 
 > [AZURE.NOTE]
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -54,7 +54,7 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 2. Cliquez sur l’icône **+ NOUVEAU** dans le coin supérieur gauche du portail Azure.
 
-3. Cliquez sur **Web + mobile**, puis cliquez sur **Application web**.
+3. Cliquez sur **Web + mobile**, puis cliquez sur **Application web**.
 
     ![][portal-quick-create]
 
@@ -66,7 +66,7 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 6. Sélectionnez un **Groupe de ressources** ou créez-en un.
 
-	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../resource-group-portal.md).
+	Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
 
 7. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
 
@@ -110,13 +110,13 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 ## Génération et test de votre application localement
 
-Dans cette section, vous allez créer un fichier **server.js** contenant une version légèrement modifiée de l’exemple « Hello World » de [nodejs.org]. Le code ajoute process.env.PORT en tant que port d’écoute lors de l’exécution dans une application web Azure.
+Dans cette section, vous allez créer un fichier **server.js** contenant une version légèrement modifiée de l’exemple « Hello World » de [nodejs.org]. Le code ajoute process.env.PORT en tant que port d’écoute lors de l’exécution dans une application web Azure.
 
 1. Créez un répertoire nommé *helloworld*.
 
 2. Utilisez un éditeur de texte pour créer un fichier nommé **server.js** dans le répertoire *helloworld*.
 
-2. Copiez le code suivant dans le fichier **server.js**, puis enregistrez le fichier :
+2. Copiez le code suivant dans le fichier **server.js**, puis enregistrez le fichier :
 
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -131,9 +131,9 @@ Dans cette section, vous allez créer un fichier **server.js** contenant une ver
 
 4. Ouvrez votre navigateur web et accédez à http://localhost:1337.
 
-	Une page web affichant « Hello World » apparaît, comme indiqué sur la capture d’écran suivante.
+	Une page web affichant « Hello World » apparaît, comme indiqué sur la capture d’écran suivante.
 
-    ![Navigateur affichant le message « Hello World ».][helloworld-localhost]
+    ![Navigateur affichant le message « Hello World ».][helloworld-localhost]
 
 ## Publication de votre application
 
@@ -146,16 +146,16 @@ Dans cette section, vous allez créer un fichier **server.js** contenant une ver
 		git init
 
 
-2. Utilisez les commandes suivantes pour ajouter des fichiers au référentiel :
+2. Utilisez les commandes suivantes pour ajouter des fichiers au référentiel :
 
 		git add .
 		git commit -m "initial commit"
 
-3. Ajoutez un Git distant pour la transmission des mises à jour vers l’application web créée précédemment, en utilisant la commande suivante :
+3. Ajoutez un Git distant pour la transmission des mises à jour vers l’application web créée précédemment, en utilisant la commande suivante :
 
 		git remote add azure [URL for remote repository]
 
-4. Transférez vos modifications dans Azure en utilisant la commande suivante :
+4. Transférez vos modifications dans Azure en utilisant la commande suivante :
 
 		git push azure master
 
@@ -183,11 +183,11 @@ Dans cette section, vous allez créer un fichier **server.js** contenant une ver
 
 ## Publication des modifications apportées à votre application
 
-1. Ouvrez le fichier **server.js** dans un éditeur de texte, puis remplacez « Hello World\\n » par « Hello Azure\\n ».
+1. Ouvrez le fichier **server.js** dans un éditeur de texte, puis remplacez « Hello World\\n » par « Hello Azure\\n ».
 
 2. Enregistrez le fichier.
 
-2. Dans la ligne de commande, remplacez les répertoires par le répertoire **helloworld** et exécutez les commandes suivantes :
+2. Dans la ligne de commande, remplacez les répertoires par le répertoire **helloworld** et exécutez les commandes suivantes :
 
 		git add .
 		git commit -m "changing to hello azure"
@@ -197,7 +197,7 @@ Dans cette section, vous allez créer un fichier **server.js** contenant une ver
 
 3. Actualisez la fenêtre du navigateur avec laquelle vous avez accédé à l’URL de l’application web.
 
-	![Page Web affichant « Hello Azure »][helloworld-completed]
+	![Page Web affichant « Hello Azure »][helloworld-completed]
 
 ## Restaurer un déploiement
 
@@ -205,9 +205,9 @@ Dans cette section, vous allez créer un fichier **server.js** contenant une ver
 
 ## Étapes suivantes
 
-Vous avez déployé une application Node.js sur une application web dans Azure App Service. Pour en savoir plus sur le mode d’exécution des applications Node.js par App Service Web Apps, consultez [Azure App Service Web Apps : Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) et [Spécification d’une version Node.js dans une application Azure](../nodejs-specify-node-version-azure-apps.md).
+Vous avez déployé une application Node.js sur une application web dans Azure App Service. Pour en savoir plus sur le mode d’exécution des applications Node.js par App Service Web Apps, consultez [Azure App Service Web Apps : Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) et [Spécification d’une version Node.js dans une application Azure](../nodejs-specify-node-version-azure-apps.md).
 
-Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour savoir comment Web Apps fonctionne avec les modules, consultez [Utilisation de modules Node.js avec les applications Azure](../nodejs-use-node-modules-azure-apps.md).
+Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour savoir comment Web Apps fonctionne avec les modules, consultez [Utilisation de modules Node.js avec les applications Azure](../nodejs-use-node-modules-azure-apps.md).
 
 Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, consultez [Débogage d’une application Node.js dans Azure App Service](web-sites-nodejs-debug.md) pour en savoir plus sur le diagnostic du problème.
 
@@ -225,4 +225,4 @@ Pour plus d’informations sur le développement d’applications Node.js dans A
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

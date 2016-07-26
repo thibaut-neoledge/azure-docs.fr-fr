@@ -88,13 +88,17 @@ D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'
 
 Les systèmes d’exploitation pris en charge sont les suivants :
 
-- Windows 7 (version 64 bits uniquement)
+- Windows 7 (32 bits et 64 bits)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (64 bits uniquement)
 
-- Windows 8 (version 64 bits uniquement)
+- Windows 8 (32 bits et 64 bits)
 
-- Windows Server 2012
+- Windows 8.1 (32 bits et 64 bits)
+
+- Windows Server 2012 (64 bits uniquement)
+
+- Windows Server 2012 R2 (64 bits uniquement)
 
 - Windows 10
 
@@ -279,4 +283,4 @@ Pour plus d’informations sur les passerelles VPN, consultez la [page de docume
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

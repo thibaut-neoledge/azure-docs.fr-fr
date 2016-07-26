@@ -168,6 +168,8 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 ## (Facultatif) Envoyer des notifications Push depuis l’application
 
+>[AZURE.IMPORTANT] Cet exemple d’envoi de notifications à partir de l’application cliente est fourni à des fins d’apprentissage uniquement. Étant donné que cette opération exige la présence de la `DefaultFullSharedAccessSignature` sur l’application cliente, cela implique le risque pour votre hub de notification qu’un utilisateur puisse y accéder pour envoyer des notifications non autorisées à vos clients.
+
 Si vous souhaitez envoyer des notifications Push à partir d’une application, cette section vous explique comment procéder à l’aide de l’interface REST.
 
 1. Dans Xcode, ouvrez `Main.storyboard` et ajoutez les composants d’interface utilisateur suivants à partir de la bibliothèque d’objets pour permettre à l’utilisateur d’envoyer des notifications Push dans l’application :
@@ -274,7 +276,7 @@ Si vous souhaitez envoyer des notifications Push à partir d’une application, 
 
 
 
-7. Dans `ViewController.m`, ajoutez le code suivant à l’implémentation de l’interface pour générer le jeton d’autorisation SaS qui sera fourni dans l’en-tête **Authorization**, comme indiqué dans la [référence de l’API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+7. Dans `ViewController.m`, ajoutez le code suivant à l’implémentation de l’interface pour générer le jeton d’autorisation SaS qui sera fourni dans l’en-tête **Autorisation**, comme indiqué dans la [référence de l’API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -323,7 +325,7 @@ Si vous souhaitez envoyer des notifications Push à partir d’une application, 
 		}
 
 
-8. Tout en appuyant sur la touche CTRL, faites glisser le bouton **Envoyer une notification** vers `ViewController.m` pour ajouter une action nommée **SendNotificationMessage** pour l’événement de **Touch Down**. Mettez à jour la méthode à l’aide du code suivant pour envoyer la notification à l’aide de l’API REST.
+8. Tout en appuyant sur la touche Ctrl, faites glisser le bouton **Envoyer une notification** vers `ViewController.m` pour ajouter une action nommée **SendNotificationMessage** pour l’événement de **Touch Down**. Mettez à jour la méthode à l’aide du code suivant pour envoyer la notification à l’aide de l’API REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -435,7 +437,7 @@ Si vous souhaitez envoyer des notifications Push à partir d’une application, 
 11. Générez le projet et vérifiez qu’il ne présente pas d’erreurs.
 
 
-> [AZURE.NOTE] Si vous rencontrez une erreur de génération dans Xcode7 sur le support bitcode, vous devez modifier les **Paramètres de Build** -> **Activer Bitcode (ENABLE\_BITCODE)** en indiquant **NON** dans Xcode. Le kit de développement logiciel Notification Hubs ne prend pas en charge bitcode.
+> [AZURE.NOTE] Si vous rencontrez une erreur de génération dans Xcode7 sur le support bitcode, vous devez modifier les **Paramètres de build** -> **Activer Bitcode (ENABLE\_BITCODE)** en indiquant **NON** dans Xcode. Le kit de développement logiciel Notification Hubs ne prend pas en charge bitcode.
 
 Vous trouverez toutes les charges de notification possibles dans le [Guide de programmation des notifications locales et push] d’Apple.
 
@@ -448,7 +450,7 @@ Pour tester les notifications Push sur iOS, vous devez déployer l’application
 
 	![Test d’inscription de notifications Push pour applications iOS][33]
 
-2. Vous pouvez envoyer une notification de test depuis le [portail Azure], comme indiqué ci-dessus. Si vous avez ajouté du code pour l’envoi de notifications Push dans l’application, touchez le champ de texte pour entrer un message de notification. Appuyez sur le bouton d’**envoi** du clavier ou sur le bouton **Envoyer une notification** de l’affichage pour envoyer le message de notification.
+2. Vous pouvez envoyer une notification Push de test depuis le [portail Azure], comme indiqué ci-dessus. Si vous avez ajouté du code pour l’envoi de notifications Push dans l’application, touchez le champ de texte pour entrer un message de notification. Appuyez sur le bouton d’**envoi** du clavier ou sur le bouton **Envoyer une notification** de l’affichage pour envoyer le message de notification.
 
 	![Test d’envoi de notifications Push pour applications iOS][34]
 
@@ -506,4 +508,4 @@ Pour obtenir des informations générales sur Notification Hubs, consultez [Reco
 [Guide de programmation des notifications locales et push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

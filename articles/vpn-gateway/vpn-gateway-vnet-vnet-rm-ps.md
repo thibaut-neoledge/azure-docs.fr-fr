@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/15/2016"
    ms.author="cherylmc"/>
 
 # Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell
@@ -58,27 +58,7 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
 
 ### Forum Aux Questions sur l’interconnexion de réseaux virtuels
 
-- Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
-
-- Un service cloud ou un point de terminaison d’équilibrage de charge NE PEUT PAS s’étendre sur différents réseaux virtuels, même si ces derniers sont interconnectés.
-
-- L’interconnexion de plusieurs réseaux virtuels Azure ne requiert pas de passerelle VPN locale, sauf si la connectivité entre différents locaux est requise.
-
-- La connexion de réseau virtuel à réseau virtuel prend en charge la connexion de réseaux virtuels. Elle ne prend pas en charge la connexion de machines virtuelles ou de services cloud qui ne sont PAS situés dans un réseau virtuel.
-
-- La connexion de réseau virtuel à réseau virtuel nécessite des passerelles VPN Azure avec VPN de type RouteBased (précédemment Dynamic Routing, routage dynamique).
-
-- La connectivité de réseau virtuel peut être utilisée simultanément avec des VPN multisites, avec un maximum de 10 tunnels VPN (passerelles par défaut/standard) ou 30 tunnels VPN (passerelles à hautes performances) pour une passerelle VPN de réseau virtuel se connectant à d’autres réseaux virtuels ou à des sites locaux.
-
-- Les espaces d’adressage des réseaux virtuels et sur les sites de réseau locaux ne doivent pas se chevaucher. Le chevauchement des espaces d’adressage entraîne l’échec des connexions de réseau virtuel à réseau virtuel.
-
-- Les tunnels redondants entre deux réseaux virtuels ne sont pas pris en charge.
-
-- Tous les tunnels VPN du réseau virtuel partagent la bande passante disponible sur la passerelle VPN Azure, ainsi que le même contrat SLA concernant le temps d’activité des passerelles VPN dans Azure.
-
-- Le trafic de réseau virtuel à réseau virtuel transite sur le réseau Microsoft, et non sur Internet.
-
-- Le trafic de réseau virtuel à réseau virtuel au sein d’une même région est gratuit dans les deux sens. Le trafic de réseau virtuel à réseau virtuel de sortie entre différentes régions est facturé au tarif du transfert de données sortantes entre réseaux virtuels en fonction des régions sources. Pour plus d’informations, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+[AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 
 ## Quelle procédure dois-je utiliser ?
@@ -103,7 +83,7 @@ Cette configuration s’applique aux réseaux virtuels situés dans le même abo
 
 ### Avant de commencer
 
-- Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Assurez-vous de disposer d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez activer vos [avantages d’abonné à MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 	
 - Vous aurez besoin d’installer les applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
@@ -318,7 +298,7 @@ Les exemples ci-dessous expliquent comment vérifier votre connexion. Veillez à
 
 ### Vérification de votre connexion à l'aide du portail Azure
 
-Vous pouvez vérifier une connexion VPN dans le Portail Azure en accédant à **Passerelles de réseau virtuel** -> **cliquez sur le nom de votre passerelle** -> **Paramètres** -> **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le panneau **Connexion**.
+Vous pouvez vérifier une connexion VPN dans le Portail Azure en accédant à **Passerelles de réseau virtuel **> **cliquez sur le nom de votre passerelle** > **Paramètres** > **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le panneau **Connexion**.
 
 
 ### Vérification de votre connexion à l'aide de PowerShell
@@ -529,6 +509,6 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 ## Étapes suivantes
 
 - Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
-- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Configuration du protocole BGP). 
+- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

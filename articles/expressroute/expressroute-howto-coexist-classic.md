@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="07/19/2016"
    ms.author="charwen"/>
 
 # Configurer la coexistence de connexions de site à site et ExpressRoute pour le modèle de déploiement classique
@@ -35,7 +35,7 @@ La possibilité de configurer des connexions VPN de site à site et ExpressRoute
 
 - **Le routage de transit n’est pas pris en charge :** vous ne pouvez pas créer d’itinéraire (via Azure) entre votre réseau local connecté via le VPN de site à site et votre réseau local connecté via ExpressRoute.
 - **Les connexions point à site ne sont pas prises en charge :** vous ne pouvez pas activer de connexions VPN point à site avec le même réseau virtuel connecté à ExpressRoute. Des connexions VPN point à site et ExpressRoute ne peuvent pas coexister pour le même réseau virtuel.
-- **Le tunneling forcé ne peut pas être activé sur la passerelle VPN de site à site :** vous pouvez uniquement utiliser ExpressRoute pour « forcer » l’ensemble du trafic Internet vers votre réseau local. 
+- **Le tunneling forcé ne peut pas être activé sur la passerelle VPN de site à site :** vous pouvez uniquement utiliser ExpressRoute pour « forcer » l’ensemble du trafic Internet vers votre réseau local.
 - **Passerelles standard ou hautes performances uniquement :** vous devez utiliser une passerelle standard ou hautes performances pour la passerelle ExpressRoute comme pour la passerelle VPN de site à site. Consultez [SKU de passerelle](../vpn-gateway/vpn-gateway-about-vpngateways.md) pour plus d’informations sur les références de passerelle.
 - **Uniquement la passerelle VPN basée sur l’itinéraire :** vous devez utiliser une passerelle VPN basée sur un itinéraire. Consultez la page [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) pour plus d’informations sur la passerelle VPN basée sur l’itinéraire.
 - **Condition requise d’itinéraire statique :** si votre réseau local est connecté à la fois à ExpressRoute et à un VPN de site à site, vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public.
@@ -78,7 +78,7 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
 
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute appelées à coexister.
 
-1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
+1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions.
 
 2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -192,7 +192,7 @@ Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau vir
 
 >[AZURE.NOTE] Lorsque vous supprimez la passerelle existante, votre site local perdra la connexion à votre réseau virtuel lorsque vous effectuerez cette configuration.
 
-1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
+1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions.
 
 2. Supprimez la passerelle VPN ExpressRoute ou de site à site existante. Utilisez l’applet de commande suivante en remplaçant les valeurs par les vôtres.
 
@@ -225,4 +225,4 @@ Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau vir
 
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

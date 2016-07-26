@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/29/2016"
+   ms.date="07/18/2016"
    ms.author="sonyam;barbkess;sonyama"/>
 
 # Création d’un ticket de support pour SQL Data Warehouse
@@ -31,10 +31,14 @@ Si vous rencontrez des problèmes avec votre SQL Data Warehouse, créez un ticke
 3. Dans le panneau Aide + Support, cliquez sur **Créer une demande de support**.
 
     ![Nouvelle demande de support](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
+    
+    <a name="request-quota-change"></a>
 
 4. Sélectionnez le **Type de demande**.
 
     ![Type de demande](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
+    
+    >[AZURE.NOTE]  Par défaut, le **Quota de DTU** de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 45 000. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en créant un ticket de support et en sélectionnant *Quota* en tant que type de demande. Pour calculer vos besoins en matière de DTU, vous devez savoir que chaque tranche de 100 [DWU][] de SQL Data Warehouse consomme 750 DTU. Par conséquent, le quota par défaut de 45 000 vous permettra de créer une base de données allant jusqu’à DW6000 (45 000 / 750) ou plusieurs bases de données moins volumineuses, comportant moins de DWU. Si, par exemple, vous souhaitez héberger deux bases de données DW6000 sur un serveur SQL unique, vous devez demander un quota de DTU de 90 000. Vous pouvez consulter votre consommation de DTU actuelle dans le panneau SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU.
 
 5. Sélectionnez l'**abonnement** qui héberge la base de données avec le problème que vous voulez signaler.
 
@@ -44,17 +48,15 @@ Si vous rencontrez des problèmes avec votre SQL Data Warehouse, créez un ticke
 
     ![Ressource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
-7. Sélectionnez votre **plan de support**.
+7. Sélectionnez votre [plan de support Azure][].
 
-    - Les problèmes liés à la **gestion de la facturation et des abonnements** sont pris en charge à tous les niveaux de support.
-    - Les problèmes **couverts par la garantie de réparation et d’assistance** sont pris en charge via les supports suivants : Developer Support, Support Standard, Pro-Direct Support et Support Premier. Les problèmes **couverts par la garantie de réparation et d’assistance** sont des problèmes rencontrés par les clients lors de l’utilisation d’Azure et qui peuvent être raisonnablement imputés à Microsoft.
-    - Les **services d’expertise** et de **tutorat pour développeur** sont disponibles aux niveaux de support Professional Direct et Premier.
+    - Les problèmes liés à la **gestion de la facturation, des abonnements et des quotas** sont pris en charge à tous les niveaux de support.
+    - Les problèmes **couverts par la garantie de réparation et d’assistance** sont pris en charge via les supports suivants : [Support Developer][], [Support Standard][], [Support Professional Direct][] et [Support Premier][]. Les problèmes couverts par la garantie de réparation et d'assistance sont des problèmes rencontrés par les clients lors de l'utilisation d'Azure et qui peuvent être raisonnablement imputés à Microsoft.
+    - Les **services d’expertise** et de **tutorat pour développeur** sont disponibles aux niveaux de support [Professional Direct][] et [Premier][].
     
-    Consultez les [plans de support Azure][] pour en apprendre plus sur les divers plans de support, y compris la portée, le temps de réponse, la tarification, etc. Pour accéder aux questions fréquemment posées relatives au support Azure, consultez la page [FAQ du support Azure][].
+    Si vous avez un plan de support Premier, vous pouvez également signaler les problèmes liés à SQL Data Warehouse sur le [portail en ligne Microsoft Premier][]. Consultez les [plans de support Azure][Azure support plan] pour en apprendre plus sur les divers plans de support, y compris la portée, le temps de réponse, la tarification, etc. Pour accéder aux questions fréquemment posées relatives au support Azure, consultez la page [FAQ du support Azure][].
 
     ![Plan de support](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-
-    Si vous avez un plan de support Premier, vous pouvez également signaler les problèmes liés à SQL Data Warehouse sur le [portail en ligne Microsoft Premier][].
 
 8. Sélectionnez le **type de problème** et la **catégorie**.
 
@@ -81,12 +83,26 @@ Une fois que vous avez envoyé la demande de support, vous serez contacté par l
 
 En outre, vous pouvez contacter la communauté SQL Data Warehouse sur [Stack Overflow][] ou le [forum MSDN Azure SQL Data Warehouse][].
 
-<!-- External links -->
+<!--Image references--> 
+
+<!--Article references--> 
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+
+<!--MSDN references--> 
+
+<!--Other web references--> 
 [portail Azure]: https://portal.azure.com/
-[plans de support Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[plan de support Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Support Developer]: https://azure.microsoft.com/support/plans/developer/
+[Support Standard]: https://azure.microsoft.com/support/plans/standard/
+[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/
+[Support Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/
+[Premier]: https://azure.microsoft.com/support/plans/premier/
+[Support Premier]: https://azure.microsoft.com/support/plans/premier/
 [FAQ du support Azure]: https://azure.microsoft.com/support/faq/
 [portail en ligne Microsoft Premier]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [forum MSDN Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->
