@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.JS](documentdb-nodejs-get-started.md)
 
-Bienvenue dans le didacticiel Node.js pour le Kit de développement logiciel (SDK) de DocumentDB À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB, y compris la base de données du nœud.
+Bienvenue dans le didacticiel Node.js pour le Kit de développement logiciel (SDK) d’Azure DocumentDB ! À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB, y compris la base de données du nœud.
 
 Nous allons aborder les points suivants :
 
@@ -621,4 +621,4 @@ Ensuite, dans le fichier ```config.js```, mettez à jour les valeurs de config.e
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

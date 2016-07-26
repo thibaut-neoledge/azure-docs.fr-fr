@@ -161,7 +161,7 @@ Dans cette section, nous décrivons les scénarios ci-après utilisant le Portai
 
 8. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 
-9. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, voir [Utilisation du Portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
+9. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
 
 10. Sélectionnez la région de votre compte de stockage.
 
@@ -340,4 +340,4 @@ Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azur
 
 [Parcourez et explorez vos comptes de stockage](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

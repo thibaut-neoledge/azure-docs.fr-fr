@@ -13,19 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/20/2016"
    ms.author="yurid"/>
 
 # Guide de résolution des problèmes d’Azure Security Center
-Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center.
+Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center et qui doivent résoudre des problèmes liés au Centre de sécurité.
 
 > [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
 
-## Qu’est-ce que le Centre de sécurité Azure ?
-Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
-
 ## Guide de résolution des problèmes
-Ce guide explique comment résoudre les problèmes liés à Azure Security Center. La majorité des problèmes rencontrés dans Azure Security Center se résolvent en examinant tout d’abord les enregistrements du [journal d’audit](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
+Ce guide explique comment résoudre les problèmes liés au Centre de sécurité. La majorité des problèmes rencontrés dans le Centre de sécurité se résolvent en examinant tout d’abord les enregistrements du [journal d’audit](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
 
 - Les opérations ayant eu lieu.
 - Qui a initié l’opération.
@@ -51,7 +48,7 @@ Si l’installation s’effectue correctement, vous devez voir une entrée simil
 
 Vous pouvez également obtenir plus d’informations sur le processus d’installation en consultant les journaux de l’agent, situés sous *%systemdrive%\\windowsazure\\logs* (exemple : C:\\WindowsAzure\\Logs).
 
-[AZURE.NOTE] Si l’agent Azure Security Center ne fonctionne pas correctement, vous devrez redémarrer la machine virtuelle cible, car il n’existe aucune commande pour arrêter et démarrer l’agent.
+> [AZURE.NOTE] Si l’agent Azure Security Center ne fonctionne pas correctement, vous devrez redémarrer la machine virtuelle cible, car il n’existe aucune commande pour arrêter et démarrer l’agent.
 
 ## Résolution des problèmes d’installation de l’agent de surveillance dans Linux
 Lors de la résolution des problèmes d’installation de l’agent de machine virtuelle sur un système Linux, vous devez vous assurer que l’extension a été téléchargée sous /var/lib/waagent/. Vous pouvez exécuter la commande ci-dessous pour vérifier qu’elle a été installée :
@@ -74,15 +71,15 @@ Certains problèmes peuvent être identifiés en suivant les recommandations fou
 ![Support Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
-## Étapes suivantes
+## Voir aussi
 
 Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
-- [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conceptions pour l’adoption d’Azure Security Center .
+- [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conception pour l’adoption d’Azure Security Center.
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) – Découvrez comment surveiller l’intégrité de vos ressources Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
-- [Surveillance des solutions partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

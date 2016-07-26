@@ -54,7 +54,7 @@ Le **panneau Création** contient les informations nécessaires pour appeler les
 <a name="view-access-keys"/>
 ## Affichage des touches d'accès rapide aux API de Power BI
 
-Les **touches d’accès rapide** sont l’un des éléments d’informations les plus importants pour appeler les API REST de Power BI. Elles sont utilisées pour générer les **jetons d’application** qui servent à authentifier les demandes d’API. Pour afficher vos **touches d’accès rapide**, cliquez sur **Touches d’accès rapide** dans le **panneau Paramètres**. Pour plus d’informations sur les **jetons d’application**, consultez la section [Fonctionnement du flux de jetons d’application](power-bi-embedded-app-token-flow.md).
+Les **touches d’accès rapide** sont l’un des éléments d’informations les plus importants pour appeler les API REST de Power BI. Elles sont utilisées pour générer les **jetons d’application** qui servent à authentifier les demandes d’API. Pour afficher vos **touches d’accès rapide**, cliquez sur **Touches d’accès rapide** dans le **panneau Paramètres**. Pour en savoir plus sur les **jetons d’application**, voir [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -98,9 +98,7 @@ Dans les étapes précédentes, vous avez créé une collection d’espaces de t
 
 ## Voir aussi
 - [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
-- [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Tarification de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

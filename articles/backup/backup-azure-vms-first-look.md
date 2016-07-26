@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protection des machines virtuelles dans Azure avec Azure Backup | Microsoft Azure"
+	pageTitle="Découverte : protection des machines virtuelles dans Azure avec Azure Backup | Microsoft Azure"
 	description="Protégez vos machines virtuelles Azure à l’aide du service Azure Backup. Ce didacticiel explique comment créer un archivage, inscrire des machines virtuelles, créer des stratégies et protéger des machines virtuelles dans Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="07/18/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Découverte : sauvegarde des machines virtuelles Azure
 
 > [AZURE.SELECTOR]
-- [Sauvegarder des machines virtuelles ARM](backup-azure-vms-first-look-arm.md)
+- [Sauvegarder des machines virtuelles Resource Manager](backup-azure-vms-first-look-arm.md)
 - [Sauvegarder des machines virtuelles en mode Classique](backup-azure-vms-first-look.md)
 
-Ce didacticiel vous accompagne tout au long de la procédure de sauvegarde d’une machine virtuelle Azure vers Azure. Pour pouvoir suivre ce didacticiel, ces conditions préalables doivent être réunies :
+Ce didacticiel vous accompagne tout au long de la procédure de sauvegarde d’une machine virtuelle Azure vers un archivage de sauvegarde dans Azure. Cet article décrit le modèle Classic ou le modèle de déploiement Service Manager, pour la sauvegarde des machines virtuelles. Si vous souhaitez sauvegarder une machine virtuelle dans un coffre Recovery Services appartenant à un groupe de ressources, consultez l’autre onglet, Sauvegarder des machines virtuelles Resource Manager. Pour pouvoir suivre ce didacticiel, ces conditions préalables doivent être réunies :
 
 - Vous avez créé une machine virtuelle dans votre abonnement Azure.
 - La machine virtuelle dispose d’une connectivité à des adresses IP publiques Azure. Pour plus d’informations, consultez la rubrique [Connectivité réseau](./backup-azure-vms-prepare.md#network-connectivity).
@@ -213,4 +213,4 @@ Maintenant que vous êtes parvenu à sauvegarder une machine virtuelle, d’autr
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

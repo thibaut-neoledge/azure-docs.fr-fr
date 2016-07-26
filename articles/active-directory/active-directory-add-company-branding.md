@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/16/2016" 
+	ms.date="07/13/2016"
 	ms.author="MarkVi"/>
 
 # Ajout d’une marque de société aux pages de connexion et du volet d’accès
@@ -42,7 +42,7 @@ Lorsque vous apportez des modifications à votre page de connexion, un délai po
 
 Une page de connexion personnalisée s’affiche uniquement lorsque vous accédez à un service avec une URL spécifique au client, telle que https://outlook.com/**contoso**.com ou https://mail.**contoso**.com.
 
-Lorsque vous accédez à un service avec une URL indépendante du client (par exemple : https://mail.office365.com)), une page de connexion non personnalisée s’affiche. Dans ce cas, votre marque apparaît une fois que vous avez entré votre ID d’utilisateur ou que vous avez sélectionné une vignette utilisateur.
+Lorsque vous accédez à un service avec une URL indépendante du client (par exemple : https://mail.office365.com), une page de connexion non personnalisée s’affiche. Dans ce cas, votre marque apparaît une fois que vous avez entré votre ID d’utilisateur ou que vous avez sélectionné une vignette utilisateur.
 
 > [AZURE.NOTE]
 >
@@ -120,8 +120,8 @@ Par exemple, si vous configurez un logo de bannière par défaut mais aucune gra
 
 Imaginez la configuration suivante :
 
-- Un logo de bannière par défaut et le texte de la page de connexion en anglais 
-- Un texte spécifique pour la page de connexion en allemand 
+- Un logo de bannière par défaut et le texte de la page de connexion en anglais
+- Un texte spécifique pour la page de connexion en allemand
 
 Si votre langue préférée est l’allemand, vous voyez le logo de bannière par défaut, mais le texte en allemand.
 
@@ -177,8 +177,8 @@ Nous vous recommandons d’effectuer un test avec un client test avant d’appor
 
 **Pour vérifier si votre marque a été appliquée :**
 
-1. Ouvrez une session de navigateur InPrivate ou Incognito. 
-2. Rendez-vous sur https://outlook.com/contoso.com, en remplaçant contoso.com par le domaine que vous avez personnalisé. 
+1. Ouvrez une session de navigateur InPrivate ou Incognito.
+2. Rendez-vous sur https://outlook.com/contoso.com, en remplaçant contoso.com par le domaine que vous avez personnalisé.
 
 Cela fonctionne également avec les domaines qui ressemblent à contoso.onmicrosoft.com.
 
@@ -219,4 +219,4 @@ Couleur d’arrière-plan de la page de connexion | La couleur d’arrière-plan
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

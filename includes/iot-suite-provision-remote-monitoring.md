@@ -1,8 +1,6 @@
-## Configurer la solution préconfigurée de surveillance à distance
+## Déployer la solution
 
 1.  Connectez-vous à [azureiotsuite.com][lnk-azureiotsuite] à l’aide des identifiants de votre compte Azure, puis cliquez sur **+** pour créer une nouvelle solution.
-
-    > [AZURE.NOTE] Si vous rencontrez des problèmes avec les autorisations nécessaires pour approvisionner une solution, voir [Autorisations sur le site azureiotsuite.com][lnk-permissions] pour obtenir de l’aide.
 
 2.  Cliquez sur **Sélectionner** sur la vignette **Surveillance à distance**.
 
@@ -26,10 +24,9 @@
 
 Certains détails de votre solution semblent-ils faire défaut ? Faites-nous part de vos suggestions concernant les fonctionnalités sur [UserVoice](https://feedback.azure.com/forums/321918-azure-iot).
 
-[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.JS](documentdb-nodejs-get-started.md)
 
-Bienvenue dans le didacticiel NoSQL pour le Kit de développement logiciel (SDK) de DocumentDB ! À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB.
+Bienvenue dans le didacticiel NoSQL pour le Kit de développement logiciel (SDK) .NET d’Azure DocumentDB ! À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB.
 
 Nous allons aborder les points suivants :
 
@@ -544,7 +544,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez supprimé un document DocumentDB.
 
-##<a id="DeleteDatabase"></a>Étape 10 : Suppression de la base de données.
+##<a id="DeleteDatabase"></a>Étape 10 : Suppression de la base de données
 
 Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (collections, documents, etc.).
 
@@ -603,7 +603,7 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 ## Étapes suivantes
 
 - Vous voulez un exemple de didacticiel NoSQL ASP.NET MVC plus complexe ? Consultez [Création d'une application web avec ASP.NET MVC et DocumentDB](documentdb-dotnet-application.md).
-- Vous souhaitez effectuer un test des performances et de la mise à l’échelle avec DocumentDB ? Consultez la page [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Test des performances et de la mise à l’échelle avec Azure DocumentDB)
+- Vous souhaitez effectuer un test des performances et de la mise à l’échelle avec DocumentDB ? Consultez la page [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md)
 -	Apprenez à [surveiller un compte DocumentDB](documentdb-monitor-accounts.md).
 -	Exécutez des requêtes sur notre exemple de dataset dans le [Query Playground](https://www.documentdb.com/sql/demo).
 -	Consultez la section Développer de la [page de documentation DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/) pour découvrir plus en détail le modèle de programmation.
@@ -612,4 +612,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->
