@@ -25,11 +25,14 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : la connexion à un compte Azure a échoué
 
-**Erreur :** vous recevez l’erreur « Unknown\_user\_type : Type d’utilisateur inconnu » lorsque vous travaillez avec les applets de commande Add-AzureAccount ou AzureRmAccount de connexion.
+**Erreur :**
+vous recevez l’erreur « Unknown\_user\_type : Type d’utilisateur inconnu » lorsque vous travaillez avec les applets de commande Add-AzureAccount ou AzureRmAccount de connexion.
 
-**Raison de l'erreur :** cette erreur se produit si le nom de la ressource d’informations d’identification n'est pas valide ou si le nom d'utilisateur et le mot de passe que vous avez utilisés pour configurer la ressource d’informations d’identification Automation (Automatisation) ne sont pas valides.
+**Raison de l'erreur :**
+cette erreur se produit si le nom de la ressource d’informations d’identification n'est pas valide ou si le nom d'utilisateur et le mot de passe que vous avez utilisés pour configurer la ressource d’informations d’identification Automation (Automatisation) ne sont pas valides.
 
-**Conseils de dépannage :** procédez comme suit pour identifier le problème :
+**Conseils de dépannage :**
+procédez comme suit pour identifier le problème :  
 
 1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **@**, dans le nom de la ressources d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.
 
@@ -46,37 +49,46 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : Impossible de trouver l’abonnement Azure
 
-**Erreur :** vous recevez l’erreur indiquant que l’abonnement ``<subscription name>`` est introuvable lorsque vous travaillez avec les applets de commande Select-AzureSubscription ou Select-AzureRmSubscription.
+**Erreur :**
+vous recevez l’erreur indiquant que l’abonnement ``<subscription name>`` est introuvable lorsque vous travaillez avec les applets de commande Select-AzureSubscription ou Select-AzureRmSubscription.
 
-**Raison de l’erreur :** cette erreur se produit si le nom de l’abonnement n’est pas valide ou si l’utilisateur Azure Active Directory qui essaie d’obtenir les détails de l’abonnement n’est pas configuré en tant qu’administrateur de l’abonnement.
+**Raison de l’erreur :**
+cette erreur se produit si le nom de l’abonnement n’est pas valide ou si l’utilisateur Azure Active Directory qui essaie d’obtenir les détails de l’abonnement n’est pas configuré en tant qu’administrateur de l’abonnement.
 
-**Conseils de dépannage :** pour déterminer si vous vous êtes correctement authentifié dans Azure et avez accès à l’abonnement que vous tentez de sélectionner, procédez comme suit :
+**Conseils de dépannage :**
+pour déterminer si vous vous êtes correctement authentifié dans Azure et avez accès à l’abonnement que vous tentez de sélectionner, procédez comme suit :
 
-1. Assurez-vous d’exécuter l’applet de commande **Add-AzureAccount** avant d’exécuter l’applet de commande **Select-AzureSubscription**.
+1. Assurez-vous d’exécuter l’applet de commande **Add-AzureAccount** avant d’exécuter l’applet de commande **Select-AzureSubscription**.  
 
 2. Si le message d’erreur persiste, modifiez votre code en ajoutant l’applet de commande **Get-AzureSubscription** à la suite de l’applet de commande **Add-AzureAccount**, puis exécutez le code. Maintenant, vérifiez si la sortie de Get-AzureSubscription contient les détails de votre abonnement.
     * Si la sortie ne contient aucun des détails de l’abonnement, vous pouvez en conclure que l’abonnement n’est pas encore initialisé.
-    * Si vous ne voyez pas les détails de l’abonnement dans la sortie, vérifiez que vous utilisez le bon nom d’abonnement ou le bon identificateur avec l’applet de commande **Select-AzureSubscription**.
+    * Si vous ne voyez pas les détails de l’abonnement dans la sortie, vérifiez que vous utilisez le bon nom d’abonnement ou le bon identificateur avec l’applet de commande **Select-AzureSubscription**.   
 
 
 ### Scénario : L’authentification auprès d’Azure a échoué car l’authentification multifacteur est activée.
 
-**Erreur :** vous recevez l’erreur « Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required » (« Add-AzureAccount : AADSTS50079 : une inscription de l’authentification forte (résistante) est requise ») pendant une authentification dans Azure avec votre nom d’utilisateur et votre mot de passe Azure.
+**Erreur :**
+vous recevez l’erreur « Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required » (« Add-AzureAccount : AADSTS50079 : une inscription de l’authentification forte (résistante) est requise ») pendant une authentification dans Azure avec votre nom d’utilisateur et votre mot de passe Azure.
 
-**Raison de l’erreur :** si votre compte Azure est doté de l’authentification multifacteur, vous ne pouvez pas vous authentifier dans Azure avec un utilisateur Azure Active Directory. Au lieu de cela, vous devez utiliser un certificat ou un principal de service pour l’authentification dans Azure.
+**Raison de l’erreur :**
+si votre compte Azure est doté de l’authentification multifacteur, vous ne pouvez pas vous authentifier dans Azure avec un utilisateur Azure Active Directory. Au lieu de cela, vous devez utiliser un certificat ou un principal de service pour l’authentification dans Azure.
 
-**Conseils de dépannage :** pour utiliser un certificat avec les applets de commande de gestion des services Azure, reportez-vous à la rubrique sur la [création et l’ajout d’un certificat de gestion des services Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, consultez la rubrique sur la [création du principal du service à l’aide du portail Azure](./resource-group-create-service-principal-portal.md) et [l’authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md).
+**Conseils de dépannage :**
+pour utiliser un certificat avec les applets de commande de gestion des services Azure, reportez-vous à la rubrique sur la [création et l’ajout d’un certificat de gestion des services Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, consultez la rubrique sur la [création du principal du service à l’aide du portail Azure](./resource-group-create-service-principal-portal.md) et [l’authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md).
 
 
 ## Dépannage d’erreurs communes lors de l’utilisation de runbooks
 
 ### Scénario : échec du runbook en raison d’un objet désérialisé
 
-**Erreur :** votre runbook a échoué en émettant l’erreur « Impossible de lier le paramètre ``<ParameterName>``. Impossible de convertir la valeur ``<ParameterType>`` du type désérialisé ``<ParameterType>`` en type ``<ParameterType>`` ».
+**Erreur :**
+votre runbook a échoué en émettant l’erreur « Impossible de lier le paramètre ``<ParameterName>``. Impossible de convertir la valeur ``<ParameterType>`` du type désérialisé ``<ParameterType>`` en type ``<ParameterType>`` ».
 
-**Raison de l’erreur :** si votre runbook est un flux de travail PowerShell, il stocke des objets complexes au format désérialisé afin de conserver l’état du runbook si le flux de travail est suspendu.
+**Raison de l’erreur :**
+si votre runbook est un flux de travail PowerShell, il stocke des objets complexes au format désérialisé afin de conserver l’état du runbook si le flux de travail est suspendu.
 
-**Conseils de dépannage :** l’une des trois solutions suivante peut vous aider à corriger ce problème :
+**Conseils de dépannage :**
+l’une des trois solutions suivante peut vous aider à corriger ce problème :
 
 1. Si vous transférez des objets complexes d’une applet de commande vers une autre, encapsulez ces applets de commande dans un bloc InlineScript.
 2. Transmettez le nom ou la valeur dont vous avez besoin depuis l’objet complexe au lieu de transmettre la totalité de l’objet.
@@ -86,11 +98,14 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : le travail de Runbook a échoué car le quota alloué dépassé
 
-**Erreur :** votre travail de runbook a échoué en émettant l’erreur « Le quota mensuel de durée d’exécution totale pour cet abonnement a été atteint ».
+**Erreur :**
+votre travail de runbook a échoué en émettant l’erreur « Le quota mensuel de durée d’exécution totale pour cet abonnement a été atteint ».
 
-**Motif de l’erreur :** cette erreur se produit lorsque l’exécution du travail dépasse le quota disponible de 500 minutes gratuit pour votre compte. Ce quota s’applique à tous les types de tâches d’exécution de travail, notamment un le test d’un travail, le démarrage d’un travail à partir du portail, l’exécution d’un travail à l’aide de webhooks et la planification d’un travail à exécuter en utilisant le portail Azure ou dans votre centre de données. Pour en savoir plus sur la tarification d’Automation, consultez [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/).
+**Motif de l’erreur :**
+cette erreur se produit lorsque l’exécution du travail dépasse le quota disponible de 500 minutes gratuit pour votre compte. Ce quota s’applique à tous les types de tâches d’exécution de travail, notamment un le test d’un travail, le démarrage d’un travail à partir du portail, l’exécution d’un travail à l’aide de webhooks et la planification d’un travail à exécuter en utilisant le portail Azure ou dans votre centre de données. Pour en savoir plus sur la tarification d’Automation, consultez [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-**Conseils de dépannage :** si vous souhaitez utiliser plus de 500 minutes de traitement par mois, vous devrez modifier votre abonnement à partir du niveau Gratuit au niveau de base. Une mise à niveau vers le niveau de base s’effectue de la façon suivante :
+**Conseils de dépannage :**
+si vous souhaitez utiliser plus de 500 minutes de traitement par mois, vous devrez modifier votre abonnement à partir du niveau Gratuit au niveau de base. Une mise à niveau vers le niveau de base s’effectue de la façon suivante :
 
 1. Connectez-vous à votre abonnement Azure :
 2. Sélectionnez le compte Automation que vous souhaitez mettre à niveau
@@ -100,11 +115,14 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : l’applet de commande n’est pas reconnue lors de l’exécution d’un runbook
 
-**Erreur :** la tâche de runbook échoue en renvoyant l’erreur « ``<cmdlet name>`` : Le terme ``<cmdlet name>`` n’est pas reconnu comme nom d’applet de commande, fonction, fichier de script ou programme exécutable. »
+**Erreur :**
+la tâche de runbook échoue en renvoyant l’erreur « ``<cmdlet name>`` : Le terme ``<cmdlet name>`` n’est pas reconnu comme nom d’applet de commande, fonction, fichier de script ou programme exécutable. »
 
-**Motif de l’erreur :** cette erreur survient quand le moteur PowerShell ne trouve pas l’applet de commande que vous utilisez dans votre runbook. Cela peut être dû au fait que le module contenant l’applet de commande n’est pas présent dans le compte, qu’il existe un conflit de nom avec un nom de runbook ou que l’applet de commande existe dans un autre module et Automation ne peut pas résoudre le nom.
+**Motif de l’erreur :**
+cette erreur survient quand le moteur PowerShell ne trouve pas l’applet de commande que vous utilisez dans votre runbook. Cela peut être dû au fait que le module contenant l’applet de commande n’est pas présent dans le compte, qu’il existe un conflit de nom avec un nom de runbook ou que l’applet de commande existe dans un autre module et Automation ne peut pas résoudre le nom.
 
-**Conseils de dépannage :** l’une des solutions suivantes peut corriger ce problème :
+**Conseils de dépannage :**
+l’une des solutions suivantes peut corriger ce problème :
 
 - Vérifiez que vous avez correctement saisi le nom de l’applet de commande.
 
@@ -117,18 +135,22 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : Un runbook de longue durée échoue systématiquement avec l’exception : « La tâche ne peut pas continuer, car elle a été exclue à plusieurs reprises du même point de contrôle ».
 
-**Raison de l’erreur :** il s’agit du comportement par défaut lié à la surveillance de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui suspend automatiquement un runbook s’il s’exécute pendant plus de 3 heures. Toutefois, le message d’erreur ne fournit pas d’options pour la suite des événements. Un runbook peut être interrompu pour plusieurs raisons. Les suspensions sont généralement dues à des erreurs. Par exemple, une exception non interceptée dans un runbook, une panne réseau ou une panne sur le Runbook Worker qui exécute le runbook entraîne la suspension de ce dernier et son démarrage à partir de son dernier point de contrôle au moment de la reprise.
+**Raison de l’erreur :**
+il s’agit du comportement par défaut lié à la surveillance de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui suspend automatiquement un runbook s’il s’exécute pendant plus de 3 heures. Toutefois, le message d’erreur ne fournit pas d’options pour la suite des événements. Un runbook peut être interrompu pour plusieurs raisons. Les suspensions sont généralement dues à des erreurs. Par exemple, une exception non interceptée dans un runbook, une panne réseau ou une panne sur le Runbook Worker qui exécute le runbook entraîne la suspension de ce dernier et son démarrage à partir de son dernier point de contrôle au moment de la reprise.
 
-**Conseils de dépannage :** la solution documentée pour éviter ce problème consiste à utiliser des points de contrôle dans un flux de travail. Pour en savoir plus, consultez la rubrique [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md#Checkpoints). Vous trouverez une explication plus détaillée de la répartition de charge équilibrée dans le billet de blog [Using Checkpoints in Runbooks (Utilisation de points de contrôle dans des runbooks)](https://azure.microsoft.com/fr-FR/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+**Conseils de dépannage :**
+la solution documentée pour éviter ce problème consiste à utiliser des points de contrôle dans un flux de travail. Pour en savoir plus, consultez la rubrique [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md#Checkpoints). Vous trouverez une explication plus détaillée de la répartition de charge équilibrée dans le billet de blog [Using Checkpoints in Runbooks (Utilisation de points de contrôle dans des runbooks)](https://azure.microsoft.com/fr-FR/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 
 ## Résoudre les erreurs courantes survenant lors de l’importation des modules
 
 ### Scénario : le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des applets de commande après l’importation
 
-**Erreur :** un module ne parvient pas à importer ou réussit l’importation, mais aucune applet de commande n’est extraite.
+**Erreur :**
+un module ne parvient pas à importer ou réussit l’importation, mais aucune applet de commande n’est extraite.
 
-**Raison de l’erreur :** voici quelques raisons courantes pour lesquelles un module peut échouer dans l’importation vers Azure Automation :
+**Raison de l’erreur :**
+voici quelques raisons courantes pour lesquelles un module peut échouer dans l’importation vers Azure Automation :
 
 - La structure ne correspond pas à la structure dont Automation a besoin.
 
@@ -138,7 +160,8 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 - L’applet de commande **New-AzureRmAutomationModule** est utilisée pour charger le module, et vous ne disposez pas du chemin d’accès de stockage complet ou n’avez pas chargé le module en utilisant une URL accessible publiquement.
 
-**Conseils de dépannage :** l’une des solutions suivantes peut corriger ce problème :
+**Conseils de dépannage :**  
+l’une des solutions suivantes peut corriger ce problème :  
 
 - Vérifiez que le module respecte le format suivant : nom\_module.Zip **->** nom\_module ou numéro de version **->** (nom\_module.psm1, nom\_module.psd1)
 
@@ -151,11 +174,13 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : le nœud est en état d’échec avec une erreur « Introuvable »
 
-**Erreur :** un rapport associé au nœud indique l’état **Échec** et contient l’erreur « Échec de la tentative d’obtention de l’action à partir du serveur https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid> ».
+**Erreur :**
+un rapport associé au nœud indique l’état **Échec** et contient l’erreur « Échec de la tentative d’obtention de l’action à partir du serveur https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid> ».
 
-**Raison de l’erreur :** cette erreur se produit généralement quand le nœud est affecté à un nom de configuration (par exemple, ABC) et non à un nom de configuration de nœud (par exemple, ABC.WebServer).
+**Raison de l’erreur :**
+cette erreur se produit généralement quand le nœud est affecté à un nom de configuration (par exemple, ABC) et non à un nom de configuration de nœud (par exemple, ABC.WebServer).
 
-**Conseils de dépannage :**
+**Conseils de dépannage :**  
 
 - Assurez-vous d'affecter le nœud avec « nom de configuration de nœud » et non pas le « nom de configuration ».
 
@@ -166,11 +191,14 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : aucune configuration de nœud (fichiers MOF) ne s’est produite au cours d’une compilation de configuration
 
-**Erreur :** la tâche de compilation de votre DSC a été interrompue avec l’erreur : « Compilation completed successfully, but no node configuration .mofs were generated » (« La compilation s’est terminée correctement, mais aucune configuration de nœud .mofs n’a été générée »).
+**Erreur :**
+la tâche de compilation de votre DSC a été interrompue avec l’erreur : « Compilation completed successfully, but no node configuration .mofs were generated » (« La compilation s’est terminée correctement, mais aucune configuration de nœud .mofs n’a été générée »).
 
-**Raison de l’erreur :** quand l’expression qui suit le mot-clé **Node** dans la configuration DSC est $null, aucune configuration de nœud ne peut être générée.
+**Raison de l’erreur :**  
+quand l’expression qui suit le mot-clé **Node** dans la configuration DSC est $null, aucune configuration de nœud ne peut être générée.    
 
-**Conseils de dépannage :** l’une des solutions suivantes peut corriger ce problème :
+**Conseils de dépannage :**  
+l’une des solutions suivantes peut corriger ce problème :  
 
 - Vérifiez que l’expression en regard du mot clé **Node** dans la définition de la configuration n’est pas $null.
 - Si vous effectuez une transmission de ConfigurationData pendant la compilation de la configuration, vérifiez que vous transmettez les valeurs attendues nécessaires à la configuration depuis [ConfigurationData](automation-dsc-compile.md#configurationdata).
@@ -178,20 +206,25 @@ Cet article explique certaines des erreurs courantes dans Azure Automation que v
 
 ### Scénario : le rapport du nœud DSC se bloque à l’état « en cours »
 
-**Erreur :** l’agent DSC génère le message « Impossible de trouver une instance avec les valeurs de propriétés fournies ».
+**Erreur :**
+l’agent DSC génère le message « Impossible de trouver une instance avec les valeurs de propriétés fournies ».
 
-**Raison de l’erreur :** vous avez mis à niveau votre version WMF et endommagé WMI.
+**Raison de l’erreur :**
+vous avez mis à niveau votre version WMF et endommagé WMI.
 
-**Conseils de dépannage :** pour résoudre ce problème, suivez les instructions du billet de blog [DSC known issues and limitations (Problèmes connus et limitations DSC)](https://msdn.microsoft.com/powershell/wmf/limitation_dsc).
+**Conseils de dépannage :**
+pour résoudre ce problème, suivez les instructions du billet de blog [DSC known issues and limitations (Problèmes connus et limitations DSC)](https://msdn.microsoft.com/powershell/wmf/limitation_dsc).
 
 
 ### Scénario : il est impossible d’utiliser des informations d’identification dans une configuration DSC
 
-**Erreur :** le travail de compilation de votre DSC a été interrompu avec l’erreur : « Erreur System.InvalidOperationException lors du traitement de la propriété 'Credential' de type ``<some resource name>``: La conversion et le stockage d’un mot de passe chiffré sous forme de texte en clair n’est autorisée que si PSDscAllowPlainTextPassword a la valeur true ».
+**Erreur :**
+le travail de compilation de votre DSC a été interrompu avec l’erreur : « Erreur System.InvalidOperationException lors du traitement de la propriété 'Credential' de type ``<some resource name>``: La conversion et le stockage d’un mot de passe chiffré sous forme de texte en clair n’est autorisée que si PSDscAllowPlainTextPassword a la valeur true ».
 
-**Raison de l’erreur :** vous avez utilisé des informations d’identification dans une configuration, mais n’avez pas fourni la bonne valeur de **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud.
+**Raison de l’erreur :**
+vous avez utilisé des informations d’identification dans une configuration, mais n’avez pas fourni la bonne valeur de **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud.
 
-**Conseils de dépannage :**
+**Conseils de dépannage :**  
 - Assurez-vous de transmettre la bonne valeur **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud mentionnée dans la configuration. Pour plus d’informations, consultez les [ressources d’Azure Automation DSC](automation-dsc-compile.md#assets).
 
 

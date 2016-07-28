@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Freshdesk**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.Freshdesk.com* », puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Freshdesk**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.Freshdesk.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "Configurer l’URL de l’application")
 
