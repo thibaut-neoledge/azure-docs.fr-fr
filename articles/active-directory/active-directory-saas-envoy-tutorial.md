@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Envoy**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.Envoy.com* », puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Envoy**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.Envoy.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-envoy-tutorial/IC776780.png "Configurer l’URL de l’application")
 

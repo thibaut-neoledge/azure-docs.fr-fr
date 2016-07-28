@@ -78,7 +78,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/IC771710.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la zone de texte **URL de connexion à Samanage** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.samanage.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Samanage** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.samanage.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-samanage-tutorial/IC771711.png "Configurer l’URL de l’application")
 
