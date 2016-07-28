@@ -87,7 +87,7 @@ votre runbook a échoué en émettant l’erreur « Impossible de lier le param
 **Raison de l’erreur :**
 si votre runbook est un flux de travail PowerShell, il stocke des objets complexes au format désérialisé afin de conserver l’état du runbook si le flux de travail est suspendu.
 
-**Conseils de dépannage :**
+**Conseils de dépannage :**  
 l’une des trois solutions suivante peut vous aider à corriger ce problème :
 
 1. Si vous transférez des objets complexes d’une applet de commande vers une autre, encapsulez ces applets de commande dans un bloc InlineScript.
