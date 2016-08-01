@@ -5,7 +5,7 @@
 	keywords="détection d'applications cloud, gestion d'applications"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markvi"/>
 
 # Détection des applications cloud non gérées avec Cloud App Discovery
@@ -24,10 +24,10 @@ Dans les entreprises modernes, les services informatiques n’ont souvent pas co
 
 Cloud App Discovery est une fonctionnalité Premium d’Azure Active Directory (AD) qui vous permet de détecter les applications cloud utilisées par les membres de votre organisation.
 
-**Avec Cloud App Discovery, vous pouvez :**
+**Avec Cloud App Discovery, vous pouvez :**
 
-- détecter les applications cloud utilisées et mesurer l’utilisation par nombre d’utilisateurs, volume de trafic ou nombre de demandes web à l’application ;
-- identifier les utilisateurs d’une application ;
+- détecter les applications cloud utilisées et mesurer l’utilisation par nombre d’utilisateurs, volume de trafic ou nombre de demandes web à l’application ;
+- identifier les utilisateurs d’une application ;
 - exporter des données pour effectuer une analyse hors ligne ;
 - confier le contrôle de ces applications au service informatique et activer l'authentification unique pour la gestion des utilisateurs.
 
@@ -41,7 +41,7 @@ Cloud App Discovery est une fonctionnalité Premium d’Azure Active Directory (
 Pour prendre en main Cloud App Discovery, consultez [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx).
 
 ## Articles connexes
-- [Considérations relatives à la confidentialité et à la sécurité de Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)  
+- [Considérations relatives à la confidentialité et à la sécurité de Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 - [Guide de déploiement d’une stratégie de groupe Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)
 - [Guide de déploiement de Cloud App Discovery System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)
 - [Paramètres de Registre de Cloud App Discovery pour les services de proxy avec ports personnalisés](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
@@ -49,4 +49,4 @@ Pour prendre en main Cloud App Discovery, consultez [Prise en main de Cloud App 
 - [Cloud App Discovery - Forum aux Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

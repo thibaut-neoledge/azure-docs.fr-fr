@@ -14,16 +14,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Vidéo Science des données pour les débutants nº 5 : Copier le travail d’autres personnes pour des projets de science des données
+# Copier le travail d’autres personnes pour des projets de science des données
+
+## Vidéo 5 : série Science des données pour les débutants
 
 L’une des pierres d’angle de la science des données est d’amener d’autres personnes à faire votre travail. Par exemple, trouver un exemple d’algorithme de clustering à utiliser pour votre propre expérience.
 
 Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science]
+
+## Autres vidéos de cette série
+
+La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
+
+  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+  * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+  * Vidéo 5 : Copier le travail d’autres personnes pour des projets de science des données
 
 ## Transcription : Copier le travail d’autres personnes pour des projets de science des données
 
@@ -39,7 +51,7 @@ Microsoft propose un service cloud appelé [Azure Machine Learning](https://azur
 
 Une partie de ce service s’appelle la **[galerie Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery)**. Il contient toute une gamme de ressources, parmi lesquelles une collection d’expériences Azure Machine Learning ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions.
 
-Vous trouverez la galerie sous [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). N’hésitez pas à aller la découvrir.
+Vous trouverez la galerie à l’adresse [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). N’hésitez pas à aller la découvrir.
 
 ![Galerie Cortana Intelligence](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
 
@@ -59,7 +71,7 @@ Cliquez sur cette expérience pour accéder à une page web décrivant le travai
 
 ![Page de description d’expérience de clustering](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Un lien **Ouvrir dans Visual Studio** s’affiche.
+Un lien **Ouvrir dans Studio** s’affiche.
 
 ![Bouton Ouvrir dans Visual Studio](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
@@ -79,19 +91,10 @@ Il existe d’autres expériences dans la [galerie Cortana Intelligence](http://
 
 Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 
-## Autres vidéos de cette série
-
-La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
-
-  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Vidéo 5 : Copier le travail d’autres personnes pour des projets de science des données
 
 ## Étapes suivantes
 
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
   * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

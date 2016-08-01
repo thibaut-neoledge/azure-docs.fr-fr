@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/26/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans Hyper-V
@@ -33,7 +33,7 @@ Vous trouverez ici les conditions requises pour la configuration d’un appareil
 
 ### Pour le service StorSimple Manager
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Vous avez terminé toutes les étapes de la rubrique [Préparation du portail pour StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
@@ -77,7 +77,7 @@ Chacune de ces étapes est expliquée dans les sections suivantes.
 
 Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
--   Le rôle Hyper-V installé sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 SP1.
+-   Le rôle Hyper-V installé sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 SP1.
 
 -   Microsoft Hyper-V Manager sur un client Microsoft Windows connecté à l'hôte.
 
@@ -119,7 +119,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
-1.  Dans la page **Affecter la mémoire**, spécifiez une **Mémoire de démarrage** d’au moins **8 192 Mo** (n’activez pas la mémoire dynamique), puis cliquez sur **Suivant**.
+1.  Dans la page **Affecter la mémoire**, spécifiez une **Mémoire de démarrage** d’au moins **8 192 Mo** (n’activez pas la mémoire dynamique), puis cliquez sur **Suivant**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image6.png)
 
@@ -131,11 +131,11 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  Passez en revue le **Sommaire**, puis cliquez sur **Terminer** pour créer la machine virtuelle.
+1.  Passez en revue le **Sommaire**, puis cliquez sur **Terminer** pour créer la machine virtuelle. Mais n’allez pas trop vite : vous devez encore ajouter des cœurs pour l’unité centrale, ainsi qu’un second lecteur.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
-1.  Pour répondre à la configuration minimale requise, vous avez besoin de 4 cœurs. Pour ajouter 4 processeurs virtuels, sélectionnez votre système hôte dans la fenêtre **Gestionnaire Hyper-V** puis, dans le volet droit sous la liste des **machines virtuelles**, repérez la machine virtuelle que vous venez de créer. Sélectionnez et cliquez avec le bouton droit sur le nom de la machine, puis sélectionnez **Paramètres**.
+1.  Pour répondre à la configuration minimale requise, vous avez besoin de 4 cœurs. Pour ajouter des processeurs virtuels, sélectionnez votre système hôte dans la fenêtre **Gestionnaire Hyper-V** puis, dans le volet droit sous la liste des **machines virtuelles**, repérez la machine virtuelle que vous venez de créer. Sélectionnez et cliquez avec le bouton droit sur le nom de la machine, puis sélectionnez **Paramètres**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
 
@@ -156,7 +156,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 1.  Dans la page **Avant de commencer** de l’Assistant Nouveau disque dur virtuel, cliquez sur **Suivant**.
 
-1.  Dans la page **Choisir le format de disque**, acceptez le format **VHDX** par défaut. Cliquez sur **Next**. Cet écran ne s'affichera pas si vous exécutez Windows Server 2008 R2.
+1.  Dans la page **Choisir le format de disque**, acceptez le format **VHDX** par défaut. Cliquez sur **Next**. Cet écran ne s’affiche pas si vous exécutez Windows Server 2012 R2 ou Windows Server 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
@@ -224,7 +224,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
 
-1.  Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voici un exemple :
+1.  Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voici un exemple :
 
  	`Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
@@ -267,4 +267,4 @@ Regardez la vidéo pour voir comment configurer StorSimple Virtual Array dans Hy
 
 -   [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

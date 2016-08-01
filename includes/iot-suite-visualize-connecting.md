@@ -8,13 +8,13 @@ Le tableau de bord de la solution de surveillance à distance permet d'afficher 
 
     ![][18]
 
-3. Cliquez sur **Tableau de bord** pour revenir au tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
+3. Cliquez sur **Tableau de bord** pour revenir au tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
     ![][img-telemetry]
 
 ## Envoyer une commande à votre périphérique
 
-Le tableau de bord de la solution de surveillance à distance permet de demander à IoT Hub d’envoyer des commandes à vos périphériques. Par exemple, dans la solution de surveillance à distance, vous pouvez envoyer une commande pour définir la température interne d'un périphérique.
+Le tableau de bord de la solution de surveillance à distance vous permet d’envoyer des commandes à vos appareils via IoT Hub. Par exemple, dans la solution de surveillance à distance, vous pouvez envoyer une commande pour définir la température interne d'un périphérique.
 
 1. Dans le tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
 
@@ -41,6 +41,5 @@ L'article [Personnalisation des solutions préconfigurées][lnk-customize] décr
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

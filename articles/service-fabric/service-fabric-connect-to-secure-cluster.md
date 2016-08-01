@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/18/2016"
    ms.author="ryanwi"/>
 
 # Se connecter à un cluster sécurisé
-Lorsqu’un client se connecte à un nœud de cluster Service Fabric, il peut être authentifié et une communication sécurisée peut être établie à l’aide de la sécurité par certificat. Cela garantit que seuls les utilisateurs autorisés puissent accéder au cluster et aux applications déployées et effectuer des tâches de gestion. La sécurité par certificat doit avoir été précédemment activée sur le cluster à sa création. Pour plus d’informations sur les scénarios de sécurité des clusters, consultez [Sécurité des clusters](service-fabric-cluster-security.md).
+Lorsqu’un client se connecte à un nœud de cluster Service Fabric, il peut être authentifié et une communication sécurisée peut être établie à l’aide de la sécurité par certificat. Cela garantit que seuls les utilisateurs autorisés puissent accéder au cluster et aux applications déployées et effectuer des tâches de gestion. La sécurité par certificat doit avoir été précédemment activée sur le cluster à sa création. Au moins deux certificats devraient être utilisés pour sécuriser le cluster, un pour le certificat du cluster et du serveur, et un autre pour l’accès client. Nous vous recommandons d’utiliser également des certificats secondaires supplémentaires et des certificats d’accès client. Pour plus d’informations sur les scénarios de sécurité des clusters, consultez [Sécurité des clusters](service-fabric-cluster-security.md).
 
-Pour sécuriser la communication entre un client et un nœud de cluster à l’aide de la sécurité par certificat, vous devez d’abord obtenir et installer le certificat client dans l’espace personnel de l’ordinateur local ou de l’utilisateur actuel.
+Pour sécuriser la communication entre un client et un nœud de cluster à l’aide de la sécurité par certificat, vous devez d’abord obtenir et installer le certificat client dans l’espace personnel de l’ordinateur local ou de l’utilisateur actuel. Vous aurez également besoin de l’empreinte numérique du certificat du serveur afin que le client puisse authentifier le cluster.
 
-Exécutez l’applet de commande PowerShell suivante pour configurer le certificat sur l’ordinateur que vous utiliserez pour accéder au cluster.
+Exécutez l’applet de commande PowerShell suivante pour configurer le certificat client sur l’ordinateur que vous utiliserez pour accéder au cluster.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -50,13 +50,13 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Par exemple, la commande PowerShell ci-dessus doit ressembler à ce qui suit :
+Par exemple, la commande PowerShell ci-dessus doit ressembler à ce qui suit. *ServerCertThumbprint* est l’empreinte numérique du certificat du serveur installé sur les nœuds du cluster, tandis que *FindValue* est l’empreinte numérique du certificat du client administrateur.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-          -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
+          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
           -StoreLocation CurrentUser -StoreName My
 ```
 
@@ -64,11 +64,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 Le [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) suivant. Les nœuds du cluster doivent avoir des certificats valides dont le nom commun ou le nom DNS dans le SAN s’affichent dans la [propriété RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) définie sur [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Cela permet une authentification mutuelle entre le client et le nœud de cluster.
 
 ```csharp
-string thumb = "C179E609BBF0B227844342535142306F3913D6ED";
+string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string CommonName = "www.clustername.westus.azure.com";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
 
-X509Credentials xc = GetCredentials(thumb, CommonName);
+X509Credentials xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
 FabricClient fc = new FabricClient(xc, connection);
 Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
 try
@@ -87,15 +88,20 @@ catch (Exception e)
 
 ...
 
-static X509Credentials GetCredentials(string thumb, string name)
+static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
 {
     X509Credentials xc = new X509Credentials();
+
+    // Client certificate
     xc.StoreLocation = StoreLocation.CurrentUser;
     xc.StoreName = "MY";
     xc.FindType = X509FindType.FindByThumbprint;
     xc.FindValue = thumb;
+
+    // Server certificate
     xc.RemoteCertThumbprints.Add(thumb);
     xc.RemoteCommonNames.Add(name);
+
     xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
     return xc;
 }
@@ -109,4 +115,4 @@ static X509Credentials GetCredentials(string thumb, string name)
 - [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
 - [Sécurité des applications et RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

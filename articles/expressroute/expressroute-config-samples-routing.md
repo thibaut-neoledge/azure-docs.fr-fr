@@ -12,18 +12,18 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Exemples de configuration de routeur pour configurer et gérer le routage
 
-Cette page fournit une interface et des exemples de configuration de routage pour les routeurs des séries Cisco IOS-XE et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
+Cette page fournit une interface et des exemples de configuration de routage pour les routeurs des séries Cisco IOS-XE et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
 
 >[AZURE.IMPORTANT] Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
 
 Les exemples de configuration de routeur ci-dessous s’appliquent à toutes les homologations. Consultez [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour plus d’informations sur le routage.
 
-## Routeurs Cisco IOS-XE
+## Routeurs Cisco IOS-XE
 
 Les exemples de cette section s’appliquent à tous les routeurs exécutant la famille de systèmes d’exploitation IOS-XE.
 
@@ -93,9 +93,9 @@ Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour 
 	!
 
 
-## Routeurs de la série Juniper MX 
+## Routeurs de la série Juniper MX 
 
-Les exemples de cette section s’appliquent à tous les routeurs de la série Juniper MX.
+Les exemples de cette section s’appliquent à tous les routeurs de la série Juniper MX.
 
 ### 1\. Configuration des interfaces et des sous-interfaces
 
@@ -210,4 +210,4 @@ Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour 
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

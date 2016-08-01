@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/11/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Accès aux journaux de diagnostic d’Azure Data Lake Store
@@ -50,15 +50,39 @@ Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consul
 
 ## Afficher les journaux de diagnostic de votre compte Data Lake Store
 
+Il existe deux manières d’afficher les données de journal de votre compte Data Lake Store :
+
+* à partir de la vue des paramètres Data Lake Store ;
+* à partir du compte Azure Storage dans lequel les données sont stockées.
+
+### Utilisation de la vue des paramètres Data Lake Store
+
 1. Dans le panneau **Paramètres** de votre compte Data Lake Store, cliquez sur **Journaux de diagnostic**.
 
 	![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Afficher les journaux de diagnostic")
 
 2. Dans le panneau **Journaux de diagnostic**, vous devez voir les journaux classés par **journaux d’audit** et **journaux de demande**.
 	* Les journaux de demande capturent chaque demande d’API effectuée sur le compte Data Lake Store.
-	* Les journaux d’audit sont similaires aux journaux de demande, mais ils fournissent une analyse beaucoup plus détaillée des opérations effectuées sur le compte Data Lake Store. Par exemple, un simple appel d’API de chargement dans les journaux de demande peut entraîner plusieurs opérations « Ajouter » dans les journaux d’audit.
+	* Les journaux d’audit sont similaires aux journaux de demande, mais ils fournissent une analyse beaucoup plus détaillée des opérations effectuées sur le compte Data Lake Store. Par exemple, un simple appel d’API de chargement dans les journaux de demande peut entraîner plusieurs opérations « Ajouter » dans les journaux d’audit.
 
 3. Cliquez sur le lien **Télécharger** en regard de chaque entrée de journal pour le télécharger.
+
+### À partir du compte Azure Storage qui contient des données de journal
+
+1. Ouvrez le panneau du compte Azure Storage associé au Data Lake Store pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service Blob** répertorie deux conteneurs.
+
+	![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
+
+	* Le conteneur **insights-logs-audit** contient les journaux d’audit.
+	* Le conteneur **insights-logs-requests** contient les journaux de demande.
+
+2. Les journaux sont stockés dans ces conteneurs selon la structure suivante.
+
+	![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Afficher les journaux de diagnostic")
+
+	Par exemple, le chemin d’accès complet à un journal d’audit peut être `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+
+	De même, le chemin d’accès complet à un journal de demande peut être `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Comprendre la structure des données de journal
 
@@ -95,7 +119,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 |-----------------|--------|--------------------------------------------------------------------------------|
 | time | String | L’horodatage (heure UTC) du journal. |
 | resourceId | String | L’ID de la ressource sur laquelle l’opération a eu lieu. |
-| category | String | La catégorie du journal. Par exemple, **Demandes**. |
+| category | String | La catégorie du journal. Par exemple, **Requests** (Demandes). |
 | operationName | String | Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
 | resultType | String | L’état de l’opération. Par exemple, 200. |
 | callerIpAddress | String | L’adresse IP du client qui a effectué la demande. |
@@ -157,9 +181,15 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 |------------|--------|------------------------------------------|
 | StreamName | String | Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 
+
+## Exemples de traitement des données de journal
+
+Azure Data Lake Store fournit un exemple de traitement et d’analyse des données de journal. Vous trouverez l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+
+
 ## Voir aussi
 
 - [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
 - [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

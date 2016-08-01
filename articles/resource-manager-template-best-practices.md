@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/15/2016"
 	ms.author="tomfitz"/>
 
-# Bonnes pratiques relatives à la création de modèles Azure Resource Manager
+# Bonnes pratiques relatives à la création de modèles Azure Resource Manager
 
 Les instructions suivantes vous aideront à créer des modèles Resource Manager fiables et faciles à utiliser. Ces instructions sont uniquement des suggestions et ne sont pas impératives. Votre scénario peut nécessiter des variations de ces instructions.
 
@@ -34,15 +34,15 @@ Pour établit une convention de nommage, consultez [Instructions de dénominatio
 
 Vous devez fournir un nom de ressource unique pour tout type de ressource disposant d’un point de terminaison d’accès aux données. Certains types courants nécessitent un nom unique, notamment :
 
-- Storage
-- Application web
-- SQL Server
-- Key Vault
-- Cache Redis
-- Batch
+- Compte de stockage
+- Site web
+- Serveur SQL
+- Coffre de clés
+- Le cache Redis
+- Compte Batch
 - Traffic Manager
 - Service de recherche
-- HDInsight
+- Cluster HDInsight
 
 En outre, les noms de compte de stockage doivent être en minuscules, comporter 24 caractères au maximum et ne pas comprendre de traits d’union.
 
@@ -358,7 +358,7 @@ Vous pouvez établir un lien conditionnel aux modèles imbriqués en utilisant u
 ## Étapes suivantes
 
 1. Pour obtenir des conseils sur la conception de votre solution pour des machines virtuelles, consultez [Exécution d’une machine virtuelle Windows sur Azure](./guidance/guidance-compute-single-vm.md) et [Exécution d’une machine virtuelle Linux sur Azure](./guidance/guidance-compute-single-vm-linux.md).
-2. Pour des conseils sur la configuration d’un compte de stockage, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](./storage/storage-performance-checklist.md).
+2. Pour des conseils sur la configuration d’un compte de stockage, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](./storage/storage-performance-checklist.md).
 3. Pour recevoir de l’aide sur les réseaux virtuels, consultez [Instructions pour les infrastructures réseau](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

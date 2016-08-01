@@ -22,9 +22,9 @@ Vous pouvez exécuter n’importe quel type d’application, comme Node.js, Java
 
 ## Avantages de l'exécution d'un exécutable invité dans Service Fabric
 
-L’exécution d'un exécutable invité dans un cluster Service Fabric présente plusieurs avantages :
+L’exécution d'un exécutable invité dans un cluster Service Fabric présente plusieurs avantages :
 
-- Haute disponibilité : Les applications qui sont exécutées dans Service Fabric sont hautement disponibles dès le départ. Service Fabric s’assure qu’une instance d’une application est toujours en cours d’exécution.
+- Haute disponibilité : Les applications qui sont exécutées dans Service Fabric sont hautement disponibles dès le départ. Service Fabric s’assure qu’une instance d’une application est toujours en cours d’exécution.
 - Analyse du fonctionnement. La fonction d’analyse du fonctionnement de Service Fabric détecte si l’application est en cours d’exécution et fournit des informations de diagnostic en cas d’échec.
 - Gestion du cycle de vie des applications. Outre les mises à niveau sans interruption de service, Service Fabric permet également de revenir à la version précédente, si un problème est survenu pendant la mise à niveau.
 - Densité. Vous pouvez exécuter plusieurs applications dans un cluster, ce qui élimine le besoin d’exécuter chaque application sur son propre matériel.
@@ -39,7 +39,7 @@ Dans le cadre du déploiement d’un exécutable invité, il est utile de compre
 
   Le manifeste d’application permet de décrire l’application. Il répertorie les services qui la composent ainsi que d’autres paramètres utilisés pour définir la manière dont les services doivent être déployés (comme le nombre d’instances).
 
-  Dans l’univers Service Fabric, une application représente l’unité pouvant être mise à niveau. Une application peut être mise à niveau en tant qu’une unité simple où les défaillances potentielles (et les restaurations potentielles) sont gérées par la plateforme. La plateforme garantit que la réussite complète de la mise à niveau ou, en cas d’échec, elle fait en sorte que l’application ne reste pas dans un état inconnu / instable.
+  Dans l’univers Service Fabric, une application représente l’unité pouvant être mise à niveau. Une application peut être mise à niveau en tant qu’une unité simple où les défaillances potentielles (et les restaurations potentielles) sont gérées par la plateforme. La plateforme garantit que la réussite complète de la mise à niveau ou, en cas d’échec, elle fait en sorte que l’application ne reste pas dans un état inconnu / instable.
 
 * **Manifeste de service**
 
@@ -48,7 +48,7 @@ Dans le cadre du déploiement d’un exécutable invité, il est utile de compre
   Nous n’entrerons pas dans les détails de tous les paramètres disponibles dans le manifeste de service. Nous allons examiner le sous-ensemble nécessaire pour exécuter un exécutable invité sur Service Fabric.
 
 ## Structure de fichier d'un package d'application
-Pour déployer une application dans Service Fabric, l'application doit respecter une structure de répertoires prédéfinie. Vous trouverez ci-dessous un exemple de cette structure :
+Pour déployer une application dans Service Fabric, l'application doit respecter une structure de répertoires prédéfinie. Vous trouverez ci-dessous un exemple de cette structure :
 
 ```
 |-- ApplicationPackage
@@ -61,13 +61,13 @@ Pour déployer une application dans Service Fabric, l'application doit respecter
 |-- ApplicationManifest.xml
 ```
 
-La racine contient le fichier ApplicationManifest.xml qui définit l'application. Un sous-répertoire pour chaque service inclus dans l’application est utilisé pour contenir tous les artefacts nécessaires au service : le fichier ServiceManifest.xml et généralement les trois répertoires suivants :
+La racine contient le fichier ApplicationManifest.xml qui définit l'application. Un sous-répertoire pour chaque service inclus dans l’application est utilisé pour contenir tous les artefacts nécessaires au service : le fichier ServiceManifest.xml et généralement les trois répertoires suivants :
 
 - *Code*. Ce répertoire contient le code du service.
 - *Config*. Ce répertoire contient un fichier Settings.xml (et d’autres fichiers si nécessaire) auquel le service peut accéder lors de l’exécution pour récupérer des paramètres de configuration spécifiques.
-- *Data*. Il s’agit d’un répertoire supplémentaire pour stocker des données locales supplémentaires dont le service peut avoir besoin. Remarque : le répertoire Data doit être utilisé uniquement pour stocker des données éphémères. Service Fabric ne copie / réplique pas les modifications dans le répertoire des données si le service doit être déplacé, par exemple, pendant le basculement.
+- *Data*. Il s’agit d’un répertoire supplémentaire pour stocker des données locales supplémentaires dont le service peut avoir besoin. Remarque : le répertoire Data doit être utilisé uniquement pour stocker des données éphémères. Service Fabric ne copie / réplique pas les modifications dans le répertoire des données si le service doit être déplacé, par exemple, pendant le basculement.
 
-Remarque : il est inutile de créer les répertoires `config` et `data` si vous n’en avez pas besoin.
+Remarque : il est inutile de créer les répertoires `config` et `data` si vous n’en avez pas besoin.
 
 ## Processus d’empaquetage d’une application existante
 
@@ -90,16 +90,16 @@ Après avoir créé la structure de répertoires, vous pouvez ajouter les fichie
 
 Service Fabric crée une copie xcopy du contenu du répertoire racine de l’application. Par conséquent, il n’existe aucune structure prédéfinie à utiliser, autre que la création des deux principaux répertoires code et paramètres. (Vous pouvez choisir des noms différents si vous le souhaitez. Pour plus d’informations, consultez la section suivante.)
 
->[AZURE.NOTE] Veillez à bien inclure la totalité des fichiers / dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n’est pas recommandé de supposer que les dépendances sont déjà installées.
+>[AZURE.NOTE] Veillez à bien inclure la totalité des fichiers / dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n’est pas recommandé de supposer que les dépendances sont déjà installées.
 
 ### Modification du fichier de manifeste de service
-L’étape suivante consiste à modifier le fichier de manifeste de service afin d’inclure les informations suivantes :
+L’étape suivante consiste à modifier le fichier de manifeste de service afin d’inclure les informations suivantes :
 
 - Le nom du type de service. Il s’agit d’un ID que Service Fabric utilise pour identifier un service.
 - La commande à utiliser pour lancer l’application (ExeHost).
-- N’importe quel script qui doit être exécuté pour installer / configurer l’application (SetupEntrypoint).
+- N’importe quel script qui doit être exécuté pour installer / configurer l’application (SetupEntrypoint).
 
-Vous trouverez ci-dessous un exemple de fichier `ServiceManifest.xml` :
+Vous trouverez ci-dessous un exemple de fichier `ServiceManifest.xml` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -159,9 +159,9 @@ L’élément `Name` est utilisé pour spécifier le nom du répertoire dans le 
    </ExeHost>
 </SetupEntryPoint>
 ```
-L’élément SetupEntrypoint sert à spécifier un fichier exécutable ou de commandes qui doit être exécuté avant le lancement du code du service. Cet élément est facultatif et il n’est donc pas nécessaire de l’inclure si aucune procédure d’initialisation / de configuration n’est requise. SetupEntrypoint est exécuté chaque fois que le service est redémarré.
+L’élément SetupEntrypoint sert à spécifier un fichier exécutable ou de commandes qui doit être exécuté avant le lancement du code du service. Cet élément est facultatif et il n’est donc pas nécessaire de l’inclure si aucune procédure d’initialisation / de configuration n’est requise. SetupEntrypoint est exécuté chaque fois que le service est redémarré.
 
-Comme il n’existe qu’un seul paramètre SetupEntrypoint, les scripts d’installation / de configuration doivent être regroupés dans un même fichier de commandes si l’installation / la configuration de l’application requiert plusieurs scripts. À l’instar de l’élément SetupEntryPoint, l’élément SetupEntrypoint peut exécuter n’importe quel type de fichier : fichiers exécutables, fichiers de commandes et applets de commande PowerShell. Dans l’exemple ci-dessus, l’élément SetupEntrypoint est basé sur un fichier de commandes LaunchConfig.cmd qui se trouve dans le sous-répertoire `scripts` du répertoire Code (en supposant que l’élément WorkingFolder est défini sur Code).
+Comme il n’existe qu’un seul paramètre SetupEntrypoint, les scripts d’installation / de configuration doivent être regroupés dans un même fichier de commandes si l’installation / la configuration de l’application requiert plusieurs scripts. L’élément SetupEntrypoint peut exécuter n’importe quel type de fichier : fichiers exécutables, fichiers de commandes et applets de commande PowerShell. Dans l’exemple ci-dessus, l’élément SetupEntrypoint est basé sur un fichier de commandes LaunchConfig.cmd qui se trouve dans le sous-répertoire `scripts` du répertoire Code (en supposant que l’élément WorkingFolder est défini sur Code).
 
 ### Entrypoint
 
@@ -268,7 +268,7 @@ Cette configuration est utile pour les applications frontales (par exemple, un p
 
 ### Vérification de votre application en cours d'exécution
 
-Dans l'Explorateur Service Fabric, identifiez le nœud sur lequel le service s'exécute. Dans cet exemple, il s’exécute sur le nœud 1 :
+Dans l'Explorateur Service Fabric, identifiez le nœud sur lequel le service s'exécute. Dans cet exemple, il s’exécute sur le nœud 1 :
 
 ![Nœud sur lequel le service est en cours d’exécution](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
@@ -308,4 +308,4 @@ Dans cet article, vous avez appris à empaqueter un exécutable invité et à le
 - [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
 - [Créez votre première application Service Fabric avec Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

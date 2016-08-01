@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess;nicw"/>
 
 # Restauration d’un Azure SQL Data Warehouse (Portail)
@@ -28,7 +28,7 @@ Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse 
 
 ## Avant de commencer
 
-**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL logique. Ce serveur logique a une limite de capacité mesurée en DTU. Avant de pouvoir restaurer un SQL Data Warehouse, il est important de s’assurer que le serveur SQL logique qui héberge votre base de données a une capacité de DTU suffisante pour la base de données en cours de restauration. Consultez ce blog pour plus d’informations sur [l’affichage et l’augmentation du quota de DTU][].
+**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Avant de pouvoir restaurer un SQL Data Warehouse, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change][] (Demander une modification du quota DTU).
 
 
 ## Restauration d’une base de données active ou en pause
@@ -36,7 +36,7 @@ Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse 
 Pour restaurer une base de données :
 
 1. Connectez-vous au [portail Azure][].
-2. Sur le côté gauche de l’écran, sélectionnez l’option **Parcourir**, puis choisissez **Serveurs SQL Server**.
+2. Sur le côté gauche de l’écran, sélectionnez l’option **Parcourir**, puis choisissez **Serveurs SQL Server**.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
     
@@ -65,10 +65,10 @@ Pour restaurer une base de données :
 
 ## restauration d’une base de données supprimée.
 
-Pour restaurer une base de données supprimée :
+Pour restaurer une base de données supprimée :
 
 1. Connectez-vous au [portail Azure][].
-2. Sur le côté gauche de l’écran, sélectionnez l’option **Parcourir**, puis choisissez **Serveurs SQL Server**.
+2. Sur le côté gauche de l’écran, sélectionnez l’option **Parcourir**, puis choisissez **Serveurs SQL Server**.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 
@@ -107,13 +107,13 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Finaliser une base de données récupérée]: ./sql-database-recovered-finalize.md
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
 <!--MSDN references-->
 
 <!--Blog references-->
-[l’affichage et l’augmentation du quota de DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Analyse des données dans Data Lake Store à l’aide de Power BI
@@ -22,7 +22,7 @@ Dans cet article, vous allez apprendre à utiliser Power BI Desktop pour analyse
 
 ## Composants requis
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 ## Création d’un rapport dans Power BI Desktop
 
-1. Lancez Power BI Desktop sur votre ordinateur.
+1. Lancez Power BI Desktop sur votre ordinateur.
 
 2. À partir du ruban **Accueil**, cliquez sur **Obtenir les données**, puis cliquez sur Plus. Dans la boîte de dialogue **Obtenir les données**, cliquez sur **Azure**, cliquez sur **Azure Data Lake Store**, puis cliquez sur **Connexion**.
 
@@ -125,4 +125,4 @@ Une fois que vous avez créé les visualisations dans Power BI Desktop, vous pou
 
 * [Analyse des données dans Data Lake Store à l’aide de Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

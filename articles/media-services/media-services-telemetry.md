@@ -54,8 +54,8 @@ Vous pouvez effectuer une requête pour obtenir les mesures StreamingEndPoint su
 - **ResultCode** obtient le code de résultat.
 - **RequestCount** obtient le nombre de requêtes.
 - **BytesSent** obtient les octets envoyés.
-- **BytesSent** obtient la latence du serveur.
-- **BytesSent** obtient l’heure de la requête de bout en bout.
+- **ServerLatency** obtient la latence du serveur.
+- **EndToEndLatency** obtient l’heure de la requête de bout en bout.
 
 ###Exemple de résultat de requête de point de terminaison de diffusion en continu
 
@@ -235,4 +235,4 @@ Consultez les parcours d’apprentissage Azure Media Services pour en savoir plu
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

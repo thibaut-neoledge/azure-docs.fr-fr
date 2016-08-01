@@ -23,6 +23,7 @@
 - [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
 - [Portail](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -40,7 +41,7 @@ Votre modèle peut être un fichier local ou un fichier externe disponible par l
 
 ## Étapes à suivre pour le déploiement
 
-Cet article décrit toutes les différentes options disponibles lors du déploiement. Toutefois, très souvent, deux commandes suffisent. Pour commencer le déploiement rapidement, utilisez les commandes suivantes :
+Cet article décrit toutes les différentes options disponibles lors du déploiement. Toutefois, très souvent, deux commandes suffisent. Pour commencer le déploiement rapidement, utilisez les commandes suivantes :
 
     New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
     New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
@@ -87,7 +88,7 @@ Pour en savoir plus sur les options de déploiement mieux adaptées à votre sc�
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande **New-AzureRmResourceGroupDeployment** et fournissez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario. Le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée. Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete**. Soyez prudent lorsque vous utilisez le mode complet, car vous pouvez supprimer par inadvertance des ressources qui ne sont pas dans votre modèle.
+5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande **New-AzureRmResourceGroupDeployment** et fournissez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario. Si le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée. Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete**. Soyez prudent lorsque vous utilisez le mode complet, car vous pouvez supprimer par inadvertance des ressources qui ne sont pas dans votre modèle.
 
      Pour déployer un modèle local, utilisez le paramètre **TemplateFile** :
 
@@ -97,7 +98,7 @@ Pour en savoir plus sur les options de déploiement mieux adaptées à votre sc�
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate>
    
-     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
    
      1. Utiliser des paramètres incorporés.
 
@@ -186,7 +187,7 @@ Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles l
 ## Étapes suivantes
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/virtual-machines-windows-csharp-template.md).
 - Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
-- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
+- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
 - Pour plus d’informations sur l’utilisation d’une référence Key Vault pour transmettre des valeurs sécurisées, consultez [Transmettre des valeurs sécurisées pendant le déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

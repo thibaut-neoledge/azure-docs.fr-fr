@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="mwahl"/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 
 # Sécurisation de l’accès privilégié dans Azure AD
 
-La sécurisation de l’accès privilégié est une première étape essentielle pour protéger les ressources d’entreprise dans une organisation moderne. La sécurité de la plupart ou de la totalité des ressources d’entreprise dans une organisation dépend de l’intégrité des comptes privilégiés qui administrent et de gèrent des systèmes informatiques. Les pirates informatiques ciblent ces comptes pour accéder aux données et aux systèmes d’une organisation.
+La sécurisation de l’accès privilégié est une première étape essentielle pour protéger les ressources d’entreprise dans une organisation moderne. Les comptes privilégiés sont ceux qui administrent et gèrent des systèmes informatiques. Les pirates informatiques ciblent ces comptes pour accéder aux données et aux systèmes d’une organisation. Pour sécuriser l’accès privilégié, vous devez isoler les comptes et les systèmes contre les risques d’exposition à un utilisateur malveillant.
 
-La protection de l’accès administratif contre des adversaires déterminés nécessite que ces comptes d’administration et ces systèmes soient préservés des risques. De plus en plus d’utilisateurs obtiennent un accès privilégié par le biais de services cloud. Il peut s’agit d’administrateurs généraux d’Office 365, d’administrateurs d’abonnements Azure et d’utilisateurs qui disposent d’un accès administrateur à des machines virtuelles ou à des applications SaaS.
+De plus en plus d’utilisateurs obtiennent un accès privilégié par le biais de services cloud. Il peut s’agit d’administrateurs généraux d’Office 365, d’administrateurs d’abonnements Azure et d’utilisateurs qui disposent d’un accès administrateur à des machines virtuelles ou à des applications SaaS.
 
 Microsoft vous recommande de suivre la feuille de route établie dans la rubrique [Sécurisation de l’accès privilégié](https://technet.microsoft.com/library/mt631194.aspx) (en anglais).
 
@@ -63,19 +63,15 @@ Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les c
 ![Définition des règles d’accès conditionnel avec l’authentification multifacteur][4]
 
 
-## Modèle de rôle
-
-Pour réduire les risques de sécurité, vous devez réviser vos rôles et votre modèle de délégation de manière à ce qu’ils prennent en charge des rôles d’administration de service cloud et intégrer l’utilisation du rôle d’administrateur comme un principe fondamental. Ce modèle doit exploiter les fonctionnalités Just in Time.
-
-## Étapes suivantes
+## Articles connexes
 
 - Activation d’[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 - Activation d’[Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 - Activation d’[Azure AD Identity Protection](active-directory-identityprotection.md)
-- Activation des [contrôles d’accès conditionnel](active-directory-conditional-access.md)
+- Activation des[contrôles d’accès conditionnel](active-directory-conditional-access.md)
 
 
-Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez la section concernant « les responsabilités du client et la feuille de route » du document [Microsoft Cloud Security pour Enterprise Architects](http://aka.ms/securecustomer). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou visitez notre [page de solutions de cyber-sécurité](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez la section concernant les « responsabilités du client et la feuille de route » du document [Microsoft Cloud Security pour Enterprise Architects](http://aka.ms/securecustomer). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou visitez notre [page de solutions de cyber-sécurité](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -83,4 +79,4 @@ Pour plus d’informations sur la création d’une feuille de route de sécurit
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
 # Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
@@ -24,17 +24,65 @@ Cette rubrique décrit comment résoudre certaines erreurs courantes liées au d
 
 ## Modèle ou ressource non valide
 
-Si vous recevez une erreur indiquant que le modèle ou une propriété de ressource n’est pas valide, cela signifie peut-être qu’il manque un caractère dans votre modèle. Cette erreur est courante lors de l’utilisation d’expressions de modèle, car l’expression est placée entre guillemets. Par conséquent, le JSON accepte la validation et votre éditeur est susceptible de ne pas détecter l’erreur. Par exemple, l’affectation de nom suivante pour un compte de stockage contient un jeu de crochets, trois fonctions, trois jeux de parenthèses, un jeu de guillemets simples et une propriété :
+Lorsque vous déployez un modèle, vous pouvez recevoir :
+
+    Code=InvalidTemplate 
+    Message=Deployment template validation failed
+
+Si vous recevez une erreur indiquant que le modèle ou une propriété de ressource n’est pas valide, cela signifie peut-être que votre modèle comporte une erreur de syntaxe. Cette erreur est facile à commettre car les expressions de modèle peuvent être complexes. Par exemple, l’affectation de nom suivante pour un compte de stockage contient un jeu de crochets, trois fonctions, trois jeux de parenthèses, un jeu de guillemets simples et une propriété :
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
 Si vous ne fournissez pas toutes les syntaxes correspondantes, le modèle produit une valeur très différente de votre intention.
 
-Selon l’emplacement où le caractère manque dans le modèle, vous pouvez recevoir un message d’erreur indiquant que le modèle ou qu’une ressource n’est pas valide. L’erreur peut également indiquer que le processus de déploiement n’a pas été en mesure de traiter l’expression de langage de modèle. Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression.
+Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression. Vous pouvez utiliser un éditeur JSON comme [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou [Visual Studio Code](resource-manager-vs-code.md), qui vous signale les erreurs de syntaxe.
+
+## Longueurs de segments incorrectes
+
+Une autre erreur de modèle non valide se produit lorsque le nom de la ressource n’est pas au format approprié.
+
+    Code=InvalidTemplate
+    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    for type {resource-type} has incorrect segment lengths.
+
+Une ressource au niveau racine doit avoir un segment de moins dans le nom que dans le type de ressource. Chaque segment se différencie par une barre oblique. Dans l’exemple suivant, le type comporte 2 segments et le nom 1 segment : il s’agit donc d’un **nom valide**.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "myHostingPlanName",
+
+Mais l’exemple suivant n’est **pas un nom valide** car il possède le même nombre de segments que le type.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "appPlan/myHostingPlanName",
+
+Pour les ressources enfants, le type et le nom doivent avoir le même nombre de segments. C’est logique car le nom complet et le type de l’enfant inclut le nom et le type du parent. Par conséquent, le nom complet a toujours un segment de moins que le type complet.
+
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "contosokeyvault",
+            ...
+            "resources": [
+                {
+                    "type": "secrets",
+                    "name": "appPassword",
+
+Obtenir des segments valides peut être particulièrement difficile si des types Resource Manager sont appliqués à plusieurs fournisseurs de ressources. Par exemple, l’installation d’un verrou de ressource sur un site web nécessite un type avec 4 segments. Par conséquent, le nom comporte 3 segments :
+
+    {
+        "type": "Microsoft.Web/sites/providers/locks",
+        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
 
 ## Le nom de la ressource existe déjà ou est déjà utilisé par une autre ressource
 
-Pour certaines ressources, notamment les comptes de stockage, les serveurs de base de données et les sites web, vous devez fournir un nom de ressource qui est unique dans l’ensemble de l’environnement Azure. Vous pouvez créer un nom unique en concaténant votre nommage avec le résultat de la fonction [uniqueString](resource-group-template-functions.md#uniquestring).
+Pour certaines ressources, notamment les comptes de stockage, les serveurs de base de données et les sites web, vous devez fournir un nom de ressource qui est unique dans l’ensemble de l’environnement Azure. Si vous ne fournissez pas un nom unique, une erreur de ce type peut s’afficher :
+
+    Code=StorageAccountAlreadyTaken 
+    Message=The storage account named mystorage is already taken.
+
+Vous pouvez créer un nom unique en concaténant votre nommage avec le résultat de la fonction [uniqueString](resource-group-template-functions.md#uniquestring).
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
@@ -128,7 +176,7 @@ Pour examiner les quotas de cœurs de votre abonnement, vous pouvez utiliser la 
 
     azure vm list-usage
 
-Résultat :
+Résultat :
 
     info:    Executing command vm list-usage
     Location: westus
@@ -137,7 +185,7 @@ Résultat :
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest des États-Unis dans l’abonnement ci-dessus, vous obtenez une erreur de déploiement qui peut ressembler à ceci (dans le portail ou en examinant les journaux de déploiement) :
+Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest des États-Unis dans l’abonnement ci-dessus, vous obtenez une erreur de déploiement qui peut ressembler à ceci (dans le portail ou en examinant les journaux de déploiement) :
 
     statusCode:Conflict
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -147,7 +195,7 @@ Dans PowerShell, vous pouvez également utiliser l’applet de commande **Get-Az
 
     Get-AzureRmVMUsage
 
-Résultat :
+Résultat :
 
     ...
     CurrentValue : 0
@@ -161,7 +209,7 @@ Résultat :
 
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
-> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
+> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
 
 
 ## Échec de l’autorisation
@@ -200,7 +248,7 @@ Le tableau suivant ne constitue pas une liste exhaustive des rubriques de dépan
 | Storage | [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple | [Résolution des problèmes de déploiement d’un appareil StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) |
 | Base de données SQL | [Résoudre des problèmes de connexion à la base de données SQL Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) |
-| SQL Data Warehouse | [Résolution des problèmes d’Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
+| SQL Data Warehouse | [Résolution des problèmes d’Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
 
 ## Déterminer quand un déploiement est prêt
 
@@ -213,4 +261,4 @@ Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

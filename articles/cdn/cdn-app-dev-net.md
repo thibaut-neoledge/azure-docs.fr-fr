@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="casoper"/>
 
 # Prise en main du développement Azure CDN
@@ -24,7 +24,7 @@
 
 Vous pouvez utiliser la [bibliothèque Azure CDN pour .NET](https://msdn.microsoft.com/library/mt657769.aspx) pour automatiser la création et la gestion des points de terminaison et profils CDN. Ce didacticiel présente la création d’une application console .NET simple, qui exécute plusieurs des opérations disponibles. Il n’a pas vocation à décrire en détail tous les aspects de la bibliothèque Azure CDN pour .NET.
 
-Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) est disponible gratuitement en téléchargement.
+Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) est disponible gratuitement en téléchargement.
 
 > [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) est disponible en téléchargement sur MSDN.
 
@@ -58,7 +58,7 @@ Rédigeons la structure de base de notre programme.
 
 1. Dans l’onglet Program.cs, remplacez les directives `using` au début par les éléments suivants :
 
-	```
+	```csharp
 	using System;
 	using System.Collections.Generic;
 	using Microsoft.Azure.Management.Cdn;
@@ -71,7 +71,7 @@ Rédigeons la structure de base de notre programme.
 
 2. Nous devons définir certaines constantes que nos méthodes utiliseront. Dans la classe `Program` mais avant la méthode `Main`, ajoutez le code suivant. Veillez à remplacer les espaces réservés, y compris les **&lt;éléments entre chevrons&gt;** par vos propres valeurs, si nécessaire.
 
-	```
+	```csharp
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
 	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -85,16 +85,16 @@ Rédigeons la structure de base de notre programme.
 	private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
 	```
 
-3. De plus, au niveau de la classe, vous devez définir ces deux variables. Nous les utiliserons ultérieurement pour déterminer si notre profil et notre point de terminaison existent déjà.
+3. De plus, au niveau de la classe, vous devez définir ces deux variables. Nous les utiliserons ultérieurement pour déterminer si notre profil et notre point de terminaison existent déjà.
 
-	```
+	```csharp
 	static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
 	```
 
 4.  Remplacez la méthode `Main` comme suit :
 
-	```
+	```csharp
 	static void Main(string[] args)
 	{
 		//Get a token
@@ -130,7 +130,7 @@ Rédigeons la structure de base de notre programme.
 
 5. Certaines de nos autres méthodes posent à l’utilisateur des questions fermées (de type Oui/non). Ajoutez la méthode suivante pour faciliter l’opération :
 
-	```
+	```csharp
 	private static bool PromptUser(string Question)
 	{
 		Console.Write(Question + " (Y/N): ");
@@ -158,7 +158,7 @@ Maintenant que la structure de base de notre programme est écrite, nous devons 
 
 Pour pouvoir utiliser la bibliothèque Azure CDN Management Library, nous devons authentifier notre principal de service et obtenir un jeton d’authentification. Cette méthode utilise la bibliothèque ADAL pour récupérer le jeton.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority); 
@@ -174,7 +174,7 @@ Si vous utilisez l’authentification d’utilisateurs individuels, la méthode 
 
 >[AZURE.IMPORTANT] N’utilisez ce code que si vous privilégiez l’authentification d’utilisateurs individuels au principal du service.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority);
@@ -191,7 +191,7 @@ Veillez à remplacer `<redirect URI>` par l’URI de redirection que vous avez s
 
 Nous sommes maintenant prêts à effectuer des opérations CDN. La première action de notre méthode est de répertorier tous les profils et points de terminaison dans notre groupe de ressources. Si elle trouve une correspondance avec les noms de profil et de point de terminaison spécifiés dans nos constantes, elle la mémorise pour éviter de créer des doublons.
 
-```
+```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 {
 	// List all the CDN profiles in this resource group
@@ -226,7 +226,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 
 Maintenant, nous allons créer un profil.
 
-```
+```csharp
 private static void CreateCdnProfile(CdnManagementClient cdn)
 {
 	if (profileAlreadyExists)
@@ -245,7 +245,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 
 Après le profil, nous allons créer un point de terminaison.
 
-```
+```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
 {
 	if (endpointAlreadyExists)
@@ -274,7 +274,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 
 En supposant que le point de terminaison a été créé, une tâche courante que nous pouvons effectuer dans notre programme consiste à vider le contenu de notre point de terminaison.
 
-```
+```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 {
 	if (PromptUser(String.Format("Purge CDN endpoint {0}?", endpointName)))
@@ -293,7 +293,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 Les dernières méthodes supprimeront notre point de terminaison et notre profil.
 
-```
+```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
 {
 	if(PromptUser(String.Format("Delete CDN endpoint {0} on profile {1}?", endpointName, profileName)))
@@ -325,7 +325,7 @@ Nous pouvons maintenant compiler et exécuter le programme en cliquant sur le bo
 
 Lorsque le programme atteint l’invite ci-dessus, vous pouvez revenir à votre groupe de ressources dans le portail Azure et vérifier que le profil a été créé.
 
-![Vous avez réussi !](./media/cdn-app-dev-net/cdn-success.png)
+![Vous avez réussi !](./media/cdn-app-dev-net/cdn-success.png)
 
 Nous pouvons alors confirmer les invites pour exécuter le reste du programme.
 
@@ -337,4 +337,4 @@ Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [t�
 
 Pour trouver de la documentation supplémentaire sur la bibliothèque Azure CDN Management Library pour .NET, consultez la [référence sur MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

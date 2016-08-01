@@ -18,7 +18,7 @@
    
 # Développement avec des comptes DocumentDB à plusieurs régions
 
-Pour tirer parti de la [distribution mondiale](documentdb-distribute-data-globally.md), les applications clientes peuvent spécifier la liste ordonnée de préférences de régions à utiliser pour effectuer des opérations sur les documents. Pour cela, vous devez configurer la stratégie de connexion. Selon la configuration du compte DocumentDB, la disponibilité régionale actuelle et la liste de préférences spécifiée, le Kit de développement logiciel (SDK) choisit le point de terminaison optimal pour les opérations de lecture et d’écriture.
+Pour tirer parti de la [distribution mondiale](documentdb-distribute-data-globally.md), les applications clientes peuvent spécifier la liste ordonnée de préférences de régions à utiliser pour effectuer des opérations sur les documents. Pour cela, vous devez configurer la stratégie de connexion. Selon la configuration du compte Azure DocumentDB, la disponibilité régionale actuelle et la liste de préférences spécifiée, le Kit de développement logiciel (SDK) choisit le point de terminaison optimal pour les opérations de lecture et d’écriture.
 
 Cette liste de préférences est spécifiée lors de l’initialisation d’une connexion en utilisant les SDK clients. Les SDK acceptent un paramètre facultatif « PreferredLocations » qui est une liste ordonnée des régions Azure.
 
@@ -143,4 +143,4 @@ Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans l
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

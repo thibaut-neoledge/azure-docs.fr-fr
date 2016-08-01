@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configuration d’un environnement de cloud hybride pour le test
@@ -23,25 +23,25 @@ Cette rubrique vous guide lors de la création d'un environnement de cloud hybri
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-base/virtual-machines-windows-ps-hybrid-cloud-test-env-base-ph5.png)
 
-Cette configuration simule un environnement réel de production hybride à partir de votre emplacement sur Internet. Elle comprend :
+Cette configuration simule un environnement réel de production hybride à partir de votre emplacement sur Internet. Elle comprend :
 
 -  Un réseau local simplifié (sous-réseau de réseau d'entreprise).
 -  Un réseau virtuel intersite hébergé dans Azure (TestVNET).
 -  Une connexion VPN de site à site.
 -  Un contrôleur de domaine secondaire dans le réseau virtuel TestVNET.
 
-Cette configuration fournit une base et un point de départ commun à partir duquel vous pouvez :
+Cette configuration fournit une base et un point de départ commun à partir duquel vous pouvez :
 
 -  Développer et tester des applications dans un environnement de cloud hybride.
 -  Créer des configurations de test des ordinateurs, certains sur le sous-réseau de réseau d'entreprise et d'autres dans le réseau virtuel TestVNET, pour les charges de travail informatiques de cloud hybride.
 
-Il existe cinq phases principales de configuration de cet environnement de test de cloud hybride :
+Il existe cinq phases principales de configuration de cet environnement de test de cloud hybride :
 
 1.	Configurer les ordinateurs sur le sous-réseau de réseau d'entreprise.
 2.	Configurer RRAS1.
 3.	Créer le réseau virtuel Azure intersite.
 4.	Créer la connexion VPN de site à site
-5.	Configurer DC2. 
+5.	Configurer DC2.
 
 Si vous n’avez pas encore d’abonnement Azure, vous pouvez obtenir un compte gratuit sur la page [Version d’essai d’Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -49,9 +49,9 @@ Si vous n’avez pas encore d’abonnement Azure, vous pouvez obtenir un compte 
 
 Cette configuration nécessite un sous-réseau de test comportant jusqu’à quatre ordinateurs connectés directement à Internet à l’aide d’une adresse IP publique. Si vous ne disposez pas de ces ressources, vous pouvez également configurer une [simulation d’environnement de cloud hybride à des fins de test](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). L’environnement de test de cloud hybride simulé nécessite uniquement un abonnement Azure.
 
-## Phase 1 : configurer les ordinateurs sur le sous-réseau de réseau d’entreprise
+## Phase 1 : configurer les ordinateurs sur le sous-réseau de réseau d’entreprise
 
-Suivez les instructions de la section décrivant la procédure de configuration du sous-réseau d’entreprise dans le [Guide de laboratoire de test : configuration de base pour Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) (en anglais) pour configurer les ordinateurs DC1, APP1 et CLIENT1 sur un sous-réseau nommé Corpnet. **Ce sous-réseau doit être isolé de votre réseau d’entreprise, car il est connecté directement à Internet par le biais de l’ordinateur RRAS1.**
+Suivez les instructions de la section décrivant la procédure de configuration du sous-réseau d’entreprise dans le [Guide de laboratoire de test : configuration de base pour Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) (en anglais) pour configurer les ordinateurs DC1, APP1 et CLIENT1 sur un sous-réseau nommé Corpnet. **Ce sous-réseau doit être isolé de votre réseau d’entreprise, car il est connecté directement à Internet par le biais de l’ordinateur RRAS1.**
 
 Ensuite, connectez-vous à DC1 avec les informations d'identification CORP\\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
 
@@ -64,20 +64,20 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-base/virtual-machines-windows-ps-hybrid-cloud-test-env-base-ph1.png)
  
-## Phase 2 : configurer RRAS1
+## Phase 2 : configurer RRAS1
 
 RRAS1 fournit le routage du trafic et les services de périphérique VPN entre les ordinateurs sur le sous-réseau de réseau d'entreprise et le réseau virtuel TestVNET. RRAS1 doit avoir deux cartes réseau installées.
 
 Tout d'abord, installez le système d'exploitation sur RRAS1.
 
-1.	Démarrez l'installation de Windows Server 2012 R2.
+1.	Démarrez l'installation de Windows Server 2012 R2.
 2.	Suivez les instructions pour terminer l'installation, en spécifiant un mot de passe fort pour le compte d'administrateur local. Ouvrez une session en utilisant le compte d'administrateur local.
-3.	Connectez RRAS1 à un réseau qui a accès à Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2012 R2.
+3.	Connectez RRAS1 à un réseau qui a accès à Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2012 R2.
 4.	Connectez une carte réseau au sous-réseau de réseau d'entreprise et l'autre directement à Internet. RRAS1 peut se trouver derrière un pare-feu Internet mais ne doit pas être derrière un traducteur d'adresses réseau (NAT).
 
-Ensuite, configurez les propriétés TCP/IP de RRAS1. Vous aurez besoin d'une configuration d'adresse IP publique, y compris une adresse et un masque de sous-réseau (ou une longueur de préfixe) ainsi que la passerelle par défaut et les serveurs DNS de votre fournisseur de services Internet (ISP). Vous avez besoin de l’adresse IP publique pour l’étape 3.
+Ensuite, configurez les propriétés TCP/IP de RRAS1. Vous aurez besoin d'une configuration d'adresse IP publique, y compris une adresse et un masque de sous-réseau (ou une longueur de préfixe) ainsi que la passerelle par défaut et les serveurs DNS de votre fournisseur de services Internet (ISP). Vous avez besoin de l’adresse IP publique pour l’étape 3.
 
-Utilisez les commandes suivantes à partir d'une invite de commandes Windows PowerShell de niveau administrateur sur RRAS1. Avant d'exécuter ces commandes, renseignez les valeurs des variables et supprimez les caractères < and >. Vous pouvez obtenir les noms actuels des cartes réseau à partir de l’affichage de la commande **Get-NetAdapter**.
+Utilisez les commandes suivantes à partir d'une invite de commandes Windows PowerShell de niveau administrateur sur RRAS1. Avant d’exécuter ces commandes, renseignez les valeurs des variables et supprimez les caractères < et >. Vous pouvez obtenir les noms actuels des cartes réseau à partir de l’affichage de la commande **Get-NetAdapter**.
 
 	$corpnetAdapterName="<Name of the adapter attached to the Corpnet subnet>"
 	$internetAdapterName="<Name of the adapter attached to the Internet>"
@@ -98,17 +98,17 @@ Utilisez les commandes suivantes à partir d'une invite de commandes Windows Pow
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_server
 	ping dc1.corp.contoso.com
 
-Pour la dernière commande, vérifiez qu'il y a quatre réponses à partir de l'adresse IP 10.0.0.1.
+Pour la dernière commande, vérifiez qu'il y a quatre réponses à partir de l'adresse IP 10.0.0.1.
 
 Ceci est votre configuration actuelle.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-base/virtual-machines-windows-ps-hybrid-cloud-test-env-base-ph2.png)
 
-## Phase 3 : créer le réseau virtuel Azure entre différents locaux
+## Phase 3 : créer le réseau virtuel Azure entre différents locaux
 
 Démarrez une invite de commandes Azure PowerShell.
 
-> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Connectez-vous à votre compte.
 
@@ -118,7 +118,7 @@ Obtenez votre nom d'abonnement à l'aide de la commande suivante.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Définissez votre abonnement Azure. Utilisez le même abonnement que celui utilisé pour créer la configuration de base. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Définissez votre abonnement Azure. Utilisez le même abonnement que celui utilisé pour créer la configuration de base. Remplacez tous les éléments entre guillemets, y compris les caractères < et >, par les noms appropriés.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -179,7 +179,7 @@ Puis utilisez ces commandes pour créer des passerelles pour la connexion VPN de
 	$localNetworkPrefix="10.0.0.0/8"
 	$localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
 
-N'oubliez pas que la création de passerelles peut prendre au moins 20 minutes.
+N'oubliez pas que la création de passerelles peut prendre au moins 20 minutes.
 
 Ensuite, utilisez la commande suivante pour déterminer l’adresse IP publique de la passerelle VPN Azure pour votre réseau virtuel.
 
@@ -200,7 +200,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-base/virtual-machines-windows-ps-hybrid-cloud-test-env-base-ph3.png)
  
-## Phase 4 : créer la connexion VPN de site à site
+## Phase 4 : créer la connexion VPN de site à site
 
 Tout d’abord, configurez RRAS1 avec le service Routage et accès distant en tant que périphérique VPN pour le sous-réseau Corpnet. Connectez-vous à RRAS1 en tant qu'administrateur local et exécutez les commandes suivantes à partir d'une invite de commandes Windows PowerShell.
 
@@ -221,9 +221,9 @@ Ensuite, configurez RRAS1 pour recevoir la connexion VPN de site à site à part
 
 Quelques minutes sont nécessaires pour que la connexion entre RRAS1 et la passerelle VPN Azure soit établie.
 
-Puis, configurez RRAS1 pour prendre en charge le trafic traduit vers des emplacements Internet. Sur RRAS1 :
+Puis, configurez RRAS1 pour prendre en charge le trafic traduit vers des emplacements Internet. Sur RRAS1 :
 
-1.	Sur l’écran d’accueil, tapez **rras**, puis cliquez sur **Routage et accès distant**. 
+1.	Sur l’écran d’accueil, tapez **rras**, puis cliquez sur **Routage et accès distant**.
 2.	Dans l’arborescence de la console, ouvrez le nom du serveur, puis cliquez sur **IPv4**.
 3.	Cliquez avec le bouton droit sur **Général**, puis cliquez sur **Nouveau protocole de routage**.
 4.	Cliquez sur **NAT**, puis sur **OK**.
@@ -254,7 +254,7 @@ Ceci est votre configuration actuelle.
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-base/virtual-machines-windows-ps-hybrid-cloud-test-env-base-ph4.png)
 
 
-## Phase 5 : configurer DC2
+## Phase 5 : configurer DC2
 
 Commencez par créer une machine virtuelle Azure pour DC2 avec les commandes suivantes à partir de l'invite de commandes Azure PowerShell sur votre ordinateur local.
 
@@ -280,20 +280,20 @@ Commencez par créer une machine virtuelle Azure pour DC2 avec les commandes sui
 
 Ensuite, utilisez le portail Azure pour vous connecter à la nouvelle machine virtuelle DC2 avec les informations d’identification du compte d’administrateur local.
 
-Ensuite, configurez une règle de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base. À partir d'une invite de commandes Windows PowerShell de niveau administrateur sur DC2, exécutez :
+Ensuite, configurez une règle de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base. À partir d'une invite de commandes Windows PowerShell de niveau administrateur sur DC2, exécutez :
 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-La commande ping doit obtenir quatre réponses correctes à partir de l’adresse IP 10.0.0.1. Si vous utilisez la *configuration de cloud hybride simulé*, vous devez voir quatre réponses réussies à partir de l’adresse IP 10.0.0.4. Il s’agit d’un test de trafic sur la connexion VPN de site à site ou la connexion de réseau virtuel à réseau virtuel.
+La commande ping doit obtenir quatre réponses correctes à partir de l’adresse IP 10.0.0.1. Si vous utilisez la *configuration de cloud hybride simulé*, vous devez voir quatre réponses réussies à partir de l’adresse IP 10.0.0.4. Il s’agit d’un test de trafic sur la connexion VPN de site à site ou la connexion de réseau virtuel à réseau virtuel.
 
 Ensuite, ajoutez le disque de données supplémentaire en tant que nouveau volume avec la lettre de lecteur F:.
 
 1.	Dans le volet gauche du Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Disques**.
-2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
+2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
 3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
 4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
-5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
+5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
 6.	Dans la page Spécifier la taille du volume, cliquez sur **Suivant**.
 7.	À la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
 8.	À la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
@@ -307,7 +307,7 @@ Ensuite, configurez DC2 comme contrôleur de domaine réplica pour le domaine co
 
 Notez que vous serez invité à fournir le mot de passe CORP\\User1 et un mot de passe du Mode restauration des services d'annuaire (DSRM) et à redémarrer DC2.
 
-Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2), vous devez configurer le réseau virtuel TestVNET pour utiliser ce serveur DNS.
+Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2), vous devez configurer le réseau virtuel TestVNET pour utiliser ce serveur DNS.
 
 1.	Dans le volet gauche du portail Azure, cliquez sur l’icône des réseaux virtuels, puis sur **TestVNET**.
 2.	Dans l’onglet **Paramètres**, cliquez sur **Serveurs DNS**.
@@ -329,4 +329,4 @@ Votre environnement de cloud hybride est maintenant prêt à être testé.
 
 - Configurez une [batterie de serveurs intranet SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), une [application métier web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) ou un [serveur de synchronisation d’annuaires Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) dans cet environnement.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

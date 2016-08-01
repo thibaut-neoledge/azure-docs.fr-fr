@@ -20,7 +20,7 @@
 
 Les [**Tâches de bases de données élastiques**](sql-database-elastic-jobs-overview.md) peuvent être installées à l’aide de PowerShell ou du portail Azure Classic. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
-Si vous avez déjà installé **Tâches de bases de données élastiques** via le portail à partir d'un **pool élastique de bases de données** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
+Si vous avez déjà installé **Tâches de bases de données élastiques** via le portail à partir d'un **pool élastique de bases de données** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
 ## Composants requis
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
@@ -28,25 +28,25 @@ Si vous avez déjà installé **Tâches de bases de données élastiques** via l
 * L'[utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d'informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Téléchargez et importez le package Tâches de bases de données élastiques PowerShell
-1. Lancez la fenêtre de commande Microsoft Azure PowerShell et accédez au répertoire où vous avez téléchargé l’utilitaire de ligne de commande NuGet (nuget.exe).
+1. Lancez la fenêtre de commande Microsoft Azure PowerShell et accédez au répertoire où vous avez téléchargé l’utilitaire de ligne de commande NuGet (nuget.exe).
 
-2. Téléchargez et importez le package **Tâches de bases de données élastiques** dans le répertoire actuel à l'aide de la commande suivante :
+2. Téléchargez et importez le package **Tâches de bases de données élastiques** dans le répertoire actuel à l'aide de la commande suivante :
 
 		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
     Les fichiers **Tâches de bases de données élastiques** sont placés dans un dossier du répertoire local nommé **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** où *x.x.xxxx.x* correspond au numéro de version. Les applets de commande PowerShell (y compris les .dll clients requis) se trouvent dans le sous-répertoire **tools\\ElasticDatabaseJobs** et les scripts PowerShell d’installation, de mise à niveau et de désinstallation résident également dans le sous-répertoire **tools**.
 
-3. Accédez au sous-répertoire tools sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x en tapant cd tools, par exemple :
+3. Accédez au sous-répertoire tools sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x en tapant cd tools, par exemple :
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-4.	Exécutez le script .\\InstallElasticDatabaseJobsCmdlets.ps1 pour copier le répertoire ElasticDatabaseJobs dans $home\\Documents\\WindowsPowerShell\\Modules. Ceci importera automatiquement le module à utiliser, par exemple :
+4.	Exécutez le script .\\InstallElasticDatabaseJobsCmdlets.ps1 pour copier le répertoire ElasticDatabaseJobs dans $home\\Documents\\WindowsPowerShell\\Modules. Ceci importera automatiquement le module à utiliser, par exemple :
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Installez les composants de Tâches de bases de données élastiques à l'aide de PowerShell
-1.	Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire \\tools sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x : tapez cd \\tools
+1.	Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire \\tools sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x : tapez cd \\tools
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -57,7 +57,7 @@ Si vous avez déjà installé **Tâches de bases de données élastiques** via l
 
 Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous devez entrer un **nom d'utilisateur** et un **mot de passe**. Il ne s'agit pas de vos informations d'identification Azure. Entrez le nom d'utilisateur et le mot de passe qui seront les informations d'identification d'administrateur que vous souhaitez créer pour le nouveau serveur.
 
-Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par les paramètres souhaités. La liste suivante vous fournit plus d'informations sur le comportement de chaque paramètre :
+Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par les paramètres souhaités. La liste suivante vous fournit plus d'informations sur le comportement de chaque paramètre :
 
 <table style="width:100%">
   <tr>
@@ -107,7 +107,7 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
 </tr>
 </table>
 
-Pour les systèmes qui ciblent un très grand nombre de tâches s’exécutant en parallèle sur de nombreuses bases de données, il est vivement recommandé de spécifier des paramètres tels que : - ServiceWorkerCount 2 - ServiceVmSize A2 - SqlServerDatabaseSlo S2.
+Pour les systèmes qui ciblent un très grand nombre de tâches s’exécutant en parallèle sur de nombreuses bases de données, il est vivement recommandé de spécifier des paramètres tels que : - ServiceWorkerCount 2 - ServiceVmSize A2 - SqlServerDatabaseSlo S2.
 
     PS C:*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
     PS C:*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\InstallElasticDatabaseJobs.ps1 -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2
@@ -151,10 +151,10 @@ Pour mettre à jour la taille de la machine virtuelle d’une installation, exé
 
 ## Installez les composants de Tâches de bases de données élastiques à l'aide du portail
 
-Une fois que vous avez [créé un pool de bases de données élastique](sql-database-elastic-pool-create-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool de bases de données élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques**, l'interface du portail ne peut être exécuté que sur un pool existant.
+Une fois que vous avez [créé un pool de bases de données élastique](sql-database-elastic-pool-create-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool de bases de données élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques**, l'interface du portail ne peut être exécuté que sur un pool existant.
 
 
-**Durée estimée :** 10 minutes.
+**Durée estimée :** 10 minutes.
 
 1. Dans la vue du tableau de bord du pool de bases de données élastique via le [portail Azure](https://portal.azure.com/#), cliquez sur **Créer une tâche**.
 2. Si vous créez une tâche pour la première fois, vous devez installer **Tâches de bases de données élastiques** en cliquant sur **PREVIEW TERMS**.
@@ -167,7 +167,7 @@ Une fois que vous avez [créé un pool de bases de données élastique](sql-data
 
 	![Créer le nom d'utilisateur et le mot de passe][2]
 
-6. Cliquez sur le bouton OK. Les composants sont créés pour vous en quelques minutes dans un nouveau [groupe de ressources](../azure-portal/resource-group-portal.md). Le nouveau groupe de ressources est épinglé au panneau de démarrage, comme illustré ci-dessous. Les tâches de bases de données élastiques (Service Cloud, Base de données SQL, Service Bus et Storage) sont toutes créées dans le groupe.
+6. Cliquez sur le bouton OK. Les composants sont créés pour vous en quelques minutes dans un nouveau [groupe de ressources](../resource-group-overview.md). Le nouveau groupe de ressources est épinglé au panneau de démarrage, comme illustré ci-dessous. Les tâches de bases de données élastiques (Service Cloud, Base de données SQL, Service Bus et Storage) sont toutes créées dans le groupe.
 
 	![groupe de ressources dans le panneau de démarrage][3]
 
@@ -179,7 +179,7 @@ Si la désinstallation est nécessaire, supprimez le groupe de ressources. Consu
 
 ## Étapes suivantes
 
-Vérifiez que les informations d’identification disposant des droits appropriés pour l’exécution du script sont créées sur chaque base de données du groupe. Pour plus d’informations, consultez [Sécurisation de votre base de données SQL](sql-database-security.md) Consultez [Création et gestion de Tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md) pour commencer.
+Vérifiez que les informations d’identification disposant des droits appropriés pour l’exécution du script sont créées sur chaque base de données du groupe. Pour plus d’informations, consultez [Sécurisation de votre base de données SQL](sql-database-security.md) Consultez [Création et gestion de Tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md) pour commencer.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
@@ -187,4 +187,4 @@ Vérifiez que les informations d’identification disposant des droits appropri�
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

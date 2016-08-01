@@ -1,29 +1,29 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Azure"
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Azure"
     description="Apprenez à utiliser Benefitsolver avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/26/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
-#Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
+#Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
 
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Benefitsolver. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Benefitsolver. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Benefitsolver pour lequel l’authentification unique est activée
 
 À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Benefitsolver pourront s’authentifier de manière unique dans l’application à l’aide de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1.  Activation de l’intégration d’applications pour Benefitsolver
 2.  Configuration de l'authentification unique
@@ -35,7 +35,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 
 Cette section décrit l’activation de l’intégration d’applications pour Benefitsolver.
 
-###Pour activer l’intégration d’applications pour Benefitsolver, procédez comme suit :
+###Pour activer l’intégration d’applications pour Benefitsolver, procédez comme suit :
 
 1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
@@ -51,7 +51,7 @@ Cette section décrit l’activation de l’intégration d’applications pour B
 
     ![Ajouter l’application](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Ajouter l’application")
 
-5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
     ![Ajouter une application à partir de la galerie](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
@@ -64,11 +64,11 @@ Cette section décrit l’activation de l’intégration d’applications pour B
     ![Benefitsolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitsolver")
 ##Configuration de l'authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Benefitsolver avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Votre application Benefitsolver s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des **attributs du jeton SAML**. La capture d’écran suivante montre un exemple :
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Benefitsolver avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Votre application Benefitsolver s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des **attributs du jeton SAML**. La capture d’écran suivante montre un exemple :
 
 ![Attributs](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributs")
 
-###Pour configurer l’authentification unique, procédez comme suit :
+###Pour configurer l’authentification unique, procédez comme suit :
 
 1.  Dans le portail Azure Classic, sur la page d’intégration d’application **Benefitsolver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -78,12 +78,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer les paramètres de l’application**, procédez comme suit :
+3.  Dans la page **Configurer les paramètres de l’application**, procédez comme suit :
 
     ![Configurer les paramètres d’application](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurer les paramètres d’application")
 
     1.  Dans la zone de texte **URL d’authentification**, tapez **http://azure.benefitsolver.com**.
     2.  Dans la zone de texte **URL de réponse**, tapez **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+
 
     3.  Cliquez sur **Next**.
 
@@ -95,7 +96,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     >[AZURE.NOTE] L’équipe de support technique Benefitsolver doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
 
-6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configurer l’authentification unique")
 
@@ -103,7 +104,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Attributs](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributs")
 
-8.  Pour ajouter les mappages d’attribut requis, procédez comme suit :
+8.  Pour ajouter les mappages d’attribut requis, procédez comme suit :
 
     ![Attributs](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributs")
 
@@ -125,15 +126,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Benefitsolver, vous devez les approvisionner dans Benefitsolver. Dans le cas de Benefitsolver, les données des employés se trouvent dans votre application, remplies grâce à un fichier de recensement issu de votre système de ressources humaines (généralement de nuit).
 
->[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Benefitsolver pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Benefitsolver pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
 ##Affectation d’utilisateurs
 
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###Pour affecter des utilisateurs à Benefitsolver, procédez comme suit :
+###Pour affecter des utilisateurs à Benefitsolver, procédez comme suit :
 
-1.  Dans le portail Azure Classic, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Affecter des utilisateurs**.
 
@@ -145,4 +146,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

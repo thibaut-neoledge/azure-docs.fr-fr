@@ -18,7 +18,7 @@
 
 # Améliorer votre compte DocumentDB
 
-Suivez ces étapes pour tirer parti d’un débit plus élevé pour votre compte DocumentDB S1. Avec peu ou pas de frais supplémentaires, vous pouvez augmenter le débit de votre compte S1 existant 250 à 400 [unités de requête/s](documentdb-request-units.md) ou plus !
+Suivez ces étapes pour tirer parti d’un débit plus élevé pour votre compte Azure DocumentDB S1. Avec peu ou pas de frais supplémentaires, vous pouvez augmenter le débit de votre compte S1 existant 250 à 400 [unités de requête/s](documentdb-request-units.md) ou plus !
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
@@ -49,6 +49,6 @@ Pour plus d’informations sur les modifications liées aux débits définis par
 
 ## Étapes suivantes
 
-Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour créer une collection partitionnée, consultez [Créer une collection](documentdb-create-collection.md).
+Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour créer une collection partitionnée, consultez [Créer une collection](documentdb-create-collection.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

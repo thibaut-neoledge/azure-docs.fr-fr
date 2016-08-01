@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/18/2016"
 	ms.author="ricksal"/>
 
 # Ajout de l’authentification à votre application Android
@@ -48,7 +48,7 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
 ##Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
+Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 + [Ajouter des notifications Push à votre application Android](app-service-mobile-android-get-started-push.md) Apprenez à ajouter la prise en charge des notifications push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications push.
 
@@ -68,4 +68,4 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 <!-- URLs. -->
 [Prise en main de Mobile Apps]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

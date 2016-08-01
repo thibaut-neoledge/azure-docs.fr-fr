@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/06/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -40,7 +40,7 @@ Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouve
  
 > [AZURE.NOTE] Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez : [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 
-Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure.
 - base de données SQL Azure.
@@ -85,7 +85,7 @@ Cette commande envoie une demande d’exportation de la base de données au serv
 
 ## Surveillez la progression de l’opération d’exportation
 
-Après l’exécution de **New-AzureRmSqlDatabaseExport**, vous pouvez vérifier l’état de la demande. En cas d’exécution immédiatement après la demande, cela renvoie généralement **État : En attente** ou **État : En cours d’exécution**. Vous pouvez donc exécuter cette opération plusieurs fois jusqu’à ce que vous voyiez **État : Terminé** en sortie.
+Après l’exécution de **New-AzureRmSqlDatabaseExport**, vous pouvez vérifier l’état de la demande. En cas d’exécution immédiatement après la demande, cela renvoie généralement **État : En attente** ou **État : En cours d’exécution**. Vous pouvez donc exécuter cette opération plusieurs fois jusqu’à ce que vous voyiez **État : Terminé** en sortie.
 
 Cette commande vous demandera un mot de passe. Entrez le mot de passe administrateur de votre serveur SQL.
 
@@ -120,4 +120,4 @@ Cette commande vous demandera un mot de passe. Entrez le mot de passe administra
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

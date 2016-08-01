@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main de l’API de création de rapports Azure AD | Microsoft Azure"
-   description="Prise en main de l'API de création de rapports Azure Active Directory"
+   description="Prise en main de l'API de création de rapports Azure Active Directory"
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="dhanyahk"/>
 
 # Prise en main de l’API de création de rapports Azure Active Directory
@@ -24,11 +24,11 @@ Azure Active Directory (AD) fournit plusieurs rapports d’activité, de sécuri
 
 Les [API de création de rapports Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) fournissent un accès par programme à ces données au moyen d’un ensemble d’API REST qui peuvent être appelées à partir de divers outils et langages de programmation.
 
-Cet article vous guidera à travers le processus d'appel de l'API de création de rapports Azure AD, à l'aide de PowerShell. Vous pouvez modifier l'exemple de script PowerShell pour accéder aux données à partir des rapports disponibles au format JSON, XML ou texte, en fonction des besoins de votre scénario.
+Cet article vous guidera à travers le processus d'appel de l'API de création de rapports Azure AD, à l'aide de PowerShell. Vous pouvez modifier l'exemple de script PowerShell pour accéder aux données à partir des rapports disponibles au format JSON, XML ou texte, en fonction des besoins de votre scénario.
 
 Pour utiliser cet exemple, vous avez besoin d’un client [Azure Active Directory](active-directory-whatis.md).
 
-## Création d'une application Azure AD pour accéder à l'API
+## Création d'une application Azure AD pour accéder à l'API
 
 L'API de création de rapports utilise [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) pour autoriser l'accès à l'API web. Pour accéder aux informations de votre annuaire, vous devez créer une application dans votre client Azure AD et lui accorder des autorisations appropriées pour accéder aux données Azure AD.
 
@@ -43,19 +43,19 @@ Pour procéder à l’inscription de l’application Azure AD, vous devez vous c
 2. Accédez à votre client Azure AD, dans l’extension **Active Directory** le long du volet gauche.
 3. Accédez à l’onglet **Applications**.
 4. Dans la barre inférieure, cliquez sur **Ajouter**.
-	- Cliquez sur « Ajouter une application développée par mon organisation ».
-	- **Nom** : n'importe quel nom est correct. Quelque chose comme « Application API Création de rapports » est recommandé.
-	- **Type** : Sélectionnez « Application web et/ou API web ».
+	- Cliquez sur « Ajouter une application développée par mon organisation ».
+	- **Nom** : n'importe quel nom est correct. Quelque chose comme « Application API Création de rapports » est recommandé.
+	- **Type** : Sélectionnez « Application web et/ou API web ».
 	- Cliquez sur la flèche pour passer à la page suivante.
-	- **URL d'authentification** : ```https://localhost```.
-	- **URI d'ID d'application** : ```https://localhost/ReportingApiApp```.
+	- **URL d'authentification** : ```https://localhost```.
+	- **URI d'ID d'application** : ```https://localhost/ReportingApiApp```.
 	- Cliquez sur la coche pour terminer l’ajout de l’application.
 
 ### Autorisation d'utilisation de l'API pour votre application
 1. Accédez à l’onglet **Applications**.
 2. Accédez à votre application nouvellement créée.
 3. Cliquez sur l’onglet **Configurer**.
-4. Dans la section « Autorisations pour d'autres applications » :
+4. Dans la section « Autorisations pour d'autres applications » :
 	- Pour la ressource Microsoft Azure Active Directory (autorisations sur l’API Microsoft Azure AD Graph), cliquez sur la liste déroulante Autorisations d’application, puis sélectionnez **Lire les données du répertoire**.
 
         > [AZURE.IMPORTANT] Veillez à spécifier les autorisations appropriées. Appliquez Autorisations d’application et pas Autorisations déléguées, faute de quoi l’application n’obtiendra pas le niveau d’autorisation nécessaire pour accéder à l’API de création de rapports, et votre script recevra le message d’erreur *Unable to check Directory Read access for appId (Impossible de vérifier l’accès en lecture au répertoire pour addID)*.
@@ -82,7 +82,7 @@ Les étapes ci-dessous vous guideront pour l'obtention de l'ID de client de votr
 1. Accédez à l’onglet **Applications**.
 2. Accédez à votre application nouvellement créée.
 3. Accédez à l'onglet **Configurer**.
-4. Générez une nouvelle clé secrète pour votre application en sélectionnant une durée dans la section « Clés ».
+4. Générez une nouvelle clé secrète pour votre application en sélectionnant une durée dans la section « Clés ».
 5. La clé s'affichera lors de l'enregistrement. Veillez à la copier et la coller dans un emplacement sûr, car il n'existe aucun moyen de la récupérer ultérieurement.
 
 ## Modification du script
@@ -108,7 +108,7 @@ Modifiez l’un des scripts ci-dessous afin qu’il fonctionne avec votre réper
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/reports/auditEvents?api-version=beta&`$filter=eventTime gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -216,7 +216,7 @@ Le script renvoie la sortie du rapport auditEvents au format JSON. Il crée éga
 
 ## Étapes suivantes
 - Vous êtes curieux de savoir quels rapports de sécurité, d’audit et d’activité sont disponibles ? Découvrez [Rapports de sécurité, d’audit et d’activité d’Azure AD](active-directory-view-access-usage-reports.md). Vous pouvez également consulter l’ensemble des points de terminaison de l’API Microsoft Azure AD Graph disponibles en accédant à [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta). Ces points de terminaison sont également documentés dans l’article [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) (Rapports et événements Azure AD [version préliminaire]).
-- Consultez [Événements de rapport d'audit d'Azure AD](active-directory-reporting-audit-events.md) pour plus d'informations sur le rapport d'audit
+- Consultez [Événements de rapport d'audit d'Azure AD](active-directory-reporting-audit-events.md) pour plus d'informations sur le rapport d'audit
 - Consultez [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) (Rapports et événements Azure AD [version préliminaire]) pour plus d’informations sur le service REST de l’API Microsoft Azure AD Graph.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

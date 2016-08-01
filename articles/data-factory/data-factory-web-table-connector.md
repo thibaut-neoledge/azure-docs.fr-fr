@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/02/2016" 
+	ms.date="07/18/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
@@ -23,7 +23,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 
 > [AZURE.NOTE] Pour l’instant, ce connecteur Web prend uniquement en charge l’extraction du contenu d’une table à partir d’une page HTML.
 
-## Exemple : copie de données à partir d’une table web vers un objet blob Azure
+## Exemple : copie de données à partir d’une table web vers un objet blob Azure
 
 L’exemple ci-dessous présente les éléments suivants :
 
@@ -53,7 +53,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 	}
 
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
 	{
 	  "name": "AzureStorageLinkedService",
@@ -91,7 +91,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 
 **Jeu de données de sortie d’objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
 	{
 	    "name": "AzureBlobOutput",
@@ -224,7 +224,7 @@ path | URL relative de la ressource qui contient la table. | Non. Quand le chemi
 index | Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page). | Oui
 
 
-**Exemple :**
+**Exemple :**
 
 	{
 	    "name": "WebTableInput",
@@ -243,7 +243,7 @@ index | Index de la table dans la ressource. Pour savoir comment obtenir l’ind
 	    }
 	}
 
-## WebSource : propriétés de type de l’activité de copie
+## WebSource : propriétés de type de l’activité de copie
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
@@ -273,7 +273,7 @@ En cas d’activité de copie quand la source est de type **WebSource**, aucune 
 
 	![Bouton Éditeur avancé](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
 
-6. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
+6. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
 
 	![Éditeur avancé - Index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
@@ -287,4 +287,4 @@ Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https:/
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

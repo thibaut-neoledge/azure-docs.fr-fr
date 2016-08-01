@@ -32,7 +32,7 @@ Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server
 ## Avant de commencer
 Pour sauvegarder un serveur ou un client sur Azure, vous devez disposer d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 
-## Étape 1 : Création du coffre Recovery Services
+## Étape 1 : Création du coffre Recovery Services
 
 Un coffre Recovery Services est une entité qui stocke l’ensemble des sauvegardes et des points de récupération créés au fil du temps. Le coffre Recovery Services contient également la stratégie de sauvegarde appliquée aux fichiers et aux dossiers protégés. Lorsque vous créez un coffre Recovery Services, vous devez également sélectionner l’option de redondance de stockage appropriée.
 
@@ -54,11 +54,11 @@ Un coffre Recovery Services est une entité qui stocke l’ensemble des sauvegar
 
     ![Créer un archivage de Recovery Services - Étape 5](./media/backup-configure-vault/rs-vault-attributes.png)
 
-4. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
+4. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
 
 5. Cliquez sur **Abonnement** pour afficher la liste des abonnements disponibles. Si vous n’êtes pas sûr de l’abonnement à utiliser, utilisez l’abonnement par défaut (ou suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 
-6. Cliquez sur **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles ou sur **Nouveau** pour en créer un. Pour plus d’informations sur les groupes de ressources, consultez la section [Utilisation du portail Azure pour déployer et gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
+6. Cliquez sur **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles ou sur **Nouveau** pour en créer un. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md)
 
 7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre. Ce choix définit la région géographique où vos données de sauvegarde sont envoyées. En choisissant une région proche de votre emplacement, vous pouvez réduire la latence du réseau lors de la sauvegarde sur Azure.
 
@@ -83,7 +83,7 @@ Lorsque vous créez un archivage de Recovery Services pour la première fois, vo
 
 Maintenant que vous avez créé un coffre, vous devez préparer votre infrastructure de sauvegarde des fichiers et des dossiers en téléchargeant et en installant l’agent Microsoft Azure Recovery Services, en téléchargeant les informations d’identification du coffre et en utilisant ces informations pour enregistrer l’agent auprès du coffre.
 
-## Étape 2 : Téléchargement des fichiers
+## Étape 2 : Téléchargement des fichiers
 
 >[AZURE.NOTE] La sauvegarde via le portail Azure sera disponible prochainement. Pour l’instant, vous devez utiliser l’agent Microsoft Azure Recovery Services en local pour sauvegarder vos fichiers et dossiers.
 
@@ -91,7 +91,7 @@ Maintenant que vous avez créé un coffre, vous devez préparer votre infrastruc
 
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-configure-vault/settings-button.png)
 
-2. Dans le panneau Paramètres, cliquez sur **Mise en route > Sauvegarde**.
+2. Dans le panneau Paramètres, cliquez sur **Mise en route > Sauvegarde**.
 
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-configure-vault/getting-started-backup.png)
 
@@ -99,9 +99,9 @@ Maintenant que vous avez créé un coffre, vous devez préparer votre infrastruc
 
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-configure-vault/backup-goal.png)
 
-4. Sélectionnez **Local** dans le menu « Where is you workload running? » (Où votre charge de travail s’exécute-t-elle ?).
+4. Sélectionnez **Local** dans le menu « Where is you workload running? » (Où votre charge de travail s’exécute-t-elle ?).
 
-5. Sélectionnez **Fichiers et dossiers** dans le menu « What do you want to backup? » (Que voulez-vous sauvegarder ?), puis cliquez sur **OK**.
+5. Sélectionnez **Fichiers et dossiers** dans le menu « What do you want to backup? » (Que voulez-vous sauvegarder ?), puis cliquez sur **OK**.
 
 #### Télécharger l’agent Azure Recovery Services
 
@@ -113,11 +113,11 @@ Maintenant que vous avez créé un coffre, vous devez préparer votre infrastruc
 
 #### Télécharger les informations d'identification de coffre
 
-1. Dans le panneau Préparer l’infrastructure, cliquez sur **Télécharger > Enregistrer**.
+1. Dans le panneau Préparer l’infrastructure, cliquez sur **Télécharger > Enregistrer**.
 
     ![Préparer l’infrastructure](./media/backup-configure-vault/prepare-infrastructure-download.png)
 
-## Étape 3 : Installation et inscription de l’agent
+## Étape 3 : Installation et inscription de l’agent
 
 1. Recherchez et double-cliquez sur **MARSagentinstaller.exe** dans le dossier Téléchargements (ou tout autre emplacement d’enregistrement).
 
@@ -216,7 +216,7 @@ Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** appara
 
 ![RI terminé](./media/backup-configure-vault/ircomplete.png)
 
-## Des questions ?
+## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
 ## Étapes suivantes
@@ -225,4 +225,4 @@ Pour plus d’informations sur la sauvegarde des machines virtuelles ou d’autr
 - Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos coffres et vos serveurs](backup-azure-manage-windows-server.md).
 - Si vous avez besoin de restaurer une sauvegarde, référez-vous à cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

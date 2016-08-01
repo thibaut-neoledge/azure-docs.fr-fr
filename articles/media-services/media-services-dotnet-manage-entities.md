@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -26,18 +26,18 @@
 - [REST](media-services-rest-manage-entities.md)
 
 
-Cette rubrique explique comment effectuer les tâches de gestion Media Services suivantes :
+Cette rubrique explique comment effectuer les tâches de gestion Media Services suivantes :
 
-- Obtenir une référence pointant vers un élément multimédia 
-- Obtenir une référence pointant vers un travail 
-- Répertorier tous les éléments multimédias 
-- Répertorier les travaux et les éléments multimédias 
-- Répertorier toutes les stratégies d’accès 
+- Obtenir une référence pointant vers un élément multimédia
+- Obtenir une référence pointant vers un travail
+- Répertorier tous les éléments multimédias
+- Répertorier les travaux et les éléments multimédias
+- Répertorier toutes les stratégies d’accès
 - Répertorier tous les localisateurs
 - Énumérer les grandes collections d'entités
-- Supprimer un élément multimédia 
-- Supprimer un travail 
-- Supprimer une stratégie d’accès 
+- Supprimer un élément multimédia
+- Supprimer un travail
+- Supprimer une stratégie d’accès
 
 ##Conditions préalables 
 
@@ -62,7 +62,7 @@ L’obtention d’une référence pointant vers un élément multimédia existan
 
 ##Obtenir une référence pointant vers un travail
 
-Lorsque vous utilisez des tâches de traitement dans le code de Media Services, vous devez souvent obtenir une référence pointant vers un travail existant basé sur un ID. L’exemple de code suivant montre comment obtenir une référence pointant vers un objet IJob à partir de la collection Jobs. Attention : il est possible que vous deviez obtenir une référence pointant vers un travail lors du démarrage d’un travail d’encodage à long terme et vérifier l’état du travail sur un thread. Dans ce cas, lorsque la méthode est retournée à partir d’un thread, vous devez récupérer une référence actualisée pointant vers le travail.
+Lorsque vous utilisez des tâches de traitement dans le code de Media Services, vous devez souvent obtenir une référence pointant vers un travail existant basé sur un ID. L’exemple de code suivant montre comment obtenir une référence pointant vers un objet IJob à partir de la collection Jobs. Attention : il est possible que vous deviez obtenir une référence pointant vers un travail lors du démarrage d’un travail d’encodage à long terme et vérifier l’état du travail sur un thread. Dans ce cas, lorsque la méthode est retournée à partir d’un thread, vous devez récupérer une référence actualisée pointant vers le travail.
 
 	static IJob GetJob(string jobId)
 	{
@@ -248,9 +248,9 @@ Notez qu’un chemin d’accès de localisateur vers un élément multimédia es
 
 ## Énumérer les grandes collections d'entités
 
-Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser Skip et Take lors de l'énumération de grandes collections d'entités.
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser Skip et Take lors de l'énumération de grandes collections d'entités.
 	
-La fonction suivante effectue une itération sur toutes les tâches dans le compte Media Services fourni. Media Services renvoie 1 000 tâches dans Collection de tâches. La fonction utilise Skip et Take pour s'assurer que toutes les tâches sont énumérées (au cas où vous avez plus de 1 000 tâches dans votre compte).
+La fonction suivante effectue une itération sur toutes les tâches dans le compte Media Services fourni. Media Services renvoie 1 000 tâches dans Collection de tâches. La fonction utilise Skip et Take pour s'assurer que toutes les tâches sont énumérées (au cas où vous avez plus de 1 000 tâches dans votre compte).
 	
 	static void ProcessJobs()
 	{
@@ -305,7 +305,7 @@ L’exemple suivant montre la suppression d’un élément multimédia.
 
 ##Supprimer un travail
 
-Pour supprimer un travail, vous devez vérifier l’état associé, comme indiqué dans la propriété State. Les travaux terminés ou annulés peuvent être supprimés, tandis que pour les travaux dans d’autres états, par exemple en file d’attente, planifiés ou en cours de traitement, il faut d’abord procéder à une annulation, puis supprimer le travail. L’exemple de code suivant montre une méthode de suppression de travail qui vérifie l’état des travaux, puis supprime ceux terminés ou annulés. Ce code est basé sur la section précédente de cette rubrique pour obtenir une référence pointant vers un travail : Obtenir une référence pointant vers un travail.
+Pour supprimer un travail, vous devez vérifier l’état associé, comme indiqué dans la propriété State. Les travaux terminés ou annulés peuvent être supprimés, tandis que pour les travaux dans d’autres états, par exemple en file d’attente, planifiés ou en cours de traitement, il faut d’abord procéder à une annulation, puis supprimer le travail. L’exemple de code suivant montre une méthode de suppression de travail qui vérifie l’état des travaux, puis supprime ceux terminés ou annulés. Ce code est basé sur la section précédente de cette rubrique pour obtenir une référence pointant vers un travail : Obtenir une référence pointant vers un travail.
 
 	static void DeleteJob(string jobId)
 	{
@@ -381,4 +381,4 @@ L’exemple de code suivant montre comment obtenir une référence pointant vers
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

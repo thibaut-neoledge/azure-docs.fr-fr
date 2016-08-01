@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="07/20/2016"
    ms.author="sedusch"/>
 
 # Utilisation de SAP sur des machines virtuelles Windows dans Azure
@@ -25,14 +25,14 @@ Avec Microsoft Azure Virtual Machines, Microsoft propose une plateforme IaaS (In
 
 [AZURE.INCLUDE [virtual-machines-common-classic-sap-get-started](../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
-## SAP NetWeaver sur Azure : haute disponibilité
+## SAP NetWeaver sur Azure : haute disponibilité
 
-Titre : SAP NetWeaver sur Azure – clustering d’instances ASCS/SCS SAP utilisant un Cluster de basculement Windows Server sur Azure avec SIOS DataKeeper
+Titre : SAP NetWeaver sur Azure – clustering d’instances ASCS/SCS SAP utilisant un Cluster de basculement Windows Server sur Azure avec SIOS DataKeeper
 
-Résumé : ce document explique comment utiliser SIOS DataKeeper pour définir une configuration à haute disponibilité SAP ASCS/SCS sur Azure. SAP protège les composants à point unique de défaillance tels que SAP ASCS/SCS ou les services de réplication de file d’attente avec des configurations de cluster de basculement Windows Server qui nécessitent des disques partagés. Ces composants SAP sont essentiels pour le fonctionnement d’un système SAP. Par conséquent des fonctionnalités de haute disponibilité doivent donc être mises en place pour s’assurer que ces composants peuvent supporter une défaillance de serveur ou de machine virtuelle, comme le font les configurations de cluster Windows pour les environnements complets et Hyper-V. Depuis août 2015, Azure seul ne peut pas fournir les disques partagés qui seraient nécessaires pour les configurations Windows hautement disponibles requises pour ces composants SAP critiques. Toutefois, des configurations de cluster de basculement Windows Server nécessaires à SAP ASCS/SCS peuvent être créées sur la plateforme Azure IaaS à l’aide du produit DataKeeper de SIOS. Ce document décrit étape par étape la procédure d’installation d’une configuration de Cluster de basculement Windows Server avec disque partagé fourni par SIOS Datakeeper dans Azure. Il détaille les configurations pour Azure d’une part et Windows et SAP d’autre part qui font fonctionner de manière optimale la configuration à haute disponibilité. Ce document vient compléter la documentation sur l’installation SAP et des notes SAP, qui représentent les ressources incontournables en matière d’installation et de déploiement de logiciels SAP sur des plateformes données.
+Résumé : ce document explique comment utiliser SIOS DataKeeper pour définir une configuration à haute disponibilité SAP ASCS/SCS sur Azure. SAP protège les composants à point unique de défaillance tels que SAP ASCS/SCS ou les services de réplication de file d’attente avec des configurations de cluster de basculement Windows Server qui nécessitent des disques partagés. Ces composants SAP sont essentiels pour le fonctionnement d’un système SAP. Par conséquent des fonctionnalités de haute disponibilité doivent donc être mises en place pour s’assurer que ces composants peuvent supporter une défaillance de serveur ou de machine virtuelle, comme le font les configurations de cluster Windows pour les environnements complets et Hyper-V. Depuis août 2015, Azure seul ne peut pas fournir les disques partagés qui seraient nécessaires pour les configurations Windows hautement disponibles requises pour ces composants SAP critiques. Toutefois, des configurations de cluster de basculement Windows Server nécessaires à SAP ASCS/SCS peuvent être créées sur la plateforme Azure IaaS à l’aide du produit DataKeeper de SIOS. Ce document décrit étape par étape la procédure d’installation d’une configuration de Cluster de basculement Windows Server avec disque partagé fourni par SIOS Datakeeper dans Azure. Il détaille les configurations pour Azure d’une part et Windows et SAP d’autre part qui font fonctionner de manière optimale la configuration à haute disponibilité. Ce document vient compléter la documentation sur l’installation SAP et des notes SAP, qui représentent les ressources incontournables en matière d’installation et de déploiement de logiciels SAP sur des plateformes données.
 
-Mise à jour : août 2015
+Mise à jour : août 2015
 
 [Télécharger ce guide maintenant](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

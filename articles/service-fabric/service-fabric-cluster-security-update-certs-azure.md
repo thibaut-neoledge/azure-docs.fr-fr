@@ -25,15 +25,15 @@ Service Fabric vous permet de spécifier deux certificats, un principal et un se
 ## Ajouter un certificat secondaire
 Pour ajouter un autre certificat comme certificat secondaire, vous devez charger le certificat dans un coffre de clés Azure, puis le déployer sur les machines virtuelles du cluster. Pour plus d’informations, consultez [Déployer des certificats sur les machines virtuelles à partir de coffres de clés gérés par les clients](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
-1. [Charger un certificat X.509 dans le coffre de clés](service-fabric-cluster-azure-secure-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
+1. [Charger un certificat X.509 dans le coffre de clés](service-fabric-secure-azure-cluster-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
 2. Connectez-vous au [portail Azure](https://portal.azure.com/), puis accédez à la ressource de cluster à laquelle vous voulez ajouter ce certificat.
 3. Sous **Paramètres**, cliquez sur le paramètre de certificat et entrez l’empreinte de certificat secondaire.
 4. Cliquez sur **Enregistrer**. Un déploiement est lancé et une fois qu’il est terminé, vous pouvez utiliser le certificat principal ou le certificat secondaire pour effectuer des opérations de gestion sur le cluster.
 
-![Capture d’écran des empreintes de certificat dans le portail][SecurityConfigurations_02]
+![Capture d’écran des empreintes de certificat dans le portail][SecurityConfigurations\_02]
 
 ## Supprimer un certificat
-Voici le processus de suppression d’un ancien certificat pour que le cluster ne l’utilise plus :
+Voici le processus de suppression d’un ancien certificat pour que le cluster ne l’utilise plus :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/), puis accédez aux paramètres de sécurité de votre cluster.
 2. Supprimez l’un des certificats.
@@ -49,4 +49,4 @@ Lisez les articles suivants pour plus d’informations sur la gestion des cluste
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	tags="azure-classic-portal"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="07/13/2016"
 	ms.author="markusvi"/>
 
 
@@ -24,7 +24,7 @@ Cette rubrique de navigation contient des liens vers d’autres rubriques sur la
 
 ## Consignes conceptuelles
 
-- [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+- [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 ## Vidéo
 
@@ -42,4 +42,4 @@ Cette rubrique de navigation contient des liens vers d’autres rubriques sur la
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

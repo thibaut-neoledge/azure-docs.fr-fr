@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2016"
+    ms.date="07/14/2016"
     ms.author="jimpark; markgal;genli"/>
 
 # Échec de sauvegarde des machines virtuelles Azure : impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané ; la sous-tâche de capture instantanée de la machine virtuelle a expiré.
@@ -30,7 +30,7 @@ Microsoft Azure Backup pour machine virtuelle utilisant l’infrastructure IaaS 
 
 **Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané ; la sous-tâche de capture instantanée de la machine virtuelle a expiré.**
 
-## Cause :
+## Cause :
 Quatre causes courantes peuvent être à l’origine de cette erreur :
 
 - La machine virtuelle n’a pas accès à Internet.
@@ -105,7 +105,11 @@ Pour les invités Windows :
 1. Vérifiez que le service iaasvmprovider est activé et qu’il a un type de démarrage automatique.
 2. Si ce n’est pas le cas, activez le service pour déterminer si la sauvegarde suivante réussit.
 
-Si l’extension de sauvegarde rencontre toujours un échec lors de la mise à jour ou du chargement, vous pouvez forcer le rechargement de l’extension VMSnapshot en installant l’extension. La prochaine tentative de sauvegarde rechargera l’extension.
+Pour les hôtes Linux :
+
+La dernière version de VMSnapshot Linux (extension utilisée par la sauvegarde) est 1.0.91.0
+
+Si l’extension de sauvegarde rencontre toujours un échec lors de la mise à jour ou du chargement, vous pouvez forcer le rechargement de l’extension VMSnapshot en désinstallant l’extension. La prochaine tentative de sauvegarde rechargera l’extension.
 
 ### Pour désinstaller l’extension
 
@@ -124,12 +128,12 @@ La sauvegarde de machine virtuelle émet une commande de capture instantanée à
 ### Solution
 Voici les causes possibles de l’échec d’une tâche de capture instantanée :
 
-| Cause : | Solution |
+| Cause : | Solution |
 | ----- | ----- |
 | Machines virtuelles dont la sauvegarde Microsoft SQL Server a été configurée. Par défaut, la sauvegarde de machine virtuelle exécute une sauvegarde complète VSS sur les machines virtuelles Windows. Sur les machines virtuelles exécutant des serveurs basés sur SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, des retards d’exécution des captures instantanées peuvent survenir. | Configurez la clé de Registre suivante si vous constatez des échecs de sauvegarde en raison de problèmes de capture instantanée.<br><br>[HKEY\_LOCAL\_MACHINE\\SOFTWARE\\MICROSOFT\\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE" |
 | L’état de la machine virtuelle est rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP. Si vous avez arrêté la machine virtuelle dans RDP, retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. | Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option « Arrêter » dans le tableau de bord de la machine virtuelle. |
 | Plusieurs machines virtuelles du même service cloud sont configurées pour exécuter la sauvegarde en même temps. | Il est recommandé d’étaler les planifications de sauvegarde entre les différentes machines virtuelles d’un même service cloud. |
 | Forte sollicitation du processeur ou de la mémoire sur la machine virtuelle. | Si la machine virtuelle sollicite fortement le processeur (plus de 90 pour cent) ou la mémoire, la tâche de capture instantanée est mise en file d’attente et retardée, puis finit par expirer. En pareille situation, essayez de procéder à des sauvegardes à la demande. |
-|La machine virtuelle ne peut pas obtenir une adresse d’hôte/de structure du protocole DHCP.|Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne peut pas bénéficier d’adresses d’hôte/de structure de la réponse DHCP 245, elle ne peut ni télécharger, ni exécuter d’extension. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. En savoir plus sur la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md).|
+|La machine virtuelle ne peut pas obtenir une adresse d’hôte/de structure du protocole DHCP.|Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne peut pas bénéficier d’adresses d’hôte/de structure de la réponse DHCP 245, elle ne peut ni télécharger, ni exécuter d’extension. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. En savoir plus sur la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

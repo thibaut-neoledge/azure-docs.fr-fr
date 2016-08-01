@@ -40,7 +40,7 @@ Les sections suivantes décrivent de manière plus approfondie chaque type de po
 Les points de terminaison Azure sont utilisés pour configurer des services Azure dans Traffic Manager. Les points de terminaison Azure prennent actuellement en charge les types de ressources Azure suivantes :
 
 - Machines virtuelles IaaS « classiques » et services cloud PaaS
-- Applications Web
+- Applications Web
 - Ressources PublicIPAddress (pouvant être connectées aux machines virtuelles directement ou via Azure Load Balancer)
 
 Les ressources PublicIPAddress sont des ressources Azure Resource Manager ; elles ne sont pas liées aux API Gestion des services Azure. Elles sont donc uniquement prises en charge dans les expériences Azure Resource Manager de Traffic Manager. Les autres types de points de terminaison sont pris en charge via les expériences Resource Manager et Gestion des services dans Traffic Manager.
@@ -98,11 +98,13 @@ Si tous les points de terminaison d’un profil sont désactivés, ou si le prof
 ## Forum Aux Questions
 
 ### Puis-je utiliser Traffic Manager avec des points de terminaison de plusieurs abonnements ?
-Oui. La procédure à suivre varie selon que vous utilisez les API Gestion des services ou les API Resource Manager de Traffic Manager. Le [portail Azure](https://portal.azure.com) utilise Resource Manager et le [portail Classic](https://manage.windowsazure.com) utilise Gestion des services.
+Cela n’est pas possible pour Azure Web Apps. Cela est dû au fait que les applications web nécessitent que tout nom de domaine personnalisé utilisé avec les applications Web ne soit utilisé que dans un seul abonnement. Il n’est pas possible d’utiliser des applications web à partir de plusieurs abonnements portant le même nom de domaine et, par conséquent, elles ne peuvent pas être utilisées avec Traffic Manager.
+
+Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. La procédure à suivre varie selon que vous utilisez les API Gestion des services ou les API Resource Manager de Traffic Manager. Le [portail Azure](https://portal.azure.com) utilise Resource Manager et le [portail Classic](https://manage.windowsazure.com) utilise Gestion des services.
 
 Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle Azure Resource Manager (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Dans Gestion des services, Traffic Manager exige que n’importe quel(-le) service cloud ou application web configuré(e) en tant que point de terminaison Azure réside dans le même abonnement que le profil Traffic Manager. Les points de terminaison de service cloud associés à d’autres abonnements peuvent être ajoutés à Traffic Manager en tant que points de terminaison « externes », auquel cas ils seront toujours facturés au tarif d’un point de terminaison « interne ». Vous ne pouvez pas utiliser les applications web d’autres abonnements.
+Dans Gestion des services, Traffic Manager exige que n’importe quel(-le) service cloud ou application web configuré(e) en tant que point de terminaison Azure réside dans le même abonnement que le profil Traffic Manager. Les points de terminaison de service cloud associés à d’autres abonnements peuvent être ajoutés à Traffic Manager en tant que points de terminaison « externes », auquel cas ils seront toujours facturés au tarif d’un point de terminaison « interne ».
 
 ### Puis-je utiliser Traffic Manager avec les emplacements intermédiaires de services cloud ?
 Oui. Les emplacements intermédiaires de services cloud peuvent être configurés dans Traffic Manager en tant que points de terminaison externes.
@@ -142,4 +144,4 @@ Dans le cas des applications web, les points de terminaison Azure Traffic Manage
 
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) avec Traffic Manager.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

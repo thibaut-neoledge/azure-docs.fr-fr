@@ -19,7 +19,7 @@
 
 # Programmation DocumentDB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 
-Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage de DocumentDB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données.
+Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure DocumentDB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données.
 
 Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation de base de données côté serveur de DocumentDB.
 
@@ -43,12 +43,12 @@ Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* libèr
 -	**Transactions atomiques :** DocumentDB s’assure que les opérations de base de données effectuées au sein d'un déclencheur ou d’une procédure stockée unique sont atomiques. Cela permet à une application de combiner des applications connexes en un seul lot de façon à ce que toutes réussissent ou qu’aucune ne réussisse.
 
 -	**Performances :** Le fait que JSON soit intrinsèquement mappé au système de type de langage Javascript et qu’il constitue l’unité de base du stockage dans DocumentDB permet une série d’optimisations telles que la matérialisation différée de documents JSON dans le pool de mémoires tampons et leur mise à disposition à la demande au code en cours d'exécution. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données :
-	-	Traitement par lot - Les développeurs peuvent regrouper les opérations telles que les insertions et les envoyer en bloc. Le coût lié à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits. 
+	-	Traitement par lot - Les développeurs peuvent regrouper les opérations telles que les insertions et les envoyer en bloc. Le coût lié à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits.
 	-	Précompilation - DocumentDB précompile les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur pour éviter les frais de compilation JavaScript liés à chaque appel. La surcharge liée à la création du code d'octet pour la logique procédurale est amortie à une valeur minimale.
-	-	Séquencement - De nombreuses opérations requièrent un effet secondaire (« déclencheur ») qui implique potentiellement d'effectuer une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur. 
+	-	Séquencement - De nombreuses opérations requièrent un effet secondaire (« déclencheur ») qui implique potentiellement d'effectuer une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur.
 -	**Encapsulation :** Les procédures stockées peuvent être utilisées pour regrouper la logique métier à un endroit. Ceci présente deux avantages :
-	-	Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
-	-	Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
+	-	Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.
+	-	Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.
 
 La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), de [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md) de nombreuses plateformes, dont .NET, Node.js et JavaScript.
 
@@ -479,9 +479,7 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
 ## API de requête intégrée au langage JavaScript
 En plus de l’émission de requêtes à l’aide de la grammaire SQL de DocumentDB, le kit de développement logiciel (SDK) côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index DocumentDB.
 
-> [AZURE.NOTE]`__` (trait de soulignement double) est un alias pour `getContext().getCollection()`.
-> <br/>
-> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
+> [AZURE.NOTE] `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`. <br/> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
 
 Les fonctions prises en charge sont les suivantes :
 <ul>
@@ -546,7 +544,7 @@ Produit un nouvel ensemble de documents en les triant dans le flux du document d
 
 Lorsqu’elles sont incluses dans les fonctions de prédicat et/ou de sélecteur, les constructions JavaScript suivantes sont automatiquement optimisées pour s’exécuter directement sur les index DocumentDB :
 
-* Opérateurs simples : = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Opérateurs simples : = + - * / %| ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * Littéraux, y compris le littéral d’objet : {}
 * var, return
 
@@ -859,8 +857,7 @@ Toutes les opérations DocumentDB peuvent être effectuées sur la base de l'arc
 	}
 
 
-La procédure stockée est enregistrée en exécutant une requête POST sur la base de l’URI dbs/testdb/colls/testColl/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement. 
-Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
+La procédure stockée est enregistrée en exécutant une requête POST sur la base de l’URI dbs/testdb/colls/testColl/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement. Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -919,11 +916,11 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 
 - [Kits de développement logiciel (SDK) Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 - [Studio DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
-- [JSON](http://www.json.org/) 
+- [JSON](http://www.json.org/)
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-- [JavaScript : Système de type JSON](http://www.json.org/js.html) 
-- [Extensibilité de la base de données sécurisée et portable](http://dl.acm.org/citation.cfm?id=276339) 
-- [Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [JavaScript : Système de type JSON](http://www.json.org/js.html)
+- [Extensibilité de la base de données sécurisée et portable](http://dl.acm.org/citation.cfm?id=276339)
+- [Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE)
 - [Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

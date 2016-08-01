@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
 # Base de données SQL Azure adaptée à votre environnement
@@ -27,13 +27,13 @@ La dernière chose qu’un développeur souhaite est d’avoir à acquérir de n
 
 ## JavaScript, Node.JS et Python pour n’en citer que quelques-uns.
 
-Vous ne devriez pas avoir à apprendre un nouveau langage pour utiliser une base de données. Les bases de données SQL possèdent de nombreux exemples de code pour vous aider à commencer, adaptés à la plateforme sur laquelle vous travaillez. (Linux, Mac OS ou Windows). En outre, le portail de gestion Azure, PowerShell et les API REST vous aident à accroître la productivité lors du développement.
+Vous ne devriez pas avoir à apprendre un nouveau langage pour utiliser une base de données. Les bases de données SQL possèdent de nombreux exemples de code pour vous aider à commencer, adaptés à la plateforme sur laquelle vous travaillez. (Linux, Mac OS ou Windows). En outre, le portail de gestion Azure, PowerShell et les API REST vous aident à accroître la productivité lors du développement.
 
 [Lire la documentation](sql-database-develop-overview.md)
 
 ## Des outils adaptés
 
-Avec une base de données SQL, vous n’avez pas besoin d’apprendre à utiliser un nouvel outil pour développer une application. Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, les bases de données SQL Azure fonctionnent avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+Avec une base de données SQL, vous n’avez pas besoin d’apprendre à utiliser un nouvel outil pour développer une application. Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, les bases de données SQL Azure fonctionnent avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 ## Prise en main rapide
 
@@ -53,4 +53,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

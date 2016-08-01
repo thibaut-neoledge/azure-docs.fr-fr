@@ -19,7 +19,7 @@
 
 # Connexion d’un compte DocumentDB prenant en charge le protocole MongoDB
 
-Découvrez comment vous connecter à un compte DocumentDB prenant en charge le protocole MongoDB à l’aide du format d’URI de chaîne de connexion MongoDB standard.
+Découvrez comment vous connecter à un compte Azure DocumentDB prenant en charge le protocole MongoDB à l’aide du format d’URI de chaîne de connexion MongoDB standard.
 
 ## Obtenir les informations de chaîne de connexion du compte
 
@@ -84,4 +84,4 @@ Comme nous l’avons déjà mentionné, tous les comptes DocumentDB requièrent 
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

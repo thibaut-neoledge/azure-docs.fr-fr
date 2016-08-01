@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@ Assurez-vous d’examiner la section [Considérations](media-services-dotnet-gen
 
 ##Exemple
 
-Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
+Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
 - Création d’une tâche d’encodage.
 - Obtention d’une référence à l’encodeur Media Encoder Standard.
@@ -33,7 +33,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Ajout d’une tâche d’encodage unique. 
+- Ajout d’une tâche d’encodage unique.
 - Spécification de l’élément multimédia d’entrée à encoder.
 - Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
@@ -353,21 +353,21 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
 
 ##Considérations
 
-Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
-- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
+- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
+- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
 
-	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
-	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
-	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
+	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
+	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
+	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
 
 	Vous pouvez combiner et apparier les notations à votre guise.
 	
-	En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
+	En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
 	
-	- La configuration par défaut est « Start:{Best} ».
-- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+	- La configuration par défaut est « Start:{Best} ».
+- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 
 ##Parcours d’apprentissage de Media Services
@@ -382,4 +382,4 @@ Les considérations suivantes s'appliquent :
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application iOS Azure AD v2.0 | Microsoft Azure"
+	pageTitle="Application iOS Azure AD v2.0 | Microsoft Azure"
 	description="Génération d’une application iOS qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leurs comptes professionnel ou scolaire à l’aide de bibliothèques tierces."
 	services="active-directory"
 	documentationCenter=""
@@ -34,23 +34,23 @@ Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scéna
     Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
 
 ## Télécharger le code à partir de GitHub
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ou la cloner :
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ou la cloner :
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-Vous pouvez aussi simplement télécharger l’exemple et commencer immédiatement :
+Vous pouvez aussi simplement télécharger l’exemple et commencer immédiatement :
 
 ```
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
 ## Inscription d’une application
-Créez une nouvelle application dans le [Portail d’inscription des applications](https://apps.dev.microsoft.com), ou suivez les étapes détaillées dans [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
+Créez une nouvelle application dans le [Portail d’inscription des applications](https://apps.dev.microsoft.com), ou suivez les étapes détaillées dans [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - Copiez **l’ID d’application** affecté à votre application, vous en aurez besoin rapidement.
-- ajouter la plateforme **Mobile** pour votre application ;
+- ajouter la plateforme **Mobile** pour votre application ;
 - Copiez **l’URI de redirection** provenant du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -65,7 +65,7 @@ CocoaPods est un gestionnaire de dépendances pour les projets Xcode. Il gère a
 ```
 $ vi Podfile
 ```
-1. Ajoutez le code suivant à ce podfile :
+1. Ajoutez le code suivant à ce podfile :
 
 	```
 	 platform :ios, '8.0'
@@ -108,7 +108,7 @@ La bibliothèque NXOAuth2Client requiert des valeurs pour sa configuration. Apr�
 - Ajoutons quelques valeurs au fichier `LoginViewController.m` pour définir le contexte pour l’authentification et l’autorisation. Des détails sur les valeurs sont inclus après le code.
 
 	```objc
-	NSString *scopes = @"offline_access User.ReadBasic.All";
+	NSString *scopes = @"openid offline_access User.Read";
 	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
@@ -124,7 +124,7 @@ La bibliothèque NXOAuth2Client requiert des valeurs pour sa configuration. Apr�
 
 Observons les détails du code.
 
-La première chaîne est pour `scopes`. La valeur `User.ReadBasic.All` vous permet de lire le profil de base de tous les utilisateurs dans votre répertoire.
+La première chaîne est pour `scopes`. La valeur `User.Read` vous permet de lire le profil de base de l’utilisateur connecté.
 
 Plus d’informations sur toutes les étendues disponibles, consultez [Étendues d’autorisation Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
@@ -138,7 +138,7 @@ Le reste de ces valeurs est requis pour utiliser la bibliothèque et créer des 
 
 À l’intérieur de `(void)viewDidLoad()`, qui est toujours appelé une fois que la vue est chargée, le code suivant prépare un cache pour notre utilisation.
 
-Ajoutez le code suivant :
+Ajoutez le code suivant :
 
 ```objc
 - (void)viewDidLoad {
@@ -588,4 +588,4 @@ Si vous avez utilisé le squelette ou suivi la procédure pas à pas, votre appl
 
 Nous vous encourageons à activer les notifications lorsque des incidents de sécurité surviennent en vous rendant sur [Security TechCenter](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Azure" 
-	description="Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights." 
+	description="Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="danhadari" 
 	manager="douge"/>
 
 <tags 
@@ -12,10 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="awills"/>
-
-
+	ms.date="07/15/2016" 
+	ms.author="danha"/>
 
 
 # Utilisation d’Analytics dans Application Insights
@@ -34,34 +32,83 @@ Le didacticiel en ligne vous donne quelques idées sur les possibilités qui vou
 
 Vous pouvez cependant consulter [ici une présentation approfondie](app-insights-analytics-tour.md).
 
-## Écriture de requêtes
+## Interrogation de votre télémétrie
 
-Écrivez une requête commençant par le nom de n’importe quelle table répertoriée sur la gauche. Utilisez `|` pour créer un pipeline d[’opérateurs](app-insights-analytics-reference.md#queries-and-operators).
-
+### Écrivez votre requête.
 
 ![](./media/app-insights-analytics-using/150.png)
 
-* N’insérez pas de lignes vides dans votre requête.
-* Vous pouvez utiliser des sauts de ligne uniques dans une requête.
-* Vous pouvez conserver plusieurs requêtes dans la fenêtre, en les séparant par des lignes vides.
-* Pour exécuter une requête, **placez le curseur à l’intérieur ou à la fin de la requête**, puis cliquez sur OK.
+Commencez avec les noms des tables répertoriées sur la gauche (ou les opérateurs [range](app-insights-analytics-reference.md#range-operator) (plage) ou [union](app-insights-analytics-reference.md#union-operator)). Utilisez `|` pour créer un pipeline [d’opérateurs](app-insights-analytics-reference.md#queries-and-operators). IntelliSense vous indique les opérateurs et certains éléments d’expression que vous pouvez utiliser.
+
+Consultez la [vue d’ensemble du langage Analytique](app-insights-analytics-tour.md) et la [référence de langage](app-insights-analytics-reference.md).
+
+### Exécution d’une requête
+
+![Exécution d’une requête](./media/app-insights-analytics-using/130.png)
+
+1. Vous pouvez utiliser des sauts de ligne uniques dans une requête.
+2. Placez le curseur à l’intérieur ou à la fin de la requête à exécuter.
+3. Cliquez sur Accéder pour exécuter la requête.
+4. N’insérez pas de lignes vides dans votre requête. Vous pouvez conserver plusieurs requêtes séparées dans un onglet de requête en les séparant par des lignes vides. Seule la requête pointée par le curseur est exécutée.
+
+### Enregistrement d’une requête
+
+![Enregistrement d’une requête](./media/app-insights-analytics-using/140.png)
+
+1. Enregistrez le fichier de requête actuel.
+2. Ouvrez un fichier de requête enregistré.
+3. Créez un fichier de requête.
 
 
-![](./media/app-insights-analytics-using/130.png)
+## Voir des informations détaillées
 
-* Vous pouvez enregistrer et rappeler le contenu de la fenêtre de requête.
+Développez des lignes dans les résultats pour afficher la liste complète de leurs propriétés. Vous pouvez développer davantage n’importe quelle propriété qui est une valeur structurée. Par exemple, des dimensions personnalisées ou la liste d’empilement dans une exception.
 
-![](./media/app-insights-analytics-using/140.png)
+![Extension d’une ligne](./media/app-insights-analytics-using/070.png)
+
+ 
 
 ## Réorganisation des résultats
 
-Vous pouvez choisir les colonnes que vous souhaitez consulter. Développez un élément pour afficher toutes les valeurs de colonne renvoyées.
+Vous pouvez trier, filtrer, paginer et regrouper les résultats retournés par votre requête.
 
-![](./media/app-insights-analytics-using/030.png)
+> [AZURE.NOTE] Le tri, le regroupement et le filtrage dans le navigateur ne réexécute pas votre requête. Ils réorganisent uniquement les résultats retournés par votre dernière requête.
+> 
+> Pour exécuter ces tâches sur le serveur avant que les résultats ne soient renvoyés, écrivez votre requête avec les opérateurs [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) et [where](app-insights-analytics-reference.md#where-operator).
 
-> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour réorganiser rapidement les résultats disponibles dans le navigateur Web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. L’utilisation de cette méthode de tri ne vous permet donc pas toujours d’obtenir effectivement les éléments dans l’ordre croissant ou décroissant. Pour cela, vous devez utiliser l’opérateur [top](app-insights-analytics-reference.md#top-operator) ou [sort](app-insights-analytics-reference.md#sort-operator).
+Choisissez les colonnes que vous souhaitez voir, faites glisser les en-têtes de colonne pour les réorganiser et redimensionnez les colonnes en faisant glisser ses bordures.
 
-Il est cependant recommandé d’utiliser les opérateurs [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) ou [summarize](app-insights-analytics-reference.md#summarize-operator) pour éviter le téléchargement de tables volumineuses à partir du serveur. Quoi qu’il en soit, le nombre de lignes par requête est automatiquement limité à 10 000.
+![Réorganisation de colonnes](./media/app-insights-analytics-using/030.png)
+
+### Tri et filtrage d’éléments
+
+Triez les résultats en cliquant sur l’en-tête d’une colonne. Cliquez à nouveau pour trier dans l’ordre inverse, puis cliquez sur une troisième fois pour rétablir l’ordre d’origine retourné par la requête.
+
+Utilisez l’icône de filtre pour affiner votre recherche.
+
+![Tri et filtrage de colonnes](./media/app-insights-analytics-using/040.png)
+
+
+
+### Regroupement d’éléments
+
+Pour trier par plusieurs colonnes, utilisez le regroupement. Tout d’abord, activez le regroupement, puis faites glisser les en-têtes de colonne dans l’espace au-dessus de la table.
+
+![Groupe](./media/app-insights-analytics-using/060.png)
+
+
+
+### Certains résultats manquent ?
+
+Il existe une limite d’environ 10 000 lignes pour les résultats retournés à partir du portail. Un avertissement s’affiche si vous dépassez la limite. Dans ce cas, le tri des résultats de la table ne vous indique pas toujours tous les premiers ou derniers résultats réels.
+
+Il est recommandé d’éviter d’atteindre la limite. Utilisez des opérateurs tels que :
+
+* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator)
+* [take 100](app-insights-analytics-reference.md#take-operator)
+* [summarize](app-insights-analytics-reference.md#summarize-operator)
+
 
 
 ## Diagrammes
@@ -70,9 +117,7 @@ Sélectionnez le type de diagramme de votre choix :
 
 ![](./media/app-insights-analytics-using/230.png)
 
-Si vous disposez de plusieurs colonnes de types appropriés, vous pouvez choisir les axes x et y et spécifier une colonne de dimensions pour fractionner les résultats par :
-
-![](./media/app-insights-analytics-using/100.png)
+Si vous disposez de plusieurs colonnes de types appropriés, vous pouvez choisir les axes x et y et spécifier une colonne de dimensions avec laquelle fractionner les résultats.
 
 Par défaut, les résultats sont initialement affichés sous forme de table. Vous pouvez ensuite sélectionner le diagramme manuellement. Mais vous pouvez également utiliser la [directive render](app-insights-analytics-reference.md#render-directive) à la fin d’une requête pour sélectionner un diagramme.
 
@@ -103,4 +148,4 @@ Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. C
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

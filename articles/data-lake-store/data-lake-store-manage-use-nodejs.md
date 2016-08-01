@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Gérer Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Azure pour Node.js
@@ -39,7 +39,7 @@ Pour le moment, il prend en charge :
 ## Caractéristiques
 
 - Gestion de compte : créer, obtenir, répertorier, mettre à jour et supprimer.
-- Gestion de système de fichiers : créer, obtenir, charger, ajouter, télécharger, lire, supprimer, répertorier.
+- Gestion de système de fichiers : créer, obtenir, charger, ajouter, télécharger, lire, supprimer, répertorier.
 
 ## Procédure d’installation
 
@@ -141,4 +141,4 @@ filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, functio
 - [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js](https://github.com/azure/azure-sdk-for-node)
 - [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js - Gestion de Data Lake Analytics](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/18/2016"
 	ms.author="donnam;ricksal"/>
 
 # Activation de la synchronisation hors connexion pour votre application mobile Android
@@ -48,7 +48,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 
 4. Commentez la définition de `refreshItemsFromMobileServiceTable`.
 
-5. Supprimez les marques de commentaires de la définition de `refreshItemsFromMobileServiceTableSyncTable` :
+5. Supprimez les marques de commentaires de la définition de `refreshItemsFromMobileServiceTableSyncTable` :
 
 	    private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
 	        //sync the data
@@ -58,7 +58,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 	        return mToDoTable.read(query).get();
 	    }
 
-6. Supprimez les marques de commentaires de la définition de `sync` :
+6. Supprimez les marques de commentaires de la définition de `sync` :
 
 	    private AsyncTask<Void, Void, Void> sync() {
 	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -104,7 +104,7 @@ Lorsque vous appuyez sur ce bouton, une nouvelle tâche démarre en arrière-pla
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 
 <!-- URLs. -->
@@ -113,7 +113,7 @@ Lorsque vous appuyez sur ce bouton, une nouvelle tâche démarre en arrière-pla
 
 [Création d’une application Android]: ../app-service-mobile-android-get-started.md
 
-[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

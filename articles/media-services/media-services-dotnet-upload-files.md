@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="07/18/2016" 
 	ms.author="juliako"/>
 
 
@@ -26,12 +26,12 @@ Dans Media Services, vous téléchargez (ou réceptionnez) vos fichiers numériq
 
 Les fichiers de l'élément multimédia sont appelés **fichiers d'élément multimédia**. L'instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
 
-Lorsque vous créez des éléments multimédias, vous pouvez spécifier les options de chiffrement suivantes :
+Lorsque vous créez des éléments multimédias, vous pouvez spécifier les options de chiffrement suivantes :
 
-- **None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
-- **CommonEncryption** : utilisez cette option quand vous téléchargez du contenu qui a déjà été chiffré et protégé par chiffrement commun ou gestion des droits numériques (DRM) PlayReady (par exemple, une diffusion en continu lisse, « Smooth Streaming », protégée par gestion des droits numériques (DRM) PlayReady).
-- **EnvelopeEncrypted** : utilisez cette option quand vous téléchargez du contenu au format HLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
-- **StorageEncrypted** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d’utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d’entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
+- **None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option.
+- **CommonEncryption** : utilisez cette option quand vous téléchargez du contenu qui a déjà été chiffré et protégé par chiffrement commun ou gestion des droits numériques (DRM) PlayReady (par exemple, une diffusion en continu lisse, « Smooth Streaming », protégée par gestion des droits numériques (DRM) PlayReady).
+- **EnvelopeEncrypted** : utilisez cette option quand vous téléchargez du contenu au format HLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+- **StorageEncrypted** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d’utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d’entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
 
 	Media Services fournit pour vos éléments multimédias un chiffrement de stockage sur disque, et non pas sur le réseau comme pour la gestion des droits numériques (DRM).
 
@@ -41,20 +41,20 @@ Si votre élément multimédia est chiffré avec l'option **CommonEncrypted** ou
 
 Si votre élément multimédia est chiffré avec l'option **StorageEncrypted**, le Kit de développement logiciel (SDK) Media Services pour .NET crée une **ContentKey** **StorateEncrypted** pour votre élément multimédia.
 
->[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name au moment de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
+>[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name au moment de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
 
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services pour .NET, ainsi que les extensions du Kit de développement logiciel (SDK) Media Services pour .NET pour télécharger des fichiers vers un élément multimédia Media Services.
 
  
 ## Téléchargement d’un fichier unique avec le Kit de développement logiciel (SDK) .NET de Media Services 
 
-L’exemple de code ci-dessous utilise le Kit de développement logiciel (SDK) .NET pour effectuer les tâches suivantes :
+L’exemple de code ci-dessous utilise le Kit de développement logiciel (SDK) .NET pour effectuer les tâches suivantes :
 
-- création d’un élément multimédia vide ;
+- création d’un élément multimédia vide ;
 - Création d'une instance AssetFile que nous voulons associer à l'élément multimédia.
 - Création d'une instance AccessPolicy qui définit les autorisations et la durée de l'accès à l'élément multimédia.
 - Création d'une instance Locator qui fournit l'accès à l'élément multimédia.
-- chargement d’un seul fichier multimédia dans Media Services. 
+- chargement d’un seul fichier multimédia dans Media Services.
 
 		
 		static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -94,13 +94,13 @@ L’exemple de code ci-dessous utilise le Kit de développement logiciel (SDK) .
 
 Le code qui suit présente la création d’un élément multimédia et le chargement de plusieurs fichiers.
 
-Le code effectue les actions suivantes :
+Le code effectue les actions suivantes :
 	
 - 	création d’un élément multimédia vide à l’aide de la méthode CreateEmptyAsset définie dans l’étape précédente.
  	
-- 	création d'une instance **AccessPolicy** qui définit les autorisations et la durée de l'accès à l'élément multimédia ;
+- 	création d'une instance **AccessPolicy** qui définit les autorisations et la durée de l'accès à l'élément multimédia ;
  	
-- 	création d'une instance **Locator** qui fournit l'accès à l'élément multimédia ;
+- 	création d'une instance **Locator** qui fournit l'accès à l'élément multimédia ;
  	
 - 	création d'une instance **BlobTransferClient**. Ce type représente un client qui opère sur les objets blob Azure. Dans cet exemple, nous utilisons le client pour surveiller la progression du téléchargement.
  	
@@ -179,7 +179,7 @@ Lorsque vous téléchargez un grand nombre d'éléments multimédias, prenez en 
  
 ##<a id="ingest_in_bulk"></a>Réception d’éléments multimédias en bloc à l’aide du Kit de développement logiciel (SDK) .NET de Media Services 
 
-Le téléchargement de fichiers multimédias volumineux peut entraîner un goulot d’étranglement lors de la création de l'élément multimédia. La réception des éléments multimédias en bloc ou « réception en bloc » implique de découpler la création des éléments multimédias du processus de téléchargement. Pour utiliser une approche de réception en bloc, créez un manifeste (IngestManifest) qui décrit l'élément multimédia et ses fichiers associés. Utilisez ensuite la méthode de téléchargement de votre choix pour télécharger les fichiers associés sur le conteneur d’objets blob du manifeste. Microsoft Azure Media Services surveille le conteneur d’objets blob associé au manifeste. Une fois qu’un fichier est téléchargé vers le conteneur d’objets blob, Microsoft Azure Media Services termine la création des éléments multimédias selon la configuration de l'élément multimédia du manifeste (IngestManifestAsset).
+Le téléchargement de fichiers multimédias volumineux peut entraîner un goulot d’étranglement lors de la création de l'élément multimédia. La réception des éléments multimédias en bloc ou « réception en bloc » implique de découpler la création des éléments multimédias du processus de téléchargement. Pour utiliser une approche de réception en bloc, créez un manifeste (IngestManifest) qui décrit l'élément multimédia et ses fichiers associés. Utilisez ensuite la méthode de téléchargement de votre choix pour télécharger les fichiers associés sur le conteneur d’objets blob du manifeste. Microsoft Azure Media Services surveille le conteneur d’objets blob associé au manifeste. Une fois qu’un fichier est téléchargé vers le conteneur d’objets blob, Microsoft Azure Media Services termine la création des éléments multimédias selon la configuration de l'élément multimédia du manifeste (IngestManifestAsset).
 
 
 Pour créer un IngestManifest, appelez la méthode Create exposée par la collection IngestManifests sur le CloudMediaContext. Cette méthode crée un IngestManifest avec le nom de manifeste que vous fournissez.
@@ -315,4 +315,4 @@ Maintenant que vous avez chargé un élément multimédia dans Media Services, c
 [Obtention d'un processeur multimédia]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

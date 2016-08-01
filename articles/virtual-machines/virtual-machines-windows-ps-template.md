@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources
@@ -25,9 +25,9 @@ Il vous faudra environ 20 minutes pour effectuer les étapes décrites dans cet 
 
 > [AZURE.IMPORTANT] Si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à haute disponibilité, vous devez l’y ajouter lors de sa création. Il n’existe actuellement aucun moyen d’ajouter une machine virtuelle dans un groupe à haute disponibilité, une fois celle-ci créée.
 
-## Étape 1 : création du fichier de modèle
+## Étape 1 : création du fichier de modèle
 
-Vous pouvez créer votre propre modèle à l’aide des informations figurant dans [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md). Vous pouvez également déployer des modèles qui ont été créés pour vous à partir des [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/). L’exemple utilisé dans cet article est similaire à celui décrit dans [Déployer une machine virtuelle Windows simple dans l’Ouest des États-Unis](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/).
+Vous pouvez créer votre propre modèle à l’aide des informations figurant dans [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md). Vous pouvez également déployer des modèles qui ont été créés pour vous à partir des [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 
 1. Ouvrez votre éditeur de texte et copiez ces informations JSON dans un nouveau fichier nommé *VirtualMachineTemplate.json* :
 
@@ -195,11 +195,11 @@ Vous pouvez créer votre propre modèle à l’aide des informations figurant da
           ]
         }
         
-    >[AZURE.NOTE] Cet article crée une machine virtuelle exécutant une version du système d’exploitation Windows Server. Pour en savoir plus sur la sélection d’autres images, consultez [Parcourir et sélectionner des images de machines virtuelles Linux dans Azure avec l’interface CLI ou PowerShell](virtual-machines-linux-cli-ps-findimage.md).
+    >[AZURE.NOTE] Cet article crée une machine virtuelle exécutant une version du système d’exploitation Windows Server. Pour en savoir plus sur la sélection d’autres images, consultez [Parcourir et sélectionner des images de machine virtuelle Azure avec Windows PowerShell et l’interface CLI Azure](virtual-machines-linux-cli-ps-findimage.md).
     
 2. Enregistrez le fichier de modèle.
 
-## Étape 2 : création du fichier de paramètres
+## Étape 2 : création du fichier de paramètres
 
 Pour spécifier des valeurs pour les paramètres de ressource qui ont été définis dans le modèle, créez un fichier de paramètres qui contient les valeurs et envoyez-le au Gestionnaire de ressources avec le modèle.
 
@@ -216,21 +216,21 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
           }
         }
 
-4. Enregistrez le fichier de paramètres.
+2. Enregistrez le fichier de paramètres.
 
-## Étape 3 : installation d’Azure PowerShell
+## Étape 3 : installation d’Azure PowerShell
 
 Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment installer la dernière version d’Azure PowerShell, sélectionner l’abonnement à utiliser et vous connecter à votre compte Azure.
 
-## Étape 4 : création d’un groupe de ressources
+## Étape 4 : création d’un groupe de ressources
 
 Toutes les ressources doivent être déployées dans un groupe de ressources. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
 1. Obtenez la liste des emplacements disponibles où créer des ressources.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort DisplayName | Select DisplayName
 
-2. Remplacez la valeur de **$locName** par un emplacement de la liste, par exemple **Centre des États-Unis**. Créez la variable.
+2. Remplacez la valeur de **$locName** par un emplacement de la liste, par exemple **États-Unis du Centre**. Créez la variable.
 
         $locName = "location name"
         
@@ -239,7 +239,7 @@ Toutes les ressources doivent être déployées dans un groupe de ressources. Po
         $rgName = "resource group name"
         New-AzureRmResourceGroup -Name $rgName -Location $locName
         
-    Le résultat suivant devrait s'afficher :
+    Le résultat suivant devrait s'afficher :
     
         ResourceGroupName : myrg1
         Location          : centralus
@@ -247,19 +247,19 @@ Toutes les ressources doivent être déployées dans un groupe de ressources. Po
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Étape 7 : création des ressources avec le modèle et les paramètres
+### Étape 5 : création des ressources avec le modèle et les paramètres
 
-1. Remplacez la valeur de **$deployName** par le nom du déploiement. Remplacez la valeur de **$templatePath** par le chemin d’accès et le nom du fichier de modèle. Remplacez la valeur de **$parameterFile** par le chemin d’accès et le nom du fichier de paramètres. Créez les variables. 
+1. Remplacez la valeur de **$deployName** par le nom du déploiement. Remplacez la valeur de **$templatePath** par le chemin d’accès et le nom du fichier de modèle. Remplacez la valeur de **$parameterFile** par le chemin d’accès et le nom du fichier de paramètres. Créez les variables.
 
         $deployName="deployment name"
         $templatePath = "template path"
         $parameterFile = "parameter file"
 
-4. Déployez le modèle.
+2. Déployez le modèle.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
-    Le résultat suivant doit s’afficher :
+    Le résultat suivant doit s’afficher :
 
         DeploymentName    : VirtualMachineTemplate
         ResourceGroupName : myrg1
@@ -281,7 +281,7 @@ Toutes les ressources doivent être déployées dans un groupe de ressources. Po
 
 ## Étapes suivantes
 
-- Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Pour apprendre à gérer la machine virtuelle que vous venez de créer, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
+- Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md)
+- Pour apprendre à gérer la machine virtuelle que vous venez de créer, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

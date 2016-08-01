@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partitionnement de tables dans SQL Data Warehouse
@@ -146,7 +146,9 @@ AND     rp.[name]    = 'SloDWPool'
 
 ## Basculement de partitions
 
-Pour faire basculer une partition d’une table à une autre, vous devez vous assurer que les partitions s’alignent sur leurs limites respectives et que les définitions de tables correspondent. Comme aucune contrainte CHECK n’est disponible pour appliquer la plage de valeurs dans une table, la table source doit contenir les mêmes limites de partition que la table cible. Dans le cas contraire, le basculement de la partition échoue, car les métadonnées de celle-ci ne sont pas synchronisées.
+SQL Data Warehouse prend en charge le fractionnement, la fusion et le basculement de partition. Chacune de ces fonctions est exécutée à l’aide de l’instruction [ALTER TABLE][].
+
+Pour faire basculer une partition d’une table à une autre, vous devez vous assurer que les partitions s’alignent sur leurs limites respectives et que les définitions de tables correspondent. Comme aucune contrainte CHECK n’est disponible pour appliquer la plage de valeurs dans une table, la table source doit contenir les mêmes limites de partition que la table cible. Dans le cas contraire, le basculement de la partition échoue, car les métadonnées de celle-ci ne sont pas synchronisées.
 
 ### Fractionnement d’une partition contenant des données
 
@@ -185,9 +187,9 @@ VALUES (1,20000101,1,1,1,1,1,1);
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE] En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, voir [Gérer des statistiques dans SQL Data Warehouse][].
+> [AZURE.NOTE] En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, voir [Gérer des statistiques dans SQL Data Warehouse][].
 
-Nous pouvons ensuite rechercher le nombre de lignes exploitant la vue de catalogue `sys.partitions` :
+Nous pouvons ensuite rechercher le nombre de lignes utilisant la vue de catalogue `sys.partitions` :
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -210,7 +212,7 @@ Si nous essayons de fractionner cette table, l’erreur suivante s’affiche :
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Le message 35346, au niveau 15, état 1, ligne 44, indique que la clause SPLIT de l’instruction ALTER PARTITION a échoué, car la partition n’est pas vide. Seules les partitions vides peuvent faire l’objet d’un fractionnement lorsque la table inclut un index columnstore. Vous pouvez envisager de désactiver l’index columnstore avant de lancer l’instruction ALTER PARTITION, puis de reconstruire l’index columnstore une fois l’opération ALTER PARTITION terminée.
+Le message 35346, au niveau 15, état 1, ligne 44, indique que la clause SPLIT de l’instruction ALTER PARTITION a échoué, car la partition n’est pas vide. Seules les partitions vides peuvent faire l’objet d’un fractionnement lorsque la table inclut un index columnstore. Vous pouvez envisager de désactiver l’index columnstore avant de lancer l’instruction ALTER PARTITION, puis de reconstruire l’index columnstore une fois l’opération ALTER PARTITION terminée.
 
 Cependant, nous pouvons utiliser la commande `CTAS` pour créer une table afin de stocker nos données.
 
@@ -267,7 +269,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### Contrôle de code source dans le cadre du partitionnement d’une table
 
-Pour éviter que la définition de votre table ne **se corrompe** dans votre système de contrôle du code source, vous pouvez procéder comme suit :
+Pour éviter que la définition de votre table ne **se corrompe** dans votre système de contrôle du code source, vous pouvez procéder comme suit :
 
 1. Créez la table en tant que table partitionnée, mais sans ajouter de valeurs de partition.
 
@@ -293,7 +295,7 @@ WITH
 ;
 ```
 
-2. Appliquez à la table la commande `SPLIT` lors du processus de déploiement :
+2. Appliquez à la table la commande `SPLIT` lors du processus de déploiement :
 
 ```sql
 -- Create a table containing the partition boundaries
@@ -364,7 +366,7 @@ Pour plus d’informations, consultez les articles [Table Overview][Overview] (V
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Gérer des statistiques dans SQL Data Warehouse]: ./sql-data-warehouse-tables-statistics.md
+[Gérer des statistiques dans SQL Data Warehouse]: ./sql-data-warehouse-tables-statistics.md
 [Statistiques]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporaire]: ./sql-data-warehouse-tables-temporary.md
@@ -373,6 +375,7 @@ Pour plus d’informations, consultez les articles [Table Overview][Overview] (V
 
 <!-- MSDN Articles -->
 [Tables et index partitionnés]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/fr-FR/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [fonction de partition]: https://msdn.microsoft.com/library/ms187802.aspx
 [schéma de partition]: https://msdn.microsoft.com/library/ms179854.aspx
@@ -380,4 +383,4 @@ Pour plus d’informations, consultez les articles [Table Overview][Overview] (V
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Hybrid Use Benefit pour Windows Server | Microsoft Azure"
-   description="Découvrez comment optimiser les avantages de votre contrat Software Assurance pour Windows Server pour mettre des licences locales sur Azure."
+   description="Découvrez comment optimiser les avantages de votre contrat Software Assurance pour Windows Server pour mettre des licences locales sur Azure"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -49,8 +49,7 @@ Pour en savoir plus sur le téléchargement du disque dur virtuel vers Azure, [c
 Lors du déploiement de votre machine virtuelle Windows Server via PowerShell, vous disposez d’un paramètre supplémentaire pour `-LicenseType`. Une fois votre disque dur virtuel téléchargé dans Azure, vous créez une machine virtuelle en utilisant `New-AzureRmVM` et spécifiez le type de licence comme suit :
 
 ```
-New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
-    -LicenseType Windows_Server
+New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
 ```
 
 Pour en savoir plus sur le déploiement d’une machine virtuelle dans Azure via PowerShell, [cliquez ici](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough). Pour une description plus détaillée de la création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell, [cliquez ici](./virtual-machines-windows-ps-create.md).
@@ -151,7 +150,7 @@ Téléchargez votre disque dur virtuel préparé convenablement et attachez-y la
 $osDiskName = "licensing.vhd"
 $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 $urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licensing.vhd"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
 Enfin, créez votre machine virtuelle et définissez le type de licence pour utiliser Azure Hybrid Use Benefit :
@@ -166,4 +165,4 @@ En savoir plus sur les [licences Azure Hybrid Use Benefit](https://azure.microso
 
 En savoir plus sur l’[utilisation des modèles Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory à Birst Agile Business Analytics | Microsoft Azure"
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory à Birst Agile Business Analytics | Microsoft Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et Birst Agile Business Analytics."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
-# Didacticiel : Intégration d’Azure Active Directory à Birst Agile Business Analytics
+# Didacticiel : Intégration d’Azure Active Directory à Birst Agile Business Analytics
 
 L’objectif de ce didacticiel est de vous montrer comment intégrer Birst Agile Business Analytics dans Azure AD (Azure Active Directory).
 
 L’intégration de Birst Agile Business Analytics dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Birst Agile Business Analytics.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Birst Agile Business Analytics (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Birst Agile Business Analytics.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Birst Agile Business Analytics (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## Composants requis
 
-Pour configurer l’intégration d’Azure AD à Birst Agile Business Analytics, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à Birst Agile Business Analytics, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
 - Un abonnement Birst Agile Business Analytics pour lequel l’authentification unique est activée
@@ -40,7 +40,7 @@ Pour configurer l’intégration d’Azure AD à Birst Agile Business Analytics
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -56,11 +56,11 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 
 
 ## Ajout de Birst Agile Business Analytics à partir de la galerie
-Pour configurer l’intégration de Birst Agile Business Analytics à Azure AD, vous devez ajouter Birst Agile Business Analytics à partir de la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Birst Agile Business Analytics à Azure AD, vous devez ajouter Birst Agile Business Analytics à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Birst Agile Business Analytics à partir de la galerie, procédez comme suit :**
+**Pour ajouter Birst Agile Business Analytics à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -74,7 +74,7 @@ Pour configurer l’intégration de Birst Agile Business Analytics à Azure AD,
 
 	![Applications][3]
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
 	![Applications][4]
 
@@ -88,13 +88,13 @@ Pour configurer l’intégration de Birst Agile Business Analytics à Azure AD,
 
 
 ##  Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Birst Agile Business Analytics, avec un utilisateur de test appelé « Britta Simon ».
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Birst Agile Business Analytics, avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Birst Agile Business Analytics équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur Birst Agile Business Analytics associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Birst Agile Business Analytics équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur Birst Agile Business Analytics associé doit être établie.
 
 Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Username** (Nom d’utilisateur) dans Birst Agile Business Analytics.
 
-Pour configurer et tester l’authentification unique Azure AD avec Birst Agile Business Analytics, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Birst Agile Business Analytics, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
@@ -102,13 +102,13 @@ Pour configurer et tester l’authentification unique Azure AD avec Birst Agile
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
+### Configuration de l’authentification unique Azure AD
 
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Birst Agile Business Analytics.
 
 
 
-**Pour configurer l’authentification unique Azure AD avec Birst Agile Business Analytics, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Birst Agile Business Analytics, procédez comme suit :**
 
 1. Sur la page d’intégration d’application **Birst Agile Business Analytics** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -161,7 +161,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
@@ -229,7 +229,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ![Affecter des utilisateurs][200]
 
-**Pour affecter Britta Simon à Birst Agile Business Analytics, procédez comme suit :**
+**Pour affecter Britta Simon à Birst Agile Business Analytics, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
 
@@ -253,7 +253,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Birst Agile Business Analytics dans le volet d’accès, vous devez être connecté automatiquement à votre application Birst Agile Business Analytics.
 
@@ -261,7 +261,7 @@ Lorsque vous cliquez sur la vignette Birst Agile Business Analytics dans le vole
 ## Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -282,4 +282,4 @@ Lorsque vous cliquez sur la vignette Birst Agile Business Analytics dans le vole
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

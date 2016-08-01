@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Vidéo Science des données pour les débutants nº 4 : Prédire une réponse à l’aide d’un modèle simple
+# Prédire une réponse à l’aide d’un modèle simple
+
+## Vidéo 4 : série Science des données pour les débutants
 
 Découvrez comment créer un modèle simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants. Nous allons dessiner un modèle de régression avec des données cibles.
 
@@ -25,9 +27,19 @@ Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéde
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
-## Transcription : Prédire une réponse à l’aide d’un modèle simple
+## Autres vidéos de cette série
 
-Bienvenue dans la quatrième vidéo de la série « Science des données pour les débutants ». Dans cette vidéo, nous allons générer un modèle simple et établir une prévision.
+La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
+
+  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+  * Vidéo 4 : Prédire une réponse à l’aide d’un modèle simple
+  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+
+## Transcription : Prédire une réponse à l’aide d’un modèle simple
+
+Bienvenue dans la quatrième vidéo de la série « Science des données pour les débutants ». Dans cette vidéo, nous allons générer un modèle simple et établir une prévision.
 
 Un *modèle* est un scénario simplifié de nos données. Je vais vous montrer ce que cela signifie.
 
@@ -50,7 +62,7 @@ Nous venons de créer un petit jeu de données : une table. Notez qu’elle rép
 
 ## Poser une question précise
 
-Maintenant, nous allons poser notre question d’une manière directe : « Combien coûte un diamant de 1,35 carat ? »
+Maintenant, nous allons poser notre question d’une manière directe : « Combien coûte un diamant de 1,35 carat ? »
 
 Notre liste ne comprend pas de diamant de 1,35 carat, et nous devrons donc à utiliser le reste de nos données pour obtenir une réponse à la question.
 
@@ -74,7 +86,7 @@ Ensuite, nous procédons de la même manière avec chaque diamant de la liste. L
 
 Maintenant, si vous regardez les points et plissez les yeux, la collection ressemble à une large ligne floue. Nous pouvons prendre notre marqueur et tracer une ligne droite.
 
-En dessinant une ligne, nous avons créé un *modèle*. Cela revient à prendre le monde réel et à en créer une version illustrée très simplifiée. Mais l’illustration est erronée : la ligne ne passe pas à travers tous les points de données. Mais il s’agit d’une simplification utile.
+En dessinant une ligne, nous avons créé un *modèle*. Cela revient à prendre le monde réel et à en créer une version illustrée très simplifiée. Mais l’illustration est erronée : la ligne ne passe pas à travers tous les points de données. Mais il s’agit d’une simplification utile.
 
 ![Ligne de régression linéaire](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
@@ -120,22 +132,13 @@ Et, si nous avions deux mille ou deux millions de diamants au lieu de quelques u
 
 Aujourd’hui, nous avons expliqué comment effectuer une régression linéaire, et nous avons réalisé une prédiction à l’aide de données.
 
-Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
+Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 
 
-## Autres vidéos de cette série
-
-La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
-
-  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vidéo 4 : Prédire une réponse à l’aide d’un modèle simple
-  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Étapes suivantes
 
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
   * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
