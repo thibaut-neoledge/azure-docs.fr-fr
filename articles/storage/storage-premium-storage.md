@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure | Microsoft Azure"
+	pageTitle="Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure | Microsoft Azure"
 	description="Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure. Les machines virtuelles Azure des séries DS, DSv2 et GS prennent en charge Premium Storage."
 	services="storage"
 	documentationCenter=""
@@ -17,13 +17,13 @@
 	ms.author="prkhad"/>
 
 
-# Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure
+# Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure
 
 ## Vue d'ensemble
 
 Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Les disques de machine virtuelle qui utilisent Premium Storage stockent les données sur des disques SSD. Vous pouvez migrer les disques de machine virtuelle de votre application dans Azure Premium Storage pour tirer parti de la vitesse et des performances de ces disques.
 
-Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu'à 80 000 IOPS (opérations d'E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
+Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu'à 80 000 IOPS (opérations d'E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
 
 Avec Premium Storage, Azure offre la possibilité de réellement déplacer vers le cloud vos applications d’entreprise exigeantes comme Dynamics AX, Dynamics CRM, Exchange Server, batteries de serveurs SharePoint et SAP Business Suite. Vous pouvez exécuter une multitude de charges de travail intensives et exigeantes en lien avec les bases de données (comme SQL Server, Oracle, MongoDB, MySQL, Redis) qui nécessitent continuellement des performances élevées et une faible latence sur Premium Storage.
 
@@ -35,17 +35,17 @@ Pour une prise en main du stockage Azure Premium, consultez la page [Évaluation
 
 ## Caractéristiques de Premium Storage
 
-**Disques Premium Storage** : Azure Storage Premium prend en charge les disques de machine virtuelle pouvant être connectés à des machines virtuelles Azure des séries DS, DSv2 ou GS. Quand vous utilisez Premium Storage, vous avez le choix entre trois tailles de disque, à savoir, P10 (128 Gio), P20 (512 Gio) et P30 (1 024 Gio), chacun avec ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez connecter un ou plusieurs de ces disques à votre machine virtuelle de série DS, DSv2 ou GS. La section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets) décrit ces spécifications plus en détail.
+**Disques Premium Storage** : Azure Storage Premium prend en charge les disques de machine virtuelle pouvant être connectés à des machines virtuelles Azure des séries DS, DSv2 ou GS. Quand vous utilisez Premium Storage, vous avez le choix entre trois tailles de disque, à savoir, P10 (128 Gio), P20 (512 Gio) et P30 (1 024 Gio), chacun avec ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez connecter un ou plusieurs de ces disques à votre machine virtuelle de série DS, DSv2 ou GS. La section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets) décrit ces spécifications plus en détail.
 
-**Objet blob de pages Premium** : Premium Storage prend en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des machines virtuelles Azure. Actuellement, Premium Storage ne prend pas en charge les objets blob de blocs Azure, les objets blob d’ajout Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Tout autre objet placé dans un compte de stockage Premium est un objet blob de pages, et il s’aligne sur une des tailles configurées prises en charge. Un compte de stockage Premium n’est donc pas conçu pour stocker de petits objets blob.
+**Objet blob de pages Premium** : Premium Storage prend en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des machines virtuelles Azure. Actuellement, Premium Storage ne prend pas en charge les objets blob de blocs Azure, les objets blob d’ajout Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Tout autre objet placé dans un compte de stockage Premium est un objet blob de pages, et il s’aligne sur une des tailles configurées prises en charge. Un compte de stockage Premium n’est donc pas conçu pour stocker de petits objets blob.
 
-**Compte Premium Storage** : pour commencer à utiliser Premium Storage, vous devez créer un compte Premium Storage. Si vous préférez utiliser le [portail Azure](https://portal.azure.com), vous pouvez créer un compte Premium Storage en spécifiant le niveau de performances « Premium » et le « stockage localement redondant (LRS) » comme option de réplication. Vous pouvez également créer un compte Premium Storage en spécifiant le type « Premium\_LRS » à l’aide de [l’API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 ou ultérieure, [l’API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure (déploiements classiques), la [Référence de l’API REST du fournisseur de ressources Azure Storage](http://msdn.microsoft.com/library/azure/mt163683.aspx) (déploiements Resource Manager) et [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 ou ultérieure. Pour en savoir plus sur les limites de compte de stockage Premium, voir la section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets).
+**Compte Premium Storage** : pour commencer à utiliser Premium Storage, vous devez créer un compte Premium Storage. Si vous préférez utiliser le [portail Azure](https://portal.azure.com), vous pouvez créer un compte Premium Storage en spécifiant le niveau de performances « Premium » et le « stockage localement redondant (LRS) » comme option de réplication. Vous pouvez également créer un compte Premium Storage en spécifiant le type « Premium\_LRS » à l’aide de [l’API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 ou ultérieure, [l’API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure (déploiements classiques), la [Référence de l’API REST du fournisseur de ressources Azure Storage](http://msdn.microsoft.com/library/azure/mt163683.aspx) (déploiements Resource Manager) et [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 ou ultérieure. Pour en savoir plus sur les limites de compte de stockage Premium, voir la section suivante sur les [objectifs de performance et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets).
 
-**Stockage Premium localement redondant** : un compte Premium Storage prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication et conserve trois copies des données dans une même région. Pour plus d’informations sur la géo-réplication pendant l’utilisation de Premium Storage, voir la section [Captures instantanées et copie d’objets blob](#snapshots-and-copy-blob) dans cet article.
+**Stockage Premium localement redondant** : un compte Premium Storage prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication et conserve trois copies des données dans une même région. Pour plus d’informations sur la géo-réplication pendant l’utilisation de Premium Storage, voir la section [Captures instantanées et copie d’objets blob](#snapshots-and-copy-blob) dans cet article.
 
-Azure utilise le compte de stockage comme conteneur pour votre système d'exploitation et vos disques de données. Lorsque vous créez une machine virtuelle Azure de série DS, DSv2 ou GS, puis sélectionnez un compte Premium Storage, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
+Azure utilise le compte de stockage comme conteneur pour votre système d'exploitation et vos disques de données. Lorsque vous créez une machine virtuelle Azure de série DS, DSv2 ou GS, puis sélectionnez un compte Premium Storage, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
 
-Vous pouvez utiliser le stockage Premium pour disques de deux manières :
+Vous pouvez utiliser le stockage Premium pour disques de deux manières :
 - Commencez par créer un compte Premium Storage. Ensuite, lorsque vous créez une machine virtuelle DS, DSv2 ou GS, sélectionnez le compte Premium Storage dans les paramètres de configuration du stockage. OU,
 - Lors de la création d’une machine virtuelle DS, DSv2 ou GS, créez un compte Premium Storage dans les paramètres de configuration du stockage, ou laissez le portail Azure créer un compte Premium Storage par défaut.
 
@@ -55,7 +55,7 @@ Pour des instructions détaillées, voir la section [Démarrage rapide](#quick-s
 
 ## Machines virtuelles des séries DS, DSv2 et GS
 
-Premium Storage prend en charge les machines virtuelles Azure des séries DS, DSv2 et GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS, DSv2 ou GS. Vous ne pouvez cependant pas utiliser de disques de stockage Premium avec des machines virtuelles qui ne sont pas de série DS ou GS.
+Premium Storage prend en charge les machines virtuelles Azure des séries DS, DSv2 et GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS, DSv2 ou GS. Vous ne pouvez cependant pas utiliser de disques de stockage Premium avec des machines virtuelles qui ne sont pas de série DS ou GS.
 
 Pour plus d’informations sur les tailles et les types de machines virtuelles Azure disponibles en ce qui concerne les machines virtuelles Windows, consultez [Tailles des machines virtuelles Windows](../virtual-machines/virtual-machines-windows-sizes.md). Pour plus d’informations sur les tailles et les types de machines virtuelles disponibles en ce qui concerne les machines virtuelles Linux, consultez [Tailles des machines virtuelles Linux](../virtual-machines/virtual-machines-linux-sizes.md).
 
@@ -63,19 +63,19 @@ Voici quelques-unes des caractéristiques des machines virtuelles des séries DS
 
 **Service cloud** : vous pouvez ajouter des machines virtuelles de la série DS à un service cloud incluant uniquement des machines virtuelles de ce type. Évitez d’ajouter des machines virtuelles de la série DS à un service cloud incluant des machines virtuelles d’un autre type. Vous pouvez migrer vos disques durs virtuels vers un nouveau service cloud exécutant uniquement des machines virtuelles de la série DS. Si vous souhaitez conserver la même adresse IP virtuelle (VIP) pour le nouveau service cloud hébergeant vos machines virtuelles de la série DS, utilisez les [adresses IP réservées](../virtual-network/virtual-networks-instance-level-public-ip.md). Des machines virtuelles de la série GS peuvent être ajoutés à un service cloud existant exécutant seulement des machines virtuelles de la série GS.
 
-**Disque du système d’exploitation** : les machines virtuelles Azure des séries DS, DSv2 et GS peuvent être configurées pour un disque de système d’exploitation (SE) hébergé sur un compte de stockage Standard ou Premium. Nous vous recommandons d’utiliser un disque de système d’exploitation basé sur Premium Storage pour une meilleure expérience.
+**Disque du système d’exploitation** : les machines virtuelles Azure des séries DS, DSv2 et GS peuvent être configurées pour un disque de système d’exploitation (SE) hébergé sur un compte de stockage Standard ou Premium. Nous vous recommandons d’utiliser un disque de système d’exploitation basé sur Premium Storage pour une meilleure expérience.
 
 **Disques de données** : vous pouvez utiliser des disques de stockage tant Standard que Premium dans une même machine virtuelle de série DS, DSv2 ou GS. Avec Premium Storage, vous pouvez configurer une machine virtuelle de série DS, DSv2 ou GS, puis connecter plusieurs disques de données persistants à celle-ci. Si nécessaire, vous pouvez répartir les données sur les disques pour augmenter la capacité et les performances du volume.
 
-> [AZURE.NOTE] Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx), vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Par défaut, l'interface utilisateur (IU) du Gestionnaire de serveur vous permet de créer des colonnes jusqu'à 8 disques. Mais si vous avez plus de 8 disques, vous devez utiliser PowerShell pour créer le volume et spécifier manuellement le nombre de colonnes. Dans le cas contraire, l'IU du Gestionnaire de serveur continue d'utiliser 8 colonnes, même si vous disposez de plusieurs disques. Par exemple, si vous disposez de 32 disques dans un agrégat unique, vous devez spécifier 32 colonnes. Vous pouvez utiliser le paramètre *NumberOfColumns* de l’applet de commande PowerShell [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) pour spécifier le nombre de colonnes utilisées par le disque virtuel. Pour plus d'informations, consultez [Vue d'ensemble des espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx) et [Forum aux Questions sur les espaces de stockage](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+> [AZURE.NOTE] Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx), vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Par défaut, l'interface utilisateur (IU) du Gestionnaire de serveur vous permet de créer des colonnes jusqu'à 8 disques. Mais si vous avez plus de 8 disques, vous devez utiliser PowerShell pour créer le volume et spécifier manuellement le nombre de colonnes. Dans le cas contraire, l'IU du Gestionnaire de serveur continue d'utiliser 8 colonnes, même si vous disposez de plusieurs disques. Par exemple, si vous disposez de 32 disques dans un agrégat unique, vous devez spécifier 32 colonnes. Vous pouvez utiliser le paramètre *NumberOfColumns* de l’applet de commande PowerShell [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) pour spécifier le nombre de colonnes utilisées par le disque virtuel. Pour plus d'informations, consultez [Vue d'ensemble des espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx) et [Forum aux Questions sur les espaces de stockage](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
 
-**Cache** : les machines virtuelles des séries DS, DSv2 et GS ont une capacité de mise en cache unique, permettant d’obtenir des niveaux élevés de débit et de latence, supérieurs aux performances du disque Premium Storage sous-jacent. Vous pouvez configurer une stratégie de mise en cache de disque sur les disques Premium Storage en ReadOnly (lecture seule), ReadWrite (lecture/écriture) ou None (aucune). La stratégie de mise en cache de disque par défaut est ReadOnly pour tous les disques de données Premium, et ReadWrite pour les disques de système d’exploitation. Utilisez le paramètre de configuration approprié pour optimiser les performances de votre application. Ainsi, pour préparer des disques de données lourds ou en lecture seule, contenant par exemple des fichiers de données SQL Server, définissez la stratégie de mise en cache « ReadOnly ». Pour écrire des disques de données lourds ou en écriture seule, contenant, par exemple, des fichiers journaux SQL Server, définissez la stratégie de mise en cache sur « None ». Pour en savoir plus sur l’optimisation de votre conception avec Premium Storage, consultez [Conception optimisée pour les performances avec Premium Storage](storage-premium-storage-performance.md).
+**Cache** : les machines virtuelles des séries DS, DSv2 et GS ont une capacité de mise en cache unique, permettant d’obtenir des niveaux élevés de débit et de latence, supérieurs aux performances du disque Premium Storage sous-jacent. Vous pouvez configurer une stratégie de mise en cache de disque sur les disques Premium Storage en ReadOnly (lecture seule), ReadWrite (lecture/écriture) ou None (aucune). La stratégie de mise en cache de disque par défaut est ReadOnly pour tous les disques de données Premium, et ReadWrite pour les disques de système d’exploitation. Utilisez le paramètre de configuration approprié pour optimiser les performances de votre application. Ainsi, pour préparer des disques de données lourds ou en lecture seule, contenant par exemple des fichiers de données SQL Server, définissez la stratégie de mise en cache « ReadOnly ». Pour écrire des disques de données lourds ou en écriture seule, contenant, par exemple, des fichiers journaux SQL Server, définissez la stratégie de mise en cache sur « None ». Pour en savoir plus sur l’optimisation de votre conception avec Premium Storage, consultez [Conception optimisée pour les performances avec Premium Storage](storage-premium-storage-performance.md).
 
 **Analyses** : pour analyser les performances de machines virtuelles utilisant des disques sur des comptes Premium Storage, vous pouvez activer les diagnostics de machine virtuelle Azure dans le portail Azure. Pour plus d’informations, reportez-vous à la rubrique [Surveillance des machines virtuelles Microsoft Azure avec l’extension Azure Diagnostics](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). Pour afficher les performances du disque, utilisez les outils du système d’exploitation, tels que l’[Analyseur de performances Windows](https://technet.microsoft.com/library/cc749249.aspx) pour les machines virtuelles Windows, et [IOSTAT](http://linux.die.net/man/1/iostat) pour les machines virtuelles Linux.
 
 **Performances et limites de mise à l’échelle de machine virtuelle** : à chaque taille de machine virtuelle des séries DS, DSv2 et GS est associée une spécification relative aux performances et limites de mise à l’échelle en relation avec les opérations d’E/S par seconde (IOPS), la bande passante et le nombre de disques pouvant être connectés par machine virtuelle. Lorsque vous utilisez des disques Premium Storage avec des machines virtuelles des séries DS, DSv2 ou GS, assurez-vous de disposer de suffisamment d’IOPS et de bande passante sur vos machines virtuelles pour gérer le trafic du disque. Par exemple, une machine virtuelle STANDARD\_DS1 a une bande passante dédiée de 32 Mo par seconde pour le trafic des disques de stockage Premium. Un disque Premium Storage P10 peut fournir 100 Mo par seconde de bande passante. Si un disque Premium Storage P10 est connecté à cette machine virtuelle, il ne peut pas dépasser 32 Mo par seconde, au lieu des 100 Mo par seconde qu’il est capable d’atteindre.
 
-Actuellement, la machine virtuelle DS la plus puissante est STANDARD\_DS14, qui offre un débit maximum de 512 Mo par seconde sur l’ensemble des disques. La machine virtuelle de série GS DS la plus puissante est STANDARD\_GS5, qui offre un débit allant jusqu’à 2 000 Mo par seconde sur l’ensemble des disques. Notez que ces limites ne valent que pour le trafic de disques, pas pour les présences dans le cache ou le trafic réseau. Une bande passante distincte est disponible pour le trafic réseau des machines virtuelles. Il ne s’agit pas de la bande passante dédiée aux disques de stockage Premium.
+Actuellement, la machine virtuelle DS la plus puissante est STANDARD\_DS14, qui offre un débit maximum de 512 Mo par seconde sur l’ensemble des disques. La machine virtuelle de série GS DS la plus puissante est STANDARD\_GS5, qui offre un débit allant jusqu’à 2 000 Mo par seconde sur l’ensemble des disques. Notez que ces limites ne valent que pour le trafic de disques, pas pour les présences dans le cache ou le trafic réseau. Une bande passante distincte est disponible pour le trafic réseau des machines virtuelles. Il ne s’agit pas de la bande passante dédiée aux disques de stockage Premium.
 
 Pour obtenir les informations les plus récentes sur le maximum d’IOPS et de bande passante concernant les machines virtuelles des séries DS, DSv2 et GS, consultez [Tailles des machines virtuelles Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [Tailles des machines virtuelles Linux](../virtual-machines/virtual-machines-linux-sizes.md).
 
@@ -112,11 +112,11 @@ Les objectifs d’extensibilité des comptes Premium Storage sont les suivants :
 
 Pour plus d'informations, consultez [Objectifs d'extensibilité et de performances d'Azure Storage](storage-scalability-targets.md).
 
-Si les besoins de votre application dépassent les objectifs d'extensibilité d'un compte de stockage unique, générez votre application pour qu'elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes. Par exemple, si vous souhaitez joindre des disques de 51 To sur plusieurs machines virtuelles, répartissez-les entre deux comptes de stockage, la limite d’un compte Premium Storage étant de 35 To. Vérifiez qu’un compte de stockage Premium n’a jamais plus de 35 To de disques approvisionnés.
+Si les besoins de votre application dépassent les objectifs d'extensibilité d'un compte de stockage unique, générez votre application pour qu'elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes. Par exemple, si vous souhaitez joindre des disques de 51 To sur plusieurs machines virtuelles, répartissez-les entre deux comptes de stockage, la limite d’un compte Premium Storage étant de 35 To. Vérifiez qu’un compte de stockage Premium n’a jamais plus de 35 To de disques approvisionnés.
 
 ### Limites des disques Premium Storage
 
-Quand vous configurez un disque sur un compte de stockage Premium, le nombre d'opération d'E/S par seconde (IOPS) et le débit (bande passante) qu'il peut recevoir dépend de la taille du disque. Actuellement, il existe trois types de disques de stockage Premium : P10, P20 et P30. Chaque type présente des limites spécifiques en matière d'IOPS et de débit, comme indiqué dans le tableau suivant :
+Quand vous configurez un disque sur un compte de stockage Premium, le nombre d'opération d'E/S par seconde (IOPS) et le débit (bande passante) qu'il peut recevoir dépend de la taille du disque. Actuellement, il existe trois types de disques de stockage Premium : P10, P20 et P30. Chaque type présente des limites spécifiques en matière d'IOPS et de débit, comme indiqué dans le tableau suivant :
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
@@ -149,17 +149,17 @@ Quand vous configurez un disque sur un compte de stockage Premium, le nombre d'o
 
 > [AZURE.NOTE] Vérifiez que la bande passante disponible sur votre machine virtuelle est suffisante pour gérer le trafic du disque, comme expliqué dans la section [Machines virtuelles des séries DS, DSv2 et GS](#ds-dsv2-and-gs-series-vms) plus haut dans cet article. Dans le cas contraire, le débit et l’IOPS du disque seront limitées à des valeurs inférieures basées sur les limites de la machine virtuelle, et non aux valeurs de disque mentionnées dans le tableau précédent.
 
-Voici quelques éléments importants que vous devez savoir sur les objectifs de performances et d’extensibilité de Premium Storage :
+Voici quelques éléments importants que vous devez savoir sur les objectifs de performances et d’extensibilité de Premium Storage :
 
 - **Capacité et performances configurées** : lorsque vous configurez un disque Premium Storage, contrairement au stockage standard, la capacité, les IOPS et le débit de ce disque sont garantis. Par exemple, si vous créez un disque P30, Azure configure une capacité de stockage de 1 024 Go, 5 000 IOPS et un débit de 200 Mo par seconde pour ce disque. Votre application peut utiliser tout ou partie de la capacité et des performances.
 
-- **Taille du disque** : Azure mappe la taille du disque (arrondie à la valeur supérieure) à l’option de disque Premium Storage la plus proche, comme indiqué dans le tableau. Par exemple, un disque de 100 Go correspond à l’option P10 et peut prendre en charge jusqu'à 500 IOPS et un débit de 100 Mo par seconde. De même, un disque de 400 Go correspond à une option P20 et peut prendre en charge jusqu'à 2 300 IOPS et un débit de 150 Mo par seconde.
+- **Taille du disque** : Azure mappe la taille du disque (arrondie à la valeur supérieure) à l’option de disque Premium Storage la plus proche, comme indiqué dans le tableau. Par exemple, un disque de 100 Go correspond à l’option P10 et peut prendre en charge jusqu'à 500 IOPS et un débit de 100 Mo par seconde. De même, un disque de 400 Go correspond à une option P20 et peut prendre en charge jusqu'à 2 300 IOPS et un débit de 150 Mo par seconde.
 
-	> [AZURE.NOTE] Vous pouvez facilement augmenter la taille des disques existants. Par exemple, vous pouvez augmenter la taille d'un disque de 30 Go à 128 Go ou 1 To. Ou convertir votre disque P20 en disque P30, si vous avez besoin de davantage de capacités ou de plus d’IOPS et de débit. Vous pouvez augmenter la taille du disque à l’aide de l’applet de commande PowerShell « Update-AzureDisk » avec la propriété «-ResizedSizeInGB ». Pour effectuer cette action, le disque doit être détaché de la machine virtuelle ou cette dernière doit être arrêtée.
+	> [AZURE.NOTE] Vous pouvez facilement augmenter la taille des disques existants. Par exemple, vous pouvez augmenter la taille d'un disque de 30 Go à 128 Go ou 1 To. Ou convertir votre disque P20 en disque P30, si vous avez besoin de davantage de capacités ou de plus d’IOPS et de débit. Vous pouvez augmenter la taille du disque à l’aide de l’applet de commande PowerShell « Update-AzureDisk » avec la propriété «-ResizedSizeInGB ». Pour effectuer cette action, le disque doit être détaché de la machine virtuelle ou cette dernière doit être arrêtée.
 
-- **Taille d’E/S** : la taille d’une unité d’E/S est de 256 Ko. Si la taille des données transférées est inférieure à 256 Ko, elles sont considérées comme une seule unité d'E/S. Les tailles d'E/S supérieures sont divisées en plusieurs unités d'E/S de 256 Ko. Par exemple, 1 100 Ko d'E/S correspond à cinq unités d'E/S.
+- **Taille d’E/S** : la taille d’une unité d’E/S est de 256 Ko. Si la taille des données transférées est inférieure à 256 Ko, elles sont considérées comme une seule unité d'E/S. Les tailles d'E/S supérieures sont divisées en plusieurs unités d'E/S de 256 Ko. Par exemple, 1 100 Ko d'E/S correspond à cinq unités d'E/S.
 
-- **Débit** : la limite de débit comprend les écritures sur le disque et les lectures à partir de ce dernier, qui ne sont pas effectuées à partir du cache. Par exemple, un disque P10 offre un débit de 100 Mo par seconde. Les débits valides pour un disque P10 sont, par exemple,
+- **Débit** : la limite de débit comprend les écritures sur le disque et les lectures à partir de ce dernier, qui ne sont pas effectuées à partir du cache. Par exemple, un disque P10 offre un débit de 100 Mo par seconde. Les débits valides pour un disque P10 sont, par exemple,
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
@@ -185,22 +185,22 @@ Voici quelques éléments importants que vous devez savoir sur les objectifs de 
 </tbody>
 </table>
 
-- **Présences dans le cache** : les présences dans le cache ne sont pas limitées par les IOPS et le débit du disque alloués. Par exemple, quand vous utilisez un disque de données avec le paramètre de cache ReadOnly sur une machine virtuelle de série DS, DSv2 ou GS, les lectures effectuées à partir du cache ne sont pas soumises aux limites des disques Premium Storage. Il est donc possible d’obtenir un très haut débit à partir d'un disque, si la charge de travail concerne essentiellement des lectures. Notez que le cache est soumis à des limites IOPS/Débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4000 IOPS et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local. Les machines virtuelles de la série GS sont limitées à 5 000 IOPS et à 50 Mo/s par cœur pour le cache et les E/S du disque SSD local.
+- **Présences dans le cache** : les présences dans le cache ne sont pas limitées par les IOPS et le débit du disque alloués. Par exemple, quand vous utilisez un disque de données avec le paramètre de cache ReadOnly sur une machine virtuelle de série DS, DSv2 ou GS, les lectures effectuées à partir du cache ne sont pas soumises aux limites des disques Premium Storage. Il est donc possible d’obtenir un très haut débit à partir d'un disque, si la charge de travail concerne essentiellement des lectures. Notez que le cache est soumis à des limites IOPS/Débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4000 IOPS et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local. Les machines virtuelles de la série GS sont limitées à 5 000 IOPS et à 50 Mo/s par cœur pour le cache et les E/S du disque SSD local.
 
 ## Limitation
 Vous pouvez constater une limitation de bande passante si les IOPS ou le débit de votre application dépassent les limites allouées à un disque Premium Storage, ou si le trafic total de l’ensemble des disques de la machine virtuelle dépasse la limite de bande passante de disque disponible pour la machine virtuelle. Pour éviter cette situation, nous vous recommandons de limiter le nombre de demandes d'E/S en attente, en fonction des objectifs d'extensibilité et de performances du disque configuré et de la bande passante de disques disponible pour la machine virtuelle.
 
 Quand votre application est conçue pour éviter les limitations, elle bénéficie d'une latence moindre. En revanche, si le nombre de demandes d'E/S en attente est trop faible, votre application ne peut pas bénéficier des niveaux maximum de débit et d'IOPS disponibles sur le disque.
 
-Les exemples suivants montrent comment calculer les niveaux de limitation. Tous les calculs sont basés sur une taille d’unité d’E/S de 256 Ko.
+Les exemples suivants montrent comment calculer les niveaux de limitation. Tous les calculs sont basés sur une taille d’unité d’E/S de 256 Ko.
 
-### Exemple 1 :
-Votre application a traité 495 unités d’E/S d’une taille de 16 Ko par seconde sur un disque P10. Celles-ci sont comptées comme 495 unités d’E/S par seconde (IOPS). Si vous tentez une E/S de 2 Mo dans la même seconde, le total d'unités d'E/S est égal à 495 + 8. En effet, une E/S de 2 Mo équivaut à 2 048 Ko / 256 Ko = 8 unités d'E/S, avec une taille d'unité d'E/S égale à 256 Ko. Étant donné que la somme de 495 + 8 dépasse la limite de 500 IOPS du disque, il se produit une limitation.
+### Exemple 1 :
+Votre application a traité 495 unités d’E/S d’une taille de 16 Ko par seconde sur un disque P10. Celles-ci sont comptées comme 495 unités d’E/S par seconde (IOPS). Si vous tentez une E/S de 2 Mo dans la même seconde, le total d'unités d'E/S est égal à 495 + 8. En effet, une E/S de 2 Mo équivaut à 2 048 Ko / 256 Ko = 8 unités d'E/S, avec une taille d'unité d'E/S égale à 256 Ko. Étant donné que la somme de 495 + 8 dépasse la limite de 500 IOPS du disque, il se produit une limitation.
 
-### Exemple 2 :
-Votre application a traité 400 unités d’E/S de 256 Ko sur un disque P10. La bande passante totale consommée est de (400 * 256) / 1 024 = 100 Mo/s. Un disque P10 a une limite de débit de 100 Mo par seconde. Si votre application tente d'effectuer davantage d'E/S dans la même seconde, elle sera limitée, car elle dépassera la limite allouée.
+### Exemple 2 :
+Votre application a traité 400 unités d’E/S de 256 Ko sur un disque P10. La bande passante totale consommée est de (400 * 256) / 1 024 = 100 Mo/s. Un disque P10 a une limite de débit de 100 Mo par seconde. Si votre application tente d'effectuer davantage d'E/S dans la même seconde, elle sera limitée, car elle dépassera la limite allouée.
 
-### Exemple 3 :
+### Exemple 3 :
 Vous avez une machine virtuelle DS4 avec deux disques P30. Chaque disque P30 peut gérer un débit de 200 Mo par seconde. Toutefois, une machine virtuelle DS4 a une bande passante disque maximale de 256 Mo par seconde. Par conséquent, vous ne pouvez pas obtenir un débit maximal sur tous les disques de cette machine virtuelle DS4 en même temps. La solution consiste à maintenir un trafic de 200 Mo par seconde sur un disque et un trafic de 56 Mo par seconde sur l'autre disque. Si la somme de votre trafic de disques excède 256 Mo par seconde, il est limité.
 
 >[AZURE.NOTE] si le trafic du disque consiste essentiellement en des E/S de petite taille, il est très probable que votre application atteindra la limite d'IOPS avant la limite de débit. En revanche, si le trafic du disque consiste essentiellement en des E/S de grande taille, il est très probable que votre application atteindra la limite de débit avant la limite d'IOPS. Vous pouvez optimiser la capacité de votre application en termes d’IOPS et de débit en utilisant des tailles d’E/S optimales et en limitant le nombre de demandes d’E/S en attente pour le disque.
@@ -212,7 +212,7 @@ Vous pouvez créer une capture instantanée pour le stockage Premium de la même
 
 Si un disque est attaché à une machine virtuelle, certaines opérations d'API ne sont pas autorisées sur l'objet blob de pages utilisé par le disque. Par exemple, vous ne pouvez pas effectuer une opération [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) sur cet objet blob, tant que le disque est attaché à une machine virtuelle. À la place, commencez par créer une capture instantanée de cet objet blob à l'aide de la méthode [Snapshot Blob](http://msdn.microsoft.com/library/azure/ee691971.aspx) de l'API REST, puis exécutez l'opération [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) de la capture instantanée pour copier le disque attaché. Vous pouvez également détacher le disque et effectuer les opérations nécessaires sur l'objet blob sous-jacent.
 
-Les limites suivantes s’appliquent aux instantanés d’objet blob de Premium Storage :
+Les limites suivantes s’appliquent aux instantanés d’objet blob de Premium Storage :
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
@@ -242,12 +242,12 @@ Pour plus d'informations sur l'exécution d'opérations REST sur les objets blob
 Consultez les instructions importantes ci-dessous pour configurer vos machines virtuelles Linux sur un stockage Premium :
 
 - Pour tous les disques de stockage Premium dont le paramètre de cache est « ReadOnly » ou « None », vous devez désactiver les « barrières » lors du montage du système de fichiers pour atteindre les objectifs d'évolutivité du stockage Premium. Ces barrières sont inutiles dans ce cas de figure, car les écritures sur les disques sauvegardés de stockage Premium sont pérennes avec ces paramètres de cache. Lorsque la demande d'écriture est terminée, les données sont stockées dans le magasin permanent. Utilisez les méthodes suivantes pour désactiver les « barrières » en fonction de votre système de fichiers :
-	- Si vous utilisez **reiserFS**, désactivez les barrières à l'aide de l'option de montage « barrier=none ». (Pour activer les barrières, utilisez « barrier=flush ».)
-	- Si vous utilisez **ext3/ext4**, désactivez les barrières à l'aide de l'option de montage « barrier=0 ». (Pour activer les barrières, utilisez « barrier=1 ».)
-	- Si vous utilisez **XFS**, désactivez les barrières à l'aide de l'option de montage « nobarrier ». (Pour activer les barrières, utilisez l’option « barrier ».)
+	- Si vous utilisez **reiserFS**, désactivez les barrières à l'aide de l'option de montage « barrier=none ». (Pour activer les barrières, utilisez « barrier=flush ».)
+	- Si vous utilisez **ext3/ext4**, désactivez les barrières à l'aide de l'option de montage « barrier=0 ». (Pour activer les barrières, utilisez « barrier=1 ».)
+	- Si vous utilisez **XFS**, désactivez les barrières à l'aide de l'option de montage « nobarrier ». (Pour activer les barrières, utilisez l’option « barrier ».)
 
 - Pour les disques de stockage Premium dont le paramètre de cache est « ReadWrite », les barrières doivent être activées pour pérenniser les écritures.
-- Pour conserver les étiquettes de volume après le redémarrage de la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références UUID aux disques. Consultez également [Association d’un disque de données à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-classic-attach-disk.md).
+- Pour conserver les étiquettes de volume après le redémarrage de la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références UUID aux disques. Consultez également [Association d’un disque de données à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-classic-attach-disk.md).
 
 Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version de LIS (Linux Integration Services version 4.0 pour Microsoft Azure). Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour une charge de travail particulière.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -346,21 +346,24 @@ Les clients exécutant des machines virtuelles OpenLogic CentOS doivent exécute
 Un redémarrage est nécessaire pour activer les nouveaux pilotes.
 
 ## Tarification et facturation
-Les considérations de facturation suivantes s'appliquent à l'utilisation du stockage Premium :
+Les considérations de facturation suivantes s'appliquent à l'utilisation du stockage Premium :
 - Taille de disque Premium Storage/de l’objet blob
 - Instantanés Premium Storage
 - Transferts de données sortantes
 
-**Taille de disque Premium Storage/de l’objet blob** : la facturation pour un disque Premium Storage/un objet blob dépend de la taille configurée du disque/de l’objet blob. Azure mappe la taille approvisionnée (arrondie à la valeur supérieure) à l’option de disque Premium Storage la plus proche, comme indiqué dans le tableau de la section [Objectifs d’extensibilité et de performances avec Premium Storage](#premium-storage-scalability-and-performance-targets). Tous les objets stockés dans un compte de stockage Premium sont mis en correspondance avec l’une des tailles prises en charge configurées et sont facturés en conséquence. Évitez donc d’utiliser un compte Premium Storage pour stocker de petits objets blob. La facturation de n’importe quel disque/objet blob configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit/IOPS utilisés.
+**Taille de disque Premium Storage/de l’objet blob** : la facturation pour un disque Premium Storage/un objet blob dépend de la taille configurée du disque/de l’objet blob. Azure mappe la taille approvisionnée (arrondie à la valeur supérieure) à l’option de disque Premium Storage la plus proche, comme indiqué dans le tableau de la section [Objectifs d’extensibilité et de performances avec Premium Storage](#premium-storage-scalability-and-performance-targets). Tous les objets stockés dans un compte de stockage Premium sont mis en correspondance avec l’une des tailles prises en charge configurées et sont facturés en conséquence. Évitez donc d’utiliser un compte Premium Storage pour stocker de petits objets blob. La facturation de n’importe quel disque/objet blob configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit/IOPS utilisés.
 
 **Instantanés Premium Storage** : les captures instantanées sur Premium Storage sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
 **Transferts de données sortantes** : les [transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
-Pour plus d’informations sur la tarification du stockage Premium et des machines virtuelles de série DS, DSv2 et GS, consultez :
+Pour plus d’informations sur la tarification du stockage Premium et des machines virtuelles de série DS, DSv2 et GS, consultez :
 
 - [Tarification d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 - [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/)
+
+## Sauvegarde
+Les machines virtuelles utilisant Premium Storage peuvent être sauvegardées à l’aide d’Azure Backup. [Détails supplémentaires](../backup/backup-azure-vms-first-look-arm.md).
 
 ## Quick Start
 
@@ -384,7 +387,7 @@ Cette section explique comment créer un compte Premium Storage à partir du por
 
 3. Entrez un nom pour votre compte de stockage.
 
-	> [AZURE.NOTE] Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
+	> [AZURE.NOTE] Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
 	>  
 	> Le nom de votre compte de stockage doit être unique dans Azure. Le portail Azure indique si le nom du compte de stockage sélectionné est déjà utilisé.
 
@@ -396,7 +399,7 @@ Cette section explique comment créer un compte Premium Storage à partir du por
 
 7. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 
-8. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du Portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
+8. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
 
 9. Sélectionnez l’emplacement géographique de votre compte de stockage. Vous pouvez vérifier que Premium Storage est disponible dans le lieu sélectionné en consultant [Services Azure par région](https://azure.microsoft.com/regions/#services).
 
@@ -420,7 +423,7 @@ Pour plus de détails, consultez [Connexion d’un disque de données dans le po
 
 1. Recherchez la machine virtuelle DS, DSv2 ou GS nouvelle ou existante dans le portail Azure.
 2. Dans la machine virtuelle, sous Tous les paramètres, accédez à Disques, puis cliquez sur le disque que vous souhaitez modifier.
-3. Définissez la valeur souhaitée pour l’option Mise en cache de l’hôte : None, ReadOnly ou ReadWrite
+3. Définissez la valeur souhaitée pour l’option Mise en cache de l’hôte : None, ReadOnly ou ReadWrite
 
 ### Création d’une machine virtuelle Azure utilisant Premium Storage via Azure PowerShell
 
@@ -435,7 +438,7 @@ Cet exemple PowerShell montre comment créer un compte de stockage Premium et as
 
 #### II. Création d’une machine virtuelle Azure via Azure PowerShell
 
-Ensuite, créez une machine virtuelle de série DS et spécifiez que vous voulez un stockage Premium en exécutant les applets de commande PowerShell suivantes dans la fenêtre de console. Vous pouvez créer une machine virtuelle de série GS en utilisant la même procédure. Spécifiez la taille de machine virtuelle appropriée dans les commandes. Par exemple, pour Standard\_GS2 :
+Ensuite, créez une machine virtuelle de série DS et spécifiez que vous voulez un stockage Premium en exécutant les applets de commande PowerShell suivantes dans la fenêtre de console. Vous pouvez créer une machine virtuelle de série GS en utilisant la même procédure. Spécifiez la taille de machine virtuelle appropriée dans les commandes. Par exemple, pour Standard\_GS2 :
 
     	$storageAccount = "yourpremiumaccount"
     	$adminName = "youradmin"
@@ -451,7 +454,7 @@ Ensuite, créez une machine virtuelle de série DS et spécifiez que vous voule
 
 #### III. Connexion d’un disque de données Premium Storage via Azure PowerShell
 
-Si vous voulez davantage d’espace disque pour votre machine virtuelle, créez et attachez un disque de données à une machine virtuelle de série DS, DSv2 ou GS existante après sa création en exécutant les applets de commande PowerShell suivantes dans la fenêtre de console :
+Si vous voulez davantage d’espace disque pour votre machine virtuelle, créez et attachez un disque de données à une machine virtuelle de série DS, DSv2 ou GS existante après sa création en exécutant les applets de commande PowerShell suivantes dans la fenêtre de console :
 
     	$storageAccount = "yourpremiumaccount"
     	$vmName ="yourVM"
@@ -506,31 +509,31 @@ Notez que l’option de la stratégie de mise en cache peut être ReadOnly, None
 
 ## FAQ
 
-1. **Puis-je connecter des disques de données Standard et Premium à une machine virtuelle de la série DS, DSv2 ou GS ?**
+1. **Puis-je connecter des disques de données Standard et Premium à une machine virtuelle de la série DS, DSv2 ou GS ?**
 
 	Oui. Vous pouvez connecter des disques de données Standard et Premium à une machine virtuelle de la série DS, DSv2 ou GS.
 
-2. **Puis-je connecter des disques de données Standard et Premium à une machine virtuelle de la série D, Dv2 ou G ?**
+2. **Puis-je connecter des disques de données Standard et Premium à une machine virtuelle de la série D, Dv2 ou G ?**
 
 	Non. Vous pouvez uniquement connecter un disque de données Standard à des machines virtuelles qui ne sont pas des séries DS, DSv2 ou GS.
 
-3. **Si je crée un disque de données Premium à partir d’un disque dur virtuel existant dont la taille était de 80 Go de taille, comment cela me coûte-t-il ?**
+3. **Si je crée un disque de données Premium à partir d’un disque dur virtuel existant dont la taille était de 80 Go de taille, comment cela me coûte-t-il ?**
 
-	Un disque de données Premium créé à partir d’un disque dur virtuel de 80 Go est considéré comme ayant la taille de disque Premium disponible suivante, soit un disque P10. Vous êtes facturé au tarif d’un disque P10.
+	Un disque de données Premium créé à partir d’un disque dur virtuel de 80 Go est considéré comme ayant la taille de disque Premium disponible suivante, soit un disque P10. Vous êtes facturé au tarif d’un disque P10.
 
-4. **L’utilisation de Premium Storage occasionne-t-elle des coûts de transaction ?**
+4. **L’utilisation de Premium Storage occasionne-t-elle des coûts de transaction ?**
 
 	Il existe un coût fixe pour chaque taille de disque configurée avec un nombre d’IOPS et un débit donnés. Les seuls autres coûts sont liés à la bande passante sortante et à la capacité de captures instantanées, le cas échéant. Pour plus de détails, consultez [Tarification d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-5. **Où puis-je stocker les diagnostics de démarrage pour ma machine virtuelle de la série DS, DSv2 ou GS ?**
+5. **Où puis-je stocker les diagnostics de démarrage pour ma machine virtuelle de la série DS, DSv2 ou GS ?**
 
 	Créez un compte de stockage Standard pour stocker les diagnostics de démarrage de votre machine virtuelle de la série DS, DSv2 ou GS.
 
 6. **Combien d’IOPS et quel débit puis-je obtenir à partir du cache disque ?**
 
-	Les limites combinées pour le cache et le disque SSD local d’une machine de la série DS sont de 4 000 IOPS par cœur et 33 Mo par seconde par cœur. La série GS offre 5 000 IOPS par cœur et 50 Mo par seconde par cœur.
+	Les limites combinées pour le cache et le disque SSD local d’une machine de la série DS sont de 4 000 IOPS par cœur et 33 Mo par seconde par cœur. La série GS offre 5 000 IOPS par cœur et 50 Mo par seconde par cœur.
 
-7. **Qu’est ce que le disque SSD local dans une machine virtuelle de la série DS, DSv2 ou GS ?**
+7. **Qu’est ce que le disque SSD local dans une machine virtuelle de la série DS, DSv2 ou GS ?**
 
 	Le disque SSD local est un stockage temporaire inclus dans une machine virtuelle de la série DS, DSv2 ou GS. Ce stockage temporaire n’occasionne aucun frais supplémentaire. Il est recommandé de ne pas utiliser ce stockage temporaire ou un SSD local pour le stockage des données de votre application, car il n’est pas persistant dans le Stockage des objets blobs Azure.
 
@@ -538,9 +541,9 @@ Notez que l’option de la stratégie de mise en cache peut être ReadOnly, None
 
 	Non. Il n’est pas possible de convertir un compte de stockage Standard en compte Premium Storage, ou vice versa. Vous devez créer un compte de stockage du type souhaité, pusi copier des données vers le nouveau compte de stockage, le cas échéant.
 
-9. **Comment convertir ma machine virtuelle de série D en machine virtuelle de série DS ?**
+9. **Comment convertir ma machine virtuelle de série D en machine virtuelle de série DS ?**
 
-	Pour déplacer votre charge de travail d’une machine virtuelle de série D utilisant un compte de stockage Standard vers une machine virtuelle de série DS utilisant un compte Premium Storage, consultez le guide de migration intitulé [Migration vers Azure Premium Storage](storage-migration-to-premium-storage.md).
+	Pour déplacer votre charge de travail d’une machine virtuelle de série D utilisant un compte de stockage Standard vers une machine virtuelle de série DS utilisant un compte de stockage Premium, consultez le guide de migration intitulé [Migration vers Azure Premium Storage](storage-migration-to-premium-storage.md).
 
 ## Étapes suivantes
 
@@ -558,8 +561,8 @@ Pour plus d’informations sur Azure Storage Premium, voir les articles suivants
 ### Billets de blog
 
 - [Mise à la disposition générale d’Azure Storage Premium](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-- [Annonce de la série GS : ajout de prise en charge de Premium Storage pour les machines virtuelles les plus grandes dans le Cloud Public](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+- [Annonce de la série GS : ajout de prise en charge de Premium Storage pour les machines virtuelles les plus grandes dans le Cloud Public](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

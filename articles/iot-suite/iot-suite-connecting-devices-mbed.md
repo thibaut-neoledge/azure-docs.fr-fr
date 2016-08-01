@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -22,11 +22,11 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Générer et exécuter l'exemple de solution C sur mbed
+## Générer et exécuter l'exemple de solution C
 
 Les instructions qui suivent décrivent les étapes permettant de connecter un appareil [mbed-enabled Freescale FRDM-K64F][lnk-mbed-home] à la solution de surveillance à distance.
 
-### Connectez le périphérique à votre réseau et votre ordinateur de bureau
+### Connectez le périphérique à votre réseau et à votre ordinateur de bureau
 
 1. Connectez le périphérique mbed à votre réseau avec un câble Ethernet. Cette étape est nécessaire car l'exemple d'application requiert un accès à internet.
 
@@ -36,7 +36,7 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
 
 ### Créez un projet mbed et importez l’exemple de code
 
-1. Dans votre navigateur Web, accédez [au site de développement](https://developer.mbed.org/) mbed.org. Si vous n’êtes pas inscrit, une option servant à créer un nouveau compte vous sera présentée (c’est gratuit). Autrement, connectez-vous avec les informations d’identification de votre compte. Cliquez sur **Compilateur** dans le coin supérieur droit de la page. Cela devrait vous permettre d’accéder à l’interface de gestion de l’espace de travail.
+1. Dans votre navigateur Web, accédez [au site de développement](https://developer.mbed.org/) mbed.org. Si vous n’êtes pas inscrit, une option servant à créer un nouveau compte vous sera présentée (c’est gratuit). Autrement, connectez-vous avec les informations d’identification de votre compte. Cliquez sur **Compilateur** dans le coin supérieur droit de la page. Vous accédez à l’interface *Espace de travail*.
 
 2. Assurez-vous que la plate-forme matérielle que vous utilisez figure dans le coin supérieur droit de la fenêtre, ou cliquez sur l’icône du coin droit pour sélectionner votre plateforme matérielle.
 
@@ -48,11 +48,11 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
 
     ![][7]
 
-5. Vous pouvez voir dans la fenêtre du compilateur mbed que l’importation de ce projet a entraîné l’importation de différentes bibliothèques. Certaines sont fournies et gérées par l’équipe Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), tandis que d’autres sont des bibliothèques tierces disponibles dans le catalogue de bibliothèques mbed.
+5. Vous pouvez voir dans la fenêtre du compilateur mbed que l’importation de ce projet entraîne également l’importation de différentes bibliothèques. Certaines sont fournies et gérées par l’équipe Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), tandis que d’autres sont des bibliothèques tierces disponibles dans le catalogue de bibliothèques mbed.
 
     ![][8]
 
-6. Ouvrez le fichier remote\_monitoring\\remote\_monitoring.c et recherchez le code suivant dans le fichier :
+6. Ouvrez le fichier remote\_monitoring\\remote\_monitoring.c et recherchez le code suivant dans le fichier :
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -61,7 +61,7 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Remplacez [Device Id] et [Device Key] par les données de votre appareil pour activer le programme d'exemple afin de vous connecter à votre hub IoT. Utilisez le nom d’hôte IoT Hub pour remplacer les espaces réservés [Nom IoTHub] et [Suffixe IoTHub, c’est-à-dire azure-devices.net]. Par exemple, si votre nom d’hôte IoT Hub est contoso.azure-devices.net, contoso est le **nom du hub** et tous les éléments suivants constituent le **suffixe du hub** :
+7. Remplacez [Device Id] et [Device Key] par les données de votre appareil pour activer le programme d'exemple afin de vous connecter à votre hub IoT. Utilisez le nom d’hôte IoT Hub pour remplacer les espaces réservés [Nom IoTHub] et [Suffixe IoTHub, c’est-à-dire azure-devices.net]. Par exemple, si votre nom d’hôte IoT Hub est **contoso.azure-devices.net**, **contoso** est le **nom du hub (hubName)** et tous les éléments suivants constituent le **suffixe du hub (hubSuffix)** :
 
     ```
     static const char* deviceId = "mydevice";
@@ -74,7 +74,7 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
 
 ### Examinez le code
 
-Si vous êtes intéressé par le fonctionnement du programme, cette section décrit certains éléments clés de l'exemple de code. Si vous souhaitez simplement exécuter le code, passez directement à la rubrique [Générer et exécuter le programme](#buildandrun).
+Si vous êtes intéressé par le fonctionnement du programme, cette section décrit certains éléments clés de l'exemple de code. Si vous souhaitez simplement exécuter le code, passez directement à la rubrique [Créez et exécutez le projet.](#buildandrun).
 
 #### Définition du modèle
 
@@ -140,17 +140,17 @@ Les fonctions **sendMessage** et **IoTHubMessage** représentent un code réutil
 
 #### La fonction remote\_monitoring\_run
 
-La fonction **main** du programme appelle la fonction **remote\_monitoring\_run** lorsque l'application commence à exécuter le comportement de l'appareil comme un client d'appareil IoT Hub. Cette fonction **remote\_monitoring\_run** se compose essentiellement des paires de fonctions imbriquées :
+La fonction **main** du programme appelle la fonction **remote\_monitoring\_run** lorsque l'application commence à exécuter le comportement de l'appareil comme un client d'appareil IoT Hub. Cette fonction **remote\_monitoring\_run** se compose essentiellement de paires de fonctions imbriquées :
 
 - **platform\_init** et **platform\_deinit** effectuent des opérations d'initialisation et d'arrêt spécifiques à la plateforme.
 - **serializer\_init** et **serializer\_deinit** initialisent et désinitialisent la bibliothèque du sérialiseur.
-- **IoTHubClient\_Create** et **IoTHubClient\_Destroy** créent un handle client, **iotHubClientHandle**, en utilisant les informations d'identification de l'appareil pour se connecter à votre hub IoT.
+- **IoTHubClient\_Create** et **IoTHubClient\_Destroy** créent un handle client, **iotHubClientHandle**, en utilisant les informations d'identification de l'appareil pour se connecter à votre IoT hub.
 
 Dans la section principale de la fonction **remote\_monitoring\_run**, le programme effectue les opérations suivantes à l'aide du handle **iotHubClientHandle** :
 
 - Crée une instance du modèle de thermostat Contoso et définit les rappels de message pour les deux commandes.
-- Envoie des informations sur l'appareil lui-même, y compris les commandes prises en charge, à votre hub IoT à l'aide de la bibliothèque du sérialiseur. Lorsque le hub reçoit ce message, il fait passer l'état de l'appareil dans le tableau de bord de **En attente** à **Exécution**.
-- Démarre une boucle **while** qui envoie chaque seconde les valeurs de température, de température externe et d'humidité à IoT Hub.
+- Envoie des informations sur l'appareil lui-même, y compris les commandes prises en charge, à votre hub IoT à l'aide de la bibliothèque du sérialiseur. Lorsque le hub reçoit ce message, il fait passer l'état de l'appareil dans le tableau de bord de **En attente** à **En cours d’exécution**.
+- Démarre une boucle **while** qui envoie chaque seconde les valeurs de température, de température externe et d'humidité au IoT Hub.
 
 Pour référence, voici un exemple de message **DeviceInfo** envoyé à IoT Hub au démarrage :
 
@@ -199,7 +199,7 @@ Pour référence, voici un exemple de **commande** provenant d’IoT Hub :
 
     ![][11]
 
-4. Dans PuTTY, cliquez sur le type de connexion **Série**. Comme l’appareil se connecte généralement à 9600 bauds, entrez 9600 dans le champ **Vitesse**. Cliquez ensuite sur **Ouvrir** :
+4. Dans PuTTY, cliquez sur le type de connexion **Série**. Comme l’appareil se connecte généralement à 9 600 bauds, entrez 9 600 dans le champ **Speed** (Vitesse). Cliquez ensuite sur **Ouvrir**.
 
 5. Le programme démarre l’exécution. Il se peut que vous deviez réinitialiser le tableau (appuyez sur CTRL + Retour ou appuyez sur le bouton de réinitialisation du tableau) si le programme ne démarre pas automatiquement à la connexion.
 
@@ -220,4 +220,4 @@ Pour référence, voici un exemple de **commande** provenant d’IoT Hub :
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

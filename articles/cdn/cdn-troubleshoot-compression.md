@@ -2,7 +2,7 @@
 	pageTitle="CDN - Résolution des problèmes de compression des fichiers"
 	description="Résolvez les problèmes de compression des fichiers CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
     
 # Résolution des problèmes de compression des fichiers CDN
@@ -26,7 +26,7 @@ Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de ce
 
 La compression pour votre point de terminaison est activée, mais les fichiers sont renvoyés non compressés.
 
-## Cause :
+## Cause :
 
 Il existe plusieurs causes possibles, y compris :
 
@@ -79,7 +79,7 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 À l’aide des outils de développement de votre navigateur, vérifiez les en-têtes de réponse pour vous assurer que le fichier est mis en cache dans la région où il est demandé.
 
 - Vérifiez l’en-tête de réponse **Server**. L’en-tête doit être au format **Plateforme (ID serveur/POP)**, comme indiqué dans l’exemple ci-dessous.
-- Vérifiez l’en-tête de réponse **X-Cache**. L’en-tête doit indiquer **HIT**.  
+- Vérifiez l’en-tête de réponse **X-Cache**. L’en-tête doit indiquer **HIT**.
 
 ![En-têtes de réponse CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -92,4 +92,11 @@ Pour être éligible pour la compression, un fichier doit respecter les exigence
 - Plus de 128 octets.
 - Moins de 1 Mo.
 
-<!---HONumber=AcomDC_0518_2016-->
+### Vérifiez la requête sur le serveur d’origine pour un en-tête **Via**
+
+L’en-tête HTTP **Via** indique au serveur web que la requête est transmise par un serveur proxy. Par défaut, des serveurs web Microsoft IIS ne compressent pas les réponses lorsque la requête contient un en-tête **Via**. Pour modifier ce comportement, procédez comme suit :
+
+- **IIS 6**: [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 et versions ultérieures**: [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans le serveur de configuration](http://www.iis.net/configreference/system.webserver/httpcompression)
+
+<!---HONumber=AcomDC_0720_2016-->

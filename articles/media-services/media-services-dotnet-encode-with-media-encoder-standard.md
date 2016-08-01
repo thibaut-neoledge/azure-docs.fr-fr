@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -27,7 +27,7 @@ Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de 
 
 Si votre ressource de sortie est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
 
->[AZURE.NOTE]MES génère un fichier de sortie avec un nom qui contient les 32 premiers caractères du nom du fichier d'entrée. Le nom est basé sur ce qui est spécifié dans le fichier prédéfini. Par exemple, « NomFichier » : « {NomBase}\_{Index}{Extension} ». {NomBase} est remplacé par les 32 premiers caractères du nom du fichier d'entrée.
+>[AZURE.NOTE]MES génère un fichier de sortie avec un nom qui contient les 32 premiers caractères du nom du fichier d'entrée. Le nom est basé sur ce qui est spécifié dans le fichier prédéfini. Par exemple, « NomFichier » : « {NomBase}\_{Index}{Extension} ». {NomBase} est remplacé par les 32 premiers caractères du nom du fichier d'entrée.
 
 ###Formats MES
 
@@ -41,7 +41,7 @@ Media Encoder Standard est configuré avec l’une des présélections d’encod
 
 Quand vous encodez un ou plusieurs éléments multimédias d’entrée à l’aide de MES, vous obtenez un élément multimédia de sortie une fois cette tâche d’encodage terminée. L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, le manifeste, et ainsi de suite, en fonction des paramètres d’encodage prédéfinis.
 
-Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : <asset_id>\_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), où <asset_id> est la valeur AssetId de l’élément multimédia d’entrée. Le schéma de ce XML de métadonnées d’entrée est décrit [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : <asset\_id>\_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), où <asset\_id> est la valeur AssetId de l’élément multimédia d’entrée. Le schéma de ce XML de métadonnées d’entrée est décrit [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
 L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier XML de métadonnées a le format suivant : <source_file_name>\_manifest.xml (par exemple, BigBuckBunny\_manifest.xml). Le schéma de ce XML de métadonnées de sortie est décrit [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
@@ -53,12 +53,12 @@ Obtenir et exécuter un exemple [ici](https://azure.microsoft.com/documentation/
 
 ##Exemple
 
-Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
+Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
 - Création d’une tâche d’encodage.
 - Obtention d’une référence à l’encodeur Media Encoder Standard.
-- Indiquez l'utilisation des paramètres prédéfinis « 720p débits binaires multiples H264 ». Vous pouvez afficher tous les paramètres prédéfinis [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Vous pouvez également consulter le schéma auquel ces paramètres de présélection doivent se conformer dans [cette rubrique](https://msdn.microsoft.com/library/mt269962.aspx).
-- Ajout d’une tâche d’encodage unique. 
+- Indiquez l'utilisation des paramètres prédéfinis « 720p débits binaires multiples H264 ». Vous pouvez afficher tous les paramètres prédéfinis [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Vous pouvez également consulter le schéma auquel ces paramètres de présélection doivent se conformer dans [cette rubrique](https://msdn.microsoft.com/library/mt269962.aspx).
+- Ajout d’une tâche d’encodage unique.
 - Spécification de l’élément multimédia d’entrée à encoder.
 - Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
@@ -150,4 +150,4 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

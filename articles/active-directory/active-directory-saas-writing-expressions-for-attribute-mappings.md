@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -29,22 +29,22 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 
 La syntaxe des expressions pour les mappages d’attributs rappelle celle des fonctions Visual Basic pour Applications (VBA).
 
-- L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses :<br>*nom\_fonction<<argument 1>>,<<argument N>>)*
+- L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses :<br>*nom\_fonction(<<argument 1>>,<<argument N>>)*
 
 
-- Vous pouvez imbriquer des fonctions dans d’autres. Par exemple :<br>*fonction\_une(fonction\_deux(<<argument1>>))*
+- Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *Fonction\_un(Fonction\_deux(<< argument1 >>))*
 
 
-- Vous pouvez passer trois différents types d’arguments dans des fonctions :
+- Vous pouvez passer trois différents types d’arguments dans des fonctions :
 
-   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom\_attribut]
+   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom\_attribut]
 
-   2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple : "États-Unis"
+   2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple : "États-Unis"
 
-   3. D’autres fonctions. Par exemple : fonction\_une (<<argument1>>, fonction\_deux(<<argument2>>))
+   3. D’autres fonctions. Par exemple : Fonction\_un(<< argument1 >>, Fonction\_deux (<< argument2 >>))
 
 
-- Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\\). Par exemple : "Nom de la société : "Contoso""
+- Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\\). Par exemple : "Nom de la société : "Contoso""
 
 
 
@@ -59,11 +59,11 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ----------
 ### Append
 
-**Fonction :**<br> Append(source, suffixe)
+**Fonction :**<br> Append(source, suffixe)
 
-**Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
+**Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
  
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
@@ -74,11 +74,11 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ----------
 ### FormatDateTime
 
-**Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
+**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
  
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
@@ -91,31 +91,31 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ----------
 ### Join
 
-**Fonction :**<br> Join(séparateur, source1, source2, …)
+**Fonction :**<br> Join(séparateur, source1, source2, …)
 
-**Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
+**Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
 
 Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les valeurs de cet attribut seront jointes, séparées par la valeur de séparation.
 
  
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
 | **separator** | Requis | String | Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1... sourceN** | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre. |
+| **source1... sourceN ** | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre ensemble. |
 
 
 
 ----------
 ### Mid
 
-**Fonction :**<br> Mid(source, début, longueur)
+**Fonction :**<br> Mid(source, début, longueur)
 
-**Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
+**Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
 
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
@@ -129,46 +129,46 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ----------
 ### Not
 
-**Fonction :**<br> Not(source)
+**Fonction :**<br> Not(source)
 
-**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
+**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
 
 
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
-| **source** | Requis | Chaîne de type Boolean | Les valeurs **sources** attendues sont « True » ou « False ». |
+| **source** | Requis | Chaîne de type Boolean | Les valeurs **sources** attendues sont « True » ou « False ». |
 
 
 
 ----------
 ### Replace
 
-**Fonction :**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Fonction :**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Description :**<br> Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+**Description :**<br> Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
-- Quand **oldValue** et **replacementValue** sont fournis :
+- Quand **oldValue** et **replacementValue** sont fournis :
 
    - Remplace toutes les occurrences d’oldValue dans la source par replacementValue.
 
-- Quand **oldValue** et **template** sont fournis :
+- Quand **oldValue** et **template** sont fournis :
 
    - Remplace toutes les occurrences d’**oldValue** dans le **template** par la valeur **source**.
 
-- Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementValue** sont fournis :
+- Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementValue** sont fournis :
 
    - Remplace toutes les valeurs correspondant à oldValueRegexPattern dans la chaîne source par replacementValue.
 
-- Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementPropertyName** sont fournis :
+- Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementPropertyName** sont fournis :
 
    - Si **source** a une valeur, **source** est retourné.
 
    - Si **source** n’a aucune valeur, la fonction utilise **oldValueRegexPattern** et **oldValueRegexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
 
 
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
@@ -185,11 +185,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ----------
 ### StripSpaces
 
-**Fonction :**<br> StripSpaces(source)
+**Fonction :**<br> StripSpaces(source)
 
-**Description :**<br> supprime tous les caractères d’espacement (" ") de la chaîne source.
+**Description :**<br> supprime tous les caractères d’espacement (" ") de la chaîne source.
 
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
@@ -200,11 +200,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ----------
 ### Switch
 
-**Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Description :**<br> quand la valeur **source** correspond à une **key**, retourne la **valeur** de cette **key**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**. Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres.
+**Description :**<br> quand la valeur **source** correspond à une **key**, retourne la **valeur** de cette **key**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**. Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres.
 
-**Paramètres :**<br>
+**Paramètres :**<br>
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
@@ -219,16 +219,16 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 ### Supprimer un nom de domaine connu
 
-Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br> Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
+Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br> Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 
-**Expression :** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
+**Expression :** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
 
-**Exemple d’entrée/sortie :** <br>
+**Exemple d’entrée/sortie :** <br>
 
-- **ENTRÉE** (mail) : « john.doe@contoso.com »
+- **ENTRÉE** (mail) : « john.doe@contoso.com »
 
-- **SORTIE** : « john.doe »
+- **SORTIE** : « john.doe »
 
 
 ### Ajouter un suffixe de constante à un nom d’utilisateur
@@ -238,14 +238,14 @@ Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffix
 
 
 
-**Expression :** <br> `Append([userPrincipalName], ".test"))`
+**Expression :** <br> `Append([userPrincipalName], ".test"))`
 
-**Exemple d’entrée/sortie :** <br>
+**Exemple d’entrée/sortie :** <br>
 
-- **ENTRÉE** : (userPrincipalName) : « John.Doe@contoso.com »
+- **ENTRÉE** : (userPrincipalName) : « John.Doe@contoso.com »
 
 
-- **SORTIE** : « John.Doe@contoso.com.test »
+- **SORTIE** : « John.Doe@contoso.com.test »
 
 
 
@@ -256,15 +256,15 @@ Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffix
 Vous devez générer un alias d’utilisateur en prenant les trois premières lettres du prénom de l’utilisateur et les cinq premières lettres de son nom de famille.
 
 
-**Expression :** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
+**Expression :** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Exemple d’entrée/sortie :** <br>
+**Exemple d’entrée/sortie :** <br>
 
-- **ENTRÉE** (givenName): « John »
+- **ENTRÉE** (givenName): « John »
 
-- **ENTRÉE** (surname) : « Doe »
+- **ENTRÉE** (surname) : « Doe »
 
-- **SORTIE** : « JohDoe »
+- **SORTIE** : « JohDoe »
 
 
 
@@ -275,15 +275,15 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 
 
 
-**Expression :** <br>
+**Expression :** <br>
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
-**Exemple d’entrée/sortie :**
+**Exemple d’entrée/sortie :**
 
-- **ENTRÉE** (extensionAttribute1) : « 20150123105347.1Z »
+- **ENTRÉE** (extensionAttribute1) : « 20150123105347.1Z »
 
-- **SORTIE** : « 2015-01-23 »
+- **SORTIE** : « 2015-01-23 »
 
 
 
@@ -291,28 +291,28 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 
 ### Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 
-Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br> Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br> Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 
-**Expression :** <br>
+**Expression :** <br>
 
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
-**Exemple d’entrée/sortie :**
+**Exemple d’entrée/sortie :**
 
-- **ENTRÉE** (state) : « QLD »
+- **ENTRÉE** (state) : « QLD »
 
-- **SORTIE** : « Australia/Brisbane »
+- **SORTIE** : « Australia/Brisbane »
 
 
 ##Articles connexes
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-- [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+- [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 - [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 - [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
 - [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 - [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
-- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

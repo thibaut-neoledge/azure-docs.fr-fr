@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="get-started-article"
+ ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="06/20/2016"
@@ -91,7 +91,7 @@ Vous pouvez utiliser le portail de la solution pour supprimer un appareil de vot
 
 ## Traitement des messages d’information d’appareil
 
-Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie dans la mesure où ils incluent des informations telles que les propriétés de l’appareil, les commandes auxquelles répond un appareil et tous les historiques de commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] \(ASA) lit les messages issus de IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **"ObjectType": "DeviceInfo"** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement DocumentDB de l’appareil spécifique et le mettre à jour. L’enregistrement du registre des appareils inclut désormais des informations, telles que les propriétés d’appareil, les commandes et l’historique des commandes.
+Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie dans la mesure où ils incluent des informations telles que les propriétés de l’appareil, les commandes auxquelles répond un appareil et tous les historiques de commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] (ASA) lit les messages issus de IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **"ObjectType": "DeviceInfo"** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement DocumentDB de l’appareil spécifique et le mettre à jour. L’enregistrement du registre des appareils inclut désormais des informations, telles que les propriétés d’appareil, les commandes et l’historique des commandes.
 
 > [AZURE.NOTE] Un message d’information d’appareil est un message appareil-à-cloud standard. La solution fait la distinction entre les messages d’information d’appareil et les messages de télémétrie en utilisant des requêtes ASA.
 
@@ -279,4 +279,4 @@ Vous trouverez plus d’informations sur la personnalisation des solutions préc
 [lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

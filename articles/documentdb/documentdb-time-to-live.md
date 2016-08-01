@@ -21,7 +21,7 @@
 
 Les applications peuvent générer et stocker de grandes quantités de données. Certaines de ces données, telles que les données d’événement générées par la machine, les journaux et les informations de session utilisateur, sont utiles uniquement pendant une certaine période. Une fois les données trop nombreuses par rapport aux besoins de l’application, vous pouvez les vider et réduire les besoins de stockage d’une application.
 
-Avec la « durée de vie » (TTL, Time to Live), Microsoft Azure DocumentDB offre la possibilité de vider automatiquement les documents du système après une période déterminée. La durée de vie par défaut peut être définie au niveau de la collection et être substituée par document. Une fois la TTL définie, en tant que valeur par défaut de la collection ou au niveau du document, DocumentDB supprime automatiquement les documents existant après cette période, en secondes depuis leur dernière modification.
+Avec la « durée de vie » (TTL, Time to Live), Microsoft Azure DocumentDB offre la possibilité de vider automatiquement les documents de la base de données après une période déterminée. La durée de vie par défaut peut être définie au niveau de la collection et être substituée par document. Une fois la TTL définie, en tant que valeur par défaut de la collection ou au niveau du document, DocumentDB supprime automatiquement les documents existant après cette période, en secondes depuis leur dernière modification.
 
 Dans DocumentDB, la durée de vie utilise un décalage par rapport au moment où le document a été modifié pour la dernière fois. Pour ce faire, il utilise le champ \_ts qui existe sur tous les documents. Le champ \_ts est un horodateur d’époque de style Unix représentant la date et l’heure. Le champ \_ts est mis à jour à chaque modification d’un document.
 
@@ -36,7 +36,7 @@ La fonction TTL est contrôlée par les propriétés TTL à deux niveaux : au ni
   
   * Si ce paramètre est présent et que sa valeur est un nombre (« n »), les documents expirent « n » secondes après la dernière modification.
 
- 2.  TTL pour les documents : 
+ 2.  TTL pour les documents :
   * La propriété s’applique uniquement si le paramètre DefaultTTL est présent pour la collection parente.
   
   * Elle remplace la valeur DefaultTTL de la collection parente.
@@ -157,4 +157,4 @@ Oui. La collection doit avoir un [jeu de stratégie d’indexation](documentdb-i
 
 Pour en savoir plus sur Azure DocumentDB, consultez la page de [*documentation*](https://azure.microsoft.com/documentation/services/documentdb/) du service.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

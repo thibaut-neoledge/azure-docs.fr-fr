@@ -23,6 +23,7 @@
 - [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
 - [Portail](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
@@ -123,4 +124,4 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
 - Pour résoudre des problèmes liés à un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le Portail Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Pour récupérer un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

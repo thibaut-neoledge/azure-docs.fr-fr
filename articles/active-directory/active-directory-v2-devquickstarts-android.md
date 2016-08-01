@@ -32,23 +32,23 @@ Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scéna
 
 
 ## Téléchargez le code à partir de GitHub
-Le code associé à ce didacticiel est stocké [sur GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) ou la cloner :
+Le code associé à ce didacticiel est stocké [sur GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) ou la cloner :
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
 ```
 
-Vous pouvez aussi simplement télécharger l’exemple et commencer immédiatement :
+Vous pouvez aussi simplement télécharger l’exemple et commencer immédiatement :
 
 ```
 git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
 ```
 
 ## Inscription d’une application
-Créez une nouvelle application dans le [Portail d’inscription des applications](https://apps.dev.microsoft.com), ou suivez les étapes détaillées dans [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
+Créez une nouvelle application dans le [Portail d’inscription des applications](https://apps.dev.microsoft.com), ou suivez les étapes détaillées dans [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - Copiez **l’ID d’application** affecté à votre application, vous en aurez besoin rapidement.
-- ajouter la plateforme **Mobile** pour votre application ;
+- ajouter la plateforme **Mobile** pour votre application ;
 - Copiez **l’URI de redirection** provenant du portail. Vous devez utiliser la valeur par défaut de `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
@@ -148,12 +148,12 @@ Maintenant que `oidlib-sample` s’exécute correctement, vous allez modifier qu
 	```xml
 	    <string-array name="oidc_scopes">
 	        <item>openid</item>
-	        <item>User.ReadBasic.All</item>
+	        <item>https://graph.microsoft.com/User.Read</item>
 	        <item>offline_access</item>
 	    </string-array>
 	```
 
-La valeur `User.ReadBasic.All` dans `oidc_scopes` vous permet de lire le profil de base de tous les utilisateurs dans votre répertoire. Plus d’informations sur toutes les étendues disponibles, consultez [Étendues d’autorisation Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
+La valeur `User.Read` dans `oidc_scopes` vous permet de lire le profil de base de l’utilisateur connecté. Plus d’informations sur toutes les étendues disponibles, consultez [Étendues d’autorisation Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
 Si vous souhaitez des explications sur `openid` ou `offline_access` comme étendues dans OpenID Connect, consultez [Protocoles 2.0 - Flux du Code d’autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
@@ -174,7 +174,7 @@ Si vous souhaitez des explications sur `openid` ou `offline_access` comme étend
 Ces points de terminaison ne doivent jamais changer si vous utilisez OAuth2 comme protocole.
 
 > [AZURE.NOTE]
-Les points de terminaison pour `userInfoEndpoint` et `revocationEndpoint` ne sont actuellement pas pris en charge par Azure Active Directory. Si vous laissez la valeur par défaut exemple.com, vous recevrez un rappel qu’ils ne sont pas disponibles dans l’exemple :-)
+Les points de terminaison pour `userInfoEndpoint` et `revocationEndpoint` ne sont actuellement pas pris en charge par Azure Active Directory. Si vous laissez la valeur par défaut exemple.com, vous recevrez un rappel qu’ils ne sont pas disponibles dans l’exemple :-)
 
 
 ## Configurer un appel d’API Graph
@@ -196,4 +196,4 @@ Une fois que vous avez été authentifié, sélectionnez le bouton **Request Pro
 
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [Security TechCenter](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

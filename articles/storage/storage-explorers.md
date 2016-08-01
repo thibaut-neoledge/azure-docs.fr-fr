@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Explorateurs Azure Storage | Microsoft Azure"
-	description="Liste des explorateurs de stockage qui vous permettent d’afficher/d’interagir avec vos données Azure Storage."
+	pageTitle="Outils clients d’Azure Storage | Microsoft Azure"
+	description="Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage."
 	services="storage"
 	documentationCenter=""
 	authors="micurd"
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="micurd"/>
 
-# Explorateurs du stockage Azure
+# Outils clients d’Azure Storage
 
-Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher leurs données dans un « explorateur », un outil qui sert à afficher les données dans un compte de stockage.
+Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction de données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
 
-Dans les tableaux ci-dessous, nous avons répertorié chaque explorateur Azure Storage, puis nous avons placé un « X » dans chaque bloc si l’explorateur offre la possibilité d’énumérer et/ou d’accéder à l’abstraction de données. Le tableau indique également si l’explorateur est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
+Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces outils peuvent continuer à évoluer, ainsi que leurs fonctionnalités. S’il existe des corrections ou des mises à jour, veuillez laisser un commentaire pour nous le faire savoir. Il en va de même si vous connaissez des outils qui devraient apparaître dans cette liste : nous serions ravis de les ajouter.
 
-Ceci n’est qu’un aperçu des explorateurs Azure Storage disponibles. Ces outils peuvent continuer à évoluer, ainsi que leurs fonctionnalités. S’il existe des corrections ou des mises à jour, veuillez laisser un commentaire pour nous le faire savoir. Il en va de même si vous connaissez des outils qui devraient apparaître dans cette liste : nous serions ravis de les ajouter.
-
-**Explorateurs Microsoft Azure Storage**
+**Outils clients de Microsoft Azure Storage**
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage Explorer</th>
+    <th rowspan="2">Outil client d’Azure Storage</th>
     <th rowspan="2">Objet blob de blocs</th>
     <th rowspan="2">Objet blob de pages</th>
     <th rowspan="2">Append Blob</th>
@@ -65,7 +63,7 @@ Ceci n’est qu’un aperçu des explorateurs Azure Storage disponibles. Ces out
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
+    <td>X</td>
     <td>O</td>
     <td></td>
     <td>X</td>
@@ -88,13 +86,13 @@ Ceci n’est qu’un aperçu des explorateurs Azure Storage disponibles. Ces out
   </tr>
 </table>
 
-**Explorateurs Azure Storage tiers**
+**Outils clients tiers d’Azure Storage**
 
-Nous n’avons pas vérifié les fonctionnalités ni la qualité des explorateurs tiers suivants et leur inclusion dans la liste n’implique aucune garantie de la part de Microsoft.
+Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tiers suivants et leur inclusion dans la liste n’implique aucune garantie de la part de Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage Explorer</th>
+    <th rowspan="2">Outil client d’Azure Storage</th>
     <th rowspan="2">Objet blob de blocs</th>
     <th rowspan="2">Objet blob de pages</th>
     <th rowspan="2">Append Blob</th>
@@ -252,4 +250,4 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des explorateur
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

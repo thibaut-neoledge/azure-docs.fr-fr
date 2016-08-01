@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Résolution des problèmes d’Azure SQL Data Warehouse
@@ -22,7 +22,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 
 ## Connexion
 
-| Problème | Résolution : |
+| Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
 | Erreur CTAIP | Cette erreur peut se produire lorsqu’un identifiant de connexion a été créé sur la base de données principale du serveur SQL, mais pas sur la base de données SQL Data Warehouse. Si vous rencontrez cette erreur, consultez l’article [Vue d’ensemble de la sécurité][]. Cet article explique comment créer un identifiant de connexion sur la base de données principale, puis comment créer un utilisateur dans la base de données SQL Data Warehouse.|
 | Bloqué par le pare-feu |Les bases de données SQL Azure sont protégées par des pare-feu au niveau du serveur et de la base de données pour s’assurer que seules les adresses IP connues ont accès à une base de données. Les pare-feu sont sécurisés par défaut, ce qui signifie que vous devez activer explicitement une adresse IP ou une plage d’adresses avant de vous connecter. Pour configurer votre pare-feu pour l’accès, suivez les étapes décrites dans la section de [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client][] des [instructions d’approvisionnement][].|
@@ -31,13 +31,13 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 
 ## Outils
 
-| Problème | Résolution : |
+| Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
 | Des utilisateurs Azure Active Directory sont manquants dans l’explorateur d’objets Visual Studio | Il s'agit d'un problème connu. Pour résoudre ce problème, affichez les utilisateurs dans [sys.database\_principals][]. Consultez la page [Authentification sur Azure SQL Data Warehouse][] pour en savoir plus sur l’utilisation d’Azure Active Directory avec SQL Data Warehouse.|
 
 ## Performances
 
-| Problème | Résolution : |
+| Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
 | Résolution des problèmes de performances des requêtes | Si vous tentez de dépanner une requête spécifique, commencez avec l’article relatif à la [surveillance de vos requêtes][].|
 | Des performances des requêtes et des plans médiocres sont souvent le résultat de statistiques manquantes | La cause la plus courante de la médiocrité des performances est le manque de statistiques concernant vos tables. Consultez la page [Maintaining Table Statistics][Statistics] \(Maintenance des statistiques de table) pour plus d’informations sur la façon de créer des statistiques et les raisons pour lesquelles celles-ci sont essentielles à vos performances.|
@@ -48,14 +48,15 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 
 ## Gestion de systèmes
 
-| Problème | Résolution : |
+| Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
-| Examen de l’utilisation de l’espace | Consultez la section relative aux [tailles de table][] pour comprendre l’utilisation de l’espace de votre système.|
-| Aide concernant la gestion des tables | Consultez l’article [Table overview][Overview] (Vue d’ensemble des tables) pour obtenir de l’aide pour la gestion de vos tables. Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Table data types][Data types] \(Types de données de table), [Distributing a table][Distribute] \(Distribution d’une table), [Indexing a table][Index] \(Indexation d’une table), [Partitioning a table][Partition] \(Partitionnement d’une table), [Maintaining table statistics][Statistics] \(Maintenance des statistiques de table) et [Tables temporaires][Temporary].|
+| Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de débit de base de données autorisé de 45 000. | Réduisez la [DWU][] de la base de données que vous essayez de créer ou [demandez une augmentation du quota][].|
+| Examen de l’utilisation de l’espace | Consultez la section relative aux [tailles des tables][] pour comprendre l’utilisation de l’espace de votre système.|
+| Aide concernant la gestion des tables | Consultez l’article [Table overview][Overview] \(Vue d’ensemble des tables) pour obtenir de l’aide pour la gestion de vos tables. Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Table data types][Data types] \(Types de données de table), [Distributing a table][Distribute] \(Distribution d’une table), [Indexing a table][Index] \(Indexation d’une table), [Partitioning a table][Partition] \(Partitionnement d’une table), [Maintaining table statistics][Statistics] \(Maintenance des statistiques de table) et [Tables temporaires][Temporary].|
 
 ## Polybase
 
-| Problème | Résolution : |
+| Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
 | Erreur UTF-8 | Actuellement, PolyBase prend uniquement en charge le chargement des fichiers de données encodés en UTF-8. Consultez [Contournement de la nécessité du codage UTF-8 de PolyBase][] pour obtenir des conseils sur la façon de contourner cette limitation.|
 | Échec du chargement en raison des grandes lignes | Actuellement, la prise en charge des grandes lignes n’est pas disponible pour Polybase. Cela signifie que si votre table contient VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX), les tables externes ne peuvent pas être utilisés pour charger vos données. Actuellement, les charges pour les grandes lignes sont uniquement prises en charge via Azure Data Factory (avec BCP), Azure Stream Analytics, SSIS, BCP ou la classe .NET SQLBulkCopy. La prise en charge de PolyBase pour les grandes lignes sera ajoutée dans une version ultérieure.|
@@ -63,14 +64,15 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 
 ## Différences par rapport à la base de données SQL
 
-| Problème | Résolution : |
+| Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
-| Fonctionnalités de base de données SQL non prises en charge | Voir [Fonctionnalités de table non prises en charge][].|
+| Fonctionnalités de base de données SQL non prises en charge | Voir [Fonctionnalités de tables non prises en charge][].|
 | Types de données de base de données SQL non pris en charge | Voir [Types de données non pris en charge][].|
 | Limitations DELETE et UPDATE | Consultez les rubriques [Solutions de contournement UPDATE][], [Solutions de contournement DELETE][] et [Utilisation de CTAS pour contourner les syntaxes UPDATE et DELETE non prises en charge][]. |
 | Instruction MERGE non prise en charge | Consultez la rubrique [Solutions de contournement MERGE][].|
 | Limitations des procédures stockées | Consultez [Limitations des procédures stockées][] pour comprendre certaines limitations des procédures stockées.|
 | Les fonctions définies par l’utilisateur ne prennent pas en charge les instructions SELECT | Il s’agit d’une limitation actuelle de nos fonctions définies par l’utilisateur. Consultez [CREATE FUNCTION][] pour connaître la syntaxe que nous prenons en charge. |
+'<--LocComment : Page introuvable « Limitations des procédures stockées » interrompue. J’ai essayé de corriger le lien dans les références de l’article -->'
 
 ## Étapes suivantes
 
@@ -91,13 +93,15 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Vue d’ensemble de la sécurité]: ./sql-data-warehouse-overview-manage-security.md
 [Création d’un ticket de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [mise à l’échelle de votre base de données SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[demandez une augmentation du quota]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [surveillance de vos requêtes]: ./sql-data-warehouse-manage-monitor.md
 [instructions d’approvisionnement]: ./sql-data-warehouse-get-started-provision.md
 [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 ou 2015]: ./sql-data-warehouse-get-started-connect.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[tailles de table]: ./sql-data-warehouse-tables-overview.md#table-size-queries
-[Fonctionnalités de table non prises en charge]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[tailles des tables]: ./sql-data-warehouse-tables-overview.md#table-size-queries
+[Fonctionnalités de tables non prises en charge]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Types de données non pris en charge]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: ./sql-data-warehouse-tables-overview.md
 [Data types]: ./sql-data-warehouse-tables-data-types.md
@@ -113,7 +117,7 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Solutions de contournement UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [Solutions de contournement DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [Solutions de contournement MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Limitations des procédures stockées]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Limitations des procédures stockées]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Authentification sur Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Contournement de la nécessité du codage UTF-8 de PolyBase]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
@@ -131,4 +135,4 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

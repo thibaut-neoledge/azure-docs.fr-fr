@@ -14,45 +14,45 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configuration d’une simulation d’environnement de cloud hybride à des fins de test
 
-Cet article vous présente la création d'un environnement de cloud hybride simulé avec Microsoft Azure pour le test, à l'aide de deux réseaux virtuels Azure distincts. Utilisez cette configuration à la place de la [Configuration d’un environnement de cloud hybride à des fins de test](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) lorsque vous ne disposez pas d’une connexion Internet directe et d’une adresse IP publique. Voici la configuration obtenue.
+Cet article vous présente la création d'un environnement de cloud hybride simulé avec Microsoft Azure pour le test, à l'aide de deux réseaux virtuels Azure distincts. Utilisez cette configuration à la place de la [Configuration d’un environnement de cloud hybride à des fins de test](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) lorsque vous ne disposez pas d’une connexion Internet directe et d’une adresse IP publique. Voici la configuration obtenue.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
-Elle simule un environnement de production de cloud hybride. Elle comprend :
+Elle simule un environnement de production de cloud hybride. Elle comprend :
 
 - Un réseau local simulé et simplifié hébergé dans un réseau virtuel Azure (le réseau virtuel TestLab).
 - Un réseau virtuel entre sites simulé hébergé dans Azure (TestVNET).
 - Une connexion de réseau virtuel à réseau virtuel entre les deux réseaux virtuels.
 - Un contrôleur de domaine secondaire dans le réseau virtuel TestVNET.
 
-Elle fournit une base et un point de départ commun pour :
+Elle fournit une base et un point de départ commun pour :
 
 - Développer et tester des applications dans une simulation d’environnement de cloud hybride.
 - Créer des configurations de test des ordinateurs, certains dans le réseau virtuel TestLab et d’autres dans le réseau virtuel TestVNET, afin de simuler des charges de travail dans un cloud hybride.
 
-La configuration de l’environnement de test de cloud hybride comprend quatre grandes étapes :
+La configuration de l’environnement de test de cloud hybride comprend quatre grandes étapes :
 
 1.	Configurer le réseau virtuel TestLab.
 2.	Créer le réseau virtuel entre sites.
 3.	Créer la connexion VPN de réseau virtuel à réseau virtuel.
-4.	Configurer DC2. 
+4.	Configurer DC2.
 
 Si vous ne disposez pas d’un abonnement Azure, vous pouvez vous inscrire pour une version d’évaluation gratuite à partir de la page permettant d’[essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles. Pour limiter les coûts, créez l'environnement de test et exécutez les tests et démonstrations nécessaires aussi rapidement que possible.
 
-## Phase 1 : configuration du réseau virtuel TestLab
+## Phase 1 : configuration du réseau virtuel TestLab
 
-Suivez les instructions de la section [Environnement de test de la configuration de base](virtual-machines-windows-test-config-env.md) pour configurer les ordinateurs DC1, APP1 et CLIENT1 dans un réseau virtuel Azure nommé TestLab.
+Suivez les instructions de la section [Environnement de test de la configuration de base](virtual-machines-windows-test-config-env.md) pour configurer les ordinateurs DC1, APP1 et CLIENT1 dans un réseau virtuel Azure nommé TestLab.
 
 Ensuite, démarrez une invite de commandes Azure PowerShell.
 
-> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Connectez-vous à votre compte.
 
@@ -62,7 +62,7 @@ Obtenez votre nom d'abonnement à l'aide de la commande suivante.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Définissez votre abonnement Azure. Utilisez le même abonnement que celui utilisé pour créer la configuration de base. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Définissez votre abonnement Azure. Utilisez le même abonnement que celui utilisé pour créer la configuration de base. Remplacez tous les éléments entre guillemets, y compris les caractères < et >, par les noms appropriés.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -86,7 +86,7 @@ Ensuite, créez votre passerelle.
 	$gwipconfig=New-AzureRmVirtualNetworkGatewayIpConfig -Name TestLab_GWConfig -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 	New-AzureRmVirtualNetworkGateway -Name TestLab_GW -ResourceGroupName $rgName -Location $locName -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-N'oubliez pas que la création de passerelles peut prendre au moins 20 minutes.
+N'oubliez pas que la création de passerelles peut prendre au moins 20 minutes.
 
 Dans le portail Azure sur votre ordinateur local, connectez-vous à DC1 avec les informations d'identification CORP\\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
 
@@ -99,7 +99,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph1.png)
  
-## Phase 2 : création du réseau virtuel TestVNET
+## Phase 2 : création du réseau virtuel TestVNET
 
 Tout d'abord, créez le réseau virtuel TestVNET et protégez-le à l'aide d'un groupe de sécurité réseau.
 
@@ -127,7 +127,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph2.png)
  
-##Phase 3 : création de la connexion de réseau virtuel à réseau virtuel
+##Phase 3 : création de la connexion de réseau virtuel à réseau virtuel
 
 Tout d'abord, obtenez une clé prépartagée, aléatoire, à chiffrement fort, de 32 caractères auprès de votre administrateur réseau ou de sécurité. Vous pouvez également utiliser les informations de la rubrique [Create a random string for an IPsec preshared key (Création d’une chaîne aléatoire pour une clé prépartagée IPsec)](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) pour obtenir une clé prépartagée.
 
@@ -145,7 +145,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph3.png)
  
-## Phase 4 : configurer DC2
+## Phase 4 : configurer DC2
 
 Créez d’abord une machine virtuelle Azure pour DC2. Exécutez ces commandes à l’invite de commandes Azure PowerShell sur votre ordinateur local.
 
@@ -174,15 +174,15 @@ Ensuite, configurez une règle de pare-feu Windows pour autoriser le trafic pour
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-La commande ping doit aboutir à quatre réponses réussies à partir de l’adresse IP 10.0.0.4. Ceci est un test de trafic sur la connexion de réseau virtuel à réseau virtuel.
+La commande ping doit aboutir à quatre réponses réussies à partir de l’adresse IP 10.0.0.4. Ceci est un test de trafic sur la connexion de réseau virtuel à réseau virtuel.
 
 Ensuite, ajoutez le disque de données supplémentaire comme nouveau volume avec la lettre de lecteur F:.
 
 1.	Dans le volet gauche du Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Disques**.
-2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
+2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
 3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
 4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
-5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
+5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
 6.	Dans la page Spécifier la taille du volume, cliquez sur **Suivant**.
 7.	À la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
 8.	À la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
@@ -196,7 +196,7 @@ Ensuite, configurez DC2 comme contrôleur de domaine réplica pour le domaine co
 
 Notez que vous êtes invité à fournir le mot de passe CORP\\User1 et un mot de passe du Mode restauration des Services annuaire (DSRM), puis à redémarrer DC2.
 
-Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2), vous devez configurer le réseau virtuel TestVNET pour utiliser ce serveur DNS.
+Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2), vous devez configurer le réseau virtuel TestVNET pour utiliser ce serveur DNS.
 
 1.	Dans le volet gauche du portail Azure, cliquez sur l’icône des réseaux virtuels, puis sur **TestVNET**.
 2.	Dans l’onglet **Paramètres**, cliquez sur **Serveurs DNS**.
@@ -213,4 +213,4 @@ Votre environnement de cloud hybride simulé est maintenant prêt pour les tests
 
 - Configurez une [batterie de serveurs intranet SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), une [application métier web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) ou un [serveur de synchronisation d’annuaires Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) dans cet environnement.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

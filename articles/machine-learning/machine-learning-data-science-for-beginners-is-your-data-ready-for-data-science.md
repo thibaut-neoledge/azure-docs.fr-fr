@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Azure"
+   pageTitle="Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Azure"
    description="Découvrez les 4 critères indiquant que vos données sont prêtes pour la science des données. La vidéo 2 de la série Science des données pour les débutants contient des exemples concrets pour faciliter l’évaluation de données de base."
    keywords="évaluation des données,données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes"
    services="machine-learning"
@@ -14,11 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# Vidéo Science des données pour les débutants nº 2 : Vos données sont-elles prêtes pour la science des données ?
+# Vos données sont-elles prêtes pour la science des données ?
+
+## Vidéo 2 : série Science des données pour les débutants
 
 Découvrez comment évaluer vos données pour vous assurer qu’elles répondent aux critères de base pour la science des données.
 
@@ -26,9 +28,19 @@ Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéde
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
-## Transcription : Vos données sont-elles prêtes pour la science des données ?
+## Autres vidéos de cette série
 
-Bienvenue dans « Vos données sont-elles prêtes pour la science des données ? », la seconde vidéo de la série *Science des données pour les débutants*.
+La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
+
+  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+  * Vidéo 2 : Vos données sont-elles prêtes pour la science des données ?
+  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+  * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+
+## Transcription : Vos données sont-elles prêtes pour la science des données ?
+
+Bienvenue dans « Vos données sont-elles prêtes pour la science des données ? », la seconde vidéo de la série *Science des données pour les débutants*.
 
 Avant que la science des données ne puisse vous fournir les réponses souhaitées, vous devez lui donner des matériaux bruts avec lesquels elle pourra travailler. C’est comme pour préparer une pizza : plus les ingrédients sont excellents, plus la qualité du produit fini est bonne.
 
@@ -100,15 +112,6 @@ Avec assez de données pertinentes, connectées et précises, nous disposons de 
 Nous vous invitons à consulter les 4 autres vidéos de la série *Science des données pour les débutants* de Microsoft Azure Machine Learning.
 
 
-## Autres vidéos de cette série
-
-La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
-
-  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Vidéo 2 : Vos données sont-elles prêtes pour la science des données ?
-  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 
 ## Étapes suivantes
@@ -116,4 +119,4 @@ La série *Science des données pour les débutants* offre une introduction rapi
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
   * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion de la concurrence et des charges de travail dans SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Gestion de la concurrence et des charges de travail dans SQL Data Warehouse | Microsoft Azure"
    description="Décrit la gestion de la concurrence et des charges de travail dans Azure SQL Data Warehouse pour le développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/12/2016"
+   ms.date="07/15/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
@@ -22,12 +22,12 @@ Pour offrir des performances prévisibles à grande échelle, SQL Data Warehouse
 
 ## Limites de concurrence
 
-SQL Data Warehouse autorise jusqu’à 1024 connexions simultanées. Les 1024 connexions peuvent soumettre des requêtes simultanément. Toutefois, pour optimiser le débit, SQL Data Warehouse peut mettre certaines requêtes en file d’attente pour s’assurer que chaque requête reçoit une allocation de mémoire minimale. La mise en file d’attente se produit au moment de l’exécution de la requête quand des limites de concurrence sont atteintes. Cela permet à SQL Data Warehouse d’augmenter le débit total en veillant à ce que les requêtes actives puissent accéder aux ressources de mémoire essentielles.
+SQL Data Warehouse autorise jusqu’à 1024 connexions simultanées. Les 1024 connexions peuvent soumettre des requêtes simultanément. Toutefois, pour optimiser le débit, SQL Data Warehouse peut mettre certaines requêtes en file d’attente pour s’assurer que chaque requête reçoit une allocation de mémoire minimale. La mise en file d’attente se produit lors de l’exécution de la requête. Cela permet à SQL Data Warehouse d’augmenter le débit total en veillant à ce que les requêtes actives puissent accéder aux ressources de mémoire essentielles.
 
-Les limites de concurrence sont régies par deux concepts, les **requêtes simultanées** et les **emplacements de concurrence**. Pour qu’une requête s’exécute, elle doit s’exécuter à la fois sous la limite de concurrence et dans les limites de l’allocation d’emplacement de concurrence.
+Les limites de concurrence sont régies par deux concepts, les **requêtes simultanées** et les **emplacements de concurrence**. Pour qu’une requête s’exécute, elle doit s’exécuter à la fois sous la limite de concurrence de requête et dans les limites de l’allocation d’emplacement de concurrence.
 
 - Les **requêtes simultanées** correspondent simplement au nombre de requêtes s’exécutant simultanément. SQL Data Warehouse prend en charge jusqu’à 32 **requêtes simultanées** sur les entrepôts de données volumineux, DW1000 et versions ultérieures. Toutefois, étant donné que le nombre de requêtes simultanées varie en fonction du nombre de DWU (Data Warehouse Unit), nous avons créé le tableau ci-dessous pour montrer les limitations par DWU.
-- Le concept d**’emplacement de concurrence** est plus dynamique. Chaque requête concurrente consomme un ou plusieurs emplacements de concurrence. Le nombre exact d’emplacements consommés par une requête dépend de la taille de votre SQL Data Warehouse et de la [classe de ressource](#resource-classes) de la requête.
+- Le concept d**’emplacement de concurrence** est plus dynamique. Chaque requête peut consommer un ou plusieurs emplacements de concurrence. Le nombre exact d’emplacements consommés par une requête dépend de la taille de votre SQL Data Warehouse et de la [classe de ressource](#resource-classes) de la requête.
 
 Le tableau ci-dessous décrit les limites pour les requêtes simultanées et les emplacements de concurrence.
 
@@ -38,15 +38,13 @@ Le tableau ci-dessous décrit les limites pour les requêtes simultanées et les
 | Nombre maximal de requêtes concurrentes | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
 
-Quand l’un de ces seuils est atteint, les nouvelles requêtes sont mises en file d’attente. Les requêtes en file d’attente sont exécutées d’après le principe du « premier entré premier sorti » à mesure que les requêtes sont exécutées et que le nombre de requêtes et d’emplacements passe au-dessous de ces limites.
+Quand l’un de ces seuils est atteint, les nouvelles requêtes sont mises en file d’attente. Les requêtes en file d’attente sont exécutées d’après le principe du « premier entré premier sorti » à mesure que les autres requêtes sont exécutées et que le nombre de requêtes et d’emplacements passe au-dessous de ces limites.
 
-> [AZURE.NOTE]  Les requêtes SELECT s’exécutant exclusivement sur les vues de gestion dynamique (DMV) ou les affichages catalogue ne sont **pas** régies par les classes de ressources. Cela permet aux utilisateurs de surveiller le système même quand tous les emplacements de concurrence sont utilisés.
+> [AZURE.NOTE]  Les requêtes SELECT s’exécutant exclusivement sur les vues de gestion dynamique (DMV) ou les affichages catalogue ne sont **pas** régies par aucune des limites de concurrence. Cela permet aux utilisateurs de surveiller le système quel que soit le nombre de requêtes en cours d’exécution sur le système.
 
 ## Classes de ressources
 
-Les classes de ressources constituent une partie essentielle de la gestion des charges de travail SQL Data Warehouse, car elles permettent d’allouer davantage de mémoire et/ou de cycles de processeur aux requêtes exécutées par un utilisateur donné. Il existe quatre classes de ressources, chacune sous la forme d’un **rôle de base de données**. Les quatre classes de ressources sont **smallrc, mediumrc, largerc et xlargerc**. Les utilisateurs de smallrc bénéficient d’une plus petite quantité de mémoire, d’où une concurrence accrue. En revanche, les utilisateurs affectés à xlargerc disposent de grandes quantités de mémoire. Ainsi, une plus faible proportion de ces requêtes sont autorisées à s’exécuter simultanément.
-
-Il existe quelques types de requêtes qui ne tirent pas profit d’une allocation de mémoire supérieure et qui ignorent donc leur allocation de classe de ressources et s’exécutent à la place dans une classe de ressources plus petite. Le fait de forcer ces requêtes à toujours s’exécuter dans la petite classe de ressources leur permet de s’exécuter quand les emplacements de concurrence sont sous pression et les empêche d’utiliser plus d’emplacements que nécessaire. Ces [exceptions de classes de ressources](#resource-class-exceptions) sont traitées plus loin dans cet article.
+Les classes de ressources constituent une partie essentielle de la gestion des charges de travail SQL Data Warehouse, car elles permettent d’allouer davantage de mémoire et/ou de cycles de processeur aux requêtes exécutées par un utilisateur donné. Il existe quatre classes de ressources pouvant être affectées à un utilisateur sous la forme d’un **rôle de base de données**. Les quatre classes de ressources sont **smallrc, mediumrc, largerc et xlargerc**. Les utilisateurs de smallrc bénéficient d’une plus petite quantité de mémoire, d’où une concurrence accrue. En revanche, les utilisateurs affectés à xlargerc disposent de grandes quantités de mémoire. Ainsi, une plus faible proportion de ces requêtes sont autorisées à s’exécuter simultanément.
 
 Par défaut, chaque utilisateur appartient à la petite classe de ressources, smallrc. La procédure `sp_addrolemember` sert à augmenter la classe de ressources, et `sp_droprolemember` à la réduire. Par exemple, cette commande augmente la classe de ressources de loaduser à largerc :
 
@@ -55,6 +53,8 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 ```
 
 Une bonne pratique consiste à créer des utilisateurs qui sont affectés en permanence à une classe de ressources, plutôt que de modifier la classe de ressources d’un utilisateur. Par exemple, les charges des tables columnstore en cluster créent des index de qualité supérieure quand davantage de mémoire leur est allouée. Pour vous assurer que les charges ont accès à une mémoire plus élevée, créez un utilisateur spécifiquement pour le chargement des données et affectez-le définitivement à une classe de ressources supérieure.
+
+Il existe quelques types de requêtes qui ne tirent pas profit d’une allocation de mémoire supérieure, et le système ignorera leur allocation de classe de ressources et exécutera toujours à la place ces requêtes dans une classe de ressources plus petite. Le fait de forcer ces requêtes à toujours s’exécuter dans la petite classe de ressources leur permet de s’exécuter quand les emplacements de concurrence sont sous pression et les empêche d’utiliser plus d’emplacements que nécessaire. Ces [exceptions de classes de ressources](#resource-class-exceptions) sont traitées plus loin dans cet article.
 
 Voici quelques autres détails concernant la classe de ressources :
 
@@ -66,21 +66,21 @@ Vous trouverez plus de détails et des exemples de création d’utilisateurs et
 
 ## Allocation de mémoire
 
-L’augmentation de la classe de ressources d’un utilisateur présente des avantages et des inconvénients. Si vous augmentez la classe de ressources d’un utilisateur, ses requêtes ont accès à davantage de mémoire et peuvent s’exécuter plus rapidement, mais cela réduit également le nombre de requêtes simultanées qui peuvent s’exécuter. Il s’agit d’un compromis entre allouer de grandes quantités de mémoire à une seule requête et permettre l’exécution d’autres requêtes simultanées qui nécessitent également des allocations de mémoire. Si un utilisateur dispose de davantage de mémoire pour une requête, les autres utilisateurs auront moins de mémoire disponible pour exécuter les leurs.
+L’augmentation de la classe de ressources d’un utilisateur présente des avantages et des inconvénients. Si vous augmentez la classe de ressources d’un utilisateur, ses requêtes ont accès à davantage de mémoire, peuvent s’exécuter plus rapidement et offrir des classes de ressources supérieures, mais cela réduit également le nombre de requêtes simultanées qui peuvent s’exécuter. Il s’agit d’un compromis entre allouer de grandes quantités de mémoire à une seule requête et permettre l’exécution d’autres requêtes simultanées qui nécessitent également des allocations de mémoire. Si de grandes quantités de mémoire sont allouées à un utilisateur pour une requête, les autres utilisateurs n’auront pas accès à cette mémoire pour exécuter une requête.
 
-Le tableau suivant mappe la mémoire allouée à chaque distribution par DWU et classe de ressources. Dans SQL Data Warehouse, il existe 60 distributions par base de données. Ainsi, une requête en cours d’exécution sur un DW2000 dans la classe de ressources xlarge a accès à 6400 Mo dans chacune des 60 bases de données.
+Le tableau suivant mappe la mémoire allouée à chaque distribution par DWU et classe de ressources. Dans SQL Data Warehouse, il existe 60 distributions par base de données. Par exemple, une requête en cours d’exécution sur un DW2000 dans la classe de ressources xlarge a accès à 6 400 Mo dans chacune des 60 bases de données distribuées.
 
 ### Allocations de mémoire par distribution (Mo)
 
 | | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
 | smallrc | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 |
-| mediumrc | 100 | 200 | 200 | 400 | 400 | 400 | 800 | 800 | 800 | 1 600 | 1 600 | 3 200 |
-| largerc | 200 | 400 | 400 | 800 | 800 | 800 | 1 600 | 1 600 | 1 600 | 3 200 | 3 200 | 6 400 |
-| xlargerc | 400 | 800 | 800 | 1 600 | 1 600 | 1 600 | 3 200 | 3 200 | 3 200 | 6 400 | 6 400 | 12 800 |
+| mediumrc | 100 | 200 | 200 | 400 | 400 | 400 | 800 | 800 | 800 | 1 600 | 1 600 | 3 200 |
+| largerc | 200 | 400 | 400 | 800 | 800 | 800 | 1 600 | 1 600 | 1 600 | 3 200 | 3 200 | 6 400 |
+| xlargerc | 400 | 800 | 800 | 1 600 | 1 600 | 1 600 | 3 200 | 3 200 | 3 200 | 6 400 | 6 400 | 12 800 |
 
 
-Avec le même exemple ci-dessus, à l’échelle du système 375 Go de mémoire totale (6400 Mo * 60 distributions / 1024 pour convertir en Go) sont allouées à une requête en cours d’exécution sur un DW2000 dans la classe de ressources xlarge.
+Avec le même exemple ci-dessus, à l’échelle du système un total de 375 Go de mémoire totale (6 400 Mo * 60 distributions / 1024 pour convertir en Go) sont alloués à une requête en cours d’exécution sur un DW2000 dans la classe de ressources xlarge.
 
 ### Allocations de mémoire à l’échelle du système (Go)
 
@@ -93,7 +93,7 @@ Avec le même exemple ci-dessus, à l’échelle du système 375 Go de mémoire 
 
 ## Consommation des emplacements de concurrence
 
-Comme mentionné ci-dessus, plus la ressource de classes est élevée, plus la mémoire allouée est élevée. La mémoire étant une ressource fixe, plus la mémoire allouée par requête est élevée, moins il est possible de prendre en charge de concurrence. Le tableau suivant réitère le nombre d’emplacements de concurrence disponibles par DWU, ainsi que les emplacements consommés par chaque classe de ressources.
+Comme mentionné ci-dessus, plus la ressource de classes est élevée, plus la mémoire allouée est élevée. La mémoire étant une ressource fixe, plus la mémoire allouée par requête est élevée, moins il est possible de prendre en charge de concurrence. Le tableau suivant réitère tous les concepts ci-dessus dans une vue unique affichant le nombre d’emplacements de concurrence disponibles par DWU, ainsi que les emplacements consommés par chaque classe de ressources.
 
 ### Allocation et consommation des emplacements de concurrence
 
@@ -101,14 +101,14 @@ Comme mentionné ci-dessus, plus la ressource de classes est élevée, plus la m
 | :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
 | **Allocation** | | | | | | | | | | | | |
 | Nombre maximal de requêtes concurrentes | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
-| Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 80 | 80 |
+| Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
 | **Consommation des emplacements** | | | | | | | | | | | | |
 | smallrc | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | mediumrc | 1 | 2 | 2 | 4 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 32 |
 | largerc | 2 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 64 |
 | xlargerc | 4 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 32 | 64 | 64 | 128 |
 
-D’après ce tableau, nous constatons qu’un SQL Data Warehouse exécuté en tant que DW100 autorise soit quatre requêtes smallrc simultanées, soit deux requêtes largerc simultanées.
+Dans ce tableau, vous pouvez constater qu’une instance SQL Data Warehouse en cours d’exécution en tant que DW1000 offre un total de 40 emplacements de concurrence avec un maximum de 32 requêtes simultanées. Si tous les utilisateurs sont en cours d’exécution dans la classe de ressources, 32 requêtes simultanées seraient alors autorisés car chacune de ces requêtes consommerait 1 emplacement de concurrence. Si tous les utilisateurs étaient en cours d’exécution dans une classe de ressources de taille moyenne, chaque utilisateur bénéficierait de 800 Mo par distribution pour une allocation de mémoire totale de 47 Go, et l’accès concurrentiel à cette classe moyenne de ressources serait limité à 8 utilisateurs.
 
 ## Importance de la requête
 
@@ -187,9 +187,9 @@ ORDER BY
 
 ## Exceptions de classes de ressources
 
-La plupart des requêtes honorent des classes de ressources, mais il existe quelques exceptions. Cela se produit généralement quand les ressources nécessaires pour accomplir l’action sont faibles. Autrement dit, les exceptions sont généralement des cas où une requête n’utilisera jamais la mémoire plus élevée allouée par les classes de ressources supérieures. Dans ces cas-là, la classe de ressources par défaut ou petite (smallrc) est toujours utilisée, quelle que soit la classe de ressources affectée à l’utilisateur. Par exemple, `CREATE LOGIN` s’exécute toujours dans smallrc. Les ressources nécessaires pour accomplir cette opération sont très faibles. Par conséquent, il serait inutile d'inclure la requête dans le modèle d'emplacement de concurrence. Il serait contre-productif de pré-allouer de grandes quantités de mémoire pour cette action. En excluant `CREATE LOGIN` du modèle d'emplacement de concurrence, SQL Data Warehouse peut être beaucoup plus efficace.
+La plupart des requêtes honorent des classes de ressources, mais il existe quelques exceptions. Cela se produit généralement quand les ressources nécessaires pour accomplir l’action sont faibles. Autrement dit, les exceptions sont généralement des cas où une requête n’utilisera jamais la mémoire plus élevée allouée par les classes de ressources supérieures. Dans ces cas-là, la classe de ressources par défaut ou petite (smallrc) est toujours utilisée, quelle que soit la classe de ressources affectée à l’utilisateur. Par exemple, `CREATE LOGIN` s’exécute toujours dans smallrc. Les ressources nécessaires pour accomplir cette opération sont très faibles. Par conséquent, il serait inutile d'inclure la requête dans le modèle d'emplacement de concurrence. Il serait contre-productif de pré-allouer de grandes quantités de mémoire pour cette action. En excluant `CREATE LOGIN` du modèle d'emplacement de concurrence, SQL Data Warehouse peut être beaucoup plus efficace.
 
-Les instructions suivantes ne respectent **pas** les classes de ressource :
+Les instructions suivantes ne respectent **pas** les classes de ressource :
 
 - CREATE ou DROP TABLE
 - ALTER TABLE ... SWITCH, SPLIT ou MERGE PARTITION
@@ -243,7 +243,7 @@ Les instructions suivantes **honorent** les classes de ressources :
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] Il est judicieux de créer des utilisateurs pour les connexions dans la base de données master à la fois dans Azure SQL Database et Azure SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Authentification et autorisation de base de données SQL : octroi de l’accès][].
+	> [AZURE.NOTE] Il est judicieux de créer des utilisateurs pour les connexions dans la base de données master à la fois dans Azure SQL Database et Azure SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Authentification et autorisation de base de données SQL : octroi de l’accès][].
 
 2. **Créer un compte d’utilisateur :** ouvrez une connexion à la **base de données SQL Data Warehouse** et exécutez la commande suivante.
 
@@ -269,7 +269,7 @@ Les instructions suivantes **honorent** les classes de ressources :
 	EXEC sp_droprolemember 'largerc', 'newperson';
 	```
 
-	> [AZURE.NOTE] Il n’est pas possible de supprimer un utilisateur dans la classe smallrc.
+	> [AZURE.NOTE] Il n’est pas possible de supprimer un utilisateur dans la classe smallrc.
 
 ## Détection des requêtes en file d’attente et autres vues de gestion dynamique
 
@@ -307,7 +307,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc');
 
 SQL Data Warehouse offre les types d’attente suivants.
 
-- LocalQueriesConcurrencyResourceType : requêtes qui figurent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes DMV et les fonctions système telles que `SELECT @@VERSION` sont des exemples de requête locale.
+- LocalQueriesConcurrencyResourceType : requêtes qui figurent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes DMV et les fonctions système telles que `SELECT @@VERSION` sont des exemples de requête locale.
 - UserConcurrencyResourceType : requêtes qui figurent à l’intérieur de l’infrastructure d’emplacements de concurrence. Les requêtes exécutées sur des tables d’utilisateurs finaux sont des exemples de requêtes qui doivent utiliser ce type de ressource.
 - DmsConcurrencyResourceType : attentes résultant d’opérations de déplacement de données.
 - BackupConcurrencyResourceType : cette attente indique qu’une base de données est en cours de sauvegarde. La valeur maximale de ce type de ressource est égale à 1. Si plusieurs sauvegardes ont été demandées en même temps, les autres sont placées en file d’attente.
@@ -394,4 +394,4 @@ Pour plus d’informations sur la gestion de la sécurité et des utilisateurs d
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

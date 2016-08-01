@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="07/19/2016"
    ms.author="sstein"/>
 
 # Informations sur les performances des bases de données SQL
@@ -68,4 +68,4 @@ En cliquant sur **Vue d’ensemble** ou sur la vignette **Performances**, vous a
 - [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md)
 - [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

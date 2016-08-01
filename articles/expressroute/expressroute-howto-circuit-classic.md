@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/15/2016"
+   ms.date="07/19/2016"
    ms.author="ganesr"/>
 
 # Création et modification d’un circuit ExpressRoute
@@ -65,12 +65,12 @@ Vous êtes maintenant prêt à créer un circuit ExpressRoute.
 
 ### 3\. Création d’un circuit ExpressRoute
 
-L’exemple suivant montre comment créer un circuit ExpressRoute de 200 Mb/s par le biais d’Equinix dans la Silicon Valley. Si vous utilisez un autre fournisseur et des paramètres différents, utilisez ces informations quand vous créez votre requête.
+L’exemple suivant montre comment créer un circuit ExpressRoute de 200 Mb/s par le biais d’Equinix dans la Silicon Valley. Si vous utilisez un autre fournisseur et des paramètres différents, utilisez ces informations quand vous créez votre requête.
 
 >[AZURE.IMPORTANT] Votre circuit ExpressRoute sera facturé à partir de l’émission d'une clé de service. Effectuez cette opération seulement quand le fournisseur de connectivité prêt à approvisionner le circuit.
 
 
-Voici un exemple de demande pour une nouvelle clé de service :
+Voici un exemple de demande pour une nouvelle clé de service :
 
 	$Bandwidth = 200
 	$CircuitName = "MyTestCircuit"
@@ -128,7 +128,7 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 
 *ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service. Le *statut* indique l’état du côté Microsoft. Pour plus d’informations sur les états d’approvisionnement des circuits, consultez l’article [Flux de travail](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
-Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
+Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -246,7 +246,7 @@ Les fonctionnalités du module complémentaire ExpressRoute premium seront activ
 
 >[AZURE.IMPORTANT] Cette opération peut échouer si vous utilisez des ressources supérieures à ce qui est autorisé pour le circuit standard.
 
-Notez les points suivants :
+Notez les points suivants :
 
 - Vous devez vous assurer que le nombre de réseaux virtuels liés au circuit est inférieur à 10 avant de rétrograder du niveau premium à standard. Si vous ne le faites pas, votre demande de mise à jour échoue et nous appliquons les tarifs Premium.
 
@@ -292,7 +292,7 @@ Votre circuit sera redimensionné du côté de Microsoft. Vous devez contacter v
 
 ## Suppression et annulation du provisionnement d'un circuit ExpressRoute
 
-Notez les points suivants :
+Notez les points suivants :
 
 - Vous devez annuler la liaison de tous les réseaux virtuels du circuit ExpressRoute pour que cette opération réussisse. Si cette opération échoue, vérifiez si des réseaux virtuels sont liés au circuit.
 
@@ -308,9 +308,9 @@ Vous pouvez supprimer votre circuit ExpressRoute en exécutant la commande suiva
 
 ## Étapes suivantes
 
-Après avoir créé votre circuit, effectuez les opérations suivantes :
+Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 - [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-classic.md)
 - [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

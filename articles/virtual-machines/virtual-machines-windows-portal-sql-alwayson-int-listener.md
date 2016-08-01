@@ -84,7 +84,7 @@ Maintenant, configurez l’adresse IP de l’équilibrage de charge.
 | ----- | ----- |
 | **Sous-réseau** | Sélectionnez le sous-réseau contenant les serveurs SQL. |
 | **Affectation** | **Statique** |
-| **Adresse IP** | Tapez une adresse IP virtuelle inutilisée appartenant au sous-réseau. |
+| **Adresse IP** | Tapez une adresse IP virtuelle inutilisée appartenant au sous-réseau. |
 
 - Enregistrez les paramètres.
 
@@ -146,7 +146,7 @@ Configurez les règles d’équilibrage de charge. Les règles d’équilibrage 
 
 - Dans le panneau **Règles d’équilibrage de charge**, cliquez sur **Ajouter**.
 
-- Utilisez le panneau **Ajouter une règle d’équilibrage de charge** pour configurer la règle d’équilibrage de charge. Utilisez les paramètres suivants :
+- Utilisez le panneau **Ajouter une règle d’équilibrage de charge** pour configurer la règle d’équilibrage de charge. Utilisez les paramètres suivants :
 
 | Paramètre | Valeur |
 | ----- | ----- |
@@ -252,7 +252,7 @@ Pour tester la connexion :
 
 1. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** au réplica principal par le biais de l’écouteur avec une authentification Windows :
 
-        sqlmd -S <listenerName> -E
+        sqlcmd -S <listenerName> -E
 
 La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébergeant le réplica principal.
 
@@ -265,4 +265,4 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
 - Avec un équilibrage de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Vue d’ensemble des outils de gestion de la base de données SQL"
-	description="Compare les outils et les options de gestion de bases de données SQL Microsoft Azure."
+	description="Compare les outils et les options de gestion de bases de données SQL Microsoft Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"/>
 
 # Vue d’ensemble des outils de gestion de la base de données SQL
@@ -22,9 +22,9 @@ Cette rubrique explore et compare les différents outils et options de gestion d
 
 ## Portail Azure
 
-Le [portail Azure](https://portal.azure.com) est une application basée sur le web dans laquelle vous pouvez créer, mettre à jour et supprimer des serveurs logiques et des bases de données, et surveiller l’activité des bases de données. Cet outil est très utile si vous n’êtes pas familiarisé avec Microsoft Azure, si vous gérez un petit nombre de bases de données, ou si vous devez effectuer une action rapidement.
+Le [portail Azure](https://portal.azure.com) est une application basée sur le web dans laquelle vous pouvez créer, mettre à jour et supprimer des serveurs logiques et des bases de données, et surveiller l’activité des bases de données. Cet outil est très utile si vous n’êtes pas familiarisé avec Microsoft Azure, si vous gérez un petit nombre de bases de données, ou si vous devez effectuer une action rapidement.
 
-Pour en savoir plus sur l’utilisation du portail, voir [Gérer des bases de données SQL à l’aide du portail Azure Classic](sql-database-manage-portal.md).
+Pour en savoir plus sur l’utilisation du portail, voir [Gérer des bases de données SQL à l’aide du portail Azure Classic](sql-database-manage-portal.md).
 
 ## SQL Server Data Tools et Management Studio dans Visual Studio
 
@@ -36,7 +36,7 @@ Les logiciels SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT
 
 Vous pouvez utiliser des outils en ligne de commande tels que PowerShell pour gérer des bases de données et les pools de bases de données élastiques, et automatiser les déploiements de ressources Azure. Microsoft recommande cet outil pour la gestion d'un grand nombre de bases de données et l'automatisation du déploiement et des modifications apportées aux ressources dans un environnement de production.
 
-Pour en savoir plus sur la gestion de vos bases de données SQL Azure avec les outils en ligne de commande, consultez [Gestion d'une base de données SQL avec PowerShell](sql-database-command-line-tools.md).
+Pour en savoir plus sur la gestion de vos bases de données SQL Azure avec les outils en ligne de commande, consultez [Gestion d'une base de données SQL avec PowerShell](sql-database-command-line-tools.md).
 
 ## Outils de base de données élastique
 Utilisez les outils de base de données élastique pour effectuer les actions suivantes :
@@ -46,4 +46,4 @@ Utilisez les outils de base de données élastique pour effectuer les actions su
 * Gestion des bases de données dans un modèle avec un seul locataire ou un modèle multi-locataire avec la [bibliothèque cliente de mise à l’échelle élastique](sql-database-elastic-database-client-library.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

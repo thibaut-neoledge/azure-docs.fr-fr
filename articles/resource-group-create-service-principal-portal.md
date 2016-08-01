@@ -1,6 +1,6 @@
 <properties
    pageTitle="Créer un principal du service dans le portail | Microsoft Azure"
-   description="Décrit comment créer une application et un principal du service Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources."
+   description="Décrit comment créer une application et un principal du service Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Utiliser le portail pour créer une application et un principal du service Active Directory pouvant accéder aux ressources
@@ -24,24 +24,21 @@
 - [Portail](resource-group-create-service-principal-portal.md)
 
 
-Si un processus automatisé ou une application doit accéder à des ressources ou les modifier, vous devez configurer une application Active Directory et lui accorder les autorisations nécessaires. Cette rubrique explique comment effectuer ces étapes via le portail. Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory, puis revenir au portail Azure pour attribuer un rôle à l’application.
+Si une application doit accéder à des ressources ou les modifier, vous devez configurer une application Active Directory (AD) et lui accorder les autorisations nécessaires. Cette rubrique explique comment effectuer ces étapes via le portail. Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory, puis revenir au portail Azure pour attribuer un rôle à l’application.
 
-Vous avez deux options d’authentification pour votre application Active Directory :
+> [AZURE.NOTE] Vous pouvez configurer plus facilement votre application AD et le principal du service via [PowerShell](resource-group-authenticate-service-principal.md) ou [Azure CLI](resource-group-authenticate-service-principal-cli.md), en particulier si vous souhaitez utiliser un certificat pour l’authentification. Cette rubrique n’explique pas comment utiliser un certificat.
 
-1. Créer un ID et une clé d’authentification pour l’application et fournir ces informations d’identification quand l’application est exécutée. Choisissez cette option pour les processus automatisés qui s’exécutent sans intervention de l’utilisateur.
-2. Permettre aux utilisateurs de se connecter à Azure via votre application, puis d’utiliser ces informations d’identification pour accéder aux ressources pour le compte de l’utilisateur. Choisissez cette option pour les applications qui sont exécutées par un utilisateur.
-
-Pour obtenir une explication des concepts Active Directory, consultez [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
+Pour obtenir une explication des concepts Active Directory, consultez [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
 Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
-## Créer une application Active Directory
+## Créer une application Active Directory
 
 1. Connectez-vous à votre compte Azure via le [portail classique](https://manage.windowsazure.com/).
 
 2. Sélectionnez **Active Directory** dans le volet gauche.
 
-     ![sélectionner Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
+     ![sélectionner Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
      
 3. Sélectionnez l’annuaire Active Directory que vous voulez utiliser pour la création de l’application. En règle générale, si vous avez plusieurs annuaires Active Directory, il est préférable de créer l’application dans le celui où se trouve votre abonnement. Vous pouvez uniquement attribuer l’accès aux ressources de votre abonnement aux applications qui se trouvent dans le même répertoire que votre abonnement.
 
@@ -71,7 +68,7 @@ Pour obtenir des instructions détaillées sur l’intégration d’une applicat
 
      ![nommer l’application](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Renseignez les propriétés de votre application. Pour **URL de connexion**, indiquez l’URI d’un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour **URI ID d’application**, indiquez l’URI qui identifie votre application.
+7. Renseignez les propriétés de votre application. Pour **URL de connexion**, indiquez l’URI d’un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour **URI ID d’application**, indiquez l’URI qui identifie votre application.
 
      ![propriétés de l’application](./media/resource-group-create-service-principal-portal/app-properties.png)
 
@@ -107,11 +104,11 @@ Lors d’une connexion par programmation, vous devez transmettre l’ID de locat
 
    ![ID client](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
-Vous pouvez également récupérer l’ID de locataire à l’aide de PowerShell :
+Vous pouvez également récupérer l’ID de locataire à l’aide de PowerShell :
 
     Get-AzureRmSubscription
 
-Ou d’Azure CLI :
+Ou d’Azure CLI :
 
     azure account show --json
 
@@ -121,7 +118,7 @@ Si votre application accède aux ressources pour le compte d’un utilisateur co
 
 1. Sélectionnez **Ajouter une application**.
 
-2. Dans la liste, sélectionnez **l’API Gestion des services Azure**. Cliquez sur l’icône Terminer.
+2. Dans la liste, sélectionnez l’**API de gestion des services Azure**. Cliquez sur l’icône Terminer.
 
       ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -133,13 +130,15 @@ Si votre application accède aux ressources pour le compte d’un utilisateur co
 
 ## Configurer une application mutualisée
 
-Si les utilisateurs d’autres annuaires Azure Active Directory peuvent donner leur consentement à l’application et se connecter, vous devez activer une architecture mutualisée. Sous l’onglet **Configurer**, définissez **Application mutualisée** sur **Oui**.
+Si les utilisateurs d’autres annuaires Azure Active Directory peuvent donner leur consentement à l’application et se connecter, vous devez activer une architecture mutualisée. Dans l’onglet **Configurer**, définissez **Application mutualisée** sur **Oui**.
 
 ![architecture mutualisée](./media/resource-group-create-service-principal-portal/multi-tenant.png)
 
 ## Affecter l’application à un rôle
 
-Si votre application s’exécute sous ses propres informations d’identification, vous devez l’assigner à un rôle. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](./active-directory/role-based-access-built-in-roles.md).
+Si votre application s’exécute sous ses propres informations d’identification, vous devez l’assigner à un rôle. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](./active-directory/role-based-access-built-in-roles.md).
+
+Pour affecter un rôle, vous devez disposer d’un accès `Microsoft.Authorization/*/Write`, qui est accordé via le rôle [Propriétaire](./active-directory/role-based-access-built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
@@ -171,22 +170,39 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 Pour plus d’informations sur l’attribution des utilisateurs, des applications et des rôles au moyen du portail, consultez la rubrique [Gérer l’accès à l’aide du portail de gestion Azure](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
-## Obtention d'un jeton d'accès dans le code
+## Exemples d'applications
 
-Votre application Active Directory est désormais configurée pour accéder aux ressources. Dans votre application, fournissez les informations d’identification pour recevoir un jeton d’accès. Ce jeton d’accès est utilisé pour les demandes d’accès aux ressources.
+Les exemples d’applications suivants montrent comment ouvrir une session en tant que principal du service.
 
-Vous pouvez désormais utiliser la connexion par programmation pour votre application.
+**.NET**
 
-- Pour obtenir des exemples .NET, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour .NET](resource-manager-net-sdk.md).
-- Pour obtenir des exemples Java, consultez [Kit de développement logiciel (SDK) Azure Resource Manager pour Java](resource-manager-java-sdk.md).
-- Pour obtenir des exemples Python, consultez [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Authentification pour la gestion des ressources avec Python).
-- Pour obtenir des exemples REST, consultez [API REST Resource Manager](resource-manager-rest-api.md).
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/) (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans .NET)
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/) (Gérer des ressources et des groupes de ressources Azure avec .NET)
 
-Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
+**Java**
+
+- [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/) (Découverte des ressources - Déployer à l’aide du modèle Azure Resource Manager dans Java)
+- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//) (Découverte des ressources - Gérer un groupe de ressources dans Java)
+
+**Python**
+
+- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/) (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans Python)
+- [Managing Azure Resource and Resource Groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/) (Gérer des ressources et des groupes de ressources Azure avec Python)
+
+**Node.JS**
+
+- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/) (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans Node.js)
+- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/) (Gérer des ressources et des groupes de ressources Azure avec Node.js)
+
+**Ruby**
+
+- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/) (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans Ruby)
+- [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/) (Gérer des ressources et des groupes de ressources Azure avec Ruby)
+
 
 ## Étapes suivantes
 
 - Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](./active-directory/role-based-access-control-configure.md).
-- Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->
