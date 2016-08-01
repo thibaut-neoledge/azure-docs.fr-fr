@@ -1683,7 +1683,17 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo | 
+|| 
+|`<` |Inférieur à 
+|`<=`|Inférieur ou égal à 
+|`>` |Supérieur à 
+|`>=`|Supérieur ou égal à 
+|`<>`|Non égal à 
+|`!=`|Non égal à
 
 
 ### abs
@@ -1714,7 +1724,7 @@ Alias `floor`.
 
 **Arguments**
 
-* *value :* nombre, date ou intervalle de temps.
+* *value :* nombre, date ou intervalle de temps. 
 * *roundTo :* « taille de l’emplacement ». Nombre, date ou intervalle de temps qui divise *value*.
 
 **Retourne**
@@ -2469,7 +2479,7 @@ Résultat :
 Pour créer un littéral dynamique, utilisez `parsejson` (alias `todynamic`) avec un argument de chaîne JSON :
 
 * `parsejson('[43, 21, 65]')` : tableau de nombres
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
 * `parsejson('21')` : valeur unique de type dynamique qui contient un nombre
 * `parsejson('"21"')` : valeur unique de type dynamique qui contient une chaîne
 

@@ -86,9 +86,10 @@ Il inclut également des clés en lecture seule pour permettre aux utilisateurs 
 
 ### Affichage et copie d’une touche d’accès rapide dans le portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB. 
 2. Dans la barre **Essentials** du panneau **Compte DocumentDB**, cliquez sur **Clés**.
-3. Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier. ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/documentdb-manage-account/copykeys.png)
+3. Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
+  ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/documentdb-manage-account/copykeys.png)
 
 ### Régénération de clés d'accès
 
@@ -142,7 +143,7 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/fr-FR/regions/#services
-[offers]: https://azure.microsoft.com/fr-FR/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0720_2016-->

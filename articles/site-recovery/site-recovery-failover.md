@@ -113,7 +113,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 5. Vous pouvez accéder aux ordinateurs virtuels de réplication dans Microsoft Azure à partir de votre site local : lancez une connexion RDP à la machine virtuelle ; le port 3389 doit être ouvert sur le point de terminaison de la machine virtuelle.
 5. Cela fait, lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération.
 5. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement.
-8. Cliquez sur **Le test de basculement est terminé.** L’environnement de test est alors automatiquement nettoyé. Une fois cette opération terminée, le basculement de test affiche l’état ****Terminé****.
+8. Cliquez sur **Le test de basculement est terminé.** L’environnement de test est alors automatiquement nettoyé. Une fois cette opération terminée, le basculement de test affiche l’état **Terminé**.
 
 > [AZURE.NOTE] Si un test de basculement s’étend sur plus de deux semaines, le système l’oblige à s’achever. Toutes les machines virtuelles ou les éléments créés automatiquement lors du basculement de test sont supprimés.
   
@@ -138,7 +138,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
 1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Test de basculement**.
 2. Sur la page **Confirmer le test de basculement**, indiquez le mode de connexion des machines virtuelles aux réseaux, après le test de basculement.
-3. Effectuez un suivi de l’opération sur l’onglet **Tâches**. Lorsque le basculement atteint la phase ****Terminer le test****, cliquez sur **Terminer le test** pour finir l’opération.
+3. Effectuez un suivi de l’opération sur l’onglet **Tâches**. Lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération.
 4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
 4. Une fois l’opération terminée, vérifiez que les machines virtuelles démarrent correctement.
 5. Après avoir effectué cette vérification, terminez le test de basculement afin de nettoyer l’environnement isolé. Si vous avez opté pour la création automatique de réseaux de machines virtuelles, le nettoyage supprime toutes les machines virtuelles de test, ainsi que les réseaux de test.
@@ -180,7 +180,7 @@ Préparer un serveur DNS pour le test de basculement en procédant comme suit :
 
 1. Avant de commencer, assurez-vous que toutes les machines virtuelles dont vous voulez effectuer le basculement ont terminé la réplication initiale.
 2. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Basculement planifié**.
-3. Sur la page ****Confirmer le basculement planifié****, choisissez les emplacements source et cible. Notez le sens du basculement.
+3. Sur la page **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement.
 
 	- Si les basculements précédents se sont exécutés comme prévu, et si l’ensemble des serveurs de machines virtuelles sont situés à l’emplacement source ou cible, les détails du sens de basculement sont indiqués à titre informatif uniquement.
 	- Si les machines virtuelles sont actives sur les emplacements source et cible, le bouton **Modifier le sens** s’affiche. Ce bouton permet de modifier et de spécifier le sens dans lequel le basculement doit s’exécuter.
@@ -195,7 +195,7 @@ Préparer un serveur DNS pour le test de basculement en procédant comme suit :
 Cette procédure explique comment exécuter un test de basculement non planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique, via l’onglet **Machines virtuelles**.
 
 1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Basculement non planifié**.
-3. Sur la page ****Confirmer le basculement non planifié****, choisissez les emplacements source et cible. Notez le sens du basculement.
+3. Sur la page **Confirmer le basculement non planifié**, choisissez les emplacements source et cible. Notez le sens du basculement.
 
 	- Si les basculements précédents se sont exécutés comme prévu, et si l’ensemble des serveurs de machines virtuelles sont situés à l’emplacement source ou cible, les détails du sens de basculement sont indiqués à titre informatif uniquement.
 	- Si les machines virtuelles sont actives sur les emplacements source et cible, le bouton **Modifier le sens** s’affiche. Ce bouton permet de modifier et de spécifier le sens dans lequel le basculement doit s’exécuter.
@@ -212,7 +212,7 @@ Cette procédure explique comment exécuter un test de basculement non planifié
  Après le basculement du site principal vers l’emplacement secondaire, les machines virtuelles répliquées ne sont pas protégées par le logiciel Site Recovery et l’emplacement secondaire joue le rôle de serveur principal. Suivez ces procédures pour effectuer la restauration automatique vers le site principal d’origine. Cette procédure explique comment exécuter un test de basculement planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles**.
 
 1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Basculement planifié**.
-2. Sur la page ****Confirmer le basculement planifié****, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement depuis le site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent à l’emplacement secondaire, ces éléments sont fournis à titre informatif uniquement.
+2. Sur la page **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement depuis le site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent à l’emplacement secondaire, ces éléments sont fournis à titre informatif uniquement.
 3. Si vous effectuez la restauration à partir de Microsoft Azure, sélectionnez différents paramètres dans la zone **Synchronisation des données** :
 
 	- **Synchroniser les données avant le basculement (synchroniser seulement les modifications d'ordre différentiel)** : cette option réduit le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Il effectue les opérations suivantes :

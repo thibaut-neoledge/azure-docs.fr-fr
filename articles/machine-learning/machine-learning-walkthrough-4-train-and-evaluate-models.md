@@ -60,7 +60,7 @@ Cette partie de l'expérience ressemble alors à ce qui suit :
 
 Nous allons ensuite configurer le modèle SVM.
 
-Tout d’abord, une petite explication sur SVM. Les arbres de décision optimisés fonctionnent bien avec tout type de caractéristique. Toutefois, le module SVM générant un classifieur linéaire, le modèle qu'il génère obtient la meilleure erreur de test quand toutes les caractéristiques numériques sont à la même échelle. Ainsi, pour convertir toutes les caractéristiques numériques à la même échelle, nous allons utiliser une transformation « Tanh » (avec le module [Normaliser les données][normalize-data]) qui transforme les nombres en la plage [0,1] (les caractéristiques de chaîne étant converties par le module SVM en caractéristiques de catégorie, puis en caractéristiques binaires 0/1, nous n’avons pas besoin de les transformer manuellement). De même, nous ne voulons pas transformer la colonne Risque du crédit (colonne 21). Elle est numérique et contient la valeur que nous apprenons à prédire au modèle ; nous devons donc la laisser seule.
+Tout d’abord, une petite explication sur SVM. Les arbres de décision optimisés fonctionnent bien avec tout type de caractéristique. Toutefois, le module SVM générant un classifieur linéaire, le modèle qu'il génère obtient la meilleure erreur de test quand toutes les caractéristiques numériques sont à la même échelle. Ainsi, pour convertir toutes les caractéristiques numériques à la même échelle, nous allons utiliser une transformation « Tanh » (avec le module [Normaliser les données][normalize-data]) qui transforme les nombres en la plage [0,1] \(les caractéristiques de chaîne étant converties par le module SVM en caractéristiques de catégorie, puis en caractéristiques binaires 0/1, nous n’avons pas besoin de les transformer manuellement). De même, nous ne voulons pas transformer la colonne Risque du crédit (colonne 21). Elle est numérique et contient la valeur que nous apprenons à prédire au modèle ; nous devons donc la laisser seule.
 
 Pour configurer le modèle SVM, procédez comme suit :
 
@@ -73,7 +73,7 @@ Pour configurer le modèle SVM, procédez comme suit :
 7.	Dans le volet **Propriétés** du module [Normaliser les données][normalize-data], sélectionnez **Tanh** comme **Méthode de transformation**.
 8.	Cliquez sur **Lancer le sélecteur de colonne**, sélectionnez « Aucune colonne » pour **Commencer par**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **type de colonne** dans la deuxième et sélectionnez **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) seront transformées.
 9.	Cliquez sur le signe plus (+) à droite de cette ligne : cette opération crée une ligne de listes déroulantes. Sélectionnez **Exclure** dans la première liste déroulante, sélectionnez **Noms des colonnes** dans la seconde et entrez « Risque de crédit » dans la liste des colonnes. Cette opération indique que la colonne Risque de crédit doit être ignorée (en effet, cette colonne étant numérique, elle serait transformée dans le cas contraire).
-10.	Cliquez sur **OK**.
+10.	Cliquez sur **OK**.  
 
 
 Le module [Normaliser les données][normalize-data] est maintenant configuré pour effectuer une transformation Tanh sur toutes les colonnes numériques à l’exception de la colonne Risque de crédit.
@@ -94,13 +94,13 @@ Nous allons utiliser les données de test séparées par le module [Fractionner 
 4.	Copiez et collez le module [Noter le modèle][score-model] pour créer une deuxième copie ou faites glisser un nouveau module sur le canevas.
 5.	Connectez le port d'entrée de gauche de ce module au modèle SVM (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-support-vector-machine]).
 6.	Pour le modèle SVM, nous devons effectuer la même transformation pour tester les données comme nous l’avons fait pour les données de formation. Donc, copiez et collez le module [Normaliser les données][normalize-data] pour créer une autre copie et connectez-la à la sortie de gauche du module [Exécuter le script R][execute-r-script] de droite.
-7.	Connectez le port d’entrée de droite du module [Noter le modèle][score-model] à la sortie de gauche du module [Normaliser les données][normalize-data].
+7.	Connectez le port d’entrée de droite du module [Noter le modèle][score-model] à la sortie de gauche du module [Normaliser les données][normalize-data].  
 
 Pour évaluer les résultats notés, nous allons utiliser le module [Évaluer le modèle][evaluate-model].
 
 1.	Recherchez le module [Évaluer le modèle][evaluate-model] et faites-le glisser sur le canevas.
 2.	Connectez le port d'entrée de gauche au port de sortie du module [Noter le modèle][score-model] associé au modèle Arbre de décision optimisé.
-3.	Connectez le port d'entrée de droite à l'autre module [Noter le modèle][score-model].
+3.	Connectez le port d'entrée de droite à l'autre module [Noter le modèle][score-model].  
 
 Cliquez sur le bouton **EXÉCUTER** sous le canevas pour exécuter l'expérience. Cette opération peut prendre quelques minutes. Un indicateur rotatif sur chaque module indique qu'il est en cours d'exécution ; une coche verte s'affiche ensuite pour indiquer que l'exécution est terminée. Lorsque tous les modules comportent une coche, l'exécution de l'expérience est terminée.
 

@@ -137,7 +137,7 @@ Le panneau de l’ASE contient une section **Paramètres**. Cette dernière comp
 
 ![Panneau Paramètres et Propriétés][4]
 
-**Paramètres** > **Adresses IP** : une adresse IP SSL est nécessaire lorsque vous créez une application IP SSL (Secure Sockets Layer) dans votre ASE. Pour en obtenir une, votre ASE doit posséder des adresses IP SSL qui peuvent être allouées. Lorsqu’un ASE est créé, il dispose d’une adresse IP SSL unique à cette fin, mais vous pouvez en ajouter d’autres. Ces adresses IP SSL supplémentaires sont payantes. Consultez les prix sur la page [Tarification de App Service][AppServicePricing] (dans la rubrique Connexions SSL). Le supplément de prix correspond au coût IP SSL.
+**Paramètres** > **Adresses IP** : une adresse IP SSL est nécessaire lorsque vous créez une application IP SSL (Secure Sockets Layer) dans votre ASE. Pour en obtenir une, votre ASE doit posséder des adresses IP SSL qui peuvent être allouées. Lorsqu’un ASE est créé, il dispose d’une adresse IP SSL unique à cette fin, mais vous pouvez en ajouter d’autres. Ces adresses IP SSL supplémentaires sont payantes. Consultez les prix sur la page [Tarification de App Service][AppServicePricing] \(dans la rubrique Connexions SSL). Le supplément de prix correspond au coût IP SSL.
 
 **Paramètres** > **Pool frontal** / **Pools de travail** : chacun de ces panneaux de pools de ressources offre la possibilité d’afficher des informations uniquement sur ce pool de ressources, en plus de proposer des contrôles pour le mettre entièrement à l’échelle.
 

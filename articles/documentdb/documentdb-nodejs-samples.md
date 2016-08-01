@@ -28,7 +28,7 @@
 
 Le référentiel GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) contient des exemples de solutions qui exécutent des opérations CRUD ainsi que d’autres opérations courantes sur les ressources Azure DocumentDB. Cet article fournit :
 
-- Des liens vers les tâches dans chacun des exemples de fichiers de projet Node.js.
+- Des liens vers les tâches dans chacun des exemples de fichiers de projet Node.js. 
 - Des liens vers le contenu de référence d’API connexe.
 
 **Configuration requise**
@@ -36,7 +36,7 @@ Le référentiel GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure
 1. Pour utiliser ces exemples Node.js, vous avez besoin d’un compte Azure :
     - Vous pouvez [ouvrir un compte Azure gratuitement](https://azure.microsoft.com/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
    - Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : ce dernier vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
-2. Vous devez également disposer du [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md).
+2. Vous devez également disposer du [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md). 
 
     > [AZURE.NOTE] Chaque exemple est autonome, se définit lui-même et se nettoie automatiquement. Les exemples transmettent donc plusieurs appels à [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). À chaque appel, votre abonnement sera facturé pour 1 heure d’utilisation selon le niveau de performances de la collection en cours de création.
 

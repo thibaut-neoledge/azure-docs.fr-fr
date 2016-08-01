@@ -23,6 +23,8 @@
 
 ## Vue d'ensemble
 La mise à l’échelle automatique correspond au processus d’allocation dynamique des ressources requises pour satisfaire aux exigences de performances d’une application et répondre aux dispositions des contrats de niveaux de service, tout en réduisant les coûts d’exécution. Au fur et à mesure de l’évolution du volume de travail, une application peut nécessiter des ressources supplémentaires afin d’exécuter les tâches dans les délais impartis. À mesure que la demande diminue, les ressources peuvent être retirées, ce qui permet de réduire les coûts tout en respectant les niveaux de performances requis et les dispositions des contrats de niveau de service. La mise à l’échelle automatique tire parti de l’élasticité des environnements hébergés dans le cloud tout en allégeant les contraintes de gestion. En effet, elle réduit le recours à un opérateur dédié à la surveillance continue d’un système, ainsi qu’à l’ajout et au retrait des ressources.
+<br\>
+
 >[AZURE.NOTE] La mise à l’échelle automatique s’applique à l’ensemble des ressources utilisées par une application, pas uniquement aux ressources de calcul. Par exemple, si votre système utilise des files d’attente de messagerie pour envoyer et recevoir des informations, il peut éventuellement créer des files d’attentes supplémentaires au fur et à mesure de sa mise à l’échelle.
 
 ## Types de mise à l’échelle

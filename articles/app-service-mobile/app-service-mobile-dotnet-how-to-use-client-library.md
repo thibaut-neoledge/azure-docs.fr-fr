@@ -34,6 +34,7 @@ Nous supposons que vous avez déjà créé et publié votre projet de backend Mo
 
 Le type côté client typé en C# correspondant est le suivant :
 
+
 	public class TodoItem
 	{
 		public string Id { get; set; }
@@ -96,7 +97,8 @@ La section suivante explique comment rechercher et récupérer les enregistremen
 
 L’ensemble du code permettant d’accéder aux données d’une table du backend ou de les modifier appelle des fonctions sur l’objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la méthode [GetTable] sur une instance du `MobileServiceClient`, comme suit :
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+		client.GetTable<TodoItem>();
 
 Il s'agit du modèle de sérialisation typé. Les modèles de sérialisation non typés sont également pris en charge. Le code suivant [crée une référence à une table non typée] \:
 
@@ -105,7 +107,7 @@ Il s'agit du modèle de sérialisation typé. Les modèles de sérialisation non
 
 Dans les requêtes non typées, vous devez spécifier la chaîne de requête OData sous-jacente.
 
-###<a name="querying"></a>Interrogation des données à partir de votre application mobile
+##<a name="querying"></a>Interrogation des données à partir de votre application mobile
 
 Cette section explique comment émettre des requêtes à destination du backend Mobile Apps, qui inclut les fonctionnalités suivantes :
 
@@ -121,7 +123,8 @@ Cette section explique comment émettre des requêtes à destination du backend 
 
 Le code suivant montre comment filtrer des données en incluant une clause `Where` dans une requête. Il renvoie tous les éléments de `todoTable` dont la propriété `Complete` est égale à `false`. La fonction [Where] applique un prédicat de filtrage de ligne à la requête au niveau de la table.
 
-	// This query filters out completed TodoItems and items without a timestamp.
+	// This query filters out completed TodoItems and
+	// items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
@@ -140,7 +143,8 @@ La fonction transmise à la méthode `Where` peut avoir un nombre de conditions 
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false
+		   && todoItem.Text != null)
 	   .ToListAsync();
 
 Serait traduite en requête SQL par le Kit de développement logiciel (SDK) de serveur qui est similaire à ceci :

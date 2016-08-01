@@ -23,7 +23,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Halogen Sof
 
 L’intégration de Halogen Software dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Halogen Software.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Halogen Software. 
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Halogen Software (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 

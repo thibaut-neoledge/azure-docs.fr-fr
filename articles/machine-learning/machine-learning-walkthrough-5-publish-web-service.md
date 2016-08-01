@@ -48,7 +48,7 @@ Nous devons supprimer les modules suivants :
 
 - [Machine à vecteurs de support à deux classes][two-class-support-vector-machine]
 - Modules associés [Former le modèle][train-model] et [Noter le modèle][score-model]
-- [Normaliser les données][normalize-data] (les deux)
+- [Normaliser les données][normalize-data] \(les deux)
 - [Évaluer le modèle][evaluate-model]
 
 Sélectionnez simplement le module et appuyez sur la touche Suppr, ou cliquez avec le bouton droit sur le module et sélectionnez **Supprimer**.
@@ -91,7 +91,8 @@ Notre expérience doit alors ressembler à cela :
 
 Exécutez une dernière fois l'expérience (cliquez sur **Exécuter**). Si vous voulez vérifier que le modèle fonctionne toujours, cliquez sur la sortie du module [Noter le modèle][score-model] et sélectionnez **Afficher les résultats**. Vous constatez que les données d'origine sont affichées, ainsi que la valeur du risque sur le crédit (« Étiquettes notées ») et la probabilité de la notation (« Probabilités notées »).
 
-## Déploiement du service web
+##
+Déploiement du service web
 
 Vous pouvez déployer l’expérience en tant que service web classique ou nouveau service web basé sur Azure Resource Manager.
 

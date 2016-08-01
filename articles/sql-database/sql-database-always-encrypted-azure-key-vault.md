@@ -68,7 +68,7 @@ Vous devez d’abord autoriser votre application cliente à accéder au service 
 8. Dans la section Clés, sélectionnez **1 an** dans la liste déroulante **Sélectionner une durée** (nous copierons la clé après avoir procédé à l’enregistrement ci-dessous).
 11. Faites défiler et cliquez sur **Ajouter une application**.
 12. Conservez la valeur **Applications Microsoft** dans **Afficher**, puis recherchez et sélectionnez **Gestion des services Microsoft Azure** et cliquez sur la coche pour continuer.
-13. Sur la ligne **Gestion des services Windows Azure**, cliquez sur la liste déroulante **Autorisations déléguées** et sélectionnez **Accéder à la gestion des services Azure**.
+13. Sur la ligne **Gestion des services Microsoft Azure**, cliquez sur la liste déroulante **Autorisations déléguées** et sélectionnez **Accéder à la gestion des services Azure**.
 14. Cliquez sur **Enregistrer** (en bas).
 15. Une fois l’enregistrement terminé, recherchez et copiez la valeur de la clé dans la section **Clés** (vous aurez besoin de cette valeur plus loin dans votre code).
 

@@ -34,7 +34,9 @@ Azure Disk Encryption est une nouvelle fonctionnalité qui vous permet de chiffr
 Azure Disk Encryption prend en charge les scénarios client suivants :
 
 - Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir de disques durs virtuels déjà chiffrés et de clés de chiffrement.
+
 - Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’images de la galerie Azure.
+
 - Activation du chiffrement sur des machines virtuelles IaaS existantes et fonctionnant déjà sous Azure.
 - Désactivation du chiffrement sur les machines virtuelles IaaS Windows.
 

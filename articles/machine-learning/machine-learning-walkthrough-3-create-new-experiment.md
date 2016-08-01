@@ -39,7 +39,7 @@ L’étape suivante de cette procédure pas à pas consiste à créer une expér
 	> [AZURE.TIP] Il est conseillé de compléter le **Résumé** et la **Description** relatifs à l'expérience dans le panneau **Propriétés**. Ces propriétés vous donnent la possibilité de documenter l'expérience afin que toute personne la consultant ultérieurement comprenne vos objectifs et votre méthodologie.
 
 3.	Dans la palette des modules à gauche du canevas d'expérience, développez **Jeux de données enregistrés**.
-4.	Recherchez le jeu de données que vous avez créé sous **My Datasets** (Mes jeux de données) et faites-le glisser sur la zone de dessin. Vous pouvez également le rechercher en entrant son nom dans la zone **Rechercher** au-dessus de la palette.
+4.	Recherchez le jeu de données que vous avez créé sous **My Datasets** (Mes jeux de données) et faites-le glisser sur la zone de dessin. Vous pouvez également le rechercher en entrant son nom dans la zone **Rechercher** au-dessus de la palette.  
 
 ##Préparation des données
 Vous pouvez voir les 100 premières lignes de données et quelques informations statistiques concernant tout le jeu de données en cliquant sur le port de sortie du jeu de données (le petit cercle en bas) et en sélectionnant **Visualiser**.
@@ -52,7 +52,7 @@ Pour utiliser [Modifier les métadonnées][edit-metadata], vous spécifiez les c
 
 1.	Dans la palette des modules, tapez « métadonnées » dans la zone **Rechercher**. [Modifier les métadonnées][edit-metadata] apparaît dans la liste des modules.
 2.	Cliquez sur le module [Modifier les métadonnées][edit-metadata] et faites-le glisser sur le canevas avant de le déposer sous le jeu de données que nous avons ajouté précédemment.
-3.	Connectez le jeu de données au module [Modifier les métadonnées][edit-metadata] \: cliquez sur le port de sortie du jeu de données (le petit cercle en bas du jeu de données), faites glisser vers le port d’entrée de [Modifier les métadonnées][edit-metadata] (le petit cercle en haut du module), puis relâchez le bouton de la souris. Le jeu de données et le module restent connectés même si vous opérez des déplacements sur le canevas.
+3.	Connectez le jeu de données au module [Modifier les métadonnées][edit-metadata] \: cliquez sur le port de sortie du jeu de données (le petit cercle en bas du jeu de données), faites glisser vers le port d’entrée de [Modifier les métadonnées][edit-metadata] \(le petit cercle en haut du module), puis relâchez le bouton de la souris. Le jeu de données et le module restent connectés même si vous opérez des déplacements sur le canevas.
 
     L'expérience doit ressembler à ceci :
 

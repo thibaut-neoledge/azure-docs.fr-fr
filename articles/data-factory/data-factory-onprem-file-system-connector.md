@@ -32,7 +32,7 @@ En dehors de la passerelle de gestion des données, aucun autre fichier binaire 
 Effectuez les deux étapes suivantes pour utiliser un partage de fichiers Linux avec le service lié de serveur de fichiers :
 
 - Installez [Samba](https://www.samba.org/) sur votre serveur Linux.
-- Installez et configurez la passerelle de gestion des données sur un serveur Windows. L’installation de la passerelle sur un serveur Linux n'est pas prise en charge.
+- Installez et configurez la passerelle de gestion des données sur un serveur Windows. L’installation de la passerelle sur un serveur Linux n'est pas prise en charge. 
  
 ## Exemple : Copie de données depuis un système de fichiers local vers un système Blob Storage Azure
 

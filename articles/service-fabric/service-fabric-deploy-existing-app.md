@@ -31,9 +31,11 @@ L’exécution d'un exécutable invité dans un cluster Service Fabric présente
 
 Dans cet article, nous abordons les étapes de base pour empaqueter un exécutable invité et le déployer dans Service Fabric.
 
+
 ## Vue d’ensemble rapide des fichiers du manifeste de service et d’application.
 
 Dans le cadre du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric. Le modèle d’empaquetage et de déploiement Service Fabric repose principalement sur deux fichiers XML : les manifestes d’applications et de services. La définition de schéma pour les fichiers ServiceManifest.xml et ApplicationManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
+
 
 * **Manifeste d’application**
 
