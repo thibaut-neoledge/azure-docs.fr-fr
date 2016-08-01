@@ -22,7 +22,7 @@ Cet article décrit comment vous pouvez utiliser l’activité de copie dans Azu
 
 Vous pouvez spécifier si vous souhaitez utiliser PolyBase lors du chargement des données dans Azure SQL Data Warehouse. Nous suggérons d’utiliser PolyBase pour obtenir de meilleures performances lors du chargement des données dans Azure SQL Data Warehouse. Pour plus de détails, consultez [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 
-Les exemples suivants indiquent comment copier des données vers et depuis Azure SQL Data Warehouse et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** d’une source quelconque vers l’un des récepteurs indiqués dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores), à l’aide de l’activité de copie d’Azure Data Factory.
+Les exemples suivants indiquent comment copier des données vers et depuis Azure SQL Data Warehouse et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** d’une source quelconque vers l’un des récepteurs indiqués dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores), à l’aide de l’activité de copie d’Azure Data Factory.
 
 
 
@@ -32,7 +32,7 @@ Pour obtenir une vue d’ensemble du service Azure Data Factory, consultez [Pré
 > Cet article fournit des exemples JSON, mais ne fournit pas d’instructions détaillées pour la création une fabrique de données. Consultez le [Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une brève procédure pas à pas de l’utilisation de l’activité de copie dans Azure Data Factory.
 
 
-## Exemple : copie de données depuis Azure SQL Data Warehouse vers un objet Blob Azure
+## Exemple : copie de données depuis Azure SQL Data Warehouse vers un objet Blob Azure
 
 L’exemple ci-dessous présente les éléments suivants :
 
@@ -44,7 +44,7 @@ L’exemple ci-dessous présente les éléments suivants :
 
 L'exemple copie des données appartenant à une série horaire à partir d'une table dans une base de données Azure SQL Data Warehouse vers un objet Blob, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié Azure SQL Data Warehouse :**
+**Service lié Azure SQL Data Warehouse :**
 
 	{
 	  "name": "AzureSqlDWLinkedService",
@@ -56,7 +56,7 @@ L'exemple copie des données appartenant à une série horaire à partir d'une t
 	  }
 	}
 
-**Service lié Azure Blob Storage :**
+**Service lié Azure Blob Storage :**
 
 	{
 	  "name": "StorageLinkedService",
@@ -68,11 +68,11 @@ L'exemple copie des données appartenant à une série horaire à partir d'une t
 	  }
 	}
 
-**Jeu de données d'entrée Azure SQL Data Warehouse :**
+**Jeu de données d'entrée Azure SQL Data Warehouse :**
 
-L'exemple suppose que vous avez créé une table « MyTable » dans Azure SQL Data Warehouse et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
+L'exemple suppose que vous avez créé une table « MyTable » dans Azure SQL Data Warehouse et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
  
-La définition de « external » : « true » et la spécification de la stratégie externalData informent le service Data Factory qu'il s'agit d'une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
+La définition de « external » : « true » et la spécification de la stratégie externalData informent le service Data Factory qu'il s'agit d'une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
 
 	{
 	  "name": "AzureSqlDWInput",
@@ -97,9 +97,9 @@ La définition de « external » : « true » et la spécification de la st
 	  }
 	}
 
-**Jeu de données de sortie d'objet Blob Azure :**
+**Jeu de données de sortie d'objet Blob Azure :**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -211,7 +211,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 >  
 > Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les colonnes définies dans la section structure du code JSON du jeu de données sont utilisées pour créer une requête (select column1, column2 from mytable) à exécuter sur Azure SQL Data Warehouse. Si la définition du jeu de données ne possède pas de structure, toutes les colonnes de la table sont sélectionnées.
 
-## Exemple : copie de données à partir d'un objet Blob Azure vers Azure SQL Data Warehouse
+## Exemple : copie de données à partir d'un objet Blob Azure vers Azure SQL Data Warehouse
 
 L’exemple ci-dessous présente les éléments suivants :
 
@@ -224,7 +224,7 @@ L’exemple ci-dessous présente les éléments suivants :
 
 L'exemple copie des données appartenant à une série horaire à partir d'un objet Blob Azure vers une table dans une base de données Azure SQL Data Warehouse, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié Azure SQL Data Warehouse :**
+**Service lié Azure SQL Data Warehouse :**
 
 	{
 	  "name": "AzureSqlDWLinkedService",
@@ -250,7 +250,7 @@ L'exemple copie des données appartenant à une série horaire à partir d'un ob
 
 **Jeu de données d'entrée d'objet Blob Azure :**
 
-Les données sont récupérées à partir d'un nouvel objet Blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d’accès et du fichier de dossier pour l’objet Blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois et le jour de l'heure de début et le nom de fichier utilise la partie heure de l'heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la Data Factory et non produite par une activité dans la Data Factory.
+Les données sont récupérées à partir d'un nouvel objet Blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d’accès et du fichier de dossier pour l’objet Blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois et le jour de l'heure de début et le nom de fichier utilise la partie heure de l'heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la Data Factory et non produite par une activité dans la Data Factory.
 
 	{
 	  "name": "AzureBlobInput",
@@ -315,9 +315,9 @@ Les données sont récupérées à partir d'un nouvel objet Blob toutes les heur
 	  }
 	}
 
-**Jeu de données de sortie Azure SQL Data Warehouse :**
+**Jeu de données de sortie Azure SQL Data Warehouse :**
 
-L'exemple copie les données dans une table nommée « MyTable » dans Azure SQL Data Warehouse. Vous devez créer la table dans Azure SQL Data Warehouse avec le même nombre de colonnes que le fichier CSV d'objets Blob doit contenir. De nouvelles lignes sont ajoutées à la table toutes les heures.
+L'exemple copie les données dans une table nommée « MyTable » dans Azure SQL Data Warehouse. Vous devez créer la table dans Azure SQL Data Warehouse avec le même nombre de colonnes que le fichier CSV d'objets Blob doit contenir. De nouvelles lignes sont ajoutées à la table toutes les heures.
 
 	{
 	  "name": "AzureSqlDWOutput",
@@ -385,7 +385,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 Vous trouverez une procédure pas à pas dans l'article [Téléchargement de données avec Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) dans la documentation Azure SQL Data Warehouse.
 
-## Propriétés du service lié Azure SQL Data Warehouse
+## Propriétés du service lié Azure SQL Data Warehouse
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure SQL Data Warehouse.
 
@@ -394,9 +394,9 @@ Propriété | Description | Requis
 type | La propriété de type doit être définie sur **AzureSqlDW**. | Oui
 **connectionString** | Spécifier les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété connectionString. | Oui
 
-Remarque : vous devez configurer le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Vous devez configurer le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Data Warehouse à partir d'un emplacement situé en dehors d'Azure, y compris à partir de sources de données sur site avec la passerelle Data Factory, vous devez configurer la plage d'adresses IP appropriée pour l'ordinateur qui envoie des données à Azure SQL Data Warehouse.
+Remarque : vous devez configurer le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Vous devez configurer le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Data Warehouse à partir d'un emplacement situé en dehors d'Azure, y compris à partir de sources de données sur site avec la passerelle Data Factory, vous devez configurer la plage d'adresses IP appropriée pour l'ordinateur qui envoie des données à Azure SQL Data Warehouse.
 
-## Propriétés de type du jeu de données Azure SQL Data Warehouse
+## Propriétés de type du jeu de données Azure SQL Data Warehouse
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, objet Blob Azure, table Azure, etc...).
 
@@ -406,17 +406,17 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | -------- | ----------- | -------- |
 | tableName | Nom de la table dans la base de données Azure SQL Data Warehouse à laquelle le service lié fait référence. | Oui |
 
-## Propriétés de type d’activité de copie Azure SQL Data Warehouse
+## Propriétés de type d’activité de copie Azure SQL Data Warehouse
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
-**Remarque :** l’activité de copie accepte uniquement une entrée et produit une seule sortie.
+**Remarque :** l’activité de copie accepte uniquement une entrée et produit une seule sortie.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
 ### SqlDWSource
 
-Dans le cas d’une activité de copie, quand la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -441,7 +441,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
         }
     }
 
-**Définition de la procédure stockée :**
+**Définition de la procédure stockée :**
 
 	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 	(
@@ -460,7 +460,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
  
 
 ### SqlDWSink
-**SqlDWSink** prend en charge les propriétés suivantes :
+**SqlDWSink** prend en charge les propriétés suivantes :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -496,7 +496,7 @@ Définissez la propriété **allowPolyBase** sur **true** comme indiqué dans l�
 		"polyBaseSettings":
 		{
 			"rejectType": "percentage",
-			"rejectValue": 10,
+			"rejectValue": 10.0,
 			"rejectSampleValue": 100,
 			"useTypeDefault": true 
 		}
@@ -599,9 +599,9 @@ La valeur NULL est une forme spéciale de valeur par défaut. Si la colonne acce
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Mappage de type pour Azure SQL Data Warehouse
+### Mappage de type pour Azure SQL Data Warehouse
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion à partir de types de source natifs en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
@@ -610,7 +610,7 @@ Lors du déplacement de données vers et à partir de SQL Azure, SQL Server, Syb
 
 Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx) (article en anglais).
 
-| Type de moteur de base de données SQL Server | Type de .NET Framework |
+| Type de moteur de base de données SQL Server | Type de .NET Framework |
 | ------------------------------- | ------------------- |
 | bigint | Int64 |
 | binaire | Byte |
@@ -654,4 +654,4 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

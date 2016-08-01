@@ -18,12 +18,12 @@
 
 # Surveiller les demandes DocumentDB, l’utilisation et le stockage
 
-Vous pouvez surveiller vos comptes DocumentDB dans le [portail Microsoft Azure](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
+Vous pouvez surveiller vos comptes Azure DocumentDB dans le [portail Microsoft Azure](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
 
 ## Affichage des mesures de performances dans le portail 
 1.	Dans une nouvelle fenêtre, ouvrez le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures de performances.
-2.	Dans le filtre **Surveillance**, vous pouvez, par défaut, voir :
-	*	le nombre total de demandes pour le jour en cours ;
+2.	Dans le filtre **Surveillance**, vous pouvez, par défaut, voir :
+	*	le nombre total de demandes pour le jour en cours ;
 	*	Nombre total de RU ([unités de demande](documentdb-request-units.md)) utilisées au cours de la journée.
 	*	Stockage utilisé.
 
@@ -33,7 +33,7 @@ Vous pouvez surveiller vos comptes DocumentDB dans le [portail Microsoft Azure](
 
 
 3.	Cliquez sur la mosaïque **Demandes**, **Total des demandes** ou **Stockage** pour ouvrir un panneau détaillé **Métrique**.
-4.	Le panneau **Métrique** affiche les détails des mesures que vous avez sélectionnées. La partie supérieure du panneau affiche un graphique des demandes représentées toutes les heures, tandis que la partie inférieure montre un tableau affichant les valeurs d’agrégation pour les demandes limitées et totales. Le volet Métrique affiche également la liste des alertes définies, filtrées en fonction des mesures apparaissant dans le volet ouvert. Ainsi, si vous avez plusieurs alertes, seules celles qui sont pertinentes sont affichées ici.   
+4.	Le panneau **Métrique** affiche les détails des mesures que vous avez sélectionnées. La partie supérieure du panneau affiche un graphique des demandes représentées toutes les heures, tandis que la partie inférieure montre un tableau affichant les valeurs d’agrégation pour les demandes limitées et totales. Le volet Métrique affiche également la liste des alertes définies, filtrées en fonction des mesures apparaissant dans le volet ouvert. Ainsi, si vous avez plusieurs alertes, seules celles qui sont pertinentes sont affichées ici.
 
 	![Capture d’écran du panneau Métrique incluant des demandes limitées](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
@@ -45,7 +45,7 @@ Vous pouvez surveiller vos comptes DocumentDB dans le [portail Microsoft Azure](
 2.	Dans le panneau **Modifier le graphique**, des options permettent de modifier les mesures qui s'affichent dans le graphique, ainsi que leur plage horaire. ![Capture d'écran du panneau Modifier le graphique](./media/documentdb-monitor-accounts/madocdb4.png)
 
 3.	Pour modifier les mesures affichées dans cette partie, sélectionnez simplement ou désactiver les mesures de performances disponibles, puis cliquez sur **OK** en bas du panneau.
-4.	Pour modifier la plage horaire, choisissez une autre plage (par exemple : **Personnalisée**), puis cliquez sur **OK** en bas du panneau.  
+4.	Pour modifier la plage horaire, choisissez une autre plage (par exemple : **Personnalisée**), puis cliquez sur **OK** en bas du panneau.
 
 	![Capture d'écran de la partie Plage horaire du panneau Modifier le graphique montrant comment saisir une plage horaire personnalisée](./media/documentdb-monitor-accounts/madocdb5.png)
 
@@ -73,12 +73,12 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 
 4.	Dans le panneau Règles d'alerte, cliquez sur** Ajouter une alerte**. ![Capture d'écran du panneau Règles d'alerte, avec le bouton Ajouter une alerte mis en surbrillance](./media/documentdb-monitor-accounts/madocdb11.png)
 
-5.	Dans le volet **Ajouter une règle d'alerte**, indiquez :
-	*	le nom de la règle d'alerte que vous configurez ;
-	*	une description de la nouvelle règle d'alerte ;
-	*	la mesure de la règle d'alerte ;
-	*	la condition, le seuil et la période déterminant l'activation de l'alerte. Par exemple, un nombre d'erreurs de serveur supérieur à 5 au cours des 15 dernières minutes.
-	*	l'envoi ou non d'un courrier électronique à l'administrateur de service ou aux coadministrateurs lorsque l'alerte se déclenche ;
+5.	Dans le volet **Ajouter une règle d'alerte**, indiquez :
+	*	le nom de la règle d'alerte que vous configurez ;
+	*	une description de la nouvelle règle d'alerte ;
+	*	la mesure de la règle d'alerte ;
+	*	la condition, le seuil et la période déterminant l'activation de l'alerte. Par exemple, un nombre d'erreurs de serveur supérieur à 5 au cours des 15 dernières minutes.
+	*	l'envoi ou non d'un courrier électronique à l'administrateur de service ou aux coadministrateurs lorsque l'alerte se déclenche ;
 	*	Des adresses électroniques supplémentaires pour les notifications d'alerte. ![Capture d’écran du panneau Ajouter une règle d'alerte](./media/documentdb-monitor-accounts/madocdb12.png)
 
 ## Surveillance de DocumentDB par programme
@@ -111,4 +111,4 @@ Si vos mosaïques d’analyse affichent le message **Aucune donnée disponible**
 ## Étapes suivantes
 Pour en savoir plus sur la capacité de DocumentDB, consultez [Gestion de la capacité de DocumentDB](documentdb-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configuration d’une application métier web dans un cloud hybride pour le test
@@ -25,19 +25,19 @@ Cette rubrique vous guide lors de la création d’un environnement cloud hybrid
 
 Pour obtenir un exemple d’application métier de production hébergée dans Azure, consultez le modèle d’architecture **Applications métier** dans les [Diagrammes et modèles d’architecture logicielle de Microsoft](http://msdn.microsoft.com/dn630664).
 
-Cette configuration simule une application métier dans un environnement de production Azure à partir de votre emplacement sur Internet. Elle comprend :
+Cette configuration simule une application métier dans un environnement de production Azure à partir de votre emplacement sur Internet. Elle comprend :
 
 - Un réseau local simplifié (sous-réseau de réseau d'entreprise).
 - Un réseau virtuel intersite hébergé dans Azure (TestVNET).
 - Une connexion VPN de site à site.
 - Un ensemble de serveur d'entreprise, de serveur SQL et de contrôleur de domaine secondaire dans le réseau virtuel TestVNET.
 
-Cette configuration fournit une base et un point de départ commun à partir duquel vous pouvez :
+Cette configuration fournit une base et un point de départ commun à partir duquel vous pouvez :
 
-- Développer et tester des applications métier hébergées sur IIS (Internet Information Services) avec un serveur principal de base de données SQL Server 2014 dans Azure.
+- Développer et tester des applications métier hébergées sur IIS (Internet Information Services) avec un serveur principal de base de données SQL Server 2014 dans Azure.
 - Tester cette charge de travail dans un cloud hybride.
 
-Il existe trois principales étapes pour configurer cet environnement de test de cloud hybride :
+Il existe trois principales étapes pour configurer cet environnement de test de cloud hybride :
 
 1.	Configurer l’environnement de cloud hybride pour le test.
 2.	Configurer l'ordinateur du serveur SQL (SQL1).
@@ -45,7 +45,7 @@ Il existe trois principales étapes pour configurer cet environnement de test de
 
 Cette charge de travail nécessite un abonnement Azure. Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-## Phase 1 : configuration de l’environnement de cloud hybride
+## Phase 1 : configuration de l’environnement de cloud hybride
 
 Suivez les instructions de la rubrique [Configuration d’un environnement de cloud hybride à des fins de test](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md). Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d’entreprise, n’hésitez pas à l’arrêter pour le moment.
 
@@ -55,11 +55,11 @@ Ceci est votre configuration actuelle.
 
 > [AZURE.NOTE] Pour la phase 1, vous pouvez également configurer la [simulation d’environnement de test de cloud hybride](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
  
-## Phase 2 : configurer l’ordinateur du serveur SQL (SQL1)
+## Phase 2 : configurer l’ordinateur du serveur SQL (SQL1)
 
 Dans le portail Azure, démarrez l’ordinateur DC2 si nécessaire.
 
-Ensuite, créez une machine virtuelle Azure pour SQL1 avec ces commandes dans une invite de commandes Azure PowerShell sur votre ordinateur local. Avant d'exécuter ces commandes, renseignez les valeurs des variables et supprimez les caractères < and >.
+Ensuite, créez une machine virtuelle Azure pour SQL1 avec ces commandes dans une invite de commandes Azure PowerShell sur votre ordinateur local. Avant d’exécuter ces commandes, renseignez les valeurs des variables et supprimez les caractères < et >.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -86,12 +86,12 @@ Ensuite, créez une machine virtuelle Azure pour SQL1 avec ces commandes dans un
 Utilisez le portail Azure pour vous connecter à SQL1 à l’aide du compte d’administrateur local.
 
 1.	Dans le volet gauche du portail de gestion Azure, cliquez sur **Machines virtuelles**, puis sur **En cours d’exécution** dans la colonne Statut de SQL1.
-2.	Dans la barre des tâches, cliquez sur **Se connecter**. 
+2.	Dans la barre des tâches, cliquez sur **Se connecter**.
 3.	Quand vous êtes invité à ouvrir SQL1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
-5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
-	- Nom : **SQL1\**[Nom du compte de l’administrateur local]
-	- Mot de passe : [Mot de passe de compte d’administrateur local]
+5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
+	- Nom : **SQL1\**[Nom du compte de l’administrateur local]
+	- Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
 Ensuite, configurez les règles de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base et de SQL Server. À partir d'une invite de commandes Windows PowerShell de niveau administrateur sur SQL1, exécutez ces commandes.
@@ -105,17 +105,17 @@ La commande ping doit aboutir à quatre réponses réussies à partir de l’adr
 Ensuite, ajoutez le disque de données supplémentaire comme nouveau volume avec la lettre de lecteur F:.
 
 1.	Dans le volet gauche du Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Disques**.
-2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
+2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
 3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
 4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
-5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
+5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
 6.	Dans la page Spécifier la taille du volume, cliquez sur **Suivant**.
 7.	À la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
 8.	À la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
 9.	À la page Confirmer les sélections, cliquez sur **Créer**.
 10.	Lorsque vous avez terminé, cliquez sur **Fermer**.
 
-Exécutez ces commandes à l’invite de commandes Windows PowerShell sur SQL1 :
+Exécutez ces commandes à l’invite de commandes Windows PowerShell sur SQL1 :
 
 	md f:\Data
 	md f:\Log
@@ -132,15 +132,15 @@ Après le redémarrage, utilisez le portail Azure pour vous connecter à SQL1 à
 
 Ensuite, configurez SQL Server 2014 pour qu'il utilise le lecteur F: pour les nouvelles bases de données et pour les autorisations de compte d'utilisateur.
 
-1.	Dans l’écran d’accueil, tapez **SQL Server Management**, puis cliquez sur **SQL Server 2014 Management Studio**.
+1.	Dans l’écran d’accueil, tapez **SQL Server Management**, puis cliquez sur **SQL Server 2014 Management Studio**.
 2.	Dans **Se connecter au serveur**, cliquez sur **Connecter**.
 3.	Dans le volet d’arborescence de l’Explorateur d’objets, cliquez avec le bouton droit sur **SQL1**, puis cliquez sur **Propriétés**.
 4.	Dans la fenêtre **Propriétés du serveur**, cliquez sur **Paramètres de base de données**.
-5.	Recherchez les **Emplacements de la base de données par défaut** et définissez les valeurs suivantes : 
+5.	Recherchez les **Emplacements de la base de données par défaut** et définissez les valeurs suivantes :
 	- Pour**Data**, tapez le chemin d’accès **f:\\Data**.
 	- Pour **Log**, tapez le chemin d’accès **f:\\Log**.
 	- Pour **Backup**, tapez le chemin d’accès **f:\\Backup**.
-	- Remarque : seules les nouvelles bases de données utilisent ces emplacements.
+	- Remarque : seules les nouvelles bases de données utilisent ces emplacements.
 6.	Cliquez sur **OK** pour fermer la fenêtre.
 7.	Dans le volet d’arborescence de l’**Explorateur d’objets**, ouvrez **Sécurité**.
 8.	Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
@@ -152,7 +152,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph2.png)
  
-## Phase 3 : configurer le serveur métier (LOB1).
+## Phase 3 : configurer le serveur métier (LOB1).
 
 Commencez par créer une machine virtuelle Azure pour LOB1 avec les commandes suivantes à l'invite de commandes Azure PowerShell sur votre ordinateur local.
 
@@ -206,7 +206,7 @@ Ensuite, configurez LOB1 pour IIS et testez l'accès à partir de CLIENT1.
 10.	Sur la page Confirmer les sélections pour l’installation, cliquez sur **Installer**.
 11.	Attendez la fin de l’installation des composants, puis cliquez sur **Fermer**.
 12.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\\User1, puis démarrez Internet Explorer.
-13.	Dans la barre d’adresses, tapez **http://lob1/**, puis appuyez sur Entrée. Vous devez voir la page web IIS 8 par défaut.
+13.	Dans la barre d’adresses, tapez **http://lob1/**, puis appuyez sur Entrée. Vous devez voir la page web IIS 8 par défaut.
 
 Ceci est votre configuration actuelle.
 
@@ -216,6 +216,6 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 
 ## Étape suivante
 
-- Déployez [l’environnement de production](virtual-machines-windows-lob-overview.md).
+- Déployer d’autres [charges de travail](virtual-machines-windows-ps-hybrid-cloud-test-envs.md) dans cet environnement.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

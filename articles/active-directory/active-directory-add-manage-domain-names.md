@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="07/18/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Gestion des noms de domaine personnalisés dans Azure Active Directory
@@ -48,7 +48,7 @@ Vous pouvez ajouter jusqu’à 900 noms de domaine personnalisés à chaque rép
 
 Si vous souhaitez ajouter un nom de domaine de troisième niveau, tel que « europe.contoso.com » à votre répertoire, vous devez tout d’abord ajouter et vérifier le domaine de second niveau, tel que contoso.com. Le sous-domaine est automatiquement vérifié par Azure AD. Pour voir que le sous-domaine que vous venez d’ajouter a été vérifié, actualisez la page dans le navigateur qui répertorie les domaines de votre répertoire.
 
-## Que faire en cas de modification du bureau d’enregistrement DNS pour votre nom de domaine personnalisé ?
+## Que faire en cas de modification du bureau d’enregistrement DNS pour votre nom de domaine personnalisé ?
 
 Si vous modifiez le bureau d’enregistrement DNS de votre nom de domaine personnalisé, vous pouvez continuer à utiliser votre nom de domaine personnalisé sans interruption et sans tâches de configuration supplémentaires dans Azure AD. Si vous utilisez votre nom de domaine personnalisé avec Office 365, Intune ou autres services s’appuyant sur des noms de domaine personnalisés dans Azure AD, reportez-vous à la documentation de ces services.
 
@@ -80,4 +80,4 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 
 -   [Gérer les noms de domaine personnalisés](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

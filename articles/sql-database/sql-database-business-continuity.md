@@ -21,7 +21,7 @@
 
 Azure SQL Database offre un certain nombre de solutions de continuité des activités. La continuité des activités concerne la conception, le déploiement et l’exécution d’une application de façon résiliente à des événements d’interruption planifiés ou non planifiés qui entraînent une perte permanente ou temporaire de la capacité de l’application à exécuter sa fonction commerciale. Les événements non planifiés vont des erreurs humaines aux pannes permanentes ou temporaires, en passant par les sinistres régionaux qui peuvent entraîner la perte à grande échelle de fonctionnalité dans une région Azure spécifique. Les événements planifiés incluent le redéploiement d’application dans une autre région et les mises à niveau d’application. L'objectif de la continuité des activités est que votre application continuer de fonctionner pendant ces événements avec un impact minime sur la fonction commerciale.
 
-Pour discuter des solutions de continuité des activités cloud de SQL Database, vous devez vous familiariser avec plusieurs concepts. Ces composants sont les suivants :
+Pour discuter des solutions de continuité des activités cloud de SQL Database, vous devez vous familiariser avec plusieurs concepts. Ces composants sont les suivants :
 
 * La **récupération d'urgence (DR) :** processus consistant à restaurer la fonction commerciale normale de l'application
 
@@ -56,19 +56,19 @@ J'exécute mon application en production et je reçois une alerte suggérant qu'
 
 Je publie une mise à niveau majeure de mon application. Elle implique des modifications du schéma de la base de données, le déploiement de procédures stockées supplémentaires, etc. Ce processus nécessite l'arrêt de l'accès utilisateur à la base de données. Parallèlement, je veux m'assurer que la mise à niveau ne provoque pas une interruption des opérations importante.
 
-## Fonctionnalités de continuité des activités d’une base de données SQL Azure
+## Fonctionnalités de continuité des activités d’une base de données SQL Azure
 
 Le tableau suivant montre les fonctionnalités de continuité des activités et leurs différences à travers les [niveaux de service](sql-database-service-tiers.md) :
 
 | Fonctionnalité | Niveau de base | Niveau standard |Niveau Premium
 | --- |--- | --- | ---
-| Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours | Tout point de restauration dans un délai de 35 jours | Tout point de restauration dans un délai de 35 jours
-| Restauration géographique | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h
+| Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours | Tout point de restauration dans un délai de 35 jours | Tout point de restauration dans un délai de 35 jours
+| Restauration géographique | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h
 | Géo-réplication active | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
 Ces fonctionnalités sont fournies pour résoudre les scénarios répertoriés ci-dessus.
 
-> [AZURE.NOTE] Les valeurs ERT et RPO sont des objectifs d’ingénierie et sont indiquées à titre de conseil uniquement. Elles ne font pas partie du [contrat SLA pour Base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] Les valeurs ERT et RPO sont des objectifs d’ingénierie et sont indiquées à titre de conseil uniquement. Elles ne font pas partie du [contrat SLA pour Base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Restauration dans le temps
@@ -85,19 +85,19 @@ La [géo-réplication active](sql-database-geo-replication-overview.md) est disp
 
 ## Sélection des fonctionnalités de continuité des activités
 
-La conception de votre application pour la continuité des activités nécessite que vous répondiez aux questions suivantes :
+La conception de votre application pour la continuité des activités nécessite que vous répondiez aux questions suivantes :
 
-1. Quelle fonctionnalité de continuité des activités est appropriée pour protéger mon application contre les pannes ?
-2. Quel niveau de topologie de réplication et de redondance utiliser ?
+1. Quelle fonctionnalité de continuité des activités est appropriée pour protéger mon application contre les pannes ?
+2. Quel niveau de topologie de réplication et de redondance utiliser ?
 
 ### Utilisation de la géo-restauration
 
 La [géo-restauration](sql-database-recovery-using-backups.md#geo-restore) constitue l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident dans la région où elle est hébergée. La base de données SQL fournit une protection intégrée de base de chaque base de données par défaut. Cela se fait en exécutant et en stockant des [sauvegardes de bases de données](sql-database-automated-backups.md) dans le stockage Azure redondant au niveau géographique (GRS). Si vous choisissez cette méthode, aucune configuration particulière ni allocation de ressources supplémentaire n'est nécessaire. Vous pouvez récupérer votre base de données vers n’importe quelle région en effectuant une restauration à partir de ces sauvegardes automatisées géo-redondantes vers une nouvelle base de données.
 
-Nous vous recommandons d'utiliser la protection intégrée si votre application répond aux critères suivants :
+Nous vous recommandons d'utiliser la protection intégrée si votre application répond aux critères suivants :
 
-1. Elle n'est pas essentielle. Elle n'a pas de contrat SLA contraignant. Donc, l'interruption de service de 24 heures ou plus n'entraîne pas la responsabilité financière.
-2. Le taux de modification des données est faible (par exemple, en transactions par heure). Le RPO de 1 heure n'entraîne pas une perte de données massive.
+1. Elle n'est pas essentielle. Elle n'a pas de contrat SLA contraignant. Donc, l'interruption de service de 24 heures ou plus n'entraîne pas la responsabilité financière.
+2. Le taux de modification des données est faible (par exemple, en transactions par heure). Le RPO de 1 heure n'entraîne pas une perte de données massive.
 3. L'application est sensible aux coûts et ne peut pas justifier le coût supplémentaire de la géo-réplication
 
 > [AZURE.NOTE] La géo-restauration n'alloue pas au préalable la capacité de calcul dans une région particulière pour restaurer les bases de données actives à partir de la sauvegarde pendant la panne. Le service gère la charge de travail associée aux requêtes de géo-restauration d'une manière qui réduit l'impact sur les bases de données existantes dans cette région et leurs exigences en termes de capacité auront la priorité. Par conséquent, le temps de récupération de votre base de données dépendra du nombre de bases de données en phase de récupération dans la même région en même temps, ainsi que de la taille de la base de données, du nombre de journaux de transactions, de la bande passante réseau, etc.
@@ -108,7 +108,7 @@ La [géo-réplication active](sql-database-geo-replication-overview.md) permet l
 
 Nous vous recommandons d’utiliser la géo-réplication active si votre application répond aux critères suivants :
 
-1. Elle est essentielle. Elle a un contrat SLA contraignant avec des valeurs RPO et RTO agressives. La perte de données et de disponibilité entraînent une responsabilité financière.
+1. Elle est essentielle. La perte de données et de disponibilité entraînent une responsabilité financière.
 2. Le taux de modification des données est élevé (par exemple, en transactions par minute ou seconde). Le RPO de 1 heure associé à la protection par défaut entraînera sans doute une perte de données inacceptable.
 3. Le coût associé à l'utilisation de la géo-réplication est nettement plus faible que la responsabilité financière potentielle et la perte d'activité associée.
 
@@ -126,4 +126,4 @@ Pour plus d’informations sur les stratégies de récupération lors de l’uti
 - Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

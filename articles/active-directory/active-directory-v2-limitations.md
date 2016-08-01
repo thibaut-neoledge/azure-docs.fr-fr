@@ -56,14 +56,37 @@ De la même manière, les applications inscrites dans le nouveau portail d’ins
 
 Les applications inscrites dans le nouveau portail d’inscription des applications sont actuellement limitées à un jeu limité de valeurs redirect\_uri. Les valeurs redirect\_uri pour les services ou applications Web doivent démarrer par le schéma ou `https`, tandis que les valeurs redirect\_uri pour toutes les autres plateformes doivent utiliser les valeurs codées en dur de `urn:ietf:oauth:2.0:oob`.
 
+## Restrictions de l’URI de redirection
+Pour les applications web, des valeurs de redirect\_uri doivent toutes partager un domaine DNS unique. Par exemple, il n’est pas possible d’inscrire une application web qui a des URI de redirection (redirect\_uris) :
+
+`https://login-east.contoso.com` `https://login-west.contoso.com`
+
+Le système d’inscription compare le nom DNS complet du redirect\_uri existant avec le nom DNS du redirect\_uri que vous ajoutez. Si le nom DNS complet du nouveau redirect\_uri ne correspond pas exactement au nom DNS du redirect\_uri existant, ou si le nom DNS entier du nouveau redirect\_uri n’est pas un sous-domaine du redirect\_uri existant, la demande d’ajout échoue. Par exemple, si l’application possède actuellement un redirect\_uri :
+
+`https://login.contoso.com`
+
+Il est alors possible d’ajouter :
+
+`https://login.contoso.com/new`
+
+qui correspond exactement au nom DNS, ou :
+
+`https://new.login.contoso.com`
+
+qui est un sous-domaine DNS de login.contoso.com. Si vous souhaitez disposer d’une application avec login-east.contoso.com et login-west.contoso.com en tant que redirect\_uris, vous devez ajouter les redirect\_uris suivants dans l’ordre :
+
+`https://contoso.com` `https://login-east.contoso.com` `https://login-west.contoso.com`
+
+Les deux derniers peuvent être ajoutés, car ils sont des sous-domaines du première redirect\_uri, contoso.com. Cette limitation sera supprimée dans une version ultérieure.
+
 Pour savoir comment inscrire une application dans le nouveau portail d’inscription des applications, consultez [cet article](active-directory-v2-app-registration.md).
 
 ## Restrictions sur les services et API
-Le point de terminaison v2.0 prend actuellement en charge la connexion des applications inscrites dans le nouveau portail d’inscription des applications, à condition qu’elles appartiennent à la liste des [flux d’authentification pris en charge](active-directory-v2-flows.md). Toutefois, ces applications pourront obtenir des jetons d’accès OAuth 2.0 uniquement pour un ensemble très limité de ressources. Le point de terminaison v2.0 émet des valeurs access-token uniquement pour :
+Le point de terminaison v2.0 prend actuellement en charge la connexion de toute application inscrite dans le nouveau portail d’inscription des applications, à condition qu’elles appartiennent à la liste des [flux d’authentification pris en charge](active-directory-v2-flows.md). Toutefois, ces applications pourront obtenir des jetons d’accès OAuth 2.0 uniquement pour un ensemble très limité de ressources. Le point de terminaison v2.0 émet des valeurs access-token uniquement pour :
 
 - L’application qui a demandé le jeton. Une application peut acquérir une valeur access-token pour son propre compte, si l’application logique est composée de plusieurs composants ou niveaux. Pour voir ce scénario en action, consultez nos didacticiels [Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
 - La messagerie Outlook, le calendrier et API REST de Contacts, qui se trouvent àhttps://outlook.office.com. Pour savoir comment écrire une application qui accède à ces API, consultez ces didacticiels [Prise en main Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
-- Les API Microsoft Graph. Pour en savoir plus sur Microsoft Graph et toutes les données disponibles, consultez le site [https://graph.microsoft.io](https://graph.microsoft.io).
+- Les API Microsoft Graph. Pour en savoir plus sur Microsoft Graph et sur toutes les données disponibles, consultez le site [https://graph.microsoft.io](https://graph.microsoft.io).
 
 Aucun autre service n’est actuellement pris en charge. Davantage de services Microsoft Online seront ajoutés prochainement, tout comme la prise en charge de vos propres services et API Web personnalisés.
 
@@ -72,7 +95,7 @@ Pour vous aider à faire ces tests, nous mettons à votre disposition une versio
 
 Si vous souhaitez utiliser le point de terminaison v2.0 dans une application de production, vous disposez des options suivantes :
 
-- Si vous générez une application web, vous pouvez en toute sécurité utiliser notre middleware mis à la disposition générale côté serveur afin de vous connecter et de procéder à la validation des jetons. Vous recourrez notamment au middleware OWIN Open ID Connect pour ASP.NET et à notre plug-in NodeJS Passport. Des exemples de codes utilisant ces middlewares sont disponibles dans notre section [Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
+- Si vous générez une application web, vous pouvez en toute sécurité utiliser notre middleware mis à la disposition générale côté serveur afin de vous connecter et de procéder à la validation des jetons. Vous recourrez notamment au middleware OWIN Open ID Connect pour ASP.NET et à notre plug-in NodeJS Passport. Des exemples de codes utilisant ces middlewares sont également disponibles dans notre section [Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
 - Pour d’autres plateformes et pour les applications natives et mobiles, vous pouvez également procéder à l’intégration avec le point de terminaison v2.0 en envoyant et en recevant directement des messages de protocole dans votre code d’application. Les protocoles v2.0 OpenID Connect et OAuth [ont été explicitement documentés](active-directory-v2-protocols.md) afin de vous aider à effectuer une telle intégration.
 - Enfin, vous pouvez utiliser les bibliothèques open source Open ID Connect et OAuth pour procéder à l’intégration avec le point de terminaison v2.0. Le protocole v2.0 devrait être compatible avec de nombreuses bibliothèques de protocole open source, sans modification majeure. La disponibilité de telles bibliothèques varie en fonction des langues et des plateformes, et les sites web [Open ID Connect](http://openid.net/connect/) et [OAuth 2.0](http://oauth.net/2/) conservent des listes d’implémentations populaires. Vous trouverez ci-dessous les bibliothèques et les exemples open source qui ont été testés avec le point de terminaison v2.0.
 
@@ -98,4 +121,4 @@ Un ensemble de fonctionnalités de développeur disponible dans le service Azure
 - Revendications de groupe pour les utilisateurs Azure AD
 - Rôles d’application et revendications de rôle
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

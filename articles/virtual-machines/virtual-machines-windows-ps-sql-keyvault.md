@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/24/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth"/>
 
 # Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles (Resource Manager)
@@ -32,15 +32,29 @@ Lorsque cette fonctionnalité est activée, elle installe automatiquement le con
 
 [AZURE.INCLUDE [Préparation pour l’intégration du coffre de clés Azure](../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
-## Activation de l’intégration d’AKV
+## Activation et configuration de l’intégration AKV
+Vous pouvez activer l’intégration AKV lors de l’approvisionnement ou vous pouvez la configurer pour les machines virtuelles existantes.
+
+### Nouvelles machines virtuelles
 Si vous approvisionnez une nouvelle machine virtuelle SQL Server avec Resource Manager, le portail Azure permet d’activer l’intégration d’Azure Key Vault.
 
-![Intégration du coffre de clés Azure SQL ARM](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![Intégration du coffre de clés Azure SQL](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
 Consultez la procédure pas à pas détaillée de l’approvisionnement dans l’article [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Si vous devez activer l’intégration d’AKV sur une machine virtuelle existante, vous pouvez utiliser un modèle. Pour plus d’informations, consultez l’article [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update) (Modèle de démarrage rapide d’Azure pour l’intégration d’Azure Key Vault).
+### Machines virtuelles existantes
+Pour les machines virtuelles SQL Server existantes, sélectionnez votre machine virtuelle SQL Server. Puis sélectionnez la section **Configuration de SQL Server** du panneau **Paramètres**.
+
+![Intégration AKV SQL pour les machines virtuelles existantes](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
+
+Dans le panneau **Configuration de SQL Server**, cliquez sur le bouton **Modifier** dans la section d’intégration du coffre de clés automatisé.
+
+![Configurer l’intégration AKV SQL pour les machines virtuelles existantes](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
+
+Lorsque vous avez terminé, cliquez sur le bouton **OK** au bas du panneau **Configuration de SQL Server** pour enregistrer vos modifications.
+
+>[AZURE.NOTE] Vous pouvez également configurer l’intégration AKV à l’aide d’un modèle. Pour plus d’informations, consultez l’article [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update) (Modèle de démarrage rapide d’Azure pour l’intégration d’Azure Key Vault).
 
 [AZURE.INCLUDE [Étapes suivantes de l’intégration du coffre de clés Azure](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

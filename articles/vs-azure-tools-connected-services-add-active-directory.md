@@ -7,11 +7,11 @@
    manager="douge"
    editor="" />
 <tags 
-   ms.service="visual-studio-online"
+   ms.service="active-directory"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="visual-studio-online"
+   ms.workload="na"
    ms.date="05/08/2016"
    ms.author="tarcher" />
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 1. Choisissez le bouton **Terminer**. La boîte de dialogue ajoute le code de configuration et les références nécessaires pour activer votre projet pour l’authentification Azure AD. Vous pouvez voir le domaine Active Directory dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Examinez la page Prise en main qui s'affiche dans votre navigateur pour obtenir des idées sur les prochaines étapes, et la page Que s'est-il passé pour voir comment votre projet a été modifié. Pour savoir si tout s’est bien passé, ouvrez un des fichiers de configuration modifiés et vérifiez que les paramètres mentionnés sur la page Que s’est-il passé sont présents. Par exemple, le fichier web.config principal d’un projet ASP.NET MVC contient les paramètres supplémentaires suivants :
+1. Examinez la page Prise en main qui s'affiche dans votre navigateur pour obtenir des idées sur les prochaines étapes, et la page Que s'est-il passé pour voir comment votre projet a été modifié. Pour savoir si tout s’est bien passé, ouvrez un des fichiers de configuration modifiés et vérifiez que les paramètres mentionnés sur la page Que s’est-il passé sont présents. Par exemple, le fichier web.config principal d’un projet ASP.NET MVC contient les paramètres supplémentaires suivants :
 
         <appSettings> 
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -67,16 +67,16 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 ## Modifications apportées à votre projet
 
-Quand vous exécutez l’Assistant, Visual Studio ajoute Azure AD et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets d’API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Quand vous exécutez l’Assistant, Visual Studio ajoute Azure AD et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets d’API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Étapes suivantes
 
 Posez des questions et obtenez de l’aide.
 
- - [Forum MSDN : Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
+ - [Forum MSDN : Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
  - [Documentation Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
 
- - [Billet de blog : Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
+ - [Billet de blog : Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

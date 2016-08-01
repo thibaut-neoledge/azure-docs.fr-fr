@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016"
+	ms.date="07/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #Codecs et formats standard de l’encodeur multimédia
@@ -26,12 +26,12 @@ Ce document contient la liste des formats de fichier d’importation et d’expo
 
 Formats de fichier (extensions de fichier)|Pris en charge
 ---|---|---|---
-FLV (avec les codecs H.264 et AAC) (.flv) |Oui 
+FLV (avec les codecs H.264 et AAC) (.flv) |Oui 
 MXF (.mxf) |Oui 
 GXF (.gxf) |Oui 
 MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Oui 
 Windows Media Video (WMV)/ASF (.wmv, .asf) |Oui 
-AVI (8 bits/10 bits non compressé) (.avi)|Oui 
+AVI (8 bits/10 bits non compressé) (.avi)|Oui 
 MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Oui 
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Oui 
 Matroska/WebM (.mkv) |Oui 
@@ -42,13 +42,13 @@ QuickTime (.mov) |Oui
 
 ###Formats audio dans des conteneurs d’entrée 
 
-Media Encoder Standard prend en charge la transmission des formats audio suivants dans des conteneurs d’entrée :
+Media Encoder Standard prend en charge la transmission des formats audio suivants dans des conteneurs d’entrée :
 
-- Fichiers MXF, GXF et QuickTime contenant des pistes audio avec des échantillons Interleaved Stereo ou 5.1
+- Fichiers MXF, GXF et QuickTime contenant des pistes audio avec des échantillons Interleaved Stereo ou 5.1
 
 ou
 
-- Fichiers MXF, GXF et QuickTime où l’audio est transmis sous forme de pistes PCM distinctes, mais où le mappage de canaux (vers la stéréo ou 5.1) peut être déduit des métadonnées du fichier
+- Fichiers MXF, GXF et QuickTime où l’audio est transmis sous forme de pistes PCM distinctes, mais où le mappage de canaux (vers la stéréo ou 5.1) peut être déduit des métadonnées du fichier
 
 Notez que le mappage de canaux explicite/fourni par l’utilisateur sera pris en charge dans un avenir proche.
 
@@ -57,12 +57,12 @@ Notez que le mappage de canaux explicite/fourni par l’utilisateur sera pris en
 
 Codecs vidéo d’entrée|Pris en charge
 ---|---|---|---
-AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2 
+AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2 
 Avid DNxHD (dans MXF) |Oui 
 DVCPro/DVCProHD (dans MXF) |Oui 
 Vidéo numérique (dans les fichiers AVI) |Oui
-JPEG 2000 |Oui 
-MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Jusqu’à un profil de 422 
+JPEG 2000 |Oui 
+MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Jusqu’à un profil de 422 
 MPEG-1 |Oui 
 VC-1/WMV9 |Oui 
 Canopus HQ/HQX |Non 
@@ -82,13 +82,13 @@ Apple ProRes 4444 XQ |Oui
 
 Codecs audio d’entrée|Pris en charge
 ---|---|---|---
-AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui 
+AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui 
 MPEG Layer 2|Oui 
 MP3 (MPEG-1 Audio Layer 3)|Oui 
 Windows Media Audio|Oui 
 WAV/PCM|Oui 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Oui 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Oui 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Oui 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Oui 
 AMR (adaptive multi-rate)|Oui
 AES (SMPTE 331M et 302M, AES3-2003) |Non 
@@ -123,4 +123,4 @@ MPEG2-TS |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Encodage avec Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

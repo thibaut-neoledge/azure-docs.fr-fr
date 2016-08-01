@@ -14,24 +14,28 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="rashimg;jgao"/>
 
-# Erreurs d’arborescence des appels de procédure Hadoop dans HDInsight : index des articles de dépannage
+# Indexe d’articles de résolution des problèmes avec Hadoop dans HDInsight
 
-Utilisez cet index d’erreurs d’arborescence des appels de procédure Hadoop pour résoudre les problèmes dans HDInsight. Les articles sont organisés par types de messages d’erreur.
+Les articles sont organisés par types d’erreur.
 
-## À partir de messages d’erreur de mémoire insuffisante
-* [Corriger une erreur de mémoire insuffisante (OOM) avec les paramètres Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md) : corriger une erreur de mémoire insuffisante (OOM) à partir d’une requête Hive. Le scénario client inclut une requête sur de nombreuses tables de grande taille.
+## Erreur de mémoire insuffisante
 
-> [AZURE.NOTE] D’autres articles relatifs aux erreurs d’arborescence des appels de procédure seront bientôt disponibles.
+* [Corriger une erreur de mémoire insuffisante (OOM) avec les paramètres Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md) : corriger une erreur de mémoire insuffisante (OOM) à partir d’une requête Hive. Le scénario client inclut une requête sur de nombreuses tables de grande taille.
 
-## Plus d’articles de résolution de problèmes pour HDInsight
+## Performances des requêtes Hive
+
+* [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md): cet article présente certaines méthodes de l’optimisation des performances Hive courantes que vous pouvez appliquer à des requêtes Hive.
+* [Troubleshoot Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) (Résolution de problèmes de performances des requêtes Hive dans le cluster Hadoop HDInsight).
+
+## Autres articles de résolution des problèmes
 
 * [Informations sur l’utilisation de HDInsight sous Linux](hdinsight-hadoop-linux-information.md)
-* [Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur](hdinsight-debug-jobs.md)
-* [Accéder aux journaux des applications YARN sur Hadoop dans HDInsight par programmation](hdinsight-hadoop-access-yarn-app-logs.md)
-* [Collecter les dumps de tas dans le stockage Blob pour les services de débogage et d'analyse Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md)
+* [Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur](hdinsight-debug-jobs.md)
+* [Accéder aux journaux des applications YARN Hadoop dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Notes de publication pour les composants Hadoop sur Azure HDInsight](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

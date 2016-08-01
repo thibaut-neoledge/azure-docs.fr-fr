@@ -41,7 +41,7 @@ Cette extension fonctionne avec les modèles de déploiement Classic et Resource
 
 ### Version actuelle de l’extension et obsolescence des anciennes versions
 
-La dernière version de l’extension est **2.3**, et **les anciennes versions (2.0, 2.1 et 2.2) seront bientôt déconseillées et supprimées**. Si vous avez installé l’extension de diagnostic Linux avec la mise à niveau automatique de version mineure désactivée, nous vous conseillons fortement de désinstaller cette extension et de la réinstaller en activant la mise à niveau automatique de version mineure. Sur des machines virtuelles classiques (ASM), vous pouvez obtenir cela en spécifiant « 2.* » comme version si vous installez l’extension via l’interface CLI Azure XPLAT ou Powershell. Sur les machines virtuelles ARM, vous pouvez y parvenir en incluant « "autoUpgradeMinorVersion": true » dans le modèle de déploiement de machine virtuelle. En outre, toute nouvelle installation de l’extension doit s’effectuer avec l’option de mise à niveau automatique de version mineure activée.
+La dernière version de l’extension est **2.3**, et **les anciennes versions (2.0, 2.1 et 2.2) seront déconseillées et supprimées d’ici à la fin de l’année (2016)**. Si vous avez installé l’extension de diagnostic Linux avec la mise à niveau automatique de version mineure désactivée, nous vous conseillons fortement de désinstaller cette extension et de la réinstaller en activant la mise à niveau automatique de version mineure. Sur des machines virtuelles classiques (ASM), vous pouvez obtenir cela en spécifiant « 2.* » comme version si vous installez l’extension via l’interface CLI Azure XPLAT ou Powershell. Sur les machines virtuelles ARM, vous pouvez y parvenir en incluant « "autoUpgradeMinorVersion": true » dans le modèle de déploiement de machine virtuelle. En outre, toute nouvelle installation de l’extension doit s’effectuer avec l’option de mise à niveau automatique de version mineure activée.
 
 
 ## Activer l’extension
@@ -58,7 +58,7 @@ Sachez que les méthodes de configuration décrites ici ne fonctionnent pas pour
 ## Composants requis
 - **Agent Microsoft Azure Linux version 2.0.6 ou ultérieure**. Notez que la plupart des images de la galerie Linux de machines virtuelles Azure comprennent la version 2.0.6 ou ultérieure. Vous pouvez exécuter **WAAgent -version** pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure à 2.0.6, vous pouvez suivre [ces instructions sur GitHub](https://github.com/Azure/WALinuxAgent "instructions") pour la mettre à jour.
 
-- **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../xplat-cli-install.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple :
+- **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../xplat-cli-install.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple :
 	- Exécutez **azure vm extension set --help** pour obtenir une aide détaillée.
 	- Exécutez **azure login** pour vous connecter à Azure.
 	- Exécutez **azure vm list** pour répertorier l’ensemble des machines virtuelles disponibles sur Azure.
@@ -67,26 +67,26 @@ Sachez que les méthodes de configuration décrites ici ne fonctionnent pas pour
 
 ## Utiliser la commande de la CLI Azure pour activer l’extension de diagnostic Linux
 
-### Scénario 1 Activer l’extension avec le jeu de données par défaut
+### Scénario 1 Activer l’extension avec le jeu de données par défaut
 Dans la version 2.3 ou ultérieure, les données collectées par défaut comprennent les éléments suivants :
 
 - Toutes les informations de Rsyslog (y compris les journaux système, de sécurité et des applications)
 - Un ensemble principal de données système de base Notez que le jeu de données complet est décrit sur le site [System Center Cross Platform Solutions (Solutions multiplateforme pour System Center)](https://scx.codeplex.com/wikipage?title=xplatproviders). Si vous voulez activer des données supplémentaires, passez aux étapes des scénarios 2 et 3.
 
-Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu suivant :
+Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu suivant :
 
     {
         "storageAccountName" : "the storage account to receive data",
         "storageAccountKey" : "the key of the account"
     }
 
-Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 
-###   Scénario 2 Personnaliser les mesures de surveillance des performances  
+###   Scénario 2 Personnaliser les mesures de surveillance des performances  
 Cette section décrit comment personnaliser le tableau des données de diagnostic et de performance.
 
-Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu décrit dans le scénario 1. Créez également un fichier nommé PublicConfig.json. Spécifiez les données spécifiques que vous souhaitez collecter.
+Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu décrit dans le scénario 1. Créez également un fichier nommé PublicConfig.json. Spécifiez les données spécifiques que vous souhaitez collecter.
 
 Pour obtenir tous les fournisseurs et variables pris en charge, référencez le site [System Center Cross Platform Solutions (Solutions multiplateforme pour System Center)](https://scx.codeplex.com/wikipage?title=xplatproviders). Vous pouvez avoir plusieurs requêtes et les stocker dans plusieurs tables en ajoutant d’autres requêtes dans le script.
 
@@ -103,13 +103,13 @@ Par défaut, les données de Rsyslog sont toujours collectées.
     }
 
 
-Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
-###   Scénario 3 Charger vos propres fichiers journaux
+###   Scénario 3 Charger vos propres fichiers journaux
 Cette section explique comment collecter et télécharger des fichiers journaux spécifiques dans votre compte de stockage. Vous devez spécifier le chemin d’accès à votre fichier journal, ainsi que le nom de la table dans laquelle votre fichier journal doit être stocké. Vous pouvez créer plusieurs fichiers journaux en ajoutant plusieurs entrées fichier/table dans le script.
 
-Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu décrit dans le scénario 1. Créez ensuite un autre fichier nommé PublicConfig.json, avec le contenu suivant :
+Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu décrit dans le scénario 1. Créez ensuite un autre fichier nommé PublicConfig.json, avec le contenu suivant :
 
     {
         "fileCfg" :
@@ -122,14 +122,14 @@ Cette section explique comment collecter et télécharger des fichiers journaux 
     }
 
 
-Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
-Notez qu’avec ce paramètre, tous les journaux écrits sur `/var/log/mysql.err` peuvent être dupliqués dans `/var/log/syslog` (ou `/var/log/messages` selon le distributeur Linux) également. Si vous souhaitez éviter ce doublon d’enregistrement, vous pouvez exclure la journalisation des journaux `local6` dans votre configuration rsyslog. Cela dépend de la distribution Linux, mais sur un système Ubuntu 14.04, le fichier à modifier est `/etc/rsyslog.d/50-default.conf` et vous pouvez remplacer la ligne `*.*;auth,authpriv.none -/var/log/syslog` par `*.*;auth,authpriv,local6.none -/var/log/syslog`. À l’avenir, ceci sera traité automatiquement par l’extension de diagnostic Linux.
+Notez qu’avec ce paramètre sur les versions d’extension antérieure à la version 2.3, tous les journaux écrits sur `/var/log/mysql.err` peuvent être dupliqués dans `/var/log/syslog` (ou `/var/log/messages` selon le distributeur Linux) également. Si vous souhaitez éviter ce doublon d’enregistrement, vous pouvez exclure la journalisation des journaux `local6` dans votre configuration rsyslog. Cela dépend de la distribution Linux, mais sur un système Ubuntu 14.04, le fichier à modifier est `/etc/rsyslog.d/50-default.conf` et vous pouvez remplacer la ligne `*.*;auth,authpriv.none -/var/log/syslog` par `*.*;auth,authpriv,local6.none -/var/log/syslog`. Ce problème est résolu dans la dernière version du correctif logiciel 2.3 (2.3.9007). Donc si vous avez la version d’extension 2.3, ce problème ne doit pas se produire. Si le problème existe toujours même après le redémarrage de votre machine virtuelle, veuillez nous contacter et nous aider à comprendre la raison pour laquelle la dernière version du correctif logiciel n’est pas installée automatiquement.
 
-###   Scénario 4 Empêcher l’extension de collecter des journaux
+###   Scénario 4 Empêcher l’extension de collecter des journaux
 Cette section explique comment empêcher l’extension de collecter des fichiers journaux. Notez que le processus de l’agent d’analyse sera toujours exécuté, même si cette reconfiguration est effectuée. Si vous souhaitez arrêter complètement le processus d’agent d’analyse, vous pouvez le faire en désactivant l’extension. La commande permettant de désactiver l’extension est **azure vm extension set --disable <nom\_vm> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
-Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu décrit dans le scénario 1. Créez un autre fichier appelé PublicConfig.json, avec le contenu suivant :
+Étape 1. Créez un fichier nommé PrivateConfig.json, avec le contenu décrit dans le scénario 1. Créez un autre fichier appelé PublicConfig.json, avec le contenu suivant :
 
     {
         "perfCfg" : [],
@@ -137,13 +137,13 @@ Cette section explique comment empêcher l’extension de collecter des fichiers
     }
 
 
-Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ## Passer en revue vos données
-Les données de performance et de diagnostic sont stockées dans une table Azure Storage. Pour savoir comment accéder aux données de la table de stockage à l’aide des scripts de la CLI Azure, consultez la page [Utilisation du stockage de tables Azure à partir de Ruby](../storage/storage-ruby-how-to-use-table-storage.md).
+Les données de performance et de diagnostic sont stockées dans une table Azure Storage. Pour savoir comment accéder aux données de la table de stockage à l’aide des scripts de la CLI Azure, consultez la page [Utilisation du stockage de tables Azure à partir de Ruby](../storage/storage-ruby-how-to-use-table-storage.md).
 
-Vous pouvez aussi utiliser les outils d’interface utilisateur suivants pour accéder aux données :
+Vous pouvez aussi utiliser les outils d’interface utilisateur suivants pour accéder aux données :
 
 1. Explorateur de serveurs Visual Studio. Accédez à votre compte de stockage. Après environ 5 minutes d’exécution de la machine virtuelle, quatre tables par défaut doivent s’afficher : « LinuxCpu », « LinuxDisk », « LinuxMemory » et « Linuxsyslog ». Double-cliquez sur le nom de chaque table pour afficher les données.
 
@@ -156,4 +156,4 @@ Si vous avez activé fileCfg ou perfCfg (comme décrit dans les scénarios 2 et 
 ## Problèmes connus
 - Dans la version actuelle (2.3) de l’extension de diagnostic Linux, les informations de Rsyslog et du fichier journal spécifié par l’utilisateur sont accessibles uniquement via un script.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="billmath"/>
 
 # Liste de compatibilité de fédération Azure AD
@@ -36,6 +36,7 @@ Pour plus d’informations sur la façon dont votre fournisseur d’identité ti
 - [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services)
 - [PingFederate 6.11](#pingfederate-611)
 - [PingFederate 7.2](#pingfederate-72)
+- [PingFederate 8.x](#pingfederate-8.x)
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
@@ -116,6 +117,20 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
 
 Pour obtenir des instructions sur la façon de configurer ce STS pour fournir une expérience d’authentification unique à vos utilisateurs Active Directory avec PingFederate, consultez [ceci.](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
+
+## PingFederate 8.x 
+PingFederate 8.x implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+
+| Client |Support |Exceptions|
+| --------- | --------- |--------- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |Aucune|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |Aucune|
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
+
+Pour obtenir des instructions sur la façon de configurer ce STS pour fournir une expérience d’authentification unique à vos utilisateurs Active Directory avec PingFederate, consultez [ceci.](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
 
 ## Centrify 
 Centrify permet d’offrir une expérience d’authentification unique fédérée pour Office 365 sans exiger l’hébergement d’un serveur de fédération local.
@@ -219,7 +234,7 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 | Client |Support |Exceptions|
 | --------- | --------- |--------- |
 | Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |*Contrats Kerberos pris en charge|
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucun|
 
 * NetIQ prend en charge l’authentification Kerberos via la configuration d’un contrat Kerberos. Pour obtenir de l’aide sur cette configuration, contactez NetIQ ou consultez le guide d’installation et de configuration. Pour plus d’informations sur NetIQ Access Manager, consultez [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
@@ -246,8 +261,8 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 | Client |Support |Exceptions|
 | --------- | --------- |--------- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
 
 Pour plus d’informations sur VMware Workspace Portal version 2.1, téléchargez le fichier pdf [ici.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
@@ -274,8 +289,8 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 | Client |Support |Exceptions|
 | --------- | --------- |--------- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
 
 Pour plus d’informations sur IceWall Federation, consultez [ceci](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) et [ceci.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
@@ -288,8 +303,8 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 | Client |Support |Exceptions|
 | --------- | --------- |--------- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
 
 Pour plus d’informations sur CA Secure Cloud, consultez [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
@@ -316,11 +331,11 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 | Client |Support |Exceptions|
 | --------- | --------- |--------- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge.|
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
 
 
 Pour plus d’informations, consultez [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

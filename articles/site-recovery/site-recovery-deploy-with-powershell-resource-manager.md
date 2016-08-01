@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="06/15/2016"
+	ms.date="07/12/2016"
 	ms.author="bsiva"/>
 
 # Réplication de machines virtuelles Hyper-V en local dans Azure avec PowerShell et Azure Resource Manager.
 
 > [AZURE.SELECTOR]
 - [Portail Azure](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 - [Portail Classic](site-recovery-hyper-v-site-to-azure-classic.md)
 
 
@@ -45,10 +45,10 @@ Vous pouvez également lire l’article [Utilisation d’Azure PowerShell avec A
 
 ## Avant de commencer
 
-Assurez-vous que les conditions préalables sont remplies :
+Assurez-vous que les conditions préalables sont remplies :
 
 - Un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). Vous pouvez aussi consulter la [Tarification Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Azure PowerShell 1.0. Pour plus d’informations sur cette version et la méthode d’installation, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/).
+- Azure PowerShell 1.0. Pour plus d’informations sur cette version et la méthode d’installation, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/).
 - Les modules [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) et [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/). Vous pouvez obtenir les dernières versions de ces modules à partir de la [galerie PowerShell](https://www.powershellgallery.com/)
 
 Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manager pour configurer et gérer la protection de vos serveurs. L’exemple utilisé dans cet article vous explique comment protéger une machine virtuelle exécutée sur un hôte Hyper-V sur Azure. Les conditions préalables suivantes sont spécifiques à cet exemple. Pour obtenir un aperçu plus détaillé des conditions requises pour les différents scénarios Site Recovery, reportez-vous à la documentation se rapportant au scénario applicable.
@@ -91,7 +91,7 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 
 
-## Étape 2 : Configuration du coffre Recovery Services
+## Étape 2 : Configuration du coffre Recovery Services
 
 1. Créez un groupe de ressources Azure Resource Manager dans lequel vous allez créer le coffre, ou utilisez un groupe de ressources existant. Vous pouvez créer un groupe de ressources en utilisant la commande suivante :
 
@@ -117,7 +117,7 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 ## Étape 4 : Création d’un site Hyper-V et génération d’une nouvelle clé d’inscription de coffre pour le site.
 
-1. Créez un nouveau site Hyper-V comme suit :
+1. Créez un nouveau site Hyper-V comme suit :
 
 		$sitename = "MySite"                #Specify site friendly name
 		New-AzureRmSiteRecoverySite -Name $sitename
@@ -172,7 +172,7 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 	Attendez la fin de la tâche d’association et assurez-vous qu’elle a bien abouti.
 
-##Étape 7 : Activation de la protection des machines virtuelles
+##Étape 7 : Activation de la protection des machines virtuelles
 
 1. Accédez à l’entité de protection correspondant à la machine virtuelle que vous souhaitez protéger comme suit :
 
@@ -236,7 +236,7 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 
 
-## Étape 8 : Exécution d’un test de basculement
+## Étape 8 : Exécution d’un test de basculement
 
 1. Exécutez une tâche de test de basculement, en procédant comme suit :
 
@@ -257,4 +257,4 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 [En savoir plus](https://msdn.microsoft.com/library/azure/mt637930.aspx) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

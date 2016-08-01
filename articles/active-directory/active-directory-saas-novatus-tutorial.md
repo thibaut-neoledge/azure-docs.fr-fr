@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory à Novatus | Microsoft Azure"
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory à Novatus | Microsoft Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et Novatus."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
-# Didacticiel : Intégration d’Azure Active Directory à Novatus
+# Didacticiel : Intégration d’Azure Active Directory à Novatus
 
 L’objectif de ce didacticiel est de vous montrer comment intégrer Novatus dans Azure AD (Azure Active Directory).
 
 L’intégration de Novatus dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Novatus.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Novatus (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Novatus.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Novatus (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## Composants requis
 
-Pour configurer l’intégration d’Azure AD à Novatus, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à Novatus, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
 - Un abonnement Novatus pour lequel l’authentification unique est activée
@@ -40,7 +40,7 @@ Pour configurer l’intégration d’Azure AD à Novatus, vous avez besoin des 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -56,11 +56,11 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 
 
 ## Ajout de Novatus à partir de la galerie
-Pour configurer l’intégration de Novatus à Azure AD, vous devez ajouter Novatus à partir de la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Novatus à Azure AD, vous devez ajouter Novatus à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Novatus à partir de la galerie, procédez comme suit :**
+**Pour ajouter Novatus à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -74,7 +74,7 @@ Pour configurer l’intégration de Novatus à Azure AD, vous devez ajouter Nov
 
 	![Applications][3]
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
 	![Applications][4]
 
@@ -87,13 +87,13 @@ Pour configurer l’intégration de Novatus à Azure AD, vous devez ajouter Nov
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_02.png)
 
 ##  Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Novatus, avec un utilisateur de test appelé « Britta Simon ».
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Novatus, avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Novatus équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur Novatus associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Novatus équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur Novatus associé doit être établie.
 
 Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Username** (Nom d’utilisateur) dans Novatus.
 
-Pour configurer et tester l’authentification unique Azure AD avec Novatus, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Novatus, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
@@ -101,13 +101,13 @@ Pour configurer et tester l’authentification unique Azure AD avec Novatus, vo
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
+### Configuration de l’authentification unique Azure AD
 
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Novatus.
 
 
 
-**Pour configurer l’authentification unique Azure AD avec Novatus, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Novatus, procédez comme suit :**
 
 1. Dans le portail Azure Classic, sur la page d’intégration d’application **Novatus**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -117,7 +117,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 	![Configurer l’authentification unique](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_03.png)
 
-3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
+3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
 
 	![Configurer l’authentification unique](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_04.png)
 
@@ -134,7 +134,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
     b. Cliquez sur **Next**.
 
 
-5. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Novatus à l’adresse jvinci@novatusinc.com. Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe Novatus pour configurer l’authentification unique de son côté.
+5. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Novatus à l’adresse jvinci@novatusinc.com. Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe Novatus pour configurer l’authentification unique de son côté.
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
@@ -155,7 +155,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
@@ -199,7 +199,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-novatus-tutorial/create_aaduser_07.png)
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-novatus-tutorial/create_aaduser_08.png)
 
@@ -213,7 +213,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Novatus. Novatus prend en charge l’approvisionnement juste-à-temps, qui est activé par défaut.
 
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Novatus s’il n’existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Novatus s’il n’existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
 
 > [AZURE.NOTE] Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique Novatus.
 
@@ -224,7 +224,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ![Affecter des utilisateurs][200]
 
-**Pour affecter Britta Simon à Novatus, procédez comme suit :**
+**Pour affecter Britta Simon à Novatus, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
 
@@ -248,7 +248,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Novatus dans le volet d’accès, vous devez être connecté automatiquement à votre application Novatus.
 
@@ -256,7 +256,7 @@ Lorsque vous cliquez sur la vignette Novatus dans le volet d’accès, vous deve
 ## Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -277,4 +277,4 @@ Lorsque vous cliquez sur la vignette Novatus dans le volet d’accès, vous deve
 [204]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

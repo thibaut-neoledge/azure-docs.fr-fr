@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Codes d’erreur SQL : erreur de connexion de base de données | Microsoft Azure"
-	description="En savoir plus sur les codes d’erreur SQL pour les applications clientes SQL Database, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales."
+	pageTitle="Codes d’erreur SQL : erreur de connexion de base de données | Microsoft Azure"
+	description="En savoir plus sur les codes d’erreur SQL pour les applications clientes SQL Database, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales. "
 	keywords="code d’erreur sql, accès sql, erreur de connexion de base de données, codes d’erreur sql"
 	services="sql-database"
 	documentationCenter=""
@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/12/2016"
 	ms.author="annemill"/>
 
 
-# Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes
+# Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes
 
 
 <!--
@@ -31,27 +31,21 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 Cet article répertorie les codes d’erreur SQL pour les applications clientes SQL Database, y compris les erreurs de connexion de base de données, les erreurs temporaires, les erreurs de gouvernance des ressources, les problèmes de copie de base de données, le pool élastique et d’autres erreurs. La plupart des catégories sont spécifiques à Azure SQL Database et ne s'appliquent pas à Microsoft SQL Server.
 
-Dans votre application cliente, pour toute erreur donnée, vous pouvez fournir aux utilisateurs un message personnalisé par vos soins.
-
-<a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
-
-
 ## Erreurs de connexion de base de données et erreurs temporaires
 
 Le tableau suivant décrit les codes d’erreur SQL pour les erreurs de perte de connexion, et autres erreurs temporaires, que vous pouvez rencontrer quand votre application tente d’accéder à SQL Database.
-
 
 ### Erreurs de connexion de base de données et erreurs temporaires les plus courantes
 
 L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveurs quand des charges de travail importantes sont à traiter dans le service SQL Database. Ce comportement dynamique peut entraîner la perte par votre programme client de sa connexion à SQL Database. Ce type d’erreur état est connu sous le nom d’*erreur temporaire*.
 
-Si votre programme client possède une logique de nouvelle tentative, il peut tenter de rétablir une connexion après avoir donné à l'erreur temporaire le temps de se corriger elle-même. Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
+Si votre programme client possède une logique de nouvelle tentative, il peut tenter de rétablir une connexion après avoir donné à l'erreur temporaire le temps de se corriger elle-même. Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
 
-Les erreurs temporaires se manifestent généralement comme l'un des messages d'erreur suivants à partir de vos programmes clients :
+Les erreurs temporaires se manifestent généralement comme l'un des messages d'erreur suivants à partir de vos programmes clients :
 
-- La base de données <db_name> sur le serveur <Azure_instance> n'est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session_id>
+- La base de données <db\_name> sur le serveur <Azure\_instance> n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session\_id>
 
-- La base de données <db_name> sur le serveur <Azure_instance> n'est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session_id>. (Microsoft SQL Server, erreur : 40613)
+- La base de données <db\_name> sur le serveur <Azure\_instance> n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session\_id>. (Microsoft SQL Server, erreur : 40613)
 
 - Une connexion existante a été fermée de force par l'hôte distant.
 
@@ -59,32 +53,28 @@ Les erreurs temporaires se manifestent généralement comme l'un des messages d'
 
 Pour obtenir des exemples de code de logique de nouvelle tentative, voir :
 
-- [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-
+- [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 - [Actions servant à corriger les erreurs de connexion et les erreurs temporaires dans la base de données SQL](sql-database-connectivity-issues.md)
 
 Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez la page [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### Codes d’erreur pour les erreurs temporaires
 
+Les erreurs suivantes sont temporaires et doivent être relancées dans la logique d’application
 
 | Code d'erreur | Niveau de gravité | Description |
 | ---: | ---: | :--- |
 | 4060 | 16 | Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. |
 |40197|17|Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion à votre serveur de base de données SQL vous reconnectera automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie.|
-|40501|20|Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d.<br/><br/>*Remarque :* pour plus d'informations, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).
+|40501|20|Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d.<br/><br/>*Remarque :* pour plus d'informations, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).
 |40613|17|La base de données ’%.&#x2a;ls’ sur le serveur ’%.&#x2a;ls’ n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session ’%.&#x2a;ls’’.|
 |49918|16|Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. |
-|49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
-|49920|16|Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
-
-
-<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+|49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
+|49920|16|Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 
 ## Erreurs de copie de base de données
 
-
-Le tableau suivant décrit les différentes erreurs que vous pouvez rencontrer lors de la copie d'une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
+Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans la base de données SQL Azure. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
 
 
 |Code d'erreur|Niveau de gravité|Description|
@@ -103,31 +93,23 @@ Le tableau suivant décrit les différentes erreurs que vous pouvez rencontrer l
 |40570|16|La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez ultérieurement.|
 |40571|16|La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez ultérieurement.|
 
-
-<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
-
 ## Erreurs de gouvernance des ressources
 
+Les erreurs suivantes sont causées par une utilisation excessive des ressources avec Azure SQL Database. Par exemple :
 
-Le tableau suivant décrit les erreurs causées par une utilisation excessive des ressources avec Azure SQL Database. Par exemple :
+- Votre transaction a été ouverte trop longtemps.
+- Votre transaction comporte trop de verrous.
+- Une application consomme trop de mémoire.
+- Une application consomme trop de ressources d’espace `TempDb`.
 
+Rubriques connexes :
 
-- Votre transaction a peut-être été ouverte trop longtemps.
-- Votre transaction comporte peut-être trop de verrous.
-- Votre programme consomme peut-être trop de mémoire.
-- Votre programme consomme peut-être trop d’espace `TempDb`.
-
-
-**Conseil :** le lien suivant fournit des informations supplémentaires qui s’appliquent à la plupart, voire à toutes les erreurs de cette section :
-
-
-- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
-
+* Des informations plus détaillées sont disponibles ici : [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
 |Code d'erreur|Niveau de gravité|Description|
 |---:|---:|:---|
-|10928|20|ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l'ID de ressource = 2.<br/><br/>*Remarque :* pour plus d'informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md). |
-|10929|20|ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>*Remarque :* pour plus d’informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).|
+|10928|20|ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>*Remarque :* pour plus d’informations sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md). |
+|10929|20|ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>*Remarque :* pour plus d’informations sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).|
 |40544|20|La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles.|
 |40549|16|La session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir.|
 |40550|16|La session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique.|
@@ -135,53 +117,43 @@ Le tableau suivant décrit les erreurs causées par une utilisation excessive de
 |40552|16|La session a été arrêtée en raison de l’utilisation excessive de l’espace réservé au journal des transactions. Essayez de modifier moins de lignes dans une transaction unique.<br/><br/>*Conseil :* Si vous effectuez des insertions en bloc à l’aide de l’utilitaire `bcp.exe` ou de la classe `System.Data.SqlClient.SqlBulkCopy`, essayez d’utiliser les options `-b batchsize` ou `BatchSize` permettant de limiter le nombre de lignes copiées sur le serveur à chaque transaction. Si vous reconstruisez un index en utilisant l’instruction `ALTER INDEX`, essayez d’utiliser l’option `REBUILD WITH ONLINE = ON`.|
 |40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Conseil :* La diminution du nombre d'opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
 
-
-Pour plus d'informations sur la gouvernance des ressources et les erreurs associées, voir :
-
-
-- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
-
-
-<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
-
 ## Erreurs relatives au pool élastique
 
-Rubriques connexes :
-
-* [Créer un pool de base de données élastique (C#)](sql-database-elastic-pool-create-csharp.md) 
-* [Gérer un pool de base de données élastique (C#)](sql-database-elastic-pool-manage-csharp.md) 
-* [Créer un pool de base de données élastique (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
-* [Surveiller et gérer un pool de base de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
+Les erreurs suivantes sont liées à la création et à l’utilisation de pools élastiques.
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| 1132 | EX\_RESOURCE | Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. | Limite de l’espace du pool élastique, en Mo. | Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître sa limite de stockage, de réduire l’espace de stockage utilisé par les bases de données individuelles qu’il inclut, ou de supprimer les bases de données dans ce dernier. |
-| 10929 | EX\_USER | La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Voir [https://msdn.microsoft.com/library/azure/dn338078.aspx](http://go.microsoft.com/fwlink/?LinkId=267637) pour obtenir de l’aide. Sinon, réessayez plus tard. | Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données. | Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître la limite d’ouvriers associés, ou de supprimer des bases de données du pool élastique. |
+| 1132 | EX\_RESOURCE | Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. | Limite de l’espace du pool élastique, en Mo. | Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître sa limite de stockage, de réduire l’espace de stockage utilisé par les bases de données individuelles qu’il inclut, ou de supprimer les bases de données dans ce dernier. |
+| 10929 | EX\_USER | La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Voir [https://msdn.microsoft.com/library/azure/dn338078.aspx](http://go.microsoft.com/fwlink/?LinkId=267637) pour obtenir de l’aide. Sinon, réessayez plus tard. | Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données. | Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître la limite d’ouvriers associés, ou de supprimer des bases de données du pool élastique. |
 | 40844 | EX\_USER | La base de données '%ls' sur le serveur '%ls' est une base de données présentant l’édition '%ls' dans un pool élastique. Elle ne peut pas présenter de relation de copie continue. | Nom de la base de données, édition de la base de données, nom du serveur | Une commande StartDatabaseCopy est émise pour une base de données non-Premium dans un pool élastique. | Bientôt disponible |
-| 40857 | EX\_USER | Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. | Nom du serveur, nom du pool élastique | Le pool élastique spécifié n’existe pas sur le serveur spécifié. | Saisissez un nom de pool élastique valide. |
-| 40858 | EX\_USER | Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. | Nom du pool élastique, nom du serveur | Le pool élastique spécifié existe déjà sur le serveur logique spécifié. | Saisissez un nouveau nom pour le pool élastique. |
+| 40857 | EX\_USER | Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. | Nom du serveur, nom du pool élastique | Le pool élastique spécifié n’existe pas sur le serveur spécifié. | Saisissez un nom de pool élastique valide. |
+| 40858 | EX\_USER | Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. | Nom du pool élastique, nom du serveur | Le pool élastique spécifié existe déjà sur le serveur logique spécifié. | Saisissez un nouveau nom pour le pool élastique. |
 | 40859 | EX\_USER | Le pool élastique ne prend pas en charge le niveau de service '%ls'. | Niveau de service du pool élastique | Le niveau de service spécifié n’est pas pris en charge pour le provisioning du pool élastique. | Saisissez l’édition correcte, ou laissez le champ du niveau de service vide afin d’utiliser le niveau de service par défaut. |
-| 40860 | EX\_USER | La combinaison du pool élastique '%ls' et de l’objectif de service '%ls' n’est pas valide. | Nom du pool élastique, nom de l’objectif de niveau de service | L’objectif de service et le pool élastique peuvent être spécifiés ensemble uniquement si le premier est indiqué en tant que « ElasticPool ». | Spécifiez la combinaison de pool élastique et d’objectif de service adéquate. |
-| 40861 | EX\_USER | L’édition de base de données '%.*ls' ne peut pas être différente du niveau de service du pool élastique, qui correspond à '%.*ls'. | Édition de base de données, niveau de service du pool élastique | L’édition de base de données est différente du niveau de service du pool élastique. | Indiquez une édition de base de données identique au niveau de service du pool élastique. Remarque : l’édition de base de données n’a pas besoin d’être spécifiée. | 
-| 40862 | EX\_USER | Si l’objectif de service du pool élastique est spécifié, le nom du pool élastique doit l’être également. | Aucun | L’objectif de service du pool élastique n’identifie pas de manière unique un pool élastique. | Si vous utilisez l’objectif de service du pool élastique, spécifiez le nom du pool élastique. | 
-| 40864 | EX\_USER | Le nombre de DTU du pool élastique doit se monter au minimum à (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique. | Tentative de définition du nombre de DTU du pool élastique au-dessous de la limite minimale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite minimale ou plus. | 
-| 40865 | EX\_USER | Le nombre de DTU du pool élastique ne doit pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique. | Tentative de définition du nombre de DTU du pool élastique au-dessus de la limite maximale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite maximale ou moins. | 
-| 40867 | EX\_USER | Le nombre maximal de DTU par base de données doit être au minimum (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique | Tentative de définition du nombre maximal de DTU par base de données en dessous de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | 
-| 40868 | EX\_USER | Le nombre maximal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique. | Tentative de définition du nombre maximal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | 
-| 40870 | EX\_USER | Le nombre minimal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre minimal de DTU par base de données, niveau de service du pool élastique. | Tentative de définition du nombre minimal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | 
-| 40873 | EX\_USER | Le nombre de bases de données (%d) et le nombre minimal de DTU par base de données (%d) ne peuvent pas dépasser le nombre de DTU du pool élastique (%d). | Nombre de bases de données dans le pool élastique ; nombre minimal de DTU par base de données ; DTU du pool élastique. | Tentative de spécification d’un nombre minimal de DTU pour les bases de données dans le pool élastique dépassant le nombre de DTU du pool élastique. | Envisagez d’augmenter le nombre de DTU du pool élastique, ou de réduire le nombre minimal de DTU par base de données ou le nombre de bases de données dans le pool élastique. | 
-| 40877 | EX\_USER | Impossible de supprimer un pool élastique, sauf s’il ne contient aucune base de données. | Aucun | Le pool élastique contient une ou plusieurs bases de données et ne peut donc pas être supprimé. | Supprimez les bases de données du pool élastique afin de pouvoir supprimer ce dernier. | 
-| 40881 | EX\_USER | Le pool élastique '%.*ls' a atteint le nombre limite de bases de données. Le nombre limite de bases de données ne peut pas dépasser (%d) pour un pool élastique incluant (%d) DTU. | Nom du pool élastique, nombre limite de bases de données du pool élastique, eDTU du pool de ressources. | Tentative de création ou d’ajout d’une base de données au pool élastique alors que le nombre limite de bases de données du pool élastique a été atteint. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître le nombre limite de bases de données, ou de supprimer des bases de données du pool élastique. | 
-| 40889 | EX\_USER | La limite de stockage ou relative aux DTU pour le pool élastique '%.*ls' ne peut pas être abaissée, car l’espace de stockage risque de ne pas être suffisant pour les bases de données de ce pool. | Nom du pool élastique. | Tentative de définition de la limite de stockage du pool élastique en dessous du taux d’utilisation de son espace de stockage. | Envisagez de réduire le taux d’utilisation du stockage des bases de données dans le pool élastique, ou de supprimer des bases de données du pool afin de réduire sa limite de stockage ou relative aux DTU. | 
-| 40891 | EX\_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données, nombre maximal de DTU par base de données. | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. | 
+| 40860 | EX\_USER | La combinaison du pool élastique '%ls' et de l’objectif de service '%ls' n’est pas valide. | Nom du pool élastique, nom de l’objectif de niveau de service | L’objectif de service et le pool élastique peuvent être spécifiés ensemble uniquement si le premier est indiqué en tant que « ElasticPool ». | Spécifiez la combinaison de pool élastique et d’objectif de service adéquate. |
+| 40861 | EX\_USER | L’édition de base de données '%.**ls' ne peut pas être différente du niveau de service du pool élastique, qui correspond à '%.**ls'. | Édition de base de données, niveau de service du pool élastique | L’édition de base de données est différente du niveau de service du pool élastique. | Veuillez indiquer une édition de base de données identique au niveau de service du pool élastique. Remarque : l’édition de base de données n’a pas besoin d’être spécifiée. |
+| 40862 | EX\_USER | Si l’objectif de service du pool élastique est spécifié, le nom du pool élastique doit l’être également. | Aucun | L’objectif de service du pool élastique n’identifie pas de manière unique un pool élastique. | Si vous utilisez l’objet de service du pool élastique, spécifiez le nom du pool élastique. |
+| 40864 | EX\_USER | Le nombre de DTU du pool élastique doit se monter au minimum à (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique | Tentative de définition du nombre de DTU du pool élastique au-dessous de la limite minimale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite minimale ou plus. |
+| 40865 | EX\_USER | Le nombre de DTU du pool élastique ne doit pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique | Tentative de définition du nombre de DTU du pool élastique au-dessus de la limite maximale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite maximale ou moins. |
+| 40867 | EX\_USER | Le nombre maximal de DTU par base de données doit être au minimum (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique | Tentative de définition du nombre maximal de DTU par base de données en dessous de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. |
+| 40868 | EX\_USER | Le nombre maximal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique | Tentative de définition du nombre maximal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. |
+| 40870 | EX\_USER | Le nombre minimal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre minimal de DTU par base de données, niveau de service du pool élastique | Tentative de définition du nombre minimal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. |
+| 40873 | EX\_USER | Le nombre de bases de données (%d) et le nombre minimal de DTU par base de données (%d) ne peuvent pas dépasser le nombre de DTU du pool élastique (%d). | Nombre de bases de données dans le pool élastique ; nombre minimal de DTU par base de données ; DTU du pool élastique | Tentative de spécification d’un nombre minimal de DTU pour les bases de données dans le pool élastique dépassant le nombre de DTU du pool élastique. | Envisagez d’augmenter le nombre de DTU du pool élastique, ou de réduire le nombre minimal de DTU par base de données ou le nombre de bases de données dans le pool élastique. |
+| 40877 | EX\_USER | Impossible de supprimer un pool élastique, sauf s’il ne contient aucune base de données. | Aucun | Le pool élastique contient une ou plusieurs bases de données et ne peut donc pas être supprimé. | Supprimez les bases de données du pool élastique afin de pouvoir supprimer ce dernier. |
+| 40881 | EX\_USER | Le pool élastique '%.*ls' a atteint le nombre limite de bases de données. Le nombre limite de bases de données ne peut pas dépasser (%d) pour un pool élastique incluant (%d) DTU. | Nom du pool élastique ; nombre limite de bases de données du pool élastique ; DTU du pool de ressources. | Tentative de création ou d’ajout d’une base de données au pool élastique alors que le nombre limite de bases de données du pool élastique a été atteint. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître le nombre limite de bases de données, ou de supprimer des bases de données du pool élastique. |
+| 40889 | EX\_USER | La limite de stockage ou relative aux DTU pour le pool élastique '%.*ls' ne peut pas être abaissée, car l’espace de stockage risque de ne pas être suffisant pour les bases de données de ce pool. | Nom du pool élastique. | Tentative de définition de la limite de stockage du pool élastique en dessous du taux d’utilisation de son espace de stockage. | Envisagez de réduire le taux d’utilisation du stockage des bases de données dans le pool élastique, ou de supprimer des bases de données dans le pool afin de réduire sa limite de stockage ou relative aux DTU. |
+| 40891 | EX\_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. |
 | TBD | EX\_USER | La taille de l’espace de stockage d’une base de données individuelle dans un pool élastique ne peut pas dépasser la taille maximale autorisée par le pool élastique de niveau de service '%.*ls'. | Niveau de service du pool élastique | La taille maximale de la base de données dépasse la taille maximale autorisée par le niveau de service du pool élastique. | Définissez la taille maximale de la base de données dans les limites de la taille maximale autorisée par le niveau de service du pool élastique. |
 
+Rubriques connexes :
+
+* [Créer un pool de base de données élastique (C#)](sql-database-elastic-pool-create-csharp.md)
+* [Gérer un pool de base de données élastique (C#)](sql-database-elastic-pool-manage-csharp.md).
+* [Créer un pool de base de données élastique (PowerShell)](sql-database-elastic-pool-create-powershell.md)
+* [Surveiller et gérer un pool de base de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## Erreurs générales.
 
-
-Le tableau suivant répertorie toutes les erreurs générales qui n’appartiennent à aucune des catégories précédentes.
-
+Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 
 |Code d'erreur|Niveau de gravité|Description|
 |---:|---:|:---|
@@ -215,14 +187,14 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40528|16|Les utilisateurs ne peuvent pas être mappés à des certificats, clés asymétriques ou connexions Windows dans cette version de SQL Server.|
 |40529|16|La fonction intégrée '%.&#x2a;ls' dans le contexte d'emprunt d'identité n'est pas prise en charge dans cette version de SQL Server.|
 |40532|11|Impossible d'ouvrir le serveur "%.&#x2a;ls" demandé par la connexion. La connexion a échoué.|
-|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Remarque :* La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
+|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Remarque :* La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
 |40604|16|Opération CREATE/ALTER DATABASE impossible car elle dépasse le quota du serveur.|
 |40606|16|L'association de bases de données n'est pas prise en charge dans cette version de SQL Server.|
 |40607|16|Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.|
 |40611|16|Les serveurs peuvent avoir au maximum 128 règles de pare-feu définies.|
 |40614|16|L'adresse IP de début de la règle de pare-feu ne peut pas dépasser l'adresse IP de fin.|
-|40615|16|Impossible d'ouvrir le serveur '{0}' demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur. Pour activer l’accès, utilisez le portail de la base de données SQL ou exécutez l’élément sp\_set\_firewall\_rule sur la base de données master afin de créer une règle de pare-feu pour cette adresse IP ou cette plage d'adresses. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet.|
-|40617|16|Le nom de la règle de pare-feu qui commence par <rule name> est trop long. La longueur maximale est 128.|
+|40615|16|Impossible d'ouvrir le serveur '{0}' demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur. Pour activer l’accès, utilisez le portail de la base de données SQL ou exécutez l’élément sp\_set\_firewall\_rule sur la base de données master afin de créer une règle de pare-feu pour cette adresse IP ou cette plage d'adresses. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet.|
+|40617|16|Le nom de la règle de pare-feu qui commence par <nom de la règle> est trop long. La longueur maximale est 128.|
 |40618|16|Le nom de la règle de pare-feu ne peut pas être vide.|
 |40620|16|Échec de la connexion pour l'utilisateur "%.&#x2a;ls". La modification du mot de passe a échoué. La modification du mot de passe lors de la connexion n'est pas prise en charge dans cette version de SQL Server.|
 |40627|20|L'opération sur le serveur '{0}' et la base de données '{1}' est en cours. Veuillez patienter quelques minutes avant de réessayer.|
@@ -231,7 +203,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40632|16|Échec de la validation de mot de passe. Le mot de passe ne respecte pas les exigences de la stratégie car il n'est pas assez complexe.|
 |40636|16|Impossible d'utiliser un nom de base de données réservé '%.&#x2a;ls' dans cette opération.|
 |40638|16|ID d’abonnement <subscription-id> non valide. L'abonnement n'existe pas.|
-|40639|16|La requête n’est pas conforme au schéma : <schema error>.|
+|40639|16|La requête n’est pas conforme au schéma : <schema error>.|
 |40640|20|Le serveur a rencontré une exception inattendue.|
 |40641|16|L'emplacement spécifié n'est pas valide.|
 |40642|17|Le serveur est actuellement trop occupé. Veuillez réessayer plus tard.|
@@ -246,14 +218,13 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40651|16|Impossible de créer le serveur, car l’abonnement <subscription-id> est désactivé.|
 |40652|16|Impossible de déplacer ou de créer le serveur. L'abonnement <subscription-id> va dépasser le quota du serveur.|
 |40671|17|Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement.|
-|40852|16|Impossible d’ouvrir la base de données. *ls’ on server ’%.*ls’ demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet ’nom de serveur’.database.windows.net doit être transformé en nom de serveur’.database.`secure`.windows.net.| 
-|45168|16| Le système SQL Azure est sous charge et place une limite supérieure sur les opérations DB CRUD simultanées pour un seul serveur (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.| 
-|45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.
-
+|40852|16|Impossible d’ouvrir la base de données '%.*ls' on server '%.*ls' demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet ’nom de serveur’.database.windows.net doit être transformé en ’nom de serveur’.database.`secure`.windows.net.|
+|45168|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.|
+|45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.|
 
 ## Liens connexes
 
 - [Consignes et limitations générales de base de données SQL Azure](sql-database-general-limitations.md)
-- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
+- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Sécurité dans Azure Data Lake Store
@@ -43,11 +43,14 @@ Aujourd’hui, chaque abonnement Azure peut être associé à un répertoire Azu
 
 ## Autorisation et contrôle d’accès
 
-Une fois qu’un utilisateur est authentifié par AAD pour accéder à Azure Data Lake Store, les contrôles d’autorisation accèdent aux autorisations pour Data Lake Store. Data Lake Store sépare l’autorisation pour les activités relatives aux comptes et les activités relatives aux données de la manière suivante : gestion des comptes et gestion des données [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based access control-what-is.md) (RBAC) ; fourniture par Azure pour la gestion des comptes et prise en charge des règles ACL POSIX pour accéder aux données dans le magasin.
+Une fois qu’un utilisateur est authentifié par AAD pour accéder à Azure Data Lake Store, les contrôles d’autorisation accèdent aux autorisations pour Data Lake Store. Data Lake Store sépare l’autorisation pour les activités relatives aux comptes et aux données de la manière suivante.
+
+* [Le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md) (RBAC) fournit par Azure pour la gestion des comptes ;
+* ACL POSIX pour accéder aux données dans le magasin.
 
 ### Utilisation de RBAC pour la gestion des comptes
 
-Il existe quatre rôles de base définis par défaut. Elles autorisent différentes opérations sur un compte Data Lake Store via le portail, les applets de commande PowerShell et les API REST. Les rôles **Propriétaire** et **Collaborateur** autorisent un large éventail de fonctions d’administration sur le compte. Pour les utilisateurs qui interagissent uniquement avec les données, vous pouvez les ajouter au rôle **Lecteur**.
+Il existe quatre rôles de base définis par défaut. Elles autorisent différentes opérations sur un compte Data Lake Store via le portail, les applets de commande PowerShell et les API REST. Les rôles **Propriétaire** et **Collaborateur** autorisent un large éventail de fonctions d’administration sur le compte. Vous pouvez ajouter les utilisateurs qui interagissent uniquement avec les données au rôle **Lecteur**.
 
 ![Rôles RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Rôles RBAC")
 
@@ -65,7 +68,7 @@ Pour obtenir des instructions, consultez la page [Affecter les utilisateurs ou l
 
 ### Utilisation des ACL pour les opérations sur les systèmes de fichiers
 
-Azure Data Lake Store est un système de fichiers hiérarchique comme HDFS qui prend en charge les [ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists), autorisant la lecture (r), l’écriture (w) et l’exécution (x) des droits d’accès aux ressources accordés au propriétaire, au groupe propriétaire et à d’autres utilisateurs/groupes. Dans la version d’évaluation publique de Data Lake Store (version actuelle), les ACL sont activées uniquement sur le dossier racine, ce qui signifie que les ACL que vous appliquez au dossier racine sont également applicables à tous les dossiers/fichiers enfants. Dans les versions à venir, vous pourrez définir des ACL sur tout fichier ou dossier.
+Azure Data Lake Store est un système de fichiers hiérarchique comme HDFS qui prend en charge les [ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists) pour autoriser la lecture (r), l’écriture (w) et l’exécution (x) des droits d’accès aux ressources accordés au propriétaire, au groupe propriétaire et à d’autres utilisateurs/groupes. Dans la version d’évaluation publique de Data Lake Store (version actuelle), les ACL sont activées uniquement sur le dossier racine, ce qui signifie que les ACL que vous appliquez au dossier racine sont également applicables à tous les dossiers/fichiers enfants. Dans les versions à venir, vous pourrez définir des ACL sur tout fichier ou dossier.
 
 Il est vivement recommandé de définir des ACL pour de nombreux utilisateurs à l’aide de [groupes de sécurité](../active-directory/active-directory-accessmanagement-manage-groups.md). Regroupez les utilisateurs dans un groupe de sécurité, puis affectez les ACL du fichier et du dossier à ce groupe de sécurité. Cela se révèle utile lors de la fourniture de l’accès personnalisé, car il existe une limite : vous ne pouvez ajouter que neuf entrées maximum dans le cadre d’un accès personnalisé. Consultez la page [Affecter des utilisateurs ou un groupe de sécurité comme ACL au système de fichiers Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions) pour plus d’informations sur la sécurisation des données stockées dans Data Lake Store à l’aide de groupes de sécurité AAD.
 
@@ -110,7 +113,7 @@ Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consul
 
 Les clients professionnels exigent une plateforme cloud d’analyse des données sécurisée et facile à utiliser. Azure Data Lake Store a été conçu pour répondre à ces exigences avec la gestion des identités et l’authentification via l’intégration d’Azure Active Directory, l’autorisation basée sur les ACL, l’isolement réseau, le chiffrement des données en transit et au repos (à venir) et l’audit.
 
-Si vous souhaitez voir de nouvelles fonctionnalités incluses dans Data Lake Store, envoyez-nous vos commentaires sur notre [forum Uservoice](https://feedback.azure.com/forums/327234-data-lake).
+Si vous souhaitez voir de nouvelles fonctionnalités incluses dans Data Lake Store, envoyez-nous vos commentaires sur notre [forum UserVoice](https://feedback.azure.com/forums/327234-data-lake).
 
 ## Voir aussi
 
@@ -118,4 +121,4 @@ Si vous souhaitez voir de nouvelles fonctionnalités incluses dans Data Lake Sto
 - [Prise en main de Data Lake Store](data-lake-store-get-started-portal.md)
 - [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

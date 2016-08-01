@@ -30,7 +30,7 @@ Après avoir configuré une passerelle Azure Application Gateway, les utilisateu
 
 
 ##Pool d’adresses principal vide
-###Cause :
+###Cause :
 Si Application Gateway ne dispose d’aucune machine virtuelle ou de jeu de mise à l’échelle de machine virtuelle configuré(e) dans le pool d’adresses principal, il ne peut pas acheminer les demandes client et renvoie alors une erreur de passerelle incorrecte.
 
 ###Solution
@@ -67,7 +67,7 @@ L’applet de commande ci-dessus doit renvoyer un pool d’adresses principal no
 	
 ## Instances non intègres dans BackendAddressPool
 
-###Cause :
+###Cause :
 Si aucune des instances de BackendAddressPool n’est intègre, Application Gateway ne disposera d’aucun serveur principal vers lequel acheminer la demande utilisateur. Cette situation peut se produire lorsque les instances de serveur principal sont intègres, mais que l’application requise n’est pas déployée.
 
 ###Solution
@@ -75,7 +75,7 @@ Assurez-vous que les instances sont intègres et que l’application est correct
 
 
 ##Problèmes avec la sonde d’intégrité par défaut
-###Cause :
+###Cause :
 Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par défaut n’est pas en mesure d’atteindre les machines virtuelles du serveur principal. Lorsqu’une instance Application Gateway est approvisionnée, elle configure automatiquement une sonde d’intégrité par défaut pour chaque BackendAddressPool à l’aide des propriétés de BackendHttpSetting. La configuration de cette sonde d’intégrité ne nécessite aucune action de la part de l’utilisateur. Plus précisément, lorsqu’une règle d’équilibrage de charge est configurée, une association est établie entre BackendHttpSetting et BackendAddressPool. Un contrôle par défaut est configuré pour chacune de ces associations et Application Gateway initie régulièrement une connexion de contrôle d’intégrité à chaque instance dans le BackendAddressPool au niveau du port spécifié dans l’élément BackendHttpSetting. Le tableau suivant répertorie les valeurs associées à la sonde d’intégrité par défaut.
 
 
@@ -87,8 +87,8 @@ Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par dé
 | Seuil de défaillance sur le plan de l’intégrité | 3 | Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
 
 ###Solution
-- Assurez-vous qu’un site par défaut est configuré et qu’il écoute sur le port 127.0.0.1. 
-- Si BackendHttpSetting spécifie un port autre que 80, le site par défaut doit être configuré pour écouter sur ce port. 
+- Assurez-vous qu’un site par défaut est configuré et qu’il écoute sur le port 127.0.0.1.
+- Si BackendHttpSetting spécifie un port autre que 80, le site par défaut doit être configuré pour écouter sur ce port.
 - L’appel à http://127.0.0.1:port doit renvoyer un code de résultat HTTP 200. Ce code doit être retourné dans un délai de 30 secondes.
 - Vérifiez que le port configuré est ouvert et qu’aucune règle de pare-feu ou aucun groupe de sécurité réseau Azure ne bloque le trafic entrant ou sortant sur le port configuré.
 - Si vous utilisez des machines virtuelles Azure classiques ou un service cloud avec un nom de domaine complet ou une adresse IP publique, assurez-vous que le [point de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) correspondant est ouvert.
@@ -96,7 +96,7 @@ Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par dé
 
 
 ##Problèmes avec la sonde d’intégrité personnalisée
-###Cause :
+###Cause :
 Les sondes d’intégrité personnalisées apportent davantage de flexibilité au comportement de contrôle par défaut. En utilisant des sondes personnalisées, les utilisateurs peuvent configurer l’intervalle d’analyse, l’URL et le chemin à tester ainsi que le nombre de réponses en échec autorisé avant que l’instance de pool principal soit marquée comme étant défectueuse. Les propriétés supplémentaires suivantes sont ajoutées.
 
 
@@ -105,24 +105,24 @@ Les sondes d’intégrité personnalisées apportent davantage de flexibilité a
 | Nom | Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
 | Protocole | Protocole utilisé pour envoyer la sonde. Le protocole HTTP est le seul protocole valide. |
 | Hôte | Nom d’hôte pour l’envoi de la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway. Ce nom est différent du nom d’hôte de la machine virtuelle. |
-| Path | Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée à <protocole>://<hôte>:<port><chemin d’accès> |
+| Path | Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée à <protocole>://<hôte>:<port><chemin d’accès> |
 | Intervalle | Intervalle d’analyse en secondes. Il s’agit de l’intervalle de temps qui s’écoule entre deux analyses consécutives.|
 | Délai d’attente | Délai d’expiration de l’analyse en secondes. La sonde est marquée comme étant en échec si aucune réponse valide n’est reçue dans le délai imparti. |
 | Seuil de défaillance sur le plan de l’intégrité | Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
 
 
 ###Solution
-Vérifiez que la sonde d’intégrité personnalisé est correctement configurée (voir le tableau ci-dessous). Outre les étapes de dépannage ci-dessus, vérifiez également les points suivants.
+Vérifiez que la sonde d’intégrité personnalisée est correctement configurée (voir le tableau ci-dessus). Outre les étapes de dépannage ci-dessus, vérifiez également les points suivants.
 
 - Assurez-vous que le protocole est défini sur HTTP uniquement. Le protocole HTTPS n’est pas pris en charge pour le moment.
-- Assurez-vous que la sonde est correctement spécifiée suivant les indications du [guide](application-gateway-create-probe-ps.md). 
+- Assurez-vous que la sonde est correctement spécifiée suivant les indications du [guide](application-gateway-create-probe-ps.md).
 - Si Application Gateway est configuré pour un seul site, le nom d’hôte par défaut doit être spécifié sous la forme « 127.0.0.1 », sauf s’il est configuré d’une autre manière dans la sonde personnalisée.
 - Assurez-vous qu’un appel à http://\<hôte>:<port><chemin d’accès>> retourne un code de résultat HTTP 200.
 - Assurez-vous que les paramètres Interval, Time-out et UnhealtyThreshold se trouvent dans la plage acceptable.
 
 
 ##Délai d’expiration de la demande
-###Cause :
+###Cause :
 À réception d’une demande de l’utilisateur, Application Gateway applique les règles configurées à la demande et achemine cette demande à une instance de pool principal. Application Gateway observe un temps d’attente (configurable) pour recevoir une réponse de l’instance de serveur principal. Par défaut, cet intervalle est de **30 secondes**. Si Application Gateway ne reçoit pas de réponse de l’application principale dans cet intervalle, la demande de l’utilisateur renverra une erreur 502.
 
 ###Solution
@@ -134,4 +134,4 @@ Application Gateway permet aux utilisateurs de configurer ce paramètre via Back
 
 Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket d’incident](https://azure.microsoft.com/support/options/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

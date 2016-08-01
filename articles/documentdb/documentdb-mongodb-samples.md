@@ -20,7 +20,7 @@
 # Exemples de prise en charge du protocole MongoDB dans DocumentDB
 Pour utiliser ces exemples, vous devez :
 
-- [Créer](documentdb-create-mongodb-account.md) un compte DocumentDB prenant en charge le protocole MongoDB.
+- [Créer](documentdb-create-mongodb-account.md) un compte Azure DocumentDB prenant en charge le protocole MongoDB.
 - Récupérer votre compte DocumentDB avec les informations de la [chaîne de connexion](documentdb-connect-mongodb-account.md) pour la prise en charge du protocole MongoDB.
 
 ## Prise en main d’un exemple d’application de liste de tâches ASP.NET MVC
@@ -175,4 +175,4 @@ Vous pouvez utiliser le didacticiel [Création d’une application Web Azure se 
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

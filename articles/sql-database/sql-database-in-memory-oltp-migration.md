@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/18/2016"
 	ms.author="jodebrui"/>
 
 
@@ -24,9 +24,9 @@
 
 Suivez ces étapes pour adopter OLTP en mémoire dans votre base de données existante.
 
-## Étape 1 : vérifiez que votre base de données Premium prend en charge OLTP en mémoire
+## Étape 1 : vérifiez que votre base de données Premium prend en charge OLTP en mémoire
 
-Les bases de données créées en novembre 2015 ou version ultérieure prennent en charge la fonctionnalité In-Memory. Vous pouvez vous assurer si votre base de données prend la fonction In-Memory en exécutant l’instruction Transact-SQL. In-Memory est pris en charge si le résultat retourné est 1 (et nom 0) :
+Les bases de données créées en novembre 2015 ou version ultérieure prennent en charge la fonctionnalité In-Memory. Vous pouvez vous assurer si votre base de données prend la fonction In-Memory en exécutant l’instruction Transact-SQL. In-Memory est pris en charge si le résultat retourné est 1 (et nom 0) :
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -34,11 +34,11 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 L’acronyme *XTP* remplace *Extreme Transaction Processing (Traitement de transactions extrêmes)*
 
-Si la base de données existante doit être déplacée vers une nouvelle base de données V12 Premium, vous pouvez utiliser les techniques suivantes effectuer l’exportation, puis importer vos données.
+Si la base de données existante doit être déplacée vers une nouvelle base de données V12 Premium, vous pouvez utiliser les techniques suivantes effectuer l’exportation, puis importer vos données.
 
 #### Opérations d’exportation
 
-Exportez votre base de données de production vers un fichier bacpac à l’aide de l’un des outils suivants :
+Exportez votre base de données de production vers un fichier bacpac à l’aide de l’un des outils suivants :
 
 - La fonctionnalité [Exporter](sql-database-export.md) dans le [portail](https://portal.azure.com/).
 
@@ -58,13 +58,13 @@ Importez le fichier bacpac dans une nouvelle base de données Premium.
  - Sélectionnez l’option [Base de données d’importation](sql-database-import.md).
  - Sélectionnez un niveau tarifaire Premium.
 
-2. Utilisez SSMS pour importer le fichier bacpac :
+2. Utilisez SSMS pour importer le fichier bacpac :
  - Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le nœud **Bases de données**.
  - Cliquez sur **Importer l’application de la couche Données**.
  - Utilisez la fenêtre de l’Assistant s’affiche.
 
 
-## Étape 2 : identifier les objets à migrer vers In-Memory OLTP
+## Étape 2 : identifier les objets à migrer vers In-Memory OLTP
 
 SSMS inclut un rapport de **présentation d’analyse des performances des transactions** que vous pouvez exécuter sur une base de données avec une charge de travail active. Le rapport identifie les tables et procédures stockées candidates pour la migration vers In-Memory OLTP.
 
@@ -75,13 +75,13 @@ Dans SSMS, pour générer le rapport :
 Pour plus d’informations, voir [Déterminer si une table ou une procédure stockée doit être déplacée vers In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
 
 
-## Étape 3 : Créer une base de données de test comparable
+## Étape 3 : Créer une base de données de test comparable
 
 Supposons que le rapport indique que votre base de données est équipée d’une table qui gagnerait à être convertie en table à mémoire optimisée. Nous vous recommandons de commencer par effectuer un test pour confirmer l’indication.
 
 Vous avez besoin d’une copie de test de votre base de données de production. La base de données de test doit être au même niveau de niveau de service que votre base de données de production.
 
-Pour faciliter le test, modifiez votre base de données comme suit :
+Pour faciliter le test, modifiez votre base de données comme suit :
 
 1. Connectez-vous à la base de données de test à l’aide de SSMS.
 
@@ -93,9 +93,9 @@ ALTER DATABASE CURRENT
 ```
 
 
-## Étape 4 : Migrer les tables
+## Étape 4 : Migrer les tables
 
-Vous devez créer et remplir une copie de mémoire optimisée de la table que vous souhaitez tester. Vous pouvez le créer en utilisant soit :
+Vous devez créer et remplir une copie de mémoire optimisée de la table que vous souhaitez tester. Vous pouvez le créer en utilisant soit :
 
 - L’Assistant Optimisation de mémoire pratique en SSMS.
 - T-SQL manuel.
@@ -103,14 +103,14 @@ Vous devez créer et remplir une copie de mémoire optimisée de la table que vo
 
 #### Assistant Optimisation de mémoire en SSMS
 
-Pour utiliser cette option de migration :
+Pour utiliser cette option de migration :
 
 1. Se connecter à la base de données de test avec SSMS.
 
 2. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur la table, puis cliquez sur **Conseiller d’optimisation de mémoire**.
  - L’assistant **Conseiller d’optimiseur de mémoire de table** s’affiche.
 
-3. Dans l’assistant, cliquez sur **Validation de migration** (ou sur le bouton **Suivant**) pour voir si la table possède des fonctionnalités non prises en charge dans les tables à mémoire optimisée. Pour plus d'informations, consultez les pages suivantes :
+3. Dans l’assistant, cliquez sur **Validation de migration** (ou sur le bouton **Suivant**) pour voir si la table possède des fonctionnalités non prises en charge dans les tables à mémoire optimisée. Pour plus d'informations, consultez les pages suivantes :
  - La *liste de vérification d’optimisation de mémoire* dans [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
  - [Constructions Transact-SQL non prises en charge par In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
  - [Migration vers In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx).
@@ -120,7 +120,7 @@ Pour utiliser cette option de migration :
 
 #### T-SQL manuel
 
-Pour utiliser cette option de migration :
+Pour utiliser cette option de migration :
 
 1. Connectez-vous à votre base de données de test à l’aide de SSMS (ou utilitaire similaire).
 
@@ -136,7 +136,7 @@ Pour utiliser cette option de migration :
 
 6. Créez la nouvelle copie de la table de mémoire optimisée si la table en exécutant le script CREATE TABLE modifié.
 
-7. Copiez les données dans votre table mémoire optimisée à l’aide d’INSERT... SELECT * INTO :
+7. Copiez les données dans votre table mémoire optimisée à l’aide d’INSERT... SELECT * INTO :
 	
 ```
 INSERT INTO <new_memory_optimized_table>
@@ -144,18 +144,18 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## Étape 5 (facultative) : migrer les procédures stockées
+## Étape 5 (facultative) : migrer les procédures stockées
 
 La fonctionnalité In-Memory peut également modifier une procédure stockée pour améliorer les performances.
 
 
 ### Considérations relatives à des procédures stockées compilées en mode natif
 
-Une procédure stockée compilée en mode natif doit avoir les options suivantes dans sa clause WITH T-SQL :
+Une procédure stockée compilée en mode natif doit avoir les options suivantes dans sa clause WITH T-SQL :
 
 - NATIVE\_COMPILATION
 
-- SCHEMABINDING : les tables significatives figurant dans la procédure stockée ne peuvent voir leurs définitions modifiées de quelque manière que ce soit susceptible d’affecter la procédure stockée, à moins que vous ne glissiez la procédure stockée.
+- SCHEMABINDING : les tables significatives figurant dans la procédure stockée ne peuvent voir leurs définitions modifiées de quelque manière que ce soit susceptible d’affecter la procédure stockée, à moins que vous ne glissiez la procédure stockée.
 
 
 Un module natif doit utiliser un grand [bloc ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) pour la gestion de transaction. Il n’existe aucun rôle pour une instruction BEGIN TRANSACTION ou ROLLBACK TRANSACTION explicite. Si votre code détecte une violation de règle métier, il peut terminer le bloc atomique avec une instruction [THROW](http://msdn.microsoft.com/library/ee677615.aspx).
@@ -163,7 +163,7 @@ Un module natif doit utiliser un grand [bloc ATOMIC](http://msdn.microsoft.com/l
 
 ### En général, CREATE PROCEDURE compilée en mode natif
 
-En général, le code T-SQL pour créer une procédure stockée compilée en mode natif est similaire au modèle suivant :
+En général, le code T-SQL pour créer une procédure stockée compilée en mode natif est similaire au modèle suivant :
 
 ```
 CREATE PROCEDURE schemaname.procedurename
@@ -178,7 +178,7 @@ CREATE PROCEDURE schemaname.procedurename
 		END;
 ```
 
-- Pour le niveau TRANSACTION\_ISOLATION\_LEVEL, SNAPSHOT est la valeur la plus commune pour la procédure stockée compilée de façon native. Cependant, un sous-ensemble d’autres valeurs est également pris en charge :
+- Pour le niveau TRANSACTION\_ISOLATION\_LEVEL, SNAPSHOT est la valeur la plus commune pour la procédure stockée compilée de façon native. Cependant, un sous-ensemble d’autres valeurs est également pris en charge :
  - REPEATABLE READ
  - SERIALIZABLE
 
@@ -188,7 +188,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 ### Comment migrer une procédure stockée
 
-Les étapes de la migration sont les suivantes :
+Les étapes de la migration sont les suivantes :
 
 
 1. Obtenir le script CREATE PROCEDURE pour la procédure stockée régulière interprétée.
@@ -203,11 +203,11 @@ Les étapes de la migration sont les suivantes :
 5. Exécutez le script CREATE PROCEDURE T-SQL modifié.
 
 
-## Étape 6 : exécuter votre charge de travail dans un test
+## Étape 6 : exécuter votre charge de travail dans un test
 
 L’exécution d’une charge de travail dans votre base de données de test est similaire à la charge de travail qui s’exécute dans votre base de données de production. Cela doit révéler les gains de performances générés par votre utilisation de la fonction In-Memory pour les tables et les procédures stockées.
 
-Les principaux attributs de la charge de travail sont :
+Les principaux attributs de la charge de travail sont :
 
 - Nombre de connexions simultanées.
 
@@ -220,9 +220,9 @@ Pour adapter et exécuter la charge de travail de test, envisagez d’utiliser l
 Pour réduire la latence du réseau, exécutez le test dans la région géographique Azure dans laquelle la base de données existe.
 
 
-## Étape 7 : surveillance post exécution
+## Étape 7 : surveillance post exécution
 
-Veillez à surveiller les effets des performances de vos implémentations In-Memory en production :
+Veillez à surveiller les effets des performances de vos implémentations In-Memory en production :
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md).
 
@@ -237,4 +237,4 @@ Veillez à surveiller les effets des performances de vos implémentations In-Mem
 
 - [Conseil d’optimisation par mémoire](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -28,7 +28,7 @@
 
 Adaptez les performances en augmentant les ressources de calcul et la mémoire pour répondre à l’évolution des besoins de votre charge de travail. Réalisez des économies en réduisant vos ressources pendant les heures creuses ou en suspendant totalement vos ressources de calcul.
 
-Cette collection de tâches utilise le portail Azure pour :
+Cette collection de tâches utilise le portail Azure pour :
 
 - Mise à l’échelle des ressources de calcul
 - Suspension du calcul
@@ -45,9 +45,9 @@ Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestio
 
 ### Prise en main des applets de commande Azure PowerShell
 
-Pour commencer :
+Pour commencer :
 
-1. Ouvrez Azure PowerShell. 
+1. Ouvrez Azure PowerShell.
 2. À l’invite de PowerShell, exécutez les commandes suivantes pour vous connecter à Azure Resource Manager et sélectionnez votre abonnement.
 
     ```PowerShell
@@ -74,9 +74,9 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 
 [AZURE.INCLUDE [Description de la suspension de SQL Data Warehouse](../../includes/sql-data-warehouse-pause-description.md)]
 
-Pour suspendre une base de données, utilisez l’applet de commande [Suspend-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est interrompue. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
+Pour suspendre une base de données, utilisez l’applet de commande [Suspend-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est interrompue. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
 
-> [AZURE.NOTE] Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
+> [AZURE.NOTE] Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -95,9 +95,9 @@ $resultDatabase
 
 ## Reprise du calcul
 
-[AZURE.INCLUDE [Description de la reprise de SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]
+[AZURE.INCLUDE [Description de la reprise de SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]
 
-Pour démarrer une base de données, utilisez l’applet de commande [Resume-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est démarrée. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
+Pour démarrer une base de données, utilisez l’applet de commande [Resume-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est démarrée. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -125,6 +125,7 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
 [Comment installer et configurer Azure PowerShell]: ./powershell-install-configure.md
+[Vue d’ensemble de la gestion du calcul]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,4 +136,4 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

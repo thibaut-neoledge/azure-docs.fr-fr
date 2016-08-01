@@ -23,6 +23,7 @@
 - [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
 - [Portail](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -39,7 +40,7 @@ Votre modèle peut être un fichier local ou un fichier externe disponible par l
 
 ## Étapes à suivre pour le déploiement
 
-Cet article décrit toutes les différentes options disponibles lors du déploiement. Toutefois, très souvent, deux commandes suffisent. Pour commencer le déploiement rapidement, utilisez les commandes suivantes :
+Cet article décrit toutes les différentes options disponibles lors du déploiement. Toutefois, très souvent, deux commandes suffisent. Pour commencer le déploiement rapidement, utilisez les commandes suivantes :
 
     azure group create -n ExampleResourceGroup -l "West US"
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
@@ -63,7 +64,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Basculez vers le module Azure Resource Manager. Vous recevrez la confirmation du nouveau mode.
+3. Basculez vers le module Azure Resource Manager. Vous recevrez la confirmation du nouveau mode.
 
         azure config mode arm
    
@@ -93,7 +94,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
    
      Vous disposez des trois options suivantes pour fournir les valeurs des paramètres :
 
-     1. Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
+     1. Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
 
             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -172,7 +173,7 @@ Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles l
 ## Étapes suivantes
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/virtual-machines-windows-csharp-template.md).
 - Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
-- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
+- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
 - Pour plus d’informations sur l’utilisation d’une référence Key Vault pour transmettre des valeurs sécurisées, consultez [Transmettre des valeurs sécurisées pendant le déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
