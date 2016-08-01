@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="07/18/2016"
 	ms.author="juliako;cenkdin"/>
 
 
@@ -23,22 +23,22 @@
 - [.NET](media-services-dotnet-dynamic-manifest.md)
 - [REST](media-services-rest-dynamic-manifest.md)
 
-À partir de la version 2.11, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques** créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
+À partir de la version 2.11, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques** créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
 Pour plus d'informations sur les filtres et le manifeste dynamique, consultez [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md).
 
 Cette rubrique montre comment utiliser le SDK .NET de Media Services pour créer, mettre à jour et supprimer des filtres.
 
 
-Remarque : si vous mettez à jour un filtre, il peut falloir jusqu’à 2 minutes pour que le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de ce filtre (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ce filtre peut entraîner des défaillances du lecteur. Il est recommandé d'effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
+Remarque : si vous mettez à jour un filtre, il peut falloir jusqu’à 2 minutes pour que le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de ce filtre (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ce filtre peut entraîner des défaillances du lecteur. Il est recommandé d'effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
 
 ##Types utilisés pour créer des filtres
 
-Les types suivants sont utilisés lors de la création de filtres :
+Les types suivants sont utilisés lors de la création de filtres :
 
-- **IStreamingFilter**. Ce type est basé sur l’API REST suivante : [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-- **IStreamingAssetFilter**. Ce type est basé sur l’API REST suivante : [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-- **PresentationTimeRange**. Ce type est basé sur l’API REST suivante : [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
+- **IStreamingFilter**. Ce type est basé sur l’API REST suivante : [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
+- **IStreamingAssetFilter**. Ce type est basé sur l’API REST suivante : [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
+- **PresentationTimeRange**. Ce type est basé sur l’API REST suivante : [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
 - **FilterTrackSelectStatement** et **IFilterTrackPropertyCondition**. Ces types sont basés sur les API REST suivantes [FilterTrackSelect et FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
 
 
@@ -116,15 +116,15 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
-**Apple HTTP Live Streaming (HLS) V4**
+**Apple HTTP Live Streaming (HLS) V4**
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
 
-**Apple HTTP Live Streaming (HLS) V3**
+**Apple HTTP Live Streaming (HLS) V3**
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
-**Smooth Streaming**
+**Smooth Streaming**
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
@@ -148,4 +148,4 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

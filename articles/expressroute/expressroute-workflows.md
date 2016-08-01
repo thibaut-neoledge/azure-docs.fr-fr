@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
@@ -32,7 +32,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 
 	-  Activer l'homologation privée Azure : vous devez activer cette homologation pour vous connecter aux machines virtuelles/services de cloud déployés au sein de réseaux virtuels.
 	-  Activer l'homologation publique Azure : vous devez activer l'homologation publique Azure si vous souhaitez vous connecter à des services Azure hébergés sur des adresses IP publiques. Cette étape est nécessaire pour accéder aux ressources Azure si vous avez choisi d'activer le routage par défaut pour l'homologation privée Azure.
-	-  Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et CRM Online. 
+	-  Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et CRM Online.
 	
 	>[AZURE.IMPORTANT] Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
 
@@ -120,4 +120,4 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 	- [Configuration du routage](expressroute-howto-routing-arm.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

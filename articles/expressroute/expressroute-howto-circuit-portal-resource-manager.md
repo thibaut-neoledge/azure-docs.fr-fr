@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/15/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Création et modification d’un circuit ExpressRoute
@@ -79,7 +79,7 @@ Vous pouvez afficher tous les circuits que vous avez créés en sélectionnant *
 
 Dans ce panneau, **Statut du fournisseur** fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service. **Statut du circuit** indique l’état du côté Microsoft. Pour plus d’informations sur les états d’approvisionnement des circuits, consultez l’article [Flux de travail](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
-Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
+Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
 
 Statu du fournisseur : Non approvisionné<BR> Statut du circuit : Activé
 
@@ -89,7 +89,7 @@ Le circuit passe à l’état suivant quand le fournisseur de connectivité est 
 
 Statut du fournisseur : En cours d’approvisionnement <BR> Statut du circuit : Activé
 
-Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
+Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
 
 Statut du fournisseur : Approvisionné<BR> Statut du circuit : Activé
 
@@ -138,7 +138,7 @@ Pour plus d’informations sur les limites et les limitations, reportez-vous au 
 
 ## Suppression et annulation du provisionnement d'un circuit ExpressRoute
 
-Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer**. Notez les points suivants :
+Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer**. Notez les points suivants :
 
 - Vous devez dissocier tous les réseaux virtuels du circuit ExpressRoute. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
 
@@ -148,9 +148,9 @@ Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **
 
 ## Étapes suivantes
 
-Après avoir créé votre circuit, effectuez les opérations suivantes :
+Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 - [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 - [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="07/19/2016"
     ms.author="sstein"/>
 
 # Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure
@@ -42,7 +42,7 @@ La base de données secondaire peut être basculée en base de données primaire
 
 La commande fait immédiatement basculer la base de données secondaire vers le rôle primaire.
 
-Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales.
+Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales.
 
 >[AZURE.NOTE] Si la base de données primaire est en ligne et valide des transactions lorsque la commande est émise, une perte de données peut se produire.
 
@@ -61,4 +61,4 @@ Il existe une courte période pendant laquelle les deux bases de données ne son
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

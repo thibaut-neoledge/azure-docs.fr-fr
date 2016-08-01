@@ -23,6 +23,7 @@
 - [Portail](azure-portal/resource-group-portal.md)
 - [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -131,4 +132,4 @@ La suppression d’un groupe de ressources supprime toutes les ressources qu’i
 - Pour résoudre des problèmes liés à un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le Portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Pour déployer des ressources avec le portail, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

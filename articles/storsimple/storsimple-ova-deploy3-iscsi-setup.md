@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/20/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
 
@@ -43,7 +43,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 -  [Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 -  [Étape 2 : Finalisation de la configuration requise pour l’appareil](#step-2-complete-the-required-device-setup)
 -  [Étape 3 : Ajout d’un volume](#step-3-add-a-volume)
--  [Étape 4 : Montage, initialisation et formatage d’un volume](#step-4-mount-initialize-and-format-a-volume)  
+-  [Étape 4 : Montage, initialisation et formatage d’un volume](#step-4-mount-initialize-and-format-a-volume)
 
 ## Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil 
 
@@ -79,7 +79,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     2. Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres réseau.
 
-6. Sur la page **Paramètres de l’appareil** :
+6. Sur la page **Paramètres de l’appareil** :
 
     1. Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
 
@@ -87,16 +87,13 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     3. Indiquez si vous souhaitez associer cet appareil à un domaine. Si votre appareil est un serveur iSCSI, l’association à un domaine est facultative. Si vous décidez de ne pas associer votre serveur iSCSI à un domaine, cliquez sur **Appliquer**, attendez que les paramètres soient appliqués, puis passez à l'étape suivante.
 
-        Si vous souhaitez associer l'appareil à un domaine. Entrez un **nom de domaine** (voir ci-dessous).
+        Si vous souhaitez associer l'appareil à un domaine. Entrez un **nom de domaine**, puis cliquez sur **Appliquer**.
 
-    4. Cliquez sur **Apply**.
+        > [AZURE.NOTE] Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
 
     5. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
-        
-	   	> [AZURE.NOTE] Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
-	   
 
     6. Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres de l’appareil.
  
@@ -104,9 +101,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     ![configuration du proxy web](./media/storsimple-ova-deploy3-iscsi-setup/image9.png)
 
-    Dans la page **Proxy web** :
+    Dans la page **Proxy web** :
 
-    1. Indiquez l’**URL du proxy web** au format suivant : *adressehttp://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+    1. Indiquez **l’URL du proxy web** au format suivant : *adressehttp://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
 
     2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
 
@@ -114,7 +111,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres de proxy web configurés.
  
-8. (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
+8. (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
 
     ![paramètres d’heure](./media/storsimple-ova-deploy3-iscsi-setup/image10.png)
 
@@ -144,7 +141,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 ## Étape 2 : Finalisation de la configuration requise pour l’appareil
 
-Pour finaliser la configuration minimale de votre appareil StorSimple, vous devez :
+Pour finaliser la configuration minimale de votre appareil StorSimple, vous devez :
 
 - Sélectionner un compte de stockage à associer à votre appareil.
 
@@ -196,17 +193,17 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
         D’autre part, la configuration d’un volume à plusieurs niveaux est légère, et sa création peut être très rapide. Lorsque vous créez un volume à plusieurs niveaux, environ 10 % de l'espace sont configurés au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n'avez plus d'espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux (car les 10 % ne seront pas disponibles).
 
-    4. Indiquez la capacité allouée pour votre volume. Notez que la capacité spécifiée doit être inférieure à la capacité disponible. Si vous créez un volume à plusieurs niveaux, la taille doit être comprise entre 500 Go et 20 To. Pour un volume épinglé localement, spécifiez une taille de volume comprise entre 50 Go et 2 To. Utilisez la capacité disponible comme guide pour configurer un volume. Si la capacité locale disponible est de 0 Go, vous ne pourrez pas configurer de volumes locaux ou à plusieurs niveaux.
+    4. Indiquez la capacité allouée pour votre volume. Notez que la capacité spécifiée doit être inférieure à la capacité disponible. Si vous créez un volume à plusieurs niveaux, la taille doit être comprise entre 500 Go et 5 To. Pour un volume épinglé localement, spécifiez une taille de volume comprise entre 50 Go et 500 Go. Utilisez la capacité disponible comme guide pour configurer un volume. Si la capacité locale disponible est de 0 Go, vous ne pourrez pas configurer de volumes locaux ou à plusieurs niveaux.
 
         ![paramètres de base](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
 
     5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-ova-deploy3-iscsi-setup/image18.png) pour passer à la page suivante.
 
-3. Dans la page **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d'accès (ACR) :
+3. Dans la page **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d'accès (ACR) :
 
     1. Saisissez un **Nom** pour votre ACR.
 
-    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne possédez pas le nom IQN, accédez à l’[Annexe A : Obtention du nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
+    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne possédez pas le nom IQN, accédez à [l’Annexe A : Obtention du nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
 
     3. Nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer une sauvegarde par défaut pour ce volume**. La sauvegarde par défaut crée une stratégie qui s’exécute à 22h30 chaque jour (heure de l’appareil) et crée un instantané de cloud de ce volume.
 
@@ -222,7 +219,7 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
         ![](./media/storsimple-ova-deploy3-iscsi-setup/image21.png)
 
-## Étape 4 : Montage, initialisation et formatage d’un volume
+## Étape 4 : Montage, initialisation et formatage d’un volume
 
 Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple sur un hôte Windows Server.
 
@@ -236,7 +233,7 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 
 3. Dans la boîte de dialogue **Détecter un portail cible**, indiquez l’adresse IP de votre interface réseau compatible iSCSI, puis cliquez sur **OK**.
 
-    ![Adresse IP](./media/storsimple-ova-deploy3-iscsi-setup/image23.png)
+    ![Adresse IP](./media/storsimple-ova-deploy3-iscsi-setup/image23.png)
 
 4. Dans la fenêtre **Propriétés de l’initiateur iSCSI**, sous l’onglet **Cibles**, recherchez les **cibles découvertes**. (Chaque volume sera une cible découverte). L’appareil doit apparaître comme **inactif**.
 
@@ -284,11 +281,11 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 
 ## Étapes suivantes
 
-Découvrez comment [utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Découvrez comment utiliser l’interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Annexe A : Obtention du nom qualifié d’un hôte Windows Server
 
-Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Windows exécutant Windows Server 2012.
+Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Windows exécutant Windows Server 2012.
 
 #### Pour obtenir le nom qualifié d’un hôte Windows
 
@@ -303,4 +300,4 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

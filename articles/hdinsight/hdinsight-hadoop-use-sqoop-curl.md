@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utiliser Hadoop Sqoop avec Curl dans HDInsight | Microsoft Azure"
+   pageTitle="Utiliser Hadoop Sqoop avec Curl dans HDInsight | Microsoft Azure"
    description="Découvrez comment transmettre à distance des travaux Sqoop vers HDInsight à l’aide de Curl."
    services="hdinsight"
    documentationCenter=""
@@ -29,7 +29,7 @@ Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant d
 
 ##Composants requis
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * Un cluster Hadoop sur HDInsight (Linux ou Windows)
 
@@ -49,23 +49,23 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
-    Vous devez recevoir une réponse ayant l'aspect suivant :
+    Vous devez recevoir une réponse ayant l'aspect suivant :
 
         {"status":"ok","version":"v1"}
 
-    Les paramètres utilisés dans cette commande sont les suivants :
+    Les paramètres utilisés dans cette commande sont les suivants :
 
     * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
     * **-G** : indique qu’il s’agit d’une demande GET.
 
-    Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status**, indique que la demande doit renvoyer le statut de WebHCat (également appelé Templeton) au serveur.
+    Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status, indique que la demande doit renvoyer le statut de WebHCat (également appelé Templeton) au serveur.
 
 2. Pour envoyer un travail Sqoop, utilisez la commande suivante :
 
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
 
-    Les paramètres utilisés dans cette commande sont les suivants :
+    Les paramètres utilisés dans cette commande sont les suivants :
 
     * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
 
@@ -85,20 +85,25 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 	Si le travail est terminé, l’état est **TERMINÉ**.
 
-    > [AZURE.NOTE] Cette demande Curl retourne un document JSON (JavaScript Object Notation) avec des informations sur la tâche ; jq est utilisé pour récupérer uniquement la valeur de statut.
+    > [AZURE.NOTE] Cette demande Curl retourne un document JSON (JavaScript Object Notation) avec des informations sur la tâche ; jq est utilisé pour récupérer uniquement la valeur de statut.
 
-4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l'emplacement du fichier de sortie ; dans notre cas, **wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
+4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, **wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
-    Vous pouvez répertorier et télécharger ces fichiers à l’aide de l’[interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
+    Vous pouvez répertorier et télécharger ces fichiers à l’aide de l’[interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
 
 		azure storage blob list <container-name> example/curl
 
-	Pour télécharger un fichier, utilisez ce qui suit :
+	Pour télécharger un fichier, utilisez ce qui suit :
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
 	> [AZURE.NOTE] Vous devez spécifier le nom du compte de stockage qui contient l’objet blob à l’aide des paramètres `-a` et `-k` ou définir les variables d’environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY**. Consultez <a href="hdinsight-upload-data.md" target="\_blank" pour plus d'informations.
 
+##Limites
+
+* Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou la base de données SQL Azure ne prend pas en charge les insertions en bloc.
+
+* Traitement par lots : avec HDInsight sous Linux, lorsque vous utilisez le commutateur `-batch` pour effectuer des insertions, Sqoop effectue plusieurs insertions plutôt qu’un traitement par lots des opérations d’insertion.
 
 ##Résumé
 
@@ -108,11 +113,11 @@ Pour plus d’informations sur l’interface REST utilisée dans cet article, co
 
 ##Étapes suivantes
 
-Pour obtenir des informations générales sur Hive avec HDInsight :
+Pour obtenir des informations générales sur Hive avec HDInsight :
 
 * [Utilisation de Sqoop avec Hadoop dans HDInsight](hdinsight-use-sqoop.md)
 
-Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
+Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
@@ -145,4 +150,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

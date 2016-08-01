@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 #Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux
@@ -22,7 +22,7 @@ Même si HDInsight Windows représente un moyen facile d’utiliser Hadoop dans 
 
 Ce document fournit des détails sur les différences entre HDInsight sur Windows et Linux ainsi que des conseils sur la migration de charges de travail existantes vers un cluster Linux.
 
-> [AZURE.NOTE] Ubuntu 12.04.05 LTS est la distribution Linux utilisée pour les clusters HDInsight sous Linux.
+> [AZURE.NOTE] Les clusters HDInsight utilisent le support à long terme (long term support, LTS) Ubuntu du système d’exploitation pour les nœuds du cluster. HDInsight 3.3 et 3.4 clusters utilisent Ubuntu 14.0.4 LTS. Les versions antérieures de HDInsight utilisent Ubuntu 12.04.05 LTS.
 
 ## Tâches de migration
 
@@ -69,7 +69,7 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 
 3. Dans le panneau Configuration facultative, sélectionnez **Comptes de stockage liés**.
 
-4. Sélectionnez **Ajouter une clé de stockage** puis sélectionnez le compte de stockage renvoyé par le script PowerShell à l’étape 1, quand vous y êtes invité. Cliquez sur **Sélectionner** dans chaque panneau pour les fermer. Enfin, créez le cluster.
+4. Sélectionnez **Ajouter une clé de stockage** puis sélectionnez le compte de stockage renvoyé par le script PowerShell à l’étape 1, quand vous y êtes invité. Cliquez sur **Sélectionner** dans chaque panneau pour les fermer. Enfin, créez le cluster.
 
 5. Une fois le cluster créé, connectez-vous à celui-ci à l’aide de **SSH**. Si l’utilisation de SSH avec HDInsight ne vous est pas familière, consultez l’un des articles suivants.
 
@@ -77,7 +77,7 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 
     * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-6. Dans la session SSH, utilisez la commande suivante pour copier les fichiers à partir du compte de stockage lié vers le nouveau compte de stockage par défaut. Remplacez CONTAINER et ACCOUNT par les informations sur le conteneur et le compte retournées par le script PowerShell à l’étape 1. Remplacez le chemin d’accès aux données par le chemin d’accès à un fichier de données.
+6. Dans la session SSH, utilisez la commande suivante pour copier les fichiers à partir du compte de stockage lié vers le nouveau compte de stockage par défaut. Remplacez CONTAINER et ACCOUNT par les informations sur le conteneur et le compte retournées par le script PowerShell à l’étape 1. Remplacez le chemin d’accès aux données par le chemin d’accès à un fichier de données.
 
         hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
@@ -254,4 +254,4 @@ Si vous savez que les scripts ne contiennent pas de chaînes avec des caractère
 
 -   [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Restauration d’un Azure SQL Data Warehouse (API REST)
@@ -28,7 +28,7 @@ Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse 
 
 ## Avant de commencer
 
-**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL logique. Ce serveur logique a une limite de capacité mesurée en DTU. Avant de pouvoir restaurer un SQL Data Warehouse, il est important de s’assurer que le serveur SQL logique qui héberge votre base de données a une capacité de DTU suffisante pour la base de données en cours de restauration. Consultez ce blog pour plus d’informations sur [l’affichage et l’augmentation du quota de DTU][].
+**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Avant de pouvoir restaurer un SQL Data Warehouse, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change][] \(Demander une modification du quota DTU).
 
 ## Restauration d’une base de données active ou en pause
 
@@ -38,18 +38,18 @@ Pour restaurer une base de données :
 2. Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][].
 3. Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][].
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
 
 ## restauration d’une base de données supprimée.
 
-Pour restaurer une base de données supprimée :
+Pour restaurer une base de données supprimée :
 
 1.	Obtenez la liste de toutes vos bases de données supprimées pouvant être restaurées en suivant la procédure [Liste des bases de données supprimées pouvant être restaurées][].
 2.	Obtenez des informations détaillées sur la base de données que vous voulez restaurer en suivant la procédure [Obtention de base de données supprimée pouvant être restaurée][].
 3.	Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][].
 4.	Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][].
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] (Finaliser une base de données récupérée).
+>[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finalize a recovered database][] \(Finaliser une base de données récupérée).
 
 
 ## Étapes suivantes
@@ -59,6 +59,7 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Article references-->
 [vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Finalize a recovered database]: ./sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: ./powershell-install-configure.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
@@ -73,12 +74,8 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [Liste des bases de données supprimées pouvant être restaurées]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
-
-<!--Blog references-->
-[l’affichage et l’augmentation du quota de DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
-
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

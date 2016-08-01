@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement classique.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -88,8 +88,8 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 5. Exécutez l'applet de commande **`Set-AzureSubnetRouteTable`** pour associer la table de routage créée ci-dessus au sous-réseau **Backend**.
 
 		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-			-SubnetName FrontEnd `
-			-RouteTableName UDR-FrontEnd
+			-SubnetName BackEnd `
+			-RouteTableName UDR-BackEnd
 
 ## Activer le transfert IP sur la machine virtuelle FW1
 Pour activer le transfert IP sur la machine virtuelle FW1, suivez les étapes ci-dessous.
@@ -108,4 +108,4 @@ Pour activer le transfert IP sur la machine virtuelle FW1, suivez les étapes ci
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

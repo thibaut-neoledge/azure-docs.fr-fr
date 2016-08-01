@@ -19,7 +19,7 @@
 
 # Notifications relatives aux ressources DocumentDB nouvelles ou modifiées à l’aide de Logic Apps
 
-L’idée de cet article m’est venue à la lecture d’une question figurant sur l’un des forums de la communauté DocumentDB. La question était **DocumentDB prend-il en charge les notifications relatives aux ressources modifiées** ?
+L’idée de cet article m’est venue à la lecture d’une question figurant sur l’un des forums de la communauté Azure DocumentDB. La question était **DocumentDB prend-il en charge les notifications relatives aux ressources modifiées** ?
 
 J’ai travaillé de nombreuses années sur BizTalk Server, et il s’agit d’un scénario très courant dans l’utilisation de l’[adaptateur métier WCF](https://msdn.microsoft.com/library/bb798128.aspx). J’ai donc décidé de voir si je pouvais dupliquer cette fonctionnalité dans DocumentDB pour les documents nouveaux et/ou modifiés.
 
@@ -52,7 +52,7 @@ Si vous examinez la figure suivante, il existe plusieurs étapes dans le flux de
 
 ![Processus de la logique principale](./media/documentdb-change-notification/main-logic-app-process.png)
 
-La procédure comporte trois étapes :
+La procédure comporte trois étapes :
 
 1. Vous devez obtenir la date/heure UTC actuelles à partir d’une application API. La valeur par défaut est 1 heure avant.
 
@@ -1156,4 +1156,4 @@ Veuillez télécharger et utiliser le code de l’application logique fourni sur
 
 Pour en savoir plus sur DocumentDB, consultez le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) associé.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

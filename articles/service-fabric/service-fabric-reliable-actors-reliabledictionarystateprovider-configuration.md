@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="sumukhs"/>
 
 # Configuration de Reliable Actors - ReliableDictionaryActorStateProvider
@@ -29,17 +29,17 @@ Il existe également des paramètres globaux qui affectent la configuration de R
 
 La configuration globale est spécifiée dans le manifeste de cluster sous la section KtlLogger. Elle permet la configuration de l’emplacement et de la taille du journal partagé ainsi que des limites de mémoire globales utilisées par l’enregistreur d’événements. Notez que les modifications apportées au manifeste de cluster affectent l’ensemble des services qui utilisent ReliableDictionaryActorStateProvider et des services fiables avec état.
 
-Le manifeste de cluster est un fichier XML simple qui contient les paramètres et les configurations qui s’appliquent à l’ensemble des nœuds et des services du cluster. Le fichier est généralement appelé ClusterManifest.xml. Vous pouvez voir le manifeste de cluster de votre cluster à l’aide de la commande PowerShell Get-ServiceFabricClusterManifest.
+Le manifeste de cluster est un fichier XML simple qui contient les paramètres et les configurations qui s’appliquent à l’ensemble des nœuds et des services du cluster. Le fichier a généralement pour nom ClusterManifest.xml. Vous pouvez voir le manifeste de cluster de votre cluster à l’aide de la commande PowerShell Get-ServiceFabricClusterManifest.
 
 ### Noms des configurations
 
 |Nom|Unité|Valeur par défaut|Remarques|
 |----|----|-------------|-------|
-|WriteBufferMemoryPoolMinimumInKB|Kilo-octets|8388608|Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque.|
-|WriteBufferMemoryPoolMaximumInKB|Kilo-octets|Aucune limite|Taille maximale que peut atteindre le pool de mémoire tampon d’écriture de l’enregistreur d’événements.|
+|WriteBufferMemoryPoolMinimumInKB|Ko|8388608|Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque.|
+|WriteBufferMemoryPoolMaximumInKB|Ko|Aucune limite|Taille maximale que peut atteindre le pool de mémoire tampon d’écriture de l’enregistreur d’événements.|
 |SharedLogId|GUID|""|Spécifie un GUID unique à utiliser pour identifier le fichier journal partagé par défaut utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogId dans leur configuration de service spécifique. Si SharedLogId est spécifié, SharedLogPath doit l’être aussi.|
 |SharedLogPath|Nom de chemin complet|""|Spécifie le chemin d’accès complet du fichier journal partagé utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogPath dans leur configuration de service spécifique. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi.|
-|SharedLogSizeInMB|Mégaoctets|8 192|Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048.|
+|SharedLogSizeInMB|Mo|8 192|Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048.|
 
 ### Exemple de section du manifeste de cluster
 ```xml
@@ -75,7 +75,7 @@ Les configurations de réplicateur servent à configurer le réplicateur en char
 
 |Nom|Unité|Valeur par défaut|Remarques|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Secondes|0,05|Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse.||
+|BatchAcknowledgementInterval|Secondes|0\.015|Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse.||
 |ReplicatorEndpoint|N/A|Aucune valeur par défaut (paramètre obligatoire)|Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Pour en savoir plus sur la définition de ressources de point de terminaison dans le manifeste de service, consultez [Ressources du manifeste de service](service-fabric-service-manifest-resources.md). |
 |MaxReplicationMessageSize|Octets|50 Mo|Taille maximale des données de réplication pouvant être transmises dans un même message.|
 |MaxPrimaryReplicationQueueSize|Nombre d'opérations|8 192|Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2.|
@@ -120,4 +120,4 @@ Le paramètre MaxRecordSizeInKB définit la taille maximale d’un enregistremen
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble pour permettre à un service d’utiliser un journal partagé distinct du journal partagé par défaut pour le nœud. Pour plus d'efficacité, vous devriez spécifier autant de services que possible dans le même journal partagé. Les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention des mouvements de la tête. Ces valeurs ne doivent être modifiées qu’en de rares occasions.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

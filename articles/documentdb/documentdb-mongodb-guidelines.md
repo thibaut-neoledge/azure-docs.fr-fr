@@ -18,7 +18,7 @@
 
 # Directives de développement pour les comptes DocumentDB prenant en charge le protocole MongoDB (version préliminaire)
 
-Vous pouvez communiquer avec DocumentDB via l’un des [pilotes](https://docs.mongodb.org/ecosystem/drivers/) du client MongoDB open source. La prise en charge du protocole pour MongoDB suppose que les pilotes du client MongoDB communiquent avec un point de terminaison serveur MongoDB 2.6 ou version ultérieure. DocumentDB prend en charge cette communication en adhérant au [protocole filaire](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) MongoDB version 2.6 (notez que le protocole filaire version 3.2 est presque entièrement pris en charge, mais que certaines expériences client telles que les sessions shell MongoDB 3.2 peuvent indiquer une « dégradation en mode ’hérité’ » »).
+Vous pouvez communiquer avec Azure DocumentDB par le biais de l’un des [pilotes](https://docs.mongodb.org/ecosystem/drivers/) du client MongoDB open source. La prise en charge du protocole pour MongoDB suppose que les pilotes du client MongoDB communiquent avec un point de terminaison serveur MongoDB 2.6 ou version ultérieure. DocumentDB prend en charge cette communication en adhérant au [protocole filaire](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) MongoDB version 2.6 (notez que le protocole filaire version 3.2 est presque entièrement pris en charge, mais que certaines expériences client telles que les sessions shell MongoDB 3.2 peuvent indiquer une « dégradation en mode ’hérité’ » »).
 
 DocumentDB prend en charge les principales fonctions d’API MongoDB pour créer, lire, mettre à jour et supprimer (CRUD, Create, Read, Update, Delete) des données et interroger la base de données. Les fonctionnalités mises en œuvre ont été classées par priorité en fonction des besoins des plates-formes, infrastructures, outils et modèles d’application courants.
 
@@ -26,7 +26,7 @@ DocumentDB prend en charge les principales fonctions d’API MongoDB pour créer
 
 > [AZURE.IMPORTANT] DocumentDB utilise un débit réservé au niveau de la collection pour garantir des performances prévisibles. Les collections contenues dans DocumentDB sont, par conséquent, des entités facturables.
 
-Les réservations de performances sont appliquées au niveau de la collection afin que les applications puissent ajuster les performances au niveau le plus bas des conteneurs de données du système. Le coût d’une collection est donc déterminé par le débit défini pour la collection, mesuré en unités de demande par seconde, avec le stockage total consommé en gigaoctets. Le débit prévu peut être ajusté tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. Pour plus d’informations, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
+Les réservations de performances sont appliquées au niveau de la collection afin que les applications puissent ajuster les performances au niveau le plus bas des conteneurs de données du système. Le coût d’une collection est donc déterminé par le débit défini pour la collection, mesuré en unités de demande par seconde, avec le stockage total consommé en gigaoctets. Le débit prévu peut être ajusté tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. Pour plus d’informations, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
 
 Les collections DocumentDB prenant en charge le protocole MongoDB sont, par défaut, créées au niveau de tarification Standard avec 1 000 unités de demande par seconde de débit approvisionné. Vous pouvez ajuster le débit approvisionné de chacune de vos collections, comme décrit dans la rubrique [Modification des niveaux de performances à l’aide du portail Azure](documentdb-performance-levels.md#changing-performance-levels-using-the-azure-portal).
 
@@ -100,4 +100,4 @@ Diagnostic|listDatabases, collStats, dbStats| |Tout le reste
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

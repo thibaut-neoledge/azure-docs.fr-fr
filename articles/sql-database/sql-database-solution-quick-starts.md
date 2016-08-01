@@ -52,8 +52,12 @@ Cet exemple présente les modifications apportées à une application Entity Fra
 
 Cet exemple est une application web multi-locataires, appelée Surveys, qui permet aux utilisateurs de créer des enquêtes en ligne. L’exemple illustre certains points clés pour la gestion des identités utilisateur dans une application multi-locataires, notamment l’inscription, l’authentification, l’autorisation et les rôles d’application. Pour exécuter cet exemple, consultez la rubrique concernant [l’exécution de l’exemple d’application Tailspin Surveys](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md).
 
+## Application de démonstration Contoso Clinic
+
+Cet exemple présente les fonctionnalités de sécurité d’Azure SQL DB (V12). Pour exécuter cet exemple, consultez [Application de démonstration Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
+
 ## Étapes suivantes
 
 [Exploration des didacticiels relatifs à la base de données SQL Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

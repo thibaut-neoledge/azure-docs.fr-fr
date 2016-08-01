@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Exemples de configuration de routeur pour configurer et gérer des NAT
@@ -50,22 +50,22 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
 
 ### Configuration PAT pour le trafic de Microsoft au réseau client
 
-#### Interfaces et sens :
+#### Interfaces et sens :
 	Source Interface (where the traffic enters the ASA): inside
 	Destination Interface (where the traffic exits the ASA): outside
 
-#### Configuration :
-Pool NAT :
+#### Configuration :
+Pool NAT :
 
 	object network outbound-PAT
 		host <NAT-IP>
 
-Serveur cible :
+Serveur cible :
 
 	object network Customer-Network
 		network-object <IP> <Subnet-Mask>
 
-Groupe d’objets pour les adresses IP de clients
+Groupe d’objets pour les adresses IP de clients
 
 	object-group network MSFT-Network-1
 		network-object <MSFT-IP> <Subnet-Mask>
@@ -73,7 +73,7 @@ Groupe d’objets pour les adresses IP de clients
 	object-group network MSFT-PAT-Networks
 		network-object object MSFT-Network-1
 
-Commandes NAT :
+Commandes NAT :
 
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
@@ -319,4 +319,4 @@ Consultez les exemples de la page [Exemples de configuration de routage](express
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,14 +13,14 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="02/18/2016" 
+ms.date="07/14/2016" 
 ms.author="eugenesh" />
 
 #Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)#
 
-> [AZURE.NOTE] Cet article décrit les indexeurs dans la version [2015-02-28-Preview](./search-api-2015-02-28-preview). Cette version de l'API ajoute un indexeur de stockage d’objets blob Azure avec extraction des documents, ainsi que d’autres améliorations.
+> [AZURE.NOTE] Cet article décrit les indexeurs dans la version [API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Cette version de l'API ajoute des versions préliminaires d’un indexeur de stockage d’objets blob Azure avec extraction des documents et un indexeur de stockage de tables Azure, ainsi que d’autres améliorations. L’API prend également en charge les indexeurs en disponibilité générale (GA), y compris les indexeurs pour base de données SQL Azure, SQL Server sur des machines virtuelles Azure et Azure DocumentDB.
 
-## Vue d’ensemble ##
+## Vue d'ensemble ##
 
 Azure Search peut s'intégrer directement à des sources de données courantes, ce qui évite d'avoir à écrire du code pour indexer vos données. Pour cela, vous pouvez appeler l'API Azure Search pour créer et gérer des **indexeurs** et des **sources de données**.
 
@@ -28,7 +28,7 @@ Un **indexeur** est une ressource qui connecte des sources de données à des in
 
 - effectuer une copie unique des données pour remplir un index ;
 - synchroniser un index avec les modifications apportées à la source de données selon une planification. La planification fait partie de la définition de l'indexeur ;
-- appeler à la demande pour mettre à jour un index en fonction des besoins. 
+- appeler à la demande pour mettre à jour un index en fonction des besoins.
 
 Un **indexeur** est utile lorsque vous souhaitez mettre un index régulièrement à jour. Vous pouvez configurer une planification incluse dans le cadre d'une définition d'indexeur, ou l'exécuter à la demande à l'aide de la commande [Exécuter l'indexeur](#RunIndexer)
 
@@ -36,8 +36,8 @@ Une **source de données** spécifie les données à indexer, les informations d
 
 Les sources de données actuellement prises en charge sont les suivantes :
 
-- **Base de données Azure SQL** et **SQL Server sur les machines virtuelles Azure**. Pour obtenir une procédure pas à pas ciblée, consultez [cet article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
-- **Azure DocumentDB**. Pour obtenir une procédure pas à pas ciblée, consultez [cet article](../documentdb/documentdb-search-indexer). 
+- **Base de données Azure SQL** et **SQL Server sur les machines virtuelles Azure**. Pour obtenir une procédure pas à pas ciblée, consultez [cet article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+- **Azure DocumentDB**. Pour obtenir une procédure pas à pas ciblée, consultez [cet article](../documentdb/documentdb-search-indexer.md).
 - **Stockage d'objets blob azure**, notamment les formats de document suivants : Microsoft Office (DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP et fichiers texte brut (y compris JSON). Pour obtenir une procédure pas à pas ciblée, consultez [cet article](search-howto-indexing-azure-blob-storage.md).
 	 
 Nous envisageons d'ajouter une prise en charge de sources de données supplémentaires à l'avenir. Pour nous aider à classer ces décisions par ordre de priorité, indiquez vos commentaires sur le [forum des commentaires Azure Search](http://feedback.azure.com/forums/263029-azure-search).
@@ -77,7 +77,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de source
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**Remarque**: le nombre maximal de sources de données que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 sources de données. Le service standard autorise 50 sources de données. Pour plus d’informations, consultez [Limites de service](search-limits-quotas-capacity.md).
+**Remarque** : le nombre maximal de sources de données que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 sources de données. Le service standard autorise 50 sources de données. Pour plus d’informations, consultez [Limites de service](search-limits-quotas-capacity.md).
 
 **Requête**
 
@@ -85,21 +85,20 @@ Le protocole HTTPS est requis pour toutes les requêtes de service. La requête 
 
 Le nom de source de données doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom de source de données peut comprendre des lettres ou chiffres quelconques, ainsi que des tirets (non consécutifs). Pour en savoir plus, consultez [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
-Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`.
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de type chaîne de caractères, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de type chaîne de caractères, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Pour obtenir le nom du service et l'en-tête `api-key`, consultez votre tableau de bord de service dans le [portail de gestion Azure](https://portal.azure.com/). Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le [portail Azure](https://portal.azure.com/). Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Search dans le portail](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Syntaxe du corps de la requête**
 
 Le corps de la requête contient une définition de source de données, qui inclut le type de la source de données, des informations d'identification pour lire les données, ainsi que des stratégies facultatives de détection des modifications et suppressions de données, qui permettent d'identifier efficacement les données modifiées ou supprimées dans la source de données quand celle-ci est utilisée avec un indexeur planifié à intervalles réguliers.
-
 
 La syntaxe de structuration de la charge utile de la requête est la suivante. Vous trouverez un exemple de requête dans cette rubrique.
 
@@ -116,24 +115,24 @@ La syntaxe de structuration de la charge utile de la requête est la suivante. V
 La requête peut contenir les propriétés suivantes :
 
 - `name` : obligatoire. Nom de la source de données. Un nom de source de données doit uniquement contenir des lettres minuscules, des chiffres ou des tirets, ne peut pas commencer ni se terminer par des tirets et est limité à 128 caractères.
-- `description` : une description facultative. 
+- `description` : une description facultative.
 - `type` : obligatoire. Doit être de l'un des types de sources de données pris en charge :
 	- `azuresql` - Base de données Azure SQL ou SQL Server sur les machines virtuelles Azure
 	- `documentdb` - Azure DocumentDB
 	- `azureblob` - Stockage des objets blob
 - `credentials` :
-	- La propriété `connectionString` obligatoire spécifie la chaîne de connexion pour la source de données. Le format de la chaîne de connexion dépend du type de source de données : 
+	- La propriété `connectionString` obligatoire spécifie la chaîne de connexion pour la source de données. Le format de la chaîne de connexion dépend du type de source de données :
 		- Pour Azure SQL, il s'agit de la chaîne de connexion SQL Server habituelle. Si vous utilisez le portail pour obtenir la chaîne de connexion, sélectionnez l'option `ADO.NET connection string`.
-		- Pour DocumentDB, la chaîne de connexion doit avoir le format suivant : `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Toutes les valeurs sont obligatoires. Elles sont disponibles sur le [Portail Azure](https://portal.azure.com/).  
-		- Pour le stockage d'objets blob Azure, il s'agit de la chaîne de connexion du compte de stockage. Ce format est décrit [ici](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Un protocole de point de terminaison HTTPS est obligatoire.  
+		- Pour DocumentDB, la chaîne de connexion doit avoir le format suivant : `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Toutes les valeurs sont obligatoires. Elles sont disponibles sur le [Portail Azure](https://portal.azure.com/).
+		- Pour le stockage d'objets blob Azure, il s'agit de la chaîne de connexion du compte de stockage. Ce format est décrit [ici](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Un protocole de point de terminaison HTTPS est obligatoire.
 		
 - `container`, obligatoire : spécifie les données à indexer en utilisant les propriétés `name` et `query` :
-	- `name` (obligatoire).
+	- `name` (obligatoire) :
 		- Azure SQL : spécifie la table ou la vue. Vous pouvez utiliser des noms qualifiés par schéma, tels que `[dbo].[mytable]`.
-		- DocumentDB : spécifie la collection. 
-		- Stockage d'objets blob Azure : spécifie le conteneur de stockage. 
+		- DocumentDB : spécifie la collection.
+		- Stockage d'objets blob Azure : spécifie le conteneur de stockage.
 	- `query` (facultatif) :
-		- DocumentDB : vous permet permettant de spécifier une requête qui aplanit une disposition de document JSON arbitraire dans un schéma plat qu'Azure Search peut indexer.  
+		- DocumentDB : vous permet permettant de spécifier une requête qui aplanit une disposition de document JSON arbitraire dans un schéma plat qu'Azure Search peut indexer.
 		- Stockage d'objets blob Azure : vous permet de spécifier un dossier virtuel dans le conteneur d'objets blob. Par exemple, pour le chemin d'accès aux objets blob `mycontainer/documents/blob.pdf`, `documents` peut être utilisé comme dossier virtuel.
 		- Azure SQL : requête non prise en charge. Si vous avez besoin de cette fonctionnalité, veuillez voter pour [cette suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
    
@@ -147,8 +146,8 @@ L'objectif d'une stratégie de détection des changements de données est d'iden
 
 Utilisez cette stratégie lorsque votre source de données contient une colonne ou une propriété qui répond aux critères suivants :
  
-- Toutes les insertions spécifient une valeur pour la colonne. 
-- Toutes les mises à jour d'un élément modifient également la valeur de la colonne. 
+- Toutes les insertions spécifient une valeur pour la colonne.
+- Toutes les mises à jour d'un élément modifient également la valeur de la colonne.
 - La valeur de cette colonne augmente à chaque modification.
 - Les requêtes qui utilisent une clause de filtre similaire à la clause `WHERE [High Water Mark Column] > [Current High Water Mark Value]` suivante peuvent être exécutées efficacement.
 
@@ -169,7 +168,9 @@ Cette stratégie peut être spécifiée comme suit :
 
 Si votre base de données SQL prend en charge le [suivi des modifications](https://msdn.microsoft.com/library/bb933875.aspx), nous recommandons d'utiliser la stratégie SQL de suivi des modifications intégrée. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d'identifier les lignes supprimées sans que le schéma doive contenir une colonne « suppression réversible » explicite.
 
-Le suivi intégré des modifications SQL est pris en charge à partir des versions de base de données SQL Server suivantes : - SQL Server 2008 R2, si vous utilisez des machines virtuelles SQL Server. - Base de données Azure SQL V12, si vous utilisez la base de données Azure SQL.
+Le suivi intégré des modifications est pris en charge à partir des versions de base de données SQL Server suivantes :
+- SQL Server 2008 R2, si vous utilisez SQL Server on Azure VMs.
+- Azure SQL Database V12, si vous utilisez Azure SQL Database.
 
 En cas d'utilisation d'une stratégie SQL de suivi des modifications intégrée, ne spécifiez pas de stratégie de détection des suppressions de données distincte. Cette stratégie intègre la prise en charge de l'identification des lignes supprimées.
 
@@ -256,7 +257,7 @@ L'opération **List Data Sources** renvoie une liste des sources de données dan
     GET https://[service name].search.windows.net/datasources?api-version=[api-version]
     api-key: [admin key]
 
-Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -295,7 +296,7 @@ L'opération d'obtention de source de données (**Get Data Source**) renvoie la 
     GET https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -332,7 +333,7 @@ L'opération de suppression de sources de données (**Delete Data Source**) supp
 
 > [AZURE.NOTE] Si des indexeurs font référence à la source de données que vous supprimez, l'opération de suppression continue. Toutefois, ces indexeurs passeront à un état d'erreur lors de leur prochaine exécution.
 
-Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -355,7 +356,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de source
 
 > [AZURE.NOTE] Le nombre maximal d'indexeurs que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 indexeurs. Le service standard autorise 50 indexeurs. Pour plus d’informations, consultez [Limites de service](search-limits-quotas-capacity.md).
 
-Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -382,7 +383,7 @@ Vous trouverez ci-dessous la syntaxe de structuration de la charge utile de la r
 
 Un indexeur peut éventuellement spécifier une planification. Si une planification est présente, l'indexeur sera exécuté périodiquement, conformément à la planification. La planification dispose des attributs suivants :
 
-- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `"P[nD][T[nH][nM]]"`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures. 
+- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `"P[nD][T[nH][nM]]"`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures.
 
 - `startTime` : obligatoire. Date/heure UTC (temps universel coordonné) à laquelle l'exécution de l'indexeur doit commencer.
 
@@ -390,7 +391,7 @@ Un indexeur peut éventuellement spécifier une planification. Si une planificat
 
 Un indexeur peut éventuellement spécifier plusieurs paramètres qui affectent son comportement. Tous les paramètres sont facultatifs.
 
-- `maxFailedItems` : nombre d'éléments dont l'indexation peut échouer avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est 0. Des informations sur les éléments qui ont échoué sont renvoyées par l'opération [Get Indexer Status](#GetIndexerStatus). 
+- `maxFailedItems` : nombre d'éléments dont l'indexation peut échouer avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est 0. Des informations sur les éléments qui ont échoué sont renvoyées par l'opération [Get Indexer Status](#GetIndexerStatus).
 
 - `maxFailedItemsPerBatch` : nombre d'éléments dont l'indexation peut échouer dans chaque lot avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est 0.
 
@@ -453,7 +454,7 @@ Vous pouvez mettre à jour un indexeur existant à l'aide d'une requête HTTP PU
     Content-Type: application/json
     api-key: [admin key]
 
-Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -517,7 +518,7 @@ L'opération d'obtention d'indexeur **Get Indexer** obtient la définition d'ind
     GET https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
     api-key: [admin key]
 
-Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -547,7 +548,7 @@ L'opération de suppression d'un indexeur (**Delete Indexer**) supprime un index
 
 Quand un indexeur est supprimé, les exécutions d'indexeur en cours sont exécutées complètement, mais aucune autre exécution n'est planifiée. Les tentatives d'utilisation d'un indexeur inexistant génèrent le code d'état HTTP 404 Introuvable.
  
-Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -558,12 +559,12 @@ Code d'état : 204 Pas de contenu est renvoyé en cas de réponse correcte.
 <a name="RunIndexer"></a>
 ## Exécution d'un indexeur ##
 
-En plus de l'exécution périodique planifiée, un indexeur peut également être appelé à la demande via l'opération **Run Indexer**:
+En plus de l'exécution périodique planifiée, un indexeur peut également être appelé à la demande via l'opération **Run Indexer** :
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [admin key]
 
-Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -580,7 +581,7 @@ L'opération d'obtention de l'état de l'indexeur (**Get Indexer Status**) récu
     api-key: [admin key]
 
 
-Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -622,7 +623,7 @@ Voici un exemple de corps de réponse :
 
 Les valeurs possibles pour l'état de l'indexeur sont les suivantes :
 
-- `running` Indique que l'indexeur s'exécute normalement. Notez que, comme certaines exécutions de l'indexeur peuvent encore échouer, nous recommandons de vérifier également la propriété `lastResult`. 
+- `running` Indique que l'indexeur s'exécute normalement. Notez que, comme certaines exécutions de l'indexeur peuvent encore échouer, nous recommandons de vérifier également la propriété `lastResult`.
 
 - `error` Indique que l'indexeur a rencontré une erreur qui ne peut pas être corrigée sans intervention humaine. Par exemple, il se peut que les informations d'identification de la source de données aient expiré, ou que le schéma de la source de données ou de l'index cible ait subitement changé.
 
@@ -632,7 +633,7 @@ Un résultat d'exécution de l'indexeur contient des informations sur une seule 
 
 Le résultat d'exécution de l'indexeur contient les propriétés suivantes :
 
-- `status` : état d'une exécution. Pour plus d'informations, consultez [État d'exécution de l'indexeur](#IndexerExecutionStatus) ci-dessous. 
+- `status` : état d'une exécution. Pour plus d'informations, consultez [État d'exécution de l'indexeur](#IndexerExecutionStatus) ci-dessous.
 
 - `errorMessage` : message d'erreur pour un échec d'exécution.
 
@@ -672,7 +673,7 @@ L'opération de réinitialisation de l'indexeur (**Reset Indexer**) réinitialis
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
 
-Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. La version préliminaire est `2015-02-28-Preview`.
 
 La clé `api-key` doit être une clé d'administration (par opposition à une clé de requête). Pour plus d'informations sur les clés, consultez la section relative à l'authentification dans [API REST de service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). La rubrique [Création d'un service Azure Search dans le portail](search-create-service-portal.md) (en anglais) indique comment obtenir l'URL du service et les propriétés de clé utilisées dans la requête.
 
@@ -797,4 +798,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Restauration d’un Azure SQL Data Warehouse (PowerShell)
@@ -28,9 +28,7 @@ Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse 
 
 ## Avant de commencer
 
-### Vérifiez la capacité DTU de votre base de données SQL. 
-
-Chaque SQL Data Warehouse est hébergé par un serveur SQL logique. Ce serveur logique a une limite de capacité mesurée en DTU. Avant de pouvoir restaurer un SQL Data Warehouse, il est important de s’assurer que le serveur SQL logique qui héberge votre base de données a une capacité de DTU suffisante pour la base de données en cours de restauration. Consultez ce blog pour plus d’informations sur [l’affichage et l’augmentation du quota de DTU][].
+**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Avant de pouvoir restaurer un SQL Data Warehouse, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change][] \(Demander une modification du quota DTU).
 
 ### Installer PowerShell
 
@@ -157,6 +155,7 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Article references-->
 [Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: sql-database-business-continuity.md
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Finalize a recovered database]: sql-database-recovered-finalize.md
 [Installation et configuration d’Azure PowerShell]: powershell-install-configure.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
@@ -168,11 +167,8 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
-<!--Blog references-->
-[l’affichage et l’augmentation du quota de DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
-
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

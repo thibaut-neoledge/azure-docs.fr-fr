@@ -1,5 +1,5 @@
 <properties
-pageTitle="Utiliser la vue Tez d’Ambari avec HDInsight | Azure"
+pageTitle="Utiliser la vue Tez d’Ambari avec HDInsight | Azure"
 description="Découvrez comment utiliser la vue Tez d’Ambari pour déboguer les travaux Tez dans HDInsight."
 services="hdinsight"
 documentationCenter=""
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 # Utiliser les vues Ambari pour déboguer les travaux Tez dans HDInsight
@@ -32,11 +32,11 @@ L’interface utilisateur Web d’Ambari pour HDInsight contient une vue Tez qui
 
 Tez est une infrastructure extensible pour le traitement des données dans Hadoop plus rapide que le traitement MapReduce traditionnel. Pour les clusters HDInsight sous Linux, Tez est le moteur par défaut pour Hive.
 
-Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
+Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
 
 ###Présentation de la vue Tez
 
-La vue Tez fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d’afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d’accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu’aux informations d’erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
+La vue Tez fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d’afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d’accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu’aux informations d’erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
 
 * Surveiller les processus à long terme, voir l'avancement des tâches de mappage et de réduction.
 
@@ -129,7 +129,7 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
 
     > [AZURE.NOTE] Comme avec le menu précédent, vous pouvez parcourir les colonnes Tâches, Tentatives de tâche et Sources et récepteurs\_\_ afin d’afficher des liens vers d’autres informations pour chaque élément.
 
-10. Sélectionnez __Tâches__, puis sélectionnez l’élément nommé __00\_000000__. Cette action permet d’afficher les __Détails de la tâche__. À partir de cet écran, vous pouvez consulter les __Compteurs de la tâche__ et les __Tentatives de tâche__.
+10. Sélectionnez __Tâches__, puis sélectionnez l’élément nommé __00_000000_\_. Cette action permet d’afficher les __détails de la tâche__. À partir de cet écran, vous pouvez consulter les __compteurs de tâche__ et les __Tentatives de tâche\_\_.
 
     ![Détails de la tâche](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
 
@@ -141,4 +141,4 @@ Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Horton
 
 Pour plus d’informations sur l’utilisation d’Ambari avec HDInsight, consultez la page [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -188,7 +188,9 @@ Usurpation d’identité : une personne malveillante peut extraire les élément
 
 **Déni de service** : l’appareil peut être désactivé ou activé dans un mode interdisant la communication (opération intentionnelle sur de nombreuses machines industrielles).
 
-**Falsification** : l’appareil peut être reconfiguré de manière fonctionner dans un état inconnu du système de contrôle (hors des paramètres d’étalonnage connus), et donc fournir des données qui peuvent être mal interprétées. Élévation de privilège : un appareil qui exécute une fonction spécifique peut être contraint d’en exécuter une autre. Par exemple, une vanne programmée pour s’ouvrir à mi-chemin peut à tort s’ouvrir tout le temps.
+**Falsification** : l’appareil peut être reconfiguré de manière à fonctionner dans un état inconnu du système de contrôle (hors des paramètres d’étalonnage connus), et donc fournir des données qui peuvent être mal interprétées
+
+**Élévation de privilège** : un appareil qui exécute une fonction spécifique peut être contraint d’en exécuter une autre. Par exemple, une vanne programmée pour s’ouvrir à mi-chemin peut à tort s’ouvrir tout le temps.
 
 **Déni de service** : l’appareil peut être activé dans un état interdisant la communication.
 
@@ -250,4 +252,4 @@ Pour plus d’informations, reportez-vous aux articles suivants :
 - [Microsoft Azure IoT reference architecture (Architecture de référence Microsoft Azure IoT)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

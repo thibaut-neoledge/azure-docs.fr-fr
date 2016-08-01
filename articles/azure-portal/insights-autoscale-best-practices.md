@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/15/2016"
 	ms.author="ashwink"/>
 
 # Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights
@@ -75,7 +75,7 @@ Examinons un exemple qui vous permettra de mieux comprendre ce comportement.
 - Augmenter les instances de 1 lorsque le nombre de messages de file d’attente de stockage >= 50
 - Diminuer les instances de 1 lorsque le nombre de messages de file d’attente de stockage <= 10
 
-Supposons qu’il existe 2 instances pour commencer. Ensuite, supposons que les messages continuent d’arriver et lorsque vous examinez la file d’attente de stockage, le nombre total est de 50. Vous pourriez supposer que la mise à l’échelle automatique devrait démarrer une action de montée en charge. Toutefois, notez que le nombre de messages par instance est de 50/2 = 25 messages. Par conséquent, la montée en charge ne se produit pas. Pour que la montée en charge se produise, le nombre total de messages dans la file d’attente de stockage doit être égal à 100. Ensuite, supposons que le nombre total de messages atteigne 100. Une 3ème instance est ajoutée en raison d’une action de montée en charge. La prochaine action de montée en charge ne se produira que lorsque le nombre total de messages dans la file d’attente atteindra 300. Observons la diminution de la taille des instances en action. Supposons que le nombre d’instances est égal à 3. La première action de diminution de la taille des instances se produit lorsque le nombre total de messages dans la file d’attente atteint 30, ce qui donne 30/3 = 10 messages par instance, qui correspond au seuil de diminution de la taille des instances.
+Supposons qu’il existe 2 instances pour commencer. Ensuite, supposons que les messages continuent d’arriver et lorsque vous examinez la file d’attente de stockage, le nombre total est de 50. Vous pourriez supposer que la mise à l’échelle automatique devrait démarrer une action de montée en charge. Toutefois, notez que le nombre de messages par instance est de 50/2 = 25 messages. Par conséquent, la montée en charge ne se produit pas. Pour que la montée en charge se produise, le nombre total de messages dans la file d’attente de stockage doit être égal à 100. Ensuite, supposons que le nombre total de messages atteigne 100. Une 3ème instance est ajoutée en raison d’une action de montée en charge. La prochaine action de montée en charge ne se produira que lorsque le nombre total de messages dans la file d’attente atteindra 150. Observons la diminution de la taille des instances en action. Supposons que le nombre d’instances est égal à 3. La première action de diminution de la taille des instances se produit lorsque le nombre total de messages dans la file d’attente atteint 30, ce qui donne 30/3 = 10 messages par instance, qui correspond au seuil de diminution de la taille des instances.
 
 ### Considérations relatives à la mise à l’échelle lorsque plusieurs profils sont configurés dans un paramètre de mise à l’échelle automatique
 
@@ -126,4 +126,4 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 - Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 - Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle. Outre les conditions ci-dessus, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

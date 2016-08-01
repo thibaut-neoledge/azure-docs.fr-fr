@@ -1,6 +1,6 @@
 <properties
    pageTitle="Vue d’ensemble des modèles de programmation Service Fabric | Microsoft Azure"
-   description="Service Fabric propose deux infrastructures pour la création de services : l’infrastructure d’acteurs et l’infrastructure de services. Elles offrent des compromis distincts en termes de simplicité et de contrôle."
+   description="Service Fabric propose deux infrastructures pour la création de services : l’infrastructure d’acteurs et l’infrastructure de services. Elles offrent des compromis distincts en termes de simplicité et de contrôle."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="07/18/2016"
    ms.author="seanmck"/>
 
 # Vue d’ensemble des modèles de programmation Service Fabric
@@ -45,4 +45,4 @@ Reposant sur Reliable Services, l'infrastructure Reliable Actor est une infrastr
 ## Étapes suivantes
 [En savoir plus sur Reliable Actors](service-fabric-reliable-actors-introduction.md) ou commencez par [écrire votre premier service Reliable Actors](service-fabric-reliable-actors-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

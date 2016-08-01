@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation de Hadoop Sqoop dans HDInsight | Microsoft Azure"
+	pageTitle="Utilisation de Hadoop Sqoop dans HDInsight | Microsoft Azure"
 	description="Découvrez comment utiliser Azure PowerShell à partir d'un poste de travail pour exécuter des commandes Sqoop import et export entre un cluster HDInsight et une base de données SQL Azure."
 	editor="cgronlun"
 	manager="paulettm"
@@ -28,7 +28,7 @@ Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Sqoop da
 
 ###Composants requis
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un poste de travail sur lequel est installé Azure PowerShell**.
 
@@ -39,7 +39,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	
 ## Exécuter Sqoop à l’aide de PowerShell
 
-Le script PowerShell suivant prétraite le fichier source et l’exporte dans une base de données SQL Azure :
+Le script PowerShell suivant prétraite le fichier source et l’exporte dans une base de données SQL Azure :
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -163,17 +163,21 @@ Le script PowerShell suivant prétraite le fichier source et l’exporte dans un
     Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
     #endregion
 
+##Limites
 
+* Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou la base de données SQL Azure ne prend pas en charge les insertions en bloc.
+
+* Traitement par lots : avec HDInsight sous Linux, lorsque vous utilisez le commutateur `-batch` pour effectuer des insertions, Sqoop effectue plusieurs insertions plutôt qu’un traitement par lots des opérations d’insertion.
 
 ##Étapes suivantes
 
-Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
+Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
-- [Utilisation d'Oozie avec HDInsight](hdinsight-use-oozie.md) : utilisez l’action Sqoop dans un flux de travail Oozie.
-- [Analyse des données sur les retards de vol avec HDInsight](hdinsight-analyze-flight-delay-data.md) : utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
-- [Téléchargement de données vers HDInsight](hdinsight-upload-data.md) : découvrez d'autres méthodes pour télécharger des données vers HDInsight ou le stockage d'objets blob Azure.
+- [Utilisation d'Oozie avec HDInsight](hdinsight-use-oozie.md) : utilisez l’action Sqoop dans un flux de travail Oozie.
+- [Analyse des données sur les retards de vol avec HDInsight](hdinsight-analyze-flight-delay-data.md) : utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
+- [Téléchargement de données vers HDInsight](hdinsight-upload-data.md) : découvrez d'autres méthodes pour télécharger des données vers HDInsight ou le stockage d'objets blob Azure.
 
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -23,6 +23,7 @@
 - [Portail](azure-portal/resource-group-portal.md)
 - [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -39,13 +40,13 @@ Utilisez Azure Resource Manager pour créer et gérer un groupe de _ressources_ 
 
 L’un des avantages d’Azure Resource Manager réside dans le fait que vous pouvez créer vos ressources Azure de manière _déclarative_ : vous décrivez la structure et les relations d’un groupe de ressources pouvant être déployé dans des *modèles* JSON. Le modèle identifie les paramètres qui peuvent être renseignés en ligne lors de l’exécution d’une commande ou stockés dans un fichier de paramètres JSON (JavaScript Object Notation) distinct. Vous pouvez donc facilement créer de nouvelles ressources en utilisant le même modèle et en changeant simplement les paramètres. Par exemple, un modèle qui crée un site web a des paramètres pour le nom du site, la région du site web et d'autres paramètres courants.
 
-Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d'informations sur Azure Resource Manager, voir la [Présentation d'Azure Resource Manager](resource-group-overview.md).
+Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d'informations sur Azure Resource Manager, voir la [Présentation d'Azure Resource Manager](resource-group-overview.md).
 
 Une fois le déploiement effectué, vous devez gérer les ressources individuelles impérativement sur la ligne de commande, comme dans le modèle de déploiement classique. Par exemple, utilisez les commandes CLI en mode Resource Manager pour démarrer, arrêter ou supprimer des ressources telles que les [machines virtuelles Azure Resource Manager](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Authentification
 
-Pour utiliser Azure Resource Manager avec l’interface de ligne de commande Azure, vous devez vous authentifier auprès de Microsoft Azure en utilisant la commande `azure login`, puis en spécifiant un compte géré par Azure Active Directory, qui peut être un compte professionnel ou scolaire (un compte d’organisation) ou un compte Microsoft. L'authentification avec un certificat installé à l'aide d'un fichier .publishsettings ne fonctionne pas dans ce mode.
+Pour utiliser Azure Resource Manager avec l’interface de ligne de commande Azure, vous devez vous authentifier auprès de Microsoft Azure en utilisant la commande `azure login`, puis en spécifiant un compte géré par Azure Active Directory, qui peut être un compte professionnel ou scolaire (un compte d’organisation) ou un compte Microsoft. L'authentification avec un certificat installé à l'aide d'un fichier .publishsettings ne fonctionne pas dans ce mode.
 
 Pour plus d'informations sur l'authentification auprès de Microsoft Azure, consultez la rubrique [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure](xplat-cli-connect.md).
 
@@ -88,7 +89,7 @@ La création d’un modèle n’est pas abordée dans cet article. Pour commence
 * mot de passe = `adminPassword` ;
 * nom de domaine de la machine virtuelle = `dnsLabelPrefix`.
 
->[AZURE.TIP] Ces étapes n'indiquent qu'une manière d'utiliser un modèle de machine virtuelle avec l'interface de ligne de commande Azure. Pour d'autres exemples, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+>[AZURE.TIP] Ces étapes n'indiquent qu'une manière d'utiliser un modèle de machine virtuelle avec l'interface de ligne de commande Azure. Pour d'autres exemples, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 1. Suivez le lien « En savoir plus avec GitHub » pour télécharger les fichiers azuredeploy.json et azuredeploy.parameters.json depuis [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) dans un dossier de travail sur votre ordinateur local. (Veillez à sélectionner le format _brut_ de chaque fichier dans GitHub.)
 
@@ -195,7 +196,7 @@ Les modèles vous permettent de déclarer des modifications de la configuration 
 
 		azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-	>[AZURE.NOTE] Vous pouvez enregistrer les données JSON dans un fichier au moyen du caractère &gt; pour diriger la sortie vers un fichier. Par exemple :
+	>[AZURE.NOTE] Vous pouvez enregistrer les données JSON dans un fichier au moyen du caractère &gt; pour diriger la sortie vers un fichier. Par exemple :
 	>
 	> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
@@ -219,7 +220,7 @@ Vous pouvez afficher le modèle Resource Manager pour un groupe de ressources ex
 
 À l’aide de l’interface de ligne de commande Azure, vous pouvez exporter un modèle qui représente l’état actuel de votre groupe de ressources ou télécharger le modèle qui a été utilisé pour un déploiement spécifique.
 
-* L’**exportation du modèle pour un groupe de ressources** est utile lorsque vous avez apporté des modifications à un groupe de ressources et que vous devez récupérer la représentation JSON de son état actuel. Toutefois, le modèle généré contient uniquement un nombre minimal de paramètres et aucune variable. La plupart des valeurs dans le modèle sont codées en dur. Avant de déployer le modèle généré, vous pouvez convertir plusieurs valeurs en paramètres afin de personnaliser le déploiement pour différents environnements.
+* **L’exportation du modèle pour un groupe de ressources** est utile lorsque vous avez apporté des modifications à un groupe de ressources et que vous devez récupérer la représentation JSON de son état actuel. Toutefois, le modèle généré contient uniquement un nombre minimal de paramètres et aucune variable. La plupart des valeurs dans le modèle sont codées en dur. Avant de déployer le modèle généré, vous pouvez convertir plusieurs valeurs en paramètres afin de personnaliser le déploiement pour différents environnements.
 
     Pour exporter le modèle pour un groupe de ressources dans un répertoire local, exécutez la commande `azure group export` comme indiqué dans l’exemple suivant. (Indiquez un répertoire local adapté à l’environnement de votre système d’exploitation.)
 
@@ -235,7 +236,7 @@ Vous pouvez afficher le modèle Resource Manager pour un groupe de ressources ex
 
 ## Étapes suivantes
 
-* Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
+* Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 * Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, voir [Utilisation du Portail Azure pour déployer et gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

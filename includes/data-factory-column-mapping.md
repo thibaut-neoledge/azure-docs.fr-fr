@@ -3,14 +3,14 @@ Le mappage de colonnes peut être utilisé pour spécifier la façon dont les co
 
 Le mappage de colonnes prend en charge les scénarios suivants :
 
-1.	Toutes les colonnes de la « structure » de la table source sont mappées vers toutes les colonnes de la « structure » de la table du récepteur.
-2.	Un sous-ensemble des colonnes de la « structure » de la table source sont mappées vers toutes les colonnes de la « structure » de la table du récepteur.
+- Toutes les colonnes de la « structure » de la table source sont mappées vers toutes les colonnes de la « structure » de la table du récepteur.
+- Un sous-ensemble des colonnes de la « structure » de la table source sont mappées vers toutes les colonnes de la « structure » de la table du récepteur.
 
 Voici une liste de conditions d’erreur qui entraîneront la levée d’une exception :
 
-1.	La « structure » de la table du récepteur contient un nombre de colonnes inférieur ou supérieur à celui spécifié par le mappage de colonnes.
-2.	Mappage en double.
-3.	Le résultat de la requête SQL ne comprend pas de nom de colonne qui soit spécifié dans le mappage.
+- La « structure » de la table du récepteur contient un nombre de colonnes inférieur ou supérieur à celui spécifié par le mappage de colonnes.
+- Mappage en double.
+- Le résultat de la requête SQL ne comprend pas de nom de colonne qui soit spécifié dans le mappage.
 
 ## Exemples de mappages de colonnes
 > [AZURE.NOTE] Les exemples ci-dessous concernent SQL Azure et les objets blob Azure, mais sont applicables à tout autre magasin de données prenant en charge les jeux de données rectangulaires. Vous devrez ajuster les définitions du jeu de données et du service lié dans les exemples ci-dessous pour pointer vers les données de la source de requise.
@@ -149,4 +149,4 @@ Dans ce cas, les résultats de la requête sont d’abord mappés vers les colon
 
 ![Flux du mappage de colonnes 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modélisation des données dans Azure DocumentDB | Microsoft Azure" 
+	pageTitle="Modélisation des données dans Azure DocumentDB | Microsoft Azure" 
 	description="Obtenez plus d’informations sur la modélisation des données pour DocumentDB, une base de données de documents NoSQL." 
 	keywords="modélisation des données"
 	services="documentdb" 
@@ -18,20 +18,20 @@
 	ms.author="stbaro"/>
 
 #Modélisation des données dans DocumentDB#
-Bien que les bases de données exemptes de schéma, comme DocumentDB, rendent très facile l'adoption des modifications apportées à votre modèle de données, vous devez quand même prendre le temps de réfléchir à vos données.
+Bien que les bases de données exemptes de schéma, comme Azure DocumentDB, rendent très facile l'adoption des modifications apportées à votre modèle de données, vous devez quand même prendre le temps de réfléchir à vos données.
 
-Comment les données seront-elles stockées ? Comment votre application va-t-elle récupérer et interroger des données ? Votre application exige-t-elle de nombreuses lectures (read heavy) ou de nombreuses écritures (write heavy) ?
+Comment les données seront-elles stockées ? Comment votre application va-t-elle récupérer et interroger des données ? Votre application exige-t-elle de nombreuses lectures (read heavy) ou de nombreuses écritures (write heavy) ?
 
-Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
+Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
-- Comment dois-je considérer un document dans une base de données de documents ?
-- Qu'est-ce que la modélisation de données et pourquoi dois-je m'en soucier ? 
-- En quoi la modélisation des données dans une base de données de documents et dans une base de données relationnelle diffère-t-elle ?
-- Comment exprimer les relations entre les données dans une base de données non relationnelle ?
-- Quand dois-je incorporer les données et quand dois-je créer un lien vers les données ?
+- Comment dois-je considérer un document dans une base de données de documents ?
+- Qu'est-ce que la modélisation de données et pourquoi dois-je m'en soucier ?
+- En quoi la modélisation des données dans une base de données de documents et dans une base de données relationnelle diffère-t-elle ?
+- Comment exprimer les relations entre les données dans une base de données non relationnelle ?
+- Quand dois-je incorporer les données et quand dois-je créer un lien vers les données ?
 
 ##Incorporation de données##
-Lorsque vous démarrez la modélisation des données dans une banque de documents telle que DocumentDB, essayez de traiter vos entités en tant que **documents autonomes** représentés dans JSON.
+Lorsque vous démarrez la modélisation des données dans une banque de documents telle que DocumentDB, essayez de traiter vos entités en tant que **documents autonomes** représentés dans JSON.
 
 Avant d'aller trop loin, revenons quelques étapes en arrière et examinons comment nous pouvons modéliser un élément dans une base de données relationnelle. Beaucoup d'entre nous connaissent déjà le sujet. L'exemple suivant montre comment une personne peut être stockée dans une base de données relationnelle.
 
@@ -39,7 +39,7 @@ Avant d'aller trop loin, revenons quelques étapes en arrière et examinons comm
 
 Lorsqu'il s'agit de travailler avec des bases de données relationnelles, on nous a appris pendant des années qu'il fallait normaliser, normaliser, normaliser.
 
-En général, la normalisation de vos données consiste à prendre une entité, une personne par exemple, et à la décomposer en éléments de données discrets. Dans l'exemple ci-dessus, une personne peut avoir plusieurs enregistrements de coordonnées, ainsi que plusieurs enregistrements d'adresse. Nous allons même plus loin et décomposons les coordonnées en extrayant des champs communs tels qu'un type. Même chose pour l’adresse : chaque enregistrement ici a un type, tel que *Home* ou *Business*.
+En général, la normalisation de vos données consiste à prendre une entité, une personne par exemple, et à la décomposer en éléments de données discrets. Dans l'exemple ci-dessus, une personne peut avoir plusieurs enregistrements de coordonnées, ainsi que plusieurs enregistrements d'adresse. Nous allons même plus loin et décomposons les coordonnées en extrayant des champs communs tels qu'un type. Même chose pour l’adresse : chaque enregistrement ici a un type, tel que *Home* ou *Business*.
 
 Le principe directeur lors de la normalisation des données consiste à **éviter de stocker des données redondantes** dans chaque enregistrement et à faire plutôt référence aux données. Dans cet exemple, pour lire une personne, avec ses coordonnées et ses adresses, vous devez utiliser des jointures pour agréger efficacement vos données au moment de l'exécution.
 
@@ -72,7 +72,7 @@ Examinons à présent comment nous pourrions modéliser les mêmes données comm
 	    ] 
 	}
 
-Avec l’approche ci-dessus, nous avons maintenant **dénormalisé** l’enregistrement de la personne, où nous avons **incorporé** toutes les informations relatives à cette personne, telles que ses coordonnées et adresses, dans un seul document JSON. En outre, étant donné que nous ne sommes pas limités à un schéma fixe, nous avons la possibilité d'avoir des coordonnées de formes entièrement différentes.
+Avec l’approche ci-dessus, nous avons maintenant **dénormalisé** l’enregistrement de la personne, où nous avons **incorporé** toutes les informations relatives à cette personne, telles que ses coordonnées et adresses, dans un seul document JSON. En outre, étant donné que nous ne sommes pas limités à un schéma fixe, nous avons la possibilité d'avoir des coordonnées de formes entièrement différentes.
 
 La récupération d'un enregistrement complet de personne dans la base de données correspond désormais à une seule opération de lecture sur une collection unique et pour un document unique. La mise à jour d'un enregistrement de personne, avec ses coordonnées et adresses, correspond également à une seule opération d'écriture sur un document unique.
 
@@ -80,7 +80,7 @@ Avec la dénormalisation des données, votre application aura peut-être besoin 
 
 ###Quand utiliser l'incorporation
 
-En général, utilisez des modèles de données incorporés dans les cas suivants :
+En général, utilisez des modèles de données incorporés dans les cas suivants :
 
 - Il existe des relations de type **contient** entre des entités.
 - Il existe des relations de type **un-à-plusieurs** entre des entités.
@@ -151,9 +151,9 @@ Dans ce cas, il serait préférable de considérer le modèle suivant.
 		]
 	}
 
-Ce modèle présente les trois derniers commentaires incorporés dans la publication proprement dite, qui est un tableau avec une limite fixe cette fois-ci. Les autres commentaires sont regroupés par lots de 100 commentaires et stockés dans des documents distincts. 100 a été choisi comme taille de lot parce que notre application fictive permet à l'utilisateur de charger 100 commentaires à la fois.
+Ce modèle présente les trois derniers commentaires incorporés dans la publication proprement dite, qui est un tableau avec une limite fixe cette fois-ci. Les autres commentaires sont regroupés par lots de 100 commentaires et stockés dans des documents distincts. 100 a été choisi comme taille de lot parce que notre application fictive permet à l'utilisateur de charger 100 commentaires à la fois.
 
-Autre cas de figure où l'incorporation de données est déconseillée : lorsque les données incorporées sont souvent utilisées dans les documents et changent fréquemment.
+Autre cas de figure où l'incorporation de données est déconseillée : lorsque les données incorporées sont souvent utilisées dans les documents et changent fréquemment.
 
 Prenons cet extrait de code JSON.
 
@@ -179,7 +179,7 @@ Des actions *zaza* peuvent être échangées des centaines de fois au cours d’
 
 ##<a id="Refer"></a>Référencement des données##
 
-Ainsi, l'incorporation de données fonctionne bien dans la plupart des cas, mais il est clair qu'il existe des scénarios où la dénormalisation de vos données provoque plus de problèmes qu'il n'en faudrait. Que faire, alors ?
+Ainsi, l'incorporation de données fonctionne bien dans la plupart des cas, mais il est clair qu'il existe des scénarios où la dénormalisation de vos données provoque plus de problèmes qu'il n'en faudrait. Que faire, alors ?
 
 Les bases de données relationnelles ne sont pas le seul endroit où vous pouvez créer des relations entre les entités. Dans une base de données de documents, vous pouvez avoir des informations dans un document qui sont en relation avec des données dans autres documents. Maintenant, je ne préconise absolument pas de créer des systèmes qui seraient mieux adaptés à une base de données relationnelle dans DocumentDB, ou toute autre base de données de documents, mais de simples relations conviennent et peuvent être très utiles.
 
@@ -219,15 +219,15 @@ Dans le code JSON ci-dessous, nous avons choisi d'utiliser l'exemple de portefeu
     }
     
 
-Cette approche présente cependant un inconvénient si votre application doit afficher des informations sur chaque action qui est conservée lors de l'affichage du portefeuille d'une personne ; dans ce cas, vous devez faire plusieurs aller et retour jusqu'à la base de données afin de charger les informations pour chaque document d'action. Ici, nous avons pris une décision pour améliorer l'efficacité des opérations d'écriture, qui ont lieu fréquemment pendant la journée, mais nous avons fait un compromis sur les opérations de lecture, qui ont potentiellement moins d'impact sur les performances de ce système.
+Cette approche présente cependant un inconvénient si votre application doit afficher des informations sur chaque action qui est conservée lors de l'affichage du portefeuille d'une personne ; dans ce cas, vous devez faire plusieurs aller et retour jusqu'à la base de données afin de charger les informations pour chaque document d'action. Ici, nous avons pris une décision pour améliorer l'efficacité des opérations d'écriture, qui ont lieu fréquemment pendant la journée, mais nous avons fait un compromis sur les opérations de lecture, qui ont potentiellement moins d'impact sur les performances de ce système.
 
 > [AZURE.NOTE] Les modèles de données normalisés **peuvent nécessiter davantage d’aller-retour** jusqu’au serveur.
 
 ### Qu'en est-il des clés étrangères ?
-Dans la mesure où il n'existe actuellement aucun concept d'une contrainte (clé étrangère ou autre), toutes les relations entre documents que vous avez dans les documents sont effectivement des « liens faibles » et elles ne sont pas vérifiées par la base de données. Si vous souhaitez vous assurer que les données auxquelles un document fait référence existent réellement, vous devez le faire dans votre application, ou en utilisant des déclencheurs côté serveur ou des procédures stockées sur DocumentDB.
+Dans la mesure où il n'existe actuellement aucun concept d'une contrainte (clé étrangère ou autre), toutes les relations entre documents que vous avez dans les documents sont effectivement des « liens faibles » et elles ne sont pas vérifiées par la base de données. Si vous souhaitez vous assurer que les données auxquelles un document fait référence existent réellement, vous devez le faire dans votre application, ou en utilisant des déclencheurs côté serveur ou des procédures stockées sur DocumentDB.
 
 ###Quand utiliser des références
-En général, utilisez des modèles de données normalisés dans les cas suivants :
+En général, utilisez des modèles de données normalisés dans les cas suivants :
 
 - Représentation des relations **un-à-plusieurs**.
 - Représentation des relations **plusieurs-à-plusieurs**.
@@ -236,10 +236,10 @@ En général, utilisez des modèles de données normalisés dans les cas suivant
 
 > [AZURE.NOTE] En général, la normalisation offre de meilleures performances en **écriture**.
 
-###Où placer la relation ?
+###Où placer la relation ?
 La croissance de la relation permet de déterminer dans quel document doit être stockée la référence.
 
-Examinons le code JSON ci-dessous qui modélise des éditeurs et des livres :
+Examinons le code JSON ci-dessous qui modélise des éditeurs et des livres :
 
 	Publisher document:
 	{
@@ -278,7 +278,7 @@ Un petit changement donnera un modèle qui représente toujours les mêmes donn�
 
 Dans l'exemple ci-dessus, nous avons supprimé la collection illimitée dans le document d'éditeur (publisher). Nous avons simplement une référence à l'éditeur dans chaque document de livre (book).
 
-###Comment modéliser des relations plusieurs-à-plusieurs ?
+###Comment modéliser des relations plusieurs-à-plusieurs ?
 Dans une base de données relationnelle *plusieurs-à-plusieurs*, les relations sont souvent modélisées avec des tables de jointure qui relient simplement les enregistrements d’autres tables.
 
 ![Tables de jointures](./media/documentdb-modeling-data/join-table.png)
@@ -304,7 +304,7 @@ Vous pouvez être tenté de répliquer la même chose à l'aide de documents et 
 
 Cette méthode fonctionne. Toutefois, le fait de charger soit un auteur avec ses livres soit un livre avec son auteur nécessite toujours au moins deux requêtes supplémentaires sur la base de données. Une requête pour le document de jointure (joining) et une autre requête pour extraire le document joint.
 
-Si cette table de jointure ne fait rien d'autre que coller ensemble deux éléments de données, pourquoi ne pas la supprimer complètement ? Examinons le code suivant.
+Si cette table de jointure ne fait rien d'autre que coller ensemble deux éléments de données, pourquoi ne pas la supprimer complètement ? Examinons le code suivant.
 
 	Author documents:
 	{"id": 1, "name": "Thomas Andersen", "books": [1, 2, 3]}
@@ -370,13 +370,13 @@ Examinons le code JSON suivant.
 
 Ici nous avons suivi (principalement) le modèle incorporé, où les données des autres entités sont incorporées dans le document de niveau supérieur, mais les autres données sont référencées.
 
-Dans le document de livre (book), nous pouvons voir quelques champs intéressants lorsque nous examinons le tableau des auteurs. Il existe un champ *id* que nous utilisons pour faire référence à un document d’auteur (author), une pratique courante dans un modèle normalisé, mais nous avons également les champs *name* et *thumbnailUrl*. Nous aurions pu nous arrêter à l’*id* et laisser l’application obtenir les informations supplémentaires dont elle avait besoin à partir du document d’auteur (author) respectif à l’aide du « lien », mais comme notre application affiche le nom de l’auteur et une image miniature avec chaque livre, nous pouvons économiser un aller-retour par livre jusqu’au serveur en dénormalisant **certaines** données de l’auteur.
+Dans le document de livre (book), nous pouvons voir quelques champs intéressants lorsque nous examinons le tableau des auteurs. Il existe un champ *id* que nous utilisons pour faire référence à un document d’auteur (author), une pratique courante dans un modèle normalisé, mais nous avons également les champs *name* et *thumbnailUrl*. Nous aurions pu nous arrêter à l’*id* et laisser l’application obtenir les informations supplémentaires dont elle avait besoin à partir du document d’auteur (author) respectif à l’aide du « lien », mais comme notre application affiche le nom de l’auteur et une image miniature avec chaque livre, nous pouvons économiser un aller-retour par livre jusqu’au serveur en dénormalisant **certaines** données de l’auteur.
 
-Bien sûr, si le nom de l'auteur changeait ou qu'il souhaitait mettre à jour sa photo, nous devrions procéder à une mise à jour sur chaque livre publié par lui ; mais pour notre application, si l'on se base sur l'hypothèse que les auteurs ne changent pas de nom très souvent, il s'agit d'une décision de conception acceptable.
+Bien sûr, si le nom de l'auteur changeait ou qu'il souhaitait mettre à jour sa photo, nous devrions procéder à une mise à jour sur chaque livre publié par lui ; mais pour notre application, si l'on se base sur l'hypothèse que les auteurs ne changent pas de nom très souvent, il s'agit d'une décision de conception acceptable.
 
 Dans cet exemple, il existe des valeurs d’**agrégats précalculés** pour économiser un traitement coûteux sur une opération de lecture. Dans l'exemple, certaines données incorporées dans le document d'auteur (author) sont des données calculées au moment de l'exécution. À chaque publication d’un nouveau livre, un document de type livre est créé **et** le champ countOfBooks est défini sur une valeur calculée en fonction du nombre de documents de type livre existant pour un auteur particulier. Cette optimisation serait appropriée dans les systèmes qui exigent de nombreuses lectures (read heavy), où nous pouvons nous permettre d'effectuer des calculs sur les écritures afin d'optimiser les lectures.
 
-L’existence d’un modèle avec des champs précalculés est possible, car DocumentDB prend en charge les **transactions multi-documents**. De nombreuses boutiques NoSQL ne peuvent pas effectuer des transactions à travers plusieurs documents et plaident par conséquent en faveur de décisions de conception, telles que « incorporer tout systématiquement », en raison de cette limitation. Avec DocumentDB, vous pouvez utiliser des déclencheurs côté serveur, ou des procédures stockées, qui insèrent des livres et mettent à jour les auteurs au sein d'une transaction ACID. Aujourd’hui, vous n’êtes pas **tenu** d’intégrer tous les éléments dans un document, simplement pour vous assurer que vos données restent cohérentes.
+L’existence d’un modèle avec des champs précalculés est possible, car DocumentDB prend en charge les **transactions multi-documents**. De nombreuses boutiques NoSQL ne peuvent pas effectuer des transactions à travers plusieurs documents et plaident par conséquent en faveur de décisions de conception, telles que « incorporer tout systématiquement », en raison de cette limitation. Avec DocumentDB, vous pouvez utiliser des déclencheurs côté serveur, ou des procédures stockées, qui insèrent des livres et mettent à jour les auteurs au sein d'une transaction ACID. Aujourd’hui, vous n’êtes pas **tenu** d’intégrer tous les éléments dans un document, simplement pour vous assurer que vos données restent cohérentes.
 
 ##<a name="NextSteps"></a>Étapes suivantes
 
@@ -393,4 +393,4 @@ Pour comprendre la répartition de vos données entre plusieurs partitions, cons
 Et enfin, pour obtenir des conseils sur la modélisation des données et le partitionnement pour les applications mutualisées, consultez l’article [Mise à l’échelle d’une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

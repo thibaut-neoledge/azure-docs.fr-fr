@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/14/2016"
    ms.author="owend"/>
 
-# Prise en main de l’exemple Power BI Embedded
+# Prise en main de l’exemple Power BI Embedded
 
 Avec **Microsoft Power BI Embedded**, vous pouvez intégrer des rapports Power BI dans vos applications web ou mobiles. Dans cet article, nous vous présenterons l’exemple de prise en main **Power BI Embedded**.
 
@@ -74,7 +74,7 @@ Checking import state... Succeeded
 L’exemple d’application web est un tableau de bord qui restitue les rapports importés dans votre **espace de travail**. Voici comment configurer l’exemple d’application web.
 
 1. Dans la solution Visual Studio **PowerBI-embedded**, cliquez avec le bouton droit sur l’application web **EmbedSample**, puis choisissez **Définir comme projet de démarrage**.
-2. Dans **web.config**, dans l’application web **EmbedSample**, modifiez la section **appSettings** : **AccessKey**, le nom **WorkspaceCollection** et **WorkspaceId**.
+2. Dans **web.config**, dans l’application web **EmbedSample**, modifiez la section **appSettings** : **AccessKey**, le nom **WorkspaceCollection** et **WorkspaceId**.
 
     ```
     <appSettings>
@@ -90,7 +90,7 @@ Une fois que vous avez exécuté l’application web **EmbedSample**, le volet d
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
-Une fois que vous avez cliqué sur un rapport, l’application web **EmbedSample** doit avoir l’aspect suivant :
+Une fois que vous avez cliqué sur un rapport, l’application web **EmbedSample** doit avoir l’aspect suivant :
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
@@ -158,14 +158,13 @@ Report.cshtml : définit **Model.AccessToken** et l’expression lambda pour **P
 
 ### Controller
 
-**DashboardController.cs** : crée un PowerBIClient qui transmet un **jeton d’application**. Un jeton JWT (JSON Web Token) est généré à partir de la **clé de signature** pour obtenir les **informations d’identification**. Les **informations d’identification** sont utilisées pour créer une instance de **PowerBIClient**. Pour plus d’informations sur les **jetons d’application**, consultez la section [Fonctionnement du flux de jetons d’application](#key-flow). Une fois que vous avez une instance de **PowerBIClient**, vous pouvez appeler GetReports() et GetReportsAsync().
+**DashboardController.cs** : crée un PowerBIClient qui transmet un **jeton d’application**. Un jeton JWT (JSON Web Token) est généré à partir de la **clé de signature** pour obtenir les **informations d’identification**. Les **informations d’identification** sont utilisées pour créer une instance de **PowerBIClient**. Une fois que vous avez une instance de **PowerBIClient**, vous pouvez appeler GetReports() et GetReportsAsync().
 
 CreatePowerBIClient()
 
-    private IPowerBIClient CreatePowerBIClient(PowerBIToken token)
+    private IPowerBIClient CreatePowerBIClient()
     {
-        var jwt = token.Generate(accessKey);
-        var credentials = new TokenCredentials(jwt, "AppToken");
+        var credentials = new TokenCredentials(accessKey, "AppKey");
         var client = new PowerBIClient(credentials)
         {
             BaseUri = new Uri(apiUrl)
@@ -178,8 +177,7 @@ ActionResult Reports()
 
     public ActionResult Reports()
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
 
@@ -197,12 +195,11 @@ Task<ActionResult> Report(string reportId)
 
     public async Task<ActionResult> Report(string reportId)
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
             var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, Guid.Parse(report.Id));
+            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
             var viewModel = new ReportViewModel
             {
@@ -237,6 +234,6 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ## Voir aussi
 
 - [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
-- [À propos du flux de jetons d’application dans Power BI Embedded](power-bi-embedded-app-token-flow.md)
+- [Authentification et autorisation dans Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

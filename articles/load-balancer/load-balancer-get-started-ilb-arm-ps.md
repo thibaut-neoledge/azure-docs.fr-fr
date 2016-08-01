@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modèle de déploiement classique](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -38,7 +38,7 @@ Dans cet article, nous allons aborder la séquence de tâches individuelles qui 
 
 Les éléments suivants doivent être configurés avant la création d’un équilibrage de charge interne :
 
-- Configuration d’adresses IP frontales : configure l'adresse IP privée pour le trafic réseau entrant 
+- Configuration d’adresses IP frontales : configure l'adresse IP privée pour le trafic réseau entrant
 
 - Pool d'adresses principales : configure les interfaces réseau qui recevront le trafic d'équilibrage de charge provenant du pool d'adresses IP frontales
 
@@ -62,7 +62,7 @@ Assurez-vous de disposer de la dernière version de production du module Azure p
 
 ### Étape 1 :
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 
 
@@ -70,7 +70,7 @@ Assurez-vous de disposer de la dernière version de production du module Azure p
 
 Vérifiez les abonnements associés au compte
 
-		PS C:\> get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 Vous devez indiquer vos informations d’identification.<BR>
 
@@ -79,7 +79,7 @@ Vous devez indiquer vos informations d’identification.<BR>
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Création d’un groupe de ressources pour l’équilibrage de charge
 
@@ -87,7 +87,7 @@ Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
 Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour créer un équilibrage de charge utiliseront le même groupe de ressources.
 
@@ -189,7 +189,7 @@ Dans cette étape, nous créons une deuxième interface réseau, définissons un
 On obtient alors le résultat suivant :
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Sortie attendue :
 
@@ -267,13 +267,13 @@ Charger l'interface réseau déjà créée dans une variable. Le nom de la varia
 
 Modifier la configuration du serveur principal sur l'interface réseau.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Étape 5 
 
 Enregistrer l'objet d'interface réseau.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Une fois l’interface réseau ajoutée au pool principal d'équilibreurs de charge, elle commence à recevoir le trafic réseau selon la règles d'équilibrage de charge pour cette ressource d’équilibreur de charge.
 
@@ -316,4 +316,4 @@ Utilisez la commande Remove-AzureRmLoadBalancer pour supprimer un équilibreur d
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

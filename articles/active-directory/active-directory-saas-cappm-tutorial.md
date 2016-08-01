@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory à CA PPM | Microsoft Azure"
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory à CA PPM | Microsoft Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et CA PPM."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
-# Didacticiel : Intégration d’Azure Active Directory à CA PPM
+# Didacticiel : Intégration d’Azure Active Directory à CA PPM
 
 Dans ce didacticiel, vous allez apprendre à intégrer CA PPM à Azure Active Directory (Azure AD).
 
-L’intégration de CA PPM à Azure AD vous offre les avantages suivants :
+L’intégration de CA PPM à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à CA PPM.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à CA PPM (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Dans Azure AD, vous pouvez contrôler qui a accès à CA PPM.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à CA PPM (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## Composants requis
 
-Pour configurer l’intégration d’Azure AD avec CA PPM, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD avec CA PPM, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
 - Un abonnement CA PPM pour lequel l’authentification unique est activée
@@ -40,14 +40,14 @@ Pour configurer l’intégration d’Azure AD avec CA PPM, vous avez besoin des
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
@@ -56,9 +56,9 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 
 
 ## Ajout de CA PPM à partir de la galerie
-Pour configurer l’intégration de CA PPM avec Azure AD, vous devez ajouter CA PPM disponible dans la galerie, à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de CA PPM avec Azure AD, vous devez ajouter CA PPM disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter CA PPM à partir de la galerie, procédez comme suit :**
+**Pour ajouter CA PPM à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
@@ -73,7 +73,7 @@ Pour configurer l’intégration de CA PPM avec Azure AD, vous devez ajouter CA
 
 	![Applications][3]
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
 	![Applications][4]
 
@@ -85,46 +85,46 @@ Pour configurer l’intégration de CA PPM avec Azure AD, vous devez ajouter CA
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_02.png)
 
 ##  Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec CA PPM avec un utilisateur de test appelé « Britta Simon ».
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec CA PPM avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur CA PPM équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur CA PPM associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur CA PPM équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur CA PPM associé doit être établie.
 
-Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans CA PPM.
+Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans CA PPM.
 
-Pour configurer et tester l’authentification unique Azure AD avec CA PPM, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec CA PPM, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test CA PPM](#creating-an-ca-ppm-test-user)** pour avoir un équivalent de Britta Simon dans CA PPM lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test CA PPM](#creating-an-ca-ppm-test-user)** pour avoir un équivalent de Britta Simon dans CA PPM lié à la représentation Azure AD associée.
 4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
+### Configuration de l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et configurer l’authentification unique dans votre application CA PPM.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et configurer l’authentification unique dans votre application CA PPM.
 
 
-**Pour configurer l’authentification unique Azure AD avec CA PPM, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec CA PPM, procédez comme suit :**
 
 1. Dans le portail Classic, dans la page d’intégration d’applications **CA PPM**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 	 
 	![Configurer l’authentification unique][6]
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à CA PPM**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à CA PPM**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_03.png)
 
-3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
+3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
 
 	![Configurer l’authentification unique](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_04.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application CA PPM, au format suivant : **https://ca.ondemand.saml.20.post.\<nom entreprise>**.
+    a. Dans la zone de texte **Identificateur**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application CA PPM, au format suivant : **https://ca.ondemand.saml.20.post.\<nom entreprise>**.
 	
 	b. Dans la zone de texte **URL de réponse**, tapez **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
 
 	c. Cliquez sur **Next**
  
-4. Dans la page **Configurer l’authentification unique sur CA PPM**, procédez comme suit :
+4. Dans la page **Configurer l’authentification unique sur CA PPM**, procédez comme suit :
 
 	![Configurer l’authentification unique](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_05.png)
 
@@ -155,7 +155,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 ### Création d’un utilisateur de test CA PPM
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans CA PPM. Collaborez avec l’équipe du support technique CA PPM pour ajouter des utilisateurs dans la plateforme CA PPM.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans CA PPM. Collaborez avec l’équipe du support technique CA PPM pour ajouter des utilisateurs dans la plateforme CA PPM.
 
 
 ### Affectation de l’utilisateur de test Azure AD
@@ -216,7 +216,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Affecter des utilisateurs][200]
 
-**Pour affecter Britta Simon à CA PPM, procédez comme suit :**
+**Pour affecter Britta Simon à CA PPM, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
 
@@ -247,7 +247,7 @@ Lorsque vous cliquez sur la mosaïque CA PPM dans le volet d’accès, vous deve
 ## Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -268,4 +268,4 @@ Lorsque vous cliquez sur la mosaïque CA PPM dans le volet d’accès, vous deve
 [204]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

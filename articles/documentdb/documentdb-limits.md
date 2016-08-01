@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Quotas par défaut pour DocumentDB | Microsoft Azure" 
+	pageTitle="Quotas par défaut pour DocumentDB | Microsoft Azure" 
 	description="En savoir plus sur les quotas par défaut alloués par DocumentDB."
 	services="documentdb" 
 	authors="mimig1" 
@@ -19,10 +19,10 @@
 
 # Quotas par défaut pour DocumentDB
 
-Le tableau suivant décrit les quotas par défaut pour les ressources DocumentDB.
+Le tableau suivant décrit les quotas par défaut pour les ressources de base de données Azure DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

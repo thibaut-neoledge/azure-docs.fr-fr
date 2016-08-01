@@ -1,315 +1,409 @@
 <properties
-pageTitle="Ajouter le connecteur OneDrive à PowerApps Enterprise et à vos applications logiques | Microsoft Azure"
-description="Vue d’ensemble du connecteur OneDrive avec les paramètres de l’API REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor=""
-tags="connectors"/>
+	pageTitle="Ajouter le connecteur OneDrive à vos applications logiques | Microsoft Azure"
+	description="Vue d’ensemble du connecteur OneDrive avec les paramètres de l’API REST"
+	services="app-servicelogic"    
+	documentationCenter=""     
+	authors="MandiOhlinger"    
+	manager="erikre"    
+	editor=""
+	tags="connectors"/>
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
-ms.author="mandia"/>
+   ms.service="app-service-logic"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="07/19/2016"
+   ms.author="mandia"/>
 
 # Prise en main du connecteur OneDrive
 
-Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. Le connecteur OneDrive peut être utilisé dans :
+Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. Avec OneDrive, vous pouvez effectuer les opérations suivantes :
 
-- Logic Apps 
-- PowerApps
+- Créer votre flux de travail en stockant des fichiers dans OneDrive, ou mettre à jour des fichiers existants dans OneDrive.
+- Utiliser des déclencheurs pour lancer votre flux de travail lorsqu’un fichier est créé ou mis à jour dans votre OneDrive.
+- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Par exemple, lorsqu’un nouveau courrier électronique Office 365 est reçu avec une pièce jointe (déclencheur), créer un nouveau fichier dans OneDrive (action).
 
-> [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-onedrive.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+Cette rubrique décrit comment utiliser le connecteur OneDrive dans une application logique et répertorie également les déclencheurs et les actions.
 
-&nbsp;
+>[AZURE.NOTE] Cette version de l’article s’applique à la disponibilité générale des applications logiques.
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+## Connexion à OneDrive
 
-Avec OneDrive, vous pouvez effectuer les opérations suivantes :
+Pour que votre application logique puisse accéder à un service, vous devez d’abord créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à OneDrive, vous devez d’abord disposer *d’une connexion* OneDrive. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ensuite, dans OneDrive, entrez les informations d’identification à votre compte OneDrive pour créer la connexion.
 
-- Créer votre flux d’activité en fonction des données que vous obtenez de OneDrive. 
-- Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
-- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans OneDrive, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
-- Ajoutez le connecteur OneDrive à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
-
-Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
-
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-## Déclencheurs et actions
-Le connecteur OneDrive inclut le déclencheur et les actions suivants.
-
-| Déclencheurs | Actions|
-| --- | --- |
-|<ul><li>Quand un fichier est créé</li><li>Quand un fichier est modifié</li></ul> | <ul><li>Créer un fichier</li><li>Lister des fichiers dans un dossier</li><li>Quand un fichier est créé</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier à l’aide de l’identifiant</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier à l’aide de l’identifiant</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Lister des dossiers racines</li><li>Mettre à jour un fichier</li><li>Quand un fichier est modifié</li></ul>
-
-Tous les connecteurs prennent en charge les données aux formats JSON et XML.
-
-## Créer une connexion à OneDrive
-
-Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte OneDrive.
-
-1. Connectez-vous à votre compte OneDrive.
-2. Autorisez vos applications logiques à se connecter à votre compte OneDrive et à l’utiliser. 
+### Créer la connexion
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette même connexion dans d’autres applications logiques.
+## Utilisation d’un déclencheur
 
-## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+1. Dans l’application logique, saisissez « onedrive » pour obtenir la liste des déclencheurs :
+
+	![](./media/connectors-create-api-onedrive/onedrive-1.png)
+
+2. Sélectionnez **Quand un fichier est modifié**. Si une connexion existe déjà, cliquez sur le bouton **...** (Afficher le sélecteur) pour sélectionner un dossier.
+
+	![](./media/connectors-create-api-onedrive/sample-folder.png)
+
+	Si vous êtes invité à vous connecter, entrez les informations de connexion pour créer la connexion. La section [Créer la connexion](connectors-create-api-onedrive.md#create-the-connection) de cette rubrique répertorie les étapes.
+
+	> [AZURE.NOTE] Dans cet exemple, l’application logique s’exécute lorsqu’un fichier est mis à jour dans le dossier que vous avez choisi. Pour consulter les résultats de ce déclencheur, ajoutez une autre action qui vous envoie un courrier électronique. Par exemple, ajoutez l’action *Envoyer un courrier électronique* Outlook Office 365 qui vous avertit lorsqu’un fichier est mis à jour.
+
+3. **Enregistrez** vos modifications (dans l’angle supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
 
 
-### Obtenir les métadonnées d’un fichier à l’aide de l’identifiant
-Récupère les métadonnées d’un fichier dans OneDrive à l’aide de l’identifiant. ```GET: /datasets/default/files/{id}```
+## Utilisation d’une action
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|(aucun)|Identificateur unique du fichier dans OneDrive|
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-### Réponses
+1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **Ajouter une condition** ou l’une des options **Plus**.
+
+	![](./media/connectors-create-api-onedrive/add-action.png)
+
+2. Choisissez **Ajouter une action**.
+
+3. Dans la zone de texte, saisissez « onedrive » pour obtenir la liste de toutes les actions disponibles.
+
+	![](./media/connectors-create-api-onedrive/onedrive-actions.png)
+
+4. Dans notre exemple, choisissez **OneDrive - Créer un fichier**. Si une connexion existe déjà, sélectionnez le **chemin d’accès du dossier** où placer le fichier, entrez le **nom de fichier** et choisissez le **contenu du fichier** de votre choix :
+
+	![](./media/connectors-create-api-onedrive/sample-action.png)
+
+	Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-onedrive.md#create-the-connection) dans cette rubrique décrit ces propriétés.
+
+	> [AZURE.NOTE] Dans cet exemple, nous allons créer un nouveau fichier dans un dossier OneDrive. Vous pouvez utiliser les résultats d’un autre déclencheur pour créer le fichier OneDrive. Par exemple, ajoutez le déclencheur d’Outlook Office 365 *Lorsqu’un nouveau courrier électronique arrive*. Ajoutez ensuite l’action OneDrive *Créer un fichier* qui utilise les champs Pièces jointes et Type de contenu d’une instruction ForEach pour créer le fichier dans OneDrive.
+	> 
+	> ![](./media/connectors-create-api-onedrive/foreach-action.png)
+
+5. **Enregistrez** vos modifications (dans l’angle supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+
+
+## Détails techniques
+
+## Déclencheurs
+
+|Déclencheur | Description|
+|--- | ---|
+|[Quand un fichier est créé](connectors-create-api-onedrive.md#when-a-file-is-created)|Cette opération déclenche un flux lorsqu’un fichier est créé dans un dossier.|
+|[Quand un fichier est modifié](connectors-create-api-onedrive.md#when-a-file-is-modified)|Cette opération déclenche un flux lorsqu’un fichier est modifié dans un dossier.|
+
+
+## Actions
+
+|Action|Description|
+|--- | ---|
+|[Obtenir les métadonnées d’un fichier](connectors-create-api-onedrive.md#get-file-metadata)|Cette opération obtient les métadonnées d’un fichier.|
+|[Mettre à jour un fichier](connectors-create-api-onedrive.md#update-file)|Cette opération met à jour un fichier.|
+|[Supprimer un fichier](connectors-create-api-onedrive.md#delete-file)|Cette opération supprime un fichier.|
+|[Obtenir les métadonnées d’un fichier à l’aide du chemin](connectors-create-api-onedrive.md#get-file-metadata-using-path)|Cette opération obtient les métadonnées d’un fichier à l’aide du chemin.|
+|[Obtenir le contenu d’un fichier à l’aide du chemin](connectors-create-api-onedrive.md#get-file-content-using-path)|Cette opération obtient le contenu d’un fichier à l’aide du chemin.|
+|[Obtenir le contenu d’un fichier](connectors-create-api-onedrive.md#get-file-content)|Cette opération obtient le contenu d’un fichier.|
+|[Créer un fichier](connectors-create-api-onedrive.md#create-file)|Cette opération crée un fichier.|
+|[Copier un fichier](connectors-create-api-onedrive.md#copy-file)|Cette opération copie un fichier dans OneDrive.|
+|[Répertorier les fichiers dans un dossier](connectors-create-api-onedrive.md#list-files-in-folder)|Cette opération obtient la liste des fichiers et sous-dossiers d’un dossier.|
+|[Répertorier les fichiers dans le dossier racine](connectors-create-api-onedrive.md#list-files-in-root-folder)|Cette opération obtient la liste des fichiers et sous-dossiers du dossier racine.|
+|[Extraire une archive dans un dossier](connectors-create-api-onedrive.md#extract-archive-to-folder)|Cette opération extrait un fichier d’archive dans un dossier (exemple : .zip).|
+
+### Détails de l’action
+
+Dans cette section, consultez les détails relatifs à chaque action, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
+
+
+#### Obtenir les métadonnées d’un fichier
+Cette opération obtient les métadonnées d’un fichier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Mettre à jour un fichier
+Cette opération met à jour un fichier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
+|body*|le contenu d’un fichier ;|Contenu du fichier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Supprimer un fichier
+Cette opération supprime un fichier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+#### Obtenir les métadonnées d’un fichier à l’aide du chemin
+Cette opération obtient les métadonnées d’un fichier à l’aide du chemin.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|path*|Chemin de fichier|Sélectionner un fichier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Obtenir le contenu d’un fichier à l’aide du chemin
+Cette opération obtient le contenu d’un fichier à l’aide du chemin.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|path*|Chemin de fichier|Sélectionner un fichier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+
+#### Obtenir le contenu d’un fichier
+Cette opération obtient le contenu d’un fichier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+#### Créer un fichier
+Cette opération crée un fichier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|folderPath*|Chemin d’accès du dossier|Sélectionner un dossier|
+|name*|Nom de fichier|Nom du fichier|
+|body*|le contenu d’un fichier ;|Contenu du fichier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Copier un fichier
+Cette opération copie un fichier dans OneDrive.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|source*|URL de la source|URL du fichier source|
+|destination*|Chemin de destination du fichier|Chemin de destination du fichier, y compris le nom de fichier cible|
+|overwrite|Remplacer ?|Remplace le fichier de destination si la valeur est « true »|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Quand un fichier est créé
+Cette opération déclenche un flux lorsqu’un fichier est créé dans un dossier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|folderId*|Dossier|Sélectionner un dossier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+#### Quand un fichier est modifié
+Cette opération déclenche un flux lorsqu’un fichier est modifié dans un dossier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|folderId*|Dossier|Sélectionner un dossier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+#### Répertorier les fichiers dans un dossier
+Cette opération obtient la liste des fichiers et sous-dossiers d’un dossier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Dossier|Sélectionner un dossier|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string||
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Répertorier les fichiers dans le dossier racine
+Cette opération obtient la liste des fichiers et sous-dossiers du dossier racine.
+
+Il n'existe aucun paramètre pour cet appel.
+
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+#### Extraire une archive dans un dossier
+Cette opération extrait un fichier d’archive dans un dossier (exemple : .zip).
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|source*|Chemin d’accès du fichier d’archive source|Chemin du fichier d'archive|
+|destination*|Chemin de destination du dossier|Chemin indiquant où extraire le contenu de l’archive|
+|overwrite|Remplacer ?|Remplace les fichiers de destination si la valeur est « true »|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+BlobMetadata
+
+| Nom de la propriété | Type de données |
+|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+## Réponses HTTP
+
+Le tableau suivant présente les réponses aux actions et aux déclencheurs et leurs descriptions :
+
 |Nom|Description|
 |---|---|
 |200|OK|
+|202|Acceptée|
+|400|Demande incorrecte|
+|401|Non autorisé|
+|403|Interdit|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s'est produite|
 |default|L’opération a échoué.|
-
-
-### Mettre à jour un fichier
-Met à jour un fichier dans OneDrive. ```PUT: /datasets/default/files/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|(aucun)|Identificateur unique du fichier à mettre à jour dans OneDrive|
-|body| |yes|body|(aucun)|Contenu du fichier à mettre à jour dans OneDrive|
-
-
-### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-### Supprimer un fichier
-Supprime un fichier de OneDrive. ```DELETE: /datasets/default/files/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|(aucun)|Identificateur unique du fichier à supprimer de OneDrive|
-
-
-### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Obtenir les métadonnées d’un fichier à l’aide du chemin
-Récupère les métadonnées d’un fichier dans OneDrive à l’aide du chemin. ```GET: /datasets/default/GetFileByPath```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|(aucun)|Chemin unique du fichier dans OneDrive|
-
-
-### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-
-### Obtenir le contenu d’un fichier à l’aide du chemin
-Récupère le contenu d’un fichier dans OneDrive à l’aide du chemin. ```GET: /datasets/default/GetFileContentByPath```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|(aucun)|Chemin unique du fichier dans OneDrive|
-
-
-### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-
-### Obtenir le contenu d’un fichier à l’aide de l’identifiant
-Récupère le contenu d’un fichier dans OneDrive à l’aide de l’identifiant. ```GET: /datasets/default/files/{id}/content```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|(aucun)|Identificateur unique du fichier dans OneDrive|
-
-
-### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-
-### Créer un fichier
-Charge un fichier sur OneDrive. ```POST: /datasets/default/files```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|query|(aucun)|Chemin du dossier OneDrive sur lequel charger le fichier|
-|name|string|yes|query|(aucun)|Nom du fichier à créer dans OneDrive|
-|body| |yes|body|(aucun)|Contenu du fichier à charger sur OneDrive|
-
-
-### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-### Copier un fichier
-Copie un fichier dans OneDrive. ```POST: /datasets/default/copyFile```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|(aucun)|URL du fichier source|
-|destination|string|yes|query|(aucun)|Chemin de destination du fichier dans OneDrive, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|false|Remplace le fichier de destination si la valeur est « true »|
-
-
-### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-### Quand un fichier est créé
-Déclenche un flux quand un fichier est créé dans un dossier OneDrive. ```GET: /datasets/default/triggers/onnewfile```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|(aucun)|Identificateur unique du dossier dans OneDrive|
-
-
-### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-### Déclenche un flux quand un fichier est modifié dans un dossier OneDrive
-Déclenche un flux quand un fichier est modifié dans un dossier OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|(aucun)|Identificateur unique du dossier dans OneDrive|
-
-
-### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-### Extraire un dossier
-Extrait un dossier dans OneDrive. ```POST: /datasets/default/extractFolderV2```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|(aucun)|Chemin du fichier d'archive|
-|destination|string|yes|query|(aucun)|Chemin dans OneDrive indiquant où extraire le contenu de l’archive|
-|overwrite|booléenne|no|query|false|Remplace les fichiers de destination si la valeur est « true »|
-
-
-### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-## Définitions d'objet
-
-#### DataSetsMetadata
-
-|Nom de la propriété | Type de données | Requis|
-|---|---|---|
-|tabular|non défini|no|
-|objet blob|non défini|no|
-
-
-#### TabularDataSetsMetadata
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-
-#### BlobDataSetsMetadata
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-
-#### BlobMetadata
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|ID|string|no|
-|Nom|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Taille|integer|no|
-|MediaType|string|no|
-|IsFolder|booléenne|no|
-|ETag|string|no|
-|FileLocator|string|no|
 
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques dans notre [liste d’API](apis-list.md).
 
-Revenir à la [liste des API](apis-list.md).
-
-[5]: https://account.live.com/developers/applications/create
-[6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
-[7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

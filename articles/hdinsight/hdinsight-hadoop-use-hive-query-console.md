@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation de Hadoop Hive sur la console de requêtes dans HDInsight | Microsoft Azure"
-   description="Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur."
+   pageTitle="Utilisation de Hadoop Hive sur la console de requêtes dans HDInsight | Microsoft Azure"
+   description="Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,36 +14,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/03/2016"
+   ms.date="07/19/2016"
    ms.author="larryfr"/>
 
 # Exécution de requêtes Hive à l'aide de la console de requêtes
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
+Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 
 > [AZURE.NOTE] La console de requêtes n'est disponible que sur les clusters HDInsight Windows.
 
 
 ##<a id="prereq"></a>Configuration requise
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Hadoop HDInsight Windows
+* Un cluster Hadoop HDInsight Windows
 
 * Un navigateur Web moderne
 
 ##<a id="run"></a> Exécution de requêtes Hive à l'aide de la console de requêtes
 
-1. Ouvrez un navigateur web et accédez à \_\___https://CLUSTERNAME.azurehdinsight.net__, où __CLUSTERNAME__ est le nom de votre cluster HDInsight. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
+1. Ouvrez un navigateur web et accédez à __https://CLUSTERNAME.azurehdinsight.net__, où __CLUSTERNAME\_\_ est le nom de votre cluster HDInsight. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
 
 
 2. À partir des liens situés en haut de la page, sélectionnez **Éditeur Hive**. Cela affiche un formulaire qui peut être utilisé pour saisir les instructions HiveQL que vous souhaitez exécuter sur le cluster HDInsight.
 
 	![l’éditeur Hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
 
-	Remplacez le texte `Select * from hivesampletable` par les instructions HiveSQL suivantes :
+	Remplacez le texte `Select * from hivesampletable` par les instructions HiveSQL suivantes :
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -52,10 +52,10 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Ces instructions effectuent les opérations suivantes :
+    Ces instructions effectuent les opérations suivantes :
 
     * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
-    * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d’origine.
+    * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d’origine.
 
     > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe (comme un processus de téléchargement de données automatisé) ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
     >
@@ -79,11 +79,11 @@ Pour en savoir plus sur l’utilisation de la console de requêtes Hive pour l�
 
 ##<a id="nextsteps"></a>Étapes suivantes
 
-Pour obtenir des informations générales sur Hive dans HDInsight :
+Pour obtenir des informations générales sur Hive dans HDInsight :
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
-Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
+Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
@@ -128,4 +128,4 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->
