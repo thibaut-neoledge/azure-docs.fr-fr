@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 
 # À propos des comptes de stockage Azure
 
-[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Vue d'ensemble
 
@@ -73,7 +73,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 	Si **Usage général** est sélectionné, spécifiez le niveau de performances **Standard** ou **Premium**. Le niveau par défaut est **Standard**. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Introduction à Microsoft Azure Storage](storage-introduction.md) et [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
 
-	Si **Blob Storage** est sélectionné, spécifiez le niveau d’accès **Chaud** ou **Froid**. Le niveau par défaut est **Chaud**. Pour plus d’informations, voir [Stockage d’objets blob Azure : niveaux froid et chaud](storage-blob-storage-tiers.md)
+	Si **Blob Storage** est sélectionné, spécifiez le niveau d’accès **Chaud** ou **Froid**. Le niveau par défaut est **Chaud**. Pour plus d’informations, voir [Stockage d’objets blob Azure : niveaux froid et chaud](storage-blob-storage-tiers.md).
 
 6. Sélectionnez l’option de réplication pour le compte de stockage : **LRS**, **GRS**, **RA-GRS** ou **ZRS**. La valeur par défaut est **RA-GRS**. Pour plus d’informations sur les options de réplication d’Azure Storage, consultez [Réplication Azure Storage](storage-redundancy.md).
 
@@ -101,7 +101,7 @@ Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut 
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 
 #### Afficher et copier les clés d’accès de stockage
 
@@ -157,4 +157,4 @@ Pour plus d’informations, voir la [documentation sur les machines virtuelles A
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

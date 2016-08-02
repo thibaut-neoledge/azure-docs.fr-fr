@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 
 # À propos des comptes de stockage Azure
 
-[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Un compte de stockage Azure vous donne accès aux services Azure Objet blob, File d’attente, Table et Fichier dans Azure Storage. Votre compte de stockage fournit les espaces de noms uniques pour vos objets de données Azure Storage. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte.
 
 Il existe deux types de comptes de stockage :
 
 - Un compte de stockage standard qui inclut le stockage d’objets blob, de tables, de files d’attente et de fichiers.
-- Un compte de stockage Premium prend actuellement en charge uniquement les disques de machine virtuelle Azure. Pour une présentation détaillée de Premium Storage, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
+- Un compte de stockage Premium prend actuellement en charge uniquement les disques de machine virtuelle Azure. Pour une présentation détaillée de Premium Storage, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
 
 ## Facturation du compte de stockage
 
@@ -37,7 +37,7 @@ La facturation de l’utilisation d’Azure Storage est basée sur votre compte 
 - La capacité de stockage fait référence à l’unité de compte de stockage que vous utilisez pour stocker des données. Le coût d’un simple stockage de vos données est déterminé par la quantité de données que vous stockez et leur type de réplication.
 - La réplication détermine le nombre de copies de vos données qui sont conservées simultanément et à quels emplacements.
 - Les transactions font références à toutes les opérations de lecture et d'écriture vers Azure Storage.
-- L'acheminement des données fait référence aux données transférées hors d'une région Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n'est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d'application, vous êtes facturé pour l'acheminement des données (pour les services Azure, vous pouvez grouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais d'acheminement des données).  
+- L'acheminement des données fait référence aux données transférées hors d'une région Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n'est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d'application, vous êtes facturé pour l'acheminement des données (pour les services Azure, vous pouvez grouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais d'acheminement des données).
 
 La page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Tarification - Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données.
 
@@ -65,7 +65,7 @@ Pour plus d’informations sur la capacité et les objectifs de performance du c
 
 	Notez que vous devez sélectionner un groupe d’affinités lors de la création de votre compte de stockage. Vous ne pouvez pas déplacer un compte existant vers un groupe d’affinités. Pour plus d’informations sur les groupes d’affinités, consultez [Colocalisation de service avec un groupe d’affinités](#service-co-location-with-an-affinity-group) ci-dessous.
 
-	>[AZURE.IMPORTANT] Pour déterminer les emplacements disponibles pour votre abonnement, vous pouvez appeler l’opération [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx). Pour répertorier les fournisseurs à partir de PowerShell, appelez [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). À partir de .NET, utilisez la méthode [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) de la classe ProviderOperationsExtensions.
+	>[AZURE.IMPORTANT] Pour déterminer les emplacements disponibles pour votre abonnement, vous pouvez appeler l’opération [Répertorier tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx). Pour répertorier les fournisseurs à partir de PowerShell, appelez [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). À partir de .NET, utilisez la méthode [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) de la classe ProviderOperationsExtensions.
 	>
 	>En outre, pour plus d’informations sur les services disponibles dans votre région, consultez [Régions Azure](https://azure.microsoft.com/regions/#services).
 
@@ -111,7 +111,7 @@ Un *groupe d'affinités* est un regroupement géographique de vos services et ma
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 
 Dans le [Portail Azure Classic](https://manage.windowsazure.com), utilisez **Gérer les clés** sur le tableau de bord ou la page **Stockage** pour afficher, copier et régénérer les clés d’accès de stockage qui servent à accéder aux services Objet blob, Table et File d’attente.
 
@@ -175,4 +175,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

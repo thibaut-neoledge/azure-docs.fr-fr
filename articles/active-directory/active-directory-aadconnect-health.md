@@ -44,7 +44,7 @@ Azure AD Connect Health pour AD FS prend en charge AD FS 2.0 dans Windows Serve
 
 La vidéo suivante fournit une vue d’ensemble d’Azure AD Connect Health pour AD FS
 
-> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md)
 
@@ -60,6 +60,7 @@ La vidéo suivante fournit une vue d’ensemble d’Azure AD Connect Health pour
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 ## [Utilisation d’Azure AD Connect Health pour AD DS (version préliminaire)](active-directory-aadconnect-health-adds.md)
+
 Azure AD Connect Health pour AD DS permet de surveiller les contrôleurs de domaine installés sur Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Une installation de l’agent d’intégrité simple et économique vous permet de surveiller votre environnement local AD DS directement à partir du cloud. Azure AD Connect Health pour AD DS fournit les fonctionnalités clé suivantes :
 
 - Alertes de surveillance pour détecter quand les contrôleurs de domaine sont défectueux, ainsi que des notifications par courrier électronique pour les alertes critiques.
@@ -122,4 +123,4 @@ Le portail Azure AD Connect Health vous permet d’afficher des alertes, de surv
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

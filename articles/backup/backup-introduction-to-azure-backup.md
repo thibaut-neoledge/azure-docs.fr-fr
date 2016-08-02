@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/21/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Qu’est-ce qu’Azure Backup ?
@@ -44,33 +44,32 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 
 | Composant | Déploiement possible dans Azure ? | Déploiement possible localement ? | Stockage cible pris en charge|
 | --- | --- | --- | --- |
-| Agent Azure Backup | <p>**Oui**</p> <p>L’agent Azure Backup peut être déployé sur n’importe quelle machine virtuelle Windows Server exécutée dans Azure.</p> | <p>**Oui**</p> <p>L’agent Azure Backup peut être déployé sur n’importe quelle machine virtuelle ou physique Windows Server.</p> | <p>Coffre de sauvegarde Azure</p> |
-| System Center Data Protection Manager (DPM) | <p>**Oui**</p><p>En savoir plus sur la [protection des charges de travail dans Azure à l’aide de System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Oui**</p> <p>En savoir plus sur la [protection des charges de travail et des machines virtuelles dans votre centre de données](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Disque connecté localement,</p> <p>coffre Azure Backup,</p> <p>bande (en local uniquement)</p> |
-| Azure Backup Server | <p>**Oui**</p> <p>En savoir plus sur la [protection des charges de travail dans Azure à l’aide du serveur Azure Backup](backup-azure-microsoft-azure-backup.md).</p> | <p>**Oui**</p> <p>En savoir plus sur la [protection des charges de travail dans Azure à l’aide du serveur Azure Backup](backup-azure-microsoft-azure-backup.md).</p> | <p>Disque connecté localement,</p> <p>archivage Azure Backup,</p> |
-| Azure Backup (extension de machine virtuelle) | <p>**Oui**</p> <p>Partie d’Azure Fabric</p><p>Spécialisé dans la [sauvegarde des machines virtuelles Azure IaaS (infrastructure en tant que service)](backup-azure-vms-introduction.md).</p> | <p>**Non**</p> <p>Utilisez System Center DPM pour sauvegarder des machines virtuelles dans votre centre de données.</p> | <p>Coffre Azure Backup</p> |
+| Agent Azure Backup | <p>**Oui**</p> <p>L’agent Azure Backup peut être déployé sur n’importe quelle machine virtuelle Windows Server exécutée dans Azure.</p> | <p>**Oui**</p> <p>L’agent Backup peut être déployé sur n’importe quelle machine virtuelle ou physique Windows Server.</p> | <p>Coffre Azure Backup</p> |
+| System Center Data Protection Manager (DPM) | <p>**Oui**</p><p>Apprenez-en davantage sur la [protection des charges de travail dans Azure à l’aide de System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Oui**</p> <p>Apprenez-en davantage sur la [protection des charges de travail et des machines virtuelles dans votre centre de données](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Disque connecté localement,</p> <p>coffre Azure Backup,</p> <p>bande (en local uniquement)</p> |
+| Azure Backup Server | <p>**Oui**</p><p>Apprenez-en davantage sur la [protection des charges de travail dans Azure à l’aide d’Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Oui**</p> <p>Apprenez-en davantage sur la [protection des charges de travail dans Azure à l’aide d’Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Disque connecté localement,</p> <p>coffre Azure Backup</p> |
+| Azure Backup (extension de machine virtuelle) | <p>**Oui**</p><p>Partie de structure Azure</p><p>Spécialisé dans la [sauvegarde des machines virtuelles Azure IaaS (infrastructure as a service)](backup-azure-vms-introduction.md).</p> | <p>**Non**</p> <p>Utilisez System Center DPM pour sauvegarder des machines virtuelles dans votre centre de données.</p> | <p>Coffre Azure Backup</p> |
 
 ### Avantages et limites du niveau du composant
 
 | Composant | Avantages | Limites | Granularité de récupération |
 | --- | --- | --- | --- |
-| Agent Azure Backup (MARS) | <li>Peut sauvegarder des fichiers et des dossiers sur une machine avec le système d’exploitation Windows, physique ou virtuelle (les machines virtuelles peuvent se trouver n’importe où, sur site ou sur Azure)<li>Aucun serveur de sauvegarde distinct n’est requis<li>Utilise Azure Backup Vault | <li>Sauvegarde trois fois par jour/restauration au niveau fichier<li>Restauration de niveau fichier/dossier/volume uniquement, indépendante de l’application<li>Aucune prise en charge de Linux | fichiers/dossiers/volumes |
-| System Center Data Protection Manager (DPM) | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète pour effectuer les sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V) | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle). | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
-| Microsoft Azure Backup Server | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète pour effectuer les sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V)<li>Ne nécessite pas de licence System Center | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle).<li>Requiert toujours un abonnement Azure en direct<li>Aucune prise en charge de la sauvegarde sur bande | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
-| Sauvegarde des machines virtuelles IaaS Azure | <li>Sauvegardes natives pour Windows/Linux<li>Aucune installation d’agent spécifique requise<li>Sauvegarde au niveau Fabric sans infrastructure de sauvegarde nécessaire | <li>Restauration une fois par jour/restauration au niveau du disque<li>Impossible d’effectuer une sauvegarde en local | Machines virtuelles<br>Tous les disques (avec PowerShell) |
+| Agent Azure Backup (MARS) | <li>Peut sauvegarder des fichiers et des dossiers sur une machine équipée du système d’exploitation Windows, physique ou virtuelle (les machines virtuelles peuvent se trouver n’importe où sur site ou sur Azure)<li>Aucun serveur de sauvegarde distinct n’est requis<li>Utilise le coffre Azure Backup | <li>Sauvegarde trois fois par jour/restauration de niveau fichier<li>Restauration de niveau fichier/dossier/volume uniquement, indépendante de l’application<li>Aucune prise en charge de Linux | fichiers/dossiers/volumes |
+| System Center Data Protection Manager (DPM) | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète concernant le moment des sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V) | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle) | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
+| Microsoft Azure Backup Server | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète concernant le moment des sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V)<li>Ne nécessite pas de licence System Center | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle)<li>Requiert toujours un abonnement Azure actif<li>Aucune prise en charge de la sauvegarde sur bande | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
+| Sauvegarde des machines virtuelles IaaS Azure | <li>Sauvegardes natives pour Windows/Linux<li>Aucune installation d’agent spécifique requise<li>Sauvegarde au niveau structure sans infrastructure de sauvegarde nécessaire | <li>Sauvegarde une fois par jour/restauration de niveau disque<li>Impossible d’effectuer une sauvegarde en local | Machines virtuelles<br>Tous les disques (avec PowerShell) |
 
 ## Quelles applications et charges de travail est-il possible de sauvegarder ?
 
 | Charge de travail | Machine source | Solution Azure Backup |
 | --- | --- |---|
-| Fichiers et dossiers | Windows Server | <p>[Agent Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ l’agent Azure Backup),</p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
-| Fichiers et dossiers | Client Windows | <p>[Agent Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ l’agent Azure Backup),</p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
-| Machine virtuelle Hyper-V (Windows) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
-| Machine virtuelle Hyper-V (Linux) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
-| Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
-| Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
-| Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
-| Machines virtuelles IaaS Azure (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
-| Machines virtuelles IaaS Azure (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Fichiers et dossiers | Windows Server | <p>[Agent Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ l’agent Azure Backup),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
+| Fichiers et dossiers | Client Windows | <p>[Agent Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ l’agent Azure Backup),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
+| Machine virtuelle Hyper-V (Windows) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
+| Machine virtuelle Hyper-V (Linux) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
+| Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
+| Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
+| Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
+| Machines virtuelles Azure IaaS (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | | Machines virtuelles Azure IaaS (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
 
 ## Prise en charge ARM et Linux
 
@@ -79,7 +78,7 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 | Agent Azure Backup (MARS) | Oui | Aucun (agent uniquement sur Windows) |
 | System Center Data Protection Manager (DPM) | Oui (Agent d’invité) | Seule une sauvegarde compatible de niveau de fichier Hyper-V (non de machine virtuelle Azure) est possible. |
 | Serveur Azure Backup (MABS) | Oui (Agent d’invité) | Seule une sauvegarde compatible de niveau de fichier Hyper-V (pas de machine virtuelle Azure) est possible (identique à DPM) |
-| Sauvegarde des machines virtuelles IaaS Azure | Dans la version préliminaire publique | Dans la version préliminaire publique - Machies virtuelles Linux dans le modèle de déploiement Resource Manager <br>(Cohérence au niveau du système de fichiers)<br><br>Oui pour les machines virtuelles Linux dans le modèle de déploiement classique |
+| Sauvegarde des machines virtuelles IaaS Azure | Oui | Oui |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -94,11 +93,11 @@ Lors de la sauvegarde de machines virtuelles Premium Storage, le service Backup 
 
 >[AZURE.NOTE] Évitez de modifier l'emplacement intermédiaire.
 
-Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l'emplacement intermédiaire est conforme à l’ensemble de la [tarification Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
+Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
 
 ### Restaurer des machines virtuelles Premium Storage
 
-La restauration d'un point de récupération de machines virtuelles Premium Storage dans Premium Storage est le processus de restauration classique. Toutefois, il peut être rentable de restaurer un point de récupération de machines virtuelles Premium Storage dans le stockage standard. Ce type de restauration peut être utilisé si vous avez besoin d'un sous-ensemble de fichiers de la machine virtuelle.
+Les machines virtuelles Premium Storage peuvent être restaurées dans Premium Storage ou dans le stockage standard. La restauration d'un point de récupération de machines virtuelles Premium Storage dans Premium Storage est le processus de restauration classique. Toutefois, il peut être rentable de restaurer un point de récupération de machines virtuelles Premium Storage dans le stockage standard. Ce type de restauration peut être utilisé si vous avez besoin d'un sous-ensemble de fichiers de la machine virtuelle.
 
 ## Fonctionnalités
 Ces cinq tableaux récapitulent la manière dont les fonctionnalités de sauvegarde sont gérées au niveau de chaque composant :
@@ -125,7 +124,7 @@ Chaque composant prend en charge la sauvegarde incrémentielle quel que soit le 
 En outre, les sauvegardes sont compressées afin de réduire la quantité d’espace de stockage requise. L’extension de machine virtuelle est le seul composant qui n’effectue aucune compression. Avec l’extension de machine virtuelle, toutes les données de sauvegarde sont copiées du compte de stockage client vers le coffre de sauvegarde dans la même région sans être compressées. Bien que cela augmente légèrement le volume de stockage utilisé, le fait de stocker des données sans compression permet d’accélérer les restaurations.
 
 #### Déduplication
-La déduplication est prise en charge pour System Center DPM et le serveur Backup lorsqu’ils sont [déployés dans une machine virtuelle Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La déduplication intervient au niveau de l’hôte grâce à la fonction de déduplication de Windows Server sur les disques durs virtuels attachés en tant que stockage de sauvegarde à la machine virtuelle.
+La déduplication est prise en charge pour System Center DPM et Backup Server lorsqu’ils sont [déployés dans une machine virtuelle Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La déduplication intervient au niveau de l’hôte grâce à la fonction de déduplication de Windows Server sur les disques durs virtuels attachés en tant que stockage de sauvegarde à la machine virtuelle.
 
 >[AZURE.WARNING] La déduplication n’est en revanche pas disponible dans Azure pour aucun des composants d’Azure Backup. Lorsque System Center DPM et Azure Backup Server sont déployés dans Azure, les disques de stockage attachés à la machine virtuelle ne peuvent pas être dédupliqués.
 
@@ -183,11 +182,11 @@ L’agent Azure Backup fournit la fonctionnalité de limitation qui vous permet 
 | | Agent Azure Backup | System Center DPM | Azure Backup Server | Azure Backup (extension de machine virtuelle) |
 | --- | --- | --- | --- | --- |
 | Fréquence de sauvegarde (sur le coffre de sauvegarde) | Trois sauvegardes par jour | Deux sauvegardes par jour |Deux sauvegardes par jour | Une sauvegarde par jour |
-| Fréquence de sauvegarde (sur disque) | Non applicable | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> |Non applicable |
+| Fréquence de sauvegarde (sur disque) | Non applicable | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> |Non applicable |
 | Options de rétention | Quotidienne, hebdomadaire, mensuelle, annuelle | Quotidienne, hebdomadaire, mensuelle, annuelle | Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |
 | Période de rétention | Jusqu’à 99 ans | Jusqu’à 99 ans | Jusqu’à 99 ans | Jusqu’à 99 ans |
 | Points de récupération dans le coffre Azure Backup | Illimité | Illimité | Illimité | Illimité |
-| Points de récupération sur le disque local | Non applicable | 64 pour les serveurs de fichiers,<br><br>448 pour les serveurs d’application | 64 pour les serveurs de fichiers,<br><br>448 pour les serveurs d’application |Non applicable |
+| Points de récupération sur le disque local | Non applicable | 64 pour les serveurs de fichiers,<br><br>448 pour les serveurs d’applications | 64 pour les serveurs de fichiers,<br><br>448 pour les serveurs d’applications |Non applicable |
 | Points de récupération sur bande | Non applicable | Illimité | Non applicable | Non applicable |
 
 ## Qu’est-ce que le fichier d’informations d’identification de coffre ?
@@ -199,7 +198,7 @@ Les informations d’identification de coffre sont utilisées uniquement pendant
 ## Quelle est la différence entre Azure Backup et Azure Site Recovery ?
 De nombreux clients ont tendance à confondre récupération de sauvegarde et récupération d’urgence. Les deux opérations capturent des données et fournissent une sémantique de restauration, mais chacune est associée à une proposition de valeur bien spécifique.
 
-Azure Backup sauvegarde les données en local et dans le cloud. Azure Site Recovery coordonne la réplication, le basculement et la restauration automatique des machines virtuelles et des serveurs physiques. Les deux services sont importants, car votre solution de récupération d’urgence doit copier vos données en toute sécurité et les rendre récupérables (Backup) *et* assurer la disponibilité de vos charges de travail (Site Recovery) en cas de panne.
+Azure Backup sauvegarde les données en local et dans le cloud. Azure Site Recovery coordonne la réplication, le basculement et la restauration automatique des machines virtuelles et des serveurs physiques. Les deux services sont importants, car votre solution de récupération d’urgence doit protéger vos données et les rendre récupérables (Backup) *et* assurer la disponibilité de vos charges de travail (Site Recovery) en cas de panne.
 
 Les concepts qui suivent vous aideront à prendre des décisions importantes en matière de sauvegarde et de récupération.
 
@@ -207,7 +206,7 @@ Les concepts qui suivent vous aideront à prendre des décisions importantes en 
 | ------- | ------- | ------ | ----------------- |
 | Objectif de point de récupération (RPO) | Quantité de perte de données acceptable si la récupération doit être exécutée. | Les solutions de sauvegarde offrent des RPO extrêmement variables. Les sauvegardes de machines virtuelles ont généralement un RPO d’un jour, contre seulement 15 minutes pour les sauvegardes de base de données. | Les solutions de récupération d’urgence ont un RPO faible. La copie de récupération d’urgence peut devoir être prête en seulement quelques secondes ou quelques minutes. |
 | Objectif de délai de récupération (RTO) | Quantité de temps nécessaire pour effectuer une récupération ou une restauration complète. | Un RPO plus long est généralement synonyme pour la solution de sauvegarde d’une bien plus grande quantité de données à traiter, ce qui rallonge d’autant le RTO. Par exemple, il peut falloir plusieurs jours pour restaurer des données à partir de bandes, selon le temps nécessaire au transport de la bande depuis un site externe. | Les solutions de récupération d’urgence ont un RTO plus faible car elles sont davantage synchronisées avec la source et ont moins de modifications à traiter. |
-| Rétention | Durée pendant laquelle les données doivent être stockées | Pour les scénarios qui exigent une reprise des opérations (altération des données, suppression accidentelle de fichiers, défaillances du système d’exploitation), les données de sauvegarde sont généralement conservées pendant 30 jours au maximum.<br>Du point de vue de la conformité, il se peut que vous deviez stocker les données pendant des mois, voire des années. Dans ce cas, les données de sauvegarde sont parfaitement adaptées aux besoins d’archivage. | Une récupération d’urgence porte uniquement sur les données de récupération opérationnelle, soit en général quelques heures, sans dépasser une journée. Puisque les solutions de récupération d’urgence sont conçues pour capturer les données à un niveau extrêmement précis, l’utilisation des données de récupération d’urgence n’est pas recommandée dans le cadre d’une rétention à long terme. |
+| Rétention | Durée pendant laquelle les données doivent être stockées | Pour les scénarios qui exigent une reprise des opérations (altération des données, suppression accidentelle de fichiers, défaillances du système d’exploitation), les données de sauvegarde sont généralement conservées pendant 30 jours au maximum.<br>Du point de vue de la conformité, il se peut que vous deviez stocker les données pendant des mois, voire des années. Dans ce cas, les données de sauvegarde sont parfaitement adaptées aux besoins d’archivage. | Une récupération d’urgence porte uniquement sur les données de récupération opérationnelle, soit en général quelques heures, sans dépasser une journée. Puisque les solutions de récupération d’urgence sont conçues pour capturer les données à un niveau extrêmement précis, l’utilisation des données de récupération d’urgence n’est pas recommandée dans le cadre d’une rétention à long terme. |
 
 ## Étapes suivantes
 
@@ -228,4 +227,4 @@ Comme ces didacticiels vous aident à effectuer des sauvegardes rapides, ils n�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

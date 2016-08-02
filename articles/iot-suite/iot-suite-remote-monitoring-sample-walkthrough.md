@@ -34,7 +34,7 @@ Le schéma suivant décrit les composants logiques de la solution préconfiguré
 
 ## Simulations d’appareils
 
-Dans la solution préconfigurée, l’appareil simulé représente un système de refroidissement (un climatiseur dans un bâtiment ou une unité de traitement d’air dans une usine, par exemple). Lorsque vous déployez la solution préconfigurée, vous configurez automatiquement quatre appareils simulés qui s’exécutent dans un [une tâche web Azure][lnk-webjobs]. Les appareils simulés vous permettent d’explorer plus facilement le comportement de la solution sans avoir à déployer des appareils physiques. Pour déployer un appareil physique réel, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connectyourdevice].
+Dans la solution préconfigurée, l’appareil simulé représente un système de refroidissement (un climatiseur dans un bâtiment ou une unité de traitement d’air dans une usine, par exemple). Lorsque vous déployez la solution préconfigurée, vous configurez automatiquement quatre appareils simulés qui s’exécutent dans un [une tâche web Azure][lnk-webjobs]. Les appareils simulés vous permettent d’explorer plus facilement le comportement de la solution sans avoir à déployer des appareils physiques. Pour déployer un appareil physique réel, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
 Chaque appareil simulé peut envoyer les types de messages suivants à IoT Hub :
 
@@ -218,12 +218,17 @@ Les billets de blog TechNet suivants fournissent des détails supplémentaires s
 - [IoT Suite - Under The Hood - Remote Monitoring (en anglais)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (en anglais)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
+Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
+
+- [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm]
+- [Autorisations sur le site azureiotsuite.com][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connectyourdevice]: iot-suite-connecting-devices.md
 [lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

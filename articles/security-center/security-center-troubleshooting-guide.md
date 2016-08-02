@@ -13,16 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Guide de résolution des problèmes d’Azure Security Center
 Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center et qui doivent résoudre des problèmes liés au Centre de sécurité.
 
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
-
 ## Guide de résolution des problèmes
-Ce guide explique comment résoudre les problèmes liés au Centre de sécurité. La majorité des problèmes rencontrés dans le Centre de sécurité se résolvent en examinant tout d’abord les enregistrements du [journal d’audit](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
+Ce guide explique comment résoudre les problèmes liés au Centre de sécurité. Vous pouvez résoudre la majorité des problèmes rencontrés dans le Centre de sécurité en commençant par examiner les enregistrements du [journal d’audit](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
 
 - Les opérations ayant eu lieu.
 - Qui a initié l’opération.
@@ -66,7 +64,7 @@ Dans un système qui fonctionne, vous devez voir une connexion au processus mdsd
 
 ## Contacter le support Microsoft
 
-Certains problèmes peuvent être identifiés en suivant les recommandations fournies dans cet article, tandis que d’autres sont documentés dans le [Forum](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureSecurityCenter) public d’Azure Security Center. Toutefois, si vous avez besoin d’informations supplémentaires en matière de résolution des problèmes, vous pouvez ouvrir une nouvelle demande de support à l’aide du portail Azure, comme indiqué ci-dessous :
+Vous pouvez identifier certains problèmes en suivant les recommandations fournies dans cet article, tandis que d’autres problèmes sont documentés dans le [Forum](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureSecurityCenter) public d’Azure Security Center. Toutefois, si vous avez besoin d’informations supplémentaires en matière de résolution des problèmes, vous pouvez ouvrir une nouvelle demande de support à l’aide du portail Azure, comme indiqué ci-dessous :
 
 ![Support Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -75,11 +73,11 @@ Certains problèmes peuvent être identifiés en suivant les recommandations fou
 
 Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
-- [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conception pour l’adoption d’Azure Security Center.
+- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conception à intégrer pour Azure Security Center.
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) – Découvrez comment surveiller l’intégrité de vos ressources Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
 - [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
