@@ -39,7 +39,7 @@ L'exécution de ce didacticiel nécessite les éléments suivants :
 + PhoneGap prend en charge le développement de plusieurs plateformes. Outre les outils PhoneGap, vous devez installer les outils de chacune des plateformes requises :
 
 	- Windows Phone : installation de [Visual Studio 2012 Express pour Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-	- iOS: installation de [Xcode] (v4.4 au minimum requis)
+	- iOS: installation de [Xcode] \(v4.4 au minimum requis)
 	- Android : installation d'[Android Developer Tools][Android SDK] <br/>(le Kit de développement logiciel (SDK) Mobile Services pour Android prend en charge les applications destinées à Android 2.2 et versions ultérieures. Android 4.2 (ou version ultérieure) est requis pour exécuter l'application de démarrage rapide).
 
 ## Création d’un service mobile
