@@ -28,13 +28,13 @@ Chaque solution préconfigurée est une implémentation complète de bout en bou
 
 En plus de déployer et d’exécuter les solutions dans Azure, vous pouvez télécharger le code source complet, puis personnaliser et étendre la solution pour répondre à vos besoins IoT spécifiques.
 
-> [AZURE.NOTE] Pour déployer l’une des solutions préconfigurées, visitez [Microsoft Azure IoT Suite][lnk-azureiotsuite]. L’article [Prise en main des solutions préconfigurées IoT][lnk-preconf-get-started] fournit plus d’informations pour vous expliquer comment déployer et exécuter l’une des solutions.
+> [AZURE.NOTE] Pour déployer l’une des solutions préconfigurées, visitez [Microsoft Azure IoT Suite][lnk-azureiotsuite]. L’article [Prise en main des solutions préconfigurées IoT][lnk-getstarted-preconfigured] fournit plus d’informations pour vous expliquer comment déployer et exécuter l’une des solutions.
 
 Le tableau suivant montre le mappage entre les solutions et des fonctionnalités IoT spécifiques :
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 |------------------------|-----|-----|-----|-----|-----|
-| [Surveillance à distance][lnk-preconf-get-started] | Oui | Oui | Oui | Oui | - | 
+| [Surveillance à distance][lnk-getstarted-preconfigured] | Oui | Oui | Oui | Oui | - | 
 | [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
 
 - *Données* : entrer des données à l'échelle dans le cloud.
@@ -76,10 +76,10 @@ L’IoT Hub met les données de télémétrie qu’il reçoit à disposition via
 
 ## Azure Stream Analytics
 
-La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie en provenance des appareils :
+La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] \(ASA) pour filtrer le flux de télémétrie en provenance des appareils :
 
 
-- *Tâche DeviceInfo* : génère des données vers un hub d'événements qui envoie des messages relatifs à l’instruction de l’inscription de l’appareil, envoyés lorsqu'un périphérique se connecte d'abord ou en réponse à une commande **Modifier l'état de l'appareil**, dans le registre d’appareils de la solution (une base de données DocumentDB). 
+- *Tâche DeviceInfo* : génère des données vers un hub d'événements qui envoie des messages relatifs à l’instruction de l’inscription de l’appareil, envoyés lorsqu'un périphérique se connecte d'abord ou en réponse à une commande **Modifier l'état de l'appareil**, dans le registre d’appareils de la solution (une base de données DocumentDB).
 - *Tâche Telemetry* : envoie toutes les données de télémétrie brutes vers Azure Blob Storage pour un stockage à froid et calcule les données de télémétrie agrégées qui s’affichent dans le tableau de bord de la solution.
 - *Tâche Rules* : filtre le flux de télémétrie sur les valeurs qui dépassent les seuils de la règle et envoie les données vers un hub d’événements. Lorsqu’une règle se déclenche, la vue du tableau de bord du portail de la solution affiche cet événement sous la forme d’une nouvelle ligne dans la table d’historique des alarmes et déclenche une action compte tenu des paramètres définis dans les vues Règles et Actions du portail de la solution.
 
@@ -117,10 +117,7 @@ Dans cette solution préconfigurée, le portail de la solution fait partie du **
 
 Pour plus d’informations sur les architectures de solution IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
 
-Explorez ces ressources pour en savoir plus sur les solutions IoT préconfigurées :
-
-- [Prise en main des solutions préconfigurées IoT][lnk-preconf-get-started]
-- [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-maintenance]
+À présent que vous savez en quoi consiste une solution préconfigurée, vous pouvez commencer en déployant la solution préconfigurée de *surveillance à distance* : [Prise en main des solutions préconfigurées][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -128,13 +125,10 @@ Explorez ces ressources pour en savoir plus sur les solutions IoT préconfiguré
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0601_2016-->
-<!---Line 82 to 84-->
+<!---HONumber=AcomDC_0727_2016-->

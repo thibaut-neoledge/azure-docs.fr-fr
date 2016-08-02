@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="ggailey777"/>
 
 # Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -39,7 +39,7 @@ L'exécution de ce didacticiel nécessite les éléments suivants :
 + PhoneGap prend en charge le développement de plusieurs plateformes. Outre les outils PhoneGap, vous devez installer les outils de chacune des plateformes requises :
 
 	- Windows Phone : installation de [Visual Studio 2012 Express pour Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-	- iOS: installation de [Xcode] (v4.4 au minimum requis)
+	- iOS: installation de [Xcode] \(v4.4 au minimum requis)
 	- Android : installation d'[Android Developer Tools][Android SDK] <br/>(le Kit de développement logiciel (SDK) Mobile Services pour Android prend en charge les applications destinées à Android 2.2 et versions ultérieures. Android 4.2 (ou version ultérieure) est requis pour exécuter l'application de démarrage rapide).
 
 ## Création d’un service mobile
@@ -153,7 +153,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 ## Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* **[Ajout de l’authentification à votre application]** Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.  
+* **[Ajout de l’authentification à votre application]** Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
 * **[Ajout de notifications Push à votre application](https://msdn.microsoft.com/magazine/dn879353.aspx)** Découvrez comment vous inscrire à des notifications Push et les envoyer à votre application.
 
@@ -176,4 +176,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

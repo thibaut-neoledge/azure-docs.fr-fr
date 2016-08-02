@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Créer une base de données SQL Data Warehouse à l’aide de Transact-SQL (TSQL).
@@ -24,15 +24,16 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Cet article vous explique comment créer une base de données SQL Data Warehouse à l’aide de Transact SQL (T-SQL).
+Cet article vous explique comment créer un entrepôt SQL Data Warehouse à l’aide de T-SQL.
 
-## Configuration requise
-Vérifiez que les conditions préalables suivantes sont remplies avant de commencer.
+## Composants requis
+
+Pour commencer, vous avez besoin des éléments suivants :
 
 - **Compte Azure **: consultez [Évaluation gratuite d’Azure][] ou [Crédits Azure MSDN][] pour créer un compte.
-- **Serveur Azure SQL Server V12** : consultez [Créer un serveur logique de base de données SQL Azure avec le Portail Azure][] ou [Créer un serveur logique de base de données SQL Azure avec PowerShell][].
-- **Nom de groupe de ressources** : utilisez le même groupe de ressources que votre serveur Azure SQL Server V12 ou consultez [groupes de ressources][] pour créer un groupe de ressources.
-- **Visual Studio avec SQL Server Data Tools** : pour obtenir des instructions d’installation, consultez [Installation de Visual Studio et SSDT][].
+- **Serveur Azure SQL Server** : consultez [Créer un serveur logique de base de données SQL Azure avec le Portail Azure][] ou [Créer un serveur logique de base de données SQL Azure avec PowerShell][] pour plus d’informations.
+- **Groupe de ressources** : utilisez le même groupe de ressources que votre serveur Azure SQL Server ou consultez [Créer un groupe de ressources][].
+- **Environnement d’exécution de T-SQL**: vous pouvez utiliser [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] ou [SSMS][] pour exécuter T-SQL.
 
 > [AZURE.NOTE] La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable. Voir [Tarification de SQL Data Warehouse][] pour plus d’informations sur la tarification.
 
@@ -55,6 +56,7 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 Le paramètre `MAXSIZE` peut être compris entre 250 Go et 240 To. Le paramètre `SERVICE_OBJECTIVE` peut être compris entre DW100 et DW2000 [DWU][]. Pour obtenir la liste de toutes les valeurs valides, consultez la documentation MSDN pour [CREATE DATABASE][]. Les paramètres MAXSIZE et SERVICE\_OBJECTIVE peuvent également être modifiés avec une commande T-SQL [ALTER DATABASE][]. Modifiez le paramètre SERVICE\_OBJECTIVE avec prudence car cela entraîne un redémarrage des services, qui annule toutes les requêtes en cours. La modification du paramètre MAXSIZE ne redémarre pas les services car il s’agit d’une simple opération de métadonnées.
 
 ## Étapes suivantes
+
 Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger][] ou [migrer][].
 
 <!--Article references-->
@@ -67,17 +69,18 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [charger les données d’exemple]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [Créer un serveur logique de base de données SQL Azure avec le Portail Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Créer un serveur logique de base de données SQL Azure avec PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[groupes de ressources]: ../resource-group-template-deploy-portal.md
-[Installation de Visual Studio et SSDT]: ./sql-data-warehouse-install-visual-studio.md
-
+[Créer un groupe de ressources]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
+[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references--> 
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
 [Tarification de SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

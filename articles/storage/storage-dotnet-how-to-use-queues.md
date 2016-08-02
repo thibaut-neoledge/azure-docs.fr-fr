@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/26/2016"
 	ms.author="gusapost"/>
 
 # Prise en main du stockage de files d’attente Azure à l’aide de .NET
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Vue d'ensemble
 
@@ -28,14 +28,14 @@ Le stockage de files d’attente Azure fournit une messagerie cloud entre les co
 
 Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage de files d’attente Azure. Les scénarios traités sont les suivants : création et suppression de files d’attente, et ajout, lecture et suppression des messages de file d’attente.
 
-**Durée estimée :** 45 minutes
+**Durée estimée :** 45 minutes
 
 **Configuration requise :**
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/fr-FR/visual-studio-homepage-vs.aspx)
 - [Bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Gestionnaire de configuration Azure pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Un [compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account).
+- Un [compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -263,8 +263,8 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
     - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md).
 - Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-    - [Prise en main du stockage de tables Azure à l’aide de .NET](storage-dotnet-how-to-use-tables.md) pour le stockage de données structurées.
-    - [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
+    - [Prise en main du stockage de tables Azure à l’aide de .NET](storage-dotnet-how-to-use-tables.md) pour le stockage de données structurées.
+    - [Prise en main d’Azure Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
     - [Utilisation d’une base de données SQL Azure dans des applications .NET](sql-database-dotnet-how-to-use.md) pour le stockage de données relationnelles.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
@@ -275,4 +275,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

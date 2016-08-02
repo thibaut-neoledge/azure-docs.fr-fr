@@ -9,7 +9,7 @@
     tags="connectors"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 # Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015
 
 Pour migrer vos applications logiques existantes vers le nouveau schéma, procédez comme suit :
-1. Ouvrez votre application logique dans le portail Azure  
+1. Ouvrez votre application logique dans le portail Azure
 2. Cliquez sur Mettre à jour le schéma.
 
  ![Icône API][step1] La page Mettre à jour le schéma fournit un lien vers un document contenant des informations sur les améliorations apportées au nouveau schéma : ![Icône API][step2]
@@ -42,4 +42,4 @@ Pour migrer vos applications logiques existantes vers le nouveau schéma, procé
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->

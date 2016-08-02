@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/22/2016"
 	ms.author="tamram"/>
 
 
 # Prise en main du stockage d’objets blob Azure à l’aide de .NET
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Vue d'ensemble
 
@@ -29,14 +29,14 @@ Le stockage d’objets blob Azure est un service qui stocke des données non str
 
 Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage d’objets blob Azure. Les scénarios traités incluent le chargement, la création de listes, le téléchargement et la suppression d’objets blob.
 
-**Durée estimée :** 45 minutes
+**Durée estimée :** 45 minutes
 
 **Configuration requise :**
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/fr-FR/visual-studio-homepage-vs.aspx)
 - [Bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Gestionnaire de configuration Azure pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Un [compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account).
+- Un [compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -378,6 +378,9 @@ Azure Storage prend en charge le chiffrement des données d’objets blob côté
 
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour en savoir plus.
 
+### Explorateur Microsoft Azure Storage
+- [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite qui vous permet d’exploiter visuellement les données Azure Storage sur Windows, OS X et Linux.
+
 ### Exemples relatifs à Blob Storage
 
 - [Prise en main d’Azure Blob Storage dans .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
@@ -404,4 +407,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

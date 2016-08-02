@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,18 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/17/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
 # Publier des applications avec le Proxy d’application Azure AD
 
-
-Une fois que le proxy d’application Microsoft Azure Active Directory (AD) est activé, vous pouvez publier des applications locales pour les rendre accessibles à vos utilisateurs distants en dehors du réseau privé.
-
-Cet article vous guide tout au long de la procédure de publication d’applications exécutées sur votre réseau local et fournissant un accès à distance sécurisé hors de votre réseau. Si vous n’avez pas configuré de proxy d’application ou installé de connecteurs, suivez les étapes de l’article [Activer le proxy d’application dans le Portail Azure](active-directory-application-proxy-enable.md) avant de poursuivre.
-
-Lors de votre première utilisation du proxy d’application Azure AD, testez le connecteur en publiant un site web à partir de votre réseau privé avant de publier des applications.
+Le service Proxy d’application Azure AD vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. À ce stade, vous devriez déjà avoir [activé le service Proxy d’application dans le Portail Azure Classic](active-directory-application-proxy-enable.md). Cet article vous guide tout au long de la procédure de publication d’applications exécutées sur votre réseau local et fournissant un accès à distance sécurisé hors de votre réseau. Après avoir terminé cet article, vous serez prêt à configurer l’application avec des exigences de sécurité ou des informations personnalisées.
 
 > [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
@@ -35,7 +30,7 @@ Lors de votre première utilisation du proxy d’application Azure AD, testez le
 
 	![Active Directory - icône](./media/active-directory-application-proxy-publish/ad_icon.png)
 
-3. Cliquez sur l’onglet **Applications**, puis cliquez sur le bouton **Ajouter** au bas de l’écran.
+3. Cliquez sur l’onglet **Applications**, puis sur le bouton **Ajouter** au bas de l’écran.
 
 	![Ajouter l’application](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
 
@@ -45,9 +40,12 @@ Lors de votre première utilisation du proxy d’application Azure AD, testez le
 
 5. Fournissez les informations suivantes sur votre application :
 
-	- **Nom** : le nom convivial de votre application. Il doit être unique au sein de votre annuaire.
-	- **URL interne** : l’adresse utilisée par le connecteur du proxy d’application pour accéder à l’application à partir de votre réseau privé. Vous pouvez spécifier un chemin spécifique sur le serveur principal à publier, alors que le reste du serveur n’est pas publié. De cette façon, vous pouvez publier des sites différents sur le même serveur et donner à chacun d’eux son propre nom et ses propres règles d’accès.
-	- **Méthode de préauthentification** : façon dont le proxy d’application vérifie les utilisateurs avant de leur donner accès à votre application. Choisissez l’une des options du menu contextuel.
+	- **Nom** : nom convivial de votre application. Il doit être unique au sein de votre annuaire.
+	- **URL interne** : adresse utilisée par le connecteur du proxy d’application pour accéder à l’application à partir de votre réseau privé. Vous pouvez spécifier un chemin spécifique sur le serveur principal à publier, alors que le reste du serveur n’est pas publié. De cette façon, vous pouvez publier des sites différents sur le même serveur et donner à chacun d’eux son propre nom et ses propres règles d’accès.
+
+		> [AZURE.TIP] Si vous publiez un chemin d’accès, vérifiez qu’il inclut l’ensemble des images, des scripts et des feuilles de style nécessaires pour votre application. Par exemple, si votre application est stockée dans https://yourapp/app et qu’elle utilise des images figurant dans https://yourapp/media, vous devez publier https://yourapp/ comme chemin d’accès.
+
+	- **Méthode de préauthentification** : façon dont le service Proxy d’application vérifie les utilisateurs avant de leur donner accès à votre application. Choisissez l’une des options du menu contextuel.
 
 		- Azure Active Directory : le proxy d’application redirige les utilisateurs pour la connexion à Azure AD, qui authentifie leurs autorisations pour le répertoire et l’application.
 		- Direct : les utilisateurs n’ont pas besoin de s’authentifier pour accéder à l’application.
@@ -59,7 +57,9 @@ Lors de votre première utilisation du proxy d’application Azure AD, testez le
 
 ## Affecter des utilisateurs et des groupes à l’application
 
-Pour que vos utilisateurs puissent accéder à votre application publiée, vous devez les affecter individuellement ou en groupes. Pour les applications qui requièrent une préauthentification, ceci accorde des autorisations pour utiliser l’application. Pour les applications qui ne nécessitent pas de préauthentification, les utilisateurs doivent toujours être affectés à l’application afin qu’elle s’affiche dans leur liste d’applications.
+Pour que vos utilisateurs puissent accéder à votre application publiée, vous devez les affecter individuellement ou en groupes. (N’oubliez pas de vous affecter également un accès.) Cette opération nécessite que chaque utilisateur dispose d’une licence pour la version Azure de base ou pour une version ultérieure. Vous pouvez affecter des licences à des utilisateurs individuels ou à des groupes. Pour plus d’informations, voir [Affectation d’utilisateurs à une application](active-directory-applications-guiding-developers-assigning-users.md).
+
+Pour les applications qui requièrent une préauthentification, ceci accorde des autorisations pour utiliser l’application. Pour les applications qui ne nécessitent pas de préauthentification, les utilisateurs peuvent toujours être affectés à l’application afin que cette dernière s’affiche dans leur liste d’applications, telle que MyApps.
 
 1. Lorsque vous terminez l’Assistant Ajout d’application, la page Démarrage rapide pour votre application s’affiche. Pour gérer les utilisateurs ayant accès à l’application, sélectionnez **Utilisateurs et groupes**.
 
@@ -73,8 +73,11 @@ Pour que vos utilisateurs puissent accéder à votre application publiée, vous 
 
 > [AZURE.NOTE] Pour les applications avec authentification Windows intégrée, vous pouvez affecter uniquement les utilisateurs et les groupes qui ont été synchronisés à partir de votre Active Directory local. Il n’est pas possible d’affecter les utilisateurs qui se connectent à l’aide d’un compte Microsoft et les invités aux applications publiées avec le proxy d’application Azure Active Directory. Vérifiez que les utilisateurs se connectent avec des informations d’identification faisant partie du même domaine que l’application que vous publiez.
 
+## Tester votre application publiée
 
-## Configuration avancée
+Une fois que vous avez publié votre application, vous pouvez la tester en accédant à l’URL que vous avez publiée. Vérifiez que vous pouvez accéder à l’application, qu’elle s’affiche correctement et que tout fonctionne comme prévu. Si vous rencontrez un problème ou obtenez un message d’erreur, consultez le [guide de résolution des problèmes](active-directory-application-proxy-troubleshoot.md).
+
+## Configuration de votre application
 
 Vous pouvez modifier les applications publiées ou configurer les options avancées dans la page Configurer. Dans cette page, vous pouvez personnaliser votre application en modifiant son nom ou en chargeant un logo. Vous pouvez également gérer les règles d’accès, comme la méthode de préauthentification ou l’authentification multifacteur.
 
@@ -96,6 +99,6 @@ Pour supprimer une application, sélectionnez-la dans la liste, puis cliquez sur
 - [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
 - [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
 
-Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application).
+Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur le service Proxy d’application).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

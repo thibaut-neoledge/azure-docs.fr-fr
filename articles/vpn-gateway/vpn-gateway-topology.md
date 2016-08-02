@@ -22,7 +22,7 @@ Cet article explique les topologies de connexion à la passerelle VPN de base. V
 
 Chaque topologie contient un tableau présentant le modèle de déploiement correspondant à cette dernière, ainsi que les outils de déploiement pour configurer chaque topologie. Ce tableau contient des liens vers des articles, le cas échéant. Nous mettons à jour les tableaux lorsque de nouveaux articles et outils de déploiement sont disponibles.
 
-Les instructions que vous utilisez pour créer votre passerelle VPN varient selon le modèle de déploiement que vous avez utilisé pour créer votre réseau virtuel. Par exemple, si vous avez créé votre réseau virtuel à l’aide du modèle de déploiement classique, vous utiliserez les recommandations et les instructions pour le modèle de déploiement classique afin de créer et configurer votre passerelle VPN. Il est impossible de créer une passerelle VPN Resource Manager pour un réseau virtuel à base de modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, voir [Présentation du déploiement Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
+Après avoir décidé quelle connexion vous souhaitez créer, les instructions que vous utilisez pour créer votre passerelle VPN varient selon le modèle de déploiement que vous avez utilisé pour créer votre réseau virtuel. Par exemple, si vous avez créé votre réseau virtuel à l’aide du modèle de déploiement classique, vous utiliserez les recommandations et les instructions pour le modèle de déploiement classique afin de créer et configurer votre passerelle VPN. Il est impossible de créer une passerelle VPN Resource Manager pour un réseau virtuel à base de modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, voir [Présentation du déploiement Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
 
 ## Connexions site à site et multi-sites
 
@@ -62,6 +62,28 @@ Azure propose actuellement deux modes de déploiement : Gestion des services Azu
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
+## De point à site
+
+Une configuration de point à site vous permet de créer individuellement une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur client. Le démarrage de la connexion à partir de l’ordinateur client permet d’établir une connexion VPN. Ceci est une solution utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
+
+Une connexion de point à site est une connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Les connexions de ce type ne nécessitent pas de périphérique VPN ou d’adresse IP publique pour fonctionner.
+
+**Diagramme P2S**
+
+![Connexion de point à site](./media/vpn-gateway-topology/point2site.png "point à site")
+
+**Méthodes et modèles de déploiement disponibles**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
+
+
 
 ## Coexistence de connexions ExpressRoute et de site à site
 
@@ -78,23 +100,11 @@ ExpressRoute est une connexion directe et dédiée aux services Microsoft, notam
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
 
-## De point à site
 
-Une configuration de point à site vous permet de créer individuellement une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur client. Le démarrage de la connexion à partir de l’ordinateur client permet d’établir une connexion VPN. Ceci est une solution utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
-
-Une connexion de point à site est une connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Les connexions de ce type ne nécessitent pas de périphérique VPN ou d’adresse IP publique pour fonctionner.
-
-**Diagramme P2S**
-
-![Connexion de point à site](./media/vpn-gateway-topology/point2site.png "point à site")
-
-**Méthodes et modèles de déploiement disponibles**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Étapes suivantes
 
-Familiarisez-vous avec les éléments des articles [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) afin de mieux comprendre le concept des passerelles VPN avant de passer à la planification et à la conception de votre connexion.
+Familiarisez-vous avec les éléments des articles [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) afin de mieux comprendre les paramètres des passerelles VPN.
 
 
 
@@ -102,4 +112,4 @@ Familiarisez-vous avec les éléments des articles [À propos des passerelles VP
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
