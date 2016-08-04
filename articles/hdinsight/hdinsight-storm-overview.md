@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Haddop
@@ -206,6 +206,12 @@ Lorsque votre topologie est basée sur le calcul d‘une valeur des « N premie
 
 L'exemple [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) présente cette méthode.
 
+##Quel type de journalisation Storm utilise-t-il ?
+
+Storm utilise Apache Log4j pour journaliser les informations. Par défaut, une grande quantité de données est journalisée, et il peut donc être difficile d’effectuer un tri parmi toutes ces informations. Vous pouvez inclure un fichier de configuration de journalisation dans votre topologie Storm pour contrôler le comportement de journalisation.
+
+Pour découvrir un exemple de topologie indiquant comment configurer la journalisation, consultez l’exemple de [comptage du nombre de mots basé sur Java](hdinsight-storm-develop-java-topology.md) pour Storm sur HDInsight.
+
 ##Étapes suivantes
 
 En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm dans HDInsight :
@@ -219,4 +225,4 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

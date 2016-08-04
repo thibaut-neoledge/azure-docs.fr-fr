@@ -229,7 +229,7 @@ Utilisez une [transformation Web.config](http://www.asp.net/mvc/tutorials/deploy
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
 	Laissez le fichier ouvert pour le modifier.
 
 2. Dans le [portail Azure Classic](http://manage.windowsazure.com), cliquez successivement sur **Bases de données SQL** dans le volet gauche, sur la base de données que vous avez créée pour ce didacticiel, sur l’onglet **Tableau de bord**, puis sur **Afficher les chaînes de connexion**.
@@ -314,10 +314,10 @@ Et le fichier *ServiceConfiguration.Cloud.cscfg* inclut les valeurs entrées pou
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -443,7 +443,7 @@ Dans cette section, vous allez configurer les chaînes de connexion Azure Storag
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
 	Si vous utilisez Visual Studio 2015, remplacez « v11.0 » par « MSSQLLocalDB ».
 
 2. Enregistrez vos modifications.
@@ -483,11 +483,11 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 3. Dans le projet ContosoAdsCommon, supprimez le fichier *Class1.cs* et ajoutez à la place les fichiers *Ad.cs* et *ContosoAdscontext.cs* du projet téléchargé.
 
 3. Dans le projet ContosoAdsWeb, ajoutez les fichiers suivants du projet téléchargé.
-	- *Global.asax.cs*.  
+	- *Global.asax.cs*.
 	- Dans le dossier *Views\\Shared* : *\_Layout.cshtml*.
 	- Dans le dossier *Views\\Home* : *Index.cshtml*.
 	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
 
@@ -600,7 +600,7 @@ imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
+Le fichier *\_Layout.cshtml* définit le nom de l’application dans l’en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -869,5 +869,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Azure Cloud Services Partie 1 : Présentation](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [Choix d’un fournisseur de services cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

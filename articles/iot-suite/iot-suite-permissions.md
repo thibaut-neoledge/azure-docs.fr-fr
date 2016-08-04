@@ -39,7 +39,7 @@ Vous trouverez d’autres informations sur les rôles d’administrateur dans AA
 
 **Administrateur général :** il peut y avoir de nombreux administrateurs généraux par client AAD. Lorsque vous créez un client AAD, vous en devenez par défaut l’administrateur. L’administrateur général peut approvisionner une solution préconfigurée et se voir attribuer le rôle d’**ADMINISTRATEUR** de l’application au sein de leur client AAD. Toutefois, si un autre utilisateur du même client AAD crée une application, le rôle attribué par défaut à l’administrateur général par défaut **LECTURE SEULE IMPLICITE**. Les administrateurs généraux peuvent attribuer des rôles aux applications utilisant le [portail Azure Classic][lnk-classic-portal].
 
-**Utilisateur/membre de domaine :** pour chaque client AAD, il peut y avoir de nombreux utilisateurs/membres. Un utilisateur de domaine peut approvisionner une solution préconfigurée via le site [azureiotsuite.com][lnk-azureiotsuite]. Le rôle par défaut qu’ils se voient attribuer pour l’application qu’ils approvisionnent est celui d’**ADMINISTRATEUR**. Ils peuvent créer une application à l’aide du script build.cmd dans le référentiel [azure-iot-solution][lnk-github-repo], mais le rôle qu’ils reçoivent par défaut est **LECTURE SEULE IMPLICITE**, car ils n’ont pas l’autorisation d’affecter des rôles. Si un autre utilisateur du client AAD crée une application, ils se voient affecter le rôle **LECTURE SEULE IMPLICITE** par défaut pour cette application. Ils n’ont pas la possibilité d’attribuer des rôles aux applications ; par conséquent, ils ne peuvent pas ajouter des utilisateurs ou des rôles pour les utilisateurs d’une application même s’ils l’ont approvisionnée.
+**Utilisateur/membre de domaine :** pour chaque client AAD, il peut y avoir de nombreux utilisateurs/membres. Un utilisateur de domaine peut approvisionner une solution préconfigurée via le site [azureiotsuite.com][lnk-azureiotsuite]. Le rôle par défaut qu’ils se voient attribuer pour l’application qu’ils approvisionnent est celui d’**ADMINISTRATEUR**. Les utilisateurs peuvent créer une application à l’aide du script build.cmd dans le référentiel [azure-iot-remote-monitoring][lnk-rm-github-repo] ou [azure-iot-predictive-maintenance][lnk-pm-github-repo], mais le rôle qu’ils reçoivent par défaut est **LECTURE SEULE IMPLICITE**, car ils n’ont pas l’autorisation d’attribuer des rôles. Si un autre utilisateur du client AAD crée une application, ils se voient affecter le rôle **LECTURE SEULE IMPLICITE** par défaut pour cette application. Ils n’ont pas la possibilité d’attribuer des rôles aux applications ; par conséquent, ils ne peuvent pas ajouter des utilisateurs ou des rôles pour les utilisateurs d’une application même s’ils l’ont approvisionnée.
 
 **Utilisateur invité/Invité :** il peut y avoir de nombreux utilisateurs invités/invités par le client AAD. Les utilisateurs invités disposent d’un ensemble limité de droits au sein du client AAD. Par conséquent, les utilisateurs invités ne peuvent pas approvisionner une solution préconfigurée dans le client AAD.
 
@@ -129,16 +129,21 @@ Examinons le diagramme suivant :
 
 ![][img-flowchart]
 
-> [AZURE.NOTE] Si l’erreur persiste après votre validation en tant qu’administrateur global sur le client AAD et que coadministrateur sur l’abonnement, demandez à votre administrateur de compte de supprimer l’utilisateur et de réattribuer les autorisations nécessaires dans l’ordre suivant : ajouter l’utilisateur en tant qu’administrateur global, puis ajouter un utilisateur en tant que coadministrateur sur l’abonnement Azure. Si les problèmes persistent, contactez [Aide et support][lnk-help-support].
+> [AZURE.NOTE] Si l’erreur persiste après votre validation en tant qu’administrateur global sur le client AAD et que coadministrateur sur l’abonnement, demandez à votre administrateur de compte de supprimer l’utilisateur et de réattribuer les autorisations nécessaires dans l’ordre suivant : ajouter l’utilisateur en tant qu’administrateur global, puis ajouter un utilisateur en tant que coadministrateur sur l’abonnement Azure. Si les problèmes persistent, contactez le service [Aide et support][lnk-help-support].
 
 **Pourquoi affiche-t-il cette erreur alors que j’ai un abonnement Azure ?** *Un abonnement Azure est nécessaire pour créer des solutions préconfigurées. Vous pouvez créer un compte d’essai gratuit en quelques minutes.*
 
 Si vous êtes sûr de disposer d’un abonnement Azure, validez le mappage de votre abonnement client et assurez-vous que c’est le bon client qui est sélectionné dans la liste déroulante. Si vous avez validé le client souhaité, suivez le schéma ci-dessus et validez le mappage de votre abonnement et de ce client AAD.
 
+## Étapes suivantes
+
+Pour poursuivre votre formation concernant IoT Suite, découvrez comment [personnaliser une solution préconfigurée][lnk-customize].
+
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-github-repo]: https://github.com/Azure/azure-iot-solution
+[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
@@ -147,5 +152,6 @@ Si vous êtes sûr de disposer d’un abonnement Azure, validez le mappage de vo
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

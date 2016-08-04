@@ -26,17 +26,17 @@ Par exemple, les ressources utilisées pour le développement ou le test peuvent
 
 ## Définition des stratégies de sécurité pour les abonnements
 
-Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou groupe de ressources. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Pour configurer des stratégies de sécurité dans le Centre de sécurité Azure, suivez les étapes ci-dessous :
+Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou groupe de ressources. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Accédez au Portail Azure et suivez les étapes ci-après pour configurer des stratégies de sécurité dans le Centre de sécurité :
 
-1. Cliquez sur la vignette **Stratégie de sécurité** dans le tableau de bord du Centre de sécurité Azure.
+1. Cliquez sur la mosaïque **Stratégie** dans le tableau de bord du Centre de sécurité.
 
 2. Dans le panneau **Stratégie de sécurité – Définir une stratégie par abonnement ou par groupe de ressources** qui s’ouvre sur la droite, sélectionnez l’abonnement pour lequel vous voulez activer la stratégie de sécurité. Si vous préférez activer la stratégie de sécurité pour un groupe de ressources et non pour l’ensemble de l’abonnement, passez à la section suivante portant sur la configuration des stratégies de sécurité pour les groupes de ressources.
 
-    ![Définition de stratégie](./media/security-center-policies/security-center-policies-fig01.png)
+    ![Définition de stratégie](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
 3. Le panneau **Stratégie de sécurité** de cet abonnement s’ouvre et affiche des options similaires à celles illustrées ci-dessous :
 
-    ![Activation de la collecte des données](./media/security-center-policies/security-center-policies-fig1-new.png)
+    ![Activation de la collecte des données](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
 4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte automatique des journaux sur les ressources existantes et nouvelles.
 
@@ -48,7 +48,7 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
 
 6. Si cet avertissement s’affiche, cliquez sur cette option, puis sélectionnez la région, comme illustré dans la figure ci-dessous :
 
-    ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig3.png)
+    ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
 7. Pour chaque région où s’exécutent des machines virtuelles, choisissez le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Ainsi, vous pouvez stocker les données dans une même région pour garantir la confidentialité et la souveraineté des données. Une fois que vous avez décidé de la région à utiliser, sélectionnez-la, puis sélectionnez le compte de stockage.
 
@@ -58,32 +58,33 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
 
 9. Dans le panneau **Stratégie de sécurité**, cliquez sur **Activé** pour activer les recommandations de sécurité que vous voulez utiliser pour cet abonnement. Cliquez sur l’option **Stratégie de prévention**. Le panneau **Stratégie de sécurité** s’ouvre, comme illustré ci-dessous.
 
-	![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig1-1-new2.png)
+	![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig4-ga.png)
 
 Le tableau ci-dessous explique à quoi servent les options :
 
 | Stratégie | Lorsque l’option est activée (On) |
 |----- |-----|
 | Mises à jour du système | Récupère quotidiennement la liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou WSUS (selon le service qui est configuré pour la machine virtuelle), et recommande que les mises à jour manquantes soient appliquées. Recherche les dernières mises à jour dans les systèmes Linux à l’aide du système de gestion des packages fourni par le distributeur afin de déterminer quels packages peuvent être mis à jour. Il vérifie également la disponibilité des mises à jour de sécurité et des mises à jour importantes à partir des machines virtuelles [Cloud Services](./cloud-services/cloud-services-how-to-configure.md). |
-| Règles de ligne de base | Analyse quotidiennement les configurations de système d’exploitation susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des changements de configuration visant à résoudre ces problèmes. Pour plus d’informations sur les configurations surveillées, consultez la [liste des règles de base recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
-| Endpoint Protection | Recommande l’approvisionnement d’Endpoint Protection pour toutes les machines virtuelles Windows afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants. 
-| Groupes de sécurité réseau | Recommande la configuration de [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour contrôler le trafic entrant et sortant vers les machines virtuelles avec des points de terminaison publics. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. Après la vérification de la configuration d’un groupe de sécurité réseau, cette option évalue les règles de sécurité de trafic entrant afin d’identifier toute règle autorisant le trafic entrant. |
+| Vulnérabilités du système d’exploitation | Analyse quotidiennement les configurations de système d’exploitation susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des changements de configuration visant à résoudre ces problèmes. Pour plus d’informations sur les configurations surveillées, consultez la [liste des règles de base recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
+| Endpoint Protection | Recommande l’approvisionnement d’Endpoint Protection pour toutes les machines virtuelles Windows afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants. |
+| Chiffrement de disque | Recommande d’activer le chiffrement de disque dans toutes les machines virtuelles pour améliorer la protection des données au repos. 
+| Groupes de sécurité réseau | Recommande la configuration de [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) (NSG) pour contrôler le trafic entrant et sortant vers les machines virtuelles avec des points de terminaison publics. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. Après la vérification de la configuration d’un groupe de sécurité réseau, cette option évalue les règles de sécurité de trafic entrant afin d’identifier toute règle autorisant le trafic entrant. |
 | Pare-feu d’applications web | Recommande l’approvisionnement d’un pare-feu d’applications web sur les machines virtuelles quand une [adresse IP publique de niveau d’instance](../virtual-network/virtual-networks-instance-level-public-ip.md) est utilisée et que les règles de sécurité de trafic entrant des groupes de sécurité réseau associés sont configurées pour autoriser l’accès au port 80 ou 443. Les adresses IP dont la charge est répartie (adresses IP virtuelles) sont utilisées. Les règles d’équilibrage de charge et les règles NAT de trafic entrant associées sont configurées pour autoriser l’accès au port 80 ou 443 (pour plus d’informations, consultez [Support d’Azure Resource Manager pour l’équilibreur de charge](../load-balancer/load-balancer-arm.md)) |
 | Pare-feu de nouvelle génération | Cela permet d’étendre les protections du réseau au-delà des groupes de sécurité réseau, intégrés à Azure. Le Centre de sécurité détecte les déploiements pour lesquels un pare-feu de nouvelle génération est recommandé et vous permet d’approvisionner une appliance virtuelle. |
 | Audit SQL | Recommande l’activation de l’audit de l’accès aux serveurs et aux bases de données SQL Azure à des fins de conformité, de détection avancée et d’investigation. |
 | Chiffrement transparent des données SQL | Recommande l’activation du chiffrement au repos pour les bases de données SQL Azure, ainsi que pour les sauvegardes associées et les fichiers journaux de transaction. Ainsi, même en cas de violation des données, celles-ci ne pourront pas être lues. |
-
-11\. Une fois que vous avez configuré toutes les options, cliquez sur **OK** dans le panneau **Stratégie de sécurité** contenant les recommandations, puis cliquez sur **Enregistrer** dans le panneau **Stratégie de sécurité** contenant les paramètres initiaux.
+	
+Une fois que vous avez configuré toutes les options, cliquez sur **OK** dans le panneau **Stratégie de sécurité** contenant les recommandations, puis cliquez sur **Enregistrer** dans le panneau **Stratégie de sécurité** contenant les paramètres initiaux.
 
 ## Définition des stratégies de sécurité pour les groupes de ressources
 
 Si vous préférez configurer vos stratégies de sécurité par groupe de ressources, vous devez suivre des étapes similaires à celles utilisées pour configurer les stratégies de sécurité pour les abonnements. La principale différence réside dans le fait que vous devez développer le nom d’abonnement et sélectionner le groupe de ressources de votre choix pour configurer la stratégie de sécurité spécifique :
 
-![Sélection du groupe de ressources](./media/security-center-policies/security-center-policies-fig4.png)
+![Sélection du groupe de ressources](./media/security-center-policies/security-center-policies-fig5-ga.png)
 
 Une fois le groupe de ressources sélectionné, vous accédez au panneau **Stratégie de sécurité**. Par défaut, l’option **Héritage** est activée, ce qui signifie que toutes les stratégies de sécurité associées à ce groupe de ressources sont héritées à partir du niveau d’abonnement. Vous pouvez modifier cette configuration si vous souhaitez une stratégie de sécurité personnalisée par groupe de ressources. Si tel est le cas, vous devez sélectionner l’option **Unique** et apporter vos modifications sous **Stratégie de prévention**.
 
-![Stratégie de sécurité par groupe de ressources](./media/security-center-policies/security-center-policies-fig5-new.png)
+![Stratégie de sécurité par groupe de ressources](./media/security-center-policies/security-center-policies-fig6-ga.png)
 
 > [AZURE.NOTE] En cas de conflit entre la stratégie de niveau abonnement et la stratégie de niveau groupe de ressources, la stratégie de niveau ressources est prioritaire.
 
@@ -92,11 +93,11 @@ Une fois le groupe de ressources sélectionné, vous accédez au panneau **Strat
 
 Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
-- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conception à intégrer pour le Centre de sécurité Azure.
+- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md) - Découvrez comment planifier et comprendre les considérations de conceptions pour l’adoption d’Azure Security Center .
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) – Découvrez comment surveiller l’intégrité de vos ressources Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
-- [Surveillance des solutions de partenaires avec le Centre de sécurité Azure](security-center-partner-solutions.md) -- Découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

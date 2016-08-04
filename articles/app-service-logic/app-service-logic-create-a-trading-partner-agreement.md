@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ Les applications API suivantes activent ces fonctionnalités à l'aide d'une exp
 
 
 ## BizTalk X12
-- Exécute les accords X12 tel que défini dans l'instance d'application API de Gestion des partenaires commerciaux connexe 
+- Exécute les accords X12 tel que défini dans l'instance d'application API de Gestion des partenaires commerciaux connexe
 - Expose les informations de traitement/suivi X12 pour le dépannage
 - Fournit la gestion de l'état des lots (démarrage et arrêt) tel que défini dans les accords X12 dans l'instance d'application API de Gestion des partenaires commerciaux connexe
 
@@ -79,4 +79,4 @@ Pour créer des accords de partenariat commercial
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!------HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

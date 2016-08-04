@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Pour la version Mobile Apps équivalente de cette rubrique, consultez l’article [Créer une application Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md).
@@ -141,4 +141,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Azure]: http://azure.microsoft.com/
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

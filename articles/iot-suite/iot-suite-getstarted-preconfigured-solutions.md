@@ -91,7 +91,7 @@ La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Init
 
 ## Ajouter un nouvel appareil simulé
 
-Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement les quatre exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil réel à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connecting-devices].
+Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement les quatre exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil réel à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
 Les étapes suivantes vous montrent comment ajouter un nouvel appareil simulé à la solution :
 
@@ -105,7 +105,7 @@ Les étapes suivantes vous montrent comment ajouter un nouvel appareil simulé �
 
     ![Définir les détails du nouvel appareil dans le tableau de bord][img-addnew]
     
-    Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations à ce sujet, voir [Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite][lnk-connecting-devices].
+    Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations à ce sujet, voir [Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite][lnk-connect-rm].
 
 4.  Sélectionnez **Me laisser définir mon propre ID d’appareil** et ajoutez un nom unique d’ID d’appareil, par exemple **monappareil\_01**.
 
@@ -207,10 +207,11 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée de
 
 ## Étapes suivantes
 
-Une solution préconfigurée opérationnelle étant créée, vous pouvez passer aux procédures suivantes :
+À présent que vous avez déployé une solution préconfigurée opérationnelle, vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
 
--   [Conseils sur la personnalisation des solutions préconfigurées][lnk-customize]
--   [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive]
+- [Présentation de la solution préconfigurée de surveillance à distance][lnk-rm-walkthrough]
+- [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm]
+- [Autorisations sur le site azureiotsuite.com][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -239,13 +240,13 @@ Une solution préconfigurée opérationnelle étant créée, vous pouvez passer 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
-[lnk-connecting-devices]: iot-suite-connecting-devices.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
+[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

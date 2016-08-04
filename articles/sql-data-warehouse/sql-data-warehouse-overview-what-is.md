@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/16/2016"
+   ms.date="07/23/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -146,7 +146,7 @@ PolyBase vous permet de valoriser vos données de différentes sources en appliq
 
 ## Étapes suivantes
 
-À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][] et [charger des exemples de données][]. Ou bien, examinons ces autres ressources de SQL Data Warehouse.
+À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][] et [charger des exemples de données][]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][] lorsque vous rencontrez de nouveaux termes. Ou bien, examinons ces autres ressources de SQL Data Warehouse.
 
 - [Blogs]
 - [Demandes de fonctionnalités]
@@ -169,6 +169,7 @@ PolyBase vous permet de valoriser vos données de différentes sources en appliq
 [Partenaires de solutions SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
 [Vue d’ensemble des outils intégrés]: sql-data-warehouse-overview-integrate.md
 [vue d’ensemble des fonctionnalités de sauvegarde et de restauration]: sql-data-warehouse-restore-database-overview.md
+[Glossaire Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -181,4 +182,4 @@ PolyBase vous permet de valoriser vos données de différentes sources en appliq
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

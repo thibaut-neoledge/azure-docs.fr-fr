@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/06/2016"
+	ms.date="07/20/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -33,9 +33,11 @@ Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’aj
 
 ## Étape 1 : créer un nouveau pool
 
-Créez un pool élastique de bases de données en ajoutant un nouveau pool à un serveur. Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’ajouter des bases de données de différents serveurs dans le même pool.
+Cet article explique comment créer un pool à partir d’un panneau **Serveur** existant dans le portail ; c’est le moyen le plus simple pour déplacer des bases de données existantes dans un pool.
 
-1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Serveurs SQL**, puis sur le serveur qui contient les bases de données que vous souhaitez ajouter à un pool.
+> [AZURE.NOTE] Que vous disposiez d’un serveur ou non, vous pouvez également créer un pool à partir du panneau **Pools élastiques SQL** (sous la liste du côté gauche du portail, cliquez sur **Parcourir** **>** **Pools élastiques SQL**). Cliquez sur **+ Ajouter** sur le panneau **Pools élastiques SQL** pour créer un serveur pendant le flux de travail d’approvisionnement du pool.
+
+1. Dans le [portail Azure](http://portal.azure.com/), sous la liste du côté gauche, cliquez sur **Parcourir** **>** **Serveurs SQL**, puis sur le serveur qui contient les bases de données que vous souhaitez ajouter à un pool.
 2. Cliquez sur **Nouveau pool**.
 
     ![Ajouter un pool à un serveur](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -73,7 +75,7 @@ Après avoir défini le niveau de tarification, cliquez sur Configurer le pool �
 
     Si les bases de données que vous utilisez disposent de données de télémétrie d’historique d’utilisation suffisantes, le graphique **Utilisation estimée des eDTU et des Go** et le graphique à barres **Utilisation effective des eDTU ** sont mis à jour pour vous aider à prendre des décisions en termes de configuration. Le service peut également vous envoyer un message de recommandation pour vous aider à rectifier la taille du pool. Voir [Recommandations dynamiques](#dynamic-recommendations).
 
-3. Utilisez les contrôles de la page **Configurer le pool** pour explorer les paramètres et configurer votre pool. Pour plus d’informations sur les limites de chaque niveau de service, reportez-vous aux [limites de pools élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases). Pour obtenir des conseils détaillés sur la définition d’une taille de pool sur mesure, consultez les [considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md). Pour plus d’informations sur les paramètres du pool, consultez [Elastic database pool properties](sql-database-elastic-pool.md#elastic-database-pool-properties) (Propriétés du pool élastique).
+3. Utilisez les contrôles de la page **Configurer le pool** pour explorer les paramètres et configurer votre pool. Pour plus d’informations sur les limites de chaque niveau de service, reportez-vous aux [limites de pools élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases). Pour obtenir des conseils détaillés sur la définition d’une taille de pool sur mesure, consultez les [considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md). Pour plus d’informations sur les paramètres du pool, consultez [Propriétés du pool de bases de données élastiques](sql-database-elastic-pool.md#elastic-database-pool-properties).
 
 	![Configurer un pool élastique](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -109,6 +111,6 @@ Après avoir ajouté des bases de données au pool, des recommandations seront g
 - [Gérer un pool élastique de base de données SQL avec le portail](sql-database-elastic-pool-manage-portal.md)
 - [Gérer un pool élastique de base de données SQL avec PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [Gérer un pool élastique de base de données SQL en C#](sql-database-elastic-pool-manage-csharp.md)
-- [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md) 
+- [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

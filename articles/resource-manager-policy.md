@@ -97,7 +97,7 @@ Les conditions sont formées à partir de champs et de sources. Un champ représ
 
 Les sources et champs suivants sont pris en charge :
 
-Champs : **name** (nom), **kind (genre)**, **type**, **location** (emplacement), **tags** (balises), **tags.** * et **property alias** (alias de propriété)*.
+Champs : **name** (nom), **kind** (genre), **type**, **location** (emplacement), **tags** (balises), **tags.*** et **property alias** (alias de propriété).
 
 ### Alias de propriété 
 L’alias de propriété est un nom pouvant servir de définition de stratégie pour accéder aux propriétés propres au type de ressource, telles que les paramètres et les références (SKU). Il fonctionne sur toutes les versions d’API pour lesquelles la propriété existe. Les alias peuvent être récupérés à l'aide de l'API REST ci-dessous (la prise en charge Powershell sera ajoutée ultérieurement) :

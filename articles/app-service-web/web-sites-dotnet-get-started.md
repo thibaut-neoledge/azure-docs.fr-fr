@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/22/2016"
+	ms.date="07/22/2016"
 	ms.author="rachelap"/>
 
 # Déployer une application web ASP.NET dans Azure App Service à l’aide de Visual Studio
@@ -240,4 +240,6 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 	Pour plus d’informations sur l’utilisation des groupes de ressources dans le portail Azure, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+*	Pour plus d’exemples de création d’une application web ASP.NET dans App Service, voir [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Créer et déployer une application web ASP.NET dans Azure App Service) dans la [démonstration](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) de 2015 Connect pour [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz). Pour plus de démarrages rapides à partir de la démonstration pour HealthClinic.biz, voir [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Démarrages rapides avec les Outils de développement Azure).
+
+<!---HONumber=AcomDC_0727_2016-->

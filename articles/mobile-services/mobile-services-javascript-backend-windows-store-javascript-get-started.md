@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="03/06/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Prise en main de Mobile Services
@@ -27,10 +27,10 @@
 
 Ce didacticiel montre comment ajouter un service de backend cloud à une application Windows Store en JavaScript à l’aide d’Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile à créer utilise du code JavaScript pour la logique métier côté serveur.
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
-* [Visual Studio 2013 Express pour Windows]
+* [Visual Studio 2013 Express pour Windows]
 
 ## Création d’un service mobile
 
@@ -38,14 +38,14 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Création d'une application Windows Store
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application Windows Store 8.1 en JavaScript qui se connecte à votre service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application Windows Store 8.1 en JavaScript qui se connecte à votre service mobile.
 
 1.  Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Windows** sous **Choisissez une plateforme** et développez **Créer une application Windows Store**.
 
-3. Si ce n'est déjà fait, téléchargez et installez [Visual Studio 2013][Visual Studio 2013 Express for Windows] sur votre ordinateur local ou sur votre machine virtuelle.
+3. Si ce n'est déjà fait, téléchargez et installez [Visual Studio 2013][Visual Studio 2013 Express for Windows] sur votre ordinateur local ou sur votre machine virtuelle.
 
 4. Cliquez sur **Create TodoItem table** pour créer une table permettant de stocker les données d'application.
 
@@ -88,8 +88,8 @@ Le démarrage rapide étant terminé, découvrez comment utiliser le [client Mob
 
 <!-- URLs. -->
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
-[Visual Studio 2013 Express pour Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Visual Studio 2013 Express pour Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -399,9 +399,9 @@ Le message **保存成功！** (**Enregistrement réussi !**) apparaîtra.
 ##Envoi de notifications à votre application
 
 
-Vous pouvez tester la réception de notifications dans votre application en envoyant des notifications dans le portail Azure Classic via l’onglet Déboguer du hub de notification, comme indiqué dans l’écran ci-dessous.
+Vous pouvez tester rapidement la réception de notifications dans votre application en envoyant des notifications dans le [Portail Azure](https://portal.azure.com/) à l’aide du bouton **Test d’envoi** sur le hub de notification, comme illustré ci-dessous.
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
 Les notifications Push sont normalement envoyées dans un service principal tel que Mobile Services ou ASP.NET à l’aide d’une bibliothèque compatible. Vous pouvez également utiliser l’API REST directement pour envoyer des messages de notification si aucune bibliothèque n’est disponible pour votre serveur principal.
 
@@ -413,7 +413,7 @@ Dans ce didacticiel, nous nous contenterons pour plus de simplicité de tester v
 
 * **Node.js** : [Utilisation de Notification Hubs à partir de Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Azure Mobile Services** : pour obtenir un exemple expliquant comment envoyer des notifications à partir d’un serveur principal Azure Mobile Services intégré à Notification Hubs, consultez la rubrique [Ajouter des notifications push à votre application Mobile Services](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
+* **Azure Mobile Services** : pour obtenir un exemple expliquant comment envoyer des notifications à partir d’un serveur principal Azure Mobile Services intégré à Notification Hubs, voir [Ajout de notifications push à votre application Mobile Services](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
 
 * **Java/PHP** : Pour voir un exemple d’envoi de notifications au moyen des API REST, consultez « Utilisation de Notification Hubs depuis Java/PHP » ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
@@ -504,4 +504,4 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 [Portail Azure Classic]: https://manage.windowsazure.com/
 [portail Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->
