@@ -3,7 +3,7 @@
 	description="Comment configurer Key Vault pour une utilisation avec une machine virtuelle Azure Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="rothja"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
