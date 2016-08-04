@@ -154,6 +154,7 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - capture d’écran](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## Voir aussi
-- [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0720_2016-->
