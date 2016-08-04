@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Le chargement des données est une phase importante de la charge de travail de l
 
 - Traditionnellement, le processus de chargement est appelé ETL (Extract, Transform and Load, pour extraction, transformation et chargement). Les données doivent généralement être transformées, ceci pour garantir une cohérence avec les autres données de l’entrepôt de données. Auparavant, les entreprises effectuaient les transformations à l’aide de serveurs ETL dédiés. Désormais, en valorisant le traitement massivement parallèle, vous commencez par charger les données dans SQL Data Warehouse, puis effectuez les transformations. Il s’agit du processus ELT (Extract, Load and Transform pour extraction, chargement et transformation), qui devient la norme associée aux charges de travail d’entrepôts de données.
 
-> [AZURE.NOTE] En vous dotant de SQL Server CTP2, vous pouvez effectuer des analyses en temps réel sur une table OLTP. Si cette solution ne constitue pas une alternative au stockage et à l’analyse de données dans un entrepôt de données, elle procure un moyen d’exécuter l’analyse en temps réel.
+> [AZURE.NOTE] En vous dotant de SQL Server 2016, vous pouvez effectuer des analyses en temps réel sur une table OLTP. Si cette solution ne constitue pas une alternative au stockage et à l’analyse de données dans un entrepôt de données, elle procure un moyen d’exécuter l’analyse en temps réel.
 
 ### Requêtes de rapports et d’analyse
 Les requêtes de rapports et d’analyse sont bien souvent classées en tant que requêtes réduites, intermédiaires ou importantes en fonction du nombre de critères, mais elles sont généralement basées sur des intervalles de temps. La plupart des entrepôts de données comportent une charge de travail hybride, comprenant à la fois des requêtes à courte échéance et à longue échéance. Pour chaque cas, il est important d’identifier ce mélange et de déterminer sa fréquence (horaire, quotidienne, fin du mois, fin de trimestre, etc.). Il est essentiel de comprendre que cette charge de travail hybride de requêtes, couplée à l’accès concurrentiel, permet de planifier de manière appropriée la capacité d’un entrepôt de données.
@@ -71,4 +71,4 @@ Un des moyens de rendre les données disponibles pour les rapports et l’analys
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

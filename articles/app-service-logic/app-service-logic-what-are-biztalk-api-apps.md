@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -50,4 +50,4 @@ Les règles d'entreprise englobent les stratégies et les décisions qui contrô
 Consultez la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour obtenir la liste complète des connecteurs et des applications API inclus dans chaque catégorie, y compris les connecteurs standard, IAE BizTalk, les connecteurs Premium et ainsi de suite.
  
 
-<!------HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

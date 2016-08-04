@@ -3,7 +3,7 @@
     description="Utilisez les techniques de développement de bases de données C# pour créer un pool de base de données élastique évolutif dans la base de données SQL Azure afin de pouvoir partager des ressources entre plusieurs bases de données."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/05/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
 # Créer un pool de base de données élastique avec C&#x23;
 
@@ -30,7 +30,7 @@ Pour connaître les codes d’erreur courants, consultez la page [Codes d’erre
 
 Les exemples ci-dessous utilisent la [bibliothèque SQL Database pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), de sorte que vous devez l’installer avant de continuer si elle n’est pas déjà installée. Vous pouvez installer cette bibliothèque en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## Créer un pool
 
@@ -74,7 +74,7 @@ Créez une instance [DataBaseCreateorUpdateProperties](https://msdn.microsoft.co
 
 Pour déplacer une base de données existante vers un pool, consultez l’article [Déplacer une base de données dans un pool élastique](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Exemple : Création d’un pool à l’aide de C&#x23
+## Exemple : créer un pool à l’aide de C&#x23;
 
 Cet exemple crée un groupe de ressources Azure, une instance de serveur SQL Azure et un pool élastique.
  
@@ -82,7 +82,7 @@ Cet exemple crée un groupe de ressources Azure, une instance de serveur SQL Azu
 Les bibliothèques suivantes sont requises pour l’exécution de cet exemple. Vous pouvez les installer en exécutant les commandes suivantes dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio : (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**).
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Créez une application console et remplacez le contenu de Program.cs par le code suivant. Pour obtenir l’ID client requis et les valeurs associées, consultez l’article [Inscrire votre application et obtenir les valeurs du client requises pour connecter votre application à Base de données SQL](sql-database-client-id-keys.md). Utilisez l’applet de commande [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) pour récupérer la valeur subscriptionId.
@@ -249,4 +249,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [Base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

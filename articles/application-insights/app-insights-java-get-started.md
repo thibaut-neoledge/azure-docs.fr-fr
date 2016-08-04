@@ -162,6 +162,7 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 * La clé d'instrumentation est envoyée avec chaque élément de télémétrie et indique à Application Insights de l'afficher dans votre ressource.
 * Le composant de demande HTTP est facultatif. Il envoie automatiquement la télémétrie concernant les demandes et les temps de réponse au portail.
 * La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic][diagnostic].
+* La clé Application Insights peut être transmise de manière dynamique à partir du Portail Azure sous la forme d’une propriété système (-DAPPLICATION\_INSIGHTS\_IKEY=votre\_iKey). Si aucune propriété n’est définie, la variable d’environnement (APPLICATION\_INSIGHTS\_IKEY) est recherchée dans les paramètres d’application Azure. Si aucune de ces deux propriétés n’est définie, la clé InstrumentationKey par défaut est utilisée à partir d’ApplicationInsights.xml. Cette approche facilite la gestion dynamique de clés InstrumentationKey distinctes pour différents environnements.
 
 ### Autres méthodes pour définir la clé d’instrumentation
 
@@ -171,7 +172,7 @@ Le kit de développement logiciel (SDK) d’Application Insights recherche la cl
 2. Variable d’environnement : APPLICATION\_INSIGHTS\_IKEY
 3. Fichier de configuration : ApplicationInsights.xml
 
-Vous pouvez également [la définir dans le code](app-insights-api-custom-events-metrics.md#ikey) :
+Vous pouvez également [définir la clé dans le code](app-insights-api-custom-events-metrics.md#ikey) :
 
     telemetryClient.InstrumentationKey = "...";
 
@@ -240,7 +241,7 @@ Cliquez sur un des graphiques pour afficher des métriques agrégées plus déta
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights suppose que le format des requêtes HTTP pour les applications MVC est : `VERB controller/action`. Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` seront regroupés dans `GET Home/Product`. Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
+> Application Insights repose sur l’hypothèse que le format des requêtes HTTP pour les applications MVC est le suivant : `VERB controller/action`. Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` seront regroupés dans `GET Home/Product`. Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
 
 
 ### Données d’instance 
@@ -256,7 +257,7 @@ Lorsque vous affichez les propriétés d’une demande, vous voyez les événeme
 
 ### Analytics : un puissant langage de requête
 
-En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais aussi d’effectuer des diagnostics.
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
 
 ![Exemple d’Analytics](./media/app-insights-java-get-started/025.png)
 
@@ -412,4 +413,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

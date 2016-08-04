@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/23/2016"
 	ms.author="tamram"/>
 
 
 # Prise en main du stockage de tables Azure à l’aide de .NET
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Vue d'ensemble
 
@@ -31,20 +31,20 @@ Vous pouvez utiliser le stockage de tables pour stocker des jeux de données fle
 
 Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage de tables Azure, notamment la création et la suppression d’une table, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données des tables.
 
-**Durée estimée :** 45 minutes
+**Durée estimée :** 45 minutes
 
 **Configuration requise :**
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/fr-FR/visual-studio-homepage-vs.aspx)
 - [Bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Gestionnaire de configuration Azure pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Un [compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account).
+- Un [compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### Autres exemples
 
-Pour obtenir des exemples supplémentaires utilisant Blob Storage, voir [Prise en main d’Azure Blob Storage dans .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Vous pouvez télécharger l’exemple d’application et l’exécuter ou parcourir le code sur GitHub.
+Pour obtenir des exemples supplémentaires utilisant Table Storage, voir [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Prise en main d’Azure Table Storage dans .NET). Vous pouvez télécharger l’exemple d’application et l’exécuter ou parcourir le code sur GitHub.
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -442,7 +442,7 @@ Si vous lisez un grand nombre d’entités et souhaitez traiter ou afficher les 
 
 Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez consulter les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-- Pour obtenir des exemples supplémentaires utilisant Table Storage, voir [Prise en main d’Azure Blob Storage dans .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+- Pour obtenir des exemples supplémentaires utilisant Table Storage, voir [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Prise en main d’Azure Table Storage dans .NET)
 - Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
     - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
@@ -469,4 +469,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

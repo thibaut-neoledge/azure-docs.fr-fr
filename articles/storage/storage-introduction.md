@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/08/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
@@ -138,7 +138,7 @@ Pour plus d’informations sur les services disponibles dans chaque région, voi
 
 Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
 
-- **Stockage localement redondant (LRS).** Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par installation et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans une installation donnée.  
+- **Stockage localement redondant (LRS).** Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par installation et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans une installation donnée.
   
 	Vous pouvez bénéficier d'une réduction pour le stockage LRS. Pour une durabilité maximale, nous vous recommandons d’utiliser le stockage géo-redondant décrit ci-dessous.
 
@@ -208,7 +208,9 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 
 ### Outils et utilitaires
 
-- [Outils et Kit de développement logiciel (SDK) d’Azure](https://azure.microsoft.com/downloads/)
+- [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Outils clients d’Azure Storage](storage-explorers.md)
+- [Outils et Kit de développement logiciel (SDK) d’Azure](https://azure.microsoft.com/tools/)
 - [Émulateur de stockage Azure](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [Utilitaire de ligne de commande AzCopy](http://aka.ms/downloadazcopy)
@@ -265,4 +267,4 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 - [Utilisation du stockage de fichiers à partir de Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

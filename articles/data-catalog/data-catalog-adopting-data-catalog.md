@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="05/09/2016"
+	ms.date="07/25/2016"
 	ms.author="spelluru"/>
 
 # Adoption d’Azure Data Catalog
@@ -172,4 +172,4 @@ Cet article concernait la prise en main d’**Azure Data Catalog** dans votre or
 -	[Annoter des sources de données](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Métadonnées en crowdsourcing](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

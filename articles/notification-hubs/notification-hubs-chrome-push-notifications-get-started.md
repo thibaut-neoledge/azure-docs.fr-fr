@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="07/22/2016"
 	ms.author="wesmc"/>
 
 # Envoi de notifications push vers des applications Chrome avec Azure Notification Hubs
@@ -462,10 +462,10 @@ Pour segmenter vos utilisateurs par groupes d’intérêt, vous pouvez suivre le
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
 <!-- URLs. -->
-[exemple de hub de notification d’application Chrome]: http://google.com
+[exemple de hub de notification d’application Chrome]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Google Cloud Console]: http://cloud.google.com/console
 [Azure Classic Portal]: https://manage.windowsazure.com/
-[Vue d’ensemble de Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Vue d’ensemble de Notification Hubs]: notification-hubs-push-notification-overview.md
 [vue d’ensemble des applications Chrome]: https://developer.chrome.com/apps/about_apps
 [exemple GCM d’application Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
@@ -477,4 +477,4 @@ Pour segmenter vos utilisateurs par groupes d’intérêt, vous pouvez suivre le
 [Notification des utilisateurs via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Dernières nouvelles via Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

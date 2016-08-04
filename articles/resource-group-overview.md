@@ -142,13 +142,13 @@ Le code dans chaque kit de développement logiciel (SDK) est généré à partir
 **Exemples** : mise en route rapide dans la langue de votre choix.
 
 - [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *bientôt disponible*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
 - [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
 - [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *bientôt disponible*
 - [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
-**Référentiels du kit de développement logiciel (SDK) open source**: n’hésitez pas à nous faire part de vos commentaires, des problèmes rencontrés et de vos requêtes d’extraction.
+**Référentiels du Kit de développement logiciel (SDK) open source** : n’hésitez pas à nous faire part de vos commentaires, des problèmes rencontrés et de vos demandes d’extraction.
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net)
 - [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -157,18 +157,18 @@ Le code dans chaque kit de développement logiciel (SDK) est généré à partir
 - [Python](https://github.com/Azure/azure-sdk-for-python)
 - [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
-> [AZURE.NOTE] Si le kit de développement logiciel (SDK) ne fournit pas la fonctionnalité requise, vous pouvez également appeler [l’API REST Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) directement.
+> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) ne fournit pas la fonctionnalité requise, vous pouvez également appeler [l’API REST Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) directement.
 
 ## Étapes suivantes
 
-- Consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md) qui présente de manière simple l’utilisation des modèles.
-- Pour obtenir une procédure pas à pas plus détaillée de création d’un modèle, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
+- Pour découvrir une présentation simple de l’utilisation des modèles, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
+- Pour obtenir une procédure pas à pas plus détaillée de création d’un modèle, voir [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
-- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-- Pour plus d’informations sur l’utilisation de VS Code avec Resource Manager, consultez [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](resource-manager-vs-code.md).
+- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, voir [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Pour plus d’informations sur l’utilisation de VS Code avec Resource Manager, voir [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](resource-manager-vs-code.md).
 
 Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

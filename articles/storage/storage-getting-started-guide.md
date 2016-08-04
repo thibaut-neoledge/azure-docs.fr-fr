@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="05/23/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Familiarisez-vous avec Azure Storage en cinq minutes 
@@ -28,7 +28,7 @@ Pour en savoir plus sur Azure Storage avant de vous plonger dans le code, consul
 
 Vérifiez que les conditions préalables suivantes sont remplies avant de commencer :
 
-1. Pour compiler et générer l’application, [Visual Studio](https://www.visualstudio.com/) doit être installé sur votre ordinateur. 
+1. Pour compiler et générer l’application, [Visual Studio](https://www.visualstudio.com/) doit être installé sur votre ordinateur.
 
 2. Installez la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/). Le Kit de développement logiciel (SDK) inclut des exemples de projets de démarrage rapide Azure, l'émulateur de stockage Azure et la [bibliothèque cliente de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
@@ -90,7 +90,7 @@ Il peut être utile d’examiner le code source avant d'exécuter l'application.
 Ensuite, exécutez l'exemple d'application dans l'émulateur d’Azure Storage :
 
 1.	Appuyez sur le bouton **Démarrer** ou sur la touche Windows, recherchez l’*émulateur de Microsoft Azure Storage*, puis lancez l’application. Lorsque l’émulateur démarre, une icône s’affiche avec une notification dans la zone de notification de la barre des tâches Windows.
-2.	Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution**. 
+2.	Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution**.
 3.	Dans le menu **Déboguer**, appuyez sur **F11** pour exécuter la solution étape par étape ou appuyez sur **F5** pour exécuter la solution du début à la fin.
 
 ## Étapes suivantes
@@ -98,6 +98,7 @@ Ensuite, exécutez l'exemple d'application dans l'émulateur d’Azure Storage :
 Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 
 * [Introduction à Microsoft Azure Storage](storage-introduction.md)
+* [Prise en main de l’explorateur de stockage Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Prise en main d’Azure Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
 * [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md)
 * [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md)
@@ -110,4 +111,4 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->
