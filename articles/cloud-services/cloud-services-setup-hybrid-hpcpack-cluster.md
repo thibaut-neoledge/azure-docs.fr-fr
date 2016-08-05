@@ -199,7 +199,7 @@ Dans le cadre de ce didacticiel, vous allez ajouter deux petits nœuds.
 
 2. Dans l'Assistant Add Node, sur la page **Select Deployment Method**, cliquez sur **Add Azure nodes**, puis sur **Suivant**.
 
-	![Add Azure Node][add\_node1\_1]
+	![Add Azure Node][add\_node1_1]
 
 3. Sur la page **Specify New Nodes**, sélectionnez le modèle de nœud Azure créé précédemment (par défaut, son nom est **Default AzureNode Template**). Indiquez ensuite **2** nœuds de format « **Small** », puis cliquez sur **Suivant**.
 
@@ -329,7 +329,7 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 [config_hpc12]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc12.png
 [config_hpc13]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc13.png
 [add_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1.png
-[add\_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add\_node1_1.png
+[add\_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
 [add_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node2.png
 [add_node3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node3.png
 [add_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node4.png

@@ -176,7 +176,8 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png)
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png)
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 

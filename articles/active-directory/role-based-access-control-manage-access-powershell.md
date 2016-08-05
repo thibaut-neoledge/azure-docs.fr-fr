@@ -157,4 +157,4 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 - [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
