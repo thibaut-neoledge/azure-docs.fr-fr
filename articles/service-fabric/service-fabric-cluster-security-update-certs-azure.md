@@ -30,7 +30,7 @@ Pour ajouter un autre certificat comme certificat secondaire, vous devez charger
 3. Sous **Paramètres**, cliquez sur le paramètre de certificat et entrez l’empreinte de certificat secondaire.
 4. Cliquez sur **Enregistrer**. Un déploiement est lancé et une fois qu’il est terminé, vous pouvez utiliser le certificat principal ou le certificat secondaire pour effectuer des opérations de gestion sur le cluster.
 
-![Capture d’écran des empreintes de certificat dans le portail][SecurityConfigurations\_02]
+![Capture d’écran des empreintes de certificat dans le portail][SecurityConfigurations_02]
 
 ## Supprimer un certificat
 Voici le processus de suppression d’un ancien certificat pour que le cluster ne l’utilise plus :
