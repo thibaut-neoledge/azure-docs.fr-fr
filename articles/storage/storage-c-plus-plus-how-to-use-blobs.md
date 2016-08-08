@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="07/25/2016"
     ms.author="dineshm"/>
 
 # Utilisation du stockage d'objets blob à partir de C++  
@@ -38,8 +38,8 @@ Pour ce faire, vous devez installer la bibliothèque cliente Azure Storage pour 
 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
--	**Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
+-	**Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
+-	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.
 
 		Install-Package wastorage
 
@@ -241,4 +241,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 -	[Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 -	[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

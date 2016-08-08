@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -202,8 +202,8 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 		    val sc = new SparkContext(conf)
 		
 		    SparkSample.executeJob(sc,
-		                           "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-		                           "wasb:///HVACOut")
+		                           "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+		                           "wasbs:///HVACOut")
 		  }
 		}
 
@@ -238,20 +238,20 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 		    val conf = new SparkConf().setAppName("SparkSample")
 		                              .setMaster("yarn-client")
 		                              .set("spark.yarn.am.extraJavaOptions", "-Dhdp.version=2.4")
-		                              .set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
+		                              .set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
 		                              .setJars(Seq("""C:\WORK\IntelliJApps\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
 		                              .set("spark.hadoop.validateOutputSpecs", "false")
 		    val sc = new SparkContext(conf)
 		
 		    SparkSample.executeJob(sc,
-		      "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-		      "wasb:///HVACOut")
+		      "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+		      "wasbs:///HVACOut")
 		  }
 		}
 
 	Deux points importants sont ici à prendre en considération :
 	
-	* Pour `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, assurez-vous que le fichier JAR de l’assembly Spark est disponible sur le stockage de cluster dans le chemin d’accès spécifié.
+	* Pour `.set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, assurez-vous que le fichier JAR de l’assembly Spark est disponible sur le stockage de cluster dans le chemin d’accès spécifié.
 	* Pour `setJars`, spécifiez l’emplacement où le fichier jar de l’artefact sera créé. En général, il s’agit du répertoire `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`.
 
 
@@ -346,4 +346,4 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

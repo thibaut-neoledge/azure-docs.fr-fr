@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
@@ -236,9 +236,9 @@ Si vous n’avez pas de base de données SQL, consultez les informations dans le
 
 3. Utilisez la commande suivante pour exporter des données à partir de hivesampletable dans la table mobiledata :
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasbs:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Sqoop doit se connecter à la base de données SQL, à la base de données contenant la table des retards, puis exporter des données à partir de wasb:///tutorials/flightdelays/output (l’emplacement où nous avons stocké précédemment la sortie de la requête Hive) vers la table des retards.
+	Sqoop doit se connecter à la base de données SQL, à la base de données contenant la table des retards, puis exporter des données à partir de wasbs:///tutorials/flightdelays/output (l’emplacement où nous avons stocké précédemment la sortie de la requête Hive) vers la table des retards.
 
 4. Une fois la commande terminée, utilisez les éléments suivants pour vous connecter à la base de données à l’aide de TSQL :
 
@@ -291,4 +291,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

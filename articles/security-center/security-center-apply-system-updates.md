@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Appliquer les mises à jour système dans Azure Security Center
 
 Azure Security Center recherche quotidiennement les mises à jour manquantes du système d’exploitation sur les machines virtuelles Windows et Linux. Security Center récupère une liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou WSUS (Windows Server Update Services), selon le service configuré sur les machines virtuelles Windows. Security Center recherche également les dernières mises à jour dans les systèmes Linux. S’il manque une mise à jour système sur votre machine virtuelle, Security Center vous recommande de l’appliquer.
 
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la préversion d’Azure Security Center. Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
 
 ## Implémenter la recommandation
 
@@ -40,9 +40,9 @@ Azure Security Center recherche quotidiennement les mises à jour manquantes du 
 
 Redémarrez la machine virtuelle à partir d’Azure pour terminer le processus.
 
-## Étapes suivantes
+## Voir aussi
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 - [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
@@ -60,4 +60,4 @@ Pour plus d’informations sur Security Center, consultez :
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

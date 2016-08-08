@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh;donnam"/>
 
 
@@ -34,7 +34,7 @@ Cette rubrique vous explique comment synchroniser les données et gérer les con
 
 Pour ce didacticiel, vous devez télécharger [un projet Xcode mis à jour à partir de Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). Nous avons utilisé le projet Xcode de la fin du didacticiel [Prise en main des données hors connexion] comme point de départ, puis l’avons mis à jour pour permettre la modification d’éléments. Nous avons également ajouté la prise en charge des classes et des méthodes afin de pouvoir ajouter un gestionnaire de conflit dans la section suivante.
 
-À la fin de ce didacticiel, si vous exécutez cette application sur deux téléphones, puis que vous modifiez le même élément sur les deux téléphones localement et transmettez ces modifications au serveur, vous permettez à l’utilisateur de chaque téléphone de choisir la version à conserver :
+À la fin de ce didacticiel, si vous exécutez cette application sur deux téléphones, puis que vous modifiez le même élément sur les deux téléphones localement et transmettez ces modifications au serveur, vous permettez à l’utilisateur de chaque téléphone de choisir la version à conserver :
   * conserver la version client (qui écrase la version sur le serveur),
   * conserver la version serveur (qui met à jour la table locale client), ou
   * ne conserver aucune version (annule l'opération Push et laisse l'opération en suspens).
@@ -43,7 +43,7 @@ Maintenant, ajoutons le gestionnaire de conflits pour activer cette fonctionnali
 
 ## <a name="add-conflict-handling"></a>Ajout d'un gestionnaire de conflits au contrôleur d'affichage de la liste des tâches
 
-1. Dans **QSTodoListViewController.m**, modifiez **viewDidLoad**. Remplacez l'appel à **defaultService** par un appel à **defaultServiceWithDelegate** :
+1. Dans **QSTodoListViewController.m**, modifiez **viewDidLoad**. Remplacez l'appel à **defaultService** par un appel à **defaultServiceWithDelegate** :
 
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
 
@@ -51,7 +51,7 @@ Maintenant, ajoutons le gestionnaire de conflits pour activer cette fonctionnali
 
         @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate, NSFetchedResultsControllerDelegate>
 
-3. Ajoutez l'instruction d'importation suivante au début de **QSTodoListViewController.m** :
+3. Ajoutez l'instruction d'importation suivante au début de **QSTodoListViewController.m** :
 
         #import "QSUIAlertViewWithBlock.h"
 
@@ -104,7 +104,7 @@ Maintenant, ajoutons le gestionnaire de conflits pour activer cette fonctionnali
 
 Testons l'application qui présente des conflits. Modifiez le même élément dans deux instances différentes de l'application exécutées simultanément ou utilisez l'application et un client REST.
 
-Effectuez le geste d'actualisation dans les instances de l'application en faisant un glisser depuis le haut de l'écran. Vous êtes alors invité à résoudre le conflit :
+Effectuez le geste d'actualisation dans les instances de l'application en faisant un glisser depuis le haut de l'écran. Vous êtes alors invité à résoudre le conflit :
 
 ![][conflict-ui]
 
@@ -146,4 +146,4 @@ Effectuez le geste d'actualisation dans les instances de l'application en faisan
 [Prise en main des données hors connexion]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

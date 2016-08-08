@@ -1,247 +1,441 @@
 <properties
-    pageTitle="Ajouter le connecteur FTP à vos applications logiques | Microsoft Azure"
-    description="Vue d’ensemble du connecteur FTP avec les paramètres d’API REST"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="Découvrez comment utiliser le connecteur FTP dans des applications logiques | Microsoft Azure"
+description="Créez des applications logiques avec Azure App Service. Connectez-vous à un serveur FTP pour gérer vos fichiers. Vous pouvez exécuter diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers dans le serveur FTP."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/18/2016"
-   ms.author="mandia"/>
+ms.service="logic-apps"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/22/2016"
+ms.author="deonhe"/>
 
 # Prise en main du connecteur FTP
-Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. Le connecteur FTP peut être utilisé dans :
 
-- Applications logiques (abordées dans cette rubrique)
-- PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
+Utilisez le connecteur FTP pour surveiller, gérer et créer des fichiers sur un serveur FTP.
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+Pour utiliser [n’importe quel connecteur](./apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Avec FTP, vous pouvez :
+## Se connecter à FTP
 
-- Créer votre flux d'activité en fonction des données que vous obtenez de FTP. 
-- Utiliser un déclencheur quand un fichier est mis à jour.
-- Utiliser des actions permettant de créer des fichiers, obtenir le contenu d’un fichier, et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, vous pouvez obtenir le contenu d’un fichier, puis mettre à jour une base de données SQL. 
+Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](./connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service.
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Créer une connexion à FTP
 
+>[AZURE.INCLUDE [Procédure de création d’une connexion à FTP](../../includes/connectors-create-api-ftp.md)]
 
-## Déclencheurs et actions
-FTP propose les déclencheurs et les actions suivants.
+## Utiliser un déclencheur FTP
 
-Déclencheurs | Actions
---- | ---
-<ul><li>Obtenir un fichier mis à jour</li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Obtenir un fichier mis à jour</li><li>Mettre à jour un fichier</li></ul>
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [Apprenez-en davantage sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+>[AZURE.IMPORTANT]Le connecteur FTP requiert un serveur FTP accessible à partir d’Internet et configuré pour fonctionner en mode PASSIF. En outre, le connecteur FTP **n’est pas compatible avec le protocole FTPS (FTP sur SSL) implicite**. Le connecteur FTP prend uniquement en charge FTPS (FTP sur SSL) en mode explicite.
 
-## Créer une connexion à FTP
+Dans cet exemple, nous allons vous indiquer comment utiliser le déclencheur **FTP - Lors de l’ajout ou de la modification d’un fichier** pour initialiser un workflow d’application logique lorsqu’un fichier est ajouté à un serveur FTP ou modifié sur ce dernier. Dans un contexte d’entreprise, vous pourriez utiliser ce déclencheur pour surveiller l’apparition dans un dossier FTP de nouveaux fichiers représentant des commandes émanant de clients. Vous pourriez ensuite utiliser une action de connecteur FTP telle que **Obtenir le contenu d’un fichier** pour récupérer le contenu de la commande à des fins de traitement ultérieur et de stockage dans votre base de données de commandes.
+
+1. Entrez *ftp* dans la zone de recherche du concepteur d’applications logiques, puis sélectionnez le déclencheur **FTP - Lors de l’ajout ou de la modification d’un fichier**. ![Image de déclencheur FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png) Le contrôle **Lors de l’ajout ou de la modification d’un fichier** s’affiche. ![Image de déclencheur FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)
+- Sélectionnez le bouton **...** situé à droite du contrôle. Cette opération ouvre le contrôle du sélecteur de dossiers ![Image de déclencheur FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png).
+- Sélectionnez le symbole **>** (flèche droite) et recherchez le dossier dans lequel vous souhaitez surveiller l’apparition de fichiers nouveaux ou modifiés. Sélectionnez le dossier et remarquez qu’il apparaît à présent dans le contrôle **Dossier**. ![Image de déclencheur FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)
 
 
->[AZURE.INCLUDE [Procédure de création d’une connexion FTP](../../includes/connectors-create-api-ftp.md)]
+À ce stade, votre application logique a été configurée avec un déclencheur qui lance une série d’autres déclencheurs et actions dans le workflow lorsqu’un fichier est modifié ou créé dans le dossier FTP sélectionné.
 
-Après avoir créé la connexion, vous entrez les propriétés FTP, telles que le fichier source ou le dossier de destination. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+>[AZURE.NOTE]Pour qu’une application logique soit fonctionnelle, elle doit contenir au moins un déclencheur et une action. Suivez la procédure décrite ci-après pour ajouter une action.
 
->[AZURE.TIP] Vous pouvez utiliser cette même connexion FTP dans d'autres applications logiques.
 
-## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
 
-### Créer un fichier
-Charge un fichier sur le serveur FTP. ```POST: /datasets/default/files```
+## Utiliser une action FTP
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|query|(aucun) |Chemin du serveur FTP sur lequel charger le fichier|
-|name|string|yes|query| (aucun)|Nom du fichier à créer sur le serveur FTP|
-|body| |yes|body|(aucun) |Contenu du fichier à charger sur le serveur FTP|
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action qui récupérera le contenu du fichier nouveau ou modifié trouvé par le déclencheur.
 
-### Copier un fichier
-Copie un fichier sur le serveur FTP. ```POST: /datasets/default/copyFile```
+1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action permettant d’obtenir le contenu du fichier sur le serveur FTP.
+- Sélectionnez le lien **Ajouter une action**. ![Image d’action FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)
+- Entrez *FTP* pour rechercher toutes les actions associées à FTP.
+- Sélectionnez **FTP - Obtenir le contenu d’un fichier** comme action à exécuter lorsqu’un fichier nouveau ou modifié est trouvé dans le dossier FTP. ![Image d’action FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png) Le contrôle **Obtenir le contenu d’un fichier** s’affiche. **Remarque** : vous serez invité à autoriser votre application logique à accéder à votre compte de serveur FTP, si vous ne l’avez pas fait précédemment. ![Image d’action FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)
+- Sélectionnez le contrôle **Fichier** (espace blanc situé sous **FICHIER***). Ce contrôle vous permet d’utiliser les diverses propriétés du fichier nouveau ou modifié trouvé sur le serveur FTP.
+- Sélectionnez l’option **Contenu du fichier**. ![Image d’action FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)
+-  Le contrôle est mis à jour, ce qui indique que l’action **FTP - Obtenir le contenu d’un fichier** récupérera le *contenu du fichier* nouveau ou modifié sur le serveur FTP. ![Image d’action FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)
+- Enregistrez votre travail, puis ajoutez un fichier au dossier FTP pour tester votre workflow.
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|(aucun) |URL du fichier source|
-|destination|string|yes|query|(aucun) |Chemin de destination du fichier sur le serveur FTP, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+À ce stade, l’application logique a été configurée avec un déclencheur pour surveiller un dossier d’un serveur FTP et pour initialiser le workflow lorsqu’elle détecte un fichier nouveau ou modifié sur le serveur FTP.
 
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+L’application logique a également été configurée avec une action destinée à récupérer le contenu du fichier nouveau ou modifié.
 
-### Supprimer un fichier 
-Supprime un fichier du serveur FTP. ```DELETE: /datasets/default/files/{id}```
+Vous pouvez à présent ajouter une autre action, telle que l’action [SQL Server - Insérer une ligne](./connectors-create-api-sqlazure.md#insert-row), pour insérer le contenu du fichier nouveau ou modifié dans une table de base de données SQL.
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|(aucun) |Identificateur unique du fichier à supprimer du serveur FTP|
+## Détails techniques
 
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+Voici les détails des déclencheurs, actions et réponses pris en charge par cette connexion :
 
-### Extraire un dossier
-Extrait un fichier d’archive dans un dossier sur le serveur FTP (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+## Déclencheurs FTP
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query| (aucun)|Chemin du fichier d'archive|
-|destination|string|yes|query| (aucun)|Chemin du dossier de destination|
-|overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
+FTP comporte le déclencheur suivant :
 
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+|Déclencheur | Description|
+|--- | ---|
+|[Lors de l’ajout ou de la modification d’un fichier](connectors-create-api-ftp.md#when-a-file-is-added-or-modified)|Cette opération déclenche un flux lorsqu’un fichier est ajouté ou modifié dans un dossier.|
+
+
+## Actions FTP
+
+FTP comporte les actions suivantes :
+
+
+|Action|Description|
+|--- | ---|
+|[Obtenir les métadonnées d’un fichier](connectors-create-api-ftp.md#get-file-metadata)|Cette opération obtient les métadonnées d’un fichier.|
+|[Mettre à jour un fichier](connectors-create-api-ftp.md#update-file)|Cette opération met à jour un fichier.|
+|[Supprimer un fichier](connectors-create-api-ftp.md#delete-file)|Cette opération supprime un fichier.|
+|[Obtenir les métadonnées d’un fichier à l’aide du chemin](connectors-create-api-ftp.md#get-file-metadata-using-path)|Cette opération obtient les métadonnées d’un fichier à l’aide du chemin.|
+|[Obtenir le contenu d’un fichier à l’aide du chemin](connectors-create-api-ftp.md#get-file-content-using-path)|Cette opération obtient le contenu d’un fichier à l’aide du chemin.|
+|[Obtenir le contenu d’un fichier](connectors-create-api-ftp.md#get-file-content)|Cette opération obtient le contenu d’un fichier.|
+|[Créer un fichier](connectors-create-api-ftp.md#create-file)|Cette opération crée un fichier.|
+|[Copier un fichier](connectors-create-api-ftp.md#copy-file)|Cette opération copie un fichier dans un serveur FTP.|
+|[Répertorier les fichiers dans un dossier](connectors-create-api-ftp.md#list-files-in-folder)|Cette opération obtient la liste des fichiers et sous-dossiers d’un dossier.|
+|[Répertorier les fichiers dans le dossier racine](connectors-create-api-ftp.md#list-files-in-root-folder)|Cette opération obtient la liste des fichiers et sous-dossiers du dossier racine.|
+|[Extraire un dossier](connectors-create-api-ftp.md#extract-folder)|Cette opération extrait un fichier d’archive dans un dossier (exemple : .zip).|
+### Détails de l’action
+
+Voici les détails des actions et des déclencheurs de ce connecteur, ainsi que leurs réponses :
+
+
+
+### Obtenir les métadonnées d’un fichier
+Cette opération obtient les métadonnées d’un fichier.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+#### Détails des résultats
+
+BlobMetadata
+
+
+| Nom de la propriété | Type de données |
+|---|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Mettre à jour un fichier
+Cette opération met à jour un fichier.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
+|body*|le contenu d’un fichier ;|Contenu du fichier|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+#### Détails des résultats
+
+BlobMetadata
+
+
+| Nom de la propriété | Type de données |
+|---|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Supprimer un fichier
+Cette opération supprime un fichier.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+
+
+
+### Obtenir les métadonnées d’un fichier à l’aide du chemin
+Cette opération obtient les métadonnées d’un fichier à l’aide du chemin.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|path*|Chemin de fichier|Sélectionner un fichier|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+#### Détails des résultats
+
+BlobMetadata
+
+
+| Nom de la propriété | Type de données |
+|---|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Obtenir le contenu d’un fichier à l’aide du chemin
+Cette opération obtient le contenu d’un fichier à l’aide du chemin.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|path*|Chemin de fichier|Sélectionner un fichier|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+
+
 
 ### Obtenir le contenu d’un fichier
-Récupère le contenu d’un fichier sur le serveur FTP à partir de son identifiant. ```GET: /datasets/default/files/{id}/content```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|(aucun) |Identificateur unique du fichier|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+Cette opération obtient le contenu d’un fichier.
 
 
-### Obtenir le contenu d’un fichier à l'aide du chemin
-Récupère le contenu d’un fichier sur le serveur FTP en utilisant le chemin. ```GET: /datasets/default/GetFileContentByPath```
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Fichier|Sélectionner un fichier|
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|(aucun) |Chemin unique du fichier sur le serveur FTP|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+Le caractère * indique qu’une propriété est obligatoire.
 
 
-### Obtenir les métadonnées d’un fichier 
-Récupère les métadonnées d’un fichier sur le serveur FTP à partir de son identifiant. ```GET: /datasets/default/files/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|(aucun)|Identificateur unique du fichier|
-
-#### Response
-| Nom | Description |
-| --- | --- |
-| 200 | OK | 
-| default | L’opération a échoué.
 
 
-### Obtenir les métadonnées d’un fichier à l'aide du chemin
-Récupère les métadonnées d’un fichier sur le serveur FTP en utilisant le chemin. ```GET: /datasets/default/GetFileByPath```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query| (aucun)|Chemin unique du fichier sur le serveur FTP|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+### Créer un fichier
+Cette opération crée un fichier.
 
 
-### Obtenir un fichier mis à jour
-Obtient un fichier mis à jour. ```GET: /datasets/default/triggers/onupdatedfile```
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|folderPath*|Chemin d’accès du dossier|Sélectionner un dossier|
+|name*|Nom de fichier|Nom du fichier|
+|body*|le contenu d’un fichier ;|Contenu du fichier|
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|(aucun) |ID du dossier dans lequel rechercher un fichier mis à jour|
+Le caractère * indique qu’une propriété est obligatoire.
 
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+#### Détails des résultats
 
-
-### Mettre à jour un fichier 
-Met à jour un fichier sur le serveur FTP. ```PUT: /datasets/default/files/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path| (aucun)|Identificateur unique du fichier à mettre à jour sur le serveur FTP|
-|body| |yes|body|(aucun) |Contenu du fichier à mettre à jour sur le serveur FTP|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
+BlobMetadata
 
 
-## Définitions d'objet
-
-#### DataSetsMetadata
-
-| Nom | Type de données | Requis |
+| Nom de la propriété | Type de données |
 |---|---|---|
-|tabular|non défini|no|
-|objet blob|non défini|no|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
 
-#### TabularDataSetsMetadata
 
-| Nom | Type de données | Requis |
+
+
+### Copier un fichier
+Cette opération copie un fichier dans un serveur FTP.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|source*|URL de la source|URL du fichier source|
+|destination*|Chemin de destination du fichier|Chemin de destination du fichier, y compris le nom de fichier cible|
+|overwrite|Remplacer ?|Remplace le fichier de destination si la valeur est « true »|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+#### Détails des résultats
+
+BlobMetadata
+
+
+| Nom de la propriété | Type de données |
 |---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
 
-#### BlobDataSetsMetadata
 
-| Nom | Type de données | Requis |
+
+
+### Lors de l’ajout ou de la modification d’un fichier
+Cette opération déclenche un flux lorsqu’un fichier est ajouté ou modifié dans un dossier.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|folderId*|Dossier|Sélectionner un dossier|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+
+
+
+### Répertorier les fichiers dans un dossier
+Cette opération obtient la liste des fichiers et sous-dossiers d’un dossier.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|id*|Dossier|Sélectionner un dossier|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+
+
+#### Détails des résultats
+
+BlobMetadata
+
+
+| Nom de la propriété | Type de données |
 |---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
 
-#### BlobMetadata
 
-| Nom | Type de données | Requis |
+
+
+### Répertorier les fichiers dans le dossier racine
+Cette opération obtient la liste des fichiers et sous-dossiers du dossier racine.
+
+
+Il n’existe aucun paramètre pour cet appel
+
+#### Détails des résultats
+
+BlobMetadata
+
+
+| Nom de la propriété | Type de données |
 |---|---|---|
-|ID|string|no|
-|Nom|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Taille|integer|no|
-|MediaType|string|no|
-|IsFolder|booléenne|no|
-|ETag|string|no|
-|FileLocator|string|no|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Extraire un dossier
+Cette opération extrait un fichier d’archive dans un dossier (exemple : .zip).
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|source*|Chemin d’accès du fichier d’archive source|Chemin du fichier d'archive|
+|destination*|Chemin de destination du dossier|Chemin du dossier de destination|
+|overwrite|Remplacer ?|Remplace les fichiers de destination si la valeur est « true »|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+
+
+#### Détails des résultats
+
+BlobMetadata
+
+
+| Nom de la propriété | Type de données |
+|---|---|---|
+|ID|string|
+|Nom|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Taille|integer|
+|MediaType|string|
+|IsFolder|booléenne|
+|ETag|string|
+|FileLocator|string|
+
+
+
+## Réponses HTTP
+
+Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants :
+
+|Nom|Description|
+|---|---|
+|200|OK|
+|202|Acceptée|
+|400|Demande incorrecte|
+|401|Non autorisé|
+|403|Interdit|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
+|default|L’opération a échoué.|
+
+
+
+
+
+
 
 ## Étapes suivantes
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

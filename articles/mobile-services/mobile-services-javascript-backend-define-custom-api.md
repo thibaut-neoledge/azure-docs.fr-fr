@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/06/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
-# Procédure : définition d’un point de terminaison d’API personnalisée dans un service mobile de backend JavaScript
+# Procédure : définition d’un point de terminaison d’API personnalisée dans un service mobile de backend JavaScript
 
 > [AZURE.SELECTOR]
 - [Backend JavaScript](./mobile-services-javascript-backend-define-custom-api.md)
@@ -41,4 +41,4 @@ Pour plus d’informations sur la façon d’appeler une API personnalisée dans
 
 <!-- URLs. -->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

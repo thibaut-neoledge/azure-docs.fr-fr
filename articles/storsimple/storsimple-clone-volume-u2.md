@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="07/27/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour cloner un volume (Mise à jour 2)
@@ -90,9 +90,9 @@ Ce clone est désormais un volume normal et toute opération possible sur un vol
 
 ## Clones temporaires et permanents
 
-Les clones temporaires et les clones permanents sont créés uniquement lorsque vous effectuez un clonage sur un autre appareil. Vous pouvez cloner un volume spécifique à partir d’un jeu de sauvegarde sur un autre appareil. Un clone créé de cette manière est un clone *temporaire*. Le clone temporaire aura des références au volume d’origine et utilisera ce volume pour lire lors de l’écriture locale.
+Les clones temporaires sont créés uniquement lorsque vous effectuez un clonage sur un autre appareil. Vous pouvez cloner un volume spécifique à partir d’un jeu de sauvegarde sur un autre appareil géré par StorSimple Manager. Le clone temporaire aura des références aux données dans le volume d’origine et utilisera ces données pour la lecture et l’écriture en local sur l’appareil cible.
 
-Si vous prenez un instantané de cloud d’un clone temporaire, le clone qui en résulte devient *permanent*. Le clone permanent est indépendant et n’a pas de références au volume d’origine à partir duquel il a été cloné.
+Si vous prenez un instantané de cloud d’un clone temporaire, le clone qui en résulte devient *permanent*. Pendant ce processus, une copie des données est créée sur le cloud et le temps nécessaire à la copie de ces données varie selon la taille des données et les latences Azure (il s’agit d’une copie interne à Azure). Ce processus peut prendre plusieurs jours voire semaines. Le clone temporaire devient un clone permanent de cette façon et n’a pas de références aux données du volume d’origine à partir duquel il a été cloné.
 
 ## Scénarios pour les clones temporaires et permanents
 
@@ -117,4 +117,4 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

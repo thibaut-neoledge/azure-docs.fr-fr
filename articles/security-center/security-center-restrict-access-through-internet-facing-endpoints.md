@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Restreindre l’accès via des points de terminaison accessibles sur Internet dans le Centre de sécurité Azure
 
-Le Centre de sécurité Azure vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos groupes de sécurité réseau (NSG) possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Un accès « total » peut permettre aux pirates d’accéder à vos ressources. Le Centre de sécurité vous recommande de modifier ces règles de trafic entrant afin de restreindre l’accès aux adresses IP source qui en ont réellement besoin.
+Le Centre de sécurité Azure vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos groupes de sécurité réseau (NSG) possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Un accès « total » peut permettre aux pirates d’accéder à vos ressources. Le Centre de sécurité vous recommande de modifier ces règles de trafic entrant afin de restreindre l’accès aux adresses IP source qui en ont réellement besoin.
+
+Cette recommandation est générée pour n’importe quel port non web avec une « quelconque » source.
 
 > [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
 
@@ -40,18 +42,18 @@ Le Centre de sécurité Azure vous recommande de restreindre l’accès via les 
 
 ## Voir aussi
 
-Cet article vous a montré comment implémenter la recommandation du Centre de sécurité Azure « Restreindre l’accès via un point de terminaison accessible sur Internet ». Pour plus d’informations sur l’activation de groupes de sécurité et de règles, consultez les rubriques suivantes :
+Cet article vous a montré comment implémenter la recommandation du Centre de sécurité Azure « Restreindre l’accès via un point de terminaison accessible sur Internet ». Pour plus d’informations sur l’activation de groupes de sécurité et de règles, consultez les rubriques suivantes :
 
 - [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 - [Gestion des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur Security Center, consultez :
 
 - [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
+- [Surveillance des solutions partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
@@ -63,4 +65,4 @@ Pour plus d’informations sur Security Center, consultez :
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

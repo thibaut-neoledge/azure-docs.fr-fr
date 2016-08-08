@@ -18,7 +18,7 @@
 
 # Conception de votre solution
 
-Cet article vous explique comment concevoir les fonctionnalités suivantes dans votre solution IoT (Internet des objets) :
+Cet article vous explique comment concevoir les fonctionnalités suivantes dans votre solution IoT (Internet des objets) :
 
 - Approvisionnement des appareils
 - Passerelles de champ
@@ -27,7 +27,7 @@ Cet article vous explique comment concevoir les fonctionnalités suivantes dans 
 
 ## Approvisionnement des appareils
 
-Les solutions IoT stockent des données sur les appareils individuels, telles que :
+Les solutions IoT stockent des données sur les appareils individuels, telles que :
 
 - Clés d'authentification et identité de l'appareil
 - Version et type de matériel de l'appareil
@@ -45,7 +45,7 @@ Les [API du registre identité IoT Hub][lnk-devguide-identityregistry] vous perm
 
 Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et votre IoT Hub. Elle est généralement située près de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l’aide d’un protocole pris en charge. La passerelle de champ communique avec IoT Hub à l’aide d’un protocole pris en charge par ce dernier. Une passerelle de champ peut être un matériel très spécialisé ou un ordinateur à faible consommation d'énergie exécutant un logiciel qui accomplit de bout en bout le scénario pour lequel la passerelle est prévue.
 
-Une passerelle de champ est différente d’un appareil de routage de trafic simple, par exemple un pare-feu ou un appareil de traduction d’adresses réseau (NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution. Par exemple, une passerelle de champ peut :
+Une passerelle de champ est différente d’un appareil de routage de trafic simple, par exemple un pare-feu ou un appareil de traduction d’adresses réseau (NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution. Par exemple, une passerelle de champ peut :
 
 - **Ajouter la prise en charge d’appareils nouveaux et hérités** : il existe des millions de capteurs et de mécanismes de positionnement nouveaux et hérités qui ne peuvent pas envoyer les données directement au cloud. Ces appareils utilisent un protocole qui ne convient pas pour Internet, n’implémentent aucun chiffrement, ou ne peuvent pas stocker les certificats d'identité. L’utilisation d'une passerelle facilite la connexion de ces appareils et en réduit le coût.
 - **Exécuter une analyse de périphérie **: de nombreuses opérations peuvent être réalisées localement afin de réduire la quantité de données échangées avec le cloud. Les exemples incluent le filtrage des données, le traitement par lots et la compression. Il peut également être souhaitable d'effectuer certains calculs comme le nettoyage des données ou la notation d’un modèle d’apprentissage automatique avec les données réelles en local.
@@ -66,7 +66,7 @@ Un service de jeton est un service cloud personnalisé. Il utilise une *stratég
 
   ![Étapes du modèle de service de jeton][img-tokenservice]
 
-Voici les principales étapes du modèle de service de jeton :
+Voici les principales étapes du modèle de service de jeton :
 
 1. Créez une [stratégie d'accès partagé IoT Hub][lnk-devguide-security] avec des autorisations **DeviceConnect** pour votre concentrateur IoT. Vous pouvez créer cette stratégie dans le [portail Azure][lnk-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
 2. Lorsqu'un appareil doit accéder à votre hub IoT, il demande à votre service de jetons un jeton signé. L’appareil peut s’authentifier avec votre registre d’identité d’appareil personnalisé/schéma d’authentification pour déterminer l’identité d’appareil que le service de jeton utilise pour créer le jeton.
@@ -109,6 +109,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 - [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
 - [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
 - [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal-manage]
+- [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -135,5 +136,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal-manage]: iot-hub-manage-through-portal.md
 [lnk-sas-token]: iot-hub-sas-tokens.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

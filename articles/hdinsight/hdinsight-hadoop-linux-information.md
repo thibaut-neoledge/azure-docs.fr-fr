@@ -82,7 +82,7 @@ Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans `/usr
 * __2.2.4.9-1__ : ce répertoire est nommé en fonction de la version de la plateforme de données Hortonworks utilisée par HDInsight. Le numéro de votre cluster peut être différent de celui qui figure ici.
 * __En cours__ : ce répertoire contient des liens vers des répertoires contenus dans le dossier __2.2.4.9-1__ et existe afin que vous n’ayez pas à saisir de numéro de version (qui peut changer) à chaque fois que vous souhaitez accéder à un fichier.
 
-Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF (Hadoop HDFS Distributed File System) ou le stockage d’objets blob Azure dans ’/example’ ou ’wasb:///example’.
+Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF (Hadoop HDFS Distributed File System) ou le stockage d’objets blob Azure dans '/example' ou 'wasbs:///example'.
 
 ## HDFS, stockage d’objets blob Azure et meilleures pratiques de stockage
 
@@ -98,11 +98,11 @@ Puisqu'il s'agit d'un stockage par défaut pour HDInsight, vous n'avez normaleme
 
 	hadoop fs -ls /example/data
 
-Pour certaines commandes, vous pouvez être obligé de préciser que vous utilisez le stockage d’objets blob. Pour cela, vous pouvez ajouter à la commande le préfixe **WASB://**
+Pour certaines commandes, vous pouvez être obligé de préciser que vous utilisez le stockage d’objets blob. Pour cela, vous pouvez ajouter à la commande le préfixe **wasb://** ou **wasbs://**.
 
-HDInsight vous permet également d’associer de multiples comptes de stockage d’objets blob à un cluster. Pour accéder à des données sur un compte de stockage d’objets blob qui n’est pas celui par défaut, vous pouvez utiliser le format **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Par exemple, celui-ci listera le contenu du répertoire **/example/data** pour le conteneur et le compte de stockage indiqués :
+HDInsight vous permet également d’associer de multiples comptes de stockage d’objets blob à un cluster. Pour accéder à des données sur un compte de stockage d’objets blob qui n’est pas celui par défaut, vous pouvez utiliser le format **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Par exemple, celui-ci listera le contenu du répertoire **/example/data** pour le conteneur et le compte de stockage indiqués :
 
-	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
+	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### Quel stockage d’objets blob le cluster utilise-t-il ?
 
@@ -116,9 +116,9 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 
     Renvoie une valeur similaire à la suivante, où __CONTAINER__ est le conteneur par défaut et __ACCOUNTNAME__ est le nom de compte Azure Storage :
 
-        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+        wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-1. Récupérez le groupe de ressources du compte de stockage en utilisant l’[interface de ligne de commande Azure](../xplat-cli-install.md). Dans la commande suivante, remplacez __ACCOUNTNAME__ par le nom du compte de stockage récupéré à partir d’Ambari :
+1. Récupérez le groupe de ressources du compte de stockage en utilisant [l’interface de ligne de commande Azure](../xplat-cli-install.md). Dans la commande suivante, remplacez __ACCOUNTNAME__ par le nom du compte de stockage récupéré à partir d’Ambari :
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
@@ -206,7 +206,7 @@ Les différents types de cluster sont affectés par la mise à l’échelle comm
 
 	* __Interface storm__ : utilisez les étapes suivantes pour rééquilibrer une topologie avec l’interface utilisateur Storm.
 
-		1. Ouvrez \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ dans votre navigateur Web, où CLUSTERNAME est le nom de votre cluster Storm. Si vous y êtes invité, entrez le nom et le mot de passe de l’administrateur (admin) du cluster HDInsight spécifiés lors de la création du cluster.
+		1. Ouvrez \_\_https://CLUSTERNAME.azurehdinsight.net/stormui__ dans votre navigateur Web, où CLUSTERNAME est le nom de votre cluster Storm. Si vous y êtes invité, entrez le nom et le mot de passe de l’administrateur (admin) du cluster HDInsight spécifiés lors de la création du cluster.
 
 		3. Sélectionnez la topologie que vous souhaitez rééquilibrer, puis le bouton __Rééquilibrer__. Saisissez le délai avant l’opération de rééquilibrage.
 
@@ -257,4 +257,4 @@ Si le cluster fournit déjà une version d’un composant sous la forme d’un f
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

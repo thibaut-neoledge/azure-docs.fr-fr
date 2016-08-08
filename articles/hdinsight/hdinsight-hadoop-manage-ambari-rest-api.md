@@ -27,9 +27,9 @@ Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fou
 
 ##Configuration requise
 
-* [cURL](http://curl.haxx.se/) : cURL est un utilitaire multiplateforme utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
-* [jq](https://stedolan.github.io/jq/) : jq est un utilitaire de ligne de commande multiplateforme conçu pour travailler avec des documents JSON. Dans ce document, il est utilisé pour analyser les documents JSON renvoyés par l'API REST d'Ambari.
-* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
+* [cURL](http://curl.haxx.se/) : cURL est un utilitaire multiplateforme utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
+* [jq](https://stedolan.github.io/jq/) : jq est un utilitaire de ligne de commande multiplateforme conçu pour travailler avec des documents JSON. Dans ce document, il est utilisé pour analyser les documents JSON renvoyés par l'API REST d'Ambari.
+* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -110,7 +110,7 @@ L'instruction suivante récupérera l'URI WASB du stockage par défaut du cluste
 
 Renvoie une valeur similaire à la suivante, où __CONTAINER__ est le conteneur par défaut et __ACCOUNTNAME__ est le nom de compte Azure Storage :
 
-    wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+    wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-install.md) pour télécharger des données à partir du conteneur.
 
@@ -136,7 +136,7 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
         
     Remplacez __ACCOUNTNAME__ par le nom du compte de stockage. Remplacez __ACCOUNTKEY__ par la clé récupérée précédemment. __FILEPATH__ est le chemin d'accès du fichier à télécharger, tandis que __BLOBPATH__ est le chemin d'accès dans le conteneur.
 
-    Par exemple, si vous souhaitez que le fichier s'affiche dans HDInsight à l'adresse wasb://example/data/filename.txt, alors __BLOBPATH__ serait `example/data/filename.txt`.
+    Par exemple, si vous souhaitez que le fichier s'affiche dans HDInsight à l'adresse wasbs://example/data/filename.txt, alors __BLOBPATH__ serait `example/data/filename.txt`.
 
 ##Exemple : mise à jour de la configuration Ambari
 
@@ -255,4 +255,4 @@ Pour obtenir une référence complète de l'API REST, consultez la page [Référ
 
 > [AZURE.NOTE] Certaines fonctionnalités d'Ambari, telles que l'ajout ou la suppression d'hôtes du cluster, ou l'ajout de nouveaux services, sont désactivées, puisqu'il est géré par le service cloud HDInsight.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

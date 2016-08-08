@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@ Vous devez disposer des éléments suivants :
 
 ## Utilisation des noyaux 
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -56,7 +56,7 @@ Voici quelques avantages de l’utilisation des nouveaux noyaux.
 
 1. **Contextes prédéfinis**. Avec les noyaux **PySpark** ou **Spark** fournis avec les blocs-notes Jupyter, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser l’application que vous développez ; ils sont disponibles par défaut. Ces contextes sont les suivants :
 
-	* **sc** : pour le contexte Spark
+	* **sc** : pour le contexte Spark
 	* **sqlContext** : pour le contexte Hive
 
 
@@ -128,7 +128,7 @@ Vous pouvez ouvrir le bloc-notes **00 - [READ ME FIRST] Spark Magic Kernel Featu
 
 ## Où sont stockés les blocs-notes ?
 
-Les blocs-notes Jupyter sont enregistrés dans le compte de stockage associé au cluster, dans le dossier **/HdiNotebooks**. Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir de WASB. Par exemple, si vous utilisez Jupyter pour créer un dossier **myfolder** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`. L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter. Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
+Les blocs-notes Jupyter sont enregistrés dans le compte de stockage associé au cluster, dans le dossier **/HdiNotebooks**. Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir de WASB. Par exemple, si vous utilisez Jupyter pour créer un dossier **myfolder** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`. L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter. Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
 
 Les blocs-notes sont enregistrés dans le compte de stockage dans un mode compatible avec HDFS. Si vous utilisez SSH dans le cluster, vous pouvez donc exécuter des commandes de gestion des fichiers telles que celles qui suivent :
 
@@ -174,13 +174,13 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
@@ -188,4 +188,4 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

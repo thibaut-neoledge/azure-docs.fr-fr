@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+   ms.workload="NA"
+    ms.date="07/14/2016"
     ms.author="sstein"/>
 
 # Configurer la géoréplication pour Base de données SQL Azure avec PowerShell
@@ -146,6 +146,6 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 ## Étapes suivantes
 
 - Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
-- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
+- Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

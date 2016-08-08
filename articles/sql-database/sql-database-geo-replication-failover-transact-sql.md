@@ -44,13 +44,13 @@ Pour lancer le basculement, vous avez besoin des éléments suivants :
 
 Vous pouvez utiliser l’instruction **ALTER DATABASE** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de manière planifiée, et rétrogradant l’élément primaire existant pour qu’elle devienne secondaire. Cette instruction est exécutée sur la base de données master sur le serveur logique de base de données SQL Azure sur lequel réside la base secondaire géo-répliquée promue. Cette fonctionnalité est conçue pour le basculement planifié, comme pendant les exercices de récupération d’urgence et nécessite que la base de données primaire soit disponible.
 
-La commande exécute le flux de travail suivant :
+La commande exécute le flux de travail suivant :
 
-1. Bascule provisoirement la réplication en mode synchrone, ce qui fait que toutes les transactions en attente doivent être vidées vers le serveur secondaire et toutes les nouvelles transactions bloquées ;
+1. Bascule provisoirement la réplication en mode synchrone, ce qui fait que toutes les transactions en attente doivent être vidées vers le serveur secondaire et toutes les nouvelles transactions bloquées ;
 
 2. Inverse les rôles des deux bases de données du partenariat géoréplication.
 
-Cette séquence garantit que les deux bases de données sont synchronisées avant le basculement des rôles et que, par conséquent, aucune perte de données ne se produira. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
+Cette séquence garantit que les deux bases de données sont synchronisées avant le basculement des rôles et que, par conséquent, aucune perte de données ne se produira. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
 
 
 Utilisez les étapes suivantes pour initier un basculement planifié.
@@ -72,7 +72,7 @@ Utilisez les étapes suivantes pour initier un basculement planifié.
 
 Vous pouvez utiliser l’instruction **ALTER DATABASE** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de façon non planifiée, en forçant la rétrogradation de l’élément primaire existant pour qu’elle devienne secondaire dans le cas où la base de données n’est plus disponible. Cette instruction est exécutée sur la base de données master sur le serveur logique de base de données SQL Azure sur lequel réside la base secondaire géo-répliquée promue.
 
-Cette fonctionnalité est conçue pour la récupération d’urgence lorsque la restauration de la disponibilité de la base de données est essentielle et une perte de données est acceptable. Lorsque le basculement forcé est appelé, la base de données secondaire devient la base de données primaire immédiatement et commence à accepter des transactions d’écriture. Dès que la base de données primaire d’origine est en mesure de se reconnecter à cette base de données primaire, une sauvegarde incrémentielle s’effectue sur la base de données primaire d’origine et l’ancienne base de données primaire est transformée en base de données secondaire de la nouvelle base de données primaire ; par la suite, il s’agit d’un simple réplica de la nouvelle base de données primaire.
+Cette fonctionnalité est conçue pour la récupération d’urgence lorsque la restauration de la disponibilité de la base de données est essentielle et une perte de données est acceptable. Lorsque le basculement forcé est appelé, la base de données secondaire devient la base de données primaire immédiatement et commence à accepter des transactions d’écriture. Dès que la base de données primaire d’origine est en mesure de se reconnecter à cette base de données primaire, une sauvegarde incrémentielle s’effectue sur la base de données primaire d’origine et l’ancienne base de données primaire est transformée en base de données secondaire de la nouvelle base de données primaire ; par la suite, il s’agit d’un simple réplica de la nouvelle base de données primaire.
 
 Toutefois, étant donné que la limite de restauration n’est pas prise en charge sur les bases de données secondaires, si l’utilisateur souhaite récupérer les données validées dans l’ancienne base de données primaire qui n’ont pas été répliquées dans la nouvelle base de données primaire avant le basculement forcé, l’utilisateur devra faire appel à l’assistance technique pour récupérer les données perdues.
 
@@ -94,12 +94,12 @@ Utilisez les étapes suivantes pour lancer un basculement non planifié.
 
 
 
-## Ressources supplémentaires
+## Étapes suivantes   
 
-- [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/services/sql-database/)
-- [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
+- Pour en savoir plus sur la reprise après un sinistre à l’aide de la géo-réplication active, y compris les étapes de pré/post-récupération et la simulation d’une récupération d’urgence, consultez [Récupération d’urgence](sql-database-disaster-recovery.md)
+- Pour lire un billet de blog publié par Sasha Nosov concernant la géo-réplication active, consultez [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- Pour plus d’informations sur la conception d’applications cloud afin d’utiliser la géo-réplication active, consultez [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- Pour plus d’informations sur l’utilisation de la géo-réplication active avec des pools de bases de données élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

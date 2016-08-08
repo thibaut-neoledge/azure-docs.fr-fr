@@ -170,6 +170,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 - [Guide du développeur][lnk-devguide]
 - [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
 - [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -193,5 +194,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

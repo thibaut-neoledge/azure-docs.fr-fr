@@ -23,7 +23,7 @@ Les scores de test d’évaluation CoreMark suivants montrent les performances d
 
 
 
-## Série A - Calcul intensif
+## Série A - Calcul intensif
 
 
 Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Itérations/s | StdDev
@@ -49,7 +49,7 @@ Standard\_D13\_v2 | 8 | 1 | Intel Xeon E5-2673 v3 à 2,4 GHz | 140 | 107 986 | 3
 Standard\_D14\_v2 | 16 | 2 | Intel Xeon E5-2673 v3 à 2,4 GHz | 140 | 208 186 | 8 839
 Standard\_D15\_v2 | 20 | 2 | Intel Xeon E5-2673 v3 à 2,4 GHz |28 | 268 560 | 4 667
 
-## Série F
+## Série F
 
 Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Itérations/s | StdDev
 ------- | ------ | ---- | -------| ---- | ---- | -----
@@ -61,7 +61,7 @@ Standard\_F16 | 16 | 2 | Intel Xeon E5-2673 v3 à 2,4 GHz | 42 | 218 571 | 5 113
 
 
 
-## Série G
+## Série G
 
 
 Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Itérations/s | StdDev
@@ -72,7 +72,7 @@ Standard\_G3 | 8 | 1 | Intel Xeon E5-2698B v3 à 2 GHz | 84 | 107 522 | 4 537
 Standard\_G4 | 16 | 1 | Intel Xeon E5-2698B v3 à 2 GHz | 83 | 195 116 | 5 024
 Standard\_G5 | 32 | 2 | Intel Xeon E5-2698B v3 à 2 GHz | 84 | 360 329 | 14 212
 
-## Série GS
+## Série GS
 
 
 Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Itérations/s | StdDev
@@ -95,4 +95,4 @@ Les chiffres Linux ont été calculés en exécutant [CoreMark](http://www.eembc
 
 * Pour exécuter les scripts CoreMark sur les machines virtuelles Linux, téléchargez le [pack de script CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

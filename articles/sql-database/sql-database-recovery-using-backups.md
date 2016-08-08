@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-   ms.date="06/09/2016"
+   ms.workload="NA"
+   ms.date="07/09/2016"
    ms.author="sstein"/>
 
 # Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
@@ -40,6 +40,8 @@ Le temps de récupération pour restaurer une base de données à l’aide des s
 
  Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) est un exemple d'une façon d'accomplir cette tâche.
 
+> [AZURE.IMPORTANT] Pour effectuer une récupération à l’aide de sauvegardes automatisées, vous devez avoir un rôle de collaborateur SQL Server dans l’abonnement ou être le propriétaire de l’abonnement. Vous pouvez effectuer une récupération en utilisant le portail Azure, PowerShell ou l’API REST. Vous ne pouvez pas utiliser Transact-SQL.
+
 ## Limite de restauration dans le temps
 
 La limite de restauration dans le temps vous permet de restaurer une base de données existante en tant que nouvelle base de données à un point antérieur dans le temps sur le même serveur logique à l’aide des [sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md). Vous ne pouvez pas remplacer la base de données existante. Vous pouvez restaurer à un point antérieur dans le temps à l’aide du [portail Azure](sql-database-point-in-time-restore-portal.md), de [PowerShell](sql-database-point-in-time-restore-powershell.md) ou [de l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
@@ -55,7 +57,7 @@ En règle générale, vous restaurez une base de données à un point antérieur
 - ***Remplacement de la base de données :*** si la base de données restaurée est destinée à remplacer la base de données d’origine, vous devez vérifier que les performances et/ou le niveau de service sont appropriés, et effectuer une mise à l’échelle si nécessaire. Vous pouvez renommer la base de données d’origine, puis donner le nom d’origine à la base de données restaurée à l’aide de la commande ALTER DATABASE dans T-SQL.
 - ***Récupération des données :*** si vous souhaitez récupérer des données à partir de la base de données restaurée suite à une erreur utilisateur ou d’application, vous devrez écrire et exécuter séparément les scripts de récupération de données pour extraire les données à partir de la base de données restaurée et les transférer vers la base de données d’origine. Bien que l’opération de restauration puisse prendre un certain temps, la base de données en cours de restauration sera visible dans la liste de bases de données pendant tout le processus. Si vous supprimez la base de données pendant la restauration, cela annule l’opération et vous ne serez pas facturé pour la base de données dont la restauration ne s’est pas terminée.
 
-Pour plus d’informations sur l’utilisation de la limite de restauration dans le temps pour récupérer suite à des erreurs utilisateur et d’applications, consultez [Récupération suite à une erreur de l’utilisateur](sql-database-user-error-recovery.md)
+Pour plus d’informations sur l’utilisation de la limite de restauration dans le temps pour récupérer suite à des erreurs utilisateur et d’applications, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ## Restauration d’une base de données supprimée
 
@@ -115,10 +117,9 @@ Les sauvegardes automatiques protègent vos bases de données des erreurs utilis
 
 ## Étapes suivantes
 
-- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
-- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
 - Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

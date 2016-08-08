@@ -1,11 +1,11 @@
 
 <properties
-	pageTitle="Référence technique : accès conditionnel aux applications Azure AD | Microsoft Azure"
+	pageTitle="Référence technique d’Azure Active Directory Conditional Access | Microsoft Azure"
 	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
     services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,10 +14,10 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
-# Référence technique : accès conditionnel aux applications Azure AD
+# Référence technique d’Azure Active Directory Conditional Access
 
 ## Services activés avec accès conditionnel
 Les règles d’accès conditionnel sont prises en charge sur différents types d’application Azure AD. Cette liste comprend les éléments suivants :
@@ -82,4 +82,4 @@ Règles actuellement proposées :
 - [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](active-directory-conditional-access.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

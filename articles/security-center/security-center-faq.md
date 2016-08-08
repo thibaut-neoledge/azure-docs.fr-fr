@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
 
 Ce forum aux questions répond aux questions concernant le Centre de sécurité Azure, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
-
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
 
 ## Questions générales
 
@@ -114,7 +112,7 @@ Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propri�
 ## Machines virtuelles
 
 ### Quels sont les types de machines virtuelles pris en charge ?
-La surveillance de l’intégrité de la sécurité et les recommandations sont disponibles pour les machines virtuelles créées à l’aide des [modèles de déploiement classique et Resource Manager](../azure-classic-rm.md), y compris pour les machines virtuelles faisant partie de clusters Azure Service Fabric.
+La surveillance de l’intégrité de la sécurité et les recommandations sont disponibles pour les machines virtuelles créées à l’aide des [modèles de déploiement classique et Resource Manager](../azure-classic-rm.md).
 
 Les machines virtuelles Windows prises en charge sont les suivantes :
 
@@ -132,4 +130,4 @@ Les machines virtuelles Linux prises en charge sont les suivantes :
 
 Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur le service cloud, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

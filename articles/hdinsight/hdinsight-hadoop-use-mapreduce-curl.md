@@ -62,7 +62,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 2. Pour envoyer une tâche MapReduce, utilisez la commande suivante :
 
-		curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasb:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasb:///example/data/gutenberg/davinci.txt -d arg=wasb:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+		curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasbs:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasbs:///example/data/gutenberg/davinci.txt -d arg=wasbs:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
 
     La fin de l’URI (/mapreduce/jar) indique à WebHCat que cette demande lance une tâche MapReduce à partir d’une classe dans un fichier jar. Les paramètres utilisés dans cette commande sont les suivants :
 
@@ -85,7 +85,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     > [AZURE.NOTE] Cette demande Curl renvoie un document JSON avec des informations sur la tâche ; jq est utilisé pour récupérer la valeur de statut.
 
-4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, **wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
+4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, **wasbs:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
 Vous pouvez répertorier et télécharger ces fichiers à l’aide de l'[interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **example/curl**, utilisez la commande suivante :
 
@@ -115,4 +115,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

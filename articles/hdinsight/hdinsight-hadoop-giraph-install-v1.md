@@ -47,7 +47,7 @@ Vous pouvez installer Giraph sur n’importe quel type de cluster (Hadoop, Storm
    
 ## Installation de Giraph à l'aide du portail
 
-1. Démarrez la création d'un cluster à l'aide de l’option **Création personnalisée**, comme décrit dans [Création de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal). 
+1. Démarrez la création d'un cluster à l'aide de l’option **Création personnalisée**, comme décrit dans [Création de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal).
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-giraph-install-v1/hdi-script-action-giraph.png "Utilisation d’une action de script pour personnaliser un cluster")
@@ -94,14 +94,14 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 		$clusterName = "clustername"
 		# Giraph examples jar
-		$jarFile = "wasb:///example/jars/giraph-examples.jar"
+		$jarFile = "wasbs:///example/jars/giraph-examples.jar"
 		# Arguments for this job
 		$jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
 		                "-ca", "mapred.job.tracker=headnodehost:9010",
 		                "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-		                "-vip", "wasb:///example/data/tiny_graph.txt",
+		                "-vip", "wasbs:///example/data/tiny_graph.txt",
 		                "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-		                "-op",  "wasb:///example/output/shortestpaths",
+		                "-op",  "wasbs:///example/output/shortestpaths",
 		                "-w", "2"
 		# Create the definition
 		$jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -120,7 +120,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 	Dans l’exemple ci-dessus, remplacez **clustername** par le nom de votre cluster HDInsight sur lequel Giraph est installé.
 
-5. Affichez les résultats. Une fois la tâche terminée, les résultats sont stockés dans deux fichiers de sortie dans le dossier \_\___wasb:///example/out/shotestpaths__. Les fichiers se nomment __part-m-00001__ et __part-m-00002__. Procédez comme suit pour télécharger et afficher le résultat :
+5. Affichez les résultats. Une fois la tâche terminée, les résultats sont stockés dans deux fichiers de sortie dans le dossier __wasbs:///example/out/shotestpaths__. Les fichiers se nomment __part-m-00001__ et __part-m-00002\_\_. Procédez comme suit pour télécharger et afficher le résultat :
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -194,4 +194,4 @@ Consultez [Personnaliser des clusters HDInsight à l’aide d’une action de sc
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties
 pageTitle="Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search"
-description="Apprendre à indexer les objets blob JSON avec Azure Search"
+description="Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -12,12 +12,16 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/20/2016"
+ms.date="07/26/2016"
 ms.author="eugenesh" />
 
 # Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search 
 
-Par défaut, l’[indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob JSON comme un bloc de texte unique. Souvent, vous souhaiterez conserver la structure de vos documents JSON. Par exemple, dans le document JSON
+Cet article explique comment configurer l’indexeur d’objets blob Azure Search pour extraire le contenu structuré à partir d’objets blob contenant JSON.
+
+## Scénarios
+
+Par défaut, [l’indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob JSON comme un bloc de texte unique. Souvent, vous souhaiterez conserver la structure de vos documents JSON. Par exemple, dans le document JSON
 
 	{ 
 		"article" : {
@@ -27,25 +31,33 @@ Par défaut, l’[indexeur d’objets blob Azure Search](search-howto-indexing-a
 	    }
 	}
 
-vous pouvez analyser les champs « text », « datePublished » et « tags » dans votre index de recherche.
+vous pouvez analyser les champs « text », « datePublished » et « tags » dans un document Azure Search.
 
-Cet article explique comment configurer l’indexeur d’objets blob Azure Search pour effectuer une analyse JSON. Joyeuse indexation !
+Vous pouvez également, lorsque vos objets blob contiennent un **tableau d’objets JSON**, séparer chaque élément du tableau en un document Azure Search. Par exemple, un objet blob avec ce JSON :
+
+	[
+		{ "id" : "1", "text" : "example 1" },
+		{ "id" : "2", "text" : "example 2" },
+		{ "id" : "3", "text" : "example 3" }
+	]
+
+vous pouvez remplir l’index Azure Search avec 3 documents distincts, chacun avec des champs « id » et « text ».
 
 > [AZURE.IMPORTANT] Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 
 ## Configuration de l’indexation JSON
 
-Pour indexer des objets blob JSON, utilisez l’indexeur d’objets blob en mode « Analyse JSON ». Activez le paramètre de configuration `useJsonParser` dans la propriété `parameters` de la définition de l’indexeur :
+Pour indexer des objets blob JSON, définissez le paramètre de configuration `parsingMode` sur `json` (pour indexer chaque objet blob comme un seul document) ou `jsonArray` (si vos objets blob contiennent un tableau JSON) :
 
 	{
 	  "name" : "my-json-indexer",
 	  ... other indexer properties
-	  "parameters" : { "configuration" : { "useJsonParser" : true } }
+	  "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
 	}
 
 Si nécessaire, utilisez les **mappages de champ** pour sélectionner les propriétés du document JSON source utilisé pour renseigner votre index de recherche cible. Ceci est décrit en détail ci-après.
 
-> [AZURE.IMPORTANT] Lorsque vous utilisez le mode d’analyse JSON, Azure Search suppose que tous les objets blob dans votre source de données seront de type JSON. Si vous devez prendre en charge une combinaison d’objets blob JSON et autres dans la même source de données, faites-le nous savoir sur [notre site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> [AZURE.IMPORTANT] Lorsque vous utilisez le mode d’analyse `json` ou `jsonArray`, Azure Search suppose que tous les objets blob dans votre source de données seront de type JSON. Si vous devez prendre en charge une combinaison d’objets blob JSON et autres dans la même source de données, faites-le nous savoir sur [notre site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## Utilisation des mappages de champ pour créer des documents de recherche 
 
@@ -85,7 +97,28 @@ Si vos documents JSON ne contiennent que des propriétés de niveau supérieur, 
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-> [AZURE.NOTE] Pour l’instant, Azure Search ne prend en charge que l’analyse d’un objet blob JSON dans un document de recherche. Si vos objets blob contiennent des tableaux JSON que vous souhaitez analyser dans plusieurs documents de recherche, votez pour [cette suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) afin de relever la priorité de ce travail.
+## Indexation de tableaux JSON imbriqués
+
+Que se passe-t-il si vous souhaitez indexer un tableau d’objets JSON, mais que ce tableau est imbriqué quelque part dans le document ? Vous pouvez choisir la propriété qui contient le tableau à l’aide de la propriété de configuration `documentRoot`. Par exemple, si vos objets blob ressemblent à ceci :
+
+	{ 
+		"level1" : {
+			"level2" : [
+				{ "id" : "1", "text" : "Use the documentRoot property" }, 
+				{ "id" : "2", "text" : "to pluck the array you want to index" },
+				{ "id" : "3", "text" : "even if it's nested inside the document" }  
+			]
+		}
+	} 
+
+utilisez cette configuration pour indexer le tableau contenu dans la propriété « level2 » :
+
+	{
+		"name" : "my-json-array-indexer",
+		... other indexer properties
+		"parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+	}
+
 
 ## Exemples de requête
 
@@ -127,4 +160,4 @@ Indexeur :
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

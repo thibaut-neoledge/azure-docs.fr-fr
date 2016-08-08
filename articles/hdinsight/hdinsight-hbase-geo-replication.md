@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Configurer la géo-réplication HBase dans HDInsigtht
@@ -248,7 +248,7 @@ Créez des tables HBase avec les mêmes noms et familles de colonnes sur les clu
 
 Un exemple de fichier de données a été téléchargé dans un conteneur d'objets blob Azure public avec l'URL suivante :
 
-		wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 Contenu du fichier :
 
@@ -273,7 +273,7 @@ Vous pouvez télécharger le même fichier de données dans votre cluster HBase 
 
 4. Téléchargez les données :
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
@@ -314,4 +314,4 @@ Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase en
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

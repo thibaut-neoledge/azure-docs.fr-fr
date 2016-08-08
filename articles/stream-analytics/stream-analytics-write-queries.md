@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Écriture de requêtes dans Stream Analytics
@@ -34,7 +34,7 @@ Une requête de logique de traitement de flux écrite dans Azure Stream Analytic
 2.	Les nouvelles tâches disposent d'un modèle de requête pour vous aider à commencer. Le modèle de requête effectue une requête « pass-through » qui transfère tous les champs provenant d'événements d'entrée vers la sortie.
 
     - Si vous avez défini au moins une entrée et une sortie pour votre tâche, vous pouvez remplacer les champs « [YourOutputAlias] » et « [YourInputAlias] » d'espace réservé par les alias de l'entrée et de la sortie que vous souhaitez utiliser en premier. En outre, vous pouvez toujours créer et tester votre requête dans le portail Azure Classic sans définir d'entrées et de sorties pour la tâche.
-    - Si vous souhaitez effectuer un traitement supérieur à une simple opération « pass-through », vous pouvez modifier la définition de la requête. Pour vous familiariser avec la création de requêtes, examinez les modèles de requête courants illustrés [ici](stream-analytics-stream-analytics-query-patterns.md).  
+    - Si vous souhaitez effectuer un traitement supérieur à une simple opération « pass-through », vous pouvez modifier la définition de la requête. Pour vous familiariser avec la création de requêtes, examinez les modèles de requête courants illustrés [ici](stream-analytics-stream-analytics-query-patterns.md).
   
     ![Fenêtre Données de requête](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
@@ -44,7 +44,7 @@ Vous pouvez vérifier que votre requête se comporte comme prévu en l'exécutan
 
 > [AZURE.NOTE] Actuellement, le portail Azure ne prend pas en charge le test d’une requête dans le navigateur.
 
-1.	Assurez-vous que la requête ne contient pas d'erreur (sinon, le bouton Test sera désactivé), puis cliquez sur le bouton Test.  
+1.	Assurez-vous que la requête ne contient pas d'erreur (sinon, le bouton Test sera désactivé), puis cliquez sur le bouton Test.
 
     ![Test des données de requête](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
 
@@ -71,4 +71,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

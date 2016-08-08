@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -72,4 +72,4 @@ Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logi
 
 Nous continuerons à ajouter des exemples et des scénarios dans ce document. Utilisez la section de commentaires ci-dessous pour nous faire savoir quels exemples ou scénarios vous aimeriez découvrir.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

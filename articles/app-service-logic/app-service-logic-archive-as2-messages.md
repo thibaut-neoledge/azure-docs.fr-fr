@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -26,8 +26,8 @@ Le [connecteur AS2](app-service-logic-connector-as2.md) montre la capacité à a
 
 L'archivage est exposé à deux moments pour les messages et les accusés de réception (MDN) :
 
-1. **Déclencheur de réception/décodage** : le message est archivé dès qu’il est reçu par l’instance de l’application API. 
-2. **Action d’encodage/envoi** : le message encodé est archivé, une fois tout le traitement terminé et juste avant d’être envoyé au partenaire. 
+1. **Déclencheur de réception/décodage** : le message est archivé dès qu’il est reçu par l’instance de l’application API.
+2. **Action d’encodage/envoi** : le message encodé est archivé, une fois tout le traitement terminé et juste avant d’être envoyé au partenaire.
 
 ## Récupération de l’URL archivée du message
 
@@ -42,4 +42,4 @@ Utilisez l'URL récupérée ci-dessus pour récupérer le message archivé dans 
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

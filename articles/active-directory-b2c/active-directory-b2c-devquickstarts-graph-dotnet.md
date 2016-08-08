@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire d’Azure Active Directory B2C : utilisation de l’API Graph | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C : utilisation de l’API Graph | Microsoft Azure"
 	description="Comment appeler l’API Graph pour un client B2C à l’aide d’une identité d’application pour automatiser le processus."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,19 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/25/2016"
 	ms.author="dastrock"/>
 
-# Version préliminaire d’Azure AD B2C : utilisation de l’API Graph
+# Azure AD B2C : utilisation de l’API Graph
 
 Les clients Azure Active Directory (Azure AD) B2C sont souvent très volumineux. Par conséquent, de nombreuses tâches courantes de gestion de client doivent être effectuées par programmation. La gestion des utilisateurs en est un parfait exemple. Il se peut que vous ayez besoin de migrer un magasin d’utilisateurs existant vers un client B2C ou que vous souhaitiez héberger l’inscription des utilisateurs sur votre page et créer des comptes d’utilisateur dans Azure AD en arrière-plan. Pour effectuer ces types de tâches, vous devez être en mesure de créer, de lire, de mettre à jour et de supprimer des comptes d’utilisateur. Vous pouvez faire tout cela à l’aide de l’API Azure AD Graph.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 Pour les clients B2C, il existe deux modes principaux de communication avec l’API Graph.
 
 - Pour les tâches interactives, à exécution unique, vous devez agir comme un compte d’administrateur dans le client B2C lorsque vous exécutez ces tâches. Avec ce mode, un administrateur doit se connecter à l’aide de ses informations d’identification avant de pouvoir effectuer des appels à l’API Graph.
-- Pour les tâches automatisées, en continu, vous devez utiliser un compte de service doté des privilèges nécessaires pour effectuer des tâches de gestion. Dans Azure AD, vous pouvez le faire en inscrivant une application et en l’authentifiant auprès d’Azure AD à l’aide d’un **ID d’application** qui utilise l’[octroi des informations d’identification du client OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Dans ce cas, l’application joue son propre rôle, et non celui d’un utilisateur, pour appeler l’API Graph.
+- Pour les tâches automatisées, en continu, vous devez utiliser un compte de service doté des privilèges nécessaires pour effectuer des tâches de gestion. Dans Azure AD, vous pouvez le faire en inscrivant une application et en l’authentifiant auprès d’Azure AD à l’aide d’un **ID d’application** qui utilise [l’octroi des informations d’identification du client OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Dans ce cas, l’application joue son propre rôle, et non celui d’un utilisateur, pour appeler l’API Graph.
 
 Dans cet article, nous allons expliquer comment exécuter le cas d’utilisation automatisée. Pour cette démonstration, nous allons créer un `B2CGraphClient` .NET 4.5 qui effectuera les opérations de création, de lecture, de mise à jour et de suppression (CRUD) d’utilisateurs. Le client aura une interface de ligne de commande (CLI) Windows permettant d’appeler des méthodes différentes. Toutefois, le code est écrit pour se comporter de façon non interactive et automatisée.
 
@@ -38,7 +36,7 @@ Avant de pouvoir créer des applications ou des utilisateurs, ou interagir avec 
 Une fois que vous disposez d’un client B2C, vous devez créer votre application de service à l’aide des applets de commande PowerShell Azure AD. Premièrement, téléchargez et installez [l’Assistant de connexion Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Ensuite, téléchargez et installez le [Module Azure Active Directory 64 bits pour Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
 > [AZURE.NOTE]
-Pour utiliser l’API Graph avec votre client B2C, vous devrez enregistrer une application dédiée à l’aide de PowerShell. Pour ce faire, suivez les instructions données dans cet article. Vous ne pouvez pas réutiliser les applications B2C déjà existantes que vous avez enregistrées dans le portail Azure. Cette limitation propre à Azure AD B2C en version préliminaire devrait être supprimée très prochainement. Nous prévoyons de mettre à jour cet article lorsque ce sera le cas.
+Pour utiliser l’API Graph avec votre client B2C, vous devrez enregistrer une application dédiée à l’aide de PowerShell. Pour ce faire, suivez les instructions données dans cet article. Vous ne pouvez pas réutiliser les applications B2C déjà existantes que vous avez enregistrées dans le portail Azure.
 
 Une fois le module PowerShell installé, ouvrez PowerShell et connectez-vous à votre client B2C. Après avoir exécuté `Get-Credential`, vous serez invité à fournir un nom d’utilisateur et un mot de passe. Entrez le nom d’utilisateur et le mot de passe du compte d’administrateur de votre client B2C.
 
@@ -120,14 +118,14 @@ Pour utiliser le B2CGraphClient, ouvrez une invite de commandes Windows `cmd` et
 > B2C Help
 ```
 
-Ceci affiche une brève description de chaque commande. À chaque fois que vous appelez une de ces commandes, `B2CGraphClient` envoie une requête à l’API Azure AD Graph.
+Ceci affiche une brève description de chaque commande. À chaque fois que vous appelez une de ces commandes, `B2CGraphClient` envoie une demande à l’API Azure AD Graph .
 
 ### Obtention d’un jeton d’accès
 
-Toute requête envoyée à l’API Graph requiert un jeton d’accès pour l’authentification. `B2CGraphClient` utilise la bibliothèque d’authentification Active Directory (ADAL) open source pour vous aider à acquérir des jetons d’accès. La bibliothèque ADAL facilite l’acquisition des jetons en fournissant une API simple et en prenant soin de certains détails importants, tels que la mise en cache des jetons d’accès. Cependant, vous n’êtes pas obligé d’utiliser la bibliothèque ADAL pour obtenir des jetons. Vous pouvez également en obtenir en créant des requêtes HTTP.
+Toute demande envoyée à l’API Graph requiert un jeton d’accès pour l’authentification. `B2CGraphClient` utilise la bibliothèque d’authentification Active Directory (ADAL) open source pour vous aider à acquérir des jetons d’accès. La bibliothèque ADAL facilite l’acquisition des jetons en fournissant une API simple et en prenant soin de certains détails importants, tels que la mise en cache des jetons d’accès. Cependant, vous n’êtes pas obligé d’utiliser la bibliothèque ADAL pour obtenir des jetons. Vous pouvez également en obtenir en créant des requêtes HTTP.
 
 > [AZURE.NOTE]
-	Cet exemple de code utilise ADAL v2, la version de la bibliothèque ADAL mise à la disposition générale. Il n’utilise pas la bibliothèque ADAL v4, qui est une version préliminaire conçue pour travailler avec Azure AD B2C. Pour la version préliminaire d'Azure AD B2C, vous devez utiliser la bibliothèque ADAL v2 pour communiquer avec l'API Graph. À terme, nous prévoyons de donner accès à l’API Graph à l’aide de la bibliothèque ADAL v4 afin de vous éviter d’avoir à utiliser deux versions de la bibliothèque ADAL dans votre solution Azure AD B2C complète.
+	Cet exemple de code utilise la bibliothèque ADAL v2 afin de communiquer avec l’API Graph. Vous devez utiliser la bibliothèque ADAL v2 ou v3 afin d’obtenir des jetons d’accès qui peuvent être utilisés avec l’API Azure AD Graph .
 
 Lorsque `B2CGraphClient` est exécuté, il crée une instance de la classe `B2CGraphClient`. Le constructeur de cette classe définit une structure d’authentification de la bibliothèque ADAL :
 
@@ -148,7 +146,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-Nous allons utiliser la commande `B2C Get-User` à titre d’exemple. Lorsque `B2C Get-User` est appelé sans entrées supplémentaires, l’interface de ligne de commande appelle la méthode `B2CGraphClient.GetAllUsers(...)`. Cette méthode appelle `B2CGraphClient.SendGraphGetRequest(...)`, qui envoie une requête HTTP GET à l’API Graph. Avant d’envoyer la requête GET, `B2CGraphClient.SendGraphGetRequest(...)` obtient un jeton d’accès à l’aide de la bibliothèque ADAL :
+Nous allons utiliser la commande `B2C Get-User` à titre d’exemple. Lorsque `B2C Get-User` est appelé sans entrées supplémentaires, l’interface de ligne de commande appelle la méthode `B2CGraphClient.GetAllUsers(...)`. Cette méthode appelle `B2CGraphClient.SendGraphGetRequest(...)`, qui envoie une requête HTTP GET à l’API Graph. Avant d’envoyer la demande GET, `B2CGraphClient.SendGraphGetRequest(...)` obtient un jeton d’accès à l’aide de la bibliothèque ADAL :
 
 ```C#
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -161,11 +159,11 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ```
 
-Vous pouvez obtenir un jeton d’accès pour l’API Graph en appelant la méthode `AuthenticationContext.AcquireToken(...)` de la bibliothèque ADAL. La bibliothèque ADAL renvoie un `access_token` (jeton d’accès) qui représente l’identité de l’application.
+Vous pouvez obtenir un jeton d’accès pour l’API Graph en appelant la méthode `AuthenticationContext.AcquireToken(...)` de la bibliothèque ADAL. La bibliothèque ADAL renvoie un `access_token` qui représente l’identité de l’application.
 
 ### Lecture des utilisateurs
 
-Pour obtenir la liste des utilisateurs ou un utilisateur particulier à partir de l’API Graph, vous pouvez envoyer une requête HTTP `GET` au point de terminaison `/users`. Une requête pour obtenir tous les utilisateurs d’un client se présente ainsi :
+Pour obtenir la liste des utilisateurs ou un utilisateur particulier à partir de l’API Graph, vous pouvez envoyer une demande HTTP `GET` au point de terminaison `/users`. Une requête pour obtenir tous les utilisateurs d’un client se présente ainsi :
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -208,7 +206,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ### Création de comptes d’utilisateurs clients
 
-Quand vous créez des comptes d’utilisateur dans votre client B2C, vous pouvez envoyer une requête HTTP `POST` au point de terminaison `/users` :
+Quand vous créez des comptes d’utilisateur dans votre client B2C, vous pouvez envoyer une demande HTTP `POST` au point de terminaison `/users` :
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -237,7 +235,7 @@ Content-Length: 338
 }
 ```
 
-La plupart des propriétés de cette requête sont requises pour créer des utilisateurs clients. Cliquez [ici](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser) pour en savoir plus. Les commentaires `//` ont été inclus à titre d’illustration. Ne les incluez pas dans une requête réelle.
+La plupart des propriétés de cette requête sont requises pour créer des utilisateurs clients. Cliquez [ici](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser) pour en savoir plus. Veuillez noter que les commentaires `//` ont été inclus à des fins d’illustration. Ne les incluez pas dans une requête réelle.
 
 Pour afficher la requête, exécutez l’une des commandes suivantes :
 
@@ -246,20 +244,20 @@ Pour afficher la requête, exécutez l’une des commandes suivantes :
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-La commande `Create-User` prend un fichier .json comme paramètre d’entrée. Celui-ci contient une représentation JSON d’un objet utilisateur. L’exemple de code contient deux exemples de fichiers .json : `usertemplate-email.json` et `usertemplate-username.json`. Vous pouvez modifier ces fichiers en fonction de vos besoins. Outre les champs obligatoires ci-dessus, ces fichiers incluent plusieurs champs facultatifs que vous pouvez utiliser. Vous trouverez plus d’informations sur ces champs facultatifs dans la [référence d’entité API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity).
+La commande `Create-User` prend un fichier .json comme paramètre d’entrée. Celui-ci contient une représentation JSON d’un objet utilisateur. L’exemple de code contient deux exemples de fichiers .json : `usertemplate-email.json` et `usertemplate-username.json`. Vous pouvez modifier ces fichiers en fonction de vos besoins. Outre les champs obligatoires ci-dessus, ces fichiers incluent plusieurs champs facultatifs que vous pouvez utiliser. Vous trouverez plus d’informations sur ces champs facultatifs dans la [référence d’entité API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
 
-Vous pouvez voir comment la requête POST est construite dans `B2CGraphClient.SendGraphPostRequest(...)`, qui :
+Vous pouvez voir comment la demande POST est construite dans `B2CGraphClient.SendGraphPostRequest(...)`, qui :
 
-- attache un jeton d’accès à l’en-tête `Authorization` de la requête ;
+- attache un jeton d’accès à l’en-tête `Authorization` de la demande ;
 - définit le paramètre `api-version=1.6` ;
 - inclut l’objet utilisateur JSON dans le corps de la requête.
 
 > [AZURE.NOTE]
-Si les comptes que vous souhaitez migrer à partir d’un magasin d’utilisateurs ont un mot de passe moins fort que les [règles de mot de passe fort d’Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), vous pouvez désactiver la condition de mot de passe fort à l’aide de la valeur `DisableStrongPassword` dans la propriété `passwordPolicies`. Par exemple, vous pouvez modifier la demande de création d’utilisateur fournie ci-dessus comme suit : `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+Si les comptes que vous souhaitez migrer à partir d’un magasin d’utilisateurs existant ont un mot de passe moins fort que les [règles de mot de passe fort d’Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), vous pouvez désactiver la condition de mot de passe fort à l’aide de la valeur `DisableStrongPassword` dans la propriété `passwordPolicies`. Par exemple, vous pouvez modifier la demande de création d’utilisateur fournie ci-dessus comme suit : `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 
 ### Mise à jour de comptes d’utilisateurs clients
 
-Le processus de mise à jour d’objets utilisateur est similaire à celui utilisé pour créer des objets utilisateur. Cependant, ce processus fait appel à la méthode HTTP `PATCH` :
+Le processus de mise à jour d’objets utilisateur est similaire à celui utilisé pour créer des objets utilisateur. Cependant, ce processus fait appel à la méthode HTTP `PATCH`:
 
 ```
 PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
@@ -272,7 +270,7 @@ Content-Length: 37
 }
 ```
 
-Essayez de mettre à jour un utilisateur en mettant à jour vos fichiers JSON avec de nouvelles données. Vous pouvez ensuite utiliser `B2CGraphClient` pour exécuter l’une des commandes suivantes :
+Essayez de mettre à jour un utilisateur en mettant à jour vos fichiers JSON avec de nouvelles données. Vous pouvez ensuite utiliser `B2CGraphClient` pour exécuter l’une des commandes suivantes :
 
 ```
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
@@ -316,13 +314,13 @@ Pour obtenir un exemple, saisissez la commande suivante et consultez la requête
 
 Inspectez la méthode `B2CGraphClient.SendGraphDeleteRequest(...)` pour plus d’informations sur l’envoi de cette requête.
 
-L’API Azure AD Graph permet d’effectuer de nombreuses actions en plus de la gestion des utilisateurs. La [référence de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) fournit des informations détaillées sur chaque action, ainsi que des exemples de requête.
+L’API Azure AD Graph permet d’effectuer de nombreuses actions en plus de la gestion des utilisateurs. La [référence de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) fournit des informations détaillées sur chaque action, ainsi que des exemples de demande.
 
 ## Utilisation d’attributs personnalisés
 
 La plupart des applications grand public doivent stocker un certain type d’informations de profil utilisateur personnalisé. Pour ce faire, une solution consiste à définir un attribut personnalisé dans votre client B2C. Vous pouvez ensuite traiter cet attribut de la même façon que toute autre propriété d’un objet utilisateur. Vous pouvez mettre à jour l’attribut, le supprimer, l’interroger, l’envoyer en tant que revendication dans les jetons de connexion, etc.
 
-Pour définir un attribut personnalisé dans votre client B2C, consultez la [référence d’attribut personnalisé dans la version préliminaire de B2C](active-directory-b2c-reference-custom-attr.md).
+Pour définir un attribut personnalisé dans votre client B2C, consultez la [référence d’attribut personnalisé dans B2C](active-directory-b2c-reference-custom-attr.md).
 
 Vous pouvez afficher les attributs personnalisés définis dans votre client B2C à l’aide de `B2CGraphClient` :
 
@@ -364,4 +362,4 @@ Avec `B2CGraphClient`, vous disposez d’une application de service capable de g
 
 Si vous avez des questions ou souhaitez effectuer d’autres actions à l’aide de l’API Graph sur votre client B2C, laissez un commentaire sur cet article ou enregistrez un problème dans le référentiel d’exemples de code GitHub.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

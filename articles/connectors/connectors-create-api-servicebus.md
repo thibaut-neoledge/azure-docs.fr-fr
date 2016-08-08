@@ -1,148 +1,174 @@
 <properties
-pageTitle="Utiliser le connecteur Azure Service Bus dans vos applications logiques | Microsoft Azure"
-description="Utiliser le connecteur Azure Service Bus dans vos applications logiques Microsoft Azure App Service"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
+pageTitle="Découvrez comment utiliser le connecteur Azure Service Bus dans vos applications logiques.| Microsoft Azure"
+description="Créez des applications logiques avec Azure App Service. Connectez-vous à Azure Service Bus pour envoyer et recevoir des messages. Vous pouvez effectuer des actions comme envoyer vers une file d'attente, envoyer vers une rubrique, recevoir d’une file d'attente, recevoir d'un abonnement, etc."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/23/2016"
+ms.workload="integration"
+ms.date="07/27/2016"
 ms.author="deonhe"/>
 
-# Prise en main du connecteur Azure Service Bus 
+# Prise en main du connecteur Azure Service Bus
 
 Connectez-vous à Azure Service Bus pour envoyer et recevoir des messages. Vous pouvez effectuer des actions comme envoyer vers une file d'attente, envoyer vers une rubrique, recevoir d’une file d'attente, recevoir d'un abonnement, etc.
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+Pour utiliser [n’importe quel connecteur](./apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Avec Azure Service Bus, vous pouvez :
+## Se connecter à Azure Service Bus
 
-* Créer des applications logiques  
+Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](./connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service.
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Créer une connexion à Azure Service Bus
 
-## À propos des déclencheurs et des actions
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
 
-Le connecteur Azure Service Bus peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+## Utiliser un déclencheur Azure Service Bus
 
- Le connecteur Azure Service Bus met à votre disposition les actions et/ou les déclencheurs ci-après.
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [Apprenez-en davantage sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-### Actions Azure Service Bus
-Vous pouvez effectuer les actions suivantes :
+>[AZURE.INCLUDE [Procédure de création d’un déclencheur Service Bus](../../includes/connectors-create-api-servicebus-trigger.md)]
 
-|Action|Description|
-|--- | ---|
-|SendMessage|Envoie un message à la file d'attente Azure Service Bus ou à une rubrique.|
-### Déclencheurs Azure Service Bus
-Vous pouvez écouter les événements suivants :
+## Utiliser une action Azure Service Bus
+
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+[AZURE.INCLUDE [Procédure de création d’une action Service Bus](../../includes/connectors-create-api-servicebus-action.md)]
+
+## Détails techniques
+
+Voici les détails des déclencheurs, actions et réponses pris en charge par cette connexion :
+
+## Déclencheurs Azure Service Bus
+
+Azure Service Bus comporte les déclencheurs suivants :
 
 |Déclencheur | Description|
 |--- | ---|
-|GetMessageFromQueue|Obtient un nouveau message de la file d'attente Azure Service Bus.|
-|GetMessageFromTopic|Obtient un nouveau message de l'abonnement à la rubrique Azure Service Bus.|
+|[Réception d’un message dans une file d’attente](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|Cette opération déclenche un flux lorsqu’un message est reçu dans une file d’attente.|
+|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription) (Quand un message est reçu dans un abonnement à une rubrique)|Cette opération déclenche un flux lorsqu’un message est reçu dans un abonnement à une rubrique.|
 
 
-## Créer une connexion à Azure Service Bus
-Pour utiliser le connecteur Azure Service Bus, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+## Actions Azure Service Bus
 
->[AZURE.INCLUDE [Procédure de création d’une connexion à ServiceBus](../../includes/connectors-create-api-servicebus.md)]
-
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
-
-## Référence de l’API REST d’Azure Service Bus
-#### Cette documentation concerne la version 1.0.
+Azure Service Bus comporte les actions suivantes :
 
 
-### Envoie un message à la file d'attente Azure Service Bus ou à une rubrique.
-**```POST: /{entityName}/messages```**
+|Action|Description|
+|--- | ---|
+|[Envoyer un message](connectors-create-api-servicebus.md#send-message)|Cette opération envoie un message à une file d’attente ou à une rubrique.|
+### Détails de l’action
+
+Voici les détails des actions et des déclencheurs de ce connecteur, ainsi que leurs réponses :
 
 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|message| |yes|body|(aucun)|Message Service Bus|
-|entityName|string|yes|path|(aucun)|Nom de la file d’attente ou de la rubrique|
+### Envoyer un message
+Cette opération envoie un message à une file d’attente ou à une rubrique.
 
 
-### Voici les réponses possibles :
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|message*|Message|Message à envoyer|
+|entityName*|Queue/Topic name (Nom de la file d’attente/rubrique)|Nom de la file d’attente ou de la rubrique|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+
+
+
+### Réception d’un message dans une file d’attente
+Cette opération déclenche un flux lorsqu’un message est reçu dans une file d’attente.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|queueName*|Nom de la file d'attente|Nom de la file d’attente|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+#### Détails des résultats
+
+ServiceBusMessage : cet objet présente le contenu et les propriétés d’un message Service Bus.
+
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ContentData|string|Contenu du message|
+|ContentType|string|Type du contenu du message|
+|ContentTransferEncoding|string|Codage du transfert du contenu du message (« none »|« base64 »)|
+|Propriétés|objet|Paires clé-valeur pour chaque propriété répartie|
+|MessageId|string|Valeur définie par l’utilisateur que Service Bus peut utiliser pour identifier les messages en double, si cette fonctionnalité est activée|
+|À|string|Adresse d’envoi|
+|ReplyTo|string|Adresse de la file d’attente à laquelle répondre|
+|ReplyToSessionId|string|Identificateur de la session à laquelle répondre|
+|Étiquette|string|Étiquette propre à l’application|
+|ScheduledEnqueueTimeUtc|string|Date et heure, en temps universel coordonné, auxquelles le message sera ajouté à la file d’attente|
+|SessionId|string|Identificateur de la session|
+|CorrelationId|string|Identificateur de la corrélation|
+|TimeToLive|string|Durée, en nombre de cycles, pendant laquelle un message est valide. Le début de cette durée correspond au moment de l’envoi du message à Service Bus.|
+
+
+
+
+### When a message is received in a topic subscription (Quand un message est reçu dans un abonnement à une rubrique)
+Cette opération déclenche un flux lorsqu’un message est reçu dans un abonnement à une rubrique.
+
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|topicName*|Nom de la rubrique|Nom de la rubrique|
+|subscriptionName*|Topic subscription name (Nom d’abonnement à la rubrique)|Nom de l’abonnement à la rubrique|
+
+Le caractère * indique qu’une propriété est obligatoire.
+
+#### Détails des résultats
+
+ServiceBusMessage : cet objet présente le contenu et les propriétés d’un message Service Bus.
+
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ContentData|string|Contenu du message|
+|ContentType|string|Type du contenu du message|
+|ContentTransferEncoding|string|Codage du transfert du contenu du message (« none »|« base64 »)|
+|Propriétés|objet|Paires clé-valeur pour chaque propriété répartie|
+|MessageId|string|Valeur définie par l’utilisateur que Service Bus peut utiliser pour identifier les messages en double, si cette fonctionnalité est activée|
+|À|string|Adresse d’envoi|
+|ReplyTo|string|Adresse de la file d’attente à laquelle répondre|
+|ReplyToSessionId|string|Identificateur de la session à laquelle répondre|
+|Étiquette|string|Étiquette propre à l’application|
+|ScheduledEnqueueTimeUtc|string|Date et heure, en temps universel coordonné, auxquelles le message sera ajouté à la file d’attente|
+|SessionId|string|Identificateur de la session|
+|CorrelationId|string|Identificateur de la corrélation|
+|TimeToLive|string|Durée, en nombre de cycles, pendant laquelle un message est valide. Le début de cette durée correspond au moment de l’envoi du message à Service Bus.|
+
+
+
+## Réponses HTTP
+
+Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants :
 
 |Nom|Description|
 |---|---|
 |200|OK|
+|202|Acceptée|
+|400|Demande incorrecte|
+|401|Non autorisé|
+|403|Interdit|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
 |default|L’opération a échoué.|
-------
-
-
-
-### Obtient un nouveau message de la file d'attente Azure Service Bus.
-**```GET: /{queueName}/messages/head```**
-
-
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|queueName|string|yes|path|(aucun)|Nom de la file d’attente.|
-
-
-### Voici les réponses possibles :
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-------
-
-
-
-### Obtient un nouveau message de l'abonnement à la rubrique Azure Service Bus.
-**```GET: /{topicName}/subscriptions/{subscriptionName}/messages/head```**
-
-
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|topicName|string|yes|path|(aucun)|Nom de la rubrique.|
-|subscriptionName|string|yes|path|(aucun)|Nom de l'abonnement de rubrique.|
-
-
-### Voici les réponses possibles :
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-------
-
-
-
-## Définition(s) d'objet : 
-
- **ServiceBusMessage** : message composé de contenu et de propriétés
-
-Propriétés requises pour ServiceBusMessage :
-
-ContentTransferEncoding
-
-**Toutes les propriétés** :
-
-
-| Nom | Type de données |
-|---|---|
-|ContentData|string|
-|ContentType|string|
-|ContentTransferEncoding|string|
-|Propriétés|objet|
-
 
 ## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
-   ms.author="erihur"/>
+   ms.date="07/21/2016"
+   ms.author="erihur;genli"/>
 
 
 # Comprendre votre facture Microsoft Azure
@@ -217,15 +217,15 @@ Informations sur le service 2 | Informations sur le service 2 | Champ hérité
 
 Outre certains nouveaux champs et changements de nom, la version 2 du fichier .csv inclut une mise en forme standardisée des données dans les champs ci-dessous :
 
-- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
+- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
 
 ![instanceid](./media/billing-understand-your-bill/instanceid.png)
 
-- **Informations supplémentaires** : cette colonne dans le fichier .csv d’utilisation spécifie les métadonnées propres au service. Par exemple, le type d’image d’une machine virtuelle. Actuellement, un service émet des métadonnées propres au service dans plusieurs colonnes : champs Informations supplémentaires, Informations sur le service 1 et Informations sur le service 2. Les services Microsoft Azure vont être standardisés de façon à ne présenter les métadonnées propres au service que dans la colonne Informations supplémentaires. Voir la capture instantanée ci-après du format standardisé :
+- **Informations supplémentaires** : cette colonne dans le fichier .csv d’utilisation spécifie les métadonnées propres au service. Par exemple, le type d’image d’une machine virtuelle. Actuellement, un service émet des métadonnées propres au service dans plusieurs colonnes : champs Informations supplémentaires, Informations sur le service 1 et Informations sur le service 2. Les services Microsoft Azure vont être standardisés de façon à ne présenter les métadonnées propres au service que dans la colonne Informations supplémentaires. Voir la capture instantanée ci-après du format standardisé :
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :  
+- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :
     - Machines virtuelles
     - Stockage
     - Services de mise en réseau approvisionnés à l’aide de l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -253,4 +253,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

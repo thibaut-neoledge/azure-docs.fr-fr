@@ -27,8 +27,8 @@ Dans cet article, vous allez apprendre à exécuter des tâches MapReduce sur Ha
 
 Hadoop MapReduce est une infrastructure logicielle qui permet d'écrire des tâches traitant d'importantes quantités de données. Les données d'entrée sont divisées en blocs indépendants, qui sont ensuite traitées en parallèle sur les nœuds de votre cluster. Une tâche MapReduce se compose de deux fonctions :
 
-* **Mappeur** : il consomme les données d'entrée, les analyse (généralement avec les opérations de tri et de filtre) et émet des tuples (paires clé-valeur)
-* **Raccord de réduction** : il consomme les tuples émis par le Mappeur et effectue une opération de synthèse qui crée un résultat plus petit, combiné à partir des données du Mappeur
+* **Mappeur** : il consomme les données d'entrée, les analyse (généralement avec les opérations de tri et de filtre) et émet des tuples (paires clé-valeur)
+* **Raccord de réduction** : il consomme les tuples émis par le Mappeur et effectue une opération de synthèse qui crée un résultat plus petit, combiné à partir des données du Mappeur
 
 Un exemple de tâche MapReduce de comptage de mots de base est illustré dans le diagramme suivant :
 
@@ -62,17 +62,17 @@ Dans cet exemple, pour l’exemple de données vous allez utiliser les Carnets d
 
 L’exemple de données est stocké dans le module de stockage d'objets blob Azure, que HDInsight utilise comme système de fichiers par défaut pour les clusters Hadoop. HDInsight peut accéder aux fichiers stockés dans un stockage d'objets blob à l'aide du préfixe **wasb**. Par exemple, pour accéder au fichier sample.log, vous devez utiliser la syntaxe suivante :
 
-	wasb:///example/data/gutenberg/davinci.txt
+	wasbs:///example/data/gutenberg/davinci.txt
 
 Étant donné que le stockage d’objets blob Azure est le stockage par défaut pour HDInsight, vous pouvez également accéder au fichier en utilisant **/example/data/gutenberg/davinci.txt**.
 
-> [AZURE.NOTE] Dans la syntaxe précédente, **wasb:///** permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d'autres comptes de stockage lors de l'approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l'adresse du compte de stockage. Par exemple : **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
+> [AZURE.NOTE] Dans la syntaxe précédente, **wasbs:///** permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d'autres comptes de stockage lors de l'approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l'adresse du compte de stockage. Par exemple : **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 ##<a id="job"></a>À propos de l'exemple MapReduce
 
-La tâche MapReduce qui est utilisée dans cet exemple se trouve dans **wasb://example/jars/hadoop-mapreduce-examples.jar**, et cet exemple est fourni avec votre cluster HDInsight. Il contient un exemple de comptage de mots que vous exécuterez pour **davinci.txt**.
+La tâche MapReduce qui est utilisée dans cet exemple se trouve dans **wasbs://example/jars/hadoop-mapreduce-examples.jar**, et est fourni avec votre cluster HDInsight. Il contient un exemple de comptage de mots que vous exécuterez pour **davinci.txt**.
 
-> [AZURE.NOTE] Dans les clusters HDInsight 2.1, l'emplacement du fichier est **wasb:///example/jars/hadoop-examples.jar**.
+> [AZURE.NOTE] Dans les clusters HDInsight 2.1, l'emplacement du fichier est **wasbs:///example/jars/hadoop-examples.jar**.
 
 Pour référence, voici le code Java pour la tâche MapReduce de comptage de mots :
 
@@ -188,4 +188,4 @@ Même si MapReduce est doté de puissantes capacités de diagnostic, il peut êt
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

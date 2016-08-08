@@ -25,7 +25,7 @@ Ce guide vous présente le service Azure Automation et la manière de l'utilise
 
 ## Qu'est-ce qu'Azure Automation ?
 
-[Azure Automation](https://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Azure Automation permet d'automatiser les tâches fastidieuses, manuelles, propices aux erreurs et répétitives, afin d'augmenter la fiabilité, l'efficacité et le retour sur investissement pour votre organisation.
+[Azure Automation](https://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Azure Automation permet d'automatiser les tâches fastidieuses, manuelles, propices aux erreurs et répétitives, afin d'augmenter la fiabilité, l'efficacité et réduire le retour sur investissement pour votre organisation.
 
 Azure Automation fournit un moteur d'exécution de workflow hautement fiable et hautement disponible, qui s'adapte à vos besoins au fur et à mesure que votre entreprise se développe. Dans Azure Automation, les processus peuvent être lancés manuellement, par des systèmes tiers ou à des intervalles planifiés, afin que les tâches interviennent exactement au moment opportun.
 
@@ -50,4 +50,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de 
 Consultez le didacticiel Azure Automation [Création ou importation d’un runbook dans Azure Automation](../automation/automation-creating-importing-runbook.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -26,10 +26,14 @@ Pour permettre au service Azure Data Factory de se connecter à votre base de do
 - Une passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
 - Fournisseur de données Oracle pour .NET. Il est inclus dans [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installez la version appropriée (32/64 bits) sur l’ordinateur hôte sur lequel la passerelle est installée. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) peut accéder à Oracle Database 10g Release 2 ou version ultérieure.
 
-> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+	Si vous choisissez « Installation XCopy », suivez les étapes dans le fichier readme.htm. Nous vous recommandons de choisir le programme d’installation avec l’interface utilisateur (et non le programme d’installation XCopy).
+ 
+	Après avoir installé le fournisseur, redémarrez le service hôte de la passerelle de gestion des données sur votre ordinateur à l’aide de l’applet Services (ou) du Gestionnaire de configuration de la passerelle de gestion des données.
+
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Exemple : copie de données d’Oracle vers Azure Blob
-Cet exemple indique comment copier des données à partir d’une base de données Oracle locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Cet exemple indique comment copier des données à partir d’une base de données Oracle locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 
@@ -123,7 +127,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -131,7 +135,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -139,7 +143,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -280,7 +284,7 @@ Les données sont récupérées à partir d’un nouvel objet blob toutes les he
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -288,7 +292,7 @@ Les données sont récupérées à partir d’un nouvel objet blob toutes les he
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -296,7 +300,7 @@ Les données sont récupérées à partir d’un nouvel objet blob toutes les he
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -432,7 +436,7 @@ oracleReaderQuery | Utilise la requête personnalisée pour lire des données. |
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
-writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. | intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). | Non
+writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. | intervalle de temps<br/><br/> Exemple : 00:30:00 (30 minutes). | Non
 writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize | Nombre entier (nombre de lignes)| Non (valeur par défaut : 10000)  
 sqlWriterCleanupScript | Requête spécifiée par l'utilisateur pour exécuter l'activité de copie de sorte que les données d'un segment spécifique seront nettoyées. | Une instruction de requête. | Non
 sliceIdentifierColumnName | Nom de colonne spécifié par l’utilisateur que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, et qui sera utilisée pour nettoyer les données d’un segment spécifique lors de la réexécution. | Nom d’une colonne avec le type de données binary(32). | Non
@@ -501,4 +505,4 @@ XML | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

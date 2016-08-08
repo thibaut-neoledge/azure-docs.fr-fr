@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles ARM
@@ -313,4 +313,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
     }
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

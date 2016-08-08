@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/01/2016"
+   ms.date="07/26/2016"
    ms.author="owend"/>
 
 # Authentification et autorisation avec Power BI Embedded
@@ -36,7 +36,7 @@ Votre jeton d’application peut contenir les revendications suivantes :
 
 | Revendication | Description |
 |--------------|------------|
-| **ver** | Version de jeton d’application. La version actuelle est 1.0.0. |
+| **ver** | Version de jeton d’application. La version actuelle est 0.2.0. |
 | **aud** | Destinataire du jeton. Pour Power BI Embedded, utilisez : https://analysis.windows.net/powerbi/api. |
 | **iss** | Chaîne indiquant l’application qui a émis le jeton. |
 | **type** | Type de jeton d’application en cours de création. Le seul type pris en charge pour l’instant est **embed**. |
@@ -93,4 +93,4 @@ Après que **Power BI Embedded** envoie un rapport à l’utilisateur, ce dernie
 - [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
 - [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

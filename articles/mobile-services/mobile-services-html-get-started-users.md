@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Mobile Services 
@@ -35,7 +35,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 3. Dans le répertoire de l'application, lancez un des fichiers de commande suivants à partir du sous-dossier **server**.
 
-	+ **launch-windows** (pour les ordinateurs Windows) 
+	+ **launch-windows** (pour les ordinateurs Windows)
 	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
 	+ **launch-linux.sh** (pour les ordinateurs Linux)
 
@@ -105,7 +105,7 @@ Ensuite, vous allez mettre à jour l'application pour autoriser l'authentificati
 
 	>[AZURE.IMPORTANT]Dans une application PhoneGap, vous devez également ajouter les plug-ins suivants au projet :
 	><ul><li><code>ajouter des plug-in https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
-	> <li><code>ajouter des plug-in https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	><li><code>ajouter des plug-in https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Revenez au navigateur où votre application s'exécute, puis actualisez la page.
 
@@ -137,4 +137,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

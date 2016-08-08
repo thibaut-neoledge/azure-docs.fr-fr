@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="07/23/2016"
 	ms.author="dariagrigoriu"/>
     
 # Déploiement continu vers Azure App Service
@@ -52,7 +52,7 @@ La transmission de type push d’une solution Visual Studio vers Azure App Servi
 
 Les étapes pour envoyer votre solution Visual Studio vers App Service sont les mêmes que celles de la [section précédente](#overview), à condition de configurer votre solution et votre référentiel de la façon suivante :
 
--	Utilisez l’option de contrôle de code source Visual Studio pour générer un fichier `.gitignore` comme dans l’image ci-dessous ou ajoutez manuellement un fichier `.gitignore` à la racine du référentiel avec un contenu similaire à cet [exemple .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore). 
+-	Utilisez l’option de contrôle de code source Visual Studio pour générer un fichier `.gitignore` comme dans l’image ci-dessous ou ajoutez manuellement un fichier `.gitignore` à la racine du référentiel avec un contenu similaire à cet [exemple .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
     ![](./media/app-service-continous-deployment/VS_source_control.png)
  
@@ -72,6 +72,7 @@ Pour désactiver le déploiement continu :
 
 ## Ressources supplémentaires
 
+* [How to investigate common issues with continuous deployment (Examen des problèmes courants liés au déploiement continu)](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Comment utiliser PowerShell pour Azure]
 * [Utilisation des outils en ligne de commande Azure pour Mac et Linux]
 * [Documentation Git]
@@ -79,7 +80,7 @@ Pour désactiver le déploiement continu :
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-[Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
+[Azure App Service]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-changes-existing-services/
 [portail Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/fr-FR/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -92,4 +93,4 @@ Pour désactiver le déploiement continu :
 [Prise en main de VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

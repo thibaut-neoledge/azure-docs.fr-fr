@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Qu'est-il arrivé à mon projet .NET après l'ajout de Mobile Services à l'aide des services connectés de Visual Studio ? | Microsoft Azure"
-	description="Décrit ce qui est arrivé à votre projet Visual Studio .NET après l’ajout d’Azure Mobile Services à l’aide des services connectés"
+	description="Décrit ce qui est arrivé à votre projet Visual Studio .NET après l’ajout d’Azure Mobile Services à l’aide des services connectés "
 	services="mobile-services"
 	documentationCenter=""
 	authors="mlhoop"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Qu'est-il arrivé à mon projet Visual Studio .NET après l'ajout d'Azure Mobile Services à l'aide des services connectés ?
@@ -41,4 +41,4 @@ Si un service mobile .NET est créé dans le fournisseur de services connectés,
 
 [En savoir plus sur Mobile Services](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

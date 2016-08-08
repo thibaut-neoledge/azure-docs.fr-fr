@@ -22,7 +22,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 
 
 
-## Série A - Calcul intensif
+## Série A - Calcul intensif
 
 
 Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev
@@ -68,4 +68,4 @@ Les chiffres Windows ont été calculés en exécutant [SPECint 2006](https://ww
 
 * Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives à la sélection parmi les tailles de machines virtuelles, consultez [Tailles des machines virtuelles](virtual-machines-windows-sizes.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

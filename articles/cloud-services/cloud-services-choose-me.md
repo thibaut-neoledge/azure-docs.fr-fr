@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Options de calcul Azure - Cloud Services | Microsoft Azure" 
-	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines" 
+<properties
+	pageTitle="Options de calcul Azure - Cloud Services | Microsoft Azure"
+	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines"
 	services="cloud-services"
     documentationCenter=""
-	authors="Thraka" 
+	authors="Thraka"
 	manager="timlt"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/05/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 # Dois-je choisir Cloud Services ou un autre service ?
@@ -24,7 +24,7 @@ Azure Cloud Services est-il fait pour vous ? Azure propose différents modèles 
 <a name="tellmecs"></a>
 ## En savoir plus sur Cloud Services
 
-Cloud Services est un exemple de plateforme en tant que service (PaaS). Tout comme [App Service](../app-service-web/app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Tout comme App Service, Cloud Services est hébergé sur des machines virtuelles, bien que celui-ci vous permette de mieux les contrôler. Vous pouvez installer votre logiciel sur des machines virtuelles de Cloud Service et vous y connecter à distance.
+Cloud Services est un exemple de [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tout comme [App Service](../app-service-web/app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Tout comme App Service, Cloud Services est hébergé sur des machines virtuelles, bien que celui-ci vous permette de mieux les contrôler. Vous pouvez installer votre logiciel sur des machines virtuelles de Cloud Service et vous y connecter à distance.
 
 ![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -35,7 +35,7 @@ La technologie fournit deux options de machine virtuelle légèrement différent
 Toutes les combinaisons de ces deux options d’hébergement de machines virtuelles légèrement différentes sont disponibles dans un service cloud :
 
 * **Rôle Web** exécute Windows Server avec votre application Web automatiquement déployée sur IIS.
-  
+
 * **Rôle de travail** exécute Windows Server sans IIS.
 
 Par exemple, une application simple peut utiliser uniquement un rôle Web, tandis qu'une plus complexe utilisera un rôle de travail pour traiter les requêtes entrantes des utilisateurs, puis transmettre le travail créé par ces requêtes à un rôle de travail pour le traitement. (Cette communication pourrait utiliser [Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md) ou les [files d’attente Azure](../storage/storage-introduction.md).)
@@ -55,6 +55,6 @@ Cloud Services fournit également la surveillance. À l'instar d'Azure Virtual M
 La nature PaaS de Cloud Services a également d'autres implications. L'une des principales est le fait que les applications basées sur cette technologie doivent être écrites pour s'exécuter correctement en cas d'échec d'un rôle Web ou de travail. Cela nécessite qu'une application Cloud Services ne conserve pas l'état dans le système de fichiers de ses propres machines virtuelles. Les écritures dans les machines virtuelles Cloud Services ne sont pas persistantes, comme elles le sont dans les machines virtuelles créées avec Azure Virtual Machines ; il n'existe rien de tel qu'un disque de données des machines virtuelles. En revanche, une application Cloud Services doit écrire explicitement tous les états dans la base de données SQL, les objets blob, les tables ou un autre stockage externe. Les applications créées de la sorte sont plus faciles à mettre à l'échelle et davantage résistantes aux défaillances, deux objectifs importants de Cloud Services.
 
 ## Étapes suivantes
-[Création d’une application de service cloud dans .NET](cloud-services-dotnet-get-started.md) [Création d’une application de service cloud dans Node.js](cloud-services-nodejs-develop-deploy-app.md) [Création d’une application de service cloud dans PHP](../cloud-services-php-create-web-role.md) [Création d’une application de service cloud dans Python](../cloud-services-python-ptvs.md)
+[Création d’une application de service cloud dans .NET](cloud-services-dotnet-get-started.md) [Création d’une application de service cloud dans Node.js](cloud-services-nodejs-develop-deploy-app.md) [Création d’une application de service cloud dans PHP](../cloud-services-php-create-web-role.md) [Création d’une application de service cloud dans Python](cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="07/12/2016"
+   ms.date="07/21/2016"
    ms.author="genli"/>
 
 # Transfert de propriété d’un abonnement Azure
@@ -28,7 +28,7 @@ Souhaitez-vous :
 
 Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes Microsoft Azure pour les abonnements de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark. Nous avons ajouté une fonction permettant de transférer votre abonnement vers un autre utilisateur. En d'autres termes, vous pouvez maintenant modifier l'administrateur de compte pour n'importe quel abonnement de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark dont vous êtes titulaire, quel que soit le pays dans lequel vous travaillez. Nous prenons désormais en charge le transfert d’achats Azure Marketplace pour ces types d’abonnements également.
 
-> [AZURE.NOTE]  Pour modifier votre abonnement à une autre offre, consultez les informations détaillées de la rubrique [Changement d’offre Azure](billing-how-to-switch-azure-offer.md).
+> [AZURE.NOTE]  Pour bénéficier d’une offre différente pour votre abonnement, consultez les informations détaillées de la rubrique [Changer d’offre pour votre abonnement Azure](billing-how-to-switch-azure-offer.md).
 
 > Vous devez être l’administrateur du compte pour effectuer un transfert de propriété. Pour plus d’informations sur la manière de déterminer qui est l’administrateur du compte de l’abonnement, consultez la [Forum aux questions](#faq).
 
@@ -131,4 +131,4 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -38,9 +38,9 @@ Vous devez créer les éléments ci-après pour qu’ils puissent être utilisé
 
 Prérequis | Description
 --- | ---
-Application API TPM | Avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1]. <br/><br/>**Remarque** Vous devez connaître le nom de votre application API TPM. 
+Application API TPM | Avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1]. <br/><br/>**Remarque** Mémorisez le nom de votre application API TPM. 
 Base de données SQL Azure | Stocke les éléments B2B, notamment les partenaires, les schémas, les certificats et les accords. Chacune des applications API B2B requiert sa propre base de données SQL Azure. <br/><br/>**Remarque** Copiez la chaîne de connexion dans cette base de données.<br/><br/>[Créer une base de données SQL Azure](../sql-database/sql-database-get-started.md)
-Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n’avez pas besoin de l’archivage des messages AS2, le conteneur de stockage n’est pas utile. <br/><br/>**Remarque** Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n'avez pas besoin de l'archivage des messages AS2, un conteneur de stockage n'est pas utile. <br/><br/>**Remarque** Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes Azure Storage](../storage/storage-create-storage-account.md).
 
 ## Créer le connecteur AS2
 
@@ -122,4 +122,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

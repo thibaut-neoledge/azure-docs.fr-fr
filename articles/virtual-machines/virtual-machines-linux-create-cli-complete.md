@@ -1,6 +1,6 @@
 <properties
    pageTitle="Création d’un environnement Linux complet à l’aide de l’interface de ligne de commande Azure | Microsoft Azure"
-   description="Créez une machine virtuelle Linux, un stockage, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un Groupe de sécurité réseau à partir de zéro à l’aide de l’interface de ligne de commande Azure."
+   description="Créez un stockage, une machine virtuelle Linux, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un groupe de sécurité réseau à partir de zéro à l’aide de l’interface de ligne de commande Azure."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
@@ -19,116 +19,117 @@
 
 # Création d’un environnement Linux complet à l’aide de l’interface de ligne de commande Azure
 
-Commençons par la procédure de création d’un réseau simple avec un équilibreur de charge et plusieurs machines virtuelles à des fins de développement et de calcul élémentaire. Vous devrez explorer la totalité de l’environnement de manière impérative, commande par commande, jusqu’à ce que vous disposiez de machines virtuelles Linux sécurisées opérationnelles auxquelles vous pouvez vous connecter à partir de n’importe quel emplacement d’Internet. Vous serez ensuite en mesure de créer des réseaux et un environnement plus complexes.
+Dans cet article, nous commencerons par créer un réseau simple avec un équilibreur de charge et plusieurs machines virtuelles à des fins de développement et de calcul élémentaire. Nous explorerons ce processus, commande par commande, jusqu’à ce que vous disposiez de deux machines virtuelles Linux sécurisées opérationnelles auxquelles vous pouvez vous connecter à partir de n’importe quel emplacement d’Internet. Vous pourrez ensuite créer des réseaux et des environnements plus complexes.
 
-Au cours de ce processus, vous découvrirez la hiérarchie des dépendances et la puissance que vous offre le modèle de déploiement de Resource Manager. Dès que vous avez compris la façon dont le système est créé, vous pouvez reconstruire le système beaucoup plus rapidement en utilisant des [modèles Azure Resource Manager](../resource-group-authoring-templates.md). Dès que vous avez compris la façon dont les différentes parties de votre environnement s’imbriquent, la création de modèles pour automatiser ces dernières se révèle plus simple.
+Au cours de ce processus, vous découvrirez la hiérarchie des dépendances et la puissance que vous offre le modèle de déploiement de Resource Manager. Une fois que vous avez compris la façon dont le système est créé, vous pouvez le reconstruire beaucoup plus rapidement en utilisant des [modèles Azure Resource Manager](../resource-group-authoring-templates.md). De même, après avoir compris la façon dont les différentes parties de votre environnement s’imbriquent, la création de modèles pour automatiser ces dernières se révèle plus simple.
 
-L’environnement contiendra les éléments suivants :
+L’environnement contient :
 
-- Deux machines virtuelles dans un groupe à haute disponibilité
-- Un équilibreur de charge avec une règle d’équilibrage de charge sur le port 80
-- Des règles de groupe de sécurité réseau pour protéger votre machine virtuelle de tout trafic indésirable
+- Deux machines virtuelles dans un groupe à haute disponibilité.
+- Un équilibreur de charge avec une règle d’équilibrage de charge sur le port 80.
+- Des règles de groupe de sécurité réseau (NSG) pour protéger votre machine virtuelle de tout trafic indésirable.
 
 ![Vue d’ensemble de l’environnement de base](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-Pour créer cet environnement personnalisé, [l’interface de ligne de commande Azure](../xplat-cli-install.md) la plus récente doit être installée et être en mode Resource Manager (`azure config mode arm`). Vous aurez également besoin d’un outil d’analyse JSON : cet exemple utilise [jq](https://stedolan.github.io/jq/).
+Pour créer cet environnement personnalisé, [l’interface de ligne de commande Azure](../xplat-cli-install.md) la plus récente doit être installée en mode Resource Manager (`azure config mode arm`). Vous avez également besoin d’un outil d’analyse JSON. Cet exemple utilise [jq](https://stedolan.github.io/jq/).
 
 ## Commandes rapides
-Les commandes rapides suivantes sont utilisées pour créer votre environnement personnalisé. Pour obtenir des informations et une présentation détaillées sur ce que chaque commande fait lorsque vous créez l’environnement, lisez les [étapes détaillées ci-dessous](#detailed-walkthrough).
+Vous pouvez utiliser les commandes rapides suivantes pour créer votre environnement personnalisé. Pour plus d’informations sur ce que chaque commande fait lorsque vous créez l’environnement, lisez les [étapes détaillées ci-dessous](#detailed-walkthrough).
 
-Créer le groupe de ressources
+Créez le groupe de ressources :
 
 ```bash
 azure group create TestRG -l westeurope
 ```
 
-Vérifier le groupe de ressources à l’aide de l’analyseur JSON
+Vérifiez le groupe de ressources à l’aide de l’analyseur JSON :
 
 ```bash
 azure group show TestRG --json | jq '.'
 ```
 
-Créer le compte de stockage
+Créez le compte de stockage :
 
 ```bash
 azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
 ```
 
-Vérifier le stockage à l’aide de l’analyseur JSON
+Vérifiez le compte de stockage à l’aide de l’analyseur JSON :
 
 ```bash
 azure storage account show -g TestRG computeteststore --json | jq '.'
 ```
 
-création du réseau virtuel
+Créez le réseau virtuel :
 
 ```bash
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
 ```
 
-Créer le sous-réseau
+Créez le sous-réseau :
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 ```
 
-Vérifier le réseau virtuel et le sous-réseau à l’aide de l’analyseur JSON
+Vérifiez le réseau virtuel et le sous-réseau à l’aide de l’analyseur JSON :
+
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
 ```
 
-Créer une adresse IP publique
+Créez une adresse IP publique :
 
 ```bash
 azure network public-ip create -g TestRG -n TestLBPIP -l westeurope -d testlb -a static -i 4
 ```
 
-Créer l’équilibreur de charge
+Créez l’équilibreur de charge :
 
 ```bash
 azure network lb create -g TestRG -n TestLB -l westeurope
 ```
 
-Créer un pool d’adresses IP frontal pour l’équilibreur de charge et l’associer à notre adresse IP publique
+Créez un pool d’adresses IP frontal pour l’équilibreur de charge et l’associer à l’adresse IP publique :
 
 ```bash
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
 ```
 
-Créer notre pool d’adresses IP principal pour l’équilibreur de charge
+Créez le pool d’adresses IP principal pour l’équilibreur de charge :
 
 ```bash
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
 ```
 
-Créer des règles NAT entrantes SSH pour l’équilibreur de charge
+Créez des règles NAT entrantes SSH pour l’équilibreur de charge :
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Créer nos règles NAT entrantes Web pour l’équilibreur de charge
+Créez les règles NAT entrantes Web pour l’équilibreur de charge :
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
      -t TestFrontEndPool -o TestBackEndPool
 ```
 
-Créer notre sonde d’intégrité d’équilibreur de charge
+Créez la sonde d’intégrité d’équilibreur de charge :
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
 ```
 
-Vérifier l’équilibreur de charge, les pools d’adresses IP et les règles NAT à l’aide de l’analyseur JSON
+Vérifier l’équilibreur de charge, les pools d’adresses IP et les règles NAT à l’aide de l’analyseur JSON :
 
 ```bash
 azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
-Créer la première carte d’interface réseau
+Créez la première carte d’interface réseau (NIC) :
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -136,7 +137,7 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
 ```
 
-Créer la deuxième carte d’interface réseau
+Créez la deuxième carte d’interface réseau :
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -144,20 +145,20 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
 
-Vérifier les cartes d’interface réseau à l’aide de l’analyseur JSON
+Vérifiez les cartes d’interface réseau à l’aide de l’analyseur JSON :
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
 azure network nic show TestRG LB-NIC2 --json | jq '.'
 ```
 
-Créer le groupe de sécurité réseau
+Créez le groupe de sécurité réseau :
 
 ```bash
 azure network nsg create -g TestRG -n TestNSG -l westeurope
 ```
 
-Ajouter les règles de trafic entrant pour le groupe de sécurité réseau
+Ajoutez les règles de trafic entrant pour le groupe de sécurité réseau :
 
 ```bash
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
@@ -166,26 +167,26 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-Vérifier le groupe de sécurité réseau et les règles de trafic entrant à l’aide de l’analyseur JSON
+Vérifiez le groupe de sécurité réseau et les règles de trafic entrant à l’aide de l’analyseur JSON :
 
 ```bash
 azure network nsg show -g TestRG -n TestNSG --json | jq '.'
 ```
 
-Lier le groupe de sécurité réseau aux cartes d’interface réseau
+Liez le groupe de sécurité réseau aux cartes d’interface réseau :
 
 ```bash
 azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
 azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
-Créer le groupe à haute disponibilité
+Créez le groupe à haute disponibilité :
 
 ```bash
 azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Créer la première machine virtuelle Linux
+Créez la première machine virtuelle Linux :
 
 ```bash
 azure vm create \
@@ -203,7 +204,7 @@ azure vm create \
     --admin-username ops
 ```
 
-Créer la deuxième machine virtuelle Linux
+Créez la deuxième machine virtuelle Linux :
 
 ```bash
 azure vm create \
@@ -221,31 +222,31 @@ azure vm create \
     --admin-username ops
 ```
 
-Vérifier que tout est généré à l’aide de l’analyseur JSON
+Utilisez l’analyseur JSON pour vérifier tout ce qui a été créé :
 
 ```bash
 azure vm show -g TestRG -n TestVM1 --json | jq '.'
 azure vm show -g TestRG -n TestVM2 --json | jq '.'
 ```
 
-Exportez l’environnement que vous avez créée dans un modèle pour recréer rapidement des instances nouvelles :
+Exportez l’environnement que vous avez créé dans un modèle pour recréer rapidement des instances nouvelles :
 
 ```bash
 azure resource export TestRG
 ```
 
 ## Procédure pas à pas
-Ces étapes plus détaillées expliquent ce que chaque commande fait lorsque vous générez votre environnement, afin de vous aider à saisir ces concepts que vous utiliserez ensuite pour créer vos propres environnements personnalisés pour les charges de travail de développement ou de production.
+Les étapes détaillées qui suivent expliquent ce que chaque commande fait lorsque vous générez votre environnement. Ces concepts vous aideront à créer vos propres environnements personnalisés pour le développement ou la production.
 
-## Créer un groupe de ressources et choisir les emplacements de déploiement
+## Créer des groupes de ressources et choisir les emplacements de déploiement
 
-Les groupes de ressources Azure sont des entités de déploiement logiques qui contiennent des données de configuration et d’autres métadonnées pour permettre la gestion logique des déploiements de ressources.
+Les groupes de ressources Azure sont des entités de déploiement logiques qui contiennent des informations de configuration et des métadonnées pour permettre la gestion logique des déploiements de ressources.
 
 ```bash
 azure group create TestRG westeurope
 ```
 
-Sortie
+Output:
 
 ```bash                        
 info:    Executing command group create
@@ -261,11 +262,11 @@ data:
 info:    group create command OK
 ```
 
-## Créer un compte de stockage
+## Créez un compte de stockage.
 
-Entre autres scénarios, vous avez besoin de comptes de stockage pour vos disques de machine virtuelle et pour tous les disques de données que vous souhaitez ajouter. En résumé, vous créerez toujours des comptes de stockage presque immédiatement après avoir créé des groupes de ressources.
+Vous avez besoin de comptes de stockage pour vos disques de machine virtuelle et pour tous les disques de données que vous souhaitez ajouter. Vous créez des comptes de stockage presque immédiatement après avoir créé des groupes de ressources.
 
-Ici, nous utilisons la commande `azure storage account create` pour transmettre l’emplacement du compte, le groupe de ressources qui le contrôlera, ainsi que le type de support de stockage souhaité.
+Ici, nous utilisons la commande `azure storage account create` pour transmettre l’emplacement du compte, le groupe de ressources qui le contrôle, ainsi que le type de support de stockage souhaité.
 
 ```bash
 azure storage account create \  
@@ -275,7 +276,7 @@ azure storage account create \
 computeteststore
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command storage account create
@@ -305,14 +306,14 @@ data:
 info:    group show command OK
 ```
 
-Utilisons l’outil [jq](https://stedolan.github.io/jq/) (vous pouvez analyser la sortie JSON avec **jsawk** ou toute bibliothèque de langage de votre choix) avec l’option d’interface de ligne de commande Azure `--json` pour examiner notre groupe de ressources à l’aide de la commande `azure group show`.
+Nous allons utiliser l’outil [jq](https://stedolan.github.io/jq/) avec l`--json`’option de ligne de commande Azure pour examiner notre groupe de ressources à l’aide de la commande `azure group show`. (Vous pouvez utiliser **jsawk** ou la bibliothèque de langue de votre choix pour analyser le fichier JSON.)
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
 ```
 
 
-Sortie
+Output:
 
 ```bash
 {
@@ -344,19 +345,19 @@ Sortie
 }
 ```
 
-Pour examiner le compte de stockage au moyen de l’interface de ligne de commande, vous devez commencer par définir les noms et clés de compte à l’aide d’une variante de la commande suivante en remplaçant le nom du compte de stockage de cet article par celui de votre propre compte.
+Pour examiner le compte de stockage à l’aide de l’interface CLI, vous devez d’abord définir les noms de comptes et les clés à l’aide d’une variante de la commande suivante. Remplacez le nom du compte de stockage dans l’exemple suivant par le nom de votre choix :
 
 ```
 AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show computeteststore --resource-group testrg --json | jq -r '.string')"
 ```
 
-Vous serez alors en mesure de visualiser facilement vos informations de stockage :
+Vous pouvez alors visualiser facilement vos informations de stockage :
 
 ```bash
 azure storage container list
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command storage container list
@@ -367,15 +368,15 @@ data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
 info:    storage container list command OK
 ```
 
-## Créer votre réseau virtuel et votre sous-réseau
+## Créer un réseau virtuel et un sous-réseau
 
-Vous devrez créer un réseau virtuel Azure et un sous-réseau dans lesquels vous pourrez installer votre machine virtuelle.
+Vous allez maintenant créer un réseau virtuel dans Azure et un sous-réseau dans lesquels vous pourrez installer vos machines virtuelles.
 
 ```bash
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network vnet create
@@ -392,13 +393,13 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Là encore, examinons la façon dont nous créons nos ressources à l’aide de l’option --json de la commande `azure group show` et de **jq**. Nous disposons maintenant d’une ressource `storageAccounts` et d’une ressource `virtualNetworks`.
+Là encore, nous allons utiliser l’option --json de la commande `azure group show` et de **jq** pour examiner la façon dont nous créons nos ressources. Nous disposons maintenant d’une ressource `storageAccounts` et d’une ressource `virtualNetworks`.
 
 ```bash
 azure group show TestRG --json | jq '.'
 ```
 
-Sortie
+Output:
 
 ```bash
 {
@@ -437,13 +438,13 @@ Sortie
 }
 ```
 
-À présent, créons dans le réseau virtuel `TestVnet` un sous-réseau dans lequel les machines virtuelles seront déployées. Nous utilisons la commande `azure network vnet subnet create` avec les ressources que nous avons créées précédemment (le groupe de ressources `TestRG` et le réseau virtuel `TestVNet`), et nous ajoutons le nom de sous-réseau `FrontEnd` et le préfixe d’adresse de sous-réseau `192.168.1.0/24`, comme ci-dessous.
+À présent, créons dans le réseau virtuel `TestVnet` un sous-réseau dans lequel les machines virtuelles seront déployées. Nous allons utiliser la commande `azure network vnet subnet create` ainsi que les ressources que nous avons déjà créées : le groupe de ressources `TestRG` et le réseau virtuel `TestVNet`. Nous ajouterons ensuite le nom du sous-réseau `FrontEnd` et le préfixe d’adresse de sous-réseau `192.168.1.0/24`, comme suit :
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network vnet subnet create
@@ -459,13 +460,13 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Étant donné que le sous-réseau figure logiquement à l’intérieur du réseau virtuel, nous allons examiner les informations de sous-réseau avec une commande -- `azure network vnet show` légèrement différente, mais nous continuerons d’examiner la sortie JSON avec **jq**.
+Étant donné que le sous-réseau figure logiquement à l’intérieur du réseau virtuel, nous allons examiner les informations de sous-réseau avec une commande légèrement différente. Nous utiliserons la commande `azure network vnet show` mais continuerons à examiner la sortie JSON à l’aide de **jq**.
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
 ```
 
-Sortie
+Output:
 
 ```bash
 {
@@ -496,15 +497,15 @@ Sortie
 }
 ```
 
-## Créer votre adresse IP publique (PIP)
+## Créer une adresse IP publique (PIP)
 
-À présent, créons votre adresse IP publique que nous attribuerons à votre équilibreur de charge et qui vous permettra de vous connecter à vos machines virtuelles à partir d’Internet en utilisant la commande `azure network public-ip create`. Étant donné que la valeur par défaut est une adresse dynamique, nous créons une entrée DNS nommée dans le domaine **cloudapp.azure.com** à l’aide de l’option `-d testsubdomain`.
+Nous allons maintenant créer l’adresse IP publique (PIP) que nous attribuerons à votre équilibreur de charge. Elle permet de vous connecter à vos machines virtuelles depuis Internet à l’aide de la commande `azure network public-ip create`. Étant donné que la valeur par défaut est une adresse dynamique, nous créons une entrée DNS nommée dans le domaine **cloudapp.azure.com** à l’aide de l’option `-d testsubdomain`.
 
 ```bash
 azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network public-ip create
@@ -529,7 +530,7 @@ Puisqu’il s’agit également d’une ressource de niveau supérieur, vous pou
 azure group show TestRG --json | jq '.'
 ```
 
-Sortie
+Output:
 
 ```bash
 {
@@ -582,13 +583,13 @@ Sortie
 }
 ```
 
-Et, comme toujours, vous pouvez examiner les détails de la ressource, y compris le nom de domaine complet du sous-domaine, en utilisant la commande `azure network public-ip show` plus complète. Notez que la ressource d’adresse IP publique a été allouée de façon logique, mais qu’aucune adresse spécifique n’est encore affectée. Pour effectuer cette opération, vous aurez besoin d’un équilibreur de charge, que nous n’avons pas encore créé.
+Vvous pouvez examiner les détails de la ressource, y compris le nom de domaine complet du sous-domaine, en utilisant la commande `azure network public-ip show` plus complète. Notez que la ressource d’adresse IP publique a été allouée de façon logique, mais qu’aucune adresse spécifique n’est encore affectée. Pour effectuer cette opération, vous aurez besoin d’un équilibreur de charge, que nous n’avons pas encore créé.
 
 ```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
 ```
 
-Sortie
+Output:
 
 ```bash
 {
@@ -607,8 +608,8 @@ Sortie
 }
 ```
 
-## Créer votre équilibreur de charge et des pools d’adresses IP
-Créer un équilibreur de charge vous permet de répartir le trafic entre plusieurs machines virtuelles, comme lors de l’exécution d’applications web. Cela assure également la redondance de votre application en exécutant plusieurs machines virtuelles qui répondent aux demandes des utilisateurs en cas de maintenance ou de lourde charge.
+## Créer un équilibreur de charge et des pools d’adresses IP
+Lorsque vous créez un équilibreur de charge, celui-ci vous permet de répartir le trafic entre plusieurs machines virtuelles. Cette opération est possible lors de l’exécution des applications web, par exemple. Cela assure également la redondance de votre application en exécutant plusieurs machines virtuelles qui répondent aux demandes des utilisateurs en cas de maintenance ou de lourdes charges.
 
 Nous créons notre équilibreur de charge avec :
 
@@ -620,7 +621,7 @@ azure network lb create -g TestRG -n TestLB -l westeurope
 azure network lb create -g TestRG -n TestLB -l westeurope
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network lb create
@@ -633,7 +634,7 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Notre équilibreur de charge est relativement vide. Nous allons donc créer des pools d’adresses IP. Nous souhaitons créer deux pools d’adresses IP pour notre équilibreur de charge : un pool frontal et un pool principal. Le pool d’adresses IP frontal désigne ce qui est visible publiquement et l’endroit où nous allons affecter le pool d’adresses IP créé précédemment. Nous utiliserons ensuite le pool principal pour que nos machines virtuelles puissent se connecter afin que le trafic traverse l’équilibreur de charge pour y accéder.
+Notre équilibreur de charge est relativement vide. Nous allons donc créer des pools d’adresses IP. Nous souhaitons créer deux pools d’adresses IP pour notre équilibreur de charge : une pour le pool frontal et une pour le pool principal. Le pool d’adresses IP frontal sera visible au public. C’est également l’emplacement où vous devez entrer l’adresse PIP que nous avons créée précédemment. Nous utiliserons le pool principal comme l’emplacement auquel nos machines virtuelles se connecteront. Ainsi, le trafic peut transiter via l’équilibreur de charge vers les machines virtuelles.
 
 Commençons tout d’abord par créer notre pool d’adresses IP frontal :
 
@@ -641,7 +642,7 @@ Commençons tout d’abord par créer notre pool d’adresses IP frontal :
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network lb frontend-ip create
@@ -663,7 +664,7 @@ Nous allons maintenant créer notre deuxième pool d’adresses IP pour le trafi
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network lb address-pool create
@@ -674,13 +675,13 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-Nous pouvons vérifier la façon dont notre équilibreur de charge apparaît avec `azure network lb show` et examine la sortie JSON :
+Nous pouvons vérifier la façon dont notre équilibreur de charge apparaît avec `azure network lb show` et en examinant la sortie JSON :
 
 ```bash
 azure network lb show TestRG TestLB --json | jq '.'
 ```
 
-Sortie
+Output:
 
 ```bash
 {
@@ -719,14 +720,14 @@ Sortie
 }
 ```
 
-## Créer vos règles NAT d’équilibreur de charge
+## Créer des règles NAT d’équilibreur de charge
 Pour que le trafic transite par notre équilibreur de charge, nous devons créer des règles NAT spécifiant les actions entrantes ou sortantes. Vous pouvez spécifier le protocole utilisé, puis mapper les ports externes aux ports internes comme vous le souhaitez. Pour notre environnement, nous allons créer des règles autorisant SSH à accéder à nos machines virtuelles par le biais de notre équilibreur de charge. Nous allons configurer les ports TCP 4222 et 4223 de manière à orienter le trafic vers le port TCP 22 sur nos machines virtuelles (que nous créerons plus tard) :
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network lb inbound-nat-rule create
@@ -752,14 +753,14 @@ Répétez cette procédure pour votre deuxième règle NAT pour le protocole SSH
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Nous allons maintenant créer une règle NAT pour le port TCP 80, en liant la règle à nos pools d’adresses IP. Au lieu de lier la règle à nos machines virtuelles de manière individuelle, nous pouvons simplement ajouter ou supprimer des machines virtuelles du pool d’adresses IP et faire en sorte que l’équilibreur de charge ajuste automatiquement le flux de trafic :
+Nous allons maintenant créer une règle NAT pour le port TCP 80, en liant la règle à nos pools d’adresses IP. En procédant ainsi, au lieu de lier la règle à nos machines virtuelles individuellement, nous pouvons simplement ajouter ou supprimer des machines virtuelles du pool d’adresses IP. L’équilibreur de charge ajuste alors automatiquement le flux de trafic :
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
      -t TestFrontEndPool -o TestBackEndPool
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network lb rule create
@@ -781,15 +782,15 @@ data:    Backend address pool id         : /subscriptions/guid/resourceGroups/Te
 info:    network lb rule create command OK
 ```
 
-## Créer votre sonde d’intégrité d’équilibreur de charge
+## Créer une sonde d’intégrité d’équilibreur de charge
 
-Une sonde d’intégrité contrôle régulièrement les machines virtuelles situées derrière notre équilibreur de charge pour s’assurer qu’elles fonctionnent correctement et répondent aux demandes, telles que définies. Dans le cas contraire, elles seront supprimées du processus pour garantir que les utilisateurs ne seront pas orientés vers elles. Vous pouvez définir les contrôles personnalisés de la sonde d’intégrité, ainsi que des valeurs d’intervalle et de délai d’attente. Pour plus d’informations sur les sondes d’intégrité, consultez la section [Sondes d’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md).
+Une sonde d’intégrité contrôle régulièrement les machines virtuelles situées derrière notre équilibreur de charge pour s’assurer qu’elles fonctionnent correctement et répondent aux demandes, telles que définies. Dans le cas contraire, elles sont supprimées du processus pour garantir que les utilisateurs ne sont pas orientés vers elles. Vous pouvez définir les contrôles personnalisés de la sonde d’intégrité, ainsi que des valeurs d’intervalle et de délai d’attente. Pour plus d'informations sur les sondes d’intégrité, consultez [Sondes d’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command network lb probe create
@@ -805,10 +806,16 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-Ici, nous avons spécifié un intervalle de 15 secondes pour nos contrôles d’intégrité et nous pouvons manquer jusqu’à 4 sondes (1 minute) avant que l’équilibreur de charge ne considère que l’hôte n’est plus opérationnel.
+Ici, nous avons spécifié un intervalle de 15 secondes pour nos contrôles d’intégrité et nous pouvons manquer jusqu’à quatre sondes (une minute) avant que l’équilibreur de charge ne considère que l’hôte n’est plus opérationnel.
 
-## Vérifier votre équilibreur de charge
-La configuration de l’équilibreur de charge est maintenant terminée. Vous avez créé un équilibreur de charge et un pool d’adresses IP frontal auquel vous avez affecté une adresse IP publique, puis vous avez créé un pool d’adresses IP principal auquel les machines virtuelles seront connectées. Ensuite, vous avez créé des règles NAT qui vont autoriser le protocole SSH pour les machines virtuelles à des fins de gestion, ainsi qu’une règle autorisant le port TCP 80 de notre application web. Enfin, pour vous assurer que nos utilisateurs ne tentent pas d’accéder à une machine virtuelle qui ne fonctionne plus et ne diffuse plus de contenu, vous avez ajouté une sonde d’intégrité afin de vérifier régulièrement les machines virtuelles.
+## Vérifier l’équilibreur de charge
+Vérifiez maintenant que la configuration de l’équilibreur de charge est terminée. Voici la procédure que vous avez suivie :
+
+1. Vous avez tout d’abord créé un équilibreur de charge.
+2. Puis vous avez créé un pool d’adresses IP frontal et lui avez affecté une adresse IP publique.
+3. Vous avez ensuite créé un pool d’adresses IP principal auquel les machines virtuelles peuvent se connecter.
+4. Après cela, vous avez créé des règles NAT qui autorisent le protocole SSH pour les machines virtuelles à des fins de gestion, ainsi qu’une règle autorisant le port TCP 80 de notre application web.
+5. Enfin, vous avez ajouté une sonde d’intégrité pour vérifier périodiquement les machines virtuelles. Vous évitez ainsi que les utilisateurs n’essaient d’accéder à une machine virtuelle qui ne fonctionne plus ou qui ne propose plus de contenu.
 
 Regardons maintenant à quoi ressemble votre équilibreur de charge :
 
@@ -816,7 +823,7 @@ Regardons maintenant à quoi ressemble votre équilibreur de charge :
 azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
-Sortie
+Output:
 
 ```bash
 {
@@ -935,7 +942,7 @@ Sortie
 
 ## Créer une carte d’interface réseau (NIC) à utiliser avec la machine virtuelle Linux
 
-La disponibilité des NIC elles-mêmes peut être déterminée par programme, car vous pouvez avoir plusieurs NIC et définir des règles régissant leur utilisation. Notez que dans la commande `azure network nic create` suivante, vous avez lié notre carte d’interface réseau au pool d’adresses IP principal de charge et avez procédé à l’association avec notre règle NAT pour autoriser le trafic SSH. Pour ce faire, vous devez spécifier votre ID d’abonnement Azure à la place de `<GUID>` :
+ La disponibilité des cartes d’interface réseau peut être déterminée par programme car vous pouvez définir des règles régissant leur utilisation. Vous pouvez également avoir plusieurs cartes. Notez que dans la commande `azure network nic create` suivante, vous avez lié la carte d’interface réseau au pool d’adresses IP principal de charge et l’avez associée avec la règle NAT pour autoriser le trafic SSH. Pour ce faire, vous devez spécifier votre ID d’abonnement Azure à la place de `<GUID>` :
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -943,9 +950,9 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
      -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 ```
 
-Sortie
+Output:
 
-```bash 
+```bash
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -970,13 +977,13 @@ data:
 info:    network nic create command OK
 ```
 
-Vous pouvez visualiser les détails de la ressource en examinant directement cette dernière à l’aide de la commande `azure network nic show`.
+Vous pouvez visualiser les détails de la ressource en examinant directement cette dernière. Pour ce faire, utilisez la commande `azure network nic show` :
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
 ```
 
-Sortie
+Output:
 
 ```bash
 {
@@ -1018,7 +1025,7 @@ Sortie
 }
 ```
 
-Voyons maintenant comment créer la deuxième carte d’interface réseau, en effectuant une nouvelle liaison avec notre pool d’adresses IP principal et notre second ensemble de règles NAT pour autoriser le trafic SSH :
+Nous allons maintenant créer la deuxième carte réseau en la liant à nouveau à notre pool d’adresses IP principal. Cette fois, la deuxième règle NAT autorise le trafic SSH :
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -1026,9 +1033,9 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
-## Créer votre Groupe de sécurité réseau et les règles associées
+## Créer un groupe de sécurité réseau et les règles associées
 
-Nous allons à présent créer votre groupe de sécurité réseau et les règles de trafic entrant qui régissent l’accès à la carte réseau.
+Nous allons à présent créer votre groupe de sécurité réseau (NSG) et les règles de trafic entrant qui régissent l’accès à la carte réseau.
 
 ```bash
 azure network nsg create TestRG TestNSG westeurope
@@ -1046,7 +1053,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] La règle de trafic entrant est un filtre pour les connexions réseau entrantes. Dans cet exemple, nous allons lier le NSG à la carte d’interface réseau virtuelle des machines virtuelles, ce qui signifie que toute demande adressée au port 22 sera transmise par l’intermédiaire de la carte d’interface réseau sur notre machine virtuelle. Étant donné qu’il s’agit d’une règle concernant une connexion réseau, et non un point de terminaison comme dans les déploiements classiques, afin d’ouvrir un port, vous devez laisser la commande `--source-port-range` définie sur « * » (valeur par défaut) afin d’accepter les demandes entrantes à partir de **tous** les ports demandeurs, qui sont généralement dynamiques.
+> [AZURE.NOTE] La règle de trafic entrant est un filtre pour les connexions réseau entrantes. Dans cet exemple, nous lions le NSG à la carte d’interface réseau (NIC) virtuelle des machines virtuelles, ce qui signifie que toute demande adressée au port 22 sera transmise par l’intermédiaire de la carte d’interface réseau sur notre machine virtuelle. Cette règle concerne une connexion réseau, et non à un point de terminaison comme dans le cas de déploiements classiques. Cela signifie que, pour ouvrir un port, vous devez laisser la commande `--source-port-range` définie sur '*' (valeur par défaut) afin d’accepter les demandes entrantes de **tous** les ports demandeurs. Ces ports sont généralement dynamiques.
 
 ## Liaison avec la carte d’interface réseau
 
@@ -1061,7 +1068,7 @@ azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
 ## Créer un groupe à haute disponibilité
-Les groupes à haute disponibilité aident à diffuser vos machines virtuelles sur ce que l’on appelle des domaines d’erreur et des domaines de mise à niveau. Nous allons maintenant voir comment créer un groupe à haute disponibilité pour vos machines virtuelles :
+Les groupes à haute disponibilité aident à diffuser vos machines virtuelles sur des domaines d’erreur et des domaines de mise à niveau. Nous allons maintenant voir comment créer un groupe à haute disponibilité pour vos machines virtuelles :
 
 ```bash
 azure availset create -g TestRG -n TestAvailSet -l westeurope
@@ -1069,17 +1076,24 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 
 Les domaines d’erreur désignent un groupe de machines virtuelles partageant une source d’alimentation et un commutateur réseau communs. Par défaut, les machines virtuelles configurées dans votre groupe à haute disponibilité sont réparties entre trois domaines de défaillance au maximum. Ainsi, en cas de problème matériel dans l’un de ces domaines d’erreur, toutes les machines virtuelles exécutant votre application n’en seront pas affectées. Azure distribue automatiquement les machines virtuelles sur les domaines d’erreur lorsque vous les placez dans un groupe à haute disponibilité.
 
-Les domaines de mise à niveau indiquent les groupes de machines virtuelles et les équipements physiques sous-jacents pouvant être redémarrés en même temps. L’ordre de redémarrage des domaines de mise à jour ne peut être traité de manière séquentielle au cours de la maintenance planifiée, mais les mises à jour seront redémarrées une par une. Cette fois encore, Azure distribue automatiquement vos machines virtuelles entre les domaines de mise à niveau lorsqu’elles se trouvent dans un site de disponibilité.
+Les domaines de mise à niveau indiquent les groupes de machines virtuelles et les équipements physiques sous-jacents pouvant être redémarrés en même temps. L’ordre de redémarrage des domaines de mise à jour peut ne pas être séquentiel au cours de la maintenance planifiée, mais les mises à jour seront redémarrées une par une. Cette fois encore, Azure distribue automatiquement vos machines virtuelles entre les domaines de mise à niveau lorsque vous les placez dans un site de disponibilité.
 
-Vous pouvez obtenir des informations supplémentaires sur [la gestion de la disponibilité des machines virtuelles](./virtual-machines-linux-manage-availability.md)
+Vous pouvez obtenir des informations supplémentaires sur [la gestion de la disponibilité des machines virtuelles](./virtual-machines-linux-manage-availability.md).
 
-## Créer vos machines virtuelles Linux
+## Créer les machines virtuelles Linux
 
-Vous avez créé les ressources de stockage et de réseau pour prendre en charge des machines virtuelles accessibles par Internet. Créons maintenant ces machines virtuelles et sécurisons-les avec une clé SSH sans mot de passe. Dans ce cas précis, nous allons créer une machine virtuelle Ubuntu basée sur la dernière version LTS. Nous rechercherons les informations de cette image en utilisant `azure vm image list`, comme décrit dans [Recherche d’images de machine virtuelle Azure](virtual-machines-linux-cli-ps-findimage.md). Nous avons sélectionné une image à l’aide de la commande `azure vm image list westeurope canonical | grep LTS`, et dans ce cas précis, nous utiliserons `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`. Toutefois, pour le dernier champ, nous transmettrons `latest`, ce qui nous permettra d’obtenir systématiquement la build la plus récente à l’avenir (nous utiliserons la chaîne `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
+Vous avez créé les ressources de stockage et de réseau pour prendre en charge des machines virtuelles accessibles par Internet. Créons maintenant ces machines virtuelles et sécurisons-les avec une clé SSH sans mot de passe. Dans ce cas précis, nous allons créer une machine virtuelle Ubuntu basée sur la dernière version LTS. Nous rechercherons les informations de cette image en utilisant `azure vm image list`, comme décrit dans [Recherche d’images de machine virtuelle Azure](virtual-machines-linux-cli-ps-findimage.md).
 
-> [AZURE.NOTE] Cette étape est familière à toute personne ayant déjà créé une paire de clés publique et privée SSH RSA sur Linux ou Mac à l’aide de la commande **ssh-keygen -t rsa -b 2048**. Si vous ne disposez pas de toutes les paires de clés de certificat dans votre répertoire `~/.ssh`, vous pouvez les créer de deux manières : <br /> 1. automatiquement à l’aide de l’option `azure vm create --generate-ssh-keys` ; 2. manuellement en suivant [les instructions pour les créer vous-même](virtual-machines-linux-ssh-from-linux.md). <br /> Vous pouvez également utiliser les options `azure vm create --admin-username --admin-password` pour utiliser la méthode généralement moins sécurisée d’authentification de vos connexions SSH par nom d’utilisateur et mot de passe une fois la machine virtuelle créée.
+Nous avons sélectionné une image à l’aide de la commande `azure vm image list westeurope canonical | grep LTS`. Dans ce cas, nous allons utiliser `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`. Pour le dernier champ, nous allons passer `latest` afin de toujours obtenir la build la plus récente. (La chaîne que nous utilisons sera `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
 
-Nous créons la machine virtuelle en regroupant toutes nos ressources et informations avec la commande `azure vm create`.
+Cette étape est familière à toute personne ayant déjà créé une paire de clés publique et privée SSH RSA sur Linux ou Mac à l’aide de la commande **ssh-keygen -t rsa -b 2048**. Si vous ne disposez pas de toutes les paires de clés de certificat dans votre répertoire `~/.ssh`, vous pouvez les créer ainsi :
+
+- Automatiquement à l’aide de l’option `azure vm create --generate-ssh-keys`.
+- Manuellement en suivant [les instructions pour les créer vous-même](virtual-machines-linux-ssh-from-linux.md).
+
+Vous pouvez également utiliser la méthode --admin-password pour authentifier vos connexions SSH une fois la machine virtuelle créée. Cette méthode est généralement moins sécurisée.
+
+Nous créons la machine virtuelle en regroupant toutes nos ressources et informations avec la commande `azure vm create` :
 
 ```bash
 azure vm create \            
@@ -1097,7 +1111,7 @@ azure vm create \
     --admin-username ops
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command vm create
@@ -1116,13 +1130,13 @@ info:    The storage URI 'https://computeteststore.blob.core.windows.net/' will 
 info:    vm create command OK
 ```
 
-Immédiatement, vous pouvez vous connecter à votre machine virtuelle à l’aide de vos clés SSH par défaut, en veillant à spécifier le port approprié dans la mesure où nous transitons par l’équilibreur de charge (pour notre première machine virtuelle, nous configurons la règle NAT pour transférer le port 4222 vers notre machine virtuelle) :
+Vous pouvez alors vous connecter immédiatement à votre machine virtuelle à l’aide de vos clés SSH par défaut. Assurez-vous de spécifier le port approprié dans la mesure où nous transitions par l’équilibreur de charge. (Pour notre première machine virtuelle, nous configurons la règle NAT pour transférer le port 4222 vers votre machine virtuelle) :
 
 ```bash
  ssh ops@testlb.westeurope.cloudapp.azure.com -p 4222
 ```
 
-Sortie
+Output:
 
 ```bash
 The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1177,13 +1191,13 @@ azure vm create \
     --admin-username ops
 ```
 
-Et vous pouvez à présent utiliser la commande `azure vm show testrg testvm` pour examiner ce que vous avez créé. À ce stade, vos machines virtuelles Ubuntu opérationnelles se trouvent derrière un équilibreur de charge dans Azure auquel vous pouvez uniquement vous connecter avec la paire de clés SSH que vous possédez ; les mots de passe sont désactivés. Vous pouvez installer nginx ou httpd et déployer une application web et voir le flux de trafic transitant par l’équilibreur de charge vers toutes les machines virtuelles.
+Et vous pouvez à présent utiliser la commande `azure vm show testrg testvm` pour examiner ce que vous avez créé. À ce stade, vous exécutez vos machines virtuelles Ubuntu derrière un équilibreur de charge dans Azure auquel vous pouvez uniquement vous connecter avec votre paire de clés SSH (car les mots de passe sont désactivés). Vous pouvez installer nginx ou httpd, déployer une application web et voir le flux de trafic transitant par l’équilibreur de charge vers toutes les machines virtuelles.
 
 ```bash
 azure vm show TestRG TestVM1
 ```
 
-Sortie
+Output:
 
 ```bash
 info:    Executing command vm show
@@ -1241,13 +1255,13 @@ info:    vm show command OK
 
 
 ## Exportation de l’environnement en tant que modèle
-Maintenant que vous avez créé cet environnement, que se passe-t-il si vous souhaitez créer un environnement de développement supplémentaire avec les mêmes paramètres ou si vous souhaitez maintenant créer un environnement de production correspondant ? Resource Manager utilise des modèles JSON qui définissent tous les paramètres pour votre environnement, ce qui vous permet de développer des environnements entiers en faisant référence à ce modèle JSON. Vous pouvez [créer manuellement des modèles JSON](../resource-group-authoring-templates.md) ou exporter simplement un environnement existant qui créera le modèle JSON pour vous :
+Maintenant que vous avez créé cet environnement, que se passe-t-il si vous souhaitez créer un environnement de développement supplémentaire avec les mêmes paramètres ou un environnement de production correspondant ? Resource Manager utilise des modèles JSON qui définissent tous les paramètres pour votre environnement. Cela signifie que vous pouvez créer des environnements entiers en faisant référence à ce modèle JSON. Vous pouvez [créer manuellement des modèles JSON](../resource-group-authoring-templates.md) ou exporter simplement un environnement existant qui créera le modèle JSON pour vous :
 
 ```bash
 azure group export TestRG
 ```
 
-Le fichier `TestRG.json` est créé dans votre répertoire de travail actuel. Lorsque vous créez ensuite un nouvel environnement à partir de ce modèle, vous êtes invité à fournir tous les noms des ressources comme pour l’équilibreur de charge, les interfaces réseau, les machines virtuelles, etc. Vous pouvez remplir ces éléments dans votre fichier de modèle en ajoutant `-p` ou `--includeParameterDefaultValue` à la commande `azure group export` indiquée ci-dessus, en modifiant votre modèle JSON pour spécifier les noms des ressources ou en [créant un fichier parameters.json](../resource-group-authoring-templates.md#parameters) qui spécifie uniquement les noms des ressources.
+Le fichier `TestRG.json` est créé dans votre répertoire de travail actuel. Lorsque vous créez un nouvel environnement à partir de ce modèle, vous êtes invité à fournir tous les noms des ressources, y compris ceux de l’équilibreur de charge, des interfaces réseau, des machines virtuelles, etc. Vous pouvez remplir ces éléments dans votre fichier de modèle en ajoutant `-p` ou `--includeParameterDefaultValue` à la commande `azure group export` indiquée ci-dessus. Modifiez votre modèle JSON pour spécifier les noms de ressources, ou [créez un fichier parameters.json](../resource-group-authoring-templates.md#parameters) qui spécifie les noms de ressources.
 
 Pour créer un nouvel environnement à partir de votre modèle :
 
@@ -1255,10 +1269,10 @@ Pour créer un nouvel environnement à partir de votre modèle :
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
 ```
 
-Vous pouvez lire la section contenant [plus de détails sur le déploiement à partir de modèles](../resource-group-template-deploy-cli.md), notamment comment mettre à jour des environnements de manière incrémentielle, utiliser le fichier de paramètres et accéder aux modèles à partir d’un emplacement de stockage unique.
+Vous pouvez lire la section contenant [plus de détails sur le déploiement à partir de modèles](../resource-group-template-deploy-cli.md). Découvrez notamment comment mettre à jour des environnements de manière incrémentielle, utiliser le fichier de paramètres et accéder aux modèles à partir d’un emplacement de stockage unique.
 
 ## Étapes suivantes
 
 Vous voici en mesure de commencer à utiliser plusieurs composants réseau et machines virtuelles. Vous pouvez utiliser cet exemple d’environnement pour générer votre application en utilisant les composants de base présentés ici.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

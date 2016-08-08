@@ -81,7 +81,7 @@ L’espace total requis à ce stade au niveau local est de : 240 Go + 120 Go + 3
 
 Deuxièmement, nous avons besoin d’au moins autant d’espace au niveau local que la réservation unique la plus grande. Ce montant supplémentaire est utilisé au cas où il serait nécessaire d’effectuer une restauration à partir d’un instantané cloud. Dans cet exemple, la plus grande réservation locale est de 330 Go (y compris la réservation pour le système de fichiers), donc vous devez l’ajouter aux 660 Go : 660 Go + 330 Go = 990 Go. Si nous avons effectué des restaurations supplémentaires ultérieures, nous pouvons toujours libérer l’espace utilisé pour l’opération de restauration précédente.
 
-Troisièmement, nous aurons besoin de 15 % de votre espace local total jusqu’ici pour stocker les instantanés locaux, si bien que 85 % de celui-ci sera disponible. Dans cet exemple, cela représente environ 990 Go = 0,85*To du disque de données configuré. Par conséquent, le disque de données configuré aurait une taille de (990*(1/0,85)) = 1320 Go = 1,16 To ~ 1,25 To (en arrondissant au quartile le plus proche)
+Troisièmement, nous aurons besoin de 15 % de votre espace local total jusqu’ici pour stocker les instantanés locaux, si bien que 85 % de celui-ci sera disponible. Dans cet exemple, cela représente environ 990 Go = 0,85*To du disque de données configuré. Par conséquent, le disque de données configuré aurait une taille de (990*(1/0,85)) = 1164 Go = 1,16 To ~ 1,25 To (en arrondissant au quartile le plus proche)
 
 En tenant compte de la croissance inattendue et de nouvelles restaurations, vous devez configurer un disque local d’environ 1,25 - 1,5 To.
 
@@ -350,4 +350,4 @@ Il peut être nécessaire de déployer plusieurs baies virtuelles pour prendre e
 ## Voir aussi
 Découvrez la [gestion de votre baie virtuelle StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) par le biais du service StorSimple Manager.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

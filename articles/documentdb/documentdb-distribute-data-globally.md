@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/25/2016"
    ms.author="kipandya"/>
    
    
 # Distribution mondiale des données avec DocumentDB
+
+> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
 
 Azure DocumentDB est conçu pour satisfaire les exigences des applications IoT, notamment les millions d’appareils et applications Internet distribués mondialement qui permettent aux utilisateurs de vivre des expériences hautement réactives dans le monde entier. Ces systèmes de base de données doivent relever le défi d’un accès à faible latence aux données d’application à partir de plusieurs zones géographiques avec des garanties de cohérence et de disponibilité des données bien définies. DocumentDB est un système de base de données distribué mondialement qui simplifie la distribution globale de données en gérant complètement les comptes de bases de données dans plusieurs régions qui fournissent des compromis clairs entre cohérence, disponibilité et performance, avec les garanties correspondantes. Les comptes de bases de données DocumentDB sont fournis avec des capacités de haute disponibilité, des latences en millisecondes à un seul chiffre, plusieurs [niveaux de cohérence bien définis][consistency], un basculement régional transparent avec des API d’hébergement multiple et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible.
 
@@ -79,12 +81,12 @@ Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans l
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
 [throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
+[arm]: https://azure.microsoft.com/fr-FR/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/regions/#services
+[serviceregions]: https://azure.microsoft.com/fr-FR/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

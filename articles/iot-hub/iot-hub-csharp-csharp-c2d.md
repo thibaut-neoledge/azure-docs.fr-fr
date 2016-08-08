@@ -79,7 +79,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
 > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
-## Envoi d’un message cloud-à-appareil à partir du serveur principal de l’application
+## Envoi d’un message cloud vers appareil
 
 Dans cette section, vous allez écrire une application console Windows qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé.
 
@@ -198,4 +198,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -71,7 +71,7 @@ Utilisez l’action Configurer la reformation pour configurer la reformation pon
  
 Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus de sortie du service Web (par exemple, si vous utilisez un module Enregistreur pour écrire dans une base de données à partir de l'expérience dans le Studio).
 
-**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
+**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
 
 ![][7]
 
@@ -88,4 +88,4 @@ Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus d
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

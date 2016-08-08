@@ -141,11 +141,11 @@ Cette section répertorie quelques scénarios typiques de groupe de machines vir
 
 **Q.** Si je réduis ma capacité de groupe de machines virtuelles identiques de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?
 
-**A.** Les machines virtuelles sont supprimées du groupe uniformément entre les domaines de mise à niveau et les domaines d’erreur pour optimiser la disponibilité.
+**A.** Les machines virtuelles sont supprimées du groupe uniformément entre les domaines de mise à niveau et les domaines d’erreur pour optimiser la disponibilité. Les machines virtuelles avec les ID les plus élevés sont supprimées en premier.
 
 **Q.** Que diriez-vous si j’augmente par la suite la capacité de 15 à 18 ?
 
-**A.** Si vous augmentez jusqu’à 18, des machines virtuelles avec index 15, 16, 17 seront créées. Dans les deux cas, les machines virtuelles sont réparties entre FD et UD.
+**A.** Si vous augmentez la capacité à 18, 3 machines virtuelles seront créées. À chaque fois, l’ID d’instance de la machine virtuelle sera incrémentée avec la valeur la plus élevée précédente (par exemple, 20, 21, 22). Les machines virtuelles sont réparties entre FD et UD.
 
 **Q.** Lorsque vous utilisez plusieurs extensions dans un groupe de machines virtuelles identiques, puis-je appliquer une séquence d’exécution ?
 
@@ -155,4 +155,4 @@ Cette section répertorie quelques scénarios typiques de groupe de machines vir
 
 **A.** Oui. Un groupe de machines virtuelles identiques est un groupe à haute disponibilité implicite avec 5 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Dans les futures versions, les groupes de machines virtuelles identiques peuvent s’étendre sur plusieurs clients, mais dans l’immédiat, un groupe identique est un groupe à haute disponibilité unique.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

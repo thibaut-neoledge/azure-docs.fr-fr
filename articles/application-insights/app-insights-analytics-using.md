@@ -21,12 +21,12 @@
 
 [Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
+* **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
 
 ## Ouverture de la fonctionnalité Analytics
 
-À partir de la ressource de base de votre application dans Application Insights, cliquez sur Analytics.
-
-![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics-using/001.png)
+À partir de la ressource de base de votre application dans Application Insights, cliquez sur Analytics. ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics-using/001.png)
 
 Le didacticiel en ligne vous donne quelques idées sur les possibilités qui vous sont offertes.
 
@@ -38,9 +38,9 @@ Vous pouvez cependant consulter [ici une présentation approfondie](app-insights
 
 ![](./media/app-insights-analytics-using/150.png)
 
-Commencez avec les noms des tables répertoriées sur la gauche (ou les opérateurs [range](app-insights-analytics-reference.md#range-operator) (plage) ou [union](app-insights-analytics-reference.md#union-operator)). Utilisez `|` pour créer un pipeline [d’opérateurs](app-insights-analytics-reference.md#queries-and-operators). IntelliSense vous indique les opérateurs et certains éléments d’expression que vous pouvez utiliser.
+Commencez par les noms des tables répertoriées sur la gauche (ou les opérateurs [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Utilisez `|` pour créer un pipeline [d’opérateurs](app-insights-analytics-reference.md#queries-and-operators). IntelliSense vous indique les opérateurs et certains éléments d’expression que vous pouvez utiliser.
 
-Consultez la [vue d’ensemble du langage Analytique](app-insights-analytics-tour.md) et la [référence de langage](app-insights-analytics-reference.md).
+Consultez la [vue d’ensemble du langage d’Analytics](app-insights-analytics-tour.md) et les [informations de référence sur le langage](app-insights-analytics-reference.md).
 
 ### Exécution d’une requête
 
@@ -74,7 +74,7 @@ Vous pouvez trier, filtrer, paginer et regrouper les résultats retournés par v
 
 > [AZURE.NOTE] Le tri, le regroupement et le filtrage dans le navigateur ne réexécute pas votre requête. Ils réorganisent uniquement les résultats retournés par votre dernière requête.
 > 
-> Pour exécuter ces tâches sur le serveur avant que les résultats ne soient renvoyés, écrivez votre requête avec les opérateurs [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) et [where](app-insights-analytics-reference.md#where-operator).
+> Pour exécuter ces tâches sur le serveur avant que les résultats ne soient retournés, écrivez votre requête avec les opérateurs [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) et [where](app-insights-analytics-reference.md#where-operator).
 
 Choisissez les colonnes que vous souhaitez voir, faites glisser les en-têtes de colonne pour les réorganiser et redimensionnez les colonnes en faisant glisser ses bordures.
 
@@ -121,6 +121,8 @@ Si vous disposez de plusieurs colonnes de types appropriés, vous pouvez choisir
 
 Par défaut, les résultats sont initialement affichés sous forme de table. Vous pouvez ensuite sélectionner le diagramme manuellement. Mais vous pouvez également utiliser la [directive render](app-insights-analytics-reference.md#render-directive) à la fin d’une requête pour sélectionner un diagramme.
 
+Vous pouvez épingler un diagramme à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Disponible uniquement pour les applications d’un niveau tarifaire payant).
+
 ## Exporter vers Excel
 
 Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. Cliquez sur **Exporter vers Excel**.
@@ -148,4 +150,4 @@ Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. C
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

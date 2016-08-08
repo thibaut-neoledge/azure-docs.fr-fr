@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="07/26/2016"
 	ms.author="larryfr"/>
 
 # Développer des programmes MapReduce en Java pour Hadoop dans HDInsight Linux
@@ -39,9 +39,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
-* **PATH** :doit contenir les chemins d’accès suivants :
+* **PATH** :doit contenir les chemins d’accès suivants :
 
 	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
@@ -248,13 +248,13 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 
 2. À partir de la session SSH, utilisez la commande suivante pour exécuter l’application MapReduce :
 
-		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
+		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/wordcountout
 
-	Elle utilise l’application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans \_\___wasb:///example/data/wordcountout__. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
+	Elle utilise l’application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans \_\_wasbs:///example/data/wordcountout__. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
 
 3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats :
 
-		hdfs dfs -cat wasb:///example/data/wordcountout/*
+		hdfs dfs -cat wasbs:///example/data/wordcountout/*
 
 	Vous devez recevoir une liste de mots et de nombres, avec des valeurs similaires à ce qui suit :
 
@@ -288,4 +288,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

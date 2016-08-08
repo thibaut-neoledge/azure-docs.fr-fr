@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/25/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory
@@ -22,7 +22,7 @@ Cet article explique comment vous pouvez utiliser l’activité de copie dans Az
 
 Les exemples suivants indiquent comment copier des données vers et depuis Azure DocumentDB et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
 
-[AZURE.NOTE] La copie de données entre Azure DocumentDB et des magasins de données locaux IaaS Azure n’est pas prise en charge actuellement. La matrice complète d’Azure DocumentDB sera également activée sous peu.
+> [AZURE.NOTE] La passerelle de gestion des données version 2.1 et versions supérieures prend en charge la copie de données à partir de magasins de données sur site/Azure IaaS vers Azure DocumentDB et vice versa.
 
 ## Exemple : copie de données à partir de DocumentDB vers un objet Blob Azure
 
@@ -401,7 +401,7 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | ------------ | --------------- | ------------------ | ------------ |
 | query | Spécifier la requête pour lire les données. | Chaîne de requête prise en charge par DocumentDB. <br/><br/>Exemple : SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | Non <br/><br/>Si cela n’est pas précisé, l’instruction SQL qui est exécutée est : sélectionner <colonnes définies dans la structure> à partir de mycollection 
-| nestingSeparator | Caractère spécial pour indiquer que le document est imbriqué. | Tout caractère. <br/><br/>DocumentDB est une banque NoSQL de documents JSON qui autorise les structures imbriquées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. | Non
+| nestingSeparator | Caractère spécial pour indiquer que le document est imbriqué. | Tout caractère. <br/><br/>DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. | Non
 
 **DocumentDbCollectionSink** prend en charge les propriétés suivantes :
 
@@ -430,4 +430,4 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Mettre à jour la version du système d’exploitation dans Azure Security Center
 
 Pour les machines virtuelles des services cloud, Azure Security Center recommande que le système d’exploitation soit mis à jour si une version plus récente est disponible. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés.
 
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la préversion d’Azure Security Center. Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
 
 ## Implémenter la recommandation
 
@@ -28,7 +28,7 @@ Pour les machines virtuelles des services cloud, Azure Security Center recommand
 
 2. Le panneau **Mettre à jour la version du système d’exploitation** s’ouvre. Suivez les étapes de ce panneau pour mettre à jour la version du système d’exploitation.
 
-## Étapes suivantes
+## Voir aussi
 
 Cet article vous a montré comment implémenter la recommandation de Security Center « Mettre à jour la version du système d’exploitation ». Pour plus d’informations sur les services cloud et la mise à jour de la version du système d’exploitation d’un service cloud, consultez :
 
@@ -49,4 +49,4 @@ Pour plus d’informations sur Security Center, consultez :
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

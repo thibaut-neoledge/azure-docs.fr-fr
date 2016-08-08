@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Activation de l’audit sur les bases de données SQL dans le Azure Security Center
@@ -24,7 +24,7 @@ Une fois que vous avez activé l’audit, vous pouvez configurer les paramètres
 
 Cette recommandation s’applique uniquement au service SQL Azure, elle ne concerne pas SQL en cours d’exécution sur vos machines virtuelles.
 
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure. Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
 
 ## Implémenter la recommandation
 
@@ -36,13 +36,13 @@ Cette recommandation s’applique uniquement au service SQL Azure, elle ne conce
 
 5. Suivez les étapes de la rubrique [Prise en main de Threat Detection pour la base de données SQL](../sql-database/sql-database-threat-detection-get-started.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
 
-## Étapes suivantes
+## Voir aussi
 
 Cet article vous a montré comment implémenter la recommandation de Security Center « Activer l’audit sur les bases de données SQL ». Pour en savoir plus sur la sécurisation de votre base de données SQL, consultez les rubriques suivantes :
 
-- [Sécurisation de votre base de données SQL](../sql-database/sql-database-security.md)
+- [Sécurisation de votre base de données SQL](../sql-database/sql-database-security.md)
 
-Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 - [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
@@ -57,4 +57,4 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 [2]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

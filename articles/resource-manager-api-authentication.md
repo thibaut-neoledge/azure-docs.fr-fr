@@ -319,7 +319,7 @@ Voici un exemple de réponse à une demande de jeton d’octroi d’informations
 
 ### Obtenir le principal de service d’application ObjectId dans l’instance Azure AD de l’utilisateur
 
-À présent, utilisez le jeton d’accès d’application uniquement pour interroger l’API des [principaux du service Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ServicePrincipalEntity) afin de déterminer l’ID objet du principal du service de l’application dans le répertoire.
+À présent, utilisez le jeton d’accès d’application uniquement pour interroger l’API des [principaux du service Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) afin de déterminer l’ID objet du principal du service de l’application dans le répertoire.
 
 La méthode [GetObjectIdOfServicePrincipalInOrganiation](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L66) de l’exemple d’application MVC ASP.net implémente cet appel.
 
@@ -444,4 +444,4 @@ La méthode [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/du
 
 Ça y est, les utilisateurs peuvent désormais se connecter et gérer facilement leurs abonnements Azure avec votre application.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

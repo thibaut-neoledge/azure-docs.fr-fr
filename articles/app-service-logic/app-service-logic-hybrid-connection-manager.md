@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -46,12 +46,12 @@ Dans le portail Azure, copiez la chaîne de connexion SAS racine de Service Bus.
 
 ## Installer le Gestionnaire de connexion hybride
 
-1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez le connecteur que vous avez créé. Pour l'ouvrir, vous pouvez sélectionner **Parcourir**, **API Apps**, puis sélectionnez le connecteur ou une application API. <br/><br/> Sous **Connexion hybride**, l'installation est **incomplète** : <br/> ![][2] 
+1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez le connecteur que vous avez créé. Pour l'ouvrir, vous pouvez sélectionner **Parcourir**, **API Apps**, puis sélectionnez le connecteur ou une application API. <br/><br/> Sous **Connexion hybride**, l'installation est **incomplète** : <br/> ![][2]
 
 2. Sélectionnez **Connexion hybride**. La chaîne de connexion Service Bus entrée précédemment est répertoriée.
 3. Copiez la **chaîne de configuration principale** : <br/> ![][PrimaryConfigString]
 
-4. Sous **Gestionnaire de connexion hybride local**, vous pouvez télécharger le Gestionnaire de connexion hybride ou l'installer directement à partir du portail. <br/><br/> Pour l'installer directement à partir du portail, accédez à votre serveur IIS local, parcourez le portail et sélectionnez **Télécharger et configurer**. <br/><br/> Pour télécharger le Gestionnaire de connexion hybride, accédez à votre serveur IIS local et accédez à l'**application ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). L'installation démarre automatiquement afin que vous puissiez l'exécuter.
+4. Sous **Gestionnaire de connexion hybride local**, vous pouvez télécharger le Gestionnaire de connexion hybride ou l'installer directement à partir du portail. <br/><br/> Pour l'installer directement à partir du portail, accédez à votre serveur IIS local, parcourez le portail et sélectionnez **Télécharger et configurer**. <br/><br/> Pour télécharger le Gestionnaire de connexion hybride, accédez à votre serveur IIS local et accédez à **l’application ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). L'installation démarre automatiquement afin que vous puissiez l'exécuter.
 
 5. Dans la fenêtre **Configuration de l'écouteur**, entrez la **chaîne de configuration principale** collée précédemment (à l'étape 3) et sélectionnez **Installer**.
 
@@ -84,19 +84,19 @@ Port du système local | Sur le système local, ouvrez le port utilisé par le s
 
 1. Sur le serveur IIS, vérifiez que le rôle Web IIS est installé et que tous les services IIS sont démarrés.
 2. Sur le serveur IIS, vérifiez que le Gestionnaire de connexion hybride est installé et en cours d'exécution :
- - Dans le Gestionnaire des services Internet (inetmgr), le site Web ***MicrosoftAzureBizTalkHybridListener*** doit être répertorié et en cours d'exécution. 
+ - Dans le Gestionnaire des services Internet (inetmgr), le site Web ***MicrosoftAzureBizTalkHybridListener*** doit être répertorié et en cours d'exécution.
  - Ce site Web utilise ***HybridListenerAppPool*** qui s'exécute comme compte utilisateur prédéfini local de *NetworkService*. Ce pool d'applications doit également être démarré.
-3. Sur le serveur IIS, vérifiez que le connecteur est installé et en cours d'exécution : 
- - Un site Web est créé pour le connecteur App Service. Par exemple, si vous avez créé un connecteur SQL, il existe un site Web ***MicrosoftSqlConnector\_nnn***. Dans le Gestionnaire des services Internet (inetmgr), confirmez que ce site Web est répertorié et démarré. 
- - Ce site Web utilise son propre pool d'applications IIS nommé ***HybridAppPoolnnn***. Ce pool d'applications s'exécute en tant que compte utilisateur prédéfini local de *NetworkService*. Ce site Web et le pool d'applications doivent tous deux être démarrés. 
+3. Sur le serveur IIS, vérifiez que le connecteur est installé et en cours d'exécution :
+ - Un site Web est créé pour le connecteur App Service. Par exemple, si vous avez créé un connecteur SQL, il existe un site Web ***MicrosoftSqlConnector\_nnn***. Dans le Gestionnaire des services Internet (inetmgr), confirmez que ce site Web est répertorié et démarré.
+ - Ce site Web utilise son propre pool d'applications IIS nommé ***HybridAppPoolnnn***. Ce pool d'applications s'exécute en tant que compte utilisateur prédéfini local de *NetworkService*. Ce site Web et le pool d'applications doivent tous deux être démarrés.
  - Parcourez le connecteur local. Par exemple, si le site Web du connecteur utilise le port 6569, accédez à http://localhost:6569. Un document par défaut n'est pas configuré, donc une `HTTP Error 403.14 - Forbidden error` est attendue.
 4. Dans le pare-feu, vérifiez que les ports TCP répertoriés dans cette rubrique sont ouverts.
 5. Examinez le système source ou de destination :
  - Certains systèmes locaux nécessitent des fichiers de dépendance supplémentaires. Par exemple, si vous vous connectez à un SAP local, certains fichiers SAP supplémentaires doivent être installés sur le serveur IIS.
  - Vérifiez la connectivité au système avec le compte de connexion. Par exemple, le port TCP utilisé par le système doit être ouvert, comme le port 1433 pour SQL Server. Le compte de connexion que vous avez entré dans le portail Azure doit avoir accès au système.
-6. Sur le serveur IIS, vérifiez les journaux des événements pour rechercher des erreurs. 
-7. Nettoyez et réinstallez le Gestionnaire de connexion hybride : 
- - Dans IIS, supprimez manuellement le site Web du connecteur et son pool d'applications. 
+6. Sur le serveur IIS, vérifiez les journaux des événements pour rechercher des erreurs.
+7. Nettoyez et réinstallez le Gestionnaire de connexion hybride :
+ - Dans IIS, supprimez manuellement le site Web du connecteur et son pool d'applications.
  - Exécutez à nouveau le Gestionnaire de connexion hybride et confirmez que vous entrez la bonne **chaîne de configuration principale** pour votre connecteur.
 
 
@@ -140,4 +140,4 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

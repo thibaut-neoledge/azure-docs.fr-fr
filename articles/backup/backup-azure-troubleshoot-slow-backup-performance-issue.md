@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="genlin"
-   manager="markgal"
+   manager="jimpark"
    editor=""/>
 
 <tags
@@ -31,6 +31,8 @@ Avant de commencer à résoudre le problème, nous vous recommandons de téléch
 
 Par ailleurs, nous vous recommandons vivement de passer en revue le [Forum aux questions sur le service Azure Backup](backup-azure-backup-faq.md) pour vous assurer que vous ne rencontrez pas des problèmes de configuration courants.
 
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
 ## Étapes de dépannage
 <a id="cause1"></a>
 ## Cause 1 : ralentissement de la sauvegarde dû à des goulots d’étranglement de performances sur l’ordinateur en cours de sauvegarde
@@ -48,7 +50,7 @@ Voici quelques compteurs de performances et plages qui peuvent être utiles pour
 |Disque logique (disque physique)--% temps d’inactivité | • 100 % à 50 % d’inactivité = sain</br>• 49 % à 20 % d’inactivité = avertissement ou surveillance</br>• 19 % à 0 % d’inactivité = critique ou hors spécifications|
 | Disque logique (disque physique)--% moy. disque s/lecture ou disque s/écriture | • 0,001 ms à 0,015 ms = sain</br>• 0,015ms à 0,025 = avertissement ou surveillance</br>• 0,026 ms ou plus = critique ou hors spécifications|
 | Disque logique (disque physique)--Taille de file d’attente du disque actuelle (pour toutes les instances) | 80 demandes pendant plus de 6 minutes |
-| Mémoire--Octets de réserve non paginée|• Moins de 60 % de la réserve utilisée = sain<br>• 61 à 80 % de la réserve utilisée = avertissement ou surveillance</br>• Plus de 80 % de la réserve utilisée = critique ou hors spécifications|
+| Mémoire--Octets de réserve non paginée|• Moins de 60 % de la réserve utilisée = sain<br>• 61 % à 80 % de la réserve utilisée = avertissement ou surveillance</br>• Plus de 80 % de la réserve utilisée = critique ou hors spécifications|
 | Mémoire--Octets de réserve paginée |• Moins de 60 % de la réserve utilisée = sain</br>• 61 % à 80 % de la réserve utilisée = avertissement ou surveillance</br>• Plus de 80 % de la réserve utilisée = critique ou hors spécifications|
 | Mémoire--Mégaoctets disponibles| • 50 % de mémoire disponible ou plus = sain</br>• 25 % de mémoire disponible = surveillance</br>• 10 % de mémoire disponible = avertissement</br>• Moins de 100 Mo ou 5 % de mémoire disponible = critique ou hors spécifications|
 |Processeur--\\% temps processeur (toutes les instances)|• Moins de 60 % utilisés = sain</br>• 61 % à 90 % utilisés = analyse ou surveillance</br>• 91 % à 100 % utilisés = critique|
@@ -93,4 +95,4 @@ a. **L’interface utilisateur affiche la progression de la quantité de donnée
 
 b. **L’interface utilisateur n’affiche pas la progression** : dans ce cas, ouvrez les journaux situés à l’emplacement « C:\\Microsoft Azure Recovery Services Agent\\Temp » et vérifiez la présence de l’entrée « FileProvider::EndData ». Cette entrée signifie que le transfert de données est terminé et que l’opération de catalogage est en cours. N’annulez pas les tâches de sauvegarde. Il est préférable de patienter jusqu’à la fin du catalogage. Si le problème persiste, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

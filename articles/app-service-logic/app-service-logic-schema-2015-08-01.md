@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -219,6 +219,7 @@ Si vous hébergez votre API web sur **App Service**, la liste des actions dispon
 Si vous avez déjà déployé une application API, vous pouvez l’appeler via l’action **HTTP**.
 
 Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouvez disposer du contenu suivant dans votre définition de version de schéma **2014-12-01-preview** :
+
 ```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
@@ -463,4 +464,4 @@ Dans la mesure où nous ajouterons bientôt d’autres types de contenu, la fonc
 ## Bientôt disponibles : API d’intégration d’entreprise
 À ce stade, nous ne disposons d’aucune version gérée disponible des API d’intégration d’entreprise (comme AS2). Elles le seront bientôt, tel qu’indiqué dans la [feuille de route](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Entre-temps, vous pouvez utiliser vos API BizTalk actuellement déployées via l’action HTTP, tel qu’indiqué ci-dessus dans l’article « Utilisation de vos applications API déployées ».
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

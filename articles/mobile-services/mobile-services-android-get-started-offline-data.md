@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Ajouter la synchronisation des données hors connexion à votre application de services mobiles Android
@@ -67,7 +67,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 
 	C'est là que vous définissez la table de synchronisation.
 
-4. Pour gérer l’initialisation du magasin local, dans la méthode `onCreate`, ajoutez les lignes suivantes après avoir créé l’instance `MobileServiceClient` :
+4. Pour gérer l’initialisation du magasin local, dans la méthode `onCreate`, ajoutez les lignes suivantes après avoir créé l’instance `MobileServiceClient` :
 
 			// Saves the query which will be used for pulling data
 			mPullQuery = mClient.getTable(ToDoItem.class).where().field("complete").eq(false);
@@ -88,7 +88,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 			// Get the Mobile Service Table instance to use
 			mToDoTable = mClient.getSyncTable(ToDoItem.class);
 
-5. À la suite de la partie de code précédente, qui se trouve dans un bloc `try`, ajoutez un bloc `catch` après le bloc `MalformedURLException` :
+5. À la suite de la partie de code précédente, qui se trouve dans un bloc `try`, ajoutez un bloc `catch` après le bloc `MalformedURLException` :
 
 		} catch (Exception e) {
 			Throwable t = e;
@@ -98,7 +98,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 			createAndShowDialog(new Exception("Unknown error: " + t.getMessage()), "Error");
 		}
 
-6. Ajoutez cette méthode pour vérifier la connectivité réseau :
+6. Ajoutez cette méthode pour vérifier la connectivité réseau :
 
 		private boolean isNetworkAvailable() {
 			ConnectivityManager connectivityManager
@@ -108,7 +108,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 		}
 
 
-7. Ajoutez cette méthode pour synchroniser le magasin local *SQL Light* et Azure SQL Server :
+7. Ajoutez cette méthode pour synchroniser le magasin local *SQL Light* et Azure SQL Server :
 
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
@@ -133,7 +133,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 		}
 
 
-8. Dans la méthode `onCreate`, ajoutez ce code sur l’avant-dernière ligne, juste avant l’appel à `refreshItemsFromTable` :
+8. Dans la méthode `onCreate`, ajoutez ce code sur l’avant-dernière ligne, juste avant l’appel à `refreshItemsFromTable` :
 
 			syncAsync();
 
@@ -141,11 +141,11 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 
 
 
-9. Pour utiliser cette requête, mettez à jour le code dans la méthode `refreshItemsFromTable` (première ligne de code dans le bloc `try`) :
+9. Pour utiliser cette requête, mettez à jour le code dans la méthode `refreshItemsFromTable` (première ligne de code dans le bloc `try`) :
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
 
-10. Dans la méthode `onOptionsItemSelected`, remplacez le contenu du bloc `if` par ce code :
+10. Dans la méthode `onOptionsItemSelected`, remplacez le contenu du bloc `if` par ce code :
 
 			syncAsync();
 			refreshItemsFromTable();
@@ -164,7 +164,7 @@ Lorsque vous appuyez sur ce bouton, une nouvelle tâche démarre en arrière-pla
 
 ### Test en ligne
 
-Testez les scénarios suivants :
+Testez les scénarios suivants :
 
 1. Ajoutez de nouveaux éléments sur votre appareil.
 2. Vérifiez que les éléments ne s’affichent pas dans le portail.
@@ -182,7 +182,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 2. Ajoutez des *tâches*, ou marquez-en certaines comme terminées. Quittez l’appareil ou le simulateur (ou forcez la fermeture de l’application) et redémarrez. Vérifiez que vos modifications persistent sur l’appareil, car elles sont stockées dans le magasin SQL Light local.
 
-3. Affichez le contenu de la table Azure *TodoItem*. Vérifiez que les nouveaux éléments n’ont _pas_ été synchronisés avec le serveur :
+3. Affichez le contenu de la table Azure *TodoItem*. Vérifiez que les nouveaux éléments n’ont _pas_ été synchronisés avec le serveur :
 
    - Pour le backend JavaScript, accédez au portail Azure Classic et cliquez sur l’onglet Données pour afficher le contenu de la table `TodoItem`.
    - Pour le backend .NET, affichez le contenu de la table avec un outil SQL, par exemple *SQL Server Management Studio* ou un client REST, comme *Fiddler* ou *Postman*.
@@ -198,9 +198,9 @@ One thing which is important to point out: if there are pending changes in the l
 
 ## Ressources supplémentaires
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]
 
-* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services] (Remarque : les démonstrations s'appuient sur Windows, mais la présentation de cette fonctionnalité s'applique à toutes les plateformes)
+* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services] (Remarque : les démonstrations s'appuient sur Windows, mais la présentation de cette fonctionnalité s'applique à toutes les plateformes)
 
 
 <!-- URLs. -->
@@ -219,9 +219,9 @@ One thing which is important to point out: if there are pending changes in the l
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
-[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 [didacticiel Démarrage rapide de Mobile Services]: mobile-services-android-get-started.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

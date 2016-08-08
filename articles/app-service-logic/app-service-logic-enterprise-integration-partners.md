@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -61,4 +61,4 @@ Suivez ces étapes pour modifier un partenaire qui existe déjà dans votre comp
 ## Étapes suivantes
 - [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

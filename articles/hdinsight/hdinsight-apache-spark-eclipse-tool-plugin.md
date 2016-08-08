@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -165,12 +165,12 @@ Cet article fournit des instructions pas à pas sur le développement d’applic
 		    val conf = new SparkConf().setAppName("MyClusterApp")
 		    val sc = new SparkContext(conf)
 		
-		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 		
-		    rdd1.saveAsTextFile("wasb:///HVACOut")
+		    rdd1.saveAsTextFile("wasbs:///HVACOut")
 		  }		
 		}
 
@@ -306,4 +306,4 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

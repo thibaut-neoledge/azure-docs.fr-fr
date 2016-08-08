@@ -1,9 +1,9 @@
 <properties
-	pageTitle="FAQ sur l’accès conditionnel | Microsoft Azure"
+	pageTitle="Forum aux questions sur l’accès conditionnel Azure Active Directory | Microsoft Azure"
 	description="Forum Aux Questions concernant l’accès conditionnel "
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="markusvi"
 	manager="swadhwa"
 	editor=""/>
 
@@ -13,21 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
-# FAQ sur l’accès conditionnel
+# Forum aux questions sur l’accès conditionnel Azure Active Directory
 
 ## A quelles applications les stratégies d’accès conditionnel s’appliquent-elles ?
-Consultez la rubrique [Accès conditionnel - applications prises en charge](active-directory-conditional-access-supported-apps.md).
+
+**R :** Consultez la rubrique [Accès conditionnel - applications prises en charge](active-directory-conditional-access-supported-apps.md).
 
 ## Les stratégies d’accès conditionnel s’appliquent-elles à la collaboration B2B et aux utilisateurs invités ?
-Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collaboration B2B. Toutefois, dans certains cas, l’utilisateur peut ne pas remplir les conditions de la stratégie, par exemple si son organisation ne prend pas en charge l’authentification multifacteur. La stratégie ne s’applique actuellement pas aux utilisateurs SharePoint invités. Comme la relation d’invité est conservée au sein de SharePoint, les comptes d’invités ne bénéficient pas des stratégies d’accès au niveau du serveur d’authentification. L’accès invité peut être géré au niveau de SharePoint.
+
+**R :** Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collaboration B2B. Toutefois, dans certains cas, un utilisateur peut ne pas remplir les conditions de la stratégie, par exemple si son organisation ne prend pas en charge l’authentification multifacteur.
+
+La stratégie ne s’applique actuellement pas aux utilisateurs SharePoint invités. Comme la relation d’invité est conservée au sein de SharePoint, les comptes d’invités ne bénéficient pas des stratégies d’accès au niveau du serveur d’authentification. L’accès invité peut être géré au niveau de SharePoint.
 
 ## La stratégie SharePoint Online s’applique-t-elle également à OneDrive Entreprise ?
-Oui.
+
+**R :** Oui.
  
 ## Pourquoi ne puis-je pas définir une stratégie pour les applications clientes telles que Word ou Outlook ?
-La stratégie d’accès conditionnel définit les conditions requises pour accéder à un service et s’applique lorsque l’authentification est effectuée sur ce service. La stratégie n’est donc pas définie directement sur une application cliente, mais appliquée lorsqu’elle est appelée dans un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint, et la stratégie définie sur Exchange s’applique à Outlook.
 
-<!---HONumber=AcomDC_0629_2016-->
+**R :** La stratégie d’accès conditionnel définit les conditions requises pour accéder à un service et s’applique lorsque l’authentification est effectuée sur ce service. La stratégie n’est donc pas définie directement sur une application cliente, mais appliquée lorsqu’elle est appelée dans un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint, et la stratégie définie sur Exchange s’applique à Outlook.
+
+
+## La stratégie d’accès conditionnel s’applique-t-elle aux comptes de service ?
+
+**R :** Les stratégies d’accès conditionnel s’appliquent à tous les comptes d’utilisateurs. Cela inclut les comptes d’utilisateurs utilisés comme comptes de service. Dans de nombreux cas, un compte de service qui s’exécute sans assistance n’est pas en mesure de remplir les conditions d’une stratégie. C’est par exemple le cas lorsque l’authentification multi-facteur est requise. Dans ces cas, les comptes de service peuvent être exclus d’une stratégie à l’aide des paramètres de gestion de stratégie accès conditionnel. Pour en savoir plus sur l’application d’une stratégie à des utilisateurs, rendez-vous ici.
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@ Vous pouvez utiliser Azure Functions afin de créer un déclencheur pour une app
 Dans cet exemple, une fonction est en cours d’exécution pour chaque application logique à déclencher. Créez d’abord une application logique comportant un déclencheur de demande HTTP. La fonction appelle ce point de terminaison chaque fois qu’un message de la file d’attente est reçu.
 
 1. Créez une application logique puis sélectionnez le déclencheur **Manual - When an HTTP Request is Received** (Manuel - À réception d’une requête HTTP). Si vous le souhaitez, vous pouvez spécifier un schéma JSON à utiliser avec le message de la file d’attente à l’aide d’un outil tel que [jsonschema.net](http://jsonschema.net). Collez le schéma dans le déclencheur. Cela aide le concepteur à comprendre la forme des données et à répercuter plus facilement les propriétés dans le workflow.
-1. Ajoutez les étapes supplémentaires à exécuter après réception d’un message de la file d’attente. Par exemple, envoyer un courrier électronique via Office 365.  
+1. Ajoutez les étapes supplémentaires à exécuter après réception d’un message de la file d’attente. Par exemple, envoyer un courrier électronique via Office 365.
 1. Enregistrez l’application logique pour générer l’URL de rappel du déclencheur sur cette application logique. L’URL s’affiche sur la carte de déclencheur.
 
 ![L’URL de rappel s’affiche sur la carte de déclencheur][1]
@@ -66,4 +66,4 @@ Pour tester, ajoutez un message de la file d’attente via un outil tel que l[�
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

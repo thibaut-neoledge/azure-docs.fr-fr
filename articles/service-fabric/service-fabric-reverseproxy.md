@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/15/2016"
+   ms.date="07/26/2016"
    ms.author="vturecek"/>
 
 # Proxy inverse de Service Fabric
@@ -141,7 +141,7 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         }
     },
     ```
-2. Spécifiez ce port dans la [section du type de ressource](../resource-group-authoring-templates.md) du **Cluster**.
+2. Spécifier le port de chaque objet nodetype dans la [section du type de ressource](../resource-group-authoring-templates.md) **Cluster**
 
     ```json
     {
@@ -150,9 +150,14 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
         ...
+       "nodeTypes": [
+          {
+           ...
+           "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
+           ...
+          },
         ...
-        "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
-        ...
+        ],
         ...
     }
     ```
@@ -236,4 +241,4 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,169 +14,179 @@
 	ms.date="06/09/2016"
 	ms.author="acearun"/>
 
-# Notes de publication - Outils de Developer Analytics
-##### Analyses Application Insights et HockeyApp dans Visual Studio
+# Notes de publication de Developer Analytics Tools
+Nouveautés : analyses Application Insights et HockeyApp dans Visual Studio.
 ## Version 7.0
-###Tendances Application Insights
-Les Tendances Application Insights sont un nouvel outil dans Visual Studio permettant d’analyser le comportement de votre application au fil du temps. Pour commencer, choisissez « Explorer les tendances de télémétrie » à partir du bouton de la barre d’outils Application Insights ou d’une fenêtre Recherche Application Insights. Sinon, choisissez « Tendances Application Insights » à partir de Vue - Autres fenêtres. Sélectionnez l’une des cinq requêtes courantes pour commencer. Vous pouvez analyser différents jeux de données en fonction des types de télémétrie, des intervalles de temps ainsi que d’autres propriétés. Pour rechercher des anomalies dans vos données, sélectionnez l’une des options d’anomalie dans la liste déroulante « Type de vue ». Les options de filtrage en bas de la fenêtre facilitent l’obtention de sous-ensembles spécifiques de votre télémétrie.
+### Tendances Visual Studio Application Insights
+Visual Studio Application Insights est un nouvel outil de Visual Studio qui vous permet d’analyser le fonctionnement de votre application au fil du temps. Pour commencer, après avoir cliqué sur le bouton de barre d’outils **Application Insights** ou dans la fenêtre Recherche Application Insights, choisissez **Explorer les tendances de la télémétrie**. Dans le menu **Affichage**, vous pouvez également cliquer sur **Autres fenêtres**, puis sur **Tendances Application Insights**. Sélectionnez l’une des cinq requêtes courantes pour commencer. Vous pouvez analyser différents jeux de données en fonction des types de télémétrie, des intervalles de temps ainsi que d’autres propriétés. Pour rechercher des anomalies dans vos données, sélectionnez l’une des options d’anomalie dans la liste déroulante **Type de vue**. Les options de filtrage en bas de la fenêtre facilitent l’obtention de sous-ensembles spécifiques de votre télémétrie.
 
 ![Tendances Application Insights](./media/app-insights-release-notes-vsix/Trends.PNG)
 
-###Exceptions dans CodeLens
+### Exceptions dans CodeLens
 La télémétrie d’exception s’affiche désormais dans CodeLens. Si vous avez connecté votre projet au service Application Insights, vous verrez le nombre d’exceptions survenues dans chaque méthode en production dans les dernières 24 heures. À partir de CodeLens, vous pouvez passer à Recherche ou Tendances pour examiner les exceptions de façon plus détaillée.
 
 ![Exceptions dans CodeLens](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
 
-###Prise en charge d’ASP.NET Core
-Application Insights prend désormais en charge les projets ASP.NET Core RC2 dans Visual Studio. Vous pouvez ajouter Application Insights aux nouveaux projets ASP.NET Core RC2 à partir de la boîte de dialogue Nouveau projet, ou à un projet existant en double-cliquant sur le projet dans l’Explorateur de solutions puis en sélectionnant « Ajouter la télémétrie Application Insights... »
+### Prise en charge d’ASP.NET Core
+Application Insights prend désormais en charge les projets ASP.NET Core RC2 dans Visual Studio. Vous pouvez ajouter Application Insights aux nouveaux projets ASP.NET Core RC2 à partir de la boîte de dialogue **Nouveau projet**, comme illustré dans la capture d’écran ci-dessous. Vous pouvez également l’ajouter à un projet existant, cliquer avec le bouton droit sur le projet dans l’Explorateur de solutions, puis cliquer sur **Ajouter Application Insights Telemetry**.
 
-![Prise en charge de .NET Core](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+![Prise en charge d’ASP.NET Core](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
 
-Les projets ASP.NET 5 RC1 et ASP.NET Core RC2 sont également pris en charge dans la fenêtre Outils de diagnostic. Vous verrez des événements Application Insights telles que les demandes et les exceptions de votre application ASP.NET pendant le débogage local sur votre PC. Vous pouvez explorer chaque événement afin d’obtenir plus d’informations en cliquant sur « Rechercher ».
+Les projets ASP.NET 5 RC1 et ASP.NET Core RC2 sont également pris en charge dans la fenêtre Outils de diagnostic. Vous pouvez voir des événements Application Insights tels que des requêtes et des exceptions de votre application ASP.NET pendant que vous procédez au débogage local sur votre PC. Pour chaque événement, cliquez sur **Rechercher** pour obtenir plus d’informations.
 
 ![Prise en charge des outils de diagnostic](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
-###HockeyApp pour les applications Windows universelles
-Outre la distribution bêta et les commentaires des utilisateurs, HockeyApp fournit des rapports d’incidents sous forme de symboles pour vos applications Windows universelles. Nous avons encore simplifié l’ajout du Kit de développement logiciel (SDK) HockeyApp : cliquez avec le bouton droit sur votre projet Windows universel, puis choisissez Application HockeyApp - Permettre l’analyse des blocages… Cette opération va installer le Kit de développement logiciel (SDK), configurer la collecte des incidents et configurer une ressource HockeyApp dans le cloud, sans charger votre application sur le service HockeyApp.
+### HockeyApp pour les applications Windows universelles
+Outre la distribution bêta et les commentaires des utilisateurs, HockeyApp fournit des rapports d’incidents sous forme de symboles pour vos applications Windows universelles. Nous avons encore simplifié l’ajout du Kit de développement logiciel (SDK) HockeyApp : cliquez avec le bouton droit sur votre projet Windows universel, puis cliquez sur **Application HockeyApp - Activer l’analyse des incidents**. Ce faisant, vous installez le Kit de développement logiciel (SDK), configurez la collecte des incidents et approvisionnez une ressource HockeyApp dans le cloud, sans charger votre application vers le service HockeyApp.
 
 Autres nouvelles fonctionnalités :
 
-* Nous avons rendu la fonction de recherche d’Application Insights plus rapide et plus intuitive en appliquant automatiquement des plages horaires et des filtres de détail à mesure que vous les sélectionnez
-* Application Insights Search propose désormais une option permettant d’accéder au code à partir de la télémétrie de la demande
+* Nous avons rendu l’expérience de Recherche Application Insights plus rapide et plus intuitive. Désormais, les filtres d’intervalle de temps et de détail sont automatiquement appliqués lorsque vous les sélectionnez.
+* À présent, Recherche Application Insights comporte également une option qui vous permet d’accéder directement au code à partir de la télémétrie des requêtes.
 * Nous avons amélioré l’expérience de connexion HockeyApp.
-* Dans les outils de diagnostic, il existe désormais des informations de télémétrie de production affichées pour les exceptions.
+* Dans Outils de diagnostic, des informations de télémétrie de production sont affichées pour les exceptions.
 
 ## Version 5.2
-Nous avons le plaisir d’annoncer l’introduction de scénarios HockeyApp dans Visual Studio. La première intégration que nous avons activée est la distribution bêta des applications Universal Windows et Windows Forms au sein de Visual Studio.
+Nous avons le plaisir d’annoncer l’introduction de scénarios HockeyApp dans Visual Studio. La première intégration concerne la distribution bêta des applications Windows universelles et des applications Windows Forms dans Visual Studio.
 
-La distribution bêta vous permet de télécharger les premières versions de vos applications vers HockeyApp pour une distribution vers un sous-ensemble choisi de clients ou de testeurs. La distribution bêta, associée aux fonctionnalités HockeyApp de collecte d’incidents et de commentaires d’utilisateurs, peut fournir des informations précieuses sur votre application avant une publication majeure. Vous pouvez utiliser ces informations pour résoudre les problèmes de votre application avant que les choses ne deviennent plus sérieuses (mauvaises évaluations, commentaires négatifs, etc.).
+Avec la distribution bêta, vous chargez les premières versions de vos applications vers HockeyApp pour les distribuer vers un sous-ensemble sélectionné de clients ou de testeurs. La distribution bêta, associée aux fonctionnalités HockeyApp de collecte d’incidents et de commentaires des utilisateurs peut vous fournir de précieuses informations sur votre application avant que vous ne procédiez à une publication majeure. Vous pouvez utiliser ces informations pour résoudre les problèmes de votre application afin d’éviter ou de minimiser les problèmes à venir, tels que les évaluations faibles de l’application, les commentaires négatifs, etc.
 
-Découvrez combien il est simple de télécharger des builds pour la distribution bêta à partir de Visual Studio…
+Découvrez combien il est simple de charger des builds de la distribution bêta à partir de Visual Studio.
 ### Applications Windows universelles
-Le menu contextuel d’un nœud de projet UWP inclut désormais une option pour télécharger votre build vers HockeyApp.
+Le menu contextuel d’un nœud de projet d’application Windows universelle inclut désormais une option permettant de charger votre build vers HockeyApp.
 
-![Menu contextuel du projet pour les applications Universal](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
+![Menu contextuel du projet pour les applications Windows universelles](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
 
-Sélectionnez l’élément et observez la boîte de dialogue de téléchargement HockeyApp. Vous devez avoir un compte HockeyApp pour télécharger votre build. Si vous êtes un nouvel utilisateur, il vous suffit de créer un compte en toute simplicité.
+Sélectionnez l’élément. La boîte de dialogue de chargement HockeyApp s’ouvre. Vous devez avoir un compte HockeyApp pour télécharger votre build. Si vous êtes un nouvel utilisateur, ne vous inquiétez pas. La création d’un compte est une procédure simple.
 
-Une fois que vous êtes connecté, le formulaire de téléchargement apparaît dans la boîte de dialogue.
+Lorsque vous êtes connecté, le formulaire de chargement apparaît dans la boîte de dialogue.
 
-![Boîte de dialogue Téléchargement pour les applications Universal](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
+![Boîte de dialogue de chargement pour les applications Windows universelles](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
 
-Sélectionnez le contenu à télécharger (appxbundle ou appx) et sélectionnez les options de version de l’Assistant. Vous pouvez éventuellement ajouter des notes de publication sur la page suivante. Cliquez sur Terminer pour commencer le téléchargement.
+Sélectionnez le contenu à charger (fichier .appxbundle ou .appx), puis les options de publication dans l’Assistant. Vous pouvez éventuellement ajouter des notes de publication dans la page suivante. Cliquez sur **Terminer** pour commencer le chargement.
 
-Lorsque le téléchargement est terminé, une notification toast HockeyApp apparaît avec une confirmation et un lien vers l’application dans le portail HockeyApp.
+À l’issue du chargement, une notification HockeyApp s’affiche avec une confirmation et un lien vers l’application dans le portail HockeyApp.
 
-![Notification toast de téléchargement terminé](./media/app-insights-release-notes-vsix/UploadComplete.png)
+![Notification de chargement terminé](./media/app-insights-release-notes-vsix/UploadComplete.png)
 
-C’est tout ! Vous venez de télécharger une build pour la distribution bêta en quelques clics.
+Et voilà ! Vous venez de charger une build pour la distribution bêta en quelques clics seulement.
 
-Le portail HockeyApp vous permet de gérer votre application de différentes manières (inviter des utilisateurs, consulter les rapports d’incidents et les commentaires, modifier des détails, etc.).
+Vous pouvez gérer votre application de plusieurs façons dans le portail HockeyApp. Vous pouvez notamment inviter des utilisateurs, afficher des rapports d’incidents et des commentaires, modifier des détails, etc.
 
 ![Portail HockeyApp](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Pour plus d’informations sur la gestion des applications, consultez la [Base de connaissances Hockey App](http://support.hockeyapp.net/kb/app-management-2).
+Pour plus d’informations sur la gestion des applications, voir la [Base de connaissances HockeyApp](http://support.hockeyapp.net/kb/app-management-2).
 
 ### Applications Windows Forms
-Le menu contextuel d’un nœud de projet Windows Form inclut une option pour télécharger votre build vers HockeyApp.
+Le menu contextuel d’un nœud de projet Windows Form inclut désormais une option permettant de charger votre build vers HockeyApp.
 
 ![Menu contextuel du projet pour les applications Windows Forms](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
 
-Une boîte de dialogue de téléchargement HockeyApp similaire à celle des applications Universal s’ouvre.
+Ce faisant, vous ouvrez la boîte de dialogue de chargement HockeyApp, qui est semblable à celle d’une application Windows universelle.
 
-![Boîte de dialogue Téléchargement pour les applications Windows Form](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
+![Boîte de dialogue de chargement pour les applications Windows Forms](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
 
-Vous remarquez un champ supplémentaire dans cet Assistant, qui permet de spécifier la version de l’application. Pour les applications Universal, les informations sont renseignées à partir du fichier manifeste. Windows Forms n’a malheureusement pas d’équivalent, et les informations doivent être spécifiées manuellement.
+Vous remarquez un nouveau champ dans cet Assistant, qui permet de spécifier la version de l’application. Pour les applications Windows universelles, les informations sont renseignées à partir du manifeste. Malheureusement, les applications Windows Forms ne disposent pas de fonctionnalité équivalente. Vous devez spécifier ces informations manuellement.
 
-Le reste du flux est similaire aux applications Universal : sélection d’une build, ajout d’options de version et de notes de publication, téléchargement et gestion dans le portail HockeyApp.
+Le reste du flux est similaire à celui des applications Windows universelles : choisissez les options de build et de publication, ajoutez des notes de publication, chargez l’application et gérez-la dans le portail HockeyApp.
 
 C’est aussi simple que cela. Faites le test et dites-nous ce que vous en pensez.
 ## Version 4.3
 ### Recherche de données de télémétrie des sessions de débogage local
-Avec cette version, nous ajoutons la capacité de rechercher de la télémétrie Application Insights générée pendant la session de débogage de Visual Studio. Auparavant, la recherche n’était possible que si vous aviez inscrit votre application auprès d’Application Insights. Avec cette version, il suffit que le Kit de développement logiciel (SDK) Application Insights soit installé dans votre application pour rechercher les données de télémétrie locales.
+Avec cette version, vous pouvez désormais rechercher les données de télémétrie Application Insights générées pendant la session de débogage de Visual Studio. Auparavant, vous ne pouviez utiliser la recherche que si vous aviez inscrit votre application auprès d’Application Insights. Désormais, il suffit que le Kit de développement logiciel (SDK) Application Insights soit installé sur votre application pour pouvoir rechercher les données de télémétrie locales.
 
-#### Si vous avez une application ASP.NET avec le Kit de développement logiciel (SDK) Application Insights
+Si vous disposez d’une application ASP.NET avec le Kit de développement logiciel (SDK) Application Insights, procédez comme suit pour utiliser Recherche.
 
-- Déboguez votre application.
-- Ouvrez la Recherche Application Insights à l’aide de l’une des méthodes suivantes
-	- Menu Affichage -> Autres fenêtres -> Recherche Application Insights
-	- Cliquez sur le bouton de la barre d’outils Application Insights
-	- Dans l’Explorateur de solutions, développez ApplicationInsights.config -> Recherche de la télémétrie de la session de débogage
-- Si vous n’êtes pas encore inscrit auprès du service Application Insights, la fenêtre de recherche s’ouvre en mode « Télémétrie de la session de débogage ».
-- Cliquez sur l’icône de recherche pour afficher vos données de télémétrie locales.
+1. Déboguez votre application.
+2. Ouvrez Recherche Application Insights en utilisant l’une des méthodes suivantes :
+	- Dans le menu **Affichage**, cliquez sur **Autres fenêtres**, puis sur **Recherche Application Insights**.
+	- Cliquez sur le bouton de barre d’outils **Application Insights**.
+	- Dans l’Explorateur de solutions, développez **ApplicationInsights.config**, puis cliquez sur **Rechercher dans la télémétrie de la session de débogage**.
+3. Si vous n’êtes pas encore inscrit auprès d’Application Insights, la fenêtre Recherche s’ouvre en mode télémétrie de la session de débogage.
+4. Cliquez sur l’icône **Recherche** pour afficher vos données de télémétrie locales.
 
 ![Chargement terminé](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
+## Version 4.2
+Dans cette version, nous avons ajouté des fonctionnalités qui facilitent la recherche de données dans le contexte des événements, avec la possibilité d’accéder au code à partir de plusieurs événements de données, et une expérience sans effort pour envoyer vos données de journalisation à Application Insights. Cette extension est mise à jour tous les mois. Si vous avez des commentaires ou des demandes de fonctionnalité, envoyez-les à aidevtools@microsoft.com.
+### Expérience de journalisation sans clic
+Si vous utilisez déjà NLog, log4net ou System.Diagnostics.Tracing, vous n’avez pas à vous préoccuper du déplacement de l’ensemble de vos traces vers Application Insights. Dans cette version, nous avons intégré les adaptateurs de journalisation d’Application Insights à l’expérience de configuration normale. Si vous disposez déjà de l’une de ces frameworks de journalisation configurées, la section ci-après décrit comment y accéder. **Si vous avez déjà ajouté Application Insights :**
+1. Cliquez avec le bouton droit sur le nœud de projet, puis cliquez sur **Application Insights** et sur **Configurer Application Insights**. Vérifiez que l’option d’ajout de l’adaptateur approprié est affiché dans la fenêtre de configuration.
+2. Si vous générez la solution, vous pouvez également observer la fenêtre indépendante qui apparaît en haut à droite de l’écran et cliquer sur **Configurer**.
 
+![Notification de journalisation](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
-##Version 4.2
-Dans cette version, nous avons ajouté des fonctionnalités qui facilitent la recherche de données dans le contexte des événements, la possibilité d'accéder au code à partir de plusieurs événements de données, et une expérience sans effort pour envoyer vos données de journalisation à Application Insights. Cette extension est mise à jour tous les mois. Si vous avez des commentaires ou des demandes de fonctionnalités, envoyez-les à aidevtools@microsoft.com
-###- Expérience de journalisation 0 clic
-Si vous utilisez déjà un suivi NLog, Log4Net ou System.Diagnostics, vous n'avez pas à vous soucier du transfert de toutes vos traces vers AI : nous intégrons désormais les adaptateurs de journalisation Application Insights avec l'expérience de configuration normale. Si vous disposez déjà d'une de ces infrastructures de journalisation configurées, voici comment procéder :
-####Si Application Insights a déjà été ajouté
-- Cliquez avec le bouton droit sur le nœud du projet, puis sélectionnez Application Insights, Configurer Application Insights. Vérifiez que l’option d'ajout de l'adaptateur approprié apparaît dans la fenêtre de configuration.
-- Ou lorsque vous générez la solution, observez la fenêtre contextuelle qui apparaît en haut à droite de l’écran et cliquez sur Configurer. ![Toast de connexion](./media/app-insights-release-notes-vsix/LoggingToast.png)
+Une fois l’adaptateur de journalisation installé, exécutez votre application et assurez-vous que les données apparaissent comme suit dans l’onglet Outils de diagnostic :
 
-Une fois l’adaptateur d’enregistrement installé, vous pouvez exécuter votre application et vous assurer que les données apparaissent comme suit sous l’onglet Outils de diagnostic : ![Traces](./media/app-insights-release-notes-vsix/Traces.png)
-###- L’utilisateur peut accéder/rechercher le code où la propriété d'événement de télémétrie est émise
-Avec la nouvelle version, l’utilisateur peut cliquer sur n'importe quel détail de l'événement et rechercher ainsi une chaîne correspondante dans la solution actuellement ouverte. Les résultats apparaissent dans la liste « Résultats de la recherche » de Visual Studio, comme illustré ci-dessous : ![Rechercher une correspondance](./media/app-insights-release-notes-vsix/FindMatch.png)
-###- Nouvel écran pour utilisateur non connecté dans la fenêtre de recherche
-Nous avons amélioré l’apparence de la fenêtre de recherche pour guider les utilisateurs dans la recherche de leurs données en production. ![Fenêtre Recherche](./media/app-insights-release-notes-vsix/SearchWindow.png)
-###- L’utilisateur peut voir tous les événements de télémétrie associés à l'événement
-Un nouvel onglet en regard des détails de l'événement a été ajouté, contenant des requêtes prédéfinies pour afficher toutes les données associées à l'événement de télémétrie que l'utilisateur examine. Par exemple : chaque demande comporte un champ appelé ID d'opération, et chaque événement associé à cette demande aura le même ID d'opération. Par conséquent, si une exception s'est produite lors du traitement de la demande, elle affichera le même ID d'opération que la demande pour faciliter sa localisation, et ainsi de suite. Un utilisateur qui observe une requête peut donc désormais cliquer sur « Toute la télémétrie pour cette opération » pour ouvrir un nouvel onglet présentant les nouveaux résultats de la recherche. ![Éléments connexes](./media/app-insights-release-notes-vsix/RelatedItems.png)
-### - Ajout d’un historique avant/après dans la recherche
-L’utilisateur peut maintenant aller et venir dans les résultats de la recherche. ![Retour](./media/app-insights-release-notes-vsix/GoBAck.png)
+![Traces](./media/app-insights-release-notes-vsix/Traces.png)
 
-##Version 4.1
-Cette version est fournie avec un certain nombre de nouvelles fonctionnalités et d’améliorations de fonctionnalités existantes. Pour obtenir cette version, vous devez disposer de la mise à jour Update 1 sur votre machine.
+### Accéder au code ou le rechercher lorsque la propriété d’événement de télémétrie est émise
+Avec la nouvelle version, l’utilisateur peut cliquer sur n'importe quel détail de l'événement et rechercher ainsi une chaîne correspondante dans la solution actuellement ouverte. Les résultats s’affichent dans la liste « Résultats de la recherche » de Visual Studio, comme illustré ci-dessous :
+
+![Rechercher une correspondance](./media/app-insights-release-notes-vsix/FindMatch.png)
+
+### Nouvelle fenêtre Recherche lorsque vous n’êtes pas connecté
+Nous avons amélioré l’apparence de la fenêtre Recherche Application Insights pour vous aider à rechercher vos données lorsque votre application est en production.
+
+![Fenêtre Recherche](./media/app-insights-release-notes-vsix/SearchWindow.png)
+
+### Voir tous les événements de télémétrie associés à l’événement
+Nous avons ajouté un nouvel onglet, qui contient des requêtes prédéfinies pour toutes les données associées à l’événement de télémétrie que l’utilisateur affiche, en regard de l’onglet des détails de l’événement. Par exemple, une requête comporte un champ appelé **ID d’opération**. Tous les événements associés à cette requête ont la même valeur pour **ID d’opération**. Si une exception se produit lors du traitement de la requête, le même ID d’opération que celui de la requête est attribué à l’exception afin de faciliter sa recherche. Si vous observez une requête, cliquez sur **Toutes les données de télémétrie de cette opération** pour ouvrir un nouvel onglet présentant les résultats de la nouvelle recherche.
+
+![Éléments connexes](./media/app-insights-release-notes-vsix/RelatedItems.png)
+
+### Avancer et reculer dans l’historique dans Recherche
+Vous pouvez désormais aller et venir dans les résultats de recherche.
+
+![Retour](./media/app-insights-release-notes-vsix/GoBAck.png)
+
+## Version 4.1
+Cette version est fournie avec plusieurs nouvelles fonctionnalités et mises à jour. Pour installer cette version, vous devez avoir installé Update 1.
 
 ### Passage d’une exception à la méthode dans le code source
-Désormais, les utilisateurs qui visualisent les exceptions de leurs applications de production dans la fenêtre Recherche d’Application Insights peuvent accéder directement à la méthode dans le code qui génère l’exception. Il suffit vous suffit de charger le bon projet, et nous nous chargerons du reste ! (Pour en savoir plus sur la fenêtre Recherche, consultez les notes de publication de 4.0 ci-dessous)
+Désormais, si vous visualisez les exceptions de votre application de production dans la fenêtre Recherche Application Insights, vous pouvez accéder directement à la méthode dans le code où l’exception se produit. Il vous suffit d’avoir chargé le projet correct. Application Insights s’occupe du reste ! (Pour en savoir plus sur la fenêtre Recherche Application Insights, consultez les notes de publication de la version 4.0 dans les sections suivantes.)
 
-#### Comment cela fonctionne-t-il ?
-
-Lorsqu’une solution n’est pas ouverte, il est possible d’utiliser AI Search sans ouvrir la solution. Dans ce cas, la zone d’arborescence des appels de procédure affiche un message d’information, et tous les éléments de l’arborescence des appels de procédure sont affichés en grisé.
-
+Comment cela fonctionne-t-il ? Vous pouvez utiliser Recherche Application Insights même lorsqu’une solution n’est pas ouverte. La zone d’arborescence des appels de procédure affiche un message d’information, et nombre d’éléments de cette arborescence ne sont pas disponibles.
 
 Si les informations de fichier sont disponibles, certains éléments peuvent être des liens, mais l’élément d’information de la solution reste visible.
 
-Un clic sur le lien hypertexte vous dirigera vers l’emplacement de la méthode sélectionnée dans votre code. Il se peut qu’il y ait une différence de numéro de version, mais cette fonction sera mise à jour dans les versions ultérieures : accédez à la version de code adéquate.
+Si vous cliquez sur le lien hypertexte, vous accédez à l’emplacement de la méthode sélectionnée dans votre code. Il peut y avoir une différence dans le numéro de version, mais la fonctionnalité permettant d’accéder à la version correcte du code, sera fournie dans les versions ultérieures.
 
-![Clic sur une exception](./media/app-insights-release-notes-vsix/jumptocode.png)
+![Cliquer sur les détails de l’exception](./media/app-insights-release-notes-vsix/jumptocode.png)
 
-###Nouveaux points d’entrée vers l’expérience de recherche dans l’Explorateur de solutions.
+### Nouveaux points d’entrée pour l’expérience de recherche dans l’Explorateur de solutions
+Vous pouvez désormais accéder à Recherche via l’Explorateur de solutions.
 
-![Point d’entrée dans Explorateur de solutions](./media/app-insights-release-notes-vsix/searchentry.png)
+![Rechercher dans l’Explorateur de solutions](./media/app-insights-release-notes-vsix/searchentry.png)
 
+### Affiche une notification à l’issue de la publication
+Une boîte de dialogue contextuelle s’affiche une fois le projet publié en ligne, afin que vous puissiez consulter vos données Application Insights en production.
 
-###Afficher une notification toast si la publication est terminée
-Une fenêtre contextuelle apparaîtra une fois le projet publié en ligne, afin que vous puissiez consulter vos données d’Application Insights en production.
-
-![Fenêtre contextuelle](./media/app-insights-release-notes-vsix/publishtoast.png)
+![Notification de publication terminée](./media/app-insights-release-notes-vsix/publishtoast.png)
 
 ## Version 4.0
 
-###Données Search Application Insights dans Visual Studio
-Comme pour la recherche dans le portail Application Insights, il est possible de filtrer et d’effectuer des recherches sur différents types d’événements, valeurs et textes de propriété et d’inspecter des événements individuels.
+### Données Recherche Application Insights dans Visual Studio
+Comme pour la fonction de recherche du portail Application Insights, désormais dans Visual Studio, vous pouvez filtrer et effectuer des recherches sur différents types d’événement, valeurs de propriété et texte, puis examiner des événements individuels.
 
 ![Fenêtre Recherche](./media/app-insights-release-notes-vsix/search.png)
 
-###Consultez les données en provenance de votre boîte locale dans la fenêtre Outils de diagnostic
+### Consulter les données provenant de votre ordinateur local dans Outils de diagnostic
 
-La télémétrie apparaîtra, avec d’autres données de débogage dans le concentrateur de diagnostic Visual Studio. Seul ASP.NET 4.5 est pris en charge. La prise en charge d’ASP.NET 5 sera disponible dans les versions à venir.
+Outre les autres données de débogage, vous pouvez afficher vos données de télémétrie dans la page Outils de diagnostic de Visual Studio. Seul ASP.NET 4.5 est pris en charge.
 
-![Fenêtre de concentrateur de diagnostic](./media/app-insights-release-notes-vsix/diagtools.png)
+![Page Outils de diagnostic](./media/app-insights-release-notes-vsix/diagtools.png)
 
-###Ajoutez le kit de développement logiciel à votre projet sans être connecté à Azure
+### Ajouter le Kit de développement logiciel (SDK) à votre projet sans vous connecter à Azure
 
-Vous n’avez plus à vous connecter à Azure pour ajouter des packages Application Insights à votre projet dans la boîte de dialogue Nouveau projet ou dans le menu contextuel du projet. Si vous vous connectez, le kit de développement logiciel est installé et configuré pour envoyer des données de télémétrie au portail, comme par le passé. Si vous ne vous connectez pas, le kit de développement logiciel est ajouté à votre projet et génère des données de télémétrie pour le concentrateur de diagnostic. Il vous est alors possible de le configurer ultérieurement si vous le souhaitez.
+Vous n’avez plus à vous connecter à Azure pour ajouter des packages Application Insights à votre projet via la boîte de dialogue **Nouveau projet** ou à partir du menu contextuel du projet. Si vous vous connectez, le Kit de développement logiciel (SDK) est installé et configuré pour envoyer des données de télémétrie au portail, comme par le passé. Si vous ne vous connectez pas, le Kit de développement logiciel (SDK) est ajouté à votre projet et génère des données de télémétrie pour le concentrateur de diagnostic. Vous pouvez le configurer ultérieurement si vous le souhaitez.
 
 ![Boîte de dialogue Nouveau projet](./media/app-insights-release-notes-vsix/newproject.png)
 
-###Prise en charge des périphériques
+### Prise en charge des appareils
 
-Lors de *Connect();* 2015, nous avons [annoncé](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que notre expérience DevOps mobile pour les appareils était HockeyApp. HockeyApp vous permet de distribuer des versions bêta à vos testeurs, de recueillir, de collecter et d’analyser tous les incidents à partir de votre application et de recueillir les commentaires directement de vos clients. HockeyApp vous assiste, quelle que soit la plateforme sur laquelle vous générez votre application mobile, qu’il s’agisse d’iOS, Android ou Windows ou d’une solution multiplateforme comme Xamarin, Cordova ou Unity.
+Lors de *Connect();* 2015, nous avons [annoncé](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que notre expérience développeur mobile pour les appareils était HockeyApp. HockeyApp vous permet de distribuer des versions bêta à vos testeurs, de collecter et d’analyser tous les incidents de votre application et de recueillir les commentaires directement auprès de vos clients. HockeyApp prend en charge votre application, quelle que soit la plateforme sur laquelle vous avez choisi de la générer, qu’il s’agisse d’iOS, d’Android, de Windows ou d’une solution multiplateforme comme Xamarin, Cordova ou Unity.
 
-Dans les versions futures de l’extension Application Insights,nous allons présenter de nouvelles fonctionnalités pour permettre une expérience davantage intégrée entre HockeyApp et Visual Studio. Pour le moment, vous pouvez commencer à utiliser HockeyApp en ajoutant simplement la référence NuGet : consultez la [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) pour plus d’informations.
+Dans les versions futures de l’extension Application Insights, nous allons présenter une expérience davantage intégrée entre HockeyApp et Visual Studio. Pour le moment, vous pouvez commencer par HockeyApp en ajoutant simplement la référence NuGet. Pour plus d’informations, consultez la [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->
