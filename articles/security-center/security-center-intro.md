@@ -160,4 +160,4 @@ Ce document vous a donné un aperçu du Centre de sécurité, de ses fonctions c
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0727_2016----->

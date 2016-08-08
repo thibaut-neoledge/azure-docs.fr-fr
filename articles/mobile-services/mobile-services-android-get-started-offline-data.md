@@ -44,7 +44,7 @@ Avec la synchronisation hors connexion, vous disposez d’un accès en lecture e
 
 Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Services, faites appel à un *contexte de synchronisation* (*MobileServiceClient.SyncContext*), que vous initialisez avec la base de données locale utilisée pour stocker des données localement.
 
-1. Ajoutez une autorisation pour vérifier la connectivité réseau en intégrant ce code au fichier *AndroidManifest.xml* :
+1. Ajoutez une autorisation pour vérifier la connectivité réseau en intégrant ce code au fichier *AndroidManifest.xml* \:
 
 	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 

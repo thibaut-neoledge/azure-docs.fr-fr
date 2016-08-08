@@ -55,7 +55,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 
 Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l’identité : l’inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence sur les stratégies](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
 
-- Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
+- Choisir le **nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisir les revendications d’applications **Nom d'affichage** et **ID objet** pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
 - Copiez le **Nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies ultérieurement.
 
@@ -361,7 +361,8 @@ Vous avez créé des boutons qui appellent votre intention `ToDoActivity` (qui a
 
 Cette activité sert à remplir votre interface utilisateur de paramètres.
 
-Créez un fichier appelé `SettingsActivity.java` pour les opérations de création, lecture, mise à jour et suppression (CRUD) simples.
+Créez un fichier appelé `SettingsActivity.java` 
+pour les opérations de création, lecture, mise à jour et suppression (CRUD) simples.
 
 ```
  package com.microsoft.aad.taskapplication;
@@ -483,7 +484,8 @@ public class SettingsActivity extends Activity {
 
 Cette activité permet d’ajouter une tâche au point de terminaison de votre API REST.
 
-Créez un fichier appelé `AddTaskActivity.java` et écrivez le code suivant :
+Créez un fichier appelé `AddTaskActivity.java` 
+et écrivez le code suivant :
 
 ```
 package com.microsoft.aad.taskapplication;

@@ -30,11 +30,11 @@ Le connecteur Wait peut être utilisé en tant qu’action. Il ne possède aucun
 
 ### Action
 - Cliquez sur le connecteur Wait dans le volet de droite : ![Liste d'actions][1]
-- Le connecteur Wait prend en charge deux actions :
+- Le connecteur Wait prend en charge deux actions : 
 	- Retarder
 	- Retarder jusqu’à
 	 
-- Sélectionnez *Retarder* : ![Valeur du retard][2]
+- Sélectionnez *Retarder* : ![Valeur du retard][2]
 - Indiquez les entrées de l'action et configurez celle-ci : ![Action configurée][3]
 
 Paramètre|Type|Description du paramètre

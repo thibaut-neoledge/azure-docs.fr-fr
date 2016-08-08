@@ -686,7 +686,8 @@ Le VPN de point à site requiert que chaque machine du client se connecte à Azu
 #### VPN multisite
 Actuellement, Azure propose aussi de créer une connexion VPN multisite pour un abonnement Azure. Par le passé, un abonnement était limité à une seule connexion VPN de site à site. Cette limitation a disparu et vous pouvez désormais bénéficier de connexions VPN multisites pour un abonnement. Cela permet d’exploiter plusieurs régions Azure pour un abonnement spécifique par le biais de configurations intersites.
 
-Pour plus d’informations, consultez [cet article][vpn-gateway-create-site-to-site-rm-powershell] [comment]: <> (MShermannd TODO found no ARM docu link)
+Pour plus d’informations, consultez [cet article][vpn-gateway-create-site-to-site-rm-powershell] 
+[comment]: <> (MShermannd TODO found no ARM docu link)
 
 #### Connexion de réseau virtuel à réseau virtuel
 À l’aide d’un VPN multisite, vous devez configurer un réseau virtuel Azure distinct dans chacune des régions. Cependant, très souvent vous avez besoin que les composants logiciels des différentes régions puissent communiquer entre eux. Dans l’idéal, cette communication ne doit pas être acheminée depuis une région Azure vers un site local, ni depuis ce site local vers l’autre région Azure. En bref, Azure vous offre la possibilité de configurer une connexion depuis un réseau virtuel Azure dans une région vers un autre réseau virtuel Azure hébergé dans l’autre région. Cette fonctionnalité est appelée connexion de réseau virtuel à réseau virtuel. Vous trouverez plus d’informations sur cette fonctionnalité ici : <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
@@ -780,9 +781,11 @@ Des étapes plus détaillées sur l’installation, la mise à jour et la config
 
 Le retour de nos clients a permis de déterminer que PowerShell (PS) constitue l’outil le plus puissant pour déployer des machines virtuelles et créer des étapes personnalisées lors de leur déploiement. Tous les clients exécutant des instances SAP dans Azure utilisent des applets de commande PS pour compléter des tâches de gestion qu’ils effectuent dans le portail Azure. Certains utilisent même exclusivement des applets de commande PS pour gérer leurs déploiements dans Azure. Étant donné que les applets de commande dédiées à Azure partagent la même convention d’affectation de noms que les applets de commande Windows (dont le nombre dépasse 2 000), les administrateurs Windows peuvent facilement tirer parti de ces applets de commande.
 
-Consultez l’exemple présenté ici : <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Consultez l’exemple présenté ici : 
+<http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO describe new CLI command when tested ) Le déploiement de l’extension d’analyse Azure pour SAP (voir le chapitre [Solution de surveillance Azure pour SAP][planning-guide-9.1] de ce document) est uniquement possible par le biais de PowerShell ou de l’interface de ligne de commande. Par conséquent, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes lors du déploiement ou de l’administration d’un système SAP NetWeaver dans Azure.
+[comment]: <> (MShermannd TODO describe new CLI command when tested ) 
+Le déploiement de l’extension d’analyse Azure pour SAP (voir le chapitre [Solution de surveillance Azure pour SAP][planning-guide-9.1] de ce document) est uniquement possible par le biais de PowerShell ou de l’interface de ligne de commande. Par conséquent, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes lors du déploiement ou de l’administration d’un système SAP NetWeaver dans Azure.
 
 Étant donné qu’Azure propose davantage de fonctionnalités, de nouvelles applets de commande PS vont être ajoutées ; celles-ci nécessiteront une mise à jour des applets de commande. Par conséquent, il est judicieux de consulter le site de téléchargement Azure au moins une fois par mois, <https://azure.microsoft.com/downloads/>, afin de vérifier si une version mise à jour des applets de commande est disponible. La nouvelle version sera simplement installée par-dessus l’ancienne version.
 
@@ -816,7 +819,11 @@ ___
 
 > ![Windows][Logo_Windows] Windows
 >
-> Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep. [comment]: <> (MSSedusch > See more details here :) [comment]: <> (MShermannd TODO first link is about classic model. Didn’t find an Azure docu article) [comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) [comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
+> Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep. 
+[comment]: <> (MSSedusch > See more details here :) 
+[comment]: <> (MShermannd TODO first link is about classic model. Didn’t find an Azure docu article) 
+[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) 
+[comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
 >
 > ![Linux][Logo_Linux] Linux
 >

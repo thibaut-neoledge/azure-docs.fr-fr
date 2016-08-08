@@ -32,7 +32,7 @@ La sélection du niveau de cohérence adéquat dépend de la sémantique de votr
 
 3. Dans le panneau **Tous les paramètres**, cliquez sur l’entrée **Cohérence par défaut** sous **Fonctionnalité**. ![Cohérence par défaut Session][6]
 4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
-5. La progression de l’opération peut être contrôlée via le hub de notifications du portail Azure.
+
 
 > [AZURE.NOTE] L’application d’une modification du paramètre de cohérence par défaut dans votre compte DocumentDB peut prendre plusieurs minutes.
 
@@ -87,7 +87,9 @@ Il inclut également des clés en lecture seule pour permettre aux utilisateurs 
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB.
 2. Dans la barre **Essentials** du panneau **Compte DocumentDB**, cliquez sur **Clés**.
-3. Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier. ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/documentdb-manage-account/copykeys.png)
+3. Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
+
+  ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/documentdb-manage-account/copykeys.png)
 
 ### Régénération de clés d'accès
 

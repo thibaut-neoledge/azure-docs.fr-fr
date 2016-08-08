@@ -200,7 +200,14 @@ Les **opérations** autorisées sur les types répertoriés ci-dessus sont les s
 | timeinterval *opérateur* timeinterval | +, - | timeinterval |
 | timeinterval *opérateur* timestamp | + | timestamp |
 | timestamp *opérateur* timeinterval | + | timestamp |
-| timestamp *opérateur* timestamp | - | timeinterval | | *opérateur*double | -, ! | double | | *opérateur*timeinterval | - | timeinterval | | double *opérateur* double | <, <=, ==, >=, >, != | double | | string *opérateur* string | <, <=, ==, >=, >, != | double | | timestamp *opérateur* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *opérateur* timeinterval | <, <=, ==, >=, >, != | double | | double *opérateur* double | &&, || | double |
+| timestamp *opérateur* timestamp | - | timeinterval |
+| *opérateur*double | -, ! | double |
+| *opérateur*timeinterval | - | timeinterval |
+| double *opérateur* double | <, <=, ==, >=, >, != | double |
+| string *opérateur* string | <, <=, ==, >=, >, != | double |
+| timestamp *opérateur* timestamp | <, <=, ==, >=, >, != | double |
+| timeinterval *opérateur* timeinterval | <, <=, ==, >=, >, != | double |
+| double *opérateur* double | &&, &#124;&#124; | double |
 
 Lorsque vous testez un double avec un opérateur ternaire (`double ? statement1 : statement2`), la valeur différente de zéro est **true**, et zéro est **false**.
 

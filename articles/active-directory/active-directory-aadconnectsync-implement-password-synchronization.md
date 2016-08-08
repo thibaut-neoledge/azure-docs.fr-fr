@@ -31,14 +31,14 @@ La synchronisation de mot de passe est une fonctionnalité permettant de synchro
 
 En réduisant à un seul le nombre de mots de passe que vos utilisateurs doivent conserver, la synchronisation de mot de passe vous permet :
 
-- d’améliorer la productivité de vos utilisateurs ;
-- de réduire les coûts de support technique associés.
+- d’améliorer la productivité de vos utilisateurs ; 
+- de réduire les coûts de support technique associés.  
 
 De plus, si vous choisissez d’utiliser la [**Fédération avec AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), vous pouvez éventuellement activer la synchronisation de mot de passe comme sauvegarde en cas de défaillance de votre infrastructure AD FS.
 
 La synchronisation de mot de passe est une extension de la fonctionnalité de synchronisation d’annuaire implémentée par Azure AD Connect Sync. Pour utiliser la synchronisation de mot de passe dans votre environnement, vous devez :
 
-- Installer Azure AD Connect
+- Installer Azure AD Connect  
 
 - Configurer la synchronisation d’annuaire entre votre annuaire AD local et votre annuaire Azure Active Directory
 
@@ -53,7 +53,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 
 ## Fonctionnement de la synchronisation de mot de passe
 
-Le service de domaine Active Directory stocke les mots de passe sous forme de valeur de hachage du mot de passe réel de l’utilisateur. Une valeur de hachage est le résultat d’une fonction mathématique unidirectionnelle («*algorithme de hachage*»). Il n’existe aucune méthode pour retrouver la version en texte brut du mot de passe à partir du résultat d’une fonction unidirectionnelle. Vous ne pouvez pas utiliser un hachage de mot de passe pour vous connecter à votre réseau local.
+Le service de domaine Active Directory stocke les mots de passe sous forme de valeur de hachage du mot de passe réel de l’utilisateur. Une valeur de hachage est le résultat d’une fonction mathématique unidirectionnelle (« *algorithme de hachage* »). Il n’existe aucune méthode pour retrouver la version en texte brut du mot de passe à partir du résultat d’une fonction unidirectionnelle. Vous ne pouvez pas utiliser un hachage de mot de passe pour vous connecter à votre réseau local.
 
 Pour synchroniser votre mot de passe, Azure AD Connect Sync extrait le hachage de votre mot de passe à partir de l’annuaire Active Directory local. Un traitement de sécurité supplémentaire est appliqué au hachage du mot de passe avant sa synchronisation avec le service d’authentification Azure Active Directory. Les mots de passe sont synchronisés pour chaque utilisateur et par ordre chronologique.
 
@@ -129,8 +129,8 @@ Si votre serveur a été verrouillé selon la norme Federal Information Processi
 
 1. Accédez à **%programfiles%\\Azure AD Sync\\Bin**.
 2. Ouvrez **miiserver.exe.config**.
-2. Accédez au nœud **configuration/exécution** (à la fin du fichier).
-3. Ajoutez le nœud suivant : **<enforceFIPSPolicy enabled="false"/>**
+2. Accédez au nœud **configuration/exécution** (à la fin du fichier). 
+3. Ajoutez le nœud suivant : **<enforceFIPSPolicy enabled="false"/>** 
 4. Enregistrez vos modifications.
 
 Pour plus d'informations sur la sécurité et FIPS, consultez [Synchronisation, cryptage et conformité à la norme FIPS du mot de passe AAD](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)

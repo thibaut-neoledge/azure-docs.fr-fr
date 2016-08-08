@@ -76,7 +76,7 @@ Ce didacticiel fait appel à la base de données créée avec votre service mobi
             }
         }
 
-    Notez que ces deux classes partagent une *relation* : chaque élément **Order** est associé à un élément **Customer** et un élément **Customer** peut être associé à plusieurs éléments **Orders**. L'existence de relations est commune dans les modèles de données existants.
+    Notez que ces deux classes partagent une *relation*: chaque élément **Order** est associé à un élément **Customer** et un élément **Customer** peut être associé à plusieurs éléments **Orders**. L'existence de relations est commune dans les modèles de données existants.
 
 4. Créez un fichier **ExistingContext.cs** dans le dossier **Models** et implémentez-le de la façon suivante :
 

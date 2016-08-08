@@ -211,7 +211,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 ...
 
 
-- When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
+- Lorsque l’utilisateur a fini de gérer de sa liste des tâches, celui-ci peut se déconnecter de l’application en cliquant sur le bouton Vider le cache.
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -235,7 +235,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 
 ## Exécuter
 
-Félicitations ! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0. Run your both projects, and sign in with either a personal Microsoft account or a work or school account. Add tasks to that user's To-Do list.   Sign out, and sign back in as another user to view their To-Do list. Fermez l’application et exécutez-la de nouveau. Remarquez à quel point la session de l’utilisateur reste intacte (cela s’explique par le fait que l’application cache des jetons dans un fichier local).
+Félicitations ! Vous disposez désormais d’une application .NET WPF fonctionnelle, capable d’authentifier les utilisateurs et d’appeler des API web en toute sécurité via OAuth 2.0. Exécutez vos projets et connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire. Ajoutez des tâches à la liste de tâches de cet utilisateur. Déconnectez-vous et reconnectez-vous à l'aide du compte d'un autre utilisateur pour afficher sa liste de tâches. Fermez l’application et exécutez-la de nouveau. Remarquez à quel point la session de l'utilisateur reste intacte - car l'application cache des jetons dans un fichier local.
 
 La bibliothèque MSAL permet d’intégrer facilement des fonctionnalités d’identité courantes à votre application à l’aide de vos comptes personnels et professionnels. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `app.AcquireTokenAsync(...)`.
 
