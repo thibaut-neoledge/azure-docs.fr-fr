@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/25/2016" 
 	ms.author="juliako"/>
 
 
@@ -25,19 +25,19 @@ Cette rubrique contient des liens vers les notes de publication du Kit de dével
 
 ##Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 
-[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9](azure-sdk-dotnet-release-notes-2_9.md)
+[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9](azure-sdk-dotnet-release-notes-2-9.md)
 
 ##Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.8
 
-[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.8](azure-sdk-dotnet-release-notes-2_8.md)
+[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.8](azure-sdk-dotnet-release-notes-2-8.md)
 
 ##Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7
 
-[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7](azure-sdk-dotnet-release-notes-2_7.md)
+[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7](azure-sdk-dotnet-release-notes-2-7.md)
 
 ##Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.6
 
-[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.6](azure-sdk-dotnet-release-notes-2_6.md)
+[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.6](azure-sdk-dotnet-release-notes-2-6.md)
 
 ##Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 
@@ -74,4 +74,4 @@ Cette rubrique contient des liens vers les notes de publication du Kit de dével
 [Notes de publication du Kit de développement logiciel (SDK) Azure sur MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0727_2016-->

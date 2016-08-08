@@ -3,7 +3,7 @@
     description="Migration de vos machines virtuelles existantes vers Azure Storage Premium. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
     editor="tysonn"/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/25/2016"
+    ms.author="aungoo-msft"/>
 
 
 # Migration vers le stockage Premium Azure
@@ -23,17 +23,17 @@
 
 Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Les disques de machine virtuelle qui utilisent Premium Storage stockent les données sur des disques SSD. Vous pouvez migrer les disques de machine virtuelle de votre application dans Azure Premium Storage pour tirer parti de la vitesse et des performances de ces disques.
 
-Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu'à 80 000 IOPS (opérations d'E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
+Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu'à 80 000 IOPS (opérations d'E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
 
 >[AZURE.NOTE] Nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’IOPS dans Azure Premium Storage pour que votre application bénéficie de performances optimales. Si votre disque ne nécessite pas un nombre élevé d'IOPS, vous pouvez limiter les coûts en le conservant dans le stockage Standard qui stocke les données de disque de machine virtuelle sur des disques durs et non des disques SSD.
 
-L’objectif de ce guide est d’aider les nouveaux utilisateurs d’Azure Premium Storage à mieux se préparer pour effectuer une transition en douceur de leur système actuel vers Premium Storage. Ce guide porte sur trois des composants clés de ce processus : planification de la migration vers Premium Storage, migration des disques durs virtuels (VHD) existants vers Premium Storage et création d’instances de machine virtuelle Azure dans Premium Storage.
+L’objectif de ce guide est d’aider les nouveaux utilisateurs d’Azure Premium Storage à mieux se préparer pour effectuer une transition en douceur de leur système actuel vers Premium Storage. Ce guide porte sur trois des composants clés de ce processus : planification de la migration vers Premium Storage, migration des disques durs virtuels (VHD) existants vers Premium Storage et création d’instances de machine virtuelle Azure dans Premium Storage.
 
 L’exécution du processus de migration dans son intégralité peut nécessiter des actions supplémentaires précédant et suivant les étapes fournies dans ce guide. Par exemple, la configuration de réseaux virtuels ou de points de terminaison ou l’intégration de modifications de code dans l’application elle-même. Ces actions sont propres à chaque application, et vous devez les exécuter en plus des étapes indiquées dans ce guide pour effectuer la transition complète vers Premium Storage de manière aussi transparente que possible.
 
-Vous pouvez consulter un aperçu des fonctionnalités dans [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
+Vous pouvez consulter un aperçu des fonctionnalités dans [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
 
-Ce guide est divisé en deux sections couvrant les deux scénarios de migration suivants :
+Ce guide est divisé en deux sections couvrant les deux scénarios de migration suivants :
 
 - [Migration de machines virtuelles depuis d’autres plateformes vers Azure Premium Storage](#migrating-vms-from-other-platforms-to-azure-premium-storage).
 - [Migration des machines virtuelles Azure existantes vers Azure Premium Storage](#migrating-existing-azure-vms-to-azure-premium-storage).
@@ -45,7 +45,7 @@ Suivez les étapes spécifiées dans la section appropriée selon votre scénari
 ### Composants requis
 - Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez souscrire un abonnement pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) d’un mois ou visiter la page [Tarification Azure](https://azure.microsoft.com/pricing/) pour davantage d’options.
 - Pour exécuter les applets de commande PowerShell, vous avez besoin du module Microsoft Azure PowerShell. Pour télécharger le module, consultez la page [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
-- Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles de série DS, DSv2 ou GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS, DSv2 et GS. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md) et [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md).
+- Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles de série DS, DSv2 ou GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS, DSv2 et GS. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md) et [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Considérations
 
@@ -58,9 +58,9 @@ Il existe trois types de disque qui peuvent être utilisés avec votre machine v
 
 |Type de disque de stockage Premium|P10|P20|P30|
 |:---:|:---:|:---:|:---:|
-|Taille du disque|128 Go|512 Go|1024 Go (1 To)|
-|IOPS par disque|500|2 300|5 000|
-|Débit par disque|100 Mo par seconde|150 Mo par seconde|200 Mo par seconde|
+|Taille du disque|128 Go|512 Go|1024 Go (1 To)|
+|IOPS par disque|500|2 300|5 000|
+|Débit par disque|100 Mo par seconde|150 Mo par seconde|200 Mo par seconde|
 
 #### Objectifs d’évolutivité de compte de stockage
 
@@ -68,7 +68,7 @@ Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en 
 
 |Capacité totale des comptes|Bande passante totale pour un compte de stockage localement redondant|
 |:--|:---|
-|Capacité du disque : 35 To<br />Capacité d’instantané : 10 To|Jusqu'à 50 Go par seconde pour les données entrantes/sortantes|
+|Capacité du disque : 35 To<br />Capacité d’instantané : 10 To|Jusqu'à 50 Go par seconde pour les données entrantes/sortantes|
 
 Pour plus d’informations sur les spécifications de Premium Storage, consultez la page [Objectifs d’évolutivité et de performances lors de l’utilisation de Premium Storage](storage-premium-storage.md#scalability-and-performance-targets-whfr-FRing-premium-storage).
 
@@ -84,11 +84,11 @@ Choisissez un emplacement où le stockage Azure Premium est disponible. Pour obt
 
 #### Autres paramètres de configuration de machine virtuelle Azure
 
-Lorsque vous créez une machine virtuelle Azure, vous devez en configurer certains paramètres. N’oubliez pas : certains paramètres sont fixes pour la durée de vie de la machine virtuelle, tandis que d’autres peuvent être modifiés ou ajoutés ultérieurement. Passez en revue les paramètres de configuration des machines virtuelles Azure et assurez-vous qu’ils sont correctement configurés pour répondre aux besoins de votre charge de travail.
+Lorsque vous créez une machine virtuelle Azure, vous devez en configurer certains paramètres. N’oubliez pas : certains paramètres sont fixes pour la durée de vie de la machine virtuelle, tandis que d’autres peuvent être modifiés ou ajoutés ultérieurement. Passez en revue les paramètres de configuration des machines virtuelles Azure et assurez-vous qu’ils sont correctement configurés pour répondre aux besoins de votre charge de travail.
 
 ## Préparer des disques durs virtuels pour la migration
 
-La section suivante fournit des instructions pour préparer les disques durs virtuels à partir de votre machine virtuelle afin qu’ils soient prêts à migrer. Le disque dur virtuel peut être :
+La section suivante fournit des instructions pour préparer les disques durs virtuels à partir de votre machine virtuelle afin qu’ils soient prêts à migrer. Le disque dur virtuel peut être :
 
 - Une image de système d’exploitation généralisée permettant de créer plusieurs machines virtuelles Azure.
 - Un disque de système d’exploitation qui peut être utilisé avec une instance unique de machine virtuelle Azure.
@@ -96,7 +96,7 @@ La section suivante fournit des instructions pour préparer les disques durs vir
 
 ### Conditions préalables
 
-Pour migrer vos machines virtuelles, vous devez :
+Pour migrer vos machines virtuelles, vous devez :
 
 - Un abonnement Azure, un compte de stockage et un conteneur dans ce compte de stockage où copier votre disque dur virtuel. Notez que le compte de stockage de destination peut être un compte de stockage Standard ou Premium selon vos besoins.
 - Un outil pour généraliser le disque dur virtuel si vous envisagez de créer plusieurs instances de machine virtuelle à partir de celui-ci. Par exemple, sysprep pour Windows ou virt-sysprep pour Ubuntu.
@@ -116,10 +116,10 @@ Nous vous présentons ci-dessous différents scénarios pour la préparation de 
 
 Si vous téléchargez un disque dur virtuel qui permet de créer plusieurs instances de machine virtuelle Azure génériques, vous devez tout d’abord généraliser un disque dur virtuel à l’aide d’un utilitaire sysprep. Cette procédure s’applique à un disque dur virtuel local ou dans le cloud. Sysprep supprime des informations spécifiques sur une machine à partir du disque dur virtuel.
 
->[AZURE.IMPORTANT]Réalisez un instantané ou une sauvegarde de votre machine virtuelle avant la généralisation. L’exécution de sysprep supprime l’instance de la machine virtuelle. Suivez les étapes ci-dessous pour exécuter sysprep sur un disque dur virtuel de système d’exploitation Windows. Notez que vous devez arrêter la machine virtuelle pour pouvoir exécuter la commande Sysprep. Pour plus d’informations sur Sysprep, consultez [Présentation de Sysprep](http://technet.microsoft.com/library/hh825209.aspx) ou le Manuel de [référence technique Sysprep](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx).
+>[AZURE.IMPORTANT] Réalisez un instantané ou une sauvegarde de votre machine virtuelle avant la généralisation. L’exécution de sysprep supprime l’instance de la machine virtuelle. Suivez les étapes ci-dessous pour exécuter sysprep sur un disque dur virtuel de système d’exploitation Windows. Notez que vous devez arrêter la machine virtuelle pour pouvoir exécuter la commande Sysprep. Pour plus d’informations sur Sysprep, consultez [Présentation de Sysprep](http://technet.microsoft.com/library/hh825209.aspx) ou le [Manuel de référence technique Sysprep](http://technet.microsoft.com/library/cc766049.aspx).
 
 1. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
-2. Entrez la commande suivante pour ouvrir Sypsrep :
+2. Entrez la commande suivante pour ouvrir Sypsrep :
 
 		%windir%\system32\sysprep\sysprep.exe
 
@@ -143,7 +143,7 @@ Maintenant que le disque dur virtuel est prêt, suivez les étapes décrites ci-
 
 ### Création de la destination de votre disque dur virtuel
 
-Créez un compte de stockage pour gérer vos disques durs virtuels. Prenez en compte les points suivants lors de la planification de l’emplacement où stocker vos disques durs virtuels :
+Créez un compte de stockage pour gérer vos disques durs virtuels. Prenez en compte les points suivants lors de la planification de l’emplacement où stocker vos disques durs virtuels :
 
 - Le compte de stockage cible peut être Standard ou Premium selon les besoins de votre application.
 - L’emplacement du compte de stockage doit être identique dans les machines virtuelles Azure de série DS, DSv2 ou GS que vous allez créer lors de l’étape finale. Vous pouvez copier vers un nouveau compte de stockage, ou envisager d’utiliser le même compte de stockage selon vos besoins.
@@ -183,20 +183,20 @@ Si vous migrez un disque dur virtuel à partir d’un environnement local, vous 
 
 À l’aide d’AzCopy, vous pouvez facilement télécharger le disque dur virtuel sur Internet. Selon la taille des disques durs virtuels, cela peut prendre du temps. N’oubliez pas de vérifier les limites d’entrées/sorties de compte de stockage lors de l’utilisation de cette option. Pour plus d’informations, consultez [Objectifs de performance et d’évolutivité d’Azure Storage](storage-scalability-targets.md).
 
-1. Téléchargez et installez AzCopy à partir d’ici : [version la plus récente d’AzCopy](http://aka.ms/downloadazcopy)
+1. Téléchargez et installez AzCopy à partir d’ici : [version la plus récente d’AzCopy](http://aka.ms/downloadazcopy)
 2. Ouvrez Azure PowerShell et accédez au dossier où AzCopy est installé.
-3. Utilisez la commande suivante pour copier le fichier de disque dur virtuel à partir de « Source » vers « Destination ».
+3. Utilisez la commande suivante pour copier le fichier de disque dur virtuel à partir de « Source » vers « Destination ».
 
 		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
 
-	Les paramètres utilisés dans la commande AzCopy sont décrits ci-dessous :
+	Les paramètres utilisés dans la commande AzCopy sont décrits ci-dessous :
 
- - **/Source: *&lt;source&gt; :*** emplacement du dossier ou URL du conteneur de stockage qui contient le disque dur virtuel.
+ - **/Source: *&lt;source&gt; :*** emplacement du dossier ou URL du conteneur de stockage qui contient le disque dur virtuel.
  - **/SourceKey: *&lt;source-account-key&gt;:*** clé de compte de stockage du compte de stockage source.
  - **/Dest: *&lt;destination&gt;:*** URL du conteneur de stockage où copier le disque dur virtuel.
  - **/DestKey: *&lt;dest-account-key&gt;:*** clé de compte de stockage du compte de stockage de destination.
- - **/BlobType: page :** spécifie si la destination est un objet blob de pages.
- - **/Pattern: *&lt;nom\_fichier&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
+ - **/BlobType: page :** spécifie si la destination est un objet blob de pages.
+ - **/Pattern: *&lt;nom\_fichier&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
 
 Pour plus d’informations sur l’utilisation d’AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
@@ -210,7 +210,7 @@ Vous pouvez également copier le fichier de disque dur virtuel à l’aide de l�
 
 ### Autres options de téléchargement d’un disque dur virtuel
 
-Vous pouvez également télécharger un disque dur virtuel sur votre compte de stockage en utilisant l’un des moyens suivants :
+Vous pouvez également télécharger un disque dur virtuel sur votre compte de stockage en utilisant l’un des moyens suivants :
 
 - [API de copie d’un objet blob de stockage Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Référence sur l’API REST du service Import/Export Storage](https://msdn.microsoft.com/library/dn529096.aspx)
@@ -251,13 +251,13 @@ Utilisez les applets de commande PowerShell suivantes pour inscrire votre disque
 
 Copiez et enregistrez le nom de ce nouveau disque de données Azure. Dans l’exemple ci-dessus, il s’agit de *DataDisk*.
 
-### Création d’une machine virtuelle Azure série DS, DSv2 ou GS.
+### Création d’une machine virtuelle Azure série DS, DSv2 ou GS.
 
 Une fois l’image du système d’exploitation ou le disque du système d’exploitation inscrit, créez une nouvelle machine virtuelle série DS, DSv2 ou GS. Vous utiliserez l’image du système d’exploitation ou le nom de disque de système d’exploitation que vous avez inscrit. Sélectionnez le type de machine virtuelle à partir du niveau de stockage Premium. Dans l’exemple ci-dessous, nous utilisons la taille de machine virtuelle *Standard\_DS2*.
 
 >[AZURE.NOTE] Mettez à jour la taille du disque pour vous assurer qu’il correspond à votre capacité, à l’exigence de performance et aux tailles de disque Azure disponibles.
 
-Suivez les applets de commande PowerShell étape par étape ci-dessous pour créer la machine virtuelle. Tout d’abord, définissez les paramètres communs :
+Suivez les applets de commande PowerShell étape par étape ci-dessous pour créer la machine virtuelle. Tout d’abord, définissez les paramètres communs :
 
 	$serviceName = "yourVM"
 	$location = "location-name" (e.g., West US)
@@ -295,11 +295,11 @@ Créez une nouvelle instance de machine virtuelle Azure de série DS à l’aide
 
 	New-AzureVM -ServiceName $serviceName –VM $vm
 
-Spécifiez d’autres informations de machine virtuelle Azure, comme un service cloud, une région, un compte de stockage, un groupe à haute disponibilité et une stratégie de mise en cache. Notez que l’instance de machine virtuelle doit se trouver avec le système d’exploitation ou les disques de données associés ; le service cloud, la région et le compte de stockage sélectionnés doivent donc tous se trouver au même emplacement que les disques durs virtuels sous-jacents de ces disques.
+Spécifiez d’autres informations de machine virtuelle Azure, comme un service cloud, une région, un compte de stockage, un groupe à haute disponibilité et une stratégie de mise en cache. Notez que l’instance de machine virtuelle doit se trouver avec le système d’exploitation ou les disques de données associés ; le service cloud, la région et le compte de stockage sélectionnés doivent donc tous se trouver au même emplacement que les disques durs virtuels sous-jacents de ces disques.
 
 ### Attacher un disque de données
 
-Enfin, si vous avez inscrit les disques durs virtuels des disques de données, joignez-les à la nouvelle machine virtuelle Azure de série DS, DSv2 ou GS.
+Enfin, si vous avez inscrit les disques durs virtuels des disques de données, joignez-les à la nouvelle machine virtuelle Azure de série DS, DSv2 ou GS.
 
 Utilisez l’applet de commande PowerShell suivante pour joindre un disque de données à la nouvelle machine virtuelle et spécifiez la stratégie de mise en cache. Dans l’exemple ci-dessous, la stratégie de mise en cache est définie sur *Lecture seule*.
 
@@ -313,7 +313,7 @@ Utilisez l’applet de commande PowerShell suivante pour joindre un disque de do
 
 ## Migration des machines virtuelles Azure existantes vers Azure Premium Storage
 
-Si vous disposez d’une machine virtuelle Azure qui utilise des disques de stockage Standard, suivez la procédure ci-dessous pour migrer vers Premium Storage. De façon générale, la migration implique deux étapes :
+Si vous disposez d’une machine virtuelle Azure qui utilise des disques de stockage Standard, suivez la procédure ci-dessous pour migrer vers Premium Storage. De façon générale, la migration implique deux étapes :
 -	Migration des disques du compte de stockage Standard au compte Premium Storage
 -	Conversion de la taille de la machine virtuelle de A/D/G vers DS, DSv2 ou GS, comme requis pour l’utilisation de disques Premium Storage.
 
@@ -324,8 +324,8 @@ Dans ce scénario simple, vous souhaitez conserver votre configuration en l’é
 
 #### Préparation
 1. Vérifiez que Premium Storage est disponible dans la région vers laquelle vous effectuez la migration.
-2. Choisissez la nouvelle série de machines virtuelles que vous allez utiliser. Il peut s’agir de la série DS, DSv2 ou de la série GS selon la disponibilité dans la région et en fonction de vos besoins.
-3. Choisissez la taille exacte de machine virtuelle que vous allez utiliser. La taille de machine virtuelle doit être suffisante pour prendre en charge le nombre de disques de données dont vous disposez. Par exemple, si vous disposez de 4 disques de données, la machine virtuelle doit disposer d’au moins 2 cœurs. Prenez également en considération les besoins en puissance, mémoire et bande passante réseau.
+2. Choisissez la nouvelle série de machines virtuelles que vous allez utiliser. Il peut s’agir de la série DS, DSv2 ou de la série GS selon la disponibilité dans la région et en fonction de vos besoins.
+3. Choisissez la taille exacte de machine virtuelle que vous allez utiliser. La taille de machine virtuelle doit être suffisante pour prendre en charge le nombre de disques de données dont vous disposez. Par exemple, si vous disposez de 4 disques de données, la machine virtuelle doit disposer d’au moins 2 cœurs. Prenez également en considération les besoins en puissance, mémoire et bande passante réseau.
 4. Créez un compte Premium Storage dans la région cible. C’est le compte que vous utiliserez pour la nouvelle machine virtuelle.
 5. Gardez à portée de main les informations détaillées sur les machines virtuelles, notamment la liste des disques et des blobs de disques durs virtuels correspondants.
 6. Préparez votre application pour les interruptions de service. Pour effectuer une migration sans erreur, vous devez arrêter tous les processus en cours d’exécution dans le système actuel. Ce n’est qu’à cette condition que le système présentera un état cohérent, permettant sa migration vers la nouvelle plateforme. La durée de l’interruption de service dépend de la quantité de données dans les disques à migrer.
@@ -340,10 +340,10 @@ Dans ce scénario simple, vous souhaitez conserver votre configuration en l’é
 3.	Vérifiez que la copie est terminée. Attendez que tous les disques soient copiés. Une fois que tous les disques sont copiés, vous êtes prêt à passer aux étapes suivantes, pour la création de la nouvelle machine virtuelle.
 4.	Créez un nouveau disque de système d’exploitation utilisant le blob de disque dur virtuel de disque du système d’exploitation que vous avez copié dans le compte Premium Storage. Pour ce faire, utilisez l’applet de commande PowerShell Add-AzureDisk.
 
-    Exemple de script : Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
-5. Ensuite, créez votre machine virtuelle de série DS (DSv2 ou GS) à l’aide du disque de système d’exploitation et des disques de données ci-dessus.
+    Exemple de script : Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
+5. Ensuite, créez votre machine virtuelle de série DS (DSv2 ou GS) à l’aide du disque de système d’exploitation et des disques de données ci-dessus.
 
-    Exemple de script pour créer un nouveau service de cloud computing et une nouvelle machine virtuelle au sein de ce service : New-AzureService -ServiceName “NewServiceName” -Location “East US 2"
+    Exemple de script pour créer un nouveau service de cloud computing et une nouvelle machine virtuelle au sein de ce service : New-AzureService -ServiceName “NewServiceName” -Location “East US 2"
 
         New-AzureVMConfig -Name "NewDSVMName" -InstanceSize "Standard_DS2" -DiskName "NewOSDisk1" | Add-AzureProvisioningConfig -Windows | Add-AzureDataDisk -LUN 0 -DiskLabel "DataDisk1" -ImportFrom -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/Disk1.vhd" | Add-AzureDataDisk -LUN 1 -DiskLabel "DataDisk2" -ImportFrom -MediaLocation https://newpremiumstorageaccount.blob.core.windows.net/vhds/Disk2.vhd | New-AzureVM -ServiceName "NewServiceName" –Location “East US 2”
 
@@ -415,7 +415,7 @@ Si vous avez plusieurs machines virtuelles à migrer, il peut s’avérer utile 
 
     # whether or not to copy the os disk, the default is only copy data disks
     [Parameter(Mandatory = $false)]
-    [String] $DataDiskOnly = $true,
+    [Bool] $DataDiskOnly = $true,
 
     # how frequently to report the copy status in sceconds
     [Parameter(Mandatory = $false)]
@@ -646,14 +646,14 @@ Si vous avez plusieurs machines virtuelles à migrer, il peut s’avérer utile 
     New-AzureVM -ServiceName $DestServiceName -VMs $vm -Location $Location
 
 ### Optimisation
-La configuration de votre machine virtuelle actuelle peut être personnalisée spécifiquement pour fonctionner correctement avec des disques Standard. Par exemple, vous pouvez augmenter les performances en utilisant de nombreux disques dans un volume agrégé par bandes. Étant donné que les disques Premium Storage offrent de meilleures performances, vous serez en mesure d’optimiser les coûts en réduisant le nombre de disques. Par exemple, si votre application a besoin d’un volume avec 2 000 E/S par seconde, vous pouvez utiliser un jeu d’agrégats par bandes de 4 disques de stockage Standard pour obtenir 4 x 500 = 2 000 E/S par seconde. Avec un disque Premium Storage, un seul disque de 512 Go permet de fournir 2 300 E/S par seconde. Par conséquent, au lieu d’utiliser 4 disques séparément sur Premium Storage, vous pourrez optimiser le coût en n’utilisant qu’un seul disque. Des optimisations comme celles-ci doivent être étudiées au cas par cas et requièrent l’exécution d’étapes personnalisées après la migration. Notez également que ce processus est susceptible de ne pas bien fonctionner pour les bases de données et les applications qui dépendent de la disposition du disque définie dans la configuration.
+La configuration de votre machine virtuelle actuelle peut être personnalisée spécifiquement pour fonctionner correctement avec des disques Standard. Par exemple, vous pouvez augmenter les performances en utilisant de nombreux disques dans un volume agrégé par bandes. Étant donné que les disques Premium Storage offrent de meilleures performances, vous serez en mesure d’optimiser les coûts en réduisant le nombre de disques. Par exemple, si votre application a besoin d’un volume avec 2 000 E/S par seconde, vous pouvez utiliser un jeu d’agrégats par bandes de 4 disques de stockage Standard pour obtenir 4 x 500 = 2 000 E/S par seconde. Avec un disque Premium Storage, un seul disque de 512 Go permet de fournir 2 300 E/S par seconde. Par conséquent, au lieu d’utiliser 4 disques séparément sur Premium Storage, vous pourrez optimiser le coût en n’utilisant qu’un seul disque. Des optimisations comme celles-ci doivent être étudiées au cas par cas et requièrent l’exécution d’étapes personnalisées après la migration. Notez également que ce processus est susceptible de ne pas bien fonctionner pour les bases de données et les applications qui dépendent de la disposition du disque définie dans la configuration.
 
 #### Préparation
 1.	Terminez la migration simple comme décrit dans la section précédente. Les optimisations seront effectuées sur la nouvelle machine virtuelle après la migration.
 2.	Définissez les tailles requises pour les nouveaux disques pour une configuration optimisée.
 3.	Déterminez les spécifications du mappage des volumes/disques actuels aux nouveaux disques.
 
-#### Étapes d’exécution :
+#### Étapes d’exécution :
 1.	Créez les nouveaux disques avec les tailles appropriées sur la machine virtuelle Premium Storage.
 2.	Connectez-vous à la machine virtuelle et copiez les données du volume actuel vers le nouveau disque mappé à ce volume. Utilisez cette même procédure pour tous les volumes actuels devant être mappés à un nouveau disque.
 3.	Ensuite, modifiez les paramètres d’application pour basculer vers les nouveaux disques et détachez les anciens volumes.
@@ -663,21 +663,21 @@ Les bases de données et autres applications complexes peuvent nécessiter des �
 
 ## Étapes suivantes
 
-Consultez les ressources suivantes pour des scénarios spécifiques de migration des machines virtuelles :
+Consultez les ressources suivantes pour des scénarios spécifiques de migration des machines virtuelles :
 
 - [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 - [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
 - [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 - [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
-Consultez également les ressources suivantes pour en savoir plus sur Azure Storage and Azure Virtual Machines :
+Consultez également les ressources suivantes pour en savoir plus sur Azure Storage and Azure Virtual Machines :
 
 - [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-- [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md)
+- [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md)
 
 [1]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

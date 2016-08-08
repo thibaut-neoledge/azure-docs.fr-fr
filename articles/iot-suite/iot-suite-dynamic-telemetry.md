@@ -38,7 +38,7 @@ Vous pouvez suivre ce didacticiel sur n’importe quel système d’exploitation
 
 1. Dans le tableau de bord de surveillance à distance, cliquez sur **+ Ajouter un appareil**, puis ajoutez un nouvel appareil personnalisé. Notez le nom d’hôte, l’ID de l’appareil et la clé de l’appareil IoT Hub. Vous en aurez besoin ultérieurement dans ce didacticiel lorsque vous préparerez l’application cliente de l’appareil remote\_monitoring.js.
 
-2. Assurez-vous que Node.js version 0.12.x ou ultérieure est installé sur votre ordinateur de développement. Exécutez `node --version` à l’invite de commande ou dans un interpréteur de commandes pour vérifier la version. Pour plus d’informations sur l’utilisation d’un gestionnaire de package pour installer Node.js sur Linux, consultez [Installing Node.js via package manager][node-linux] \(Installation de Node.js via le gestionnaire de package).
+2. Assurez-vous que Node.js version 0.12.x ou ultérieure est installé sur votre ordinateur de développement. Exécutez `node --version` à l’invite de commande ou dans un interpréteur de commandes pour vérifier la version. Pour plus d’informations sur l’utilisation d’un gestionnaire de package pour installer Node.js sur Linux, consultez [Installing Node.js via package manager][node-linux] (Installation de Node.js via le gestionnaire de package).
 
 3. Une fois que vous avez installé Node.js, clonez la dernière version du référentiel [azure-iot-sdks][lnk-github-repo] sur votre ordinateur de développement. Vous devez toujours utiliser la branche **maître** pour la version la plus récente des bibliothèques et des exemples.
 
@@ -236,10 +236,9 @@ Pour qu’un flux de données s’affiche sur le graphique, son **Type** dans le
 
 ## Étapes suivantes
 
-Une solution préconfigurée opérationnelle étant créée, vous pouvez passer aux procédures suivantes :
+Maintenant que vous savez comment utiliser la télémétrie dynamique, vous pouvez en savoir plus sur la manière dont les solutions préconfigurées utilisent les informations d’appareil : [Métadonnées relatives aux informations d’appareil dans la solution préconfigurée de surveillance à distance][lnk-devinfo].
 
--   [Conseils sur la personnalisation des solutions préconfigurées][lnk-customize]
--   [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive]
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [image1]: media/iot-suite-dynamic-telemetry/image1.png
 [image2]: media/iot-suite-dynamic-telemetry/image2.png
@@ -248,10 +247,8 @@ Une solution préconfigurée opérationnelle étant créée, vous pouvez passer 
 [image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-node]: http://nodejs.org
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

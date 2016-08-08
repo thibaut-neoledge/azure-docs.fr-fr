@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="07/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -38,7 +38,7 @@ Un BACPAC est un fichier .bacpac qui contient un schéma de base de données et 
 
 Pour importer une base de données SQL à partir d'un fichier .bacpac, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure. 
+- Un abonnement Azure.
 - Un serveur V12 de base de données SQL Azure. Si vous n’avez pas de serveur V12, créez-en un en suivant les étapes figurant dans cet article : [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 - Un fichier .bacpac de la base de données que vous souhaitez importer dans un conteneur d’objets blob de [compte Azure Storage (standard)](../storage/storage-create-storage-account.md).
 
@@ -65,7 +65,7 @@ Ouvrez le panneau SQL Server :
     ![sélectionner un niveau de tarification][3]
 
 1.  Entrez un **nom de base de données** pour la base de données que vous créez à partir du fichier BACPAC.
-2.  Choisissez le type d’authentification, puis saisissez les informations d’authentification pour le serveur. 
+2.  Choisissez le type d’authentification, puis saisissez les informations d’authentification pour le serveur.
 3.  Cliquez sur **Créer** pour créer la base de données à partir du fichier BACPAC.
 
     ![créer une base de données][4]
@@ -92,13 +92,7 @@ La commande **Créer** envoie une demande d’importation de la base de données
 
 ## Étapes suivantes
 
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
-
-
-
-## Ressources supplémentaires
-
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- Pour vous connecter et interroger une base de données SQL importée, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 
 <!--Image references-->
@@ -109,4 +103,4 @@ La commande **Créer** envoie une demande d’importation de la base de données
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 ## Création d’une application Machine Learning à l’aide de Spark MLlib
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -85,7 +85,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des données structurées. La première tâche consiste à charger les exemples de données ((**Food\_Inspections1.csv**)) dans une *trame de données* SQL Spark.
 
-1. Étant donné que les données brutes sont au format CSV, nous devons utiliser le contexte Spark pour extraire chaque ligne du fichier en mémoire sous forme de texte non structuré. Ensuite, utilisez la bibliothèque CSV de Python pour analyser chaque ligne individuellement. 
+1. Étant donné que les données brutes sont au format CSV, nous devons utiliser le contexte Spark pour extraire chaque ligne du fichier en mémoire sous forme de texte non structuré. Ensuite, utilisez la bibliothèque CSV de Python pour analyser chaque ligne individuellement.
 
 
 		def csvParse(s):
@@ -96,7 +96,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -167,7 +167,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
 ## Comprendre les données
 
-1. Commençons par nous faire une idée de ce que notre jeu de données contient. Par exemple, quelles sont les différentes valeurs dans la colonne **résultats** ?
+1. Commençons par nous faire une idée de ce que notre jeu de données contient. Par exemple, quelles sont les différentes valeurs dans la colonne **résultats** ?
 
 
 		df.select('results').distinct().show()
@@ -222,11 +222,11 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
 4. Vous pouvez voir qu’il existe 5 résultats d’inspection distincts.
 	
-	* Entreprise introuvable 
+	* Entreprise introuvable
 	* Échec
 	* Réussite
 	* Réussite avec conditions
-	* Cessation d’activités 
+	* Cessation d’activités
 
 	Développons un modèle capable de deviner le résultat d’une inspection alimentaire, en fonction des violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données en deux catégories : **échec** et **réussite**. Une « Réussite avec conditions » reste une Réussite. Par conséquent, lorsque nous formons le modèle, nous devons considérer ces deux résultats au même titre. Les données contenant les autres résultats (« Entreprise introuvable », « Cessation d’activités ») ne sont pas utiles. Nous pouvons donc les supprimer de notre jeu d’apprentissage. Cela ne devrait pas poser de problème, puisque ces deux catégories ne représentent qu’un faible pourcentage du résultat total.
 
@@ -283,7 +283,7 @@ Nous pouvons utiliser le modèle que nous avons créé précédemment pour *pré
 1. L’extrait de code ci-dessous crée une nouvelle trame de données, **predictionsDf**, qui contient la prédiction générée par le modèle. L’extrait de code crée également une table temporaire **Predictions** basée sur la trame de données.
 
 
-		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -341,7 +341,7 @@ Nous pouvons utiliser le modèle que nous avons créé précédemment pour *pré
 
 Nous pouvons désormais créer une visualisation finale pour nous aider à examiner les résultats de ce test.
 
-1. Nous allons commencer par extraire les différentes prédictions et résultats de la table temporaire **Predictions** créée précédemment. Les requêtes suivantes séparent la sortie en tant que *true\_positive*, *false\_positive*, *true\_negative* et *false\_negative*. Dans les requêtes ci-dessous, nous désactivons la visualisation à l’aide de `-q` et nous enregistrons la sortie (à l’aide de `-o`) en tant que trames de données qui peuvent ensuite être utilisées avec la magie `%%local`. 
+1. Nous allons commencer par extraire les différentes prédictions et résultats de la table temporaire **Predictions** créée précédemment. Les requêtes suivantes séparent la sortie en tant que *true\_positive*, *false\_positive*, *true\_negative* et *false\_negative*. Dans les requêtes ci-dessous, nous désactivons la visualisation à l’aide de `-q` et nous enregistrons la sortie (à l’aide de `-o`) en tant que trames de données qui peuvent ensuite être utilisées avec la magie `%%local`.
 
 		%%sql -q -o true_positive
 		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -420,4 +420,4 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

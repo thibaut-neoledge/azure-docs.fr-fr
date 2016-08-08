@@ -19,7 +19,7 @@
 
 Cette page décrit les méthodes de routage du trafic prises en charge par Azure Traffic Manager. Elles sont utilisées pour diriger les utilisateurs finaux vers le point de terminaison de service approprié.
 
-> [AZURE.NOTE] L’API Azure Resource Manager (ARM) pour Traffic Manager utilise une terminologie différente de l’API de gestion des services Microsoft Azure (Azure Service Management, ASM). Cette modification a été introduite suite à des commentaires pour améliorer la clarté et limiter les malentendus courants. Dans cette page, nous utilisons la terminologie ARM. Les différences sont les suivantes :
+> [AZURE.NOTE] L’API Azure Resource Manager (ARM) pour Traffic Manager utilise une terminologie différente de l’API de gestion des services Windows Azure (Azure Service Management, ASM). Cette modification a été introduite suite à des commentaires pour améliorer la clarté et limiter les malentendus courants. Dans cette page, nous utilisons la terminologie ARM. Les différences sont les suivantes :
 
 >- Dans ARM, nous utilisons le concept de « méthode de routage du trafic » pour décrire l’algorithme utilisé pour déterminer le point de terminaison spécifique vers lequel un utilisateur final doit être dirigé à un moment donné. Dans ASM, nous parlons de « méthode d’équilibrage de charge ».
 
@@ -33,11 +33,11 @@ Azure Traffic Manager prend en charge un certain nombre d’algorithmes pour dé
 
 Trois méthodes de routage du trafic sont disponibles dans Traffic Manager :
 
-- **Priorité :** sélectionnez « Priority (Priorité) » si vous souhaitez utiliser un point de terminaison de service principal pour tout le trafic et disposer de sauvegardes au cas où les points de terminaison principaux ou de sauvegarde ne sont pas disponibles. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur la priorité](#wriority-traffic-routing-method).
+- **Priorité :** sélectionnez « Priority (Priorité) » si vous souhaitez utiliser un point de terminaison de service principal pour tout le trafic et disposer de sauvegardes au cas où les points de terminaison principaux ou de sauvegarde ne sont pas disponibles. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur la priorité](#priority-traffic-routing-method).
 
 - **Pondération :** sélectionnez « Weighted (Pondéré) » si vous souhaitez distribuer le trafic entrant sur un ensemble de points de terminaison, soit uniformément, soit en fonction du poids que vous définissez. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur la pondération](#weighted-traffic-routing-method).
 
-- **Performances** : sélectionnez « Performance » quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur les performances](#performance-traffic-routing-method).
+- **Performances** : sélectionnez « Performance » quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur les performances](#performance-traffic-routing-method).
 
 > [AZURE.NOTE] Tous les profils Traffic Manager comprennent une surveillance continue de l’intégrité des points de terminaison et un basculement de point de terminaison automatique. Le tout est pris en charge pour toutes les méthodes de routage du trafic. Pour plus d’informations, consultez la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md).
 
@@ -49,7 +49,7 @@ Souvent, une organisation souhaite assurer la fiabilité de ses services en four
 
 ![Méthode de routage du trafic Azure Traffic Manager « Priority »][1]
 
-Le profil Traffic Manager est configuré avec une liste hiérarchisée de points de terminaison de service. Par défaut, tout le trafic de l’utilisateur final est envoyé vers le point de terminaison principal (à priorité la plus élevée). Si le point de terminaison principal n’est pas disponible (sur la base de l’état activé ou désactivé des points de terminaison configurés et de la surveillance des points de terminaison en cours), les utilisateurs sont référencés par le second point de terminaison. Si les points de terminaison de type principal et secondaire ne sont pas disponibles, le trafic est envoyé vers le troisième, et ainsi de suite.
+Le profil Traffic Manager est configuré avec une liste hiérarchisée de points de terminaison de service. Par défaut, tout le trafic de l’utilisateur final est envoyé vers le point de terminaison principal (à priorité la plus élevée). Si le point de terminaison principal n’est pas disponible (sur la base de l’état activé ou désactivé des points de terminaison configurés et de la surveillance des points de terminaison en cours), les utilisateurs sont dirigés vers le second point de terminaison. Si les points de terminaison de type principal et secondaire ne sont pas disponibles, le trafic est envoyé vers le troisième, et ainsi de suite.
 
 La configuration des priorités de point de terminaison est exécutée différemment dans les API ARM (et le nouveau portail Azure) et dans les API ASM (et portail Classic) :
 
@@ -97,9 +97,9 @@ Traffic Manager examine chaque requête DNS entrante et recherche l’adresse IP
 
 Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md), Traffic Manager ne reçoit pas de requêtes DNS directement des utilisateurs finaux, mais il les reçoit du service DNS récursif pour lequel elles sont configurées. Par conséquent, l’adresse IP utilisée pour déterminer le point de terminaison « le plus proche » n’est pas l’adresse IP de l’utilisateur final, mais celle de son service DNS récursif. Dans la pratique, cette adresse IP est un proxy adéquat pour l’utilisateur final à cet effet.
 
-Pour tenir compte des modifications apportées à l’Internet global et de l’ajout de nouvelles régions Azure, Traffic Manager met régulièrement à jour la table de latence Internet qu’il utilise. Toutefois, les variations de performances en temps réel ou les chargements via Internet ne peuvent pas être pris en compte.
+Pour tenir compte des modifications apportées à l’Internet au niveau mondial et de l’ajout de nouvelles régions Azure, Traffic Manager met régulièrement à jour la table de latence Internet qu’il utilise. Toutefois, les variations de performances en temps réel ou les chargements via Internet ne peuvent pas être pris en compte.
 
-Le routage du trafic « Performance » ne prend pas en compte la charge sur un point de terminaison de service donné, bien que Traffic Manager surveille vos points de terminaison et ne les inclue pas dans les requêtes DNS s'ils sont indisponibles.
+Le routage du trafic « Performance » ne prend pas en compte la charge sur un point de terminaison de service donné, bien que Traffic Manager surveille vos points de terminaison et ne les inclut pas dans les requêtes DNS s'ils sont indisponibles.
 
 Points à noter :
 
@@ -126,4 +126,4 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

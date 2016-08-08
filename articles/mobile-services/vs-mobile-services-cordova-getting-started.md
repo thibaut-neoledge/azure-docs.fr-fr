@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Prise en main de Mobile Services (Projets Cordova)
@@ -69,7 +69,7 @@ Vous pouvez utiliser la méthode where pour modifier la requête. Voici un exemp
             items = results.slice();
         });
 
-Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query](https://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 ##Mettre à jour un élément de table
 
@@ -88,6 +88,4 @@ Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Ap
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[En savoir plus sur Mobile Services](https://azure.microsoft.com/documentation/services/mobile-services/)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

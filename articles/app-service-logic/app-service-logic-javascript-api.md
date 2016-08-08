@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 De la même façon, vous pouvez spécifier une action à exécuter.
 
 Les entrées de l’action sont les suivantes :
-- **Expression JavaScript** - Expression qui est évaluée. Vous devez inclure l’instruction `return` pour obtenir du contenu. 
+- **Expression JavaScript** - Expression qui est évaluée. Vous devez inclure l’instruction `return` pour obtenir du contenu.
 - **Objet de contexte** - Objet facultatif pouvant être transmis au déclencheur. Vous pouvez définir autant de propriétés que vous le souhaitez, mais l’entité de niveau supérieur doit être un objet, par exemple `{ "bar" : 0}`.
 
 Par exemple, supposons que vous utilisiez le déclencheur d’Office 365 **Nouveau message**. Ce dernier renvoie l’objet suivant :
@@ -99,4 +99,4 @@ Le connecteur étant créé, vous pouvez l’ajouter à un flux d’entreprise �
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

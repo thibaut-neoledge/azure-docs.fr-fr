@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Débogage des travaux Stream Analytics à l’aide des journaux des opérations et de service
@@ -25,8 +25,8 @@ Tous les services Azure fournissent des messages de journalisation opérationnel
 
 Les journaux des opérations sont accessibles de deux manières :
 
-- Tableau de bord de la tâche Stream Analytics  
-- Services de gestion dans le portail Azure Classic  
+- Tableau de bord de la tâche Stream Analytics
+- Services de gestion dans le portail Azure Classic
 
 ## Tableau de bord de la tâche Stream Analytics
 
@@ -39,7 +39,7 @@ Un lien vers les journaux correspondants d'une tâche Stream Analytics s'affiche
 Pour accéder manuellement aux journaux des opérations pour Stream Analytics et d’autres services dans le portail Azure Classic :
 
 1.	Cliquez sur **Services de gestion** dans le [portail Azure Classic](https://manage.windowsazure.com).
-2.	Sélectionnez **Stream Analytics** pour **Type** et le nom de la tâche pour **Nom du service**.  
+2.	Sélectionnez **Stream Analytics** pour **Type** et le nom de la tâche pour **Nom du service**.
 
   ![Sélection de Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

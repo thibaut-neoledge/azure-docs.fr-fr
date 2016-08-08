@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Concepts de Mobile Services
@@ -27,7 +27,7 @@ Les rubriques liées ci-dessous fournissent des informations sur les comportemen
 La [rubrique de présentation](https://msdn.microsoft.com/library/azure/jj193167.aspx) décrit les avantages de l'utilisation de Mobile Services et les tâches pouvant être effectuées dans le portail Azure Classic. Pour obtenir des informations plus générales sur Mobile Services et des exemples d'utilisation de Mobile Services dans vos applications, consultez [Didacticiels et ressources Mobile Services](https://azure.microsoft.com/documentation/services/mobile-services/).
 
 ##Configuration
-Les rubriques suivantes fournissent des informations sur la création, la suppression et la configuration de Mobile Services :
+Les rubriques suivantes fournissent des informations sur la création, la suppression et la configuration de Mobile Services :
 
 - [Créer un service mobile](https://msdn.microsoft.com/library/azure/jj193169.aspx)
 - [Supprimer un service mobile](https://msdn.microsoft.com/library/azure/jj193173.aspx)
@@ -37,7 +37,7 @@ Les rubriques suivantes fournissent des informations sur la création, la suppre
 - [Configurer l'identité](https://msdn.microsoft.com/library/azure/jj591527.aspx)
 
 ##Accès aux données
-Les rubriques suivantes fournissent des informations sur l'accessibilité et la modification des données d'application stockées dans Mobile Services :
+Les rubriques suivantes fournissent des informations sur l'accessibilité et la modification des données d'application stockées dans Mobile Services :
 
 - [Utilisation des données](https://msdn.microsoft.com/library/azure/jj631634.aspx)
 - [Création d'une table](https://msdn.microsoft.com/library/azure/jj193162.aspx)
@@ -49,7 +49,7 @@ Les rubriques suivantes fournissent des informations sur l'accessibilité et la 
 - [Colonnes système](https://msdn.microsoft.com/library/azure/dn518225.aspx)
 
 ##Notifications Push
-Les rubriques suivantes fournissent des informations sur la configuration de notifications Push dans Mobile Services :
+Les rubriques suivantes fournissent des informations sur la configuration de notifications Push dans Mobile Services :
 
 - [Configuration de notifications Push](https://msdn.microsoft.com/library/azure/jj591526.aspx)
 - [Inscription du point de terminaison](https://msdn.microsoft.com/library/azure/dn771685.aspx)
@@ -63,13 +63,13 @@ Les rubriques suivantes fournissent des informations sur l'utilisation des trava
 - [Enregistrer des scripts de travail](https://msdn.microsoft.com/library/azure/jj899832.aspx)
 
 ##API personnalisées
-Les rubriques suivantes fournissent des informations sur la définition de points de terminaison HTTP dans Mobile Services :
+Les rubriques suivantes fournissent des informations sur la définition de points de terminaison HTTP dans Mobile Services :
 
 - [API personnalisée](https://msdn.microsoft.com/library/azure/dn280974.aspx)
 - [En-têtes et types de contenu](https://msdn.microsoft.com/library/azure/dn303369.aspx)
 
 ##Scripts de serveur principal JavaScript
-Les rubriques suivantes fournissent des exemples montrant comment effectuer des tâches à l'aide de scripts serveur dans les services mobiles d'un back-end JavaScript :
+Les rubriques suivantes fournissent des exemples montrant comment effectuer des tâches à l'aide de scripts serveur dans les services mobiles d'un back-end JavaScript :
 
 - [Utilisation de scripts](https://msdn.microsoft.com/library/azure/jj193174.aspx)
 - [Débogage de script](https://msdn.microsoft.com/library/azure/jj631636.aspx)
@@ -84,4 +84,4 @@ Les rubriques suivantes fournissent des exemples montrant comment effectuer des 
 - [Gestion des erreurs](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Touches de raccourci](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

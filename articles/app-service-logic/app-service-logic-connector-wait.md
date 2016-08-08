@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,11 +30,11 @@ Le connecteur Wait peut être utilisé en tant qu’action. Il ne possède aucun
 
 ### Action
 - Cliquez sur le connecteur Wait dans le volet de droite : ![Liste d'actions][1]
-- Le connecteur Wait prend en charge deux actions : 
+- Le connecteur Wait prend en charge deux actions :
 	- Retarder
 	- Retarder jusqu’à
 	 
-- Sélectionnez *Retarder* : ![Valeur du retard][2]
+- Sélectionnez *Retarder* : ![Valeur du retard][2]
 - Indiquez les entrées de l'action et configurez celle-ci : ![Action configurée][3]
 
 Paramètre|Type|Description du paramètre
@@ -56,4 +56,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

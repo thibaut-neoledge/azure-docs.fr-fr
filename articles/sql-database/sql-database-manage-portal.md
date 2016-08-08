@@ -35,7 +35,7 @@ Le [portail Azure](https://portal.azure.com/) permet de créer, de surveiller et
 
 Le portail Azure fournit un ensemble d’actions communes à exécuter sur les bases de données, accessibles dans la partie supérieure d’un panneau de base de données. Vous pouvez restaurer une base de données à un moment donné, l’ouvrir dans Visual Studio, la copier vers un nouveau serveur et l’exporter vers un compte Microsoft Azure Storage.
 
-- [Restauration d’une base de données SQL](sql-database-user-error-recovery.md)
+- [Restauration d’une base de données SQL](sql-database-recovery-using-backups.md)
 - [Ouvrir une base de données SQL dans Visual Studio](sql-database-connect-query.md)
 - [Exporter une base de données SQL](sql-database-export.md)
 
@@ -74,4 +74,4 @@ Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliqu
 
 - [Base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

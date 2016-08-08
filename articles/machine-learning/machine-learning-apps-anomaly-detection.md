@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/29/2016" 
+	ms.date="07/22/2016" 
 	ms.author="alokkirpal"/>
 
 
@@ -34,7 +34,9 @@ Cette API peut détecter les types suivants de schémas anormaux dans les donné
 Ces détecteurs Machine Learning effectuent le suivi de tels changements de valeurs au fil du temps, signalant les changements en continu au sein de leurs valeurs en tant que résultats d’anomalies. Ils ne nécessitent pas de réglage du seuil ad hoc et leurs notations peuvent être utilisées pour contrôler le taux de faux positifs. L’API de détection des anomalies est utile dans plusieurs scénarios, tels que la surveillance des services via le suivi des indicateurs de performance clés au fil du temps, la surveillance de l’utilisation via des mesures comme le nombre de recherches et le nombre de clics, la surveillance des performances via des compteurs comme la mémoire, les processeurs, le nombre de lectures de fichiers, etc. au fil du temps.
 
 L’offre de détection des anomalies inclut des outils utiles pour bien commencer.
+
 * [L’application web](http://anomalydetection-aml.azurewebsites.net/) vous aide à évaluer et à visualiser les résultats de l’exécution de l’API de détection des anomalies sur vos données.
+
 * [L’exemple de code](http://adresultparser.codeplex.com/) montre comment accéder à l’API et analyser les résultats en C# par programmation.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -156,10 +158,10 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 |Catégorie de détecteurs|Détecteur|Description|Paramètres d’entrée|Sorties
 |---|---|---|---|---|
 |Détecteurs de pics|Détecteurs TSpike|Détecter les pics et les creux suivant la sensibilité définie|*tspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante|TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire)|
-|Détecteur ZSpike|Détecter les pics et les creux suivant la sensibilité définie|*zspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante|ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire)|
-|Détecteur de tendances lentes|Détecteur de tendances lentes|Détecter les tendances positives lentes suivant la sensibilité définie|*trenddetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante)|tscore : nombre flottant représentant le résultat d’anomalies pour une tendance|
-|Détecteurs de changements de niveau|Détecteur de changements de niveau unidirectionnels|Détecter les changements de niveau vers le haut suivant la sensibilité définie|Identiques à ceux du détecteur de tendances lentes|pscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut|
-|Détecteur de changements de niveau bidirectionnels|Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie|Identiques à ceux du détecteur de tendances lentes|rscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas
+||Détecteur ZSpike|Détecter les pics et les creux suivant la sensibilité définie|*zspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante|ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire)|
+|Détecteur de tendances lentes|Détecteur de tendances lentes|Détecter les tendances positives lentes suivant la sensibilité définie|*trenddetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante)|TScore : nombre flottant représentant le résultat d’anomalies pour une tendance|
+|Détecteurs de changements de niveau|Détecteur de changements de niveau unidirectionnels|Détecter les changements de niveau vers le haut suivant la sensibilité définie|*upleveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante)|PScore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut|
+||Détecteur de changements de niveau bidirectionnels|Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie|*bileveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante)|RPScore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas
 
 ###Paramètres
 
@@ -188,7 +190,7 @@ L’API exécute tous les détecteurs sur vos données de séries chronologiques
 |---|---|
 |Time|Horodatages issus des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée.|
 |OriginalData|Valeurs issues des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée.|
-|ProcessedData|Soit : <ul><li>Séries chronologiques sans composantes saisonnières en cas de détection d’une saisonnalité importante et de sélection de l’option deseason ;</li><li>Séries chronologiques sans composantes saisonnières et de tendances en cas de détection d’une saisonnalité importante et de sélection de l’option deseasontrend ;</li><li>Sinon, même chose que pour OriginalData.</li>|
+|ProcessedData|Soit : <ul><li>Séries chronologiques sans composantes saisonnières en cas de détection d’une saisonnalité importante et de sélection de l’option deseason ;</li><li>Séries chronologiques sans composantes saisonnières et de tendances en cas de détection d’une saisonnalité importante et de sélection de l’option deseasontrend ;</li><li>sinon, même chose que pour OriginalData</li>|
 |TSpike|Indicateur binaire signalant si un pic est détecté par le détecteur TSpike|
 |ZSpike|Indicateur binaire signalant si un pic est détecté par le détecteur ZSpike|
 |Pscore|Nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut|
@@ -209,4 +211,4 @@ Cette sortie peut être analysée à l’aide d’un [analyseur simple](https://
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

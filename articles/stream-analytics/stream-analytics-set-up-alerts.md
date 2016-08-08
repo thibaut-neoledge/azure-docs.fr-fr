@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@
 
 Vous pouvez configurer des règles pour déclencher une alerte quand une mesure atteint une condition que vous spécifiez.
 
-Par exemple, si les événements de sortie des 15 dernières minutes sont < 100, envoyer une notification par courrier électronique à l’ID de courrier électronique : xyz@company.com”.
+Par exemple, si les événements de sortie des 15 dernières minutes sont < 100, envoyer une notification par courrier électronique à l’ID de courrier électronique : xyz@company.com.
 
 Les règles peuvent être configurées sur des mesures par le biais du portail ou [par programmation](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sur les données des journaux des opérations.
 
@@ -32,12 +32,12 @@ Les règles peuvent être configurées sur des mesures par le biais du portail o
 
 Il existe deux façons de configurer des alertes sur le portail de gestion Azure :
 
-1.	Onglet **Surveillance** de votre tâche Stream Analytics  
-2.	Le Journal des opérations dans les Services de gestion  
+1.	Onglet **Surveillance** de votre tâche Stream Analytics
+2.	Le Journal des opérations dans les Services de gestion
 
 ## Configurer des alertes par le biais de l’onglet Surveillance de la tâche dans le portail
 
-1.	Sélectionnez la mesure dans l’onglet de surveillance, cliquez sur le bouton **Ajouter une règle** dans la partie inférieure du tableau de bord et configurez vos règles.  
+1.	Sélectionnez la mesure dans l’onglet de surveillance, cliquez sur le bouton **Ajouter une règle** dans la partie inférieure du tableau de bord et configurez vos règles.
 
     ![Tableau de bord](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)
 
@@ -51,8 +51,8 @@ Il existe deux façons de configurer des alertes sur le portail de gestion Azure
 
 ## Configurer des alertes par le biais des journaux des opérations
 
-1.	Accédez à l’onglet **Alertes** dans les Services de gestion du [portail Azure Classic](https://manage.windowsazure.com).  
-2.	Cliquez sur **Ajouter une règle**  
+1.	Accédez à l’onglet **Alertes** dans les Services de gestion du [portail Azure Classic](https://manage.windowsazure.com).
+2.	Cliquez sur **Ajouter une règle**
 
     ![Critères](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
 
@@ -85,4 +85,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

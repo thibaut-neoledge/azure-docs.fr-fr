@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/20/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok" />
 
 
@@ -45,7 +45,7 @@ L’exemple d’application génère des événements et les transmet vers une i
 
 Créer un concentrateur d'événements :
 
-1.	Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Nouveau** > **Services d'application** > **Service Bus** > **Concentrateur d'événements** > **Création rapide**. Fournissez un nom, une région et un espace de noms nouveau ou existant pour créer un concentrateur d'événements.  
+1.	Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Nouveau** > **Services d'application** > **Service Bus** > **Concentrateur d'événements** > **Création rapide**. Fournissez un nom, une région et un espace de noms nouveau ou existant pour créer un concentrateur d'événements.
 2.	Nous vous recommandons de faire en sorte que chaque travail Stream Analytics lise les événements à partir d’un seul groupe de consommateurs de concentrateurs d’événements. Nous verrons plus loin comment créer un groupe de consommateurs et vous pourrez alors [en savoir plus](https://msdn.microsoft.com/library/azure/dn836025.aspx) sur ce point. Pour créer un groupe de consommateurs, accédez au concentrateur d’événements nouvellement créé et cliquez sur l’onglet **Groupes de consommateurs**, puis sur **Créer** en bas de la page et entrez un nom pour votre groupe de consommateurs.
 3.	Pour accorder l’accès au concentrateur d’événements, vous devez créer une stratégie d’accès partagé. Cliquez sur l’onglet **Configurer** de votre concentrateur d’événements.
 4.	Sous **Stratégies d'accès partagé**, créez une stratégie ayant les autorisations **Gérer**.
@@ -65,7 +65,7 @@ Nous avons fourni une application cliente qui génère des exemples de métadonn
 
 2.	Remplacez les valeurs Microsoft.ServiceBus.ConnectionString et EventHubName dans **telcodatagen.exe.config** par la chaîne de connexion et le nom de votre Event Hub.
 
-    **Remarque** : la chaîne de connexion copiée à partir du portail Azure place le nom de la connexion à la fin. Veillez à supprimer « ;EntityPath=<value> » du champ add key=.
+    **Remarque** : la chaîne de connexion copiée à partir du portail Azure place le nom de la connexion à la fin. Veillez à supprimer « ;EntityPath=<valeur> » du champ add key=.
 
 3.	Lancez l’application. Procédez comme suit :
 
@@ -264,4 +264,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

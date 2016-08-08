@@ -19,8 +19,7 @@
 #Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Salesforce Sandbox.
-Les bacs à sable (sandbox) vous permettent de créer plusieurs copies de votre organisation dans des environnements distincts à des fins diverses, notamment le développement, le test et la formation, sans compromettre les données ou les applications de votre organisation de production Salesforce. Pour plus d’informations, consultez la page [Présentation de Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Salesforce Sandbox. Les bacs à sable (sandbox) vous permettent de créer plusieurs copies de votre organisation dans des environnements distincts à des fins diverses, notamment le développement, le test et la formation, sans compromettre les données ou les applications de votre organisation de production Salesforce. Pour plus d’informations, consultez la page [Présentation de Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -115,7 +114,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     
     b. Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure Classic, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer (Émetteur)**.
     
-    c. Dans la zone de texte **ID d’entité**, tapez **https://test.salesforce.com** s'il s'agit de la première instance Salesforce Sandbox que vous ajoutez à votre annuaire. Si vous avez déjà ajouté une instance Salesforce Sandbox, pour l’**ID d'entité**, tapez l’**URL d'authentification**, qui doit être au format : `http://company.my.salesforce.com`
+    c. Dans la zone de texte **ID d’entité**, entrez **https://test.salesforce.com** s’il s’agit de la première instance Salesforce Sandbox que vous ajoutez à votre répertoire. Si vous avez déjà ajouté une instance Salesforce Sandbox, pour **l’ID d’entité**, entrez **l’URL d’authentification**, qui doit être au format : `http://company.my.salesforce.com`
     
     d. Cliquez sur **Parcourir** pour charger le certificat téléchargé.
     
@@ -125,7 +124,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     
     g. Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure Classic, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL (URL de connexion du fournisseur d’identité)**.
     
-    h. Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure Classic, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Identity Provider Logout URL (URL de déconnexion du fournisseur d’identité)**.
+    h. SFDC ne prend pas en charge la déconnexion SAML. Pour contourner ce problème, collez « https://login.windows.net/common/wsfederation?wa=wsignout1.0 » dans la zone de texte **d’URL de déconnexion du fournisseur d’identité**.
     
     i. Comme **Liaison de demande initiée par le fournisseur de services**, sélectionnez **HTTP POST**.
     
@@ -172,11 +171,11 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
     ![Nouveau jeton](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "Nouveau jeton")
 
-5.  Recherchez dans votre boîte de réception un courrier électronique provenant de Salesforce.com ayant pour objet « **salesforce.com.com security confirmation** ».
+5.  Recherchez dans votre boîte de réception un courrier électronique provenant de Salesforce.com ayant pour objet « **salesforce.com.com security confirmation** » (confirmation de sécurité salesforce.com.com).
 
 6.  Lisez ce courrier électronique et copiez la valeur du jeton de sécurité.
 
-7.  Dans le portail Azure Classic, dans la page d’intégration d’application **Salesforce Sandbox**, cliquez sur **Configurer l’approvisionnement des utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement des utilisateurs**.
+7.  Dans le portail Azure Classic, sur la page d’intégration d’application **Salesforce Sandbox**, cliquez sur **Configurer l’approvisionnement d’utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement d’utilisateurs**.
 
     ![Configurer l’approvisionnement des utilisateurs](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "Configurer l’approvisionnement des utilisateurs")
 
@@ -203,7 +202,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  Dans la page d’intégration d’application **Salesforce Sandbox**, cliquez sur **Affecter des utilisateurs**.
+2.  Sur la page d’intégration d’application **Salesforce Sandbox**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Affecter des utilisateurs")
 
@@ -215,4 +214,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

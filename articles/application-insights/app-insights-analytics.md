@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Analytics, le puissant outil de recherche d’Application Insights | Microsoft Azure" 
-	description="Présentation d’Analytics, le puissant outil de recherche d’Application Insights." 
+	description="Présentation d’Analytics, le puissant outil de recherche d’Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
 
 
@@ -21,9 +21,12 @@
 
 [Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
+* **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
 
+## Requêtes dans Analytics
  
-Une requête classique est une table *source* suivie d’une série d*’opérateurs* séparés par des `|`.
+Une requête classique est une table *source* suivie d’une série *d’opérateurs* séparés par des `|`.
 
 Par exemple, essayons de découvrir à quelle heure les citoyens de Hyderabad accèdent à notre application web. Et parallèlement, découvrons les codes de résultats qui sont retournés à leurs requêtes HTTP.
 
@@ -52,7 +55,7 @@ Il existe également des opérations statistiques puissantes :
 
 Le langage possède de nombreuses fonctionnalités attrayantes :
 
-* [Filtrer](app-insights-analytics-reference.md#where-operator) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et mesures personnalisées.
+* [Filtrer](app-insights-analytics-reference.md#where-operator) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et métriques personnalisées.
 * [Joindre](app-insights-analytics-reference.md#join-operator) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
 * [Agrégations](app-insights-analytics-reference.md#aggregations) statistiques puissantes.
 * Toutes aussi puissantes que SQL, mais beaucoup plus facile pour les requêtes complexes : au lieu d’imbriquer des instructions, vous dirigez les données d’une opération élémentaire à l’autre.
@@ -81,4 +84,4 @@ Les résultats de requête sont actuellement limités à une seule semaine de do
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

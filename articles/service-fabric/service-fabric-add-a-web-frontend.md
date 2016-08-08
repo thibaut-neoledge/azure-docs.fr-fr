@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Créer un serveur web frontal pour votre application | Microsoft Azure"
+   pageTitle="Créer un serveur web frontal pour votre application en utilisant ASP.NET Core | Microsoft Azure"
    description="Exposez votre application Service Fabric sur le web à l’aide d’un projet d’API web ASP.NET Core et de la communication interservice via ServiceProxy."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="07/22/2016"
    ms.author="seanmck"/>
 
 
-# Créer un service web frontal pour votre application
+# Créer un service web frontal pour votre application à l’aide d’ASP.NET Core
 
 Par défaut, les services Azure Service Fabric ne fournissent pas une interface publique sur le web. Pour exposer les fonctionnalités de votre application pour les clients HTTP, vous devez créer un projet web qui agit comme point d'entrée et ensuite établir la communication avec vos services individuels.
 
@@ -27,7 +27,7 @@ Dans ce didacticiel, nous reprenons les choses là où nous les avions laissées
 
 ASP.NET Core est une infrastructure légère de développement web inter-plateformes, que vous pouvez utiliser pour créer des API web et d’interfaces utilisateur web modernes. Ajoutons un projet d’API web ASP.NET à notre application existante.
 
->[AZURE.NOTE] Pour réaliser ce didacticiel, vous avez besoin [d’installer .NET Core RC2][dotnetcore-install].
+>[AZURE.NOTE] Pour réaliser ce didacticiel, vous avez besoin [d’installer .NET Core 1.0][dotnetcore-install].
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services** dans le projet d’application et choisissez **Ajouter >Nouveau Service Fabric**.
 
@@ -205,6 +205,9 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d'
     Actualisez le navigateur régulièrement afin de vérifier la mise à jour de la valeur du compteur.
 
 
+>[AZURE.WARNING] Le serveur web ASP.NET Core fourni dans le modèle, appelé Kestrel, n’est actuellement [pas pris en charge pour gérer le trafic internet direct](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Pour les scénarios de production, vous pouvez héberger vos points de terminaison ASP.NET Core à l’aide de la [gestion des API][api-management-landing-page] ou d’une autre passerelle accessible sur Internet. Notez que Service Fabric n’est pas pris en charge pour le déploiement dans IIS.
+
+
 ## Qu’en est-il des acteurs ?
 
 Ce didacticiel s'est concentré sur l'ajout d'un serveur web frontal communiquant avec un service avec état. Toutefois, vous pouvez suivre un modèle très similaire pour communiquer avec les acteurs. En fait, il est un peu plus simple.
@@ -240,5 +243,6 @@ Pour apprendre à configurer des valeurs différentes pour un environnement diff
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
+[api-management-landing-page]: https://azure.microsoft.com/fr-FR/services/api-management/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -21,10 +21,11 @@
 > [AZURE.SELECTOR]
 - [Portail Azure](site-recovery-vmm-to-vmm.md)
 - [Portail Classic](site-recovery-vmm-to-vmm-classic.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
 Bienvenue dans Azure Site Recovery ! Cet article vous permet de répliquer des machines virtuelles Hyper-V locales gérées sur les clouds System Center Virtual Machine Manager (VMM) dans un site secondaire. Cet article décrit comment configurer la réplication à l’aide d’Azure Site Recovery dans le Portail Azure.
 
-> [AZURE.NOTE] Azure dispose de deux [modèles de déploiement](../resource-manager-deployment-model.md) pour créer et utiliser des ressources : le modèle Azure Resource Manager (ARM) et le modèle classique. De plus, Azure propose deux portails : le portail Azure Classic, qui prend en charge le modèle de déploiement classique, et le portail Azure, qui gère les deux modèles de déploiement.
+> [AZURE.NOTE] Azure dispose de deux [modèles de déploiement](../resource-manager-deployment-model.md) différents pour créer et utiliser des ressources : le déploiement Azure Resource Manager et le déploiement classique. De plus, Azure propose deux portails : le portail Azure Classic, qui prend en charge le modèle de déploiement classique, et le portail Azure, qui gère les deux modèles de déploiement.
 
 
 Dans le portail Azure, Azure Site Recovery fournit plusieurs nouvelles fonctionnalités :
@@ -68,7 +69,7 @@ Le tableau suivant résume la façon dont les données sont stockées dans ce sc
 Action | **Détails** | **Données collectées** | **Utilisation** | **Obligatoire** 
 --- | --- | --- | --- | ---
 **Inscription** | Vous inscrivez un serveur VMM dans un coffre Recovery Services. Si, par la suite, vous souhaitez annuler l’inscription d’un serveur, vous pouvez le faire en supprimant les informations du serveur sur le portail Azure. | Une fois un serveur VMM inscrit, Site Recovery collecte, traite et transfère les métadonnées du serveur VMM et les noms des clouds VMM détectés par Site Recovery. | Les données sont utilisées pour identifier et communiquer avec le serveur VMM approprié et configurer les paramètres des clouds VMM appropriés. | Cette fonctionnalité est requise. Si vous ne souhaitez pas envoyer ces informations à Site Recovery, n’utilisez pas le service Site Recovery. 
-**Activer la réplication** | Le fournisseur Azure Site Recovery est installé sur le serveur VMM et est l’intermédiaire qui permet de communiquer avec le service Site Recovery. Le fournisseur est une bibliothèque de liens dynamiques (DLL) hébergée dans le processus VMM. Une fois que le fournisseur est installé, la fonctionnalité « Récupération de centre de données » est activée dans la console Administrateur VMM. Les machines virtuelles actuelles et nouvelles peuvent activer cette fonctionnalité pour assurer la protection d’une machine virtuelle. | Cette propriété étant définie, le fournisseur envoie le nom et l’ID de la machine virtuelle à Site Recovery. La réplication est activée par le réplica Hyper-V de Windows Server 2012 ou Windows Server 2012 R2. Les données des machines virtuelles sont répliquées d'un hôte Hyper-V vers un autre (généralement situé dans un autre centre de données de « récupération »). | Site Recovery utilise les métadonnées pour renseigner les informations de la machine virtuelle dans le portail Azure. | Cette fonctionnalité joue un rôle essentiel dans le service et ne peut pas être désactivée. Si vous ne souhaitez pas envoyer ces informations, n’activez pas la protection des machines virtuelles Site Recovery. Notez que toutes les données que le fournisseur transmet à Site Recovery sont envoyées au moyen du protocole HTTPS.
+**Activer la réplication** | Le fournisseur Azure Site Recovery est installé sur le serveur VMM et est l’intermédiaire qui permet de communiquer avec le service Site Recovery. Le fournisseur est une bibliothèque de liens dynamiques (DLL) hébergée dans le processus VMM. Une fois que le fournisseur est installé, la fonctionnalité « Récupération de centre de données » est activée dans la console Administrateur VMM. Les machines virtuelles actuelles et nouvelles peuvent activer cette fonctionnalité pour assurer la protection d’une machine virtuelle. | Cette propriété étant définie, le fournisseur envoie le nom et l’ID de la machine virtuelle à Site Recovery. La réplication est activée par le réplica Hyper-V de Windows Server 2012 ou Windows Server 2012 R2. Les données des machines virtuelles sont répliquées d'un hôte Hyper-V vers un autre (généralement situé dans un autre centre de données de « récupération »). | Site Recovery utilise les métadonnées pour renseigner les informations de la machine virtuelle dans le portail Azure. | Cette fonctionnalité joue un rôle essentiel dans le service et ne peut pas être désactivée. Si vous ne souhaitez pas envoyer ces informations, n’activez pas la protection des machines virtuelles Site Recovery. Notez que toutes les données que le fournisseur transmet à Site Recovery sont envoyées au moyen du protocole HTTPS.
 **Plan de récupération** | Les plans de récupération vous permettent de créer un plan d’orchestration pour le centre de données de récupération. Vous pouvez définir l’ordre de démarrage des machines virtuelles ou d’un groupe de machines virtuelles sur le site de récupération. Pour chaque machine virtuelle, vous pouvez aussi spécifier les scripts automatisés à exécuter ou l’action manuelle à entreprendre au moment de la récupération. Le basculement est généralement déclenché au niveau du plan de récupération pour une récupération coordonnée. | Site Recovery recueille, traite et transmet les métadonnées pour le plan de récupération, notamment les métadonnées des machines virtuelles et les métadonnées des éventuels scripts d’automatisation et notes d’actions manuelles. | Les métadonnées sont utilisées pour générer le plan de récupération dans le portail Azure. | Cette fonctionnalité joue un rôle essentiel dans le service et ne peut pas être désactivée. Si vous ne souhaitez pas envoyer ces informations à Site Recovery, ne créez pas de plan de récupération.
 **Mappage réseau** | Mappe les informations de réseau du centre de données principal vers le centre de données de récupération. Dès lors que les machines virtuelles sont récupérées sur le site de récupération, le mappage réseau permet d’établir une connectivité réseau. | Site Recovery collecte, traite et transmet les métadonnées des réseaux logiques pour chaque site (principal et centre de données). | Les métadonnées sont utilisées pour remplir les paramètres de réseau afin de vous permettre de mapper les informations réseau. | Cette fonctionnalité joue un rôle essentiel dans le service et ne peut pas être désactivée. Si vous ne souhaitez pas envoyer ces informations à Site Recovery, n’utilisez pas le mappage réseau.
 **Basculement (planifié/non planifié/test)** | Le basculement bascule les machines virtuelles d’un centre de données géré par VMM à un autre. L’action de basculement est déclenchée manuellement dans le portail Azure. | Le fournisseur du serveur VMM est averti de l’événement de basculement par Site Recovery et exécute une action de basculement sur l’hôte Hyper-V au moyen des interfaces VMM. Le basculement réel d’une machine virtuelle s’effectue d’un hôte Hyper-V à un autre et est géré par un réplica Hyper-V Windows Server 2012 ou Windows Server 2012 R2. À l’issue du basculement, le fournisseur sur le serveur VMM du centre de données de récupération envoie à Site Recovery des informations indiquant la réussite de l’opération. | Site Recovery utilise les informations envoyées pour spécifier l’état des informations de l’action de basculement dans le portail Azure. | Cette fonctionnalité joue un rôle essentiel dans le service et ne peut pas être désactivée. Si vous ne souhaitez pas envoyer ces informations à Site Recovery, n’utilisez pas le basculement.
@@ -80,7 +81,7 @@ Voici les éléments requis pour vous permettre de déployer ce scénario dans A
 
 **Configuration requise** | **Détails** 
 --- | ---
-**Microsoft Azure**| Vous aurez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery. 
+**Microsoft Azure**| Vous aurez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery. 
 
 
 ## Conditions préalables locales
@@ -97,8 +98,8 @@ Voici ce que dont aurez besoin sur les sites locaux principaux et secondaires po
 
 Pour préparer un déploiement, vous devez :
 
-1. [Préparer le serveur VMM](#prepare-the-vmm-server) au déploiement de Site Recovery
-2. [Préparer le mappage réseau](#prepare-for-network-mapping) Configurer des réseaux de façon à pouvoir définir le mappage réseau
+1. [Préparez le serveur VMM](#prepare-the-vmm-server) au déploiement de Site Recovery.
+2. [Préparez le mappage réseau](#prepare-for-network-mapping). Configurer des réseaux de façon à pouvoir définir le mappage réseau
 
 ### Préparer le serveur VMM
 
@@ -257,15 +258,15 @@ Le fournisseur Azure Site Recovery peut être installé à partir de la ligne de
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
     	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
 
-Où les paramètres sont :
+Où les paramètres sont :
 
- - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve
- - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
+ - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve
+ - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
  - **/EncryptionEnabled** : paramètre facultatif que vous utilisez uniquement lors de la réplication de VMM vers Azure.
- - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
- - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
- - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
- - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
+ - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
+ - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
+ - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
 
 ## Étape 3 : configurer l’environnement cible
 
@@ -287,10 +288,10 @@ Sélectionnez le cloud et le serveur VMM cible.
 
 	> [AZURE.NOTE] Le cloud VMM peut contenir des hôtes Hyper-V sous différentes versions (prises en charge) de Windows Server, mais une stratégie de réplication s’applique aux hôtes sous le même système d’exploitation. Si vous avez des hôtes sous plusieurs versions de système d’exploitation, créez des stratégies de réplication distinctes.
 
-4. Dans **Type d’authentification** et **Port d’authentification**, indiquez le mode d’authentification du trafic entre les serveurs hôtes Hyper-V principaux et de récupération. Sélectionnez **Certificat**, sauf si vous avez un environnement Kerberos opérationnel. Azure Site Recovery configurera automatiquement des certificats pour l'authentification HTTPS. Vous n’avez pas besoin de faire quoi que ce soit manuellement. Par défaut, les ports 8083 et 8084 (pour les certificats) seront ouverts dans le Pare-feu Windows sur les serveurs hôtes Hyper-V. Si vous sélectionnez **Kerberos**, un ticket Kerberos est utilisé pour l’authentification mutuelle des serveurs hôtes. Notez que ce paramètre n'est utile que pour les serveurs hôtes Hyper-V s'exécutant sur Windows Server 2012 R2.
+4. Dans **Type d’authentification** et **Port d’authentification**, indiquez le mode d’authentification du trafic entre les serveurs hôtes Hyper-V principaux et de récupération. Sélectionnez **Certificat**, sauf si vous avez un environnement Kerberos opérationnel. Azure Site Recovery configurera automatiquement des certificats pour l'authentification HTTPS. Vous n’avez pas besoin de faire quoi que ce soit manuellement. Par défaut, les ports 8083 et 8084 (pour les certificats) seront ouverts dans le Pare-feu Windows sur les serveurs hôtes Hyper-V. Si vous sélectionnez **Kerberos**, un ticket Kerberos est utilisé pour l’authentification mutuelle des serveurs hôtes. Notez que ce paramètre n'est utile que pour les serveurs hôtes Hyper-V s'exécutant sur Windows Server 2012 R2.
 3. Dans le champ **Copier la fréquence**, spécifiez la fréquence à laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
 4. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre temporelle.
-6. Dans le champ **Fréquence des captures instantanées de cohérence d’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Notez que si vous activez les instantanés cohérents avec l'application, cela affectera les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
+6. Dans le champ **Fréquence des captures instantanées de cohérence d’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Notez que si vous activez les instantanés cohérents avec l'application, cela affectera les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
 7. Dans **Compression du transfert de données**, indiquez si les données répliquées transférées doivent être compressées.
 8. Sélectionnez **Supprimer la machine virtuelle de réplication** pour spécifier que la machine virtuelle doit être supprimée si vous désactivez la protection de la machine virtuelle source. Si vous activez ce paramètre et que vous désactivez la protection de la machine virtuelle source, elle est supprimée de la console Site Recovery, les paramètres Site Recovery de VMM sont supprimés de la console VMM et le réplica est supprimé.
 3. Dans **Méthode de réplication initiale**, si vous effectuez une réplication sur le réseau, indiquez si vous souhaitez lancer la réplication initiale ou la planifier. Pour économiser de la bande passante réseau, il peut être intéressant de la planifier en dehors des heures de pointe. Cliquez ensuite sur **OK**.
@@ -309,7 +310,7 @@ Vous pouvez effectuer la réplication hors connexion pour la copie initiale des 
 - Si le chemin d'accès d'importation ou d'exportation est partagé, attribuez l'appartenance au groupe Administrateur, Utilisateur avec pouvoir, Opérateur d'impression ou Opérateur de serveur pour le compte de service VMM sur l'ordinateur distant sur lequel le partage réside.
 - Si vous utilisez des comptes d'identification pour ajouter des hôtes, sur les chemins d'accès d'importation et d'exportation, attribuez des autorisations de lecture et d'écriture aux comptes d'identification dans VMM.
 - Les partages d'importation et d'exportation ne doivent pas se trouver sur un ordinateur utilisé comme serveur hôte Hyper-V, car la configuration en boucle n'est pas prise en charge par Hyper-V.
-- Dans Active Directory, sur chaque serveur hôte Hyper-V qui contient des machines virtuelles à protéger, activez et configurez la délégation de contrainte pour approuver les ordinateurs distants sur lesquels se trouvent les chemins d'accès d'importation et d'exportation, comme suit :
+- Dans Active Directory, sur chaque serveur hôte Hyper-V qui contient des machines virtuelles à protéger, activez et configurez la délégation de contrainte pour approuver les ordinateurs distants sur lesquels se trouvent les chemins d'accès d'importation et d'exportation, comme suit :
 	1. Sur le contrôleur de domaine, ouvrez **Utilisateurs et ordinateurs Active Directory**.
 	2. Dans l’arborescence de la console, cliquez sur **NomDomaine** > **Ordinateurs**.
 	3. Cliquez avec le bouton droit sur le nom du serveur hôte Hyper-V > **Propriétés**.
@@ -343,7 +344,7 @@ Voici le processus exécuté lorsque le mappage réseau démarre :
 - Toute machine virtuelle de réplication existante qui correspond au réseau de machines virtuelles source sera connectée aux réseaux de machines virtuelles cibles.
 - Les nouvelles machines virtuelles qui sont connectées au réseau de machines virtuelles source seront connectées au réseau mappé cible après la réplication.
 - Si vous modifiez un mappage existant avec un nouveau réseau, les machines virtuelles de réplication seront connectées à l'aide des nouveaux paramètres.
-- Remarque : si le réseau cible est associé à plusieurs sous-réseaux et que l’un d’eux présente le même nom que le sous-réseau dans lequel se trouve la machine virtuelle source, l’ordinateur virtuel de réplication est connecté à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
+- Remarque : si le réseau cible est associé à plusieurs sous-réseaux et que l’un d’eux présente le même nom que le sous-réseau dans lequel se trouve la machine virtuelle source, l’ordinateur virtuel de réplication est connecté à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
 
 ## Étape 5 : planifier la capacité
 
@@ -355,7 +356,7 @@ Site Recovery propose une fonctionnalité Excel, Capacity Planner, qui vous perm
 - déterminer le taux de modification (l’évolution) quotidienne des données delta répliquées ; Pour cela, vous pouvez utiliser la fonction [Capacity Planner pour réplica Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
 
 1.	Cliquez sur **Télécharger** pour télécharger l’outil, puis exécutez-le. [Lisez l’article](site-recovery-capacity-planner.md) relatif à cet outil.
-2.	Quand vous avez terminé, sélectionnez **Oui** dans la zone **Have you run the Capacity Planner ?** (Avez-vous exécuté Capacity Planner ?).
+2.	Quand vous avez terminé, sélectionnez **Oui** dans la zone **Have you run the Capacity Planner ?** (Avez-vous exécuté Capacity Planner ?)
 
 	![Planification de la capacité](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
@@ -369,10 +370,10 @@ Une fois que vous avez collecté les informations de réplication delta en temps
 **New -NetQosPolicy "QoS to destination port"** | Limiter le trafic à partir d’un hôte Hyper-V sous Windows Server 2012 R2 à un port de destination.
 **New -NetQosPolicy "Throttle traffic from VMM"** | Limiter le trafic à partir de vmms.exe. Cela limite le trafic Hyper-V et le trafic de migration dynamique. Vous pouvez associer des ports et des protocoles IP pour affiner la limitation.
 
-Vous pouvez utiliser des paramètres de poids de la bande passante ou limiter le trafic en bits par réseau secondaire. Si vous utilisez un cluster, vous devrez le faire sur tous les nœuds de cluster. Pour plus d’informations, consultez les pages suivantes :
+Vous pouvez utiliser des paramètres de poids de la bande passante ou limiter le trafic en bits par réseau secondaire. Si vous utilisez un cluster, vous devrez le faire sur tous les nœuds de cluster. Pour plus d’informations, consultez les pages suivantes :
 
 
-- Blog de Thomas Maurer sur la [Limitation du trafic des réplicas Hyper-V](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/).
+- Blog de Thomas Maurer sur la [Limitation du trafic des réplicas Hyper-V](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/)
 - Informations supplémentaires sur [l’applet de commande New-NetQosPolicy](https://technet.microsoft.com/library/hh967468.aspx).
 
 
@@ -459,7 +460,7 @@ Après le basculement, la machine virtuelle de réplication peut ne pas avoir la
 
 #### Récupérer l’adresse IP
 
-Exécutez cet exemple de script pour récupérer l'adresse IP.
+Exécutez cet exemple de script pour récupérer l'adresse IP.
 
     	$vm = Get-SCVirtualMachine -Name <VM_NAME>
 		$na = $vm[0].VirtualNetworkAdapters>
@@ -468,7 +469,7 @@ Exécutez cet exemple de script pour récupérer l'adresse IP.
 
 #### Mettre à jour le DNS
 
-Exécutez cet exemple de script pour mettre à jour DNS, en spécifiant l'adresse IP que vous avez récupérée à l'aide de l'exemple de script précédent.
+Exécutez cet exemple de script pour mettre à jour DNS, en spécifiant l'adresse IP que vous avez récupérée à l'aide de l'exemple de script précédent.
 
 		string]$Zone,
 		[string]$name,
@@ -483,4 +484,4 @@ Exécutez cet exemple de script pour mettre à jour DNS, en spécifiant l'adress
 
 Une fois votre déploiement configuré et en cours d’exécution, découvrez [plus d’informations](site-recovery-failover.md) sur les différents types de basculement.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

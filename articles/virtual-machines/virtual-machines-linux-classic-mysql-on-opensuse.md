@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Installation de MySQL sur une machine virtuelle Linux OpenSUSE dans Microsoft Azure"
-	description="Découvrez comment installer MySQL sur une machine virtuelle dans Azure."
+	pageTitle="Installation de MySQL sur une machine virtuelle OpenSUSE | Microsoft Azure"
+	description="Découvrez comment installer MySQL sur une machine virtuelle Linux OpenSUSE dans Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/19/2016"
 	ms.author="cynthn"/>
 
 # Installation de MySQL sur une machine virtuelle exécutant OpenSUSE Linux dans Azure
@@ -41,4 +41,4 @@ Pour plus d’informations sur MySQL, consultez la [Documentation MySQL][MySQLD
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

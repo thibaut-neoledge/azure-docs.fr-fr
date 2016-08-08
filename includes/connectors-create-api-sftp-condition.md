@@ -1,11 +1,8 @@
-1. Select **+ New step** to add the action.  
-- Select the **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
-![SFTP condition image 1](./media/connectors-create-api-sftp/condition-1.png)    
-- Select **Choose a value** on the left. 
-![SFTP condition image 2](./media/connectors-create-api-sftp/condition-2.png)    
-- Select **File content** to indicate that you want to evaluate the file contents in the condition.      
-![SFTP condition image 3](./media/connectors-create-api-sftp/condition-3.png)   
-- Select *contains* from the list of operators.       
-![SFTP condition image 4](./media/connectors-create-api-sftp/condition-4.png)   
-- Select **Choose a value** on the right and enter *ExtractMeFirst*. In this example, ExtractMeFirst is a value that is expected to be in a file by persons who have access to the SFTP folder to indicate that it is an archive file that should be extracted.  
-![SFTP condition image 5](./media/connectors-create-api-sftp/condition-5.png)   
+1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action.
+- Sélectionnez le lien **Ajouter une action**. Ouvre la zone de recherche dans laquelle vous pouvez rechercher l’action que vous souhaitez effectuer. Pour cet exemple, les actions SharePoint nous intéressent. ![Image de condition SFTP 1](./media/connectors-create-api-sftp/condition-1.png)
+- Sélectionnez **Choisir une valeur** sur la gauche. ![Image de condition SFTP 2](./media/connectors-create-api-sftp/condition-2.png)
+- Sélectionnez **Contenu du fichier** pour indiquer que vous souhaitez évaluer le contenu du fichier dans la condition. ![Image de condition SFTP 3](./media/connectors-create-api-sftp/condition-3.png)
+- Sélectionnez *Contient* à partir de la liste des opérateurs. ![Image de condition SFTP 4](./media/connectors-create-api-sftp/condition-4.png)
+- Sélectionnez **Choisir une valeur** sur la droite, puis saisissez *ExtractMeFirst*. Dans cet exemple, ExtractMeFirst est une valeur qui doit se trouver dans un fichier trouvable par des personnes qui ont accès au dossier SFTP pour indiquer qu’il s’agit d’un fichier d’archive qui doit être extrait. ![Image de condition SFTP 5](./media/connectors-create-api-sftp/condition-5.png)
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -58,7 +58,7 @@ Cet exemple utilise le service lié **Salesforce**. Consultez la section [Servic
 		}
 	}
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
 	{
 	  "name": "AzureStorageLinkedService",
@@ -103,7 +103,7 @@ La définition de **external** sur **true** informe le service Data Factory qu�
 
 **Jeu de données de sortie d’objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
 	{
 	    "name": "AzureBlobOutput",
@@ -215,9 +215,12 @@ Dans le cas d’une activité de copie, lorsque la source est de type **Relation
 | -------- | ----------- | -------------- | -------- |
 | query | Utilise la requête personnalisée pour lire des données. | Requête SQL-92 ou requête [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.fr-FR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple : select * from MyTable\_\_c. | Non (si **tableName** de **dataset** est spécifiée) |
 
-> [AZURE.IMPORTANT]  La partie « \_\_c » du nom de l’API est requise pour tout objet personnalisé.<br> Lorsque vous spécifiez une requête comprenant une clause WHERE dans une colonne datetime, utilisez le type de requête SOQL, par exemple : $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
+> [AZURE.IMPORTANT]  La partie « \_\_c » du nom de l’API est requise pour tout objet personnalisé. <br><br> Si vous spécifiez une requête avec la clause where dans la colonne datetime, utilisez une requête SOQL, par exemple : $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), ou une requête SQL, par exemple : $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
 ![Connexion Salesforce - Data Factory - Nom de l’API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Récupération de données à partir d’un rapport Salesforce
+Vous pouvez récupérer des données à partir de rapports Salesforce en spécifiant la requête en tant que {call « <nom du rapport> »}, par exemple, « query » : « {call « TestReport »} ».
 
 ## Limites des requêtes Salesforce
 Salesforce prend en charge un nombre limité de requêtes d’API totales et de requêtes d’API simultanées. Pour plus de détails, consultez la section **Limites de requête d’API** dans l’article [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/fr-FR/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites de requête d’API Salesforce).
@@ -256,4 +259,4 @@ URL | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

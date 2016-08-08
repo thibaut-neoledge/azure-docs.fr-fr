@@ -9,16 +9,18 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.workload="integration" 
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 # Prise en main du connecteur Azure Blob Storage
 Le stockage d’objets blob Azure est un service permettant de stocker de grandes quantités de données non structurées. Effectuez diverses actions, comme charger, mettre à jour, obtenir et supprimer des objets blob dans Azure Blob Storage.
+
+Avec Azure Blob Storage, vous pouvez effectuer les opérations suivantes :
 
 - Créez votre flux de travail en téléchargeant les nouveaux projets ou en extrayant les fichiers récemment mis à jour.
 - Utilisez des actions pour obtenir les métadonnées d’un fichier, supprimer un fichier, copier des fichiers, etc. Par exemple, lorsqu’un outil est mis à jour dans un site web Azure (déclencheur), mettre à jour un fichier dans le stockage d’objets blob (action).
@@ -27,40 +29,19 @@ Cette rubrique décrit comment utiliser le connecteur Blob Storage dans une appl
 
 >[AZURE.NOTE] Cette version de l’article s’applique à la disponibilité générale des applications logiques.
 
-Commencez par [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [Ce dont vous avez besoin pour commencer](../../includes/connectors-create-api-azureblobstorage.md)]
-
+Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../app-service-logic/app-service-logic-what-are-logic-apps.md) et [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connexion au stockage d’objets blob Azure
 
-Pour que votre application logique puisse accéder à un service, vous devez d’abord créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Dropbox, vous devez d’abord créer une *connexion* Dropbox. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Dans l’exemple de Dropbox, entrez vos informations d’identification Dropbox pour créer la connexion correspondante.
-
-Lorsque vous ajoutez ce connecteur à vos applications logiques, vous créez une connexion au compte de stockage d’objets blob. La première fois que vous ajoutez ce connecteur, vous êtes invité à saisir les informations de connexion :
-
-![](./media/connectors-create-api-azureblobstorage/connection-details.png)
-
+Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à un compte de stockage, commencez par créer une *connexion* Blob Storage. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ainsi, dans le cas d’Azure Storage, entrez les informations d’identification de votre compte de stockage pour créer la connexion.
 
 #### Créer la connexion
 
-1. Entrez les détails du compte de stockage. Les propriétés marquées d’un astérisque sont obligatoires.
-
-	| Propriété | Détails |
-|---|---|
-| Nom de connexion * | Entrez un nom pour votre connexion. |
-| Nom du compte de stockage Azure * | Entrez le nom du compte de stockage. Le nom du compte de stockage s’affiche dans les propriétés de stockage sur le portail Azure. |
-| Clé d’accès au compte de stockage * | Entrez la clé du compte de stockage. Les clés d’accès sont affichés dans les propriétés de stockage sur le portail Azure. |
-
-	Ces informations d’identification servent à autoriser votre application logique à se connecter et à accéder à vos données. Une fois complets, les détails de votre connexion se présentent comme suit :
-
-	![étape de création de la connexion à Azure Blob Storage](./media/connectors-create-api-azureblobstorage/sample-connection.png)
-
-2. Sélectionnez **Créer**.
-
+>[AZURE.INCLUDE [Créer une connexion à Azure Blob Storage](../../includes/connectors-create-api-azureblobstorage.md)]
  
 ## Utilisation d’un déclencheur
 
-Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, y compris un déclencheur de périodicité, un déclencheur HTTP Webhook, des déclencheurs disponibles avec d’autres connecteurs, etc. La page [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) fournit un exemple.
+Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, notamment un déclencheur de périodicité, un déclencheur Webhook HTTP, des déclencheurs disponibles avec d’autres connecteurs, etc. La page [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) vous fournit un exemple.
 
 ## Utilisation d’une action
 	
@@ -76,21 +57,21 @@ Une action est une opération effectuée par le flux de travail défini dans une
 
 	![](./media/connectors-create-api-azureblobstorage/actions.png)
 
-4. Dans notre exemple, choisissez **AzureBlob - Obtenir les métadonnées d’un fichier à l’aide du chemin**. Si une connexion existe déjà, cliquez sur le bouton **...** (Afficher le sélecteur) pour sélectionner un fichier.
+4. Dans notre exemple, choisissez **AzureBlob - Obtenir les métadonnées d’un fichier à l’aide du chemin**. Si une connexion existe déjà, sélectionnez le bouton **...** (Afficher le sélecteur) pour sélectionner un fichier.
 
 	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
 
-	Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-azureblobstorage.md#create-the-connection) dans cette rubrique décrit ces propriétés.
+	Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-azureblobstorage.md#create-the-connection) figurant dans cette rubrique décrit ces propriétés.
 
 	> [AZURE.NOTE] Dans cet exemple, nous obtiendrons les métadonnées d’un fichier. Pour consulter les métadonnées, ajoutez une autre action qui crée un nouveau fichier à l’aide d’un autre connecteur. Par exemple, ajoutez une action OneDrive qui crée un nouveau fichier « test » basé sur les métadonnées.
 
-5. **Enregistrez** vos modifications (dans l’angle supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
 
 > [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) est un excellent outil pour gérer plusieurs comptes de stockage.
 
 ## Détails techniques
 
-## Actions
+## Actions Blob Storage
 
 |Action|Description|
 |--- | ---|
@@ -326,6 +307,6 @@ Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certa
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques dans notre [liste d’API](apis-list.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans Logic Apps en consultant notre [liste d’API](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -24,7 +24,7 @@
 [Azure Data Factory](../data-factory/data-factory-introduction.md) est un service d’intégration de données cloud qui gère et automatise le déplacement et la transformation des données. Dans cet article, vous allez apprendre comment utiliser Azure Data Factory pour créer un [service lié Azure HDInsight à la demande](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) et comment utiliser le cluster pour exécuter une tâche Hive. Voici le processus général :
 
 1. Créer un cluster HDInsight à la demande.
-2. Exécuter une tâche Hive pour lire les données brutes des journaux web à partir d’un compte de stockage d’objets blob source, transformer les données et écrire le résultat dans un compte de stockage d’objets blob de destination. 
+2. Exécuter une tâche Hive pour lire les données brutes des journaux web à partir d’un compte de stockage d’objets blob source, transformer les données et écrire le résultat dans un compte de stockage d’objets blob de destination.
 3. Supprimer le cluster en fonction du paramètre de durée de vie.
 
 L’activité Hive définie dans le pipeline de la fabrique de données appelle un script HiveQL prédéfini. Le script crée une table externe qui fait référence aux données brutes des journaux web stockées dans le stockage d’objets blob Azure, puis partitionne les données brutes par année et par mois.
@@ -47,14 +47,14 @@ Il existe de nombreux avantages à l’utilisation de HDInsight avec Data Factor
 
 - La facturation des clusters HDInsight s’effectue à la minute, que vous les utilisiez ou non. Avec Data Factory, les clusters sont créés à la demande. Et les clusters sont automatiquement supprimés lorsque les tâches sont terminées. Par conséquent, vous ne payez que pour le temps d’exécution de la tâche et la courte durée d’inactivité (time-to-live).
 - Vous pouvez créer un flux de travail à l’aide du pipeline Data Factory.
-- Vous pouvez planifier des tâches récursives.  
+- Vous pouvez planifier des tâches récursives.
 
 ##Configuration requise :
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 - [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Interface de ligne de commande Azure ou Azure PowerShell. 
+- Interface de ligne de commande Azure ou Azure PowerShell.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -181,7 +181,7 @@ Si vous avez besoin d’aide avec ce script PowerShell, consultez [Utilisation d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
-3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue. 
+3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue.
 4. Dans la mosaïque **Ressources**, vous devez voir une ressource, sauf si vous partagez le groupe de ressources avec d’autres projets. Il s’agit du compte de stockage avec le nom que vous avez spécifié précédemment. Cliquez sur le nom du compte de stockage.
 5. Cliquez sur la mosaïque **Objets Blob**.
 6. Cliquez sur le conteneur **adfgetstarted**. Vous voyez deux dossiers : **input data** et **script**.
@@ -293,8 +293,8 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
                     "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                     "scriptLinkedService": "[variables('storageLinkedServiceName')]",
                     "defines": {
-                        "inputtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
-                        "partitionedtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
+                        "inputtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
+                        "partitionedtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
                     }
                 },
                 "inputs": [
@@ -320,9 +320,9 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
     
 **Pour créer une fabrique de données**
 
-1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle ARM dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
+1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle ARM dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/fr-FR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Entrez **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** et **STORAGEACCOUNTKEY** pour le compte créé dans la dernière section, puis cliquez sur **OK**. Le nom Data Factory doit être globalement unique.
 3. Dans **Groupe de ressources**, sélectionnez le même groupe de ressources que celui que vous avez utilisé dans la dernière section.
@@ -342,12 +342,12 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
 
 1. Utilisez la même procédure dans la dernière session pour vérifier le contenu du conteneur adfgetstarted. Il existe deux nouveaux conteneurs en plus de **adfgetsarted** :
 
-    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx : il s’agit du conteneur par défaut pour le cluster HDInsight. Le nom du conteneur par défaut suit le modèle : « adf>yourdatafactoryname>-linkedservicename-datetimestamp ». 
+    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx : il s’agit du conteneur par défaut pour le cluster HDInsight. Le nom du conteneur par défaut suit le modèle : « adf>yourdatafactoryname>-linkedservicename-datetimestamp ».
     - adfjobs : il s’agit du conteneur des journaux de tâche ADF.
     
-    Le résultat de la fabrique de données est stocké dans afgetstarted, que vous avez configuré dans le modèle ARM. 
+    Le résultat de la fabrique de données est stocké dans afgetstarted, que vous avez configuré dans le modèle ARM.
 2. Cliquez sur **adfgetstarted**.
-3. Double-cliquez sur **partitioneddata**. Un dossier **year = 2014** s’affiche, car tous les journaux web datent de l’année 2014. 
+3. Double-cliquez sur **partitioneddata**. Un dossier **year = 2014** s’affiche, car tous les journaux web datent de l’année 2014.
 
     ![Sortie du pipeline d’activité HDInsight à la demande avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
@@ -438,4 +438,4 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 - [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentation Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

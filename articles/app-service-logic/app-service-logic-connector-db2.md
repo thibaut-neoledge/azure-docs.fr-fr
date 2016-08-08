@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -47,12 +47,12 @@ Vous pouvez définir un connecteur dans une application logique ou à partir d�
 3. Dans les résultats de la recherche, sélectionnez **Connecteur DB2**.
 4. Dans le panneau de description du connecteur DB2, sélectionnez **Créer**.
 5. Dans le panneau de package du connecteur DB2, entrez le nom (par exemple, « Db2ConnectorNewOrders »), le plan App Service ainsi que les autres propriétés.
-6. Sélectionnez **Paramètres de package**, puis entrez les paramètres de package suivants :  
+6. Sélectionnez **Paramètres de package**, puis entrez les paramètres de package suivants :
 
 	Nom | Requis | Description
 --- | --- | ---
 ConnectionString | Oui | Chaîne de connexion du client DB2 (par exemple, « Network Address=servername;Network Port=50000;User ID=username;Password=password;Initial Catalog=SAMPLE;Package Collection=NWIND;Default Schema=NWIND »).
-Tables | Oui | Liste de noms de table, de vue et d’alias séparés par des virgules nécessaires pour les opérations OData et pour la génération de la documentation swagger avec des exemples (par exemple, « *NEWORDERS* »).
+Tables | Oui | Liste de noms de table, de vue et d’alias séparés par des virgules nécessaires pour les opérations OData et pour la génération de la documentation swagger avec des exemples (par exemple, « *NEWORDERS* »).
 Procédures | Oui | Liste de noms de procédure et de fonction séparés par des virgules (par exemple, « SPORDERID »).
 OnPremise | Non | Déployer en local à l’aide d’Azure Service Bus Relay.
 ServiceBusConnectionString | Non | Chaîne de connexion d’Azure Service Bus Relay.
@@ -67,7 +67,7 @@ PollToAlterData | Non | Instruction UPDATE ou SELECT à utiliser avec un déclen
 ## Action d’ajout de données d’une application logique avec le connecteur DB2 ##
 Vous pouvez définir une action d’application logique pour ajouter des données à une table DB2 à l’aide d’une opération OData Insert ou Post to Entity. Par exemple, vous pouvez insérer un nouvel enregistrement de commande client en exécutant une instruction SQL INSERT sur une table définie avec une colonne d’identité, qui renvoie la valeur d’identité ou les lignes affectées à l’application logique (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP] L’instruction « *Post to EntitySet* » de DB2 Connection renvoie la valeur de la colonne d’identité et l’instruction « *API Insert* » renvoie les lignes affectées.
+> [AZURE.TIP] L’instruction « *Post to EntitySet* » de DB2 Connection renvoie la valeur de la colonne d’identité et l’instruction « *API Insert* » renvoie les lignes affectées.
 
 1. Dans le tableau d’accueil Azure, sélectionnez **+** (signe plus), **Web + Mobile**, puis **Application logique**.
 2. Entrez le nom (par exemple, « NewOrdersDb2 »), le plan App Service ainsi que d’autres propriétés, puis sélectionnez **Créer**.
@@ -75,7 +75,7 @@ Vous pouvez définir une action d’application logique pour ajouter des donnée
 4. Dans le panneau Déclencheurs et actions, sélectionnez **Créer intégralement** dans les modèles d’application logique.
 5. Dans le panneau Applications d’API, sélectionnez **Périodicité**, définissez une fréquence et un intervalle, puis cliquez sur la **coche**.
 6. Dans le panneau Applications d’API, sélectionnez **Connecteur DB2** et développez la liste des opérations pour sélectionner **Insert into NEWORDER**.
-7. Développez la liste de paramètres pour entrer les valeurs suivantes :  
+7. Développez la liste de paramètres pour entrer les valeurs suivantes :
 
 	Nom | Valeur
 --- | --- 
@@ -98,8 +98,8 @@ SHIPZIP | 99362
 
 - Le connecteur tronque les noms de table DB2 lors de la constitution des noms d’action d’application logique. Par exemple, l’opération **Insert into NEWORDERS** est tronquée en **Insert into NEWORDER**.
 - Après avoir enregistré les **déclencheurs et actions** d’application logique, l’application logique traite l’opération. Il peut y avoir un délai d’attente de quelques secondes (par exemple, 3 à 5 secondes) avant que l’application logique ne traite l’opération. Si vous le souhaitez, vous pouvez cliquer sur **Exécuter maintenant** pour traiter l’opération.
-- Le connecteur DB2 définit les membres EntitySet avec des attributs, notamment pour indiquer si le membre correspond à une colonne DB2 avec une valeur par défaut ou bien à des colonnes générées (par exemple, colonne d’identité). L’application logique affiche un astérisque rouge en regard du nom de code du membre EntitySet, pour indiquer les colonnes DB2 qui requièrent des valeurs. Vous ne devez pas saisir de valeur pour le membre ORDID, qui correspond à la colonne d’identité DB2. Vous pouvez entrer des valeurs pour d’autres membres facultatifs (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY) qui correspondent aux colonnes DB2 avec des valeurs par défaut. 
-- Le connecteur DB2 renvoie à l’application logique la réponse sur l’élément Post to EntitySet qui inclut les valeurs des colonnes d’identité, laquelle est dérivée de l’élément SQLDARD DRDA (données de la réponse de la zone de données SQL) sur l’instruction SQL INSERT préparée. Le serveur DB2 ne renvoie pas les valeurs insérées pour les colonnes avec des valeurs par défaut.  
+- Le connecteur DB2 définit les membres EntitySet avec des attributs, notamment pour indiquer si le membre correspond à une colonne DB2 avec une valeur par défaut ou bien à des colonnes générées (par exemple, colonne d’identité). L’application logique affiche un astérisque rouge en regard du nom de code du membre EntitySet, pour indiquer les colonnes DB2 qui requièrent des valeurs. Vous ne devez pas saisir de valeur pour le membre ORDID, qui correspond à la colonne d’identité DB2. Vous pouvez entrer des valeurs pour d’autres membres facultatifs (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY) qui correspondent aux colonnes DB2 avec des valeurs par défaut.
+- Le connecteur DB2 renvoie à l’application logique la réponse sur l’élément Post to EntitySet qui inclut les valeurs des colonnes d’identité, laquelle est dérivée de l’élément SQLDARD DRDA (données de la réponse de la zone de données SQL) sur l’instruction SQL INSERT préparée. Le serveur DB2 ne renvoie pas les valeurs insérées pour les colonnes avec des valeurs par défaut.
 
 
 ## Action d’ajout de données en bloc d’une application logique avec le connecteur DB2 ##
@@ -128,7 +128,7 @@ Vous pouvez définir une action d’application logique pour ajouter des donnée
 
 - Le connecteur tronque les noms de table DB2 lors de la constitution des noms d’action d’application logique. Par exemple, l’opération **Bulk Insert into NEWORDERS** est tronquée en **Bulk Insert into NEW**.
 - En omettant les colonnes d’identité (par exemple, ORDID), les colonnes de type nullable (par exemple, SHIPDATE) et les colonnes avec des valeurs par défaut (par exemple, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), la base de données DB2 génère des valeurs.
-- En spécifiant « today » et « tomorrow », le connecteur DB2 génère les fonctions « CURRENT DATE » et « CURRENT DATE + 1 DAY » (par exemple, REQDATE). 
+- En spécifiant « today » et « tomorrow », le connecteur DB2 génère les fonctions « CURRENT DATE » et « CURRENT DATE + 1 DAY » (par exemple, REQDATE).
 
 
 ## Déclencheur d’application logique avec connecteur DB2 pour la lecture, la modification ou la suppression de données ##
@@ -138,7 +138,7 @@ Vous pouvez définir un déclencheur d’application logique pour interroger et 
 --- | --- | ---
 PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
 PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | <no value specified>
+PollToAlterData | <aucune valeur spécifiée>
 
 
 Vous pouvez également définir un déclencheur d’application logique pour interroger, lire et modifier des données dans une table DB2 en utilisant une opération composite Poll Data d’API. Par exemple, vous pouvez lire un ou plusieurs nouveaux enregistrements de commande client et mettre à jour les valeurs de ligne pour renvoyer les enregistrements sélectionnés (avant la mise à jour) à l’application logique. Les paramètres de package/application de DB2 Connection doivent se présenter comme suit :
@@ -166,7 +166,7 @@ Dans cet exemple, l’application logique va interroger, lire, mettre à jour, p
 4. Dans le panneau Déclencheurs et actions, sélectionnez **Créer intégralement** dans les modèles d’application logique.
 5. Dans le panneau Applications d’API, sélectionnez **Connecteur DB2**, définissez une fréquence et un intervalle, puis cliquez sur la **coche**.
 6. Dans le panneau Applications d’API, sélectionnez **Connecteur DB2** et développez la liste des opérations pour sélectionner **Select from NEWORDERS**.
-7. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**. Les paramètres doivent se présenter comme suit : ![][10]  
+7. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**. Les paramètres doivent se présenter comme suit : ![][10]
 8. Cliquez pour fermer le panneau **Déclencheurs et actions**, puis cliquez pour fermer le panneau **Paramètres**.
 9. Dans la liste **Toutes les exécutions** sous **Opérations**, cliquez sur le premier élément répertorié (la dernière exécution).
 10. Dans le panneau **Exécution d’application logique**, cliquez sur l’élément **ACTION**.
@@ -179,10 +179,10 @@ Vous pouvez définir une action d’application logique pour supprimer des donn�
 ## Création d’une application logique utilisant le connecteur DB2 pour supprimer des données ##
 Vous pouvez créer une application logique dans Azure Marketplace et utiliser ensuite le connecteur DB2 en tant qu’action pour supprimer des commandes client. Par exemple, vous pouvez utiliser l’opération Conditional Delete du connecteur DB2 pour traiter une instruction SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
-1. Dans le menu hub du panneau **Démarrer** d’Azure, cliquez sur **+** (signe plus) et cliquez sur **Web + Mobile**, puis sur **Application logique**. 
+1. Dans le menu hub du panneau **Démarrer** d’Azure, cliquez sur **+** (signe plus) et cliquez sur **Web + Mobile**, puis sur **Application logique**.
 2. Dans le panneau **Créer une application logique**, entrez un **nom**, par exemple **RemoveOrdersDb2**.
 3. Sélectionnez ou définissez des valeurs pour les autres paramètres (par exemple, le plan de service et le groupe de ressources).
-4. Les paramètres doivent se présenter comme suit. Cliquez sur **Créer** : ![][12]  
+4. Les paramètres doivent se présenter comme suit. Cliquez sur **Créer** : ![][12]
 5. Dans le panneau **Paramètres**, cliquez sur **Déclencheurs et actions**.
 6. Dans la liste **Modèles d’application logique** du panneau **Déclencheurs et actions**, sélectionnez **Créer intégralement**.
 7. Dans le panneau **Déclencheurs et actions**, sous **Applications d’API**, cliquez sur **Périodicité** au niveau du groupe de ressources.
@@ -190,7 +190,7 @@ Vous pouvez créer une application logique dans Azure Marketplace et utiliser en
 9. Dans le panneau **Déclencheurs et actions**, sous **Applications d’API**, cliquez sur **Connecteur DB2** au niveau du groupe de ressources.
 10. Sur la surface de conception de l’application logique, cliquez sur l’élément d’action **Connecteur DB2**, sur les points de suspension (**...**) pour développer la liste des opérations, puis sur **Conditional delete from N**.
 11. Sur l’élément d’action du connecteur DB2, tapez **ORDID ge 10000** pour une **expression qui identifie un sous-ensemble d’entrées**.
-12. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**. Les paramètres doivent se présenter comme suit : ![][13]  
+12. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**. Les paramètres doivent se présenter comme suit : ![][13]
 13. Cliquez pour fermer le panneau **Déclencheurs et actions**, puis cliquez pour fermer le panneau **Paramètres**.
 14. Dans la liste **Toutes les exécutions** sous **Opérations**, cliquez sur le premier élément répertorié (la dernière exécution).
 15. Dans le panneau **Exécution d’application logique**, cliquez sur l’élément **ACTION**.
@@ -248,7 +248,7 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
 
 Créez les applications API à l’aide des API REST. Pour plus d'informations, consultez [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -271,4 +271,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

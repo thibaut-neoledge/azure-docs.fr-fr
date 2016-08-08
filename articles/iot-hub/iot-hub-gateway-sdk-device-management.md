@@ -207,22 +207,24 @@ Effectuez les étapes suivantes sur le même ordinateur Ubuntu 14.04 que vous av
 
 3. Copiez le fichier **iotdm-edison-sample.bb** à partir du dossier **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** dans le dossier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample**.
 
-4. Copiez le fichier **iotdm\_edison\_sample.service** à partir du dossier **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** dans le dossier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+4. Modifiez le fichier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/iotdm-edison-sample.bb** et remplacez `-Duse_http:BOOL=OFF` par `-Duse_http:BOOL=ON`.
 
-5. Modifiez le fichier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** pour ajouter une entrée pour votre nouvelle recette. Ajoutez la ligne suivante à la fin du fichier :
+5. Copiez le fichier **iotdm\_edison\_sample.service** à partir du dossier **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** dans le dossier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+
+6. Modifiez le fichier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** pour ajouter une entrée pour votre nouvelle recette. Ajoutez la ligne suivante à la fin du fichier :
     
     ```
     IMAGE_INSTALL += "iotdm-edison-sample"
     ```
 
-6. Puisque le Kit de développement logiciel (SDK) de passerelle et le client de gestion des appareils partagent certaines bibliothèques, vous devez modifier le fichier **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. Ajoutez les lignes suivantes à la fin de ce fichier. Veillez à remplacer `<your user>` par votre nom d’utilisateur actuel :
+7. Puisque le Kit de développement logiciel (SDK) de passerelle et le client de gestion des appareils partagent certaines bibliothèques, vous devez modifier le fichier **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. Ajoutez les lignes suivantes à la fin de ce fichier. Veillez à remplacer `<your user>` par votre nom d’utilisateur actuel :
     
     ```
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
-7. Configurez le Wi-Fi pour démarrer automatiquement sur la carte Edison en modifiant le fichier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** et en ajoutant les lignes suivantes à la fin du fichier. Veillez à remplacer `<your wifi ssid>` et `<your wifi password>` par les valeurs correctes pour votre réseau Wi-Fi :
+8. Configurez le Wi-Fi pour démarrer automatiquement sur la carte Edison en modifiant le fichier **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** et en ajoutant les lignes suivantes à la fin du fichier. Veillez à remplacer `<your wifi ssid>` et `<your wifi password>` par les valeurs correctes pour votre réseau Wi-Fi :
     
     ```
     network={
@@ -235,7 +237,7 @@ Effectuez les étapes suivantes sur le même ordinateur Ubuntu 14.04 que vous av
     }
     ```
 
-8. Vous pouvez maintenant créer l’image de votre carte Edison contenant le Kit de développement logiciel (SDK) de passerelle et le client de gestion des appareils. La commande **bitbake** s’exécutera beaucoup plus rapidement qu’auparavant, car elle a seulement besoin de créer la recette et de l’ajouter à l’image :
+9. Vous pouvez maintenant créer l’image de votre carte Edison contenant le Kit de développement logiciel (SDK) de passerelle et le client de gestion des appareils. La commande **bitbake** s’exécutera beaucoup plus rapidement qu’auparavant, car elle a seulement besoin de créer la recette et de l’ajouter à l’image :
     
     ```
     cd ~/edison-src/out/linux64/
@@ -243,7 +245,7 @@ Effectuez les étapes suivantes sur le même ordinateur Ubuntu 14.04 que vous av
     bitbake edison-image
     ```
 
-9. Finalisez la création en exécutant les commandes suivantes :
+10. Finalisez la création en exécutant les commandes suivantes :
   
     ```
     cd ~/edison-src/
@@ -423,4 +425,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

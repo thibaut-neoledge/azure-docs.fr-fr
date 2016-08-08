@@ -1,18 +1,12 @@
-This condition will evaluate the email address field of each new Salesforce lead. If the email address contains *amazon.com*, the condition result will be *True*.
+Cette condition évaluera le champ d’adresse de messagerie de chaque nouveau prospect Salesforce. Si l’adresse de messagerie contient *amazon.com*, le résultat de la condition sera *True*.
 
-1. Select **+ New step**.  
-![Salesforce condition image 1](./media/connectors-create-api-salesforce/condition-1.png)   
-- Select **Add a condition**.    
-![Salesforce condition image 2](./media/connectors-create-api-salesforce/condition-2.png)  
-- Select **Choose a value**.    
-![Salesforce condition image 3](./media/connectors-create-api-salesforce/condition-3.png)  
-- Select the *Email* token from the lead of the trigger.    
-![Salesforce condition image 4](./media/connectors-create-api-salesforce/condition-4.png)  
-- Select *Contains*.      
-![Salesforce condition image 5](./media/connectors-create-api-salesforce/condition-5.png)  
-- Select **Choose a value** at the bottom of the control.     
-![Salesforce condition image 6](./media/connectors-create-api-salesforce/condition-6.png)  
-- Enter *amazon.com* as the value you would like to evaluate the email address of the new lead for. If the email address contains *amazon.com*, the condition will evaluate to *True* and the other steps in your logic app can proceed.    
-![Salesforce condition image 7](./media/connectors-create-api-salesforce/condition-7.png)  
-- Save your logic apps.  
+1. Sélectionnez **+ Nouvelle étape**. ![Image de condition Salesforce 1](./media/connectors-create-api-salesforce/condition-1.png)
+- Sélectionnez **Ajouter une condition**. ![Image de condition Salesforce 2](./media/connectors-create-api-salesforce/condition-2.png)
+- Sélectionnez **Choisir une valeur**. ![Image de condition Salesforce 3](./media/connectors-create-api-salesforce/condition-3.png)
+- Sélectionnez le jeton *E-mail* à partir du prospect du déclencheur. ![Image de condition Salesforce 4](./media/connectors-create-api-salesforce/condition-4.png)
+- Sélectionnez *Contient*. ![Image de condition Salesforce 5](./media/connectors-create-api-salesforce/condition-5.png)
+- Sélectionnez **Choisir une valeur** en bas du contrôle. ![Image de condition Salesforce 6](./media/connectors-create-api-salesforce/condition-6.png)
+- Saisissez *amazon.com* en tant que valeur pour laquelle vous souhaitez évaluer l’adresse de messagerie du nouveau prospect. Si l’adresse de messagerie contient *amazon.com*, la condition correspond à *True* et les autres étapes de votre application logique peuvent s’exécuter. ![Image de condition Salesforce 7](./media/connectors-create-api-salesforce/condition-7.png)
+- Enregistrez vos applications logiques.
 
+<!---HONumber=AcomDC_0727_2016-->

@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
    <tags
@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="05/03/2016"
+      ms.date="07/20/2016"
       ms.author="markvi"/>
 
 # Gestion des applications avec Azure Active Directory
@@ -28,11 +28,11 @@ Dans le vocabulaire des applications cloud, cela est possible en utilisant l’i
 
 Dans la terminologie de l’informatique :
 
-- *Qui* est connu comme l’*identité* : la gestion des utilisateurs et des groupes
+- *Qui* est connu comme *l’identité* : la gestion des utilisateurs et des groupes
 
 - *Quoi* est connu comme la *gestion de l’accès* : la gestion de l’accès aux ressources protégées
 
-Ensemble, les deux composants sont désignés comme la *Gestion de l’identité et de l’accès (IAM)*, que le groupe [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) définit comme « *la discipline de sécurité qui permet aux bonnes personnes d’accéder aux bonnes ressources au bon moment et pour les bonnes raisons* ».
+Ensemble, les deux composants sont désignés comme la *Gestion de l’identité et de l’accès (IAM)*, que le groupe [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) définit comme « *la discipline de sécurité qui permet aux bonnes personnes d’accéder aux bonnes ressources au bon moment et pour les bonnes raisons* ».
 
 Très bien, alors, quel est le problème ? Si IAM n’est *pas gérée* à un seul emplacement avec une solution intégrée :
 
@@ -54,14 +54,14 @@ Alors, de manière générale, qu’est-ce qui empêche les entreprises d’adop
 
 Azure Active Directory est une solution Microsoft de type IDaaS (Identity as a Service) qui :
 
-- active IAM en tant que service cloud ; 
+- active IAM en tant que service cloud ;
 
 - assure la centralisation de la gestion de l’accès, l’authentification unique et le compte-rendu ;
 
-- prend en charge la gestion intégrée de l’accès à des [milliers d’applications](https://azure.microsoft.com/marketplace/active-directory/) dans la galerie d’applications, notamment à Salesforce, Google Apps, Box, Concur et plus encore.
+- prend en charge la gestion intégrée de l’accès à des [milliers d’applications](https://azure.microsoft.com/marketplace/active-directory/) dans la galerie d’applications, notamment à Salesforce, Google Apps, Box, Concur et bien d’autres encore.
 
 
-Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) présentent des fonctionnalités identiques de gestion de l’identité et de l’accès.<br> Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
+Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) présentent des fonctionnalités identiques de gestion de l’identité et de l’accès.<br> Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
 
 Que se passe-t-il si vous devez implémenter une application qui ne figure pas encore dans la galerie d’applications ? Bien que l’opération soit un peu plus longue que la configuration de l’authentification unique pour les applications de la galerie d’applications, Azure AD vous propose un assistant qui vous aide à effectuer la configuration.
 
@@ -135,4 +135,4 @@ Pour commencer à intégrer des applications avec Azure AD, consultez le [Guide 
 
 [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

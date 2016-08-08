@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="manuaery" />
 
 # Volumes StorSimple épinglés localement : forum aux questions (FAQ)
@@ -121,7 +121,7 @@ Si les instantanés locaux sont invalidés, vous recevrez un message d’informa
 **A.** Le processus de conversion se compose de deux étapes :
 
   1. La configuration de l’espace sur l’appareil pour le volume épinglé localement bientôt converti.
-  2. Le téléchargement des données à plusieurs niveaux à partir du cloud pour assurer les garanties locales. 
+  2. Le téléchargement des données à plusieurs niveaux à partir du cloud pour assurer les garanties locales.
 
 Ces deux étapes sont des opérations longues, qui dépendent de la taille du volume en cours de conversion, des données sur l’appareil et de la bande passante disponible. Dans la mesure où certaines données des volumes à plusieurs niveaux existants peuvent déborder sur le cloud lors de la configuration, les performances de votre appareil peuvent être réduites pendant ce temps. En outre, le processus de conversion peut être plus lent si :
 
@@ -213,4 +213,4 @@ Plus d’informations sur [le basculement et la récupération d’urgence de vo
 
 **A.** Oui, vous pouvez. Les volumes épinglés localement sont basculés sous forme de volumes à plusieurs niveaux. Plus d’informations sur [le basculement et la récupération d’urgence de volumes épinglés localement en fonction des versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

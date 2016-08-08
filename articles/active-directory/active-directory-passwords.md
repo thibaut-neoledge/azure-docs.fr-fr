@@ -106,7 +106,7 @@ Pour plus d'informations sur la tarification de base ou sur Azure AD Premium, vi
 | Comment autoriser les utilisateurs à déverrouiller des comptes Active Directory sans réinitialiser un mot de passe ? | [Paramètre : autoriser les utilisateurs à déverrouiller leurs comptes AD sans réinitialiser un mot de passe](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? | [Paramètre : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? | [Paramètre : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramètre : nom, marque et logo de la société](active-directory-passwords-customize.md#password-managment-look-and-feel) |
+| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramètre : nom, marque et logo de la société](active-directory-passwords-customize.md#password-management-look-and-feel) |
 
 
 ##Configurer vos utilisateurs pour utiliser la réinitialisation de mot de passe
@@ -166,7 +166,8 @@ Pour plus d'informations sur la tarification de base ou sur Azure AD Premium, vi
 | --------- | --------- |
 | Je souhaite lire un Forum aux Questions relatif à l’inscription à la réinitialisation du mot de passe | [Forum aux Questions relatif à l’inscription à la réinitialisation du mot de passe](active-directory-passwords-faq.md#password-reset-registration) |
 | Je souhaite lire un Forum aux Questions relatif à la réinitialisation du mot de passe | [ Forum aux Questions relatif à la réinitialisation de mot de passe](active-directory-passwords-faq.md#password-reset) |
-| Je souhaite lire un Forum aux Questions relatif aux rapports de réinitialisation du mot de passe | [Forum aux Questions relatif aux rapports sur la gestion des mots de passe](active-directory-passwords-faq.md#password-management-reports) |
+| Je souhaite lire un Forum aux Questions relatif aux rapports de réinitialisation du mot de passe | [Forum aux Questions relatif aux rapports sur la gestion des mots de passe
+](active-directory-passwords-faq.md#password-management-reports) |
 | Je souhaite lire un Forum aux Questions relatif à l'écriture différée du mot de passe | [Forum aux Questions relatif à l'écriture différée du mot de passe](active-directory-passwords-faq.md#password-writeback) |
 
 
@@ -252,4 +253,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 * [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
 * [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

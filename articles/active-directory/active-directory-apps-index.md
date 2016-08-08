@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/20/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Index d’articles pour la gestion des applications dans Azure Active Directory
@@ -114,7 +114,7 @@ Une fois que vous avez défini l’authentification unique pour vos applications
 | :---: | --- |
 | Présentation des fonctionnalités d’accès conditionnel offertes dans Azure AD, Office 365 et Intune | [Gestion des risques avec accès conditionnel](active-directory-conditional-access.md) |
 | Comment activer l’accès conditionnel pour les types de ressources suivants | [Accès conditionnel pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Accès conditionnel pour les services Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Accès conditionnel pour les applications locales](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Accès conditionnel pour les applications locales publiées par le biais du proxy d’application Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Comment inscrire des appareils auprès d’Azure Active Directory pour activer des stratégies d’accès conditionnel en fonction de l’appareil | [Présentation d’Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Comment activer l’inscription automatique des appareils pour les appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md)<br />- [Étapes pour les appareils Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8-1.md)<br />- [Étapes pour les appareils Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Comment inscrire des appareils auprès d’Azure Active Directory pour activer des stratégies d’accès conditionnel en fonction de l’appareil | [Présentation d’Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Comment activer l’inscription automatique des appareils pour les appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md)<br />- [Étapes pour les appareils Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />- [Étapes pour les appareils Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | Comme utiliser la version Android de l’application Azure Authenticator pour les stratégies impliquant l’authentification multifacteur | [Azure Authenticator pour Android](active-directory-conditional-access-azure-authenticator-app.md) |
 
 L’accès conditionnel est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -160,7 +160,7 @@ Si votre organisation développe ou gère des applications métiers, ou que vous
 | Comment les fournisseurs d’application peuvent ajouter leurs applications à la galerie d’applications Azure AD | [Affichage de votre application dans la galerie d’applications Azure Active Directory](active-directory-app-gallery-listing) |
 | Comment gérer l’accès aux applications développées à l’aide d’Azure Active Directory | [Comment activer l’affectation d’utilisateurs pour les applications développées](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Affectation d’utilisateurs à votre application](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Affectation d’un groupe à votre application](active-directory-applications-guiding-developers-assigning-groups.md) |
 
-Si vous développez des applications orientées consommateurs, pensez à utiliser [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) ; ainsi, vous n’êtes pas obligé de développer votre propre système d’identité pour gérer vos utilisateurs. [En savoir plus](../active-directory-b2c/active-directory-b2c-overview.md).
+Si vous développez des applications orientées consommateurs, pensez à utiliser [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) ; ainsi, vous n’êtes pas obligé de développer votre propre système d’identité pour gérer vos utilisateurs. [En savoir plus](../active-directory-b2c/active-directory-b2c-overview.md).
 
 
 ##Gestion de l’accès aux applications
@@ -228,4 +228,4 @@ Pour afficher les rapports qui sont inclus dans les différentes éditions d’A
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -39,7 +39,7 @@ Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouve
 
 > [AZURE.NOTE] Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
-Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure.
 - Une base de données SQL Azure.
@@ -47,7 +47,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## Exporter votre base de données
 
-Ouvrez le panneau Base de données SQL de la base de données que vous voulez exporter :
+Ouvrez le panneau Base de données SQL de la base de données que vous voulez exporter :
 
 > [AZURE.IMPORTANT] Pour garantir un fichier BACPAC cohérent au niveau transactionnel, vous devez d’abord [créer une copie de votre base de données](sql-database-copy.md), puis exporter la copie de base de données.
 
@@ -58,7 +58,7 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 
     ![bouton exporter][1]
 
-5.  Cliquez sur **Stockage** et sélectionnez votre compte de stockage et le conteneur d’objets blob où sera stocké le fichier BACPAC :
+5.  Cliquez sur **Stockage** et sélectionnez votre compte de stockage et le conteneur d’objets blob où sera stocké le fichier BACPAC :
 
     ![exporter une base de données][2]
 
@@ -87,14 +87,9 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 
 ## Étapes suivantes
 
-- [Importer un fichier BACPCAC vers une base de données SQL Azure](sql-database-import.md)
-- [Importer un fichier BACPCAC vers une base de données SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
+- Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Azure, consultez [Importer un fichier BACPCAC dans une base de données SQL Azure](sql-database-import.md)
+- Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Server, consultez [Importer un fichier BACPCAC dans une base de données SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
 
-## Ressources supplémentaires
-
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 <!--Image references-->
@@ -104,4 +99,4 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

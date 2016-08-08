@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -33,11 +33,11 @@ Pour utiliser le connecteur POP3, vous devez d'abord créer une instance de l'ap
 3.	Configurez le connecteur POP3 comme suit :
 
 	![][1]
-	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-	- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
+	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
+	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
 	- **Nom** : indiquez le nom de votre connecteur POP3.
 	- **Paramètres du package**
 		- **Nom d’utilisateur** : spécifiez le nom d’utilisateur de connexion au serveur POP3.
@@ -65,9 +65,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur POP3 
 5.	Vous pouvez maintenant utiliser le connecteur POP3 dans le flux. Sélectionnez le déclencheur « Obtenir le message électronique » et configurez la fréquence et l’intervalle. Vous pouvez utiliser le message électronique récupéré du déclencheur POP3 dans d’autres actions du flux.
 		 
 
-	![][5]
-	
-	![][6]
+	![][5] ![][6]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
@@ -87,4 +85,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

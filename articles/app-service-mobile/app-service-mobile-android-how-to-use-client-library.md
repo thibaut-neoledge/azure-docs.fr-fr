@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 
@@ -47,7 +47,7 @@ Après ces étapes, vous devez suivre la procédure décrite dans la section de 
 
 Modifiez les deux fichiers **build.gradle** :
 
-1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
+1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
 
 		buildscript {
 		    repositories {
@@ -55,7 +55,7 @@ Modifiez les deux fichiers **build.gradle** :
 		    }
 		}
 
-2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
+2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
 
 		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
@@ -194,7 +194,7 @@ Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque 
 
 Comme la source de données de notre vue est un tableau de *ToDoItem*, nous créons une sous-classe de notre adaptateur à partir de la classe *ArrayAdapter&lt;ToDoItem&gt;*. Cette sous-classe produit une vue pour chaque élément *ToDoItem* utilisant la mise en page *row\_list\_to\_do*.
 
-Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
+Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -612,11 +612,11 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 
 * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
 
-* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
+* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, dans l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
 
 * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
 
-* Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le schéma HTTPS. Cette valeur doit être similaire à \_https://contoso.azurewebsites.net/.auth/login/done_.
 
 		private AuthenticationContext mContext;
 		private void authenticate() {
@@ -680,7 +680,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 
 Vous pouvez [lire une présentation](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) qui explique comment Microsoft Azure Notification Hubs prend en charge un large éventail de notifications Push.
 
-Dans [ce didacticiel](app-service-mobile-android-get-started-push.md), une notification Push est transmise à chaque fois qu’un enregistrement est inséré.
+Dans [ce didacticiel](app-service-mobile-android-get-started-push.md), une notification Push est envoyée à chaque fois qu’un enregistrement est inséré.
 
 ## Procédure : ajout d’une synchronisation hors connexion à votre application
 Le didacticiel de démarrage rapide contient le code qui implémente la synchronisation hors connexion. Recherchez le code précédé de commentaires du type :
@@ -753,7 +753,7 @@ Vous devez sérialiser les noms du client en noms JSON correspondant aux noms de
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
-### <a name="table"></a>Procédure de mappage de noms de table différents entre le client et le back-end
+### <a name="table"></a>Procédure de mappage de noms de table différents entre le client et le serveur principal
 
 Le mappage du nom de table client vers un autre nom de table de services mobiles est simple. Il suffit d'utiliser un des remplacements de la fonction <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a>, comme dans le code qui suit.
 
@@ -837,4 +837,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Prise en main de l'authentification]: app-service-mobile-android-get-started-users.md
 [Prise en main de l’authentification]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

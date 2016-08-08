@@ -18,7 +18,7 @@
 
 # Présentation de Microsoft Azure
 
-Microsoft Azure est la plateforme d'applications de Microsoft pour le cloud public. L'objectif de cet article est de vous donner les bases pour comprendre les principes essentiels d'Azure, même si vous ne disposez d'absolument aucune connaissance en matière de cloud computing.
+Microsoft Azure est la plateforme d'applications de Microsoft pour le cloud public. L’objectif de cet article est de vous donner les bases pour comprendre les principes essentiels d’Azure, même si vous ne disposez d’absolument aucune connaissance en matière de [cloud computing](https://azure.microsoft.com/overview/what-is-cloud-computing/).
 
 **Lecture de cet article**
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser ces technologies de façon séparée ou les combiner en fon
 
 ![Azure Virtual Machines ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
 
-Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » (IaaS) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
+Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
 
 Pour créer une machine virtuelle, indiquez le disque dur virtuel à utiliser et la taille de la machine virtuelle. Vous payez ensuite selon la durée d’utilisation de la machine virtuelle. Vous payez à la minute et uniquement lorsque la machine virtuelle est utilisée. Cela dit, des frais de stockage minimum s'appliquent pour avoir accès au disque dur virtuel. Azure propose une galerie de disques durs virtuels de stockage (appelés « images ») qui contiennent un système d'exploitation amorçable. Ceux-ci comprennent des options Microsoft ainsi que des options partenaires, comme Windows Server et Linux, SQL Server, Oracle et bien d'autres. Vous pouvez créer des disques durs virtuels et des images, puis les télécharger sur le serveur. Vous pouvez même télécharger des disques durs virtuels contenant uniquement des données, puis y accéder depuis vos machines virtuelles en cours d'exécution.
 
@@ -68,7 +68,7 @@ Cette approche générique du cloud computing peut être utilisée pour gérer d
 **Scénarios relatifs à Azure Virtual Machines**
 
 1.	**Développement/Test** - Vous pouvez les utiliser pour créer une plateforme économique de développement et de test, que vous pouvez fermer une fois votre utilisation terminée. Vous pouvez également choisir de créer et d’exécuter des applications utilisant le langage et la bibliothèque que vous préférez. Ces applications peuvent utiliser toutes les options de gestion proposées par Azure. Vous pouvez également exécuter SQL Server ou un autre système de gestion de bases de données sur une ou plusieurs machines virtuelles.
-2.	**Déplacement d'applications vers Azure (Soulever et déplacer)** - L'opération « Soulever et déplacer » consiste à déplacer votre application comme si vous déplaciez un gros objet avec un chariot-élévateur. Vous « soulevez » le disque dur virtuel de votre centre de données local et le « déplacez » vers Azure pour l'y exécuter. Vous devrez généralement supprimer les dépendances sur les autres systèmes. Si ces dépendances sont trop nombreuses, vous pouvez opter pour l'option 3.  
+2.	**Déplacement d'applications vers Azure (Soulever et déplacer)** - L'opération « Soulever et déplacer » consiste à déplacer votre application comme si vous déplaciez un gros objet avec un chariot-élévateur. Vous « soulevez » le disque dur virtuel de votre centre de données local et le « déplacez » vers Azure pour l'y exécuter. Vous devrez généralement supprimer les dépendances sur les autres systèmes. Si ces dépendances sont trop nombreuses, vous pouvez opter pour l'option 3.
 3.	**Extension de votre centre de données** - Une autre possibilité est d'utiliser les machines virtuelles Azure comme extension de votre centre de données local pour exécuter SharePoint ou d'autres applications. Pour cette opération, il est possible de créer des domaines Windows dans le cloud en exécutant Active Directory sur les machines virtuelles Azure. Vous pouvez utiliser Azure Virtual Network (mentionné ultérieurement) pour relier votre réseau local et votre réseau Azure.
 
 
@@ -188,7 +188,7 @@ Localement, les gros volumes de stockage de fichiers sont généralement accessi
 
 - **Paramètres d'applications partagés** - Pour les applications distribuées, les fichiers de configuration sont souvent centralisés à un emplacement accessible par différentes machines virtuelles. Ces fichiers de configuration peuvent être stockés dans un partage Azure Files, puis lus par toutes les instances de l'application. Les paramètres peuvent également être gérés via l'interface REST, ce qui offre un accès mondial aux fichiers de configuration.
 
-- **Partage de diagnostic** - Vous pouvez enregistrer et partager des fichiers de diagnostic comme des journaux, des indicateurs de performances et des vidages sur incident. Le fait que ces fichiers soient à la fois disponibles via SMB et l'interface REST permet aux applications d'utiliser différents outils d'analyse pour traiter et analyser les données de diagnostic.
+- **Partage de diagnostic** - Vous pouvez enregistrer et partager des fichiers de diagnostic comme des journaux, des indicateurs de performances et des vidages sur incident. Le fait que ces fichiers soient à la fois disponibles via SMB et l'interface REST permet aux applications d'utiliser différents outils d'analyse pour traiter et analyser les données de diagnostic.
 
 - **Développement/Test/Débogage** - Lorsque les développeurs ou les administrateurs travaillent sur des machines virtuelles situées dans le cloud, ils ont souvent besoin de différents outils ou utilitaires. L'installation et la distribution de ces utilitaires sur chaque machine virtuelle prennent du temps. Avec Azure Files Services, un développeur ou administrateur peut stocker ses outils préférés sur un partage de fichiers et les relier à n'importe quelle machine virtuelle.
 
@@ -606,4 +606,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

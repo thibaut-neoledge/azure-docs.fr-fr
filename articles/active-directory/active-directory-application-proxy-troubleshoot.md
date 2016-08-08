@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -27,6 +27,13 @@ Si des erreurs se produisent dans l’accès à une application publiée ou dans
 - Ouvrez l’Observateur d’événements et recherchez les événements liés au connecteur de proxy d’application sous **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 - Si nécessaire, des journaux plus détaillés sont disponibles en activant les journaux d’analyse et de débogage, et en activant le journal de session du connecteur de proxy d’application.
 
+## La page ne s’affiche pas correctement
+
+Si vous n’obtenez pas un message d’erreur spécifique, il se peut que des problèmes d’affichage ou de fonctionnement de votre application persistent. Cela peut se produire si vous avez publié le chemin d’accès de l’article, mais que l’application requiert un contenu qui se trouve en dehors de ce chemin d’accès.
+
+Par exemple, si vous publiez le chemin d’accès https://yourapp/app mais que l’application appelle les images dans https://yourapp/media, celles-ci ne seront pas restituées. Assurez-vous que vous publiez l’application en utilisant le niveau du chemin d’accès le plus élevé pour inclure tous les contenus pertinents. Dans le présent exemple, ce serait http://yourapp/.
+
+Si vous modifiez votre chemin d’accès pour inclure le contenu référencé, mais que les utilisateurs doivent quand même accéder à un lien plus détaillé du chemin d’accès, consultez le billet du blog intitulé [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/) (Définir le bon lien pour les applications Application Proxy dans le panneau d’accès Azure AD et le lanceur d’applications Office 365).
 
 ## Erreurs générales.
 
@@ -37,7 +44,7 @@ Cette application d’entreprise n’est pas accessible. Vous n’êtes pas auto
 
 
 ## Résolution des problèmes du connecteur
-Si l’inscription échoue pendant l’installation de l’Assistant Connecteur, vous pouvez voir la raison de l’échec en consultant le journal des événements sous **Journaux Windows** > **Application**, ou en exécutant la commande Windows PowerShell suivante.
+Si l’inscription échoue pendant l’installation de l’Assistant Connecteur, vous pouvez voir la raison de l’échec en consultant le journal des événements sous Journaux des applications et des services/Microsoft/AadApplicationProxy/Connecteur/Admin, ou en exécutant la commande Windows PowerShell suivante.
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 
@@ -77,11 +84,11 @@ Si l’inscription échoue pendant l’installation de l’Assistant Connecteur,
 - [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
 - [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
 
-Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
+Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur le service Proxy d’application)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

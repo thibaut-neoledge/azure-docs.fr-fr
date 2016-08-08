@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Nouvelle version de schéma 2016-04-01-preview | Microsoft Azure" 
+	pageTitle="Nouvelle version de schéma 2016-06-01 | Microsoft Azure" 
 	description="Découvrir comment écrire la définition JSON pour la dernière version des applications logiques" 
 	authors="jeffhollan" 
 	manager="dwrede" 
@@ -8,15 +8,15 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
 	
-# Nouvelle version de schéma 2016-04-01-preview
+# Nouvelle version de schéma 2016-06-01
 
 Le nouveau schéma et la récente version de l’API pour les applications logiques ont bénéficié d’un certain nombre d’améliorations destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques. Voici les 3 principales différences :
 
@@ -24,7 +24,7 @@ Le nouveau schéma et la récente version de l’API pour les applications logiq
 1. Les conditions et les boucles sont des actions de première classe
 1. L’exécution plus détaillée des classements via la propriété `runAfter` (qui remplace `dependsOn`)
 
-Pour plus d’informations sur la mise à niveau de vos applications logiques à partir du schéma 2015-08-01-preview vers le schéma 2016-04-01-preview, [consultez la section relative à la mise à niveau ci-dessous.](#upgrading-to-2016-04-01-preview-schema)
+Pour plus d’informations sur la mise à niveau de vos applications logiques à partir du schéma 2015-08-01-preview vers le schéma 2016-06-01, [consultez la section relative à la mise à niveau ci-dessous](#upgrading-to-2016-06-01-schema).
 
 
 ## 1\. Étendues
@@ -94,9 +94,9 @@ La nouvelle propriété `runAfter` remplace `dependsOn` afin de permettre une pl
 }
 ```
 
-## Mise à niveau vers le schéma 2016-04-01-preview
+## Mise à niveau vers le schéma 2016-06-01
 
-La mise à niveau vers le nouveau schéma 2016-04-01-preview se déroule en quelques étapes. Des détails sur les modifications du schéma sont disponibles [dans cet article](app-service-logic-schema-2016-04-01.md). Le processus de mise à niveau implique l’exécution du script de mise à niveau, l’enregistrement en tant que nouvelle application logique et, éventuellement, le remplacement de l’ancienne application logique, si nécessaire.
+La mise à niveau vers le nouveau schéma 2016-06-01 se déroule en quelques étapes seulement. Des détails sur les modifications du schéma sont disponibles [dans cet article](app-service-logic-schema-2016-04-01.md). Le processus de mise à niveau implique l’exécution du script de mise à niveau, l’enregistrement en tant que nouvelle application logique et, éventuellement, le remplacement de l’ancienne application logique, si nécessaire.
 
 1. Ouvrez votre application logique en cours.
 1. Cliquez sur le bouton **Mise à jour de schéma** dans la barre d’outils
@@ -169,4 +169,4 @@ Les actions peuvent désormais avoir une propriété supplémentaire (sœur de `
 <!-- Image references -->
 [1]: ./media/app-service-logic-schema-2016-04-01/upgradeButton.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

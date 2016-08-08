@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/27/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main d’Azure HDInsight
@@ -36,7 +36,7 @@ La vidéo suivante montre comment exécuter l’exemple d’analyse de tendances
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-Le tableau de bord est accessible via l’adresse http://<YourHDInsightClusterName>.azurehdinsight.net/ ou depuis le portail Azure.
+Le tableau de bord est accessible via l’adresse http://<NomdeVotreClusterHDInsight>.azurehdinsight.net/ ou depuis le portail Azure.
 
 **Exécution d’un exemple depuis la galerie de prise en main**
 
@@ -64,4 +64,4 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Stocker le code de votre projet de service mobile dans le contrôle de code source
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
-- [Javascript backend](mobile-services-store-scripts-source-control.md)
+- [Backend .NET](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Back-end Javascript](mobile-services-store-scripts-source-control.md)
 
 Cette rubrique montre comment utiliser le contrôle du code source fourni par Azure Mobile Services pour stocker vos scripts serveur. Les scripts et les autres fichiers de code du backend JavaScript peuvent être promus à partir de votre référentiel Git local sur votre service mobile de production. Cette rubrique indique également comment définir du code partagé requis par plusieurs scripts et comment utiliser le fichier package.json pour ajouter des modules Node.js à votre service mobile.
 
@@ -41,7 +41,8 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 
 	La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
-	> [AZURE.NOTE]Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
+	> [AZURE.NOTE]
+	Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
 
 2. Ouvrez une ligne de commande, telle que **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal**.
 
@@ -98,9 +99,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 
 	Une série de commandes indiquant le déploiement de la validation sur le service mobile doit s'afficher.
 
-6. De retour dans le portail de gestion, cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**.
-7. 
-	Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
+6. De retour dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**. Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
 
 ##<a name="use-npm"></a>Exploiter le code partagé et les modules Node.js dans vos scripts serveur
 
@@ -137,8 +136,7 @@ Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'a
 
 Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos scripts dans un contrôle de code source. Pour plus d'informations sur l'utilisation de scripts serveur et d'API personnalisées :
 
-+ [Utilisation des scripts serveur dans Mobile Services] <br/>
-Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
++ [Utilisation des scripts serveur dans Mobile Services] <br/>Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -161,4 +159,4 @@ Explique comment utiliser les scripts serveur, le planificateur de travaux et le
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

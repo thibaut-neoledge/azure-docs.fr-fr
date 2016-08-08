@@ -25,20 +25,16 @@ Data Factory prend en charge la connexion à des sources DB2 locales à l'aide d
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données de DB2 vers d’autres magasins de données, mais pas l’inverse.
 
-> [AZURE.NOTE] Ce connecteur DB2 prend actuellement en charge DB2 pour LUW (Linux, UNIX, Windows). Pour copier des données à partir de DB2 pour z/OS ou DB2 pour AS/400, envisagez d’utiliser le connecteur ODBC générique et d’installer le pilote ODBC correspondant sur l’ordinateur passerelle. Par exemple, pour ingérer des données provenant de DB2 pour AS/400, vous pouvez utiliser le pilote iSeries Access ODBC et consulter [Sources de données ODBC locales/Azure IaaS](data-factory-odbc-connector.md) pour configurer l’activité de copie.
-
 ## Installation 
 
-Pour que la passerelle de gestion des données puisse se connecter à la base de données DB2, vous devez installer le [pilote du serveur de données IBM DB2](http://go.microsoft.com/fwlink/p/?LinkID=274911) sur le même système que la passerelle de gestion des données.
+Pour connecter la passerelle de gestion des données à la base de données DB2, à partir de la version 2.1, Azure Data Factory fournit un pilote intégré avec prise en charge de DB2 (SQLAM 9 / 10 / 11), notamment DB2 pour LUW (Linux, Unix, Windows), DB2 pour z/OS et DB2 pour i (ou AS/400). Par conséquent, vous n’avez plus besoin d’installer manuellement les pilotes lors de la copie de données à partir de DB2.
 
-Des problèmes connus ont été signalés par IBM lors de l'installation du pilote du serveur de données IBM DB2 sous Windows 8, où des étapes d'installation supplémentaires sont nécessaires. Pour plus d'informations sur le pilote du serveur de données IBM DB2 sous Windows 8, consultez [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
-
-> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 
 ## Exemple : copie de données de DB2 vers Azure Blob
 
-Cet exemple indique comment copier des données à partir d’une base de données DB2 locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Cet exemple indique comment copier des données à partir d’une base de données DB2 locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 
@@ -141,7 +137,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -149,7 +145,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -157,7 +153,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -326,4 +322,4 @@ Char | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -97,7 +97,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 3. Sous **Propriétés**, définissez **Méthode d’authentification interne** sur **Authentification Windows intégrée**. ![Configuration avancée des applications](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 4. Entrez le **SPN d’application interne** du serveur d’applications. Dans cet exemple, le nom de principal du service pour notre application publiée est http/lob.contoso.com.
 
->[AZURE.IMPORTANT] Les UPN dans Azure Active Directory doivent être identiques aux UPN dans votre Active Directory local pour que la préauthentification fonctionne. Vérifiez que votre Azure Active Directory est synchronisé avec votre Active Directory local.
+>[AZURE.IMPORTANT] Si votre UPN local et l’UPN dans Azure Active Directory ne sont pas identiques, vous devez configurer [l’identité de connexion déléguée](#delegated-login-identity) pour que la pré-authentification fonctionne.
 
 | | |
 | --- | --- |
@@ -110,14 +110,17 @@ Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre
 
 ![Diagramme de l’authentification unique non Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-### Identité de délégué partielle
-Les applications non Windows obtiennent généralement l’identité de l’utilisateur sous la forme d’un nom d’utilisateur ou d’un nom de compte SAM, pas d’une adresse de messagerie (username@domain). Elles diffèrent de la plupart des systèmes basés sur Windows, qui préfèrent recourir à un UPN, dispositif plus efficace qui garantit l’absence de duplication entre les domaines.
+### Identité de connexion déléguée
+L’identité de connexion déléguée vous permet de gérer deux scénarios de connexion différents :
 
-Pour cette raison, le proxy d’application vous permet de sélectionner les identités qui doivent s’afficher dans le ticket Kerberos, par application. Certaines de ces options sont adaptées pour les systèmes qui n’acceptent pas le format d’adresse de messagerie.
+- Les applications non Windows qui obtiennent généralement l’identité de l’utilisateur sous la forme d’un nom d’utilisateur ou d’un nom de compte SAM, pas d’une adresse de messagerie (username@domain).
+- Les configurations de connexion alternatives où l’UPN dans Azure AD et l’UPN dans votre Active Directory local sont différents.
+
+Avec le proxy d’application, vous pouvez sélectionner l’identité à utiliser pour obtenir le ticket Kerberos. Ce paramètre est à configurer application par application. Certaines de ces options sont adaptées pour les systèmes qui n’acceptent pas le format d’adresse de messagerie, tandis que d’autres sont conçues pour les connexions alternatives.
 
 ![Capture d’écran du paramètre Identité de connexion déléguée](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-Si une identité partielle est utilisée et qu’il y a des chances pour qu’elle ne soit pas unique pour tous les domaines ou forêts de votre organisation, vous pouvez publier ces applications deux fois en utilisant deux groupes de connecteurs distincts. Dans la mesure où chaque application possède sa propre audience utilisateur, vous pouvez joindre ses connecteurs à un autre domaine.
+Si l’identité de connexion déléguée est utilisée, il se peut que la valeur ne soit pas la même pour l’ensemble des domaines ou forêts de votre organisation. Vous pouvez éviter ce problème en publiant ces applications deux fois à l’aide de deux groupes de connecteurs différents. Dans la mesure où chaque application possède sa propre audience utilisateur, vous pouvez joindre ses connecteurs à un autre domaine.
 
 
 ## Utilisation de l’authentification unique quand des identités locales et sur le cloud ne sont pas identiques
@@ -131,7 +134,7 @@ Grâce à cette fonctionnalité, de nombreuses organisations qui ont des identit
 
 - n’utilisent pas de noms de domaine en interne (joe) ;
 
-- utilisent différents alias localement et dans le cloud, par exemple, joe-johns@contoso.com et joej@contoso.com.
+- utilisent différents alias localement et dans le cloud, par exemple, joe-johns@contoso.com et joej@contoso.com
 
 Cette configuration convient aussi pour les applications qui n’acceptent pas d’adresses sous forme d’adresses de messagerie, scénario très courant pour les serveurs principaux non Windows.
 
@@ -159,11 +162,11 @@ Si une erreur se produit dans le processus d’authentification unique, elle app
 - [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
 - [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
 
-Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
+Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur le service Proxy d’application)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,7 +30,7 @@ Le Validateur XML BizTalk utilise des schémas dans le cadre de sa configuration
 
 ![Configuration du Validateur XML BizTalk][1]
 
-Dans le panneau de l’application API, les utilisateurs peuvent configurer des schémas en sélectionnant *Schémas* :
+Dans le panneau de l’application API, les utilisateurs peuvent configurer des schémas en sélectionnant *Schémas* :
 
 ![Partie du schéma du Validateur XML BizTalk][2]
 
@@ -64,4 +64,4 @@ L'action renvoie la sortie sous forme d'objet. La sortie contient le modèle qui
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

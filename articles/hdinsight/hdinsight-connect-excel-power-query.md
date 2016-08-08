@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -57,7 +57,7 @@ Le complément Power Query pour Excel facilite l’importation de données depui
 
 	**Remarque :** Power Query vous permet également d'importer des données à partir de HDFS en cliquant sur **À partir d'autres sources**.
 
-3. Pour le champ **Nom du compte**, saisissez le nom du compte de stockage d’objets blob Azure associé à votre cluster, puis cliquez sur **OK**. Il peut s’agir du [compte de stockage par défaut](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) ou d’un compte de stockage lié. Le format est *https://<StorageAccountName>.blob.core.windows.net/*.
+3. Pour le champ **Nom du compte**, saisissez le nom du compte de stockage d’objets blob Azure associé à votre cluster, puis cliquez sur **OK**. Il peut s’agir du [compte de stockage par défaut](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) ou d’un compte de stockage lié. Le format est *https://<NomCompteStockage>.blob.core.windows.net/*.
 
 4. Pour le champ **Clé du compte**, saisissez la clé du compte de stockage d’objets blob, puis cliquez sur **Enregistrer** (cette opération ne doit être effectuée que la première fois où vous accédez à cet entrepôt).
 
@@ -75,10 +75,10 @@ Le complément Power Query pour Excel facilite l’importation de données depui
 
 Dans cet article, vous avez appris à utiliser Power Query pour extraire des données de HDInsight et les importer dans Excel. De la même façon, vous pouvez extraire des données de HDInsight et les importer dans une base de données SQL Azure. Il est également possible de télécharger des données dans HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* [Connexion d’Excel à HDInsight à l’aide du pilote ODBC Microsoft Hive](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md)
+* [Connexion d’Excel à HDInsight à l’aide du pilote ODBC Microsoft Hive][hdinsight-ODBC]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 
-
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
@@ -88,4 +88,4 @@ Dans cet article, vous avez appris à utiliser Power Query pour extraire des don
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!------HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

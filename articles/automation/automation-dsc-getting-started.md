@@ -19,16 +19,16 @@
 
 # Prise en main d’Azure Automation DSC
 
-Cette rubrique explique comment effectuer les tâches les plus courantes avec Azure Automation Desired State Configuration (DSC), comme la création, l’importation et la compilation de configurations, l’intégration des ordinateurs à gérer et l’affichage des rapports. Pour une vue d’ensemble d’Azure Automation DSC, consultez [Vue d’ensemble d’Azure Automation DSC](automation-dsc-overview.md). Pour accéder à la documentation DSC, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell).
+Cette rubrique explique comment effectuer les tâches les plus courantes avec Azure Automation Desired State Configuration (DSC), comme la création, l’importation et la compilation de configurations, l’intégration des ordinateurs à gérer et l’affichage des rapports. Pour une vue d’ensemble d’Azure Automation DSC, consultez [Vue d’ensemble d’Azure Automation DSC](automation-dsc-overview.md). Pour la documentation DSC, consultez l’article [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Cette rubrique fournit des instructions détaillées sur l’utilisation d’Azure Automation DSC. Si vous souhaitez obtenir un exemple d’environnement préconfiguré sans avoir à suivre les étapes décrites dans cette rubrique, vous pouvez utiliser le modèle ARM disponible à l’adresse https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup. Ce modèle configure un environnement Azure Automation DSC complet, comprenant une machine virtuelle Azure gérée par Azure Automation DSC.
+Cette rubrique fournit des instructions détaillées sur l’utilisation d’Azure Automation DSC. Si vous souhaitez obtenir un exemple d’environnement préconfiguré sans avoir à suivre les étapes décrites dans cette rubrique, vous pouvez utiliser [le modèle ARM suivant](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Ce modèle configure un environnement Azure Automation DSC complet, comprenant une machine virtuelle Azure gérée par Azure Automation DSC.
  
 ## Composants requis
 
 Pour exécuter les exemples de cette rubrique, vous devez disposer des éléments suivants :
 
-- Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Configurer un compte d’authentification Azure](automation-sec-configure-azure-runas-account.md).
-- Une machine virtuelle Azure Resource Manager (non classique) exécutant Windows Server 2008 R2 ou version ultérieure. Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
+- Une machine virtuelle Azure Resource Manager (non classique) exécutant Windows Server 2008 R2 ou version ultérieure. Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 ## Création d’une configuration DSC
 
@@ -63,7 +63,7 @@ Nous allons créer une simple [configuration DSC](https://msdn.microsoft.com/pow
         }
         }
     ```
-3. Enregistrez le fichier sous `TestConfig.ps1`.
+3. Enregistrez le fichier sous le nom `TestConfig.ps1`.
 
 Cette configuration appelle une ressource dans chaque bloc de nœuds, la [ressource WindowsFeature](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), qui garantit la présence ou l’absence de la fonctionnalité **Serveur web**.
 
@@ -73,7 +73,7 @@ Nous allons ensuite importer la configuration dans le compte Automation.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
@@ -92,13 +92,13 @@ Après avoir importé une configuration, vous pouvez l’afficher dans le portai
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
-4. Dans le panneau **Configurations DSC**, cliquez sur TestConfig** (il s’agit du nom de la configuration que vous avez importée dans la procédure précédente).
+4. Dans le panneau **Configurations DSC**, cliquez sur **TestConfig** (il s’agit du nom de la configuration que vous avez importée dans la procédure précédente).
 
-5. Dans le panneau **Configuration de TestConfig**, cliquez sur **Afficher la source configuration**.
+5. Dans le panneau **Configuration de TestConfig**, cliquez sur **Afficher la source de configuration**.
 
     ![Capture d’écran du panneau Configuration de TestConfig](./media/automation-dsc-getting-started/ViewConfigSource.png)
     
@@ -106,17 +106,17 @@ Après avoir importé une configuration, vous pouvez l’afficher dans le portai
     
 ## Compilation d’une configuration dans Azure Automation
 
-Avant de pouvoir appliquer un état souhaité à un nœud, vous devez compiler une configuration DSC définissant cet état dans une ou plusieurs configurations de nœuds (documents MOF) et la placer sur le serveur Pull Automation DSC. Pour obtenir une description plus détaillée de la compilation de configurations dans Azure Automation DSC, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md). Pour plus d’informations sur la compilation des configurations, consultez [Configurations DSC](https://msdn.microsoft.com/PowerShell/DSC/configurations).
+Avant de pouvoir appliquer un état souhaité à un nœud, vous devez compiler une configuration DSC définissant cet état dans une ou plusieurs configurations de nœuds (documents MOF) et la placer sur le serveur Pull Automation DSC. Pour obtenir une description plus détaillée de la compilation des configurations dans Azure Automation DSC, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md). Pour plus d’informations sur la compilation des configurations, consultez [Configurations DSC](https://msdn.microsoft.com/PowerShell/DSC/configurations).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
-4. Dans le panneau **Configurations DSC**, cliquez sur TestConfig** (le nom de la configuration que vous avez précédemment importée).
+4. Dans le panneau **Configurations DSC**, cliquez sur **TestConfig** (le nom de la configuration que vous avez précédemment importée).
 
-5. Dans le panneau **Configuration de TestConfig**, cliquez sur **Compiler** puis sur **Oui**. Une tâche de compilation démarre.
+5. Dans le panneau **Configuration de TestConfig**, cliquez sur **Compiler**, puis sur **Oui**. Une tâche de compilation démarre.
     
     ![Capture d’écran du panneau Configuration de TestConfig mettant en évidence le bouton de compilation](./media/automation-dsc-getting-started/CompileConfig.png)
     
@@ -124,17 +124,17 @@ Avant de pouvoir appliquer un état souhaité à un nœud, vous devez compiler u
 
 ## Affichage d’une tâche de compilation
 
-Après avoir démarré une compilation, vous pouvez l’afficher dans la mosaïque **Tâches de compilation** sur le panneau **Configuration**. La mosaïque **Tâches de compilation** affiche les tâches en cours d’exécution, qui se sont terminées et qui ont échoué. Lorsque vous ouvrez un volet de tâche de compilation, vous obtenez des informations sur cette tâche, notamment les erreurs ou les avertissements rencontrés, les paramètres d’entrée utilisés dans la configuration et les journaux de compilation.
+Après avoir démarré une compilation, vous pouvez l’afficher dans la mosaïque **Tâches de compilation** du panneau **Configuration**. La mosaïque **Tâches de compilation** affiche les tâches en cours d’exécution, terminées et en échec. Lorsque vous ouvrez un volet de tâche de compilation, vous obtenez des informations sur cette tâche, notamment les erreurs ou les avertissements rencontrés, les paramètres d’entrée utilisés dans la configuration et les journaux de compilation.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations DSC**.
 
-4. Dans le panneau **Configurations DSC** , cliquez sur TestConfig** (le nom de la configuration que vous avez précédemment importée).
+4. Dans le panneau **Configurations DSC**, cliquez sur **TestConfig** (le nom de la configuration que vous avez précédemment importée).
 
-5. Sur la mosaïque **Tâches de compilation** du panneau **Configuration de TestConfig**, cliquez sur l’une des tâches répertoriées. Un panneau **Tâche de compilation** s’ouvre en indiquant la date de démarrage de la tâche de compilation.
+5. Dans la mosaïque **Tâches de compilation** du panneau **Configuration de TestConfig**, cliquez sur l’une des tâches répertoriées. Un panneau **Tâche de compilation** s’ouvre en indiquant la date de démarrage de la tâche de compilation.
 
     ![Capture d’écran du panneau Tâche de compilation](./media/automation-dsc-getting-started/CompilationJob.png)
   
@@ -142,11 +142,11 @@ Après avoir démarré une compilation, vous pouvez l’afficher dans la mosaïq
 
 ## Affichage des configurations de nœuds
 
-La réussite d’une tâche de compilation a pour effet de créer une ou plusieurs configurations de nœud. Une configuration de nœud est un document MOF déployé sur le serveur Pull et prêt à être extrait et appliqué par un ou plusieurs nœuds. Vous pouvez afficher les configurations de nœud dans votre compte Automation via le panneau **Configurations de nœuds DSC**. Une configuration de nœud possède un nom au format *NomConfiguration*.*NomNœud*.
+La réussite d’une tâche de compilation a pour effet de créer une ou plusieurs configurations de nœud. Une configuration de nœud est un document MOF déployé sur le serveur Pull et prêt à être extrait et appliqué par un ou plusieurs nœuds. Vous pouvez afficher les configurations de nœud de votre compte Automation dans le panneau **Configurations de nœuds DSC**. Une configuration de nœud possède un nom au format *NomConfiguration*.*NomNœud*.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Configurations de nœuds DSC**.
 
@@ -154,13 +154,13 @@ La réussite d’une tâche de compilation a pour effet de créer une ou plusieu
     
 ## Intégration d’une machine virtuelle Azure pour la gérer avec Azure Automation DSC
 
-Azure Automation DSC vous permet de gérer vos machines virtuelles Azure (via les modèles de déploiement classique et Resource Manager), vos machines virtuelles locales, vos machines virtuelles Linux, vos machines virtuelles AWS et vos ordinateurs physiques en local. Dans cette rubrique, nous allons voir comment intégrer uniquement des machines virtuelles Azure Resource Manager. Pour plus d’informations sur l’intégration d’autres types d’ordinateurs, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md).
+Azure Automation DSC vous permet de gérer vos machines virtuelles Azure (via les modèles de déploiement classique et Resource Manager), vos machines virtuelles locales, vos machines virtuelles Linux, vos machines virtuelles AWS et vos ordinateurs physiques en local. Dans cette rubrique, nous allons voir comment intégrer uniquement des machines virtuelles Azure Resource Manager. Pour plus d’informations sur l’intégration d’autres types d’ordinateur, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md).
 
 ### Pour intégrer une machine virtuelle Azure Resource Manager pour la gérer via Azure Automation DSC, procédez comme suit.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Nœuds DSC**.
 
@@ -180,7 +180,7 @@ Azure Automation DSC vous permet de gérer vos machines virtuelles Azure (via le
     
     ![Capture d’écran du panneau Inscription](./media/automation-dsc-getting-started/RegisterVM.png)
     
-    La configuration de nœud spécifiée s’appliquera à la machine virtuelle aux intervalles spécifiés par la **Fréquence du mode de configuration**. La machine virtuelle recherchera les mises à jour de la configuration du nœud selon un intervalle spécifié par la **Fréquence de rafraîchissement**. Pour plus d’informations sur la façon dont ces valeurs sont utilisées, consultez [Configuration du Gestionnaire de configuration local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+    La configuration de nœud spécifiée s’appliquera à la machine virtuelle aux intervalles spécifiés par la **Fréquence du mode de configuration**. La machine virtuelle recherchera les mises à jour de la configuration du nœud selon un intervalle spécifié par la **Fréquence d’actualisation**. Pour plus d’informations sur la façon dont ces valeurs sont utilisées, consultez [Configuration du Gestionnaire de configuration local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
     
 9. Dans le panneau **Ajouter des machines virtuelles Azure**, cliquez sur **Créer**.
 
@@ -192,7 +192,7 @@ Vous pouvez utiliser le panneau **Nœuds DSC** pour afficher la liste de tous le
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Nœuds DSC**.
 
@@ -202,16 +202,16 @@ Chaque fois qu’azure Automation DSC effectue une vérification de cohérence s
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Nœuds DSC**.
 
-4. Sur la mosaïque **Rapports**, cliquez sur l’un des rapports de la liste.
+4. Dans la mosaïque **Rapports**, cliquez sur l’un des rapports de la liste.
 
     ![Capture d’écran du panneau Rapport](./media/automation-dsc-getting-started/NodeReport.png)
 
 Le panneau d’un rapport vous permet d’accéder aux informations d’état suivantes pour vous permettre d’effectuer la vérification de cohérence correspondante :
-- L’état du rapport : si le nœud est « Conforme », si la configuration a « Échoué », ou si le nœud est « Non conforme » (lorsque le nœud est en mode **applyandmonitor** et que l’ordinateur ne se trouve pas à l’état souhaité).
+- L’état du rapport : si le nœud est « Conforme », si la configuration a « Échoué » ou si le nœud est « Non conforme » (lorsque le nœud est en mode **applyandmonitor** et que l’ordinateur ne se trouve pas à l’état souhaité).
 - L’heure de début de la vérification de cohérence.
 - Le temps total d’exécution de la vérification de cohérence.
 - Le type de vérification de cohérence.
@@ -229,7 +229,7 @@ Vous pouvez attribuer un nœud à une configuration de nœud différente de cell
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Nœuds DSC**.
 
@@ -249,11 +249,11 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Toutes les ressources** puis sur le nom de votre compte Automation.
+2. Dans le menu Hub, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 
 3. Dans le panneau **Compte Automation**, cliquez sur **Nœuds DSC**.
 
-4. Dans le panneau **Nœuds DSC**, cliquez sur le nom du nœud que vous souhaitez réaffecter.
+4. Dans le panneau **Nœuds DSC**, cliquez sur le nom du nœud dont vous souhaitez annuler l’inscription.
 
 5. Dans le panneau de ce nœud, cliquez sur **Annuler l’inscription**.
 
@@ -266,4 +266,4 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

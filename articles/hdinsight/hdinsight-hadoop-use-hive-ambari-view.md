@@ -62,7 +62,7 @@ Pour exécuter une requête Hive sur les données incluses avec le cluster, suiv
 		DROP TABLE log4jLogs;
 		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
 	Ces instructions effectuent les opérations suivantes :
@@ -169,13 +169,13 @@ Une fois que vous avez ajouté une fonction UDF à la vue Hive, un bouton __Ins�
 Par exemple, si vous avez défini une fonction UDF avec les propriétés suivantes :
 
 * Nom de ressource : myudfs
-* Chemin d’accès à la ressource : wasb:///myudfs.jar
+* Chemin d’accès à la ressource : wasbs:///myudfs.jar
 * Nom de la fonction UDF : myawesomeudf
 * Nom de la classe UDF : com.myudfs.Awesome
 
 L’utilisation du bouton __Insérer des fonctions UDF__ va afficher une entrée nommée __myudfs__, avec une autre liste déroulante pour chaque fonction UDF définie pour cette ressource. Dans le cas présent, __myawesomeudf__. La sélection de cette entrée va ajouter le code suivant au début de la requête :
 
-    add jar wasb:///myudfs.jar;
+    add jar wasbs:///myudfs.jar;
 
     create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
@@ -199,4 +199,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

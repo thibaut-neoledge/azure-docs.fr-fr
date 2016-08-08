@@ -51,7 +51,7 @@ __Configuration requise__
     
     * En étant dans un conteneur sur un conteneur de stockage lié. Par exemple, dans le portail vous pouvez utiliser __Configuration facultative__, __Comptes de stockage liés__ pour ajouter un stockage supplémentaire.
 
-* Le chemin WASB vers le conteneur doit être spécifié en tant que paramètre à l'action de script. Par exemple, si les fichiers jar sont stockés dans un conteneur nommé __libs__ sur un compte de stockage nommé __mystorage__, le paramètre serait \_\_wasb://libs@mystorage.blob.core.windows.net/__.
+* Le chemin WASB vers le conteneur doit être spécifié en tant que paramètre à l'action de script. Par exemple, si les fichiers jar sont stockés dans un conteneur nommé __libs__ sur un compte de stockage nommé __mystorage__, le paramètre serait \_\_wasbs://libs@mystorage.blob.core.windows.net/__.
 
     > [AZURE.NOTE] Ce document suppose que vous avez déjà créé un compte de stockage, un conteneur d'objets blob et que vous avez déjà téléchargé les fichiers vers ceux-ci.
     >
@@ -72,7 +72,7 @@ __Configuration requise__
     * __HEAD__ : cochez cette option.
     * __WORKER__ : cochez cette option.
     * __ZOOKEEPER__ : laissez ce champ vide.
-    * __PARAMETERS__ : entrez l'adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple, \_\_wasb://libs@mystorage.blob.core.windows.net/__.
+    * __PARAMETERS__ : entrez l'adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple, \_\_wasbs://libs@mystorage.blob.core.windows.net/__.
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration.
 
@@ -88,4 +88,4 @@ Lorsque la création du cluster est terminée, vous pourrez utiliser les fichier
 
 Dans ce document, vous avez appris à ajouter des bibliothèques Hive contenues dans les fichiers jar à un cluster HDInsight pendant la création du cluster. Pour plus d'informations sur l’utilisation de Hive, consultez la rubrique [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

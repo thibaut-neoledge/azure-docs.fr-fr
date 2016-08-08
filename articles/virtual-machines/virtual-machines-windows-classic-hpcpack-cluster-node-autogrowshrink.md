@@ -1,5 +1,5 @@
 <properties
- pageTitle="Adapter automatiquement les ressources de calcul d’un cluster HPC | Microsoft Azure"
+ pageTitle="Mise à l’échelle automatique des nœuds de calcul de cluster HPC Pack | Microsoft Azure"
  description="Augmenter ou diminuer automatiquement le nombre de nœuds de calcul de cluster HPC Pack dans Azure"
  services="virtual-machines-windows"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Augmenter ou diminuer automatiquement les ressources du cluster HPC Pack dans Azure en fonction de la charge de travail du cluster
@@ -21,9 +21,9 @@ ms.service="virtual-machines-windows"
 
 
 
-Si vous déployez des nœuds de rafale Azure dans votre cluster HPC Pack ou si vous créez un cluster HPC Pack dans des machines virtuelles Azure, un moyen d’augmenter ou de diminuer automatiquement le nombre de ressources de calcul Azure, comme des cœurs, en fonction de la charge de travail actuelle du cluster peut s’avérer utile. Vous pouvez ainsi utiliser vos ressources Azure plus efficacement et contrôler leurs coûts. Pour ce faire,configurez la propriété **AutoGrowShrink** du cluster HPC Pack. L’autre solution consiste à exécuter le script HPC PowerShell **AzureAutoGrowShrink.ps1** installé avec HPC Pack.
+Si vous déployez des nœuds de rafale Azure dans votre cluster HPC Pack ou si vous créez un cluster HPC Pack dans des machines virtuelles Azure, un moyen d’augmenter ou de diminuer automatiquement le nombre de ressources de calcul Azure, comme des nœuds ou des cœurs, en fonction de la charge de travail actuelle du cluster peut s’avérer utile. Vous pouvez ainsi utiliser vos ressources Azure plus efficacement et contrôler leurs coûts. Pour ce faire,configurez la propriété **AutoGrowShrink** du cluster HPC Pack. L’autre solution consiste à exécuter le script HPC PowerShell **AzureAutoGrowShrink.ps1** installé avec HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. De plus, actuellement, vous ne pouvez qu’augmenter ou diminuer automatiquement les nœuds de calcul HPC Pack qui exécutent un système d’exploitation Windows Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] De plus, actuellement, vous ne pouvez qu’augmenter ou diminuer automatiquement les nœuds de calcul HPC Pack qui exécutent un système d’exploitation Windows Server.
 
 ## Définir la propriété de cluster AutoGrowShrink
 
@@ -34,7 +34,7 @@ Si vous déployez des nœuds de rafale Azure dans votre cluster HPC Pack ou si v
 
 * **Pour un cluster avec un nœud principal dans Azure** : si vous utilisez le script de déploiement IaaS de HPC Pack pour créer le cluster, activez la propriété de cluster **AutoGrowShrink** en définissant l’option AutoGrowShrink dans le fichier de configuration du cluster. Pour plus d’informations, consultez la documentation fournie avec le [téléchargement du script](https://www.microsoft.com/download/details.aspx?id=44949).
 
-    L’autre solution consiste à définir la propriété de cluster **AutoGrowShrink** après avoir déployé le cluster à l’aide des commandes HPC PowerShell décrites dans la section suivante. Pour utiliser HPC PowerShell à cette fin, suivez d’abord la procédure ci-dessous :
+    L’autre solution consiste à activer la propriété de cluster **AutoGrowShrink** après avoir déployé le cluster à l’aide des commandes HPC PowerShell décrites dans la section suivante. Pour préparer cette opération, suivez d’abord la procédure ci-dessous :
     1. Configurez un certificat de gestion Azure sur le nœud principal et dans l’abonnement Azure. Pour un déploiement de test, vous pouvez utiliser le certificat auto-signé par défaut Microsoft HPC Azure par défaut, que HPC Pack installe sur le nœud principal, et simplement télécharger ce certificat dans votre abonnement Azure. Pour en savoir plus sur les options et les étapes à suivre, consultez le document sur la [Bibliothèque TechNet](https://technet.microsoft.com/library/gg481759.aspx).
     2. Exécutez **regedit** sur le nœud principal, accédez à HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo et ajoutez une nouvelle valeur de type chaîne. Dans Nom de la valeur, indiquez « ThumbPrint », et dans Données de la valeur, indiquez le thumbprint du certificat à l’étape 1.
 
@@ -179,4 +179,4 @@ L’exemple suivant configure les machines virtuelles à nœud de calcul Azure d
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -46,14 +46,14 @@ Vous pouvez utiliser le connecteur X12 comme un déclencheur ou une action.
 - Lancez le concepteur de flux des applications logiques Azure
 - Cliquez sur le connecteur X12 dans le panneau de droite : ![Paramètres du déclencheur][3]
 - Cliquez sur -> : ![Options du déclencheur][4]
-- Le connecteur BizTalk X12 expose un seul déclencheur. Sélectionnez *Publier lot* : ![Entrée Publier lot][5]
+- Le connecteur BizTalk X12 expose un seul déclencheur. Sélectionnez *Publier lot* : ![Entrée Publier lot][5]
 - Ce déclencheur ne possède aucune entrée. Cliquez sur -> : ![Option Publier lot configurée][6]
 - Dans le cadre de la sortie, le connecteur renvoie la charge utile X12, l'ID de l'accord, ainsi que des informations indiquant si le message est traité par lot ou non.
 
 ### Action
 - Cliquez sur le connecteur X12 dans le panneau de droite : ![Paramètres d'action][7]
 - Cliquez sur -> : ![Liste d'actions][8]
-- Le connecteur X12 prend en charge de nombreuses actions. Sélectionnez *Encoder* : ![Codage d'entrée][9]
+- Le connecteur X12 prend en charge de nombreuses actions. Sélectionnez *Encoder* : ![Codage d'entrée][9]
 - Indiquez les entrées de l'action et configurez celle-ci : ![Codage configuré][10]
 
 Paramètre|Type|Description du paramètre
@@ -87,4 +87,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

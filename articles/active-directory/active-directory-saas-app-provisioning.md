@@ -20,7 +20,7 @@
 
 ##Présentation de l’approvisionnement automatique des utilisateurs pour les applications SaaS
 
-Azure Active Directory (Azure AD) vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans les applications cloud (SaaS) comme Dropbox, Salesforce, ServiceNow et bien plus encore.
+Azure Active Directory (Azure AD) vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans les applications cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) comme Dropbox, Salesforce, ServiceNow et bien plus encore.
 
 **Voici quelques exemples d’utilisation de cette fonctionnalité :**
 
@@ -116,4 +116,4 @@ Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une pri
 - [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->
