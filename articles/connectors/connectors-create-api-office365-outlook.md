@@ -1,771 +1,771 @@
 <properties
-    pageTitle="Ajouter le connecteur Office 365 Outlook à PowerApps Enterprise ou à des applications logiques | Microsoft Azure"
-    description="Vue d’ensemble du connecteur Office 365 Outlook avec les paramètres de l’API REST"
+    pageTitle="Ajouter le connecteur Office 365 Outlook dans vos applications logiques | Microsoft Azure"
+    description="Créez des applications logiques avec un connecteur Office 365 pour permettre l’interaction avec Office 365. Par exemple : création, modification et mise à jour de contacts et d’éléments de calendrier."
     services=""    
     documentationCenter=""     
-    authors="msftman"    
+    authors="MandiOhlinger"    
     manager="erikre"    
     editor="" 
     tags="connectors" />
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
+ms.date="07/26/2016"
 ms.author="mandia"/>
 
 # Prise en main du connecteur Office 365 Outlook 
 
-Connectez-vous à Office 365 Outlook pour recevoir des messages électroniques, répondre à un message électronique, mettre à jour vos calendrier et contacts, et bien plus encore. Le connecteur Office 365 Outlook peut être utilisé dans :
+Le connecteur Office 365 Outlook permet d’interagir avec Outlook dans Office 365. Utilisez ce connecteur pour créer, modifier et mettre à jour des contacts et des éléments de calendrier, ainsi que pour recevoir et envoyer des e-mails et pour y répondre.
 
-- Logic Apps 
-- PowerApps
+Avec Office 365 Outlook, vous pouvez effectuer les opérations suivantes :
 
-> [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-office365-outlook.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+- Créer votre workflow à l’aide des fonctionnalités de messagerie et de calendrier dans Office 365.
+- Utiliser des déclencheurs pour démarrer votre workflow lorsqu’un nouvel e-mail apparaît, lorsqu’un élément de calendrier est mis à jour, et bien davantage.
+- Utiliser des actions pour envoyer un e-mail, créer un événement de calendrier, etc. Par exemple, lorsqu’un nouvel objet existe dans Salesforce (déclencheur), un e-mail doit être envoyé à votre application Office 365 Outlook (action).
 
-&nbsp;
+Cette rubrique décrit comment utiliser le connecteur Office 365 Outlook dans une application logique, et répertorie également les déclencheurs et les actions associés.
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+>[AZURE.NOTE] Cette version de l’article s’applique à la disponibilité générale des applications logiques.
 
-Avec Office 365 Outlook, vous pouvez effectuer les opérations suivantes :
+Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../app-service-logic/app-service-logic-what-are-logic-apps.md) et [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-- Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Outlook. 
-- Utiliser un déclencheur, par exemple quand il y a un nouveau message électronique ou que vous créez un contact.
-- Utiliser des actions qui répondent à un message électronique, créent un événement de calendrier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, quand il existe un nouvel objet dans Salesforce, vous pouvez prendre cet objet et mettre à jour vos contacts Office 365 Outlook. 
-- Ajoutez le connecteur Office 365 Outlook à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
+## Connexion à Office 365
 
-Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
-
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-## Déclencheurs et actions
-
-Le connecteur Office 365 Outlook propose les déclencheurs et les actions suivants.
-
-| Déclencheurs | Actions|
-| --- | --- |
-|<ul><li>Événement imminent</li><li>Arrivée d’un nouveau message électronique</li><li>Quand des éléments sont créés</li><li>Quand des éléments sont mis à jour</li></ul>| <ul><li>Créer un contact</li><li>Créer un événement</li><li>Envoyer un message électronique d'approbation</li><li>Envoyer un courrier électronique</li><li>Supprimer un contact</li><li>Supprimer un courrier électronique</li><li>Supprimer un événement</li><li>Obtenir une pièce jointe</li><li>Obtenir des calendriers</li><li>Obtenir un contact</li><li>Obtenir des dossiers de contacts</li><li>Obtenir des contacts</li><li>Obtenir des messages électroniques</li><li>Obtenir un événement</li><li>Obtenir les événements</li><li>Marquer comme lu</li><li>Événement imminent</li><li>Arrivée d’un nouveau message électronique</li><li>Quand des éléments sont créés</li><li>Quand des éléments sont mis à jour</li><li>Répondre à un message</li><li>Envoyer un message électronique avec des options</li><li>Mettre à jour un contact</li><li>Mettre à jour un événement</li></ul> |
-
-Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+Pour que votre application logique puisse accéder à un service, vous devez d’abord créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Office 365 Outlook, vous devez préalablement disposer d’une *connexion* Office 365. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ensuite, dans Office 365 Outlook, entrez les informations d’identification de votre compte Office 365 pour créer la connexion.
 
 
-## Créer une connexion à Office 365
+## Créer la connexion
 
-Quand vous ajoutez ce connecteur à vos applications logiques, vous devez vous connecter à votre compte Office 365 Outlook et autoriser les applications logiques à se connecter à votre compte.
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Office 365](../../includes/connectors-create-api-office365-outlook.md)]
 
-1. Connectez-vous à votre compte Office 365 Outlook.
-2. Autorisez vos applications logiques à se connecter à votre compte Office 365 et à l’utiliser. 
+## Utilisation d’un déclencheur
 
-Après avoir créé la connexion, vous entrez les propriétés Office 365 Outlook, telles que le chemin du dossier de la boîte de réception ou le message électronique. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. Les déclencheurs « interrogent » le service à l’intervalle et à la fréquence de votre choix. [Apprenez-en davantage sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.TIP] Vous pouvez utiliser cette même connexion Office 365 Outlook dans d’autres applications logiques.
+1. Dans l’application logique, tapez « office 365 » pour obtenir la liste des déclencheurs :
 
-## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+	![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
+
+2. Sélectionnez **Office 365 Outlook - When an upcoming event is starting soon** (Office 365 Outlook - Lorsqu’un événement à venir est imminent). Si une connexion existe déjà, sélectionnez un calendrier dans la liste déroulante.
+
+	![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
+
+	Si vous êtes invité à vous connecter, entrez les informations de connexion pour créer la connexion. La section [Créer la connexion](connectors-create-api-office365-outlook.md#create-the-connection) figurant dans cette rubrique répertorie les étapes.
+
+	> [AZURE.NOTE] Dans cet exemple, l’application logique s’exécute lorsqu’un événement de calendrier est mis à jour. Pour visualiser les résultats de ce déclencheur, ajoutez une autre action qui vous envoie un SMS. Par exemple, ajoutez l’action Twilio *Send message* (Envoyer un message) qui vous envoie un SMS lorsque l’événement de calendrier doit démarrer dans 15 minutes.
+
+3. Sélectionnez le bouton **Modifier**, puis renseignez les champs **Fréquence** et **Intervalle**. Par exemple, si vous souhaitez que le déclencheur interroge le service toutes les 15 minutes, définissez le champ **Fréquence** sur **Minute**, et le champ **Intervalle** sur **15**.
+
+	![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+4. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
 
 
-### Événement imminent 
-Déclenche un flux au démarrage d’un événement de calendrier à venir. ```GET: /Events/OnUpcomingEvents```
+## Utilisation d’une action
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|query|(aucun)|Identificateur unique du calendrier|
-|lookAheadTimeInMinutes|integer|no|query|15|Plage (en minutes) dans laquelle rechercher les événements à venir.|
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-#### Response
+1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **Ajouter une condition** ou l’une des options **Plus**.
+
+	![](./media/connectors-create-api-office365-outlook/add-action.png)
+
+2. Choisissez **Ajouter une action**.
+
+3. Dans la zone de texte, tapez « office 365 » pour obtenir la liste de toutes les actions disponibles.
+
+	![](./media/connectors-create-api-office365-outlook/office365-actions.png)
+
+4. Dans notre exemple, choisissez **Office 365 Outlook - Créer un contact**. Si une connexion existe déjà, choisissez **ID du dossier**, **Prénom** et d’autres propriétés :
+
+	![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+
+	Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-office365-outlook.md#create-the-connection) figurant dans cette rubrique décrit ces propriétés.
+
+	> [AZURE.NOTE] Dans cet exemple, nous créons un contact dans Office 365 Outlook. Vous pouvez utiliser la sortie d’un autre déclencheur pour créer le contact. Par exemple, ajoutez le déclencheur SalesForce *Quand un objet est créé*. Ensuite, ajoutez l’action Office 365 Outlook *Créer un contact* qui utilise les champs SalesForce pour créer le contact dans Office 365.
+
+5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+
+
+## Détails techniques
+
+Voici les détails des déclencheurs, actions et réponses pris en charge par cette connexion :
+
+## Déclencheurs Office 365
+
+|Déclencheur | Description|
+|--- | ---|
+|[When an upcoming event is starting soon](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon) (Lorsqu’un événement à venir est imminent)|Cette opération déclenche un flux au démarrage d’un événement de calendrier à venir.|
+|[Lorsqu’un nouveau courrier électronique arrive](connectors-create-api-office365-outlook.md#when-a-new-email-arrives)|Cette opération déclenche un flux à l’arrivée d’un nouvel e-mail.|
+|[When a new event is created](connectors-create-api-office365-outlook.md#when-a-new-event-is-created) (Lorsqu’un événement est créé)|Cette opération déclenche un flux lorsqu’un événement est créé dans un calendrier.|
+|[When an event is modified](connectors-create-api-office365-outlook.md#when-an-event-is-modified) (Lorsqu’un événement est modifié)|Cette opération déclenche un flux lorsqu’un événement est modifié dans un calendrier.|
+
+
+## Actions Office 365
+
+|Action|Description|
+|--- | ---|
+|[Obtenir des messages électroniques](connectors-create-api-office365-outlook.md#get-emails)|Cette opération récupère les e-mails à partir d’un dossier.|
+|[Envoi d'un courrier électronique](connectors-create-api-office365-outlook.md#send-an-email)|Cette opération envoie un e-mail.|
+|[Supprimer un message électronique](connectors-create-api-office365-outlook.md#delete-email)|Cette opération supprime un e-mail par son identificateur.|
+|[Marquer comme lu](connectors-create-api-office365-outlook.md#mark-as-read)|Cette opération marque un e-mail comme étant lu.|
+|[Répondre à un message électronique](connectors-create-api-office365-outlook.md#reply-to-email)|Cette opération répond à un e-mail.|
+|[Obtenir une pièce jointe](connectors-create-api-office365-outlook.md#get-attachment)|Cette opération récupère une pièce jointe à un e-mail par son identificateur.|
+|[Envoyer un message électronique avec des options](connectors-create-api-office365-outlook.md#send-email-with-options)|Cette opération envoie un e-mail avec plusieurs options et attend que le destinataire réponde avec l’une des options.|
+|[Envoyer un message électronique d’approbation](connectors-create-api-office365-outlook.md#send-approval-email)|Cette opération envoie un e-mail d’approbation et attend une réponse du destinataire.|
+|[Obtenir des calendriers](connectors-create-api-office365-outlook.md#get-calendars)|Cette opération répertorie les calendriers disponibles.|
+|[Obtenir les événements](connectors-create-api-office365-outlook.md#get-events)|Cette opération récupère les événements d’un calendrier.|
+|[Créer un événement](connectors-create-api-office365-outlook.md#create-event)|Cette opération crée un événement dans un calendrier.|
+|[Obtenir un événement](connectors-create-api-office365-outlook.md#get-event)|Cette opération récupère un événement spécifique d’un calendrier.|
+|[Supprimer un événement](connectors-create-api-office365-outlook.md#delete-event)|Cette opération supprime un événement d’un calendrier.|
+|[Mettre à jour un événement](connectors-create-api-office365-outlook.md#update-event)|Cette opération met à jour un événement dans un calendrier.|
+|[Obtenir des dossiers de contacts](connectors-create-api-office365-outlook.md#get-contact-folders)|Cette opération répertorie les dossiers des contacts disponibles.|
+|[Obtenir des contacts](connectors-create-api-office365-outlook.md#get-contacts)|Cette opération récupère les contacts d’un dossier des contacts.|
+|[Créer un contact](connectors-create-api-office365-outlook.md#create-contact)|Cette opération crée un contact dans un dossier des contacts.|
+|[Obtenir un contact](connectors-create-api-office365-outlook.md#get-contact)|Cette opération récupère un contact spécifique d’un dossier des contacts.|
+|[Supprimer un contact](connectors-create-api-office365-outlook.md#delete-contact)|Cette opération supprime un contact d’un dossier des contacts.|
+|[Mettre à jour un contact](connectors-create-api-office365-outlook.md#update-contact)|Cette opération met à jour un contact dans un dossier des contacts.|
+
+### Détail des déclencheurs et des actions
+
+Dans cette section, consultez les détails relatifs à chacun des déclencheurs et actions, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
+
+#### When an upcoming event is starting soon (Lorsqu’un événement à venir est imminent)
+Cette opération déclenche un flux au démarrage d’un événement de calendrier à venir.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Identificateur unique du calendrier|
+|lookAheadTimeInMinutes|Look ahead time (Temps d’anticipation)|Plage (en minutes) dans laquelle rechercher les événements à venir|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+CalendarItemsList : liste des éléments de calendrier
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|value|array|Liste des éléments de calendrier|
+
+
+#### Obtenir des messages électroniques
+Cette opération récupère les e-mails à partir d’un dossier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|folderPath|Chemin d'accès du dossier|Chemin du dossier duquel récupérer des messages électroniques (valeur par défaut : « Inbox »)|
+|top|Top (Premiers)|Nombre de messages électroniques à récupérer (valeur par défaut : 10)|
+|fetchOnlyUnread|Récupérer uniquement les messages non lus|Récupérer uniquement les messages électroniques non lus ?|
+|includeAttachments|Inclure les pièces jointes|Si défini sur true, les pièces jointes sont également récupérées avec les messages électroniques|
+|searchQuery|Requête de recherche|Requête de recherche pour filtrer les messages électroniques|
+|skip|Skip|Nombre de messages électroniques à ignorer (valeur par défaut : 0)|
+|skipToken|Skip Token (Jeton d’évitement)|Jeton d’évitement pour récupérer une nouvelle page|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+ReceiveMessage : recevoir un message électronique
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|À partir|string|À partir|
+|À|string|À|
+|Objet|string|Objet|
+|Corps|string|Corps|
+|Importance|string|Importance|
+|HasAttachment|booléenne|Comporte une pièce jointe|
+|ID|string|ID du message|
+|IsRead|booléenne|Est lu|
+|DateTimeReceived|string|Date et heure de réception|
+|Pièces jointes|array|Pièces jointes|
+|Cc|string|Spécifier les adresses e-mail séparées par des points-virgules, au format someone@contoso.com|
+|Cci|string|Spécifier les adresses e-mail séparées par des points-virgules, au format someone@contoso.com|
+|IsHtml|booléenne|HTML|
+
+
+#### Envoi d'un courrier électronique
+Cette opération envoie un e-mail.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|emailMessage*|Email|Email|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+#### Supprimer un message électronique
+Cette opération supprime un e-mail par son identificateur.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|messageId*|ID du message|ID du message électronique à supprimer|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+#### Marquer comme lu
+Cette opération marque un e-mail comme étant lu.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|messageId*|ID du message|Identifiant du message électronique à marquer comme lu|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+
+#### Répondre à un message électronique
+Cette opération répond à un e-mail.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|messageId*|ID du message|ID du message électronique auquel répondre|
+|comment*|Commentaire|Commentaire de réponse|
+|replyAll|Répondre à tous|Répondre à tous les destinataires|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+
+#### Obtenir une pièce jointe
+Cette opération récupère une pièce jointe à un e-mail par son identificateur.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|messageId*|ID du message|ID du message électronique|
+|attachmentId*|Attachment Id (ID de pièce jointe)|Identifiant de la pièce jointe à télécharger|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+
+#### Lorsqu’un nouveau courrier électronique arrive
+Cette opération déclenche un flux à l’arrivée d’un nouvel e-mail.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|folderPath|Chemin d'accès du dossier|Dossier de courrier électronique à récupérer (valeur par défaut : Inbox)|
+|to|À|Adresses de messagerie des destinataires|
+|from|À partir|Adresse de l’expéditeur|
+|importance|Importance|Importance du message (High, Normal, Low) (valeur par défaut : Normal)|
+|fetchOnlyWithAttachment|Contient des pièces jointes|Récupérer uniquement les messages électroniques avec une pièce jointe|
+|includeAttachments|Inclure les pièces jointes|Inclure les pièces jointes|
+|subjectFilter|Subject Filter (Filtre d’objet)|Chaîne à rechercher dans l’objet|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+TriggerBatchResponse[ReceiveMessage]
+
+| Nom de la propriété | Type de données |
+|---|---|
+|value|array|
+
+
+#### Envoyer un message électronique avec des options
+Cette opération envoie un e-mail avec plusieurs options et attend que le destinataire réponde avec l’une des options.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|optionsEmailSubscription*|Demande d’abonnement pour courrier électronique avec options|Demande d’abonnement pour courrier électronique avec options|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+SubscriptionResponse : modèle d’abonnement au courrier électronique d’approbation
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|id|string|ID de l’abonnement|
+|resource|string|Ressource de la demande d’abonnement|
+|notificationType|string|Type de notification|
+|notificationUrl|string|URL de notification|
+
+
+#### Envoyer un message électronique d’approbation
+Cette opération envoie un e-mail d’approbation et attend une réponse du destinataire.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|approvalEmailSubscription*|Demande d’abonnement pour courrier électronique d’approbation|Demande d’abonnement pour courrier électronique d’approbation|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+SubscriptionResponse : modèle d’abonnement au courrier électronique d’approbation
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|id|string|ID de l’abonnement|
+|resource|string|Ressource de la demande d’abonnement|
+|notificationType|string|Type de notification|
+|notificationUrl|string|URL de notification|
+
+
+#### Obtenir des calendriers
+Cette opération répertorie les calendriers disponibles.
+
+Il n'existe aucun paramètre pour cet appel.
+
+##### Détails des résultats
+TablesList
+
+| Nom de la propriété | Type de données |
+|---|---|
+|value|array|
+
+
+#### Obtenir les événements
+Cette opération récupère les événements d’un calendrier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Sélectionner un calendrier|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+CalendarEventList : liste des éléments de calendrier
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|value|array|Liste des éléments de calendrier|
+
+
+#### Créer un événement
+Cette opération crée un événement dans un calendrier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Sélectionner un calendrier|
+|item*|Item|Événement à créer|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+CalendarEvent : classe de modèle d’événement de calendrier spécifique du connecteur.
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ID|string|Identificateur unique de l’événement.|
+|Attendees|array|Liste des participants à l’événement.|
+|Corps|non défini|Corps du message associé à l’événement.|
+|BodyPreview|string|Aperçu du message associé à l’événement.|
+|Catégories|array|Catégories associées à l’événement.|
+|ChangeKey|string|Identifie la version de l’objet d’événement. Chaque fois que l’événement est modifié, ChangeKey change également.|
+|DateTimeCreated|string|Date et heure de création de l’événement.|
+|DateTimeLastModified|string|Date et heure de la dernière modification de l’événement.|
+|Terminer|string|Heure de fin de l’événement.|
+|EndTimeZone|string|Spécifie le fuseau horaire de l’heure de fin de la réunion. Cette valeur doit être telle que définie dans Windows (par exemple : « Pacifique »).|
+|HasAttachments|booléenne|Définie sur true si l’événement comporte des pièces jointes.|
+|Importance|string|Importance de l’événement : Faible, Normale ou Élevée.|
+|IsAllDay|booléenne|Définie sur true si l’événement dure toute la journée.|
+|IsCancelled|booléenne|Définie sur true si l’événement a été annulé.|
+|IsOrganizer|booléenne|Définie sur true si l’expéditeur du message est également l’organisateur.|
+|Emplacement|non défini|Lieu de l’événement.|
+|Organizer|non défini|Organisateur de l’événement.|
+|Périodicité|non défini|Périodicité de l’événement.|
+|Rappel|integer|Nombre de minutes avant l’événement à partir duquel afficher un rappel.|
+|ResponseRequested|booléenne|Définie sur true si l’expéditeur souhaite être averti de l’acceptation ou du refus de l’événement.|
+|ResponseStatus|non défini|Indique le type de la réponse envoyée à un message d’événement.|
+|SeriesMasterId|string|Identificateur unique du type d’événement Series Master (Principal de la série).|
+|ShowAs|string|S’affiche comme étant disponible ou occupé.|
+|Démarrer|string|Heure de début de l’événement.|
+|StartTimeZone|string|Spécifie le fuseau horaire de l’heure de début de la réunion. Cette valeur doit être telle que définie dans Windows (par exemple : « Pacifique »).|
+|Objet|string|Objet de l’événement.|
+|Type|string|Type de l’événement : Instance unique, Occurrence, Exception ou Series Master (Principal de la série).|
+|WebLink|string|Aperçu du message associé à l’événement.|
+
+
+#### Obtenir un événement
+Cette opération récupère un événement spécifique d’un calendrier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Sélectionner un calendrier|
+|id*|ID d’élément|Sélectionner un événement|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+CalendarEvent : classe de modèle d’événement de calendrier spécifique du connecteur.
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ID|string|Identificateur unique de l’événement.|
+|Attendees|array|Liste des participants à l’événement.|
+|Corps|non défini|Corps du message associé à l’événement.|
+|BodyPreview|string|Aperçu du message associé à l’événement.|
+|Catégories|array|Catégories associées à l’événement.|
+|ChangeKey|string|Identifie la version de l’objet d’événement. Chaque fois que l’événement est modifié, ChangeKey change également.|
+|DateTimeCreated|string|Date et heure de création de l’événement.|
+|DateTimeLastModified|string|Date et heure de la dernière modification de l’événement.|
+|Terminer|string|Heure de fin de l’événement.|
+|EndTimeZone|string|Spécifie le fuseau horaire de l’heure de fin de la réunion. Cette valeur doit être telle que définie dans Windows (par exemple : « Pacifique »).|
+|HasAttachments|booléenne|Définie sur true si l’événement comporte des pièces jointes.|
+|Importance|string|Importance de l’événement : Faible, Normale ou Élevée.|
+|IsAllDay|booléenne|Définie sur true si l’événement dure toute la journée.|
+|IsCancelled|booléenne|Définie sur true si l’événement a été annulé.|
+|IsOrganizer|booléenne|Définie sur true si l’expéditeur du message est également l’organisateur.|
+|Emplacement|non défini|Lieu de l’événement.|
+|Organizer|non défini|Organisateur de l’événement.|
+|Périodicité|non défini|Périodicité de l’événement.|
+|Rappel|integer|Nombre de minutes avant l’événement à partir duquel afficher un rappel.|
+|ResponseRequested|booléenne|Définie sur true si l’expéditeur souhaite être averti de l’acceptation ou du refus de l’événement.|
+|ResponseStatus|non défini|Indique le type de la réponse envoyée à un message d’événement.|
+|SeriesMasterId|string|Identificateur unique du type d’événement Series Master (Principal de la série).|
+|ShowAs|string|S’affiche comme étant disponible ou occupé.|
+|Démarrer|string|Heure de début de l’événement.|
+|StartTimeZone|string|Spécifie le fuseau horaire de l’heure de début de la réunion. Cette valeur doit être telle que définie dans Windows (par exemple : « Pacifique »).|
+|Objet|string|Objet de l’événement.|
+|Type|string|Type de l’événement : Instance unique, Occurrence, Exception ou Series Master (Principal de la série).|
+|WebLink|string|Aperçu du message associé à l’événement.|
+
+
+#### Supprimer un événement
+Cette opération supprime un événement d’un calendrier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Sélectionner un calendrier|
+|id*|ID|Sélectionner un événement|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+
+#### Mettre à jour un événement
+Cette opération met à jour un événement dans un calendrier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Sélectionner un calendrier|
+|id*|ID|Sélectionner un événement|
+|item*|Item|Événement à mettre à jour|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+CalendarEvent : classe de modèle d’événement de calendrier spécifique du connecteur.
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ID|string|Identificateur unique de l’événement.|
+|Attendees|array|Liste des participants à l’événement.|
+|Corps|non défini|Corps du message associé à l’événement.|
+|BodyPreview|string|Aperçu du message associé à l’événement.|
+|Catégories|array|Catégories associées à l’événement.|
+|ChangeKey|string|Identifie la version de l’objet d’événement. Chaque fois que l’événement est modifié, ChangeKey change également.|
+|DateTimeCreated|string|Date et heure de création de l’événement.|
+|DateTimeLastModified|string|Date et heure de la dernière modification de l’événement.|
+|Terminer|string|Heure de fin de l’événement.|
+|EndTimeZone|string|Spécifie le fuseau horaire de l’heure de fin de la réunion. Cette valeur doit être telle que définie dans Windows (par exemple : « Pacifique »).|
+|HasAttachments|booléenne|Définie sur true si l’événement comporte des pièces jointes.|
+|Importance|string|Importance de l’événement : Faible, Normale ou Élevée.|
+|IsAllDay|booléenne|Définie sur true si l’événement dure toute la journée.|
+|IsCancelled|booléenne|Définie sur true si l’événement a été annulé.|
+|IsOrganizer|booléenne|Définie sur true si l’expéditeur du message est également l’organisateur.|
+|Emplacement|non défini|Lieu de l’événement.|
+|Organizer|non défini|Organisateur de l’événement.|
+|Périodicité|non défini|Périodicité de l’événement.|
+|Rappel|integer|Nombre de minutes avant l’événement à partir duquel afficher un rappel.|
+|ResponseRequested|booléenne|Définie sur true si l’expéditeur souhaite être averti de l’acceptation ou du refus de l’événement.|
+|ResponseStatus|non défini|Indique le type de la réponse envoyée à un message d’événement.|
+|SeriesMasterId|string|Identificateur unique du type d’événement Series Master (Principal de la série).|
+|ShowAs|string|S’affiche comme étant disponible ou occupé.|
+|Démarrer|string|Heure de début de l’événement.|
+|StartTimeZone|string|Spécifie le fuseau horaire de l’heure de début de la réunion. Cette valeur doit être telle que définie dans Windows (par exemple : « Pacifique »).|
+|Objet|string|Objet de l’événement.|
+|Type|string|Type de l’événement : Instance unique, Occurrence, Exception ou Series Master (Principal de la série).|
+|WebLink|string|Aperçu du message associé à l’événement.|
+
+
+#### When a new event is created (Lorsqu’un événement est créé)
+Cette opération déclenche un flux lorsqu’un événement est créé dans un calendrier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Sélectionner un calendrier|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+CalendarItemsList : liste des éléments de calendrier
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|value|array|Liste des éléments de calendrier|
+
+
+#### When an event is modified (Lorsqu’un événement est modifié)
+Cette opération déclenche un flux lorsqu’un événement est modifié dans un calendrier.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id (ID de calendrier)|Sélectionner un calendrier|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+CalendarItemsList : liste des éléments de calendrier
+
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|value|array|Liste des éléments de calendrier|
+
+
+#### Obtenir des dossiers de contacts
+Cette opération répertorie les dossiers des contacts disponibles.
+
+Il n'existe aucun paramètre pour cet appel.
+
+##### Détails des résultats
+TablesList
+
+| Nom de la propriété | Type de données |
+|---|---|
+|value|array|
+
+
+#### Obtenir des contacts
+Cette opération récupère les contacts d’un dossier des contacts.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|ID du dossier|Identificateur unique du dossier de contacts à récupérer|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+ContactList : liste de contacts
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|value|array|Liste de contacts|
+
+
+#### Créer un contact
+Cette opération crée un contact dans un dossier des contacts.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|ID du dossier|Sélectionner un dossier des contacts|
+|item*|Item|Contact à créer|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Contact : contact
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ID|string|Identificateur unique du contact.|
+|ParentFolderId|string|Identificateur du dossier parent du contact.|
+|Birthday|string|Date d’anniversaire du contact.|
+|FileAs|string|Nom sous lequel est archivé le contact.|
+|DisplayName|string|Nom d’affichage du contact.|
+|GivenName|string|Prénom du contact.|
+|Initials|string|Initiales du contact.|
+|MiddleName|string|Deuxième prénom du contact.|
+|NickName|string|Surnom du contact.|
+|Surname|string|Nom du contact.|
+|Intitulé|string|Titre du contact.|
+|Generation|string|Génération du contact.|
+|EmailAddresses|array|Adresses e-mail du contact.|
+|ImAddresses|array|Adresses de messagerie instantanée (MI) du contact.|
+|JobTitle|string|Fonction du contact.|
+|CompanyName|string|Nom de la société du contact.|
+|Department|string|Service du contact.|
+|OfficeLocation|string|Emplacement du bureau du contact.|
+|Profession|string|Profession du contact.|
+|BusinessHomePage|string|Page d’accueil professionnelle du contact.|
+|AssistantName|string|Nom de l’assistant du contact.|
+|Manager|string|Nom du responsable du contact.|
+|HomePhones|array|Numéros de téléphone personnels du contact.|
+|BusinessPhones|array|Numéros de téléphone professionnels du contact.|
+|MobilePhone1|string|Numéro de téléphone mobile du contact.|
+|HomeAddress|non défini|Adresse personnelle du contact.|
+|BusinessAddress|non défini|Adresse professionnelle du contact.|
+|OtherAddress|non défini|Autres adresses du contact.|
+|YomiCompanyName|string|Nom phonétique de la société japonaise du contact.|
+|YomiGivenName|string|Prénom japonais phonétique du contact.|
+|YomiSurname|string|Nom japonais phonétique du contact.|
+|Catégories|array|Catégories associées au contact.|
+|ChangeKey|string|Identifie la version de l’objet d’événement.|
+|DateTimeCreated|string|Heure de création du contact.|
+|DateTimeLastModified|string|Heure de modification du contact.|
+
+
+#### Obtenir un contact
+Cette opération récupère un contact spécifique d’un dossier des contacts.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|ID du dossier|Sélectionner un dossier des contacts|
+|id*|ID d’élément|Identificateur unique d’un contact à récupérer|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Contact : contact
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ID|string|Identificateur unique du contact.|
+|ParentFolderId|string|Identificateur du dossier parent du contact.|
+|Birthday|string|Date d’anniversaire du contact.|
+|FileAs|string|Nom sous lequel est archivé le contact.|
+|DisplayName|string|Nom d’affichage du contact.|
+|GivenName|string|Prénom du contact.|
+|Initials|string|Initiales du contact.|
+|MiddleName|string|Deuxième prénom du contact.|
+|NickName|string|Surnom du contact.|
+|Surname|string|Nom du contact.|
+|Intitulé|string|Titre du contact.|
+|Generation|string|Génération du contact.|
+|EmailAddresses|array|Adresses e-mail du contact.|
+|ImAddresses|array|Adresses de messagerie instantanée (MI) du contact.|
+|JobTitle|string|Fonction du contact.|
+|CompanyName|string|Nom de la société du contact.|
+|Department|string|Service du contact.|
+|OfficeLocation|string|Emplacement du bureau du contact.|
+|Profession|string|Profession du contact.|
+|BusinessHomePage|string|Page d’accueil professionnelle du contact.|
+|AssistantName|string|Nom de l’assistant du contact.|
+|Manager|string|Nom du responsable du contact.|
+|HomePhones|array|Numéros de téléphone personnels du contact.|
+|BusinessPhones|array|Numéros de téléphone professionnels du contact.|
+|MobilePhone1|string|Numéro de téléphone mobile du contact.|
+|HomeAddress|non défini|Adresse personnelle du contact.|
+|BusinessAddress|non défini|Adresse professionnelle du contact.|
+|OtherAddress|non défini|Autres adresses du contact.|
+|YomiCompanyName|string|Nom phonétique de la société japonaise du contact.|
+|YomiGivenName|string|Prénom japonais phonétique du contact.|
+|YomiSurname|string|Nom japonais phonétique du contact.|
+|Catégories|array|Catégories associées au contact.|
+|ChangeKey|string|Identifie la version de l’objet d’événement.|
+|DateTimeCreated|string|Heure de création du contact.|
+|DateTimeLastModified|string|Heure de modification du contact.|
+
+
+#### Supprimer un contact
+Cette opération supprime un contact d’un dossier des contacts.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|ID du dossier|Sélectionner un dossier des contacts|
+|id*|ID|Identificateur unique du contact à supprimer|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucun.
+
+
+#### Mettre à jour un contact
+Cette opération met à jour un contact dans un dossier des contacts.
+
+|Nom de la propriété| Display Name|Description|
+| ---|---|---|
+|table*|ID du dossier|Sélectionner un dossier des contacts|
+|id*|ID|Identificateur unique du contact à mettre à jour|
+|item*|Item|Élément de contact à mettre à jour|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Contact : contact
+
+| Nom de la propriété | Type de données | Description |
+|---|---|---|
+|ID|string|Identificateur unique du contact.|
+|ParentFolderId|string|Identificateur du dossier parent du contact.|
+|Birthday|string|Date d’anniversaire du contact.|
+|FileAs|string|Nom sous lequel est archivé le contact.|
+|DisplayName|string|Nom d’affichage du contact.|
+|GivenName|string|Prénom du contact.|
+|Initials|string|Initiales du contact.|
+|MiddleName|string|Deuxième prénom du contact.|
+|NickName|string|Surnom du contact.|
+|Surname|string|Nom du contact.|
+|Intitulé|string|Titre du contact.|
+|Generation|string|Génération du contact.|
+|EmailAddresses|array|Adresses e-mail du contact.|
+|ImAddresses|array|Adresses de messagerie instantanée (MI) du contact.|
+|JobTitle|string|Fonction du contact.|
+|CompanyName|string|Nom de la société du contact.|
+|Department|string|Service du contact.|
+|OfficeLocation|string|Emplacement du bureau du contact.|
+|Profession|string|Profession du contact.|
+|BusinessHomePage|string|Page d’accueil professionnelle du contact.|
+|AssistantName|string|Nom de l’assistant du contact.|
+|Manager|string|Nom du responsable du contact.|
+|HomePhones|array|Numéros de téléphone personnels du contact.|
+|BusinessPhones|array|Numéros de téléphone professionnels du contact.|
+|MobilePhone1|string|Numéro de téléphone mobile du contact.|
+|HomeAddress|non défini|Adresse personnelle du contact.|
+|BusinessAddress|non défini|Adresse professionnelle du contact.|
+|OtherAddress|non défini|Autres adresses du contact.|
+|YomiCompanyName|string|Nom phonétique de la société japonaise du contact.|
+|YomiGivenName|string|Prénom japonais phonétique du contact.|
+|YomiSurname|string|Nom japonais phonétique du contact.|
+|Catégories|array|Catégories associées au contact.|
+|ChangeKey|string|Identifie la version de l’objet d’événement.|
+|DateTimeCreated|string|Heure de création du contact.|
+|DateTimeLastModified|string|Heure de modification du contact.|
+
+
+
+## Réponses HTTP
+
+Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants :
+
 |Nom|Description|
 |---|---|
-|200|L’opération a réussi|
-|202|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Obtenir des messages électroniques 
-Récupère des messages électroniques à partir d’un dossier. ```GET: /Mail```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Chemin du dossier duquel récupérer des messages (valeur par défaut : « Inbox »)|
-|top|integer|no|query|10|Nombre de messages électroniques à récupérer (valeur par défaut : 10)|
-|fetchOnlyUnread|booléenne|no|query|true|Récupérer uniquement les messages non lus ?|
-|includeAttachments|booléenne|no|query|false|Si défini sur true, les pièces jointes sont également récupérées avec les messages électroniques.|
-|searchQuery|string|no|query|(aucun)|Requête de recherche pour filtrer les messages électroniques|
-|skip|integer|no|query|0|Nombre de messages électroniques à ignorer (valeur par défaut : 0)|
-|skipToken|string|no|query|(aucun)|Jeton d’évitement pour récupérer une nouvelle page|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Envoyer un message électronique 
-Envoie un message électronique. ```POST: /Mail```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|emailMessage| |yes|body|(aucun)|Instance du message électronique|
-
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Supprimer un message électronique 
-Supprime un message électronique en fonction de son identifiant. ```DELETE: /Mail/{messageId}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|Identifiant du message à supprimer.|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Marquer comme lu 
-Marque un message électronique comme lu. ```POST: /Mail/MarkAsRead/{messageId}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|Identifiant du message à marquer comme lu|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Répondre à un message 
-Répond à un message électronique. ```POST: /Mail/ReplyTo/{messageId}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|Identifiant du message auquel répondre|
-|comment|string|yes|query|(aucun)|Commentaire de réponse|
-|replyAll|booléenne|no|query|false|Répondre à tous les destinataires|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Obtenir une pièce jointe 
-Récupère la pièce jointe à un message en fonction de l’identifiant. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|Identifiant du message|
-|attachmentId|string|yes|path|(aucun)|Identifiant de la pièce jointe à télécharger|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Arrivée d’un nouveau message électronique 
-Déclenche un flux à l’arrivée d’un nouveau message électronique. ```GET: /Mail/OnNewEmail```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Dossier de courrier électronique à récupérer (valeur par défaut : Inbox)|
-|to|string|no|query|(aucun)|Adresses de messagerie des destinataires|
-|from|string|no|query|(aucun)|Adresse de l’expéditeur|
-|importance|string|no|query|Normal|Importance du message (High, Normal, Low) (valeur par défaut : Normal)|
-|fetchOnlyWithAttachment|booléenne|no|query|false|Récupérer uniquement les messages électroniques avec une pièce jointe|
-|includeAttachments|booléenne|no|query|false|Inclure les pièces jointes|
-|subjectFilter|string|no|query|(aucun)|Chaîne à rechercher dans l’objet.|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi.|
+|200|OK|
 |202|Acceptée|
-|400|BadRequest|
+|400|Demande incorrecte|
 |401|Non autorisé|
 |403|Interdit|
-|500|Erreur interne du serveur|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s'est produite|
 |default|L’opération a échoué.|
-
-
-### Envoyer un message électronique avec des options 
-Envoie un message électronique avec plusieurs options et attend que le destinataire réponde avec une des options. ```POST: /mailwithoptions/$subscriptions```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|optionsEmailSubscription| |yes|body|(aucun)|Demande d’abonnement pour courrier électronique avec options|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|201|Abonnement créé|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-### Envoyer un message électronique d’approbation 
-Envoie un message électronique d’approbation et attend une réponse du destinataire. ```POST: /approvalmail/$subscriptions```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|approvalEmailSubscription| |yes|body|(aucun)|Demande d’abonnement pour courrier électronique d’approbation|
-
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|201|Abonnement créé|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-
-
-### Obtenir des calendriers 
-Récupère des calendriers. ```GET: /datasets/calendars/tables```
-
-Il n'existe aucun paramètre pour cet appel.
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-
-### Obtenir les événements 
-Récupère des éléments d’un calendrier. ```GET: /datasets/calendars/tables/{table}/items```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique du calendrier à récupérer|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Créer un événement 
-Crée un événement. ```POST: /datasets/calendars/tables/{table}/items```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|item| |yes|body|(aucun)|Élément de calendrier à créer|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Obtenir un événement 
-Extrait un élément spécifique d’un calendrier. ```GET: /datasets/calendars/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|id|string|yes|path|(aucun)|Identificateur unique d’un élément de calendrier à récupérer|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Supprimer un événement 
-Supprime un élément de calendrier. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|id|string|yes|path|(aucun)|Identificateur unique de l’élément de calendrier à supprimer|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Mettre à jour un événement 
-Met à jour partiellement un élément de calendrier. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|id|string|yes|path|(aucun)|Identificateur unique de l’élément de calendrier à mettre à jour|
-|item| |yes|body|(aucun)|Élément de calendrier à mettre à jour|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Quand des éléments sont créés 
-Déclenché à la création d’un élément de calendrier. ```GET: /datasets/calendars/tables/{table}/onnewitems```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Quand des éléments sont mis à jour 
-Déclenché quand un élément de calendrier est modifié. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Obtenir des dossiers de contacts 
-Récupère des dossiers de contacts. ```GET: /datasets/contacts/tables```
-
-Il n'existe aucun paramètre pour cet appel.
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Obtenir des contacts 
-Récupère les contacts d’un dossier de contacts. ```GET: /datasets/contacts/tables/{table}/items```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique du dossier de contacts à récupérer|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Créer un contact 
-Crée un contact. ```POST: /datasets/contacts/tables/{table}/items```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
-|item| |yes|body|(aucun)|Contact à créer|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Obtenir un contact 
-Récupère un contact spécifique d’un dossier de contacts. ```GET: /datasets/contacts/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
-|id|string|yes|path|(aucun)|Identificateur unique d’un contact à récupérer|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Supprimer un contact 
-Supprime un contact. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts.|
-|id|string|yes|path|(aucun)|Identificateur unique du contact à supprimer|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-### Mettre à jour un contact 
-Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
-|id|string|yes|path|(aucun)|Identificateur unique du contact à mettre à jour|
-|item| |yes|body|(aucun)|Élément de contact à mettre à jour|
-
-#### Response
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## Définitions d'objet
-
-#### TriggerBatchResponse[IDictionary[String,Object]]
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-
-#### SendMessage : envoyer un message électronique
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|Pièces jointes|array|no|
-|À partir d'une base|string|no|
-|Cc|string|no|
-|Cci|string|no|
-|Objet|string|yes|
-|Corps|string|yes|
-|Importance|string|no|
-|IsHtml|booléenne|no|
-|À|string|yes|
-
-#### SendAttachment : pièce jointe
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|@odata.type|string|no|
-|Nom|string|yes|
-|ContentBytes|string|yes|
-
-
-#### ReceiveMessage : recevoir un message électronique
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|ID|string|no|
-|IsRead|booléenne|no|
-|HasAttachment|booléenne|no|
-|DateTimeReceived|string|no|
-|Pièces jointes|array|no|
-|À partir d'une base|string|no|
-|Cc|string|no|
-|Cci|string|no|
-|Objet|string|yes|
-|Corps|string|yes|
-|Importance|string|no|
-|IsHtml|booléenne|no|
-|À|string|yes|
-
-
-#### ReceiveAttachment : recevoir une pièce jointe
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|ID|string|yes|
-|ContentType|string|yes|
-|@odata.type|string|no|
-|Nom|string|no|
-|ContentBytes|string|yes|
-
-
-#### DigestMessage : envoyer un message électronique
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|Objet|string|yes|
-|Corps|string|no|
-|Importance|string|no|
-|Digest|array|yes|
-|Pièces jointes|array|no|
-|À|string|yes|
-
-#### TriggerBatchResponse[ReceiveMessage]
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-
-#### DataSetsMetadata
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|tabular|non défini|no|
-|objet blob|non défini|no|
-
-
-#### TabularDataSetsMetadata
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-
-#### BlobDataSetsMetadata
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-#### TableMetadata
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|non défini|no|
-
-
-#### OptionsEmailSubscription : modèle d’abonnement au courrier électronique avec options
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|NotificationUrl|string|no|
-|Message|non défini|no|
-
-#### MessageWithOptions : message électronique avec options de l’utilisateur Message attendu dans le cadre de l’entrée de l’utilisateur
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|Objet|string|yes|
-|Options|string|yes|
-|Corps|string|no|
-|Importance|string|no|
-|Pièces jointes|array|no|
-|À|string|yes|
-
-#### SubscriptionResponse : modèle d’abonnement au courrier électronique d’approbation
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|id|string|no|
-|resource|string|no|
-|notificationType|string|no|
-|notificationUrl|string|no|
-
-
-#### ApprovalEmailSubscription : modèle d’abonnement au courrier électronique d’approbation
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|NotificationUrl|string|no|
-|Message|non défini|no|
-
-
-#### ApprovalMessage : message électronique d’approbation. Message attendu dans le cadre de l’entrée de l’utilisateur
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|Objet|string|yes|
-|Options|string|yes|
-|Corps|string|no|
-|Importance|string|no|
-|Pièces jointes|array|no|
-|À|string|yes|
-
-#### ApprovalEmailResponse : réponse par courrier électronique d’approbation
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|SelectedOption|string|no|
-
-#### TablesList
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-
-#### Table
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|Nom|string|no|
-|DisplayName|string|no|
-
-
-#### Item
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### CalendarItemsList : liste des éléments de calendrier
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-
-#### CalendarItem : représente un élément de table de calendrier
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### ContactItemsList : liste des éléments de contact
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-
-#### ContactItem : représente un élément de la table de contacts
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### DataSetsList
-
-| Nom | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-
-#### DataSet
-
-| Nom | Type de données | Requis|
-|---|---|---|
-|Nom|string|no|
-|DisplayName|string|no|
 
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans Logic Apps en consultant notre [liste d’API](apis-list.md).
 
-Revenir à la [liste des API](apis-list.md)
-
-<!--References-->
-[5]: https://portal.azure.com
-[7]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications.png
-[8]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications-add-appinfo.png
-[9]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications-add-app-properties.png
-[10]: ./media/connectors-create-api-office365-outlook/contoso-aad-app.png
-[11]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-configure.png
-[12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
-[13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

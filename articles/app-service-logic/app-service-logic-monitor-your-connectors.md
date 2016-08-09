@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -137,4 +137,4 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rÃ´les spÃ
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

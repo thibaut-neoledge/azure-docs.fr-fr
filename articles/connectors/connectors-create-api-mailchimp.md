@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ ms.author="deonhe"/>
 
 Le connecteur MailChimp peut être utilisé à partir de :
 
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps](http://powerapps.microsoft.com)  
-- [Flux](http://flows.microsoft.com)  
+- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps](http://powerapps.microsoft.com)
+- [Flux](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
@@ -419,7 +419,7 @@ Il n’existe aucun paramètre pour cet appel
 |social\_card|non défini|Non |
 |report\_summary|non défini|Non |
 |delivery\_status|non défini|Non |
-|_\_links|array|No |
+|\_links|array|Non |
 
 
 
@@ -552,7 +552,7 @@ Il n’existe aucun paramètre pour cet appel
 |visibility|string|Non |
 |modules|array|Non |
 |stats|non défini|Non |
-|_\_links|array|No |
+|\_links|array|Non |
 
 
 
@@ -651,7 +651,7 @@ Il n’existe aucun paramètre pour cet appel
 |location|non défini|Non |
 |last\_note|non défini|Non |
 |list\_id|string|Non |
-|_\_links|array|No |
+|\_links|array|Non |
 
 
 
@@ -738,10 +738,10 @@ Il n’existe aucun paramètre pour cet appel
 |location|non défini|Non |
 |last\_note|non défini|Non |
 |list\_id|string|Non |
-|_\_links|array|No |
+|\_links|array|Non |
 
 
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

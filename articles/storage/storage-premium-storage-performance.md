@@ -3,7 +3,7 @@
     description="Concevoir des applications hautes performances avec Azure Premium Storage. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
 	editor="tysonn" />
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/26/2016"
+    ms.author="aungoo-msft"/>
 
 # Azure Premium Storage : conception sous le signe de la haute performance
 
@@ -25,11 +25,11 @@ Bien que cet article couvre plusieurs scénarios de performances au niveau de la
 
 Cet article vous aidera à répondre à certaines questions courantes relatives à l’optimisation des performances applicatives sur Azure Premium Storage :
 
--   Comment mesurer les performances de votre application ?  
--   Pourquoi n’obtenez-vous pas les hautes performances attendues ?  
--   Quels sont les facteurs qui influencent les performances de votre application sur Premium Storage ?  
--   Comment ces facteurs influencent-ils les performances de votre application sur Premium Storage ?  
--   Comment optimiser les performances d’E/S par seconde, de bande passante et de latence ?  
+-   Comment mesurer les performances de votre application ?
+-   Pourquoi n’obtenez-vous pas les hautes performances attendues ?
+-   Quels sont les facteurs qui influencent les performances de votre application sur Premium Storage ?
+-   Comment ces facteurs influencent-ils les performances de votre application sur Premium Storage ?
+-   Comment optimiser les performances d’E/S par seconde, de bande passante et de latence ?
 
 Ces instructions vous sont spécifiquement fournies pour Premium Storage, car les charges de travail exécutées sur Premium Storage sont extrêmement sensibles aux performances. Nous vous proposons des exemples lorsque cela s’y prête. Vous pouvez également appliquer certaines de ces instructions aux applications qui s’exécutent sur des machines virtuelles IaaS avec des disques de stockage Standard.
 
@@ -144,12 +144,12 @@ Certaines applications vous permettent de modifier leur taille d’E/S, contrair
 
 Si vous utilisez une application qui ne permet pas de modifier la taille d’E/S, suivez les indications de cet article pour optimiser les indicateurs de performances qui correspondent le mieux à votre application. Par exemple,
 
--   Une application OLTP génère des millions de demandes d’E/S petites et aléatoires. Pour gérer ces types de demandes d’E/S, vous devez concevoir votre infrastructure d’applications de manière à augmenter le nombre d’E/S par seconde.  
+-   Une application OLTP génère des millions de demandes d’E/S petites et aléatoires. Pour gérer ces types de demandes d’E/S, vous devez concevoir votre infrastructure d’applications de manière à augmenter le nombre d’E/S par seconde.
 -   Une application d’entrepôt de données génère d’importantes demandes d’E/S séquentielles. Pour gérer ces types de demandes d’E/S, vous devez concevoir votre infrastructure d’applications de manière à augmenter la bande passante ou le débit.
 
 Si vous utilisez une application qui vous permet de modifier la taille d’E/S, utilisez cette règle générale tout en respectant les autres instructions de performances.
 
--   Une plus petite taille d’E/S pour générer un nombre d’E/S par seconde plus élevé. Par exemple, 8 Ko pour une application OLTP.  
+-   Une plus petite taille d’E/S pour générer un nombre d’E/S par seconde plus élevé. Par exemple, 8 Ko pour une application OLTP.
 -   Une plus grande taille d’E/S pour augmenter la bande passante ou le débit. Par exemple, 1 024 Ko pour une application d’entrepôt de données.
 
 Voici un exemple de calcul du nombre d’E/S par seconde et du débit ou de la bande passante pour votre application. Supposons une application utilisant un disque P30. Un disque P30 peut atteindre au maximum 5 000 E/S par seconde et 200 Mo de débit/bande passante par seconde. À présent, si votre application a besoin d’utiliser le nombre maximal d’E/S par seconde du disque P30 alors que vous utilisez une taille d’E/S inférieure à 8 Ko, vous devriez obtenir 40 Mo de bande passante par seconde. En revanche, si votre application requiert la valeur maximale de débit et de bande passante à partir du disque P30 et que vous utilisez une taille d’E/S supérieure à 1 024 Ko, vous obtiendrez seulement 200 E/S par seconde. Vous devez donc ajuster la taille d’E/S pour qu’elle réponde aux besoins de votre application tant en terme d’E/S que de débit et de bande passante. Le tableau ci-dessous récapitule les différentes tailles d’E/S en indiquant le nombre d’E/S par seconde et le débit correspondant dans le cas d’un disque P30.
@@ -250,14 +250,14 @@ Voici les paramètres de cache de disque recommandés pour les disques de donné
 
 *Lecture seule* En configurant une mise en cache en lecture seule sur des disques de données Premium Storage, vous pouvez obtenir une faible latence de lecture et obtenir de très hautes performances d’E/S et de débit en lecture pour votre application. Cela est dû à deux raisons :
 
-1.  Les lectures effectuées à partir du cache, qui se trouvent sur la mémoire virtuelle et sur le SSD local, sont beaucoup plus rapides que les lectures effectuées à partir du disque de données, qui réside sur Azure Blob Storage.  
+1.  Les lectures effectuées à partir du cache, qui se trouvent sur la mémoire virtuelle et sur le SSD local, sont beaucoup plus rapides que les lectures effectuées à partir du disque de données, qui réside sur Azure Blob Storage.
 2.  Premium Storage ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Par conséquent, votre application est en mesure de délivrer de meilleures performances totales en termes d’E/S par seconde et de débit.
 
 *Lecture/écriture* Par défaut, le cache en lecture/écriture est activé sur les disques du système d’exploitation. Nous avons récemment ajouté la prise en charge de la mise en cache en lecture/écriture sur les données des disques. Si vous utilisez la mise en cache en lecture/écriture, vous devez disposer d’un moyen approprié d’écrire les données du cache sur des disques persistants. Par exemple, SQL Server gère lui-même l’écriture de données mises en cache sur les disques de stockage persistants. L’utilisation d’un cache en lecture/écriture avec une application qui ne gère pas la persistance des données requises peut entraîner des pertes de données en cas de panne de la machine virtuelle.
 
 Par exemple, vous pouvez appliquer ces instructions à une instance SQL Server exécutée sur Premium Storage de la manière suivante :
 
-1.  Configurer le cache en lecture seule sur les disques de stockage premium qui hébergent des fichiers de données. a. Les lectures rapides du cache réduisent le temps de requête de SQL Server puisque les pages de données sont récupérées à partir du cache bien plus rapidement que lorsque l’opération s’effectue directement à partir des disques de données. b. Le traitement des lectures à partir du cache signifie que les disques de données premium délivrent un débit supplémentaire. SQL Server peut utiliser ce débit supplémentaire pour la récupération d’un plus grand nombre de pages de données et d’autres opérations telles que la sauvegarde/restauration, les charges de traitement par lots et les reconstructions d’index.  
+1.  Configurer le cache en lecture seule sur les disques de stockage premium qui hébergent des fichiers de données. a. Les lectures rapides du cache réduisent le temps de requête de SQL Server puisque les pages de données sont récupérées à partir du cache bien plus rapidement que lorsque l’opération s’effectue directement à partir des disques de données. b. Le traitement des lectures à partir du cache signifie que les disques de données premium délivrent un débit supplémentaire. SQL Server peut utiliser ce débit supplémentaire pour la récupération d’un plus grand nombre de pages de données et d’autres opérations telles que la sauvegarde/restauration, les charges de traitement par lots et les reconstructions d’index.
 2.  Choisir l’option « Aucun » pour le cache sur les disques de stockage premium qui hébergent des fichiers journaux. a. Les fichiers journaux ont principalement des opérations d’écriture intensives. Ils ne bénéficient donc pas du cache en lecture seule.
 
 ## Entrelacement de disques  
@@ -428,8 +428,8 @@ directory=/mnt/nocache
 ```
 
 Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
--   Une profondeur de file d’attente élevée de 256.  
--   Une petite taille de bloc de 8 Ko.  
+-   Une profondeur de file d’attente élevée de 256.
+-   Une petite taille de bloc de 8 Ko.
 -   Plusieurs threads effectuant des écritures aléatoires.
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
@@ -464,8 +464,8 @@ directory=/mnt/readcache
 
 Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
 
--   Une profondeur de file d’attente élevée de 256.  
--   Une petite taille de bloc de 8 Ko.  
+-   Une profondeur de file d’attente élevée de 256.
+-   Une petite taille de bloc de 8 Ko.
 -   Plusieurs threads effectuant des écritures aléatoires.
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
@@ -517,8 +517,8 @@ rate_iops=12500
 
 Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
 
--   Une profondeur de file d’attente élevée de 128.  
--   Une petite taille de bloc de 4 Ko.  
+-   Une profondeur de file d’attente élevée de 128.
+-   Une petite taille de bloc de 4 Ko.
 -   Plusieurs threads effectuant des opérations d’écriture et de lecture aléatoires.
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
@@ -533,11 +533,11 @@ Pendant l’exécution du test, vous serez en mesure de voir le nombre combiné 
 
 En savoir plus sur Azure Premium Storage :
 
-- [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md)  
+- [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md)
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 
 - [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
-- [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
+- [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

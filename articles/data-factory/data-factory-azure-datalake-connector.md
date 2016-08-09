@@ -453,7 +453,7 @@ Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autori
         }
     }
 
-Consultez les rubriques [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
+Consultez les rubriques [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à la version **2.9.10826.1824** de **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** pour la classe WindowsFormsWebAuthenticationDialog utilisée dans le code.
  
 
 ## Propriétés de type du jeu de données Azure Data Lake
@@ -465,10 +465,10 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Requis |
 | :-------- | :----------- | :-------- |
 | folderPath | Chemin d’accès au conteneur et au dossier dans le magasin Azure Data Lake | Oui |
-| fileName | Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (notamment la copie) fonctionne sur le fichier spécifique.<br/><br/>Quand fileName n’est pas spécifié, la copie inclut tous les fichiers dans folderPath pour le jeu de données d’entrée.<br/><br/>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Non |
+| fileName | Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (notamment la copie) fonctionne sur le fichier spécifique.<br/><br/>Quand fileName n’est pas spécifié, la copie inclut tous les fichiers dans folderPath pour le jeu de données d’entrée.<br/><br/>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la section propriété Leveraging partitionedBy ci-dessous pour obtenir plus d’informations et des exemples. | Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **AvroFormat**, **JsonFormat** et **OrcFormat**. La propriété **type** située sous Format doit être définie sur l’une de ces valeurs. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat), [Définition de JsonFormat](#specifying-jsonformat) et [Définition d’OrcFormat](#specifying-orcformat). Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), vous pouvez ignorer la section Format dans les deux définitions de jeu de données d’entrée et de sortie.| Non
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Notez que, pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** ou **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Notez que, pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** ou **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 ### Utilisation de la propriété partitionedBy
 Comme mentionné ci-dessus, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -529,10 +529,10 @@ Pour spécifier la compression pour un jeu de données, utilisez la propriété 
  
 Notez que la section **compression** a deux propriétés :
   
-- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.
-- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**.
-	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale.
-	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps.
+- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
+- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**. 
+	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
+	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
 	
 	Pour plus d'informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 
@@ -540,9 +540,9 @@ Supposons que l'exemple de jeu de données ci-dessus est utilisé comme sortie d
 
 Quand vous spécifiez la propriété compression dans un jeu de données JSON d’entrée, le pipeline peut lire les données compressées à partir de la source et, quand vous spécifiez la propriété dans un jeu de données JSON de sortie, l’activité de copie peut écrire les données compressées dans la destination. Voici quelques exemples de scénarios :
 
-- Lisez les données GZIP compressées à partir de l'Azure Data Lake Store, décompressez-les et écrivez les données résultantes dans une base de données SQL Azure. Dans ce cas, vous définissez le jeu de données d'entrée de l'Azure Data Lake Store avec la propriété de compression JSON.
-- Lisez les données d'un fichier de texte brut dans le système de fichiers local, compressez-les en utilisant le format GZip et écrivez les données compressées dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store de sortie avec la propriété de compression JSON.
-- Lisez les données compressées au format GZIP à partir d'une compression, décompressez-les, compressez-les en utilisant le format BZIP2 et écrivez les données résultantes dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store d'entrée avec le type de compression défini sur GZIP et le jeu de données de sortie avec le type de compression défini sur BZIP2.
+- Lisez les données GZIP compressées à partir de l'Azure Data Lake Store, décompressez-les et écrivez les données résultantes dans une base de données SQL Azure. Dans ce cas, vous définissez le jeu de données d'entrée de l'Azure Data Lake Store avec la propriété de compression JSON. 
+- Lisez les données d'un fichier de texte brut dans le système de fichiers local, compressez-les en utilisant le format GZip et écrivez les données compressées dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store de sortie avec la propriété de compression JSON.  
+- Lisez les données compressées au format GZIP à partir d'un compression, décompressez-les, compressez-les en utilisant le format BZIP2 et écrivez les données résultantes dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store d'entrée avec le type de compression défini sur GZIP et le jeu de données de sortie avec le type de compression défini sur BZIP2.   
 
 
 ## Propriétés de type activité de copie Azure Data Lake  
@@ -574,4 +574,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

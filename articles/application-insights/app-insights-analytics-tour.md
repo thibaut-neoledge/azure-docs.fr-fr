@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/20/2016" 
 	ms.author="awills"/>
 
 
@@ -22,7 +22,11 @@
 
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
- 
+
+* **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
+
+
 Pour vous aider à démarrer, examinons certaines requêtes de base.
 
 ## Connectez-vous à vos données Application Insights
@@ -34,7 +38,7 @@ Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards
 	
 ## [Take](app-insights-analytics-reference.md#take-operator) : afficher n lignes
 
-Les points de données qui enregistrent les opérations des utilisateurs (généralement des requêtes HTTP reçues par votre application web) sont stockés dans une table appelée `requests`. Chaque ligne est un point de données de télémétrie provenant du Kit de développement logiciel (SDK) Application Insights dans votre application.
+Les points de données qui consignent les opérations des utilisateurs (généralement des requêtes HTTP reçues par votre application web) sont stockés dans une table appelée `requests`. Chaque ligne est un point de données de télémétrie provenant du Kit de développement logiciel (SDK) Application Insights dans votre application.
 
 Commençons par examiner quelques exemples de lignes de la table :
 
@@ -52,7 +56,7 @@ Développez un élément pour afficher les détails :
  
 ![Choisissez la vue de table et utilisez Configurer les colonnes](./media/app-insights-analytics-tour/040.png)
 
-> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. N’oubliez pas que cette méthode de tri n’affiche pas toujours réellement les éléments les plus grands ou les plus petits. Pour cela, vous devez utiliser l’opérateur `top` ou `sort`.
+> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. N’oubliez pas que cette méthode de tri n’affiche pas toujours réellement les éléments les plus grands ou les plus petits. Pour ce faire, vous devez utiliser l’opérateur `top` ou `sort`.
 
 ## [Top](app-insights-analytics-reference.md#top-operator) et [sort](app-insights-analytics-reference.md#sort-operator)
 
@@ -65,7 +69,7 @@ Afficher les n premières lignes, classées par une colonne particulière :
 	requests | top 10 by timestamp desc 
 ```
 
-* *Syntaxe :* la plupart des opérateurs ont des paramètres de mot clé comme `by`.
+* *Syntaxe :* la plupart des opérateurs ont des paramètres de mot clé comme `by`.
 * `desc` = ordre décroissant, `asc` = ordre croissant.
 
 ![](./media/app-insights-analytics-tour/260.png)
@@ -110,7 +114,7 @@ Vous pouvez également renommer des colonnes et en définir de nouvelles :
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-* Les [noms de colonnes](app-insights-analytics-reference.md#names) peuvent contenir des espaces ou des symboles s’ils sont placés entre crochets comme suit : `['...']` ou `["..."]`
+* Les [noms de colonne](app-insights-analytics-reference.md#names) peuvent contenir des espaces ou des symboles s’ils sont placés entre crochets comme suit : `['...']` ou `["..."]`
 * `%` est l’opérateur modulo habituel.
 * `1d` (le chiffre un, suivi de la lettre d) est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrondit une valeur au multiple inférieur le plus proche de la valeur de base que vous fournissez. Ainsi, `floor(aTime, 1s)` arrondit une heure vers le bas à la seconde la plus proche.
@@ -178,9 +182,9 @@ Pour extraire ces valeurs dans Analytics :
 
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator) : agréger des groupes de lignes
 
-`Summarize` applique une *fonction d’agrégation* sur des groupes de lignes.
+`Summarize` applique une *fonction d’agrégation* spécifiée sur des groupes de lignes.
 
-Par exemple, le temps que met votre application web à répondre à une demande est reporté dans le champ `duration`. Observons le temps de réponse moyen pour toutes les demandes :
+Par exemple, le temps que met votre application web à répondre à une requête est reporté dans le champ `duration`. Observons le temps de réponse moyen pour toutes les demandes :
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -247,7 +251,7 @@ Bien que nous n’ayons pas trié les résultats par heure (comme le montre l’
 
 ## [Où](app-insights-analytics-reference.md#where-operator) : filtrage sur une condition
 
-Si vous avez configuré la surveillance Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines données télémétriques de la base de données proviennent de navigateurs.
+Si vous avez configuré le suivi Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines données télémétriques de la base de données proviennent de navigateurs.
 
 Examinons uniquement les exceptions signalées à partir des navigateurs :
 
@@ -381,7 +385,7 @@ Combien existe-t-il de sessions de différentes longueurs ?
 
 La dernière ligne est nécessaire pour la conversion en valeurs datetime : actuellement, l’axe des x d’un graphique en courbes ne peut être que de type datetime.
 
-La clause `where` exclut les sessions à déclenchement unique (sessionDuration==0) et définit la longueur de l’axe des x.
+La clause `where` exclut les sessions à déclenchement unique (sessionDuration==0) et définit la longueur de l’axe X.
 
 
 ![](./media/app-insights-analytics-tour/290.png)
@@ -453,7 +457,7 @@ Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélection
 
 
 
-## [Laisser](app-insights-analytics-reference.md#let-clause) : affecter un résultat à une variable
+## [Let](app-insights-analytics-reference.md#let-clause) : affecter un résultat à une variable
 
 Utilisez [let](./app-insights-analytics-reference.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
@@ -470,6 +474,9 @@ Utilisez [let](./app-insights-analytics-reference.md#let-statements) pour sépar
 > Conseil : dans le client Analytics, ne placez pas de lignes vides entre les différentes parties de l’expression. Exécutez-la en totalité.
 
 
+* **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
+
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

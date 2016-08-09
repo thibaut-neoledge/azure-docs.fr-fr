@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
@@ -372,10 +372,11 @@ Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/c
 
 Vous pouvez adresser en toute sécurité des commandes aux instances de Cache Redis Azure à l’aide de la **console Redis** disponible pour les caches Standard et Premium.
 
->[AZURE.IMPORTANT] La Console Redis ne fonctionne pas avec le réseau virtuel ou le clustering.
+>[AZURE.IMPORTANT] La console Redis ne fonctionne pas avec VNET, la mise en cluster et les bases de données autres que 0.
 >
 >-	[Réseau virtuel](cache-how-to-premium-vnet.md) : quand votre cache fait partie d’un réseau virtuel, seuls les clients de ce réseau virtuel peuvent accéder au cache. Étant donné que la Console Redis utilise le client redis-cli.exe hébergé sur des machines virtuelles qui ne font pas partie de votre réseau virtuel, il ne peut pas se connecter à votre cache.
 >-	[Clustering](cache-how-to-premium-clustering.md) : la Console Redis utilise le client redis-cli.exe, qui ne prend pas en charge le clustering à l’heure actuelle. L’utilitaire redis-cli de la branche [unstable](http://redis.io/download) du dépôt Redis sur GitHub implémente la prise en charge de base quand il est démarré avec le commutateur `-c`. Pour plus d’informations, consultez [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel de cluster Redis](http://redis.io/topics/cluster-tutorial).
+>-	la console Redis effectue une nouvelle connexion à la base de données 0 chaque fois que vous envoyez une commande. Vous ne pouvez pas utiliser la commande `SELECT` pour sélectionner une autre base de données, car la base de données est réinitialisée à 0 avec chaque commande. Pour plus d’informations sur l’exécution des commandes Redis, y compris la modification sur une autre base de données, consultez [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands)
 
 Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
 
@@ -398,4 +399,4 @@ Pour plus d’informations sur le déplacement des ressources d’un groupe de r
 ## Étapes suivantes
 -	Pour plus d'informations sur l'utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

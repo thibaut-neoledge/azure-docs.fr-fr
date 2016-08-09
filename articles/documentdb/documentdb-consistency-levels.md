@@ -31,7 +31,7 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
 
 ![DocumentDB offre le choix entre plusieurs modèles de cohérence bien définis (souples)][1]
 
-**Remarque** :
+**Remarque** :
 
 - La cohérence forte offre une garantie de [linéarisabilité](https://aphyr.com/posts/313-strong-consistency-models) qui permet de s’assurer que les lectures renvoient la version la plus récente d’un document.
 - la cohérence forte garantit qu'une écriture est visible uniquement après sa validation durable par le quorum majoritaire de réplicas. Une écriture est soit validée durablement de manière synchrone par les quorums principal et secondaire, soit abandonnée. Une lecture est toujours reconnue par le quorum de lecture majoritaire : un client ne voit jamais une écriture partielle ou non validée. Il est assuré de lire la toute dernière écriture reconnue.
@@ -46,11 +46,11 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
     - Nombre de versions *K* du document retardant les lectures derrière les écritures
     - Intervalle de temps *t*
 - La cohérence Obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que les garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la « fenêtre d’obsolescence ».
-- La cohérence Obsolescence limitée fournit une meilleure garantie de cohérence que le niveau Session ou Éventuel. Pour les applications distribuées à l’échelle mondiale, nous recommandons d’utiliser la cohérence Obsolescence limitée pour les scénarios dans lesquels vous voulez obtenir une cohérence forte en plus d’une disponibilité à 99,99 % et d’une latence faible.
+- La cohérence Obsolescence limitée fournit une meilleure garantie de cohérence que le niveau Session ou Éventuel. Pour les applications distribuées à l’échelle mondiale, nous recommandons d’utiliser la cohérence Obsolescence limitée pour les scénarios dans lesquels vous voulez obtenir une cohérence forte en plus d’une disponibilité à 99,99 % et d’une latence faible.
 - Les comptes DocumentDB configurés avec une cohérence Obsolescence limitée peuvent associer n’importe quel nombre de régions Azure avec leur compte DocumentDB.
-- Le coût d’une opération de lecture (en termes d’unités de requête consommées) avec une cohérence forte est supérieur à celui des niveaux de cohérence Session et Éventuel, mais identique au niveau de cohérence forte.
+- Le coût d’une opération de lecture (en termes d’unités de requête consommées) en fonction de l’obsolescence limitée est supérieur à celui des niveaux de cohérence Session et Éventuel, mais identique au niveau de cohérence forte.
 
-**Session** :
+**Session** :
 
 - contrairement aux modèles de cohérence globaux offerts par les niveaux de cohérence Fort et Obsolescence limitée, le niveau Session s’étend à une session client spécifique.
 - La cohérence Session est idéale pour tous les scénarios dans lesquels une session utilisateur ou d’appareil est impliquée, car elle garantit des lectures unitones, des écritures unitones et des garanties de lecture de vos propres écritures.
@@ -59,7 +59,7 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
 - Le coût d’une opération de lecture (en termes d’unités de requête consommées) avec un niveau de cohérence Session est inférieur à celui des niveaux Fort et Obsolescence limitée, mais supérieur au niveau Éventuel.
  
 
-**Eventual (Éventuel)** :
+**Eventual (Éventuel)** :
 
 - Le niveau de cohérence Éventuel garantit qu’en l’absence d’autres écritures, les réplicas du groupe finiront par converger.
 - Il s’agit de la forme de cohérence la plus faible qui permet à un client d’obtenir des valeurs plus anciennes que celles qu’il a pu voir précédemment.
@@ -110,16 +110,16 @@ Différé|	Choisir parmi Fort, Obsolescence limitée, Session et Éventuel|	Even
 
 ## Étapes suivantes
 
-Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents compromis, nous vous recommandons les ressources suivantes :
+Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents compromis, nous vous recommandons les ressources suivantes :
 
 -	Doug Terry. La cohérence des données répliquées expliquée par le baseball (vidéo). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 -	Doug Terry. La cohérence des données répliquées basée sur l’exemple du baseball. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Le niveau Par session garantit des données répliquées peu cohérentes. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+-	Daniel Abadi. Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilités en fonction de l’obsolescence (PBS) pour les quorums partiels pratiques. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

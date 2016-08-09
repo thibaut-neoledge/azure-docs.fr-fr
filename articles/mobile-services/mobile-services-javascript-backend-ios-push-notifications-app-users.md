@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Envoi de notifications Push aux utilisateurs authentifiés
@@ -35,7 +35,7 @@ Dans ce didacticiel, les utilisateurs s'authentifient, puis s'inscrivent auprès
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-Remplacez la fonction `insert` par le code suivant, puis cliquez sur **Enregistrer**. Ce script d'insertion utilise la balise d'ID utilisateur pour envoyer une notification Push à toutes les inscriptions d'application iOS à partir de l'utilisateur connecté :
+Remplacez la fonction `insert` par le code suivant, puis cliquez sur **Enregistrer**. Ce script d'insertion utilise la balise d'ID utilisateur pour envoyer une notification Push à toutes les inscriptions d'application iOS à partir de l'utilisateur connecté :
 
 ```
 // Get the ID of the logged-in user.
@@ -76,4 +76,4 @@ function insert(item, user, request) {
 [Prise en main des notifications Push]: mobile-services-javascript-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

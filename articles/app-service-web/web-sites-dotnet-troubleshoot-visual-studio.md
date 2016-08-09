@@ -104,7 +104,7 @@ Généralement, la méthode la plus simple pour rechercher la cause d’une erre
 
 3. Ajoutez la ligne suivante à l’élément `system.web` :
 
-	`<customErrors mode="off"></customErrors>`
+	`<customErrors mode="Off"></customErrors>`
 
 	![Modifier Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 
@@ -728,4 +728,4 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

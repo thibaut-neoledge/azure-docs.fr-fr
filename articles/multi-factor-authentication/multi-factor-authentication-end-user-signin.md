@@ -28,10 +28,10 @@ Selon la méthode de connexion et l'authentification multifacteur utilisées, le
 
 Que faites-vous ?|Description
 :------------- | :------------- | 
-[Connexion avec un téléphone mobile ou de bureau](#signing-in-with-mobile-or-office-phone) | Voici le processus de connexion habituel lors d’une connexion à l'aide de votre téléphone mobile ou de bureau.
-[Connexion avec l’application mobile à l’aide de la notification](#signing-in-with-the-mobile-app-using-notification) | Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec des notifications.
-[Connexion avec l'application mobile à l'aide du code de vérification](#signing-in-with-the-mobile-app-using-verification-code)|Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec un code de vérification.
-[Connexion avec une autre méthode](#signing-in-with-an-alternate-method)|Ceci vous présente le processus de connexion habituel si vous souhaitez utiliser une autre méthode.
+[Connexion avec un téléphone mobile ou de bureau](#connexion-avec-un-tlphone-mobile-ou-de-bureau) | Voici le processus de connexion habituel lors d’une connexion à l'aide de votre téléphone mobile ou de bureau.
+[Connexion avec l’application mobile à l’aide de la notification](#connexion-avec-lapplication-mobile-laide-de-la-notification) | Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec des notifications.
+[Connexion avec l'application mobile à l'aide du code de vérification](#connexion-avec-lapplication-mobile-laide-du-code-de-vrification)|Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec un code de vérification.
+[Connexion avec une autre méthode](#connexion-avec-une-autre-mthode)|Ceci vous présente le processus de connexion habituel si vous souhaitez utiliser une autre méthode.
 
 ## Connexion avec un téléphone mobile ou de bureau
 

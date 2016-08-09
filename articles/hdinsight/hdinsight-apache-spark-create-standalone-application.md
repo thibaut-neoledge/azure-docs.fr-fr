@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -82,7 +82,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 	![Configurer Maven pour les téléchargements automatiques](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
 	1. Dans le menu **Fichier**, cliquez sur **Paramètres**.
-	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
+	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
 	3. Sélectionnez l'option **Importer les projets Maven automatiquement**.
 	4. Cliquez sur **Appliquer**, puis sur **OK**.
 
@@ -102,12 +102,12 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 		    val conf = new SparkConf().setAppName("WASBIOTest")
 		    val sc = new SparkContext(conf)
 
-		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 
-		    rdd1.saveAsTextFile("wasb:///HVACout")
+		    rdd1.saveAsTextFile("wasbs:///HVACout")
 		  }
 		}
 
@@ -207,4 +207,4 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

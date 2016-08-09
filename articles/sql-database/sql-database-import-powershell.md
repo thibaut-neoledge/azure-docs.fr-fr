@@ -116,15 +116,6 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
 
 ## Étapes suivantes
 
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
+- Pour vous connecter et interroger une base de données SQL importée, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
-
-
-
-## Ressources supplémentaires
-
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Utilisation de la suppression réversible dans Mobile Services
@@ -165,4 +165,4 @@ Pour en savoir plus sur les tâches planifiées avec Mobile Services du backend 
 [synchronisation des données hors connexion pour Mobile Services]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0727_2016-->

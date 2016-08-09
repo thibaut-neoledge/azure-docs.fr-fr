@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire d’Azure Active Directory B2C : appel d’une API web depuis une application Android | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C : appel d’une API web depuis une application Android | Microsoft Azure"
 	description="Cet article vous expliquera comment créer une application Android de type « liste de tâches » qui appelle une API web Node.js en utilisant les jetons du porteur OAuth 2.0. L’application Android et l’API web utilisent toutes les deux Azure Active Directory B2C pour gérer les identités des utilisateurs et les authentifier."
 	services="active-directory-b2c"
 	documentationCenter="android"
@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
-# Version préliminaire d’Azure AD B2C : appel d’une API web depuis une application Android
+# Azure AD B2C : appel d’une API web depuis une application Android
+
+> [AZURE.WARNING] Ce didacticiel requiert certaines mises à jour importantes, en particulier pour supprimer l’utilisation de la bibliothèque ADAL Android pour B2C. La semaine prochaine, nous allons publier de nouvelles instructions pour utiliser Azure AD B2C dans les applications Android. Par conséquent, nous vous recommandons de patienter. Mais si vous souhaitez simplement faire des tests, vous pouvez continuer avec l’article ci-dessous.
+
+
 
 Avec Azure Active Directory (Azure AD) B2C, vous pouvez ajouter de puissantes fonctionnalités de gestion des identités en libre-service à vos applications Android et API web, en seulement quelques étapes. Cet article vous explique comment créer une application Android de type « liste de tâches » qui appelle une API web node.js en utilisant les jetons du porteur OAuth 2.0. L’application Android et l’API web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et authentifier ces derniers.
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
-Pour remplir pleinement sa fonction, ce guide de démarrage rapide nécessite que vous disposiez d’une API web protégée par Azure AD B2C. Nous en avons créé une pour .NET et Node.js à votre intention. Cette procédure pas à pas suppose que l’exemple d’API web Node.js est configuré. Pour plus d’informations, consultez le [didacticiel API web Azure AD B2C pour Node.js](active-directory-b2c-devquickstarts-api-node.md).
+Pour remplir pleinement sa fonction, ce guide de démarrage rapide nécessite que vous disposiez d’une API web protégée par Azure AD B2C. Nous en avons créé une pour .NET et Node.js à votre intention. Cette procédure pas à pas suppose que l’exemple d’API web Node.js est configuré. Pour plus d’informations, consultez le [didacticiel sur l’API web Azure AD B2C pour Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
 Pour les clients Android qui doivent accéder à des ressources protégées, Azure AD fournit la bibliothèque d’authentification Active Directory (ADAL). Cette bibliothèque a pour seule fonction de simplifier l’obtention des jetons d’accès pour votre application. Pour illustrer sa facilité d’utilisation, nous allons créer une application de liste de tâches Android qui effectue les actions suivantes :
 
-- Obtention de jetons d’accès qui appellent une API de liste de tâches à l’aide du [protocole d’authentification OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+- Obtention de jetons d’accès qui appellent une API de liste de tâches à l’aide du [protocole d’authentification OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 - obtention des listes de tâches des utilisateurs ;
 - déconnexion des utilisateurs.
 
@@ -40,7 +42,7 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 
 Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD les informations nécessaires pour communiquer avec votre application en toute sécurité. L’application et l’API web sont toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
-- Incluez une **application web**/**API web dans l’application.
+- Incluez une **application web**/**API web** dans l’application.
 - Entrez `urn:ietf:wg:oauth:2.0:oob` comme **URL de réponse**. Il s’agit de l’URL par défaut pour cet exemple de code.
 - Créez un **secret d’application** pour votre application et copiez-le. Vous en aurez besoin ultérieurement. Notez que cette valeur doit être [placée dans une séquence d’échappement XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) avant son utilisation.
 - Copiez l’**ID d’application** affecté à votre application. Vous en aurez besoin ultérieurement.
@@ -53,7 +55,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 
 Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l’identité : l’inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence sur les stratégies](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
 
-- Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
+- Choisir le **nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisir les revendications d’applications **Nom d'affichage** et **ID objet** pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
 - Copiez le **Nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies ultérieurement.
 
@@ -359,7 +361,7 @@ Vous avez créé des boutons qui appellent votre intention `ToDoActivity` (qui a
 
 Cette activité sert à remplir votre interface utilisateur de paramètres.
 
-Créez un fichier appelé `SettingsActivity.java`
+Créez un fichier appelé `SettingsActivity.java` 
 pour les opérations de création, lecture, mise à jour et suppression (CRUD) simples.
 
 ```
@@ -877,7 +879,7 @@ Pour fonctionner, ce code nécessite des méthodes supplémentaires. Écrivez-le
 
 Vous devez générer l’URL de point de terminaison à laquelle vous vous connecterez. Effectuez cette opération dans le même fichier de classe.
 
-**Dans le même fichier** appelé `ToDoActivity.java`, écrivez le code suivant :
+**Dans le même fichier ** appelé `ToDoActivity.java`, écrivez le code suivant :
 
  ```
     private URL getEndpointUrl() {
@@ -977,4 +979,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [En savoir plus sur les cookies](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

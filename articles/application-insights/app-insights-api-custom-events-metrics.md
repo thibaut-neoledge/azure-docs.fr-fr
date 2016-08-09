@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -240,7 +240,7 @@ Vous pouvez également l'appeler vous-même si vous souhaitez simuler des requê
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,21 @@ Utilisez ceci pour diagnostiquer des problèmes en envoyant une « piste de nav
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-La limite de taille sur `message` est plus importante que la limite des propriétés. Vous pouvez effectuer une recherche dans le contenu du message, mais (contrairement aux valeurs de propriété), vous ne pouvez pas les filtrer.
+
+Vous pouvez effectuer une recherche dans le contenu du message, mais (contrairement aux valeurs de propriété), vous ne pouvez pas les filtrer.
+
+La limite de taille sur `message` est plus importante que la limite des propriétés. l’un des avantages de TrackTrace est que vous pouvez insérer des données relativement longues dans le message. Par exemple, vous pourriez y encoder des données POST.
+
+
+Par ailleurs, vous pouvez ajouter un niveau de gravité à votre message. Comme pour les autres données de télémétrie, vous pouvez également ajouter des valeurs de propriété que vous pouvez utiliser pour filtrer ou rechercher différents jeux de traces. Par exemple :
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+Cela vous permettrait, dans [Recherche][diagnostic], de filtrer facilement tous les messages d’un niveau de gravité particulier portant sur une base de données particulière.
 
 ## Suivi des dépendances
 
@@ -528,7 +542,7 @@ Si vous analysez des événements non associés à une requête HTTP, ou si vous
 
     } // When operation is disposed, telemetry item is sent.
 
-En plus de définir un contexte d’opération, `StartOperation` crée un objet de télémétrie du type que vous spécifiez, et l’envoie lorsque supprimez l’opération ou appelez explicitement `StopOperation`. Si vous utilisez `RequestTelemetry` comme type de télémétrie, alors sa durée est définie sur l’intervalle entre le début et la fin.
+En plus de définir un contexte d’opération, `StartOperation` crée un élément de télémétrie du type que vous spécifiez, et l’envoie lorsque vous supprimez l’opération ou appelez explicitement `StopOperation`. Si vous utilisez `RequestTelemetry` comme type de télémétrie, alors sa durée est définie sur l’intervalle compris entre le début et la fin.
 
 Les contextes de l’opération ne peuvent pas être imbriqués. S’il existe déjà un contexte d’opération, son ID est associé à tous les éléments de contenu, y compris l’élément créé avec StartOperation.
 
@@ -597,15 +611,15 @@ Les appels de télémétrie individuels peuvent remplacer les valeurs par défau
 
 **Pour les clients Web JavaScript**, [utilisez des initialiseurs de télémétrie JavaScript](#js-initializer).
 
-**Pour ajouter des propriétés à la télémétrie complète**, notamment des données de modules de collection standard, [implémentez `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
+**Pour ajouter des propriétés à toutes les données de télémétrie**, notamment les données des modules de collecte standard, [implémentez `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Échantillonnage, filtrage et traitement de la télémétrie 
 
 Vous pouvez écrire du code pour traiter votre télémétrie avant de l’envoyer à partir du Kit de développement logiciel (SDK). Le traitement inclut les données envoyées par les modules de télémétrie standard, telles que la collection de requêtes HTTP et la collection de dépendances.
 
-* [Ajoutez des propriétés](app-insights-api-filtering-sampling.md#add-properties) à la télémétrie en implémentant `ITelemetryInitializer` - par exemple pour ajouter des numéros de version ou des valeurs calculées à partir d’autres propriétés.
-* Le [filtrage](app-insights-api-filtering-sampling.md#filtering) peut modifier ou abandonner la télémétrie avant son envoi au SDK en implémentant `ITelemetryProcesor`. Vous contrôlez ce qui est envoyé ou rejeté, mais vous devez tenir compte de l’impact sur vos critères. Suivant la façon dont vous ignorez les éléments, vous risquez de ne plus pouvoir naviguer entre des éléments connexes.
+* [Ajoutez des propriétés](app-insights-api-filtering-sampling.md#add-properties) aux données de télémétrie en implémentant `ITelemetryInitializer`, par exemple pour ajouter des numéros de version ou des valeurs calculées à partir d’autres propriétés.
+* Le [filtrage](app-insights-api-filtering-sampling.md#filtering) permet de modifier ou d’ignorer les données de télémétrie avant leur envoi du Kit de développement logiciel (SDK) en implémentant `ITelemetryProcesor`. Vous contrôlez ce qui est envoyé ou rejeté, mais vous devez tenir compte de l’impact sur vos critères. Suivant la façon dont vous ignorez les éléments, vous risquez de ne plus pouvoir naviguer entre des éléments connexes.
 * [L’échantillonnage](app-insights-api-filtering-sampling.md#sampling) est une solution intégrée pour réduire le volume des données envoyées à partir de votre application vers le portail. Il n’affecte pas les mesures affichées, ni votre capacité à diagnostiquer les problèmes en naviguant entre des éléments connexes, tels que les exceptions, les requêtes et les affichages de page.
 
 [En savoir plus](app-insights-api-filtering-sampling.md)
@@ -690,7 +704,7 @@ Dans les pages web, vous pouvez la définir depuis l'état du serveur web au lie
 
 TelemetryClient a une propriété de contexte contenant un certain nombre de valeurs qui sont envoyées avec toutes les données de télémétrie. Elles sont normalement définies par les modules de télémétrie standard, mais vous pouvez également les définir vous-même. Par exemple :
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 Si vous définissez une de ces valeurs vous-même, supprimez la ligne appropriée dans [ApplicationInsights.config][config], de sorte que vos valeurs et les valeurs standard ne se mélangent pas.
 
@@ -778,4 +792,4 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

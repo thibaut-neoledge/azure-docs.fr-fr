@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -53,9 +53,9 @@ Quand vous créez des applications API B2B, certaines ressources sont obligatoir
 Prérequis | Description
 --- | ---
 Base de données SQL Azure | Stocke les éléments B2B, notamment les partenaires, les schémas, les certificats et les accords. Chacune des applications API B2B requiert sa propre base de données SQL Azure. <br/><br/>**Remarque** Copiez la chaîne de connexion dans cette base de données.<br/><br/>[Créer une base de données SQL Azure](../sql-database/sql-database-get-started.md)
-Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n’avez pas besoin de l’archivage des messages AS2, le conteneur de stockage n’est pas utile. <br/><br/>**Remarque** Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md)
+Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n'avez pas besoin de l'archivage des messages AS2, un conteneur de stockage n'est pas utile. <br/><br/>**Remarque** Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes Azure Storage](../storage/storage-create-storage-account.md)
 Espace de noms Service Bus et ses valeurs de clé | Stocke les données de traitement par lot X12 et EDIFACT. Si vous n’avez pas besoin de traitement par lot, un espace de noms Service Bus n’est pas utile.<br/><br/>**Remarque** Si vous activez le traitement par lot, copiez ces valeurs.<br/><br/>[Créer un espace de noms Service Bus](http://msdn.microsoft.com/library/azure/hh690931.aspx)
-Instance TPM | Une instance BizTalk TPM (Trading Partner Management, Gestion des partenaires commerciaux) est requise pour créer un connecteur AS2 et une application API X12 ou EDIFACT. Quand vous créez l’application API TPM, vous créez l’instance TPM. <br/><br/>**Remarque** Mémorisez le nom de votre application API TPM. 
+Instance TPM | Une instance BizTalk TPM (Trading Partner Management, Gestion des partenaires commerciaux) est requise pour créer un connecteur AS2 et une application API X12 ou EDIFACT. Quand vous créez l'application API TPM, vous créez l'instance TPM. <br/><br/>**Remarque** Mémorisez le nom de votre application API TPM. 
 
 
 ## Créer les applications API
@@ -79,8 +79,8 @@ Les étapes suivantes créent les applications API B2B à l'aide du panneau API 
 Les étapes suivantes créent l'instance TPM :
 
 1. Dans le Tableau d’accueil du portail Azure (la page d’accueil), sélectionnez **Marketplace**. **Applications API** répertorie tous les connecteurs et applications API existants. Vous pouvez également **rechercher** les applications API B2B spécifiques.
-2. Sélectionnez **Gestion des partenaires commerciaux BizTalk**. Dans le nouveau panneau, sélectionnez **Créer**. 
-3. Entrez les propriétés : 
+2. Sélectionnez **Gestion des partenaires commerciaux BizTalk**. Dans le nouveau panneau, sélectionnez **Créer**.
+3. Entrez les propriétés :
 
 	Propriété | Description
 --- | ---
@@ -101,8 +101,8 @@ Une fois l'application API TPM (instance TPM) créée, vous pouvez créer le con
 #### Créer le connecteur AS2
 
 1. Dans le Tableau d’accueil du portail Azure (la page d’accueil), sélectionnez **Marketplace**. **Applications API** répertorie tous les connecteurs et applications API existants. Vous pouvez également **rechercher** les applications API B2B spécifiques.
-2. Sélectionnez **Connecteur AS2**. Dans le nouveau panneau, sélectionnez **Créer**. 
-3. Entrez les propriétés : 
+2. Sélectionnez **Connecteur AS2**. Dans le nouveau panneau, sélectionnez **Créer**.
+3. Entrez les propriétés :
 
 	Propriété | Description
 --- | ---
@@ -130,8 +130,8 @@ Nom de l'instance TPM | Entrez le nom de l’application API **Gestion des parte
 #### Créer les applications API X12 ou EDIFACT
 
 1. Dans le Tableau d’accueil du portail Azure (la page d’accueil), sélectionnez **Marketplace**. **Applications API** répertorie tous les connecteurs et applications API existants. Vous pouvez également **rechercher** les applications API B2B spécifiques.
-2. Sélectionnez **BizTalk X12** ou **BizTalk EDIFACT**. Dans le nouveau panneau, sélectionnez **Créer**. 
-3. Entrez les propriétés : 
+2. Sélectionnez **BizTalk X12** ou **BizTalk EDIFACT**. Dans le nouveau panneau, sélectionnez **Créer**.
+3. Entrez les propriétés :
 
 	Propriété | Description
 --- | ---
@@ -182,7 +182,7 @@ Dans votre application, sélectionnez tout simplement les applications API B2B �
 
 Les étapes suivantes ajoutent les applications API B2B aux applications logiques, mobiles ou web :
 
-1. Dans le Tableau d’accueil du portail Azure (page d’accueil), accédez au **Marketplace** et recherchez vos applications logiques, mobiles ou web. 
+1. Dans le Tableau d’accueil du portail Azure (page d’accueil), accédez au **Marketplace** et recherchez vos applications logiques, mobiles ou web.
 
 	Si vous créez une application, recherchez Applications logiques, Applications mobiles ou Applications web. Sélectionnez l’application puis, dans le nouveau panneau, sélectionnez **Créer**. [Créer une application logique](app-service-logic-create-a-logic-app.md) répertorie les étapes.
 
@@ -209,4 +209,4 @@ Les étapes suivantes ajoutent les applications API B2B aux applications logique
 
 [Liste des connecteurs et applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu'est-ce qu'un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

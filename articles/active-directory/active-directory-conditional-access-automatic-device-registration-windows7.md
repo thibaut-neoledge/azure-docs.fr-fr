@@ -1,4 +1,11 @@
-<properties pageTitle="# Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7 | Microsoft Azure" description="Procédures pour configurer vos appareils joints à un domaine Windows 7 pour qu’ils s’inscrivent automatiquement auprès d’Azure AD et procédures de déploiement du package logiciel d’inscription d’appareil sur vos appareils joints à un domaine Windows 7 à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa editor=""/>
+<properties
+	pageTitle="# Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7| Microsoft Azure"
+	description="Étapes pour configurer des appareils joints à votre domaine Windows 7 pour qu’ils s’inscrivent automatiquement auprès d’Azure AD, et étapes pour déployer le package logiciel d’inscription d’appareils sur les appareils joints à un domaine Windows 7 à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -53,4 +60,4 @@ Le journal des événements Windows sur l’ordinateur Windows 7 affiche des me
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

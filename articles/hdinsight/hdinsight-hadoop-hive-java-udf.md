@@ -136,7 +136,7 @@ Le langage Hive est parfait pour traiter des données dans HDInsight, mais vous 
 
 2. Une fois sur l’invite `jdbc:hive2://localhost:10001/>`, entrez la commande suivante pour ajouter la fonction UDF dans Hive et l’exposer en tant que fonction.
 
-        ADD JAR wasb:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. Utilisez la fonction UDF pour convertir les valeurs extraites d’une table en chaînes de caractères minuscules.
@@ -166,4 +166,4 @@ Pour découvrir les autres façons de travailler avec Hive, consultez [Utilisati
 
 Pour plus d’informations sur les fonctions définies par l’utilisateur de Hive, consultez la section [Hive Operators and User-Defined Functions (Opérateurs et fonctions définies par l’utilisateur de Hive)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) du wiki Hive sur le site apache.org.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

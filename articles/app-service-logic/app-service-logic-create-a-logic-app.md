@@ -4,7 +4,7 @@
 	authors="jeffhollan"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -64,4 +64,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Azure portal]: https://portal.azure.com
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

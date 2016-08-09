@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 
@@ -76,7 +76,7 @@ Ce didacticiel explique les règles de base de l'activation d'une application Wi
 + [Envoi de notifications diffusées aux abonnés](../notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md) 
 	<br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 
-+ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md) 
++ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md)
 	<br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
 
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
@@ -109,4 +109,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

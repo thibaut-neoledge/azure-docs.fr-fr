@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Créer un accord de partenariat commercial dans Azure App Service | Microsoft Azure" 
    description="Créer des accords de partenariat commercial" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -79,4 +79,4 @@ Pour créer des accords de partenariat commercial
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

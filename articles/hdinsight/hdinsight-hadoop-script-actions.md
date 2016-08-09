@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Développer des scripts d’action de script pour HDInsight
@@ -96,7 +96,7 @@ Nom | Script
 
 L’action de script peut être déployée à partir du portail Azure, d’Azure PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Pour plus d’informations, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’une d’action de script][hdinsight-cluster-customize].
 
-> [AZURE.NOTE] Les exemples de scripts fonctionnent uniquement avec le cluster HDInsight version 3.1 ou version ultérieure. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](../hdinsight-component-versioning/).
+> [AZURE.NOTE] Les exemples de scripts fonctionnent uniquement avec le cluster HDInsight version 3.1 ou version ultérieure. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
 
 
 
@@ -174,7 +174,7 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 
 	HDInsight possède une architecture actif/passif pour la haute disponibilité, dans laquelle un nœud principal est en mode actif (où les services HDInsight sont en cours d'exécution) et l'autre nœud principal est en mode veille (dans lequel les services HDInsight ne sont pas en cours d’exécution). Les nœuds basculent entre les modes actif et passif si les services HDInsight sont interrompus. Si une action de script est utilisée pour installer les services sur les deux nœuds principaux pour la haute disponibilité, notez que le mécanisme de basculement HDInsight n’est pas en mesure de basculer automatiquement ces services installés par l'utilisateur. Ainsi, les services installés par l'utilisateur sur les nœuds principaux HDInsight qui sont censés être hautement disponibles doivent soit avoir leur propre mécanisme de basculement en mode actif/passif soit être en mode actif-actif.
 
-	Une commande Action de script HDInsight s'exécute sur les deux nœuds principaux lorsque le rôle de nœud principal est spécifié comme valeur dans le paramètre *ClusterRoleCollection* (décrit ci-dessous dans la section [Comment exécuter une action de script](#runScriptAction)). Par conséquent, lorsque vous concevez des scripts personnalisés, vérifiez qu'il est au fait de cette configuration. Vous devez vous assurer que des services identiques ne sont pas installés et démarrés sur les deux nœuds principaux pour éviter les conflits. Sachez, par ailleurs, que les données seront perdues lors des réimageages ; les logiciels installés à l'aide d'actions de script ne doivent donc pas être affectés par de tels événements. Les applications doivent être conçues pour fonctionner avec des données hautement disponibles qui sont distribuées sur de nombreux nœuds. Notez que jusqu'à 20 % des nœuds d'un cluster peuvent être réimagés en même temps.
+	Une commande d’action de script HDInsight s’exécute sur les deux nœuds principaux si le rôle de nœud principal est spécifié en tant que valeur dans le paramètre *ClusterRoleCollection*. Par conséquent, lorsque vous concevez des scripts personnalisés, vérifiez qu'il est au fait de cette configuration. Vous devez vous assurer que des services identiques ne sont pas installés et démarrés sur les deux nœuds principaux pour éviter les conflits. Sachez, par ailleurs, que les données seront perdues lors des réimageages ; les logiciels installés à l'aide d'actions de script ne doivent donc pas être affectés par de tels événements. Les applications doivent être conçues pour fonctionner avec des données hautement disponibles qui sont distribuées sur de nombreux nœuds. Notez que jusqu'à 20 % des nœuds d'un cluster peuvent être réimagés en même temps.
 
 
 - Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure
@@ -206,7 +206,7 @@ Dans cet exemple, vous devez vous assurer que le conteneur « somecontainer »
 
 Pour transmettre plusieurs paramètres à l’applet de commande Add-AzureRmHDInsightScriptAction, vous devez mettre en forme la valeur de chaîne pour qu’elle contienne tous les paramètres du script. Par exemple :
 
-	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+	"-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
 or
 
@@ -245,39 +245,6 @@ Voici les étapes à suivre avant de déployer des scripts :
 4. Utilisez un dossier de fichiers temporaires, tel que $env:TEMP, pour conserver le fichier téléchargé utilisé par les scripts, puis nettoyez-le au terme de l'exécution des scripts.
 5. 5\.Installez des logiciels personnalisés uniquement aux emplacements suivants : D:\\ ou C:\\apps. N'utilisez pas d'autres emplacements sur le lecteur C:, car ceux-ci sont réservés. Notez que l'installation de fichiers sur le lecteur C: dans des emplacements autres que dans le dossier C:/apps peut entraîner des erreurs d'installation lors des opérations de réimageage du nœud.
 6. En cas de modification des paramètres au niveau du système d'exploitation ou des fichiers de configuration du service Hadoop, vous pouvez redémarrer les services HDInsight pour qu'ils récupèrent des paramètres au niveau du système d'exploitation, tels que les variables d'environnement définies dans les scripts.
-
-
-
-## Tester des scripts personnalisés avec l’émulateur HDInsight
-
-Un moyen simple pour tester un script personnalisé avant de l'utiliser dans la commande Action de script HDInsight consiste à l’exécuter sur l'émulateur HDInsight. Vous pouvez installer l'émulateur HDInsight localement ou sur une machine virtuelle Azure IaaS Windows Server 2012 R2, ou sur un ordinateur local, et observer si le script se comporte correctement. Notez que la machine virtuelle Windows Server 2012 R2 est la même machine virtuelle que celle utilisée par HDInsight pour ses nœuds.
-
-Cette section décrit la procédure d'utilisation de l'émulateur HDInsight en local à des fins de test. Cependant, la procédure d'utilisation d'une machine virtuelle est similaire.
-
-**Installation de l'émulateur HDInsight** : l’exécution locale d’actions de script nécessite que l'émulateur HDInsight soit installé. Pour des instructions sur son installation, consultez la page [Prise en main de l'émulateur HDInsight](../hdinsight-get-started-emulator/).
-
-**Définition de la stratégie d'exécution pour Azure PowerShell** : ouvrez Azure PowerShell et exécutez (en tant qu'administrateur) la commande suivante pour définir la stratégie d'exécution sur *LocalMachine* et *Unrestricted* :
-
-	Set-ExecutionPolicy Unrestricted –Scope LocalMachine
-
-Il est important que cette stratégie soit sans restriction, car les scripts ne sont pas signés.
-
-**Téléchargez l'action de script** devant s'exécuter sur un emplacement local. Les exemples de scripts suivants sont disponibles en téléchargement à partir des emplacements suivants :
-
-* **Spark**. https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
-* **R**. https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1
-* **Solr**. https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1
-* **Giraph**. https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
-
-**Exécution de l'action de script** : ouvrir une nouvelle fenêtre Azure PowerShell en mode administrateur et exécutez le script d'installation Spark ou R à partir de l'emplacement local où il a été enregistré.
-
-**Exemples d'utilisation** : lorsque vous utilisez les clusters Spark et R, il se peut que les fichiers de données requis n'existent pas dans l'émulateur HDInsight. Vous pouvez alors avoir besoin de télécharger les fichiers .txt appropriés contenant des données vers un chemin d'accès dans HDFS, puis utiliser ce chemin pour accéder aux données. Par exemple :
-
-	val file = sc.textFile("/example/data/gutenberg/davinci.txt")
-
-
-il peut arriver qu'un script personnalisé dépende de composants HDInsight, par exemple pour détecter si certains services Hadoop sont opérationnels. Dans ce cas, vous devez tester vos scripts personnalisés en les déployant sur un cluster HDInsight réel.
-
 
 ## Déboguer des scripts personnalisés
 
@@ -344,13 +311,13 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 - [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md)
 - [Installez et utilisez Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
-[hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
+[hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
+[powershell-install-configure]: install-configure-powershell.md
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

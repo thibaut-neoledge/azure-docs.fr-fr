@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/11/2015" 
+	ms.date="07/21/2016" 
 	ms.author="donnam"/>
 
 # Prise en main de l'authentification dans Mobile Services
@@ -54,11 +54,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
-1. Ajoutez la propriété suivante à la classe **TodoActivity** :
+1. Ajoutez la propriété suivante à la classe **TodoActivity** :
 
 			private MobileServiceUser user;
 
-2. Ajoutez la méthode suivante à la classe **TodoActivity** :
+2. Ajoutez la méthode suivante à la classe **TodoActivity** :
 
 	        private async Task Authenticate()
 	        {
@@ -111,4 +111,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

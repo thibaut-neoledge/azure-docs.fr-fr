@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/21/2016"
    ms.author="jeffstok"
 />
 
@@ -26,12 +26,14 @@ Le nœud de périmètre d’un cluster Premium fournit un lieu d’accueil prati
 
 ## Contextes de calcul pour un nœud de périmètre
 
-En général, un script R exécuté dans R Server sur le nœud de périmètre s’exécute au sein de l’interpréteur R sur ce nœud. L’exception est ces étapes qui appellent une fonction ScaleR. Les appels ScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont vous définissez le contexte de calcul ScaleR. Les valeurs possibles du contexte de calcul lors de l’exécution de votre script R à partir d’un nœud de périmètre sont les valeurs local (local sequential), localpar (local parallel), MapReduce et Spark, comme suit :
+En général, un script R exécuté dans R Server sur le nœud de périmètre s’exécute au sein de l’interpréteur R sur ce nœud. L’exception est ces étapes qui appellent une fonction ScaleR. Les appels ScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont vous définissez le contexte de calcul ScaleR. Les valeurs possibles du contexte de calcul lors de l’exécution de votre script R à partir d’un nœud de périmètre sont les valeurs local (local sequential), localpar (local parallel), Map Reduce et Spark.
+
+Les options local et localpar diffèrent uniquement par la façon dont les appels rxExec sont exécutés. Elles exécutent toutes les deux d’autres appels de fonction rx de manière parallèle entre tous les cœurs disponibles sauf indication contraire à l’aide de l’option numCoresToUse ScaleR, par exemple, rxOptions (numCoresToUse=6). La liste suivante récapitule les différentes options de contexte de calcul
 
 | Contexte de calcul | Définition | Contexte d’exécution |
 |------------------|---------------------------------|---------------------------------------------------------------------------------------|
-| Local sequential | rxSetComputeContext(‘local’) | Exécution séquentielle (non parallélisée) sur le serveur de nœud de périmètre |
-| Local parallel | rxSetComputeContext(‘localpar’) | Parallélisée sur les cœurs du serveur de nœud de périmètre |
+| Local sequential | rxSetComputeContext(‘local’) | Exécution parallélisée sur les cœurs du serveur de nœud de périmètre, à l’exception des appels rxExec qui sont exécutés en série |
+| Local parallel | rxSetComputeContext(‘localpar’) | Exécution parallélisée sur les cœurs du serveur de nœud de périmètre |
 | Spark | RxSpark() | Exécution distribuée parallélisée via Spark sur les nœuds du cluster HDI |
 | Map Reduce | RxHadoopMR() | Exécution distribuée parallélisée via Map Reduce sur les nœuds du cluster HDI |
 
@@ -50,10 +52,10 @@ Actuellement, il n’existe aucune formule qui vous indique quel contexte de cal
 
 Une fois ces principes connus, il existe quelques règles générales que vous pouvez suivre pour sélectionner un contexte de calcul :
 
-### Local parallel
+### Local
 
-- Si la quantité de données à analyser est peu importante et ne nécessite pas d’analyses répétées, diffusez-les directement dans la routine d’analyse et utilisez localpar.
-- Si la quantité de données à analyser est peu ou moyennement importante et nécessite des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les via localpar.
+- Si la quantité de données à analyser est peu importante et ne nécessite pas d’analyses répétées, diffusez-les directement dans la routine d’analyse et utilisez local ou localpar.
+- Si la quantité de données à analyser est peu ou moyennement importante et nécessite des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les via local ou localpar.
 
 ### Hadoop Spark
 
@@ -81,4 +83,4 @@ Dans cet article, vous avez appris à créer un cluster HDInsight qui inclut R S
 - [Ajouter RStudio Server à HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Options d’Azure Storage pour R Server sur HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

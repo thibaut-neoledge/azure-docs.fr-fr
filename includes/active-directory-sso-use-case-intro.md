@@ -1,4 +1,5 @@
-Les organisations utilisent davantage de logiciels comme des applications Software as a Service (SaaS) pour augmenter la productivité car la technologie et les outils cloud deviennent de plus en plus disponibles. Le nombre d'applications SaaS ne cessant d’augmenter, il devient difficile pour les administrateurs de gérer les comptes et les droits d'accès, et pour les utilisateurs de se souvenir de leurs différents mots de passe. La gestion individuelle de ces applications augmente la charge de travail et constitue une tâche moins sécurisée.
+Les organisations utilisent davantage de logiciels comme des applications [Software as a Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) pour augmenter la productivité car la technologie et les outils cloud deviennent de plus en plus disponibles. Le nombre d'applications SaaS ne cessant d’augmenter, il devient difficile pour les administrateurs de gérer les comptes et les droits d'accès, et pour les utilisateurs de se souvenir de leurs différents mots de passe. La gestion individuelle de ces applications augmente la charge de travail et constitue une tâche moins sécurisée.
+
 
 - Les employés qui doivent effectuer le suivi de nombreux mots de passe ont tendance à utiliser des méthodes moins sécurisées pour les retenir, en écrivant leurs mots de passe ou en utilisant les mêmes mots de passe sur plusieurs comptes.
 
@@ -21,4 +22,4 @@ Si les utilisateurs ont créé leurs propres comptes pour les applications SaaS 
 
 Lorsque vous intégrez une application dans Azure AD, vous pouvez mapper les identités d'application établies des utilisateurs à leurs identités Azure AD respectives.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

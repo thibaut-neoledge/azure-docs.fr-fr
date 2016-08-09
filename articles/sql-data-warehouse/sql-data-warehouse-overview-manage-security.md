@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="07/22/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
@@ -34,7 +34,7 @@ Cet article présente les principes de base de la sécurisation de votre base de
 
 L’expression « sécurité de la connexion » fait référence au mode de restriction et de sécurisation appliqué aux connexions à votre base de données, au moyen de règles de pare-feu et d’une fonction de chiffrement des connexions.
 
-Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre une connexion depuis l’adresse IP publique de l’ordinateur client ou votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure Classic, d’une API REST ou de PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour accéder à SQL Data Warehouse à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure][].
+Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre une connexion depuis l’adresse IP publique de l’ordinateur client ou votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure Classic, d’une API REST ou de PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour accéder à SQL Data Warehouse à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433. Pour plus d’informations, voir [Pare-feu de la base de données Azure SQL][], [sp\_set\_firewall\_rule][], et [sp\_set\_database\_firewall\_rule][].
 
 Les connexions à votre SQL Data Warehouse peuvent être chiffrées en définissant le mode de chiffrement dans votre chaîne de connexion. La syntaxe pour l’activation du chiffrement de la connexion varie en fonction du protocole. Pour obtenir de l’aide pour la configuration de votre chaîne de connexion, accédez à votre base de données dans le portail Azure. Sous *Essentials* cliquez sur *Afficher les chaînes de connexion de la base de données*.
 
@@ -114,7 +114,9 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
-[Pare-feu de base de données SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
+[Pare-feu de la base de données Azure SQL]: https://msdn.microsoft.com/library/ee621782.aspx
+[sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 [rôles de base de données]: https://msdn.microsoft.com/library/ms189121.aspx
 [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [autorisations]: https://msdn.microsoft.com/library/ms191291.aspx
@@ -125,4 +127,4 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -54,7 +54,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 ## Configurez l’application API du connecteur SAP que vous venez de créer. ##
 
-Accédez à l’application API tout juste créée via Parcourir -> API Apps -> <Name of the API App just created>. Le comportement suivant est visible. L’installation n’est pas terminée puisque la connexion hybride n’est pas encore établie : ![][2]
+Accédez à l’application API récemment créée en sélectionnant Parcourir -> API Apps -> Nom de l’application API créée. L’installation n’est pas terminée puisque la connexion hybride n’est pas encore établie : ![][2]
 
 Le connecteur SAP nécessite une connectivité hybride pour se connecter à un point de terminaison SAP, *quel qu’il soit*. Pour l’établir une connectivité hybride, procédez comme suit :
 
@@ -63,7 +63,7 @@ Le connecteur SAP nécessite une connectivité hybride pour se connecter à un p
 3. Suivez le processus d’installation qui se lance et fournissez la chaîne de connexion principale quand vous y êtes invité.
 4. Une fois le processus d’installation terminé, une boîte de dialogue similaire à celle-ci apparaît : ![][3]
 
-En savoir plus sur l’[intégration avec un serveur SAP local](app-service-logic-integrate-with-an-on-premise-sap-server.md).
+En savoir plus sur [l’intégration avec un serveur SAP local](app-service-logic-integrate-with-an-on-premise-sap-server.md).
 
 Maintenant, quand vous accédez de nouveau à l’application API créée, vous pouvez observer que l’état de la connexion hybride est Connecté : ![][4]
 
@@ -82,7 +82,7 @@ L’étape/l’action s’affiche maintenant comme configurée dans l’applicat
 Complétez l’application logique pour définir le processus d’entreprise, puis exécutez-la pour atteindre l’objectif voulu.
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -99,4 +99,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

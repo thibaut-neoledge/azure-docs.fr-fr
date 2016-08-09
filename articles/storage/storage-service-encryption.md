@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption pour les données au repos (version préliminaire)
@@ -37,9 +37,9 @@ Lorsque vous avez cliqué sur le paramètre Chiffrement, vous pouvez activer ou 
 
 ##Availability
 
-Pour le stockage Standard, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est 2, le Sud-Est asiatique, l’Europe de l’Ouest et les États-Unis de l’Ouest.
+Pour le stockage Standard, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre du Canada, l’Est du Canada, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est 2, le Nord du centre des États-Unis, le Sud-Est asiatique, l’Europe de l’Ouest et les États-Unis de l’Ouest.
 
-Pour le stockage Premium, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est 2, le Sud-Est asiatique, le Japon de l’Est et les États-Unis de l’Ouest.
+Pour le stockage Premium, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre du Canada, l’Est du Canada, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est 2, le Nord du centre des États-Unis, le Sud-Est asiatique, le Japon de l’Est et les États-Unis de l’Ouest.
 
 Nous mettrons à jour ce document lorsque de nouvelles régions seront disponibles pour cette fonctionnalité.
 
@@ -229,4 +229,4 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

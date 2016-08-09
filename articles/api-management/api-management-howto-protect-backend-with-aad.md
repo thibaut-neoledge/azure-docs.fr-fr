@@ -143,8 +143,11 @@ Remplacez la classe de contrôleur générée par le code suivant. Ce code impl�
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-HttpResponseMessage response = Request.CreateResponse(); response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml"); return response; } }
-
+    	    HttpResponseMessage response = Request.CreateResponse();
+    	    response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+    	    return response;
+    	}
+    }
 
 Appuyez sur **F6** pour générer et vérifier la solution.
 
@@ -237,7 +240,7 @@ Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur
 
 ![Nouvelle application][api-management-aad-new-application-devportal-1]
 
-Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise **https://contoso5.portal.azure-api.net/signin**.
+Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise **https://contoso5.portal.azure-api.net/signin **.
 
 Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix ; dans cet exemple, on utilise **https://contoso5.portal.azure-api.net/dp**. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
 
@@ -413,4 +416,4 @@ Pour une autre démonstration de la configuration et l’utilisation de cette st
 [Création d’une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Gérer votre première API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

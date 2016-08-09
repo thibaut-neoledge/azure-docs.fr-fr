@@ -161,7 +161,7 @@ Par exemple, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Comme le système de fichiers par défaut pour HDInsight se trouve dans le stockage d'objets blob Azure, /example/data.txt s'y trouve également. Vous pouvez également faire référence au fichier comme ceci :
 
-	wasb:///example/data/data.txt
+	wasbs:///example/data/data.txt
 
 ou
 
@@ -188,7 +188,7 @@ Plusieurs applications fournissent également une interface graphique pour utili
 
 Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour obtenir des instructions permettant d'obtenir ces informations, consultez la section « Affichage, copie et régénération des clés d'accès de stockage » de l'article [Création, gestion et suppression d’un compte de stockage][azure-create-storage-account].
 
-1. Exécutez Azure Storage Explorer. S’il vous exécutez l’Explorateur de stockage pour la première fois, vous êtes invité à saisir le ___Nom du compte de stockage__ et la __Clé du compte de stockage__. Si vous avez déjà exécuté l’Explorateur de stockage, utilisez le bouton __Ajouter__ pour ajouter un nom et une clé de compte de stockage.
+1. Exécutez Azure Storage Explorer. Si vous exécutez l’Explorateur de stockage pour la première fois, vous êtes invité à saisir le ___Nom du compte de stockage_\_ et la __Clé du compte de stockage__. Si vous avez déjà exécuté l’Explorateur de stockage, utilisez le bouton __Ajouter\_\_ pour ajouter un nom et une clé de compte de stockage.
 
     Entrez le nom et la clé du compte de stockage utilisé par votre cluster HDinsight, puis sélectionnez __ENREGISTRER ET OUVRIR__.
 
@@ -282,4 +282,4 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

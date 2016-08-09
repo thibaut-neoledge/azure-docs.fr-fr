@@ -60,7 +60,7 @@ La première étape consiste à créer l’application web par le biais du [port
 3. Dans le champ de recherche, tapez « python ».
 4. Dans les résultats de recherche, sélectionnez **Django**, puis cliquez sur **Créer**.
 5. Configurez la nouvelle application Django, en créant un plan App Service et un groupe de ressources. Cliquez sur **Créer**.
-6. Configurez la publication Git de votre nouvelle application web en suivant les instructions dans [Déploiement continu à l’aide de GIT dans Azure App Service](web-sites-publish-source-control.md).
+6. Configurez la publication Git de votre nouvelle application web en suivant les instructions dans [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
 ## Vue d’ensemble de l’application
 
@@ -146,7 +146,7 @@ Les trois sections suivantes expliquent comment développer des applications web
 
 ### Cloner le référentiel
 
-Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
+Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure. Pour plus d’informations, voir [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
 Ouvrez le fichier solution (.sln) inclus dans la racine du référentiel.
 
@@ -223,7 +223,7 @@ Accédez à l’URL Azure pour visualiser les modifications que vous avez apport
 
 ### Cloner le référentiel
 
-Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
+Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, voir [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +312,7 @@ Accédez à l’URL Azure pour visualiser les modifications que vous avez apport
 
 ### Cloner le référentiel
 
-Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
+Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, voir [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -518,4 +518,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [Documentation relative à Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
 [Documentation Django]: https://www.djangoproject.com/
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0803_2016-->

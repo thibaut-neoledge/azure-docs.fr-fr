@@ -9,7 +9,7 @@
 	tags="connectors"/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -21,7 +21,7 @@
 
 Avec le déclencheur de périodicité, vous pouvez créer des workflows puissants dans le cloud, notamment :
 
-- planifier un workflow pour l’exécution quotidienne d’une procédure SQL stockée ;
+- planifier un workflow pour l’exécution quotidienne d’une procédure SQL stockée ;
 - envoyer par e-mail un résumé de tous les tweets de la semaine écoulée sur la base d’un hashtag spécifique.
 
 Pour commencer à utiliser le déclencheur de périodicité dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
@@ -70,4 +70,4 @@ Vous trouverez ci-dessous plus d’informations sur la manière d’avancer le d
 
 Essayer la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) dès maintenant. Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

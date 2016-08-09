@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajout de notifications Push à votre application Windows 8.1 universelle | Microsoft Azure"
-	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à votre application Windows 8.1 universelle à partir de votre service mobile principal .NET."
+	pageTitle="Ajout de notifications Push à votre application Windows 8.1 universelle | Microsoft Azure"
+	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à votre application Windows 8.1 universelle à partir de votre service mobile principal .NET."
 	services="mobile-services,notification-hubs"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/05/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -28,10 +28,10 @@
 ##Vue d’ensemble
 Cette rubrique explique comment utiliser Azure Mobile Services avec un backend .NET pour envoyer des notifications Push à une application Windows universelle. Dans ce didacticiel, vous allez activer des notifications Push à l'aide d'Azure Notification Hubs dans un projet d'application Windows universelle. Lorsque vous aurez terminé, votre service mobile enverra une notification Push depuis le backend .NET vers toutes les applications Windows Store et Windows Phone Store enregistrées, chaque fois qu'un enregistrement est inséré dans la table TodoList. Le hub de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un [compte Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045) actif.
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934).
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934).
 
 ##<a id="register"></a>Inscription de votre application pour les notifications Push
 
@@ -81,7 +81,7 @@ Les étapes restantes de cette section sont facultatives. Elles vous permettent 
 
 Ce didacticiel explique les règles de base de l'activation d'une application Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Vous pouvez ensuite envisager de consulter le didacticiel suivant, [Envoi de notifications Push aux utilisateurs authentifiés], qui explique comment utiliser des balises pour envoyer des notifications Push depuis un service mobile vers des utilisateurs authentifiés uniquement.
 
-Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
+Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Ajout de Mobile Services à une application existante][Get started with data] <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de services mobiles.
 
@@ -89,7 +89,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Présentation de Notification Hubs] <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
-* [Débogage des applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
+* [Débogage des applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
 
 * [Utilisation d'un client .NET pour Azure Mobile Services] <br/>En savoir plus sur l'utilisation de Mobile Services à partir d'applications C# Windows.
 
@@ -112,4 +112,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Utilisation d'un client .NET pour Azure Mobile Services]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

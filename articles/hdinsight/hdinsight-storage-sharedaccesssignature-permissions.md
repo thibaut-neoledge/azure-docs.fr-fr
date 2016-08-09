@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Utiliser des signatures d’accès partagé Azure Storage pour restreindre l’accès aux données avec HDInsight
@@ -32,7 +32,7 @@ Les signatures d’accès partagé (SAP) sont une fonctionnalité des comptes de
     
     * La version de Python doit être 2.7 ou une version ultérieure.
 
-* Cluster HDInsight basé sur Linux OU [Azure PowerShell][powershell] : si vous avez un cluster existant basé sur Linux, vous pouvez utiliser Ambari pour ajouter une signature d’accès partagé au cluster. Si ce n’est pas le cas, vous pouvez utiliser Azure PowerShell pour créer un cluster et ajouter une signature d’accès partagé lors de la création du cluster.
+* Cluster HDInsight basé sur Linux OU [Azure PowerShell][powershell] : si vous avez un cluster existant basé sur Linux, vous pouvez utiliser Ambari pour ajouter une signature d’accès partagé au cluster. Si ce n’est pas le cas, vous pouvez utiliser Azure PowerShell pour créer un cluster et ajouter une signature d’accès partagé lors de la création du cluster.
 
 * Fichiers d’exemple à l’adresse [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Ce référentiel comprend les éléments suivants :
 
@@ -226,25 +226,25 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 
 1. À partir de l’invite de commandes, tapez ce qui suit. Remplacez __SASCONTAINER__ avec le nom du conteneur créé pour le compte de stockage SAP. Remplacez __SASACCOUNTNAME__ avec le nom du compte de stockage utilisé pour la SAP :
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     
     Cette opération permet de répertorier le contenu du conteneur, qui doit inclure le fichier téléchargé lorsque le conteneur et la SAP ont été créés.
     
 2. Utilisez les éléments suivants pour vérifier que vous pouvez lire le contenu du fichier. Remplacez __SASCONTAINER__ et __SASACCOUNTNAME__ comme à l’étape précédente. Remplacez __FILENAME__ avec le nom du fichier affiché dans la commande précédente :
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
         
     Cette opération permet de répertorier le contenu du fichier.
     
 3. Pour télécharger le fichier sur le système de fichiers local, utilisez les éléments suivants :
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     
     Cette opération permet de télécharger le fichier vers un fichier local nommé __testfile.txt__.
 
 4. Utilisez la commande suivante pour télécharger le fichier local vers un nouveau fichier nommé __testupload.txt__ sur le stockage SAP :
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     
     Vous recevrez un message similaire à celui ci-dessous :
     
@@ -252,7 +252,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
         
     Cette erreur se produit, car l’emplacement de stockage est en lecture + liste uniquement. Pour placer les données sur le stockage par défaut pour le cluster, accessible en écriture, utilisez les éléments suivants :
     
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+        hdfs dfs -put testfile.txt wasbs:///testupload.txt
         
     Cette fois, l’opération doit se terminer normalement.
     
@@ -290,4 +290,4 @@ Maintenant que vous avez appris comment ajouter un stockage à accès limité à
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

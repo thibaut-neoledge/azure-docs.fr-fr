@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sécurité dans Azure Automation"
+   pageTitle="Sécurité dans Azure Automation | Microsoft Azure"
    description="Cet article présente une vue d’ensemble de la sécurité de l’automatisation et les méthodes d’authentification disponibles pour les comptes Automation dans Azure Automation."
    services="automation"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2016"
+   ms.date="07/29/2016"
    ms.author="magoedte" />
 
 # Sécurité dans Azure Automation
@@ -26,11 +26,14 @@ Les ressources Automation de chaque compte Automation sont associées à une seu
 
 >[AZURE.NOTE]Les comptes Automation et les ressources qu’ils contiennent, créés dans le portail Azure, ne sont pas accessibles dans le portail Azure Classic. Si vous souhaitez gérer ces comptes ou leurs ressources avec Windows PowerShell, vous devez utiliser les modules Azure Resource Manager.
 
-Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure Resource Manager (ARM) et des applets de commande Azure dans Azure Automation doivent s’authentifier sur Azure à l’aide de l’authentification basée sur les informations d’identification d’organisation Azure Active Directory. L’authentification par certificat était la méthode d’authentification d’origine avec le mode Azure Service Management (ASM), mais elle était compliquée à configurer. L’authentification auprès d’Azure avec l’utilisateur Azure AD a été introduite en 2014 non seulement pour simplifier le processus de configuration d’un compte d’authentification, mais également pour prendre en charge la possibilité de s’authentifier de manière non interactive auprès d’Azure avec un seul compte d’utilisateur compatible avec le mode ASM et le mode ARM.
+Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure Resource Manager et des applets de commande Azure dans Azure Automation doivent s’authentifier sur Azure à l’aide de l’authentification basée sur les informations d’identification d’organisation Azure Active Directory. L’authentification basée sur les certificats était la méthode d’authentification d’origine avec le mode Azure Service Management, mais elle était compliquée à configurer. L’authentification auprès d’Azure avec l’utilisateur Azure AD a été réintroduite en 2014 non seulement pour simplifier le processus de configuration d’un compte d’authentification, mais également pour prendre en charge la possibilité de s’authentifier de manière non interactive auprès d’Azure avec un seul compte d’utilisateur compatible avec les ressources Azure Resource Manager et les ressources classiques.
 
-Nous avons récemment publié une autre mise à jour, où nous créons maintenant automatiquement un objet principal du service Azure AD lors de la création du compte Automation. Cela correspond à un compte d’authentification Azure. Il s’agit de la méthode d’authentification par défaut pour l’automatisation des runbooks avec Azure Resource Manager.
+Actuellement, lorsque vous créez un compte Automation dans le portail Azure, il crée automatiquement :
 
-Le contrôle d’accès en fonction du rôle est disponible dans le mode ARM pour attribuer des actions autorisées à un compte d’utilisateur Azure AD et à un principal du service, et pour authentifier ce principal du service. Pour obtenir plus d’informations susceptibles de vous aider à développer votre modèle de gestion des autorisations Automation, consultez l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).
+-  Un compte d’identification, qui crée un principal du service dans Azure Active Directory, un certificat, et attribue le contrôle d’accès en fonction du rôle (RBAC) Collaborateur, qui sera utilisé pour gérer les ressources Resource Manager à l’aide de Runbooks.
+-  Un compte d’identification Classic en chargeant un certificat de gestion, qui sera utilisé pour gérer les ressources de gestion des services Azure ou les ressources classiques à l’aide de Runbooks.
+
+Le contrôle d’accès en fonction du rôle est disponible avec Azure Resource Manager pour attribuer des actions autorisées à un compte d’utilisateur Azure AD et à un compte d’identification, et pour authentifier ce principal du service. Pour obtenir plus d’informations susceptibles de vous aider à développer votre modèle de gestion des autorisations Automation, consultez l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).
 
 Les Runbooks exécutés sur un Runbook Worker hybride dans votre centre de données ou sur des services informatiques dans AWS ne peuvent pas utiliser la même méthode que celle généralement utilisée pour l’authentification des Runbooks auprès des ressources Azure. Cela est dû au fait que ces ressources sont en cours d’exécution en dehors d’Azure et, par conséquent, elles nécessitent leurs propres informations d’identification de sécurité définies dans Automation pour s’authentifier auprès des ressources auxquelles elles accèdent localement.
 
@@ -41,8 +44,9 @@ Le tableau suivant résume les différentes méthodes d’authentification pour 
 Méthode | Environnement | Article
 ----------|----------|----------
 Compte d’utilisateur Azure AD | Azure Resource Manager et gestion des services Azure | [Authentifier des Runbooks avec un compte d’utilisateur Azure AD](../automation/automation-sec-configure-aduser-account.md)
-Objet principal du service Azure AD | Azure Resource Manager | [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md)
+Compte d’identification Azure | Azure Resource Manager | [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md)
+Compte d’identification Azure Classic | Gestion des services Azure | [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md)
 Authentification Windows | Centre de données local | [Authentifier des Runbooks pour des Runbook Workers hybrides](../automation/automation-hybrid-runbook-worker.md)
 Informations d'identification AWS | Amazon Web Services | [Authentifier des Runbooks avec Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

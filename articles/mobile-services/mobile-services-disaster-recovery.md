@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="christopheranderson"/>
 
 # Récupération de votre service mobile en cas d’incident
@@ -115,4 +115,4 @@ Votre service mobile a maintenant été récupéré pour une nouvelle région Az
 [tableau de bord du service Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatisation des services mobiles avec l’interface CLI Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 
@@ -36,7 +36,7 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 
 ##<a id="update-server"></a>Mise à jour du code de backend pour l'envoi de notifications push
 
-* Ouvrez un projet Visual Studio > dossier **Contrôleurs** > **TodoItemController.cs** > méthode `PostTodoItem`. Remplacez la méthode par le code suivant : Lorsqu'un élément ToDo est inséré, ce code envoie une notification push avec le texte de l'élément. En cas d'erreur, le code ajoute une entrée de journal qui peut être affichée via la section Journaux du portail.
+* Ouvrez un projet Visual Studio > dossier **Contrôleurs** > **TodoItemController.cs** > méthode `PostTodoItem`. Remplacez la méthode par le code suivant : Lorsqu'un élément ToDo est inséré, ce code envoie une notification push avec le texte de l'élément. En cas d'erreur, le code ajoute une entrée de journal qui peut être affichée via la section Journaux du portail.
 
 
 ```
@@ -132,4 +132,4 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

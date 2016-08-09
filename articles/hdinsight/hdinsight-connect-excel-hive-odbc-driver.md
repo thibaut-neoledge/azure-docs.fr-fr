@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 #Connexion d'Excel à Hadoop à l'aide du pilote ODBC Microsoft Hive
@@ -27,7 +27,7 @@ Il est également possible de connecter les données associées à un cluster HD
 
 > [AZURE.NOTE] Même si les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight basé sur Linux ou Windows, Windows est requis pour le poste de travail client.
 
-**Conditions préalables** :
+**Conditions préalables** :
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -58,7 +58,7 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
     Propriété|Description
     ---|---
     Data Source Name|Donnez un nom à votre source de données
-    Hôte|Entrez <HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net
+    Hôte|Entrez <NomClusterHDInsight>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net
     Port|Utilisez <strong>443</strong>. (ce port est passé de 563 à 443).
     Base de données|Utilisez <strong>Default</strong>.
     Hive Server Type|Sélectionnez <strong>Hive Server 2</strong>.
@@ -68,7 +68,7 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
     Mot de passe|Entrez le mot de passe du cluster HDInsight.
     </table>
 
-    Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées** :
+    Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées** :
 
     Paramètre|Description
     ---|---
@@ -105,7 +105,7 @@ La procédure ci-dessous décrit la façon d'importer les données d'une table h
 	![Propriétés de connexion][img-hdi-simbahiveodbc-excel-connectionproperties]
 
 11. Cliquez sur **OK** pour fermer la boîte de dialogue Propriétés de connexion.
-12. Cliquez sur **OK** pour fermer la boîte de dialogue **Importation de données**.  
+12. Cliquez sur **OK** pour fermer la boîte de dialogue **Importation de données**.
 13. Entrez à nouveau le mot de passe, puis cliquez sur **OK**. Patientez quelques secondes pour que les données soient importées dans Excel.
 
 ##Étapes suivantes
@@ -131,4 +131,4 @@ Dans cet article, vous avez appris à utiliser le pilote Microsoft Hive ODBC pou
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

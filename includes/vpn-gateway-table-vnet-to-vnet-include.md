@@ -6,4 +6,6 @@
 
 « + » indique que cette méthode de déploiement n’est disponible que pour les réseaux virtuels dans le même abonnement.
 
-<!---HONumber=AcomDC_0323_2016-->
+Notez que VNet Peering, qui est actuellement en version préliminaire, est disponible pour certains modèles de déploiement et configurations. Pour plus d’informations, consultez l’article [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md).
+
+<!---HONumber=AcomDC_0803_2016-->

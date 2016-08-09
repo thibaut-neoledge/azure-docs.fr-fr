@@ -28,9 +28,9 @@ L’augmentation du nombre de nœuds de travail d’un cluster permet d’exploi
 
 - Au moment de l’approvisionnement, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande multiplateforme. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight](hdinsight-provision-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
 
-- Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Cette méthode est illustrée ci-dessous. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
+- Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Cela est indiqué ci-dessous. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
 
 Pour plus d’informations sur les différentes machines virtuelles prises en charge par HDInsight, consultez la [tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur les différentes machines virtuelles prises en ch
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) est un moteur d’exécution représentant une alternative au moteur MapReduce :
 
-![tez\_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez\_1]
 
 
 Tez est plus rapide pour les raisons suivantes :
@@ -91,7 +91,7 @@ Les opérations d’E/S constituent le principal goulot d’étranglement des pe
 
 Le partitionnement Hive est implémenté en réorganisant les données brutes en nouveaux répertoires où chaque partition a son propre répertoire, comme défini par l’utilisateur. Le schéma suivant illustre le partitionnement d’une table Hive selon la colonne *Année*. Un nouveau répertoire est créé pour chaque année.
 
-![partitionnement][image-hdi-optimize-hive-partitioning_1]
+![partitioning][image-hdi-optimize-hive-partitioning\_1]
 
 Considérations relatives au partitionnement :
 
@@ -123,7 +123,7 @@ Lorsque la table partitionnée est créée, vous pouvez créer un partitionnemen
 	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
 	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+	    LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **Partitionnement dynamique** signifie que vous voulez que Hive crée automatiquement des partitions pour vous. Étant donné que nous avons déjà créé la table de partitionnement à partir de la table intermédiaire, il nous suffit d’insérer des données dans la table partitionnée comme indiqué ci-dessous :
 
@@ -221,4 +221,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

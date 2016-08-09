@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS| Microsoft Azure"
+	pageTitle="Azure Conditional Access pour les applications SaaS| Microsoft Azure"
 	description="L’accès conditionnel dans Azure AD vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. "
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="femila"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
 # Prise en main de l’accès conditionnel à Azure AD  
 
-Azure Active Directory Conditional Access pour les applications SaaS et les applications connectées à Azure AD est disponible en version préliminaire publique. Cette version préliminaire vous permet de configurer un accès conditionnel en fonction du groupe, de l’emplacement et du critère de diffusion des applications.
+Azure Active Directory Conditional Access pour les applications [SaaS](https://azure.microsoft.com/overview/what-is-saas/) et les applications connectées à Azure AD vous invitent à configurer un accès conditionnel en fonction du groupe, de l’emplacement et du critère de diffusion des applications.
 
 Vous pouvez appliquer des règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Avec un accès conditionnel basé sur le critère de diffusion des applications, vous pouvez définir des règles d’accès MFA (Multi-Factor Authentication) par application, ce qui permet de bloquer l’accès des utilisateurs qui ne sont pas sur un réseau approuvé. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
 
@@ -30,9 +30,6 @@ Ces fonctionnalités sont disponibles pour les clients qui ont acheté une licen
 * Client Azure Active Directory fédéré ou géré
 
 * Les clients fédérés nécessitent l’activation de l’authentification multifacteur.
-
-## Problèmes connus dans cette version préliminaire
-Cette version préliminaire s’applique aux applications SaaS fédérées préintégrées, aux applications qui utilisent l’authentification unique avec mot de passe, aux applications métier et développées inscrites et au proxy d’application Azure AD. D’autres applications sont toujours activées.
 
 ## Configurer des règles d’accès par application
 
@@ -50,7 +47,7 @@ Cette section décrit comment configurer des règles d’accès par application.
 
 ##Présentation des règles d’accès
 
-Cette section fournit une description détaillée des règles d’accès prises en charge dans la version préliminaire de l’accès conditionnel Azure pour les applications.
+Cette section fournit une description détaillée des règles d’accès prises en charge dans Azure Conditional Application Access.
 
 ### Spécification des utilisateurs auxquels s’appliquent les règles d’accès
 
@@ -58,13 +55,13 @@ Par défaut, la stratégie s’applique à tous les utilisateurs qui ont accès 
 
 Des groupes de sécurité peuvent également être explicitement exclus de la stratégie en sélectionnant l’option Sauf et en spécifiant un ou plusieurs groupes. Les utilisateurs qui sont membres d’un groupe dans la liste Sauf ne sont pas soumis à l’exigence d’authentification multifacteur, même s’ils sont membres d’un groupe auquel s’applique la règle d’accès. La règle d’accès indiquée ci-dessous nécessite que tous les utilisateurs du groupe Gestionnaires utilisent l’authentification multifacteur pour accéder à l’application.
 
-![Définition des règles d’accès conditionnel avec l’authentification multifacteur](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
+![Définition des règles d’accès conditionnel avec l’authentification multifacteur](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)
 
 ## Règles d’accès conditionnel avec l’authentification multifacteur
 Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authentification multifacteur en fonction de l’utilisateur, ce paramètre sur l’utilisateur sera combiné aux règles d’authentification multifacteur de l’application. Cela signifie qu’un utilisateur qui a été configuré pour l’authentification multifacteur en fonction de l’utilisateur doit effectuer l’authentification multifacteur, même s’il a été exclu des règles d’authentification multifacteur par application. En savoir plus sur l’authentification multifacteur et sur les paramètres pour chaque utilisateur.
 
 ### Options de règle d’accès
-La version préliminaire actuelle prend en charge les options suivantes :
+Les options suivantes sont prises en charge :
 
 * **Exiger une authentification multifacteur** : avec cette option, les utilisateurs auxquels les règles d’accès s’appliquent doivent effectuer une authentification multifacteur avant d’accéder à l’application à laquelle la stratégie s’applique.
 
@@ -94,4 +91,4 @@ En plus de définir cet indicateur, vous devez configurer l’instance AD FS du 
 - [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](active-directory-conditional-access.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

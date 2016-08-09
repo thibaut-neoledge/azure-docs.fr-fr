@@ -8,9 +8,9 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 
 2. Si vous utilisez le catalogue Microsoft Update pour la première fois sur cet ordinateur, cliquez sur **Installer** lorsque vous êtes invité à installer le module complémentaire Catalogue Microsoft Update. ![Installer le catalogue](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Dans la zone de recherche du Catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif que vous souhaitez télécharger, par exemple **3162954**, puis cliquez sur **Rechercher**.
+3. Dans la zone de recherche du Catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif que vous souhaitez télécharger, par exemple **3179904**, puis cliquez sur **Rechercher**.
 
-    La liste des correctifs s’affiche, par exemple **Cumulative Software Bundle Update 2.1 for StorSimple 8000 Series**.
+    La liste des correctifs s’affiche, par exemple **Cumulative Software Bundle Update 2.2 for StorSimple 8000 Series**.
 
     ![Rechercher dans le catalogue](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
@@ -60,6 +60,8 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
 
 6. Tapez **Y** lorsque vous êtes invité à confirmer l’installation du correctif.
 
+> [AZURE.IMPORTANT] Si vous installez la mise à jour 2.2, installez uniquement le fichier binaire, précédé de « all-hcsmdssoftwareudpate ». N’installez pas la mise à jour des agents CIS et MDS, précédée de all-cismdsagentupdatebundle. Dans le cas contraire, vous obtiendrez une erreur.
+
 7. Contrôlez la mise à jour à l'aide de l'applet de commande `Get-HcsUpdateStatus`. La mise à jour se termine d’abord sur le contrôleur passif. Une fois le contrôleur passif mis à jour, un basculement se produit et la mise à jour est ensuite appliquée à l’autre contrôleur. La mise à jour est terminée lorsque les deux contrôleurs sont mis à jour.
 
     L’exemple de sortie suivant indique que la mise à jour est en cours. `RunInprogress` a la valeur `True` lorsque la mise à jour est en cours.
@@ -95,9 +97,9 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
 
     Vous devez voir les versions suivantes :
 
-    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `HcsSoftwareVersion: 6.3.9600.17708`
     - `CisAgentVersion: 1.0.9299.0`
-    - `MdsAgentVersion: 30.0.4698.16` 
+    - `MdsAgentVersion: 30.0.4698.16`
 
 	Si les numéros de version ne changent pas après la mise à jour, cela indique que le correctif n'a pas pu s'appliquer. Dans ce cas, contactez le [Support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance supplémentaire.
 
@@ -239,4 +241,4 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
 
 1. Les contrôleurs redémarrent quand vous quittez le mode Maintenance. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que l’appareil a quitté le mode Maintenance, revenez au portail Azure Classic. Remarque : il se peut que le portail n’affiche pas les mises à jour installées en mode Maintenance pendant 24 heures.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

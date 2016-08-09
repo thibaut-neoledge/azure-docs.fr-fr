@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/30/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics et Power BI : tableau de bord d'analyse en temps réel pour les données de diffusion en continu
@@ -35,7 +35,7 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Nouveau, Data Services, Stream Analytics, Création rapide**.
 
-Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
+Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
 * **Nom du travail** - entrez un nom pour le travail. Par exemple, **DeviceTemperatures**.
 * **Région** - sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le hub d’événements dans la même région afin d’améliorer les performances et d’éviter le coût d’un transfert de données entre différentes régions.
@@ -148,7 +148,7 @@ Avec cela, vous obtenez automatiquement un graphique comme celui-ci :
 
 ![graphic8][graphic8]
 
-Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
+Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
 
 ![graphic9][graphic9]
 
@@ -170,7 +170,7 @@ C’est pour cette raison que Power BI s’applique naturellement dans les cas o
 
 ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
 
-Par exemple, si 1 000 appareils envoient des données chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :
+Par exemple, si 1 000 appareils envoient des données chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :
 
 ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
@@ -240,4 +240,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,16 +14,16 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/12/2016"
+	ms.date="07/25/2016"
 	ms.author="heidist"/>
 
 # Choisir une référence (SKU) ou un niveau tarifaire pour Azure Search
 
-Lors du [déploiement du service](search-create-service-portal.md), vous devrez spécifier quel niveau tarifaire ou référence (SKU) utiliser. Vous avez le choix entre les niveaux suivants : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations de ressources et de capacités.
+Lors du [déploiement du service](search-create-service-portal.md), vous devrez spécifier un niveau tarifaire ou référence (SKU) à utiliser. Vous avez le choix entre les niveaux suivants : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations et capacités.
 
-Nous vous recommandons de toujours configurer un service **Gratuit** (un par abonnement, sans date d’expiration) afin qu’il soit facilement disponible pour une démonstration ou un test. Vous pouvez utiliser le service **Gratuit** à des fins de test et d’évaluation, puis créez un deuxième service facturable pour des charges de travail de test ou de production plus importantes.
+Nous vous recommandons de toujours configurer un service **Gratuit** (un par abonnement, sans date d’expiration) afin qu’il soit facilement disponible pour les petits projets. Utilisez le service **Gratuit** à des fins de test et d’évaluation ; créez un deuxième service facturable au niveau **De base** ou **Premium** pour des charges de travail de test ou de production plus importantes.
 
-Dans Azure Search, la référence (SKU) détermine la capacité et non la disponibilité des fonctionnalités. Toutes les fonctionnalités sont disponibles à chaque niveau tarifaire.
+Dans Azure Search, la référence (SKU) détermine la capacité et non la disponibilité des fonctionnalités. Toutes les fonctionnalités sont disponibles à chaque niveau tarifaire, y compris les fonctionnalités préliminaires.
 
 ## Comment choisir un niveau tarifaire
 
@@ -58,7 +58,7 @@ Version préliminaire Standard 3 Haute densité (**S3 HD**)|Un grand nombre d’
 
 > [AZURE.NOTE] Les valeurs maximales de réplica et de partition sont facturées en tant qu’unités de recherche (36 unités maximum par service), ce qui impose une limite effective inférieure à ce que la valeur maximale indique au premier abord. Par exemple, pour utiliser le nombre maximal de 12 réplicas, vous pouvez avoir au maximum 3 partitions (3 * 12 = 36 unités). De même, pour utiliser le nombre maximal de partitions, vous devez réduire les réplicas à 3. Pour accéder à un graphique sur les combinaisons autorisées, voir [Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search](search-capacity-planning.md).
 
-## Cheminement vers le choix d’une référence (SKU)
+## Passer en revue les limites par couche
 
 Le tableau suivant est un sous-ensemble des [Limites de service dans Azure Search](search-limits-quotas-capacity.md). Il répertorie les facteurs susceptibles d’avoir un impact sur le choix de la référence (SKU). Vous pouvez vous référer à ce graphique pour répondre aux questions ci-dessous.
 
@@ -75,7 +75,7 @@ Requêtes par seconde|N/A|~3 par réplica|~15 par réplica|~60 par réplica|Moin
 <sup>1</sup> Les références (SKU) gratuites et les versions préliminaires ne sont pas fournies avec les contrats de niveau de service. Des contrats de niveau de service sont mis en œuvre dès qu’une référence (SKU) est généralement disponible.
 
 
-### Questions les plus courantes lors du choix d’une référence (SKU)
+## Éliminer les références qui ne répondent pas aux exigences 
 
 Les questions suivantes peuvent vous aider à mieux choisir la référence (SKU) adaptée à votre charge de travail.
 
@@ -101,4 +101,4 @@ Une fois que vous avez déterminé la référence (SKU) qui convient le mieux, p
 - [Créer un service de recherche dans le portail](search-create-service-portal.md)
 - [Modifier l’allocation des partitions et des réplicas à l’échelle de votre service](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

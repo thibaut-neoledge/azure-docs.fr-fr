@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -24,6 +24,6 @@ Nous avons supprimé le contenu (associé à la version 2014-12-01-preview de Lo
 ## Étapes suivantes    
 
 - [En savoir plus sur ce nouveau connecteur](../connectors/connectors-create-api-slack.md)
-- Consultez la [liste complète](../connectors/apis-list.md) de tous les connecteurs qui s’exécutent sur la nouvelle version de schéma Logic Apps 2015-08-01-preview.  
+- Consultez la [liste complète](../connectors/apis-list.md) de tous les connecteurs qui s’exécutent sur la nouvelle version de schéma Logic Apps 2015-08-01-preview.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

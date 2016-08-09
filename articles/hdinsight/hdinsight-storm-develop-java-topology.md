@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/17/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Développement de topologies Java pour une application de base de comptage du nombre de mots avec Apache Storm et Maven sur HDInsight
@@ -23,7 +23,7 @@ Découvrez un processus de base pour créer une topologie Java pour Apache Stor
 
 Après avoir suivi les étapes décrites dans ce document, vous disposerez d’une topologie de base que vous pourrez déployer sur Apache Storm sur HDInsight.
 
-> [AZURE.NOTE]\: une version complète de cette topologie est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> [AZURE.NOTE] Une version complète de cette topologie est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ##Configuration requise
 
@@ -39,9 +39,9 @@ Après avoir suivi les étapes décrites dans ce document, vous disposerez d’u
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
-* **PATH** :doit contenir les chemins d’accès suivants :
+* **PATH** :doit contenir les chemins d’accès suivants :
 
 	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
@@ -51,7 +51,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##Création d’un projet Maven
 
-À partir de la ligne de commande, utilisez le code suivant pour créer un nouveau projet Maven nommé **WordCount** :
+À partir de la ligne de commande, utilisez le code suivant pour créer un nouveau projet Maven nommé **WordCount** :
 
 	mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
@@ -59,11 +59,11 @@ Cela créera un répertoire nommé **WordCount** à l’emplacement actuel, qui 
 
 Le répertoire **WordCount** contiendra les éléments suivants :
 
-* **pom.xml** : contient les paramètres du projet Maven.
+* **pom.xml** : contient les paramètres du projet Maven.
 
-* **src\\main\\java\\com\\microsoft\\example** : contient le code de votre application.
+* **src\\main\\java\\com\\microsoft\\example** : contient le code de votre application.
 
-* **ssrc\\test\\java\\com\\microsoft\\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
+* **ssrc\\test\\java\\com\\microsoft\\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
 
 ###Suppression de l’exemple de code
 
@@ -75,12 +75,15 @@ Le répertoire **WordCount** contiendra les éléments suivants :
 
 ##Ajout de dépendances
 
-Puisqu’il s’agit d’une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez le code suivant dans la section **&lt;dependencies>** :
+Puisqu’il s’agit d’une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez le code suivant dans la section **&lt;dependencies>** :
 
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
 	  <artifactId>storm-core</artifactId>
-	  <version>0.9.2-incubating</version>
+      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+           To find the version information for earlier HDInsight cluster
+           versions, see https://azure.microsoft.com/fr-FR/documentation/articles/hdinsight-component-versioning/ -->
+	  <version>0.10.0</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
 	</dependency>
@@ -96,9 +99,11 @@ Les plug-ins Maven permettent de personnaliser les étapes de la génération du
 	<build>
 	  <plugins>
 	  </plugins>
+      <resources>
+      </resources>
 	</build>
 
-Cette section est utilisée pour ajouter des plug-ins et d’autres options de configuration de build.
+Cette section est utilisée pour ajouter des plug-ins, des ressources et d’autres options de configuration de build. Pour obtenir une référence complète du fichier __pom.xml__, consultez [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
 
 ###Ajout de plug-ins
 
@@ -138,15 +143,29 @@ Ajoutez le code suivant dans la section `<plugins>` du fichier **pom.xml** pour 
       </configuration>
     </plugin>
 
+###Configure resources
+
+La section des ressources vous permet d’inclure des ressources autres que du code comme les fichiers de configuration requis par les composants de la topologie. Pour cet exemple, ajoutez ce qui suit dans la section `<resources>` du fichier **pom.xml**.
+
+    <resource>
+        <directory>${basedir}/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>log4j2.xml</include>
+        </includes>
+    </resource>
+
+Ceci ajoute le répertoire des ressources à la racine du projet (`${basedir}`), comme un emplacement qui contient des ressources, et inclut le fichier nommé __log4j2.xml__. Ce fichier est utilisé pour configurer les informations qui sont enregistrées par la topologie.
+
 ##Création de la topologie
 
 Une topologie Storm basée sur Java comprend trois composants que vous devez créer (ou référencer) en tant que dépendance.
 
-* **Les spouts** : lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
+* **Les spouts** : lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
 
-* **Les bolts** : effectuent le traitement des flux de données émis par les spouts ou les autres bolts et émettent un ou plusieurs flux.
+* **Les bolts** : effectuent le traitement des flux de données émis par les spouts ou les autres bolts et émettent un ou plusieurs flux.
 
-* **La topologie** : définit l’organisation des spouts et des bolts et fournit le point d’entrée pour la topologie.
+* **La topologie** : définit l’organisation des spouts et des bolts et fournit le point d’entrée pour la topologie.
 
 ###Création du spout
 
@@ -250,9 +269,9 @@ Prenez un moment pour lire les commentaires du code afin de comprendre le foncti
 
 Les bolts gèrent le traitement des données. Dans cette topologie, nous en avons deux :
 
-* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
+* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
 
-* **WordCount** : compte le nombre d’occurrences de chaque mot.
+* **WordCount** : compte le nombre d’occurrences de chaque mot.
 
 > [AZURE.NOTE] Les bolts peuvent tout faire : des calculs, la persistance, la communication avec des composants externes, etc.
 
@@ -319,8 +338,15 @@ Créez deux nouveaux fichiers, **SplitSentence.java** et **WordCount.Java** dans
     import backtype.storm.tuple.Tuple;
     import backtype.storm.tuple.Values;
 
+    // For logging
+    import org.apache.logging.log4j.Logger;
+    import org.apache.logging.log4j.LogManager;
+
     //There are a variety of bolt types. In this case, we use BaseBasicBolt
     public class WordCount extends BaseBasicBolt {
+      //Create logger for this class
+      private static final Logger logger = LogManager.getLogger(WordCount.class);
+      
       //For holding words and counts
         Map<String, Integer> counts = new HashMap<String, Integer>();
 
@@ -338,6 +364,8 @@ Créez deux nouveaux fichiers, **SplitSentence.java** et **WordCount.Java** dans
           counts.put(word, count);
           //Emit the word and the current count
           collector.emit(new Values(word, count));
+          //Log information
+          logger.info("Emitting a count of " + count + " for word " + word);
         }
 
         //Declare that we will emit a tuple containing two fields; word and count
@@ -349,7 +377,7 @@ Créez deux nouveaux fichiers, **SplitSentence.java** et **WordCount.Java** dans
 
 Prenez un moment pour lire les commentaires du code afin de comprendre le fonctionnement de chaque bolt.
 
-###Création de la topologie
+###Définition de la topologie
 
 La topologie lie les spouts et les bolts dans un graphique, qui définit la circulation des données entre les composants. Elle fournit également des indicateurs de parallélisme que Storm utilise lors de la création des instances de composants au sein du cluster.
 
@@ -391,7 +419,9 @@ Pour implémenter la topologie, créez un fichier nommé **WordCountTopology.jav
 
         //new configuration
         Config conf = new Config();
-        conf.setDebug(true);
+        //Set to false to disable debug information
+        // when running in production mode.
+        conf.setDebug(false);
 
         //If there are arguments, we are running on a cluster
         if (args != null && args.length > 0) {
@@ -419,6 +449,37 @@ Pour implémenter la topologie, créez un fichier nommé **WordCountTopology.jav
 
 Prenez un moment pour lire les commentaires du code afin de comprendre comment la topologie est définie, puis envoyée au cluster.
 
+###Configuration de la journalisation
+
+Storm utilise Apache Log4j pour journaliser les informations. Si vous ne configurez pas la journalisation, la topologie émettra un grand nombre d’informations de diagnostic, qui peuvent être difficiles à lire. Pour contrôler ce qui est enregistré, créez un fichier nommé __log4j2.xml__ dans le répertoire des __ressources__. Utilisez les données suivantes comme contenu du fichier.
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Configuration>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.microsoft.example" level="trace" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="error">
+            <Appender-Ref ref="STDOUT"/>
+        </Root>
+    </Loggers>
+    </Configuration>
+
+Cela permet de configurer un nouvel enregistreur d’événements pour la classe __com.microsoft.example__, qui inclut les composants de cet exemple de topologie. Le niveau est défini pour effectuer le suivi de ce journal, ce qui permet de capturer les informations de journalisation émises par les composants dans cette topologie. Si vous réexaminez le code pour ce projet, vous remarquerez que seul le fichier WordCount.java implémente la journalisation. Il enregistre le nombre de chaque mot.
+
+La section `<Root level="error">` configure le niveau racine de journalisation (tout ce qui n’est pas dans __com.microsoft.example__,) pour consigner uniquement les informations d’erreur.
+
+> [AZURE.IMPORTANT] Bien que cela réduise considérablement les informations consignées lors du test d’une topologie dans votre environnement de développement, cela ne supprime pas toutes les informations de débogage générées lors de l’exécution sur un cluster de production. Pour réduire ces informations, vous devez également définir le débogage sur false dans la configuration envoyée au cluster. Consultez le code WordCountTopology.java dans ce document pour obtenir un exemple.
+
+Pour plus d’informations sur la configuration de la journalisation pour Log4j, consultez [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+
+> [AZURE.NOTE] Storm version 0.10.0 utilise Log4j 2.x. Les versions antérieures de Storm utilisaient Log4j 1.x, qui utilisait un autre format pour la configuration du journal. Pour plus d’informations sur la configuration antérieure, consultez [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+
 ##Test local de la topologie
 
 Après avoir enregistré les fichiers, utilisez la commande suivante pour tester la topologie localement.
@@ -427,29 +488,23 @@ Après avoir enregistré les fichiers, utilisez la commande suivante pour tester
 
 Pendant son exécution, la topologie affiche les informations de démarrage. Elle commence ensuite à afficher des lignes similaires à ce qui suit, lorsque des phrases sont émises par le spout et traitées par les bolts.
 
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id: {}, [an apple a day keeps thedoctor away]]
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [an]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [an]
-    15399 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [apple]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [apple]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [a]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.task - Emitting: count default [an, 53]
-    15400 [Thread-12-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [a]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [day]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.task - Emitting: count default [apple, 53]
-    15401 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [day]
-    15401 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [keeps]
-    15401 [Thread-12-count] INFO  backtype.storm.daemon.task - Emitting: count default [a, 53]
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word i
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word at
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word with
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word nature
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word two
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word am
 
-Comme vous pouvez le voir à partir de cette sortie, les actions suivantes ont eu lieu :
-
-1. Le spout transmet « an apple a day keeps the doctor away ».
-
-2. Le bolt de fractionnement commence à émettre des mots à partir de la phrase.
-
-3. Le bolt de décompte commence à émettre chaque mot et le nombre de fois où il a été émis.
-
-Selon les données du bolt de décompte, nous pouvons voir que le mot « apple » a été émis 53 fois. Le décompte continuera d’augmenter tant que la topologie est en cours d’exécution, étant donné que les mêmes phrases sont émises au hasard indéfiniment et que le compteur n’est jamais réinitialisé.
+Selon la consignation du bolt WordCount, nous pouvons voir que le mot « apple » a été émis 53 fois. Le décompte continuera d’augmenter tant que la topologie est en cours d’exécution, étant donné que les mêmes phrases sont émises au hasard indéfiniment et que le compteur n’est jamais réinitialisé.
 
 ##Trident
 
@@ -471,4 +526,4 @@ Vous avez appris à créer une topologie Storm à l’aide de Java. Apprenez mai
 
 Vous trouverez davantage d’exemples de topologies Storm en vous rendant sur [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

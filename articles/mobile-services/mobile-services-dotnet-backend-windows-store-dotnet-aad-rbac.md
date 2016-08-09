@@ -8,12 +8,12 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Contrôle d’accès en fonction du rôle dans Mobile Services à l’aide de JavaScript et d’Azure Active Directory
@@ -32,7 +32,7 @@ Le contrôle d'accès en fonction du rôle (RBAC) consiste à affecter des autor
 Ce didacticiel présente le contrôle d'accès en fonction du rôle, qui contrôle l'appartenance de chaque utilisateur à un groupe Sales (Ventes) défini dans Azure Active Directory (AAD). Le contrôle sera effectué avec le backend .NET Mobile Service à l'aide de l'[API REST Graph] pour Azure Active Directory. Seuls les utilisateurs appartenant au groupe Sales seront autorisés à accéder aux données.
 
 
->[AZURE.NOTE]L'objectif de ce didacticiel est d'approfondir vos connaissances sur l'authentification pour inclure des pratiques d'autorisation. Vous devez donc au préalable avoir suivi le didacticiel [Ajout de l'authentification à votre application] avec le fournisseur d'authentification Azure Active Directory. Ce didacticiel poursuit la mise à jour de l'application TodoItem utilisée dans le didacticiel [Ajout de l'authentification à votre application].
+>[AZURE.NOTE] L'objectif de ce didacticiel est d'approfondir vos connaissances sur l'authentification pour inclure des pratiques d'autorisation. Vous devez donc au préalable avoir suivi le didacticiel [Ajout de l'authentification à votre application] avec le fournisseur d'authentification Azure Active Directory. Ce didacticiel poursuit la mise à jour de l'application TodoItem utilisée dans le didacticiel [Ajout de l'authentification à votre application].
 
 ##Configuration requise
 
@@ -179,12 +179,12 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 
 9. Dans le fichier AuthorizeAadRole.cs, mettez à jour la méthode `GetAADToken` sur la classe `AuthorizeAadRole`. Cette méthode utilise les paramètres d'application stockés dans le service mobile pour obtenir un jeton d'accès à AAD à partir de la bibliothèque ADAL.
 
-    >[AZURE.NOTE]La bibliothèque ADAL pour .NET inclut un cache de jeton en mémoire par défaut afin de réduire le trafic réseau supplémentaire par rapport à Active Directory. Toutefois, vous pouvez écrire votre propre implémentation du cache ou désactiver complètement la mise en cache. Pour plus d'informations, consultez [Bibliothèque d'authentification Azure AD pour .NET].
+    >[AZURE.NOTE] La bibliothèque ADAL pour .NET inclut un cache de jeton en mémoire par défaut afin de réduire le trafic réseau supplémentaire par rapport à Active Directory. Toutefois, vous pouvez écrire votre propre implémentation du cache ou désactiver complètement la mise en cache. Pour plus d'informations, consultez [Bibliothèque d'authentification Azure AD pour .NET].
 
         // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
         private async Task<string> GetAADToken()
         {
-            // Try to get the required AAD authentication app settings from the mobile service.  
+            // Try to get the required AAD authentication app settings from the mobile service.
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
                   services.Settings.TryGetValue("AAD_CLIENT_KEY", out clientkey) &
                   services.Settings.TryGetValue("AAD_TENANT_DOMAIN", out tenantdomain)))
@@ -245,7 +245,7 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 
 11. Dans le fichier AuthorizeAadRole.cs, mettez à jour la méthode `OnAuthorization` dans la classe `AuthorizeAadRole` à l'aide du code suivant. Ce code suppose que l'utilisateur appelant le service mobile s'est authentifié auprès d'AAD. Il obtient ensuite l'ID d'objet AAD de l'utilisateur et vérifie s'il appartient au groupe Active Directory qui correspond au rôle.
 
-    >[AZURE.NOTE]Vous pourriez rechercher le groupe Active Directory par nom. Toutefois, il est souvent judicieux d'enregistrer l'ID du groupe en tant que paramètre d'application de service mobile. Le nom du groupe est en effet susceptible de changer, mais l'ID reste toujours le même.
+    >[AZURE.NOTE] Vous pourriez rechercher le groupe Active Directory par nom. Toutefois, il est souvent judicieux d'enregistrer l'ID du groupe en tant que paramètre d'application de service mobile. Le nom du groupe est en effet susceptible de changer, mais l'ID reste toujours le même.
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -393,4 +393,4 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Bibliothèque d'authentification Azure AD pour .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

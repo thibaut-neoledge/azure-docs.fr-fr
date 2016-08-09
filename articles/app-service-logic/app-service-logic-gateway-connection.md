@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -24,8 +24,11 @@ Les connecteurs d’applications logiques pris en charge vous permettent de conf
 
 * Vous devez utiliser une adresse de messagerie professionnelle ou scolaire dans Azure pour associer la passerelle de données locale à votre compte (compte Azure Active Directory)
     * Si vous utilisez un compte Microsoft (par exemple, @outlook.com, @live.com), vous pouvez utiliser votre compte Azure pour créer adresse de messagerie professionnelle ou scolaire en [suivant les étapes décrites ici](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+
+> [AZURE.WARNING] Pour le moment, l’installation de la passerelle locale ne peut être effectuée qu’à l’aide d’un compte inscrit auprès de Power BI. Pendant cette période, inscrivez un compte auprès de Power BI (gratuit) pour procéder à l’installation.
+
 * La passerelle de données locale doit être [installée sur un ordinateur local](app-service-logic-gateway-install.md).
-* La passerelle ne doit pas avoir été revendiquée par une autre passerelle de données locale Azure ([cette revendication se produit lors de la création à l’étape 2 ci-dessous](#2-create-an-azure-on-premises-data-gateway-resource)) car une installation ne peut être associée qu’à une seule ressource de passerelle.
+* La passerelle ne doit pas avoir été revendiquée par une autre passerelle de données locale Azure ([cette revendication se produit lors de la création à l’étape 2 ci-dessous](#2-create-an-azure-on-premises-data-gateway-resource)), car une installation ne peut être associée qu’à une seule ressource de passerelle.
 
 ## Installation et configuration de la connexion
 
@@ -38,9 +41,9 @@ Vous trouverez des informations sur l’installation de la passerelle de donnée
 Une fois la passerelle installée, vous devez associer votre abonnement Azure à la passerelle de données locale.
 
 1. Connectez-vous à Azure en utilisant la même adresse de messagerie professionnelle ou scolaire utilisée lors de l’installation de la passerelle
-1. Cliquez sur le bouton de ressource **Nouveau**
-1. Recherchez et sélectionnez la **passerelle de données locale**
-1. Complétez les informations pour associer la passerelle à votre compte, notamment en sélectionnant un **nom d’installation** approprié
+1. Cliquez sur le bouton de ressource **Nouveau**.
+1. Recherchez et sélectionnez la **passerelle de données locale**.
+1. Complétez les informations pour associer la passerelle à votre compte, notamment en sélectionnant un **nom d’installation** approprié.
 
     ![Connexion à la passerelle de données locale][1]
 1. Cliquez sur le bouton **Créer** pour créer la ressource
@@ -67,4 +70,4 @@ La connexion devrait maintenant être correctement configurée pour une utilisat
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

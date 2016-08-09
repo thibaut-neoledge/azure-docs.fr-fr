@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam;ricksal"/>
 
 # Mise à l’échelle des services mobiles soutenus par une base de données SQL Azure
@@ -56,9 +56,9 @@ Il est important de comprendre les différents niveaux de bases de données à v
 
 Voici quelques recommandations pour sélectionner le niveau pour votre base de données :
 
-- **Basic** : à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
-- **Standard** : à utiliser pour les services de production, lorsque vous pensez interroger plusieurs bases de données simultanément.
-- **Premium** : à utiliser pour les grands services de production avec plusieurs requêtes simultanées, des pics de charge élevés et une faible latence pour chaque demande.
+- **Basic** : à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
+- **Standard** : à utiliser pour les services de production, lorsque vous pensez interroger plusieurs bases de données simultanément.
+- **Premium** : à utiliser pour les grands services de production avec plusieurs requêtes simultanées, des pics de charge élevés et une faible latence pour chaque demande.
 
 Pour plus d'informations sur l'utilisation de chaque niveau, consultez la rubrique [Raisons d'utiliser les nouveaux niveaux de service]
 
@@ -76,8 +76,8 @@ Maintenant que vous connaissez les différents niveaux de bases de données, nou
 
     - *Pourcentage E/S données* (disponible uniquement dans les niveaux Basic/Standard/Premium)
     - *Pourcentage E/S journaux* (disponible uniquement dans les niveaux Basic/Standard/Premium)
-    - *Stockage* 
-7. Inspectez les métriques dans la plage horaire correspondant aux problèmes de votre service. 
+    - *Stockage*
+7. Inspectez les métriques dans la plage horaire correspondant aux problèmes de votre service.
 
     ![Portail Azure Classic - Métriques de Base de données SQL][PortalSqlMetrics]
 
@@ -192,7 +192,7 @@ Voici quelques instructions liées aux requêtes effectuées dans la base de don
 - **Implémentez la pagination.** Effectuer des recherches dans la base de données peut aboutir au renvoi d’un grand nombre d’enregistrements au client. Pour minimiser le volume et la latence des opérations, pensez à implémenter la pagination.
 
     - Par défaut, votre service mobile limite la taille de la page à 50 enregistrements pour les requêtes entrantes, mais vous pouvez demander manuellement jusqu’à 1 000 enregistrements. Pour plus d'informations, consultez la section « Renvoi de données dans les pages » pour [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) et [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - Il n’existe pas de taille de page par défaut pour les requêtes faites à partir du code de votre service mobile. Si votre application ne prend pas en charge la pagination ou si elle ne l’exécute pas par précaution, pensez à appliquer les limites par défaut à vos requêtes. Dans le backend JavaScript, utilisez l’opérateur **take** sur l’[objet query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si vous utilisez le serveur principal .NET, pensez à utiliser la [méthode Take] pour votre requête LINQ.  
+    - Il n’existe pas de taille de page par défaut pour les requêtes faites à partir du code de votre service mobile. Si votre application ne prend pas en charge la pagination ou si elle ne l’exécute pas par précaution, pensez à appliquer les limites par défaut à vos requêtes. Dans le backend JavaScript, utilisez l’opérateur **take** sur l’[objet query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si vous utilisez le serveur principal .NET, pensez à utiliser la [méthode Take] pour votre requête LINQ.
 
 
 Pour plus d’informations sur l’optimisation de la conception des requêtes, y compris sur l’analyse des plans de requête, consultez la section [Conception avancée des requêtes](#AdvancedQuery) à la fin de ce document.
@@ -407,7 +407,7 @@ L’exemple suivant renvoie des informations relatives aux cinq premières requ�
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête** :
+Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête** :
 
 ![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
 
@@ -494,4 +494,4 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 <!-- BLOG LINKS -->
 [Combien coûte cette clé ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Ajouter Mobile Services à une application Android existante (backend JavaScript)
@@ -29,13 +29,13 @@ Ce didacticiel vous aide à comprendre plus en détail comment Azure Mobile Serv
 
 ## Composants requis
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357).
 
 
 - Le [Kit de développement logiciel (SDK) Azure Mobile Services Android].
-- L’[environnement de développement intégré Android Studio](https://developer.android.com/sdk/index.html), qui inclut le Kit de développement logiciel (SDK) Android, et Android 4.2 ou version ultérieure. Le projet GetStartedWithData téléchargé requiert Android 4.2 ou une version ultérieure. Toutefois, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
+- L’[environnement de développement intégré Android Studio](https://developer.android.com/sdk/index.html), qui inclut le Kit de développement logiciel (SDK) Android, et Android 4.2 ou version ultérieure. Le projet GetStartedWithData téléchargé requiert Android 4.2 ou une version ultérieure. Toutefois, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
 
 ## Exemple de code
 
@@ -82,7 +82,7 @@ L'application a été mise à jour pour utiliser Mobile Services pour le stockag
 
    	![][9]
 
-   	La table **TodoItem** contient à présent des données, dont certaines valeurs ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
+   	La table **TodoItem** contient à présent des données, dont certaines valeurs ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
 Cela conclut le didacticiel **Prise en main des données** pour Android.
 
@@ -126,4 +126,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Android 
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

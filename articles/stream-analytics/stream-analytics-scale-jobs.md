@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/13/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Mettre à l’échelle des tâches Azure Stream Analytics pour augmenter le débit de traitement des données de flux
@@ -350,4 +350,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

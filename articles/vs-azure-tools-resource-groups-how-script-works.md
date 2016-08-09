@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="07/26/2016"
 	ms.author="tomfitz" />
 
 # Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure
@@ -257,6 +257,8 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 ## Étapes suivantes
 En savoir plus sur Azure Resource Manager en consultant [Présentation d’Azure Resource Manager](resource-group-overview.md).
 
+Pour plus d’exemples d’utilisation de projets de groupe de ressources Azure, consultez [Deploy and manage Azure resources](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources) (Déployer et gérer des ressources Azure) à partir de la [démonstration](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect pour [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Pour plus de démarrages rapides à partir de la démonstration pour HealthClinic.biz, consultez [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Démarrages rapides avec les Outils de développement Azure).
+
 [0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png
 [1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png
 [2]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy3bc.png
@@ -264,4 +266,4 @@ En savoir plus sur Azure Resource Manager en consultant [Présentation d’Azure
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

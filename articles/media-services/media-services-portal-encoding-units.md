@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/23/2016"
 	ms.author="juliako"/>
 
 
@@ -53,7 +53,9 @@ Référence|[Fichier d’entrée : durée de 5 minutes 640x360p à 29,97 images 
 
 - Si vous utilisez le pool partagé, c’est-à-dire sans aucune unité réservée, alors vos tâches d’encodage ont les mêmes performances que les unités de demande S1. Toutefois, il n’existe aucune limite supérieure à la durée que vos tâches peuvent passer dans l’état en file d’attente et, à tout moment, une seule tâche maximum s’exécutera.
 
-- Les centres de données suivants ne proposent pas le type d’unité réservée **S3** : Sud du Brésil, Inde-Ouest, Inde-Centre et Sud de l’Inde.
+- Les centres de données suivants ne proposent pas le type d’unité réservée **S2** : Sud du Brésil, Inde-Ouest, Inde-Centre et Sud de l’Inde.
+
+- Les centres de données suivants ne proposent pas le type d’unité réservée **S3** : Sud du Brésil, Inde-Ouest et Inde-Centre.
 
 - C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
 
@@ -91,4 +93,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

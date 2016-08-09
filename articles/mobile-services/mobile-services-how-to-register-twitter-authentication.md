@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 #Inscrire des applications pour la connexion à Twitter avec Mobile Services
@@ -47,7 +47,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
    	Cette opération inscrit l'application et affiche les détails de la demande.
 
-6. Cliquez sur l'onglet **Clés et jetons d'accès** dans le tableau de bord de votre application et prenez note des valeurs **clé du client** et **Secret du client**.
+6. Cliquez sur l’onglet **Clés et jetons d’accès** dans le tableau de bord de votre application et notez les valeurs **Clé client** et **Code secret client**.
 
     > [AZURE.NOTE] La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
 
@@ -66,4 +66,4 @@ Vous pouvez désormais utiliser une connexion Twitter pour l'authentification da
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

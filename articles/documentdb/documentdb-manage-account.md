@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/20/2016"
 	ms.author="anhoh"/>
 
 # Gestion d'un compte DocumentDB
@@ -31,9 +31,8 @@ La sélection du niveau de cohérence adéquat dépend de la sémantique de votr
 2. Dans le panneau du compte, si le panneau **Paramètres** n’est pas déjà ouvert, cliquez sur l’icône **Tous les paramètres**. ![Cohérence par défaut Session][5]
 
 3. Dans le panneau **Tous les paramètres**, cliquez sur l’entrée **Cohérence par défaut** sous **Fonctionnalité**. ![Cohérence par défaut Session][6]
-
 4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
-5. La progression de l’opération peut être contrôlée via le hub de notifications du portail Azure.
+
 
 > [AZURE.NOTE] L’application d’une modification du paramètre de cohérence par défaut dans votre compte DocumentDB peut prendre plusieurs minutes.
 
@@ -86,9 +85,10 @@ Il inclut également des clés en lecture seule pour permettre aux utilisateurs 
 
 ### Affichage et copie d’une touche d’accès rapide dans le portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB. 
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB.
 2. Dans la barre **Essentials** du panneau **Compte DocumentDB**, cliquez sur **Clés**.
 3. Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
+
   ![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/documentdb-manage-account/copykeys.png)
 
 ### Régénération de clés d'accès
@@ -107,7 +107,7 @@ Si certains de vos services cloud ou applications utilisent le compte DocumentDB
 
 4. Dans le panneau **Clés**, cliquez sur la commande **Régénérer la clé primaire**, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
 
-5. Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
+5. Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
 
 6. Régénérez la clé d’accès secondaire.
 
@@ -143,7 +143,7 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/fr-FR/regions/#services
+[offers]: https://azure.microsoft.com/fr-FR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

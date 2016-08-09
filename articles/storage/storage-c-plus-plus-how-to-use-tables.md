@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
     ms.author="dineshm"/>
 
 # Utilisation du stockage de table à partir de C++
@@ -34,8 +34,8 @@ Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent 
 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
--	**Linux :** suivez les instructions disponibles dans la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur Entrée.  
+-	**Linux :** suivez les instructions disponibles dans la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
+-	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur Entrée.
 
 		Install-Package wastorage
 
@@ -167,10 +167,10 @@ Vous pouvez insérer un lot d’entités dans le service de Table en une seule o
 
 Quelques remarques sur les opérations par lot :
 
--	Vous pouvez effectuer jusqu’à 100 opérations d’insertion, de suppression, de fusion, de remplacement, d’insertion ou fusion et d’insertion ou de remplacement dans n’importe quelle combinaison en un seul lot.  
--	Une opération par lot peut comporter une opération d’extraction, s’il s’agit de la seule opération du lot.  
--	Toutes les entités d’une opération par lot doivent avoir la même clé de partition.  
--	Une opération par lot est limitée à une charge utile de données de 4 Mo.  
+-	Vous pouvez effectuer jusqu’à 100 opérations d’insertion, de suppression, de fusion, de remplacement, d’insertion ou fusion et d’insertion ou de remplacement dans n’importe quelle combinaison en un seul lot.
+-	Une opération par lot peut comporter une opération d’extraction, s’il s’agit de la seule opération du lot.
+-	Toutes les entités d’une opération par lot doivent avoir la même clé de partition.
+-	Une opération par lot est limitée à une charge utile de données de 4 Mo.
 
 ## Extraction de toutes les entités d’une partition
 Pour exécuter une requête de table pour toutes les entités d’une partition, utilisez un objet **table\_query**. L’exemple de code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
@@ -414,4 +414,4 @@ Les bases du stockage des tables étant assimilées, voir les liens suivants pou
 -	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

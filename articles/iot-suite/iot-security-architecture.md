@@ -19,4 +19,18 @@
 
 [AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+## Étapes suivantes
+
+Pour en savoir plus sur la sécurisation de votre solution IoT, consultez [Sécuriser votre déploiement IoT][lnk-security-deployment].
+
+Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
+
+- [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
+- [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-faq]: iot-suite-faq.md
+
+[lnk-security-deployment]: iot-suite-security-deployment.md
+
+<!---HONumber=AcomDC_0727_2016-->

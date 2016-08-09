@@ -28,7 +28,7 @@ Azure dispose de nombreuses fonctionnalités intégrées de plateforme qui prenn
 
 Le contrôleur de structure Azure approvisionne et surveille l’état des instances de calcul Azure. Le contrôleur de structure vérifie l’état du matériel et des logiciels des instances hôtes et de la machine invitée. Lorsqu’il détecte une défaillance, il applique les contrats de niveau de service en déplaçant automatiquement les instances de machines virtuelles. Le concept de domaines d’erreur et de mise à niveau englobe en outre les contrats de niveau de service de calcul.
 
-Quand plusieurs instances de rôle sont déployées, Azure les répartit sur différents domaines d’erreur. En fait, une limite de domaine d’erreur est un autre rack matériel de la région. Les domaines d’erreur réduisent la probabilité qu’une défaillance matérielle localisée interrompe le service d’une application. Vous ne pouvez pas gérer le nombre de domaines d’erreur alloués à vos rôles web ou de travail. Le contrôleur de structure sollicite des ressources dédiées qui sont séparées des applications Azure hébergées. Il présente un temps d’activité de 100 %, dans la mesure où il constitue le noyau du système Azure. Il surveille et gère les instances de rôle au sein des domaines d’erreur.
+Quand plusieurs instances de rôle de service cloud sont déployées, Azure les répartit sur différents domaines d’erreur. En fait, une limite de domaine d’erreur est un autre rack matériel de la région. Les domaines d’erreur réduisent la probabilité qu’une défaillance matérielle localisée interrompe le service d’une application. Vous ne pouvez pas gérer le nombre de domaines d’erreur alloués à vos rôles web ou de travail. Le contrôleur de structure sollicite des ressources dédiées qui sont séparées des applications Azure hébergées. Il présente un temps d’activité de 100 %, dans la mesure où il constitue le noyau du système Azure. Il surveille et gère les instances de rôle au sein des domaines d’erreur.
 
 Le diagramme suivant représente les ressources Azure partagées qui sont déployées et gérées par le contrôleur de structure au sein des différents domaines d’erreur.
 
@@ -143,4 +143,4 @@ Il est important de noter que l’extensibilité du service cloud affecte direct
 
 Cet article fait partie d’une série d’articles axés sur la [récupération d’urgence et la haute disponibilité des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). Le prochain article de cette série est [Récupération d’urgence des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

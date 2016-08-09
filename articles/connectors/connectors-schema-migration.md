@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015 | Microsoft Azure App Service"
 	description="Vous pouvez facilement migrer vos applications logiques vers la dernière version du schéma. Suivez simplement cette procédure."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
@@ -42,4 +42,4 @@ Pour migrer vos applications logiques existantes vers le nouveau schéma, procé
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

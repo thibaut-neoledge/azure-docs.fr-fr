@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal JavaScript | Microsoft Azure"
+	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal JavaScript | Microsoft Azure"
 	description="Découvrez comment autoriser des utilisateurs sur le backend JavaScript Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
@@ -45,7 +45,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
     >[AZURE.NOTE] Assurez-vous que le [schéma dynamique](https://msdn.microsoft.com/library/azure/jj193175.aspx) est activé. Dans le cas contraire, la colonne *userId* n'est pas ajoutée automatiquement. Ce paramètre est activé par défaut pour un nouveau service mobile.
 
-3. De la même façon, remplacez l'opération **Read** existante par la fonction suivante : Ce script filtre les objets TodoItem renvoyés, de façon à ce qu’un utilisateur reçoive uniquement les éléments qu’il a insérés.
+3. De la même façon, remplacez l'opération **Read** existante par la fonction suivante : Ce script filtre les objets TodoItem renvoyés, de façon à ce qu’un utilisateur reçoive uniquement les éléments qu’il a insérés.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
@@ -73,4 +73,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

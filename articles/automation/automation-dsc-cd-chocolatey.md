@@ -26,8 +26,8 @@ L’univers des opérations de développement offre de nombreux outils conçus p
 
 Il y aurait beaucoup à dire sur ce sujet, mais il est heureusement possible de décomposer toutes ces informations en deux grands processus :
 
-  - Écrire du code et le tester, puis créer et publication des packages d’installation pour les versions majeures et mineures du système. 
-  - Créer et gérer des machines virtuelles qui installeront et exécuteront le code dans les packages.  
+  - Écrire du code et le tester, puis créer et publication des packages d’installation pour les versions majeures et mineures du système.
+  - Créer et gérer des machines virtuelles qui installeront et exécuteront le code dans les packages.
 
 Une fois ces deux processus en place, vous pouvez mettre automatiquement à jour le package exécuté sur n’importe quelle machine virtuelle au fur et à mesure que de nouvelles versions sont créées et déployées.
 
@@ -63,7 +63,7 @@ Ouvrez une ligne de commande PowerShell (Add-AzureRmAccount) authentifiée : (le
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-Vous pouvez installer votre compte Automation dans l’une des régions suivantes (également appelées « emplacement ») : est du Japon, est des États-Unis, Europe de l’ouest, Asie du Sud-est, Amérique du Sud.
+Vous pouvez installer votre compte Automation dans l’une des régions suivantes (également appelées « emplacement ») : États-Unis de l’Est 2, Sud du centre des États-Unis, Gouvernement des États-Unis (Virginie), Europe de l’Ouest, Sud-Est asiatique, Japon de l’Est, Centre de l’Inde et Sud-Est de l’Australie.
 
 ## Étape 2 : ajustement de l’extension de machine virtuelle au modèle ARM
 
@@ -79,10 +79,10 @@ Il existe aussi une approche manuelle. La structure de dossier d’un module d�
 
 -   Installez le module dont vous avez besoin sur votre station de travail, comme suit :
     -   Installez [Windows Management Framework v5](http://aka.ms/wmf5latest) (inutile pour Windows 10)
-    -   `Install-Module –Name MODULE-NAME` < — récupère le module dans la PowerShell Gallery 
--   Copiez le dossier de module situé dans le répertoire `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` dans un dossier temporaire 
--   Supprimez les modèles et la documentation dans le dossier principal 
--   Compressez le dossier principal en attribuant au fichier ZIP exactement le même nom que celui du dossier 
+    -   `Install-Module –Name MODULE-NAME` < — récupère le module dans la PowerShell Gallery
+-   Copiez le dossier de module situé dans le répertoire `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` dans un dossier temporaire
+-   Supprimez les modèles et la documentation dans le dossier principal
+-   Compressez le dossier principal en attribuant au fichier ZIP exactement le même nom que celui du dossier
 -   Placez le fichier ZIP dans un emplacement HTTP accessible, par exemple un stockage d’objets blob dans un compte de stockage Azure.
 -   Exécutez cette commande PowerShell :
 
@@ -185,4 +185,4 @@ La source complète de cet exemple se trouve dans ce [projet Visual Studio](http
 - [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

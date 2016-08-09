@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -57,11 +57,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajout de l’authentification à l’application
 
-1. Ajoutez la propriété suivante à la classe **ToDoActivity** :
+1. Ajoutez la propriété suivante à la classe **ToDoActivity** :
 
 		private MobileServiceUser user;
 
-2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
+2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
 
         private async Task Authenticate()
         {
@@ -142,4 +142,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->
