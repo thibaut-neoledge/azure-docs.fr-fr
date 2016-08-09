@@ -1,14 +1,12 @@
-In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
+Dans cette procédure pas à pas, vous allez apprendre à utiliser le déclencheur **Salesforce - Création d’un objet** pour initier un flux de travail logique application lorsqu’un prospect est créé dans Salesforce.
 
->[AZURE.NOTE]You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+>[AZURE.NOTE]Vous serez invité à vous connecter à votre compte Salesforce si vous n’avez pas encore créé une *connexion* à Salesforce.
 
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created**  trigger.  
-![Salesforce trigger image 1](./media/connectors-create-api-salesforce/trigger-1.png)   
-- The **When an object is created** control is displayed.  
-![Salesforce trigger image 2](./media/connectors-create-api-salesforce/trigger-2.png)   
-- Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.   
-![Salesforce trigger image 3](./media/connectors-create-api-salesforce/trigger-3.png)   
-- That's it. You've created the trigger. However, you need to create at least one action in order to make this a valid logic app.    
-![Salesforce trigger image 4](./media/connectors-create-api-salesforce/trigger-4.png)   
+1. Saisissez *salesforce* dans la zone de recherche sur le concepteur d’applications logiques, puis sélectionnez le déclencheur **Salesforce - Création d’un objet**. ![Image de déclencheur Salesforce 1](./media/connectors-create-api-salesforce/trigger-1.png)
+- Le contrôle **Lors de la création d’un objet** s’affiche. ![Image de déclencheur Salesforce 2](./media/connectors-create-api-salesforce/trigger-2.png)
+- Sélectionnez le **Type d’objet** puis sélectionnez *Prospect* à partir de la liste d’objets. Lors de cette étape, vous indiquez que vous créez un déclencheur qui informe votre application logique de la création d’un prospect dans Salesforce. ![Image de déclencheur Salesforce 3](./media/connectors-create-api-salesforce/trigger-3.png)
+- Vous avez terminé. Vous avez créé le déclencheur. Toutefois, vous devez créer au moins une action pour en faire une application logique valide. ![Image de déclencheur Salesforce 4](./media/connectors-create-api-salesforce/trigger-4.png)
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is created in your Salesforce.  
+À ce stade, votre application logique a été configurée avec un déclencheur qui lance une série d’autres déclencheurs et actions dans le flux de travail lorsqu’un nouvel élément est créé dans Salesforce.
+
+<!---HONumber=AcomDC_0727_2016-->

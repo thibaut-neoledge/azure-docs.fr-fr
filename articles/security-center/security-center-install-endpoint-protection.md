@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Installer Endpoint Protection dans Azure Security Center
 
 Azure Security Center vous recommande de configurer un logiciel anti-programme malveillant sur vos machines virtuelles Azure, s’il n’est pas encore activé. Cette recommandation s'applique uniquement aux machines virtuelles Windows.
 
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la préversion d’Azure Security Center. Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
 
 ## Implémenter la recommandation
 
@@ -36,13 +36,13 @@ Azure Security Center vous recommande de configurer un logiciel anti-programme m
 
 [Microsoft Antimalware](../azure-security-antimalware.md) est maintenant activé sur les machines virtuelles sélectionnées.
 
-## Étapes suivantes
+## Voir aussi
 
-Cet article vous a montré comment implémenter la recommandation de Security Center « Installer Endpoint Protection ». Pour en savoir plus sur l'activation d'un logiciel anti-programme malveillant dans Azure, consultez les sections suivantes :
+Cet article vous a montré comment implémenter la recommandation de Security Center « Installer Endpoint Protection ». Pour en savoir plus sur l'activation d'un logiciel anti-programme malveillant dans Azure, consultez les sections suivantes :
 
 - [Microsoft Antimalware pour Cloud Services et Virtual Machines](../azure-security-antimalware.md) -- Découvrez comment déployer Microsoft Antimalware.
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur Security Center, consultez :
 
 - [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité.
 - [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
@@ -58,4 +58,4 @@ Pour plus d’informations sur Security Center, consultez :
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

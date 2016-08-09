@@ -260,9 +260,13 @@ L’exemple suivant montre le message **DeviceInfo** JSON que l’appareil a env
 
 ## Étapes suivantes
 
-Vous pouvez en savoir plus sur l’envoi de messages d’information d’appareil à partir de votre appareil personnalisé dans la rubrique [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-custom].
+Maintenant que vous savez comment personnaliser les solutions préconfigurées, vous pouvez explorer certaines des autres fonctions et fonctionnalités des solutions préconfigurées de la suite IoT :
 
-Vous trouverez plus d’informations sur la personnalisation des solutions préconfigurées dans la rubrique [Personnaliser une solution préconfigurée][lnk-customize].
+- [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
+- [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
+- [Sécurisation de l’Internet des objets de bout en bout][lnk-security-groundup]
+
+
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
@@ -273,10 +277,12 @@ Vous trouverez plus d’informations sur la personnalisation des solutions préc
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-connect-custom]: iot-suite-connecting-devices.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 
-<!---HONumber=AcomDC_0720_2016-->
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
+<!---HONumber=AcomDC_0727_2016-->

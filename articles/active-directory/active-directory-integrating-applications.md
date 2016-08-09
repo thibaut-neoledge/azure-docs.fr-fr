@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Intégration d’applications dans Azure Active Directory
@@ -153,10 +153,10 @@ Vous pouvez développer une API web et la mettre à disposition d’applications
 ![Les autorisations de la liste des tâches sont affichées.](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### Informations complémentaires concernant le manifeste d’application
-Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD, y compris les étendues d’accès d’API dont il a été question ci-dessus. Pour plus d’informations sur l’entité Application, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). Vous y trouverez des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API :
+Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD, y compris les étendues d’accès d’API dont il a été question ci-dessus. Pour plus d’informations sur l’entité Application, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Vous y trouverez des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API :
 
-- le membre appRoles, qui est une collection d’entités [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) pouvant être utilisée pour définir les **autorisations d’application** pour une API web ;  
-- le membre oauth2Permissions, qui est une collection d’entités [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) pouvant être utilisée pour définir les **autorisations déléguées** pour une API web.
+- le membre appRoles, qui est une collection d’entités [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) pouvant être utilisée pour définir les **autorisations d’application** pour une API web ;
+- le membre oauth2Permissions, qui est une collection d’entités [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) pouvant être utilisée pour définir les **autorisations déléguées** pour une API web.
 
 Pour des informations plus générales sur les concepts de manifeste d’application, consultez la page [Connaître le manifeste d’application Azure Active Directory](active-directory-application-manifest.md).
 
@@ -166,7 +166,7 @@ Comme mentionné précédemment, vous pouvez non seulement exposer des API et y 
 
 Pour une présentation complète des étendues d’accès exposées par :
 
-- l’API Graph d’Azure AD, consultez l’article [Étendues d’autorisation | Concepts relatifs à l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) ;
+- l’API Graph d’Azure AD, consultez l’article [Étendues d’autorisation | Concepts relatifs à l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) ;
 - les API Office 365, consultez l’article [Authentification et autorisation à l’aide de l’infrastructure commune de consentement](https://msdn.microsoft.com/office/office365/howto/application-manifest). Consultez la page [Configurer votre environnement de développement Office 365](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) pour en savoir plus sur la manière de développer une application cliente capable de s’intégrer aux API Office 365.
 
 >[AZURE.NOTE] En raison d’une limitation actuelle, les applications clientes natives ne peuvent appeler l’API Graph Azure AD que si elles utilisent l’autorisation « Accéder au répertoire de votre organisation ». Cette restriction ne s’applique pas aux applications web.
@@ -242,7 +242,7 @@ Vous pouvez suivre les étapes décrites dans la section [Développement d’app
 
 Afin de permettre à des utilisateurs externes de s’inscrire à votre application avec leur compte professionnel, vous devez mettre à jour votre application de façon à ce qu’elle affiche un bouton établissant un lien vers la page d’Azure AD qui leur permet d'accorder l'accès. Pour des conseils de personnalisation concernant ce bouton de connexion, voir [Instructions de personnalisation pour les applications intégrées](active-directory-branding-guidelines.md). Une fois que l'utilisateur a accordé ou refusé l'accès, la page d'octroi de l’accès d’Azure AD redirige le navigateur vers votre application avec une réponse. Pour plus d’informations sur les propriétés de l’application, voir [Objets principal du service et application](active-directory-application-objects.md).
 
-La page d’octroi de l’accès est créée par Azure AD, et vous trouverez un lien vers celle-ci sur la page de configuration de votre application dans le portail Azure Classic. Pour accéder à la page de configuration, cliquez sur le lien **Applications** dans le menu supérieur de votre locataire Azure AD, cliquez sur l'application que vous souhaitez configurer, puis cliquez sur **Configurer** dans le menu supérieur de la page de démarrage rapide.
+La page d’octroi de l’accès est créée par Azure AD, et vous trouverez un lien vers celle-ci sur la page de configuration de votre application dans le portail Azure Classic. Pour accéder à la page de configuration, cliquez sur le lien **Applications** dans le menu supérieur de votre locataire Azure AD, cliquez sur l’application que vous souhaitez configurer, puis cliquez sur **Configurer** dans le menu supérieur de la page de démarrage rapide.
 
 Le lien de votre application ressemble à ceci : `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. Le tableau suivant décrit les éléments du lien :
 
@@ -351,4 +351,4 @@ Afin de pouvoir supprimer l’accès d’une application mutualisée à votre r�
 
 - Lisez le [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

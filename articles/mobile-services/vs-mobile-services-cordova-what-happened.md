@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Qu’est-il arrivé à mon projet Cordova (services connectés de Visual Studio) ? | Microsoft Azure" 
-	description="Qu'est-il arrivé à mon projet Azure Cordova après l'ajout d'Azure Mobile Services à l'aide des services connectés Visual Studio ?" 
+	description="Qu'est-il arrivé à mon projet Azure Cordova après l'ajout d'Azure Mobile Services à l'aide des services connectés Visual Studio ? " 
 	services="mobile-services" 
 	documentationCenter="na" 
 	authors="mlhoop" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # Qu'est-il arrivé à mon projet Azure Cordova après l'ajout d'Azure Mobile Services à l'aide des services connectés de Visual Studio ?
@@ -35,4 +35,4 @@ Sous `services\mobileServices\settings`, un nouveau fichier JavaScript (.js) av
 
 [En savoir plus sur Mobile Services](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

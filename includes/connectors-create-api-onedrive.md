@@ -2,7 +2,7 @@
 - un compte Azure (vous pouvez en [créer un gratuitement)](https://azure.microsoft.com/free) ;
 - un compte [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3).
 
-Pour pouvoir utiliser votre compte OneDrive dans une application logique, vous devez autoriser cette dernière à se connecter à votre compte OneDrive. Heureusement, cette opération est très simple à effectuer depuis votre application logique, sur le Portail Azure.
+Pour pouvoir utiliser votre compte OneDrive dans une application logique, autorisez cette dernière à se connecter à votre compte OneDrive. Cette opération est très simple à effectuer depuis votre application logique, sur le Portail Azure.
 
 Pour autoriser votre application logique à se connecter à votre compte OneDrive, procédez comme suit :
 
@@ -14,4 +14,4 @@ Pour autoriser votre application logique à se connecter à votre compte OneDriv
 4. Sélectionnez **Oui** pour autoriser l’application logique à utiliser votre compte OneDrive : ![](./media/connectors-create-api-onedrive/onedrive-4.png)
 5. Vous pouvez voir que la connexion a été créée. Maintenant, effectuez les autres étapes dans votre application logique : ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

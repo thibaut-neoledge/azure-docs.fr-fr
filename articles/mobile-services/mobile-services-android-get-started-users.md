@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Ajouter une authentification à votre application Mobile Services Android (backend JavaScript)
@@ -31,7 +31,7 @@ Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Se
 
 > [AZURE.VIDEO android-getting-started-with-authentication-in-windows-azure-mobile-services]
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
 
 
 ##Configuration requise
@@ -48,7 +48,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d’activer 
 
 1. Dans Android Studio, ouvrez le projet que vous avez créé quand vous avez suivi le didacticiel [Prise en main de Mobile Services].
 
-2. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** ; vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
+2. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** ; vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
 
 	 Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
@@ -107,4 +107,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

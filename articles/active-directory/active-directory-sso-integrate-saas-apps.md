@@ -5,7 +5,7 @@
 	  keywords="intégrer Azure AD avec des applications SaaS"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="04/26/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
 # Intégrer l’authentification unique Azure Active Directory aux applications SaaS  
@@ -31,7 +31,7 @@ Pour les applications qui prennent uniquement en charge l’authentification bas
 
 ## Autorisation
 
-Un compte approvisionné est ce qui permet à un utilisateur d’être autorisé à utiliser une application, une fois qu’il est authentifié via l’authentification unique. L’approvisionnement de l'utilisateur peut s’effectuer manuellement, ou dans certains cas, vous pouvez ajouter et supprimer des informations sur l’utilisateur de l'application SaaS en fonction des modifications apportées dans Azure Active Directory. Pour plus d'informations sur l'utilisation de connecteurs Azure AD existants afin d’effectuer un approvisionnement automatisé, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+Un compte approvisionné est ce qui permet à un utilisateur d’être autorisé à utiliser une application, une fois qu’il est authentifié via l’authentification unique. L’approvisionnement de l'utilisateur peut s’effectuer manuellement, ou dans certains cas, vous pouvez ajouter et supprimer des informations sur l’utilisateur de l'application SaaS en fonction des modifications apportées dans Azure Active Directory. Pour plus d’informations sur l’utilisation de connecteurs Azure AD existants afin d’effectuer un approvisionnement automatisé, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 Sinon, vous pouvez manuellement ajouter des informations sur l’utilisateur à une application, ou utiliser d'autres solutions d’approvisionnement disponibles sur Marketplace.
 
@@ -72,4 +72,4 @@ Vous trouverez des informations beaucoup plus détaillées sur tous ces problèm
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

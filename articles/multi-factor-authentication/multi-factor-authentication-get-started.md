@@ -20,8 +20,8 @@
 
 Étant donné qu’il existe plusieurs types d'authentification multifacteur Azure, nous devons déterminer plusieurs éléments pour connaître la version utiliser. Ces éléments sont :
 
--	[les éléments à protéger](#what-am-i-trying-to-secure)
--	[l’emplacement des utilisateurs](#where-are-the-users-located)
+-	[Les éléments à protéger](#les-lments-protger)
+-	[l’emplacement des utilisateurs](#lemplacement-des-utilisateurs)
 
 Les sections suivantes fournissent des conseils sur la détermination de ces éléments.
 

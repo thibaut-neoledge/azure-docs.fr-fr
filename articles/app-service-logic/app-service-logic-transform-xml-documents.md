@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -35,7 +35,7 @@ Les fonctionnalités supplémentaires sont les suivantes :
 - Lors de la création d'un mappage, sa représentation graphique est affichée, y compris toutes les relations et les liens que vous créez.
 - Utilisez la fonctionnalité **Tester le mappage** pour ajouter un exemple de message XML. Avec un simple clic, vous pouvez tester le mappage que vous avez créé et afficher la sortie générée.
 - Téléchargez des mappages Azure BizTalk Services existants (.trfm) et exploitez tous les avantages offerts par l'application API Transformation.
-- Lorsque vous créez le mappage, vous n’avez pas besoin d’ajouter un schéma. Lorsque votre mappage est prêt, ajoutez-le à l’application API Transformation. 
+- Lorsque vous créez le mappage, vous n’avez pas besoin d’ajouter un schéma. Lorsque votre mappage est prêt, ajoutez-le à l’application API Transformation.
 - Comprend la prise en charge du format XML.
 
 
@@ -117,4 +117,4 @@ Une fois le mappage créé et testé, il est prêt pour la consommation.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

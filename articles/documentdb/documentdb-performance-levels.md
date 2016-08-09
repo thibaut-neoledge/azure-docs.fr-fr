@@ -2,7 +2,7 @@
 	pageTitle="Niveaux de performances dans DocumentDB | Microsoft Azure" 
 	description="Découvrez comment les niveaux de performances dans DocumentDB permettent de réserver le débit pour chaque collection." 
 	services="documentdb" 
-	authors="johnfmacintyre" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
-	ms.author="johnmac"/>
+	ms.date="07/27/2016" 
+	ms.author="mimig"/>
 
 # Niveaux de performances dans DocumentDB
 
@@ -95,9 +95,9 @@ Les collections DocumentDB vous permettent de regrouper vos données selon les m
 
 Il est recommandé que votre application utilise un petit nombre de collections à moins que vos besoins en termes de stockage ou de débit ne soient importants. Vérifiez que vous avez bien compris les modèles d’application pour la création de collections. Vous pouvez choisir de réserver la création de la collection comme une action de gestion gérée en dehors de votre application. De même, l'ajustement du niveau de performances pour une collection modifiera le taux horaire de facturation de la collection. Vous devez surveiller les niveaux de performances d'une collection si votre application les ajuste de manière dynamique.
 
-## Modification des niveaux de performances à l’aide du portail Azure
+## <a href="changing-performance-levels-using-the-azure-portal"></a>Remplacer S1, S2, S3 par les performances définies par l’utilisateur
 
-Le portail Azure est une option qui est mise à votre disposition lorsque vous gérez les niveaux de performances de vos collections. Procédez comme suit pour passer de niveaux de débit prédéfinis à des niveaux de débit définis par l’utilisateur dans le portail Azure. Les niveaux de débit définis par l’utilisateur vous permettent d’adapter le débit à vos besoins. Et si vous utilisez encore un compte S1, vous pouvez augmenter le débit par défaut de 250 à 400 unités de requête/s en seulement quelques clics.
+Procédez comme suit pour passer de niveaux de débit prédéfinis à des niveaux de débit définis par l’utilisateur dans le portail Azure. Les niveaux de débit définis par l’utilisateur vous permettent d’adapter le débit à vos besoins. Et si vous utilisez encore un compte S1, vous pouvez augmenter le débit par défaut de 250 à 400 unités de requête/s en seulement quelques clics.
 
 Pour plus d’informations sur la modification de la tarification pour les débits définis par l’utilisateur ou prédéfinis, consultez l’article de blog [DocumentDB : tout ce que vous devez savoir sur l’utilisation des nouvelles options de tarification](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
@@ -128,7 +128,7 @@ Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 0
 
 ## Modification des niveaux de performances à l’aide du Kit SDK .NET
 
-Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [Kit SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mais le processus est similaire pour nos autres [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si vous ne connaissez pas notre Kit SDK .NET, visitez notre [didacticiel de prise en main](documentdb-get-started.md).
+Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mais le processus est similaire pour nos autres [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si vous ne connaissez pas notre Kit de développement logiciel (SDK) .NET, visitez notre [didacticiel de mise en route](documentdb-get-started.md).
 
 Voici un extrait de code pour modifier le débit de l’offre sur 50 000 unités de demande par seconde :
 
@@ -162,6 +162,20 @@ Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
+## <a href="change-throughput"></a>Modification du débit d’une collection
+
+Si vous utilisez déjà les performances définies par l’utilisateur, vous pouvez modifier le débit de votre collection en procédant comme suit. Si vous avez besoin de passer d’un niveau de performance S1, S2 ou S3 (performances prédéfinies) aux performances définies par l’utilisateur, consultez [Remplacer S1, S2, S3 par les performances définies par l’utilisateur](#changing-performance-levels-using-the-azure-portal).
+
+1. Dans votre navigateur, accédez au [**portail Azure**](https://portal.azure.com).
+2. Cliquez sur **Parcourir** -> **Comptes DocumentDB**, puis sélectionnez le compte DocumentDB à modifier.
+3. Dans le panneau **Compte DocumentDB**, dans le filtre **Bases de données**, sélectionnez la base de données à modifier, puis, dans le panneau **Base de données**, sélectionnez la collection à modifier.
+4. Dans le panneau **Collections**, cliquez sur **Paramètres** dans la barre supérieure.
+5. Dans le panneau **Paramètres**, augmentez la valeur de la zone **Débit (RU/s)**, puis cliquez sur **OK** pour enregistrer vos modifications. Le **Résumé de la tarification** en bas du panneau est mis à jour afin de vous présenter la nouvelle estimation du coût mensuel de cette collection dans une seule région.
+
+    ![Capture d’écran du panneau Paramètres, avec mise en surbrillance de la zone Débit et du Résumé de tarification](./media/documentdb-performance-levels/documentdb-change-throughput.png)
+ 
+Si vous n’êtes pas sûr de l’augmentation à appliquer au débit, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs) et [Calculatrice d’unités de demande](https://www.documentdb.com/capacityplanner).
+
 ## Étapes suivantes
 
 Pour en savoir plus sur la tarification et la gestion des données avec Azure DocumentDB, explorez les ressources suivantes :
@@ -174,9 +188,9 @@ Pour en savoir plus sur la tarification et la gestion des données avec Azure Do
 
 Pour en savoir plus sur DocumentDB, consultez la [documentation](https://azure.microsoft.com/documentation/services/documentdb/) Azure DocumentDB.
 
-Pour lancer le test des performances et de la mise à l’échelle avec DocumentDB, consultez [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md).
+Pour commencer avec le test des performances et de la mise à l’échelle avec DocumentDB, consultez [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

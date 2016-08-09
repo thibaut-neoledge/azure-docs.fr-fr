@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal .NET | Microsoft Azure"
-	description="Découvrez comment limiter l’accès des utilisateurs autorisés d’un service mobile principal .NET."
+	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal .NET | Microsoft Azure"
+	description="Découvrez comment limiter l’accès des utilisateurs autorisés d’un service mobile principal .NET."
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="krisragh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
@@ -32,13 +32,13 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 ## <a name="register-scripts"></a>Modification des méthodes d'accès aux données
 
-1. Dans Visual Studio, ouvrez votre projet mobile, développez le dossier DataObjects, puis ouvrez **TodoItem.cs**. La classe **TodoItem** définit l'objet de données et vous devez ajouter une propriété **UserId** pour le filtrage. Ajoutez la nouvelle propriété UserId suivante à la classe **TodoItem** :
+1. Dans Visual Studio, ouvrez votre projet mobile, développez le dossier DataObjects, puis ouvrez **TodoItem.cs**. La classe **TodoItem** définit l'objet de données et vous devez ajouter une propriété **UserId** pour le filtrage. Ajoutez la nouvelle propriété UserId suivante à la classe **TodoItem** :
 
 		public string UserId { get; set; }
 
 	>[AZURE.NOTE] Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les [migrations Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. Dans Visual Studio, développez le dossier Contrôleurs, ouvrez **TodoItemController.cs** et ajoutez l’instruction Using suivante :
+2. Dans Visual Studio, développez le dossier Contrôleurs, ouvrez **TodoItemController.cs** et ajoutez l’instruction Using suivante :
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
@@ -52,7 +52,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 	Ce code ajoute l’ID utilisateur de l’utilisateur authentifié à l’élément, avant son insertion dans la table TodoItem.
 
-3. Recherchez la méthode **GetAllTodoItems** et remplacez l'instruction **return** existante par la ligne de code suivante :
+3. Recherchez la méthode **GetAllTodoItems** et remplacez l'instruction **return** existante par la ligne de code suivante :
 
 		// Get the logged in user
 		var currentUser = User as ServiceUser;
@@ -83,4 +83,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 <!-- URLs. -->
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

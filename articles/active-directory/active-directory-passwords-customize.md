@@ -37,7 +37,7 @@ Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous rec
 | Comment autoriser les utilisateurs à déverrouiller des comptes Active Directory sans réinitialiser un mot de passe ? | [Paramètre : autoriser les utilisateurs à déverrouiller leurs comptes AD sans réinitialiser un mot de passe](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? | [Paramètre : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? | [Paramètre : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramètre : nom, marque et logo de la société](#password-managment-look-and-feel) |
+| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramètre : nom, marque et logo de la société](#password-management-look-and-feel) |
 
 
 ## Interface de gestion des mots de passe
@@ -875,4 +875,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

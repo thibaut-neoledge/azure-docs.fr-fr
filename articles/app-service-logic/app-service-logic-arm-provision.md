@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="07/25/2016" 
 	ms.author="deonhe"/>
 
 # Créer une application logique à l'aide d'un modèle
@@ -49,30 +49,6 @@ Pour exécuter automatiquement le déploiement, sélectionnez le bouton ci-desso
     
 ## Ressources à déployer
 
-### Plan App Service
-
-Crée un plan de service d'application.
-
-Il utilise le même emplacement que le groupe de ressources sur lequel il est déployé.
-
-    {
-      "apiVersion": "2015-08-01",
-      "name": "[parameters('hostingPlanName')]",
-      "type": "Microsoft.Web/serverfarms",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "HostingPlan"
-      },
-      "sku": {
-        "name": "[parameters('hostingSkuName')]",
-        "capacity": "[parameters('hostingSkuCapacity')]"
-      },
-      "properties": {
-        "name": "[parameters('hostingPlanName')]"
-      }
-    },
-
-
 ### Application logique
 
 Crée l'application logique
@@ -83,21 +59,15 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
     {
       "type": "Microsoft.Logic/workflows",
-      "apiVersion": "2015-08-01-preview",
+      "apiVersion": "2016-06-01",
       "name": "[parameters('logicAppName')]",
       "location": "[resourceGroup().location]",
       "tags": {
         "displayName": "LogicApp"
       },
       "properties": {
-        "sku": {
-          "name": "[parameters('flowSkuName')]",
-          "plan": {
-            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('hostingPlanName'))]"
-          }
-        },
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {
@@ -120,7 +90,8 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
               "inputs": {
                 "method": "GET",
                 "uri": "@parameters('testUri')"
-              }
+              },
+              "runAfter": {}
             }
           },
           "outputs": {}
@@ -145,4 +116,4 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

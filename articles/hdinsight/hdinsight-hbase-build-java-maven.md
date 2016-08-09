@@ -14,7 +14,7 @@ ms.workload="big-data"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/29/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop) sous Windows
@@ -53,7 +53,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Mise à jour du modèle d'objet du projet
 
-1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
+1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
 
         <dependency>
           <groupId>org.apache.hbase</groupId>
@@ -436,7 +436,7 @@ Il existe de nombreuses façons de télécharger un fichier vers votre cluster H
         $storage = GetStorage -clusterName $clusterName
         
         # The JAR
-        $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+        $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
         
         # The job definition
         $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -646,4 +646,4 @@ Remplacez __hdinsightclustername__ par le nom de votre cluster HDInsight.
 
 Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) produite lors de l'exécution de la tâche.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

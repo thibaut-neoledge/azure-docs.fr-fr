@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
@@ -37,7 +37,7 @@ Ce didacticiel présente l’ajout d’un service principal cloud à une applica
 
 Vous avez créé le service mobile. À présent, vous allez télécharger des projets que vous pouvez exécuter localement.
 
-1. Cliquez sur le service mobile que vous venez de créer, puis dans l’onglet de démarrage rapide, cliquez sur **iOS** sous **Choisir une plateforme** et développez **Créer une application iOS**.
+1. Cliquez sur le service mobile que vous venez de créer, puis dans l’onglet de démarrage rapide, cliquez sur **iOS** sous **Choisir une plateforme** et développez **Créer une application iOS**.
 
 2. Sur votre PC Windows, cliquez sur **Télécharger** sous **Télécharger et publier votre service dans le cloud**. Cela permet de télécharger le projet Visual Studio qui implémente votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
@@ -59,9 +59,9 @@ Vous avez créé le service mobile. À présent, vous allez télécharger des pr
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Cette section montre comment exécuter votre nouvelle application cliente sur le service mobile exécuté sous Azure. Avant de pouvoir tester l'application iOS avec le service mobile exécuté sur un ordinateur local, vous devez configurer le serveur Web et le pare-feu de manière à autoriser l'accès depuis votre ordinateur de développement iOS. Pour plus d'informations, consultez la rubrique [Configuration du serveur Web local pour autoriser les connexions à un service mobile local](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
+Cette section montre comment exécuter votre nouvelle application cliente sur le service mobile exécuté sous Azure. Avant de pouvoir tester l'application iOS avec le service mobile exécuté sur un ordinateur local, vous devez configurer le serveur Web et le pare-feu de manière à autoriser l'accès depuis votre ordinateur de développement iOS. Pour plus d'informations, consultez la rubrique [Configuration du serveur Web local pour autoriser les connexions à un service mobile local](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
 
-Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
+Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Prise en main de la synchronisation des données hors connexion] <br/>Découvrez comment utiliser la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
@@ -101,4 +101,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

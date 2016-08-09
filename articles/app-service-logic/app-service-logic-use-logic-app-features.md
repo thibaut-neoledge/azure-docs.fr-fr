@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -18,17 +18,17 @@
 	
 # Utiliser les fonctionnalités des applications logiques
 
-Dans la [rubrique précédente](app-service-logic-create-a-logic-app.md), vous avez créé votre première application logique. Nous allons maintenant voir comment créer un processus plus complet avec des applications logiques App Services. Cette rubrique présente les nouveaux concepts suivants liés aux applications logiques :
+Dans la [rubrique précédente](app-service-logic-create-a-logic-app.md), vous avez créé votre première application logique. Nous allons maintenant voir comment créer un processus plus complet avec des applications logiques App Services. Cette rubrique présente les nouveaux concepts suivants liés aux applications logiques :
 
-- logique conditionnelle, qui exécute une action uniquement si une certaine condition est remplie ;
-- mode code pour modifier une application logique existante ;
+- logique conditionnelle, qui exécute une action uniquement si une certaine condition est remplie ;
+- mode code pour modifier une application logique existante ;
 - options de démarrage d'un flux de travail.
 
 Avant d’effectuer les étapes de cette rubrique, vous devez effectuer celles de la rubrique [Créer une application logique](app-service-logic-create-a-logic-app.md). Dans le [portail Azure], accédez à votre application logique, cliquez sur **Déclencheurs et actions** dans le résumé pour modifier la définition de l’application logique.
 
 ## Documents de référence
 
-Les documents suivants peuvent vous être utiles :
+Les documents suivants peuvent vous être utiles :
 
 - [API REST de gestion et d’exécution](https://msdn.microsoft.com/library/azure/mt643787.aspx) - notamment comment appeler directement des applications logiques
 - [Référence sur le langage](https://msdn.microsoft.com/library/azure/mt643789.aspx) - liste complète de toutes les fonctions/expressions prises en charge
@@ -70,7 +70,7 @@ La boucle forEach spécifie un tableau sur lequel répéter une action. Le flux 
 
 Outre le concepteur, vous pouvez modifier directement le code qui définit une application logique en procédant comme suit.
 
-1. Cliquez sur le bouton **Mode code** dans la barre de commandes. 
+1. Cliquez sur le bouton **Mode code** dans la barre de commandes.
 
 	Cela ouvre un éditeur complet qui affiche la définition que vous venez de modifier.
 
@@ -85,7 +85,7 @@ Certaines fonctionnalités des applications logiques ne peuvent être utilisées
 
 Le code suivant met à jour votre application logique existante pour utiliser des paramètres pour le terme de requête.
 
-1. En mode code, recherchez l’objet `parameters : {}` et insérez l’objet de rubrique suivant :
+1. En mode code, recherchez l’objet `parameters : {}` et insérez l’objet de rubrique suivant :
 
 	    "topic" : {
 		    "type" : "string",
@@ -112,4 +112,4 @@ Les services peuvent appeler un point de terminaison d'application logique pour 
 <!-- Shared links -->
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

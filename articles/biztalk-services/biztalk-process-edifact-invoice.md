@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -59,11 +59,11 @@ Pour achever le scénario, nous utilisons des files d’attente Service Bus pour
 ## Étape 1 : créer les files d’attente Service Bus  
 Cette solution utilise des files d’attente Service Bus pour l’échange de messages entre partenaires commerciaux. Contoso et Northwind envoient aux files d’attente des messages qui sont ensuite utilisés par les ponts IAE et/ou EDI. Pour cette solution, vous avez besoin de trois files d’attente Service Bus :
 
-*   **northwindreceive** : c’est celle sur laquelle Northwind reçoit la facture de Contoso.
+*   **northwindreceive** : c’est celle sur laquelle Northwind reçoit la facture de Contoso.
 
-*   **contosoreceive** : contoso reçoit l’accusé de réception de Northwind sur cette file d’attente.
+*   **contosoreceive** : contoso reçoit l’accusé de réception de Northwind sur cette file d’attente.
 
-*   **suspendu** : c’est la file d’attente sur laquelle tous les messages suspendus sont acheminés. Les messages sont suspendus s’ils échouent en cours du traitement.
+*   **suspendu** : c’est la file d’attente sur laquelle tous les messages suspendus sont acheminés. Les messages sont suspendus s’ils échouent en cours du traitement.
 
 Vous pouvez créer ces files d’attente Service Bus à l’aide d’une application cliente incluse dans l’exemple de package.
 
@@ -73,7 +73,7 @@ Vous pouvez créer ces files d’attente Service Bus à l’aide d’une applica
 
 3.  Dans l’écran, saisissez l’espace de noms ACS Service Bus, le nom de l’émetteur et la clé de l’émetteur.
 
-    ![][2]  
+    ![][2]
 4.  Un message vous informe que trois files d’attente vont être créées dans votre espace de noms Service Bus. Cliquez sur **OK**.
 
 5.  Quittez le client de didacticiel en cours d’exécution. Ouvrez, cliquez sur **Service Bus** > **_Votre espace de noms Service Bus_** > **Files d’attente** et vérifiez que les trois files d’attente ont bien été générées.
@@ -112,7 +112,7 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
 
     3.  Sur l’onglet **Protocole**, sous la section **schémas**, téléchargez le schéma **EFACT\_D93A\_INVOIC.xsd**. Ce schéma est disponible avec l’exemple de package.
 
-        ![][4]  
+        ![][4]
     4.  Sur l’onglet **Transport**, spécifiez les détails pour les files d’attente Service Bus. Pour le côté envoi de l’accord, nous utilisons la file d’attente **northwindreceive** pour envoyer la facture EDIFACT à Northwind, et la file d’attente **Exécution suspendue** pour acheminer les messages ayant échoué en cours de traitement et suspendus. Vous avez créé ces files d’attente à l’**Étape 1 : créer les files d’attente Service Bus** (dans cette rubrique).
 
         ![][5]
@@ -148,28 +148,28 @@ Au cours de l’étape précédente, vous avez déployé les accords d’envoi e
 
 Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message fait lui aussi partie de l’exemple que vous avez téléchargé. Le projet inclut les artefacts suivants :
 
-*   **INHOUSEINVOICE. XSD** : schéma de la facture maison envoyée à Northwind.
+*   **INHOUSEINVOICE. XSD** : schéma de la facture maison envoyée à Northwind.
 
-*   **EFACT\_D93A\_INVOIC. XSD** : schéma de la facture EDIFACT standard.
+*   **EFACT\_D93A\_INVOIC. XSD** : schéma de la facture EDIFACT standard.
 
-*   **EFACT\_4.1\_CONTRL. XSD** : schéma de l’accusé de réception EDIFACT que Northwind envoie à Contoso.
+*   **EFACT\_4.1\_CONTRL. XSD** : schéma de l’accusé de réception EDIFACT que Northwind envoie à Contoso.
 
-*   **INHOUSEINVOICE\_to\_D93AINVOIC. TRFM** : conversion permettant de mapper le schéma de facture maison sur le schéma de facture EDIFACT standard.
+*   **INHOUSEINVOICE\_to\_D93AINVOIC. TRFM** : conversion permettant de mapper le schéma de facture maison sur le schéma de facture EDIFACT standard.
 
 ### Créer le projet BizTalk Services
 1.  Dans la solution Visual Studio, développez le projet InvoiceProcessingBridge, puis ouvrez le fichier **MessageFlowItinerary.bcs**.
 
 2.  Cliquez n’importe où dans la zone de dessin et définissez l’**URL du Service BizTalk** dans la zone de propriété pour spécifier le nom de votre abonnement BizTalk Services. Par exemple : `https://contosowabs.biztalk.windows.net`.
 
-    ![][7]  
+    ![][7]
 3.  Dans la boîte à outils, faites glisser un **pont Xml unidirectionnel** sur la zone de dessin. Définissez les propriétés **Nom de l’entité** et **Adresse Relative** du pont **ProcessInvoiceBridge**. Double-cliquez sur **ProcessInvoiceBridge** pour ouvrir la surface de configuration de pont.
 
 4.  Dans la zone **Types de message**, cliquez sur le bouton plus (**+**) pour spécifier le schéma du message entrant. Le message entrant du pont IAE étant toujours une facture maison, affectez-lui la valeur **INHOUSEINVOICE**.
 
-    ![][8]  
+    ![][8]
 5.  Cliquez sur la forme **transformation Xml** et dans la zone de propriété correspondant à la propriété **Cartes**, cliquez sur le bouton portant les points de suspension (**...**). Dans la boîte de dialogue **Sélection de correspondance**, sélectionnez le fichier de conversion **INHOUSEINVOICE\_to\_D93AINVOIC**, puis cliquez sur **OK**.
 
-    ![][9]  
+    ![][9]
 6.  Revenez à **MessageFlowItinerary.bcs**, et depuis la boîte à outils, faites glisser un **point de terminaison de Service externe bidirectionnel** à droite du **ProcessInvoiceBridge**. Définissez la propriété **Nom de l’entité** sur **EDIBridge**.
 
 7.  Dans l’Explorateur de solutions, développez **MessageFlowItinerary.bcs** et double-cliquez sur le fichier **EDIBridge.config**. Remplacez le contenu du fichier **EDIBridge.config** par le code suivant.
@@ -223,16 +223,16 @@ Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message
     ```
 8.  Mettez à jour le fichier EDIBridge.config pour y inclure les détails de la configuration
 
-    *   Sous _<behaviors>_, fournissez un espace de nom ACS et une clé associée à l’abonnement de BizTalk Services.
+    *   Sous _<behaviors>_, indiquez l’espace de nom ACS et la clé associée à l’abonnement BizTalk Services.
 
-    *   Sous _<client>_, fournissez le point de terminaison sur lequel l’accord d’envoi EDI est déployé.
+    *   Sous _<client>_, indiquez le point de terminaison sur lequel l’accord d’envoi EDI est déployé.
 
     Enregistrez les modifications et fermez le fichier de configuration.
 
 9.  Dans la boîte à outils, cliquez sur **Connecteur** et associez les composants **ProcessInvoiceBridge** et **EDIBridge**. Sélectionnez le connecteur, puis, dans la zone Propriétés, définissez **Condition de filtre** sur **Toutes les correspondances**. Cela garantit que tous les messages traités par le pont IAE sont acheminés vers le pont EDI.
 
-    ![][10]  
-10.  Enregistrez des modifications à la solution.  
+    ![][10]
+10.  Enregistrez des modifications à la solution.
 
 ### Déployer le projet
 
@@ -240,7 +240,7 @@ Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message
 
 2.  Dans Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur le projet **InvoiceProcessingBridge**, puis cliquez sur **Déployer**.
 
-3.  Fournissez les valeurs comme indiqué dans l’image, puis cliquez sur **Déployer**. Vous pouvez obtenir les informations d’identification ACS pour les Services BizTalk en cliquant sur **Informations de connexion** sur le tableau de bord BizTalk Services.
+3.  Fournissez les valeurs comme indiqué dans l’image, puis cliquez sur **Déployer**. Vous pouvez obtenir les informations d’identification ACS pour BizTalk Services en cliquant sur **Informations de connexion** dans le tableau de bord BizTalk Services.
 
     ![][11]
 
@@ -259,16 +259,16 @@ Dans cette rubrique, nous allons étudier comment tester la solution à l’aide
 
     Vous avez copié le point de terminaison du pont IAE à l’étape précédente. Pour le point de terminaison de pont de réception EDI dans le portail BizTalk Services, accédez à l’accord > Paramètres de réception > Transport > Point de terminaison.
 
-    ![][12]  
+    ![][12]
 4.  Dans la fenêtre suivante, sous Contoso, cliquez sur le bouton **Envoyer la facture maison**. Dans la boîte de dialogue Fichier, ouvrez le fichier INHOUSEINVOICE.txt. Examinez le contenu du fichier, puis cliquez sur **OK** pour envoyer la facture.
 
-    ![][13]  
+    ![][13]
 5.  Quelques secondes après, Northwind reçoit la facture. Cliquez sur le lien **Afficher le Message** pour afficher la facture reçue par Northwind. Notez que la facture reçue chez Northwind respecte le schéma EDIFACT standard, alors que celle qui a été envoyée par Contoso était obéissait à un format maison.
 
-    ![][14]  
+    ![][14]
 6.  Sélectionnez la facture, puis cliquez sur **Envoyer un accusé de réception**. Dans la boîte de dialogue qui s’affiche, notez que l’ID d’échange présent sur la facture reçue est équivalent à celui qui figure sur l’accusé de réception envoyé. Cliquez sur OK dans la boîte de dialogue **Envoyer un accusé de réception**.
 
-    ![][15]  
+    ![][15]
 7.  Quelques secondes après, Contoso reçoit l’accusé de réception.
 
     ![][16]
@@ -284,10 +284,10 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 
 3.  Spécifiez des critères de lancement de lots qui définissent les messages devant être regroupés dans lots. Dans cette solution, nous allons regrouper les messages par lot. Alors, sélectionnez l’option Utilisation de définitions avancées, et saisissez **1 = 1**. Il s’agit d’une condition qui conservera toujours la valeur true, et par conséquent, tous les messages seront traités par lot. Cliquez sur **Next**.
 
-    ![][17]  
+    ![][17]
 4.  Spécifiez un critère de lancement par lot. Dans la zone de liste déroulante, sélectionnez **MessageCountBased** et attribuez à **Nombre** la valeur **3**. Cela signifie qu’un lot de trois messages sera envoyé à Northwind. Cliquez sur **Next**.
 
-    ![][18]  
+    ![][18]
 5.  Consultez le résumé, puis cliquez sur **Enregistrer**. Cliquez sur **Déployer** pour redéployer l’accord.
 
 6.  Revenez au **client du didacticiel**, cliquez sur **Envoyer la facture maison** et suivez les invites pour envoyer la facture. Vous remarquerez qu’aucune facture n’est reçue par Northwind, car la taille de lot n’est pas atteinte. Répétez cette étape encore deux fois afin d’avoir trois messages de facturation envoyés à Northwind. Cela satisfait les critères de lancement par lot de 3 messages et vous devez maintenant voir une facture chez Northwind.
@@ -313,4 +313,4 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

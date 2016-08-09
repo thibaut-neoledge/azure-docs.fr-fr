@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Accéder aux journaux des applications YARN dans HDInsight sous Windows
@@ -56,7 +56,7 @@ Par ailleurs, chaque application peut se composer de plusieurs *tentatives d’a
 
 Les journaux des applications (et les journaux des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. La fonctionnalité [Agrégation de journaux][log-aggregation] de YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications. La fonctionnalité d’agrégation de journaux rend l’accès aux journaux des applications plus déterministe, car elle regroupe les journaux de tous les conteneurs sur un nœud de travail et les stocke dans un même fichier journal agrégé par nœud de travail sur le système de fichiers lorsqu’une application se termine. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux de tous les conteneurs exécutés sur un nœud de travail unique sont toujours regroupés dans un fichier unique, ce qui se traduit par l'existence d'un fichier journal par nœud de travail utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight (versions 3.0 et ultérieures) et les journaux agrégés figurent dans le conteneur par défaut de votre cluster à l’emplacement suivant :
 
-	wasb:///app-logs/<user>/logs/<applicationId>
+	wasbs:///app-logs/<user>/logs/<applicationId>
 
 où *user* est le nom de l’utilisateur ayant démarré l’application et *applicationId*, l’identificateur unique d’une application telle qu’elle a été assignée par le gestionnaire de ressources YARN.
 
@@ -70,7 +70,7 @@ Les journaux agrégés ne sont pas lisibles directement, car ils sont écrits da
 
 L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster et est accessible via le tableau de bord du portail Azure :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, cliquez sur **Parcourir**, puis sur **Clusters HDInsight**. Cliquez ensuite sur le cluster Windows sur lequel vous souhaitez accéder aux journaux d’application YARN.
 3. Cliquez sur **Tableau de bord** dans le menu du haut. Une page appelée **Console de requête HDInsight** s’ouvre dans un nouvel onglet.
 4. À partir de la **Console de requête HDInsight**, cliquez sur l’**interface utilisateur YARN**.
@@ -84,4 +84,4 @@ L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster e
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

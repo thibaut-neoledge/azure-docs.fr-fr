@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/23/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Cibler les sorties de transformations de données Stream Analytics vers des outils d’analyse et des options de stockage des données
@@ -173,7 +173,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 
 ### Autorisation d’un compte Power BI
 
-1.	Lorsque Power BI est sélectionné en tant que sortie dans le portail de gestion Azure, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.  
+1.	Lorsque Power BI est sélectionné en tant que sortie dans le portail de gestion Azure, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.
 
     ![Autoriser un utilisateur de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -318,4 +318,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

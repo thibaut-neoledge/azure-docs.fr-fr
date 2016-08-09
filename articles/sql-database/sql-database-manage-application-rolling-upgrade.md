@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-   ms.date="06/16/2016"
+   ms.workload="NA"
+   ms.date="07/16/2016"
    ms.author="sashan"/>
 
 # Gestion des mises à niveau propagées des applications cloud à l’aide de la géo-réplication active de la base de données SQL
@@ -123,9 +123,9 @@ Les deux méthodes de mise à niveau décrites dans cet article présentent cert
 
 ## Étapes suivantes
 
+- Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
-- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity-scenarios.md)
-- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir de sauvegardes automatisées](sql-database-recovery-using-backups.md)
 - Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
@@ -141,4 +141,4 @@ Les pages suivantes contiennent des informations sur les opérations spécifique
 - [Copier une base de données](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Définir la base de données en lecture seule ou en lecture-écriture](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

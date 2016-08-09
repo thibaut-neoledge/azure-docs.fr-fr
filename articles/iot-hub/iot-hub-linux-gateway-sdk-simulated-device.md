@@ -133,6 +133,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 - [Guide du développeur][lnk-devguide]
 - [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
 - [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
+- [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -148,5 +149,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

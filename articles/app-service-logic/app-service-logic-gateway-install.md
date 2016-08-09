@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -221,4 +221,4 @@ Les journaux de passerelle de gestion des données et PowerBIGateway figurent so
 - [Fonctionnalités d’intégration d'entreprise](app-service-logic-enterprise-integration-overview.md)
 - [Connecteurs d’applications logiques](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

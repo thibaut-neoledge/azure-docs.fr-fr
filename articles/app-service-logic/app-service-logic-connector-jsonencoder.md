@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation du connecteur Encodeur JSON Biztalk dans des applications logiques | Microsoft Azure App Service"
+   pageTitle="Utilisation du connecteur Encodeur JSON Biztalk dans des applications logiques | Microsoft Azure App Service "
    description="Comment créer et configurer le connecteur Encodeur JSON BizTalk ou une application API et l'utiliser dans une application logique d’Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -72,4 +72,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 <!--Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -249,7 +249,6 @@ Où les variables sont définies comme suit :
 
 Je crée un package de service cloud et je souhaite...
 
-* [Configuration des ressources de stockage local](cloud-services-configure-local-storage-resources.md)
 * [Configurer un Bureau à distance pour une instance de service cloud][remotedesktop]
 * [Déployer un projet de service cloud][deploy]
 
@@ -267,4 +266,4 @@ J’utilise Visual Studio et souhaite...
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

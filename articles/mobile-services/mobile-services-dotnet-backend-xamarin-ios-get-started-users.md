@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -79,7 +79,7 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 
 3. Ouvrez **QSTodoListViewController.cs** et modifiez la définition de méthode de **ViewDidLoad** pour supprimer ou placer en commentaire l’appel à **RefreshAsync()** vers la fin.
 
-4. Ajoutez le code suivant en haut de la définition de méthode **RefreshAsync** :
+4. Ajoutez le code suivant en haut de la définition de méthode **RefreshAsync** :
 
 		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {
@@ -118,4 +118,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

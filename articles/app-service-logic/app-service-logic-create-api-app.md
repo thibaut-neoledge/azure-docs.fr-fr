@@ -8,12 +8,12 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
     
 # Création d’une API personnalisée à utiliser avec Logic Apps
@@ -30,15 +30,17 @@ L’action de base pour une application logique est un contrôleur qui acceptera
 
 Par défaut, le moteur de l’application logique fait expirer une demande après 1 minute. Toutefois, vous pouvez faire en sorte que votre API s’exécute sur des actions plus longues et que le moteur attende leur fin en suivant un modèle webhook ou asynchrone détaillé ci-dessous.
 
+Pour les actions standards, écrivez simplement une méthode de demande HTTP dans une API exposée via swagger. Vous pouvez consulter notre [référentiel GitHub](https://github.com/logicappsio) pour obtenir des exemples d’applications API qui fonctionnent avec Logic Apps. Voici quelques façons d’utiliser un connecteur personnalisé pour créer des modèles courants.
+
 ### Actions longues - modèle asynchrone
 
 Lorsque vous exécutez une étape ou une tâche de longue durée, la première chose à faire est de s’assurer le moteur sait que l’expiration n’a pas encore eu lieu. Vous devez également indiquer au moteur comment il saura que vous avez terminé la tâche, et enfin, vous devrez lui renvoyer les données pertinentes afin qu’il poursuive le workflow. Vous pouvez effectuer cette opération par le biais d’une API en suivant le flux ci-après. Ces étapes sont réalisées à partir de l’API personnalisée :
 
-1. Lorsqu’une demande est reçue, renvoyez immédiatement une réponse (avant que le travail soit effectué). Il s’agira d’une réponse `202 ACCEPTED` informant le moteur que vous avez obtenu les données, accepté la charge utile et que le processus est en cours de traitement. La méthode 202 doit contenir les en-têtes suivants : 
+1. Lorsqu’une demande est reçue, renvoyez immédiatement une réponse (avant que le travail soit effectué). Il s’agira d’une réponse `202 ACCEPTED` informant le moteur que vous avez obtenu les données, accepté la charge utile et que le processus est en cours de traitement. La méthode 202 doit contenir les en-têtes suivants :
  * En-tête `location` (requis) : il s’agit d’un chemin d’accès absolu à l’URL que Logic Apps peut utiliser pour vérifier l’état du travail.
  * `retry-after` (facultatif, défini par défaut sur 20 pour les actions). Il s’agit du nombre de secondes pendant lequel le moteur doit attendre avant d’interroger l’URL de l’en-tête d’emplacement pour vérifier l’état.
 
-2. Une fois l’état d’un travail vérifié, effectuez les vérifications suivantes : 
+2. Une fois l’état d’un travail vérifié, effectuez les vérifications suivantes :
  * Si le travail est effectué : renvoyez une réponse `200 OK`, avec la charge utile de réponse.
  * Si le travail est encore en cours de traitement : renvoyez une autre réponse `202 ACCEPTED`, avec les mêmes en-têtes que la réponse initiale
 
@@ -72,7 +74,7 @@ Par exemple, en cours d’interrogation pour savoir si un fichier est disponible
 
 * Si une demande a été reçue sans triggerState, l’API renvoie une réponse `202 ACCEPTED` avec un en-tête `location` dont le triggerState correspond à l’heure actuelle et le `retry-after` est 15.
 * Si une demande a été reçue avec un triggerState :
- * Vérifiez si tous les fichiers ont été ajoutés après le triggerState DateTime. 
+ * Vérifiez si tous les fichiers ont été ajoutés après le triggerState DateTime.
   * S’il existe 1 fichier, renvoyez une réponse `200 OK` avec la charge utile de contenu, incrémentez le triggerState à la DateTime du fichier renvoyé et définissez le `retry-after` sur 15.
   * S’il existe plusieurs fichiers, je peux en renvoyer un à la fois avec un `200 OK`, incrémenter mon triggerState dans l’en-tête `location` et définir `retry-after` sur 0. Cela permet d’informer le moteur que d’autres données sont disponibles et de procéder immédiatement à une requête au niveau de l’en-tête `location` spécifié.
   * Si aucun fichier n’est disponible, renvoyez une réponse `202 ACCEPTED` et ne modifiez pas le triggerState `location`. Définissez `retry-after` sur 15.
@@ -89,4 +91,4 @@ Actuellement, le concepteur d’applications logiques ne gère pas la détection
 
 Vous pouvez voir [ici](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers) un exemple de déclencheur webhook dans GitHub
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -33,8 +33,8 @@ L’augmentation du nombre de nœuds de travail d’un cluster permet d’exploi
 
 - Au moment de l’approvisionnement, vous pouvez spécifier le nombre de nœuds de travail à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande multiplateforme. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight](hdinsight-provision-clusters.md). La capture d’écran suivante montre la configuration du nœud de travail sur le portail Azure :
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
-- Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Cette méthode est illustrée ci-dessous. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
+- Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Cela est indiqué ci-dessous. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
 
 Pour plus d’informations sur les différentes machines virtuelles prises en charge par HDInsight, consultez la [tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur les différentes machines virtuelles prises en ch
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) est un moteur d’exécution représentant une alternative au moteur MapReduce :
 
-![tez\_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez\_1]
 
 
 Tez est plus rapide pour les raisons suivantes :
@@ -90,15 +90,15 @@ Les opérations d’E/S constituent le principal goulot d’étranglement des pe
 
 Le partitionnement Hive est implémenté en réorganisant les données brutes en nouveaux répertoires où chaque partition a son propre répertoire, comme défini par l’utilisateur. Le schéma suivant illustre le partitionnement d’une table Hive selon la colonne *Année*. Un nouveau répertoire est créé pour chaque année.
 
-![partitionnement][image-hdi-optimize-hive-partitioning_1]
+![partitioning][image-hdi-optimize-hive-partitioning\_1]
 
 Considérations relatives au partitionnement :
 
-- **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner des partitions très réduites. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
+- **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner des partitions très réduites. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
 
-- **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) va entraîner de nombreuses partitions et communiquer un stress important au cluster namenode, car ce dernier devra gérer de grandes quantités de répertoires.
+- **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) va entraîner de nombreuses partitions et communiquer un stress important au cluster namenode, car ce dernier devra gérer de grandes quantités de répertoires.
 
-- **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
+- **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
 
 Pour créer une table de partition, utilisez la clause *Partitioned By* :
 
@@ -122,7 +122,7 @@ Lorsque la table partitionnée est créée, vous pouvez créer un partitionnemen
 	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
 	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+	    LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **Partitionnement dynamique** signifie que vous voulez que Hive crée automatiquement des partitions pour vous. Étant donné que nous avons déjà créé la table de partitionnement à partir de la table intermédiaire, il nous suffit d’insérer des données dans la table partitionnée comme indiqué ci-dessous :
 
@@ -141,9 +141,9 @@ Pour plus d’informations, consultez [Tables partitionnées](https://cwiki.apac
 
 Hive prend en charge différents formats de fichier. Par exemple :
 
-- **Texte** : il s’agit du format de fichier par défaut, qui fonctionne avec la plupart des scénarios
-- **Avro** : fonctionne correctement avec les scénarios d’interopérabilité
-- **ORC/Parquet** : adapté pour les performances
+- **Texte** : il s’agit du format de fichier par défaut, qui fonctionne avec la plupart des scénarios
+- **Avro** : fonctionne correctement avec les scénarios d’interopérabilité
+- **ORC/Parquet** : adapté pour les performances
 
 Le format ORC (Optimized Row Columnar) est un moyen très efficace pour stocker des données Hive. Par rapport aux autres formats, ORC présente les avantages suivants :
 
@@ -163,7 +163,7 @@ Pour activer le format ORC, vous devez commencer par créer une table avec la cl
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple :
+Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple :
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
@@ -201,8 +201,8 @@ Pour plus d’informations, consultez la page [Exécution de requêtes vectoris�
 
 Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple :
 
-- **Création de compartiments Hive** : cette technique permet de mettre en cluster ou de segmenter des jeux de données volumineux pour optimiser les performances des requêtes.
-- **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+- **Création de compartiments Hive** : cette technique permet de mettre en cluster ou de segmenter des jeux de données volumineux pour optimiser les performances des requêtes.
+- **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 - **Augmentation des raccords de réduction**
 
 ##<a id="nextsteps"></a>Étapes suivantes
@@ -220,4 +220,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

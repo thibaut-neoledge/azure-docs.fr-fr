@@ -79,7 +79,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
     > [AZURE.NOTE] Si vous utilisez HTTP/1 au lieu d’AMQP comme moyen de transport, l’instance **DeviceClient** vérifie les messages à partir d’IoT Hub peu fréquemment (moins de toutes les 25 minutes). Pour plus d’informations sur les différences entre la prise en charge d’AMQP et de HTTP/1 et la limitation d’IoT Hub, consultez le [Guide du développeur Azure IoT Hub][IoT Hub Developer Guide - C2D].
 
-## Envoi d’un message cloud-à-appareil à partir du serveur principal de l’application
+## Envoi d’un message cloud vers appareil
 
 Dans cette section, vous allez créer une application de console Java qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID d’appareil de l’appareil que vous avez ajouté dans le didactiel [Prise en main d’Azure IoT Hub] et de la chaîne de connexion pour votre IoT Hub que vous trouverez sur le [portail Azure].
 
@@ -165,7 +165,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][img-simulated-device]
+    ![Exécution de l’application de périphérique simulé][img-simulated-device]
 
 2. À l’invite de commandes dans le dossier send-c2d-messages, exécutez la commande suivante pour envoyer un message cloud-à-appareil, puis attendez de recevoir l’accusé de réception :
 
@@ -173,7 +173,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][img-send-command]
+    ![Exécutez la commande pour envoyer le message c2d][img-send-command]
 
 ## Étapes suivantes
 
@@ -192,12 +192,7 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Prise en main d’Azure IoT Hub]: iot-hub-java-java-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
-[IoT Hub Guidance]: iot-hub-guidance.md
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
-[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
@@ -205,4 +200,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [portail Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

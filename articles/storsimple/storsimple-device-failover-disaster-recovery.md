@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
@@ -37,15 +37,16 @@ Dans un scénario de récupération d’urgence, l’appareil principal cesse de
 
 En cas de sinistre, vous pouvez choisir de basculer votre appareil StorSimple :
 
-- vers un appareil physique ; 
+- vers un appareil physique ;
 - vers lui-même ;
 - vers un appareil virtuel.
 
 Pour tout basculement d’appareil, tenez compte des éléments suivants :
 
-- Pour la récupération d’urgence, tous les volumes dans les conteneurs de volume doivent être hors connexion et les conteneurs de volume doivent être associés à un instantané de cloud. 
-- Les appareils cibles disponibles pour la récupération d’urgence possèdent un espace suffisant pour accueillir les conteneurs de volume sélectionnés. 
+- Pour la récupération d’urgence, tous les volumes dans les conteneurs de volume doivent être hors connexion et les conteneurs de volume doivent être associés à un instantané de cloud.
+- Les appareils cibles disponibles pour la récupération d’urgence possèdent un espace suffisant pour accueillir les conteneurs de volume sélectionnés.
 - Les appareils connectés à votre service mais ne répondant pas aux critères d’espace ne seront pas disponibles en tant qu’appareils cibles.
+- Après une récupération d’urgence, pour une durée limitée, les performances d’accès aux données peuvent être affectées de manière significative car l’appareil doit accéder aux données à partir du cloud et les stocker localement.
 
 #### Basculement de l'appareil entre les versions du logiciel
 
@@ -86,12 +87,12 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
-1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
+1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 	
 
-		>[AZURE.NOTE] **Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
+		>[AZURE.NOTE] **Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.** <br></br>
 
 	1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante.
 
@@ -176,4 +177,4 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 - Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

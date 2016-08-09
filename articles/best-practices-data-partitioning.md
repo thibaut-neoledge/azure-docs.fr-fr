@@ -529,7 +529,7 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 - La page [Types de données pris en charge (Azure Search)] sur le site web Microsoft présente une synthèse des types de données que vous pouvez utiliser dans les documents et les index pouvant faire l’objet d’une recherche.
 - La page [Cache Redis Azure] sur le site web Microsoft présente le cache Redis Azure.
 - La page [Partitioning: how to split data among multiple Redis instances] sur le site web de Redis fournit des informations sur la façon d’implémenter le partitionnement avec Redis.
-- Le billet de blog [Running Redis on a CentOS Linux VM in Windows Azure] sur le site web Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
+- Le billet de blog [exécution de Redis sur une machine virtuelle Linux CentOS dans Azure] sur le site web Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
 - La page [Data Types] sur le site web de Redis présente les types de données disponibles avec Redis et le cache Redis Azure.
 
 [Cache Redis Azure]: http://azure.microsoft.com/services/cache/
@@ -554,7 +554,7 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Exécution de transactions de groupe d’entités]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
-[Running Redis on a CentOS Linux VM in Microsoft Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
+[exécution de Redis sur une machine virtuelle Linux CentOS dans Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Mise à l'échelle à l’aide de l'outil de fractionnement et de fusion de bases de données élastiques]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
 [Mise à l’échelle utilisant l’outil de fractionnement et de fusion de bases de données élastiques]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
 [Utilisation d’Azure CDN]: cdn/cdn-create-new-endpoint.md

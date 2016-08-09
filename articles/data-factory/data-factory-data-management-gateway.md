@@ -126,10 +126,10 @@ La page d’accueil permet d’effectuer les opérations suivantes :
 ### Page Paramètres
 La page Paramètres permet d’effectuer les opérations suivantes :
 
-- Afficher, modifier et exporter le **certificat** utilisé par la passerelle.
+- Afficher, modifier et exporter le **certificat** utilisé par la passerelle. Ce certificat est utilisé pour chiffrer les informations d’identification de la source de données.
 - Modifier le **port HTTPS** du point de terminaison. La passerelle ouvre un port pour définir les informations d’identification de la source de données.
 - **Afficher** l’état du point de terminaison.
-- Afficher le **certificat SSL** pour définir les informations d’identification des sources de données.
+- La vue **Certificat SSL** est utilisée pour la communication SSL entre le portail et la passerelle pour définir les informations d’identification pour les sources de données.
 
 ### Page Diagnostics
 La page Diagnostics permet d’effectuer les opérations suivantes :
@@ -426,4 +426,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Étapes suivantes
 - Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

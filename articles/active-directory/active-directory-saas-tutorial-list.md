@@ -13,16 +13,17 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/19/2016"
+    ms.date="07/22/2016"
     ms.author="markvi"/>
 
 #Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory
 
-Pour vous aider à intégrer toutes vos applications cloud (SaaS) avec Azure Active Directory, nous avons développé une collection de didacticiels qui vous indiquent les étapes de configuration nécessaires.
+Pour vous aider à intégrer toutes vos applications cloud [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) à Azure Active Directory, nous avons développé une collection de didacticiels qui vous indiquent les étapes de configuration nécessaires.
 
 Pour obtenir la liste complète des applications SaaS qui ont été préalablement intégrées dans Azure AD, consultez la page [Marketplace Active Directory](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Liste des didacticiels
+
 
 | Logo| Nom de l'application |
 | --- | --- |
@@ -110,6 +111,7 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.png)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Heroku.png)| [Heroku](https://go.microsoft.com/fwLink/?LinkID=733446&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HighTail.png)| [Hightail](http://go.microsoft.com/fwlink/?LinkId=733463&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HireVue.png)| [HireVue](https://go.microsoft.com/fwLink/?LinkID=807990&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.png)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.png)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Huddle.png)| [Huddle](https://go.microsoft.com/fwLink/?LinkID=403227&clcid=0x409)|
@@ -192,7 +194,7 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.png)| [Sciforma](https://go.microsoft.com/fwLink/?LinkID=510264&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.png)| [SciQuest Spend Director](https://go.microsoft.com/fwLink/?LinkID=530243&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Screensteps.png)| [ScreenSteps](https://go.microsoft.com/fwLink/?LinkID=510251&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SD_Elements.png)| [Éléments SD](https://go.microsoft.com/fwLink/?LinkID=403234&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SD_Elements.png)| [Éléments SD](https://go.microsoft.com/fwLink/?LinkID=403234&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SecureDeliver.png)| [Secure Deliver](https://go.microsoft.com/fwLink/?LinkID=733457&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ServiceNow.png)| [ServiceNow](https://go.microsoft.com/fwLink/?LinkID=309587&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ShiftPlanning.png)| [ShiftPlanning](https://go.microsoft.com/fwLink/?LinkID=510242&clcid=0x409)|
@@ -251,11 +253,9 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 
 
 
-
-
 ##Articles connexes
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

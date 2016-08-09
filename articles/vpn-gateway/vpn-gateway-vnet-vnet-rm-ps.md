@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/15/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell
@@ -24,6 +24,8 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Cet article vous guidera au long des étapes de création d’une connexion entre des réseaux virtuels à l’aide du modèle de déploiement Resource Manager et de PowerShell. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **À propos des modèles de déploiement Azure**
@@ -83,7 +85,7 @@ Cette configuration s’applique aux réseaux virtuels situés dans le même abo
 
 ### Avant de commencer
 
-- Assurez-vous de disposer d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez activer vos [avantages d’abonné à MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 	
 - Vous aurez besoin d’installer les applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
@@ -120,7 +122,7 @@ Pour cet exercice, utilisez les valeurs suivantes pour les réseaux virtuels :
 - TestVNet2 : 10.41.0.0/16 et 10.42.0.0/16
 - Serveur frontal : 10.41.0.0/24
 - Serveur principal : 10.42.0.0/24
-- Sous-réseau de passerelle : 10.42.255.0.0/27
+- Sous-réseau de passerelle : 10.42.255.0/27
 - Groupe de ressources : TestRG4
 - Emplacement : États-Unis de l’Ouest
 - Serveur DNS : 8.8.8.8
@@ -298,7 +300,7 @@ Les exemples ci-dessous expliquent comment vérifier votre connexion. Veillez à
 
 ### Vérification de votre connexion à l'aide du portail Azure
 
-Vous pouvez vérifier une connexion VPN dans le Portail Azure en accédant à **Passerelles de réseau virtuel **> **cliquez sur le nom de votre passerelle** > **Paramètres** > **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le panneau **Connexion**.
+Vous pouvez vérifier une connexion VPN dans le portail Azure en accédant à **Passerelles de réseau virtuel **> **cliquez sur le nom de votre passerelle** > **Paramètres** > **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le panneau **Connexion**.
 
 
 ### Vérification de votre connexion à l'aide de PowerShell
@@ -509,6 +511,6 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 ## Étapes suivantes
 
 - Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
-- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
+- Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

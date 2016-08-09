@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="07/27/2016"
 	ms.author="micurd"/>
 
 # Transfert de données vers et à partir d’Azure Storage
@@ -27,6 +27,8 @@ Si vous créez une application, le développement avec l’API REST ou l’une d
 Azure Storage fournit de riches bibliothèques clientes pour .NET, iOS, Java, Android, la plateforme Windows universelle, Xamarin, C++, Node.JS, PHP, Ruby et Python. Les bibliothèques clientes offrent des fonctionnalités avancées telles que la logique de nouvelle tentative, la journalisation et les téléchargements parallèles. Vous pouvez également développer votre application directement avec l’API REST, qui peut être appelée à l’aide de n’importe quel langage permettant de créer des requêtes HTTP/HTTPS.
 
 Consultez [Prise en main d’Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) pour en savoir plus.
+
+En outre, nous proposons la [bibliothèque de déplacement des données Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement), une bibliothèque conçue pour la copie de données hautes performances vers et depuis Azure. Veuillez vous reporter à la [documentation](https://github.com/Azure/azure-storage-net-data-movement) de la bibliothèque de déplacement des données pour en savoir plus.
 
 ## Affichage/utilisation rapide de vos données
 
@@ -44,7 +46,7 @@ AzCopy est un utilitaire de ligne de commande Windows conçu pour la copie de do
 
 Consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) pour en savoir plus.
 
-### Azure PowerShell
+### Azure PowerShell
 
 Le module Azure PowerShell fournit des applets de commande pour la gestion des services sur Azure. Il s’agit d’un interpréteur en ligne de commande basé sur les tâches et d’un langage de génération de scripts conçu spécialement pour l’administration de systèmes.
 
@@ -80,4 +82,4 @@ Quand vous disposez d’applications et de charges de travail locales, vous avez
 
 Consultez [Azure Site Recovery](../site-recovery/site-recovery-overview.md) pour en savoir plus.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -24,7 +24,7 @@ L’exportation continue est disponible pendant la période d’essai gratuite e
 
 Avant de configurer l’exportation continue, d’autres options doivent être prises en considération :
 
-* [Le bouton Exporter](app-insights-metrics-explorer.md#export-to-excel) en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel. 
+* [Le bouton Exporter](app-insights-metrics-explorer.md#export-to-excel) en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
 * [Analytics](app-insights-analytics.md) fournit un langage de requête puissant pour la télémétrie et peut également exporter les résultats.
 * Si vous cherchez à [explorer vos données dans Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), vous pouvez le faire sans utiliser l’exportation continue.
 
@@ -111,7 +111,7 @@ Where
 
 ## <a name="format"></a> Format de données
 
-* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n.
+* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n. Il contient les données de télémétrie traitées sur une période de trente secondes environ.
 * Chaque ligne représente un point de données de télémétrie, par exemple une demande ou un affichage de page.
 * Chaque ligne est un document JSON sans mise en forme. Si vous souhaitez l'examiner, ouvrez-le dans Visual Studio et choisissez Modifier, Options avancées, Formater le fichier :
 
@@ -178,7 +178,7 @@ L’exportation continue redémarre.
 
 ## Questions et réponses
 
-* *Je veux simplement télécharger un graphique.*  
+* *Je veux simplement télécharger un graphique.*
  
     Oui, vous pouvez le faire. En haut du panneau, cliquez sur [Exporter les données](app-insights-metrics-explorer.md#export-to-excel).
 
@@ -229,4 +229,4 @@ L’exportation continue redémarre.
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Partitionnement et mise à l’échelle dans Azure DocumentDB
@@ -82,7 +82,7 @@ Lorsque DocumentDB stocke des documents, il les distribue uniformément entre le
 DocumentDB prend en charge la création de partitions uniques et de collections partitionnées.
 
 - Les **collections partitionnées** peuvent s’étendre sur plusieurs partitions. Elles prennent en charge des volumes de stockage et de débit très importants. Vous devez spécifier une clé de partition pour la collection.
-- Les **collections à partition unique** offrent des options tarifaires plus avantageuses, ainsi que la possibilité d’interroger et d’effectuer des transactions sur toutes les données de la collection. Elles ont les mêmes limites de stockage et d’évolutivité qu’une partition unique. Il n’est pas obligatoire de spécifier une clé de partition pour ces collections. 
+- Les **collections à partition unique** offrent des options tarifaires plus avantageuses, ainsi que la possibilité d’interroger et d’effectuer des transactions sur toutes les données de la collection. Elles ont les mêmes limites de stockage et d’évolutivité qu’une partition unique. Il n’est pas obligatoire de spécifier une clé de partition pour ces collections.
 
 ![Collections partitionnées dans DocumentDB][2]
 
@@ -248,6 +248,24 @@ Pour la requête suivante, la clé de partition (DeviceId) n’a pas de filtre. 
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
+### Exécution de requêtes parallèles
+
+Les kits de développement logiciel (SDK) de DocumentDB version 1.9.0 et versions ultérieures prennent en charge des options d’exécution de requêtes parallèles, ce qui vous permet d’effectuer des requêtes à faible latence sur les collections partitionnées, même lorsque ces requêtes concernent un grand nombre de partitions. Par exemple, la requête suivante est configurée pour s’exécuter en parallèle sur plusieurs partitions.
+
+    // Cross-partition Order By Queries
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
+        .OrderBy(m => m.MetricValue);
+
+Vous pouvez gérer l’exécution de requêtes parallèles en réglant les paramètres suivants :
+
+- En définissant `MaxDegreeOfParallelism`, vous pouvez contrôler le degré de parallélisme, c’est-à-dire le nombre maximal de connexions réseau simultanées aux partitions de la collection. Si vous définissez cette valeur sur -1, le degré de parallélisme est géré par le Kit de développement logiciel (SDK).
+- En définissant `MaxBufferedItemCount`, vous pouvez compenser l’utilisation de la mémoire côté client et la latence de la requête. Si vous omettez ce paramètre ou que vous lui affectez la valeur -1, le nombre d’éléments mis en mémoire tampon pendant l’exécution de requêtes parallèles est géré par le Kit de développement logiciel (SDK).
+
+Avec un même état de collection, une requête parallèle retourne les résultats dans l’ordre d’exécution en série. Lorsque vous effectuez une requête entre plusieurs partitions qui comporte le tri (ORDER BY et/ou TOP), le Kit de développement logiciel (SDK) de DocumentDB émet la requête en parallèle sur plusieurs partitions et fusionne les résultats partiellement triés côté client pour produire des résultats globalement classés.
+
 ### Exécution de procédures stockées
 
 Vous pouvez également exécuter des transactions atomiques sur des documents avec le même ID d’appareil, par exemple, si vous conservez des agrégats ou le dernier état d’un appareil dans un document unique.
@@ -261,7 +279,7 @@ Dans la section suivante, nous examinons la manière de passer de collections à
 
 <a name="migrating-from-single-partition"></a>
 ### Migration de collections à partition unique vers des collections partitionnées
-Quand une application utilisant une collection à partition unique a besoin d’un débit supérieur (> 10 000 unités de requête/s) ou d’un stockage de données plus important (> 10 Go), vous pouvez utiliser l’[outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) pour migrer les données de la collection à partition unique vers une collection partitionnée.
+Quand une application utilisant une collection à partition unique a besoin d’un débit supérieur (> 10 000 unités de requête/s) ou d’un stockage de données plus important (> 10 Go), vous pouvez utiliser [l’outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) pour migrer les données de la collection à partition unique vers une collection partitionnée.
 
 Pour migrer une collection à partition unique vers une collection partitionnée
 
@@ -296,8 +314,8 @@ Notez que dans certains cas d’utilisation (comme l’IoT et les profils utilis
 ### Partitionnement et journalisation de données de série chronologique
 DocumentDB est très souvent utilisé à des fins de journalisation et de télémétrie. Il est important de choisir une bonne clé de partition, car il se peut que vous deviez lire et écrire des volumes importants de données. Le choix dépend de vos taux de lecture et d’écriture, et des types de requêtes que vous prévoyez d’exécuter. Voici quelques conseils sur la façon de choisir une clé de partition appropriée.
 
-- Si votre mode d’utilisation implique un petit taux d’écritures s’accumulant sur une longue période, et la nécessité d’interroger sur la base de plages d’horodatage et d’autres filtres, l’utilisation d’un cumul de l’horodatage, par exemple d’une date, comme clé de partition constitue une bonne approche. Cela vous permet d’interroger toutes les données correspondant à une date à partir d’une seule partition. 
-- Si votre charge de travail est lourde en écriture, ce qui est généralement plus courant, vous devez utiliser une clé de partition qui n’est pas basée sur l’horodatage, afin que DocumentDB puisse répartir uniformément les écritures sur plusieurs partitions. Dans ce cas, un nom d’hôte, un ID de processus, un ID d’activité ou une autre propriété présentant une cardinalité élevée constituent un bon choix. 
+- Si votre mode d’utilisation implique un petit taux d’écritures s’accumulant sur une longue période, et la nécessité d’interroger sur la base de plages d’horodatage et d’autres filtres, l’utilisation d’un cumul de l’horodatage, par exemple d’une date, comme clé de partition constitue une bonne approche. Cela vous permet d’interroger toutes les données correspondant à une date à partir d’une seule partition.
+- Si votre charge de travail est lourde en écriture, ce qui est généralement plus courant, vous devez utiliser une clé de partition qui n’est pas basée sur l’horodatage, afin que DocumentDB puisse répartir uniformément les écritures sur plusieurs partitions. Dans ce cas, un nom d’hôte, un ID de processus, un ID d’activité ou une autre propriété présentant une cardinalité élevée constituent un bon choix.
 - Une troisième solution consiste à adopter une approche hybride, où vous avez plusieurs collections, une pour chaque jour/mois, et où la clé de partition est une propriété granulaire telle que le nom d’hôte. Cela présente l’avantage que vous pouvez définir différents niveaux de performances en fonction de la fenêtre temporelle. Par exemple, la collection pour le mois en cours est approvisionnée avec un débit plus élevé, car elle sert les lectures et écritures, tandis que les mois précédents offrent un débit inférieur, car ils servent uniquement les lectures.
 
 ### Partitionnement et mutualisation
@@ -312,7 +330,7 @@ Vous pouvez également utiliser une approche à plusieurs niveaux/combinée qui 
 Dans cet article, nous avons décrit le fonctionnement du partitionnement dans Azure DocumentDB, la création de collections partitionnées et la sélection d’une clé de partition adéquate pour votre application.
 
 -   Effectuez un test des performances et de la mise à l’échelle avec DocumentDB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md) pour obtenir un exemple.
--   Commencez à coder avec les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+-   Commencez à coder avec les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 -   En savoir plus sur le [débit approvisionné dans DocumentDB](documentdb-performance-levels.md)
 -   Si vous souhaitez personnaliser la façon dont votre application effectue le partitionnement, vous pouvez incorporer votre propre implémentation de partitionnement côté client. Voir [Prise en charge du partitionnement côté client](documentdb-sharding.md).
 
@@ -322,4 +340,4 @@ Dans cet article, nous avons décrit le fonctionnement du partitionnement dans A
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

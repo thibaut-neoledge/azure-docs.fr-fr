@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/25/2016" 
 	ms.author="rnagpal"/>
 
 # Kit SDK DocumentDB
@@ -24,7 +24,7 @@
 - [Kit SDK Java](documentdb-sdk-java.md)
 - [Kit SDK Python](documentdb-sdk-python.md)
 
-##Kit SDK .NET DocumentDB
+## Kit SDK .NET DocumentDB
 
 <table>
 <tr><td>**Télécharger**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -36,22 +36,19 @@
 
 ## Notes de publication
 
-### <a name="1.9.1"/>[1\.9.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.1)
-  - Prise en charge ajoutée de SELECT VALUE pour les requêtes parallèles, les requêtes TOP sur plusieurs partitions et les requêtes ORDER BY sur plusieurs partitions.
-  - Optimisation des performances des requêtes TOP et ORDER BY sur plusieurs partitions.
-  - Mise à jour d’un message d’erreur pour préciser que, si vous recevez une System.NotSupportedException non gérée lors de l’exécution de requêtes sur des collections partitionnées, vous devez désactiver l’option « Préférer 32 bits » dans la fenêtre des Propriétés de votre projet, sous l’onglet Build, afin d’éviter l’erreur.
+### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+> [AZURE.IMPORTANT] Vous pouvez recevoir une System.NotSupportedException lors de l’interrogation de collections partitionnées. Pour éviter cette erreur, désactivez l’option « Préférer 32 bits » dans la fenêtre Propriétés de votre projet, sous l’onglet Build.
+
+  - Prise en charge ajoutée de requêtes parallèles pour les collections partitionnées.
+  - Prise en charge ajoutée des requêtes ORDER BY et TOP sur plusieurs partitions pour les collections partitionnées.
   - Résolution des références manquantes dans DocumentDB.Spatial.Sql.dll et Microsoft.Azure.Documents.ServiceInterop.dll qui sont nécessaires lors du référencement d’un projet DocumentDB avec une référence au package DocumentDB Nuget.
   - Résolution des problèmes liés à la possibilité d’utiliser des paramètres de types différents lors de l’utilisation de fonctions définies par l’utilisateur par le dans LINQ.
-
-
-### <a name="1.9.0"/>[1\.9.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.0)
-  - Modification du mode de connexion par défaut pour le client .NET sur ConnectionMode.Direct pour améliorer les performances à l’aide d’une connectivité directe avec TCP. La propriété ConnectionPolicy.ConnectionProtocol est déconseillée et une valeur DirectHttps a été ajoutée pour l’énumération du ConnectionMode.
   - Correction d’un bogue pour les comptes de réplication globale lorsque des appels Upsert étaient transmis vers des emplacements de lecture au lieu d’emplacements d’écriture.
-  - Ajout de méthodes pour l’interface IDocumentClient qui manquaient, notamment la méthode UpsertAttachmentAsync qui accepte mediaStream et des options en tant que paramètres, la méthode CreateAttachmentAsync qui accepte les options en tant que paramètres, et la méthode CreateOfferQuery qui accepte querySpec en tant que paramètre.
+  - Méthodes ajoutées à l’interface IDocumentClient qui étaient absentes :
+      - Méthode UpsertAttachmentAsync qui accepte mediaStream et les options en tant que paramètres
+      - Méthode CreateAttachmentAsync qui accepte les options en tant que paramètres
+      - Méthode CreateOfferQuery qui accepte querySpec en tant que paramètre.
   - Des classes publiques non scellées qui sont exposées dans l’interface IDocumentClient.
-  - Prise en charge ajoutée de requêtes parallèles pour les collections partitionnées.
-  - Prise en charge ajoutée d’ORDER BY sur plusieurs partitions pour les collections partitionnées.
-  
 
 ### <a name="1.8.0"/>[1\.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Ajout de la prise en charge des comptes de base de données de plusieurs régions.
@@ -81,7 +78,7 @@
     - Opérateur Take pour activer le comportement SELECT TOP dans LINQ
     - Opérateur CompareTo pour activer les comparaisons de plages de chaînes
     - Opérateurs Conditional (?) et Coalesce (??)
-  - **[Résolu]** ArgumentOutOfRangeException en cas de combinaison de la projection de modèle avec Where-In dans la requête linq. [N°81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Résolu]** ArgumentOutOfRangeException en cas de combinaison de la projection de modèle avec Where-In dans la requête linq. [No.81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Résolu]** Si la dernière expression n’est pas Select, le fournisseur LINQ n’effectuait aucune projection et créait une expression SELECT * incorrecte. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -158,8 +155,9 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
  
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.9.1](#1.9.1) | 20 juillet 2016 |--- 
-| [1\.9.0](#1.9.0) | 9 juillet, 2016 |--- 
+| [1\.9.2](#1.9.2) | 23 juillet 2016 |--- 
+| 1.9.1 | Déconseillé |--- 
+| 1.9.0 | Déconseillé |--- 
 | [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
 | [1\.7.1](#1.7.1) | 6 mai 2016 |--- 
 | [1\.7.0](#1.7.0) | 26 avril 2016 |--- 
@@ -176,8 +174,8 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 | [1\.1.0](#1.1.0) | 30 avril 2015 |--- 
 | [1\.0.0](#1.0.0) | 8 avril 2015 |--- 
 | [Version préliminaire 0.9.3](#0.9.x-preview) | 12 mars 2015 | 29 février 2016 
-| [Version préliminaire 0.9.2](#0.9.x-preview) | 15 Janvier 2015 | 29 février 2016 
-| [Version préliminaire 0.9.1](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 
+| [Version préliminaire 0.9.2](#0.9.x-preview) | Janvier 2015 | 29 février 2016 
+| [Version préliminaire .9.1](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 
 | [Version préliminaire 0.9.0](#0.9.x-preview) | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
@@ -187,4 +185,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

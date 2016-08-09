@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli" />
 
 # Gestion de vos contrôleurs d’appareil StorSimple
@@ -140,6 +140,8 @@ Cette section vous explique comment arrêter un appareil StorSimple en cours d�
 
 ## Rétablissement des paramètres d’usine de l’appareil
 
+> [AZURE.IMPORTANT] Si vous devez rétablir les paramètres d’usine de l’appareil, contactez le Support Microsoft. La procédure décrite ci-dessous ne doit être effectuée qu’en coordination avec le Support Microsoft.
+
 Cette procédure explique comment rétablir les paramètres d’usine de votre appareil Microsoft Azure StorSimple à l’aide de Windows PowerShell pour StorSimple. La réinitialisation d’un appareil supprime toutes les données et tous les paramètres de l’ensemble du cluster par défaut.
 
 Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure StorSimple, procédez comme suit :
@@ -213,4 +215,4 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 - Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

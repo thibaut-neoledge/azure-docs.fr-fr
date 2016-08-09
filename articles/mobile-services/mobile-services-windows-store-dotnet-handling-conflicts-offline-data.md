@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -168,4 +168,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Référentiel GitHub d'exemples Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -45,7 +45,7 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 
 Dans cette section, nous avons répertorié les composants requis pour utiliser ce service. Vérifiez-les soigneusement avant d’expédier vos disques.
 
-### Comptes de stockage
+### Compte de stockage
 
 Vous devez disposer d’un abonnement Azure et d’un ou plusieurs comptes de stockage **classiques** pour pouvoir utiliser le service Import/Export. Chaque tâche ne peut servir à transférer des données que vers ou à partir d'un seul compte de stockage classique. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
@@ -80,7 +80,7 @@ Téléchargez la dernière version de [l’outil client Azure Import/Export](htt
 
 ### Disques durs
 
-Le service Import/Export ne prend en charge que les disques durs internes SATA II/III de 3,5 pouces. La capacité maximale par disque dur est de 8 To. Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS. Pour copier les données, vous pouvez connecter votre disque dur directement à l’aide d’un connecteur SATA ou de manière externe à l’aide d’un adaptateur USB SATA II/III externe. Nous vous recommandons d’utiliser un des adaptateurs USB SATA II/III externes suivants :
+Le service Import/Export ne prend en charge que les disques durs internes SATA II/III de 3,5 pouces. La capacité maximale par disque dur est de 10 To. Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS. Pour copier les données, vous pouvez connecter votre disque dur directement à l’aide d’un connecteur SATA ou de manière externe à l’aide d’un adaptateur USB SATA II/III externe. Nous vous recommandons d’utiliser un des adaptateurs USB SATA II/III externes suivants :
 
 - Anker 68UPSATAA-02BU
 - Anker 68UPSHHDS-BU
@@ -160,7 +160,7 @@ Vous devez également indiquer un numéro de compte de transporteur FedEx ou DHL
 
 Lorsque vous expédiez vos colis, vous devez respecter les [conditions d'utilisation des services Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
-> [AZURE.IMPORTANT] Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d’expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Cela vous assurera d'atteindre Microsoft dans les délais.
+> [AZURE.IMPORTANT] Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d’expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Cela vous assurera d'atteindre Microsoft dans les délais. Par exemple, tout package qui franchira des frontières internationales (à l’exception de celles de l’Union européenne) doit être accompagné d’une facture commerciale. Vous pouvez imprimer une copie de la facture commerciale à partir du site web de support du transporteur. Exemple de facture commerciale : [facture commerciale DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) ou [facture commerciale FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Assurez-vous que Microsoft n’a pas été indiqué comme l’exportateur.
 
 ## Fonctionnement du service Azure Import/Export
 
@@ -322,7 +322,7 @@ Pour une description étape par étape, consultez [Exemple de flux de travail po
 
 	Si vous possédez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'importation une fois mon colis envoyé**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
 
 6. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre travail dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 
@@ -501,4 +501,4 @@ Consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](..
 
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

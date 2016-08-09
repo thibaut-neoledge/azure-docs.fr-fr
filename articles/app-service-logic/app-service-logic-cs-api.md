@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -52,7 +52,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 De la même façon, vous pouvez spécifier une action à exécuter.
 
 Les entrées de l’action sont les suivantes :
-- **Expression C#** - Expression qui est évaluée. Vous devez inclure l’instruction `return` pour obtenir du contenu. 
+- **Expression C#** - Expression qui est évaluée. Vous devez inclure l’instruction `return` pour obtenir du contenu.
 - **Objet(s) de contexte** - Objet de contexte facultatif pouvant être transmis dans le déclencheur. Vous pouvez définir autant de propriétés que vous le souhaitez, mais la base doit être un élément JObject `{ ... }`, et les objets peuvent être référencés dans le script par le biais du nom de clé (la valeur est transmise sous la forme d’un élément JToken correspondant au nom).
 - **Bibliothèques** - Groupe facultatif de fichiers .dll à inclure dans la compilation du script. Ce groupe utilise la structure ci-après et fonctionne mieux à côté d’un connecteur de stockage d’objets blob avec le fichier .dll en guise de sortie :
 
@@ -112,4 +112,4 @@ Le connecteur étant créé, vous pouvez l’ajouter à un flux d’entreprise �
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

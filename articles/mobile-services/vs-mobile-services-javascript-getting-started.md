@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main d’une application mobile Javascript après l’ajout de Mobile Services à l’aide des services connectés Visual Studio | Microsoft Azure" 
+	pageTitle="Prise en main d’une application mobile Javascript après l’ajout de Mobile Services à l’aide des services connectés Visual Studio | Microsoft Azure " 
 	description="Prise en main de Mobile Services dans un projet JavaScript sous Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # Prise en main d’une application mobile Javascript après l’ajout d’Azure Mobile Services à l’aide des services connectés Visual Studio
@@ -88,4 +88,4 @@ Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur
 
 [En savoir plus sur Mobile Services](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

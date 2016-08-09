@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -58,4 +58,4 @@ Procédez comme suit pour télécharger un nouveau mappage remplaçant un mappag
 - [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
 - [En savoir plus sur les transformations](./app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -468,4 +468,4 @@ Pour afficher tous les événements liés au résultat « audit », vous pouve
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!----HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016-->

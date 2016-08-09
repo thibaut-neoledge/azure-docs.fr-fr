@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/17/2016"
+   ms.date="07/23/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentification sur Azure SQL Data Warehouse
@@ -46,12 +46,12 @@ Par défaut, votre connexion se connecte à la base de données MASTER et non à
 
 > [AZURE.NOTE] Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article [Envoyer des requêtes avec Visual Studio][].
 
-Il est important de noter que l’instruction Transact-SQL **USE <your DB>** n’est pas prise en charge pour la modification de la base de données pour une connexion.
+Il est important de noter que l’instruction Transact-SQL **USE <votre base de données>** n’est pas prise en charge pour la modification de la base de données pour une connexion
 
 
 ## Authentification Azure Active Directory (AAD)
 
-L’authentification Azure Active Directory est un mécanisme servant à se connecter à Microsoft Azure SQL Data Warehouse à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs SQL Data Warehouse et elle simplifie la gestion des autorisations.
+L’authentification [Azure Active Directory][What is Azure Active Directory] est un mécanisme servant à se connecter à Microsoft Azure SQL Data Warehouse à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs SQL Data Warehouse et elle simplifie la gestion des autorisations.
 
 ### Avantages
 
@@ -86,10 +86,12 @@ Les principales différences entre l’utilisation de l’authentification Azure
 
 ## Étapes suivantes
 
-Pour commencer à interroger votre entrepôt de données avec Visual Studio et d’autres applications, consultez [Envoyer des requêtes avec Visual Studio][].
+Pour commencer à interroger votre entrepôt de données avec Visual Studio et d’autres applications, consultez [Query with Visual Studio (Soumettre des requêtes avec Visual Studio)][].
 
 <!-- Article references -->
-[Sécuriser une base de données dans SQL Data Warehouse]: sql-data-warehouse-overview-manage-security.md
-[Envoyer des requêtes avec Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Envoyer des requêtes avec Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Query with Visual Studio (Soumettre des requêtes avec Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

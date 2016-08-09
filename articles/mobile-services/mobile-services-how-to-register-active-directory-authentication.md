@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Inscription de vos applications à des fins d'utilisation d'une connexion via un compte Azure Active Directory
@@ -70,4 +70,4 @@ Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentifi
 [portail Azure Classic]: https://manage.windowsazure.com/
 [portail classique]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

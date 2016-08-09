@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
+- [Backend .NET](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Back-end Javascript](mobile-services-schedule-recurring-tasks.md)
 
 Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail Azure Classic pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
@@ -91,7 +91,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Développez le dossier Modèles, ouvrez le fichier de contexte du modèle de données (nommé nom\_service*Context.cs), puis ajoutez la propriété suivante qui renvoie un **DbSet typé** :
+4. Développez le dossier Modèles, ouvrez le fichier de contexte du modèle de données (nommé *service\_name*Context.cs) et ajoutez la propriété suivante qui renvoie un **DbSet** typé :
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -218,7 +218,7 @@ Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke
 		    }
 		}
 
-	Dans le code ci-dessus, vous devez remplacer les chaînes _todolistService_ et _todolistContext_ par l’espace de noms et le DbContext du projet téléchargé, qui sont respectivement *mobile&#95;service&#95;name*Service et *mobile&#95;service&#95;name*Context.
+	Dans le code ci-dessus, vous devez remplacer les chaînes _todolistService_ et _todolistContext_ par l'espace de noms et le DbContext du projet téléchargé, qui sont *nom&#95;service&#95;mobile*Service et *nom&#95;service&#95;mobile*Context, respectivement.
 
 	Dans le code ci-dessus, la méthode de remplacement **ExecuteAsync** appelle l’API de requêtes Twitter en utilisant les informations d’identification stockées pour demander les tweets récents contenant la balise de hachage `#mobileservices`. Les tweets en double et les réponses sont supprimés des résultats avant que ces derniers ne soient stockés dans la table.
 
@@ -306,4 +306,4 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Projet CodePlex LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -57,9 +57,9 @@ Vous pouvez utiliser la Règle d'entreprise pour créer, modifier et déployer d
 
 ###Conditions
 
-Une condition est une expression vrai/faux (booléenne) qui se compose d'un ou plusieurs prédicats. 
-Dans notre exemple, le prédicat « inférieur ou égal à » est appliqué à la quantité et aux fonds disponibles. 
-Cette condition sera toujours évaluée comme vraie ou fausse. Vous pouvez combiner les prédicats avec les opérateurs logiques AND, OR et NOT pour former une expression logique potentiellement longue, mais ils sont toujours évalués comme vrais ou faux.
+Une condition est une expression vrai/faux (booléenne) qui se compose d'un ou plusieurs prédicats. Dans notre exemple, le prédicat « inférieur ou égal à » est appliqué à la quantité et aux fonds disponibles. 
+Cette condition sera toujours évaluée comme vraie ou fausse. 
+Vous pouvez combiner les prédicats avec les opérateurs logiques AND, OR et NOT pour former une expression logique potentiellement longue, mais ils sont toujours évalués comme vrais ou faux.
 
 ###Actions
 
@@ -84,7 +84,7 @@ Prenons un exemple de scénario et étudions-le à mesure que nous composons la 
 ![Alt text][1]
 
 Dans un scénario d'indemnisation vraiment simple, le demandeur envoie sa demande d'indemnisation (via n'importe quel client tel qu'un site web, une application de téléphone, etc.). Cette demande d'indemnisation est envoyée au Service de traitement des indemnisations de la compagnie d'assurance et, en fonction du résultat du traitement, elle peut être approuvée, rejetée ou transférée en vue d'un traitement manuel plus approfondi. 
-Le Service de traitement des indemnisations dans notre scénario serait celui englobant la logique métier pour le système. Si nous examinons de plus près ce service, nous pouvons observer ce qui suit :
+Le Service de traitement des indemnisations dans notre scénario serait celui englobant la logique métier pour le système. Si nous examinons de plus près ce service, nous pouvons observer ce qui suit :
 
 ![Alt text][2]
 
@@ -98,7 +98,7 @@ Utilisons maintenant des règles d'entreprise pour implémenter cette logique m�
 2. Sélectionnez Nouveau-> Marketplace, puis recherchez *Règles BizTalk*
 3. Sélectionnez Règles BizTalk dans la liste des résultats. Le panneau Règles BizTalk s'affiche
 4. Cliquez sur le bouton *Créer* ![Alt text][3]
-1. Dans le nouveau panneau qui s'ouvre, entrez les informations suivantes :  
+1. Dans le nouveau panneau qui s'ouvre, entrez les informations suivantes :
 	1. Nom : donnez un nom à votre application API de règles.
 	1. Plan App Service : sélectionnez ou créez un plan App Service
 	1. Niveau de tarification : choisissez le niveau de tarification où doit résider cette application.
@@ -111,7 +111,7 @@ Utilisons maintenant des règles d'entreprise pour implémenter cette logique m�
 Une fois que vous avez créé une application API de règles BizTalk, l'étape suivante consiste à créer des vocabulaires. Le développeur est en principe la personne la plus susceptible d'effectuer cette tâche. Voici comment procéder :
 
 
-1. Lancez votre application d'API Règles BizTalk à partir du portail en accédant à Parcourir->API Apps-><Your Rules API App>. Cela vous permet d'accéder à un tableau de bord de l'application API de règles semblable à celui-ci :
+1. Lancez votre application API Règles BizTalk à partir du portail en accédant à Parcourir->API Apps-><Votre application API Règles>. Cela vous permet d'accéder à un tableau de bord de l'application API de règles semblable à celui-ci :
 
    ![Alt text][4]
 
@@ -160,37 +160,37 @@ Une fois que le développeur a créé les vocabulaires nécessaires, il incombe 
 ##Création de règles
 Une règle est une collection d'instructions de condition et d'action. Les actions sont exécutées si la condition est remplie. Dans le panneau Créer une règle, donnez un nom unique à la règle (pour cette stratégie) et une description (facultative). 
 La zone Condition (IF) peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge :
-1. 	And : opérateur conditionnel  
-2. 	Or : opérateur conditionnel  
-3. 	does\_not\_exist  
-4. 	exists  
-5. 	false  
-6. 	is\_equal\_to  
-7. 	is\_greater\_than  
-8. 	is\_greater\_than\_equal\_to  
-9. 	is\_in  
-10. is\_less\_than  
-11. is\_less\_than\_equal\_to  
-12. is\_not\_in  
-13. is\_not\_equal\_to  
-14. mod  
-15. true  
+1. 	And : opérateur conditionnel
+2. 	Or : opérateur conditionnel
+3. 	does\_not\_exist
+4. 	exists
+5. 	false
+6. 	is\_equal\_to
+7. 	is\_greater\_than
+8. 	is\_greater\_than\_equal\_to
+9. 	is\_in
+10. is\_less\_than
+11. is\_less\_than\_equal\_to
+12. is\_not\_in
+13. is\_not\_equal\_to
+14. mod
+15. true
 
 La zone Action (THEN) peut contenir plusieurs instructions, une par ligne, pour créer des actions à exécuter. Voici les mots clés pris en charge :
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	null  
-7.	update  
+1.	equals
+2.	false
+3.	true
+4.	halt
+5.	mod
+6.	null
+7.	update
 
 Les zones de condition et d'action offrent des fonctionnalités Intellisense pour vous aider à créer une règle rapidement. Vous pouvez les déclencher en appuyant sur Ctrl+Espace ou simplement en commençant à taper. Les mots clés correspondant aux caractères tapés sont automatiquement filtrés et affichés. La fenêtre Intellisense affiche tous les mots clés et les définitions de vocabulaire. 
 ![Alt text][9]
 
 ##Chaînage avant explicite
-Les Règles BizTalk prennent en charge le chaînage avant explicite, donc si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants :  
-   1.	update <vocabulary definition> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.  
+Les Règles BizTalk prennent en charge le chaînage avant explicite, donc si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants :
+   1.	update <définition de vocabulaire> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.
    2.	Halt : ce mot clé arrête toutes les exécutions de règles.
 
 ##Activer/désactiver des règles
@@ -257,4 +257,4 @@ L'un des principaux avantages offerts par l'utilisation des règles d'entreprise
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

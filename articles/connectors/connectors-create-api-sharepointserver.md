@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="07/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur SharePoint Online 
@@ -26,7 +26,7 @@ Le connecteur SharePoint permet d’utiliser des listes dans SharePoint.
 Avec SharePoint, vous pouvez effectuer les opérations suivantes :
 
 * Créer des applications logiques
-* Créer des applications PowerApps  
+* Créer des applications PowerApps
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -76,13 +76,13 @@ Pour vous connecter à **SharePoint Online**, vous devez fournir votre identité
 
 Dans le concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
 
-1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées dont le nom contient SharePoint : ![Configurer SharePoint][1]  
-2. Sélectionnez **SharePoint Online - Quand un fichier est créé**   
-3. Sélectionnez **Connexion à SharePoint Online** : ![Configurer SharePoint][2]    
-4. Entrez vos informations d’identification SharePoint pour vous connecter et vous authentifier auprès de SharePoint ![Configurer SharePoint][3]     
-5. Une fois l’authentification terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue **Quand un fichier est créé** de SharePoint. ![Configurer SharePoint][4]  
-6. Vous pouvez ensuite ajouter d’autres déclencheurs et actions dont vous avez besoin pour terminer votre application logique.   
-7. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menus supérieure.  
+1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées dont le nom contient SharePoint : ![Configurer SharePoint][1]
+2. Sélectionnez **SharePoint Online - Quand un fichier est créé**
+3. Sélectionnez **Connexion à SharePoint Online** : ![Configurer SharePoint][2]
+4. Entrez vos informations d’identification SharePoint pour vous connecter et vous authentifier auprès de SharePoint. ![Configurer SharePoint][3]
+5. Une fois l’authentification terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue SharePoint **Quand un fichier est créé**. ![Configurer SharePoint][4]
+6. Vous pouvez ensuite ajouter d’autres déclencheurs et actions dont vous avez besoin pour terminer votre application logique.
+7. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menus supérieure.
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques ou applications PowerApps, ou les deux.
 
@@ -695,10 +695,10 @@ Aucune des propriétés n’est obligatoire.
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Créer une application PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
+[3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
+[4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
+[5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

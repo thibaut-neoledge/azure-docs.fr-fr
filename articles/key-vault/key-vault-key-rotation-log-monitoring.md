@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configuration du coffre de clés avec une rotation des clés et un audit de bout en bout | Microsoft Azure"
 	description="Utilisez cette procédure pour configurer la rotation des clés et le contrôle des journaux de coffre de clés"
-	services="key-vault, automation,app-service\logic"
+	services="key-vault"
 	documentationCenter=""
 	authors="swgriffith"
 	manager=""
@@ -424,4 +424,4 @@ Pour l’action, choisissez _Office 365 - Envoyer un message électronique_. Ren
 
 À ce stade, vous disposez d’un pipeline de bout en bout qui, une fois par minute, recherche les nouveaux journaux d’audit de coffre de clés. Lorsqu’un nouveau journal est trouvé, il le place dans une file d’attente Service Bus. L’application logique est déclenchée dès qu’un nouveau message arrive dans la file d’attente et, si l’appid dans l’événement ne correspond à l’ID de l’application appelante, elle envoie un message électronique.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

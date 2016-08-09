@@ -103,7 +103,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
                 {
                     var parameters = new PigJobSubmissionParameters
                     {
-                        Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
+                        Query = @"LOGS = LOAD 'wasbs:///example/data/sample.log';
                                     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
                                     FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
                                     GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -143,4 +143,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 [version préliminaire du portail] : https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

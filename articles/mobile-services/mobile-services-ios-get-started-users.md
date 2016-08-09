@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Ajout de l’authentification à une application existante
@@ -27,7 +27,7 @@
 
 Dans ce didacticiel, vous allez ajouter l’authentification au [didacticiel Démarrage rapide de Mobile Services] en faisant appel à un fournisseur d’identité pris en charge.
 
-Nous vous recommandons de terminer d'abord le [didacticiel Démarrage rapide de Mobile Services]. Vous pouvez également télécharger le projet Démarrage rapide iOS : dans le [portail Azure Classic] > **Mobile Services** > votre service mobile > l'authentification cloud en haut à gauche > **iOS** > **Créer une nouvelle application iOS** > **Télécharger et exécuter votre application** > **Objective-C** > **Télécharger**. N'oubliez pas de cliquer sur **Créer une table TodoItem** avant de cliquer sur **Télécharger** si vous n'avez pas encore créé la table.
+Nous vous recommandons de terminer d'abord le [didacticiel Démarrage rapide de Mobile Services]. Vous pouvez également télécharger le projet Démarrage rapide iOS : dans le [portail Azure Classic] > **Mobile Services** > votre service mobile > l'authentification cloud en haut à gauche > **iOS** > **Créer une nouvelle application iOS** > **Télécharger et exécuter votre application** > **Objective-C** > **Télécharger**. N'oubliez pas de cliquer sur **Créer une table TodoItem** avant de cliquer sur **Télécharger** si vous n'avez pas encore créé la table.
 
 ##<a name="register"></a>Inscription de l’application pour l’authentification
 
@@ -89,4 +89,4 @@ Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filt
 
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

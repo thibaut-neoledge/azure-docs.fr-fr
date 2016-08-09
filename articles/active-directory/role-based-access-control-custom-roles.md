@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="kgremban"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="kgremban"/>
 
 
@@ -62,7 +62,19 @@ La propriété **Actions** d’un rôle personnalisé spécifie les opérations 
 
 Utilisez `Get-AzureRmProviderOperation` (dans PowerShell) ou `azure provider operations show` (dans l’interface de ligne de commande Azure) pour répertorier les opérations des fournisseurs de ressources Azure. Vous pouvez également utiliser ces commandes pour vérifier qu’une chaîne d’opération est valide et pour développer les chaînes d’opération génériques.
 
+```
+Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+
+Get-AzureRMProviderOperation Microsoft.Network/*
+```
+
 ![Capture d’écran PowerShell - Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | Opération de texte intégral, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+
+```
+azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
+
+azure provider operations show "Microsoft.Network/*"
+```
 
 ![Capture d’écran de l’interface de ligne de commande Azure - les opérations du fournisseur azure affichent « Microsoft.Compute/virtualMachines/*/action »](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
@@ -92,11 +104,11 @@ La propriété **AssignableScopes** du rôle personnalisé contrôle également 
 - Qui peut afficher des rôles personnalisés ? Tous les rôles intégrés dans le contrôle d’accès en fonction du rôle Azure permettent d’afficher les rôles pouvant être affectés. Les utilisateurs qui peuvent effectuer l’opération `Microsoft.Authorization/roleDefinition/read` dans une étendue sont autorisés à afficher les rôles RBAC pouvant être affectés dans cette étendue.
 
 ## Voir aussi
-- [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md) : découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+- [Utiliser les attributions de rôle pour gérer l’accès à vos ressources Azure Active Directory](role-based-access-control-configure.md) : découvrez le contrôle d’accès en fonction du rôle Azure dans le portail Azure.
 - Découvrez comment gérer l’accès avec :
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
 	- [API REST](role-based-access-control-manage-access-rest.md)
-- [Rôles intégrés](role-based-access-built-in-roles.md) : obtenez des informations sur les rôles qui livrés en standard dans RBAC.
+- [RBAC : rôles intégrés](role-based-access-built-in-roles.md) : obtenez des informations sur les rôles fournis en standard dans RBAC.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->
