@@ -339,4 +339,4 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d’informations, consultez [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
