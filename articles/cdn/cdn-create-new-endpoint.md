@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Utilisation d’Azure CDN"
+	 pageTitle="Utilisation d’Azure CDN | Microsoft Azure"
 	 description="Cette rubrique montre comment activer le réseau de distribution de contenu (CDN) pour Azure. Ce didacticiel décrit la création d'un profil CDN et d’un point de terminaison."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/24/2016" 
+	 ms.date="07/28/2016" 
 	 ms.author="casoper"/>
 
 # Utilisation d’Azure CDN  
@@ -67,7 +67,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 	
 	> [AZURE.NOTE] Le **port d’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine. Le point de terminaison ne sera disponible pour les clients que sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit le **port d’origine**.
 	>
-	> Les points de terminaison d’**Azure CDN fourni par Akamai** n’autorisent pas la plage de ports TCP complète pour les origines. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Détails sur le comportement d’Azure CDN fourni par Akamai](cdn-akamai-behavior-details.md).
+	> Les points de terminaison d’**Azure CDN fourni par Akamai** n’autorisent pas la plage de ports TCP complète pour les origines. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Ports d’origine autorisés du CDN Azure fourni par Akamai).
 	>
 	> L'accès à du contenu CDN à l'aide du protocole HTTPS présente les contraintes suivantes :
 	> 
@@ -97,4 +97,4 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

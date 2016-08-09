@@ -30,7 +30,7 @@ Suivez les étapes suivantes dans le portail Azure pour créer une base de donn�
  - Nom de la base de données
  - Abonnement (uniquement si vous avez plusieurs abonnements)
  - Groupe de ressources (si vous en êtes à la phase de mise en route, utilisez le groupe de ressources du serveur logique)
- - Sélectionnez la source (vous pouvez choisir une base de données vide, des exemples de données ou une sauvegarde de base de données)
+ - Sélectionnez une source (vous pouvez choisir une base de données vide, des exemples de données ou une sauvegarde de base de données Azure pour migrer une base de données SQL Server locale ou charger des données à l’aide de BCP ; consultez les liens à la fin de cet article)
  - Serveur (un serveur logique nouveau ou existant)
  - Entrez le mot de passe d’administrateur
  - Mot de passe
@@ -47,4 +47,4 @@ Suivez les étapes suivantes dans le portail Azure pour créer une base de donn�
 
      ![nouvelle base de données](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

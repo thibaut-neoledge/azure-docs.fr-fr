@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
-Latest Freshness check:  2016-04-11 , carlrab.
+Latest Freshness check:  2016-08-01 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
@@ -31,7 +31,7 @@ Exécutez les étapes suivantes dans le portail Azure pour créer une règle de 
  	![nouveau pare-feu de serveur](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
 
- 	> [AZURE.IMPORTANT] Si vous ne voyez pas l’option **Pare-feu** dans le panneau, revenez en arrière et assurez-vous que le panneau en question correspond au serveur logique de la base de données SQL et non à la base de données SQL.
+ 	> [AZURE.NOTE] Vous pouvez également accéder au panneau **Paramètres de pare-feu** du niveau serveur à partir de la barre d’outils du panneau Base de données.
 
 5. Cliquez sur **Ajouter une adresse IP cliente** pour qu’Azure crée une règle pour votre adresse IP cliente.
 
@@ -47,4 +47,4 @@ Exécutez les étapes suivantes dans le portail Azure pour créer une règle de 
 
 	>[AZURE.IMPORTANT] Votre adresse IP du client est susceptible de changer de temps à autre, et vous ne serez peut-être pas en mesure d’accéder à votre serveur jusqu’à ce que vous créiez une nouvelle règle de pare-feu. Vous pouvez vérifier votre adresse IP à l’aide de [Bing](http://www.bing.com/search?q=my%20ip%20address), puis ajouter une adresse IP unique ou une plage d’adresses IP. Pour plus d’informations, voir l’article sur la [gestion des paramètres du pare-feu](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

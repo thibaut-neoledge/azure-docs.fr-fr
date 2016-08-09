@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article"
-	ms.date="07/20/2016"
+	ms.date="08/03/2016"
 	ms.author="adegeo"/>
 
 
@@ -24,7 +24,7 @@ Cet article fournit un aperçu de l'utilisation des rôles web et de travail Pyt
 ## Configuration requise
 
  - Visual Studio 2013 ou 2015
- - [Python Tools pour Visual Studio][] \(PTVS)
+ - [Python Tools pour Visual Studio][] (PTVS)
  - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015][]
  - [Python 2.7 32 bits][] ou [Python 3.5 32 bits][]
 
@@ -248,18 +248,33 @@ $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
-if (-not $is_emulated){
+if (-not $is_emulated)
+{
 	Write-Host "Running worker.py$nl"
 
 	if ($is_python2) {
-        cd..
+		cd..
 		iex "$env:PYPATH\python.exe worker.py"
 	}
 	else {
 		cd..
 		iex "py worker.py"
 	}
-	
+}
+else
+{
+	Write-Host "Running (EMULATED) worker.py$nl"
+
+	# Customize to your local dev environment
+
+	if ($is_python2) {
+		cd..
+		iex "$env:PYPATH\python.exe worker.py"
+	}
+	else {
+		cd..
+		iex "py worker.py"
+	}
 }
 ```
 
@@ -348,4 +363,4 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 [Python 2.7 32 bits]: https://www.python.org/downloads/
 [Python 3.5 32 bits]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

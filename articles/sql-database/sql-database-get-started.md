@@ -4,7 +4,7 @@
 	keywords="didacticiel sur la base de données sql, créer une base de données sql"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -61,4 +61,4 @@ Maintenant que vous avez terminé ce didacticiel sur la base de données SQL et 
 
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

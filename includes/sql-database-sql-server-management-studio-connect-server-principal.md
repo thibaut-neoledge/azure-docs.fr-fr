@@ -9,7 +9,7 @@ Utilisez les étapes suivantes pour vous connecter à une base de données SQL A
 2. Dans la fenêtre Se connecter au serveur, entrez les valeurs suivantes :
 
  - **Type de serveur** : la valeur par défaut est le moteur de base de données ; ne modifiez pas cette valeur.
- - **Nom du serveur** : entrez le nom du serveur qui héberge votre base de données SQL selon le format *&lt;nomserveur>*.**database.windows.net**
+ - **Nom du serveur** : entrez le nom du serveur qui héberge votre base de données SQL en respectant le format *&lt;nomserveur>*.**database.windows.net**
  - **Type d'authentification** : si vous débutez, sélectionnez l'authentification SQL. Si vous avez activé Active Directory pour votre serveur logique de base de données SQL, vous pouvez sélectionner l'authentification par mot de passe Active Directory ou l'authentification intégrée Active Directory.
  - **Nom d'utilisateur** : si vous avez sélectionné l'authentification SQL ou l'authentification par mot de passe Active Directory, entrez le nom d'un utilisateur ayant accès à une base de données sur le serveur.
  - **Mot de passe** : si vous avez sélectionné l'authentification SQL ou l'authentification par mot de passe Active Directory, entrez le mot de passe pour l'utilisateur spécifié.
@@ -39,4 +39,4 @@ Utilisez les étapes suivantes pour vous connecter à une base de données SQL A
 
 Les échecs de connexion les plus courants sont dus à des erreurs dans le nom du serveur (rappelez-vous que <*nom\_serveur*> est le nom du serveur logique et non celui de la base de données), dans le nom d’utilisateur ou dans le mot de passe, ou quand le serveur n’autorise pas les connexions pour des raisons de sécurité.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

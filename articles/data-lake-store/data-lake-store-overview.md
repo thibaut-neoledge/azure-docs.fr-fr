@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Présentation d'Azure Data Lake Store
@@ -65,7 +65,7 @@ Azure Data Lake Store utilise Azure Active Directory pour l'authentification et 
 | Fonctionnalité | Description |
 |-----------------------------------------|------------------------------------------|
 | Authentification | Azure Data Lake Store s'intègre à Azure Active Directory (AAD) pour la gestion des identités et des accès de toutes les données stockées dans Azure Data Lake Store. Grâce à cette intégration, Azure Data Lake tire parti de toutes les fonctionnalités d'AAD, notamment l'authentification multifacteur, l'accès conditionnel, le contrôle d'accès en fonction du rôle, l'analyse d'utilisation des applications, la surveillance de la sécurité et les alertes, etc. Azure Data Lake Store prend en charge le protocole OAuth 2.0 pour l'authentification auprès de l'interface REST. |
-| Contrôle d’accès | Azure Data Lake Store offre un contrôle d'accès grâce à la prise en charge des autorisations de type POSIX exposées par le protocole WebHDFS. Dans la version actuelle, les autorisations peuvent être spécifiées au niveau du lac de données et s'appliqueront à tous les fichiers et dossiers dans le lac de données. Dans les mises à jour ultérieures, nous affinerons le contrôle d'accès en autorisant la spécification des autorisations sur des fichiers et des dossiers individuels.|
+| Contrôle d’accès | Azure Data Lake Store offre un contrôle d'accès grâce à la prise en charge des autorisations de type POSIX exposées par le protocole WebHDFS. Dans la version actuelle, les listes de contrôle d’accès peuvent être activées au niveau du dossier racine, des sous-dossiers et des fichiers individuels. Les listes de contrôle d’accès que vous appliquez au dossier racine seront également applicables à tous les dossiers/fichiers enfants.|
 
 Vous souhaitez en savoir plus sur la sécurisation des données dans Data Lake Store ? Suivez les liens ci-dessous.
 
@@ -80,9 +80,9 @@ Azure Data Lake Store est compatible avec la plupart des composants open source 
 * Consultez [Intégration avec d'autres services Azure](data-lake-store-integrate-with-other-services.md) pour comprendre comment Data Lake Store peut être utilisé avec d'autres services Azure afin d'augmenter le nombre de scénarios.
 * Consultez la page [Scénarios de données impliquant Azure Data Lake Store](data-lake-store-data-scenarios.md) pour découvrir comment utiliser Data Lake Store pour des scénarios tels que la réception, le traitement, le téléchargement et la visualisation de données.
 
-## Présentation du système de fichiers Azure Data Lake Store (adl://)?
+## Présentation du système de fichiers Azure Data Lake Store (adl://)
 
-Data Lake Store est accessible via le nouveau système de fichiers, AzureDataLakeFilesystem (adl://), dans les environnements Hadoop) (disponible avec le cluster HDInsight). Les applications et les services qui utilisent adl:// peuvent tirer parti d'autres optimisations des performances, qui ne sont actuellement pas disponibles dans WebHDFS. Par conséquent, Data Lake Store vous laisse la liberté, soit de bénéficier de performances optimales en utilisant adl:// (option recommandée), soit de maintenir le code existant en continuant d'utiliser l'API WebHDFS directement. Azure HDInsight tire pleinement parti du système de fichiers AzureDataLakeFilesystem pour optimiser les performances sur Data Lake Store.
+Data Lake Store est accessible via le nouveau système de fichiers AzureDataLakeFilesystem (adl://) dans les environnements Hadoop (disponible avec le cluster HDInsight). Les applications et les services qui utilisent adl:// peuvent tirer parti d'autres optimisations des performances, qui ne sont actuellement pas disponibles dans WebHDFS. Par conséquent, Data Lake Store vous laisse la liberté, soit de bénéficier de performances optimales en utilisant adl:// (option recommandée), soit de maintenir le code existant en continuant d'utiliser l'API WebHDFS directement. Azure HDInsight tire pleinement parti du système de fichiers AzureDataLakeFilesystem pour optimiser les performances sur Data Lake Store.
 
 Vous pouvez accéder à vos données dans Data Lake Store à l'aide de `adl://<data_lake_store_name>.azuredatalakestore.net`. Pour plus d'informations sur la façon d'accéder aux données de Data Lake Store, consultez [Afficher les propriétés des données stockées](data-lake-store-get-started-portal.md#properties)
 
@@ -99,15 +99,15 @@ Consultez [Prise en main de Data Lake Store avec le portail Azure](data-lake-sto
 
 Si vous préférez apprendre en regardant des vidéos, Data Lake Store contient des vidéos portant sur un large éventail de fonctionnalités.
 
-* [Create an Azure Data Lake Store Account](https://mix.office.com/watch/1k1cycy4l4gen) (Créer un compte Azure Data Lake Store)
-* [Use the Data Explorer to Manage Data in Azure Data Lake Store](https://mix.office.com/watch/icletrxrh6pc) (Gérer les données dans Data Lake Store à l’aide de l’Explorateur de données)
-* [Connect Azure Data Lake Analytics to Azure Data Lake Store](https://mix.office.com/watch/qwji0dc9rx9k) (Connecter Azure Data Lake Analytics à Azure Data Lake Store)
-* [Access Azure Data Lake Store via Data Lake Analytics](https://mix.office.com/watch/1n0s45up381a8) (Accéder à Azure Data Lake Store via Data Lake Analytics)
-* [Connect Azure HDInsight to Azure Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2) (Connecter Azure HDInsight à Azure Data Lake Store)
-* [Access Azure Data Lake Store via Hive and Pig](https://mix.office.com/watch/1n9g5w0fiqv1q) (Accéder à Azure Data Lake Store via Hive et Pig)
-* [Use DistCp (Hadoop Distributed Copy) to copy data to and from Azure Data Lake Store](https://mix.office.com/watch/1liuojvdx6sie) (Utiliser DistCp (Hadoop Distributed Copy) pour copier des données vers et depuis Azure Data Lake Store)
-* [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114) (Utiliser Apache Sqoop pour déplacer des données entre les sources relationnelles et Azure Data Lake Store)
-* [Data Orchestration using Azure Data Factory for Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka) (Orchestration de données pour Azure Data Lake Store à l’aide d’Azure Data Factory)
-* [Securing Data in the Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx) (Sécurisation des données dans Azure Data Lake Store)
+* [Create an Azure Data Lake Store Account (Créer un compte Azure Data Lake Store)](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Use the Data Explorer to Manage Data in Azure Data Lake Store (Gérer les données dans Data Lake Store à l’aide de l’Explorateur de données)](https://mix.office.com/watch/icletrxrh6pc)
+* [Connect Azure Data Lake Analytics to Azure Data Lake Store (Connecter Azure Data Lake Analytics à Azure Data Lake Store)](https://mix.office.com/watch/qwji0dc9rx9k)
+* [Access Azure Data Lake Store via Data Lake Analytics (Accéder à Azure Data Lake Store via Data Lake Analytics)](https://mix.office.com/watch/1n0s45up381a8)
+* [Connect Azure HDInsight to Azure Data Lake Store (Connecter Azure HDInsight à Azure Data Lake Store)](https://mix.office.com/watch/l93xri2yhtp2)
+* [Access Azure Data Lake Store via Hive and Pig (Accéder à Azure Data Lake Store via Hive et Pig)](https://mix.office.com/watch/1n9g5w0fiqv1q)
+* [Use DistCp (Hadoop Distributed Copy) to copy data to and from Azure Data Lake Store (Utiliser DistCp (Hadoop Distributed Copy) pour copier des données vers et depuis Azure Data Lake Store)](https://mix.office.com/watch/1liuojvdx6sie)
+* [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store (Utiliser Apache Sqoop pour déplacer des données entre les sources relationnelles et Azure Data Lake Store)](https://mix.office.com/watch/1butcdjxmu114)
+* [Data Orchestration using Azure Data Factory for Azure Data Lake Store (Orchestration de données pour Azure Data Lake Store à l’aide d’Azure Data Factory)](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [Securing Data in the Azure Data Lake Store (Sécurisation des données dans Azure Data Lake Store)](https://mix.office.com/watch/1q2mgzh9nn5lx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->
