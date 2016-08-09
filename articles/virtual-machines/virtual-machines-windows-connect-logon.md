@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/05/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 # Connexion à une machine virtuelle Azure exécutant Windows 
@@ -34,7 +34,7 @@ Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une s
 
 	![Capture d'écran du portail Azure montrant comment se connecter à votre machine virtuelle.](./media/virtual-machines-windows-connect-logon/connect.png)
 	
- > [AZURE.TIP] Si le bouton « Connecter » dans le portail est grisé et si vous n’êtes pas connecté à Azure via une connexion [Express Route](../expressroute/expressroute-introduction.md) ou [VPN de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer et attribuer à votre machine virtuelle une adresse IP publique avant de pouvoir utiliser le protocole RDP. Consultez [cet article](../virtual-network/virtual-network-ip-addresses-overview-arm.md) pour en savoir plus sur les adresses IP publiques dans Azure.
+ > [AZURE.TIP] Si le bouton **Connecter** du portail est grisé et si vous n’êtes pas connecté à Azure avec une connexion [Express Route](../expressroute/expressroute-introduction.md) ou [VPN de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Connexion à la machine virtuelle
 
@@ -43,6 +43,6 @@ Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une s
 
 ## Étapes suivantes
 
-En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
+En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!------HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

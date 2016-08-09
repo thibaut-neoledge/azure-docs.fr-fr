@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Vue d'ensemble d'Azure CDN"
+	pageTitle="Vue d’ensemble d’Azure CDN | Microsoft Azure"
 	description="Découvrez le réseau de distribution de contenu (CDN) Azure et comment l'utiliser pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
@@ -82,4 +82,4 @@ Apprenez à automatiser Azure CDN avec [.NET](./cdn-app-dev-net.md) ou [Node.js]
 
 Pour plus d’informations sur la tarification, voir [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

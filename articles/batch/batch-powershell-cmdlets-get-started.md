@@ -13,20 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Prise en main des applets de commande Azure Batch PowerShell
-Il s’agit d’une présentation rapide des applets de commande Azure PowerShell que vous pouvez utiliser pour gérer vos comptes Batch et travailler avec des ressources Batch telles que les pools, les travaux et les tâches. Vous pouvez effectuer pratiquement les mêmes tâches qu’avec les applets de commande Batch que vous exécutez avec les API Batch, le portail Azure et l’interface de ligne de commande Azure. Cet article est basé sur des applets de commande dans Azure PowerShell version 1.3.2 ou ultérieure.
+Avec les applets de commande Azure Batch PowerShell, vous pouvez effectuer pratiquement les mêmes tâches qu’avec les API Batch, le portail Azure et l’interface de ligne de commande Azure, et en écrire les scripts. Il s’agit d’une présentation rapide des applets de commande que vous pouvez utiliser pour gérer vos comptes Batch et travailler avec des ressources Batch telles que les pools, les travaux et les tâches. Cet article est basé sur les applets de commande d’Azure PowerShell version 1.6.0.
 
 Pour obtenir une liste complète des applets de commande Batch et la syntaxe détaillée des applets de commande, consultez [Référence d’applet de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Configuration requise
 
-* **Azure PowerShell** : consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour obtenir des instructions sur le téléchargement et l’installation d’Azure PowerShell. 
+* **Azure PowerShell** : consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour obtenir des instructions sur le téléchargement et l’installation d’Azure PowerShell.
    
-    * Étant donné que les applets de commande Azure Batch font partie du module Azure Resource Manager, vous devez exécuter l’applet de commande **Login-AzureRmAccount** pour vous connecter à votre abonnement. 
+    * Étant donné que les applets de commande Azure Batch font partie du module Azure Resource Manager, vous devez exécuter l’applet de commande **Login-AzureRmAccount** pour vous connecter à votre abonnement.
     
     * Nous vous recommandons de mettre à jour votre Azure PowerShell fréquemment pour tirer parti des améliorations et des mises à jour de service.
     
@@ -45,7 +45,7 @@ Pour obtenir une liste complète des applets de commande Batch et la syntaxe dé
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account\_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
+Créez ensuite un compte Batch dans le groupe de ressources en spécifiant le nom du compte dans <*nom\_compte*> et l’emplacement et le nom de votre groupe de ressources. La procédure de création du compte Batch peut prendre un certain temps. Par exemple :
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,23 +94,29 @@ Vous passez l’objet BatchAccountContext dans les applets de commande utilisant
 ## Créer et modifier les ressources Batch
 Utilisez les applets de commande telles que **New-AzureBatchPool**, **New-AzureBatchJob** et **New-AzureBatchTask** pour créer des ressources sous un compte Batch. Il existe des applets de commande **Get-** et **Set-** correspondantes pour mettre à jour les propriétés des ressources existantes, et des applets de commande **Remove-** pour supprimer des ressources sous un compte Batch.
 
+Si vous utilisez plusieurs de ces applets de commande, en plus de transmettre un objet BatchContext, vous devez créer ou transmettre les objets qui contiennent des paramètres de ressources détaillés, comme illustré dans l’exemple suivant. Pour obtenir d’autres exemples, consultez l’aide détaillée de chaque applet de commande.
+
 ### Créer un pool Batch
 
-Par exemple, l’applet de commande suivante crée un nouveau pool Batch configuré pour utiliser de petites machines virtuelles équipées de la dernière version de système d’exploitation de la famille 3 (Windows Server 2012), avec le nombre cible de nœuds de calcul déterminé par une formule de mise à l’échelle automatique. Dans ce cas, la formule est simplement **$TargetDedicated = 3**, indiquant que le nombre de nœuds de calcul dans le pool est de 3 au maximum. Le paramètre **BatchContext** spécifie une variable *$context* définie au préalable en tant qu’objet BatchAccountContext.
+Lors de la création ou de la mise à jour d’un pool Batch, sélectionnez une configuration de service cloud ou une configuration de machine virtuelle correspondant au système d’exploitation dans les nœuds de calcul (voir [Aperçu des fonctionnalités d’Azure Batch](batch-api-basics.md#pool)). Votre choix détermine si vos nœuds de calcul sont mis en image avec l’une des [versions du système d’exploitation invité d’Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) ou avec l’une des images de machines virtuelles Linux ou Windows prises en charge dans Azure Marketplace.
+
+Si vous exécutez **New-AzureBatchPool**, transmettez les paramètres du système d’exploitation dans un objet PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Par exemple, l’applet de commande suivante crée un pool Batch à l’aide des nœuds de calcul de petite taille dans la configuration de service cloud, avec l’image de la dernière version du système d’exploitation de la famille 3 (Windows Server 2012). Ici, le paramètre **CloudServiceConfiguration** spécifie la variable *$configuration* comme objet PSCloudServiceConfiguration. Le paramètre **BatchContext** spécifie une variable *$context* définie au préalable en tant qu’objet BatchAccountContext.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Les applets de commande Batch PowerShell prennent uniquement en charge la configuration des services cloud pour les nœuds de calcul. Cela vous permet de choisir l’un des SE invités Azure du système d’exploitation Windows Server pour s’exécuter sur les nœuds de calcul. Pour les autres options de configuration de nœuds de calcul pour les pools Batch, utilisez les Kits de développement logiciel (SDK) Batch ou l’interface de ligne de commande Azure.
+Le nombre cible de nœuds de calcul dans le nouveau pool est déterminé par une formule de mise à l’échelle automatique. Dans ce cas, la formule est simplement **$TargetDedicated = 4**, ce qui indique que le nombre de nœuds de calcul dans le pool est de 4 au maximum.
 
-## Requête relative au pool, aux travaux, aux tâches et autres détails
+## Requête relative aux pools, aux travaux, aux tâches et autres détails
 
 Utilisez les applets de commande telles que **Get-AzureBatchPool**, **Get-AzureBatchJob** et **Get-AzureBatchTask** pour interroger les entités créées sous un compte Batch.
 
 
 ### Interrogation des données
 
-Par exemple, utilisez **Get-AzureBatchPools** pour rechercher vos pools. Par défaut, cette demande interroge tous les pools sous votre compte, en supposant que vous avez déjà stocké l’objet BatchAccountContext dans *$context* :
+Par exemple, utilisez **Get-AzureBatchPools** pour rechercher vos pools. Par défaut, cette demande interroge tous les pools sous votre compte, en supposant que vous avez déjà stocké l’objet BatchAccountContext dans *$context* :
 
 
     Get-AzureBatchPool -BatchContext $context
@@ -157,8 +163,8 @@ Les applets de commande Batch peuvent exploiter le pipeline PowerShell pour envo
 
 
 ## Étapes suivantes
-* Pour la syntaxe détaillée des applets de commande, consultez les [informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Pour connaître la syntaxe détaillée des applets de commande et obtenir des exemples, consultez les [informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
-* Consultez la page [Interroger efficacement le service Azure Batch](batch-efficient-list-queries.md) pour en savoir plus sur la réduction du nombre d’éléments et le type d’informations retournées pour les requêtes envoyées au service Batch.
+* Consultez la page [Interroger efficacement le service Batch](batch-efficient-list-queries.md) pour en savoir plus sur la réduction du nombre d’éléments et le type d’informations retournées pour les requêtes envoyées au service Batch.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

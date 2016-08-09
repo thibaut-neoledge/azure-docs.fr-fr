@@ -103,11 +103,17 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 - [Substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md) : découvrez le rythme de substitution des clés d’Azure AD et apprenez à mettre à jour la clé pour les scénarios d’application les plus courants.
 
+- [Protocole OAuth 2.0 : utilisation de l’octroi de code d’autorisation](active-directory-protocols-oauth-code.md) : vous pouvez utiliser l’octroi de code d’autorisation du protocole OAuth 2.0 pour autoriser l’accès aux applications web et aux API web dans votre client Azure Active Directory.
+
 - [Protocole OAuth 2.0 : présentation de l’octroi implicite](active-directory-dev-understanding-oauth2-implicit-grant.md) : en savoir plus sur l’octroi d’autorisation implicite et découvrir s’il convient à votre application.
+
+- [Protocole OAuth 2.0 : appels de service à service à l’aide des informations d’identification du client](active-directory-protocols-oauth-service-to-service.md) : le flux d’octroi des informations d’identification du client OAuth 2.0 permet à un service web (un client confidentiel) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web.
+
+- [Protocole OpenID Connect 1.0 : connexion et authentification](active-directory-protocols-openid-connect-code.md) : le protocole OpenID Connect 1.0 étend OAuth 2.0 pour une utilisation comme protocole d’authentification. Une application cliente peut recevoir un id\_token pour gérer le processus de connexion ou augmenter le flux du code d’autorisation pour recevoir à la fois un id\_token et le code d’autorisation.
 
 - [Référence du protocole SAML 2.0](active-directory-saml-protocol-reference.md) : le protocole SAML 2.0 permet aux applications de fournir une expérience d’authentification unique à leurs utilisateurs.
 
-- [Protocole WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) : Azure Active Directory prend en charge le protocole WS-Federation 1.2, tel que spécifié dans la spécification Web Services Federation Version 1.2. Pour plus d’informations sur le document de métadonnées de fédération, consultez la page [Métadonnées de fédération](active-directory-federation-metadata.md).
+- [Protocole WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) : Azure Active Directory prend en charge le protocole WS-Federation 1.2 conformément à la spécification Web Services Federation Version 1.2. Pour plus d’informations sur le document de métadonnées de fédération, consultez la page [Métadonnées de fédération](active-directory-federation-metadata.md).
 
 - [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md) : vous pouvez utiliser ce guide pour comprendre et évaluer les revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT).
 
@@ -139,4 +145,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

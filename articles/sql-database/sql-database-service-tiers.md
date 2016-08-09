@@ -4,7 +4,7 @@
 	keywords="options de base de données,performances de base de données"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -58,14 +58,38 @@ Chaque base de données au sein d'un pool respecte également les caractéristiq
 
 [AZURE.INCLUDE [Description de la DTU d'une base de données SQL](../../includes/sql-database-understanding-dtus.md)]
 
+## Choix d’un niveau de service
+
+Pour choisir un niveau de service, commencez par déterminer si la base de données sera autonome ou fera partie d’un pool élastique.
+
+### Choix d’un niveau de service pour une base de données autonome
+
+Pour choisir un niveau de service pour une base de données autonome, commencez par déterminer les caractéristiques de base de données dont vous avez besoin afin de savoir pour quelle édition du service Base de données SQL opter :
+
+- Taille de la base de données (5 Go maximum pour l’édition De base, 250 Go maximum pour l’édition Standard et 500 Go à 1 To pour l’édition Premium, selon le niveau de performances)
+- Période de rétention des sauvegardes de base de données (7 jours pour l’édition De base, 35 jours pour l’édition Standard et 35 jours pour l’édition Premium)
+
+Une fois que vous avez choisi l’édition du service Base de données SQL, vous êtes prêt à déterminer le niveau de performances (nombre de DTU) requis pour la base de données. Vous pouvez l’évaluer grossièrement, puis [augmenter ou réduire dynamiquement l’échelle](sql-database-scale-up.md) en fonction de l’expérience réelle. Vous pouvez également utiliser l’outil [DTU Calculator](http://dtucalculator.azurewebsites.net/) pour estimer le nombre de DTU nécessaire.
+
+### Choix d’un niveau de service pour un pool de bases de données élastique
+
+Pour choisir un niveau de service pour un pool de base de données élastique, commencez par déterminer les caractéristiques de base de données dont vous avez besoin pour votre pool :
+
+- Taille de la base de données (2 Go pour l’édition De base, 250 Go pour l’édition Standard et 500 Go pour l’édition Premium)
+- Période de rétention des sauvegardes de base de données (7 jours pour l’édition De base, 35 jours pour l’édition Standard et 35 jours pour l’édition Premium)
+- Nombre de bases de données par pool (400 pour l’édition de base, 400 pour l’édition Standard et 50 pour l’édition Premium)
+- Espace de stockage maximal par pool (117 Go pour l’édition De base, 1 200 Go pour l’édition Standard et 750 Go pour l’édition Premium)
+
+Une fois que vous avez choisi le niveau de service pour votre pool, vous êtes prêt à déterminer le niveau de performances (nombre d’eDTU) requis pour le pool. Vous pouvez l’évaluer grossièrement, puis [augmenter ou réduire dynamiquement l’échelle](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) en fonction de l’expérience réelle. Vous pouvez également utiliser l’outil [DTU calculatrice](http://dtucalculator.azurewebsites.net/) pour estimer le nombre de DTU nécessaire pour une base de données du pool afin de vous aider à définir la limite supérieure pour le pool.
+
 ## Étapes suivantes
 - Pour en savoir plus sur la tarification de ces niveaux, voir [Base de données SQL - Tarification](https://azure.microsoft.com/pricing/details/sql-database/).
-- Découvrez les détails des [pools de base de données élastique](sql-database-elastic-pool-guidance.md) et les [considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
+- Découvrez en détail les [pools de bases de données élastiques](sql-database-elastic-pool-guidance.md) et les [considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 - Découvrez comment [analyser, gérer et redimensionner des pools élastiques](sql-database-elastic-pool-manage-portal.md) et [analyser les performances des bases de données uniques](sql-database-single-database-monitor.md).
-- Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre [compte gratuit](https://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md).
+- Maintenant que vous êtes au fait des différents niveaux disponibles pour le service Base de données SQL, essayez-les à l’aide d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md).
 
 ## Ressources supplémentaires
 
 Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,6 +1,6 @@
-### Ajouter ou supprimer des préfixes si vous n’avez pas encore créé une connexion à la passerelle VPN
+### <a name="noconnection"></a>Ajout ou suppression de préfixes sans connexion à la passerelle VPN
 
-- **Pour ajouter** d’autres préfixes d’adresses à une passerelle de réseau local que vous avez créée, mais qui ne dispose pas encore d’une connexion à la passerelle VPN, utilisez l’exemple ci-dessous.
+- **Pour ajouter** des préfixes d’adresses à une passerelle de réseau local que vous avez créée, mais qui ne dispose pas encore d’une connexion à la passerelle VPN, utilisez l’exemple ci-dessous.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
@@ -11,26 +11,31 @@
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Ajouter ou supprimer des préfixes si vous avez déjà créé une connexion à la passerelle VPN
+### <a name="withconnection"></a>Ajout ou suppression de préfixes avec connexion à la passerelle VPN
 
-Si vous avez créé votre connexion VPN et que vous souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez effectuer les étapes suivantes dans l’ordre. Cela entraînera une interruption de votre connexion VPN.
+Si vous avez créé votre connexion VPN et que vous souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez effectuer les étapes suivantes dans l’ordre. Cela entraînera une interruption de votre connexion VPN. Lors de la mise à jour de vos préfixes, vous devez d’abord supprimer la connexion, modifier les préfixes, puis créer une connexion.
 
 >[AZURE.IMPORTANT] Ne supprimez pas la passerelle VPN. Si vous la supprimez, vous devrez reprendre toute la procédure de création et reconfigurer votre routeur local avec les nouveaux paramètres.
  
-1. Supprimez la connexion IPsec. 
-2. Modifiez les préfixes de votre passerelle de réseau local. 
-3. Créez une connexion IPsec. 
+1. Spécifiez les variables.
 
-Vous pouvez utiliser l'exemple suivant comme référence.
+		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+2. Supprimez la connexion.
 
-	Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
+		Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
-	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+3. Modifiez les préfixes.
+
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+		-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+4. Créez la connexion. Dans cet exemple, nous allons configurer un type de connexion IPsec. Pour les autres types de connexion, consultez la page sur [les applets de commande PowerShell](https://msdn.microsoft.com/library/mt603611.aspx).
 	
-	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+		-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec `
+		-RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

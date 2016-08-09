@@ -129,7 +129,7 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 
 - [Acheter et configurer un nom de domaine personnalisé](custom-dns-web-site-buydomains-web-app.md) : achetez un domaine attrayant pour votre application web à la place du domaine *.azurewebsites.net. Ou utilisez un domaine que vous possédez déjà.
 - [Configurer des environnements intermédiaires](web-sites-staged-publishing.md) : déployez votre application vers une URL intermédiaire avant de la mettre en production. Mettez à jour votre application web en ligne en toute confiance. Configurez une solution DevOps élaborée avec plusieurs emplacements de déploiement.
-- [Configurer le déploiement continu](web-sites-publish-source-control.md) : intégrez le déploiement d’applications à votre système de contrôle de code source. Effectuez le déploiement vers Azure avec chaque validation.
+- [Configurer le déploiement continu](app-service-continuous-deployment.md) : intégrez le déploiement d’applications à votre système de contrôle de code source. Effectuez le déploiement vers Azure avec chaque validation.
 - [Accéder à des ressources locales](web-sites-hybrid-connection-get-started.md) : accédez à une base de données locale ou un système CRM existants.
 - [Sauvegarder votre application](web-sites-backup.md) : définissez la sauvegarde et la restauration de votre application web. Anticipez les défaillances inattendues et récupérez vos données après leur survenue.
 - [Activer les journalisation des données](web-sites-enable-diagnostic-log.md) : consultez les journaux IIS dans Azure ou dans les traces de votre application. Lisez-les dans un flux, téléchargez-les ou déplacez-les dans [Application Insights](../application-insights/app-insights-overview.md) pour une analyse clé en main.
@@ -137,4 +137,4 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 - [Exécuter des travaux en arrière-plan](../azure-functions/functions-overview.md) : exécutez des tâches pour le traitement de données, la création de rapports, etc.
 - [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

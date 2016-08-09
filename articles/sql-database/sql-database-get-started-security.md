@@ -4,7 +4,7 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -50,4 +50,4 @@ Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure pour :
 ## Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel concernant le service Base de données SQL, créé un compte d’utilisateur et accordé des autorisations de propriétaire de base de données (dbo) au compte d’utilisateur, vous voici prêt à découvrir la [sécurité de Base de données SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

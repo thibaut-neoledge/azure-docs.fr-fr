@@ -110,7 +110,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 
 1. Dans le répertoire de projet, créez un répertoire nommé **models**.
 2. Dans le répertoire **models**, créez un fichier nommé **taskDao.js**. Ce fichier contiendra le modèle des tâches créées par votre application.
-3. Dans le même répertoire **models**, créez un autre fichier nommé **docdbUtils.js**. Ce fichier contient du code utile et réutilisable que nous utiliserons dans notre application. 
+3. Dans le même répertoire **models**, créez un autre fichier nommé **docdbUtils.js**. Ce fichier contient du code utile et réutilisable que nous utiliserons dans notre application.
 4. Copiez le code suivant dans **docdbUtils.js**
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -305,7 +305,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 
 ### Création du contrôleur
 
-1. Dans le répertoire **routes** de votre projet, créez un fichier nommé **tasklist.js**. 
+1. Dans le répertoire **routes** de votre projet, créez un fichier nommé **tasklist.js**.
 2. Ajoutez le code suivant dans **tasklist.js**. Ce code charge DocumentDBClient et les modules asynchrones, qui sont utilisés par **tasklist.js**. Cela a également permis de définir la fonction **TaskList**, à qui est transmise une instance de l'objet **Task** défini précédemment :
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -439,7 +439,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 
 Intéressons-nous à présent à la création de l'interface utilisateur pour permettre à un utilisateur d'interagir réellement avec notre application. L'application Express que nous avons créée utilise **Jade** comme moteur de vue. Pour plus d'informations sur Jade, consultez la page [http://jade-lang.com/](http://jade-lang.com/).
 
-1. Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap](https://github.com/twbs/bootstrap), qui est un kit de ressources qui facilite la conception d'un site web bien présenté. 
+1. Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap](https://github.com/twbs/bootstrap), qui est un kit de ressources qui facilite la conception d'un site web bien présenté.
 2. Ouvrez le fichier **layout.jade** trouvé dans le dossier **views** et remplacez le contenu par le code suivant :
 	
 		doctype html
@@ -545,7 +545,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 ## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
 
-1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la procédure à suivre dans la rubrique [Déploiement continu à l’aide de GIT dans Azure App Service](../app-service-web/web-sites-publish-source-control.md).
+1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la procédure à suivre dans la rubrique [Déploiement Git local vers Azure App Service](../app-service-web/app-service-deploy-local-git.md).
 
 2. Ajoutez votre site web Azure en tant que git distant.
 
@@ -570,4 +570,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0803_2016-->

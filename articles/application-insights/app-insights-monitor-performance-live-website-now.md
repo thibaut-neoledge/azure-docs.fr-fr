@@ -12,45 +12,47 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="07/28/2016"
 	ms.author="awills"/>
 
 
-# Installation d’Application Insights Status Monitor pour surveiller les performances des sites web
+# Instrumenter des applications web lors de l’exécution avec Application Insights
 
 *Application Insights est à l'état de version préliminaire.*
 
-Le Status Monitor de Visual Studio Application Insights vous permet de diagnostiquer les problèmes liés aux exceptions et aux performances dans les applications ASP.NET.
+Vous pouvez instrumenter une application web dynamique avec Visual Studio Application Insights, sans avoir à modifier ou à redéployer votre code. Vous devez installer Status Monitor dans vos applications hébergées par un serveur IIS local. Si ce sont des applications web Azure ou si elles s’exécutent dans une machine virtuelle Azure, vous pouvez installer l’extension Application Insights. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](app-insights-java-live.md) et [d’Azure Cloud Services](app-insights-cloudservices.md).
 
 ![Exemples de graphiques](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] Des articles distincts sont consacrés à l’instrumentation des [applications web J2EE en direct](app-insights-java-live.md) et les [services cloud Azure](app-insights-cloudservices.md).
+Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web .NET :
+
+* **En cours de création :** [ajoutez le kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
+* **En cours d’exécution :** instrumentez votre application web sur le serveur, comme décrit ci-dessous, sans régénérer ni redéployer le code.
+* **Les deux :** intégrez le Kit de développement logiciel (SDK) à votre code d’application web et appliquez également les extensions à l’exécution. Profitez des avantages des deux options.
+
+Voici un résumé de ce que vous apporte chaque méthode :
+
+||En cours de création|En cours d’exécution|
+|---|---|---|
+|Requêtes et exceptions|Oui|Oui|
+|[Exceptions plus détaillées](app-insights-asp-net-exceptions.md)||Oui|
+|[Diagnostics de dépendance](app-insights-asp-net-dependencies.md)|Sur .NET 4.6 +|Oui|
+|[Compteurs de performances système](app-insights-web-monitor-performance.md#system-performance-counters)||IIS ou service cloud Azure, pas d’application web Azure|
+|[API pour la télémétrie personnalisée][api]|Oui||
+|[Intégration des journaux de suivi](app-insights-asp-net-trace-logs.md)|Oui||
+|[Mode Page et données utilisateur](app-insights-javascript.md)|Oui||
+|Régénération du code inutile|Non||
 
 
-Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web IIS :
-
-* **En cours de création :** [ajoutez le kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web. Cela permet :
- * Ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
- * L’[API Application Insights][api] si vous permet d’écrire votre propre télémétrie pour effectuer un suivi détaillé de l’utilisation ou pour diagnostiquer les problèmes.
-* **En cours d’exécution :** utilisez Status Monitor pour l’associer à votre application web sur le serveur.
- * Surveillance des applications web déjà exécutées sans avoir à les générer ou les publier de nouveau.
- * Ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
- * Diagnostics de dépendance : recherche des erreurs ou des faibles performances là où votre application utilise d’autres composants tels que des bases de données, des API REST ou d’autres services.
- * Résolution des problèmes à l’aide des données de télémétrie.
-* **En cours d’exécution et de création :** compilez le Kit de développement logiciel (SDK) dans le code de votre application web et exécutez Status Monitor sur votre serveur web. Cette méthode associe les avantages des deux autres méthodes :
- * Ensemble de diagnostics standard et données de télémétrie liées à l’utilisation.
- * Diagnostics de dépendance.
- * L’API vous permet d’écrire une télémétrie personnalisée.
- * Résolution des problèmes à l’aide du Kit de développement logiciel (SDK) et de la télémétrie.
 
 
-## Installez Application Insights Status Monitor
+## Instrumenter votre application web au moment de l’exécution
 
 Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
-### Si votre application s’exécute sur votre serveur IIS
+### Si votre application est hébergée sur votre serveur IIS
 
-1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
+1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
 2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 4. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
 
@@ -87,9 +89,15 @@ Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout momen
 
 ### Si votre application s’exécute en tant qu’application web Azure
 
-Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
+1. Dans le [portail Azure](https://portal.azure.com), créez une ressource Application Insights avec le type ASP.NET. Elle correspond à l’emplacement de stockage, d’analyse et d’affichage des données de télémétrie de votre application.
 
-![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+    ![Ajouter, Application Insights. Sélectionnez le type ASP.NET.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
+     
+2. Ouvrez le panneau de contrôle de votre application web Azure, puis **Outils > Surveillance des performances** et ajoutez l’extension Application Insights.
+
+    ![Dans votre application web, Outils, Extensions, Ajouter, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+    Sélectionnez la ressource Application Insights que vous venez de créer.
 
 
 ### S’il s’agit d’un projet services cloud Azure
@@ -107,26 +115,28 @@ Ouvrez le panneau des performances pour afficher les données de demande, les do
 
 ![Performances](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Cliquez pour ajuster les détails de l’affichage ou pour ajouter un graphique.
+Cliquez sur un graphique pour ouvrir une vue plus détaillée.
 
-
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+Vous pouvez [modifier, réorganiser, enregistrer](app-insights-metrics-explorer.md) et épingler des graphiques ou l’intégralité du panneau à un [tableau de bord](app-insights-dashboards.md).
 
 ## Dépendances
 
 Le graphique de la durée de la dépendance indique la durée comptabilisée pour les appels de votre application aux composants externes, tels que les bases de données, les API REST ou le stockage de blobs Azure.
 
-Pour segmenter le graphique par appels à des dépendances différentes, sélectionnez Regroupement, puis choisissez Dépendance, Type de dépendance ou Performances de dépendance.
+Pour segmenter le graphique par appels à des dépendances différentes, procédez comme suit : modifiez le graphique, désactivez le regroupement, puis regroupez par dépendance, type de dépendance ou performances de dépendance.
 
-Vous pouvez également filtrer le graphique pour examiner un compartiment spécifique de dépendance, de type ou de performances. Cliquez sur Filtres.
+![Dépendance](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
-## Compteurs de performances
+## Compteurs de performances 
 
 (Ne concerne pas les applications web Azure.) Cliquez sur Serveurs sur le panneau de présentation pour voir les graphiques des compteurs de performance de serveur telles que l’utilisation de la mémoire et l’occupation du processeur.
 
-Ajoutez un graphique ou cliquez sur n’importe quel graphique pour afficher son contenu.
+Si vous disposez de plusieurs instances de serveur, vous pouvez être amené à modifier les graphiques à regrouper par instance de rôle.
+
+![Serveurs](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
 
 Vous pouvez également [changer l’ensemble des compteurs de performances qui sont rapportées par le Kit de développement logiciel (SDK)](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3).
+
 
 ## Exceptions
 
@@ -188,20 +198,20 @@ Identifiez les applications qui sont surveillées :
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
-* `-Name` (Facultatif) Le nom d’une application web.
+* `-Name` (Facultatif) Nom d’une application web.
 * Affiche l’état de la surveillance Application Insights pour chaque application web (ou l’application nommée) dans ce serveur IIS.
 
-* Renvoie `ApplicationInsightsApplication` pour chaque application :
+* Retourne `ApplicationInsightsApplication` pour chaque application :
  * `SdkState==EnabledAfterDeployment` : l’application est surveillée et a été instrumentée lors de l’exécution par l’outil Status Monitor ou par `Start-ApplicationInsightsMonitoring`.
  * `SdkState==Disabled` : l’application n’est pas instrumentée pour Application Insights. Soit elle n’a jamais été instrumentée, soit la surveillance lors de l’exécution a été désactivée avec l’outil Status Monitor ou avec `Stop-ApplicationInsightsMonitoring`.
  * `SdkState==EnabledByCodeInstrumentation` : l’application a été instrumentée en ajoutant le Kit de développement logiciel (SDK) au code source. Son Kit de développement logiciel (SDK) ne peut pas être mis à jour ou arrêté.
  * `SdkVersion` affiche la version utilisée pour surveiller cette application.
- * `LatestAvailableSdkVersion` affiche la version actuellement disponible sur la galerie NuGet. Pour mettre à niveau l’application vers cette version, utilisez `Update-ApplicationInsightsMonitoring`.
+ * `LatestAvailableSdkVersion` affiche la version actuellement disponible dans la galerie NuGet. Pour mettre à niveau l’application vers cette version, utilisez `Update-ApplicationInsightsMonitoring`.
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
-* `-Name` Le nom de l’application dans IIS
-* `-InstrumentationKey` L’ikey de la ressource Application Insights où vous souhaitez afficher les résultats.
+* `-Name` Nom de l’application dans IIS
+* `-InstrumentationKey` Ikey de la ressource Application Insights où vous souhaitez afficher les résultats.
 
 * Cette applet de commande affecte uniquement les applications qui ne sont pas déjà instrumentées, c’est-à-dire SdkState==NotInstrumented.
 
@@ -211,7 +221,7 @@ Identifiez les applications qui sont surveillées :
 
     Pour télécharger la version la plus récente, utilisez Update-ApplicationInsightsVersion.
 
-* Renvoie `ApplicationInsightsApplication` en cas de réussite. En cas d’échec, il consigne un suivi sur stderr.
+* Retourne `ApplicationInsightsApplication` en cas de réussite. En cas d’échec, il consigne un suivi sur stderr.
 
     
           Name                      : Default Web Site/WebApp1
@@ -223,7 +233,7 @@ Identifiez les applications qui sont surveillées :
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
-* `-Name` Le nom d’une application dans IIS
+* `-Name` Nom d’une application dans IIS
 * `-All` Arrête la surveillance de toutes les applications de ce serveur IIS pour lequel `SdkState==EnabledAfterDeployment`
 
 * Arrête la surveillance des applications spécifiées et supprime l’instrumentation. Cela ne fonctionne que pour les applications qui ont été instrumentées lors de l’exécution avec l’outil Status Monitor ou avec Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
@@ -232,8 +242,8 @@ Identifiez les applications qui sont surveillées :
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name` : le nom d’une application web dans IIS.
-* `-InstrumentationKey` (Facultatif). Permet de modifier la ressource à laquelle la télémétrie de l’application est envoyée.
+* `-Name` : nom d’une application web dans IIS.
+* `-InstrumentationKey` (Facultatif.) Permet de modifier la ressource à laquelle la télémétrie de l’application est envoyée.
 * Cette applet de commande :
  * Met à niveau l’application nommée vers la version la plus récente du Kit de développement logiciel (SDK) téléchargée sur cette machine. (Ne fonctionne que si `SdkState==EnabledAfterDeployment`)
  * Si vous fournissez une clé d’instrumentation, l’application nommée est reconfigurée pour envoyer la télémétrie à la ressource avec cette clé. (Fonctionne si `SdkState != Disabled`)
@@ -263,8 +273,8 @@ Si l’application web est dans Azure et que vous créez vos ressources à l’a
        ]
      } 
 
-* `nameOfAIAppResource` : un nom pour la ressource Application Insights
-* `myWebAppName` : l’ID de l’application web
+* `nameOfAIAppResource` : nom de la ressource Application Insights
+* `myWebAppName` : ID de l’application web
 
 ## <a name="next"></a>Étapes suivantes
 
@@ -290,4 +300,4 @@ Si l’application web est dans Azure et que vous créez vos ressources à l’a
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/15/2016"
+   ms.date="08/02/2016"
    ms.author="elizapo"/>
 
 # OneDrive Entreprise et Azure RemoteApp
 
-OneDrive Entreprise n’est pas pris en charge avec Azure RemoteApp.
+L’agent de synchronisation OneDrive Entreprise n’est pas pris en charge avec Azure RemoteApp.
 
-Cet article décrivait auparavant différentes options d’implémentation pour l’utilisation de OneDrive Entreprise avec Azure RemoteApp. N’oubliez pas que ces options d’implémentation ne sont plus prises en charge.
+Vous pouvez inclure OneDrive Entreprise au sein d’une collection à utiliser avec Office 365.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

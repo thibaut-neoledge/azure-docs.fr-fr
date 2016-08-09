@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Protéger des machines virtuelles déployées via Resource Manager avec Azure Backup | Microsoft Azure"
-	description="Protégez les machines virtuelles déployées via Resource Manager à l’aide d’Azure Backup. Utilisez les sauvegardes des machines virtuelles Resource Manager et des machines virtuelles Premium Storage pour protéger vos données. Créez et enregistrez un archivage de Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
+	pageTitle="Découverte : Protéger les machines virtuelles Azure avec un coffre Recovery Services | Microsoft Azure"
+	description="Protégez les machines virtuelles Azure avec un coffre Recovery Services. Utilisez les sauvegardes des machines virtuelles déployées à l’aide de Resource Manager, des machines virtuelles déployées à l’aide du modèle Classic et des machines virtuelles Premium Storage pour protéger vos données. Créez et enregistrez un coffre Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -18,13 +18,13 @@
 	ms.author="markgal; jimpark"/>
 
 
-# Premier aperçu : sauvegarder des machines virtuelles Azure Resource Manager dans un archivage Recovery Services
+# Découverte : Protéger les machines virtuelles Azure avec un coffre Recovery Services
 
 > [AZURE.SELECTOR]
-- [Sauvegarder des machines virtuelles déployées à l’aide de Resource Manager](backup-azure-vms-first-look-arm.md)
-- [Sauvegarder des machines virtuelles en mode Classique](backup-azure-vms-first-look.md)
+- [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md)
+- [Découverte : Protéger les machines virtuelles Azure avec un coffre de sauvegarde](backup-azure-vms-first-look.md)
 
-Ce didacticiel détaille les procédures de création d'un coffre Recovery Services et de sauvegarde d'une machine virtuelle Azure. Les coffres Recovery Services protègent :
+Ce didacticiel détaille les procédures de création d’un coffre Recovery Services et de sauvegarde d’une machine virtuelle Azure. Les coffres Recovery Services protègent :
 
 - Machines virtuelles déployées à l’aide de Resource Manager
 - les machines virtuelles Classic,
@@ -37,20 +37,20 @@ Pour plus d'informations sur la protection des machines virtuelles Premium Stora
 
 Voici globalement les étapes que vous allez suivre.
 
-1. Création d’un archivage de Recovery Services pour une machine virtuelle
+1. Créez un coffre Recovery Services pour une machine virtuelle.
 2. Utilisez le portail Azure pour sélectionner un scénario, définir la stratégie et identifier les éléments à protéger.
 3. Effectuez la sauvegarde initiale.
 
 
 
-## Étape 1 - Créer un archivage de Recovery Services pour une machine virtuelle
+## Étape 1 : Créer un coffre Recovery Services pour une machine virtuelle
 
-Un archivage de Recovery Services est une entité qui stocke l’ensemble des sauvegardes et des points de récupération créés au fil du temps. L’archivage de Recovery Services contient également la stratégie de sauvegarde appliquée aux machines virtuelles protégées.
+Un coffre Recovery Services est une entité qui stocke l’ensemble des sauvegardes et des points de récupération créés au fil du temps. Le coffre Recovery Services contient également la stratégie de sauvegarde appliquée aux machines virtuelles protégées.
 
->[AZURE.NOTE] La sauvegarde de machines virtuelles est un processus local. Vous ne pouvez pas sauvegarder de machines virtuelles d’un emplacement dans un archivage de Recovery Services situé dans un autre emplacement. Donc, dans chaque emplacement Azure contenant des machines virtuelles à sauvegarder, il doit exister au moins un archivage de Recovery Services.
+>[AZURE.NOTE] La sauvegarde de machines virtuelles est un processus local. Vous ne pouvez pas sauvegarder de machines virtuelles d’un emplacement dans un coffre Recovery Services situé à un autre emplacement. Un coffre Recovery Services doit donc exister à chaque emplacement Azure contenant des machines virtuelles à sauvegarder.
 
 
-Pour créer un archivage de Recovery Services :
+Pour créer un coffre Recovery Services :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -58,7 +58,7 @@ Pour créer un archivage de Recovery Services :
 
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    La liste des archivages de Recovery Services est affichée.
+    La liste des coffres Recovery Services s’affiche.
 
 3. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
@@ -76,9 +76,9 @@ Pour créer un archivage de Recovery Services :
 
 7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre. Le coffre **doit** se trouver dans la même région que les machines virtuelles que vous souhaitez protéger.
 
-    >[AZURE.IMPORTANT] Si vous ne savez pas où se trouve votre machine virtuelle, fermez la boîte de dialogue de création d’archivage et accédez à la liste des machines virtuelles dans le portail. Si vous avez des machines virtuelles dans plusieurs régions, vous devez créer un archivage de Recovery Services dans chaque région. Créez l’archivage dans le premier emplacement avant de passer à l'emplacement suivant. Il est inutile de spécifier des comptes de stockage dans lesquels héberger les données de sauvegarde : l’archivage de Recovery Services et le service Azure Backup gèrent cela automatiquement.
+    >[AZURE.IMPORTANT] Si vous ne savez pas où se trouve votre machine virtuelle, fermez la boîte de dialogue de création d’archivage et accédez à la liste des machines virtuelles dans le portail. Si vous disposez de machines virtuelles dans plusieurs régions, vous devez créer un coffre Recovery Services dans chacune de ces régions. Créez l’archivage dans le premier emplacement avant de passer à l'emplacement suivant. Il est inutile de spécifier des comptes de stockage dans lesquels stocker les données de sauvegarde : le coffre Recovery Services et le service Azure Backup gèrent cela automatiquement.
 
-8. Cliquez sur **Create**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail. Une fois votre archivage créé, il apparaît dans la liste des archivages de Recovery Services.
+8. Cliquez sur **Create**. La création du coffre Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail. Une fois votre coffre créé, il apparaît dans la liste des coffres Recovery Services.
 
     ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -102,15 +102,15 @@ Pour modifier le paramètre de réplication du stockage :
 
 Avant d’enregistrer une machine virtuelle dans un archivage, lancez le processus de découverte pour vérifier que les nouvelles machines virtuelles ajoutées à l’abonnement sont bien identifiées. Le processus interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région. Dans le portail Azure, l’objectif fait référence à ce que vous allez placer dans l’archivage de Recovery Services. La stratégie permet de planifier la fréquence et l’heure de la création des points de récupération. Elle inclut également la durée de rétention de ces derniers.
 
-1. Si vous avez un archivage de Recovery Services ouvert, passez à l’étape 2. Si vous n’avez aucun archivage de Recovery Services ouvert, mais que vous vous trouvez dans le portail Azure, cliquez sur **Parcourir** dans le menu hub.
+1. Si l’un de vos coffres Recovery Services est déjà ouvert, passez à l’étape 2. Si vous n’avez aucun coffre Recovery Services ouvert, mais que vous vous trouvez dans le portail Azure, cliquez sur **Parcourir** dans le menu Hub.
 
   - Dans la liste des ressources, tapez **Recovery Services**.
   - Au fur et à mesure des caractères saisis, la liste est filtrée. Lorsque vous voyez **Archivages de Recovery Services**, cliquez dessus.
 
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    La liste des archivages de Recovery Services s’affiche.
-  - Dans la liste des archivages de Recovery Services, sélectionnez un archivage.
+    La liste des coffres Recovery Services s’affiche.
+  - Dans la liste des coffres Recovery Services, sélectionnez un coffre.
 
     Le tableau de bord de l’archivage sélectionné s'ouvre.
 
@@ -219,4 +219,4 @@ Si vous rencontrez des problèmes pour accomplir certaines tâches décrites dan
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

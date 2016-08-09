@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store avec les API REST
@@ -43,7 +43,7 @@ Dans cet article, vous allez découvrir comment utiliser les API REST de WebHDFS
 	* **Pour l’authentification non interactive** - Dans Azure Active Directory, vous devez créer une **application web**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
 		- Obtenez l’**ID client**, la **clé secrète client** et l’**URI de redirection** associés à l’application.
 		- Définir des autorisations déléguées
-		- Attribuez l’application Azure Active Directory à un rôle. Le rôle détermine le niveau de l’étendue pour laquelle vous souhaitez accorder des autorisations à l’application Azure Active Directory. Par exemple, vous pouvez affecter l’application au niveau de l’abonnement ou au niveau d’un groupe de ressources. Pour obtenir des instructions, consultez [Affecter l’application à un rôle](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+		- Attribuez l’application Azure Active Directory à un rôle. Le rôle détermine le niveau de l’étendue pour laquelle vous souhaitez accorder des autorisations à l’application Azure Active Directory. Par exemple, vous pouvez affecter l’application au niveau de l’abonnement ou au niveau d’un groupe de ressources. Pour obtenir des instructions, consultez [Affecter l’application à un rôle](../resource-group-create-service-principal-portal.md#assign-application-to-role).
 
 	Pour obtenir des instructions sur la récupération de ces valeurs, la définition des autorisations et l’attribution de rôles, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../resource-group-create-service-principal-portal.md).
 
@@ -61,7 +61,7 @@ Dans ce scénario, l’application invite l’utilisateur à se connecter. Toute
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] L’URI \<REDIRECT-URI> doit être codée pour être utilisée dans une URL. Par conséquent, pour https://localhost, utilisez `https%3A%2F%2Flocalhost`.)
+	>[AZURE.NOTE] L’URI <REDIRECT-URI> doit être codée pour être utilisée dans une URL. Par conséquent, pour https://localhost, utilisez `https%3A%2F%2Flocalhost`.)
 
 	Pour les besoins de ce didacticiel, vous pouvez remplacer les valeurs d’espace réservé de l’URL ci-dessus et la coller dans la barre d’adresse d’un navigateur web. Vous serez redirigé pour vous authentifier à l’aide de vos informations de connexion Azure. Lorsque vous êtes connecté, la réponse s’affiche dans la barre d’adresse du navigateur. La réponse présente le format suivant :
 		
@@ -76,7 +76,7 @@ Dans ce scénario, l’application invite l’utilisateur à se connecter. Toute
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] Dans ce cas, il n’est pas nécessaire de coder l’URI \<REDIRECT-URI>.
+	>[AZURE.NOTE] Dans ce cas, il n’est pas nécessaire de coder l’URI <REDIRECT-URI>.
 
 3. La réponse est un objet JSON contenant un jeton d’accès (par exemple, `"access_token": "<ACCESS_TOKEN>"`) et un jeton d’actualisation (par exemple, `"refresh_token": "<REFRESH_TOKEN>"`). Votre application utilise le jeton d’accès pour accéder à Azure Data Lake Store et le jeton d’actualisation pour obtenir un autre jeton d’accès lorsque l’un d’eux expire.
 
@@ -276,4 +276,4 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 - [Ouvrir des applications Big Data open source compatibles avec Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->
