@@ -20,12 +20,12 @@
 
 Étant donné qu’il existe plusieurs types d'authentification multifacteur Azure, nous devons déterminer plusieurs éléments pour connaître la version utiliser. Ces éléments sont :
 
--	[Les éléments à protéger](#les-lments-protger)
--	[l’emplacement des utilisateurs](#lemplacement-des-utilisateurs)
+-	<a href="#1">Les éléments à protéger</a>
+-	<a href="#2">l’emplacement des utilisateurs</a>
 
 Les sections suivantes fournissent des conseils sur la détermination de ces éléments.
 
-## Les éléments à protéger.
+<h2 id="1">Les éléments à protéger</h2>
 
 Afin de déterminer la solution d'authentification multifacteur appropriée, nous devons tout d'abord connaître les éléments à protéger avec une seconde méthode d'authentification. S’agit-il d’une application dans Azure ? Ou un système d'accès à distance par exemple ? En déterminant les éléments à protéger, nous allons répondre à la question de savoir où l'authentification multifacteur doit être activée.
 
@@ -40,7 +40,7 @@ Accès à distance comme VPN, RDG| |* |
 
 
 
-## L’emplacement des utilisateurs
+<h2 id="2">l’emplacement des utilisateurs</h2>
 
 Ensuite, selon l’emplacement de nos utilisateurs, nous pouvons déterminer la solution appropriée à utiliser, que ce soit l’authentification multifacteur dans le cloud ou en local avec MFA Server.
 
