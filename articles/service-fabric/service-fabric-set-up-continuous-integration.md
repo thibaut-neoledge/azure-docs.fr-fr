@@ -67,7 +67,7 @@ Une définition de build Team Services décrit un flux de travail qui se compose
       1. Plate-forme : $(BuildPlatform)
       2. Configuration : $(BuildConfiguration)
    3. Visual Studio Build (nom : Package application)
-      1. Solution : **\\*.sfproj
+      1. Solution : *\*\\*.sfproj
       2. Arguments MSBuild : /t:Package /p:PackageLocation=$(build.artifactstagingdirectory)\\applicationpackage
       3. Plate-forme : $(BuildPlatform)
       4. Configuration : $(BuildConfiguration)
@@ -75,7 +75,7 @@ Une définition de build Team Services décrit un flux de travail qui se compose
       1. Package d’application : $(build.artifactstagingdirectory)\\applicationpackage
    5. Copie des fichiers
       1. Dossier source : $(build.sourcesdirectory)
-      2. Contenu : **\\PublishProfiles\\*.xml &lt;new line&gt; **\\ApplicationParameters\\*.xml
+      2. Contenu : \*\*\PublishProfiles\\\*.xml &lt;new line&gt; \*\*\ApplicationParameters\\\*.xml
       3. Dossier cible : $(build.artifactstagingdirectory)\\projectartifacts
    6. Publier les artefacts de Build
       1. Chemin d’accès à la publication : $(build.artifactstagingdirectory)
