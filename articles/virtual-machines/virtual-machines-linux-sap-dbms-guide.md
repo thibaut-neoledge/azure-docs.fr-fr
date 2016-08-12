@@ -780,8 +780,8 @@ Lors de l’utilisation de l’écouteur de groupe de disponibilité, tenez comp
 [comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
 Il est possible de déployer un groupe de disponibilité AlwaysOn SQL Server sur différentes régions Azure également. Cette fonctionnalité s’appuie sur la connectivité entre des réseaux virtuels Azure ([plus d’informations ici][virtual-networks-configure-vnet-to-vnet-connection]).
-[commentaire] : <> (TODO ancien blog.)
-[commentaire] : <> (Le processus d’installation de groupes de disponibilité AlwaysOn SQL Server dans un tel scénario est décrit ici : <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
+[comment]: <> (TODO ancien blog.)
+[comment]: <> (Le processus d’installation de groupes de disponibilité AlwaysOn SQL Server dans un tel scénario est décrit ici : <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>)
 
 #### Haute disponibilité SQL Server dans Azure - Résumé
 Azure Storage protégeant le contenu, vous avez une raison de moins d’insister sur la création d’une image de secours. Cela signifie que votre scénario de haute disponibilité doit uniquement protéger vos systèmes contre les problèmes suivants :
