@@ -146,7 +146,7 @@ Pour les compteurs de performances Windows, vous pouvez choisir une instance sp�
 | --- | --- |
 | \_Total | Total de toutes les instances |
 | * | Toutes les instances |
-| (/|/var) | Correspond aux instances nommées : / ou /var |
+| (/&#124;/var) | Correspond aux instances nommées : / ou /var |
 
 
 De même, l’intervalle d’échantillonnage que vous choisissez pour un compteur parent s’applique à tous ses compteurs enfants. En d’autres termes, tous les intervalles d’échantillonnage et toutes les instances des compteurs enfants sont liés entre elles.

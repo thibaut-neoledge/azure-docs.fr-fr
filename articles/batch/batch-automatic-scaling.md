@@ -611,4 +611,4 @@ Formule dans l’extrait de code ci-dessus :
 [rest_autoscaleinterval]: https://msdn.microsoft.com/fr-FR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

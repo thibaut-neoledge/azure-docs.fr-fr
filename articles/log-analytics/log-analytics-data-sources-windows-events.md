@@ -66,8 +66,8 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 |:--|:--|
 | Type=Event | Tous les événements Windows. |
 | Type=Event EventLevelName=error | Tous les événements Windows avec la gravité de l'erreur. |
-| Type=Event | Measure count() by Source | Nombre d’événements Windows par source. |
-| Type=Event EventLevelName=error | Measure count() by Source | Nombre d’événements d’erreur Windows par source. |
+| Type=Event &#124; Measure count() by Source | Nombre d’événements Windows par source. |
+| Type=Event EventLevelName=error &#124; Measure count() by Source | Nombre d’événements d’erreur Windows par source. |
 
 ## Étapes suivantes
 
