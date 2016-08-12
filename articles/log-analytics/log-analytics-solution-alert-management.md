@@ -119,11 +119,11 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 |:--|:--|
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR | Alertes critiques déclenchées au cours des dernières 24 heures |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR | Alertes d’avertissement déclenchées au cours des dernières 24 heures |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR | measure count() as Count by SourceDisplayName | Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
+| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName | Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed | Alertes critiques déclenchées au cours des dernières 24 heures et toujours actives |
 | Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed | Alertes déclenchées au cours des dernières 24 heures et désormais fermées |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | measure count() as Count by AlertSeverity | Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | sort RepeatCount desc | Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity | Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc | Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
 
 ## Étapes suivantes
 
