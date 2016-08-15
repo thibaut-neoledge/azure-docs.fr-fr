@@ -29,7 +29,7 @@ Chaque compte d'utilisateur devant se connecter au système d'authentification A
 
 | Propriété | Conditions requises pour UserPrincipalName |
 |   ----------------------- |   ----------------------- |
-| Caractères autorisés | <ul> <li>A à Z</li> <li>a à z </li><li>0 à 9</li> <li> . - \_ ! # ^ ~</li></ul> |
+| Caractères autorisés | <ul> <li>A à Z</li> <li>a à z </li><li>0 à 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | Caractères non autorisés | <ul> <li>Tout caractère '@' qui ne sépare pas le nom d’utilisateur du domaine.</li> <li>Ne peut pas contenir un point '.' précédant immédiatement le symbole '@'</li></ul> |
 | Contraintes de longueur | <ul> <li>La longueur totale ne doit pas dépasser 113 caractères</li><li>64 caractères avant le symbole ' @'</li><li>48 caractères après le symbole ' @'</li></ul>
 
