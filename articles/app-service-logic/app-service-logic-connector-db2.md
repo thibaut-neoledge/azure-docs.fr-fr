@@ -182,7 +182,7 @@ Vous pouvez créer une application logique dans Azure Marketplace et utiliser en
 1. Dans le menu hub du panneau **Démarrer** d’Azure, cliquez sur **+** (signe plus) et cliquez sur **Web + Mobile**, puis sur **Application logique**.
 2. Dans le panneau **Créer une application logique**, entrez un **nom**, par exemple **RemoveOrdersDb2**.
 3. Sélectionnez ou définissez des valeurs pour les autres paramètres (par exemple, le plan de service et le groupe de ressources).
-4. Les paramètres doivent se présenter comme suit. Cliquez sur **Créer** : ![][12]
+4. Les paramètres doivent se présenter comme suit. Cliquez sur **Créer** : ![][12]
 5. Dans le panneau **Paramètres**, cliquez sur **Déclencheurs et actions**.
 6. Dans la liste **Modèles d’application logique** du panneau **Déclencheurs et actions**, sélectionnez **Créer intégralement**.
 7. Dans le panneau **Déclencheurs et actions**, sous **Applications d’API**, cliquez sur **Périodicité** au niveau du groupe de ressources.
