@@ -195,7 +195,7 @@ Une règle spécifie les éléments suivants :
 -	Plage de ports source : entier ou plage comprise entre 0 et 65536
 -	Plage d’adresses IP de destination : CIDR de la plage d’adresses IP de destination
 -	Plage de Port de destination : un entier ou une plage comprise entre 0 et 65536
--	Protocole : TCP, UDP ou « * »
+-	Protocole : TCP, UDP ou « * »
 -	Accès : Autoriser/Refuser
 
 ### Règles par défaut
@@ -247,7 +247,7 @@ Les règles de groupe de sécurité réseau peuvent être spécifiées sur un po
 
 ### Trafic ICMP
 
-Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « * » dans le réseau virtuel.
+Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « * » dans le réseau virtuel.
 
 ### Association d’un groupe de sécurité réseau à une machine virtuelle
 

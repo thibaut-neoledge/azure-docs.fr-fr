@@ -57,7 +57,7 @@ Vous pouvez effectuer une mise à l’échelle en fonction de mesures autres que
 
 ### Ajout ou modification d'une règle
 
-1. Sélectionnez les **règles de performances et de planification** dans la liste déroulante **Mettre à l’échelle par** : ![Règles de performance](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+1. Sélectionnez les **règles de performances et de planification** dans la liste déroulante **Mettre à l’échelle par** : ![Règles de performance](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
 2. Si vous avez déjà effectué une mise à l'échelle automatique, vous découvrirez les règles précises dont vous disposiez.
 

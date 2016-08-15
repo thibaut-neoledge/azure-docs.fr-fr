@@ -46,15 +46,15 @@ Cloud Cruiser peut tirer parti des informations de l’API RateCard de différe
 
 Pour illustrer ce cas d’utilisation, imaginons une charge de travail de plusieurs instances en cours d’exécution sur Microsoft Azure Pack (WAP). L’objectif est de simuler cette même charge de travail sur Azure et d’estimer les coûts liés à cette migration. La création de cette simulation nécessite l’exécution de deux tâches principales :
 
-1. **Importation et traitement des informations de service collectées à partir de l’API RateCard** : cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule sera appliquée aux simulations pour estimer les prix Azure.
+1. **Importation et traitement des informations de service collectées à partir de l’API RateCard** : cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule sera appliquée aux simulations pour estimer les prix Azure.
 
-2. **Normalisation des services WAP et des services Azure pour IaaS** : par défaut, les services WAP reposent sur des ressources individuelles (unité centrale, taille de la mémoire, taille de disque, etc.), alors que les services Azure sont basés sur la taille d’instance (A0, A1, A2, etc.). Cette première tâche peut être effectuée par le moteur ETL (extraction, transformation et chargement) de Cloud Cruiser, désigné sous le terme de classeurs, dans lesquels ces ressources peuvent être regroupées dans des tailles d’instance, analogues aux services d’instance d’Azure.
+2. **Normalisation des services WAP et des services Azure pour IaaS** : par défaut, les services WAP reposent sur des ressources individuelles (unité centrale, taille de la mémoire, taille de disque, etc.), alors que les services Azure sont basés sur la taille d’instance (A0, A1, A2, etc.). Cette première tâche peut être effectuée par le moteur ETL (extraction, transformation et chargement) de Cloud Cruiser, désigné sous le terme de classeurs, dans lesquels ces ressources peuvent être regroupées dans des tailles d’instance, analogues aux services d’instance d’Azure.
 
 ### Importer les données de l’API RateCard
 
 Les classeurs Cloud Cruiser automatisent la collecte et le traitement des informations de l’API RateCard. Les classeurs ETL (extraction, transformation et chargement) vous permettent de configurer la collecte, la transformation et la publication de données dans la base de données Cloud Cruiser.
 
-Chaque classeur peut comporter une ou plusieurs collections. Cela vous permet de mettre en corrélation les informations de différentes sources afin de compléter ou d’enrichir les données d’utilisation. Les deux captures d’écran ci-après illustrent la création d’une *collection* dans un classeur existant et l’importation d’informations de l’API RateCard dans cette *collection* :
+Chaque classeur peut comporter une ou plusieurs collections. Cela vous permet de mettre en corrélation les informations de différentes sources afin de compléter ou d’enrichir les données d’utilisation. Les deux captures d’écran ci-après illustrent la création d’une *collection* dans un classeur existant et l’importation d’informations de l’API RateCard dans cette *collection* :
 
 ![Figure 1 : création d’une collection][1]
 

@@ -47,7 +47,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
 
 Dans un premier temps, configurez la passerelle de gestion des données en suivant les instructions de l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Service lié de HDFS** : cet exemple utilise l’authentification de base. Consultez la section [Service lié ODBC](#odbc-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié de HDFS** : cet exemple utilise l’authentification de base. Consultez la section [Service lié ODBC](#odbc-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 	{
 	    "name": "OnPremOdbcLinkedService",

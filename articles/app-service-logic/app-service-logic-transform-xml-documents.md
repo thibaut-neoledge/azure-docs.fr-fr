@@ -66,7 +66,7 @@ Si le mappage change ou est modifié après son chargement, vous pouvez charger 
 
 5.	Sélectionnez **Mappages** pour ouvrir le nouveau panneau avec la liste des mappages.
 
-6.	Sélectionnez l’icône **Ajouter un mappage** dans la partie supérieure pour ouvrir le panneau **Ajouter un mappage** :
+6.	Sélectionnez l’icône **Ajouter un mappage** dans la partie supérieure pour ouvrir le panneau **Ajouter un mappage** :
 
 	![][10]
 
@@ -86,7 +86,7 @@ Une fois le mappage créé et testé, il est prêt pour la consommation.
 
 	![][12]
 
-3. Entrez les paramètres suivants pour effectuer la configuration de l’action **Transformation** :
+3. Entrez les paramètres suivants pour effectuer la configuration de l’action **Transformation** :
 		 
 	- XML d'entrée
 		- Entrez le contenu XML valide conforme au schéma source d'un mappage dans l'application API Transformation. Il peut s'agir de la sortie d'une action précédente dans l'application logique, comme « Appeler RFC – SAP » ou « Insérer dans le tableau – SQL ».

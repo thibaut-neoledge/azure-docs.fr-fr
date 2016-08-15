@@ -30,8 +30,8 @@ Azure Data Lake Store fournit un outil en ligne de commande nommé [AdlCopy](htt
 
 Vous pouvez également utiliser l’outil AdlCopy dans deux modes différents :
 
-* **Autonome** : l’outil utilise des ressources Data Lake Store pour effectuer la tâche.
-* **À l’aide d’un compte Data Lake Analytics** : les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
+* **Autonome** : l’outil utilise des ressources Data Lake Store pour effectuer la tâche.
+* **À l’aide d’un compte Data Lake Analytics** : les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
 
 ##Composants requis
 

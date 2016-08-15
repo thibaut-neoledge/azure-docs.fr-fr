@@ -26,8 +26,8 @@ Le [connecteur AS2](app-service-logic-connector-as2.md) montre la capacité à a
 
 L'archivage est exposé à deux moments pour les messages et les accusés de réception (MDN) :
 
-1. **Déclencheur de réception/décodage** : le message est archivé dès qu’il est reçu par l’instance de l’application API.
-2. **Action d’encodage/envoi** : le message encodé est archivé, une fois tout le traitement terminé et juste avant d’être envoyé au partenaire.
+1. **Déclencheur de réception/décodage** : le message est archivé dès qu’il est reçu par l’instance de l’application API.
+2. **Action d’encodage/envoi** : le message encodé est archivé, une fois tout le traitement terminé et juste avant d’être envoyé au partenaire.
 
 ## Récupération de l’URL archivée du message
 

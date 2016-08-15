@@ -42,7 +42,7 @@ Pour créer l’environnement :
   2.	Mettre à jour les variables de l’utilisateur dans le script pour qu’elles correspondent à l’environnement dans lequel le script est exécuté (abonnements, noms de service, etc.)
   3.	Exécuter le script dans PowerShell
 
-**Remarque** : la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
+**Remarque** : la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
 
 Une fois que le script s’exécute correctement, les opérations de post-script qui suivent doivent être exécutées :
 
@@ -265,13 +265,13 @@ Une fois que vos règles sont créées et/ou modifiées, elles doivent être tra
 
 Les caractéristiques de chaque règle nécessaire pour compléter cet exemple sont décrites comme suit :
 
-- **Règle de gestion de pare-feu** : cette règle de redirection de l’application autorise le trafic à franchir les ports de gestion de l’appliance virtuelle du réseau (dans cet exemple, un pare-feu Barracuda NextGen). Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle, SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NextGen Firewall).
+- **Règle de gestion de pare-feu** : cette règle de redirection de l’application autorise le trafic à franchir les ports de gestion de l’appliance virtuelle du réseau (dans cet exemple, un pare-feu Barracuda NextGen). Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle, SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NextGen Firewall).
 
 	![Règle de gestion de pare-feu][10]
 
 >[AZURE.TIP] L’espace d’adresse de cette règle est « Tout » si les plages d’adresses IP de gestion sont connues. La réduction de la portée se traduit par la réduction de la surface d’attaque des ports de gestion.
 
-- **Règles RDP** : ces règles NAT de destination permettent la gestion des serveurs individuels via RDP. Il existe quatre champs critiques nécessaires à la création de cette règle :
+- **Règles RDP** : ces règles NAT de destination permettent la gestion des serveurs individuels via RDP. Il existe quatre champs critiques nécessaires à la création de cette règle :
   1.	Source : pour permettre l’exécution de RDP depuis n’importe quel endroit, la référence « Tout » est utilisée dans le champ Source.
   2.	Service : utilise l’objet de Service approprié créé précédemment, dans ce cas « AppVM01 RDP ». Les ports externes redirigent le trafic vers l’adresse IP locale des serveurs et vers le port 3386 (port RDP par défaut). Cette règle spécifique sert à l’accès RDP à AppVM01.
   3.	Destination : doit être le *port local sur le pare-feu*, « DCHP IP Local 1 » ou eth0 si vous utilisez des adresses IP statiques. Le nombre ordinal (eth0, eth1, etc.) peut être différent si votre équipement réseau dispose de plusieurs interfaces locales. C’est le port à partir duquel le port fait ses envois (il peut s’agir du même port que le port de réception), la destination réellement acheminée est celle qui se trouve dans le champ Liste cible.
@@ -290,7 +290,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
   
 >[AZURE.TIP] Affiner la portée des champs Source et Service réduira la surface d’attaque. Vous devez utiliser la portée la plus limitée possible, qui permet toutefois d’utiliser la fonctionnalité.
 
-- **Règles de trafic d’application** : elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture du réseau sur lequel sont placés vos serveurs et des flux de trafic (sens du flux de trafic et les ports utilisés).
+- **Règles de trafic d’application** : elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture du réseau sur lequel sont placés vos serveurs et des flux de trafic (sens du flux de trafic et les ports utilisés).
 
 	Le premier concerne la règle frontale de trafic web :
 
@@ -298,7 +298,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
  
 	La règle Destination NAT permet au trafic de l’application d’atteindre le serveur d’applications. Les autres règles concernent la sécurité, la gestion, etc., les règles d’application sont celles qui permettent aux utilisateurs externes ou aux services d’accéder aux applications. Pour cet exemple, il existe un seul serveur web sur le port 80, et donc, la règle d’application du pare-feu unique redirigera le trafic entrant vers l’adresse IP externe, vers l’adresse IP interne des serveurs web.
 
-	**Remarque** : aucun port n’est affecté dans le champ de la liste cible est, et par conséquent le port entrant 80 (ou 443 pour le Service sélectionné) sera utilisé pour la redirection du serveur web. Si le serveur web est à l’écoute sur un autre port, par exemple, le port 8080, le champ de liste cible peut être mis à jour vers 10.0.1.4:8080 pour permettre aussi de rediriger le port.
+	**Remarque** : aucun port n’est affecté dans le champ de la liste cible est, et par conséquent le port entrant 80 (ou 443 pour le Service sélectionné) sera utilisé pour la redirection du serveur web. Si le serveur web est à l’écoute sur un autre port, par exemple, le port 8080, le champ de liste cible peut être mis à jour vers 10.0.1.4:8080 pour permettre aussi de rediriger le port.
 
 	La seconde règle de trafic d’application est la règle principale qui permet au serveur web de communiquer avec le serveur AppVM01 (et non AppVM02) via le service Any.
 
@@ -318,23 +318,23 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
 
 >[AZURE.TIP] Bien que cette règle indique une référence explicite-dest utilisée, une approche cohérente doit être utilisée tout au long de la configuration du pare-feu. Il est recommandé d’utiliser l’objet réseau nommé tout au long de la prise en charge pour faciliter la lisibilité et la prise en charge. L’élément explicit-dest est utilisé ici uniquement pour montrer une méthode de référence alternative et est en général déconseillé (en particulier pour des configurations complexes).
 
-- **Règle de sortie vers Internet** : cette règle Pass autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux de destination sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu Barracuda NextGen Firewall, mais à l’état désactivé. Un clic droit sur cette règle peut permettre d’accéder à la commande Activer la règle. La règle affichée ici a été modifiée pour y ajouter les deux sous-réseaux locaux créés en tant que références dans la section Configuration requise de ce document à l’attribut Source de cette règle.
+- **Règle de sortie vers Internet** : cette règle Pass autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux de destination sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu Barracuda NextGen Firewall, mais à l’état désactivé. Un clic droit sur cette règle peut permettre d’accéder à la commande Activer la règle. La règle affichée ici a été modifiée pour y ajouter les deux sous-réseaux locaux créés en tant que références dans la section Configuration requise de ce document à l’attribut Source de cette règle.
 
 	![Règle de trafic sortant de pare-feu][14]
 
-- **Règle DNS** : cette règle autorise uniquement le trafic DNS (port 53) à être transféré vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS.
+- **Règle DNS** : cette règle autorise uniquement le trafic DNS (port 53) à être transféré vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS.
 
 	![Règle DNS de pare-feu][15]
 
 	**Remarque**: dans cette capture d’écran, la méthode de connexion est incluse. Cette règle concernant le trafic d’adresse IP pour le trafic des adresses IP interne, aucune traduction n’est requise. La méthode de connexion est définie sur « No SNAT » pour cette règle de test.
 
-- **Règle sous-réseau à sous-réseau** : la règle Pass est une règle par défaut qui a été activée et modifiée pour permettre à n’importe quel serveur du sous-réseau du serveur principal de se connecter à n’importe quel sous-réseau du serveur frontal. Cette règle concerne l’ensemble du trafic interne, et la méthode de connexion peut être définie sur No SNAT.
+- **Règle sous-réseau à sous-réseau** : la règle Pass est une règle par défaut qui a été activée et modifiée pour permettre à n’importe quel serveur du sous-réseau du serveur principal de se connecter à n’importe quel sous-réseau du serveur frontal. Cette règle concerne l’ensemble du trafic interne, et la méthode de connexion peut être définie sur No SNAT.
 
 	![Règle Intra-réseau virtuel de pare-feu][16]
 
 	**Remarque**: la case à cocher bidirectionnelle n’est pas cochée (et n’est pas activée dans la plupart des règles). Ceci est important, quand cette règle devient alors « unidirectionnelle », et une connexion peut être initiée à partir du sous-réseau du serveur principal vers le réseau frontal, mais l’opération inverse est impossible. Si cette case à cocher est activée, cette règle permet le trafic bidirectionnel, ce qui n’est pas souhaitable pour notre diagramme logique.
 
-- **Refuser toutes les règles de trafic** : il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire.
+- **Refuser toutes les règles de trafic** : il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire.
 
 	![Règle de refus de pare-feu][17]
 

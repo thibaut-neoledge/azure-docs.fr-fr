@@ -30,9 +30,9 @@ L'objectif de ce didacticiel consiste à déterminer comment Northwind peut éta
 ## Capacités démontrées 
 Ce didacticiel aide à illustrer les capacités suivantes :
 
-- **Transport des messages** : le détaillant et le fournisseur peuvent utiliser différentes plateformes, mais ils peuvent toujours établir des communications entre ces plateformes. Dans ce didacticiel, ils communiquent via AS2 (Applicability Statement 2). AS2 est une norme couramment utilisée pour transporter des données entre des partenaires commerciaux lors de communications B2B.
-- **Persistance des données** :une fois le message reçu via AS2, Northwind souhaite le conserver avant tout traitement supplémentaire. Elle peut utiliser un connecteur pour conserver les messages dans son stockage cloud. Dans ce didacticiel, des objets blob Azure sont utilisés comme stockage cloud pour Northwind.
-- **Création d’un processus d’entreprise** : dans un flux, plusieurs applications API peuvent être assemblées pour obtenir un résultat semblable à celui illustré ici.
+- **Transport des messages** : le détaillant et le fournisseur peuvent utiliser différentes plateformes, mais ils peuvent toujours établir des communications entre ces plateformes. Dans ce didacticiel, ils communiquent via AS2 (Applicability Statement 2). AS2 est une norme couramment utilisée pour transporter des données entre des partenaires commerciaux lors de communications B2B.
+- **Persistance des données** :une fois le message reçu via AS2, Northwind souhaite le conserver avant tout traitement supplémentaire. Elle peut utiliser un connecteur pour conserver les messages dans son stockage cloud. Dans ce didacticiel, des objets blob Azure sont utilisés comme stockage cloud pour Northwind.
+- **Création d’un processus d’entreprise** : dans un flux, plusieurs applications API peuvent être assemblées pour obtenir un résultat semblable à celui illustré ici.
 
 
 ## Avant de commencer

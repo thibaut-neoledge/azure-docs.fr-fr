@@ -61,7 +61,7 @@ Créez un compte de stockage Azure. L'application utilisera ce compte pour stock
 
 	Une fois le compte de stockage créé, le bouton **Notifications** affiche la mention **RÉUSSITE** en vert clignotant et le panneau du compte de stockage s’ouvre pour indiquer qu’il appartient au groupe de ressources créé.
 
-5. Dans le panneau du compte de stockage, cliquez sur la section **Paramètres** > **Clés**. Copiez la clé d'accès primaire dans le Presse-papiers.
+5. Dans le panneau du compte de stockage, cliquez sur la section **Paramètres** > **Clés**. Copiez la clé d'accès primaire dans le Presse-papiers.
 
     ![Clé d’accès][portal-storage-access-keys]
 
@@ -90,7 +90,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 
 	> [AZURE.NOTE] Le paramètre « -g » installe le module globalement. Ainsi, nous pouvons utiliser la commande **express** pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires concernant le chemin d’accès.
 
-4. Pour créer la structure de l'application, entrez la commande **express** :
+4. Pour créer la structure de l'application, entrez la commande **express** :
 
         express
 
@@ -276,7 +276,7 @@ Un *contrôleur* gère les requêtes HTTP et génère la réponse HTML.
 		}
 
 
-4. Ajoutez les méthodes suivantes à **TaskList** :
+4. Ajoutez les méthodes suivantes à **TaskList** :
 
 		TaskList.prototype = {
 		  showTasks: function(req, res) {

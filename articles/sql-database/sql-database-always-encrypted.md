@@ -54,7 +54,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 ## Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
+2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
 3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Créer une base de données SQL en quelques minutes](sql-database-get-started.md).
 
 	![créer une base de données vide](./media/sql-database-always-encrypted/create-database.png)

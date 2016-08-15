@@ -44,7 +44,7 @@ Si vous savez que ces conditions existent déjà dans votre environnement, passe
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup est prise en charge dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que pour certaines versions de système d’exploitation :
   - **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), à l’exception de CoreOS Linux. D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
-  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l’aide du flux de travail de restauration de l’interface utilisateur n’ont pas ces configurations réseau une fois l’opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
     - Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
@@ -180,7 +180,7 @@ HttpProxy.Port=<proxy port>
 
 4. Dans la page servant à sélectionner le **programme**, choisissez **Tous les programmes**, puis cliquez sur **Suivant**.
 
-5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
+5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis cliquez sur **Suivant** :
 
     ![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-03.png)
 

@@ -90,7 +90,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
-1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
+1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 	

@@ -577,7 +577,7 @@ Où :
 4. Installez le service Mobilité en exécutant *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
 5. Spécifiez l’adresse IP interne du serveur de configuration et assurez-vous que le port 443 est sélectionné. Après l’installation du service, la mise à jour de l’état sur le portail peut prendre environ 15 minutes.
 
-**Vous pouvez également procéder à l’installation à partir de la ligne de commande** :
+**Vous pouvez également procéder à l’installation à partir de la ligne de commande** :
 
 1. Copiez la phrase secrète de C:\\Program Files (x86)\\InMage Systems\\private\\connection sur le serveur de configuration et enregistrez-le dans le fichier passphrase.txt sur le serveur de configuration. Exécutez ensuite ces commandes. Dans notre exemple, l’adresse IP du serveur de configuration est 104.40.75.37 et le port HTTPS doit être 443 :
 
@@ -641,7 +641,7 @@ Lorsque vous activez la réplication, tous les disques de la machine sont répli
 
 	![Activer la réplication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-11. Dans **Paramètres de réplication** > ** Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > Nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
+11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > Nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
 
 12. Cochez la case **Cohérence multimachine virtuelle** pour regrouper les machines dans un groupe de réplication, et nommez le groupe. Cliquez ensuite sur **OK**. Notez les points suivants :
 
@@ -786,7 +786,7 @@ Vérifiez les [tailles recommandées pour les serveurs de processus](#size-recom
 
 	![Ajouter un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
 
-2. Dans **Type de serveur**, cliquez sur ** Process server (on-premises) (Serveur de processus (local))**.
+2. Dans **Type de serveur**, cliquez sur **Process server (on-premises) (Serveur de processus (local))**.
 
 	![Ajouter un serveur de traitement](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 

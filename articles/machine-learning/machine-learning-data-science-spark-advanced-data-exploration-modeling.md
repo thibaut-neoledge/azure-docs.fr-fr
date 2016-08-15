@@ -1464,7 +1464,7 @@ Utilisez `unpersist()` pour supprimer les objets mis en cache en mémoire.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Imprimez le chemin des fichiers de modèle à utiliser dans le notebook de consommation. ** Pour consommer et évaluer un jeu de données indépendant, vous devez copier et coller ces noms de fichiers dans le notebook de consommation.
+**Imprimez le chemin des fichiers de modèle à utiliser dans le notebook de consommation.** Pour consommer et évaluer un jeu de données indépendant, vous devez copier et coller ces noms de fichiers dans le notebook de consommation.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

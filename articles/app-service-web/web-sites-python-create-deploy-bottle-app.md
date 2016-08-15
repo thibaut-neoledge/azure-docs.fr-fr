@@ -34,9 +34,9 @@ Vous allez créer une application web à l’aide de l’infrastructure web Bott
 - Python 2.7 ou 3.4
 - setuptools, pip, virtualenv (Python 2.7 uniquement)
 - Git
-- [Python Tools 2.2 pour Visual Studio][] (PTVS) - Remarque : ceci est facultatif
+- [Python Tools 2.2 pour Visual Studio][] \(PTVS) - Remarque : ceci est facultatif
 
-**Remarque** : la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
+**Remarque** : la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
 
 ### Windows
 

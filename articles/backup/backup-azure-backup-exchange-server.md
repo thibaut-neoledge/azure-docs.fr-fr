@@ -45,7 +45,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 
 1. Dans la Console Administrateur DPM, cliquez sur **Protection**, puis cliquez sur **Nouveau** dans la barre d’outils pour ouvrir l’assistant **Créer un nouveau groupe de Protection**.
 
-2. Dans l’écran d’**accueil** de l’assistant, cliquez sur **Suivant**.
+2. Dans l’écran d’**accueil** de l’assistant, cliquez sur **Suivant**.
 
 3. Dans l’écran **Sélectionner le type de groupe de protection**, sélectionnez **Serveurs**, puis cliquez sur **Suivant**.
 

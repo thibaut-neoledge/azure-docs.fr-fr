@@ -42,9 +42,9 @@ Pour gérer un espace de travail :
 
 La page de l’espace de travail comporte trois onglets :
 
-- **TABLEAU DE BORD** : vous permet d’afficher l’utilisation et les informations de l’espace de travail
-- **CONFIGURATION** : vous permet de gérer l’accès à l’espace de travail
-- **SERVICES WEB** : vous permet de gérer les services web publiés à partir de cet espace de travail
+- **TABLEAU DE BORD** : vous permet d’afficher l’utilisation et les informations de l’espace de travail
+- **CONFIGURATION** : vous permet de gérer l’accès à l’espace de travail
+- **SERVICES WEB** : vous permet de gérer les services web publiés à partir de cet espace de travail
 
 
 ## Pour surveiller l’utilisation de l’espace de travail

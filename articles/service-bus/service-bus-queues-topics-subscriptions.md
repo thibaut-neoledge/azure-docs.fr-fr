@@ -118,7 +118,7 @@ foreach (BrokeredMessage message in messageList)
 }
 ```
 
-Au même titre que les files d’attente, les messages sont reçus d’un abonnement à l’aide d’un objet [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) et non d’un [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Créez le client d’abonnement, en transférant le nom du sujet, le nom de l’abonnement et (éventuellement) le mode de réception en tant que paramètres. Par exemple, avec l’abonnement **inventaire** :
+Au même titre que les files d’attente, les messages sont reçus d’un abonnement à l’aide d’un objet [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) et non d’un [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Créez le client d’abonnement, en transférant le nom du sujet, le nom de l’abonnement et (éventuellement) le mode de réception en tant que paramètres. Par exemple, avec l’abonnement **inventaire** :
 
 ```
 // Create the subscription client

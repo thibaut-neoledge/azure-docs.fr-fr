@@ -60,23 +60,23 @@ Les données du journal sont stockées dans le stockage Blob ou de Table avec le
 
 **Tables**
 
-- **WadLogsTable** : journaux rédigés dans le code à l’aide de l’écouteur de suivi.
+- **WadLogsTable** : journaux rédigés dans le code à l’aide de l’écouteur de suivi.
 
-- **WADDiagnosticInfrastructureLogsTable** : modifications de configuration et d’analyse de diagnostic.
+- **WADDiagnosticInfrastructureLogsTable** : modifications de configuration et d’analyse de diagnostic.
 
-- **WADDirectoriesTable** : répertoires que le moniteur de diagnostic surveille. Cela inclut les journaux IIS, les journaux de requêtes ayant échoué et les répertoires personnalisés IIS. L’emplacement du fichier journal blob est spécifié dans le champ de conteneur et le nom de l’objet blob se trouve dans le champ RelativePath. Le champ AbsolutePath indique l’emplacement et le nom du fichier tel qu’il existait sur la machine virtuelle Azure.
+- **WADDirectoriesTable** : répertoires que le moniteur de diagnostic surveille. Cela inclut les journaux IIS, les journaux de requêtes ayant échoué et les répertoires personnalisés IIS. L’emplacement du fichier journal blob est spécifié dans le champ de conteneur et le nom de l’objet blob se trouve dans le champ RelativePath. Le champ AbsolutePath indique l’emplacement et le nom du fichier tel qu’il existait sur la machine virtuelle Azure.
 
-- **WADPerformanceCountersTable** : les compteurs de performance.
+- **WADPerformanceCountersTable** : les compteurs de performance.
 
-- **WADWindowsEventLogsTable** : journaux des événements Windows.
+- **WADWindowsEventLogsTable** : journaux des événements Windows.
 
 **Objets blob**
 
-- **wad-control-container** : (uniquement pour le kit de développement logiciel 2.4 et précédents) contient les fichiers de configuration XML qui contrôlent les diagnostics Azure.
+- **wad-control-container** : (uniquement pour le kit de développement logiciel 2.4 et précédents) contient les fichiers de configuration XML qui contrôlent les diagnostics Azure.
 
-- **wad-iis-failedreqlogfiles** : contient des informations tirées des journaux de requêtes de IIS ayant échoué.
+- **wad-iis-failedreqlogfiles** : contient des informations tirées des journaux de requêtes de IIS ayant échoué.
 
-- **wad-iis-logfiles** : contient des informations sur les journaux IIS.
+- **wad-iis-logfiles** : contient des informations sur les journaux IIS.
 
 - **« personnalisé »** – conteneur personnalisé basé sur la configuration des répertoires contrôlés par la surveillance de diagnostic. Le nom de ce conteneur d’objets blobs est spécifié dans WADDirectoriesTable.
 

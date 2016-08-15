@@ -40,7 +40,7 @@ Azure Marketplace comporte des modèles pour les infrastructures Bottle, Django 
 
 Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail Azure.
 
-Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure](https://portal.azure.com). Cliquez sur le bouton NOUVEAU dans l'angle supérieur gauche, puis cliquez sur **Web + mobile** > **Application web**.
+Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure](https://portal.azure.com). Cliquez sur le bouton NOUVEAU dans l'angle supérieur gauche, puis cliquez sur **Web + mobile** > **Application web**.
 
 ## Publication Git
 

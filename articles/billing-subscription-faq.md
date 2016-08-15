@@ -206,7 +206,7 @@ Pour plus d’informations, contactez le [support Azure](https://azure.microsoft
 
 ### Comment gérer les comptes d’administrateur dans le nouveau portail Azure ?
 
-Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle Azure](.\\active-directory\\Azure Role-Based Access Control.md).
+Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle Azure](.\active-directory\Azure Role-Based Access Control.md).
 
 ### Comment transférer la propriété de mes abonnements ?
 

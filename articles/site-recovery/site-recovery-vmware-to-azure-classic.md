@@ -205,8 +205,8 @@ Uniquement pour la machine virtuelle Linux : vérifiez que vous avez défini le 
 ## Étape 1 : Créer un coffre
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
-2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
-3. Cliquez sur **Créer nouveau** > **Création rapide**.
+2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
+3. Cliquez sur **Créer nouveau** > **Création rapide**.
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 6. Cliquez sur **Créer un coffre**. ![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
@@ -414,10 +414,10 @@ Les groupes de protection sont des regroupements logiques incluant les machines 
 
 	![Réplication du groupe de protection](./media/site-recovery-vmware-to-azure-classic/protection-groups3.png)
 
-	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Il est disponible que vous répliquiez des machines virtuelles VMware ou des serveurs physiques Windows/Linux.
+	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Il est disponible que vous répliquiez des machines virtuelles VMware ou des serveurs physiques Windows/Linux.
 	- **Seuil d’objectif de point de récupération** : définit l’objectif de point de récupération. Des alertes sont générées lorsque la réplication de la protection continue des données dépasse la valeur de seuil d’objectif de point de récupération configurée.
-	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
-	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
+	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
+	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
 
 Lorsque vous cliquez sur la coche, un groupe de protection est créé avec le nom spécifié. En outre, un deuxième groupe de protection est créé avec le nom <protection-group-name-Failback). Ce groupe de protection est utilisé si vous ne procédez pas à la restauration automatique du site local après le basculement vers Azure. Vous pouvez surveiller les groupes de protection à mesure qu’ils sont créés dans la page **Éléments protégés**.
 
@@ -534,7 +534,7 @@ Après avoir exécuté l’Assistant, vous pouvez modifier l’adresse IP du se
 4. Installez le service de mobilité en entrant *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
 5. Spécifiez l’adresse IP interne du serveur d’administration et assurez-vous que le port 443 est sélectionné.
 
-**Vous pouvez également procéder à l’installation à partir de la ligne de commande** :
+**Vous pouvez également procéder à l’installation à partir de la ligne de commande** :
 
 1. Copiez la phrase secrète de C:\\Program Files (x86)\\InMage Systems\\private\\connection sur le serveur d’administration et enregistrez-le en tant que « passphrase.txt » sur le serveur d’administration. Exécutez ensuite ces commandes. Dans notre exemple, l’adresse IP du serveur est 104.40.75.37 et le port HTTPS doit être 443 :
 

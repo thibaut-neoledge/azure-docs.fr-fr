@@ -92,7 +92,7 @@ Pour ajouter un utilisateur DevTest Labs à votre laboratoire, procédez comme s
 
 1. Dans le panneau **Sélectionner un rôle**, sélectionnez **Utilisateur DevTest Labs**
 
-1. Dans le panneau **Ajouter des utilisateurs** :
+1. Dans le panneau **Ajouter des utilisateurs** :
 
 	1. Le panneau **Ajouter des utilisateurs** affiche la liste des utilisateurs intégrés. Si l'utilisateur souhaité est déjà dans la liste, vous pouvez simplement sélectionner sa ligne pour le sélectionner. Une coche s'affiche à gauche de l'utilisateur pour indiquer que l'utilisateur a été sélectionné. Pour sélectionner plusieurs utilisateurs, maintenez la touche **&lt;Ctrl>** enfoncée tout en sélectionnant chaque utilisateur. Pour désélectionner un utilisateur, maintenez la touche **&lt;Ctrl>** enfoncée et sélectionnez l'utilisateur. Un compteur en bas du panneau indique le nombre d'utilisateurs sélectionnés.
 

@@ -65,7 +65,7 @@ Pour activer un référentiel Git pour votre application App Service, procéde
 
 1. Connectez-vous au [portail Azure].
 
-2. Dans le panneau de votre application App Service, cliquez sur **Paramètres > Source du déploiement**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.
+2. Dans le panneau de votre application App Service, cliquez sur **Paramètres > Source du déploiement**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.
 
 	![Référentiel Git local](./media/app-service-deploy-local-git/local_git_selection.png)
 
@@ -108,50 +108,50 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 ****
 
-**Symptôme** : Impossible d'accéder à '[URL\_du\_site]' : Impossible de se connecter à [Adresse\_scm]
+**Symptôme** : Impossible d'accéder à '[URL\_du\_site]' : Impossible de se connecter à [Adresse\_scm]
 
-**Cause** : Cette erreur peut se produire si l'application n'est pas opérationnelle.
+**Cause** : Cette erreur peut se produire si l'application n'est pas opérationnelle.
 
-**Résolution** : démarrez l’application dans le portail Azure. Le déploiement Git ne fonctionne pas tant que l’application n’est pas en cours d’exécution.
+**Résolution** : démarrez l’application dans le portail Azure. Le déploiement Git ne fonctionne pas tant que l’application n’est pas en cours d’exécution.
 
-
-****
-
-**Symptôme** : Impossible de résoudre l'hôte « nom\_hôte »
-
-**Cause** : Cette erreur peut se produire si les informations d'adresse entrées au moment de la création du référentiel distant « azure » sont incorrectes.
-
-**Résolution** : Utilisez la commande `git remote -v` pour répertorier tous les référentiels distants avec l'URL associée. Vérifiez que l'URL du référentiel distant « azure » est correcte. Si nécessaire, supprimez et recréez ce référentiel distant au moyen de l’URL correcte.
 
 ****
 
-**Symptôme** : aucune référence en commun, ni spécifiée ; aucune action effectuée. Perhaps you should specify a branch such as 'master'.
+**Symptôme** : Impossible de résoudre l'hôte « nom\_hôte »
 
-**Cause** : Cette erreur peut se produire si vous ne spécifiez pas de branche au moment de l'exécution d'une opération git push et que vous n'avez pas défini la valeur push.default utilisée par Git.
+**Cause** : Cette erreur peut se produire si les informations d'adresse entrées au moment de la création du référentiel distant « azure » sont incorrectes.
 
-**Résolution** : Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
+**Résolution** : Utilisez la commande `git remote -v` pour répertorier tous les référentiels distants avec l'URL associée. Vérifiez que l'URL du référentiel distant « azure » est correcte. Si nécessaire, supprimez et recréez ce référentiel distant au moyen de l’URL correcte.
+
+****
+
+**Symptôme** : aucune référence en commun, ni spécifiée ; aucune action effectuée. Perhaps you should specify a branch such as 'master'.
+
+**Cause** : Cette erreur peut se produire si vous ne spécifiez pas de branche au moment de l'exécution d'une opération git push et que vous n'avez pas défini la valeur push.default utilisée par Git.
+
+**Résolution** : Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
 
 	git push azure master
 
 ****
 
-**Symptôme** : src refspec [nom\_branche] ne correspond à aucun élément.
+**Symptôme** : src refspec [nom\_branche] ne correspond à aucun élément.
 
-**Cause** : Cette erreur peut se produire si vous tentez d'effectuer une opération Push sur une autre branche que la branche principale sur le référentiel distant « azure ».
+**Cause** : Cette erreur peut se produire si vous tentez d'effectuer une opération Push sur une autre branche que la branche principale sur le référentiel distant « azure ».
 
-**Résolution** : Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
+**Résolution** : Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
 
 	git push azure master
 
 ****
 
-**Symptôme** : erreur : des modifications ont été validées dans le référentiel distant, mais votre application web n’a pas été mise à jour.
+**Symptôme** : erreur : des modifications ont été validées dans le référentiel distant, mais votre application web n’a pas été mise à jour.
 
-**Cause** : Cette erreur peut se produire si vous déployez une application Node.js contenant un fichier package.json spécifiant des modules obligatoires supplémentaires.
+**Cause** : Cette erreur peut se produire si vous déployez une application Node.js contenant un fichier package.json spécifiant des modules obligatoires supplémentaires.
 
-**Résolution** : Des messages supplémentaires contenant « npm ERR! » doivent être consignés avant cette erreur et peuvent fournir davantage de contexte sur la défaillance. Voici les causes connues de cette erreur et le message « npm ERR! » correspondant :
+**Résolution** : Des messages supplémentaires contenant « npm ERR! » doivent être consignés avant cette erreur et peuvent fournir davantage de contexte sur la défaillance. Voici les causes connues de cette erreur et le message « npm ERR! » correspondant :
 
-* **Fichier package.json incorrect** : npm ERR! Couldn’t read dependencies.
+* **Fichier package.json incorrect** : npm ERR! Couldn’t read dependencies.
 
 * **Native module that does not have a binary distribution for Windows**:
 
@@ -175,7 +175,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [portail Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[interface de ligne de commande Azure]: https://azure.microsoft.com/fr-FR/documentation/articles/xplat-cli-azure-resource-manager/
+[interface de ligne de commande Azure]: https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

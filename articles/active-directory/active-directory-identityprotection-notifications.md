@@ -46,7 +46,7 @@ L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouveaux év
 Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire. <br><br> ![Risque des utilisateurs](./media/active-directory-identityprotection-notifications/62.png "Risque des utilisateurs") <br>
  
 
-**Pour ouvrir la boîte de dialogue de configuration connexe** :
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
 1. Dans le panneau d’**Azure AD Identity Protection**, cliquez sur **Paramètres**. <br><br> ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection-notifications/401.png "Stratégie de risque d’utilisateur") <br>
 

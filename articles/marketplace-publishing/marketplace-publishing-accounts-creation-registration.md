@@ -24,7 +24,7 @@ Pour démarrer le processus de publication, vous devez créer un compte Microsof
 
 L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique. Toutes les activités de publication connexes doivent être effectuées via ce compte.
 
-  >[AZURE.WARNING] Les termes tels qu’« **Azure** » et « **Microsoft** » ne sont pas pris en charge pour l’enregistrement d’un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
+  >[AZURE.WARNING] Les termes tels qu’« **Azure** » et « **Microsoft** » ne sont pas pris en charge pour l’enregistrement d’un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
 
 ### Instructions
 

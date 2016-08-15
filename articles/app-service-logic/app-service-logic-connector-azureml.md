@@ -71,7 +71,7 @@ Utilisez l’action Configurer la reformation pour configurer la reformation pon
  
 Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus de sortie du service Web (par exemple, si vous utilisez un module Enregistreur pour écrire dans une base de données à partir de l'expérience dans le Studio).
 
-**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
+**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
 
 ![][7]
 

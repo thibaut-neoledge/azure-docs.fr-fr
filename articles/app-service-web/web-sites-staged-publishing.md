@@ -74,7 +74,7 @@ Il n’existe pas de contenu après la création de l’emplacement de déploiem
 ## Configuration d’emplacements de déploiement ##
 Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Par ailleurs, après un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement (éléments propres à un emplacement). Les listes suivantes présentent la configuration changée lorsque vous effectuez des basculements d'emplacements.
 
-**Paramètres échangés** :
+**Paramètres échangés** :
 
 - Paramètres généraux, par exemple versions d’infrastructure, 32/64 bits, sockets web
 - Paramètres d’application (peuvent être configurés pour respecter un emplacement)
@@ -83,7 +83,7 @@ Lorsque vous clonez la configuration depuis un autre emplacement de déploiement
 - Paramètres de surveillance et de diagnostics
 - Contenu WebJobs
 
-**Paramètres non échangés** :
+**Paramètres non échangés** :
 
 - Points de terminaison de publication
 - Noms de domaine personnalisés
@@ -104,7 +104,7 @@ Pour lier un paramètre d’application ou une chaîne de connexion à un emplac
 
 	![Bouton Swap][SwapButtonBar]
 
-3. Cliquez sur **OK** pour terminer l’opération. À l’issue de l’opération, les emplacements de déploiement ont été échangés.
+3. Cliquez sur **OK** pour terminer l’opération. À l’issue de l’opération, les emplacements de déploiement ont été échangés.
 
 ## Configurer l’échange automatique pour une application web ##
 

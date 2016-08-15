@@ -25,19 +25,19 @@ Si une fonction est surchargée et accepte plusieurs syntaxes, toutes les syntax
 
 Les types s’expriment avec la syntaxe suivante :
 
-- **bin** : binaire
-- **bool** : booléen
-- **dt** : date/heure UTC
-- **enum** : énumération des constantes connues
-- **exp** : expression, qui est censée correspondre à une valeur booléenne
-- **mvbin** : binaire à valeurs multiples
+- **bin** : binaire
+- **bool** : booléen
+- **dt** : date/heure UTC
+- **enum** : énumération des constantes connues
+- **exp** : expression, qui est censée correspondre à une valeur booléenne
+- **mvbin** : binaire à valeurs multiples
 - **mvstr** : chaîne à valeurs multiples
 - **mvref** : référence à valeurs multiples
-- **num** : numérique
--  **ref** : référence à valeur unique
-- **str** : chaîne à valeur unique
-- **var** : variante de (quasiment) tout autre type
-- **void** : ne retourne aucune valeur
+- **num** : numérique
+-  **ref** : référence à valeur unique
+- **str** : chaîne à valeur unique
+- **var** : variante de (quasiment) tout autre type
+- **void** : ne retourne aucune valeur
 
 ## Référence des fonctions
 
@@ -165,7 +165,7 @@ Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été
 
 **Exemple** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Les deux exemples renvoient « *Hello world!* »
+Les deux exemples renvoient « *Hello world!* »
 
 ----------
 ### ConvertFromUTF8Hex
@@ -406,7 +406,7 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ### IsEmpty
 
-**Description : ** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
+**Description :** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
 
 **Syntaxe :** `bool IsEmpty(var Expression)`
 
