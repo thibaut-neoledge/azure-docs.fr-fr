@@ -21,14 +21,14 @@
 # Sauvegarde des machines virtuelles Azure
 
 > [AZURE.SELECTOR]
-- [Sauvegarde des machines virtuelles ARM dans Azure](backup-azure-arm-vms.md)
-- [Sauvegarde des machines virtuelles Azure](backup-azure-vms.md)
+- [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) (Sauvegarder des machines virtuelles dans un coffre Recovery Services)
+- [Back up VMs to Backup vault](backup-azure-vms.md) (Sauvegarder des machines virtuelles dans un coffre de sauvegarde)
 
-Cet article fournit les procédures de sauvegarde de vos machines virtuelles Azure.
-
-Tout d’abord, vous devez prendre en compte certains éléments avant de sauvegarder une machine virtuelle Azure. Si vous ne l’avez pas déjà fait, effectuez la [configuration requise](backup-azure-vms-prepare.md) pour préparer votre environnement pour la sauvegarde de vos machines virtuelles.
+Cet article décrit les procédures de sauvegarde d’une machine virtuelle Azure déployée à l’aide du modèle Classic dans un coffre de sauvegarde. Vous devez accomplir certaines tâches avant de sauvegarder une machine virtuelle Azure. Si vous ne l’avez pas encore fait, remplissez les [conditions préalables](backup-azure-vms-prepare.md) pour préparer votre environnement à la sauvegarde de vos machines virtuelles.
 
 Pour obtenir des informations supplémentaires, consultez les articles sur la [planification de votre infrastructure de sauvegarde des machines virtuelles dans Azure](backup-azure-vms-introduction.md) et les [machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
+
+>[AZURE.NOTE] Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et Classic](../resource-manager-deployment-model.md). Un coffre de sauvegarde peut uniquement protéger les machines virtuelles déployées à l’aide du modèle Classic. Vous ne pouvez pas utiliser un coffre de sauvegarde pour protéger les machines virtuelles déployées par le biais de Resource Manager. Pour plus d’informations sur l’utilisation de coffres Recovery Services, voir [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) (Sauvegarder des machines virtuelles dans un coffre Recovery Services).
 
 Les trois principales étapes de la sauvegarde des machines virtuelles sont les suivantes :
 
@@ -39,7 +39,7 @@ Les trois principales étapes de la sauvegarde des machines virtuelles sont les 
 ## Étape 1 - Découverte des machines virtuelles Azure
 Exécutez le processus de découverte pour vous assurer que les nouvelles machines virtuelles ajoutées à l’abonnement sont bien identifiées avant l’inscription. Le processus interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
 
-1. Connectez-vous au [portail Classic](http://manage.windowsazure.com/)
+1. Connectez-vous au [Portail Classic](http://manage.windowsazure.com/).
 
 2. Dans la liste des services Azure, cliquez sur **Recovery Services** pour ouvrir la liste des coffres de sauvegarde et Site Recovery. ![Ouvrir la liste d’archivage](./media/backup-azure-vms/choose-vault-list.png)
 
@@ -138,14 +138,14 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat
 
     Dans cet exemple :
 
-    - **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 30 jours.
+    - **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 30 jours.
     - **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les dimanches sont conservées pendant 104 semaines.
     - **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier dimanche de chaque mois sont conservées pendant 120 mois.
     - **Stratégie de rétention annuelle** : les sauvegardes effectuées le premier dimanche de janvier de chaque année sont conservées pendant 99 ans.
 
     Un travail est créé pour configurer la stratégie de protection et associer à celle-ci les machines virtuelles sélectionnées.
 
-6. Pour afficher la liste des travaux **Configurer la protection**, dans le menu d’archivage, cliquez sur **Travaux** et sélectionnez **Configurer la protection** dans le filtre **Opération**.
+6. Pour afficher la liste des travaux **Configurer la protection**, dans le menu du coffre, cliquez sur **Travaux**, puis sélectionnez **Configurer la protection** dans le filtre **Opération**.
 
     ![Configurer le travail de protection](./media/backup-azure-vms/protect-configureprotection.png)
 
@@ -154,7 +154,7 @@ Une fois la machine virtuelle protégée par une stratégie, elle apparaît sous
 
 Pour déclencher la sauvegarde initiale immédiatement après la configuration de la protection :
 
-1. Cliquez sur le bouton **Sauvegarder maintenant** en bas de la page **Éléments protégés**.
+1. Au bas de la page **Éléments protégés**, cliquez sur **Sauvegarder maintenant**.
 
     Le service Azure Backup crée un travail de sauvegarde pour l’opération de sauvegarde initiale.
 
@@ -164,7 +164,7 @@ Pour déclencher la sauvegarde initiale immédiatement après la configuration d
 
 >[AZURE.NOTE] Pendant l’opération de sauvegarde, le service Azure Backup émet une commande vers l’extension de sauvegarde de chaque machine virtuelle pour vider tous les travaux d’écriture et prendre un instantané cohérent.
 
-Une fois la sauvegarde initiale terminée, l’état de la machine virtuelle présente dans l’onglet **Éléments protégés** s’affiche en tant que *Protégé*.
+Une fois la sauvegarde initiale terminée, l’état de la machine virtuelle dans l’onglet **Éléments protégés** présente la valeur *Protégé*.
 
 ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/protect-backedupvm.png)
 
@@ -176,11 +176,11 @@ Une fois la protection appliquée, le nombre de machines virtuelles augmente ég
 Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
 
 ## Résolution des erreurs
-Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuelle, consultez l’[article sur le dépannage des machines virtuelles](backup-azure-vms-troubleshoot.md) pour obtenir de l’aide.
+Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuelle, consultez l’article [Dépannage de la sauvegarde des machines virtuelles Azure](backup-azure-vms-troubleshoot.md) pour obtenir de l’aide.
 
 ## Étapes suivantes
 
 - [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

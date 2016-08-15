@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -55,4 +55,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

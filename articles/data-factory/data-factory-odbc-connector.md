@@ -29,7 +29,7 @@ Bien qu’il soit possible d’installer la passerelle sur le même ordinateur l
 
 En dehors de la passerelle de gestion des données, vous devez également installer le pilote ODBC pour le magasin de données de l’ordinateur de passerelle.
 
-> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Exemple : copie des données depuis un magasin de données ODBC vers un objet Blob Azure
 
@@ -368,4 +368,4 @@ Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** 
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -16,7 +16,7 @@
    ms.date="07/14/2016"
    ms.author="owend"/>
 
-# Prise en main de l’exemple Power BI Embedded
+# Prise en main de l’exemple Power BI Embedded
 
 Avec **Microsoft Power BI Embedded**, vous pouvez intégrer des rapports Power BI dans vos applications web ou mobiles. Dans cet article, nous vous présenterons l’exemple de prise en main **Power BI Embedded**.
 
@@ -74,7 +74,7 @@ Checking import state... Succeeded
 L’exemple d’application web est un tableau de bord qui restitue les rapports importés dans votre **espace de travail**. Voici comment configurer l’exemple d’application web.
 
 1. Dans la solution Visual Studio **PowerBI-embedded**, cliquez avec le bouton droit sur l’application web **EmbedSample**, puis choisissez **Définir comme projet de démarrage**.
-2. Dans **web.config**, dans l’application web **EmbedSample**, modifiez la section **appSettings** : **AccessKey**, le nom **WorkspaceCollection** et **WorkspaceId**.
+2. Dans **web.config**, dans l’application web **EmbedSample**, modifiez la section **appSettings** : **AccessKey**, le nom **WorkspaceCollection** et **WorkspaceId**.
 
     ```
     <appSettings>
@@ -90,7 +90,7 @@ Une fois que vous avez exécuté l’application web **EmbedSample**, le volet d
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
-Une fois que vous avez cliqué sur un rapport, l’application web **EmbedSample** doit avoir l’aspect suivant :
+Une fois que vous avez cliqué sur un rapport, l’application web **EmbedSample** doit avoir l’aspect suivant :
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
@@ -100,7 +100,7 @@ L’exemple **Microsoft Power BI Embedded** est un exemple de tableau de bord d�
 
 L’exemple **Microsoft Power BI Embedded** inclut les sections suivantes. Chacune d’elles inclut le nom de fichier dans la solution PowerBI-embedded.sln afin que vous puissiez facilement trouver le code dans l’exemple.
 
-> [AZURE.NOTE] Cette section est un résumé de l’exemple de code qui montre comment le code a été écrit. Nous détaillerons la description de l’exemple au moment de la mise à la disposition générale. Pour afficher l’exemple complet, chargez la solution PowerBI-embedded.sln dans Visual Studio.
+> [AZURE.NOTE] Cette section est un résumé de l’exemple de code qui montre comment le code a été écrit. Pour afficher l’exemple complet, chargez la solution PowerBI-embedded.sln dans Visual Studio.
 
 ### Modèle
 L’exemple inclut deux modèles : **ReportsViewModel** et **ReportViewModel**.
@@ -120,6 +120,15 @@ L’exemple inclut deux modèles : **ReportsViewModel** et **ReportViewModel**.
 
         public string AccessToken { get; set; }
     }
+
+### Chaîne de connexion
+La chaîne de connexion doit avoir le format suivant :
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+L’utilisation d’attributs de serveur et de base de données communs échoue. Par exemple : Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### Affichage
 L’**affichage** gère l’affichage des **rapports** Power BI et d’un **rapport** Power BI.
@@ -213,14 +222,14 @@ Task<ActionResult> Report(string reportId)
 
 ### Intégrer un rapport dans votre application
 
-Une fois que vous avez un **rapport**, utilisez un **IFrame** pour incorporer le **rapport** Power BI. Voici un extrait de code powerbi.js dans l’exemple **Microsoft Power BI Embedded**.
+Une fois que vous avez un **rapport**, utilisez un **iframe** pour incorporer le **rapport** Power BI. Voici un extrait de code powerbi.js dans l’exemple **Microsoft Power BI Embedded**.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
 ## Filtrer les rapports incorporés dans votre application
 
-Vous pouvez filtrer un rapport incorporé à l’aide d’une syntaxe d’URL. Pour ce faire, ajoutez un paramètre de chaîne de requête **$filter** avec un opérateur **eq** à l’URL SCRL iFrame avec le filtre spécifié. Voici la syntaxe de requête de filtre :
+Vous pouvez filtrer un rapport incorporé à l’aide d’une syntaxe d’URL. Pour ce faire, ajoutez un paramètre de chaîne de requête **$filter** avec un opérateur **eq** à l’URL src iframe avec le filtre spécifié. Voici la syntaxe de requête de filtre :
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -236,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
 - [Authentification et autorisation dans Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

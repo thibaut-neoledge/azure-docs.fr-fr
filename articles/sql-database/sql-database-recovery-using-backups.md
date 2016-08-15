@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2016"
+   ms.date="08/01/2016"
    ms.author="sstein"/>
 
 # Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
@@ -65,7 +65,7 @@ La restauration d’une base de données supprimée vous permet de restaurer une
 
 > [AZURE.IMPORTANT] Si vous supprimez une instance de serveur de base de données SQL Azure, toutes ses bases de données sont également supprimées et ne peuvent pas être récupérées. Il n'existe aucune prise en charge pour la restauration d'un serveur supprimé pour l'instant.
 
-Vous pouvez utiliser le même nom ou un nouveau nom de base de données pour la base de données restaurée. Vous pouvez utiliser le [portail Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Vous pouvez utiliser le même nom ou un nouveau nom de base de données pour la base de données restaurée. Vous pouvez utiliser le [portail Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) ou [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
 - [Restauration d’une base de données supprimée : portail Azure](sql-database-restore-deleted-database-portal.md)
@@ -73,7 +73,7 @@ Vous pouvez utiliser le même nom ou un nouveau nom de base de données pour la 
 
 ## Restauration géographique
 
-La restauration géographique vous permet de restaurer une base de données SQL sur n’importe quel serveur dans n’importe quelle région Azure à partir de la dernière [sauvegarde quotidienne automatisée](sql-database-automated-backups.md) géo-répliquée. La géo-restauration utilise une sauvegarde géo-redondante en tant que source et peut être mise à profit pour récupérer une base de données même si la base de données ou le centre de données est inaccessible en raison d’une défaillance. Vous pouvez utiliser le [portail Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) ou [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+La restauration géographique vous permet de restaurer une base de données SQL sur n’importe quel serveur dans n’importe quelle région Azure à partir de la dernière [sauvegarde quotidienne automatisée](sql-database-automated-backups.md) géo-répliquée. La géo-restauration utilise une sauvegarde géo-redondante en tant que source et peut être mise à profit pour récupérer une base de données même si la base de données ou le centre de données est inaccessible en raison d’une défaillance. Vous pouvez utiliser le [portail Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) ou [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 > [AZURE.SELECTOR]
 - [Restauration géographique : portail Azure](sql-database-geo-restore-portal.md)
@@ -105,7 +105,7 @@ Comme indiqué plus haut, en plus du portail Azure, la récupération de la base
 
 |API|Description|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Restaure une base de données|
+|[REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Restaure une base de données|
 |[Créer ou mettre à jour l’état de la base de données](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Retourne l’état durant une opération de restauration|
 ||||
 
@@ -122,4 +122,4 @@ Les sauvegardes automatiques protègent vos bases de données des erreurs utilis
 - Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

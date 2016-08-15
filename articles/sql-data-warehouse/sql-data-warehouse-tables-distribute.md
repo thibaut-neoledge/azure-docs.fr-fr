@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="08/01/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribution de tables dans SQL Data Warehouse
@@ -187,7 +187,7 @@ from dbo.vTableSizes
 where two_part_name in 
     (
     select two_part_name
-    from dbo.vDistributionSkew 
+    from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
@@ -286,7 +286,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la conception de tables, consultez les articles portant sur la [distribution][], l[’indexation][], le [partitionnement][], les [types de données][], les [statistiques][] et les [tables temporaires][Temporary]. Pour obtenir une vue d’ensemble des bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse][].
+Pour en savoir plus sur la conception de tables, consultez les articles portant sur la [distribution][], l[’indexation][], le [partitionnement][], les [types de données][], les [statistiques][] et les [tables temporaires][Temporary].
+
+Pour obtenir une vue d’ensemble des bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse][].
 
 
 <!--Image references-->
@@ -313,4 +315,4 @@ Pour en savoir plus sur la conception de tables, consultez les articles portant 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

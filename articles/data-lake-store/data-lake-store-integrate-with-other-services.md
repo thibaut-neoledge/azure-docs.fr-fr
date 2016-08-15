@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Intégration de Data Lake Store à d'autres services Azure
@@ -82,6 +82,6 @@ Vous pouvez inscrire des données issues de Data Lake Store dans Azure Data Cata
 
 - [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
 - [Prise en main de Data Lake Store avec le portail](data-lake-store-get-started-portal.md)
-- [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)  
+- [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

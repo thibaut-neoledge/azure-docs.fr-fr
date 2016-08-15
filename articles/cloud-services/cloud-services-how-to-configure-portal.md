@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
-
-
-
 
 # Configuration des services cloud
 
@@ -56,7 +53,7 @@ Vous pouvez alors configurer une alerte. Avec la liste déroulante **Métrique**
 - Écriture sur le disque
 - Entrée réseau
 - Sortie réseau
-- Pourcentage UC 
+- Pourcentage UC
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -113,4 +110,4 @@ Vous devrez peut-être reconfigurer votre service cloud via le fichier [de confi
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

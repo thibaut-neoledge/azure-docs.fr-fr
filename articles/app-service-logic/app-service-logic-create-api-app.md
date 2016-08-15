@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -91,4 +91,4 @@ Actuellement, le concepteur d’applications logiques ne gère pas la détection
 
 Vous pouvez voir [ici](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers) un exemple de déclencheur webhook dans GitHub
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -398,4 +398,4 @@ Dans chaque environnement, vous pouvez ensuite fournir une valeur différente po
 
 Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

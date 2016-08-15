@@ -86,11 +86,14 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Pour ajouter un index non cluster sur une table, spécifiez simplement CLUSTERED INDEX dans la clause WITH :
+Pour ajouter un index non-cluster sur une table, utilisez simplement la syntaxe suivante :
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
+
+> [AZURE.NOTE] Un index non-cluster est créé par défaut lorsque CREATE INDEX est utilisé. En outre, un index non-cluster est autorisé uniquement sur une table de stockage de lignes (HEAP ou CLUSTERED INDEX). Les index non-cluster sur CLUSTERED COLUMNSTORE INDEX ne sont pas autorisés pour l’instant.
+
 
 ## Optimisation des index columnstore en cluster
 
@@ -337,4 +340,4 @@ Pour plus d’informations, consultez les articles [Vue d’ensemble des tables]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

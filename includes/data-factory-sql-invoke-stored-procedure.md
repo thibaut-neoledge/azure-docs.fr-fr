@@ -55,9 +55,9 @@ Dans votre base de données, définissez le type de table portant le même nom q
 
 	CREATE TYPE [dbo].[MarketingType] AS TABLE(
 	    [ProfileID] [varchar](256) NOT NULL,
-	    [State] [varchar](256) NOT NULL,
+	    [State] [varchar](256) NOT NULL
 	)
 
 La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Pourquoi avez-vous reçu une notification vous informant que votre abonnement Azure présente un solde impayé ? | Microsoft Azure"
 	description="Décrit comment procéder au paiement si votre abonnement Azure présente un solde impayé."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -45,4 +45,4 @@ Pour obtenir des instructions sur la manière de changer de moyen de paiement da
 
 > [AZURE.NOTE] Si votre abonnement Azure est désactivé, vous pouvez suivre les étapes de l’article suivant pour le réactiver : [Que faire si mon abonnement Azure est annulé ?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

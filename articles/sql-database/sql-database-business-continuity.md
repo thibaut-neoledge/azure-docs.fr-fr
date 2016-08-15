@@ -4,7 +4,7 @@
    keywords="continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -135,4 +135,4 @@ Parfois, une application doit être déconnectée en raison d’une maintenance 
 
 Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques, consultez les sections [Concevoir une application pour la récupération d’urgence cloud ](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

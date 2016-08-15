@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Intégration d'un service cloud à Azure CDN"
+	pageTitle="Intégration d’un service cloud à Azure CDN | Microsoft Azure"
 	description="Didacticiel qui explique comment déployer un service cloud qui traite le contenu à partir d'un point de terminaison CDN Azure intégré"
 	services="cdn, cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -140,7 +140,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
 ## Test du point de terminaison CDN
 
-Lorsque l'état de la publication est **Terminé**, ouvrez une fenêtre de navigateur et accédez à l'adresse **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Dans ma configuration, cette URL est la suivante :
+Lorsque l’état de la publication est **Terminé**, ouvrez une fenêtre de navigateur et accédez à l’adresse **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Dans ma configuration, cette URL est la suivante :
 
 	http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -152,21 +152,21 @@ Lorsque vous atteignez la page **http://*&lt;cdnName>*.azureedge.net/Content/boo
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-De même, vous pouvez accéder à toute URL accessible publiquement à l’adresse **http://*&lt;serviceName>*.cloudapp.net/**, directement depuis votre point de terminaison CDN. Par exemple :
+De même, vous pouvez accéder à toute URL accessible publiquement à l’adresse **http://*&lt;serviceName>*.cloudapp.net/**, directement depuis votre point de terminaison CDN. Par exemple :
 
 -	un fichier .js à partir du chemin d'accès /Script ;
 -	un fichier de contenu à partir du chemin d'accès /Content ;
 -	un contrôleur/une action ;
 -	si la chaîne de requête est activée sur le point de terminaison CDN, une URL avec des chaînes de requête.
 
-En fait, dans la configuration ci-dessus, vous pouvez héberger l'ensemble du service cloud à partir de **http://*&lt;cdnName>*.azureedge.net/**. Si je me rends à l'adresse **http://camservice.azureedge.net/**, j'obtiens le résultat de l'action à partir de Home/Index.
+En fait, dans la configuration ci-dessus, vous pouvez héberger l’ensemble du service cloud à partir de **http://*&lt;cdnName>*.azureedge.net/**. Si je me rends à l’adresse **http://camservice.azureedge.net/**, j’obtiens le résultat de l’action à partir de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 Cependant, cela ne signifie pas que c'est toujours (ou généralement) une bonne idée pour traiter l'ensemble du service cloud via Azure CDN. Mises en garde éventuelles :
 
 -	Cette approche nécessite que l'ensemble de votre site soit public, car Azure CDN ne peut pas traiter du contenu privé pour le moment.
--	Si le point de terminaison CDN passe hors connexion quelle qu'en soit la raison (maintenance prévue ou erreur utilisateur), l'ensemble de votre service cloud passe hors connexion à moins qu'il soit possible de rediriger les clients vers l'URL d'origine **http://*&lt;serviceName>*.cloudapp.net/**.
+-	Si le point de terminaison CDN passe hors connexion quelle qu’en soit la raison (maintenance prévue ou erreur utilisateur), l’ensemble de votre service cloud passe hors connexion à moins qu’il soit possible de rediriger les clients vers l’URL d’origine **http://*&lt;serviceName>*.cloudapp.net/**.
 -	Même avec les paramètres Cache-Control personnalisés (voir [Configuration des options de mise en cache des fichiers statiques dans votre service cloud](#caching)), un point de terminaison CDN n'améliore pas les performances des contenus très dynamiques. Si vous avez essayé de charger la page d'accueil depuis votre point de terminaison CDN (voir ci-dessus), notez qu'il faut environ 5 secondes pour charger la page d'accueil par défaut la première fois, alors qu'il s'agit d'une page relativement simple. Imaginez ce qui se passe du côté client si cette page comporte un contenu dynamique qui doit s'actualiser toutes les minutes. Le traitement du contenu dynamique depuis un point de terminaison CDN nécessite une brève expiration du cache qui se traduit en fréquentes erreurs dans le cache au niveau du point de terminaison. Cela nuit aux performances ou à votre service cloud, et va à l'encontre de la fonction d'un réseau de distribution de contenu (CDN).
 
 La solution alternative consiste à déterminer au cas par cas le contenu à traiter à partir d'Azure CDN dans votre service cloud. À cette fin, vous avez déjà vu comment accéder à des fichiers de contenu individuels depuis le point de terminaison CDN. Je vais vous montrer comment traiter une action sur un contrôleur donné via le point de terminaison CDN dans la section [Distribution de contenu à partir d'actions de contrôleur via Azure CDN](#controller).
@@ -213,7 +213,7 @@ Une simple action `Index` permet aux clients de spécifier les superlatifs dans 
 
 Procédez comme ci-dessus pour configurer cette action de contrôleur :
 
-1. Dans le dossier *\\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. N'oubliez pas de remplacer la partie en surbrillance par le nom de votre CDN.  
+1. Dans le dossier *\\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. N'oubliez pas de remplacer la partie en surbrillance par le nom de votre CDN.
 
 		using System;
 		using System.Collections.Generic;
@@ -331,7 +331,7 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		    <input class="btn" type="submit" value="Generate meme" />
 		</form>
 
-5. Republiez le service cloud et accédez à l'adresse **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** dans votre navigateur.
+5. Republiez le service cloud et accédez à l’adresse **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** dans votre navigateur.
 
 Quand vous envoyez les valeurs du formulaire dans `/MemeGenerator/Index`, la méthode d’action `Index_Post` renvoie un lien vers la méthode d’action `Show` avec l’identificateur d’entrée respectif. Quand vous cliquez sur ce lien, vous accédez au code suivant :
 
@@ -407,7 +407,7 @@ Cela permet de déboguer le code JavaScript dans votre environnement de dévelo
 
 Procédez comme suit pour l'intégration du regroupement et de la minimisation ASP.NET à votre point de terminaison CDN.
 
-1. De retour dans *App\_Start\\BundleConfig.cs*, modifiez les méthodes `bundles.Add()` pour utiliser un autre [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx) qui spécifie une adresse CDN. Pour cela, remplacez la définition de la méthode `RegisterBundles` par le code suivant :  
+1. De retour dans *App\_Start\\BundleConfig.cs*, modifiez les méthodes `bundles.Add()` pour utiliser un autre [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx) qui spécifie une adresse CDN. Pour cela, remplacez la définition de la méthode `RegisterBundles` par le code suivant :
 
 		public static void RegisterBundles(BundleCollection bundles)
 		{
@@ -450,7 +450,7 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation 
 
 	-	L'origine de cette URL CDN est `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, qui est en vérité le répertoire virtuel du regroupement de script dans votre service cloud.
 	-	Comme vous utilisez un constructeur CDN, la balise du script CDN pour le regroupement ne contient plus la chaîne de caractères de la version automatiquement générée dans l'URL restituée. Vous devez créer manuellement une chaîne de version unique à chaque modification du regroupement de script pour forcer une erreur dans le cache de votre réseau de distribution de contenu (CDN) Azure. En même temps, cette chaîne de version unique doit rester constante tout au long du déploiement pour un accès maximal au cache de votre réseau de distribution de contenu (CDN) Azure après le déploiement du regroupement.
-	-	La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet de rôle web. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '*'. Par exemple :
+	-	La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet de rôle web. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '*'. Par exemple :
 
 			[assembly: AssemblyVersion("1.0.0.*")]
 
@@ -501,7 +501,7 @@ Lorsque le point de terminaison de votre réseau de distribution de contenu (CDN
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contient la propriété [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) qui vous permet de configurer le mécanisme de secours en cas de défaillance CDN. Pour utiliser cette propriété, procédez comme suit :
 
-1. Dans votre projet de rôle Web, ouvrez *App\_Start\\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx), puis apportez les modifications en surbrillance pour ajouter un mécanisme de secours aux regroupements par défaut :  
+1. Dans votre projet de rôle Web, ouvrez *App\_Start\\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx), puis apportez les modifications en surbrillance pour ajouter un mécanisme de secours aux regroupements par défaut :
 
 		public static void RegisterBundles(BundleCollection bundles)
 		{
@@ -619,4 +619,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

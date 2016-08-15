@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/01/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -25,14 +25,7 @@
 - [Pilotes](sql-data-warehouse-connection-strings.md)
 
 
-Vous pouvez vous connecter à SQL Data Warehouse à l’aide de l’un des protocoles d’application suivants :
-
-- [ADO.NET][]
-- [ODBC][]
-- [PHP][]
-- [JDBC][]
-
-Voici quelques exemples de chaînes de connexion pour chaque protocole. Vous pouvez également utiliser le portail Azure pour vous aider à configurer votre chaîne de connexion. Accédez simplement à votre base de données dans le portail Azure. Sous *Essentials* cliquez sur *Afficher les chaînes de connexion de la base de données*.
+Vous pouvez vous connecter à SQL Data Warehouse avec plusieurs protocoles d’application différents tels que [ADO.NET][], [ODBC][], [PHP][] et [JDBC][]. Voici quelques exemples de chaînes de connexion pour chaque protocole. Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion. Pour créer votre chaîne de connexion à l’aide du portail Azure, accédez au panneau de votre base de données, sous *Essentials*, cliquez sur *Afficher les chaînes de connexion de la base de données*.
 
 ## Exemple de chaîne de connexion ADO.NET
 
@@ -58,6 +51,8 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
+> [AZURE.NOTE] Vous pouvez définir le délai de connexion à 300 secondes pour permettre à la connexion de résister à des courtes périodes d’indisponibilité.
+
 ## Étapes suivantes
 
 Pour commencer à interroger votre entrepôt de données avec Visual Studio et d’autres applications, consultez [Query with Visual Studio (Soumettre des requêtes avec Visual Studio)][].
@@ -75,4 +70,4 @@ Pour commencer à interroger votre entrepôt de données avec Visual Studio et d
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

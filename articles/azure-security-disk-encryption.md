@@ -34,9 +34,9 @@ Azure Disk Encryption pour les machines virtuelles IaaS Windows est désormais [
 Azure Disk Encryption prend en charge les scénarios client suivants :
 
 - Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir de disques durs virtuels déjà chiffrés et de clés de chiffrement.
-- Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’images de la galerie Azure. 
-- Activation du chiffrement sur des machines virtuelles IaaS existantes et fonctionnant déjà sous Azure. 
-- Désactivation du chiffrement sur les machines virtuelles IaaS Windows. 
+- Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’images de la galerie Azure.
+- Activation du chiffrement sur des machines virtuelles IaaS existantes et fonctionnant déjà sous Azure.
+- Désactivation du chiffrement sur les machines virtuelles IaaS Windows.
 
 La solution prend en charge les éléments de machines virtuelles IaaS suivants lorsqu’elle est activée dans Microsoft Azure :
 
@@ -153,11 +153,11 @@ Azure Disk Encryption est pris en charge sur les SKU clients Windows suivants : 
 
 **Remarque** : Le chiffrement de disque Azure nécessite que le coffre de clés et les machines virtuelles se trouvent dans la même région Azure. Le fait de les configurer dans des régions distinctes provoque l’échec de l’activation de la fonctionnalité de chiffrement de disque Azure.
 
-- Pour installer et configurer un coffre de clés Azure en vue d’utiliser le chiffrement de disque Azure, consultez la section **Définition et configuration du coffre de clés Azure pour l’utilisation du chiffrement de disque Azure** dans la rubrique *Conditions préalables requises* de cet article.
+- Pour installer et configurer Azure Key Vault en vue d’utiliser le chiffrement de disque Azure, consultez la section **Définition et configuration d’Azure Key Vault pour l’utilisation de chiffrement de disque Azure.** dans la rubrique *Composants requis* de cet article.
 
-- Pour installer et configurer l’application Azure AD dans Azure Active Directory en vue d’utiliser le chiffrement de disque Azure, consultez la section **Configurer l’application Azure AD dans Azure Active Directory** dans la rubrique *Conditions préalables requises* de cet article.
+- Pour installer et configurer l’application Azure AD dans Azure Active Directory en vue d’utiliser le chiffrement de disque Azure, consultez la section **Configurez votre application auprès d’Azure Active Directory dans Azure Active Directory** dans la rubrique *Composants requis* de cet article.
 
-- Pour installer et configurer la stratégie d’accès au coffre de clés pour l’application Azure AD, consultez la section **Définition de la stratégie d’accès au coffre de clés pour l’application Azure AD** dans la rubrique *Conditions préalables requises* de cet article.
+- Pour installer et configurer la stratégie d’accès au coffre de clés pour l’application Azure AD, consultez la section **Définition de la stratégie d’accès de coffre de clés pour l’application Azure AD** dans la rubrique *Composants requis* de cet article.
 
 - Pour préparer un disque dur virtuel Windows déjà chiffré, consultez la section **Préparation d’un disque dur virtuel Windows déjà chiffré** dans l’annexe de cet article.
 
@@ -195,9 +195,9 @@ Azure Disk Encryption est pris en charge sur les SKU clients Windows suivants : 
 
 **Remarque :** Si votre stratégie de sécurité limite l’accès à Internet à partir des machines virtuelles Azure, vous pouvez résoudre l’URI ci-dessus auquel vous devez vous connecter, et configurer une règle spécifique pour autoriser les connexions sortantes vers les adresses IP.
 
-- Utilisez la dernière version du kit de développement logiciel (SDK) Azure PowerShell pour configurer Azure Disk Encryption. Télécharger la dernière version d’[Azure PowerShell version 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) et version supérieure
+- Utilisez la dernière version du kit de développement logiciel (SDK) Azure PowerShell pour configurer Azure Disk Encryption. Télécharger la dernière version [d’Azure PowerShell 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) et version supérieure
 
-**Remarque :** Azure Disk Encryption n’est pas pris en charge dans le [Kit de développement logiciel (SDK) Azure PowerShell version 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Si vous recevez une erreur liée à l’utilisation d’Azure PowerShell version 1.1.0, consultez l’article [Erreur Azure Disk Encryption liée à Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx).
+**Remarque :** Azure Disk Encryption n’est pas pris en charge dans le [Kit de développement logiciel (SDK) Azure PowerShell version 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Si vous recevez une erreur liée à l’utilisation d’Azure PowerShell 1.1.0, consultez l’article [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Erreur Azure Disk Encryption liée à Azure PowerShell 1.1.0).
 
 - Pour exécuter les commandes de l’interface de ligne de commande Azure et les associer à votre abonnement Azure, vous devez d’abord installer la version de l’interface de ligne de commande Azure :
 
@@ -207,7 +207,7 @@ Azure Disk Encryption est pris en charge sur les SKU clients Windows suivants : 
 
 - Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles IaaS Windows. Si vos machines virtuelles sont jointes au domaine, ne distribuez pas les politiques de groupe qui appliquent les protecteurs de module de plateforme sécurisée. Pour plus d’informations sur la stratégie de groupe pour « Autoriser BitLocker sans module de plateforme sécurisée compatible », consultez [cet article](https://technet.microsoft.com/library/ee706521).
 
-- Le script PowerShell prérequis pour le chiffrement de disque Azure pour créer l’application Azure AD, créer un coffre de clés ou en configurer un existant, et activer le chiffrement est situé [ici](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+- Le script PowerShell prérequis pour le chiffrement de disque Azure pour créer l’application Azure AD, créer un coffre de clés ou en configurer un existant et activer le chiffrement se trouve [ici](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 
 ### Définition et configuration d’Azure Key Vault pour l’utilisation de chiffrement de disque Azure.
 
@@ -366,7 +366,7 @@ Une fois que vous avez terminé le téléchargement du PFX, exécutez les opéra
     $sourceVaultId = (Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $resourceGroupName).ResourceId
     $vm = Get-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore "My" -CertificateUrl $certUrl
-    Update-AzureRmVM -VM $vm  -ResourceGroupName $resourceGroupName
+    Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 
 
 #### Définition de la stratégie d’accès de coffre de clés pour l’application Azure AD
@@ -458,10 +458,10 @@ Vous pouvez activer le chiffrement de disque sur le disque dur virtuel chiffré 
 Suivez les étapes ci-dessous pour activer le chiffrement de disque de ce scénario à l’aide des commandes CLI :
 
 1. Définir des stratégies d’accès sur le coffre de clés :
-	- Définir l’indicateur « EnabledForDiskEncryption » : « azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true »
-	- Définir des autorisations d’application Azure AD pour écrire des clés secrètes dans KeyVault : « azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"] »
-2. Pour activer le chiffrement sur une machine virtuelle existante ou en cours d’exécution, tapez : *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Obtenir l’état du chiffrement : *« azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json »*
+	- Définir l’indicateur « EnabledForDiskEncryption » : « azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true »
+	- Définir des autorisations d’application Azure AD pour écrire des clés secrètes dans KeyVault : « azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"] »
+2. Pour activer le chiffrement sur une machine virtuelle existante ou en cours d’exécution, tapez : *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
+3. Obtenir l’état du chiffrement : *« azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json »*
 4. Pour activer le chiffrement sur une nouvelle machine virtuelle à partir de disques durs virtuels clients chiffrés, utilisez les paramètres avec la commande « azure vm create » ci-dessous :
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -501,10 +501,10 @@ Pour plus d’informations sur la façon d’activer le chiffrement à l’aide 
 Activer le chiffrement sur des machines virtuelles IaaS Windows existantes/en cours de fonctionnement dans Azure
 
 1. Définir des stratégies d’accès sur le coffre de clés :
-	- Définir l’indicateur « EnabledForDiskEncryption » : « azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true »
-	- Définir des autorisations d’application Azure AD pour écrire des clés secrètes dans KeyVault : « azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"] »
-2. Pour activer le chiffrement sur une machine virtuelle existante ou en cours d’exécution, tapez : *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Obtenir l’état du chiffrement : *« azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json »*
+	- Définir l’indicateur « EnabledForDiskEncryption » : « azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true »
+	- Définir des autorisations d’application Azure AD pour écrire des clés secrètes dans KeyVault : « azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"] »
+2. Pour activer le chiffrement sur une machine virtuelle existante ou en cours d’exécution, tapez : *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
+3. Obtenir l’état du chiffrement : *« azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json »*
 4. Pour activer le chiffrement sur une nouvelle machine virtuelle à partir de disques durs virtuels clients chiffrés, utilisez les paramètres avec la commande « azure vm create » ci-dessous :
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -536,10 +536,10 @@ Les détails de paramètres de modèle ARM pour le scénario de machine virtuell
 Vous pouvez activer le chiffrement de disque sur le disque dur virtuel chiffré du client à l’aide de la commande CLI installée à partir de [cet emplacement](xplat-cli-install.md). Activer le chiffrement sur des machines virtuelles IaaS Linux existantes/en cours de fonctionnement dans Azure :
 
 1. Définir des stratégies d’accès sur le coffre de clés :
-	- Définir l’indicateur « EnabledForDiskEncryption » : « azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true »
-	- Définir des autorisations d’application Azure AD pour écrire des clés secrètes dans KeyVault : « azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"] »
-2. Pour activer le chiffrement sur une machine virtuelle existante ou en cours d’exécution, tapez : *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Obtenir l’état du chiffrement : « azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json »
+	- Définir l’indicateur « EnabledForDiskEncryption » : « azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true »
+	- Définir des autorisations d’application Azure AD pour écrire des clés secrètes dans KeyVault : « azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"] »
+2. Pour activer le chiffrement sur une machine virtuelle existante ou en cours d’exécution, tapez : *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
+3. Obtenir l’état du chiffrement : « azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json »
 4. Pour activer le chiffrement sur une nouvelle machine virtuelle à partir d’un disque dur virtuel client chiffré, utilisez les paramètres avec la commande « azure vm create » ci-dessous :
 	- *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
 	- *disk-encryption-key-url <disk-encryption-key-url>*
@@ -548,7 +548,7 @@ Vous pouvez activer le chiffrement de disque sur le disque dur virtuel chiffré 
 
 ### Obtenir l’état du chiffrement d’une machine virtuelle IaaS chiffrée
 
-Vous pouvez obtenir l’état de chiffrement en utilisant le portail de gestion Azure, des [applets de commande PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou des commandes de l’interface de commandes. Les sections ci-dessous expliquent comment utiliser le portail Azure et les commandes de l’interface de ligne de commande pour obtenir l’état du chiffrement.
+Vous pouvez obtenir l’état de chiffrement en utilisant le portail de gestion Azure, des [applets de commande PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou des commandes de l’interface de ligne de commandes. Les sections ci-dessous expliquent comment utiliser le portail Azure et les commandes de l’interface de ligne de commande pour obtenir l’état du chiffrement.
 
 #### Obtenir l’état de chiffrement d’une machine virtuelle IaaS chiffrée à l’aide du portail de gestion Azure
 
@@ -593,7 +593,7 @@ Détails des paramètres du modèle ARM pour la désactivation du chiffrement su
 
 | ​vmName | ​Nom de la machine virtuelle sur laquelle l’opération de chiffrement doit être effectuée |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​volumeType | ​Type de volume sur laquelle l’opération de déchiffrement est effectuée Les valeurs valides sont « Système d’exploitation », « Données » et « Tous ». **Remarque :** vous ne pouvez pas désactiver le chiffrement sur un volume de démarrage/système d’exploitation d’une machine virtuelle IaaS Windows en cours d’exécution sans désactiver le chiffrement sur le volume « Données ». |
+| ​volumeType | ​Type de volume sur laquelle l’opération de déchiffrement est effectuée Les valeurs valides sont « OS », « Data » et « All ».<br>**Remarque :** vous ne pouvez pas désactiver le chiffrement sur un volume de démarrage/système d’exploitation d’une machine virtuelle IaaS Windows en cours d’exécution sans désactiver le chiffrement sur le volume « Data ». |
 | sequenceVersion | Version de séquence de l’opération BitLocker. Incrémenter ce numéro de version à chaque fois qu’une opération de déchiffrement de disque est exécutée sur la même machine virtuelle |
 
 ##### Désactiver le chiffrement sur des machines virtuelles IaaS Windows existantes/en cours d’exécution dans Azure à l’aide de l’applet de commande PS
@@ -845,4 +845,4 @@ Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gal
 
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

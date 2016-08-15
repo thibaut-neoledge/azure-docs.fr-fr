@@ -37,6 +37,7 @@ Les étapes de configuration et le code fournis dans cette procédure concernent
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+> [AZURE.NOTE] Pour une rubrique qui montre comment utiliser Scala plutôt que Python pour effectuer des tâches de processus de science des données de bout en bout, consultez [Science des données à l’aide de Scala avec Spark sur Azure](machine-learning-data-science-process-scala-walkthrough.md).
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -111,7 +112,7 @@ Vous pouvez également naviguer jusqu’à ***https://CLUSTERNAME.azurehdinsight
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Sélectionnez PySpark pour afficher un répertoire qui contient quelques exemples de notebooks prédéfinis qui utilisent l’API PySpark. Les notebooks qui contiennent les exemples de code pour cet ensemble de rubriques Spark sont disponibles sur [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Sélectionnez PySpark pour afficher un répertoire qui contient quelques exemples de notebooks prédéfinis qui utilisent l’API PySpark. Les notebooks qui contiennent les exemples de code pour cet ensemble de rubriques Spark sont disponibles sur [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
 
 Vous pouvez télécharger les notebooks directement de Github sur le serveur de notebooks Jupyter de votre cluster Spark. Dans la page d’accueil de votre Jupyter, cliquez sur le bouton **Télécharger** dans la partie droite de l’écran. Un explorateur de fichiers s’ouvre. Vous pouvez coller l’URL GitHub (contenu brut) du notebook et cliquer sur **Ouvrir**. Les notebooks PySpark sont disponibles aux URL suivantes :
@@ -127,8 +128,8 @@ Le nom de fichier réapparaît dans votre liste de fichiers Jupyter avec un bout
 Vous pouvez désormais :
 
 - Cliquer sur le notebook pour visualiser le code.
-- Exécuter chaque cellule en appuyant sur **Maj+Entrée**.
-- Exécuter le notebook complet en cliquant sur **Cellule** -> **Exécuter**.
+- Exécutez chaque cellule en appuyant sur **MAJ-ENTRÉE**
+- Exécutez le notebook en cliquant sur **Cellule** -> **Exécuter**
 - Utiliser la visualisation automatique des requêtes
 
 > [AZURE.TIP] Le noyau Pyspark visualise automatiquement la sortie des requêtes SQL (HiveQL). Vous pouvez sélectionner différents types de visualisations (tables, secteurs, lignes, zones ou barres) à l’aide des boutons de menu **Type** dans le notebook :
@@ -143,6 +144,6 @@ Maintenant que vous avez configuré un cluster HDInsight Spark et téléchargé 
 
 **Consommation de modèles :** pour apprendre à noter les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning créés avec Spark](machine-learning-data-science-spark-model-consumption.md).
 
-**Validation croisée et balayage hyperparamétrique** : consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
+**Validation croisée et balayage hyperparamétrique** : consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

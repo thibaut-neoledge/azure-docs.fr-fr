@@ -265,7 +265,7 @@ Dans l’intervalle, tous les paramètres push hérités (à l’exception notab
 
 ### <a name="app-settings"></a>Autres paramètres d’application
 
-Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
+Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
 
 | Paramètre de l’application | Description |
 | :------------------------------- | :-------------------------------------- |
@@ -287,17 +287,17 @@ Vous ne pourrez plus utiliser la commande _Azure mobile_ pour gérer votre site 
 | mobile show _nom_ | site show _nom_ |
 | mobile restart _nom_ | site restart _nom_ |
 | mobile redeploy _nom_ | site deployment redeploy _IdValidation_ _nom_ |
-| mobile key set _nom_ _type_ _valeur_ | site appsetting delete _clé_ _nom_ <br/> site appsetting add _clé_=\_valeur\_ _nom_ |
+| mobile key set _nom_ _type_ _valeur_ | site appsetting delete _clé_ _nom_ <br/> site appsetting add _clé_=_valeur_ _nom_ |
 | mobile config list _nom_ | site appsetting list _nom_ |
 | mobile config get _nom_ _clé_ | site appsetting show _clé_ _nom_ |
-| mobile config set _nom_ _clé_ | site appsetting delete _clé_ _nom_ <br/> site appsetting add _clé_=\_valeur\_ _nom_ |
+| mobile config set _nom_ _clé_ | site appsetting delete _clé_ _nom_ <br/> site appsetting add _clé_=_valeur_ _nom_ |
 | mobile domain list _nom_ | site domain list _nom_ |
 | mobile domain add _nom_ _domaine_ | site domain add _domaine_ _nom_ |
 | mobile domain delete _nom_ | site domain delete _domaine_ _nom_ |
 | mobile scale show _name_ | site show _nom_ |
 | mobile scale change _nom_ | site scale mode _mode_ _nom_ <br /> site scale instances _instances_ _nom_ |
 | mobile appsetting list _nom_ | site appsetting list _nom_ |
-| mobile appsetting add _nom_ _clé_ _valeur_ | site appsetting add _clé_=\_valeur\_ _nom_ |
+| mobile appsetting add _nom_ _clé_ _valeur_ | site appsetting add _clé_=_valeur_ _nom_ |
 | mobile appsetting delete _nom_ _clé_ | site appsetting delete _clé_ _nom_ |
 | mobile appsetting show _nom_ _clé_ | site appsetting delete _clé_ _nom_ |
 
@@ -334,7 +334,7 @@ Résolution : Nous travaillons actuellement à la correction de ce problème. Si
 
 ### La modification du fichier web.config ne fonctionne pas
 
-Si vous avez un site ASP.NET, les changements au fichier `Web.config` ne fonctionneront pas. Azure App Service crée un fichier `Web.config` adapté lors du démarrage pour prendre en charge le runtime Mobile Services. Vous pouvez remplacer certains paramètres (comme les en-têtes personnalisés) à l’aide d’un fichier de transformation XML. Créez un fichier appelé `applicationHost.xdt` : ce fichier doit terminer dans le répertoire `D:\home\site` sur le Service Azure. Vous pouvez le faire avec un script de déploiement personnalisé ou en utilisant directement Kudu. Voici un exemple de document :
+Si vous avez un site ASP.NET, les changements apportés au fichier `Web.config` ne fonctionneront pas. Azure App Service crée un fichier `Web.config` adapté lors du démarrage pour prendre en charge le runtime Mobile Services. Vous pouvez remplacer certains paramètres (comme les en-têtes personnalisés) à l’aide d’un fichier de transformation XML. Créez un fichier appelé `applicationHost.xdt` : ce fichier doit terminer dans le répertoire `D:\home\site` du Service Azure. Vous pouvez le faire avec un script de déploiement personnalisé ou en utilisant directement Kudu. Voici un exemple de document :
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -357,7 +357,7 @@ Pour plus d’informations, consultez la documentation [Exemples de transformati
 
 ### Vous ne pouvez pas ajouté une version migrée de Mobile Services à Traffic Manager
 
-Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir directement une version migrée de Mobile Services pour le profil. Vous devez utiliser un « système d'extrémité externe ». Le système d'extrémité externe peut uniquement être ajouté via PowerShell. Reportez-vous au [Didacticiel de Traffic Manager](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) pour plus d’informations.
+Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir directement une version migrée de Mobile Services pour le profil. Vous devez utiliser un « système d'extrémité externe ». Le système d'extrémité externe peut uniquement être ajouté via PowerShell. Pour plus d’informations, reportez-vous au [Didacticiel de Traffic Manager](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -381,17 +381,17 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Tarification d’App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Tarification d’App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [mise à l’échelle automatique]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Documentation sur le déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
 [portail Azure Classic]: https://manage.windowsazure.com
 [portail Azure]: https://portal.azure.com
-[région Azure]: https://azure.microsoft.com/en-us/regions/
+[région Azure]: https://azure.microsoft.com/fr-FR/regions/
 [Plans d’Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
-[déployer en continu]: ../app-service-web/web-sites-publish-source-control.md
-[convertir vos espaces de noms mixte]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[déployer en continu]: ../app-service-web/app-service-continuous-deployment.md
+[convertir vos espaces de noms mixte]: https://azure.microsoft.com/fr-FR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [noms de domaine personnalisés]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -410,4 +410,4 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 [Exemples de transformation XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

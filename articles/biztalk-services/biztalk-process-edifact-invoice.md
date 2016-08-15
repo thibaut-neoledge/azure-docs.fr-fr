@@ -1,7 +1,7 @@
 <properties
    pageTitle="Didacticiel : traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Services Azure BizTalk Services"
    description="Comment créer et configurer le connecteur Box ou une application API et l'utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -313,4 +313,4 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -32,7 +32,7 @@ Avec la détection des anomalies et des menaces, le service Base de données SQL
 [Lire la documentation](sql-database-threat-detection-get-started.md)
 
 ## Réglage automatique
-Le service Base de données SQL est conçu pour optimiser le fonctionnement de votre application en apprenant continuellement son comportement, en ajustant de manière adaptative ses performances et en affinant automatiquement les réglages, sans la moindre action de votre part – nous savons que vous avez mieux à faire.
+Le service Base de données SQL est conçu pour optimiser le fonctionnement de votre application en apprenant continuellement son comportement, en ajustant de manière adaptative ses performances et en affinant automatiquement les réglages, sans la moindre action de votre part – nous savons que vous avez mieux à faire.
 
 
 [Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787566)
@@ -43,7 +43,7 @@ Le service Base de données SQL est capable de suivre chaque requête et la dur�
 [Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787567)
 
 ## Aucune administration requise
-Le service Base de données SQL offre l’administration et la protection des données automatiques dont votre application a besoin pour vous permettre de vous concentrer sur ce que vous faites le mieux : coder. Vous bénéficiez automatiquement de sauvegardes, d’un basculement de récupération d’urgence, d’une maintenance de l’infrastructure, de correctifs de sécurité et logiciels, ainsi que de mises à jour des fonctionnalités. Avec le service Base de données SQL exécuté en arrière-plan, vous réaliserez des économies et gagnerez du temps, mais surtout, vous n’aurez plus à vous soucier de ces interruptions d’application tant redoutées.
+Le service Base de données SQL offre l’administration et la protection des données automatiques dont votre application a besoin pour vous permettre de vous concentrer sur ce que vous faites le mieux : coder. Vous bénéficiez automatiquement de sauvegardes, d’un basculement de récupération d’urgence, d’une maintenance de l’infrastructure, de correctifs de sécurité et logiciels, ainsi que de mises à jour des fonctionnalités. Avec le service Base de données SQL exécuté en arrière-plan, vous réaliserez des économies et gagnerez du temps, mais surtout, vous n’aurez plus à vous soucier de ces interruptions d’application tant redoutées.
 
 [Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787568)
 
@@ -59,4 +59,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guide technique de la résilience Azure : récupération de l’environnement local vers Azure
 
@@ -105,4 +105,4 @@ Pour plus d’informations, consultez [Haute disponibilité et récupération d�
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération suite à une corruption de données ou à une suppression accidentelle](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

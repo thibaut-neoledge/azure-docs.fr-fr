@@ -24,7 +24,7 @@ Ce didacticiel vous montre comment déployer votre application vers [Azure App S
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Git. Vous pouvez télécharger le fichier binaire d’installation [ici](http://www.git-scm.com/downloads).  
+- Git. Vous pouvez télécharger le fichier binaire d’installation [ici](http://www.git-scm.com/downloads).
 - Connaissances élémentaires de Git.
 - Un compte Microsoft Azure Si vous ne possédez pas de compte, vous pouvez [vous inscrire à une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
@@ -46,7 +46,7 @@ Effectuez les tâches suivantes pour créer un nouveau référentiel Git.
 
 App Service prend en charge des applications créées dans différents langages de programmation.
 
-1. Si votre référentiel inclut déjà du contenu, ignorez ce point et passez au point 2 ci-dessous. Si votre référentiel n'inclut pas encore de contenu, remplissez-le simplement avec un fichier .html statique comme suit : 
+1. Si votre référentiel inclut déjà du contenu, ignorez ce point et passez au point 2 ci-dessous. Si votre référentiel n'inclut pas encore de contenu, remplissez-le simplement avec un fichier .html statique comme suit :
 
     - À l'aide d'un éditeur de texte, créez un fichier nommé **index.html** à la racine du référentiel Git
     - Ajoutez le texte suivant dans le fichier index.html et enregistrez ce dernier : *Hello Git!*
@@ -166,7 +166,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 * [Documentation Git](http://git-scm.com/documentation)
 * [Documentation du projet Kudu](https://github.com/projectkudu/kudu/wiki)
-* [Déploiement continu vers Azure App Service](app-service-continous-deployment.md)
+* [Déploiement continu vers Azure App Service](app-service-continuous-deployment.md)
 * [Comment utiliser PowerShell pour Azure](../powershell-install-configure.md)
 * [Utilisation des outils en ligne de commande Azure](../xplat-cli-install.md)
 
@@ -175,9 +175,9 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [portail Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[interface de ligne de commande Azure]: https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
+[interface de ligne de commande Azure]: https://azure.microsoft.com/fr-FR/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

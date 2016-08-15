@@ -1,7 +1,7 @@
 <properties
    pageTitle="Diagnostic des échecs d’applications logiques | Microsoft Azure"
    description="Approches courantes pour comprendre les points de défaillance des applications logiques"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -84,4 +84,4 @@ Au-delà du contrôle des entrées, des sorties et des déclencheurs d’une ex�
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

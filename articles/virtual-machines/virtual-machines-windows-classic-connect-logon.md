@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 
@@ -24,8 +24,9 @@ Sur le portail Azure Classic, vous utilisez le bouton **Connecter** pour démar
 
 Vous souhaitez vous connecter à une machine virtuelle Linux ? Consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-classic-log-on.md)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-windows-connect-logon.md).
+Découvrez comment [effectuer ces étapes à l’aide du nouveau portail Azure](virtual-machines-windows-connect-logon.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Vidéo de procédure pas à pas
 
@@ -44,7 +45,7 @@ Voici une vidéo de procédure pas à pas de ce didacticiel. Elle couvre égalem
 
 	![Connexion à la machine virtuelle](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
 	
-> [AZURE.TIP] Si le bouton Connexion n’est pas disponible, consultez les conseils de dépannage à la fin de cet article.
+> [AZURE.TIP] Si le bouton **Connexion** n’est pas disponible, consultez les conseils de dépannage à la fin de cet article.
 
 ## Connexion à la machine virtuelle
 
@@ -57,4 +58,4 @@ Voici une vidéo de procédure pas à pas de ce didacticiel. Elle couvre égalem
 
 Si ces conseils ne donnent aucun résultat ou ne vous sont pas utiles, consultez la rubrique [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,18 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
-#Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS
+# Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS
 
-Avant d’entamer une discussion quelle qu’elle soit sur les bonnes pratiques dans l’environnement [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) Azure, il est important de connaître les scénarios dont vous devrez gérer les mises à jour logicielles. Le diagramme ci-dessous devrait vous y aider :
+Avant d’entamer une discussion quelle qu’elle soit sur les bonnes pratiques dans l’environnement [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) Azure, il est important de connaître les scénarios dont vous devrez gérer les mises à jour logicielles et les responsabilités. Le schéma ci-dessous vous aidera à comprendre ces limites :
 
-![Modèles et responsabilités de cloud](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
+![Modèles et responsabilités de cloud](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
-Dans le modèle de centre de données traditionnel où l’infrastructure entière est située sur site, l’entière responsabilité de la gestion des mises à jour des systèmes d’exploitation, des applications, du réseau matériel (microprogramme) et des périphériques (routeurs, commutateurs, etc.) vous incombe. Dans un scénario IaaS, vous devez toujours gérer les mises à jour des systèmes d’exploitation et des applications. Toutefois, l’intégralité de l’infrastructure qui sous-tend les systèmes d’exploitation et les applications est gérée par Microsoft. Dans tous ces modèles, les clients restent propriétaires de leurs données et conservent la responsabilité de leur protection au niveau du point de terminaison.
+La colonne la plus à gauche montre sept responsabilités (définies dans les sections qui suivent) que les organisations doivent considérer, toutes contribuant à la sécurité et à la confidentialité d’un environnement informatique.
+ 
+La classification et les responsabilités liées aux données ainsi que la protection du client et du point de terminaison sont les responsabilités qui reposent uniquement sur les clients, et les responsabilités physiques, d’hôte et réseau sont du ressort des fournisseurs de services cloud dans les modèles PaaS et SaaS.
 
-Dans un scénario PaaS, vous aurez encore moins de responsabilités en matière de mises à jour logicielles, la gestion des mises à jour du système du système d’exploitation étant de la responsabilité de Microsoft. Dans un scénario SaaS, c’est Microsoft qui a la responsabilité des mises à jour logicielles de l’ensemble de la pile.
+Les responsabilités restantes sont partagées entre les clients et fournisseurs de services cloud. Certaines responsabilités impliquent la collaboration entre le fournisseur et le client pour gérer la responsabilité ensemble, notamment pour l’audit de leurs domaines. Par exemple, prenons la gestion des identités et des accès avec les services Azure Active Directory : la configuration de services comme l’authentification multifacteur tient de la responsabilité du client, mais Microsoft Azure est responsable du bon fonctionnement de tels services.
+
+> [AZURE.NOTE] Pour plus d’informations sur les responsabilités partagées dans le cloud, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)
 
 Ces mêmes principes s’appliquent dans un scénario hybride où votre entreprise utilise les machines virtuelles IaaS Azure communiquant avec des ressources locales, comme indiqué dans le schéma ci-dessous.
 
@@ -118,4 +122,4 @@ Outre les considérations générales expliquées dans cet article, vous devez p
 
 Utilisez les directives décrites dans cet article pour déterminer les meilleures options de mises à jour logicielles de machines virtuelles au sein d’IaaS Azure. Il existe de nombreuses similitudes entre les pratiques recommandées de mise à jour de logiciel dans un centre de données traditionnel et Azure IaaS, et il est par conséquent recommandé d’évaluer vos stratégies de mise à jour logicielle en cours pour inclure des machines virtuelles Azure et les meilleures pratiques figurant dans cet article dans votre processus de mise à jour logicielle globale.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

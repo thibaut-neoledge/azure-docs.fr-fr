@@ -3,8 +3,8 @@
 	description="Présentation de la sauvegarde de bases de données SQL Server à l'aide du service Azure Backup"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # Sauvegarde Azure pour les charges de travail SQL Server à l'aide de DPM
@@ -100,7 +100,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 
     >[AZURE.NOTE] Il est conseillé de disposer de plusieurs points de récupération à court terme sur disque pour une récupération rapide. Cette opération est appelée « Récupération opérationnelle ». Azure constitue un bon emplacement hors site, avec des contrats de niveau de service supérieurs et une disponibilité garantie.
 
-    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela active, la dernière sauvegarde de disque doit être copiée vers Azure.
+    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela active, la dernière sauvegarde de disque doit être copiée vers Azure.
 
 13. Cliquez sur la planification de stratégie de rétention. Les détails du fonctionnement de la stratégie de rétention sont fournis dans la section [Utilisation d'Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 
@@ -174,4 +174,4 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

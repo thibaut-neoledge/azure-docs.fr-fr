@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"/>
 
 <tags
@@ -171,4 +171,4 @@ Vous pouvez acheter Microsoft Azure dans plus de 140 pays, et de nombreuses dev
 | Zambie | USD |
 | Zimbabwe | USD |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Utilisation de CDN | Microsoft Azure"
-	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
+	pageTitle="Intégration d’un compte de stockage avec CDN | Microsoft Azure"
+	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob à partir d’Azure Storage."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -33,15 +33,15 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 **Pour créer un compte de stockage pour un abonnement Azure**
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com).
-2.  Dans le coin supérieur gauche, sélectionnez **Nouveau**. Dans la boîte de dialogue **Nouveau**, sélectionnez **Données + stockage**, puis cliquez sur **Compte de stockage**. Laissez l'option **Classique** sélectionnée comme modèle de déploiement, puis cliquez sur **Créer**.
+2.  Dans le coin supérieur gauche, sélectionnez **Nouveau**. Dans la boîte de dialogue **Nouveau**, sélectionnez **Données + stockage**, puis cliquez sur **Compte de stockage**.
 
-    Le panneau **Compte de stockage** s'affiche.
+    Le panneau **Créer un compte de stockage** s’affiche.
 
     ![Créer un compte de stockage][create-new-storage-account]
 
-4. Dans le champ **Stockage**, tapez un nom de sous-domaine. Cette entrée peut être composée de 3 à 24 lettres minuscules et chiffres.
+4. Dans le champ **Nom**, tapez un nom de sous-domaine. Cette entrée peut être composée de 3 à 24 lettres minuscules et chiffres.
 
-    Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement. Pour adresser une ressource de conteneur dans le service BLOB, vous utilisez un URI au format suivant, où *&lt;StorageAccountLabel&gt;* fait référence à la valeur entrée dans **Entrer une URL** :
+    Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement. Pour adresser une ressource de conteneur dans le service BLOB, vous utilisez un URI au format suivant, où *&lt;StorageAccountLabel&gt;* fait référence à la valeur entrée dans **Entrer une URL** :
 
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 
@@ -49,15 +49,15 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 
 	Cette valeur est également utilisée comme nom pour ce compte de stockage dans le portail ou lors de l’accès à ce compte par programme.
 
-5.  Sélectionnez un **niveau de tarification** ou utilisez la valeur par défaut. Pour plus d'informations sur les niveaux de tarification, consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+5. Conservez les valeurs par défaut des champs **Modèle de déploiement**, **Type de compte**, **Performances** et **Réplication**.
 
-6.  Sélectionnez ou créez un **groupe de ressources**. Pour plus d'informations sur les groupes de ressources, consultez [Vue d'ensemble d'Azure Resource Manager](resource-group-overview.md#resource-groups).
+6. Sélectionnez l'**abonnement** à utiliser avec le compte de stockage.
 
-7. Sélectionnez l'**abonnement** à utiliser avec le compte de stockage.
+7. Sélectionnez ou créez un **groupe de ressources**. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md#resource-groups).
 
-8.  Cliquez sur **Create**. Le processus de création du compte de stockage peut durer quelques minutes.
+8. Sélectionnez l’emplacement de votre compte de stockage.
 
-9.  Pour savoir si le compte de stockage a bien été créé, regardez si le compte est affiché dans les éléments répertoriés pour **Storage** avec l’état **Onligne**.
+8. Cliquez sur **Create**. Le processus de création du compte de stockage peut durer quelques minutes.
 
 
 ## Étape 2 : Créer un profil CDN
@@ -135,4 +135,4 @@ Un objet déjà mis en cache dans le CDN y reste jusqu'à ce que sa durée de vi
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

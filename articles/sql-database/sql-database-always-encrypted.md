@@ -21,7 +21,7 @@
 # Chiffrement intégral - Protéger les données sensibles dans la base de données SQL avec le chiffrement de base de données et stocker vos clés de chiffrement dans le magasin de certificats Windows
 
 > [AZURE.SELECTOR]
-- [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
+- [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 - [Magasin de certificats Windows](sql-database-always-encrypted.md)
 
 
@@ -54,7 +54,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 ## Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
+2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
 3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Créer une base de données SQL en quelques minutes](sql-database-get-started.md).
 
 	![créer une base de données vide](./media/sql-database-always-encrypted/create-database.png)
@@ -537,7 +537,7 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - Exécuter cet exemple à partir d'un autre ordinateur. Il n'aura pas accès aux clés de chiffrement, ne pourra pas afficher les données en clair, et ne s’exécutera pas correctement.
 - [Faire pivoter et nettoyer vos clés](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrer des données déjà chiffrées avec le chiffrement intégral](https://msdn.microsoft.com/library/mt621539.aspx)
-- Déployer des certificats intégralement chiffrés sur d'autres ordinateurs client.
+- [Déployer des certificats intégralement chiffrés sur d'autres ordinateurs client](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (voir la section intitulée *Mettre les certificats à disposition des applications et des utilisateurs*).
 
 
 ## Informations connexes
@@ -548,4 +548,4 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

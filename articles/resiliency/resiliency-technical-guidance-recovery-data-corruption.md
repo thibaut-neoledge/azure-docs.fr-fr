@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guide technique de la résilience Azure : récupération suite à une corruption de données ou à une suppression accidentelle
 
@@ -91,4 +91,4 @@ Pour plus d’informations sur les fonctionnalités de sauvegarde et de restaura
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). Si vous cherchez à accroître les ressources de résilience, de récupération d’urgence et de haute disponibilité, consultez les [ressources supplémentaires](./resiliency-technical-guidance.md#additional-resources) du Guide technique de la résilience Azure.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

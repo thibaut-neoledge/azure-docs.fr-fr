@@ -3,7 +3,7 @@
    description="Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, importer un fichier BACPAC, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,15 +37,15 @@ Procédez comme suit pour importer une base de données SQL Server (ou Base de d
 1. Ouvrez une invite de commandes et modifiez un répertoire contenant l’utilitaire de ligne de commande sqlpackage.exe Cet utilitaire est fourni avec Visual Studio et SQL Server.
 2. Exécutez la commande sqlpackage.exe suivante avec les arguments ci-dessous pour votre environnement :
 
-	’sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+	'sqlpackage.exe /Action:Import /tsn:< nom\_serveur > /tdn:< nom\_base\_de\_données > /tu:< nom\_utilisateur > /tp:< mot\_de\_passe > /sf:< fichier\_source >
 
 	| Argument | Description |
 	|---|---|
-	| < server_name > | nom du serveur cible |
-	| < database_name > | nom de la base de données cible |
-	| < user_name > | nom d'utilisateur sur le serveur cible |
-	| < password > | mot de passe de l'utilisateur |
-	| < source_file > | nom de fichier et emplacement du fichier BACPAC en cours d'importation |
+	| < nom\_serveur > | nom du serveur cible |
+	| < nom\_base\_de\_données > | nom de la base de données cible |
+	| < nom\_utilisateur > | nom d'utilisateur sur le serveur cible |
+	| < mot\_de\_passe > | mot de passe de l'utilisateur |
+	| < fichier\_source > | nom de fichier et emplacement du fichier BACPAC en cours d'importation |
 
 	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -60,4 +60,4 @@ Procédez comme suit pour importer une base de données SQL Server (ou Base de d
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

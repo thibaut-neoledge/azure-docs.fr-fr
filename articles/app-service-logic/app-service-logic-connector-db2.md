@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur DB2 dans Microsoft Azure App Service | Microsoft Azure"
    description="Comment utiliser le connecteur DB2 avec les déclencheurs et actions d’application logique"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"
@@ -271,4 +271,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

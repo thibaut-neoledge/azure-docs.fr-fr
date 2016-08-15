@@ -132,7 +132,7 @@ Lorsque vous créez un serveur principal Node.js Mobile App à l’aide du panne
 
 1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
-2. Suivez les étapes de la rubrique [Activer le référentiel d’application web](../app-service-web/web-sites-publish-source-control.md#Step4) pour activer le référentiel Git pour votre site principal, en prenant note du nom d’utilisateur et du mot de passe utilisés pour le déploiement.
+2. Suivez les étapes de la rubrique [Activer le référentiel de l’application App Service](../app-service-web/web-sites-deploy-local-git.md#Step3) pour activer le référentiel Git pour votre site principal, en prenant note du nom d’utilisateur et du mot de passe utilisés pour le déploiement.
 
 3. Dans le panneau de votre serveur principal Mobile App, prenez note du paramètre **URL de clone Git**.
 
@@ -496,10 +496,10 @@ Pour voir les revendications disponibles, utilisez un navigateur web pour affich
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 
@@ -917,4 +917,4 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

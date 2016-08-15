@@ -28,7 +28,7 @@ Pour permettre au service Azure Data Factory de se connecter à votre base de do
   
 	L’installation de la passerelle engendre automatiquement l’installation d’un pilote Microsoft ODBC Cassandra, utilisé pour se connecter à la base de données Cassandra.
 
-> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données à partir d’une base de données Cassandra vers n’importe quel magasin de données récepteur pris en charge consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -66,7 +66,7 @@ Cet exemple utilise le service lié **Cassandra**. Consultez la section [Service
 	}
 
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
 	{
 		"name": "AzureStorageLinkedService",
@@ -104,11 +104,11 @@ Cet exemple utilise le service lié **Cassandra**. Consultez la section [Service
 		}
 	}
 
-La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
 **Jeu de données de sortie d’objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
 	{
 		"name": "AzureBlobOutput",
@@ -180,7 +180,7 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, co
 			]	
 		}
 	}
-## Propriétés du service lié OnPremisesCassandra
+## Propriétés du service lié OnPremisesCassandra
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Cassandra.
 
@@ -220,7 +220,7 @@ Dans le cas d’une activité de copie, quand la source est de type **CassandraS
 | Niveau de cohérence | Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. | UN, DEUX, TROIS, QUORUM, TOUT, LOCAL\_QUORUM, EACH\_QUORUM, LOCAL\_ONE. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations. | Non. La valeur par défaut est UN. |  
 
 
-### Mappage de type pour Cassandra
+### Mappage de type pour Cassandra
 Type Cassandra | Type basé sur .Net
 --------------- | ---------------
 ASCII |	String 
@@ -312,4 +312,4 @@ pk\_int | StringSet\_value
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

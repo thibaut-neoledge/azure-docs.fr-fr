@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gestion et contrôle de vos connecteurs et applications API dans App Service | Microsoft Azure"
-	description="Affiche les performances de vos connecteurs et applications API dans Azure App Service ; architecture microservices"
+	description="Afficher les performances de vos connecteurs et applications API dans Logic Apps ; architecture microservice"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 # Gestion et contrôle de vos connecteurs et applications API intégrés
@@ -51,7 +51,7 @@ Après avoir configuré ou créé votre connecteur, vous pouvez modifier les val
 Procédez comme suit :
 
 1. Ouvrez votre connecteur ou l’application API. Le panneau de l’application API s’ouvre.
-2. Dans la fenêtre **Bases**, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123* :
+2. Dans la fenêtre **Bases**, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123* :
 
 	![][apiapphost]
 
@@ -110,21 +110,18 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 - Sélectionnez **Définition API** pour ouvrir le fichier Swagger créé automatiquement pour votre application API spécifique.
 - Sélectionnez **Dépendances** pour afficher les fichiers requis par votre application API. Par exemple, si vous utilisez le connecteur SAP, vous installez quelques fichiers supplémentaires sur le Gestionnaire de connexion hybride local. Ces dépendances sont affichées dans le panneau de votre application API.
 
-> [AZURE.IMPORTANT] Lorsque vous ouvrez les propriétés de votre application API et regardez sous l’onglet **Bases**, les liens **Hôte** et **Passerelle** ouvrent de nouveaux panneaux :
+>[AZURE.IMPORTANT] Lorsque vous ouvrez les propriétés de votre application API et regardez sous l’onglet **Bases**, les liens **Hôte** et **Passerelle** ouvrent de nouveaux panneaux :
 >
 > ![][host]
 >
-> Ces propriétés sont spécifiques du site web qui héberge votre application API. Lorsque vous utilisez une application API ou un connecteur intégré, la plupart de ces propriétés ne s’appliquent pas réellement et nous vous recommandons de ne pas les mettre à jour. Si vous avez créé votre propre application API dans Visual Studio et que vous l’avez déployée dans votre abonnement Azure, vous pouvez utiliser les panneaux Hôte et Passerelle.
+>Ces propriétés sont spécifiques du site web qui héberge votre application API. Lorsque vous utilisez une application API ou un connecteur intégré, la plupart de ces propriétés ne s’appliquent pas réellement et nous vous recommandons de ne pas les mettre à jour. Si vous avez créé votre propre application API dans Visual Studio et que vous l’avez déployée dans votre abonnement Azure, vous pouvez utiliser les panneaux Hôte et Passerelle. <br/><br/>
 
 
->[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Essayer Logic Apps](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer une application logique temporaire dans App Service. Aucune carte de crédit n’est nécessaire et vous ne prenez aucun engagement.
+>[AZURE.NOTE] Pour commencer à utiliser Logic Apps avant de vous inscrire pour ouvrir un compte Azure, accédez à [Try Logic Apps (Essayer Logic Apps)](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer une application logique temporaire. Aucune carte de crédit n’est nécessaire et vous ne prenez aucun engagement.
 
 ## En savoir plus
 
-[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>
-[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](../active-directory/role-based-access-control-configure.md)<br/>
-[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
+[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](../active-directory/role-based-access-control-configure.md)<br/>[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -137,4 +134,4 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

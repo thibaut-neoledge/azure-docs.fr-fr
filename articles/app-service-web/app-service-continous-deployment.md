@@ -28,7 +28,7 @@ Pour activer le déploiement continu,
 
 2. Dans le [portail Azure], dans le panneau de votre application, cliquez sur **Paramètres > Source du déploiement**. Cliquez sur **Choisir une source**, puis sur **GitHub** par exemple.
 
-	![](./media/app-service-continous-deployment/cd_options.png)
+	![](./media/app-service-continuous-deployment/cd_options.png)
 	
     > [AZURE.NOTE] Pour configurer un compte VSTS pour un déploiement App Service, consultez ce [didacticiel](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
     
@@ -36,7 +36,7 @@ Pour activer le déploiement continu,
 
 4. Dans le panneau **Source du déploiement**, sélectionnez le projet et la branche à partir desquels effectuer le déploiement. Quand vous avez terminé, cliquez sur **OK**.
   
-	![](./media/app-service-continous-deployment/github_option.png)
+	![](./media/app-service-continuous-deployment/github_option.png)
 
 	> [AZURE.NOTE] Lors de l’activation du déploiement continu avec GitHub ou BitBucket, les projets publics et privés sont tous deux affichés.
 
@@ -54,7 +54,7 @@ Les étapes pour envoyer votre solution Visual Studio vers App Service sont les 
 
 -	Utilisez l’option de contrôle de code source Visual Studio pour générer un fichier `.gitignore` comme dans l’image ci-dessous ou ajoutez manuellement un fichier `.gitignore` à la racine du référentiel avec un contenu similaire à cet [exemple .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-    ![](./media/app-service-continous-deployment/VS_source_control.png)
+    ![](./media/app-service-continuous-deployment/VS_source_control.png)
  
 -	Ajoutez l’arborescence des répertoires de toute la solution à votre référentiel, avec le fichier .sln dans la racine du référentiel.
 
@@ -66,7 +66,7 @@ Pour désactiver le déploiement continu :
 
 1. Dans le [portail Azure], dans le panneau de votre application, cliquez sur **Paramètres > Source du déploiement**. Ensuite, cliquez sur **Déconnexion** dans le panneau **Déploiements**.
 
-    ![](./media/app-service-continous-deployment/cd_disconnect.png)
+    ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 
 2. Après avoir répondu **Oui** au message de confirmation, vous pouvez revenir au panneau de votre application et cliquer sur **Paramètre > Source du déploiement** si vous voulez configurer la publication à partir d’une autre source.
 
@@ -93,4 +93,4 @@ Pour désactiver le déploiement continu :
 [Prise en main de VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

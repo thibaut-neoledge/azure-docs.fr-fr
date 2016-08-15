@@ -434,7 +434,7 @@ Les stratégies d'exécution permettent de définir :
 * Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de bases de données élastiques.
 * Intervalle avant nouvelle tentative initiale : l'intervalle d'attente avant la première nouvelle tentative.
 * Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
+* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2).
 * Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
 La stratégie d'exécution par défaut utilise les valeurs suivantes :
@@ -521,7 +521,7 @@ Définissez les variables suivantes pour refléter la configuration de la cible 
 
 Pour ajouter une base de données à une collecte personnalisée spécifique, utilisez l’applet de commande [**Add-AzureSqlJobChildTarget**](https://msdn.microsoft.comlibrary/mt346064.aspx).
 
-	$serverName = "{Database Server Name}"
+	$databaseServerName = "{Database Server Name}"
 	$databaseName = "{Database Name}"
 	$customCollectionName = "{Custom Database Collection Name}"
 	Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
@@ -680,4 +680,4 @@ Après la création d’un DACPAC dans les tâches de bases de données élastiq
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

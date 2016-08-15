@@ -47,7 +47,7 @@ L’installation rapide de la passerelle de gestion des données nécessite Inte
 - Utilisez le lien **Installation manuelle** affiché sur le même panneau sur le portail pour télécharger le fichier d’installation et l’exécuter manuellement. Une fois l'installation effectuée, vous verrez s’afficher la boîte de dialogue Configuration de la passerelle de gestion des données. Copiez la **clé** sur l’écran du portail et utilisez-la dans le gestionnaire de configuration pour enregistrer manuellement la passerelle auprès du service.
 
 ### Problème : échec de la connexion à un serveur SQL local 
-Lancez le **Gestionnaire de configuration de la passerelle de gestion des données** sur l’ordinateur passerelle et utilisez l’onglet **Résolution des problèmes** pour tester la connexion à SQL Server à partir de l’ordinateur passerelle. Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour plus d’informations.
+Lancez le **Gestionnaire de configuration de la passerelle de gestion des données** sur l’ordinateur passerelle et utilisez l’onglet **Résolution des problèmes** pour tester la connexion à SQL Server à partir de l’ordinateur passerelle. Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
  
 
 ### Problème : l’état des tranches d’entrée est En attente depuis longtemps
@@ -85,7 +85,7 @@ Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour p
 Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
 ### Problème : échec de l’opération de copie hybride
-Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour savoir comment résoudre les problèmes de copie depuis/vers un magasin de données local avec la passerelle de gestion des données.
+Consultez la page [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour savoir comment résoudre les problèmes de copie depuis/vers un magasin de données local avec la passerelle de gestion des données.
 
 ### Problème : échec de l’approvisionnement HDInsight à la demande
 Lorsque vous utilisez un service lié de type HDInsightOnDemand, vous devez spécifier un linkedServiceName qui pointe vers un stockage d’objets blob Azure. Le service Data Factory utilise ce stockage pour stocker les journaux et les fichiers d’accompagnement pour votre cluster HDInsight à la demande. Parfois, l’approvisionnement d'un cluster HDInsight à la demande échoue avec l'erreur suivante :
@@ -143,4 +143,4 @@ Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure P
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

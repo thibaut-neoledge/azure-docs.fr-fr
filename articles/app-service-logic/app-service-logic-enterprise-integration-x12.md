@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Vue d’ensemble de X12 et d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Découvrez comment utiliser les contrats X12 pour créer des applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -41,7 +41,7 @@ Une fois que vous êtes connecté au [portail Azure](http://portal.azure.com "Po
 
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Tapez *intégration* dans la zone de recherche de filtre, puis sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)
-3. Dans le panneau **Integration Accounts** (Comptes d’intégration) qui s’affiche, sélectionnez le compte d’intégration dans lequel vous allez créer le contrat. Si aucun compte d’intégration ne s’affiche, [créez-en un](./app-service-logic-enterprise-integration-accounts.md "Tout sur les comptes d’intégration"). ![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)
+3. Dans le panneau **Comptes d’intégration** qui s’affiche, sélectionnez le compte d’intégration dans lequel vous allez créer le contrat. Si aucun compte d’intégration ne s’affiche, [créez-en un](./app-service-logic-enterprise-integration-accounts.md "Tout sur les comptes d’intégration"). ![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)
 4.  Sélectionnez la mosaïque **Contrats**. Si vous ne la voyez pas, commencez par l’ajouter. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)
 5. Sélectionnez le bouton **Ajouter** dans le panneau Contrats qui s’affiche. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)
 6. Entrez un **nom** pour votre contrat, puis sélectionnez le **type de contrat**, le **partenaire hôte**, **l’identité de l’hôte**, le **partenaire invité** et **l’identité de l’invité** dans le panneau Contrats qui s’affiche. ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)
@@ -189,4 +189,4 @@ Après avoir sélectionné **OK** dans les panneaux ouverts :
 ## En savoir plus
 - [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -30,7 +30,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 
 Pour que la passerelle de gestion des données puisse se connecter à la base de données Sybase, vous devez installer le [fournisseur de données pour Sybase](http://go.microsoft.com/fwlink/?linkid=324846) sur le même système que la passerelle de gestion des données.
 
-> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Exemple : copie de données de Sybase vers Azure Blob
 Cet exemple indique comment copier des données à partir d’une base de données Sybase locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
@@ -270,4 +270,4 @@ Sybase prend en charge les types T-SQL et T-SQL. Pour une table de mappage de ty
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Analyser les performances de serveurs Edge"
+	pageTitle="Analyser les performances du nœud de périmètre dans Microsoft Azure CDN | Microsoft Azure"
 	description="Analyser les performances du nœud de périmètre dans Microsoft Azure CDN. Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Analyser les performances du nœud de périmètre dans Microsoft Azure CDN
@@ -192,4 +192,4 @@ HTTP Response Codes | Fournit une liste des codes d’état HTTP (par exemple, 2
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 * [Rapports HTTP avancés](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

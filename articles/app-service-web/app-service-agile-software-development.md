@@ -21,7 +21,7 @@
 
 Dans ce didacticiel, vous allez apprendre à créer des applications complexes à grande échelle avec [Azure App Service](/services/app-service/) d’une façon qui prend en charge le [développement de logiciel agile](https://en.wikipedia.org/wiki/Agile_software_development). Cela suppose que vous savez déjà [déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
 
-Les limitations des processus techniques peuvent souvent faire obstacle à l’implémentation des méthodologies agiles. Azure App Service avec des fonctionnalités comme la [publication continue](web-sites-publish-source-control.md), les [environnements intermédiaires](web-sites-staged-publishing.md) (emplacements) et l’[analyse](web-sites-monitor.md) lorsqu’ils sont associé avec soin à l’orchestration et à la gestion du déploiement dans [Azure Resource Manager](../resource-group-overview.md), peut constituer une solution idéale pour les développeurs qui intègrent le développement de logiciel agile.
+Les limitations des processus techniques peuvent souvent faire obstacle à l’implémentation des méthodologies agiles. Azure App Service avec des fonctionnalités comme la [publication continue](app-service-continuous-deployment.md), les [environnements intermédiaires](web-sites-staged-publishing.md) (emplacements) et l’[analyse](web-sites-monitor.md) lorsqu’ils sont associé avec soin à l’orchestration et à la gestion du déploiement dans [Azure Resource Manager](../resource-group-overview.md), peut constituer une solution idéale pour les développeurs qui intègrent le développement de logiciel agile.
 
 Le tableau suivant comporte une courte liste de prérequis associés au développement agile et sur la façon dont les services Azure permettent de mettre en œuvre chacun d’eux.
 
@@ -68,8 +68,8 @@ Vous utiliserez également la stratégie de création de branchement typique, qu
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :
-> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même quand ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps.
-> + Vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même quand ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps.
+> + Vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 >
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -77,7 +77,7 @@ Vous utiliserez également la stratégie de création de branchement typique, qu
 
 >[AZURE.NOTE] Le script utilisé dans ce didacticiel configure automatiquement la publication continue à partir de votre référentiel GitHub. Pour ce faire, vos informations d’identification GitHub doivent déjà être stockées dans Azure, sinon les scripts de déploiement échoueront lorsque vous tenterez de configurer les paramètres de contrôle de code source pour les applications web.
 >
->Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure](https://portal.azure.com/) et [configurez le déploiement GitHub](web-sites-publish-source-control.md#Step7). Cette opération est unique.
+>Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure](https://portal.azure.com/) et [configurez le déploiement GitHub](app-service-continuous-deployment.md). Cette opération est unique.
 
 Dans un scénario classique d’opérations de développement, vous disposez d’une application qui s’exécute dans Azure et vous souhaitez lui apporter des modifications par le biais de la publication continue. Dans ce scénario, vous disposez d’un modèle que vous avez développé, testé et utilisé pour déployer l’environnement de production. Vous allez le configurer dans cette section.
 
@@ -282,4 +282,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

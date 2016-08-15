@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Comment modifier la carte de crédit utilisée pour payer un abonnement Azure | Microsoft Azure"
 	description="Décrit comment modifier la carte de crédit utilisée pour payer un abonnement Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -51,4 +51,4 @@ Si votre numéro de carte de crédit change, en cas de perte, de vol ou d’expi
 3. Dans la partie droite de la page, sélectionnez **Modifier le moyen de paiement**.
 4. Dans la page **Choisir le moyen de paiement**, sélectionnez la flèche déroulante située en regard de la carte bancaire, sélectionnez la carte bancaire à utiliser, puis sélectionnez ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) pour refermer la fenêtre.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

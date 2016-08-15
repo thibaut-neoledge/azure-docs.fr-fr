@@ -3,7 +3,7 @@
     description="Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -187,4 +187,4 @@ En avril 2017 sera retiré le type secondaire non accessible en lecture et les b
 - Pour plus d’informations sur la géoréplication active, consultez [Géoréplication active](sql-database-geo-replication-overview.md)
 - Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Haute disponibilité pour les applications développées sur Microsoft Azure
 
@@ -143,4 +143,4 @@ Il est important de noter que l’extensibilité du service cloud affecte direct
 
 Cet article fait partie d’une série d’articles axés sur la [récupération d’urgence et la haute disponibilité des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). Le prochain article de cette série est [Récupération d’urgence des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

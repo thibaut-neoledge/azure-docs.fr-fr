@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation de l’écouteur HTTP et de l’action HTTP dans des applications logiques | Microsoft Azure App Service "
    description="Comment créer et configurer l’écouteur HTTP et l’action HTTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -89,4 +89,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

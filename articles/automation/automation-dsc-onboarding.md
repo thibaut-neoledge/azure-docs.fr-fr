@@ -148,11 +148,11 @@ Les ordinateurs Windows en local et les ordinateurs Windows dans des clouds autr
 
 1. Assurez-vous que la dernière version de [WMF 5](http://aka.ms/wmf5latest) est installée sur les ordinateurs que vous souhaitez intégrer à Azure Automation DSC.
 2. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) ci-après pour générer un dossier contenant les métaconfigurations DSC nécessaires.
-3. Appliquez à distance la métaconfiguration DSC PowerShell aux machines que vous voulez intégrer. **La machine à partir de laquelle cette commande est exécutée doit disposer de la dernière version de [WMF 5](http://aka.ms/wmf5latest)** :
+3. Appliquez à distance la métaconfiguration DSC PowerShell aux machines que vous voulez intégrer. **La machine à partir de laquelle cette commande est exécutée doit disposer de la dernière version de [WMF 5](http://aka.ms/wmf5latest)** :
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
-4. Si vous ne pouvez pas appliquer à distance les métaconfigurations DSC PowerShell, copiez le dossier des métaconfigurations de l’étape 2 sur chaque machine à intégrer. Appelez ensuite **Set-DscLocalConfigurationManager** localement sur chaque machine à intégrer.
+4. Si vous ne pouvez pas appliquer les métaconfigurations DSC PowerShell à distance, copiez le dossier des métaconfigurations de l’étape 2 sur chaque machine à intégrer. Appelez ensuite **Set-DscLocalConfigurationManager** localement sur chaque machine à intégrer.
 5. À l’aide du portail Azure ou des applets de commande, vérifiez que les machines à intégrer s’affichent bien en tant que nœuds DSC enregistrés dans votre compte Azure Automation.
 
 ## Machines physiques/virtuelles Linux sur site, dans Azure, ou dans un cloud autre qu’Azure
@@ -261,7 +261,7 @@ Pour intégrer de manière générique n’importe quelle machine à Azure Autom
                     RefreshFrequencyMins = $RefreshFrequencyMins 
                     RefreshMode = $RefreshMode 
                     ConfigurationMode = $ConfigurationMode 
-                    AllowModuleOverwrite  = $AllowModuleOverwrite 
+                    AllowModuleOverwrite = $AllowModuleOverwrite 
                     RebootNodeIfNeeded = $RebootNodeIfNeeded 
                     ActionAfterReboot = $ActionAfterReboot 
                     ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins 
@@ -379,4 +379,4 @@ L’inscription peut être renouvelée selon la procédure initiale, en utilisan
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

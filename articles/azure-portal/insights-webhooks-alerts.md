@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Comment configurer des alertes Azure à envoyer à d’autres systèmes"
+	pageTitle="Configuration d’alertes Azure à envoyer à d’autres systèmes | Microsoft Azure"
 	description="Rediriger des alertes Azure vers d’autres systèmes non-Azure"
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -33,8 +33,8 @@ Dans l’écran Créer/mettre à jour des alertes sur le [portail Azure](https:/
 
 L’authentification peut être de deux types :
 
-1. **Authentification basée sur un jeton** : dans ce cas, vous enregistrez l’URI du webhook avec un ID de jeton tel que **https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
-2.	**Authentification de base**, avec un ID d’utilisateur et un mot de passe : dans ce cas, vous enregistrez l’URI du webhook sous la forme **https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*.
+1. **Authentification basée sur un jeton** : dans ce cas, vous enregistrez l’URI du webhook avec un ID de jeton tel que *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
+2.	**Authentification de base**, avec un ID d’utilisateur et un mot de passe : dans ce cas, vous enregistrez l’URI du webhook sous la forme *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*.
 
 ## Schéma de la charge utile
 
@@ -100,7 +100,7 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 |resourceId |O | |URI d’ID de ressource qui identifie cette ressource de façon unique|
 |resourceRegion |O | |Région/emplacement de la ressource affectée|
 |portalLink |O | |Lien direct sur le portail Azure vers la page de résumé de la ressource|
-|properties |N |Facultatif |Ensemble de paires <Key  Value> (constituant un dictionnaire<String  String>) qui inclut des détails sur l’événement. Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, les utilisateurs peuvent entrer des paires clé/valeur transmissibles par le biais de la charge utile. L’autre manière de passer des propriétés personnalisées au webhook consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête).|
+|properties |N |Facultatif |Ensemble de paires <Clé, Valeur> (c’est-à-dire Dictionary<String, String>) incluant des détails sur l’événement Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, les utilisateurs peuvent entrer des paires clé/valeur transmissibles par le biais de la charge utile. L’autre manière de passer des propriétés personnalisées au webhook consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête).|
 
 
 >[AZURE.NOTE] Vous ne pouvez pas utiliser le champ properties par le biais du portail. Dans notre prochaine version du Kit de développement logiciel (SDK) Insights, vous pourrez définir les propriétés par le biais de l’API Alert.
@@ -123,4 +123,4 @@ Utilisez des alertes Azure pour envoyer des messages à d’autres services. Uti
 
 [Utilisez une application logique pour envoyer des messages à une file d’attente Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0803_2016-->

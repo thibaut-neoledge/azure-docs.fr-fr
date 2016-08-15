@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # Meilleures pratiques pour Azure SQL Data Warehouse
@@ -80,7 +80,7 @@ Les index columnstore en cluster sont l’une des méthodes les plus efficaces p
 
 Lorsque vous interrogez une table columnstore, les requêtes s’exécutent plus vite si vous sélectionnez uniquement les colonnes dont vous avez besoin.
 
-Voir aussi [Index de table][], [Guide des index columnstore][]
+Voir aussi [Index de table][], [Guide des index columnstore][], [Reconstruction des index columnstore][]
 
 ## Utiliser une classe de ressource plus grande pour améliorer les performances des requêtes
 SQL Data Warehouse utilise des groupes de ressources pour allouer de la mémoire aux requêtes. Dès le départ, tous les utilisateurs sont affectés à la petite classe de ressource qui accorde 100 Mo de mémoire par distribution. Dans la mesure où il existe toujours 60 distributions et que chaque distribution reçoit un minimum de 100 Mo au niveau du système, l’allocation de mémoire totale est de 6 000 Mo, ou juste en dessous de 6 Go. Certaines requêtes, telles que des grandes jointures ou des charges dans des tables columnstore en cluster, bénéficieront d’allocations de mémoire supérieures. Certaines requêtes, comme les analyses pures, ne tireront aucun avantage. En revanche, l’utilisation de classes de ressource plus grandes affecte l’accès concurrentiel ; par conséquent, vous devez prendre ce point en considération avant de déplacer tous les utilisateurs vers une grande classe de ressource.
@@ -115,6 +115,7 @@ Enfin, utilisez la page des [commentaires relatifs à Azure SQL Data Warehouse][
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Index de table]: ./sql-data-warehouse-tables-index.md
 [Causes de la qualité médiocre des index columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Reconstruction des index columnstore]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Partitionnement de table]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
@@ -159,4 +160,4 @@ Enfin, utilisez la page des [commentaires relatifs à Azure SQL Data Warehouse][
 [Forum Azure SQL Data Warehouse Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Modèles et stratégies de chargement Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

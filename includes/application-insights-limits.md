@@ -9,14 +9,14 @@ Nombre total de points de données par mois pour les demandes, événements, dé
 Débit de données [Suivi et journalisation](../articles/application-insights/app-insights-search-diagnostic-logs.md) | 200 dp/s | 500 dp/s
 Débit de données d’[exceptions](../articles/application-insights/app-insights-asp-net-exceptions.md) | 50 dp/s | 50 dp/s
 Débit de données total pour les demandes, événements, dépendances et informations de télémétrie des pages affichées | 200 dp/s | 500 dp/s
-Conservation des [données brutes](../articles/application-insights/app-insights-diagnostic-search.md) | 7 jours
-Conservation des [données agrégées](../articles/application-insights/app-insights-metrics-explorer.md) | 90 jours
-Nombre de noms de [propriété](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Longueur du nom de propriété | 100 | 
-Longueur de la valeur de propriété | 1 000 | 
+Conservation des données brutes pour [Search](../articles/application-insights/app-insights-diagnostic-search.md) et [Analytics](../articles/application-insights/app-insights-analytics.md) | 7 jours
+Conservation des données agrégées pour [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md) | 90 jours
+Nombre de noms de [Propriétés](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
+Longueur du nom de propriété | 150 | 
+Longueur de la valeur de propriété | 8 192 | 
 Longueur des messages de trace et d’exception | 10000 |
-Nombre de noms de [mesure](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Longueur du nom de la mesure | 100 | 
+Nombre de noms de [Mesures](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
+Longueur du nom de la mesure | 150 | 
 [Tests de disponibilité](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
 <sup>1</sup> Un point de données est une valeur métrique individuelle ou un événement, avec les mesures et les propriétés jointes.
@@ -27,4 +27,4 @@ Longueur du nom de la mesure | 100 |
  
 [Tarification et quotas dans Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

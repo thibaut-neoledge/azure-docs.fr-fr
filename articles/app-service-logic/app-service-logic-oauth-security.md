@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Sécurité OAUTH dans les connecteurs SaaS et les applications API | Azure"
 	description="En savoir plus sur la sécurité OAUTH dans les connecteurs et les applications API dans Azure App Service ; architecture microservices ; saas"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -51,4 +51,4 @@ Même dans le cadre des applications logiques, vous pouvez utiliser votre propre
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

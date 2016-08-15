@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="07/28/2016"
 	ms.author="gatneil"/>
 
 # Conception de jeux de mise à l’échelle de machine virtuelle pour la mise à l’échelle
@@ -32,7 +32,7 @@ Un jeu de mise à l'échelle utilise des comptes de stockage pour stocker les di
 
 À compter de la version d'API 2016-03-30, les jeux de mise à l'échelle de machines virtuelles sur-approvisionnent par défaut en machines virtuelles. Cela signifie que le jeu de mise à l'échelle activera davantage de machines virtuelles que vous n’en avez demandé, puis supprimera les machines virtuelles inutiles. Cela améliore le taux de réussite de l’approvisionnement car même si une machine virtuelle n’approvisionne pas correctement, la totalité du déploiement est considéré comme ayant « échoué » par Azure Resource Manager. Vous ne serez pas facturé pour ces machines virtuelles supplémentaires et elles ne seront pas comptabilisées dans vos limites de quotas.
 
-Bien que cette méthode n'améliore pas les taux de réussite de l’approvisionnement, elle peut provoquer un comportement déroutant si une application n'est pas conçue pour gérer les machines virtuelles qui disparaissent sans avertissement. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : «overprovision»: false.
+Bien que cette méthode n'améliore pas les taux de réussite de l’approvisionnement, elle peut provoquer un comportement déroutant si une application n'est pas conçue pour gérer les machines virtuelles qui disparaissent sans avertissement. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : "overprovision": "false"
 
 Si vous désactivez le sur-approvisionnement, vous pouvez obtenir un ratio plus important de machines virtuelles par compte de stockage, mais nous déconseillons d’aller au-delà de 40.
 
@@ -40,8 +40,8 @@ Si vous désactivez le sur-approvisionnement, vous pouvez obtenir un ratio plus 
 ## Limites
 Un groupe identique basé sur une image personnalisée (créée par vous-même) doit créer tous les disques durs virtuels du système d’exploitation dans un même compte de stockage. Par conséquent, le nombre maximal recommandé de machines virtuelles dans un groupe identique basé sur une image personnalisée est de 20. Si vous désactivez le sur-approvisionnement, vous pouvez aller jusqu’à 40.
 
-Un groupe identique basé sur une image de plateforme est limité à 100 machines virtuelles (nous vous recommandons d’utiliser 5 comptes de stockage pour cette échelle).
+Un groupe identique basé sur une image de plateforme est actuellement limité à 100 machines virtuelles (nous vous recommandons d’utiliser 5 comptes de stockage pour cette échelle).
 
 Si vous souhaitez avoir plus de machines virtuelles que ne l’autorisent ces limites, vous devez déployer plusieurs groupes identiques. [Pour obtenir un exemple de la procédure à suivre, consultez ce modèle.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

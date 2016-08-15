@@ -104,10 +104,13 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 6. Une fois le fournisseur installé, cliquez sur **Inscrire** pour inscrire le serveur dans le coffre.
 
 	![Installation terminée](./media/site-recovery-vmm-to-vmm-classic/install-complete.png)
+9. Dans **Vault name**, vérifiez le nom du coffre dans lequel le serveur est enregistré. Cliquez sur *Next*.
+
+	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 
 7. Sur la page **Connexion Internet**, indiquez la façon dont le fournisseur exécuté sur le serveur VMM se connecte à Internet. Sélectionnez **Se connecter avec des paramètres de proxy existants** pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur.
 
-	![Paramètres Internet](./media/site-recovery-vmm-to-vmm-classic/proxy-details.png)
+	![Paramètres Internet](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
 
 	- Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d'installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s'exécute pour vérifier la connexion proxy.
 	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy et le port.
@@ -120,22 +123,18 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 	- Si vous utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement. Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l’espace de travail **Paramètres**, développez **Sécurité**, cliquez sur **Comptes d’identification**, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
 
-8. Dans **Registration Key**, indiquez que vous téléchargez depuis Azure Site Recovery et que vous copiez sur le serveur VMM.
-9. Dans **Vault name**, vérifiez le nom du coffre dans lequel le serveur est enregistré. Cliquez sur *Next*.
 
-	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm-classic/vault-creds.png)
+8. Dans **Registration Key**, sélectionnez la clé que vous avez téléchargée depuis Azure Site Recovery et copiez-la sur le serveur VMM.
+
 
 10.  Le paramètre de chiffrement est uniquement utilisé quand vous répliquez des machines virtuelles Hyper-V dans des clouds VMM sur Azure. Si vous répliquez sur un site secondaire, il n’est pas utilisé.
-
-	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm-classic/encrypt.png)
 
 11.  Dans **Server name**, entrez un nom convivial pour identifier le serveur VMM dans le coffre. Dans une configuration de cluster, spécifiez le nom de rôle de cluster VMM.
 12.  Dans **Synchroniser les métadonnées du cloud**, indiquez si vous voulez synchroniser les métadonnées de tous les clouds sur le serveur VMM à l’aide du coffre. Cette action se produit une seule fois sur chaque serveur. Si vous ne souhaitez pas synchroniser tous les clouds, vous pouvez désactiver ce paramètre et synchroniser individuellement chaque cloud via les propriétés du cloud de la console VMM.
 
-	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm-classic/friendly-name.png)
-
 13.  Cliquez sur **Suivant** pour terminer le processus. Une fois l'inscription terminée, les métadonnées du serveur VMM sont extraites par Azure Site Recovery. Le serveur apparaît sous l’onglet **Serveurs VMM** de la page **Serveurs** du coffre.
-
+ 	
+	![LastPage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### Installation à partir de la ligne de commande
 
@@ -382,4 +381,4 @@ Le fournisseur du serveur VMM est averti de l'événement par le Service et exé
 
 Après avoir exécuté un test de basculement pour vérifier que votre environnement fonctionne comme prévu, [découvrez](site-recovery-failover.md) les différents types de basculement.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

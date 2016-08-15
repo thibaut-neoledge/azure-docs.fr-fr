@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -169,4 +169,4 @@ Les actions peuvent désormais avoir une propriété supplémentaire (sœur de `
 <!-- Image references -->
 [1]: ./media/app-service-logic-schema-2016-04-01/upgradeButton.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

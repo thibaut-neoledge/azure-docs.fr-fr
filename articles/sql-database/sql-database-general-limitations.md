@@ -3,7 +3,7 @@
    description="Cette page décrit certaines limitations générales de la base de données SQL Azure, ainsi que les zones d’interopérabilité et de prise en charge."
    services="sql-database"
    documentationCenter="na"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor="monicar" />
 <tags
@@ -63,4 +63,4 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

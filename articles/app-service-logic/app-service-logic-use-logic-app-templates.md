@@ -4,7 +4,7 @@
  authors="kevinlam1"
  manager="dwrede"
  editor=""
- services="app-service\logic"
+ services="logic-apps"
  documentationCenter=""/>
 
 <tags
@@ -46,4 +46,4 @@ Modèles simples qui s’intègrent aux services de réseaux sociaux, comme Twit
 Après avoir sélectionné l’un des modèles, finalisez le déploiement comme si vous aviez créé votre propre application logique. La procédure détaillée figure dans la rubrique [Créer une application logique](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

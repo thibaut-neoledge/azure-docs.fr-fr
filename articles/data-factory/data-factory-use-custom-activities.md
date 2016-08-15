@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
@@ -672,7 +672,10 @@ Le diagramme suivant illustre la relation entre les tâches Azure Data Factory e
 ## Déboguer le pipeline
 Le débogage consiste à utiliser quelques techniques de base :
 
-1.	Si la tranche d’entrée n’est pas définie sur **Prêt**, vérifiez que la structure du dossier d’entrée est correcte et que le fichier **file.txt** est présent dans les dossiers d’entrée.
+1.	Si vous voyez le message d’erreur suivant, confirmez que le nom de la classe figurant dans le fichier CS correspond au nom que vous avez spécifié pour la propriété EntryPoint dans le JSON du pipeline. Dans la procédure ci-dessus, le nom de la classe est MyDotNetActivity et le point d’entrée est spécifié en tant que MyDotNetActivityNS.**MyDotNetActivity**.
+
+			MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly  
+2.	Si la tranche d’entrée n’est pas définie sur **Prêt**, vérifiez que la structure du dossier d’entrée est correcte et que le fichier **file.txt** est présent dans les dossiers d’entrée.
 2.	Dans la méthode **Execute** de votre activité personnalisée, utilisez l’objet **IActivityLogger** pour journaliser les informations qui vous aideront à résoudre d’éventuels problèmes. Les messages enregistrés s’affichent dans les fichiers journaux utilisateur (un ou plusieurs fichiers nommés user-0.log, user-1.log, user-2.log, etc.).
 
 	Dans le panneau **OutputDataset**, cliquez sur la tranche pour afficher le panneau **TRANCHE DE DONNÉES** correspondant à cette tranche. Les **activités exécutées** pour cette tranche s’affichent. Vous devez normalement voir une exécution d’activité pour la tranche. Si vous cliquez sur Exécuter dans la barre de commandes, vous pouvez démarrer une autre exécution d’activité pour la même tranche.
@@ -891,4 +894,4 @@ Exemple | Rôle des activités personnalisées
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

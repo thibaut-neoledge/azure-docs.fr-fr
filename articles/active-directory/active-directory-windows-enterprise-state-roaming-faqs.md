@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/21/2016"
 	ms.author="femila"/>
 
 # FAQ sur l’itinérance des paramètres et des données
@@ -22,17 +22,17 @@
 Cette rubrique répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 
 ## Quelles données sont itinérantes ?
-Les **Paramètres Windows** : les paramètres du PC intégrés au système d’exploitation Windows. En règle générale, ce sont des paramètres qui personnalisent le PC de l’utilisateur. Ils incluent les catégories principales suivantes :
+Les **Paramètres Windows** : les paramètres du PC intégrés au système d’exploitation Windows. En règle générale, ce sont des paramètres qui personnalisent le PC de l’utilisateur. Ils incluent les catégories principales suivantes :
 
-- Le **Thème** : le thème du bureau, les paramètres de la barre des tâches, etc.
-- Les **Paramètres Internet Explorer** : les onglets récemment ouverts, les Favoris, etc.
-- Les **Paramètres du navigateur Edge** : les Favoris, les listes de lecture
-- Les **Mots de passe** : les mots de passe Internet, les profils Wi-Fi, etc.
+- Le **Thème** : le thème du bureau, les paramètres de la barre des tâches, etc.
+- Les **Paramètres Internet Explorer** : les onglets récemment ouverts, les Favoris, etc.
+- Les **Paramètres du navigateur Edge** : les Favoris, les listes de lecture
+- Les **Mots de passe** : les mots de passe Internet, les profils Wi-Fi, etc.
 - Les **Préférences linguistiques** : la disposition du clavier, la langue du système, la date et l’heure, etc.
-- Les **Options d’ergonomie** : les thèmes à contraste élevé, le Narrateur, la Loupe, etc.
-- Les **Autres paramètres Windows** : les paramètres d’invite de commandes, la liste des applications, etc.
+- Les **Options d’ergonomie** : les thèmes à contraste élevé, le Narrateur, la Loupe, etc.
+- Les **Autres paramètres Windows** : les paramètres d’invite de commandes, la liste des applications, etc.
 
-Les **Données d’application** : les applications Windows universelles peuvent écrire des données de paramètres dans un dossier « roaming » (itinérance), et toutes les données écrites dans ce dossier sont automatiquement synchronisées. Il incombe aux développeurs d’applications de concevoir eux-mêmes une application pour tirer parti de cette fonctionnalité. Pour plus d’informations sur la façon de développer une application Windows universelle qui utilise l’itinérance, consultez l’[API de stockage des données d’application](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) et le [blog des développeurs d’applications Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+Les **Données d’application** : les applications Windows universelles peuvent écrire des données de paramètres dans un dossier « roaming » (itinérance), et toutes les données écrites dans ce dossier sont automatiquement synchronisées. Il incombe aux développeurs d’applications de concevoir eux-mêmes une application pour tirer parti de cette fonctionnalité. Pour plus d’informations sur la façon de développer une application Windows universelle qui utilise l’itinérance, consultez l’[API de stockage des données d’application](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) et le [blog des développeurs d’applications Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## Quel compte est utilisé pour la synchronisation des paramètres ?
 Dans Windows 8 et Windows 8.1, la synchronisation des paramètres a toujours utilisé les comptes Microsoft consommateur. Les utilisateurs de l’entreprise avaient la possibilité de connecter un compte Microsoft à leur compte de domaine Active Directory pour avoir accès à la synchronisation des paramètres. Dans Windows 10, cette fonctionnalité « compte Microsoft connecté » est remplacée par une structure de compte principal et secondaire.
@@ -67,19 +67,20 @@ Lorsque plusieurs comptes Azure AD regroupant différents clients Azure AD se 
 
 1. Vous avez tout d’abord besoin du GUID de chaque client Azure AD. Ouvrez le portail Azure Classic et sélectionnez un client Azure AD. Le GUID du client se trouve dans l’URL affichée dans la barre d’adresse de votre navigateur, comme suit : `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Une fois que vous disposez du GUID, vous devez ajouter la clé de Registre suivante : **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\SettingSync\\WinMSIPC < GUID de l’ID du client >** À partir de la clé <**GUID de l’ID du client**>, créez une nouvelle valeur de chaînes multiples (REG-MULTI-SZ) nommée **AllowedRMSServerUrl**s et pour ses données, spécifiez les URL de point de distribution de licence des autres clients Azure auxquels l’appareil a accès.
-3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration**. Si les valeurs de **LicensingIntranetDistributionPointUrl** et de **LicenseingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
+3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration**. Si les valeurs des paramètres **LicensingIntranetDistributionPointUrl** et **LicenseingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
 
 
 ## Quelles sont les options disponibles pour les paramètres d’itinérance des applications de bureau Windows existantes ?
 L’itinérance ne fonctionne qu’avec les applications Windows universelles. Deux options permettent d’activer l’itinérance sur une application de bureau Windows existante :
 
 - [Desktop Bridge](http://aka.ms/desktopbridge) vous permet de transférer facilement vos applications de bureau Windows existantes vers la plateforme Windows universelle. À ce stade, seules quelques modifications de code mineures sont nécessaires pour pouvoir tirer parti de l’itinérance des données d’application d’Azure AD. Desktop Bridge fournit à vos applications l’identité d’application nécessaire pour activer l’itinérance des données d’application pour les applications de bureau existantes.
-- [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) vous permet de créer un modèle de paramètres personnalisés pour les applications de bureau Windows existantes et d’activer le mode itinérant uniquement pour les applications Win32. Cette option n’oblige pas le développeur d’application à modifier le code de l’application. UE-V est limité à l’itinérance Active Directory en local pour les clients qui ont acheté Microsoft Desktop Optimization Package. 
+- [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) vous permet de créer un modèle de paramètres personnalisés pour les applications de bureau Windows existantes et d’activer le mode itinérant uniquement pour les applications Win32. Cette option n’oblige pas le développeur d’application à modifier le code de l’application. UE-V est limité à l’itinérance Active Directory en local pour les clients qui ont acheté Microsoft Desktop Optimization Package.
 
-L’administrateur peut configurer UEV pour déplacer simplement les données d’application de bureau Windows en désactivant l’itinérance des paramètres du système d’exploitation Windows et des données d’application universelle à l’aide des [stratégies de groupe UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2).
+L’administrateur peut configurer UE-V pour déplacer simplement les données d’application de bureau Windows en désactivant l’itinérance des paramètres du système d’exploitation Windows et des données d’application universelle à l’aide des [stratégies de groupe UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2).
 
 - Désactivez la stratégie de groupe « Roam Windows settings » (Activer l’itinérance des paramètres Windows)
 - Activez la stratégie de groupe « Do not synchronize Windows Apps » (Ne pas synchroniser les applications Windows)
+- Désactivez l’itinérance IE dans la section des applications
 
 À l’avenir, il est possible que Microsoft cherche des moyens d’intégrer complètement UE-V à Windows et de l’étendre pour permettre l’itinérance des paramètres via le cloud Azure AD.
 
@@ -90,7 +91,7 @@ Enterprise State Roaming stocke toutes les données synchronisées dans le cloud
 ## À qui appartiennent les données en itinérance ?
 Les données en itinérance via Enterprise State Roaming sont détenues par les entreprises. Les données sont stockées dans un centre de données Azure. Toutes les données utilisateur sont chiffrées en transit et au repos dans le cloud à l’aide d’Azure Rights Management (Azure RMS). Il s’agit d’une amélioration par rapport à la synchronisation des paramètres de compte Microsoft, où seules certaines données sensibles telles que les informations d’identification utilisateur sont chiffrées avant de quitter l’appareil.
 
-Microsoft s’engage à protéger les données client. Les données de paramètres d’un utilisateur de l’entreprise sont automatiquement chiffrées par Azure RMS avant qu’elles quittent un appareil Windows 10, afin qu’elles soient illisibles pour les autres utilisateurs. Si votre organisation dispose d’un abonnement payant à Azure RMS, vous pouvez utiliser d’autres fonctionnalités Azure RMS, telles que le suivi et la suppression de documents, la protection automatique des messages électroniques contenant des informations sensibles et la gestion de vos propres clés (la solution « bring your own key », littéralement « apportez votre propre clé », également appelée BYOK). Pour plus d’informations sur ces fonctionnalités et le fonctionnement d’Azure RMS, consultez [Qu’est-ce qu’Azure Rights Management ?](https://technet.microsoft.com/jj585026.aspx).
+Microsoft s’engage à protéger les données client. Les données de paramètres d’un utilisateur de l’entreprise sont automatiquement chiffrées par Azure RMS avant qu’elles quittent un appareil Windows 10, afin qu’elles soient illisibles pour les autres utilisateurs. Si votre organisation dispose d’un abonnement payant à Azure RMS, vous pouvez utiliser d’autres fonctionnalités Azure RMS, telles que le suivi et la suppression de documents, la protection automatique des messages électroniques contenant des informations sensibles et la gestion de vos propres clés (la solution « bring your own key », littéralement « apportez votre propre clé », également appelée BYOK). Pour plus d’informations sur ces fonctionnalités et sur le fonctionnement d’Azure RMS, consultez l’article [En quoi consiste Azure Rights Management ?](https://technet.microsoft.com/jj585026.aspx).
 
 ## Puis-je gérer la synchronisation d’un paramètre ou d’une application spécifique ?
 Dans Windows 10, il n’existe aucun paramètre de MDM ou de stratégie de groupe permettant de désactiver l’itinérance pour une application en particulier. Les administrateurs client peuvent désactiver la synchronisation des données d’application pour toutes les applications sur un appareil géré, mais il n’existe aucun contrôle plus précis au niveau ou au sein de l’application.
@@ -103,8 +104,8 @@ Microsoft propose quelques solutions d’itinérances de paramètres, notamment 
 
 Lorsque vous utilisez à la fois Enterprise State Roaming et UE-V, les règles suivantes s’appliquent :
 
-- Enterprise State Roaming est l’agent itinérant principal sur l’appareil. UE-V est utilisé pour compléter l’« intervalle Win32 ». 
-- L’itinérance UE-V pour les paramètres Windows et les données d’application UWP modernes doit être désactivée à l’aide des stratégies de groupe UE-V car ils sont déjà pris en charge par Enterprise State Roaming. 
+- Enterprise State Roaming est l’agent itinérant principal sur l’appareil. UE-V est utilisé pour compléter l’« intervalle Win32 ».
+- L’itinérance UE-V pour les paramètres Windows et les données d’application UWP modernes doit être désactivée à l’aide des stratégies de groupe UE-V car ils sont déjà pris en charge par Enterprise State Roaming.
 
 ##Comment la solution Enterprise State Roaming prend-elle en charge Virtual Desktop Infrastructure (VDI) ?
 Enterprise State Roaming est pris en charge uniquement sur les SKU client Windows 10, mais pas sur les éditions serveur. Si une machine virtuelle cliente est hébergée sur un hyperviseur alors qu’un utilisateur se connecte à distance à la machine virtuelle, les données de l’utilisateur seront alors en mode itinérant. Si plusieurs utilisateurs partagent le même système d’exploitation et que les utilisateurs se connectent à distance à un serveur pour bénéficier d’une expérience de bureau complète, l’itinérance peut fonctionner ou non. Ce dernier scénario n’est pas officiellement pris en charge.
@@ -116,11 +117,12 @@ Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’ab
 ## Problèmes connus
 
 - Se connecter à Windows avec une carte à puce physique ou virtuelle provoque l’arrêt de la synchronisation des paramètres. Si vous essayez de vous connecter à votre appareil à l’aide d’une carte à puce physique ou virtuelle, la synchronisation cessera de fonctionner. Les mises à jour futures de Windows 10 résoudront peut-être ce problème.
-- La synchronisation des favoris Internet Explorer ne fonctionne pas pour les versions plus anciennes de Windows 10. Vous devez installer la mise à jour cumulative de mai pour Windows 10 (build 10.0.10586.318 ou version ultérieure) pour bénéficier de la synchronisation des favoris Internet Explorer.
-- Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur (MFA) est configurée. 
-    - Si l’utilisateur est configuré pour utiliser [Azure MFA](multi-factor-authentication.md) sur le portail Azure AD, l’utilisateur risque de ne pas réussir à synchroniser les paramètres lors d’une connexion à un appareil Windows 10 à l’aide d’un mot de passe. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Microsoft Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou, éventuellement, en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365. 
-    - La synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel MFA AD FS et si le jeton d’accès de l’appareil arrive à expiration. Veillez à vous déconnecter et à vous connecter en utilisant le code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou à effectuer une authentification multifacteur lorsque vous accéder à d’autres services Azure comme Office 365.
-
+- La synchronisation des favoris Internet Explorer ne fonctionne pas pour les versions plus anciennes de Windows 10. Vous devez installer la mise à jour cumulative de juillet pour Windows 10 (build 10586.494 ou version ultérieure) pour bénéficier de la synchronisation des favoris Internet Explorer.
+- Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur (MFA) est configurée.
+    - Si l’utilisateur est configuré pour utiliser [Azure MFA](multi-factor-authentication.md) sur le portail Azure AD, l’utilisateur risque de ne pas réussir à synchroniser les paramètres lors d’une connexion à un appareil Windows 10 à l’aide d’un mot de passe. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Windows Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou, éventuellement, en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365.
+    - La synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel MFA AD FS et si le jeton d’accès de l’appareil arrive à expiration. Veillez à vous déconnecter et à vous connecter en utilisant le code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
+   
+- Si un ordinateur est joint au domaine avec l’inscription automatique aux appareils Azure AD, la synchronisation peut échouer si l’ordinateur est hors site pendant de longues périodes et que l’authentification de domaine ne peut pas s’exécuter. Pour résoudre ce problème, connectez l’ordinateur à un réseau d’entreprise afin que la synchronisation puisse reprendre.
 
 
 ## Rubriques connexes
@@ -129,4 +131,4 @@ Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’ab
 - [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -219,13 +219,13 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 Les tâches de démarrage sont des actions effectuées avant le démarrage d’une application. Elles sont généralement utilisées pour exécuter des scripts de configuration avec des privilèges élevés. Les services cloud et Service Fabric prennent tous deux en charge les tâches de démarrage. La principale différence est que dans les services cloud, les tâches de démarrage sont liées à une machine virtuelle, car elles font partie d’une instance de rôle, tandis que dans Service Fabric, les tâches de démarrage sont liées à un service, qui n’est lui-même pas lié à une machine virtuelle en particulier.
 
- | Microsoft Azure | Service Fabric
+ | Services cloud | Service Fabric
 --- | --- | ---
 Emplacement de la configuration | ServiceDefinition.csdef | ServiceManifest.xml
 Privilèges | « limités » ou « élevés » | n’importe quel compte utilisateur ou machine
 Séquencement | « simple », « en arrière-plan », « au premier plan » | les tâches de démarrage doivent s’exécuter correctement pour que le service démarre.
 
-### Microsoft Azure
+### Services cloud
 Dans les services cloud, un point d’entrée de démarrage est configuré pour chaque rôle dans le fichier ServiceDefinition.csdef.
 
 ```xml
@@ -277,4 +277,4 @@ Découvrez plus en détail les services fiables Service Fabric et les différenc
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

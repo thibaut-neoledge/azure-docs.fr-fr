@@ -196,7 +196,7 @@ Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et port
 | Noms de domaine | Ports | Description |
 | ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | Récepteurs du Service Bus Relay sur TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) | 
-| *.servicebus.windows.net | 9350-9354 | Service Bus Relay facultatif sur TCP | 
+| *.servicebus.windows.net | 9350-9354, 5671 | Service Bus Relay facultatif sur TCP | 
 | *.core.windows.net | 443 | HTTPS | 
 | *.clouddatahub.net | 443 | HTTPS | 
 | graph.windows.net | 443 | HTTPS |
@@ -426,4 +426,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Étapes suivantes
 - Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

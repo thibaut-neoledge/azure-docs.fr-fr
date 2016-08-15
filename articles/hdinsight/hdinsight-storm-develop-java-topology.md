@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2016"
+   ms.date="08/01/2016"
    ms.author="larryfr"/>
 
 #Développement de topologies Java pour une application de base de comptage du nombre de mots avec Apache Storm et Maven sur HDInsight
@@ -169,13 +169,13 @@ Une topologie Storm basée sur Java comprend trois composants que vous devez cr�
 
 ###Création du spout
 
-Afin de réduire les besoins de configuration de sources de données externes, le spout suivant émet des phrases aléatoires. Il s’agit d’une version modifiée d’un spout fourni dans les (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">exemples Storm-Starter</a>).
+Afin de réduire les besoins de configuration de sources de données externes, le spout suivant émet des phrases aléatoires. Il s’agit d’une version modifiée d’un spout fourni dans les ([exemples Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)).
 
 > [AZURE.NOTE] Pour obtenir un exemple de spout effectuant des lectures à partir d’une source de données externe, consultez un des exemples suivants :
 >
-> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> : un exemple de spout qui effectue des lectures à partir de Twitter
+> * [TwitterSampleSpout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java) : un exemple de spout qui lit à partir de Twitter
 >
-> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a> : un spout qui lit à partir de Kafka
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka) : un spout qui lit à partir de Kafka
 
 Pour le spout, créez un nouveau fichier nommé **RandomSentenceSpout.java** dans le répertoire **src\\main\\java\\com\\microsoft\\example** et utilisez ce qui suit comme contenu :
 
@@ -526,4 +526,4 @@ Vous avez appris à créer une topologie Storm à l’aide de Java. Apprenez mai
 
 Vous trouverez davantage d’exemples de topologies Storm en vous rendant sur [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
 pageTitle="MailChimp | Microsoft Azure"
 description="Créer des applications logiques avec Azure App Service. MailChimp est un service SaaS qui permet aux entreprises de gérer et d’automatiser les activités de marketing par courrier électronique, y compris l’envoi de courriers électroniques de marketing, de messages automatisés et de campagnes ciblées."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -744,4 +744,4 @@ Il n’existe aucun paramètre pour cet appel
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

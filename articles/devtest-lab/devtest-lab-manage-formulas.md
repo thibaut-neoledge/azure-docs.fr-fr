@@ -64,12 +64,12 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 
 	- **Nom de la formule** : entrez un nom pour votre formule. Cette valeur s'affichera dans la liste des images de base lorsque vous créerez une machine virtuelle. Le nom est validé au fur et à mesure que vous le tapez. S’il n’est pas valide, un message indique les exigences d’un nom valide.
 	- **Description** : entrez une description significative pour votre formule. Cette valeur est disponible dans le menu contextuel de la formule quand vous créez une machine virtuelle.
-	- **Image** : ce champ affiche le nom de l'image de base que vous avez sélectionnée dans le panneau précédent. 
+	- **Image** : ce champ affiche le nom de l'image de base que vous avez sélectionnée dans le panneau précédent.
 	- **Taille de machine virtuelle** : sélectionnez l'un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer.
 	- **Réseau virtuel** : sélectionnez le réseau virtuel souhaité.
 	- **Sous-réseau** : sélectionnez le sous-réseau souhaité.
 	- **Adresse IP publique** : si la stratégie du labo est définie de manière à autoriser des adresses IP publiques pour le sous-réseau sélectionné, spécifiez si vous souhaitez ou non que l’adresse IP soit publique en sélectionnant **Oui** ou **Non**. Dans le cas contraire, cette option est désactivée et paramétrée sur **Non**.
-	- **Artefacts** : sélectionnez cette option et, dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l'image de base. Notez que les paramètres d’artefact qui sont des chaînes sécurisées ne s’affichent pas car la formule n’enregistre pas les valeurs des chaînes sécurisées. 
+	- **Artefacts** : sélectionnez cette option et, dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l'image de base. Notez que les paramètres d’artefact qui sont des chaînes sécurisées ne s’affichent pas car la formule n’enregistre pas les valeurs des chaînes sécurisées.
 
     	![Créer une formule](./media/devtest-lab-manage-formulas/create-formula.png)
 
@@ -142,7 +142,11 @@ Pour supprimer une formule, procédez comme suit :
 
     ![Menu contextuel de la formule](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
+## Billets de blog connexes
+
+- [Images personnalisées ou formules ?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+
 ## Étapes suivantes
 Quand vous avez créé une formule à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

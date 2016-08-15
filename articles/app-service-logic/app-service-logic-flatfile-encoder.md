@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Utilisation de l’encodeur de fichier plat BizTalk dans une application logique| Microsoft Azure" 
    description="Application API de l’encodeur de fichier plat BizTalk ou connecteur" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -86,4 +86,4 @@ L'action retourne le résultat sous forme de chaîne - fichier plat. La sortie c
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

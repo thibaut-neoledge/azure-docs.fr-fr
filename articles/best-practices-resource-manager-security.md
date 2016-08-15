@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -23,7 +23,7 @@ Lorsqu’on examine les aspects relatifs à la sécurité pour vos modèles Azur
 
 Cette rubrique suppose que vous êtes familiarisé avec la notion de contrôle d’accès en fonction du rôle (RBAC) dans Azure Resource Manager. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez World Class ARM Templates Considerations and Proven Practices (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Secrets et certificats
 
@@ -35,7 +35,7 @@ Les fonctions Azure Virtual Machines, Azure Resource Manager et Azure Key Vault 
       - modèles pour déployer les clés
       - modèles servant à déployer une machine virtuelle avec des références aux clés
       - les documents clés réels dans le coffre. Chaque modèle (et action) peut se trouver sous différents rôles RBAC pour une séparation complète des tâches.
-- Le chargement des secrets dans une machine virtuelle au moment du déploiement s’effectue via un canal direct entre Azure Fabric et le coffre de clés, dans les limites du centre de données Microsoft Datacenter. Une fois les clés placées dans le coffre de clés, elles ne sont jamais « visibles » sur un canal non approuvé hors du centre de données.  
+- Le chargement des secrets dans une machine virtuelle au moment du déploiement s’effectue via un canal direct entre Azure Fabric et le coffre de clés, dans les limites du centre de données Microsoft Datacenter. Une fois les clés placées dans le coffre de clés, elles ne sont jamais « visibles » sur un canal non approuvé hors du centre de données.
 - Les coffres de clés ont toujours un caractère régional et les secrets disposent toujours d’une localité (et de la souveraineté) auprès des machines virtuelles. Il n’existe pas de coffre de clés global.
 
 ### Séparation des clés à partir des déploiements
@@ -172,11 +172,11 @@ Une combinaison d’un principal de service et de RBAC permet de répondre à ce
 
 De nombreux scénarios ont des exigences spécifiant la façon dont le trafic vers une ou plusieurs instances de machine virtuelle du réseau virtuel est contrôlé. Vous pouvez utiliser un groupe de sécurité réseau (NSG) à cette fin dans le cadre du déploiement d’un modèle ARM.
 
-Un groupe de sécurité réseau est un objet de niveau supérieur associé à votre abonnement. Un NSG contient les règles de contrôle d’accès qui autorisent ou refusent le trafic vers des instances de machine virtuelle. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées. Pour utiliser un groupe de sécurité réseau, vous devez disposer d’un réseau virtuel associé à une région (emplacement). Les groupes de sécurité réseau ne sont pas compatibles avec les réseaux virtuels associés à un groupe d’affinités. Si vous ne disposez pas d’un réseau virtuel régional et souhaitez contrôler le trafic vers vos points de terminaison, consultez [À propos des listes de contrôle d’accès réseau](../virtual-network/virtual-networks-acl.md).
+Un groupe de sécurité réseau est un objet de niveau supérieur associé à votre abonnement. Un NSG contient les règles de contrôle d’accès qui autorisent ou refusent le trafic vers des instances de machine virtuelle. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées. Pour utiliser un groupe de sécurité réseau, vous devez disposer d’un réseau virtuel associé à une région (emplacement). Les groupes de sécurité réseau ne sont pas compatibles avec les réseaux virtuels associés à un groupe d’affinités. Si vous ne disposez pas d’un réseau virtuel régional et souhaitez contrôler le trafic vers vos points de terminaison, consultez [À propos des listes de contrôle d’accès réseau](./virtual-network/virtual-networks-acl.md).
 
 Vous pouvez associer un groupe de sécurité réseau à une machine virtuelle ou à un sous-réseau dans un réseau virtuel. Associé à une machine virtuelle, le groupe de sécurité réseau s'applique à tout le trafic envoyé et reçu par l'instance de la machine virtuelle. Lorsqu’il est appliqué à un sous-réseau au sein de votre réseau virtuel, il s’applique à l’ensemble du trafic envoyé et reçu par toutes les instances de la machine virtuelle au sein du sous-réseau. Une machine virtuelle ou un sous-réseau peut être associé à 1 seul groupe de sécurité réseau, et chaque groupe de sécurité réseau peut contenir jusqu’à 200 règles. Vous pouvez avoir 100 groupes de sécurité réseau par abonnement.
 
->[AZURE.NOTE]  Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](./virtual-network/virtual-networks-acl-powershell.md).
 
 ### À propos des groupes de sécurité réseau
 
@@ -195,7 +195,7 @@ Une règle spécifie les éléments suivants :
 -	Plage de ports source : entier ou plage comprise entre 0 et 65536
 -	Plage d’adresses IP de destination : CIDR de la plage d’adresses IP de destination
 -	Plage de Port de destination : un entier ou une plage comprise entre 0 et 65536
--	Protocole : TCP, UDP ou « * »
+-	Protocole : TCP, UDP ou « * »
 -	Accès : Autoriser/Refuser
 
 ### Règles par défaut
@@ -247,7 +247,7 @@ Les règles de groupe de sécurité réseau peuvent être spécifiées sur un po
 
 ### Trafic ICMP
 
-Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « * » dans le réseau virtuel.
+Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « * » dans le réseau virtuel.
 
 ### Association d’un groupe de sécurité réseau à une machine virtuelle
 
@@ -339,4 +339,4 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 - Pour configurer le routage et le transfert IP, consultez [Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager à l’aide d’un modèle](./virtual-network/virtual-network-create-udr-arm-template.md)
 - Pour obtenir une présentation du contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle dans le portail Microsoft Azure](./active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

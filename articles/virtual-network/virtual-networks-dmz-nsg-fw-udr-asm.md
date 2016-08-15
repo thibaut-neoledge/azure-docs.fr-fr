@@ -80,7 +80,7 @@ S’il existe deux préfixes identiques dans la table d’itinéraires, voici l�
 2.	« VPNGateway » = un itinéraire dynamique ( BGP en cas d’utilisation avec des réseaux hybrides), ajouté par un protocole réseau dynamique. Ces itinéraires peuvent changer au fil du temps, le protocole dynamique reflétant automatiquement les modifications intervenues dans le réseau associé
 3.	« Default » = les itinéraires du système, le réseau local virtuel et les entrées statiques, comme indiqué dans la table d’itinéraires.
 
->[AZURE.NOTE] Il existe une limite à l’utilisation du routage défini par utilisateur (UDR) et ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé sur la passerelle virtuelle Azure. L’UDR ne doit pas être appliqué aux sous-réseaux communiquant avec la passerelle Azure et fournissant la connexion ExpressRoute. La passerelle Azure ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés. La possibilité d’intégrer entièrement UDR et ExpressRoute sera activée dans une future version d’Azure.
+>[AZURE.NOTE] Vous pouvez maintenant utiliser le routage défini par l’utilisateur (UDR) avec ExpressRoute et les passerelles VPN pour forcer l’acheminement du trafic intersite entrant et sortant vers une appliance virtuelle de réseau (NVA).
 
 #### Création d’itinéraires locaux
 
@@ -265,7 +265,7 @@ Une fois que vos règles sont créées et/ou modifiées, elles doivent être tra
 
 Les caractéristiques de chaque règle nécessaire pour compléter cet exemple sont décrites comme suit :
 
-- **Règle de gestion de pare-feu** : cette règle de redirection de l’application autorise le trafic à franchir les ports de gestion de l’appliance virtuelle du réseau (dans cet exemple, un pare-feu Barracuda NextGen Firewall). Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle, SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NextGen Firewall).
+- **Règle de gestion de pare-feu** : cette règle de redirection de l’application autorise le trafic à franchir les ports de gestion de l’appliance virtuelle du réseau (dans cet exemple, un pare-feu Barracuda NextGen). Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle, SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NextGen Firewall).
 
 	![Règle de gestion de pare-feu][10]
 
@@ -505,7 +505,7 @@ Rappelez-vous également que les groupes de sécurité réseau sont en place pou
 4.	Si une détection de menaces avancée a été activée sur le pare-feu (sujet qui n’est pas abordé dans ce document, consultez la documentation du fournisseur de fonctionnalités avancées de votre équipement réseau). Même le trafic autorisé par les règles de transfert de base abordées dans ce document pourrait être bloqué s’il contient des signatures ou des modèles connus signalant une règle de menace avancée.
 
 #### (Refusé) Recherche Internet DNS sur le serveur DNS.
-1.	L’utilisateur Internet tente de rechercher un enregistrement DNS interne sur DNS01 via le service BackEnd001.CloudApp.Net 
+1.	L’utilisateur Internet tente de rechercher un enregistrement DNS interne sur DNS01 via le service BackEnd001.CloudApp.Net
 2.	Comme aucun point de terminaison n’est ouvert pour le trafic DNS, il ne franchit pas le service Cloud et n’atteint pas le serveur.
 3.	Si, pour une raison quelconque, les points de terminaison étaient ouverts, la règle NSG (Bloquer Internet) bloquerait ce trafic.
 4.	Enfin, l’itinéraire UDR du réseau principal envoie tout le trafic sortant à partir de DNS01 au pare-feu (le tronçon suivant), et le pare-feu le considère comme un trafic asymétrique et supprime la réponse sortante. Par conséquent, il existe au moins trois couches indépendantes de défense entre Internet et DNS01 via son service de cloud empêchant l’accès non autorisé/inapproprié.
@@ -941,4 +941,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

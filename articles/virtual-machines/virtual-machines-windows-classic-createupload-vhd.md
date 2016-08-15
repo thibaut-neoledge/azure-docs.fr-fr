@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer et télécharger une image Windows Server à l’aide de PowerShell | Microsoft Azure"
+	pageTitle="Créer et charger une image de machine virtuelle à l’aide de PowerShell | Microsoft Azure"
 	description="Découvrez comment créer et télécharger une image Windows Server (VHD) généralisée à l’aide du modèle de déploiement classique et d’Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -104,4 +104,4 @@ Utilisez l’applet de commande [Add-AzureVMImage]) (https://msdn.microsoft.com/
 
 Vous pouvez à présent [créer une machine virtuelle personnalisée](virtual-machines-windows-classic-createportal.md) à l’aide de l’image que vous avez téléchargée.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

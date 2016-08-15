@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Gérer la base de données SQL Azure avec PowerShell" 
-	description="Gestion d’Azure SQL Database avec PowerShell." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Gérer la base de données SQL Azure avec PowerShell | Microsoft Azure"
+	description="Gestion d’Azure SQL Database avec PowerShell."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2016"
 	ms.author="sstein"/>
 
 # Gérer la base de données SQL Azure avec PowerShell
@@ -33,27 +33,27 @@ Cette rubrique fournit les commandes PowerShell permettant d’effectuer de nomb
 
 Créez le groupe de ressources qui contient le serveur. Vous pouvez modifier la commande suivante pour utiliser un emplacement valide.
 
-Pour obtenir la liste des emplacements valides de serveur de Base de données SQL Azure, exécutez l’applet de commande suivante :
+Pour obtenir la liste des emplacements valides de serveur de Base de données SQL, exécutez l’applet de commande suivante :
 
 	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
-Si vous disposez déjà d’un groupe de ressources, vous pouvez créer directement un serveur ou modifier et exécuter la commande suivante pour créer un nouveau groupe de ressources :
+Si vous disposez déjà d’un groupe de ressources, vous pouvez passer directement à la section suivante (« Créer un serveur ») ou modifier et exécuter la commande suivante pour créer un nouveau groupe de ressources :
 
 	New-AzureRmResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
 
-## Créer un serveur 
+## Créer un serveur
 
-Pour créer un serveur V12, utilisez l’applet de commande [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Remplacez server12 par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser un emplacement valide.
+Pour créer un serveur version 12, utilisez l’applet de commande [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Remplacez *server12* par le nom de votre serveur. Vous obtiendrez une erreur si le nom est déjà utilisé pour un autre serveur. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser un emplacement valide.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
-Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous devez entrer un **Nom d'utilisateur** et un **Mot de passe**. Il ne s'agit pas de vos informations d'identification Azure. Entrez le nom d'utilisateur et le mot de passe qui seront les informations d'identification d'administrateur que vous souhaitez créer pour le nouveau serveur.
+Lorsque vous exécutez cette commande, vous êtes invité à fournir votre nom d’utilisateur et votre mot de passe. N’entrez pas vos informations d’identification Azure ici. Au lieu de cela, entrez le nom d'utilisateur et le mot de passe qui seront les informations d'identification d'administrateur à créer pour le nouveau serveur.
 
 ## Créer une règle de pare-feu du serveur
 
 Pour créer une règle de pare-feu et accéder au serveur, utilisez la commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Exécutez la commande suivante en remplaçant les adresses IP de début et de fin par des valeurs valides pour votre client.
 
-Si votre serveur doit autoriser l’accès à d’autres services Azure, ajoutez le commutateur **-AllowAllAzureIPs** qui insère une règle de pare-feu spéciale et autorise tout le trafic Azure à accéder au serveur.
+Si votre serveur doit autoriser l’accès à d’autres services Azure, ajoutez le commutateur **-AllowAllAzureIPs**. Cela ajoute une règle de pare-feu spéciale qui accepte tout le trafic Azure vers le serveur.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -94,7 +94,7 @@ Vous pouvez également supprimer un serveur à l’aide de la commande [Remove-A
 
 ## Étapes suivantes
 
-Combiner des commandes et l’automatisation. Par exemple, remplacez tous les éléments entre guillemets, notamment les caractères < et >, par vos valeurs pour créer un serveur, une règle de pare-feu et une base de données :
+Combiner des commandes et l’automatisation. Par exemple, pour créer un serveur, une règle de pare-feu et une base de données, remplacez tous les éléments entre guillemets, notamment les caractères < et >, par vos valeurs :
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -106,4 +106,4 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 
 - [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

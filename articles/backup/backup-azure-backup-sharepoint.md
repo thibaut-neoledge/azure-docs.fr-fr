@@ -3,8 +3,8 @@
 	description="Cet article fournit une vue d’ensemble de la protection du serveur DPM/Azure Backup Server d’une batterie de serveurs SharePoint sur Azure"
 	services="backup"
 	documentationCenter=""
-	authors="nkolli1"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/04/2016"
-	ms.author="giridham;jimpark"/>
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 
 # Sauvegarder une batterie de serveurs SharePoint dans Azure
@@ -233,4 +233,4 @@ Q : Puis-je restaurer une base de données SharePoint sur l’emplacement d’or
 - Consultez les [notes de publication pour System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Consultez les [notes de publication pour Data Protection Manager dans System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

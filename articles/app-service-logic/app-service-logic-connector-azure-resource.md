@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur de ressources Azure dans des applications logiques | Microsoft Azure App Service"
    description="Comment créer et configurer le connecteur de ressources Azure ou une application API et l’utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
    manager="erikre"
@@ -98,4 +98,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

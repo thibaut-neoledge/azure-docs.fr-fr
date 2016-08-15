@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="07/29/2016" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -28,6 +28,40 @@ Si votre question n’est pas répertoriée ici, faites-le nous savoir et nous v
 -	Vous pouvez publier une question dans le [thread](#comments) à la fin de cette FAQ et collaborer avec l’équipe Azure Cache et d’autres membres de la communauté en cas de question sur cet article.
 -	Pour atteindre un public plus large, vous pouvez publier une question sur le [Forum Azure Cache MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) et collaborer avec l’équipe Azure Cache et d’autres membres de la Communauté.
 -	Vous pouvez également nous envoyer un e-mail par le biais de [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
+
+## Principes fondamentaux du Cache Redis Azure
+
+Les Forums aux questions de cette section couvrent des principes fondamentaux du Cache Redis Azure.
+
+-    [Présentation du Cache Redis Azure](#what-is-azure-redis-cache)
+-    [Comment commencer avec Cache Redis Azure ?](#how-can-i-get-started-with-azure-redis-cache)
+
+Les Forums aux questions suivants couvrent les concepts de base, et les questions sur le Cache Redis Azure sont traitées dans une des autres sections des Forums aux questions.
+
+-	[Que propose Cache Redis et quelle taille dois-je utiliser ?](#what-redis-cache-offering-and-size-should-i-use)
+-	[Quels clients de cache Redis puis-je utiliser ?](#what-redis-cache-clients-can-i-use)
+-	[Existe-t-il un émulateur local pour le Cache Redis Azure ?](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[Comment surveiller l’intégrité et les performances de mon cache ?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+
+
+### Présentation du Cache Redis Azure
+
+Le Cache Redis Azure se base sur le [cache Redis](http://redis.io) open source connu. Il vous permet d’accéder à un cache Redis sécurisé et dédié, géré par Microsoft et accessible depuis une application dans Azure. Pour une présentation plus détaillée, consultez la page produit [Cache Redis Azure](https://azure.microsoft.com/services/cache/) sur Azure.com.
+
+
+### Comment commencer avec Cache Redis Azure ?
+
+Il existe plusieurs façons de démarrer avec Cache Redis Azure.
+
+-    Vous pouvez consulter un de nos didacticiels disponibles pour [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), et [Python](cache-python-get-started.md).
+-    Vous pouvez regarder [Comment créer des applications haute performance à l’aide de Cache Redis Microsoft Azure](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+-    Vous pouvez consulter la documentation client pour les clients qui correspondent au langage de développement de votre projet pour voir comment utiliser Redis. Il existe de nombreux clients Redis qui peuvent être utilisés avec le Cache Redis Azure. Pour obtenir la liste des clients Redis, consultez [http://redis.io/clients](http://redis.io/clients).
+
+
+Si vous n’avez pas encore de compte Azure, vous pouvez :
+
+-    [Ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Même après que les crédits sont épuisés, vous pouvez conserver le compte et utiliser les services et fonctionnalités Azure gratuits.
+-    [Activez les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
 ## Forum aux questions sur la planification
 
@@ -376,4 +410,4 @@ Pour plus d’informations sur la prise en main du cache Redis Azure, consultez 
 
 [paramètre de configuration « minIoThreads »]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

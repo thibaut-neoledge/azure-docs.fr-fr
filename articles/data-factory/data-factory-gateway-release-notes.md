@@ -13,16 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="07/17/2016" 
 	ms.author="spelluru"/>
 
 # Notes de version pour la passerelle de gestion des données
 
 Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. Azure Data Factory facilite cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
 
-Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus.
+Consultez les articles [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) et [Passerelle de gestion de données](data-factory-data-management-gateway.md) pour en savoir plus.
 
-## VERSION ACTUELLE (2.0.6013.1)
+## VERSION ACTUELLE (2.1.6040.1)
+
+- Le pilote DB2 est désormais inclus dans le package d’installation de la passerelle. Il est inutile de l’installer séparément.
+- Le pilote DB2 prend désormais en charge z/OS et DB2 pour i (AS/400), ainsi que les plateformes déjà prises en charge (Windows, Unix et Linux).
+- Prend en charge l’utilisation de DocumentDB comme source ou destination de banques de données locales
+- Prend en charge la copie de données depuis/vers un stockage d’objet blob à chaud ou à froid, ainsi que le compte de stockage à usage général déjà pris en charge.
+- Permet de vous connecter l’instance SQL Server locale via la passerelle avec des droits de connexion à distance.
+
+## Versions antérieures
+
+## 2\.0.6013.1
 
 - Vous pouvez sélectionner la langue/culture utilisée par une passerelle lors de l’installation manuelle.
 - Lorsqu’une passerelle ne fonctionne pas comme prévu, vous pouvez choisir d’envoyer les journaux des 7 derniers jours de la passerelle à Microsoft pour faciliter la résolution du problème. Si la passerelle n’est pas connectée au service cloud, vous pouvez choisir d’enregistrer et d’archiver les journaux de la passerelle.
@@ -35,7 +45,6 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 	- Amélioration des performances d’affichage du schéma/de l’aperçu par rapport à SQL Server dans l’outil de prévisualisation de copie sans code.
 
 
-## Versions antérieures
 
 ## 1\.12.5953.1
 - Résolution des bogues
@@ -161,4 +170,4 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 ### Pourquoi le Gestionnaire de sources de données tente-t-il de se connecter à une passerelle ?
 Il s’agit d’une conception de sécurité. Elle vous permet uniquement de configurer des sources de données locales pour l’accès au cloud au sein de votre réseau d’entreprise, et vos informations d’identification ne circulent pas en dehors de votre pare-feu d’entreprise. Assurez-vous que votre ordinateur peut atteindre l’ordinateur sur lequel la passerelle est installée.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

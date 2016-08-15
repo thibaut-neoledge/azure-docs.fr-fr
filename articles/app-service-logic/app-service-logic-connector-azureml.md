@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur Azure Machine Learning dans Logic Apps | Microsoft Azure App Service"
    description="Création et configuration du connecteur Azure Machine Learning et utilisation dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -88,4 +88,4 @@ Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus d
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

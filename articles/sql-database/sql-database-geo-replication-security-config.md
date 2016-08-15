@@ -3,7 +3,7 @@
 	description="Cette rubrique décrit les considérations de sécurité pour la gestion de la sécurité après un basculement ou une restauration de la base de données."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -95,4 +95,4 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 
 ## Ressources supplémentaires
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

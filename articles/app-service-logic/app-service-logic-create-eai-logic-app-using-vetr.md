@@ -1,7 +1,7 @@
 <properties
    pageTitle="Créer une application logique IAE à l’aide de VETR dans les applications logiques d’Azure App Service | Microsoft Azure"
    description="Fonctionnalités de validation, encodage et transformation des services XML BizTalk"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -38,10 +38,10 @@ Prenons comme exemple un site web qui accepte des commandes. Les utilisateurs en
 
 Les applications API BizTalk suivantes aident à créer ce modèle :
 
-* **Déclencheur HTTP**: source pour déclencher un événement de message
-* **Validation**: valide les données entrantes
-* **Transformation**: transforme les données du format d'entrée au format requis par le système en aval
-* **Connecteur Service Bus**: entité de destination où les données sont envoyées
+* **Déclencheur HTTP** : source pour déclencher un événement de message
+* **Validation** : valide les données entrantes
+* **Transformation** : transforme les données du format d'entrée au format requis par le système en aval
+* **Connecteur Service Bus** : entité de destination où les données sont envoyées
 
 
 ## Construction du modèle VETR de base
@@ -55,8 +55,7 @@ Ensuite, nous allons ajouter des déclencheurs et des actions.
 ## Ajouter un déclencheur HTTP
 1. Dans **Modèles d’application logique**, sélectionnez **Créer intégralement**.
 1. Sélectionnez **Écouteur HTTP** dans la galerie pour créer un écouteur. Nommez-le **HTTP1**.
-2. Définissez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _Méthode HTTP_ et la valeur _/OneWayPipeline_ à _URL relative_ : 
-	![Déclencheur HTTP][2]
+2. Définissez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _Méthode HTTP_ et la valeur _/OneWayPipeline_ à _URL relative_ : ![Déclencheur HTTP][2]
 3. Cliquez sur la coche verte pour exécuter le déclencheur.
 
 ## Ajouter une action de validation
@@ -119,4 +118,4 @@ Rubriques utiles :
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

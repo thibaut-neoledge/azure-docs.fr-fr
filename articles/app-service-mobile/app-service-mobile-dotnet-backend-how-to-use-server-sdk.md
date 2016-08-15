@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="08/02/2016"
 	ms.author="glenga"/>
 
 # Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps
@@ -27,11 +27,11 @@ Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) d
 
 ## Documentation de référence
 
-La documentation de référence du Kit de développement logiciel (SDK) serveur se trouve ici : [Référence .NET Azure Mobile Apps](https://msdn.microsoft.com/library/azure/dn961176.aspx).
+La documentation de référence du Kit de développement logiciel (SDK) serveur se trouve ici : [Référence .NET Azure Mobile Apps](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
 ## <a name="create-app"></a>Créer un serveur principal .NET pour votre application mobile
 
-Si vous démarrez un nouveau projet, vous pouvez créer une application App Service à l’aide du [portail Azure] ou de Visual Studio. Cette section vous aide à utiliser l’un de ces deux composants pour créer un nouveau serveur principal d’application mobile hébergeant une API simple de liste de tâches. Vous pouvez l’exécuter en local ou publier le projet sur votre application mobile App Service hébergée sur le cloud.
+Si vous démarrez un nouveau projet, vous pouvez créer une application App Service à l’aide du [portail Azure] ou de Visual Studio. Cette section vous aide à utiliser l’un de ces deux composants pour créer un nouveau serveur principal d’application mobile hébergeant une API simple de liste de tâches. Vous pouvez l’exécuter en local ou publier le projet sur votre application mobile App Service hébergée sur le cloud.
 
 Si vous ajoutez des fonctionnalités mobiles à un projet existant, consultez la section [Télécharger et initialiser le Kit de développement logiciel](#install-sdk) ci-dessous.
 
@@ -41,13 +41,11 @@ Vous pouvez créer une nouvelle application mobile dans le [portail Azure]. Vous
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-&nbsp;&nbsp;9. Dans le panneau _Prise en main_, sous **Créer une table API**, sélectionnez **C#** en tant que **langue du serveur principal**.
-
-&nbsp;&nbsp;10. Cliquez sur Télécharger, extrayez les fichiers de projets compressés sur votre ordinateur local, puis ouvrez la solution dans Visual Studio.
+Dans le panneau _Prise en main_, sous **Créer une table API**, sélectionnez **C#** en tant que **langue du serveur principal**. Cliquez sur **Télécharger**, extrayez les fichiers projets compressés sur votre ordinateur local, puis ouvrez la solution dans Visual Studio.
 
 ### Créer un serveur principal .NET à l’aide de Visual Studio 2013 et de Visual Studio 2015
 
-Pour créer un projet Mobile Apps dans Visual Studio, il vous faudra installer le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/), version 2.8.1 ou ultérieure. Une fois que vous avez installé le Kit, créez une application ASP.NET :
+Pour créer un projet Mobile Apps dans Visual Studio, il vous faudra installer le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/), version 2.8.1 ou ultérieure. Une fois que vous avez installé le Kit, créez une application ASP.NET :
 
 1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu *Fichier* > **Nouveau** > **Projet...**).
 
@@ -61,7 +59,7 @@ Pour créer un projet Mobile Apps dans Visual Studio, il vous faudra installer l
 
 6. Cliquez sur **OK**. Après sa création, votre application apparaît dans l’Explorateur de solutions.
 
-## <a name="install-sdk"></a>Télécharger et initialiser le Kit de développement logiciel (SDK)
+## <a name="install-sdk"></a>Télécharger et initialiser le Kit de développement logiciel (SDK)
 
 Le Kit de développement logiciel (SDK) est disponible sur [NuGet.org]. Ce package inclut les fonctionnalités de base requises pour utiliser le Kit de développement logiciel (SDK). Pour initialiser le Kit de développement logiciel (SDK), vous devez effectuer certaines actions sur l’objet **HttpConfiguration**.
 
@@ -71,13 +69,13 @@ Pour installer le Kit de développement logiciel (SDK), cliquez sur le projet de
 
 ###<a name="server-project-setup"></a> Initialiser le projet de serveur
 
-Un projet de serveur principal .NET est initialisé de la même façon que les autres projets ASP.NET, en incluant une classe de démarrage OWIN. Assurez-vous que vous avez référencé le package NuGet `Microsoft.Owin.Host.SystemWeb`. Pour ajouter cette classe dans Visual Studio, cliquez avec le bouton droit sur votre projet de serveur et sélectionnez **Ajouter** > **Nouvel élément**, puis **web** > **Général** > **Classe de démarrage OWIN**.
+Un projet de serveur principal .NET est initialisé de la même façon que les autres projets ASP.NET, en incluant une classe de démarrage OWIN. Assurez-vous que vous avez référencé le package NuGet `Microsoft.Owin.Host.SystemWeb`. Pour ajouter cette classe dans Visual Studio, cliquez avec le bouton droit sur votre projet de serveur et sélectionnez **Ajouter** > **Nouvel élément**, puis **web** > **Général** > **Classe de démarrage OWIN**.
 
-Cette opération génère une classe avec l’attribut suivant :
+Cette opération génère une classe avec l’attribut suivant :
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-Dans la méthode `Configuration()` de votre classe de démarrage OWIN, définissez le projet de serveur avec un objet **HttpConfiguration** qui représente les options de configuration du service. L’exemple suivant initialise le projet de serveur, sans ajout de fonctionnalités :
+Dans la méthode `Configuration()` de votre classe de démarrage OWIN, définissez le projet de serveur avec un objet **HttpConfiguration** qui représente les options de configuration du service. L’exemple suivant initialise le projet de serveur, sans ajout de fonctionnalités :
 
 	// in OWIN startup class
 	public void Configuration(IAppBuilder app)
@@ -91,7 +89,7 @@ Dans la méthode `Configuration()` de votre classe de démarrage OWIN, définiss
 	    app.UseWebApi(config);
 	}
 
-Pour activer des fonctionnalités spécifiques, vous devez appeler les méthodes d’extension sur l’objet **MobileAppConfiguration** avant d’appeler **ApplyTo**. Par exemple, le code suivant ajoute les itinéraires par défaut à tous les contrôleurs d’API avec l’attribut `[MobileAppController]` lors de l’initialisation :
+Pour activer des fonctionnalités spécifiques, vous devez appeler les méthodes d’extension sur l’objet **MobileAppConfiguration** avant d’appeler **ApplyTo**. Par exemple, le code suivant ajoute les itinéraires par défaut à tous les contrôleurs d’API avec l’attribut `[MobileAppController]` lors de l’initialisation :
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
@@ -101,7 +99,7 @@ Notez que `MapApiControllers` mappe uniquement les contrôleurs avec l’attribu
 
 La plupart des méthodes d’extension de fonctionnalité sont disponibles via des packages NuGet supplémentaires que vous pouvez inclure et qui sont décrits dans la section ci-dessous.
 
-Le démarrage rapide du serveur à partir du portail Azure appelle **UseDefaultConfiguration()**. Cette configuration s’apparente à celle-ci :
+Le démarrage rapide du serveur à partir du portail Azure appelle **UseDefaultConfiguration()**. Cette configuration s’apparente à celle-ci :
 
 		new MobileAppConfiguration()
 			.AddMobileAppHomeController()             // from the Home package
@@ -120,7 +118,7 @@ Le démarrage rapide du serveur à partir du portail Azure appelle **UseDefaultC
 
 Les packages d’extension NuGet suivants fournissent différentes fonctionnalités mobiles que votre application peut utiliser. Les extensions s’activent à l’aide de l’objet **MobileAppConfiguration** lors de l’initialisation.
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] prend en charge la configuration de base de Mobile Apps. S’ajoute à la configuration en appelant la méthode d’extension **UseDefaultConfiguration** pendant l’initialisation. Cette extension comprend les extensions suivantes : packages Notifications, Authentication, Entity, Tables, Crossdomain et Home. Cela correspond au projet de serveur de démarrage rapide que vous téléchargez à partir du portail Azure.
+- [Microsoft.Azure.Mobile.Server.Quickstart] prend en charge la configuration de base de Mobile Apps. S’ajoute à la configuration en appelant la méthode d’extension **UseDefaultConfiguration** pendant l’initialisation. Cette extension comprend les extensions suivantes : packages Notifications, Authentication, Entity, Tables, Crossdomain et Home. Cela correspond au projet de serveur de démarrage rapide que vous téléchargez à partir du portail Azure.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implémente la page par défaut *cette application mobile est opérationnelle* pour la racine du site web. S’ajoute à la configuration en appelant la méthode d’extension **AddMobileAppHomeController**.
 
@@ -138,13 +136,13 @@ Les packages d’extension NuGet suivants fournissent différentes fonctionnalit
 
 ## <a name="publish-server-project"></a>Publier le projet de serveur
 
-Cette section vous explique comment publier votre projet de serveur principal .NET à partir de Visual Studio. Vous pouvez également déployer votre projet de serveur principal en utilisant l’une des autres méthodes décrites dans la [Documentation sur le déploiement d’Azure App Service](../app-service-web/web-sites-deploy.md).
+Cette section vous explique comment publier votre projet de serveur principal .NET à partir de Visual Studio. Vous pouvez également déployer votre projet de serveur principal en utilisant l’une des autres méthodes décrites dans la [Documentation sur le déploiement d’Azure App Service](../app-service-web/web-sites-deploy.md).
 
-1. Avec Visual Studio, développez le projet pour restaurer des packages NuGet.
+1. Avec Visual Studio, développez le projet pour restaurer des packages NuGet.
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**. La première fois que vous publiez, vous devez définir un profil de publication. Si vous disposez déjà d’un profil défini, vous pouvez simplement le sélectionner et cliquer sur **Publier**.
 
-2. Si vous êtes invité à sélectionner une cible de publication, cliquez sur **Microsoft Azure App Service** > **Suivant**, puis (si nécessaire) connectez-vous avec vos informations d’identification Azure. Visual Studio récupère vos paramètres de publication depuis Azure et les stocke en sécurité.
+2. Si vous êtes invité à sélectionner une cible de publication, cliquez sur **Microsoft Azure App Service** > **Suivant**, puis (si nécessaire) connectez-vous avec vos informations d’identification Azure. Visual Studio récupère vos paramètres de publication depuis Azure et les stocke en sécurité.
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 
@@ -162,7 +160,7 @@ Cette section vous explique comment publier votre projet de serveur principal .N
 
 ##<a name="define-table-controller"></a> Définir un contrôleur de table
 
-Un contrôleur de table permet d’accéder aux données d’entité dans un magasin de données basé sur des tables, tel que Base de données SQL ou le stockage de table Azure. Les contrôleurs de table héritent de la classe générique **TableController**, le type générique étant une entité dans le modèle qui représente le schéma de table, comme indiqué ci-après :
+Un contrôleur de table permet d’accéder aux données d’entité dans un magasin de données basé sur des tables, tel que Base de données SQL ou le stockage de table Azure. Les contrôleurs de table héritent de la classe générique **TableController**, le type générique étant une entité dans le modèle qui représente le schéma de table, comme indiqué ci-après :
 
 	public class TodoItemController : TableController<TodoItem>
     {
@@ -171,7 +169,7 @@ Un contrôleur de table permet d’accéder aux données d’entité dans un mag
 
 Les contrôleurs de table s’initialisent à l’aide de la méthode d’extension **AddTables**. Cela ajoute les itinéraires sous `/tables/` pour toutes les sous-classes de `TableController`.
 
-L’exemple suivant initialise un contrôleur de table qui utilise Entity Framework pour accéder aux données :
+L’exemple suivant initialise un contrôleur de table qui utilise Entity Framework pour accéder aux données :
 
     new MobileAppConfiguration().AddTables(
         new MobileAppTableConfiguration()
@@ -192,11 +190,11 @@ Vérifiez que la valeur de PageSize est supérieure ou égale à la taille qui s
 
 Le contrôleur d’API personnalisé fournit les fonctionnalités de base au serveur principal de votre application mobile en exposant un point de terminaison. Vous pouvez enregistrer un contrôleur d’API mobile spécifique à l’aide de l’attribut [MobileAppController]. Cet attribut enregistre l'itinéraire, définit également le sérialiseur JSON Mobile Apps et active la [vérification de version du client](app-service-mobile-client-and-server-versioning.md).
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le dossier Contrôleurs, puis cliquez sur **Ajouter** > **Contrôleur**, sélectionnez **web API 2 Controller&mdash;Empty** et cliquez sur **Ajouter**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le dossier Contrôleurs, puis cliquez sur **Ajouter** > **Contrôleur**, sélectionnez **web API 2 Controller&mdash;Empty** et cliquez sur **Ajouter**.
 
 2. Spécifiez un **nom de contrôleur**, tel que `CustomController`, puis cliquez sur **Ajouter**. Cette opération crée une classe **CustomController** qui hérite d’**ApiController**.
 
-3. Dans le nouveau fichier de classe de contrôleur, ajoutez l’instruction using suivante :
+3. Dans le nouveau fichier de classe de contrôleur, ajoutez l’instruction using suivante :
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
@@ -208,7 +206,7 @@ Le contrôleur d’API personnalisé fournit les fonctionnalités de base au ser
 		      //...
 		}
 
-4. Dans le fichier App\_Start/Startup.MobileApp.cs, ajoutez un appel à la méthode d’extension **MapApiControllers**, comme dans l’exemple suivant :
+4. Dans le fichier App\_Start/Startup.MobileApp.cs, ajoutez un appel à la méthode d’extension **MapApiControllers**, comme dans l’exemple suivant :
 
 		new MobileAppConfiguration()
 		    .MapApiControllers()
@@ -220,7 +218,7 @@ Tous les contrôleurs auxquels **MobileAppControllerAttribute** n’est pas appl
 
 ## Utiliser l’authentification
 
-Mobile Apps utilise les fonctions d’authentification d’App Service et d’ASP.NET pour simplifier le processus d’activation de l’authentification de vos applications. Cette section vous explique comment effectuer les tâches suivantes liées à l’authentification dans votre projet de serveur principal .NET :
+Mobile Apps utilise les fonctions d’authentification d’App Service et d’ASP.NET pour simplifier le processus d’activation de l’authentification de vos applications. Cette section vous explique comment effectuer les tâches suivantes liées à l’authentification dans votre projet de serveur principal .NET :
 
 + [Ajouter l’authentification à un projet de serveur](#add-auth)
 + [Utiliser l’authentification personnalisée pour votre application](#custom-auth)
@@ -229,11 +227,11 @@ Mobile Apps utilise les fonctions d’authentification d’App Service et d’AS
 
 ### <a name="add-auth"></a>Ajouter l’authentification à un projet de serveur
 
-Vous pouvez ajouter l’authentification à votre projet de serveur en étendant l’objet **MobileAppConfiguration** et en configurant l’intergiciel OWIN. Lorsque vous installez le package [Microsoft.Azure.Mobile.Server.Quickstart] et appelez la méthode d’extension **UseDefaultConfiguration**, vous pouvez passer directement à l’étape 3.
+Vous pouvez ajouter l’authentification à votre projet de serveur en étendant l’objet **MobileAppConfiguration** et en configurant l’intergiciel OWIN. Lorsque vous installez le package [Microsoft.Azure.Mobile.Server.Quickstart] et appelez la méthode d’extension **UseDefaultConfiguration**, vous pouvez passer directement à l’étape 3.
 
 1. Dans Visual Studio, installez le package [Microsoft.Azure.Mobile.Server.Authentication].
 
-2. Dans le fichier de projet Startup.cs, ajoutez la ligne de code suivante au début de la méthode **Configuration** :
+2. Dans le fichier de projet Startup.cs, ajoutez la ligne de code suivante au début de la méthode **Configuration** :
 
 		app.UseAppServiceAuthentication(config);
 
@@ -245,15 +243,15 @@ Pour découvrir comment authentifier les clients auprès de votre serveur princi
 
 ### <a name="custom-auth"></a>Utiliser l’authentification personnalisée pour votre application
 
-Vous pouvez décider de fournir votre propre système de connexion si vous ne souhaitez pas utiliser l’un des fournisseurs d’authentification/d’autorisation App Service. Pour ce faire, installez le package [Microsoft.Azure.Mobile.Server.Login].
+Vous pouvez décider de fournir votre propre système de connexion si vous ne souhaitez pas utiliser l’un des fournisseurs d’authentification/d’autorisation App Service. Pour ce faire, installez le package [Microsoft.Azure.Mobile.Server.Login].
 
-Il vous faudra fournir votre propre logique pour déterminer la nécessité de connexion d’un utilisateur. Par exemple, vous pouvez définir des mots de passe salés et hachés dans une base de données. Dans l’exemple ci-dessous, la méthode `isValidAssertion()` est responsable de ces vérifications ; elle est définie à un autre endroit.
+Il vous faudra fournir votre propre logique pour déterminer la nécessité de connexion d’un utilisateur. Par exemple, vous pouvez définir des mots de passe salés et hachés dans une base de données. Dans l’exemple ci-dessous, la méthode `isValidAssertion()` est responsable de ces vérifications ; elle est définie à un autre endroit.
 
 L’authentification personnalisée est exposée via la création d’un élément ApiController et l’exposition des actions d’inscription et de connexion (voir ci-dessous). Le client peut essayer de se connecter en collectant les informations appropriées auprès de l’utilisateur et en soumettant une requête HTTPS POST à l’API, en plaçant les informations de l’utilisateur dans le corps. Une fois que le serveur a validé l’assertion, un jeton peut être émis par le biais de la méthode `AppServiceLoginHandler.CreateToken()`.
 
 Notez que cette ApiController **ne doit pas** utiliser l’attribut `[MobileAppController]`, car cela entraîne l’échec de requêtes de connexion du client. L’attribut `[MobileAppController]` nécessite l’en-tête de requête [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md), et cet en-tête n’est **pas** envoyé par le Kit de développement logiciel (SDK) client pour les itinéraires de connexion.
 
-Une action de connexion peut se présenter ainsi :
+Une action de connexion peut se présenter ainsi :
 
 		public IHttpActionResult Post([FromBody] JObject assertion)
 		{
@@ -276,7 +274,7 @@ Une action de connexion peut se présenter ainsi :
 			}
 		}
 
-Dans l’exemple ci-dessous, LoginResult et LoginResultUser sont de simples objets exposant les propriétés affichées. Le client attend que les réponses de connexion soient renvoyées en tant qu’objets JSON de la forme suivante :
+Dans l’exemple ci-dessous, LoginResult et LoginResultUser sont de simples objets exposant les propriétés affichées. Le client attend que les réponses de connexion soient renvoyées en tant qu’objets JSON de la forme suivante :
 
 		{
 			"authenticationToken": "<token>",
@@ -299,7 +297,7 @@ Remplacez la chaîne « CustomAuth » ci-dessus par le nom du contrôleur héber
 
 ###<a name="user-info"></a>Récupérer des informations utilisateur authentifiées
 
-Lorsqu’un utilisateur est authentifié par App Service, vous pouvez accéder à l’ID utilisateur affecté et à d’autres informations dans votre code de serveur principal .NET. Cela est utile pour prendre des décisions d’autorisation pour un utilisateur donné dans le serveur principal, par exemple si un utilisateur spécifique peut accéder à une ligne de table ou à une autre ressource. Le code suivant indique comment obtenir l’ID utilisateur pour un utilisateur connecté :
+Lorsqu’un utilisateur est authentifié par App Service, vous pouvez accéder à l’ID utilisateur affecté et à d’autres informations dans votre code de serveur principal .NET. Cela est utile pour prendre des décisions d’autorisation pour un utilisateur donné dans le serveur principal, par exemple si un utilisateur spécifique peut accéder à une ligne de table ou à une autre ressource. Le code suivant indique comment obtenir l’ID utilisateur pour un utilisateur connecté :
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -309,7 +307,7 @@ Le SID est dérivé de l’ID utilisateur spécifique au fournisseur et est stat
 
 App Service vous permet également de demander des revendications spécifiques à votre fournisseur de connexion. Cela vous permet de demander d’autres informations à partir du fournisseur, par exemple à l’aide des API Graph Facebook. Vous pouvez spécifier des revendications au niveau du panneau de fournisseur dans le portail. Certaines demandes nécessitent une configuration supplémentaire avec le fournisseur.
 
-Le code suivant appelle la méthode d’extension **GetAppServiceIdentityAsync** pour obtenir les informations d'identification de connexion, qui incluent l'accès au jeton nécessaire pour effectuer des requêtes par rapport à l’API Graph Facebook :
+Le code suivant appelle la méthode d’extension **GetAppServiceIdentityAsync** pour obtenir les informations d'identification de connexion, qui incluent l'accès au jeton nécessaire pour effectuer des requêtes par rapport à l’API Graph Facebook :
 
     // Get the credentials for the logged-in user.
     var credentials =
@@ -350,13 +348,13 @@ Selon votre scénario spécifique, vous pouvez également créer des tables ou r
 
 ## Ajouter des notifications Push à un projet de serveur
 
-Vous pouvez ajouter des notifications Push à votre projet de serveur en étendant l’objet **MobileAppConfiguration** et en créant un client Notification Hubs. Si vous installez le package [Microsoft.Azure.Mobile.Server.Quickstart] et appelez la méthode d’extension **UseDefaultConfiguration**, vous pouvez passer directement à l’étape 3.
+Vous pouvez ajouter des notifications Push à votre projet de serveur en étendant l’objet **MobileAppConfiguration** et en créant un client Notification Hubs. Si vous installez le package [Microsoft.Azure.Mobile.Server.Quickstart] et appelez la méthode d’extension **UseDefaultConfiguration**, vous pouvez passer directement à l’étape 3.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez Microsoft.Azure.Mobile.Server.Notifications et cliquez sur **Installer**. Cette opération installe le package [Microsoft.Azure.Mobile.Server.Notifications].
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez Microsoft.Azure.Mobile.Server.Notifications et cliquez sur **Installer**. Cette opération installe le package [Microsoft.Azure.Mobile.Server.Notifications].
 
 3. Répétez cette étape pour installer le package `Microsoft.Azure.NotificationHubs`, qui inclut la bibliothèque cliente Notification Hubs.
 
-2. Dans le fichier App\_Start/Startup.MobileApp.cs, ajoutez un appel de la méthode d’extension **AddPushNotifications** pendant l’initialisation, ce qui se présente comme suit :
+2. Dans le fichier App\_Start/Startup.MobileApp.cs, ajoutez un appel de la méthode d’extension **AddPushNotifications** pendant l’initialisation, ce qui se présente comme suit :
 
 		new MobileAppConfiguration()
 			// other features...
@@ -365,12 +363,12 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
 
 	Cela crée le point de terminaison d’inscription aux notifications Push dans votre projet de serveur. Ce point de terminaison est utilisé par les clients afin de s’inscrire au hub de notification associé. Vous devez maintenant ajouter le client Notification Hubs utilisé pour envoyer les notifications.
 
-3. Dans un contrôleur à partir duquel vous souhaitez envoyer des notifications Push, ajoutez le code suivant à l’aide de l’instruction using suivante :
+3. Dans un contrôleur à partir duquel vous souhaitez envoyer des notifications Push, ajoutez le code suivant à l’aide de l’instruction using suivante :
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 
-4. Ajoutez le code suivant pour créer un client Notification Hubs :
+4. Ajoutez le code suivant pour créer un client Notification Hubs :
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -392,7 +390,7 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
 
 Notification Hubs vous permet d’envoyer des notifications ciblées vers des enregistrements spécifiques à l’aide de balises. Une balise qui est créée automatiquement est l’ID d’installation, ce qui est spécifique à une instance de l’application sur un appareil donné. Une inscription avec un ID d’installation est également appelée *installation*. Vous pouvez utiliser l’ID d’installation pour gérer l’installation, par exemple pour ajouter des balises. L’ID d’installation est accessible à partir de la propriété **installationId** sur le **MobileServiceClient**.
 
-L’exemple suivant montre comment utiliser un ID d’installation pour ajouter une balise à une installation spécifique dans Notification Hubs :
+L’exemple suivant montre comment utiliser un ID d’installation pour ajouter une balise à une installation spécifique dans Notification Hubs :
 
 	hub.PatchInstallation("my-installation-id", new[]
 	{
@@ -408,7 +406,7 @@ Notez que toutes les balises fournies par le client pendant l’inscription aux 
 
 ##<a name="push-user"></a>Envoyer des notifications Push à un utilisateur authentifié
 
-Quand un utilisateur authentifié s’inscrit aux notifications Push, une balise avec l’ID d’utilisateur est automatiquement ajoutée à l’inscription. Grâce à cette balise, vous pouvez envoyer des notifications Push à tous les appareils inscrits par un utilisateur spécifique. Le code suivant permet d’obtenir le SID de l’utilisateur qui émet la demande et d’envoyer un modèle de notification Push à chaque inscription d’appareil pour cet utilisateur :
+Quand un utilisateur authentifié s’inscrit aux notifications Push, une balise avec l’ID d’utilisateur est automatiquement ajoutée à l’inscription. Grâce à cette balise, vous pouvez envoyer des notifications Push à tous les appareils inscrits par un utilisateur spécifique. Le code suivant permet d’obtenir le SID de l’utilisateur qui émet la demande et d’envoyer un modèle de notification Push à chaque inscription d’appareil pour cet utilisateur :
 
     // Get the current user SID and create a tag for the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -435,15 +433,15 @@ Azure App Service fournit plusieurs techniques de débogage et de résolution de
 
 Vous pouvez écrire dans les journaux de diagnostics App Service à l’aide du traçage ASP.NET standard. Avant de pouvoir écrire dans les journaux, vous devez activer les diagnostics de votre serveur principal d’application mobile.
 
-Pour activer les diagnostics et écrire dans les journaux :
+Pour activer les diagnostics et écrire dans les journaux :
 
 1. Suivez les étapes indiquées dans [Activer des diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
 
-2. Ajoutez l’instruction using suivante dans votre fichier de code :
+2. Ajoutez l’instruction using suivante dans votre fichier de code :
 
 		using System.Web.Http.Tracing;
 
-3. Créez un writer de suivi pour écrire à partir du serveur principal .NET dans les journaux de diagnostic, comme ceci :
+3. Créez un writer de suivi pour écrire à partir du serveur principal .NET dans les journaux de diagnostic, comme ceci :
 
 		ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
 		traceWriter.Info("Hello, World");
@@ -458,7 +456,7 @@ Vous pouvez exécuter localement votre application afin de tester les modificati
 
 Vous devez disposer d’une application mobile basée sur le cloud avec l’authentification/l’autorisation App Service configurées, et votre client doit posséder le point de terminaison du cloud spécifié en tant qu’hôte secondaire de connexion. Consultez la documentation associée à la plateforme cliente sélectionnée ([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md)) pour connaître la procédure appropriée.
 
-Assurez-vous que [Microsoft.Azure.Mobile.Server.Authentication] est installé sur votre application. Ensuite, dans la classe de démarrage OWIN de votre application, ajoutez les éléments suivants, après que `MobileAppConfiguration` a été appliquée à votre `HttpConfiguration` :
+Assurez-vous que [Microsoft.Azure.Mobile.Server.Authentication] est installé sur votre application. Ensuite, dans la classe de démarrage OWIN de votre application, ajoutez les éléments suivants, après que `MobileAppConfiguration` a été appliquée à votre `HttpConfiguration` :
 
 		app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
 		{
@@ -481,4 +479,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

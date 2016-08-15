@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/18/2016"
+ ms.date="08/02/2016"
  ms.author="larryfr"/>
 
 # Développer des tâches MapReduce Scalding avec Apache Hadoop dans HDInsight
@@ -209,7 +209,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
 4. Une fois la tâche terminée, utilisez la commande suivante pour afficher la sortie.
 
-        hdfs dfs -text wasbs:///example/wordcountout/part-00000
+        hdfs dfs -text wasbs:///example/wordcountout/*
 
     Des informations similaires à celles qui suivent s'affichent :
 
@@ -254,6 +254,8 @@ Les étapes suivantes utilisent Windows PowerShell. Pour d'autres méthodes d'ex
         $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
         
+        #Login to your Azure subscription
+        Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
         #Get the cluster info so we can get the resource group, storage, etc.
@@ -343,4 +345,4 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

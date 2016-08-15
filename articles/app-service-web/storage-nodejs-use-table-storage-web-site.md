@@ -601,7 +601,6 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 <!-- URLs -->
 
 [Créer et déployer une application web Node.js dans Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -613,7 +612,6 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Application web Node.js avec MongoDB]: web-sites-nodejs-store-data-mongodb.md
 [interface de ligne de commande Azure]: ../xplat-cli-install.md
 
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
@@ -637,4 +635,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

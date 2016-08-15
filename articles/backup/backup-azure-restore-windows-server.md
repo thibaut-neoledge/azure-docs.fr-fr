@@ -3,8 +3,8 @@
    description="Découvrez comment restaurer des fichiers à partir d’un serveur/client Windows."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="05/10/2016"
+	 ms.date="08/02/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows à l’aide du modèle de déploiement Resource Manager
@@ -29,7 +29,7 @@ Cet article présente les étapes requises pour effectuer deux types d’opérat
 
 Dans les deux cas, les données sont récupérées à partir du coffre Azure Recovery Services.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modèle de déploiement classique.
 
 ## Récupération des données sur le même ordinateur
 Si vous avez supprimé accidentellement un fichier et que vous voulez le restaurer sur le même ordinateur (à partir duquel la sauvegarde est effectuée), les étapes suivantes vous aident à récupérer les données.
@@ -74,9 +74,9 @@ Si votre serveur entier est perdu, vous pouvez toujours récupérer les données
 
 Les termes ci-après sont utilisés pour cette procédure :
 
-- *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
-- *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
-- *Exemple d’archivage* : coffre Recovery Services dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
+- *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
+- *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
+- *Exemple d’archivage* : coffre Recovery Services dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
 
 > [AZURE.NOTE] Les sauvegardes effectuées à partir d’un ordinateur ne peuvent pas être restaurées sur un ordinateur qui exécute une version antérieure du système d’exploitation. Par exemple, si les sauvegardes sont effectuées à partir d’un ordinateur Windows 7, elles peuvent être restaurées sur un ordinateur Windows 8 ou supérieur. Toutefois l’inverse n’est pas vrai.
 
@@ -117,4 +117,4 @@ Les termes ci-après sont utilisés pour cette procédure :
 ## Étapes suivantes
 - Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

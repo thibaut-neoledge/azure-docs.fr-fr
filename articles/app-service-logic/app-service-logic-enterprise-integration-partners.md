@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="En savoir plus sur les partenaires et Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Découvrez comment utiliser les partenaires avec Enterprise Integration Pack et vos applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -61,4 +61,4 @@ Suivez ces étapes pour modifier un partenaire qui existe déjà dans votre comp
 ## Étapes suivantes
 - [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -97,7 +97,7 @@ Pour vérifier puis réparer le disque, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
@@ -120,7 +120,7 @@ Pour réinitialiser le mot de passe racine, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
@@ -139,7 +139,7 @@ Pour réinitialiser la clé SSH d'un utilisateur non racine, utilisez ce script 
 Exécutez le script VMAccess avec :
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
@@ -163,7 +163,7 @@ Pour créer un utilisateur, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
@@ -181,7 +181,7 @@ Pour créer un utilisateur, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
@@ -203,9 +203,9 @@ Pour réinitialiser la configuration SSHD, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

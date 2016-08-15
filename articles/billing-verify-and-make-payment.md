@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Comment vérifier votre mode de paiement et procéder à des paiements pour un abonnement Azure | Microsoft Azure"
 	description="Décrit comment vérifier votre mode de paiement et procéder à des paiements pour un abonnement Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -44,4 +45,4 @@ Si vous avez configuré une carte de crédit ou une carte bancaire comme mode de
 
 Si vous utilisez un mode de paiement par facture, envoyez votre paiement à l’endroit indiqué au bas de votre facture. Pour obtenir de l’aide supplémentaire, contactez le [support Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

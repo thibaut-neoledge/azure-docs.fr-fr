@@ -3,7 +3,7 @@
 	description="Cette rubrique fournit des conseils pour vous aider à déterminer le niveau de service adapté à votre application et fournit des recommandations pour le paramétrage de votre application pour tirer le meilleur parti de votre base de données SQL Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="" />
 
@@ -246,14 +246,14 @@ L'exemple suivant montre différentes approches permettant de comprendre l'utili
 		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
-		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
-		    max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent',
+		    avg(avg_data_io_percent) AS 'Average Physical Data IO Utilization In Percent',
+		    max(avg_data_io_percent) AS 'Maximum Physical Data IO Utilization In Percent',
 		    avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
 		    max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
-		    avg(active_session_count) AS 'Average # of Sessions',
-		    max(active_session_count) AS 'Maximum # of Sessions',
-		    avg(active_worker_count) AS 'Average # of Workers',
-		    max(active_worker_count) AS 'Maximum # of Workers'
+		    avg(max_session_percent) AS 'Average % of Sessions',
+		    max(max_session_percent) AS 'Maximum % of Sessions',
+		    avg(max_worker_percent) AS 'Average % of Workers',
+		    max(max_worker_percent) AS 'Maximum % of Workers'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -266,7 +266,7 @@ L'exemple suivant montre différentes approches permettant de comprendre l'utili
 		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		    ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -283,7 +283,7 @@ L'exemple suivant montre différentes approches permettant de comprendre l'utili
 		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
-		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -507,4 +507,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
