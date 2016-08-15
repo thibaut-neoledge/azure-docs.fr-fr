@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Azure Insights : Utiliser les journaux d’audit pour envoyer des notifications webhook et par courrier électronique dans Azure Insights | Microsoft Azure"
-	description="Découvrez comment utiliser les entrées des journaux d’audit pour appeler des URL web ou envoyer des notifications par courrier électronique dans Azure Insights."
+	pageTitle="Azure Insights : Utiliser les journaux d’audit pour envoyer des notifications webhook et par courrier électronique dans Azure Insights | Microsoft Azure"
+	description="Découvrez comment utiliser les entrées des journaux d’audit pour appeler des URL web ou envoyer des notifications par courrier électronique dans Azure Insights. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -33,13 +33,13 @@ Vous devez définir une règle de courrier électronique, une règle webhook, pu
 
 
 ## Authentification
-Il existe deux formes d’URI d’authentification :
+Il existe deux formes d’URI d’authentification :
 
 1. L’authentification par jeton en enregistrant l’URI du webhook avec un ID de jeton comme paramètre de requête. Par exemple, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 2. L’authentification de base avec un ID utilisateur et un mot de passe. Par exemple, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
 ## Schéma de la charge utile du webhook de notification d’événements dans le journal d’audit
-Lorsqu’un nouvel événement est disponible, l’alerte sur les événements du journal d’audit exécute le webhook configuré avec les métadonnées d’événements dans la charge utile du webhook. L’exemple suivant montre le schéma de la charge utile du webhook :
+Lorsqu’un nouvel événement est disponible, l’alerte sur les événements du journal d’audit exécute le webhook configuré avec les métadonnées d’événements dans la charge utile du webhook. L’exemple suivant montre le schéma de la charge utile du webhook :
 
 ```
 {
@@ -91,10 +91,10 @@ Lorsqu’un nouvel événement est disponible, l’alerte sur les événements d
 
 |Nom de l’élément|	Description|
 |---|---|
-|status |Toujours défini sur « activated »|
+|status |Toujours défini sur « activated »|
 |context|Contexte de l’événement|
 |resourceProviderName|Fournisseur de la ressource affectée|
-|conditionType |« Event »|
+|conditionType |« Event »|
 |name |nom de la règle d’alerte.|
 |id |ID de ressource de l’alerte|
 |description|	Description définie dans l’alerte par le créateur de l’alerte|
@@ -102,21 +102,21 @@ Lorsqu’un nouvel événement est disponible, l’alerte sur les événements d
 |timestamp|	Horodatage lorsque l’événement a été généré par le service Azure qui a traité la demande correspondant à l’événement|
 |resourceId |URI d’ID de ressource qui identifie la ressource de façon unique|
 |nom\_groupe\_ressources|Nom du groupe de ressources de la ressource affectée|
-|properties |Ensemble de paires <Key  Value> (constituant un dictionnaire<String  String>) qui inclut des détails sur l’événement.|
+|properties |Ensemble de paires <Clé, Valeur> (c’est-à-dire Dictionary<String, String>) incluant des détails sur l’événement|
 |event|Élément qui contient des métadonnées relatives à l’événement|
-|autorisation|Capture les propriétés RBAC de l’événement. Il s’agit généralement de « action », « role » et « scope ».|
-|category | Catégorie de l’événement. Les valeurs prises en charge sont : Administrative, Alert, Security, ServiceHealth, Recommendation|
+|autorisation|Capture les propriétés RBAC de l’événement. Il s’agit généralement de « action », « role » et « scope ».|
+|category | Catégorie de l’événement. Les valeurs prises en charge sont : Administrative, Alert, Security, ServiceHealth, Recommendation|
 |caller|Adresse électronique de l’utilisateur qui a effectué l’opération, la revendication UPN ou la revendication SPN basée sur la disponibilité. Peut être null pour certains appels système.|
 |correlationId|	Généralement un GUID au format chaîne. Les événements avec correlationId appartiennent à la même action et partagent généralement le même correlationId.|
 |eventDescription |Texte statique décrivant un événement|
 |eventDataId|Identificateur unique d’un élément|
 |eventSource |Nom de l’infrastructure ou du service Azure qui a généré l’événement|
 |httpRequest|	Inclut généralement clientRequestId, clientIpAddress et la méthode (méthode HTTP PUT, par exemple).|
-|level|Une des valeurs suivantes : Critical, Error, Warning, Informational et Verbose|
+|level|Une des valeurs suivantes : Critical, Error, Warning, Informational et Verbose|
 |operationId|Généralement, un GUID partagé par les événements correspondant à une opération unique|
 |operationName|Nom de l’opération|
 |properties |L’élément dans l’élément d’événement contient les propriétés de l’événement.|
-|status|Chaîne décrivant l’état de l’opération. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active, Resolved|
-|subStatus|	Inclut généralement le code d’état HTTP de l’appel REST correspondant. Il peut également inclure d’autres chaînes décrivant un sous-état. Les valeurs courantes sont : OK (Code d’état HTTP : 200), Created (Code d’état HTTP : 201), Accepted (Code d’état HTTP : 202), No content (Code d’état HTTP : 204), Bad Request (Code d’état HTTP : 400), Not found (Code d’état HTTP : 404), Conflict (Code d’état HTTP : 409), Internal Server Error (Code d’état HTTP : 500), Service unavailable (Code d’état HTTP : 503), Gateway Timeout (Code d’état HTTP : 504)|
+|status|Chaîne décrivant l’état de l’opération. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active, Resolved|
+|subStatus|	Inclut généralement le code d’état HTTP de l’appel REST correspondant. Il peut également inclure d’autres chaînes décrivant un sous-état. Les valeurs courantes sont : OK (Code d’état HTTP : 200), Created (Code d’état HTTP : 201), Accepted (Code d’état HTTP : 202), No content (Code d’état HTTP : 204), Bad Request (Code d’état HTTP : 400), Not found (Code d’état HTTP : 404), Conflict (Code d’état HTTP : 409), Internal Server Error (Code d’état HTTP : 500), Service unavailable (Code d’état HTTP : 503), Gateway Timeout (Code d’état HTTP : 504)|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -107,7 +107,7 @@ Vous pouvez créer l’exemple de base de données AdventureWorksLT [V12] en qu
 
 2. Connectez-vous à la base de données avec [SQL Server Management Studio (SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copiez le [script In-Memory OLTP Transact-SQL](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql) dans le Presse-papiers.
+3. Copiez le [script In-Memory OLTP Transact-SQL](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) dans le Presse-papiers.
  - Le script T-SQL crée les objets In-Memory nécessaires dans l’exemple de base de données AdventureWorksLT créé à l’étape 1.
 
 4. Collez le script T-SQL dans SSMS, puis exécutez-le.
@@ -141,7 +141,7 @@ Un résultat de **0** signifie que In-Memory n’est pas pris en charge, et un r
 
 #### À propos des éléments créés à mémoire optimisée.
 
-**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
+**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
 
 - SalesLT.Product\_inmem
 - SalesLT.SalesOrderHeader\_inmem
@@ -165,7 +165,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
+**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
 
 
 ```
@@ -233,7 +233,7 @@ end
 ```
 
 
-Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk* . Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
 
 
 ### Installer les utilitaires RML et ostress
@@ -286,7 +286,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copiez le texte de la ligne de commande ostress.exe qui précède dans le presse-papiers.
 
-3. Remplacez le <placeholders> des paramètres -S - U -P -d par les valeurs réelles correctes.
+3. Remplacez les valeurs <placeholders> des paramètres -S - U -P -d par les valeurs réelles correctes.
 
 4. Exécutez la ligne de commande que vous avez modifiée dans la fenêtre de commande RML.
 
@@ -348,7 +348,7 @@ Pour l’analyse en temps réel sur une charge de travail OLTP, il est souvent p
  - Utilisez ce nom exact.
  - Choisissez un niveau de service Premium.
 
-2. Copiez [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) dans le Presse-papiers.
+2. Copiez [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) dans le Presse-papiers.
  - Le script T-SQL crée les objets In-Memory nécessaires dans l’exemple de base de données AdventureWorksLT créé à l’étape 1.
  - Le script crée la table Dimension et deux tables de faits. Les tables de faits comprennent 3,5 millions de lignes chacune.
  - Le script peut prendre 15 minutes pour s’exécuter.
@@ -371,7 +371,7 @@ Pour l’analyse en temps réel sur une charge de travail OLTP, il est souvent p
 #### Requêtes essentielles pour comparer l’index columnstore
 
 
-Vous trouverez [ici](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) plusieurs types de requête T-SQL que vous pouvez exécuter pour mettre en évidence les améliorations des performances. À l’étape 2 du script T-SQL, deux requêtes vous seront particulièrement utiles. Ces deux requêtes diffèrent uniquement d’une ligne :
+Vous trouverez [ici](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) plusieurs types de requête T-SQL que vous pouvez exécuter pour mettre en évidence les améliorations des performances. À l’étape 2 du script T-SQL, deux requêtes vous seront particulièrement utiles. Ces deux requêtes diffèrent uniquement d’une ligne :
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -537,4 +537,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

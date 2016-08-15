@@ -188,7 +188,7 @@ Localement, les gros volumes de stockage de fichiers sont généralement accessi
 
 - **Paramètres d'applications partagés** - Pour les applications distribuées, les fichiers de configuration sont souvent centralisés à un emplacement accessible par différentes machines virtuelles. Ces fichiers de configuration peuvent être stockés dans un partage Azure Files, puis lus par toutes les instances de l'application. Les paramètres peuvent également être gérés via l'interface REST, ce qui offre un accès mondial aux fichiers de configuration.
 
-- **Partage de diagnostic** - Vous pouvez enregistrer et partager des fichiers de diagnostic comme des journaux, des indicateurs de performances et des vidages sur incident. Le fait que ces fichiers soient à la fois disponibles via SMB et l'interface REST permet aux applications d'utiliser différents outils d'analyse pour traiter et analyser les données de diagnostic.
+- **Partage de diagnostic** - Vous pouvez enregistrer et partager des fichiers de diagnostic comme des journaux, des indicateurs de performances et des vidages sur incident. Le fait que ces fichiers soient à la fois disponibles via SMB et l'interface REST permet aux applications d'utiliser différents outils d'analyse pour traiter et analyser les données de diagnostic.
 
 - **Développement/Test/Débogage** - Lorsque les développeurs ou les administrateurs travaillent sur des machines virtuelles situées dans le cloud, ils ont souvent besoin de différents outils ou utilitaires. L'installation et la distribution de ces utilitaires sur chaque machine virtuelle prennent du temps. Avec Azure Files Services, un développeur ou administrateur peut stocker ses outils préférés sur un partage de fichiers et les relier à n'importe quelle machine virtuelle.
 
@@ -430,7 +430,7 @@ Quelle que soit son utilité, tout morceau de code a régulièrement besoin d’
 
 La mise en file d’attente est une idée simple : une application place un message dans une file d’attente afin qu’il soit ensuite lu par une autre application. Si votre application requiert juste ce service simple, les files d’attente Azure peuvent se révéler être le meilleur choix.
 
-Compte tenu de la croissance qu'a connue Azure, les files d'attente Azure Storage et Service Bus fournissent des services de mise en file d'attente similaires. Les raisons qui peuvent vous inciter à utiliser l’une plutôt que l’autre sont présentées dans le document technique [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Files d’attente Azure et files d’attente Service Bus : comparaison et différences"). Dans de nombreux scénarios, celles-ci peuvent être utilisées indifféremment.
+Compte tenu de la croissance qu'a connue Azure, les files d'attente Azure Storage et Service Bus fournissent des services de mise en file d'attente similaires. Les raisons qui peuvent vous inciter à utiliser l’une plutôt que l’autre sont présentées dans le document technique [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](http://msdn.microsoft.com/library/azure/hh767287.aspx) Dans de nombreux scénarios, celles-ci peuvent être utilisées indifféremment.
 
 **Scénarios relatifs aux files d’attente**
 
@@ -606,4 +606,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

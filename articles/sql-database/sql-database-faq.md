@@ -3,7 +3,7 @@
    description="Réponses fréquemment posées sur les bases de données du cloud et Azure SQL Database, le système de gestion de base de données relationnelle Microsoft (SGBDR) et la base de données en tant que service dans cloud." 
    services="sql-database" 
    documentationCenter="" 
-   authors="carlrabeler" 
+   authors="CarlRabeler" 
    manager="jhubbard" 
    editor=""/>
 
@@ -89,4 +89,4 @@ La zone géographique secondaire est un réplica asynchrone et nous n’essayons
 ## Quels outils sont disponibles pour surveiller le décalage de réplication entre la base de données primaire et la zone géographique secondaire ?
 Nous exposons le décalage de réplication en temps réel entre la base de données primaire et la zone géographique secondaire par le biais d’une vue de gestion dynamique (DMV). Pour plus d’informations, consultez [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

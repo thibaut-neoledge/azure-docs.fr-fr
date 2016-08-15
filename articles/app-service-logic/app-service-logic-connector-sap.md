@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur SAP dans des applications logiques | Microsoft Azure App Service"
    description="Comment créer et configurer le connecteur SAP ou une application API et l’utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
    manager="erikre"
@@ -99,4 +99,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

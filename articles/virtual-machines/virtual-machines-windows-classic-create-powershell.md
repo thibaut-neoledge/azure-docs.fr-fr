@@ -101,6 +101,8 @@ Option 2 : spécifiez un nom, une taille et un nom de groupe à haute disponib
 
 Pour plus d’informations sur les valeurs InstanceSize des machines virtuelles des séries D, DS et G, voir l’article [Tailles de machines virtuelles et de services cloud pour Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
+>[AZURE.NOTE] Si vous avez conclu un accord d’entreprise avec Software Assurance et souhaitez tirer parti de Windows Server [Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/), ajoutez le paramètre **-LicenseType** à l’applet de commande **New-AzureVMConfig**, en passant la valeur **Windows\_Server** pour le cas d’utilisation standard. Vérifiez que vous utilisez une image que vous avez téléchargée ; vous ne pouvez pas utiliser une image standard de la galerie avec Hybrid Use Benefit.
+
 Pour un ordinateur Windows autonome, vous pouvez éventuellement spécifier le compte et le mot de passe de l'administrateur local.
 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
@@ -258,6 +260,6 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 ## Étapes suivantes
 
-Si vous avez besoin d’un disque de système d’exploitation supérieur à 127 Go, vous pouvez [étendre le lecteur du système d’exploitation](virtual-machines-windows-expand-os-disk.md).
+Si vous avez besoin d’un disque de système d’exploitation supérieur à 127 Go, vous pouvez [étendre ce dernier](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

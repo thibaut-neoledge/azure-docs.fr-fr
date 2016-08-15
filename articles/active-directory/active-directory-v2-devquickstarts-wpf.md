@@ -1,39 +1,38 @@
 <properties
-	pageTitle="Application native .NET Azure AD v2.0 | Microsoft Azure"
-	description="Comment créer une application native .NET qui se connecte avec les comptes Microsoft personnels, ainsi qu’avec les comptes professionnels ou scolaires."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+pageTitle="Application native .NET Azure Active Directory v2.0 | Microsoft Azure"
+description="Comment créer une application native .NET qui se connecte avec les comptes Microsoft personnels, ainsi qu’avec les comptes professionnels ou scolaires."
+services="active-directory"
+documentationCenter=""
+authors="dstrockis"
+manager="mbaldwin"
+editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+ms.service="active-directory"
+ms.workload="identity"
+ms.tgt_pltfrm="na"
+ms.devlang="dotnet"
+ms.topic="article"
+ms.date="07/30/2016"
+ms.author="dastrock; vittorib"/>
 
 # Ajouter une connexion à une application de bureau Windows
 
 Le point de terminaison v2.0 vous permet de rapidement ajouter une authentification à vos applications de bureau avec la prise en charge des comptes Microsoft personnels, ainsi que les comptes professionnels ou scolaires. Il permet également à votre application de communiquer de manière sécurisée avec une API web principale, ainsi qu’avec [Microsoft Graph](https://graph.microsoft.io) et un nombre limité d’[API unifiées Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE]
-	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
+> [AZURE.NOTE] Les scénarios et les fonctionnalités Azure Active Directory (AD) ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 
 Pour les [applications natives .NET qui s’exécutent sur un appareil](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD fournit la bibliothèque d’authentification Microsoft Identity (bibliothèque MSAL). Le seul objectif de cette bibliothèque MSAL est de faciliter l’obtention de jetons pour votre application, qui les utilise pour appeler les services Web. Pour illustrer sa facilité d’utilisation, nous allons créer une application de liste des tâches .NET WPF qui exécute les activités suivantes :
 
--	connexion de l’utilisateur et obtention des jetons d’accès à l’aide du [protocole d’authentification OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) ;
--	appel sécurisé d’un service Web principal de liste de tâches, qui est également sécurisé par OAuth 2.0 ;
--	déconnexion des utilisateurs.
+- connexion de l’utilisateur et obtention des jetons d’accès à l’aide du [protocole d’authentification OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) ;
+- appel sécurisé d’un service Web principal de liste de tâches, qui est également sécurisé par OAuth 2.0 ;
+- déconnexion de l’utilisateur.
 
 ## Télécharger l’exemple de code
 
 Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) ou la cloner :
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
+    git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
@@ -41,7 +40,7 @@ L'application terminée est également fournie à la fin de ce didacticiel.
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Mobile** pour votre application ;
+- ajouter la plateforme **Mobile** pour votre application ;
 
 ## Installation et configuration de la bibliothèque MSAL
 Maintenant que vous disposez d’une application enregistrée auprès de Microsoft, vous pouvez installer la bibliothèque MSAL et écrire votre code associé aux identités. Pour permettre à la bibliothèque MSAL de communiquer avec le point de terminaison v2.0, vous devez lui fournir des informations sur l’enregistrement de votre application.
@@ -247,9 +246,10 @@ Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fo
 
 Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
-- [Sécurisation de l’API web TodoListService avec le point de terminaison v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Sécurisation de l’API web TodoListService avec le point de terminaison v2.0](active-directory-v2-devquickstarts-dotnet-api.md)
 
 Pour obtenir des ressources supplémentaires, consultez :
+
 - [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Balise « msal » StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
@@ -257,4 +257,4 @@ Pour obtenir des ressources supplémentaires, consultez :
 
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -60,7 +60,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
 
 6. Tapez **Y** lorsque vous êtes invité à confirmer l’installation du correctif.
 
-> [AZURE.IMPORTANT] Si vous installez la mise à jour 2.2, installez uniquement le fichier binaire, précédé de « all-hcsmdssoftwareudpate ». N’installez pas la mise à jour des agents CIS et MDS, précédée de all-cismdsagentupdatebundle. Dans le cas contraire, vous obtiendrez une erreur.
+	> [AZURE.IMPORTANT] Si vous installez la mise à jour 2.2, installez uniquement le fichier binaire, précédé de « all-hcsmdssoftwareudpate ». N’installez pas la mise à jour des agents CIS et MDS, précédée de all-cismdsagentupdatebundle. Dans le cas contraire, vous obtiendrez une erreur.
 
 7. Contrôlez la mise à jour à l'aide de l'applet de commande `Get-HcsUpdateStatus`. La mise à jour se termine d’abord sur le contrôleur passif. Une fois le contrôleur passif mis à jour, un basculement se produit et la mise à jour est ensuite appliquée à l’autre contrôleur. La mise à jour est terminée lorsque les deux contrôleurs sont mis à jour.
 
@@ -102,13 +102,13 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
     - `MdsAgentVersion: 30.0.4698.16`
 
 	Si les numéros de version ne changent pas après la mise à jour, cela indique que le correctif n'a pas pu s'appliquer. Dans ce cas, contactez le [Support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance supplémentaire.
+	
+	> [AZURE.IMPORTANT] Vous devez redémarrer le contrôleur actif via l’applet de commande `Restart-HcsController` avant d’appliquer les autres mises à jour.
 
 9. Répétez les étapes 3 à 5 pour installer le correctif logiciel restant en mode Normal.
 
-	> [AZURE.IMPORTANT] Vous devez redémarrer le contrôleur actif via l’applet de commande `Restart-HcsController` avant d’appliquer les autres mises à jour.
-	
-	
 	- Mise à jour de iSCSI KB3146621
+	
 	- Mise à jour de WMI KB3103616
 	
 
@@ -241,4 +241,4 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
 
 1. Les contrôleurs redémarrent quand vous quittez le mode Maintenance. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que l’appareil a quitté le mode Maintenance, revenez au portail Azure Classic. Remarque : il se peut que le portail n’affiche pas les mises à jour installées en mode Maintenance pendant 24 heures.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

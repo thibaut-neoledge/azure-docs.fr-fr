@@ -1,7 +1,7 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
 description="Créer des applications logiques avec Azure App Service. Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -914,4 +914,4 @@ Mettre à jour un contact : met à jour partiellement un contact
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

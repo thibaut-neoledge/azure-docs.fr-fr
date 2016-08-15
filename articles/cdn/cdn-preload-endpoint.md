@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Préchargement d’éléments multimédias sur un point de terminaison CDN Azure"
+	pageTitle="Préchargement d’éléments multimédias sur un point de terminaison CDN Azure | Microsoft Azure"
 	description="Découvrez comment précharger du contenu mis en cache sur un point de terminaison CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Préchargement d’éléments multimédias sur un point de terminaison CDN Azure
@@ -60,4 +60,4 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
 - [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
 - [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

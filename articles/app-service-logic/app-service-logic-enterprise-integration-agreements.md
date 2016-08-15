@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Vue d'ensemble des partenaires et Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Découvrez comment utiliser les partenaires avec Enterprise Integration Pack et vos applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -65,4 +65,4 @@ Vous pouvez supprimer un contrat en suivant ces étapes depuis le compte d’int
 ## Étapes suivantes
 - [Créer un contrat AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

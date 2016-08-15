@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure | Microsoft Azure"
 	description="Décrit les recommandations d’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="v-jesits"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -63,4 +64,4 @@ Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

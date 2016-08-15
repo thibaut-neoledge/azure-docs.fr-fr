@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Créer une application logique à l’aide de modèles Azure Resource Manager dans Azure App Service | Microsoft Azure" 
 	description="Utiliser un modèle Azure Resource Manager pour déployer une application logique vide pour la définition de workflows." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
@@ -116,4 +116,4 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

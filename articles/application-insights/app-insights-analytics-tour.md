@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -148,8 +148,10 @@ Vous pouvez les aplatir en choisissant les propriétés qui vous intéressent :
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+Notez que vous devez utiliser une [conversion de type (transtypage)](app-insights-analytics-reference.md#casts) vers le type approprié.
 
 ## Mesures et propriétés personnalisées
 
@@ -173,7 +175,7 @@ Pour extraire ces valeurs dans Analytics :
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 
@@ -193,24 +195,24 @@ Nous pouvons également séparer les résultats en requêtes de noms différents
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` regroupe les points de données du flux que la clause `by` évalue également. Chaque valeur de l’expression `by` (chaque nom d’opération dans l’exemple ci-dessus) génère une ligne dans la table des résultats.
+`Summarize` regroupe les points de données du flux que la clause `by` évalue équitablement. Chaque valeur de l’expression `by` (chaque nom d’opération dans l’exemple ci-dessus) génère une ligne dans la table des résultats.
 
 Nous pouvons également regrouper les résultats par heure :
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Notez que nous utilisons la fonction `bin` (également appelée `floor`). Si nous avions simplement utilisé `by timestamp`, chaque ligne d’entrée apparaîtrait dans un groupe individuel. Pour des valeurs scalaires continues telles que des heures ou des nombres, nous devons diviser la plage continue en un nombre gérable de valeurs discrètes, et `bin` (qui représente simplement la fonction `floor` d’arrondi vers le bas habituelle) est le plus simple moyen d’y parvenir.
+Notez que nous utilisons la fonction `bin` (également appelée `floor`). Si nous avions simplement utilisé `by timestamp`, chaque ligne d’entrée apparaîtrait dans un groupe individuel. Pour des valeurs scalaires continues telles que des heures ou des nombres, nous devons diviser la plage continue en un nombre gérable de valeurs discrètes, et `bin` (qui représente simplement la fonction `floor` habituelle d’arrondi à la valeur inférieure) est le plus simple moyen d’y parvenir.
 
 Nous pouvons utiliser la même technique pour réduire les plages de chaînes :
 
 
 ![](./media/app-insights-analytics-tour/440.png)
 
-Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de résultat, dans les expressions d’agrégation ou la clause by.
+Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de résultat, dans les expressions d’agrégation ou dans la clause by.
 
 ## Décompte des données échantillonnées
 
-`sum(itemCount)` est l’agrégation recommandée pour compter les événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. En revanche, quand [l’échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights. Ainsi, pour chaque point de données que vous voyez, il existe `itemCount` événements.
+`sum(itemCount)` est l’agrégation recommandée pour le comptage des événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. En revanche, quand [l’échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights. Ainsi, pour chaque point de données que vous voyez, il existe `itemCount` événements.
 
 Par exemple, si l’échantillonnage ignore 75 % des événements d’origine, itemCount == 4 dans les enregistrements conservés. Autrement dit, pour chaque enregistrement conservé, il existe quatre enregistrements d’origine.
 
@@ -221,10 +223,10 @@ Par conséquent, le fait de résumer itemCount donne une bonne estimation du nom
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-Il existe également une agrégation `count()`, pour les cas où vous souhaitez réellement compter le nombre de lignes dans un groupe.
+Il existe également une agrégation `count()` (et une opération de comptage), pour les cas où vous souhaitez réellement compter le nombre de lignes dans un groupe.
 
 
-Il existe une gamme de [fonctions d’agrégation](app-insights-analytics-reference.md#aggregations).
+Il existe toute une gamme de [fonctions d’agrégation](app-insights-analytics-reference.md#aggregations).
 
 
 ## Affichage des résultats dans un graphique
@@ -249,9 +251,9 @@ Nous pouvons aller au-delà de la vue de table. Examinons les résultats dans la
 Bien que nous n’ayons pas trié les résultats par heure (comme le montre l’affichage de table), le graphique affiche toujours les dates dans l’ordre approprié.
 
 
-## [Où](app-insights-analytics-reference.md#where-operator) : filtrage sur une condition
+## [Where](app-insights-analytics-reference.md#where-operator) : filtrage sur une condition
 
-Si vous avez configuré le suivi Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines données télémétriques de la base de données proviennent de navigateurs.
+Si vous avez configuré la surveillance Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines données télémétriques de la base de données proviennent de navigateurs.
 
 Examinons uniquement les exceptions signalées à partir des navigateurs :
 
@@ -265,11 +267,11 @@ Examinons uniquement les exceptions signalées à partir des navigateurs :
 
 ![](./media/app-insights-analytics-tour/250.png)
 
-L’opérateur `where` prend une expression booléenne. Voici quelques points clés les concernant :
+L’opérateur `where` utilise une expression booléenne. Voici quelques points clés les concernant :
 
  * `and`, `or` : opérateurs booléens
- * `==`, `<>` : égal et non égal
- * `=~`, `!=` : chaîne ne respectant pas la casse (égal et non égal). Il existe de nombreux autres opérateurs de comparaison de chaîne.
+ * `==`, `<>` : égal à et différent de
+ * `=~`, `!=` : chaîne ne respectant pas la casse (égal à et différent de). Il existe de nombreux autres opérateurs de comparaison de chaîne.
 
 Consultez l’ensemble des informations sur les [expressions scalaires](app-insights-analytics-reference.md#scalars).
 
@@ -283,7 +285,7 @@ Rechercher les requêtes ayant échoué :
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` a le type chaîne, nous devons donc le [convertir](app-insights-analytics-reference.md#casts) pour effectuer une comparaison numérique.
+`responseCode` présente le type chaîne. Nous devons donc en [convertir le type](app-insights-analytics-reference.md#casts) pour effectuer une comparaison numérique.
 
 Résumer les différentes réponses :
 
@@ -314,7 +316,7 @@ L’axe des x des graphiques en courbes doit être de type DateTime.
 
 ## Séries multiples 
 
-Utilisez plusieurs valeurs dans une clause `summarize by` pour créer une ligne distincte pour chaque combinaison de valeurs :
+Utilisez plusieurs valeurs dans une clause `summarize by` afin de créer une ligne distincte pour chaque combinaison de valeurs :
 
 ```AIQL
 
@@ -442,7 +444,7 @@ Pour obtenir une répartition distincte pour chaque pays, il suffit simplement d
 
 Nous avons accès à plusieurs tables, y compris les demandes et les exceptions.
 
-Pour rechercher les exceptions liées à une requête qui a retourné une réponse d’échec, nous pouvons joindre les tables sur `session_Id` :
+Pour rechercher les exceptions liées à une requête qui a renvoyé une réponse d’échec, nous pouvons joindre les tables sur `session_Id` :
 
 ```AIQL
 
@@ -479,4 +481,4 @@ Utilisez [let](./app-insights-analytics-reference.md#let-statements) pour sépar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

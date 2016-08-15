@@ -1,7 +1,7 @@
 <properties
 pageTitle="Dropbox | Microsoft Azure"
 description="Créer des applications logiques avec Azure App Service. Connectez-vous à Dropbox pour gérer vos fichiers. Vous pouvez exécuter différentes actions, comme charger, mettre à jour, obtenir et supprimer des fichiers dans Dropbox."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -433,4 +433,4 @@ Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des code
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Connexion à la passerelle de données locale à partir d’applications logiques | Microsoft Azure"
    description="Informations sur la création d’une connexion à la passerelle de données locale à partir d’une application logique."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -70,4 +70,4 @@ La connexion devrait maintenant être correctement configurée pour une utilisat
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

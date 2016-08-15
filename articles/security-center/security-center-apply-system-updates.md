@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Appliquer les mises à jour système dans Azure Security Center
@@ -60,4 +60,4 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

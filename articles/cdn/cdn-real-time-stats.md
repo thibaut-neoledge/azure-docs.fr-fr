@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Statistiques en temps réel"
-	description="Statistiques en temps réel dans Microsoft Azure CDN. Les statistiques en temps réel fournissent des données en temps réel sur les performances de notre CDN lors de la diffusion de contenu à vos clients."
+	pageTitle="Statistiques en temps réel dans Azure CDN | Microsoft Azure"
+	description="Les statistiques en temps réel fournissent des données en temps réel sur les performances de notre CDN Azure lors de la diffusion de contenu à vos clients."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Statistiques en temps réel dans Microsoft Azure CDN
@@ -22,81 +22,75 @@
 
 ## Vue d'ensemble
 
-Ce document explique les statistiques en temps réel dans Microsoft Azure CDN. Cette fonctionnalité fournit des données en temps réel sur les performances de notre CDN lors de la diffusion de contenu à vos clients.
+Ce document explique les statistiques en temps réel dans Microsoft Azure CDN. Cette fonctionnalité fournit des données en temps réel (par exemple, relatives à la bande passante, aux états du cache et aux connexions simultanées) à votre profil CDN lors de la diffusion de contenu à vos clients. Elle permet une surveillance continue de l’intégrité de votre service à tout moment, y compris lors des événements de mise en service.
 
-Les graphiques suivants sont disponibles quand vous consultez les statistiques en temps réel pour les plateformes HTTP :
+Les graphiques suivants sont disponibles :
 
 * [Bande passante](#bandwidth)
 * [Codes d’état](#status-codes)
 * [États du cache](#cache-statuses)
 * [Connexions](#connections)
 
-> [AZURE.NOTE] Chacun des graphiques ci-dessus affiche les statistiques en temps réel pendant une période donnée. Une fenêtre glissante de données s’affiche une fois le délai spécifié écoulé. Cela signifie que les anciennes données sont supprimées du graphique pour laisser la place aux nouvelles données. La durée de cette fenêtre glissante peut être définie par l’option d’intervalle de temps des graphiques.
 
 ## Accès à des statistiques en temps réel
 
-1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer**.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN.
 
-	![Bouton Gérer du panneau de profil CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
+	![Panneau du profil CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
+
+2. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer**.
+
+	![Bouton de gestion du panneau de profil CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
 
 	Le portail de gestion CDN s’ouvre.
 
-2. Pointez sur l’onglet **Analyse**, puis sur le menu volant **Statistiques en temps réel**. Cliquez sur **HTTP Large Platform**.
+3. Pointez sur l’onglet **Analyse**, puis sur le menu volant **Statistiques en temps réel**. Cliquez sur **HTTP Large Object**.
 
-	Les options de rapport sont affichées.
+	![Portail de gestion CDN](./media/cdn-real-time-stats/cdn-premium-portal.png)
+
+	Les graphiques de statistiques en temps réel s’affichent.
+	
+Chacun de ces graphiques affiche des statistiques en temps réel pour la période sélectionnée. L’affichage débute dès le chargement de la page. Les graphiques se mettent automatiquement à jour après quelques secondes. Le bouton **Actualiser le graphique**, le cas échéant, permet d’effacer le graphique. En cliquant sur ce bouton, seules les données sélectionnées s’afficheront.
 
 ## Bande passante
 
-Le graphique Bande passante montre la quantité de bande passante utilisée pour la plateforme actuelle sur une période spécifiée. La partie ombrée du graphique indique l’utilisation de la bande passante. La quantité exacte de bande passante en cours d’utilisation s’affiche directement sous le graphique linéaire.
+![Graphique Bande passante](./media/cdn-real-time-stats/cdn-bandwidth.png)
 
-> [AZURE.NOTE] Les unités utilisées pour indiquer l’utilisation de la bande passante sont les suivantes : bits par seconde (bit/s), Kilobits par seconde (Kbits/s), mégabits par seconde (Mbits/s) ou Gigabits par seconde (Gbits/s).
+Le graphique **Bande passante** montre la quantité de bande passante utilisée pour la plateforme actuelle sur l’intervalle de temps sélectionné. La partie ombrée du graphique indique l’utilisation de la bande passante. La quantité exacte de bande passante en cours d’utilisation s’affiche directement sous le graphique linéaire.
 
 ## Codes d’état
 
-Le graphique Codes d’état se compose de lignes en couleur qui indiquent la fréquence à laquelle les codes de réponse HTTP se produisent sur une période spécifiée. Le côté gauche du graphique (axe y) indique la fréquence à laquelle un code d’état est retourné pour les requêtes, tandis que la partie inférieure du graphique (axe x) indique la progression du temps.
+![Graphique Code d’état](./media/cdn-real-time-stats/cdn-status-codes.png)
 
-La liste des codes d’état s’affiche directement au-dessus du graphique. Cette liste indique chaque code d’état pouvant être inclus dans le graphique linéaire et le nombre actuel d’occurrences par seconde pour ce code d’état. Par défaut, une ligne s’affiche pour chacun de ces codes d’état dans le graphique. Toutefois, vous pouvez choisir de surveiller uniquement les codes d’état qui ont une importance spéciale pour votre configuration CDN. Pour ce faire, vous pouvez cocher uniquement les options de code d’état souhaitées et désactiver toutes les autres. Une fois que les codes d’état qui seront affichés dans le graphique vous conviennent, cliquez sur Actualiser le graphique. Les codes d’état écartés ne sont alors plus inclus dans le graphique.
+Le graphique **Codes d’état** indique la fréquence à laquelle certains codes de réponse HTTP se produisent sur l’intervalle de temps sélectionné.
 
-> [AZURE.NOTE] L’option **Actualiser le graphique** efface le graphique. Ensuite, seuls les codes d’état sélectionnés s’affichent.
+> [AZURE.TIP]  Pour obtenir une description de chaque option de code d’état HTTP, consultez la page [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Codes d’état HTTP d’Azure CDN).
 
-Chaque option de code d’état est décrite ci-dessous.
+La liste des codes d’état HTTP s’affiche directement au-dessus du graphique. Cette liste indique chaque code d’état pouvant être inclus dans le graphique linéaire et le nombre actuel d’occurrences par seconde pour ce code d’état. Par défaut, une ligne s’affiche pour chacun de ces codes d’état dans le graphique. Toutefois, vous pouvez choisir de surveiller uniquement les codes d’état qui ont une importance spéciale pour votre configuration CDN. Pour ce faire, cochez les codes d’état souhaité et désactivez toutes les autres options, puis cliquez sur **Actualiser le graphique**.
 
-Nom | Description
------|------------
-Nombre total de correspondances par seconde | Détermine si le nombre total de requêtes par seconde pour la plateforme actuelle apparaît dans le graphique. Vous pouvez utiliser cette option comme indicateur de base pour déterminer le pourcentage du nombre total de correspondances que comprend un code d’état particulier.
-2xx par seconde | Détermine si le nombre total de codes d’état 2xx (par exemple, 200, 201, 202, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce type de code d’état indique que la requête a été correctement remise au client.
-304 par seconde | Détermine si le nombre total de codes d’état 304 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la ressource demandée n’a pas été modifiée depuis sa dernière récupération par le client HTTP.
-3xx par seconde | Détermine si le nombre total de codes d’état 3xx (par exemple, 300, 301, 302, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Cette option exclut les occurrences des codes d’état 304. Ce type de code d’état indique que la requête a généré une redirection.
-403 par seconde | Détermine si le nombre total de codes d’état 403 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la requête a été considérée comme non autorisée. L’une des causes possibles de ce code d’état est liée à un utilisateur non autorisé qui demande une ressource protégée par l’authentification basée sur les jetons.
-404 par seconde | Détermine si le nombre total de codes d’état 404 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la ressource demandée est introuvable.
-4xx par seconde | Détermine si le nombre total de codes d’état 4xx (par exemple, 400, 401, 402, 405, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Cette option exclut les occurrences des codes d’état 403 et 404. Ce code d’état indique que la ressource demandée n’a pas été remise au client.
-5xx par seconde | Détermine si le nombre total de codes d’état 5xx (par exemple, 500, 501, 502, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique.
-Autre par seconde | Détermine si le nombre total d’occurrences de tous les autres codes d’état figure dans le graphique.
-
-Vous pouvez également choisir de masquer temporairement les données consignées pour un code d’état spécifique. Vous pouvez effectuer cela à partir de la zone située directement sous le graphique en décochant l’option de code d’état souhaitée. Le code d’état sélectionné est immédiatement masqué dans le graphique. Le fait de cocher cette option de code d’état la fait apparaître à nouveau.
-
-> [AZURE.NOTE] Les options en couleur situées directement sous le graphique affectent uniquement ce qui est affiché dans le graphique. Elles n’ont aucune incidence sur le fait que le graphique garde une trace de ce code d’état ou non.
+Vous pouvez masquer temporairement les données consignées pour un code d’état spécifique. Dans la légende qui se trouve directement sous le graphique, cliquez sur le code d’état que vous souhaitez masquer. Le code d’état est immédiatement masqué dans le graphique. Pour le faire réapparaître, cochez de nouveau cette option de code d’état.
 
 ## États du cache
 
-Le graphique États du cache se compose de lignes en couleur qui indiquent la fréquence à laquelle certains types d’états du cache se produisent pendant une période spécifiée. Le côté gauche du graphique (axe y) indique la fréquence à laquelle un état du cache est retourné pour les requêtes, tandis que la partie inférieure du graphique (axe x) indique la progression du temps.
+![Graphique États du cache](./media/cdn-real-time-stats/cdn-cache-status.png)
 
-La liste des états du cache s’affiche directement au-dessus du graphique. Cette liste indique chaque état du cache pouvant être inclus dans le graphique linéaire et le nombre actuel d’occurrences par seconde pour cet état du cache. Par défaut, une ligne s’affiche pour chacun de ces états du cache dans le graphique. Toutefois, vous pouvez choisir de surveiller uniquement les états du cache qui ont une importance spéciale pour votre configuration CDN. Pour ce faire, vous pouvez cocher uniquement les options d’état du cache souhaitées et désactiver toutes les autres. Une fois que les états du cache qui seront affichés dans le graphique vous conviennent, cliquez sur Actualiser le graphique. Les codes d’état écartés ne sont alors plus inclus dans le graphique.
+Le graphique **États du cache** indique la fréquence à laquelle certains types d’états du cache se produisent sur l’intervalle de temps sélectionné.
 
-> [AZURE.NOTE] L’option **Actualiser le graphique** efface le graphique. Ensuite, seuls les états du cache sélectionnés s’affichent.
+> [AZURE.TIP]  Pour obtenir une description de chaque option de code d’état du cache, consultez la page [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Codes d’état du cache d’Azure CDN).
 
-Vous pouvez également choisir de masquer temporairement les données consignées pour un code de réponse spécifique. Vous pouvez effectuer cela en décochant l’option de code de réponse souhaitée dans la zone située directement sous le graphique. Le code de réponse sélectionné est immédiatement masqué dans le graphique. Le fait de cocher cette option de code de réponse la fait apparaître à nouveau.
+La liste des codes d’état du cache s’affiche directement au-dessus du graphique. Cette liste indique chaque code d’état pouvant être inclus dans le graphique linéaire et le nombre actuel d’occurrences par seconde pour ce code d’état. Par défaut, une ligne s’affiche pour chacun de ces codes d’état dans le graphique. Toutefois, vous pouvez choisir de surveiller uniquement les codes d’état qui ont une importance spéciale pour votre configuration CDN. Pour ce faire, cochez les codes d’état souhaité et désactivez toutes les autres options, puis cliquez sur **Actualiser le graphique**.
 
-> [AZURE.NOTE] Les options en couleur situées directement sous le graphique affectent uniquement ce qui est affiché dans le graphique. Elles n’ont aucune incidence sur le fait que le graphique garde une trace de ce code d’état ou non.
+Vous pouvez masquer temporairement les données consignées pour un code d’état spécifique. Dans la légende qui se trouve directement sous le graphique, cliquez sur le code d’état que vous souhaitez masquer. Le code d’état est immédiatement masqué dans le graphique. Pour le faire réapparaître, cochez de nouveau cette option de code d’état.
 
 ## Connexions
 
-Cette représentation graphique du nombre moyen de connexions par minute vous permet d’afficher le nombre établi de connexions à vos serveurs. Une connexion se compose de toutes les requêtes de ressource qui traversent notre CDN.
+![Graphique Connexions](./media/cdn-real-time-stats/cdn-connections.png)
 
-## Voir aussi
-* [Vue d'ensemble d'Azure CDN](cdn-overview.md)
-* [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
-* [Rapports HTTP avancés](cdn-advanced-http-reports.md)
-* [Analyser les performances de serveurs Edge](cdn-edge-performance.md)
+Ce graphique indique le nombre de connexions qui ont été établies pour vos serveurs Edge. Chaque demande de ressource qui traverse notre CDN entraîne une connexion.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Étapes suivantes
+
+- Aller plus loin en vous familiarisant avec les [rapports HTTP avancés](cdn-advanced-http-reports.md)
+- Analyser les [modes d’utilisation](cdn-analyze-usage-patterns.md)
+
+<!---HONumber=AcomDC_0803_2016-->

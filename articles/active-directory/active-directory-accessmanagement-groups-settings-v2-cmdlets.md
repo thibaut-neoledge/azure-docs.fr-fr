@@ -219,10 +219,8 @@ Si vous souhaitez supprimer un propriétaire d’un groupe, utilisez Remove-Azur
 
 Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-Pour des instructions supplémentaires fournies par le responsable de programme Microsoft Rob de Jong, consultez le site [Rob’s Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad) (Blog de Rob dédié aux groupes).
-
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

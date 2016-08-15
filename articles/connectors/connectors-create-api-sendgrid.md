@@ -1,7 +1,7 @@
 <properties
 pageTitle="SendGrid | Microsoft Azure"
 description="Créer des applications logiques avec Azure App Service. Le fournisseur de connexion SendGrid vous permet d’envoyer un message électronique et de gérer les listes de destinataires."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -192,4 +192,4 @@ Ajouter un destinataire à une liste : ajouter un destinataire individuel à une
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

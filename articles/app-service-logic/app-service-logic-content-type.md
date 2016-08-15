@@ -1,7 +1,7 @@
 <properties
    pageTitle="Gestion du type de contenu des applications logiques | Microsoft Azure"
    description="Découvrez comment les applications logiques gèrent les types de contenu au moment de la conception et de l’exécution"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -93,4 +93,4 @@ Dans la mesure où ce contenu n’est pas du texte brut ou de type JSON, il est 
 
 Où `$content` est la charge utile encodée sous la forme d’une chaîne en base64 pour préserver toutes les données. Dans la mesure où il n’existe actuellement pas de fonction native pour les données de formulaire, nous pouvons toujours utiliser ces données dans un flux de travail en y accédant manuellement avec une fonction comme `@string(body('formdataAction'))`. Pour que notre demande sortante ait également l’en-tête de type de contenu `application/x-www-url-formencoded`, nous pouvons simplement l’ajouter au corps de l’action sans transtypage comme suit : `@body('formdataAction')`. Toutefois, cette opération ne fonctionne que si le corps est le seul paramètre dans l’entrée `body`. Si vous essayez d’effectuer `@body('formdataAction')` à l’intérieur d’une demande `application/json`, vous obtenez une erreur d’exécution, car elle envoie le corps codé.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

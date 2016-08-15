@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/30/2016"
 	ms.author="tarcher"/>
 
 # Remise continue pour Cloud Services dans Azure
@@ -68,7 +68,8 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 5.  Spécifiez le fichier de configuration de service Lorsque vous générez un package avec MSBuild, le fichier de configuration de service local est inclus par défaut. Pour inclure un autre fichier de configuration de service, définissez la propriété TargetProfile de la commande MSBuild, comme dans l'exemple suivant :
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
-6.  Spécifiez l'emplacement de la sortie. Définissez le chemin d’accès avec l’option /p:PublishDir=*Directory*\\, en incluant la barre oblique inverse de fin, comme dans l’exemple suivant :
+
+6.  Spécifiez l'emplacement de la sortie. Définissez le chemin d’accès avec l’option /p:PublishDir=*Directory*\\, en incluant la barre oblique inverse de fin, comme dans l’exemple suivant :
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
@@ -82,7 +83,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 1.  Dans Visual Studio sur votre ordinateur de développement, dans le menu Affichage, choisissez **Team Explorer**, ou choisissez Ctrl+\\, Ctrl+M. Dans la fenêtre Team Explorer, développez le nœud **Builds** ou choisissez la page **Builds**, puis choisissez **Nouvelle définition de build**.
 
-    ![][0]
+    ![Option Nouvelle définition de build][0]
 
 2.  Choisissez l'onglet **Déclencheur** et spécifiez les conditions pour lesquelles le package doit être généré. Par exemple, spécifiez **Intégration continue** pour générer le package à chaque intégration de contrôle du code source.
 
@@ -94,7 +95,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 6.  Choisissez **Arguments MSBuild** et définissez les arguments de ligne de commande MSBuild comme décrit à l'étape 2 plus haut. Par exemple, entrez **/t:Publish /p:PublishDir=\\\myserver\\drops\** pour générer un package et copier les fichiers associés dans \\\myserver\\drops\\ :
 
-    ![][2]
+    ![Arguments MSBuild][2]
 
     **Remarque :** le fait de copier les fichiers dans un partage public simplifie le déploiement manuel des packages à partir de votre ordinateur de développement.
 
@@ -144,7 +145,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-    Cette opération est normalement suivie d'un test de vérification et d'un échange d'adresses IP virtuelles. Cet échange d’adresses IP virtuelles peut se faire via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) ou à l’aide de la cmdlet Move-Deployment.
+    Cette opération est normalement suivie d'un test de vérification et d'un échange d'adresses IP virtuelles. Cet échange d’adresses IP virtuelles peut se faire via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) ou à l’aide de l’applet de commande Move-Deployment.
 
     **Exemple de scénario 2 :** déploiement continu d’un service de test dédié dans l’environnement de production
 
@@ -203,7 +204,7 @@ Cette étape facultative connecte TFS Team Build au script créé à l'étape 4
         PublishScriptLocation
         ServiceName
 
-    ![][3]
+    ![Liste des arguments][3]
 
     Le code XAML correspondant ressemble à ceci :
 
@@ -255,7 +256,7 @@ Cette étape facultative connecte TFS Team Build au script créé à l'étape 4
 
         -   PublishScriptFilePath, de type String
 
-            ![][4]
+            ![Nouvelles variables][4]
 
     4.  Si vous utilisez TFS 2012 ou version antérieure, ajoutez une activité ConvertWorkspaceItem au début de la nouvelle séquence. Si vous utilisez TFS 2013 ou version ultérieure, ajoutez une activité GetLocalPath au début de la nouvelle séquence. Pour une activité ConvertWorkspaceItem, définissez les propriétés comme suit : Direction=ServerToLocal, DisplayName=’Convert publish script filename’, Input=’ PublishScriptLocation’, Result=’PublishScriptFilePath’, Workspace=’Workspace’. Pour une activité GetLocalPath, définissez la propriété IncomingPath sur « PublishScriptLocation » et le résultat sur « PublishScriptFilePath ». Cette activité convertit le chemin vers le script de publication des emplacements de serveur TFS (si applicable) en chemin d'accès vers le disque local.
 
@@ -283,7 +284,7 @@ Cette étape facultative connecte TFS Team Build au script créé à l'étape 4
 
     Le résultat final des activités du workflow de publication doit ressembler à ceci dans le concepteur :
 
-    ![][5]
+    ![Activités de workflow][5]
 
     Le résultat final des activités du workflow de publication doit ressembler à ceci dans le XAML :
 
@@ -342,7 +343,7 @@ Cette étape facultative connecte TFS Team Build au script créé à l'étape 4
 
     8.  SubscriptionName = 'default'
 
-    ![][6]
+    ![Valeurs de propriétés des paramètres][6]
 
 10. Enregistrez les modifications apportées à la définition de build.
 
@@ -572,4 +573,4 @@ Pour activer le débogage à distance quand vous utilisez la remise continue, co
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

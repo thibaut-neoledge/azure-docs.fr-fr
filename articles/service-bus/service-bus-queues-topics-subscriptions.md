@@ -174,4 +174,4 @@ Consultez la rubrique avancée suivante pour obtenir d’autres informations et 
 - [Exemple de filtres de rubrique](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Messagerie répartie : exemples de filtres avancés](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

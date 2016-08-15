@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="05/10/2016"
-  ms.author="jimpark;trinadhk;pullabhk"/>
+  ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
 
@@ -110,7 +110,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     ![Assistant Installation de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. Dans l’écran d’accueil, cliquez sur **Suivant**. Vous êtes redirigé vers la section *Vérification des conditions préalables*. Sur cet écran, cliquez sur le bouton **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour Azure Backup Server sont respectées. Si c’est le cas, un message indiquant que la machine respecte les conditions préalables requises s’affiche. Cliquez sur le bouton **Suivant**.
+2. Dans l’écran d’accueil, cliquez sur **Suivant**. Vous êtes redirigé vers la section *Vérification des conditions préalables*. Sur cet écran, cliquez sur le bouton **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour Azure Backup Server sont respectées. Si c’est le cas, un message indiquant que la machine respecte les conditions préalables requises s’affiche. Cliquez sur le bouton **Suivant**.
 
     ![Azure Backup Server - Accueil et contrôle des conditions préalables requises](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
@@ -214,4 +214,4 @@ Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion d
 - [Sauvegarde de serveur SharePoint](backup-azure-backup-sharepoint.md)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

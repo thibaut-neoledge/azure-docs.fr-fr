@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/17/2016" 
+    ms.date="07/27/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Cherwell
@@ -62,11 +62,13 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 7.  Dans le volet de résultats, sélectionnez **Cherwell**, puis cliquez sur **Terminer** pour ajouter l’application.
 ##Configuration de l'authentification unique
 
+	![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798996.png "Cherwell")
+
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Cherwell avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **Cherwell**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, accédez à la page d’intégration d’applications **Cherwell**, puis cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configurer l’authentification unique")
 
@@ -78,17 +80,21 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à **Cherwell** (par exemple, **https://pictdev.cherwellondemand.com/cherwellclient*).
-    2.  Cliquez sur **Suivant**
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à **Cherwell** (par exemple, *https://\<nom de l’entreprise>.cherwellondemand.com/cherwellclient*).
+
+    b. Cliquez sur **Suivant**
 
 4.  Dans la page **Configurer l’authentification unique sur Cherwell**, procédez comme suit :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configurer l’authentification unique")
 
-    1.  Cliquez sur **Télécharger le certificat**, puis enregistrez le certificat en local sur votre ordinateur.
-    2.  Copiez l’**URL du fournisseur d’identité**.
-    3.  Copiez l’**URL du service d’authentification unique**.
-    4.  Cliquez sur **Next**.
+    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le certificat en local sur votre ordinateur.
+
+    b. Copiez l’**URL du fournisseur d’identité**.
+
+    c. Copiez l’**URL du service d’authentification unique**.
+
+    d. Cliquez sur **Next**.
 
 5.  Envoyez le certificat téléchargé, l’**URL du fournisseur d’identité** et l’**URL du service d’authentification unique** à l’équipe de support technique Cherwell.
 
@@ -97,6 +103,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configurer l’authentification unique")
+
 ##Configuration de l'approvisionnement des utilisateurs
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Cherwell, vous devez les approvisionner dans Cherwell. En l’occurrence, les comptes d’utilisateur doivent être créés par l’équipe de support technique Cherwell.
@@ -121,4 +128,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

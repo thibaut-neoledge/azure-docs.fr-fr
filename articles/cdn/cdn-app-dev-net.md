@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Prise en main du développement Azure CDN
@@ -24,7 +24,7 @@
 
 Vous pouvez utiliser la [bibliothèque Azure CDN pour .NET](https://msdn.microsoft.com/library/mt657769.aspx) pour automatiser la création et la gestion des points de terminaison et profils CDN. Ce didacticiel présente la création d’une application console .NET simple, qui exécute plusieurs des opérations disponibles. Il n’a pas vocation à décrire en détail tous les aspects de la bibliothèque Azure CDN pour .NET.
 
-Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) est disponible gratuitement en téléchargement.
+Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) est disponible gratuitement en téléchargement.
 
 > [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) est disponible en téléchargement sur MSDN.
 
@@ -85,7 +85,7 @@ Rédigeons la structure de base de notre programme.
 	private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
 	```
 
-3. De plus, au niveau de la classe, vous devez définir ces deux variables. Nous les utiliserons ultérieurement pour déterminer si notre profil et notre point de terminaison existent déjà.
+3. De plus, au niveau de la classe, vous devez définir ces deux variables. Nous les utiliserons ultérieurement pour déterminer si notre profil et notre point de terminaison existent déjà.
 
 	```csharp
 	static bool profileAlreadyExists = false;
@@ -325,7 +325,7 @@ Nous pouvons maintenant compiler et exécuter le programme en cliquant sur le bo
 
 Lorsque le programme atteint l’invite ci-dessus, vous pouvez revenir à votre groupe de ressources dans le portail Azure et vérifier que le profil a été créé.
 
-![Vous avez réussi !](./media/cdn-app-dev-net/cdn-success.png)
+![Vous avez réussi !](./media/cdn-app-dev-net/cdn-success.png)
 
 Nous pouvons alors confirmer les invites pour exécuter le reste du programme.
 
@@ -337,4 +337,4 @@ Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [t�
 
 Pour trouver de la documentation supplémentaire sur la bibliothèque Azure CDN Management Library pour .NET, consultez la [référence sur MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

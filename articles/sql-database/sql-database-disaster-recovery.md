@@ -3,7 +3,7 @@
    description="Découvrez comment récupérer une base de données en cas de panne d’un centre de données régional grâce aux fonctionnalités de géo-réplication active et de restauration géographique du service Base de données SQL Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="carlrabeler" 
+   authors="CarlRabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -112,4 +112,4 @@ Si la fonction d’audit doit accéder à votre base de données, vous devez l�
 - Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

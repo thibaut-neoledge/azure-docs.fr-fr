@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur QuickBooks dans des applications logiques | Microsoft Azure App Service"
    description="Comment créer et configurer le connecteur QuickBooks ou une application API et l’utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -144,4 +144,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

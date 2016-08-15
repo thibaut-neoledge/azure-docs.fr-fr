@@ -1,7 +1,7 @@
 <properties
    pageTitle="Installation de la passerelle de données locale pour les applications logiques | Microsoft Azure"
    description="Vous trouverez ici des informations sur l’installation de la passerelle de données locale pour une utilisation dans une application logique."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -221,4 +221,4 @@ Les journaux de passerelle de gestion des données et PowerBIGateway figurent so
 - [Fonctionnalités d’intégration d'entreprise](app-service-logic-enterprise-integration-overview.md)
 - [Connecteurs d’applications logiques](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

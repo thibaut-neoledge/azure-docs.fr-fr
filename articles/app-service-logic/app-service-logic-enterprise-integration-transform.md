@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Vue d’ensemble d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Utilisez les fonctionnalités d’Enterprise Integration Pack pour activer les processus métier et les scénarios d’intégration à l’aide de Microsoft Azure App Service" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -74,4 +74,4 @@ Vous pouvez maintenant tester votre transformation en effectuant une demande au 
 - [En savoir plus sur les mappages](./app-service-logic-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

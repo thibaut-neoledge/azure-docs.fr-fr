@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Utilisation de certificats avec Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Découvrez comment utiliser les certificats avec Enterprise Integration Pack et vos applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -73,4 +73,4 @@ Après avoir téléchargé un certificat, vous pourrez l'utiliser pour sécurise
 - [Création d'une application logique avec fonctionnalités B2B](./app-service-logic-enterprise-integration-b2b.md)
 - [En savoir plus sur Azure Key Vault](../key-vault/key-vault-get-started.md "En savoir plus sur le coffre de clés")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

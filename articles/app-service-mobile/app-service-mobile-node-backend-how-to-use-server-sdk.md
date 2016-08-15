@@ -132,7 +132,7 @@ Lorsque vous créez un serveur principal Node.js Mobile App à l’aide du panne
 
 1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
-2. Suivez les étapes de la rubrique [Activer le référentiel d’application web](../app-service-web/web-sites-publish-source-control.md#Step4) pour activer le référentiel Git pour votre site principal, en prenant note du nom d’utilisateur et du mot de passe utilisés pour le déploiement.
+2. Suivez les étapes de la rubrique [Activer le référentiel de l’application App Service](../app-service-web/web-sites-deploy-local-git.md#Step3) pour activer le référentiel Git pour votre site principal, en prenant note du nom d’utilisateur et du mot de passe utilisés pour le déploiement.
 
 3. Dans le panneau de votre serveur principal Mobile App, prenez note du paramètre **URL de clone Git**.
 
@@ -733,7 +733,7 @@ Chaque paramètre correspond à l’un des verbes RESTful standard : GET, POST,
 
 ### <a name="howto-customapi-auth"></a>Procédure : exiger une authentification pour l’accès à une API personnalisée
 
-Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
+Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
 
 	var api = {
 		get: function (req, res, next) {
@@ -840,12 +840,12 @@ Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal,
 
 Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
 
-+ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
-+ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
-+ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
-+ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-+ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
-+ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
++ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
++ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
++ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
++ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
++ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
++ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
 
 ###<a name="work-easy-apis"></a>Procédure : utiliser l’outil Easy APIs dans le portail Azure
 
@@ -917,4 +917,4 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

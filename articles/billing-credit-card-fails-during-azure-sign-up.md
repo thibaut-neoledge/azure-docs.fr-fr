@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Carte de crédit ou de débit refusée lors de l’abonnement | Microsoft Azure"
 	description="Décrit les causes courantes des problèmes d’inscription à Microsoft Azure liés au refus d’une carte de crédit ou de débit."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	keywords="carte de crédit refusée, carte de débit refusée, votre carte de crédit a été refusée, carte de crédit non acceptée"/>
 
 <tags
@@ -41,4 +41,4 @@ Pour utiliser l’option de paiement par facturation, vous devez représenter un
 
 Pour démarrer le processus de configuration d’une facture, consultez [Facturation Azure - Procédure de facturation](https://azure.microsoft.com/pricing/invoicing/) pour plus d’informations.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

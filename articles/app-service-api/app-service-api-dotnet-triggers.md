@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Déclencheurs d’application API App Service | Microsoft Azure" 
 	description="Comment implémenter des déclencheurs dans une application API dans Azure App Service" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
@@ -54,10 +54,10 @@ Les informations suivantes concernant les paquets de demande et de réponse mont
         - triggerState : ce paramètre facultatif permet aux clients de spécifier leur état, afin que le déclencheur d'interrogation puisse décider correctement s'il faut ou non retourner la notification, en fonction de l'état spécifié.
         - Paramètres spécifiques de l'API
 - Réponse
-    - Code d'état **200** : la demande est valide et il existe une notification provenant du déclencheur. Le contenu de la notification sera le corps de la réponse. Un en-tête « Retry-After » dans la réponse indique que des données de notification supplémentaires doivent être récupérées avec un appel de demande suivant.
-    - Code d'état **202** : la demande est valide, mais il n'existe pas de nouvelle notification provenant du déclencheur.
-    - Code d'état **4xx** : la demande n'est pas valide. Le client ne doit pas recommencer la demande.
-    - Code d'état **5xx** : la demande a entraîné une erreur de serveur interne et/ou un problème temporaire. Le client doit recommencer la demande.
+    - Code d'état **200** : la demande est valide et il existe une notification provenant du déclencheur. Le contenu de la notification sera le corps de la réponse. Un en-tête « Retry-After » dans la réponse indique que des données de notification supplémentaires doivent être récupérées avec un appel de demande suivant.
+    - Code d'état **202** : la demande est valide, mais il n'existe pas de nouvelle notification provenant du déclencheur.
+    - Code d'état **4xx** : la demande n'est pas valide. Le client ne doit pas recommencer la demande.
+    - Code d'état **5xx** : la demande a entraîné une erreur de serveur interne et/ou un problème temporaire. Le client doit recommencer la demande.
 
 L'extrait de code suivant est un exemple de la façon d'implémenter un déclencheur d'interrogation.
 
@@ -109,9 +109,9 @@ Les informations suivantes concernant les paquets de demande et de réponse mont
         - callbackUrl : obligatoire. URL du rappel à appeler quand l'événement se déclenche. L'appel est un simple appel HTTP POST.
         - Paramètres spécifiques de l'API
 - Réponse
-    - Code d'état **200** : la demande d'inscription du client a réussi.
-    - Code d'état **4xx** : la demande n'est pas valide. Le client ne doit pas recommencer la demande.
-    - Code d'état **5xx** : la demande a entraîné une erreur de serveur interne et/ou un problème temporaire. Le client doit recommencer la demande.
+    - Code d'état **200** : la demande d'inscription du client a réussi.
+    - Code d'état **4xx** : la demande n'est pas valide. Le client ne doit pas recommencer la demande.
+    - Code d'état **5xx** : la demande a entraîné une erreur de serveur interne et/ou un problème temporaire. Le client doit recommencer la demande.
 - Rappel
     - Méthode HTTP : POST
     - Corps de la demande : contenu de la notification.
@@ -342,4 +342,4 @@ Voici un exemple de la façon dont cette classe peut être implémentée pour fa
     }
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

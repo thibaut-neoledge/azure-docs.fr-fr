@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/30/2016" 
 	ms.author="tarcher"/>
 
 # Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
@@ -30,15 +30,15 @@ Cet article présente la méthode de profilage par échantillonnage de l'UC, qui
 
 Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**. Vous pouvez également référencer http://referencesource.microsoft.com/symbols, qui est susceptible d’inclure d’autres fichiers de symboles.
 
-![][4]
+![Options de symbole][4]
 
 Si vous le souhaitez, vous pouvez simplifier les rapports générés par le profileur en choisissant Uniquement mon code. Lorsque cette option est activée, les piles d'appels de fonction sont simplifiées afin que les appels purement internes aux bibliothèques et à .NET Framework soient masqués dans les rapports. Dans le menu **Outils**, choisissez **Options**. Développez le nœud **Outils de performances** et choisissez **Général**. Activez la case à cocher **Activer Uniquement mon code pour les rapports du profileur**.
 
-![][17]
+![Options Uniquement mon code][17]
 
 Vous pouvez utiliser ces instructions dans un projet existant ou un nouveau projet. Si vous créez un projet pour tester une des techniques décrites plus bas, choisissez un projet C# **Service cloud Azure** et sélectionnez un **rôle web** et un **rôle de travail**.
 
-![][5]
+![Rôles de projet Azure Cloud Services][5]
 
 Pour l'exemple, ajoutez à votre projet du code qui demande beaucoup de temps et provoque des problèmes de performances évidents. Par exemple, ajoutez le code suivant à un projet de rôle de travail :
 
@@ -76,11 +76,11 @@ Au lieu de profiler l'application en la démarrant depuis l'interface de dévelo
 
 Pour ce faire, dans le menu **Analyse**, sélectionnez **Profileur**, puis **Attacher/Détacher**.
 
-![][6]
+![Option Joindre un profil][6]
 
 Pour un rôle de travail, recherchez le processus WaWorkerHost.exe.
 
-![][7]
+![Processus WaWorkerHost][7]
 
 Si votre dossier de projet se trouve sur un disque réseau, le profileur vous demande d'indiquer un autre emplacement pour enregistrer les rapports de profilage.
 
@@ -92,17 +92,17 @@ Si votre dossier de projet se trouve sur un disque réseau, le profileur vous de
 
 Pour consulter le journal, ouvrez l'interface utilisateur de l'émulateur de calcul.
 
-![][8]
+![Démarrage de l’interface de l’émulateur de calcul][8]
 
 Ouvrez la fenêtre de console du journal du rôle de travail dans l'interface utilisateur de l'émulateur de calcul en cliquant sur la barre de titre de la fenêtre de la console. L'ID du processus figure dans le journal.
 
-![][9]
+![Afficher l’ID du processus][9]
 
 Une fois le profileur attaché, suivez les étapes de l'interface utilisateur de votre application (le cas échéant) afin de reproduire le scénario.
 
 Lorsque vous souhaitez arrêter le profilage, cliquez sur le lien **Terminer le profilage**.
 
-![][10]
+![Option Terminer le profilage][10]
 
 ## 3\. Affichage des rapports de performances
 
@@ -110,18 +110,18 @@ Le rapport de performances de votre application s'affiche.
 
 À ce stade, le profileur s'arrête, il enregistre les données dans un fichier .vsp et il affiche un rapport présentant une analyse des données.
 
-![][11]
+![Rapport du profileur][11]
 
 
 Si vous voyez String.wstrcpy dans le Chemin réactif, cliquez sur Uniquement mon code pour modifier l'affichage et ne voir que le code utilisateur. Si vous voyez String.Concat, essayez de cliquer sur le bouton Afficher tout le code.
 
 Vous devez voir que la méthode Concatenate et String.Concat occupent une grande partie du temps d'exécution.
 
-![][12]
+![Analyse du rapport][12]
 
 Si vous avez ajouté le code de concaténation de chaîne dans cet article, vous devez obtenir un avertissement correspondant dans la Liste des tâches. Il est possible que vous voyiez également un avertissement lié au nettoyage de la mémoire, ce qui est dû au nombre de chaînes créées et rejetées.
 
-![][14]
+![Avertissements liés aux performances][14]
 
 ## 4 : Application de modifications et comparaison des performances
 
@@ -140,11 +140,11 @@ Vous pouvez également comparer les performances avant et après la modification
 
 Lancez un nouveau test de performances, et comparez les résultats. Dans l'Explorateur de performances, si les tests font partie de la même session, vous pouvez simplement sélectionner les deux rapports, ouvrir le menu contextuel et sélectionner **Comparer les rapports de performances**. Si vous souhaitez comparer un test avec un test d'une autre session de performances, ouvrez le menu **Analyse**, puis sélectionnez **Comparer les rapports de performances**. Spécifiez les deux fichiers dans la boîte de dialogue qui s'affiche.
 
-![][15]
+![Option Comparer les rapports de performances][15]
 
 Les rapports indiquent les différences entre les deux tests.
 
-![][16]
+![Rapport de comparaison][16]
 
 Félicitations ! Vous avez fait connaissance avec le profileur.
 
@@ -186,4 +186,4 @@ L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

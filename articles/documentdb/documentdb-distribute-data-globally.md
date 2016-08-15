@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/03/2016"
    ms.author="kipandya"/>
    
    
@@ -54,9 +54,7 @@ Enfin, dans la mesure où DocumentDB est complètement [indépendant du schéma]
 
 ## Activation de la distribution mondiale 
 
-Vous pouvez décider de distribuer vos données localement ou mondialement en associant une ou plusieurs régions Azure à un compte de base de données DocumentDB. Vous pouvez décider de distribuer mondialement vos données ou de les limiter à une seule région en ajoutant ou supprimant des régions dans votre compte de base de données à tout moment. Les comptes de base de données DocumentDB qui prennent en charge l’affectation dans plusieurs régions peuvent être créés via Azure Marketplace en sélectionnant « DocumentDB – Multi-Region Database Account » (DocumentDB - Compte de base de données dans plusieurs régions).
-
-
+Vous pouvez décider de distribuer vos données localement ou mondialement en associant une ou plusieurs régions Azure à un compte de base de données DocumentDB. Vous pouvez ajouter ou supprimer des régions dans votre compte de base de données à tout moment.
 
 ## Étapes suivantes
 
@@ -81,12 +79,12 @@ Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans l
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
 [throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/fr-FR/documentation/articles/documentdb-automation-resource-manager-cli/
+[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/fr-FR/regions/#services
+[serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -40,7 +40,7 @@ Pour créer la passerelle VPN pour le réseau virtuel classique, suivez les inst
 1. Ouvrez le portail classique depuis https://manage.windowsazure.com et entrez vos informations d'identification si nécessaire.
 2. Dans le coin gauche inférieur de l'écran, cliquez sur le bouton **NOUVEAU**, puis sur **SERVICES RÉSEAU**, puis sur**RÉSEAUX VIRTUELS**, puis sur**AJOUTER UN RÉSEAU LOCAL**.
 3. Dans la fenêtre **Spécifier les détails de votre réseau local**, tapez un nom pour le réseau virtuel ARM auquel vous souhaitez vous connecter, puis dans le coin inférieur droit de la fenêtre, cliquez sur la flèche.
-3. Dans la zone de texte **IP DE DÉPART** de l'espace d'adressage, saisissez le préfixe de réseau pour le réseau virtuel ARM auquel vous souhaitez vous connecter. 
+3. Dans la zone de texte **IP DE DÉPART** de l'espace d'adressage, saisissez le préfixe de réseau pour le réseau virtuel ARM auquel vous souhaitez vous connecter.
 4. Dans la liste déroulante **CIDR (NOMBRE D'ADRESSES)**, sélectionnez le nombre de bits utilisés pour la partie réseau du bloc CIDR utilisé par le réseau virtuel ARM auquel vous souhaitez vous connecter.
 5. Dans **ADRESSE IP DU PÉRIPHÉRIQUE VPN (FACULTATIF)**, saisissez une adresse IP publique valide. Nous modifierons cette adresse IP ultérieurement. Cliquez ensuite sur la coche en bas à droite de l'écran. La figure ci-dessous illustre des exemples de paramètres pour ce scénario.
 
@@ -64,7 +64,7 @@ Pour créer une passerelle VPN pour le réseau virtuel ARM, suivez les instructi
 
 3. Créez une adresse IP publique pour la passerelle en exécutant la commande ci-dessous.
 
-		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP `
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
@@ -77,16 +77,17 @@ Pour créer une passerelle VPN pour le réseau virtuel ARM, suivez les instructi
 
 5. Créez un objet de configuration IP pour la passerelle en exécutant la commande ci-dessous. Vous voyez l'ID d'un sous-réseau de passerelle. Ce sous-réseau doit exister dans le réseau virtuel.
 
+
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
-			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
-			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
+		-Name ipconfig -SubnetId $subnet.id `
+		-PublicIpAddressId $ipaddress.id
 
 	>[AZURE.IMPORTANT] La propriété ID du sous-réseau et des objets d'adresse IP doit être transmis aux paramètres *SubnetId* et *PublicIpAddressId*. Vous ne pouvez pas utiliser une chaîne simple.
 	
 5. Créez la passerelle de réseau virtuel ARM en exécutant la commande ci-dessous.
 
 		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
-			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
+			-Location "East US" -GatewaySKU Standard -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. Une fois la passerelle VPN créée, récupérez son adresse IP publique en exécutant la commande ci-dessous. Copiez l'adresse IP, vous en aurez besoin pour configurer le réseau local pour le réseau virtuel classique.
@@ -118,4 +119,4 @@ Pour créer une passerelle VPN pour le réseau virtuel ARM, suivez les instructi
 - En savoir plus sur [le fournisseur de ressources réseau (NRP) pour ARM](resource-groups-networking.md).
 - Créer une [solution de bout en bout pour connecter un réseau virtuel classique à un réseau virtuel ARM à l’aide d’un VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

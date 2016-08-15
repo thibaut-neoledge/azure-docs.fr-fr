@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/01/2016"
 	ms.author="douglasl"/>
 
 # Restaurer des bases de données Stretch
@@ -27,8 +27,7 @@ Pour plus d’informations sur la sauvegarde, consultez [Sauvegarder des bases d
 ## Restaurer vos données SQL Server
 Pour récupérer à partir d’une défaillance ou un endommagement matériel, restaurez la base de données Stretch SQL Server à partir d’une sauvegarde. Vous pouvez continuer à utiliser les méthodes de restauration SQL Server que vous utilisez actuellement. Pour plus d’informations, consultez [Vue d’ensemble de la récupération et de la restauration](https://msdn.microsoft.com/library/ms191253.aspx).
 
-Après avoir restauré la base de données SQL Server, vous devez exécuter la procédure stockée **sys.sp\_rda\_reauthorize\_db** pour restaurer la connexion entre la base de données Stretch SQL Server et la base de données Azure distante. Pour plus d’informations, consultez [Restaurer la connexion entre la base de données SQL Server et la base de données Azure distante](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
-<!-- Fix Comment: The structure and the reference seeem to be incorrect. Could you check if they are okay? -->
+Après avoir restauré la base de données SQL Server, vous devez exécuter la procédure stockée **sys.sp\_rda\_reauthorize\_db** pour restaurer la connexion entre la base de données Stretch SQL Server et la base de données Azure distante. Pour plus d’informations, consultez [Restaurer la connexion entre la base de données SQL Server et la base de données Azure distante](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database).
 
 ## Restaurer vos données Azure distantes
 
@@ -84,4 +83,4 @@ Pour restaurer une base de données Azure supprimée au moment de sa suppression
 
 [Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

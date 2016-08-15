@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="07/28/2016" 
 	ms.author="spelluru"/>
 
 # Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET
@@ -22,9 +22,9 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 
 
 
-## Composants requis
+## Configuration requise
 
-- Visual Studio 2012 ou 2013
+- Visual Studio 2012, 2013 ou 2015
 - Téléchargez et installez le [Kit de développement logiciel (SDK) Azure .NET][azure-developer-center].
 - Téléchargez et installez les packages NuGet pour Azure Data Factory. Les instructions sont fournies dans la procédure pas à pas.
 
@@ -43,19 +43,23 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 3.	Dans la fenêtre <b>Console du gestionnaire de package</b>, exécutez les commandes suivantes une par une.</b>.
 
 		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Ajoutez la section **appSettings** suivante au fichier **App.config**. Ces valeurs sont utilisées par la méthode d'assistance **GetAuthorizationHeader**.
 
-	Remplacez les valeurs de **SubscriptionId** et **ActiveDirectoryTenantId** par votre ID d'abonnement et votre ID de locataire Azure. Vous pouvez obtenir ces valeurs en exécutant **Get-AzureAccount** à partir d'Azure PowerShell (vous devrez peut-être commencer par vous connecter via Add-AzureAccount).
+	Remplacez les valeurs de **AdfClientId**, **RedirectUri**, **SubscriptionId** et **ActiveDirectoryTenantId** par vos propres valeurs.
+
+	Une fois connecté à l’aide d’AzureRmAccount, vous pouvez obtenir les valeurs d’ID client et d’ID abonnement en exécutant la commande **Get-AzureAccount-Format-List** depuis Azure PowerShell (vous devrez tout d’abord vous connecter à l’aide d’Add-AzureAccount).
+
+	Vous pouvez obtenir l’ID CLIENT et l’URI de redirection de votre application Active Directory à partir du portail Azure.
  
 		<appSettings>
-		    <!--CSM Prod related values-->
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
 		    <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		    <!--Make sure to write your own tenenat id and subscription ID here-->
+
+		    <!-- Replace the following values with your own -->
+		    <add key="AdfClientId" value="Your AD application ID" />
+		    <add key="RedirectUri" value="Your AD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
@@ -372,7 +376,7 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
         John, Doe
 		Jane, Doe
 	 
-17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
+17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
 18. Utilisez le portail Azure pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants :
 	- Service lié : **LinkedService\_AzureStorage**
 	- Jeu de données : **DatasetBlobSource** et **DatasetBlobDestination**.
@@ -380,9 +384,52 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 18. Vérifiez qu'un fichier de sortie est créé dans le dossier **apifactoryoutput** du conteneur **adftutorial**.
 
 
+## Connexion sans boîte de dialogue contextuelle 
+L’exemple de code ci-dessus lance une boîte de dialogue dans laquelle vous pouvez entrer des informations d’identification Azure. Si vous devez vous connecter par programmation sans utiliser de boîte de dialogue, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
-> [AZURE.NOTE] L’exemple de code ci-dessus lance une boîte de dialogue dans laquelle vous pouvez entrer des informations d’identification Azure. Si vous devez vous connecter par programmation sans utiliser de boîte de dialogue, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+### Exemple
 
+Créez la méthode GetAuthorizationHeaderNoPopup comme illustré ci-dessous :
+
+    public static string GetAuthorizationHeaderNoPopup()
+    {
+        var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        var context = new AuthenticationContext(authority.AbsoluteUri);
+        var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
+        AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+        if (result != null)
+            return result.AccessToken;
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+
+Remplacez l’appel **GetAuthorizationHeader** par un appel à **GetAuthorizationHeaderNoPopup** dans la fonction **Main** :
+
+        TokenCloudCredentials aadTokenCredentials =
+            new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeaderNoPopup());
+
+Voici comment créer l’application Active Directory (le principal du service) et l’affecter dans un second temps au rôle de contributeur Data Factory :
+
+1. Créez l’application Active Directory.
+
+		$azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
+
+2. Créez le principal du service AD.
+
+		New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+3. Ajoutez le principal du service au rôle de contributeur Data Factory.
+
+		New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+
+4. Récupérez l’ID de l’application.
+
+		$azureAdApplication
+
+
+Notez l’ID d’application et le mot de passe (clé secrète client) et utilisez-les dans le code ci-dessus.
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
@@ -393,4 +440,4 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

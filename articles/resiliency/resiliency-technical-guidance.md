@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guide technique de la résilience Azure
 
@@ -61,4 +61,4 @@ Les informations de cette série sont organisées en plusieurs articles :
 
 Cet article fait partie d’une série qui fournit des conseils techniques pour la résilience Azure. Si vous êtes intéressé par d’autres articles de cette série, vous pouvez commencer par [Récupération des défaillances locales](resiliency-technical-guidance-recovery-local-failures.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

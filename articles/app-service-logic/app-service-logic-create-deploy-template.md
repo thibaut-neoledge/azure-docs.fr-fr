@@ -1,7 +1,7 @@
 <properties
    pageTitle="Créer un modèle de déploiement d’application logique | Microsoft Azure"
    description="Découvrez comment créer un modèle de déploiement d’application logique et l’utiliser pour Release Management"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -85,4 +85,4 @@ Le déploiement et la gestion d’un environnement passent souvent par l’utili
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

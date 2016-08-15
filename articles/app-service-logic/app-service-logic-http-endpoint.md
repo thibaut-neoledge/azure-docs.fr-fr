@@ -1,7 +1,7 @@
 <properties
    pageTitle="Applications logiques en tant que points de terminaison pouvant être appelés"
    description="Comment créer et configurer des points de terminaison déclencheurs et les utiliser dans une application logique au sein d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -151,4 +151,4 @@ Cette fonctionnalité est disponible par le biais du service **Gestion des API**
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

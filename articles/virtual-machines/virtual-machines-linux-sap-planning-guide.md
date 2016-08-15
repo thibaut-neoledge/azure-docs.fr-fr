@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver sur les machines virtuelles Azure – Guide de planification et d’implémentation
@@ -641,7 +641,7 @@ Puisque la mise en réseau et la résolution de noms sont des éléments essenti
 
 En créant un réseau virtuel Azure, vous pouvez définir la plage d’adresses des adresses IP privées allouées par la fonctionnalité DHCP Azure. Dans les scénarios intersites, la plage d’adresses IP définie sera toujours allouée via la fonctionnalité DHCP par Azure. Toutefois, la résolution de noms de domaine sera effectuée en local (en supposant que les machines virtuelles font partie d’un domaine local) et peut donc résoudre les adresses au-delà des différents Azure Cloud Services.
 
-[comment]: <> (MSSedusch still needed? TODO À l’origine, un réseau virtuel Azure était lié à un groupe d’affinités. En raison de cela, un réseau virtuel dans Azure était limité à l’unité d’échelle Azure à laquelle le groupe d’affinités avait été attribué. Au final, cela signifiait que le réseau virtuel était limité aux ressources disponibles dans l’unité d’échelle Azure. Depuis, des modifications ont été apportées et les réseaux virtuels Azure peuvent désormais être étendus à plus d’une unité d’échelle Azure. Toutefois, il est nécessaire que les réseaux virtuels Azure ne soient **PLUS** associés aux groupes d’affinités lors de la création. Comme mentionné précédemment, et contrairement aux recommandations faites il y a un an, vous ne devez **PLUS exploiter les groupe d’affinités Azure**. Pour plus d’informations, consultez <https://azure.microsoft.com/blog/regional-virtual-networks/>)
+[comment]: <> (MSSedusch still needed? TODO À l’origine, un réseau virtuel Azure était lié à un groupe d’affinités. En raison de cela, un réseau virtuel dans Azure était limité à l’unité d’échelle Azure à laquelle le groupe d’affinités avait été attribué. Au final, cela signifiait que le réseau virtuel était limité aux ressources disponibles dans l’unité d’échelle Azure. Depuis, des modifications ont été apportées et les réseaux virtuels Azure peuvent désormais être étendus à plus d’une unité d’échelle Azure. Toutefois, il est nécessaire que les réseaux virtuels Azure ne soient **PLUS** associés aux groupes d’affinités lors de la création. Comme mentionné précédemment, et contrairement aux recommandations faites il y a un an, vous ne devez **PLUS exploiter les groupe d’affinités Azure**. Pour plus d’informations, consultez <https://azure.microsoft.com/blog/regional-virtual-networks/>
 
 Chaque machine virtuelle dans Azure doit être connectée à un réseau virtuel.
 
@@ -686,7 +686,7 @@ Le VPN de point à site requiert que chaque machine du client se connecte à Azu
 #### VPN multisite
 Actuellement, Azure propose aussi de créer une connexion VPN multisite pour un abonnement Azure. Par le passé, un abonnement était limité à une seule connexion VPN de site à site. Cette limitation a disparu et vous pouvez désormais bénéficier de connexions VPN multisites pour un abonnement. Cela permet d’exploiter plusieurs régions Azure pour un abonnement spécifique par le biais de configurations intersites.
 
-Pour plus d’informations, consultez [cet article][vpn-gateway-create-site-to-site-rm-powershell] 
+Pour plus d’informations, consultez [cet article][vpn-gateway-create-site-to-site-rm-powershell]
 [comment]: <> (MShermannd TODO found no ARM docu link)
 
 #### Connexion de réseau virtuel à réseau virtuel
@@ -781,10 +781,10 @@ Des étapes plus détaillées sur l’installation, la mise à jour et la config
 
 Le retour de nos clients a permis de déterminer que PowerShell (PS) constitue l’outil le plus puissant pour déployer des machines virtuelles et créer des étapes personnalisées lors de leur déploiement. Tous les clients exécutant des instances SAP dans Azure utilisent des applets de commande PS pour compléter des tâches de gestion qu’ils effectuent dans le portail Azure. Certains utilisent même exclusivement des applets de commande PS pour gérer leurs déploiements dans Azure. Étant donné que les applets de commande dédiées à Azure partagent la même convention d’affectation de noms que les applets de commande Windows (dont le nombre dépasse 2 000), les administrateurs Windows peuvent facilement tirer parti de ces applets de commande.
 
-Consultez l’exemple présenté ici : 
+Consultez l’exemple présenté ici :
 <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO describe new CLI command when tested ) 
+[comment]: <> (MShermannd TODO describe new CLI command when tested )
 Le déploiement de l’extension d’analyse Azure pour SAP (voir le chapitre [Solution de surveillance Azure pour SAP][planning-guide-9.1] de ce document) est uniquement possible par le biais de PowerShell ou de l’interface de ligne de commande. Par conséquent, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes lors du déploiement ou de l’administration d’un système SAP NetWeaver dans Azure.
 
 Étant donné qu’Azure propose davantage de fonctionnalités, de nouvelles applets de commande PS vont être ajoutées ; celles-ci nécessiteront une mise à jour des applets de commande. Par conséquent, il est judicieux de consulter le site de téléchargement Azure au moins une fois par mois, <https://azure.microsoft.com/downloads/>, afin de vérifier si une version mise à jour des applets de commande est disponible. La nouvelle version sera simplement installée par-dessus l’ancienne version.
@@ -1932,4 +1932,4 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 * La sauvegarde des instances de boîte de dialogue SAP n’est pas très utile, dans la mesure où il est généralement plus rapide de redéployer des instances de boîte de dialogue simples.
 * La sauvegarde de la machine virtuelle qui contient le répertoire global du système SAP, et tous les profils des différentes instances, est utile et doit être effectuée avec la sauvegarde Windows ou, par exemple, tar sous Linux. Dans la mesure où il existe des différences entre Windows Server 2008 (R2) et Windows Server 2012 (R2), qui facilitent la sauvegarde à l’aide des versions les plus récentes de Windows Server, nous vous recommandons d’exécuter Windows Server 2012 (R2) en tant que système d’exploitation invité Windows.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

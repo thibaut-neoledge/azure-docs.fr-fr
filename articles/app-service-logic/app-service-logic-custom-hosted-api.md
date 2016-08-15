@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -121,7 +121,7 @@ Pour voir le modèle terminé, consultez [Appels de Logic App dans une API perso
 
 ### Partie 3 : Remplir la section Autorisation dans l’application logique
 
-Dans la section **Autorisation** de l’opération **HTTP** : `{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
+Dans la section **Autorisation** de l’opération **HTTP** : `{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
 
 | Élément | Description |
 |---------|-------------|
@@ -169,4 +169,4 @@ Pour aller plus loin, si vous souhaitez le mettre en œuvre au sein de votre cod
 
 Vous devez toujours exécuter les opérations ci-dessus pour créer une identité d’application pour votre application logique, puis l’utiliser pour l’API.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

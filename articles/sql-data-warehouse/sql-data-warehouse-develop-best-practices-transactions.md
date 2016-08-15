@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimisation des transactions pour SQL Data Warehouse
@@ -33,6 +33,8 @@ Azure SQL Data Warehouse valide les modifications apportées à la base de donn�
 ## Journalisation minimale et journalisation complète
 
 Contrairement aux opérations entièrement journalisées, qui utilisent le fichier journal de transactions pour effectuer le suivi de chaque modification de ligne, les journalisations minimales assurent le suivi des allocations d’étendue et des modifications de métadonnées uniquement. Par conséquent, la journalisation minimale implique la consignation exclusive des informations nécessaires à la restauration de la transaction en cas de défaillance ou de requête explicite (`ROLLBACK TRAN`). Dans la mesure où la journalisation minimale implique le suivi d’un volume de données moins important, cette opération est plus performante qu’une journalisation complète de taille similaire. En outre, un volume moins important d’écritures étant transmis vers le fichier journal de transactions, la quantité de données de journal générées est elle aussi réduite, et les performances E/S s’en trouvent accrues.
+
+Les limites de sécurité des transactions s’appliquent uniquement aux opérations faisant l’objet d’une journalisation complète.
 
 >[AZURE.NOTE] Les opérations faisant l’objet d’une journalisation minimale peuvent prendre part à des transactions explicites. Comme toutes les modifications des structures d’allocations font l’objet d’un suivi, il est possible de restaurer les journalisations minimales. Il est important de comprendre la nuance : la modification fait bien l’objet d’une journalisation, aussi minimale soit-elle.
 
@@ -54,6 +56,8 @@ Les opérations suivantes peuvent faire l’objet d’une journalisation minimal
 - UPDATE on LOB Types .WRITE
 - SELECT..INTO
 -->
+
+>[AZURE.NOTE] Les opérations de déplacement de données internes (telles que `BROADCAST` et `SHUFFLE`) ne sont pas affectées par la limite de sécurité des transactions.
 
 ## Journalisation minimale avec chargement en bloc
 
@@ -424,4 +428,4 @@ Consultez [Transactions dans SQL Data Warehouse][] pour en savoir plus sur les n
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

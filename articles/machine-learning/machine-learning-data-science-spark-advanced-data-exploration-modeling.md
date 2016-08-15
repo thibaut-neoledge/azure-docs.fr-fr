@@ -22,8 +22,8 @@
 
 Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données et former des modèles de régression et de classification binaire à l’aide de la validation croisée et de l’optimisation hyperparamétrique sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013. Elle vous guide tout au long des étapes du [processus de science des données](http://aka.ms/datascienceprocess), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Python a été utilisé pour coder la solution et montrer les tracés correspondants. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression.
 
-- La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
-- La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
+- La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire.
+- La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères.
 
 Les étapes de modélisation contiennent également du code déterminant comment former, évaluer et enregistrer chaque type de modèle. Cette rubrique traite le même sujet que la rubrique [Exploration et modélisation des données avec Spark](machine-learning-data-science-spark-data-exploration-modeling.md), mais est dite plus « avancée », dans la mesure où elle utilise également la validation croisée conjointement avec le balayage hyperparamétrique, afin de former de manière optimale des modèles de classification et de régression.
 
@@ -35,7 +35,7 @@ Une façon courante d’effectuer l’optimisation hyperparamétrique, utilisée
 
 Les modèles que nous utilisons incluent la régression logistique, la régression linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree) :
 
-- La [régression linéaire avec SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) est un modèle de régression linéaire qui utilise la méthode SGD (Stochastic Gradient Descent), l’optimisation et la mise à l’échelle des caractéristiques pour prédire le montant des pourboires payés. 
+- La [régression linéaire avec SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) est un modèle de régression linéaire qui utilise la méthode SGD (Stochastic Gradient Descent), l’optimisation et la mise à l’échelle des caractéristiques pour prédire le montant des pourboires payés.
 - La [régression logistique avec LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS), ou régression « logit », est un modèle de régression qui s’utilise lorsque la variable dépendante est catégorielle, pour la classification des données. LBFGS est un algorithme d’optimisation de Quasi-Newton qui correspond approximativement à l’algorithme BFGS (Broyden–Fletcher–Goldfarb–Shanno) avec une quantité limitée de mémoire informatique et qui est largement utilisé dans l’apprentissage automatique (Machine Learning).
 - Les [forêts aléatoires](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sont des ensembles d’arbres de décision. Elles combinent plusieurs arbres de décision pour réduire le risque de sur-ajustement. Utilisées pour la régression et la classification, les forêts aléatoires gèrent les caractéristiques catégorielles, prennent en compte le paramètre de classification multiclasse, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Les forêts aléatoires constituent l’un des modèles Machine Learning les plus performants pour la classification et la régression.
 - Les arbres GBT ([Gradient Boosting Tree](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts)) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Utilisés pour la régression et la classification, les arbres GBT gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Ils s’utilisent également dans le paramétrage de classification multiclasse.
@@ -108,13 +108,13 @@ Importez les bibliothèques nécessaires avec le code suivant.
 
 Les noyaux PySpark fournis avec les notebooks Jupyter ont un contexte prédéfini. Vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser l’application que vous développez ; ils sont disponibles par défaut. Ces contextes sont les suivants :
 
-- sc : pour Spark 
+- sc : pour Spark
 - sqlContext : pour Hive
 
 Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec %%. Deux de ces commandes sont utilisées dans ces exemples de code.
 
 - **%%local** Indique que le code des lignes suivantes est exécuté localement. Le code doit être du code Python valide.
-- **%%sql -o <variable name>** Exécute une requête Hive sur sqlContext. Si le paramètre -o est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que tableau de données Pandas.
+- **%%sql -o <nom de variable>** Exécute une requête Hive sur sqlContext. Si le paramètre -o est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que tableau de données Pandas.
  
 
 Pour plus d’informations sur les noyaux pour notebooks Jupyter et sur les « commandes magiques » prédéfinies appelées avec %% (par exemple, %%local) qu’ils fournissent, consultez [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
@@ -578,20 +578,20 @@ Durée d’exécution de la cellule ci-dessus : 0,13 seconde
 
 Cette section montre comment utiliser trois modèles de tâche de classification binaire pour prédire si un pourboire est payé pour une course en taxi. Les modèles présentés sont les suivants :
 
-- Régression logique 
+- Régression logique
 - Forêts aléatoires
 - Arbres GBT (Gradient Boosting Tree)
 
 Chaque section de code générateur de modèle est divisée en étapes :
 
 1. Données de **formation du modèle** avec un jeu de paramètres
-2. **Évaluation du modèle** sur un jeu de données de test avec des mesures
+2. **Évaluation de modèle** sur un jeu de données de test avec mesures
 3. **Enregistrement du modèle** dans l’objet blob en vue d’une utilisation ultérieure
 
 Nous présentons la validation croisée avec le balayage paramétrique de deux manières :
 
-1. À l’aide de code personnalisé **générique** pouvant être appliqué à n’importe quel algorithme de MLlib et à n’importe quel jeu de paramètres dans un algorithme. 
-1. À l’aide de la **fonction pipeline pySpark CrossValidator**. Notez que, bien que pratique, CrossValidator comporte certaines limitations par rapport à Spark 1.5.0 : 
+1. À l’aide de code personnalisé **générique** pouvant être appliqué à n’importe quel algorithme de MLlib et à n’importe quel jeu de paramètres dans un algorithme.
+1. À l’aide de la **fonction pipeline pySpark CrossValidator**. Notez que, bien que pratique, CrossValidator comporte certaines limitations par rapport à Spark 1.5.0 :
 
 	- Les modèles de pipeline ne peuvent pas être enregistrés/conservés pour une consommation future.
 	- Ne peut pas être utilisé pour chaque paramètre dans un modèle.
@@ -1036,8 +1036,8 @@ Cette section montre comment utiliser trois modèles pour la tâche de régressi
 Ces modèles sont décrits dans l’introduction. Chaque section de code générateur de modèle est divisée en étapes :
 
 1. Données de **formation du modèle** avec un jeu de paramètres
-2. **Évaluation du modèle** sur un jeu de données de test avec des mesures
-3. **Enregistrement du modèle** dans l’objet blob en vue d’une utilisation ultérieure   
+2. **Évaluation de modèle** sur un jeu de données de test avec mesures
+3. **Enregistrement du modèle** dans l’objet blob en vue d’une utilisation ultérieure
 
 
 >REMARQUE AZURE : La validation croisée n’est pas utilisée avec les trois modèles de régression dans cette section, car cela a été décrit en détail pour les modèles de régression logistique. L’annexe de cette rubrique présente un exemple d’utilisation de la validation croisée avec un filet élastique pour la régression linéaire.
@@ -1478,17 +1478,17 @@ PythonRDD[122] at RDD at PythonRDD.scala:43
 
 **SORTIE**
 
-logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS\_2016-05-0316\_47\_30.096528"
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0316_47\_30.096528"
 
-linearRegFileLoc = modelDir + "LinearRegressionWithSGD\_2016-05-0316\_51\_28.433670"
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-05-0316_51\_28.433670"
 
-randomForestClassificationFileLoc = modelDir + "RandomForestClassification\_2016-05-0316\_50\_17.454440"
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0316_50\_17.454440"
 
-randomForestRegFileLoc = modelDir + "RandomForestRegression\_2016-05-0316\_51\_57.331730"
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0316_51\_57.331730"
 
-BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification\_2016-05-0316\_50\_40.138809"
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-05-0316_50\_40.138809"
 
-BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression\_2016-05-0316\_52\_18.827237"
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52\_18.827237"
 
 ## Et ensuite ?
 
@@ -1496,4 +1496,4 @@ Maintenant que vous avez créé des modèles de régression et de classification
 
 **Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning intégrés Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -61,7 +61,7 @@ Créez un compte de stockage Azure. L'application utilisera ce compte pour stock
 
 	Une fois le compte de stockage créé, le bouton **Notifications** affiche la mention **RÉUSSITE** en vert clignotant et le panneau du compte de stockage s’ouvre pour indiquer qu’il appartient au groupe de ressources créé.
 
-5. Dans le panneau du compte de stockage, cliquez sur la section **Paramètres** > **Clés**. Copiez la clé d'accès primaire dans le Presse-papiers.
+5. Dans le panneau du compte de stockage, cliquez sur la section **Paramètres** > **Clés**. Copiez la clé d'accès primaire dans le Presse-papiers.
 
     ![Clé d’accès][portal-storage-access-keys]
 
@@ -90,7 +90,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 
 	> [AZURE.NOTE] Le paramètre « -g » installe le module globalement. Ainsi, nous pouvons utiliser la commande **express** pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires concernant le chemin d’accès.
 
-4. Pour créer la structure de l'application, entrez la commande **express** :
+4. Pour créer la structure de l'application, entrez la commande **express** :
 
         express
 
@@ -276,7 +276,7 @@ Un *contrôleur* gère les requêtes HTTP et génère la réponse HTML.
 		}
 
 
-4. Ajoutez les méthodes suivantes à **TaskList** :
+4. Ajoutez les méthodes suivantes à **TaskList** :
 
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
@@ -601,7 +601,6 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 <!-- URLs -->
 
 [Créer et déployer une application web Node.js dans Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -613,7 +612,6 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Application web Node.js avec MongoDB]: web-sites-nodejs-store-data-mongodb.md
 [interface de ligne de commande Azure]: ../xplat-cli-install.md
 
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
@@ -637,4 +635,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

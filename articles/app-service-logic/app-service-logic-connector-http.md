@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation de l’écouteur HTTP et de l’action HTTP dans des applications logiques | Microsoft Azure App Service "
    description="Comment créer et configurer l’écouteur HTTP et l’action HTTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -29,7 +29,7 @@ Connectez-vous directement aux ressources HTTP pour écouter les demandes HTTP e
 
 Dans ces cas de figure, il existe deux options :
 
-1. **Écouteur HTTP** : ce connecteur sert de déclencheur et écoute les requêtes HTTP sur un point de terminaison configuré. Quand un appel est reçu sur le point de terminaison configuré, il déclenche une nouvelle instance du flux et transfère les données reçues dans la requête au flux à des fins de traitement. Il peut également être configuré pour répondre automatiquement à la demande entrante quand le flux a démarré ou vous permettre de construire une réponse basée sur l'exécution du flux et d'envoyer une réponse à l'appelant.
+1. **Écouteur HTTP** : ce connecteur sert de déclencheur et écoute les requêtes HTTP sur un point de terminaison configuré. Quand un appel est reçu sur le point de terminaison configuré, il déclenche une nouvelle instance du flux et transfère les données reçues dans la requête au flux à des fins de traitement. Il peut également être configuré pour répondre automatiquement à la demande entrante quand le flux a démarré ou vous permettre de construire une réponse basée sur l'exécution du flux et d'envoyer une réponse à l'appelant.
 2. **Action HTTP** : celle-ci vous permet de configurer une demande web pour n’importe quel point de terminaison disponible sur Internet. Elle obtient une réponse en retour, et la met à disposition des actions supplémentaires du flux pour utilisation.
 
 Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur HTTP à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
@@ -89,4 +89,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

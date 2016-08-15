@@ -44,10 +44,10 @@ Pour gérer par programmation les services web, par exemple pour la reformation,
 
 ### Points à noter
 
-1.	Vous pouvez uniquement copier des expériences entre espaces de travail appartenant à la même région. À l'avenir, nous allons activer des expériences de copie entre les espaces de travail dans plusieurs régions.
-2.	Le sélecteur de région affiche uniquement les espaces de travail d'une seule région à la fois. À l'avenir, vous serez en mesure d'afficher une liste complète des espaces de travail auxquels vous avez accès dans toutes les régions simultanément.  
-3.	Un accès à espace libre ou invité (anonyme) est créé et hébergé dans la région South Central U.S. À l'avenir, vous serez en mesure de créer des espaces de travail avec accès gratuit/invité dans la région que vous choisissez.  
-4.	Les services web déployés à partir d'un espace de travail en Asie du Sud-est sont également hébergés en Asie du Sud-est. À l'avenir, vous aurez la latitude de créer des expériences dans une région, et de déployer des points de terminaison de service web générés dans différentes régions.  
+1.	Vous pouvez uniquement copier des expériences entre espaces de travail appartenant à la même région de cette façon. Si vous devez copier l’expérience des espaces de travail dans différentes régions, vous pouvez utiliser l’applet de commande [PowerShell](http://aka.ms/amlps) [*Copy-AmlExperiment*](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment) pour le faire. Une autre solution de contournement consiste à publier l’expérience dans la galerie en mode non répertorié, puis à l’ouvrir dans l’espace de travail à partir de l’autre région.
+2.	Le sélecteur de région affiche uniquement les espaces de travail d'une seule région à la fois. À l'avenir, vous serez en mesure d'afficher une liste complète des espaces de travail auxquels vous avez accès dans toutes les régions simultanément.
+3.	Un accès à espace libre ou invité (anonyme) est créé et hébergé dans la région South Central U.S. À l'avenir, vous serez en mesure de créer des espaces de travail avec accès gratuit/invité dans la région que vous choisissez.
+4.	Les services web déployés à partir d'un espace de travail en Asie du Sud-est sont également hébergés en Asie du Sud-est. À l'avenir, vous aurez la latitude de créer des expériences dans une région, et de déployer des points de terminaison de service web générés dans différentes régions.
 
 ## Plus d’informations
 
@@ -59,4 +59,4 @@ Poser une question sur le [forum Azure Machine Learning](https://social.msdn.mic
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

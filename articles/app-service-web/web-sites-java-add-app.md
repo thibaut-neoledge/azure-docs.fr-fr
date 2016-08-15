@@ -25,7 +25,7 @@ Le chemin d’accès au dossier **webapps** varie en fonction de la configuratio
 - Si vous configurez votre application web à l’aide d’Azure Marketplace, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\bin\\serveur\_applications\\webapps**, où **serveur\_applications** est le nom du serveur d’applications de votre instance Web Apps.
 - Si vous configurez votre application web à l’aide de l’interface utilisateur d’Azure, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\webapps**.
 
-Notez que vous pouvez utiliser le contrôle de code source pour télécharger votre application ou vos pages Web, y compris dans des scénarios d’intégration continue. Les instructions d’utilisation du contrôle de code source avec votre application web sont disponibles dans la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md). Le protocole FTP permet également de télécharger votre application ou des pages web.
+Notez que vous pouvez utiliser le contrôle de code source pour charger votre application ou vos pages web, y compris dans des [scénarios d’intégration continue](app-service-continuous-deployment.md). Le protocole FTP permet également de télécharger votre application ou des pages web.
 
 Remarque pour les applications web Tomcat : une fois que vous avez téléchargé votre fichier WAR dans le dossier **webapps**, le serveur d’applications Tomcat détecte que vous l’avez ajouté et le charge automatiquement. Notez que si vous copiez des fichiers (autres que des fichiers WAR) dans le répertoire ROOT, vous devez redémarrer le serveur d'applications avant d'utiliser ces fichiers. La fonctionnalité de chargement automatique des applications web Java Tomcat exécutées sur Azure repose sur l’ajout d’un fichier WAR ou de nouveaux fichiers ou répertoires dans le dossier **webapps**.
 
@@ -40,4 +40,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

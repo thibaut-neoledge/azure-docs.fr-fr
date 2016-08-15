@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Souscrire, acheter, mettre à niveau ou activer un abonnement Azure | Microsoft Azure"
 	description="Décrit comment acheter ou souscrire un abonnement Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing,top-support-issue"
 	/>
 
@@ -119,4 +119,4 @@ Si vous avez acheté des crédits **Azure dans Open** auprès d’un revendeur e
 
 3. Entrez la clé de produit, puis activez l’option indiquant votre consentement.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

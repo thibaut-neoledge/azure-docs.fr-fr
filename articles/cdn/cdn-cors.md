@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Utilisation d’Azure CDN avec CORS"
+	pageTitle="Utilisation d’Azure CDN avec CORS | Microsoft Azure"
 	description="Découvrez comment utiliser Azure CDN (Content Delivery Network) avec CORS (Cross-Origin Resource Sharing)."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Utilisation d’Azure CDN avec CORS     
@@ -23,7 +23,7 @@
 CORS (Cross Origin Resource Sharing) est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d’accéder aux ressources d’un autre domaine. Pour réduire le risque d’attaques de script entre sites, tous les navigateurs web modernes implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy). Celle-ci empêche une page web d’appeler des API dans un autre domaine. CORS permet à un domaine (le domaine d’origine) d’appeler des API dans un autre domaine de façon sécurisée.
  
 ## Fonctionnement
-1.	Le navigateur envoie la demande OPTIONS avec un en-tête HTTP **Origin**. La valeur de cet en-tête est le domaine qui a servi la page parente. Quand une page à partir de https://www.contoso.com tente d’accéder aux données d’un utilisateur dans le domaine fabrikam.com, l’en-tête de demande suivant est envoyé à fabrikam.com : 
+1.	Le navigateur envoie la demande OPTIONS avec un en-tête HTTP **Origin**. La valeur de cet en-tête est le domaine qui a servi la page parente. Quand une page à partir de https://www.contoso.com tente d’accéder aux données d’un utilisateur dans le domaine fabrikam.com, l’en-tête de demande suivant est envoyé à fabrikam.com :
     
     `Origin: https://www.contoso.com`
  
@@ -81,4 +81,4 @@ Au lieu de recourir à des expressions régulières, vous pouvez créer une règ
 
 Sur les profils Azure CDN Standard, le seul mécanisme autorisant plusieurs origines sans recourir à l’origine avec caractère générique consiste à utiliser la [mise en cache de chaîne de requête](cdn-query-string.md). Vous devez activer le paramètre de chaîne de requête pour le point de terminaison CDN, puis utiliser une chaîne de requête unique pour les demandes à partir de chaque domaine autorisé. Ainsi, le CDN met en cache un objet distinct pour chaque chaîne de requête unique. Cette approche n’est pas idéale, toutefois, car plusieurs copies du même fichier sont mises en cache sur le CDN.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

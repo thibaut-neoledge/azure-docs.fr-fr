@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Mises à l’échelle instantanées de bases de données SQL Azure"
+   pageTitle="Mises à l’échelle instantanées de bases de données SQL Azure"
    description="Apprenez comment mettre à l’échelle de manière instantanée les bases de données SQL"
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -17,11 +17,11 @@
    ms.date="07/19/2016"
    ms.author="carlrab"/>
 
-# Mises à l’échelle instantanées de bases de données SQL Azure
+# Mises à l’échelle instantanées de bases de données SQL Azure
 
 ## Lorsque votre application passe d’un petit nombre de clients à une utilisation quasi universelle, votre base de données SQL Azure peut évoluer simultanément avec une interruption minimale de l’application.
 
-L’un des avantages de disposer d’une base de données SQL sur Microsoft Azure est de pouvoir augmenter ou diminuer les performances en temps réel, pour s’adapter rapidement aux demandes de charge de travail. Une base de données SQL propose un large éventail de niveaux de performances permettant de répondre aux besoins spécifiques de votre application. Chaque niveau garantit des performances données, afin que les utilisateurs de votre application aient une expérience homogène.
+L’un des avantages de disposer d’une base de données SQL sur Microsoft Azure est de pouvoir augmenter ou diminuer les performances en temps réel, pour s’adapter rapidement aux demandes de charge de travail. Une base de données SQL propose un large éventail de niveaux de performances permettant de répondre aux besoins spécifiques de votre application. Chaque niveau garantit des performances données, afin que les utilisateurs de votre application aient une expérience homogène.
 
 ![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
@@ -38,7 +38,7 @@ La dernière chose dont vous devriez vous préoccuper lorsque vous créez une ap
 
 ## Obtenir des performances optimales
 
-Les bases de données SQL incluent une innovante technologie de mise en mémoire afin d’exécuter des transactions extrêmement rapides et d’effectuer simultanément des requêtes analytiques en temps réel. Des conseils intégrés aident les développeurs à effectuer une migration vers des tables, index et procédures de stockage en mémoire. Les utilisateurs bénéficient alors de transactions 30 fois plus rapides et de requêtes 100 fois plus rapides.
+Les bases de données SQL incluent une innovante technologie de mise en mémoire afin d’exécuter des transactions extrêmement rapides et d’effectuer simultanément des requêtes analytiques en temps réel. Des conseils intégrés aident les développeurs à effectuer une migration vers des tables, index et procédures de stockage en mémoire. Les utilisateurs bénéficient alors de transactions 30 fois plus rapides et de requêtes 100 fois plus rapides.
 
 [Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787580)
 
@@ -54,4 +54,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

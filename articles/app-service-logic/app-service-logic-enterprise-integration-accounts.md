@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Vue d’ensemble des comptes d'intégration et d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Découvrez toutes les informations sur les comptes d’intégration, Enterprise Integration Pack et les applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -74,4 +74,4 @@ Vous pouvez facilement déplacer un compte d’intégration vers un nouvel abonn
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

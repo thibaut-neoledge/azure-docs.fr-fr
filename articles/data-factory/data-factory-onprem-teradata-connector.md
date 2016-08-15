@@ -30,7 +30,7 @@ Data Factory prend uniquement en charge le déplacement de données de Teradata 
 
 Pour que la passerelle de gestion des données puisse se connecter à la base de données Teradata, vous devez installer le [fournisseur de données .NET pour Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) sur le même système que la passerelle de gestion des données.
 
-> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ### Exemple : copie de données de Teradata vers Azure Blob
 
@@ -245,7 +245,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Teradata), les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Teradata), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
@@ -311,4 +311,4 @@ Xml | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

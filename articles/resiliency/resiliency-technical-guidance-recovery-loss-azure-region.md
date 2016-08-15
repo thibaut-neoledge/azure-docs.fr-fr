@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guide technique de la résilience Azure - Récupération d’une interruption de service à l’échelle de la région
 
@@ -106,7 +106,7 @@ La [géo-restauration](../sql-database/sql-database-recovery-using-backups.md#ge
 
 ####Géo-réplication active
 
-La [géo-réplication active](../sql-database/sql-database-geo-replication-overview.md) est disponible avec tous les niveaux de bases de données. Elle est conçue pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géo-restauration. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement sur n’importe quelle base de données secondaire. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Pour plus d’informations, consultez [Configurer la géo-réplication](../sql-database/sql-database-geo-replication-portal.md) et [Basculement vers la base de données secondaire](../sql-database/sql-database-geo-replication-failover-portal.md). Reportez-vous aux rubriques [Concevoir une application pour la récupération d’urgence cloud à l’aide de la géo-réplication active dans une base de données SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Mise à niveau de l'application sans interruption de service](../sql-database/sql-database-business-continuity-application-upgrade.md) pour plus d’informations sur la conception, la mise en œuvre et la mise à niveau d’applications sans interruption.
+La [géo-réplication active](../sql-database/sql-database-geo-replication-overview.md) est disponible avec tous les niveaux de bases de données. Elle est conçue pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géo-restauration. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement sur n’importe quelle base de données secondaire. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Pour plus d’informations, consultez [Configurer la géo-réplication](../sql-database/sql-database-geo-replication-portal.md) et [Basculement vers la base de données secondaire](../sql-database/sql-database-geo-replication-failover-portal.md). Reportez-vous aux rubriques [Concevoir une application pour la récupération d’urgence cloud à l’aide de la géo-réplication active dans une base de données SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Mise à niveau de l'application sans interruption de service](../sql-database/sql-database-manage-application-rolling-upgrade.md) pour plus d’informations sur la conception, la mise en œuvre et la mise à niveau d’applications sans interruption.
 
 ###SQL Server sur Virtual Machines
 
@@ -214,4 +214,4 @@ Les fichiers de configuration constituent le moyen le plus rapide de configurer 
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série traite de [la récupération à partir d’un centre de données local sur Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Contrôle du comportement de mise en cache des demandes avec des chaînes de requête - Premium"
-	description="La mise en cache des chaînes de requête CDN contrôle la manière dont les fichiers doivent être mis en cache lorsqu'ils contiennent des chaînes de requête."
+	pageTitle="Contrôle de CDN Azure Premium sur le comportement de mise en cache des demandes Verizon avec des chaînes de requête | Microsoft Azure"
+	description="La mise en cache des chaînes de requête CDN Azure contrôle la manière dont les fichiers doivent être mis en cache lorsqu’ils contiennent des chaînes de requête."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 #Contrôle du comportement de mise en cache des demandes CDN avec des chaînes de requête - Premium
@@ -38,7 +38,7 @@ Trois modes sont disponibles :
 
 1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer**.
 
-	![Bouton Gérer du panneau de profil CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
+	![Bouton de gestion du panneau de profil CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
 
 	Le portail de gestion CDN s’ouvre.
 
@@ -53,4 +53,4 @@ Trois modes sont disponibles :
 
 > [AZURE.IMPORTANT] La modification des paramètres peut ne pas être visible immédiatement, car la propagation de l’inscription dans le CDN prend un certain temps. Pour les profils du <b>CDN Azure fourni par Verizon</b>, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->
