@@ -271,4 +271,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!----HONumber=AcomDC_0803_2016-->
