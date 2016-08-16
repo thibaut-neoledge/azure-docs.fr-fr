@@ -146,4 +146,4 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 [azureregions]: https://azure.microsoft.com/fr-FR/regions/#services
 [offers]: https://azure.microsoft.com/fr-FR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->
