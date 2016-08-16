@@ -54,18 +54,21 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 ## Configurez l’application API du connecteur SAP que vous venez de créer. ##
 
-Accédez à l’application API récemment créée en sélectionnant Parcourir -> API Apps -> Nom de l’application API créée. L’installation n’est pas terminée puisque la connexion hybride n’est pas encore établie : ![][2]
+Accédez à l’application API récemment créée en sélectionnant Parcourir -> API Apps -> Nom de l’application API créée. L’installation n’est pas terminée puisque la connexion hybride n’est pas encore établie :  
+![][2]
 
 Le connecteur SAP nécessite une connectivité hybride pour se connecter à un point de terminaison SAP, *quel qu’il soit*. Pour l’établir une connectivité hybride, procédez comme suit :
 
 1. Copiez la chaîne de connexion principale.
 2. Cliquez sur le lien Télécharger et configurer.
 3. Suivez le processus d’installation qui se lance et fournissez la chaîne de connexion principale quand vous y êtes invité.
-4. Une fois le processus d’installation terminé, une boîte de dialogue similaire à celle-ci apparaît : ![][3]
+4. Une fois le processus d’installation terminé, une boîte de dialogue similaire à celle-ci apparaît :  
+![][3]
 
 En savoir plus sur [l’intégration avec un serveur SAP local](app-service-logic-integrate-with-an-on-premise-sap-server.md).
 
-Maintenant, quand vous accédez de nouveau à l’application API créée, vous pouvez observer que l’état de la connexion hybride est Connecté : ![][4]
+Maintenant, quand vous accédez de nouveau à l’application API créée, vous pouvez observer que l’état de la connexion hybride est Connecté :  
+![][4]
 
 Remarque : si vous voulez basculer vers la chaîne de connexion secondaire, il vous suffit de recommencer la configuration et de fournir la chaîne de connexion secondaire à la place de la chaîne de connexion principale.
 
@@ -73,11 +76,14 @@ Remarque : si vous voulez basculer vers la chaîne de connexion secondaire, il 
 
 Le connecteur SAP peut être utilisé en tant qu’action/étape uniquement dans une application logique.
 
-Quand vous créez/modifiez une application logique, choisissez l’application API du connecteur SAP que vous avez créée ci-dessus. Toutes les actions permises que vous pouvez choisir sont alors répertoriées : ![][5]
+Quand vous créez/modifiez une application logique, choisissez l’application API du connecteur SAP que vous avez créée ci-dessus. Toutes les actions permises que vous pouvez choisir sont alors répertoriées :  
+![][5]
 
-Dès que vous sélectionnez une action, la liste des paramètres d'entrée de cette action apparaît. Fournissez les valeurs appropriées, puis cliquez sur l'icône représentant une coche : ![][6]
+Dès que vous sélectionnez une action, la liste des paramètres d'entrée de cette action apparaît. Fournissez les valeurs appropriées, puis cliquez sur l'icône représentant une coche :  
+![][6]
 
-L’étape/l’action s’affiche maintenant comme configurée dans l’application logique. Les sorties de l'opération s'affichent et peuvent être utilisées comme entrées dans une étape ultérieure : ![][7]
+L’étape/l’action s’affiche maintenant comme configurée dans l’application logique. Les sorties de l'opération s'affichent et peuvent être utilisées comme entrées dans une étape ultérieure :  
+![][7]
 
 Complétez l’application logique pour définir le processus d’entreprise, puis exécutez-la pour atteindre l’objectif voulu.
 
