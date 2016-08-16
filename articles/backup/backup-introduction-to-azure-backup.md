@@ -3,8 +3,8 @@
 	description="Grâce à Azure Backup et à Recovery Services, vous pouvez sauvegarder et restaurer des données et des applications à partir de serveurs Windows, d’ordinateurs clients Windows, de serveurs System Center DPM ou de machines virtuelles Azure."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor="tysonn"
 	keywords="sauvegarde et restauration ; services de restauration ; solutions de sauvegarde"/>
 
@@ -51,7 +51,7 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 
 ### Avantages et limites du niveau du composant
 
-| Composant | Avantages | Limites | Granularité de récupération |
+| Composant | Avantages | Limitations | Granularité de récupération |
 | --- | --- | --- | --- |
 | Agent Azure Backup (MARS) | <li>Peut sauvegarder des fichiers et des dossiers sur une machine équipée du système d’exploitation Windows, physique ou virtuelle (les machines virtuelles peuvent se trouver n’importe où sur site ou sur Azure)<li>Aucun serveur de sauvegarde distinct n’est requis<li>Utilise le coffre Azure Backup | <li>Sauvegarde trois fois par jour/restauration de niveau fichier<li>Restauration de niveau fichier/dossier/volume uniquement, indépendante de l’application<li>Aucune prise en charge de Linux | fichiers/dossiers/volumes |
 | System Center Data Protection Manager (DPM) | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète concernant le moment des sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V) | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle) | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
@@ -69,8 +69,7 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (notamment l’agent Azure Backup)</p> |
-| Machines virtuelles Azure IaaS (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | 
-| Machines virtuelles Azure IaaS (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Machines virtuelles Azure IaaS (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | | Machines virtuelles Azure IaaS (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
 
 ## Prise en charge ARM et Linux
 
@@ -228,4 +227,4 @@ Comme ces didacticiels vous aident à effectuer des sauvegardes rapides, ils n�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

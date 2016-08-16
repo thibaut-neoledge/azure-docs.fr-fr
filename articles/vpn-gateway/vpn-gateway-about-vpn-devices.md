@@ -13,26 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/10/2016"
    ms.author="cherylmc" />
 
 # À propos des périphériques VPN pour les connexions de la passerelle VPN de site à site
 
-La configuration d'une connexion VPN site à site (S2S) nécessite un périphérique VPN. Vous pouvez utiliser des connexions site à site pour créer une solution hybride, ou chaque fois que vous souhaitez disposer d'une connexion sécurisée entre votre réseau local et votre réseau virtuel. Cet article traite des périphériques VPN compatibles et des paramètres de configuration associés. Veuillez noter que lorsque vous configurez une connexion site à site, une adresse IPv4 publique est requise pour votre périphérique VPN.
+La configuration d’une connexion VPN site à site (S2S) nécessite un périphérique VPN. Vous pouvez utiliser des connexions site à site pour créer une solution hybride, ou chaque fois que vous souhaitez disposer d'une connexion sécurisée entre votre réseau local et votre réseau virtuel. Cet article traite des périphériques VPN compatibles et des paramètres de configuration associés. Veuillez noter que lorsque vous configurez une connexion site à site, une adresse IPv4 publique est requise pour votre périphérique VPN.
 
-Si votre périphérique n’apparaît pas dans la table des périphériques VPN validés, consultez la section sur les périphériques VPN non validés de cet article. Il est possible que votre périphérique fonctionne toujours avec Azure. Pour plus d’informations sur la prise en charge des périphériques VPN, contactez le fabricant de votre périphérique.
+Si votre périphérique n’apparaît pas dans le tableau [Périphériques VPN validés](#devicetable), consultez la section [Périphériques VPN non validés](#additionaldevices) de cet article. Il est possible que votre périphérique fonctionne toujours avec Azure. Pour plus d’informations sur la prise en charge des périphériques VPN, contactez le fabricant de votre périphérique.
 
 **Éléments à noter lorsque vous affichez les tables :**
 
 - Une modification de la terminologie a eu lieu pour le routage statique et dynamique. Vous rencontrerez probablement les deux termes. Seuls les noms ont été modifiés, pas la fonctionnalité.
 	- Routage statique = basé sur des stratégies
 	- Routage dynamique = basé sur un itinéraire
-- Sauf indication contraire, les spécifications des passerelles VPN hautes performances sont identiques à celles des passerelles VPN basées sur itinéraire. Par exemple, les périphériques VPN validés qui sont compatibles avec les passerelles VPN basées sur itinéraire sont également compatibles avec la nouvelle passerelle VPN hautes performances Azure.
+- Sauf indication contraire, les spécifications des passerelles VPN hautes performances sont identiques à celles des passerelles VPN basées sur itinéraire. Par exemple, les périphériques VPN validés qui sont compatibles avec les passerelles VPN basées sur itinéraire sont également compatibles avec la passerelle VPN hautes performances Azure.
 
 
-## Périphériques VPN validés 
+## <a name="devicetable"></a>Périphériques VPN validés 
 
-Nous avons validé un ensemble de périphériques VPN standard en partenariat avec des fournisseurs de périphériques. Tous les périphériques des familles de périphériques figurant dans la liste ci-dessous doivent fonctionner avec les passerelles VPN Azure. Consultez l'article sur les [passerelles VPN](vpn-gateway-about-vpngateways.md) pour vérifier le type de passerelle dont vous avez besoin pour créer la solution que vous souhaitez configurer.
+Nous avons validé un ensemble de périphériques VPN standard en partenariat avec des fournisseurs de périphériques. Tous les périphériques des familles de périphériques figurant dans la liste suivante doivent fonctionner avec les passerelles VPN Azure. Consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md) pour vérifier le type de passerelle dont vous avez besoin pour créer la solution que vous souhaitez configurer.
 
 Pour configurer plus facilement votre périphérique VPN, reportez-vous aux liens qui correspondent à la famille de périphériques appropriée.
 
@@ -48,7 +48,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Cisco | ASA | 8\.3 | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Non compatible |
 | Cisco | ASR | IOS 15.1 (basé sur des stratégies), IOS 15.2 (basé sur un itinéraire) | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco | ISR | IOS 15.0 (basé sur des stratégies), IOS 15.1 (basé sur un itinéraire*) | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Exemples Cisco*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Citrix | Appliance MPX CloudBridge ou appliance virtuelle VPX | N/A | [Instructions d’intégration](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Non compatible |
+| Citrix | NetScaler MPX, SDX, VPX |10\.1 et versions ultérieures | [Instructions d’intégration](https://docs.citrix.com/fr-FR/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) | Non compatible |
 | Dell SonicWALL | Série TZ, Série NSA, Série SuperMassive, Série NSA classe E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instructions - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instructions - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instructions - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instructions - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Série BIG-IP | N/A | [Instructions de configuration](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Non compatible |
 | Fortinet | FortiGate | FortiOS 5.2.7 | [Instructions de configuration](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Instructions de configuration](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
@@ -65,7 +65,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 
 (*) Les routeurs de la série ISR 7200 prennent uniquement en charge les VPN basés sur des stratégies.
 
-## Périphériques VPN non validés
+## <a name="additionaldevices"></a>Périphériques VPN non validés
 
 Si votre appareil n'est pas répertorié dans le tableau des périphériques VPN validés (ci-dessus), il peut tout de même fonctionner avec une connexion site à site. Vérifiez que votre périphérique VPN répond à la configuration minimale requise décrite dans la section de configuration de la passerelle de l'article [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md#gateway-requirements). Les périphériques qui répondent à la configuration minimale requise sont censés fonctionner également avec les passerelles VPN. Contactez le fabricant de votre périphérique pour obtenir une prise en charge et des instructions de configuration supplémentaires.
 
@@ -97,7 +97,7 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 
 ## Paramètres IPsec
 
->[AZURE.NOTE] Même si les valeurs répertoriées ci-dessous sont prises en charge par la passerelle VPN Azure, actuellement il n’existe aucun moyen de spécifier ou de sélectionner une combinaison spécifique de la passerelle VPN Azure. Vous devez spécifier des contraintes à partir du périphérique VPN local. En outre, vous devez définir MSS sur 1350.
+>[AZURE.NOTE] Même si les valeurs répertoriées dans le tableau ci-dessous sont prises en charge par la passerelle VPN Azure, il n’existe pour le moment aucun moyen de spécifier ou de sélectionner une combinaison spécifique de la passerelle VPN Azure. Vous devez spécifier des contraintes à partir du périphérique VPN local. En outre, vous devez définir MSS sur 1350.
 
 ### Configuration IKE Phase 1
 
@@ -118,14 +118,11 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | Version IKE | IKEv1 | IKEv2 |
 | Algorithme de hachage | SHA1(SHA128) | SHA1(SHA128) |
 | Durée de vie d’association de sécurité de phase 2 (temps) | 3 600 secondes | 3 600 secondes |
-| Durée de vie d’association de sécurité de phase 2 (débit) | 102 400 000 Ko | - | 
-| Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | Voir la section *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) | 
-| PFS (Perfect Forward Secrecy) | Non | Oui (groupe 1, 2, 5, 14, 24 DH) | 
-| Détection d’homologue mort | Non prise en charge | Prise en charge |
+| Durée de vie d’association de sécurité de phase 2 (débit) | 102 400 000 Ko | - | | Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | Voir la section *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) | | PFS (Perfect Forward Secrecy) | Non | Oui (groupe 1, 2, 5, 14, 24 DH) | | Détection d’homologue mort | Non prise en charge | Prise en charge |
 
 ### Offres d'association de sécurité IPsec pour passerelle basée sur un itinéraire
 
-Le tableau ci-après répertorie les offres d’authentification et de chiffrement d’association de sécurité IPsec. Les offres sont énumérées dans l’ordre de préférence dans lequel elles sont présentées ou acceptées.
+Le tableau suivant répertorie les offres d’authentification et de chiffrement d’association de sécurité IPsec. Les offres sont énumérées dans l’ordre de préférence dans lequel elles sont présentées ou acceptées.
 
 | **Offres d’authentification et de chiffrement d’association de sécurité IPsec** | **Passerelle Azure en tant qu’initiateur** | **Passerelle Azure en tant que répondeur** |
 |---------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
@@ -145,12 +142,11 @@ Le tableau ci-après répertorie les offres d’authentification et de chiffreme
 | 14 | AH MD5 avec ESP DES et HMAC Null, aucune durée de vie proposée | AH MD5 avec ESP DES MD5, aucune durée de vie |
 | 15 | AH SHA1 avec ESP DES SHA1, aucune durée de vie | ESP SHA, aucune durée de vie |
 | 16 | AH MD5 avec ESP DES MD5, aucune durée de vie | ESP MD5, aucune durée de vie |
-| 17 | - | AH SHA, aucune durée de vie | 
-| 18 | - | AH MD5, aucune durée de vie |
+| 17 | - | AH SHA, aucune durée de vie | | 18 | - | AH MD5, aucune durée de vie |
 
 
 - Vous pouvez spécifier le chiffrement IPsec ESP NULL avec les passerelles VPN basées sur un itinéraire et hautes performances. Le chiffrement Null ne fournit pas de protection des données en transit. Il doit être utilisé uniquement lorsqu’un débit maximal et une latence minimale sont requis. Les clients peuvent choisir de l’utiliser dans les scénarios de communication entre les réseaux virtuels ou lorsque le chiffrement est appliqué ailleurs dans la solution.
 
 - Pour les connexions entre locaux par le biais d’Internet, utilisez les paramètres de passerelle VPN Azure par défaut avec les algorithmes de chiffrement et de hachage répertoriés dans les tableaux ci-dessus pour garantir la sécurité de vos communications cruciales.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

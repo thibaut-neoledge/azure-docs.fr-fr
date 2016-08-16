@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="04/14/2016"
+	ms.date="08/08/2016"
 	ms.author="heidist"/>
 
 # Indexeurs dans Azure Search
@@ -30,19 +30,50 @@ Dans Azure Search, un **indexeur** est un analyseur qui extrait les données et 
 
 Vous pouvez utiliser un indexeur comme seul moyen d’ingestion des données ou utiliser une combinaison de techniques qui incluent l’utilisation d’un indexeur pour charger uniquement certains champs dans l’index.
 
-Les indexeurs peuvent être exécutés à la demande ou en fonction d’une planification d’actualisation des données périodique qui s’exécute toutes les quinze minutes. Des mises à jour plus fréquentes requièrent un modèle d’émission qui met à jour simultanément les données dans Azure Search et dans votre source de données externe.
+Vous pouvez exécuter des indexeurs à la demande ou en fonction d’une planification d’actualisation des données périodique qui s’exécute jusqu’à une fois toutes les quinze minutes. Des mises à jour plus fréquentes requièrent un modèle d’émission qui met à jour simultanément les données dans Azure Search et dans votre source de données externe.
+
+## Méthodes de création et de gestion des indexeurs
+
+Pour les indexeurs à disposition générale tels qu’Azure SQL ou DocumentDB, vous pouvez créer et gérer les indexeurs à l’aide des méthodes suivantes :
+
+- [Portail > Assistant Importer des données ](search-get-started-portal.md)
+- [API REST du service](https://msdn.microsoft.com/library/azure/dn946891.aspx)
+- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
+
+Les indexeurs en version préliminaire, tels que le stockage d’objets blob Azure ou Azure Table Storage, requièrent du code et des API en version préliminaire telles que la [version préliminaire de l’API REST Azure Search pour les indexeurs](search-api-indexers-2015-02-28-preview.md). Les outils du portail ne sont généralement pas disponibles pour les fonctionnalités en version préliminaire.
+
+## Étapes de configuration de base
+
+Les indexeurs peuvent offrir des fonctionnalités propres à la source de données. À cet égard, certains aspects de la configuration de l’indexeur ou de la source de données varient en fonction du type d’indexeur. Cependant, tous les indexeurs présentent une composition et des exigences de base identiques. Les étapes communes à tous les indexeurs sont décrites ci-dessous.
+
+### Étape 1 : Création d’un index
+
+Un indexeur automatise certaines tâches liées à l’ingestion de données, mais la création d’un index n’en fait pas partie. Au préalable, vous devez disposer d’un index prédéfini présentant des champs qui correspondent à ceux de votre source de données externe. Pour plus d’informations sur la structuration d’un index, consultez l’article [Create an Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) (Création d’un index (API REST Azure Search)).
+
+### Étape 2 : Création d’une source de données
 
 Un indexeur extrait les données d’une **source de données** qui contient des informations telles qu’une chaîne de connexion. Actuellement, les sources de données suivantes sont prises en charge :
 
-- [Base de données SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) (ou SQL Server dans une machine virtuelle Azure)
+- [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [Base de données de documents](../documentdb/documentdb-search-indexer.md)
-- [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) (actuellement en version préliminaire. Extrait le texte des documents PDF et Office, et de code HTML ou XML.)
-- [Azure Table Storage](search-howto-indexing-azure-tables.md) (actuellement en version préliminaire)
+- [Stockage d’objets blob azure (version préliminaire)](search-howto-indexing-azure-blob-storage.md), utilisé pour extraire du texte de fichiers PDF, HTML, XML ou de documents Office
+- [Azure Table Storage (version préliminaire)](search-howto-indexing-azure-tables.md)
 
 Les sources de données sont configurées et gérées indépendamment des indexeurs qui les utilisent. Autrement dit, une source de données peut être utilisée par plusieurs indexeurs pour charger plusieurs index à la fois.
 
-Le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) et l’[API REST du service](https://msdn.microsoft.com/library/azure/dn946891.aspx) prennent en charge la gestion des indexeurs et des sources de données.
+### Étape 3 : Création et planification de l’indexeur
 
-Vous pouvez également configurer un indexeur dans le portail lorsque vous utilisez l’Assistant **Importation de données**. Consultez la page [Prise en main d’Azure Search dans le portail](search-get-started-portal) pour accéder à un didacticiel rapide qui utilise des exemples de données et l’indexeur DocumentDB pour créer et charger un index à l’aide de l’Assistant.
+La définition de l’indexeur est une structure qui spécifie l’index, la source de données et une planification. Un indexeur peut faire référence à une source de données d’un autre service, à condition que celle-ci appartienne au même abonnement. Pour plus d’informations sur la structuration d’un indexeur, consultez l’article [Create Indexer (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn946899.aspx) (Création d’un indexeur (API REST Azure Search)).
 
-<!---HONumber=AcomDC_0420_2016-->
+## Étapes suivantes
+
+Maintenant que vous avez la structure de base, l’étape suivante consiste à passer en revue les exigences et les tâches propres à chaque type de source de données.
+
+- [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Base de données de documents](../documentdb/documentdb-search-indexer.md)
+- [Stockage d’objets blob azure (version préliminaire)](search-howto-indexing-azure-blob-storage.md), utilisé pour extraire du texte de fichiers PDF, HTML, XML ou de documents Office
+- [Azure Table Storage (version préliminaire)](search-howto-indexing-azure-tables.md)
+- [Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search (version préliminaire)](search-howto-index-csv-blobs.md)
+- [Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search (version préliminaire)](search-howto-index-json-blobs.md)
+
+<!---HONumber=AcomDC_0810_2016-->

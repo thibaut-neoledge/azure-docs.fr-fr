@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/28/2016"
+	ms.date="08/04/2016"
 	ms.author="normesta"/>
 
 
@@ -27,7 +27,7 @@ Ce didacticiel vous montre comment ajouter un service de serveur principal basé
 
 Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels Xamarin.iOS sur l’utilisation de la fonctionnalité Mobile Apps dans Azure App Service.
 
-##Configuration requise
+##Composants requis
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -52,15 +52,6 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 Suivez les étapes ci-dessous pour configurer le projet de serveur de sorte qu’il utilise le serveur principal Node.js ou .NET.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-
-## (Facultatif) Tester localement votre projet de serveur principal
-
-Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous pouvez éventuellement tester votre serveur principal en local.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
 
 ## Télécharger et exécuter l’application Xamarin.iOS
 
@@ -108,4 +99,4 @@ Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous 
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

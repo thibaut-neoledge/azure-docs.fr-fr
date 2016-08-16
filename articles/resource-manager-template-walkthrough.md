@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Guide de création d’un modèle Resource Manager
@@ -53,7 +53,7 @@ Commençons par le modèle le plus simple :
 
 Enregistrez ce fichier en tant que **azuredeploy.json** (notez que le modèle peut avoir le nom de votre choix, et qu’il doit simplement s’agir d’un fichier json).
 
-## Créer un compte de stockage
+## Créez un compte de stockage.
 Dans la section **resources**, ajoutez un objet qui définit le compte de stockage, comme indiqué ci-dessous.
 
 ```json
@@ -579,4 +579,4 @@ Vous pouvez redéployer le modèle en utilisant les mêmes commandes que celles 
 - Pour plus d’informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour apprendre à déployer des modèles, consultez [Déployer un groupe de ressources avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

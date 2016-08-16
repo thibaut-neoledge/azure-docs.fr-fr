@@ -1,6 +1,6 @@
 <properties
    pageTitle="Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio | Azure"
-   description="Découvrez comment installer Data Lake Tools Visual Studio et développer et tester des scripts U-SQL."
+   description="Découvrez comment installer Data Lake Tools Visual Studio et développer et tester des scripts U-SQL. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
@@ -130,20 +130,20 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
 
 		IntelliSense pour les entités de catalogue (Bases de données, Schémas, Tables, UDO, etc.) est lié à votre compte de calcul. Vous pouvez vérifier le compte de calcul, la base de données et le schéma actifs actuels dans la barre d'outils supérieure et les faire commuter via les listes déroulantes.
 
-    - **Développez les colonnes**
+    - **Développer *les colonnes**
 
-        Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas. ![Outils Data Lake Visual Studio : développer *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Cliquez sur **Développer les colonnes**. L’outil remplace alors * par le nom des colonnes.
 
 	- **Mise en forme automatique**
 
-		Les utilisateurs peuvent modifier la mise en retrait du script Scope basé sur la structure de code sous Modifier->Avancé :
+		Les utilisateurs peuvent modifier la mise en retrait du script U-SQL basé sur la structure de code sous Modifier->Avancé :
 
-		- Mettre le document en forme (Ctrl+E, D) : met en forme l'ensemble du document   
-		- Mettre la sélection en forme (Ctrl+K, Ctrl+F) : met en forme la sélection. Si aucune sélection n'a été effectuée, ce raccourci met en forme la ligne où se trouve le curseur.  
+		- Mettre le document en forme (Ctrl+E, D) : met en forme l'ensemble du document
+		- Mettre la sélection en forme (Ctrl+K, Ctrl+F) : met en forme la sélection. Si aucune sélection n'a été effectuée, ce raccourci met en forme la ligne où se trouve le curseur.
 
-		Toutes les règles de mise en forme peuvent être configurées sous Outils->Options->Éditeur de texte->SIP->Mise en forme.  
+		Toutes les règles de mise en forme peuvent être configurées sous Outils->Options->Éditeur de texte->SIP->Mise en forme.
 	- **Mise en retrait intelligente**
 
 		Data Lake Tools pour Visual Studio peut mettre en retrait automatiquement les expressions lorsque vous écrivez des scripts. Cette fonctionnalité est désactivée par défaut. Les utilisateurs doivent l'activer sous U-SQL->Options et paramètres->Commutateurs->Activer la mise en retrait intelligente.
@@ -172,7 +172,7 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
 
 	![Graphique des performances du travail U-SQL Visual Studio Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-	* Résumé du travail. Affiche les informations de résumé du travail en cours, par exemple : état, progression, durée d'exécution, nom de l'exécution, demandeur, etc.   
+	* Résumé du travail. Affiche les informations de résumé du travail en cours, par exemple : état, progression, durée d'exécution, nom de l'exécution, demandeur, etc.
 	* Détails du travail. Informations détaillées sur ce travail, y compris le script, les ressources, la vue d'exécution du vertex.
 	* Graphique du travail. Plusieurs graphiques permettent de visualiser les informations du travail : progression, données lues, données écrites, durée d’exécution, durée d’exécution moyenne par nœud, débit d’entrée, débit de sortie.
 	* Opérations sur les métadonnées. Affiche toutes les opérations sur les métadonnées.
@@ -272,7 +272,7 @@ La procédure suivante fonctionne uniquement dans Visual Studio 2015. Dans les v
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Définissez des points d'arrêt dans le code C#.
-4.	Appuyez sur **F5** pour déboguer le script en faisant référence à la dll C# localement.  
+4.	Appuyez sur **F5** pour déboguer le script en faisant référence à la dll C# localement.
 
 ##Voir aussi
 
@@ -291,7 +291,7 @@ Pour afficher les autres rubriques sur le développement :
 
 ##Exemple PowerShell pour la préparation du didacticiel
 
-Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et la source de données pour vous. Vous pouvez donc passer au didacticiel [Développer des scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et la source de données pour vous. Vous pouvez donc passer à la section [Développer des scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -361,4 +361,4 @@ Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et l
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

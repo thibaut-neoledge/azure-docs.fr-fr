@@ -32,7 +32,7 @@ Le tableau suivant répertorie tous les connecteurs et toutes les applications A
 Nom | Description
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Permet d’envoyer des messages à partir de files d’attente et de rubriques Service Bus, et de recevoir des messages de files d’attente et d’abonnements Service Bus.
-[Bing Traduction](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Utilisez Bing pour traduire un texte dans une autre langue.
+[Bing Traduction](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Utilisez Bing pour traduire un texte dans une autre langue.
 [HTTP](app-service-logic-connector-http.md) | L'écouteur HTTP ouvre un point de terminaison qui agit comme serveur HTTP et écoute les requêtes HTTP ou HTTPS entrantes. L'action HTTP ne nécessite aucune application API et est prise en charge en mode natif au sein des applications logiques.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Le connecteur Office 365 permet d'envoyer et recevoir des courriers électroniques, de gérer votre calendrier et de gérer vos contacts à l'aide de votre compte Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Vous pouvez notamment créer, mettre à jour, lire, supprimer et interroger différentes entités d'Intuit QuickBooks, comme des clients, articles ou des factures.
@@ -80,4 +80,4 @@ Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre applic
 ## En savoir plus sur les connecteurs et les applications API
 [Qu'est-ce qu'un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md) [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md) [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

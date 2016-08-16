@@ -3,7 +3,7 @@
    description="En savoir plus sur les réseaux virtuels dans Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Présentation du réseau virtuel
 
@@ -95,4 +95,4 @@ L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplé
 - En savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md).
 - En savoir plus sur les [Itinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->
