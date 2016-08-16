@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/28/2016"
+	ms.date="08/09/2016"
 	ms.author="casoper"/>
 
 # Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
@@ -39,7 +39,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache les ressources de s
 
 3. L'origine renvoie les fichiers sur le serveur Edge, notamment les en-têtes HTTP facultatifs décrivant la durée de vie du fichier.
 
-4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice). Le fichier reste en cache sur le serveur Edge jusqu'à la fin de la durée de vie. Si l'origine n'a pas spécifié de durée de vie, elle est par défaut de 7 jours.
+4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice). Le fichier reste en cache sur le serveur Edge jusqu’à la fin de la durée de vie. Si l’origine n’a pas spécifié de durée de vie, elle est par défaut de 7 jours.
 
 5. Des utilisateurs supplémentaires (par exemple, Jean) peuvent demander le même fichier à l'aide de la même URL et peuvent également être dirigés vers ce même point de présence.
 
@@ -57,6 +57,7 @@ Il existe trois produits Azure CDN : **Azure CDN Standard fourni par Akamai**, *
 | Équilibrage de la charge | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Protection DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Double pile IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Mise en cache des chaînes de requête](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtrage par pays](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
@@ -72,7 +73,7 @@ Il existe trois produits Azure CDN : **Azure CDN Standard fourni par Akamai**, *
 
 ## Étapes suivantes
 
-Pour une prise en main du CDN, voir [Utilisation d’Azure CDN](./cdn-create-new-endpoint.md).
+Pour une prise en main du CDN, consultez [Utilisation d’Azure CDN](./cdn-create-new-endpoint.md).
 
 Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points de terminaison CDN via le [portail Microsoft Azure](https://portal.azure.com).
 
@@ -80,6 +81,6 @@ Pour voir le CDN à l’œuvre, regardez la [vidéo de notre session Build 2016]
 
 Apprenez à automatiser Azure CDN avec [.NET](./cdn-app-dev-net.md) ou [Node.js](./cdn-app-dev-node.md).
 
-Pour plus d’informations sur la tarification, voir [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
+Pour obtenir des informations sur la tarification, consultez la page [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

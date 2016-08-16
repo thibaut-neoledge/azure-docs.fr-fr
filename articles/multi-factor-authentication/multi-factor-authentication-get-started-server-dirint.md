@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Intégration d'annuaires entre le serveur Azure MFA et Active Directory
@@ -69,7 +69,7 @@ Il est possible de personnaliser les attributs pour un annuaire spécifique. Cel
 | Identificateur unique | Entrez le nom de l'attribut qui sert d'identificateur unique pour le conteneur, le groupe de sécurité et les enregistrements utilisateur. Dans Active Directory, il s'agit généralement de objectGUID. Dans d'autres implémentations LDAP, il peut s'agir de entryUUID ou autre paramètre similaire. La valeur par défaut est objectGUID. |
 | ... Boutons (Sélectionner un attribut) | Chaque champ d'attribut dispose d'un bouton « ... » qui affiche la boîte de dialogue Sélectionner un attribut permettant de sélectionner un attribut dans une liste. <br><br>Boîte de dialogue Sélectionner un attribut.<br><br>Remarque : les attributs peuvent être entrés manuellement et ils ne doivent pas nécessairement correspondre à un attribut dans la liste d'attributs. |
 | Type d'identificateur unique | Sélectionnez le type de l'attribut d'identificateur unique. Dans Active Directory, l'attribut objectGUID est du type GUID. Dans d'autres implémentations LDAP, le type peut être Chaîne ou Tableau d'octets ASCII. La valeur par défaut est GUID. <br><br>Remarque : il est important de définir ce paramètre correctement dans la mesure où les éléments de synchronisation sont référencés en fonction de leur identificateur unique. De plus, le type d'identificateur unique est utilisé pour trouver directement l'objet dans l'annuaire. La définition de ce paramètre sur Chaîne alors que l'annuaire stocke la valeur sous forme de tableau d'octets de caractères ASCII empêchera la synchronisation de fonctionner correctement. |
-| Nom unique | Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement. Dans Active Directory, il s'agit généralement de distinguishedName. Dans d'autres implémentations LDAP, il peut s'agir de entryDN ou autre paramètre similaire. La valeur par défaut est distinguishedName. <br><br>Remarque : si un attribut contenant simplement le nom unique n'existe pas, l'attribut adspath peut être utilisé. La partie « LDAP://<server>/ » du chemin d'accès est automatiquement supprimée. Seul le nom unique de l'objet est conservé. |
+| Nom unique | Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement. Dans Active Directory, il s'agit généralement de distinguishedName. Dans d'autres implémentations LDAP, il peut s'agir de entryDN ou autre paramètre similaire. La valeur par défaut est distinguishedName. <br><br>Remarque : si un attribut contenant simplement le nom unique n'existe pas, l'attribut adspath peut être utilisé. La partie « LDAP://<server>/ » du chemin d’accès est automatiquement supprimée. Seul le nom unique de l’objet est conservé. |
 | Nom du conteneur | Entrez le nom de l'attribut qui contient le nom d'un enregistrement de conteneur. La valeur de cet attribut s'affiche dans la hiérarchie de conteneur lors de l'importation à partir d'Active Directory ou l'ajout d'éléments de synchronisation. La valeur par défaut est name. <br><br>Remarque : si des conteneurs différents utilisent des attributs différents pour leurs noms, plusieurs attributs de nom de conteneur peuvent être spécifiés en les séparant par des points-virgules. Le premier attribut de nom de conteneur trouvé sur un objet de conteneur sera utilisé pour afficher son nom. |
 | Nom de groupe de sécurité | Entrez le nom de l'attribut qui contient le nom d'un enregistrement de groupe de sécurité. La valeur de cet attribut s'affiche dans la liste des groupes de sécurité lors de l'importation à partir d'Active Directory ou l'ajout d'éléments de synchronisation. La valeur par défaut est name. |
 | Utilisateurs | Les attributs suivants sont utilisés pour la recherche, l'affichage, l'importation et la synchronisation des informations utilisateur à partir de l'annuaire. |
@@ -137,4 +137,4 @@ Il est possible de configurer des serveurs MFA supplémentaires en tant que prox
 
 ![Serveurs MFA](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Cette page fournit des instructions pour la création, la configuration, le démarrage et la suppression d’une passerelle Application Gateway Azure avec un équilibrage de charge interne (ILB) pour Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 
 # Créer une passerelle Application Gateway avec un équilibrage de charge interne (ILB) à l’aide d’Azure Resource Manager
@@ -51,20 +51,20 @@ La différence entre l’utilisation d’Azure Classic et celle d’Azure Resou
 Procédure de création d’une passerelle Application Gateway :
 
 1. Créer un groupe de ressources pour Resource Manager
-2. Créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway
+2. Création d'un réseau virtuel et d'un sous-réseau pour la passerelle Application Gateway
 3. Créer un objet de configuration de passerelle Application Gateway
-4. Créer une ressource Application Gateway
+4. Créer une ressource de passerelle d’application
 
 
 ## Créer un groupe de ressources pour Resource Manager
 
 Veillez à passer en mode PowerShell pour utiliser les applets de commande d’Azure Resource Manager. Pour plus d’informations, consultez [Utilisation de Windows Powershell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-### Étape 1 :
+### Étape 1
 
 		Login-AzureRmAccount
 
-### Étape 2 :
+### Étape 2
 
 Vérifiez les abonnements associés au compte.
 
@@ -72,7 +72,7 @@ Vérifiez les abonnements associés au compte.
 
 Vous êtes invité à saisir vos informations d’identification.<BR>
 
-### Étape 3
+### Étape 3 :
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
@@ -90,23 +90,23 @@ Azure Resource Manager requiert que tous les groupes de ressources spécifient u
 
 Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-rg », ainsi que l’emplacement « West US ».
 
-## Créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway
+## Création d'un réseau virtuel et d'un sous-réseau pour la passerelle Application Gateway
 
 L’exemple ci-après indique comment créer un réseau virtuel à l’aide de Resource Manager :
 
-### Étape 1 :
+### Étape 1
 
 	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 Attribue la plage d’adresses 10.0.0.0/24 à une variable subnet à utiliser pour créer un réseau virtuel.
 
-### Étape 2 :
+### Étape 2
 
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
 Crée un réseau virtuel nommé « appgwvnet » dans le groupe de ressources « appw-rg » pour la région « West US » à l’aide du préfixe 10.0.0.0/16 avec le sous-réseau 10.0.0.0/24.
 
-### Étape 3
+### Étape 3 :
 
 	$subnet=$vnet.subnets[0]
 
@@ -114,20 +114,20 @@ Assigne l’objet de sous-réseau à la variable $subnet pour les étapes suivan
 
 ## Créer un objet de configuration de passerelle Application Gateway
 
-### Étape 1 :
+### Étape 1
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 Crée une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarrera, elle sélectionnera une adresse IP à partir du sous-réseau configuré et acheminera le trafic réseau vers les adresses IP du pool IP principal. Gardez à l'esprit que chaque instance utilise une adresse IP unique.
 
 
-### Étape 2 :
+### Étape 2
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Configure le pool d’adresses IP principal nommé « pool01 » avec les adresses IP « 134.170.185.46, 134.170.188.221, 134.170.185.50 ». Il s’agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Vous remplacerez les adresses IP ci-dessus afin d’ajouter vos propres points de terminaison d’adresse IP d’application.
+Configure le pool d’adresses IP principal nommé « pool01 » avec les adresses IP « 134.170.185.46, 134.170.188.221, 134.170.185.50 ». Il s'agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Vous remplacerez les adresses IP ci-dessus afin d’ajouter vos propres points de terminaison d’adresse IP d’application.
 
-### Étape 3
+### Étape 3 :
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
@@ -184,13 +184,13 @@ Pour supprimer une passerelle Application Gateway, vous devez effectuer les opé
 3. Vérifiez que la passerelle a bien été supprimée à l’aide de l’applet de commande **Get-AzureApplicationGateway**.
 
 
-### Étape 1 :
+### Étape 1
 
 Obtenez l’objet de passerelle Application Gateway et associez-le à une variable « $getgw ».
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
-### Étape 2 :
+### Étape 2
 
 Utilisez **Stop-AzureRmApplicationGateway** pour arrêter la passerelle d’application. L’exemple suivant montre l’applet de commande **Stop-AzureRmApplicationGateway** sur la première ligne, suivie de la sortie.
 
@@ -237,4 +237,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

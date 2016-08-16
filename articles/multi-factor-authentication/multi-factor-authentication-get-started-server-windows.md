@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Authentification Windows et serveur Azure Multi-Factor Authentication
@@ -22,7 +22,7 @@ La section Authentification Windows permet à l'administrateur d’activer et de
 
 -  Un redémarrage est nécessaire afin d’activer l'authentification multifacteur Azure pour Services Terminal.
 -  Si la case de correspondance d’utilisateur Authentification multifacteur Azure requise est cochée et que vous ne figurez pas dans la liste des utilisateurs, vous ne pourrez pas vous à l'ordinateur après le redémarrage.
--  Les adresses IP de confiance varient selon que l'application est en mesure de fournir l'IP du client avec l'authentification. Actuellement, seul Terminal Services est pris en charge.  
+-  Les adresses IP de confiance varient selon que l'application est en mesure de fournir l'IP du client avec l'authentification. Actuellement, seul Terminal Services est pris en charge.
 
 
 
@@ -46,7 +46,7 @@ La section Authentification Windows permet à l'administrateur d’activer et de
 7. Cliquez sur le bouton Ajouter...
 8. Sélectionnez Adresse IP unique si vous souhaitez ignorer une adresse IP unique.
 9. Sélectionnez Plage d’adresses IP si vous souhaitez ignorer toute une plage d’adresses IP. Exemple 10.63.193.1-10.63.193.100.
-10. Sélectionnez Sous-réseau si vous souhaitez spécifier une plage d'adresses IP à l'aide de la notation de sous-réseau. Entrez l'adresse IP de début du sous-réseau et choisissez le masque de réseau approprié dans la liste déroulante. 
+10. Sélectionnez Sous-réseau si vous souhaitez spécifier une plage d'adresses IP à l'aide de la notation de sous-réseau. Entrez l'adresse IP de début du sous-réseau et choisissez le masque de réseau approprié dans la liste déroulante.
 11. Cliquez sur le bouton OK.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

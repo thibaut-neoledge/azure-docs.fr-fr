@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
@@ -55,8 +55,8 @@ Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RA
 1. Ouvrez le serveur Azure Multi-Factor Authentication, puis cliquez sur l'icône de l'authentification RADIUS. Cochez la case Activer l'authentification RADIUS.
 2. Sous l'onglet Clients, vérifiez que les ports correspondent à ce qui est configuré dans NPS, puis cliquez sur le bouton Ajouter... Ajoutez l'adresse IP du serveur de la passerelle RD, le nom de l'application (facultatif) et un secret partagé. Le secret partagé doit être identique sur le serveur Azure Multi-Factor Authentication et sur la passerelle RD.
 3. Cliquez sur l'onglet Cible puis sur le bouton radio des serveurs RADIUS.
-4. Cliquez sur le bouton Ajouter... Entrez l'adresse IP, le secret partagé et les ports du serveur NPS. À moins d'utiliser un NPS central, le client RADIUS et la cible RADIUS seront identiques. Le secret partagé doit correspondre à celui configuré dans la section du client RADIUS du serveur NPS. 
+4. Cliquez sur le bouton Ajouter... Entrez l'adresse IP, le secret partagé et les ports du serveur NPS. À moins d'utiliser un NPS central, le client RADIUS et la cible RADIUS seront identiques. Le secret partagé doit correspondre à celui configuré dans la section du client RADIUS du serveur NPS.
 
 ![Authentification RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

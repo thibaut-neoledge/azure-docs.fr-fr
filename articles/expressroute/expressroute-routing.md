@@ -3,8 +3,8 @@
    description="Cette page détaille les conditions nécessaires à la configuration et à la gestion du routage pour les circuits ExpressRoute."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # Configuration requise pour le routage ExpressRoute  
 
-Pour vous connecter aux services de cloud Microsoft à l'aide d'ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions décrites ci-dessous.
+Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions décrites ci-dessous.
 
-Reportez-vous à l’article [Circuits et domaines de routage](expressroute-circuit-peerings.md) pour obtenir une description des sessions de routage qui doivent être configurées afin d’établir la connectivité.
+Pour obtenir une description des sessions de routage qui doivent être configurées afin d’établir la connectivité, reportez-vous à l’article [Circuits et domaines de routage](expressroute-circuit-peerings.md).
 
 **Remarque :** Microsoft ne prend pas en charge les protocoles de redondance de routeur (HSRP, VRRP, par exemple) pour les configurations à haute disponibilité. Nous nous appuyons sur une paire de sessions BGP par homologation pour la haute disponibilité.
 
@@ -35,14 +35,14 @@ Pour configurer les homologations, vous pouvez utiliser des adresses IP privées
  - Vous devez réserver un sous-réseau /29 ou deux sous-réseaux /30 pour les interfaces de routage.
  - Les sous-réseaux utilisés pour le routage peuvent être des adresses IP privées ou publiques.
  - Les sous-réseaux ne doivent pas entrer en conflit avec la plage réservée par le client pour une utilisation dans le cloud Microsoft.
- - Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30. 
+ - Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30.
 	 - Le premier sous-réseau /30 sera utilisé pour le lien principal, et le second sous-réseau /30 servira pour le lien secondaire.
-	 - Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilisera la deuxième adresse IP du sous-réseau /30 configurer une session BGP.
-	 - Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.  
+	 - Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilise la deuxième adresse IP du sous-réseau /30 pour configurer une session BGP.
+	 - Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.
 
 #### Exemple pour l'homologation privée
 
-Si vous choisissez d'utiliser un sous-réseau a.b.c.d/29 pour configurer l'homologation, il sera scindé en deux sous-réseaux /30. Dans l'exemple ci-dessous, nous examinerons l’utilisation du sous-réseau a.b.c.d/29.
+Si vous choisissez d’utiliser un sous-réseau a.b.c.d/29 pour configurer l’homologation, il sera scindé en deux sous-réseaux /30. Dans l'exemple ci-dessous, nous examinerons l’utilisation du sous-réseau a.b.c.d/29.
 
 a.b.c.d/29 sera scindé en a.b.c.d/30 et a.b.c.d+4/30 puis transmis à Microsoft via les API d’approvisionnement. Vous utiliserez a.b.c.d+1 comme l'IP VRF pour le PE principal et Microsoft utilisera a.b.c.d+2 comme IP VRF pour le MSEE principal. Vous allez utiliser a.b.c.d+5 comme l'IP VRF pour le PE secondaire et Microsoft utilisera a.b.c.d+6 IP VRF pour le MSEE secondaire.
 
@@ -55,10 +55,10 @@ Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologa
 
 Vous devez utiliser des adresses IP publiques que vous possédez pour configurer les sessions BGP. Microsoft doit être en mesure de vérifier la propriété des adresses IP via les Registres Internet de routage régional (RIR) et les Registres Internet de routage (IRR).
 
-- Vous devez utiliser un sous-réseau unique /29 ou deux sous-réseaux /30 afin de configurer l'homologation BGP pour chaque homologation par circuit ExpressRoute (si vous en avez plusieurs). 
-- Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30. 
+- Vous devez utiliser un sous-réseau unique /29 ou deux sous-réseaux /30 afin de configurer l’homologation BGP pour chaque homologation par circuit ExpressRoute (si vous en avez plusieurs).
+- Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30.
 	- Le premier sous-réseau /30 sera utilisé pour le lien principal, et le second sous-réseau /30 servira pour le lien secondaire.
-	- Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilisera la deuxième adresse IP du sous-réseau /30 configurer une session BGP.
+	- Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilise la deuxième adresse IP du sous-réseau /30 pour configurer une session BGP.
 	- Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.
 
 Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre nom dans l’un des registres répertoriés ci-dessous.
@@ -99,7 +99,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions d'homologat
  Pour activer la connectivité avec d'autres services Azure et services d'infrastructure, vous devez vous assurer qu'un des éléments suivants est en place :
 
  - L’homologation publique Azure est activée pour acheminer le trafic vers les points de terminaison publics
- - Vous utilisez le routage défini par l’utilisateur pour permettre la connectivité Internet pour chaque sous-réseau nécessitant une connectivité Internet définie par l'utilisateur.
+ - Vous utilisez le routage défini par l’utilisateur pour permettre la connectivité Internet pour chaque sous-réseau nécessitant une connectivité Internet définie par l’utilisateur.
 
 **Remarque :** la publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
 
@@ -124,8 +124,10 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 | | Est des États-Unis | 12076:51004 |
 | | Est des États-Unis 2 | 12076:51005 |
 | | Ouest des États-Unis | 12076:51006 |
-| | Nord du centre des États-Unis | 12076:51007 |
-| | Sud du centre des États-Unis | 12076:51008 |
+| | Ouest des États-Unis 2 | 12076:51022 |
+| | Centre-Ouest des États-Unis | 12076:51023 |
+| | États-Unis - partie centrale septentrionale | 12076:51007 |
+| | États-Unis - partie centrale méridionale | 12076:51008 |
 | | Centre des États-Unis | 12076:51009 |
 | | Centre du Canada | 12076:51020 |
 | | Est du Canada | 12076:51021 |
@@ -173,4 +175,4 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

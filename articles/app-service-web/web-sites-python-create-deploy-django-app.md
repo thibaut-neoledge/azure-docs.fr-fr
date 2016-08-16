@@ -58,9 +58,9 @@ La première étape consiste à créer l’application web par le biais du [port
 
 1. Connectez-vous au portail Azure et cliquez sur le bouton **NOUVEAU** dans le coin inférieur gauche.
 3. Dans le champ de recherche, tapez « python ».
-4. Dans les résultats de recherche, sélectionnez **Django**, puis cliquez sur **Créer**.
+4. Dans les résultats de recherche, sélectionnez **Django** (publié par PTVS), puis cliquez sur **Créer**.
 5. Configurez la nouvelle application Django, en créant un plan App Service et un groupe de ressources. Cliquez sur **Créer**.
-6. Configurez la publication Git de votre nouvelle application web en suivant les instructions dans [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
+6. Configurez la publication Git de votre nouvelle application web en suivant les instructions de l’article [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
 ## Vue d’ensemble de l’application
 
@@ -518,4 +518,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [Documentation relative à Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
 [Documentation Django]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

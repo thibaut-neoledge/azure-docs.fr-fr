@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
@@ -143,7 +143,7 @@ Dans le produit en version d'évaluation gratuite, le quota est de 200 appels p
 	<quota calls="200" renewal-period="604800">
 	</quota>
 
->Les intervalles de stratégie sont spécifiés en secondes. Pour calculer l’intervalle pour une semaine, vous pouvez multiplier le nombre de jours (7) par le nombre d’heures en une journée (24) par le nombre de minutes en une heure (60) par le nombre de secondes en une minute (60) : 7 * 24 * 60 * 60 = 604800.
+>Les intervalles de stratégie sont spécifiés en secondes. Pour calculer l’intervalle pour une semaine, vous pouvez multiplier le nombre de jours (7) par le nombre d’heures en une journée (24) par le nombre de minutes en une heure (60) par le nombre de secondes en une minute (60) : 7 * 24 * 60 * 60 = 604800.
 
 Lorsque vous avez terminé la configuration de la stratégie, elle doit correspondre à l'exemple ci-dessous.
 
@@ -213,7 +213,7 @@ Cliquez sur **API** dans le menu supérieur, puis sélectionnez **API Echo**.
 
 ![Portail des développeurs][api-management-developer-portal-api-menu]
 
-Cliquez sur **Ressource GET**, puis sur **Essayez-le**.
+Cliquez sur **Ressource GET**, puis sur **Essayez-le**.
 
 ![Open console][api-management-open-console]
 
@@ -227,7 +227,7 @@ Cliquez sur **Envoyer**, puis affichez la réponse. Notez l'**État de réponse*
 
 ![Operation results][api-management-http-get-results]
 
-Cliquez sur **Envoyer** à une fréquence supérieure à la stratégie de limite de fréquence de 10 appels par minute. Une fois la stratégie de limite de débit dépassée, un état de réponse **429 Trop de requêtes** est renvoyé.
+Cliquez sur **Envoyer** à une fréquence supérieure à la stratégie de limite de fréquence de 10 appels par minute. Une fois la stratégie de limite de débit dépassée, un état de réponse **429 Trop de requêtes** est renvoyé.
 
 ![Operation results][api-management-http-get-429]
 
@@ -293,4 +293,4 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

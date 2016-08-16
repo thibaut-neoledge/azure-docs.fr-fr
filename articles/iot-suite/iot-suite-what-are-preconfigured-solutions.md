@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Que sont les solutions préconfigurées Azure IoT Suite ?
@@ -24,7 +24,7 @@ Les solutions Azure IoT Suite préconfigurées sont des implémentations de mod�
 - Comme point de départ de vos propres solutions IoT.
 - Pour en savoir plus sur les modèles courants en matière de développement et de conception d’une solution IoT.
 
-Chaque solution préconfigurée est une implémentation complète de bout en bout utilisant les appareils simulés pour générer la télémétrie.
+Chaque solution préconfigurée est une implémentation complète de bout en bout qui utilise les appareils simulés pour générer la télémétrie.
 
 En plus de déployer et d’exécuter les solutions dans Azure, vous pouvez télécharger le code source complet, puis personnaliser et étendre la solution pour répondre à vos besoins IoT spécifiques.
 
@@ -34,14 +34,14 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 |------------------------|-----|-----|-----|-----|-----|
-| [Surveillance à distance][lnk-getstarted-preconfigured] | Oui | Oui | Oui | Oui | - | 
+| [Surveillance à distance][lnk-getstarted-preconfigured] | Oui | Oui | Oui | Oui | - |
 | [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
 
-- *Données* : entrer des données à l'échelle dans le cloud.
-- *Identité d'appareil* : gérer les identités uniques de chaque appareil connecté.
-- *Commande et contrôle* : envoyer des messages à un appareil à partir du cloud pour lui demander de prendre des mesures.
-- *Règles et actions* : le serveur principal utilise des règles pour agir sur des données d’appareil spécifiques vers le cloud.
-- *Analyse prédictive* : le serveur principal applique des analyse de données d’appareil vers le cloud afin de prédire le moment où des actions spécifiques devraient se produire. Par exemple, l’analyse de la télémétrie d’un moteur d'avion permet de déterminer le moment où la maintenance doit avoir lieu.
+- *Données* : entrer des données à l'échelle dans le cloud.
+- *Identité d'appareil* : gérer les identités uniques de chaque appareil connecté.
+- *Commande et contrôle* : envoyer des messages à un appareil à partir du cloud pour lui demander de prendre des mesures.
+- *Règles et actions* : le serveur principal utilise des règles pour agir sur des données d’appareil spécifiques vers le cloud.
+- *Analyse prédictive* : le serveur principal applique des analyse de données d’appareil vers le cloud afin de prédire le moment où des actions spécifiques devraient se produire. Par exemple, l’analyse de la télémétrie d’un moteur d'avion permet de déterminer le moment où la maintenance doit avoir lieu.
 
 ## Présentation de la solution préconfigurée de surveillance à distance
 
@@ -57,12 +57,12 @@ Lorsque vous déployez la solution préconfigurée de surveillance à distance, 
 
 Lorsqu’un appareil se connecte pour la première fois à IoT Hub dans la solution préconfigurée de surveillance à distance, le message d’informations sur l’appareil envoyé à IoT Hub énumère la liste des commandes auxquelles l’appareil peut répondre. La solution préconfigurée de surveillance à distance prend en charge les commandes suivantes :
 
-- *Effectuer un test Ping* : l’appareil répond à cette commande par un accusé de réception. Cela est utile pour vérifier que l’appareil est toujours actif et en mode écoute.
-- *Démarrer la télémétrie* : demande à l’appareil de démarrer l’envoi des données de télémétrie.
-- *Démarrer la télémétrie* : demande à l’appareil d’arrêter l’envoi des données de télémétrie.
-- *Modifier la température nominale* : contrôle les valeurs de télémétrie reflétant la température simulée envoyées par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
-- *Diagnostiquer la télémétrie* : détermine si l’appareil doit envoyer les données de température externe sous la forme de données de télémétrie.
-- *Modifier l’état de l’appareil* : définit la propriété des métadonnées d’état de l’appareil renvoyée par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
+- *Effectuer un test Ping* : l’appareil répond à cette commande par un accusé de réception. Cela est utile pour vérifier que l’appareil est toujours actif et en mode écoute.
+- *Démarrer la télémétrie* : demande à l’appareil de démarrer l’envoi des données de télémétrie.
+- *Démarrer la télémétrie* : demande à l’appareil d’arrêter l’envoi des données de télémétrie.
+- *Modifier la température nominale* : contrôle les valeurs de télémétrie reflétant la température simulée envoyées par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
+- *Diagnostiquer la télémétrie* : détermine si l’appareil doit envoyer les données de température externe sous la forme de données de télémétrie.
+- *Modifier l’état de l’appareil* : définit la propriété des métadonnées d’état de l’appareil renvoyée par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
 
 Vous pouvez ajouter à la solution d’autres appareils de simulation qui génèrent les mêmes données de télémétrie et répondent aux mêmes commandes.
 
@@ -76,7 +76,7 @@ L’IoT Hub met les données de télémétrie qu’il reçoit à disposition via
 
 ## Azure Stream Analytics
 
-La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] \(ASA) pour filtrer le flux de télémétrie en provenance des appareils :
+La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie en provenance des appareils :
 
 
 - *Tâche DeviceInfo* : génère des données vers un hub d'événements qui envoie des messages relatifs à l’instruction de l’inscription de l’appareil, envoyés lorsqu'un périphérique se connecte d'abord ou en réponse à une commande **Modifier l'état de l'appareil**, dans le registre d’appareils de la solution (une base de données DocumentDB).
@@ -111,7 +111,7 @@ Le portail de la solution est une interface utilisateur web qui est déployée d
 - Envoyer des commandes à des appareils spécifiques.
 - Gérer les règles et les actions.
 
-Dans cette solution préconfigurée, le portail de la solution fait partie du **serveur principal de solution IoT** et de la **connectivité de traitement et d’entreprise** dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
+Dans cette solution préconfigurée, le portail de la solution fait partie du **serveur principal de solution IoT** et de la **connectivité de traitement et d’entreprise** dans [l’architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
 ## Étapes suivantes
 
@@ -131,4 +131,4 @@ Pour plus d’informations sur les architectures de solution IoT, consultez le d
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->
