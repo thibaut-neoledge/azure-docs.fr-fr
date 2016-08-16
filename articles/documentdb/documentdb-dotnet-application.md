@@ -204,11 +204,11 @@ Maintenant que nous en avons terminé avec le **M** de MVC, intéressons-nous au
 
 	![Capture d’écran de l’Explorateur de solutions présentant le dossier créé par Visual Studio avec les commandes Ajouter/Vue mises en surbrillance](./media/documentdb-dotnet-application/image17.png)
 
-2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
+2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
 	- Dans la zone **Nom de la vue**, tapez ***Index***.
 	- Dans la zone **Modèle**, sélectionnez ***Liste***.
 	- Dans la zone **Classe de modèle**, sélectionnez ***Élément (todo.Models)***.
-	- Laissez la zone **Classe du contexte de données** vide.
+	- Laissez la zone **Classe du contexte de données** vide. 
 	- Dans la zone de la page de disposition, tapez ***~/Views/Shared/\_Layout.cshtml***.
 	
 	![Capture d'écran présentant la boîte de dialogue Ajouter une vue](./media/documentdb-dotnet-application/image18.png)
@@ -221,7 +221,7 @@ De la même façon que nous avons créé une vue **Index de l'élément**, nous 
 
 1. Dans l'**Explorateur de solutions**, à nouveau, cliquez avec le bouton droit sur le dossier **Élément**, cliquez sur **Ajouter**, puis sur **Affichage**.
 
-2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
+2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
 	- Dans la zone **Nom de la vue**, tapez ***Create***.
 	- Dans la zone **Modèle**, sélectionnez ***Create***.
 	- Dans la zone **Classe de modèle**, sélectionnez ***Élément (todo.Models)***.
@@ -235,11 +235,11 @@ Pour terminer, ajoutons une dernière vue permettant de modifier un **Élément*
 
 1. Dans l'**Explorateur de solutions**, à nouveau, cliquez avec le bouton droit sur le dossier **Élément**, cliquez sur **Ajouter**, puis sur **Affichage**.
 
-2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
+2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
 	- Dans la zone **Nom de la vue**, tapez ***Edit***.
 	- Dans la zone **Modèle**, sélectionnez ***Edit***.
 	- Dans la zone **Classe de modèle**, sélectionnez ***Élément (todo.Models)***.
-	- Laissez la zone **Classe du contexte de données** vide.
+	- Laissez la zone **Classe du contexte de données** vide. 
 	- Dans la zone de la page de disposition, tapez ***~/Views/Shared/\_Layout.cshtml***.
 	- Cliquez sur **Ajouter**.
 
