@@ -1,9 +1,9 @@
 <properties
    pageTitle="Scénarios et exemples d’applications logiques | Microsoft Azure"
    description="Découvrez des exemples courants d’applications logiques et apprenez à implémenter des scénarios courants"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
-   authors="msftman"
+   authors="jeffhollan"
    manager="erikre"
    editor=""/>
 
@@ -13,41 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="04/25/2016"
-   ms.author="deonhe"/>
+   ms.date="08/01/2016"
+   ms.author="jehollan"/>
 
 # Scénarios courants et exemples d’applications logiques
 
 Ce document présente des scénarios courants et des exemples afin de vous aider à comprendre comment utiliser les applications logiques pour automatiser les processus d’entreprise.
 
-## Déclenchement d’une application logique
+## Déclencheurs et actions
 
 Il existe plusieurs moyens de déclencher une application logique à partir d’une autre application. En voici quelques-uns :
 
-- [Requête HTTP (POST)](app-service-logic-http-endpoint.md)
-- [Réception d’un webhook](app-service-logic-create-api-app.md)
-- [Interrogation d’un point de terminaison](app-service-logic-create-api-app.md)
+- [Création d’un déclencheur ou d’une action personnalisés](app-service-logic-create-api-app.md)
+- [Actions de longue durée](app-service-logic-create-api-app.md)
+- [Déclencheur de requête HTTP (POST)](app-service-logic-http-endpoint.md)
+- [Déclencheurs webhook et actions](app-service-logic-create-api-app.md)
+- [Déclencheurs d'interrogation](app-service-logic-create-api-app.md)
 
 ### Scénarios
 
-- [Réponse synchrone à une demande d’une application logique](app-service-logic-http-endpoint.md)
+- [Réponse synchrone à une requête](app-service-logic-http-endpoint.md)
 
-## Actions personnalisées et de longue durée
+## Gestion et journalisation des erreurs
 
-- [Création d’une activité personnalisée](app-service-logic-create-api-app.md)
+- [Configurer les alertes et diagnostics Azure](app-service-logic-monitor-your-logic-apps.md)
 
-## Déploiement et gestion d’une application logique
+### Scénarios
 
-- [Création d’un modèle de déploiement d’applications logiques](app-service-logic-create-deploy-template.md)
-- [Diagnostic des problèmes avec une application logique](app-service-logic-diagnosing-failures.md)
-- [Déploiement d’une application logique à partir de Visual Studio](app-service-logic-deploy-from-vs.md)
-- [Analyse des applications logiques](app-service-logic-monitor-your-logic-apps.md)
+- [Cas d’utilisation : Gestion des erreurs et des exceptions](app-service-logic-scenario-error-and-exception-handling.md)
+
+## Déploiement et gestion
+
+- [Créer un déploiement automatisé](app-service-logic-create-deploy-template.md)
+- [Créer et déployer des applications logiques à partir de Visual Studio](app-service-logic-deploy-from-vs.md)
+- [Surveiller les applications logiques](app-service-logic-monitor-your-logic-apps.md)
 
 ## Types de contenu, conversions et transformations
 
 Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logic Apps contient de nombreuses fonctions permettant de convertir et d’utiliser différents types de contenu. Le moteur fait aussi tout son possible pour conserver les types de contenu comme flux de données tout au long du flux de travail.
 
-- [Gestion des types de contenu](app-service-logic-content-type.md) comme application/json, application/xml et plain/text
+- [Gestion des types de contenu](app-service-logic-content-type.md) comme application/json, application/xml et brut/texte
 - [Création de définitions de flux de travail](app-service-logic-author-definitions.md)
 - [Référence sur le langage de définition de flux de travail](http://aka.ms/logicappsdocs)
 
@@ -59,7 +64,7 @@ Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logi
 
 ## Intégration avec Azure Functions
 
-- [Intégration aux fonctions Azure](app-service-logic-azure-functions.md)
+- [Intégration à Azure Functions](app-service-logic-azure-functions.md)
 
 ### Scénarios
 
@@ -72,4 +77,4 @@ Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logi
 
 Nous continuerons à ajouter des exemples et des scénarios dans ce document. Utilisez la section de commentaires ci-dessous pour nous faire savoir quels exemples ou scénarios vous aimeriez découvrir.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

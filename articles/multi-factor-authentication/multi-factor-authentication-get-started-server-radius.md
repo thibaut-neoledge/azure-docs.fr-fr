@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -43,21 +43,21 @@ Pour configurer l'authentification RADIUS, installez le serveur Azure Multi-Fact
 9. Vous pouvez répéter les étapes 4 à 8 pour ajouter d'autres clients RADIUS.
 10. Cliquez sur l'onglet Cible.
 11. Si le serveur Azure Multi-Factor Authentication est installé sur un serveur appartenant à un domaine dans un environnement Active Directory, sélectionnez Domaine Windows.
-12. Si les utilisateurs doivent être authentifiés par rapport à un répertoire LDAP, sélectionnez la liaison LDAP. Lorsque vous utilisez la liaison LDAP, vous devez cliquer sur l'icône Intégration de répertoires et modifiez la configuration LDAP sous l'onglet Paramètres afin que le serveur puisse se lier à votre répertoire. Vous trouverez des instructions sur la configuration LDAP dans le guide de configuration du proxy LDAP. 
+12. Si les utilisateurs doivent être authentifiés par rapport à un répertoire LDAP, sélectionnez la liaison LDAP. Lorsque vous utilisez la liaison LDAP, vous devez cliquer sur l'icône Intégration de répertoires et modifiez la configuration LDAP sous l'onglet Paramètres afin que le serveur puisse se lier à votre répertoire. Vous trouverez des instructions sur la configuration LDAP dans le guide de configuration du proxy LDAP.
 13. Si les utilisateurs doivent être authentifiés par rapport à un autre serveur RADIUS, sélectionnez ce serveur RADIUS.
 14. Configurez le serveur vers lequel le serveur enverra demandes RADIUS par proxy en cliquant sur le bouton Ajouter...
 15. Dans la boîte de dialogue Ajouter un serveur RADIUS, entrez l'adresse IP du serveur RADIUS et un secret partagé. Le secret partagé doit être identique sur le serveur Azure Multi-Factor Authentication et sur le serveur RADIUS. Modifiez le port d'authentification et le port de gestion si des ports différents sont utilisés par le serveur RADIUS.
-16. Cliquez sur le bouton OK. 
+16. Cliquez sur le bouton OK.
 17. Vous devez ajouter le serveur Azure Multi-Factor Authentication comme client RADIUS dans l'autre serveur RADIUS afin qu'il traite les demandes d'accès qu’il reçoit du serveur Azure Multi-Factor Authentication. Vous devez utiliser le même secret partagé configuré sur le serveur Azure Multi-Factor Authentication.
-18. Vous pouvez répéter cette étape pour ajouter d'autres serveurs RADIUS et configurer l'ordre dans lequel le serveur doit les appeler à l’aide des boutons Monter et Descendre. Cela conclut la configuration du serveur Azure Multi-Factor Authentication. Le serveur écoute désormais sur les ports configurés pour les demandes d'accès RADIUS à partir de clients configurés.   
+18. Vous pouvez répéter cette étape pour ajouter d'autres serveurs RADIUS et configurer l'ordre dans lequel le serveur doit les appeler à l’aide des boutons Monter et Descendre. Cela conclut la configuration du serveur Azure Multi-Factor Authentication. Le serveur écoute désormais sur les ports configurés pour les demandes d'accès RADIUS à partir de clients configurés.
 
 
 ## Configuration du client RADIUS
 
 Pour configurer le client RADIUS, suivez ces indications :
 
-- Configurez votre appliance/serveur pour s'authentifier via RADIUS auprès de l’adresse IP du serveur Azure Multi-Factor Authentication, qui agira en tant que serveur RADIUS. 
-- Utilisez le même secret partagé configuré ci-dessus. 
+- Configurez votre appliance/serveur pour s'authentifier via RADIUS auprès de l’adresse IP du serveur Azure Multi-Factor Authentication, qui agira en tant que serveur RADIUS.
+- Utilisez le même secret partagé configuré ci-dessus.
 - Configurez le délai d'expiration RADIUS sur 30 à 60 secondes pour pouvoir valider les informations d'identification de l'utilisateur, effectuez l'authentification multifacteur, recevez leur réponse et répondez à la demande d'accès RADIUS.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

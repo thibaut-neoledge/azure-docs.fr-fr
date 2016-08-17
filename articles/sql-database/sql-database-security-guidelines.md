@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="rickbyh"/>
 
 # Instructions et limitations de sécurité d’Azure SQL Database
@@ -50,7 +50,7 @@ Les connexions perpétuellement actives à SQL Database requièrent une nouvelle
 La gestion des connexions et des utilisateurs dans SQL Database est soumise à des restrictions.
 
 
-- Vous devez être connecté à la base de données **master** lors de l’exécution des instructions ``CREATE/ALTER/DROP DATABASE``. - L’utilisateur de base de données dans la base de données master correspondant à la connexion principale au niveau du serveur ne peut pas être modifié ou supprimé. 
+- Vous devez être connecté à la base de données **master** lors de l’exécution des instructions ``CREATE/ALTER/DROP DATABASE``. - L’utilisateur de base de données dans la base de données master correspondant à la connexion principale au niveau du serveur ne peut pas être modifié ou supprimé.
 - L’anglais américain est la langue par défaut de la connexion principale au niveau du serveur.
 - Pour accéder à la base de données **master**, chaque connexion doit être mappée à un compte d’utilisateur de cette base de données **master**. La base de données **MASTER** ne prend pas en charge les utilisateurs de base de données à relation contenant-contenu.
 - Seule la connexion principale au niveau du serveur et les membres du rôle de base de données **dbmanager** dans la base de données **MASTER** sont autorisés à exécuter les instructions ``CREATE DATABASE`` et ``DROP DATABASE``.
@@ -71,7 +71,7 @@ GO
 - Lors de l’exécution de l’instruction ``CREATE USER`` avec l’option ``FOR/FROM LOGIN``, elle doit être la seule instruction du batch Transact-SQL.
 - Lors de l’exécution de l’instruction ``ALTER USER`` avec l’option ``WITH LOGIN``, elle doit être la seule instruction du batch Transact-SQL.
 - Pour exécuter les instructions ``CREATE/ALTER/DROP``, un utilisateur a besoin de l’autorisation ``ALTER ANY USER`` sur la base de données.
-- Lorsque le propriétaire d’un rôle de base de données tente d’ajouter un autre utilisateur de base de données dans ce rôle de base de données (ou de le supprimer de ce dernier), l’erreur suivante peut se produire : **L’utilisateur ou le rôle « Nom » n’existe pas dans cette base de données**. Cette erreur survient, car l’utilisateur n’est pas visible par le propriétaire. Pour résoudre ce problème, accordez au propriétaire du rôle l’autorisation ``VIEW DEFINITION`` sur l’utilisateur. 
+- Lorsque le propriétaire d’un rôle de base de données tente d’ajouter un autre utilisateur de base de données dans ce rôle de base de données (ou de le supprimer de ce dernier), l’erreur suivante peut se produire : **L’utilisateur ou le rôle « Nom » n’existe pas dans cette base de données**. Cette erreur survient, car l’utilisateur n’est pas visible par le propriétaire. Pour résoudre ce problème, accordez au propriétaire du rôle l’autorisation ``VIEW DEFINITION`` sur l’utilisateur.
 
 Pour plus d’informations sur les connexions et les utilisateurs, voir [Gestion des bases de données et des connexions dans Base de données SQL Azure](sql-database-manage-logins.md).
 
@@ -86,4 +86,4 @@ Pour plus d’informations sur les connexions et les utilisateurs, voir [Gestion
 
 [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

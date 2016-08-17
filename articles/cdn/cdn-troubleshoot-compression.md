@@ -1,6 +1,6 @@
 <properties
-	pageTitle="CDN - Résolution des problèmes de compression des fichiers"
-	description="Résolvez les problèmes de compression des fichiers CDN."
+	pageTitle="Résolution des problèmes de compression de fichiers dans Azure CDN | Microsoft Azure"
+	description="Résolvez les problèmes de compression des fichiers CDN Azure."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Résolution des problèmes de compression des fichiers CDN
@@ -26,7 +26,7 @@ Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de ce
 
 La compression pour votre point de terminaison est activée, mais les fichiers sont renvoyés non compressés.
 
-## Cause :
+## Cause :
 
 Il existe plusieurs causes possibles, y compris :
 
@@ -99,4 +99,4 @@ L’en-tête HTTP **Via** indique au serveur web que la requête est transmise p
 - **IIS 6**: [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
 - **IIS 7 et versions ultérieures**: [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans le serveur de configuration](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

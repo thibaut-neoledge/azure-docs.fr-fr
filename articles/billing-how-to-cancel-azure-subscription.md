@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Annulation de votre abonnement Azure | Microsoft Azure"
 	description="Décrit la procédure d’annulation de votre abonnement Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -20,7 +20,7 @@
 
 # Annulation de votre abonnement Azure
 
->[AZURE.NOTE] Un plan de support Azure a une durée de 6 mois et Microsoft requiert votre engagement monétaire jusqu’à son terme. En cas d’annulation avant le terme du plan, l’engagement restant est dû et aucun montant prépayé n’est remboursé. Si vous annulez votre abonnement par erreur et devez le réactiver, vous pouvez contacter le [support Azure](billing-how-to-create-billing-support-ticket.md) pour obtenir une assistance.
+>[AZURE.NOTE] Un plan de support Azure a une durée de 6 mois et Microsoft requiert votre engagement monétaire jusqu’à son terme. En cas d’annulation avant le terme du plan, l’engagement restant est dû et aucun montant prépayé n’est remboursé. Si vous annulez votre abonnement par erreur et devez le réactiver, vous pouvez contacter le [support Azure](billing-how-to-create-billing-support-ticket.md) pour obtenir une assistance.
 
 Si vous annulez votre abonnement, tous vos services sont immédiatement supprimés. Assurez-vous de sauvegarder les données que vous souhaitez enregistrer avant de procéder à l’annulation.
 
@@ -30,4 +30,4 @@ Si vous annulez votre abonnement, tous vos services sont immédiatement supprim�
 4. Sélectionnez **Oui, annulez mon abonnement**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Cliquez sur ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) pour fermer la boîte de dialogue et revenir à votre page d’abonnement.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0803_2016-->

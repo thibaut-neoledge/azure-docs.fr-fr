@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Comment télécharger votre facture Azure et vos données d’utilisation quotidienne | Microsoft Azure"
 	description="Décrit comment télécharger votre facture Azure et vos données d’utilisation quotidienne."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -33,4 +33,4 @@ En tant qu’administrateur de compte Azure, vous pouvez consulter la facture en
 6. Sélectionnez **Télécharger la facture** pour consulter une copie de votre dernière facture. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
 7. Sélectionnez **Télécharger l’utilisation** pour télécharger les données d’utilisation quotidienne dans un fichier CSV.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Vue d’ensemble d’Enterprise Integration | Microsoft Azure App Service | Microsoft Azure" 
 	description="Utilisez les fonctionnalités d’Enterprise Integration pour activer les processus métier et les scénarios d’intégration à l’aide d'applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -61,4 +61,4 @@ Enterprise Integration prend en charge les normes suivantes :
 - [Validation de message XML](./app-service-logic-enterprise-integration-xml.md "Découvrez comment valider des messages XML avec vos applications logiques")
 - [Transformation XML](./app-service-logic-enterprise-integration-transform.md "Découvrez les mappages d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

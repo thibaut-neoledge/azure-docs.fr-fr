@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Résoudre les problèmes d’inscription à Azure | Microsoft Azure"
 	description="Résoudre les causes courantes des problèmes susceptibles de se produire lors de votre inscription à Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -81,4 +81,4 @@ Avez-vous déjà utilisé un abonnement Azure auparavant ? Les conditions d’u
 Suggestions
 - Si vous déjà activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation. Vous pouvez également bénéficier d’une offre d’avantages. Pour en savoir plus, consultez la [page Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite d’Azure. Notez que les programmes d’avantages imposent des conditions requises spécifiques.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

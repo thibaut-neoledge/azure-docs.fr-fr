@@ -4,29 +4,29 @@
 	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/25/2016"
+	ms.date="07/27/2016"
 	ms.author="klam"/>
 
 # Modèle de tarification de Logic Apps
 
-Logic Apps vous permet de mettre à l’échelle et d’exécuter un flux de travail d’intégration dans le cloud. Vous trouverez ci-dessous plus d’informations sur les plans de facturation et les niveaux de tarification d’Azure Logic Apps.
+Azure Logic Apps vous permet de mettre à l’échelle et d’exécuter les flux de travail d’intégration dans le cloud. Vous trouverez ci-dessous plus d’informations sur les plans de facturation et les niveaux de tarification de Logic Apps.
 
 ## Tarification de la consommation
 
-La plateforme Logic Apps récemment créée utilise un plan de consommation. Avec le modèle de tarification de la consommation de Logic Apps, vous payez uniquement ce que vous utilisez. La plateforme Logic Apps n’est pas limitée lors de l’utilisation d’un plan de consommation. Toutes les exécutions d’action effectuées lors de l’exécution d’une instance d’application logique sont mesurées.
+La plateforme Logic Apps récemment créée utilise un plan de consommation. Avec le modèle de tarification de la consommation de Logic Apps, vous payez uniquement ce que vous utilisez. La plateforme Logic Apps n’est pas limitée lors de l’utilisation d’un plan de consommation. Toutes les actions effectuées lors de l’exécution d’une instance de l’application logique sont mesurées.
 
 ### Que sont les exécutions d’action ?
 
-Chaque étape d’une définition d’application logique est une action. Cela inclut les déclencheurs, les étapes de flux de contrôle comme les conditions, les étendues, les boucles foreach et les boucles do until, les appels aux connecteurs et aux actions natives. Les déclencheurs sont des actions spéciales qui sont conçues pour instancier une nouvelle instance d’application logique lors de la réception d’un événement particulier. Les déclencheurs peuvent avoir des comportements différents, qui peuvent affecter la façon dont l’application logique est mesurée.
+Chaque étape d’une définition d’application logique est une action. Cela inclut les déclencheurs, les étapes de flux de contrôle comme les conditions, les étendues, les boucles foreach et do until, ainsi que les appels aux connecteurs et aux actions natives. Les déclencheurs sont des actions spéciales qui sont conçues pour instancier une nouvelle instance d’une application logique lorsqu’un événement particulier se produit. Les déclencheurs peuvent avoir des comportements différents, qui peuvent affecter la façon dont l’application logique est mesurée.
 
 -	**Déclencheur d’interrogation** : ce déclencheur interroge constamment un point de terminaison jusqu’à ce qu’il reçoive un message répondant aux critères de création d’une instance d’une application logique. L’intervalle d’interrogation peut être configuré dans le déclencheur dans le concepteur d’applications logiques. Chaque requête d’interrogation compte comme une exécution d’action même si elle ne crée pas d’instance d’une application logique.
 
@@ -44,7 +44,7 @@ Il n’est pas possible de créer de nouvelles instances des applications logiqu
 
 ## Plans App Service
 
-Les plans App Service ne sont plus nécessaires pour créer une application logique. Les applications logiques précédemment créées avec un plan App Service continueront d’avoir le même comportement : en fonction du plan choisi, elles seront limitées après qu’un nombre d’exécutions quotidiennes aura été dépassé et ne seront pas facturées à l’aide de l’indicateur d’exécutions d’action.
+Les plans App Service ne sont plus nécessaires pour créer une application logique. Vous pouvez également référencer un plan App Service avec une application logique existante. Les applications logiques précédemment créées avec un plan App Service continueront d’avoir le même comportement : en fonction du plan choisi, elles seront limitées après qu’un nombre d’exécutions quotidiennes aura été dépassé et ne seront pas facturées à l’aide de l’indicateur d’exécutions d’action.
 
 Plans App Service et exécutions d’action quotidiennes autorisées :
 
@@ -52,7 +52,41 @@ Plans App Service et exécutions d’action quotidiennes autorisées :
 |---|---|---|---|
 |Exécutions d’action quotidiennes| 200|10 000|50 000|
 
-Pour modifier une application logique à laquelle un plan App Service est associé et la définir sur un modèle de consommation, supprimez la référence au plan App Service dans la définition de l’application logique. Ce peut être fait par un simple appel à une applet de commande PowerShell :
+### Convertir la tarification de type Consommation en tarification de plan App Service
+
+Pour référencer un plan App Service pour une application logique de consommation, vous pouvez simplement [exécuter le script PowerShell ci-dessous](https://github.com/logicappsio/ConsumptionToAppServicePlan). Assurez-vous que vous disposez bien des [outils Azure PowerShell](https://github.com/Azure/azure-powershell).
+
+``` powershell
+Param(
+    [string] $AppService_RG = '<app-service-resource-group>',
+	[string] $AppService_Name = '<app-service-name>',
+    [string] $LogicApp_RG = '<logic-app-resource-group>',
+    [string] $LogicApp_Name = '<logic-app-name>',
+    [string] $subscriptionId = '<azure-subscription-id>'
+)
+
+Login-AzureRmAccount 
+$subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
+$appserviceplan = Get-AzureRmResource -ResourceType "Microsoft.Web/serverFarms" -ResourceGroupName $AppService_RG -ResourceName $AppService_Name
+$logicapp = Get-AzureRmResource -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $LogicApp_RG -ResourceName $LogicApp_Name
+
+$sku = @{
+    "name" = $appservicePlan.Name;
+    "plan" = @{
+      "id" = $appserviceplan.ResourceId;
+      "type" = "Microsoft.Web/ServerFarms";
+      "name" = $appserviceplan.Name  
+    }
+}
+
+$updatedProperties = $logicapp.Properties | Add-Member @{sku = $sku;} -PassThru
+
+$updatedLA = Set-AzureRmResource -ResourceId $logicapp.ResourceId -Properties $updatedProperties -ApiVersion 2015-08-01-preview
+```
+
+### Convertir la tarification de plan App Service en tarification de type Consommation
+
+Pour modifier une application logique à laquelle un plan App Service est associé et la définir sur un modèle de consommation, supprimez la référence au plan App Service dans la définition de l’application logique. Ce peut être fait via un appel à une applet de commande PowerShell :
 
 `Set-AzureRmLogicApp -ResourceGroupName ‘rgname’ -Name ‘wfname’ –UseConsumptionModel -Force`
 
@@ -62,11 +96,11 @@ Pour plus d’informations sur la tarification, voir la page [Tarification de Lo
 
 ## Étapes suivantes
 
-- [An overview of Logic Apps][whatis] (Vue d’ensemble de Logic Apps)
+- [An overview of Logic Apps (Vue d’ensemble de Logic Apps)][whatis]
 - [Créez votre première application logique][create]
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [whatis]: app-service-logic-what-are-logic-apps.md
 [create]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

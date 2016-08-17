@@ -179,7 +179,7 @@ Cette section compare les files d’attente Azure et les files d’attente Servi
 |---|---|---|
 |Taille de file d'attente maximale|**200 To**<br/><br/>(limitée à une capacité de compte de stockage unique)|**1 Go à 80 Go**<br/><br/>(définie lors de la création d'une file d'attente et [activation du partitionnement](service-bus-partitioning.md) – consultez la section « Informations supplémentaires »)|
 |Taille de message maximale|**64 Ko**<br/><br/>(48 Ko lors de l'utilisation du codage **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d'attente et des objets BLOB. Dans ce cas, vous pouvez placer jusqu'à 200 Go en file d'attente pour un seul élément.|**256 Ko** ou **1 Mo**<br/><br/>(y compris l’en-tête et le corps, taille maximale d’en-tête : 64 Ko).<br/><br/>Selon le [niveau de service](service-bus-premium-messaging.md).|
-|Durée de vie maximale des messages|**7 jours**|**Illimitée**|
+|Durée de vie maximale des messages|**7 jours**|**`TimeSpan.Max`**|
 |Nombre maximal de files d'attente|**Illimité**|**10 000**<br/><br/>(par espace de noms de service, peut être augmenté)|
 |Nombre maximal de clients simultanés|**Illimité**|**Illimité**<br/><br/>(la limite de 100 connexions simultanées s'applique uniquement à la communication basée sur le protocole TCP)|
 
@@ -313,4 +313,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 [portail Azure Classic]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

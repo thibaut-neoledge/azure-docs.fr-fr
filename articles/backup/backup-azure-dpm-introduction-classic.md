@@ -3,7 +3,7 @@
 	description="Présentation de la sauvegarde de serveurs DPM à l'aide du service Azure Backup"
 	services="backup"
 	documentationCenter=""
-	authors="trinadhk"
+	authors="Nkolli1"
 	manager="shreeshd"
 	editor=""
 	keywords="System Center Data Protection Manager, Data Protection Manager, sauvegarde DPM"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/10/2016"
-	ms.author="trinadhk;giridham;jimpark"/>
+	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 
@@ -96,4 +96,4 @@ Et les types suivants ne sont pas pris en charge :
 
 >[AZURE.NOTE] À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

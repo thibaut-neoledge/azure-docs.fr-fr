@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -39,13 +39,13 @@ Les recommandations de dimensionnement intégrées identifient de manière proac
 
 ## Des performances et des prix adaptés à vos besoins
 
-Les pools De base, Standard et Premium vous offrent un large éventail de performances, de capacités de stockage et d’options de tarification. Les pools peuvent contenir jusqu’à 400 bases de données élastiques. Les bases de données élastiques permettent la mise à l’échelle automatique de pas moins de 1 000 unités de transaction de base de données élastique (eDTU).
+Les pools De base, Standard et Premium vous offrent un large éventail de performances, de capacités de stockage et d’options de tarification. Les pools peuvent contenir jusqu’à 400 bases de données élastiques. Les bases de données élastiques permettent la mise à l’échelle automatique de pas moins de 1 000 unités de transaction de base de données élastique (eDTU).
 
 [Lire la documentation](https://azure.microsoft.com/pricing/details/sql-database/?b=16.50)
 
 ## Outils élastiques
 
-En plus des pools élastiques, le service Base de données SQL Azure intègre des fonctionnalités qui vous aident à gérer les activités opérationnelles sur plusieurs bases de données :
+En plus des pools élastiques, le service Base de données SQL Azure intègre des fonctionnalités qui vous aident à gérer les activités opérationnelles sur plusieurs bases de données :
 
 ** Effectuez des requêtes de bases de données croisées et créez des rapports. **Les [requêtes de base de données élastique](sql-database-elastic-query-overview.md) vous permettent d’exécuter des requêtes ou des rapports sur les bases de données de votre pool et d’accéder simultanément aux données distantes stockées dans de nombreuses bases de données de votre pool.
 
@@ -65,4 +65,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

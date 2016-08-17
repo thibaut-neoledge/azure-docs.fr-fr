@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Limites et configuration des applications logiques | Microsoft Azure"
 	description="Vue d’ensemble des limites de service et des valeurs de configuration disponibles pour Logic Apps."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan"
 	manager="dwrede"
@@ -134,4 +134,4 @@ Les appels effectués directement à partir d’une application logique (c’est
 - [Logic Apps vous permet d’automatiser vos processus métiers](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Apprenez à intégrer vos systèmes avec Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

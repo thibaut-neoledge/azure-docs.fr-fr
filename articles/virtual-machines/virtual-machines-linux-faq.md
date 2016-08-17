@@ -48,7 +48,7 @@ Vous ne devez pas utiliser le disque temporaire (/dev/sdb1) pour stocker les don
 
 ## Puis-je copier ou cloner une machine virtuelle Azure ?
 
-Oui. Pour obtenir des instructions, consultez [Création d’une copie d’une machine virtuelle Linux dans le modèle de déploiement Resource Manager](virtual-machines-linux-specialized-image.md).
+Oui. Pour obtenir des instructions, consultez [Création d’une copie d’une machine virtuelle Linux dans le modèle de déploiement Resource Manager](virtual-machines-linux-copy-vm.md).
 
 ## Pourquoi ne vois-je pas les régions Centre et Est du Canada dans Azure Resource Manager ?
 
@@ -58,4 +58,4 @@ Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquem
 
 Non. Actuellement, cela n’est possible qu’au moment de la création.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

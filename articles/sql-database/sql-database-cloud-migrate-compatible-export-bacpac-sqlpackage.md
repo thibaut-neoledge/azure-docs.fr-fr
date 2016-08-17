@@ -3,7 +3,7 @@
    description="Base de données SQL Microsoft Azure, migration de base de données, exporter une base de données, exporter un fichier BACPAC, sqlPackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -27,13 +27,13 @@ Cet article explique comment exporter une base de données SQL Server à partir 
 1. Ouvrez une invite de commandes et modifiez un répertoire contenant l’utilitaire de ligne de commande sqlpackage.exe Cet utilitaire est fourni avec Visual Studio et SQL Server. Utilisez la fonction de recherche de votre ordinateur pour rechercher le chemin d’accès dans votre environnement.
 2. Exécutez la commande sqlpackage.exe suivante avec les arguments ci-dessous pour votre environnement :
 
-	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+	'sqlpackage.exe /Action:Export /ssn:< nom\_serveur > /sdn:< nom\_base\_de\_données > /tf:< fichier\_cible >
 
 	| Argument | Description |
 	|---|---|
-	| < server_name > | nom du serveur source |
-	| < database_name > | nom de la base de données source |
-	| < target_file > | nom de fichier et emplacement du fichier BACPAC |
+	| < nom\_serveur > | nom du serveur source |
+	| < nom\_base\_de\_données > | nom de la base de données source |
+	| < fichier\_cible > | nom de fichier et emplacement du fichier BACPAC |
 
 	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
@@ -52,4 +52,4 @@ Cet article explique comment exporter une base de données SQL Server à partir 
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

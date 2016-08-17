@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Récupération d’urgence des applications développées sur Microsoft Azure
 
@@ -305,4 +305,4 @@ Plusieurs autres techniques existent pour tester les plans de récupération d�
 
 Cet article fait partie d’une série d’articles axés sur la thématique [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L’article précédent de cette série est [Haute disponibilité pour les applications développées sur Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

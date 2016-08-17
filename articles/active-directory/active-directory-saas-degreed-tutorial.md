@@ -56,7 +56,7 @@ Pour configurer l’intégration de Degreed à Azure AD, vous devez ajouter Deg
 
 **Pour ajouter Degreed à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
  
 	![Active Directory][1]
 
@@ -117,7 +117,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 	![Configurer l’authentification unique](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png)
 
 
-    a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Degreed au format suivant : **« https://<nom\_entreprise>.degreed.com »**.
+    a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Degreed au format suivant : `https://degreed.com/?orgsso=<company code>`.
 
     b. Cliquez sur **Next**.
 
@@ -271,4 +271,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

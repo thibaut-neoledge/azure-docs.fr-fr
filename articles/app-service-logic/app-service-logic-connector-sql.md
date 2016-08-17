@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur SQL dans des applications logiques | Microsoft Azure App Service"
    description="Comment créer et configurer le connecteur SQL ou une application API et l'utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -91,7 +91,7 @@ La valeur **Requête d'interrogation de données** est exécutée uniquement lor
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Ajouter le déclencheur
-1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : ![][5]
+1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : ![][5]
 
 2. Sélectionnez le déclencheur **Interroger les données (JSON)**, entrez la fréquence et cliquez sur ✓ : ![][6]
 
@@ -102,11 +102,11 @@ Prenons notre scénario dans lequel une application logique simple interroge les
 
 Pour utiliser le connecteur SQL comme une action, entrez le nom des tables et/ou des procédures stockées que vous avez saisies lorsque vous avez créé le connecteur SQL :
 
-1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : ![][8]
+1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : ![][8]
 
 2. Indiquez les entrées de l'enregistrement à insérer et cliquez sur ✓ : ![][9]
 
-3. Dans la galerie, sélectionnez le même connecteur SQL que celui créé. En tant qu'action, sélectionnez Update dans la même table, par exemple *Update EmployeeDetails* : ![][11]
+3. Dans la galerie, sélectionnez le même connecteur SQL que celui créé. En tant qu'action, sélectionnez Update dans la même table, par exemple *Update EmployeeDetails* : ![][11]
 
 4. Indiquez les entrées de l'action de mise à jour et cliquez sur ✓ : ![][12]
 
@@ -155,4 +155,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

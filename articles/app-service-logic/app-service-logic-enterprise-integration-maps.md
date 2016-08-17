@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Vue d’ensemble des mappages Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Découvrez comment utiliser les mappages avec Enterprise Integration Pack et vos applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -22,7 +22,7 @@
 Enterprise Integration utilise des mappages pour convertir les données XML d’un format vers un autre format.
 
 ## Qu’est-ce qu’un mappage ?
-Un mappage est un document XML qui indique quelles données d'un document doivent être converties vers un autre format.
+Un mappage est un document XML qui définit les données d’un document qui doivent être converties dans un autre format.
 
 ## Pourquoi utiliser des mappages ?
 Imaginons que vous recevez régulièrement des commandes ou des factures B2B de la part d'un client qui utilise le format AAAMMJJ pour les dates. Mais dans votre entreprise, les dates sont enregistrées au format MMJJAAA. Vous pouvez utiliser un mappage pour *convertir* le format de date AAAMMJJ vers MMJJAAA avant d'enregistrer les détails de la commande ou de la facture dans votre base de données clients.
@@ -58,4 +58,4 @@ Procédez comme suit pour télécharger un nouveau mappage remplaçant un mappag
 - [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
 - [En savoir plus sur les transformations](./app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

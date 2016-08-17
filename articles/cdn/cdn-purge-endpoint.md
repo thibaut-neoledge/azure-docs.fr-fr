@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Purger un point de terminaison CDN Azure"
+	pageTitle="Purger un point de terminaison CDN Azure | Microsoft Azure"
 	description="Découvrez comment vider tout le contenu mis en cache à partir d’un point de terminaison CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Purger un point de terminaison CDN Azure
@@ -62,4 +62,4 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
 - [Préchargement d’éléments multimédias sur un point de terminaison CDN Azure](cdn-preload-endpoint.md)
 - [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

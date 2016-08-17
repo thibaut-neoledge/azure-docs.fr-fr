@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/02/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -25,19 +25,19 @@ Si une fonction est surchargée et accepte plusieurs syntaxes, toutes les syntax
 
 Les types s’expriment avec la syntaxe suivante :
 
-- **bin** : binaire
-- **bool** : booléen
-- **dt** : date/heure UTC
-- **enum** : énumération des constantes connues
-- **exp** : expression, qui est censée correspondre à une valeur booléenne
-- **mvbin** : binaire à valeurs multiples
+- **bin** : binaire
+- **bool** : booléen
+- **dt** : date/heure UTC
+- **enum** : énumération des constantes connues
+- **exp** : expression, qui est censée correspondre à une valeur booléenne
+- **mvbin** : binaire à valeurs multiples
 - **mvstr** : chaîne à valeurs multiples
 - **mvref** : référence à valeurs multiples
-- **num** : numérique
--  **ref** : référence à valeur unique
-- **str** : chaîne à valeur unique
-- **var** : variante de (quasiment) tout autre type
-- **void** : ne retourne aucune valeur
+- **num** : numérique
+-  **ref** : référence à valeur unique
+- **str** : chaîne à valeur unique
+- **var** : variante de (quasiment) tout autre type
+- **void** : ne retourne aucune valeur
 
 ## Référence des fonctions
 
@@ -160,7 +160,7 @@ Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été
 
 **Syntaxe :**`str ConvertFromBase64(str source)` - Part du principe que l’encodage utilisé est Unicode<br> `str ConvertFromBase64(str source, enum Encoding)`
 
-- source : chaîne encodée Base64  
+- source : chaîne encodée Base64
 - En codage : Unicode, ASCII, UTF8
 
 **Exemple** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
@@ -657,7 +657,13 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 
 **Syntaxe :** `String PCase(string)`
 
+**Remarques :**
+
+- Cette fonction ne fournit pas pour le moment de casse appropriée pour convertir un mot qui est entièrement en majuscules, par exemple un sigle.
+
 **Exemple :** `PCase("TEsT")` Retourne « Test ».
+
+`PCase(LCase("TEST"))` Retourne « Test ».
 
 ----------
 ### RandomNum
@@ -731,14 +737,14 @@ Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, 
 ----------
 ### Right
 
-**Description :** La fonction Right retourne un nombre spécifié de caractères en partant de la droite (fin) d’une chaîne.
+**Description :** La fonction Right Retourne un nombre spécifié de caractères en partant de la droite (fin) d’une chaîne.
 
 **Syntaxe :** `str Right(str string, num NumChars)`
 
 - string : chaîne à partir de laquelle les caractères sont renvoyés
 - numChars : nombre identifiant le nombre de caractères à retourner à partir de la fin (à droite) de la chaîne
 
-**Remarques :** numChars caractères sont retournés à partir de la dernière position de la chaîne.
+**Remarques :** les caractères numChars sont retournés à partir de la dernière position de la chaîne.
 
 Chaîne contenant les numChars derniers caractères de la chaîne :
 
@@ -753,7 +759,7 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 ----------
 ### RTrim
 
-**Description :** La fonction RTrim supprime les espaces blancs à la fin d’une chaîne.
+**Description :** La fonction RTrim supprime les espaces blancs de fin d’une chaîne.
 
 **Syntaxe :** `str RTrim(str value)`
 
@@ -829,7 +835,7 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 
 **Syntaxe :** `str UCase(str string)`
 
-**Exemple :** `UCase("TeSt")` Retourne « TEST ».
+**Exemple :** `UCase("TeSt")` Retourne « Test ».
 
 ----------
 ### Word
@@ -859,4 +865,4 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

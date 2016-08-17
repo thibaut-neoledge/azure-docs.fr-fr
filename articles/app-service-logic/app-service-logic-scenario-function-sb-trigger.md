@@ -1,7 +1,7 @@
 <properties
    pageTitle="Scénario d’application logique : créer un déclencheur Service Bus d’Azure Functions | Microsoft Azure"
    description="Utiliser Azure Functions pour créer un déclencheur Service Bus pour une application logique"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -66,4 +66,4 @@ Pour tester, ajoutez un message de la file d’attente via un outil tel que l[�
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

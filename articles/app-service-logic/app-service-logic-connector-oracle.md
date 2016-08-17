@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur de base de données Oracle dans des applications logiques | Microsoft Azure App Service"
    description="Comment créer et configurer le connecteur de base de données Oracle ou une application API et l’utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -120,4 +120,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

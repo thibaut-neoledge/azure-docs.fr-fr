@@ -1,7 +1,7 @@
 <properties
 pageTitle="Découvrez comment utiliser le connecteur SFTP dans vos applications logiques | Microsoft Azure"
 description="Créez des applications logiques avec Azure App Service. Connectez-vous à l’API SFTP pour envoyer et recevoir des fichiers. Vous pouvez effectuer diverses opérations, telles que créer, mettre à jour, obtenir ou supprimer des fichiers."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -419,4 +419,4 @@ Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des code
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

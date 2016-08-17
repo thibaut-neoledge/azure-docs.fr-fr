@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation du Gestionnaire de connexion hybride dans Azure App Service | Microsoft Azure App Service" 
-	description="Installation et configuration du gestionnaire de connexion hybride et connexion à des connecteurs locaux dans Azure App Service" 
+	pageTitle="Utilisation du Gestionnaire de connexion hybride | Microsoft Azure" 
+	description="Installer et configurer le Gestionnaire de connexion hybride et se connecter à des connecteurs locaux dans Logic Apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/>
 
-# Connexion à des connecteurs locaux dans Azure App Services à l’aide du gestionnaire de connexion hybride
+# Se connecter à des connecteurs locaux à l’aide du Gestionnaire de connexion hybride
 
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. La disponibilité générale de Logic Apps utilise une passerelle pour la connectivité locale. En savoir plus sur la nouvelle [passerelle](app-service-logic-gateway-connection.md) et la [disponibilité générale de Logic Apps](https://azure.microsoft.com/documentation/services/logic-apps/).
 
-Pour utiliser un système local, Azure App Service utilise le Gestionnaire de connexion hybride. Certains connecteurs peuvent se connecter à un système local, tels que SQL Server, SAP, SharePoint, etc.
+Pour utiliser un système local, Logic Apps utilise le Gestionnaire de connexion hybride. Certains connecteurs peuvent se connecter à un système local, tels que SQL Server, SAP, SharePoint, etc.
 
 Le Gestionnaire de connexion hybride (ou HCM) est un programme d'installation en un seul clic qui est installé sur un serveur IIS au sein de votre réseau, derrière le pare-feu. À l'aide d'un relais Azure Service Bus, HCM authentifie le système local avec le connecteur dans Azure.
 
@@ -36,7 +36,7 @@ Pour commencer, vous avez besoin des éléments suivants :
 
 Dans le portail Azure, copiez la chaîne de connexion SAS racine de Service Bus. Cette chaîne de connexion connecte votre connecteur Azure à votre système local.
 
-1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885), sélectionnez l’espace de noms Service Bus et les **informations de connexion** :
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885), sélectionnez l’espace de noms Service Bus et les **informations de connexion** :
 
 	![][SB_ConnectInfo]
 
@@ -46,12 +46,12 @@ Dans le portail Azure, copiez la chaîne de connexion SAS racine de Service Bus.
 
 ## Installer le Gestionnaire de connexion hybride
 
-1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez le connecteur que vous avez créé. Pour l'ouvrir, vous pouvez sélectionner **Parcourir**, **API Apps**, puis sélectionnez le connecteur ou une application API. <br/><br/> Sous **Connexion hybride**, l'installation est **incomplète** : <br/> ![][2]
+1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez le connecteur que vous avez créé. Pour l'ouvrir, vous pouvez sélectionner **Parcourir**, **API Apps**, puis sélectionnez le connecteur ou une application API. <br/><br/> Sous **Connexion hybride**, l'installation est **incomplète** : <br/> ![][2]
 
 2. Sélectionnez **Connexion hybride**. La chaîne de connexion Service Bus entrée précédemment est répertoriée.
-3. Copiez la **chaîne de configuration principale** : <br/> ![][PrimaryConfigString]
+3. Copiez la **chaîne de configuration principale** : <br/> ![][PrimaryConfigString]
 
-4. Sous **Gestionnaire de connexion hybride local**, vous pouvez télécharger le Gestionnaire de connexion hybride ou l'installer directement à partir du portail. <br/><br/> Pour l'installer directement à partir du portail, accédez à votre serveur IIS local, parcourez le portail et sélectionnez **Télécharger et configurer**. <br/><br/> Pour télécharger le Gestionnaire de connexion hybride, accédez à votre serveur IIS local et accédez à **l’application ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). L'installation démarre automatiquement afin que vous puissiez l'exécuter.
+4. Sous **Gestionnaire de connexion hybride local**, vous pouvez télécharger le Gestionnaire de connexion hybride ou l'installer directement à partir du portail. <br/><br/> Pour l'installer directement à partir du portail, accédez à votre serveur IIS local, parcourez le portail et sélectionnez **Télécharger et configurer**. <br/><br/> Pour télécharger le Gestionnaire de connexion hybride, accédez à votre serveur IIS local, puis à **l’application ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). L'installation démarre automatiquement afin que vous puissiez l'exécuter.
 
 5. Dans la fenêtre **Configuration de l'écouteur**, entrez la **chaîne de configuration principale** collée précédemment (à l'étape 3) et sélectionnez **Installer**.
 
@@ -87,7 +87,7 @@ Port du système local | Sur le système local, ouvrez le port utilisé par le s
  - Dans le Gestionnaire des services Internet (inetmgr), le site Web ***MicrosoftAzureBizTalkHybridListener*** doit être répertorié et en cours d'exécution.
  - Ce site Web utilise ***HybridListenerAppPool*** qui s'exécute comme compte utilisateur prédéfini local de *NetworkService*. Ce pool d'applications doit également être démarré.
 3. Sur le serveur IIS, vérifiez que le connecteur est installé et en cours d'exécution :
- - Un site Web est créé pour le connecteur App Service. Par exemple, si vous avez créé un connecteur SQL, il existe un site Web ***MicrosoftSqlConnector\_nnn***. Dans le Gestionnaire des services Internet (inetmgr), confirmez que ce site Web est répertorié et démarré.
+ - Un site web est créé pour votre connecteur. Par exemple, si vous avez créé un connecteur SQL, il existe un site Web ***MicrosoftSqlConnector\_nnn***. Dans le Gestionnaire des services Internet (inetmgr), confirmez que ce site Web est répertorié et démarré.
  - Ce site Web utilise son propre pool d'applications IIS nommé ***HybridAppPoolnnn***. Ce pool d'applications s'exécute en tant que compte utilisateur prédéfini local de *NetworkService*. Ce site Web et le pool d'applications doivent tous deux être démarrés.
  - Parcourez le connecteur local. Par exemple, si le site Web du connecteur utilise le port 6569, accédez à http://localhost:6569. Un document par défaut n'est pas configuré, donc une `HTTP Error 403.14 - Forbidden error` est attendue.
 4. Dans le pare-feu, vérifiez que les ports TCP répertoriés dans cette rubrique sont ouverts.
@@ -109,15 +109,15 @@ Port du système local | Sur le système local, ouvrez le port utilisé par le s
 
 ## Forum Aux Questions
 
-**Question** : il existe deux gestionnaires de connexion hybride. Quelle est la différence ?
+**QUESTION** : il existe deux Gestionnaires de connexion hybride. Quelle est la différence ?
 
-**Réponse** : il existe la technologie des [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) qui est utilisée principalement par les applications Web (anciennement les sites Web) et les applications mobiles (anciennement les services mobiles) pour se connecter en local. Ce Gestionnaire de connexion hybride est son propre [programme d'installation](../biztalk-services/integration-hybrid-connection-create-manage.md) et utilise un service Azure BizTalk (en arrière-plan). Il prend en charge les protocoles TCP et HTTP uniquement.
+**Réponse** : il existe la technologie des [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) qui est utilisée principalement par les applications Web (anciennement les sites Web) et les applications mobiles (anciennement les services mobiles) pour se connecter en local. Ce Gestionnaire de connexion hybride est son propre [programme d'installation](../biztalk-services/integration-hybrid-connection-create-manage.md) et utilise un service Azure BizTalk (en arrière-plan). Il prend en charge les protocoles TCP et HTTP uniquement.
 
 Avec les connecteurs Azure App Service, il existe également un Gestionnaire de connexion hybride. Ce Gestionnaire de connexion hybride n'utilise *pas* un service Azure BizTalk (en arrière-plan) et prend en charge davantage que les protocoles TCP et HTTP. Consultez la [Liste de connecteurs et d'applications API](app-service-logic-connectors-list.md).
 
 Les deux utilisent Azure Service Bus pour se connecter au système local.
 
-**Question** : lorsque je crée une application API personnalisée, puis-je utiliser le Gestionnaire de connexion hybride App Service pour la connexion au système local ?
+**QUESTION** : lorsque je crée une application API personnalisée, puis-je utiliser le Gestionnaire de connexion hybride App Service pour la connexion au système local ?
 
 **Réponse** : pas dans le sens traditionnel. Vous pouvez utiliser un connecteur intégré, configurer le Gestionnaire de connexion hybride App Service pour la connexion au système local. Puis, utilisez ce connecteur avec votre application API personnalisée, probablement avec une application logique. Actuellement, vous ne pouvez pas développer ni créer votre propre application API hybride (comme le connecteur SQL ou le connecteur File).
 
@@ -140,4 +140,4 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

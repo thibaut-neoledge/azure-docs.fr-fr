@@ -1,7 +1,7 @@
 <properties
    pageTitle="Créer une application logique IAE à l’aide de VETR dans les applications logiques d’Azure App Service | Microsoft Azure"
    description="Fonctionnalités de validation, encodage et transformation des services XML BizTalk"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -38,10 +38,10 @@ Prenons comme exemple un site web qui accepte des commandes. Les utilisateurs en
 
 Les applications API BizTalk suivantes aident à créer ce modèle :
 
-* **Déclencheur HTTP**: source pour déclencher un événement de message
-* **Validation**: valide les données entrantes
-* **Transformation**: transforme les données du format d'entrée au format requis par le système en aval
-* **Connecteur Service Bus**: entité de destination où les données sont envoyées
+* **Déclencheur HTTP** : source pour déclencher un événement de message
+* **Validation** : valide les données entrantes
+* **Transformation** : transforme les données du format d'entrée au format requis par le système en aval
+* **Connecteur Service Bus** : entité de destination où les données sont envoyées
 
 
 ## Construction du modèle VETR de base
@@ -87,7 +87,7 @@ Ensuite, nous allons ajouter la destination (une file d’attente Service Bus) o
 
 1. Ajoutez un **Connecteur Service Bus** à partir de la galerie. Affectez la valeur _Servicebus1_ à **Name**, affectez la chaîne de connexion à votre instance Service Bus comme valeur **Connection String**, affectez la valeur **Queue** à _Entity Name_ et ignorez **Subscription name**.
 2. Sélectionnez l’action **Envoyer un message** et affectez la valeur _actions(’transformservice’).outputs.OutputXml_ au champ **Contenu**.
-3. Définissez **Type de contenu** sur *application/xml* :
+3. Définissez **Type de contenu** sur *application/xml* :
 
 ![Service Bus][5]
 
@@ -119,4 +119,4 @@ Rubriques utiles :
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

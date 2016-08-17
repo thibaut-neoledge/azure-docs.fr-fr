@@ -1,7 +1,7 @@
 <properties
    pageTitle="Didacticiel : traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Services Azure BizTalk Services"
    description="Comment créer et configurer le connecteur Box ou une application API et l'utiliser dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -59,11 +59,11 @@ Pour achever le scénario, nous utilisons des files d’attente Service Bus pour
 ## Étape 1 : créer les files d’attente Service Bus  
 Cette solution utilise des files d’attente Service Bus pour l’échange de messages entre partenaires commerciaux. Contoso et Northwind envoient aux files d’attente des messages qui sont ensuite utilisés par les ponts IAE et/ou EDI. Pour cette solution, vous avez besoin de trois files d’attente Service Bus :
 
-*   **northwindreceive** : c’est celle sur laquelle Northwind reçoit la facture de Contoso.
+*   **northwindreceive** : c’est celle sur laquelle Northwind reçoit la facture de Contoso.
 
-*   **contosoreceive** : contoso reçoit l’accusé de réception de Northwind sur cette file d’attente.
+*   **contosoreceive** : contoso reçoit l’accusé de réception de Northwind sur cette file d’attente.
 
-*   **suspendu** : c’est la file d’attente sur laquelle tous les messages suspendus sont acheminés. Les messages sont suspendus s’ils échouent en cours du traitement.
+*   **suspendu** : c’est la file d’attente sur laquelle tous les messages suspendus sont acheminés. Les messages sont suspendus s’ils échouent en cours du traitement.
 
 Vous pouvez créer ces files d’attente Service Bus à l’aide d’une application cliente incluse dans l’exemple de package.
 
@@ -148,13 +148,13 @@ Au cours de l’étape précédente, vous avez déployé les accords d’envoi e
 
 Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message fait lui aussi partie de l’exemple que vous avez téléchargé. Le projet inclut les artefacts suivants :
 
-*   **INHOUSEINVOICE. XSD** : schéma de la facture maison envoyée à Northwind.
+*   **INHOUSEINVOICE. XSD** : schéma de la facture maison envoyée à Northwind.
 
-*   **EFACT\_D93A\_INVOIC. XSD** : schéma de la facture EDIFACT standard.
+*   **EFACT\_D93A\_INVOIC. XSD** : schéma de la facture EDIFACT standard.
 
-*   **EFACT\_4.1\_CONTRL. XSD** : schéma de l’accusé de réception EDIFACT que Northwind envoie à Contoso.
+*   **EFACT\_4.1\_CONTRL. XSD** : schéma de l’accusé de réception EDIFACT que Northwind envoie à Contoso.
 
-*   **INHOUSEINVOICE\_to\_D93AINVOIC. TRFM** : conversion permettant de mapper le schéma de facture maison sur le schéma de facture EDIFACT standard.
+*   **INHOUSEINVOICE\_to\_D93AINVOIC. TRFM** : conversion permettant de mapper le schéma de facture maison sur le schéma de facture EDIFACT standard.
 
 ### Créer le projet BizTalk Services
 1.  Dans la solution Visual Studio, développez le projet InvoiceProcessingBridge, puis ouvrez le fichier **MessageFlowItinerary.bcs**.
@@ -313,4 +313,4 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

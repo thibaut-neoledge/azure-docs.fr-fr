@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/03/2016"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
@@ -47,6 +47,9 @@ Pour tout basculement d’appareil, tenez compte des éléments suivants :
 - Les appareils cibles disponibles pour la récupération d’urgence possèdent un espace suffisant pour accueillir les conteneurs de volume sélectionnés.
 - Les appareils connectés à votre service mais ne répondant pas aux critères d’espace ne seront pas disponibles en tant qu’appareils cibles.
 - Après une récupération d’urgence, pour une durée limitée, les performances d’accès aux données peuvent être affectées de manière significative car l’appareil doit accéder aux données à partir du cloud et les stocker localement.
+- Lorsque vous effectuez un basculement entre des appareils après une récupération d’urgence, les instantanés utilisés pour récupérer les données sont sélectionnés comme suit :
+	1.  	Identifiez la stratégie de sauvegarde comportant le plus grand nombre de volumes.
+	2.  	Sélectionnez le dernier bon instantané cloud connu pour cette stratégie de sauvegarde et utilisez-le pour restaurer les données sur l’appareil de récupération.
 
 #### Basculement de l'appareil entre les versions du logiciel
 
@@ -87,7 +90,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
-1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
+1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 	
@@ -177,4 +180,4 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 - Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="07/05/2016"
+	ms.date="08/10/2016"
 	ms.author="carlrab"/>
 
 # Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service
@@ -92,4 +92,4 @@ Une fois que vous avez choisi le niveau de service pour votre pool, vous êtes p
 
 Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

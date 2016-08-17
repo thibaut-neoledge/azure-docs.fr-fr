@@ -3,6 +3,14 @@
 
 Cet article aborde certaines questions courantes sur les machines virtuelles Azure créées avec le modèle de déploiement classique.
 
+## Puis-je migrer mes machines virtuelles créées dans le modèle de déploiement classique vers le nouveau modèle Resource Manager ?
+
+Oui. Pour obtenir des instructions sur la migration, consultez :
+
+- [Migration d’un modèle de déploiement classique vers Azure Resource Manager à l’aide d’Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md).
+
+- [Migration d’un modèle de déploiement classique vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
+
 ## Qu’est-il possible d’exécuter sur une machine virtuelle Azure ?
 
 Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtuelle Azure. Vous pouvez exécuter des versions récentes de Windows Server, ainsi que diverses distributions de Linux. Pour les détails de prise en charge, consultez les liens suivants :
@@ -53,7 +61,7 @@ Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appa
 
 Vous devez vous connecter à la machine virtuelle, en utilisant Connexion Bureau à distance pour une machine virtuelle Windows ou une connexion Secure Shell (SSH) pour une machine virtuelle Linux. Pour obtenir des instructions, consultez les liens suivants :
 
-- [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
+- [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.
 - [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
 
@@ -138,6 +146,8 @@ Vous pouvez également utiliser le Portail Azure Classic ou Azure PowerShell pou
 
 Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
+
+
 ## Ressources supplémentaires
 
 [À propos de Machines virtuelles Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
@@ -145,3 +155,5 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 [Différentes façons de créer une machine virtuelle Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Les différentes façons de créer une machine virtuelle Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0803_2016-->

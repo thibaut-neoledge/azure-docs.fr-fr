@@ -1,89 +1,69 @@
 <properties
-   pageTitle="Objets principal du service et application | Microsoft Azure"
-   description="Discussion sur la relation entre les objets Application et ServicePrincipal dans Azure Active Directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   services="active-directory"
-   editor=""/>
+pageTitle="Objets application et principal du service Azure Active Directory | Microsoft Azure"
+description="Présentation de la relation entre les objets application et principal du service dans Azure Active Directory"
+documentationCenter="dev-center-name"
+authors="bryanla"
+manager="mbaldwin"
+services="active-directory"
+editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="05/16/2016"
-   ms.author="mbaldwin"/>
+ms.service="active-directory"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="identity"
+ms.date="07/14/2016"
+ms.author="bryanla;mbaldwin"/>
+
+# Objets application et principal du service dans Azure Active Directory
+Lors de la lecture d’un document portant sur une « application » Azure Active Directory (AD), il n’est pas toujours évident de savoir exactement à quoi l’auteur fait référence. Cet article a pour objectif de clarifier les choses en définissant les aspects conceptuels et concrets de l’intégration des applications dans Azure AD, puis en donnant un exemple d’inscription et de consentement pour une [application mutualisée](active-directory-dev-glossary.md#multi-tenant-application).
+
+## Vue d'ensemble
+Une application Azure AD dépasse le cadre d’un simple élément logiciel. Il s’agit d’un terme conceptuel, qui fait référence non seulement à une application logicielle, mais également à son inscription (ou configuration d’identité) auprès d’Azure AD, qui lui permet de participer aux « conversations » d’authentification et d’autorisation lors de l’exécution. Par définition, une application peut agir en tant que [client](active-directory-dev-glossary.md#client-application) (consommant une ressource), en tant que [serveur de ressources](active-directory-dev-glossary.md#resource-server) (exposant les API aux clients), voire les deux. Le protocole de conversation est défini par une [flux d’octroi d’autorisation OAuth 2.0](active-directory-dev-glossary.md#authorization-grant) afin de permettre respectivement au client et à la ressource d’accéder aux données d’une ressource et de les protéger. Approfondissons maintenant les choses pour examiner la manière dont un modèle d’application Azure AD représente une application en interne.
+
+## Inscription de l’application
+Lorsque vous inscrivez une application dans le [portail Azure Classic](https://manage.windowsazure.com), deux objets sont créés dans votre client Azure AD : un objet application et un objet principal du service.
+
+#### Objet application
+Une application Azure AD est *définie* par son seul et unique objet application, qui réside dans le client Azure AD dans lequel l’application a été inscrite, appelé client « de base » de l’application. L’objet application fournit des informations liées à l’identité pour une application. Il s’agit du modèle dont le ou les objets principal du service correspondants d’une application sont *dérivés* à des fins d’utilisation lors de l’exécution.
+
+L’application peut être considérée comme la représentation *globale* de votre application (pour une utilisation sur tous les clients) et le principal du service comme la représentation *locale* (pour une utilisation sur un client spécifique). [L’entité Application][AAD-Graph-App-Entity] d’Azure AD Graph définit le schéma d’un objet application. Un objet application présente donc une relation 1 à 1 avec l’application logicielle et une relation 1 à *n* avec les *n* objets principal du service correspondants de l’application.
+
+#### Objet principal du service
+L’objet principal du service définit la stratégie et les autorisations pour une application, fournissant la base d’un principal de sécurité pour représenter l’application lors de l’accès aux ressources au moment de l’exécution. [L’entité ServicePrincipal][AAD-Graph-Sp-Entity] d’Azure AD Graph définit le schéma d’un objet principal du service.
+
+Un objet principal du service est requis dans chaque client pour lequel une instance de l’utilisation de l’application doit être représentée, permettant l’accès sécurisé aux ressources appartenant aux comptes d’utilisateur de ce client. Une application à client unique n’a qu’un seul principal du service (dans son client de base). Une [application web](active-directory-dev-glossary.md#web-client) mutualisée aura ce même principal du service, ainsi qu’un principal du service dans chaque client où un administrateur ou les utilisateurs de ce client ont consenti à ce que l’application accède à leurs ressources. Après le consentement, l’objet principal du service est consulté pour les demandes d’autorisation ultérieures.
+
+> [AZURE.NOTE] Toute modification apportée à l’objet application de votre application est également répercutée dans son objet principal du service, uniquement dans le client de base de l’application (le client où elle a été inscrite). Si votre application est configurée pour l’accès mutualisé, les modifications apportées à l’objet application ne sont pas répercutées dans les objets principal du service des clients consommateurs tant que le client consommateur n’a pas supprimé, puis accordé de nouveau l’accès.
+
+## Exemple
+Le schéma ci-dessous illustre la relation entre un objet application d’une application et les objets principal du service correspondants dans le contexte d’un exemple d’application mutualisée appelée **RH**. Il existe trois clients Azure AD dans ce scénario :
+
+- **Adatum** : le client utilisé par la société qui a développé l’application **RH** ;
+- **Contoso** : le client utilisé par l’entreprise Contoso, qui est un consommateur de l’application **RH** ;
+- **Fabrikam** : le client utilisé par l’entreprise Fabrikam, qui est également un consommateur de l’application **RH**.
+
+![Relation entre un objet application et un objet principal du service](./media/active-directory-application-objects/application-objects-relationship.png)
+
+Dans le schéma ci-dessus, l’étape 1 correspond au processus de création des objets application et principal du service dans le client de base de l’application.
+
+À l’étape 2, lorsque les administrateurs de Contoso et Fabrikam accordent leur consentement et autorisent l’accès à l’application, un objet principal du service est créé dans le client Azure AD de leur entreprise et se voit attribuer les autorisations accordées par l’administrateur de l’entreprise. Notez également que l’application RH peut être configurée/conçue de manière à autoriser le consentement par les utilisateurs à des fins d’utilisation individuelle.
+
+À l’étape 3, les clients consommateurs de l’application RH (tels que Contoso et Fabrikam) ont chacun leur propre objet principal du service, qui représente leur utilisation d’une instance de l’application lors de l’exécution et est régi par les autorisations consenties par l’administrateur.
+
+## Étapes suivantes
+L’objet application d’une application est accessible via l’API Azure AD Graph, telle que représentée par son [entité Application](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference?branch=master#ApplicationEntity) OData.
+
+L’objet application d’une application est accessible via l’API Azure AD Graph, telle que représentée par son [entité ServicePrincipal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference?branch=master#ServicePrincipalEntity) OData.
 
 
-# Objets principal du service et application
 
-Le schéma ci-dessus décrit la relation entre un objet application et un objet principal du service dans le contexte d’un exemple d’application appelée **Application RH**. Trois clients sont disponibles : **Adatum**, le client qui développe l’application, ainsi que **Contoso** et **Fabrikam**, les clients qui utilisent l’application nommée **Application RH**.
+<!--Image references-->
 
-![Relation entre un objet Application et un objet ServicePrincipal](./media/active-directory-application-objects/application-objects-relationship.png)
+<!--Reference style links -->
+[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
+[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipalentity
+[AZURE-classic-portal]: https://manage.windowsazure.com
 
-
-Quand vous inscrivez une application dans le portail de gestion Azure, deux objets sont créés dans le client de votre annuaire :
-
-- **Objet application** : cet objet représente une définition de votre application. Une description détaillée de ses propriétés est fournie dans la section **Objet application** ci-dessous.
-
-- **Objet principal du service** : cet objet représente une instance de votre application dans le client de votre annuaire. Vous pouvez appliquer des stratégies à des objets principal du service, notamment en attribuant des autorisations au principal du service qui permettent à l’application de lire les données d’annuaire de votre client. Chaque fois que vous modifiez votre objet application, les modifications sont également appliquées à l’objet principal du service associé dans votre client.
-
-
-> [AZURE.NOTE] Si votre application est configurée pour l’accès externe, les modifications apportées à l’objet application ne sont pas répercutées dans le principal du service d’un client consommateur tant que ce dernier n’a pas supprimé, puis accordé de nouveau l’accès.
-
-
-
-Dans le schéma ci-dessus, l’étape 1 correspond au processus de création des objets application et principal du service.
-
-À l’étape 2, quand un administrateur d’entreprise accorde l’accès, un objet principal du service est créé dans le client Azure AD de l’entreprise et il reçoit le niveau d’accès à l’annuaire que l’administrateur d’entreprise a accordé.
-
-À l’étape 3, les clients consommateurs d’une application (comme Contoso et Fabrikam) possèdent chacun leur propre objet principal du service qui représente leur instance de l’application. Dans cet exemple, ils ont chacun un principal du service qui représente l’application RH.
-
-
-
-
-
-## Propriétés de l’objet application
-
-Le tableau suivant répertorie toutes les propriétés d’un objet application et inclut des informations importantes pour les développeurs. Ces propriétés s’appliquent aux applications web, aux API web et aux applications clientes natives qui sont inscrites auprès d’Azure AD.
-
-
-### Généralités
-
-Propriété | Description
-| ------------- | -----------
-| Nom | Nom complet de l’application. Propriété obligatoire dans l’Assistant **Ajout d’application**.
-| Logo | Logo de l’application qui représente votre application ou entreprise. Ce logo permet aux utilisateurs externes d’associer plus facilement la demande d’accès à votre application. Quand vous téléchargez un logo, respectez les spécifications indiquées dans l’Assistant **Télécharger un logo**. Si vous ne fournissez pas de logo, un logo par défaut s’affiche.
-| Accès externe | Détermine si les utilisateurs d’organisations externes sont autorisés à accorder à votre application une authentification unique et un accès aux données incluses dans l’annuaire de leur organisation. Ce contrôle affecte uniquement la possibilité d’accorder l’accès. Il ne modifie pas l’accès qui a déjà été accordé. Seuls les administrateurs d’entreprise peuvent accorder l’accès.
-
-
-### Authentification unique
-
-Propriété | Description
-| ------------- | -----------
-| URI ID d’application | Identificateur logique unique de votre application. Propriété obligatoire dans l’Assistant **Ajout d’application**. <br><br>Étant donné que la valeur URI ID d’application est un identificateur logique, il est inutile de la résoudre en adresse Internet. Votre application la présente lors de l’envoi d’une demande d’authentification unique à Azure AD. Azure AD identifie votre application et envoie la réponse d’authentification (un jeton SAML) à la valeur URL de réponse qui a été fournie pendant l’inscription de l’application. Utilisez la valeur URI ID d’application pour définir la propriété wtrealm (pour WS-Federation) ou la propriété Issuer (pour SAML-P) lors d’une demande de connexion. La valeur **URI ID d’application** doit être unique dans Azure AD au sein de votre organisation<br><br>**Remarque** : lors de l’activation d’une application pour des utilisateurs externes, la valeur URI ID d’application de l’application doit être une adresse comprise dans un des domaines vérifiés de votre annuaire. Par conséquent, il ne peut pas s’agir d’un URN (Uniform Resource Name). Cette restriction empêche d’autres organisations de spécifier (et de prendre) une propriété unique qui appartient à votre organisation. Pendant le développement, vous pouvez remplacer votre valeur URI ID d’application par un emplacement situé dans le domaine initial de votre organisation (si vous n’avez pas vérifié un domaine personnalisé/personnel) et mettre à jour votre application afin d’utiliser cette nouvelle valeur. Le domaine initial correspond au domaine de niveau 3 que vous créez au moment de l’inscription, par exemple contoso.onmicrosoft.com.
-| URL de l’application | Adresse d’une page web où les utilisateurs peuvent se connecter et utiliser votre application. Propriété obligatoire dans l’Assistant **Ajout d’application**.<br><BR>**Remarque** : la valeur définie pour cette propriété dans l’Assistant Ajout d’application est également définie en tant que valeur de l’URL de réponse.
-| URL de réponse | Adresse physique de votre application. Azure AD envoie un jeton avec la réponse d’authentification unique à cette adresse. Pendant la première inscription dans l’Assistant **Ajout d’application**, la valeur définie pour URL de l’application l’est également en tant que valeur URL de réponse. Lors d’une demande de connexion, utilisez la valeur URL de réponse pour définir la propriété wreply (pour WS-Federation) ou **AssertionConsumerServiceURL** (pour SAML-P).<br><BR>**Remarque** : lors de l’activation d’une application pour des utilisateurs externes, URL de réponse doit être une adresse **https://**. 
-| URL des métadonnées de fédération | (Facultatif). Représente l’URL physique du document des métadonnées de fédération de votre application. Celle-ci est obligatoire pour prendre en charge la déconnexion SAML-P. Azure AD télécharge le document des métadonnées qui est hébergé sur ce point de terminaison et l’utilise pour découvrir la partie publique du certificat que vous utilisez pour vérifier la signature sur vos demandes de déconnexion et l’URL de déconnexion de votre application. Vous ne pouvez pas configurer cette propriété quand vous ajoutez d’abord votre application. Elle ne peut être configurée qu’ultérieurement.<br><BR>****Remarque** : si vous avez besoin de prendre en charge la déconnexion SAML-P, mais que vous n’avez pas de point de terminaison des métadonnées de fédération pour votre application, contactez le support technique pour connaître les autres possibilités.
-
-
-### Appel de l’API Graph ou d’API web
-
-Propriété | Description
-| ------------- | -----------
-| ID client | Identificateur unique de votre application. Vous devez utiliser cet identificateur dans les appels à l’API Graph ou à d’autres API web inscrites auprès d’Azure AD. Azure AD génère automatiquement cette valeur pendant l’inscription de l’application et vous ne pouvez pas la modifier.<BR><BR>Pour permettre à votre application d’accéder à l’annuaire (pour l’accès en lecture ou en écriture) via l’API Graph, vous avez besoin d’un ID client et d’une clé (appelée clé secrète client dans OAuth 2.0). Votre application utilise l’ID client et la clé pour demander un jeton d’accès auprès du point de terminaison de jeton Azure AD OAuth 2.0. (Pour afficher tous les points de terminaison Azure AD, dans la barre de commandes, cliquez sur **Afficher les points de terminaison**.) Quand vous utilisez l’API Graph pour obtenir ou définir (modifier) les données d’annuaire, votre application utilise ce jeton d’accès dans l’en-tête Authorize de la demande à l’API Graph.
-| Clés | Si votre application lit ou écrit des données dans Azure AD, notamment des données accessibles via l’API Graph, votre application a besoin d’une clé. Quand vous demandez un jeton d’accès pour appeler l’API Graph, votre application fournit son **ID Client** et sa **clé**. Le point de terminaison du jeton utilise l’ID et la clé pour authentifier votre application avant d’émettre le jeton d’accès. Vous pouvez créer plusieurs clés pour traiter les scénarios de substitution de clé. En outre, vous pouvez supprimer les clés arrivées à expiration, endommagées ou inutilisées.
-| Gérer l’accès | Choisissez un des trois différents niveaux d’accès : authentification unique (SSO), authentification unique et lecture des données d’annuaire, ou authentification unique et lecture/écriture des données d’annuaire. Vous pouvez aussi supprimer l’accès. <br><BR>**Remarque** : les modifications apportées au niveau d’accès d’annuaire de votre application s’appliquent uniquement à votre annuaire. Elles ne s’appliquent pas aux clients qui ont accordé l’accès à votre application.
-
-
-### Clients natifs
-
-Propriété | Description
-| ------------- | -----------
-| URI de redirection | URI vers lequel Azure AD redirige l’agent utilisateur en réponse à une demande d’autorisation OAuth 2.0. La valeur n’a pas besoin d’être un point de terminaison physique, mais doit être un URI valide.
-
-##
-
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

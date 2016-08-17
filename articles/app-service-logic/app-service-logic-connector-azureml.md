@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur Azure Machine Learning dans Logic Apps | Microsoft Azure App Service"
    description="Création et configuration du connecteur Azure Machine Learning et utilisation dans une application logique d’Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -71,7 +71,7 @@ Utilisez l’action Configurer la reformation pour configurer la reformation pon
  
 Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus de sortie du service Web (par exemple, si vous utilisez un module Enregistreur pour écrire dans une base de données à partir de l'expérience dans le Studio).
 
-**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
+**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
 
 ![][7]
 
@@ -88,4 +88,4 @@ Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus d
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

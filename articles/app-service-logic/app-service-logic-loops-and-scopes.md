@@ -1,7 +1,7 @@
 <properties
    pageTitle="Boucles, étendues et décomposition dans Logic Apps| Microsoft Azure"
    description="Concepts de boucle, d’étendue et de décomposition dans les applications logiques"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -141,4 +141,4 @@ Vous pouvez grouper une série d’actions à l’aide d’une étendue. Cette o
 }
 ```
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -29,7 +29,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 
 Pour connecter la passerelle de gestion des données à la base de données DB2, à partir de la version 2.1, Azure Data Factory fournit un pilote intégré avec prise en charge de DB2 (SQLAM 9 / 10 / 11), notamment DB2 pour LUW (Linux, Unix, Windows), DB2 pour z/OS et DB2 pour i (ou AS/400). Par conséquent, vous n’avez plus besoin d’installer manuellement les pilotes lors de la copie de données à partir de DB2.
 
-> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 
 ## Exemple : copie de données de DB2 vers Azure Blob
@@ -322,4 +322,4 @@ Char | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

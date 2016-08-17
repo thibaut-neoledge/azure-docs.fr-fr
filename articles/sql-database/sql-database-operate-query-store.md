@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -53,7 +53,7 @@ Pour garantir un fonctionnement continu et fiable, la base de données SQL Azure
 
 La base de données SQL Azure utilise les données recueillies pour :
 
-- ***Découvrir des modèles d’utilisation sur un grand nombre de bases de données afin d’améliorer la qualité et la fiabilité de la fonctionnalité :*** le magasin de requêtes s’améliore avec chaque mise à jour de la base de données SQL Azure. 
+- ***Découvrir des modèles d’utilisation sur un grand nombre de bases de données afin d’améliorer la qualité et la fiabilité de la fonctionnalité :*** le magasin de requêtes s’améliore avec chaque mise à jour de la base de données SQL Azure.
 - ***Résoudre ou limiter les problèmes causés par le magasin de requêtes :*** la base de données SQL Azure peut détecter et limiter les problèmes ayant un impact important sur la charge de travail du client, avec une latence faible (inférieure à une heure). Généralement, les problèmes sont traités en ***désactivant*** temporairement le magasin de requêtes.
 
 De temps à autre, les mises à jour du magasin de requêtes intègrent des modifications des valeurs par défaut appliquées à des configurations internes et, plus rarement, externes (destinées aux clients). Par conséquent, l’expérience client liée au magasin de requêtes sur la base de données SQL Azure peut être différente de celle des utilisateurs dans un environnement local en raison des actions automatiques effectuées par la plateforme Azure :
@@ -93,7 +93,7 @@ Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATA
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Un enregistreur de données pour votre base de données](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [Un enregistreur de données pour votre base de données](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
 - [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 
@@ -101,4 +101,4 @@ Pour plus d’informations, consultez les articles suivants :
 
 - [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 #Exécution à distance de requêtes Hadoop sur HDInsight à l’aide de PowerShell
@@ -39,15 +39,15 @@ Azure PowerShell propose des *applets de commande* qui vous permettent d'exécut
 
 Les applets de commande suivantes sont utilisées lors de l’exécution des tâches MapReduce sur un cluster HDInsight à distance.
 
-* **Login-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure
+* **Login-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure
 
-* **New-AzureRmHDInsightMapReduceJobDefinition** : crée une *définition de tâche* avec les informations MapReduce spécifiées.
+* **New-AzureRmHDInsightMapReduceJobDefinition** : crée une *définition de tâche* avec les informations MapReduce spécifiées.
 
-* **Start-AzureRmHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
+* **Start-AzureRmHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
 
-* **Wait-AzureRmHDInsightJob** : utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
+* **Wait-AzureRmHDInsightJob** : utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
 
-* **Get-AzureRmHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche.
+* **Get-AzureRmHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche.
 
 Les étapes suivantes montrent comment utiliser ces applets de commande pour exécuter une tâche sur votre cluster HDInsight.
 
@@ -142,11 +142,11 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
 	> [AZURE.NOTE] Si **ExitCode** correspond à une valeur différente de 0, consultez [Dépannage](#troubleshooting).
 
-    Cet exemple stocke également les fichiers téléchargés dans le dossier **example/data/WordCountOutput** dans le répertoire à partir duquel vous avez exécuté le script.
+    Cet exemple stocke également les fichiers téléchargés dans un dossier **output.txt** dans le répertoire à partir duquel vous avez exécuté le script.
 
-##Affichage de la sortie
+###Affichage de la sortie
 
-La sortie de la tâche MapReduce est stockée dans des fichiers portant le nom *part-r-#####*. Ouvrez le fichier **example/data/WordCountOutput/part-r-00000** dans un éditeur de texte pour afficher les mots et les décomptes générés par la tâche.
+Ouvrez le fichier **output.txt** dans un éditeur de texte pour afficher les mots et les décomptes générés par la tâche.
 
 > [AZURE.NOTE] Les fichiers de résultat d’une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devez modifier le nom du fichier de sortie.
 
@@ -183,4 +183,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

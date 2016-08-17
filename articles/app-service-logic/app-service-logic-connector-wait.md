@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Utilisation du connecteur Wait dans des applications logiques | Microsoft Azure App Service" 
    description="Comment créer et configurer le connecteur Wait ou une application API et l'utiliser dans une application logique d’Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -30,7 +30,7 @@ Le connecteur Wait peut être utilisé en tant qu’action. Il ne possède aucun
 
 ### Action
 - Cliquez sur le connecteur Wait dans le volet de droite : ![Liste d'actions][1]
-- Le connecteur Wait prend en charge deux actions : 
+- Le connecteur Wait prend en charge deux actions :
 	- Retarder
 	- Retarder jusqu’à
 	 
@@ -56,4 +56,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

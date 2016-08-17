@@ -19,7 +19,7 @@
 
 # Extension de script personnalisé pour machines virtuelles Windows
 
-Cet article donne une vue d’ensemble de l’utilisation de l’extension de script personnalisé sur des machines virtuelles Windows à l’aide d’applets de commande Azure PowerShell.
+Cet article donne une vue d’ensemble de l’utilisation de l’extension de script personnalisé sur des machines virtuelles Windows à l’aide d’applets de commande Azure PowerShell avec des API Azure Service Management.
 
 Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour consulter une vue d’ensemble des extensions de machine virtuelles, voir 
 [Fonctionnalités et extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
@@ -88,9 +88,9 @@ L’extension de script personnalisé peut être désinstallée de la machine vi
 
 ### Utilisation de l’extension de script personnalisé avec des modèles
 
-Pour apprendre comment utiliser l’extension de script personnalisé avec les modèles Azure Resource Manager, consultez les documents [ici](virtual-machines-windows-classic-extensions-customscript.md).
+Pour apprendre comment utiliser l’extension de script personnalisé avec les modèles Azure Resource Manager, consultez les documents [ici](virtual-machines-windows-extensions-customscript.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

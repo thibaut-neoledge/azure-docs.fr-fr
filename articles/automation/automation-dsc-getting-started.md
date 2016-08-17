@@ -211,6 +211,7 @@ Chaque fois qu’azure Automation DSC effectue une vérification de cohérence s
     ![Capture d’écran du panneau Rapport](./media/automation-dsc-getting-started/NodeReport.png)
 
 Le panneau d’un rapport vous permet d’accéder aux informations d’état suivantes pour vous permettre d’effectuer la vérification de cohérence correspondante :
+
 - L’état du rapport : si le nœud est « Conforme », si la configuration a « Échoué » ou si le nœud est « Non conforme » (lorsque le nœud est en mode **applyandmonitor** et que l’ordinateur ne se trouve pas à l’état souhaité).
 - L’heure de début de la vérification de cohérence.
 - Le temps total d’exécution de la vérification de cohérence.
@@ -266,4 +267,4 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

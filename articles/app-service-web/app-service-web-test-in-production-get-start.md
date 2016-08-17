@@ -26,7 +26,7 @@ Grâce à la fonctionnalité de routage du trafic dans [Azure App Service](http:
 
 - Découvrir des bogues fonctionnels ou identifier les goulots d’étranglement de performances dans vos mises à jour avant le déploiement à l’échelle du site
 - Exécuter des « versions de test contrôlées » de vos modifications en mesurant la facilité d’utilisation sur l’application bêta
-- Développer progressivement une nouvelle mise à jour et revenir normalement à la version actuelle si une erreur se produit 
+- Développer progressivement une nouvelle mise à jour et revenir normalement à la version actuelle si une erreur se produit
 - Optimiser les résultats commerciaux de votre application en exécutant des [tests A/B](https://en.wikipedia.org/wiki/A/B_testing) ou des [tests multivariables](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) dans plusieurs emplacements de déploiement
 
 ### Configuration requise pour utiliser le routage du trafic dans Web Apps
@@ -39,7 +39,7 @@ Grâce à la fonctionnalité de routage du trafic dans [Azure App Service](http:
 
 Au niveau de base, dans chaque scénario de test en production, vous acheminez un pourcentage prédéfini de votre trafic en direct vers un emplacement de déploiement hors production. Pour ce faire, procédez comme suit :
 
->[AZURE.NOTE] Cette procédure suppose que vous disposez déjà d’un [emplacement de déploiement hors production](web-sites-staged-publishing.md) et que le contenu d’application web souhaité est déjà [déployé](web-sites-publish-source-control.md) sur celui-ci.
+>[AZURE.NOTE] Cette procédure suppose que vous disposez déjà d’un [emplacement de déploiement hors production](web-sites-staged-publishing.md) et que le contenu d’application web souhaité est déjà [déployé](web-sites-deploy.md) sur celui-ci.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le panneau de votre application web, cliquez sur **Paramètres** > **Routage du trafic**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
@@ -86,4 +86,4 @@ Pour permettre aux utilisateurs d’accepter votre application bêta, définisse
 -   [Développement logiciel agile avec Azure App Service](app-service-agile-software-development.md)
 -	[Utiliser efficacement les environnements DevOps pour vos applications web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="08/01/2016"
    ms.author="aglick"/>
 
 # Guide de résilience des services Microsoft Azure
@@ -38,4 +38,4 @@ Les liens ci-dessous contiennent des recommandations de conception et d’archit
 ##Étapes suivantes
 Si vous cherchez des conseils axés plus largement sur les systèmes et les solutions, consultez la page [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure](https://aka.ms/drtechguide).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

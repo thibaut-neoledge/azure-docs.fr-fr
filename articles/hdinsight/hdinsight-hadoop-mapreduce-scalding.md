@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/18/2016"
+ ms.date="08/02/2016"
  ms.author="larryfr"/>
 
 # Développer des tâches MapReduce Scalding avec Apache Hadoop dans HDInsight
@@ -135,19 +135,19 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
     Ce fichier décrit le projet, les dépendances et les plug-ins. En voici les principales entrées :
 
-    * **maven.compiler.source** et **maven.compiler.target** : définissent la version Java du projet
+    * **maven.compiler.source** et **maven.compiler.target** : définissent la version Java du projet
 
-    * **repositories** : référentiels contenant les fichiers de dépendance utilisés par le projet
+    * **repositories** : référentiels contenant les fichiers de dépendance utilisés par le projet
 
-    * **scalding-core\_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
+    * **scalding-core\_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
 
-    * **maven-scala-plug-in** : plug-in pour compiler des applications scala
+    * **maven-scala-plug-in** : plug-in pour compiler des applications scala
 
-    * **maven-shade-plug-in** : plug-in pour créer des fichiers jar « shaded (fat) ». Ce plug-in applique des filtres et des transformations, en particulier :
+    * **maven-shade-plug-in** : plug-in pour créer des fichiers jar « shaded (fat) ». Ce plug-in applique des filtres et des transformations, en particulier :
 
-        * **filters** : les filtres appliqués modifient les métadonnées incluses dans le fichier jar. Pour éviter les exceptions de signature au moment de l’exécution, cela exclut les différents fichiers de signature qui peuvent être inclus avec les dépendances.
+        * **filters** : les filtres appliqués modifient les métadonnées incluses dans le fichier jar. Pour éviter les exceptions de signature au moment de l’exécution, cela exclut les différents fichiers de signature qui peuvent être inclus avec les dépendances.
 
-        * **executions** : la configuration d’exécution de la phase du package spécifie la classe **com.twitter.scalding.Tool** comme classe principale pour le package. Sans cela, vous devez spécifier com.twitter.scalding.Tool, ainsi que la classe qui contient la logique d’application, lors de l’exécution de la tâche avec la commande hadoop.
+        * **executions** : la configuration d’exécution de la phase du package spécifie la classe **com.twitter.scalding.Tool** comme classe principale pour le package. Sans cela, vous devez spécifier com.twitter.scalding.Tool, ainsi que la classe qui contient la logique d’application, lors de l’exécution de la tâche avec la commande hadoop.
 
 3. Supprimez le répertoire **src/test**, car vous n'allez pas créer de tests dans cet exemple.
 
@@ -209,7 +209,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
 4. Une fois la tâche terminée, utilisez la commande suivante pour afficher la sortie.
 
-        hdfs dfs -text wasbs:///example/wordcountout/part-00000
+        hdfs dfs -text wasbs:///example/wordcountout/*
 
     Des informations similaires à celles qui suivent s'affichent :
 
@@ -254,6 +254,8 @@ Les étapes suivantes utilisent Windows PowerShell. Pour d'autres méthodes d'ex
         $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
         
+        #Login to your Azure subscription
+        Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
         #Get the cluster info so we can get the resource group, storage, etc.
@@ -343,4 +345,4 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

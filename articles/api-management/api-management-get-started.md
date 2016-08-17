@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Gérer votre première API dans Gestion des API Azure
@@ -175,7 +175,7 @@ Cliquez sur **Afficher les détails** pour afficher la page Résumé de l’API,
 
 Pour des mesures et des rapports détaillés, cliquez sur **Analyse** dans le menu **Gestion des API** à gauche.
 
-![Vue d’ensemble][api-management-analytics-overview]
+![Vue d'ensemble][api-management-analytics-overview]
 
 La section **Analyse** comporte les quatre onglets suivants :
 
@@ -245,4 +245,4 @@ La section **Analyse** comporte les quatre onglets suivants :
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

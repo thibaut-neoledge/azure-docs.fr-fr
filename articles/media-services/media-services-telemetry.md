@@ -12,27 +12,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2016"   
+	ms.date="07/27/2016"   
 	ms.author="juliako"/>
 
 # Télémétrie Azure Media Services avec .NET
  
 ## Vue d'ensemble
 
-La télémétrie et la surveillance Media Services permettent aux clients Media Services d’accéder aux données de métriques pour ces services. La version actuelle prend en charge les données de télémétrie pour les entités « Channel » et « StreamingEndpoint ». Vous pouvez configurer la télémétrie sur la granularité du niveau du composant. Il existe deux niveaux de détail : « Normal » et « Détaillé ». La version actuelle prend uniquement en charge « Normal ».
+La télémétrie et la surveillance Media Services permettent aux clients Media Services d’accéder aux données de métriques pour ces services. La version actuelle prend en charge les données de télémétrie des entités « Channel » et « StreamingEndpoint ». Vous pouvez configurer la télémétrie sur une granularité au niveau du composant. Il existe deux niveaux de détail : « Normal » et « Détaillé ». La version actuelle prend uniquement en charge « Normal ».
 
-La télémétrie est écrite dans un compte Azure Storage fourni par le client (un compte de stockage doit être attaché au compte Media Services). La télémétrie est écrite dans une table Azure Storage dans le compte de stockage spécifié. Le système de télémétrie crée une table distincte pour chaque nouveau jour basé sur l’heure UTC 00:00. Par exemple « TelemetryMetrics20160321», où « 20160321» est la date de création de la table. Une table distincte est créée pour chaque jour.
+La télémétrie est écrite sur une table de stockage dans un compte Azure Storage fourni par le client (le compte de stockage doit être attaché au compte Media Services). Le système de télémétrie crée une table distincte pour chaque nouveau jour basé sur l’heure UTC 00:00. Par exemple « TelemetryMetrics20160321», où « 20160321» est la date de création de la table. Une table distincte est créée pour chaque jour.
 
-Le système de télémétrie ne conserve pas les données et ne supprime pas automatiquement les anciens enregistrements. Pour cette raison, c’est à vous de les gérer et de les supprimer. La présence de tables distinctes pour chaque jour facilite la suppression des anciens enregistrements. Il vous suffit de supprimer les anciennes tables.
+Notez que le système de télémétrie ne gère pas la rétention des données. Vous pouvez supprimer les anciennes données de télémétrie en supprimant les tables de stockage.
 
-Cette rubrique montre comment activer la télémétrie pour les services AMS spécifiés et comment interroger les mesures à l’aide de .NET.
+Vous pouvez utiliser les données de télémétrie ainsi :
+
+- Lire les données à partir d’Azure Table Storage directement (par exemple en utilisant le SDK Storage). Pour obtenir la description des tables de stockage de télémétrie, consultez les **informations sur l’utilisation de la télémétrie** dans [cette](https://msdn.microsoft.com/library/mt742089.aspx) rubrique.
+
+Ou
+
+- Utiliser le support dans le SDK .NET Media Services pour lire les données de stockage. Cette rubrique montre comment activer la télémétrie pour le compte AMS spécifié et comment interroger les métriques à l’aide du SDK .NET Azure Media Services.
 
 ## Configuration de la télémétrie pour un compte Media Services
 
 Les étapes suivantes sont nécessaires pour activer la télémétrie :
 
 - Obtenez les informations d’identification du compte de stockage associé au compte Media Services.
-- Créez un point de terminaison de notification avec **EndPointType** défini sur **AzureTable** et endPontAddress pointant vers la table de stockage.
+- Créez un point de terminaison de notification avec **EndPointType** défini sur **AzureTable** et endPointAddress pointant vers la table de stockage.
 
 	    INotificationEndPoint notificationEndPoint = 
 	                  _context.NotificationEndPoints.Create("monitoring", 
@@ -52,7 +58,7 @@ Les étapes suivantes sont nécessaires pour activer la télémétrie :
 
 La télémétrie est écrite dans une table de stockage Azure dans le compte de stockage spécifié lors de la configuration de la télémétrie pour le compte Media Services. Le système de télémétrie crée une table distincte pour chaque nouveau jour basé sur l’heure UTC 00:00. Par exemple « TelemetryMetrics20160321», où « 20160321» est la date de création de la table. Une table distincte est créée pour chaque jour.
 
-Vous pouvez interroger les tables pour les mesures suivantes.
+Vous pouvez interroger les tables de télémétrie pour les métriques suivantes. L’exemple présenté plus loin dans cette rubrique illustre l’utilisation du SDK .NET Media Services pour interroger les métriques.
 
 ### Journal StreamingEndpoint
 
@@ -94,8 +100,10 @@ Propriété|Description|Exemple de valeur
 **DiscontinuityCount**|Obtient le nombre de discontinuité.|0
 **LastTimestamp**|Obtient le dernier horodatage.|1800488800
  
-## Exemple de mesures StreamingEndpoint
-		
+## Exemple  
+	
+L’exemple suivant montre comment activer la télémétrie pour le compte AMS spécifié et comment interroger les métriques à l’aide du SDK .NET Azure Media Services.
+
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -246,4 +254,4 @@ Consultez les parcours d’apprentissage Azure Media Services pour en savoir plu
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
 	description="Récupérez les données que vous avez protégées dans un coffre Azure Backup à partir de n'importe quel serveur DPM inscrit auprès de ce coffre."
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
+	authors="nkolli1"
 	manager="shreeshd"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/05/2016"
-	ms.author="giridham;jimpark"/>
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # Récupération de données à partir d'un autre serveur DPM dans le coffre de sauvegarde
 Vous pouvez maintenant récupérer les données que vous avez protégées dans un coffre Azure Backup à partir de n'importe quel serveur DPM inscrit auprès de ce coffre. Ainsi, le processus permettant d’effectuer cette opération est totalement intégré à la console d'administration DPM et est semblable aux autres flux de travail de récupération.
@@ -86,8 +86,8 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 | :-------------: |:-------------| :-----|
 |1\.|		Ce serveur n'est pas enregistré dans le coffre spécifié par les informations d'identification de coffre.|	**Raison :** cette erreur apparaît lorsque le fichier d'informations d'identification de coffre sélectionné n'appartient pas au coffre de sauvegarde associé au serveur DPM sur lequel la récupération est tentée. <br> **Résolution :** téléchargez le fichier d'informations d'identification de coffre du coffre de sauvegarde auquel le serveur DPM est inscrit.|
 |2\.|		Les données récupérables ne sont pas disponibles ou le serveur sélectionné n'est pas un serveur DPM.|	**Raison :** aucun autre serveur DPM avec DPM 2012 R2 UR7 inscrit auprès du coffre de sauvegarde, ni les serveurs DPM avec DPM 2012 R2 UR7 n'ont encore téléchargé les métadonnées. Ou bien, le serveur sélectionné n'est pas un serveur DPM (également appelé serveur Windows Server ou client Windows). <br> **Résolution :** s'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde, assurez-vous que SCDPM 2012 R2 UR7 et le dernier agent Azure Backup sont installées. <br>S'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde avec DPM 2012 R2 UR7, patientez un jour après l'installation d'UR7 pour lancer le processus de récupération. La tâche nocturne téléchargera les métadonnées de toutes les sauvegardes précédemment protégées dans le cloud. Les données seront disponibles pour la récupération.|
-|3\.|		Aucun autre serveur DPM n'est inscrit auprès de ce coffre.|	**Raison :** il n’y a aucun autre serveur DPM avec DPM 2012 R2 UR7 (ou une version ultérieure) inscrit auprès du coffre à partir duquel une tentative de récupération est en cours.<br>**Résolution :** s'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde, assurez-vous que SCDPM 2012 R2 UR7 et le dernier agent Azure Backup sont installés.<br>S'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde avec DPM 2012 R2 UR7, patientez un jour après l'installation d'UR7 pour lancer le processus de récupération. La tâche nocturne téléchargera les métadonnées de toutes les sauvegardes précédemment protégées dans le cloud. Les données seront disponibles pour la récupération.|
-|4\.|		La phrase secrète de chiffrement fournie ne correspond pas à la phrase secrète associée au serveur suivant : **<server name>**|	**Raison :** la phrase secrète de chiffrement utilisée dans le processus de chiffrement des données à partir des données du serveur DPM en cours de récupération ne correspond pas à la phrase secrète de chiffrement fournie. L'agent ne peut pas déchiffrer les données. Par conséquent, la récupération échoue.<br>** Résolution :** veuillez fournir la même phrase secrète de chiffrement associée au serveur DPM pour lequel les données sont en cours de récupération.|
+|3\.|		Aucun autre serveur DPM n'est inscrit auprès de ce coffre.|	**Raison :** il n’y a aucun autre serveur DPM avec DPM 2012 R2 UR7 (ou une version ultérieure) inscrit auprès du coffre à partir duquel une tentative de récupération est en cours.<br>**Résolution :** s’il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde, assurez-vous que SCDPM 2012 R2 UR7 et le dernier agent Azure Backup sont installés.<br>S’il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde avec DPM 2012 R2 UR7, patientez un jour après l’installation d’UR7 pour lancer le processus de récupération. La tâche nocturne téléchargera les métadonnées de toutes les sauvegardes précédemment protégées dans le cloud. Les données seront disponibles pour la récupération.|
+|4\.|		La phrase secrète de chiffrement fournie ne correspond pas à la phrase secrète associée au serveur suivant : **<nom du serveur>**|	**Raison :** la phrase secrète de chiffrement utilisée dans le processus de chiffrement des données à partir des données du serveur DPM en cours de récupération ne correspond pas à la phrase secrète de chiffrement fournie. L'agent ne peut pas déchiffrer les données. Par conséquent, la récupération échoue.<br>**Résolution :** veuillez fournir la phrase secrète de chiffrement associée au serveur DPM pour lequel les données sont en cours de récupération.|
 
 ## Forum Aux Questions :
 1. **Pourquoi ne puis-je pas ajouter un serveur DPM externe à partir d'un autre serveur DPM après avoir installé UR7 et le dernier agent Azure Backup ?**
@@ -103,4 +103,4 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 ## Étapes suivantes :
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

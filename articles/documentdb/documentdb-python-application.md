@@ -4,7 +4,7 @@
 	keywords="Développement d’application, didacticiel de base de données, python flask, application web python, développement web python, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.author="anhoh"/>
 
 # Développement d’une application Python Flask avec DocumentDB
 
@@ -44,10 +44,10 @@ Dans ce didacticiel, vous allez créer une application de vote simple qui vous p
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
 - Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) ou une version ultérieure, ou [Visual Studio Express](), qui est la version gratuite. Les instructions de ce didacticiel sont écrites spécifiquement pour Visual Studio 2015. 
-- Outils Python pour Visual Studio disponibles dans [GitHub](http://microsoft.github.io/PTVS/). Ce didacticiel utilise Python Tools for Visual Studio 2015. 
+- [Visual Studio 2013](http://www.visualstudio.com/) ou une version ultérieure, ou [Visual Studio Express](), qui est la version gratuite. Les instructions de ce didacticiel sont écrites spécifiquement pour Visual Studio 2015.
+- Outils Python pour Visual Studio disponibles dans [GitHub](http://microsoft.github.io/PTVS/). Ce didacticiel utilise Python Tools for Visual Studio 2015.
 - Kit de développement logiciel (SDK) Azure Python pour Visual Studio 2.4 ou ultérieur, disponible sur [azure.com](https://azure.microsoft.com/downloads/). Nous avons utilisé le Kit de développement logiciel (SDK) Microsoft Azure pour Python 2.7.
-- Python 2.7 disponible auprès de [python.org][2]. Nous avons utilisé Python 2.7.11. 
+- Python 2.7 disponible auprès de [python.org][2]. Nous avons utilisé Python 2.7.11.
 
 > [AZURE.IMPORTANT] Si vous installez Python 2.7 pour la première fois, sélectionnez **Ajouter python.exe au chemin d’accès** dans l’écran Personnaliser Python 2.7.11.
 > 
@@ -133,7 +133,7 @@ Vérifiez que l'installation est réussie.
 
 Nous allons maintenant créer votre application de vote en ajoutant de nouveaux fichiers et en mettant à jour d’autres fichiers.
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **tutorial**, cliquez sur **Ajouter**, puis sur **Nouvel élément**. Sélectionnez **Fichier Python vide** et nommez le fichier **forms.py**.  
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **tutorial**, cliquez sur **Ajouter**, puis sur **Nouvel élément**. Sélectionnez **Fichier Python vide** et nommez le fichier **forms.py**.
 2. Ajoutez le code suivant au fichier forms.py, puis enregistrez le fichier.
 
 ```python
@@ -150,7 +150,7 @@ class VoteForm(Form):
 
 ### Ajoutez les instructions import requises à views.py
 
-1. Dans l’Explorateur de solutions, développez le dossier **tutorial** et ouvrez le fichier **views.py**. 
+1. Dans l’Explorateur de solutions, développez le dossier **tutorial** et ouvrez le fichier **views.py**.
 2. Ajoutez les instructions d’importation suivantes au début du fichier **views.py**, puis enregistrez le fichier : Elles importent les packages Flask et PythonSDK de DocumentDB.
 
 	```python
@@ -256,8 +256,8 @@ def vote():
 
 ### Création des fichiers HTML
 
-1. Dans l’Explorateur de solutions, dans le dossier **tutorial**, cliquez avec le bouton droit sur le dossier **templates**, cliquez sur **Ajouter**, puis sur **Nouvel élément**. 
-2. Sélectionnez **Page HTML** puis, dans la zone Nom, tapez **create.html**. 
+1. Dans l’Explorateur de solutions, dans le dossier **tutorial**, cliquez avec le bouton droit sur le dossier **templates**, cliquez sur **Ajouter**, puis sur **Nouvel élément**.
+2. Sélectionnez **Page HTML** puis, dans la zone Nom, tapez **create.html**.
 3. Répétez les étapes 1 et 2 pour créer deux autres fichiers HTML : results.html et vote.html.
 4. Ajoutez le code suivant à **create.html** dans l’élément `<body>`. Il affiche un message indiquant la création d’une base de données, d’une collection et d’un document.
 
@@ -342,7 +342,7 @@ def vote():
 
 3. Dans le [portail Azure](https://portal.azure.com/), accédez au panneau **Clés** en cliquant sur **Parcourir**, **Comptes DocumentDB**, double-cliquez sur le nom du compte à utiliser, puis cliquez sur le bouton **Clés** dans la zone **Essentials**. Dans le panneau **Clés**, copiez la valeur de **URI** et collez-la dans le fichier **config.py** fichier comme valeur de la propriété **DOCUMENTDB\_HOST**.
 4. De retour dans le portail Azure, dans le panneau **Clés**, copiez la valeur de la **Clé principale** ou de la **Clé secondaire**, et collez-la dans le fichier **config.py** comme valeur de la propriété **DOCUMENTDB\_KEY**.
-5. Dans le fichier **\_\_init\_\_.py**, ajoutez la ligne suivante. 
+5. Dans le fichier **\_\_init\_\_.py**, ajoutez la ligne suivante.
 
         app.config.from_object('config')
 
@@ -385,7 +385,7 @@ def vote():
 
 Maintenant que l'application terminée fonctionne correctement avec DocumentDB, nous allons la déployer sur Azure Websites.
 
-1. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions (assurez-vous de ne pas encore l’exécuter localement), puis sélectionnez **Publier**.  
+1. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions (assurez-vous de ne pas encore l’exécuter localement), puis sélectionnez **Publier**.
 
  	![Capture d’écran du didacticiel sélectionné dans l’Explorateur de solutions, avec l’option Publier mise en surbrillance](./media/documentdb-python-application/image20.png)
 
@@ -433,4 +433,4 @@ Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, P
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

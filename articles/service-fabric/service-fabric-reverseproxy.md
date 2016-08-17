@@ -56,7 +56,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. En cas de trafic HTTPS, une terminaison SSL se produit au niveau du proxy inverse. Les requêtes qui sont transférées par le proxy inverse aux services du cluster transitent via le protocole HTTP.
- - ** FQDN de la passerelle| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
+ - **Passerelle FQDN | adresse IP interne :** pour les clients externes, le proxy inverse peut être configuré afin qu’il soit accessible via le domaine du cluster (par exemple, mycluster.eastus.cloudapp.azure.com). Par défaut, le proxy inverse s’exécutant sur chaque nœud, il est donc accessible pour le trafic interne sur l’hôte local ou sur n’importe quelle adresse IP de nœud interne (par exemple, 10.0.0.1).
  - **Port :** port spécifié pour le proxy inverse. Exemple : 19008.
  - **ServiceInstanceName :** nom complet de l’instance de service déployée associée au service que vous tentez d’atteindre sans le schéma "fabric:/". Par exemple, pour atteindre le service *fabric:/myapp/myservice/*, vous pouvez utiliser *myapp/myservice*.
  - **Chemin d’accès au suffixe :** chemin d’accès réel à l’URL associée au service auquel vous souhaitez vous connecter. Exemple : *myapi/values/add/3*

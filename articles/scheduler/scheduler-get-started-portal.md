@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Prise en main d’Azure Scheduler dans le portail Azure
@@ -25,37 +25,37 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 
 2.  Cliquez sur **+Nouveau**, entrez _Scheduler_ dans la zone de recherche, sélectionnez **Scheduler** dans la liste de résultats, puis cliquez sur **Créer**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
-3.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur**, entrez les informations suivantes :
+3.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur**, entrez les informations suivantes :
 
     1.  **Nom :** `getmicrosoft`
 
-    2.  **Abonnement **: votre abonnement Azure
+    2.  **Abonnement :** votre abonnement Azure.
 
-    3.  **Collection de tâches :** sélectionnez une collection de tâches existante, ou cliquez sur **Créer** et entrez un nom.
+    3.  **Collection de tâches :** sélectionnez une collection de tâches existante, ou cliquez sur **Créer** et entrez un nom.
 
-4.  Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
+4.  Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
 
     1.  **Type d’action :** ` HTTP`
 
     2.  **Méthode :** `GET`
 
-    3.  **URL :** ` http://www.microsoft.com`
+    3.  **URL :** ` http://www.microsoft.com`
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Pour finir, nous allons définir une planification. Il est possible de définir un travail ponctuel, mais nous allons ici sélectionner une planification périodique :
 
-    1. **Périodicité** : `Recurring`
+    1. **Périodicité** : `Recurring`
 
-    2. **Début** : date du jour
+    2. **Début** : date du jour
 
-    3. **Répéter toutes les :** `12 Hours`
+    3. **Répéter toutes les** : `12 Hours`
 
-    4. **Fin** : deux jours à compter de la date du jour
+    4. **Fin** : deux jours à compter de la date du jour
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Cliquez sur **Créer**
 
@@ -73,7 +73,7 @@ Une fois créé, le travail apparaît dans le tableau de bord principal d’Azur
 
 5.  Utilisateurs
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Propriétés
 
@@ -100,7 +100,7 @@ Pour les types d’action Service Bus, vous pouvez modifier l’espace de noms, 
 
 Cet onglet vous permet de reconfigurer la planification, si vous souhaitez modifier la planification que vous avez créée dans l’Assistant de création rapide.
 
-Vous pouvez en profiter pour [créer des planifications complexes et une périodicité avancée dans votre travail](scheduler-advanced-complexity.md).
+Vous pouvez en profiter pour [créer des planifications complexes et une périodicité avancée dans votre tâche](scheduler-advanced-complexity.md).
 
 Vous pouvez modifier la date et l'heure de début, la planification de périodicité et la date et l'heure de fin (si le travail est périodique).
 
@@ -109,9 +109,9 @@ Vous pouvez modifier la date et l'heure de début, la planification de périodic
 
 ### Historique
 
-L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution du travail dans le système pour le travail sélectionné. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
+L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution de la tâche dans le système pour la tâche sélectionnée. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
 
-1.  Statut
+1.  État
 
 2.  Détails
 
@@ -131,7 +131,7 @@ Vous pouvez cliquer sur une exécution pour afficher les **détails de l’histo
 
 ### Utilisateurs
 
-Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure Scheduler. Pour savoir comment utiliser l’onglet Utilisateurs, reportez-vous à [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md)
+Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure Scheduler. Pour savoir comment utiliser l’onglet Utilisateurs, reportez-vous à [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
 
 ## Voir aussi
@@ -182,4 +182,4 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion pr�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

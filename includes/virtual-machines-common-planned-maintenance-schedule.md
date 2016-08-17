@@ -16,7 +16,7 @@ Vous pouvez choisir l’heure de la maintenance planifiée de vos machines virtu
 
 3.	Vous pouvez supprimer la machine virtuelle de son groupe à haute disponibilité dans le portail Classic.
    
-    1.	Dans le portail Classic, cliquez sur la machine virtuelle, puis sélectionnez Configurer. 
+    1.	Dans le portail Classic, cliquez sur la machine virtuelle, puis sélectionnez Configurer.
 
     2.	Sous Paramètres s’affiche le groupe à haute disponibilité contenant la machine virtuelle.
 
@@ -43,7 +43,7 @@ Vous pouvez choisir l’heure de maintenance planifiée de vos machines virtuell
 
 Procédure pas à pas
 
-1.	Un e-mail vous est envoyé 7 jours avant la maintenance planifiée de vos machines virtuelles dans une configuration en instance unique. L’ID d’abonnement et le nom des machines virtuelles à instance unique concernées sont inclus dans le corps de l’e-mail. 
+1.	Un e-mail vous est envoyé 7 jours avant la maintenance planifiée de vos machines virtuelles dans une configuration en instance unique. L’ID d’abonnement et le nom des machines virtuelles à instance unique concernées sont inclus dans le corps de l’e-mail.
 
 2.	Pendant ces 7 jours, vous pouvez choisir le moment du redémarrage de l’instance en déplaçant vos machines virtuelles à instance unique dans un groupe à haute disponibilité de la même région. Cette modification de la configuration entraîne un redémarrage, car la machine virtuelle est déplacée d’un hôte physique (ciblé pour la maintenance) vers un autre hôte physique non ciblé pour la maintenance.
 
@@ -64,3 +64,5 @@ Notez que vous pouvez également obtenir ce résultat à l’aide d’Azure Powe
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+
+<!---HONumber=AcomDC_0803_2016-->

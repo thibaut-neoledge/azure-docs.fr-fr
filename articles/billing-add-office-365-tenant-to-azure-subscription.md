@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Utiliser le client Office 365 avec un abonnement Azure | Microsoft Azure"
 	description="Découvrez comment ajouter un annuaire (client) Office 365 à un abonnement Azure afin d’établir l’association."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -145,4 +145,4 @@ Pour associer le client Office 365 à l’abonnement Azure, procédez comme suit
 ## Étapes suivantes
 Dans un scénario connexe, vous disposez déjà d’un abonnement à Office 365 et vous êtes prêt à prendre un abonnement à Azure, mais vous souhaitez utiliser le ou les comptes d’utilisateur Office 365 existants pour votre abonnement Azure. Ou bien, vous êtes un abonné Azure et vous souhaitez obtenir un abonnement à Office 365 pour les utilisateurs dans votre Azure Active Directory existant. Pour découvrir comment effectuer ces tâches, voir [Utiliser votre compte Office 365 existant avec votre abonnement Azure ou vice versa](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->
